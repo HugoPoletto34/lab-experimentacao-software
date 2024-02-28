@@ -7,7 +7,7 @@ def get_issues_closed(cursor=None, num_repos=100, query_type="stars:>0", type="R
     search(query: "%s", type: %s, first: %s, after: %s) {
         nodes {
             ... on Repository {
-               name
+               nameWithOwner
                issues(states: [CLOSED]) {
                     totalCount
                 }
@@ -18,10 +18,9 @@ def get_issues_closed(cursor=None, num_repos=100, query_type="stars:>0", type="R
     """ % (query_type, type, num_repos, f'"{cursor}"' if cursor else "null")
 
     result = run_query(query)
-    repositories = result['data']['search']['edges']
+    repositories = result['data']['search']['nodes']
 
-    for repo in repositories:
-        repo_info = repo['node']
+    for repo_info in repositories:
         name_with_owner = repo_info['nameWithOwner']
         closed_issues = repo_info['issues']['totalCount']
         print(f"Repositório: {name_with_owner} - Total de issues fechadas: {closed_issues}")

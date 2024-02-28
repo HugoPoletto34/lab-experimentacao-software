@@ -2,7 +2,7 @@ from github_graph_ql import run_query
 
 def get_repositories_languages(cursor=None, num_repos=100, query_type="stars:>0", type="REPOSITORY", pages=1):
     query = """
-    query {
+    {
         search(query: "stars:>1", type: REPOSITORY, first: 100) {
             nodes {
                 ... on Repository {
