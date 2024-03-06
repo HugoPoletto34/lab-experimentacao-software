@@ -43,4 +43,4 @@ def get_repositories(cursor=None, num_repos=100, query_type="stars:>0", type="RE
 
 
 if __name__ == '__main__':
-    get_repositories(num_repos=100, pages=1)
+    get_repositories(num_repos=100, pages=20)
