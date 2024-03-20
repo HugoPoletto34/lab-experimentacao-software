@@ -7,7 +7,7 @@ import requests
 from dotenvy import load_env, read_file
 from os import environ
 
-load_env(read_file('../../.env'))
+load_env(read_file('../../../.env'))
 
 token = environ.get("USER_TOKEN")
 headers = {"Authorization": f"Bearer {token}"}

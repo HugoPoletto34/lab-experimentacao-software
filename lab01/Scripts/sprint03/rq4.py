@@ -2,7 +2,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from datetime import datetime
 
-df = pd.read_csv('lab01/sprint02/top_repositories.csv')
+df = pd.read_csv('lab01/sprint02/top_repositories_java.csv')
 
 
 df['updated_at'] = pd.to_datetime(df['updated_at'])

@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 
-df = pd.read_csv('lab01/sprint02/top_repositories.csv')
+df = pd.read_csv('lab01/sprint02/top_repositories_java.csv')
 
 
 media = df['total_releases'].mean()

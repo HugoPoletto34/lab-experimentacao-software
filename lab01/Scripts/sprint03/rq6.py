@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 
-df = pd.read_csv('lab01/sprint02/top_repositories.csv')
+df = pd.read_csv('lab01/sprint02/top_repositories_java.csv')
 
 
 df['percent_closed'] = df['closed_issues'] / (df['open_issues'] + df['closed_issues']) * 100
