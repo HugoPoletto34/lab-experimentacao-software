@@ -17,3 +17,4 @@ USER_TOKEN=seu_token
 - [Maria Santos](https://github.com/macssantos)
 - [Hugo Poletto](https://github.com/hugopoletto34)
 - [Matheus Nolasco](https://github.com/Nolascao)
+- [Lucas Santos](https://github.com/LucasS20)
