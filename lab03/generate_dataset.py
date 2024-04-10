@@ -3,7 +3,6 @@ import pandas as pd
 from gql import gql, Client
 from gql.transport.requests import RequestsHTTPTransport
 
-# Defina a consulta GraphQL
 query = gql("""
 query ($cursor: String) {
   search(query: "stars:>1", type: REPOSITORY, first: 100, after: $cursor) {
