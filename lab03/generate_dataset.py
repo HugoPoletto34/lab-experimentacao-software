@@ -1,7 +1,13 @@
-import json
-import pandas as pd
 from gql import gql, Client
 from gql.transport.requests import RequestsHTTPTransport
+import pandas as pd
+import os
+from dotenvy import load_env, read_file
+from os import environ
+
+
+load_env(read_file(os.path.join(os.path.dirname(__file__), '.env')))
+token = environ.get("USER_TOKEN")
 
 query = gql("""
 query ($cursor: String) {
@@ -30,7 +36,7 @@ query ($cursor: String) {
 }
 """)
 
-transport = RequestsHTTPTransport(url='https://api.github.com/graphql', headers={'Authorization': 'Bearer your_token'}, use_json=True)
+transport = RequestsHTTPTransport(url='https://api.github.com/graphql', headers={'Authorization': f'Bearer {token}'}, use_json=True)
 client = Client(transport=transport, fetch_schema_from_transport=True)
 
 
