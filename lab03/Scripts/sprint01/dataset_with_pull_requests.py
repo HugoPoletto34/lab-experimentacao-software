@@ -36,7 +36,7 @@ def get_total_pr_and_reviews(owner, name, first=100, after=None, pages=1):
         total_reviews = 0
         for pr in result['data']['repository']['pullRequests']['nodes']:
             pr_reviews = pr['reviews']['totalCount']
-            if pr_reviews >= 0:
+            if pr_reviews > 0:
                 date_created = pr['createdAt']
                 date_merged = pr['mergedAt']
                 date_closed = pr['closedAt']
