@@ -13,18 +13,8 @@ def get_repositories(cursor=None, num_repos=100, query_type="stars:>0", type="RE
           node {
             ... on Repository {
               nameWithOwner
-              url
-              pr_merged: pullRequests(states: [MERGED, CLOSED]) {
-                totalCount
-              }
-
-              pullRequests(first: 100, states: MERGED) {
-                nodes {
-                  reviews(first: 1) {
-                    totalCount
-                  }
-                }
-              }
+              stargazerCount
+              createdAt
             }
           }
         }
@@ -43,15 +33,9 @@ def get_repositories(cursor=None, num_repos=100, query_type="stars:>0", type="RE
     for repo in repositories:
         repo_info = repo['node']
         name_with_owner = repo_info['nameWithOwner']
-        url = repo_info['url']
-        pr_merged = repo_info['pr_merged']['totalCount']
-        first_pr_review_count = repo_info['pullRequests']['nodes'][0]['reviews']['totalCount'] if repo_info['pullRequests']['nodes'] else None
-        repositories_list.append({
-            'name': name_with_owner,
-            'url': url,
-            'pr_merged': pr_merged,
-            'first_pr_review_count': first_pr_review_count
-        })
+        stars = repo_info['stargazerCount']
+        created_at = repo_info['createdAt'].split('T')[0]
+        repositories_list.append({"name_with_owner": name_with_owner, "stars": stars, "created_at": created_at})
 
     if page_info['hasNextPage'] and pages > 1:
         end_cursor = page_info['endCursor']
@@ -61,10 +45,10 @@ def get_repositories(cursor=None, num_repos=100, query_type="stars:>0", type="RE
 
 def save_to_csv(repositories):
     df = pd.DataFrame(repositories)
-    df.to_csv('top_repositories_java.csv', index=False)
+    df.to_csv('top_repositories.csv', index=False)
 
 if __name__ == "__main__":
-    top_repositories = get_repositories(pages=1, num_repos=10)
+    top_repositories = get_repositories(pages=10, num_repos=100, query_type="sort:stars stars:>0")
     query_type = ""
     if top_repositories:
         save_to_csv(top_repositories)
