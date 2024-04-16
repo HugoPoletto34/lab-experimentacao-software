@@ -1,0 +1,457 @@
+number,created_at,merged_at,closed_at,files,additions,deletions,body_text,participants,comments
+149,2016-07-25T00:12:35Z,,2016-12-15T12:20:59Z,5,779,742,"Please help review changes made to files marked as completed. Thanks 😄
+Edit: a lot of these changes are stripping trailing white space which can be safely ignored while checking for any errors I've made.
+
+Progress:
+
+AUTOMATIC_MANEUVERS.agc (pages 1025 to 1036)
+
+ Completed
+ Changes checked
+
+
+CM_BODY_ATTITUDE.agc (pages 0883 to 0889)
+
+ Completed
+ Changes checked
+
+
+CM_ENTRY_DIGITAL_AUTOPILOT.agc (pages 1063 to 1092)
+
+ Completed
+ Changes checked
+
+
+CONIC_SUBROUTINES.agc (pages 1262 to 1308)
+
+ Completed
+ Changes checked
+
+
+CONTRACT_AND_APPROVALS.agc (page 0001)
+
+ Completed
+ Changes checked",5,6
+174,2016-08-19T09:45:57Z,,2016-08-19T15:15:02Z,6,71,0,"This is a first attempt at a Docker configuration for a build of the Apollo-11 sources using the VirtualAgc tools.
+To use it, you'll need Docker (on Linux, Mac or Windows). Then do:
+$ docker build -t apollo-11 .
+It first clones and builds the VirtualAgc tools and mission code. Then it compiles the Apollo-11 sources (from the current directory) and compares the generated rope binaries against those in the VirtualAgc build.
+This is based on an Ubuntu 16.04 base image.
+Note that the VirtualAgc tools are sensitive to spaces/tabs, so assembly errors may result from using a different formatting standard.",4,3
+182,2016-09-22T08:24:41Z,2016-09-22T14:45:30Z,2016-09-22T14:45:30Z,1,37,38,There're numerous syntax mistakes as well as several ignorant misinterpretations of the origin English work being fixed in this revision.,3,1
+183,2016-09-22T17:54:25Z,2016-09-23T01:02:32Z,2016-09-23T01:02:32Z,2,2,2,"Changed ""BEFROE"" to ""BEFORE""
+Page 0236",3,2
+185,2016-09-23T17:57:02Z,2016-09-24T03:38:56Z,2016-09-24T03:38:56Z,1,2,2,"Found another one.
+Changed ""MEARSUE"" to ""MEASURE""
+0424
+No such typo in Luminary099 version.",3,0
+187,2016-11-22T18:01:04Z,2016-11-23T17:03:04Z,2016-11-23T17:03:04Z,1,2,2,,4,2
+277,2017-02-13T12:27:43Z,,2017-02-14T08:19:52Z,2,1,15,"RCS-CSM_DAP_EXECUTIVE_PROGRAMS.agc :
+Page 1037 and 1038
+Closes #248
+MYSUBS.agc :
+Page 999 , 1000 and 1001
+Closes #228",2,2
+279,2017-02-14T08:40:37Z,2017-02-14T10:21:56Z,2017-02-14T10:21:56Z,1,1,1,"Page 1037 and 1038
+Close #248",2,0
+280,2017-02-14T08:46:55Z,2017-02-14T10:14:39Z,2017-02-14T10:14:39Z,1,3,2,"Pages 0999 , 1000 and 1001
+Close #228",2,0
+281,2017-02-14T10:41:40Z,2017-02-16T20:35:41Z,2017-02-16T20:35:41Z,1,1,0,"Pages 0936
+Close #225",2,0
+284,2017-02-14T11:12:17Z,2017-02-22T04:33:45Z,2017-02-22T04:33:45Z,1,38,38,"Page 0001
+Close #198",2,2
+289,2017-04-24T18:26:02Z,2017-04-24T19:37:40Z,2017-04-24T19:37:40Z,1,11,10,"**Format of changes: line - description [correlating file confirming correction]
+68 - Added “P32-P33, P72-P73 (from  0002.jpp)
+126 - Changed “UNREFERANCED” to “UNREFERENCED” (corrected typo/misspelling) [from 0003.jpg]
+286 - Added one space before (USED BY EXTENDED VERBS…) [from 0008.jpg]
+467 - Changed “TRUNON” to “TRUNION” [from 0013.jpg]
+470 - Changed “TRUNION” to “TRUNNION” (Spelling this way on original transcript) [from 0013.jpg]
+956 - Changed “P00DOO” (“Pee” “Zero” “Zero” “Dee” “Oh” “Oh”) to “POODOO” (“Pee” “Oh” “Oh” “Dee “Oh” “Oh”) [from 0024.jpg]
+959 - Changed “P00DOO” (“Pee” “Zero” “Zero” “Dee” “Oh” “Oh”) to “POODOO” (“Pee” “Oh” “Oh” “Dee “Oh” “Oh”) [from 0024.jpg]
+962 - Changed “P00DOO” (“Pee” “Zero” “Zero” “Dee” “Oh” “Oh”) to “POODOO” (“Pee” “Oh” “Oh” “Dee “Oh” “Oh”) [from 0024.jpg]
+966 - Changed “P00DOO” (“Pee” “Zero” “Zero” “Dee” “Oh” “Oh”) to “POODOO” (“Pee” “Oh” “Oh” “Dee “Oh” “Oh”) [from 0024.jpg]
+968 - Changed “P00DOO” (“Pee” “Zero” “Zero” “Dee” “Oh” “Oh”) to “POODOO” (“Pee” “Oh” “Oh” “Dee “Oh” “Oh”) [from 0024.jpg]
+1016 - Changed “COLUMNN” to “COLUMN” (typo correction, this is spelled correctly on original transcript) [from 0026.jpg]",2,2
+290,2017-04-28T14:33:37Z,2017-04-30T05:08:57Z,2017-04-30T05:08:57Z,1,11,12,"Should close #272
+Fixed a lot of typos in the comments. Some questionable comma vs period spots. Let me know if you need any more info from me for this PR!",2,0
+291,2017-04-30T12:51:16Z,2017-05-01T06:41:26Z,2017-05-01T06:41:26Z,1,12,12,"This should close #216.
+I added a period, reformatted the table at the bottom and reintroduced some typos that were removed during the transcription.
+I am not sure about line 110, though. Should it be changed back to CAF? RSB changed it to CA, back in 2009.",3,4
+292,2017-04-30T23:35:28Z,2017-05-01T00:58:00Z,2017-05-01T00:58:00Z,4,112,3,Added README in Portuguese to the project and also added link in the other existing README.,2,1
+293,2017-05-01T02:53:05Z,2017-05-02T01:05:16Z,2017-05-02T01:05:16Z,1,5,5,"Proof reading performed for R31 code.
+Open issue: Proof R31 #246.",2,1
+294,2017-05-01T20:08:57Z,2017-05-03T23:06:03Z,2017-05-03T23:06:03Z,1,13,19,"This should close #258.
+Some content fixes here and there (words missing/added), the rest were mostly indentation/spacing and period/comma fixes.
+The question I raised in #258 remains, still. ^^",2,1
+296,2017-05-10T04:43:27Z,2017-05-10T20:00:02Z,2017-05-10T20:00:02Z,1,5,5,"This should close #191.
+There was only one real mistake, but I also adjusted blank lines to more closely match the source scans.
+Also, the comma in EXAMPLE FOLLOWS, on line R0051 on page 1494 looks very close to a period, but based on details from previous pull requests I think it probably is just a rough comma.",3,3
+297,2017-05-18T15:36:12Z,,2017-07-20T14:50:44Z,1,55,56,"This should close #270
+Some content fixes were mostly indentation/spacing and period/comma fixes.",4,6
+298,2017-06-19T08:21:26Z,2017-06-19T11:00:14Z,2017-06-19T11:00:14Z,1,11,8,,3,2
+300,2017-10-25T14:12:02Z,2017-10-25T20:53:23Z,2017-10-25T20:53:23Z,1,109,0,README.md translated to Spanish,2,2
+303,2017-11-10T13:53:02Z,2017-11-11T04:39:52Z,2017-11-11T04:39:52Z,8,175,10,"I translated README.md and CONTRIBUTING.md into Korean, to improve accessibility to this repository for Korean people who are intrested in this repository.
+If there're wrong translations exists, Please let me know.
+Thank you!",3,1
+308,2018-01-25T20:41:59Z,2018-03-23T05:13:20Z,2018-03-23T05:13:20Z,1,47,44,Proof TVCEXECUTIVE #267,4,2
+309,2018-03-03T04:19:17Z,2018-03-03T20:24:43Z,2018-03-03T20:24:43Z,1,14,14,"Pages proofed: 844 to 882
+Fixes #250",3,0
+310,2018-03-04T03:10:42Z,2018-04-13T21:12:23Z,2018-04-13T21:12:23Z,1,31,31,"Found by diffing against:
+
+https://github.com/virtualagc/virtualagc/blob/master/Comanche055/REENTRY_CONTROL.agc
+
+Scanned pages still ultimate source of truth.",3,3
+311,2018-03-08T16:54:58Z,2018-03-23T02:22:02Z,2018-03-23T02:22:02Z,1,8,7,🕵️‍♂️ Proof FIXED_FIXED_CONSTANT_POOL #207,2,0
+312,2018-03-09T14:53:31Z,2018-04-02T10:19:35Z,2018-04-02T10:19:35Z,1,49,48,🕵️ Proof GROUND_TRACKING_DETERMINATION_PROGRAM #210,2,1
+315,2018-03-10T18:58:08Z,2018-03-10T22:39:55Z,2018-03-10T22:39:55Z,1,15,15,🕵️ Proof KEYRUPT_UPRUPT (#222),3,0
+316,2018-03-11T11:59:15Z,2018-03-23T02:08:39Z,2018-03-23T02:08:39Z,1,19,32,🕵️ Proof LUNAR_AND_SOLAR_EPHEMERIDES_SUBROUTINES #224,5,0
+318,2018-03-13T10:28:42Z,2018-03-23T03:18:17Z,2018-03-23T03:18:17Z,2,239,168,"Resolves #226
+Convert the main header files for Comanche and Luminary into an index for mapping source code files to print page numbers.",4,4
+322,2018-03-14T22:49:46Z,2018-03-23T02:07:03Z,2018-03-23T02:07:03Z,1,3,4,🕵️ Proofread #254,2,0
+323,2018-03-16T23:55:53Z,2018-03-23T02:05:11Z,2018-03-23T02:05:11Z,1,43,35,🕵️  Proofread #256,2,2
+325,2018-03-27T14:40:57Z,2018-04-02T10:21:56Z,2018-04-02T10:21:56Z,1,85,84,,2,1
+326,2018-03-29T15:48:29Z,2018-05-01T14:54:59Z,2018-05-01T14:54:59Z,1,57,51,🕵️‍♂️ Proofread #269,3,0
+329,2018-04-05T01:52:19Z,2018-05-28T07:42:26Z,2018-05-28T07:42:26Z,10,259,520,"Migrated the attribution section to tables for all languages to aid readability (particularly the approval list) as everything is ALL CAPS.
+Unfortunately GFM doesn't allow header-less tables, so it's either an empty header:
+
+or copyright as a header:
+
+Before
+
+After",4,4
+330,2018-04-06T05:42:59Z,2018-05-28T02:03:12Z,2018-05-28T02:03:12Z,1,68,62,,2,1
+331,2018-04-11T07:31:56Z,2018-04-21T15:51:26Z,2018-04-21T15:51:26Z,1,12,12,,2,1
+332,2018-04-12T02:57:13Z,,2018-04-13T16:34:55Z,1,5,5,"Few missing letters added, except for this, it was an excellent translation!",4,2
+333,2018-04-13T01:47:14Z,2018-04-13T16:34:27Z,2018-04-13T16:34:27Z,1,8,24,"Added corrections and suggestions from PR #332,  also found the way AGC is called in spanish according to an interview (content in spanish) to the argentinian Ramon Alonso, who defined its architecture.",3,1
+338,2018-05-05T13:31:13Z,2018-05-25T19:37:34Z,2018-05-25T19:37:34Z,1,46,49,🕵️ Proofread #199,2,0
+341,2018-05-07T06:00:00Z,2018-06-09T10:03:12Z,2018-06-09T10:03:12Z,3,40,39,Closes #202,2,0
+347,2018-08-03T11:41:18Z,2018-09-05T17:50:15Z,2018-09-05T17:50:15Z,1,31,31,Closes #268,3,0
+352,2018-10-03T19:01:56Z,2018-10-04T04:44:30Z,2018-10-04T04:44:30Z,9,99,0,"I wrote a german version of the readme and included proper links into the other language versions.
+All remaining english phrases in the README were left in there intentionally as some of them either have no translation into german or would sound ridiculous (i.e., no one would say that in german). By now we have quite a number of anglicisms in our language. 😅
+If there are any issues I am more than happy to fix them!",3,2
+354,2018-10-08T17:27:06Z,2018-10-09T08:16:46Z,2018-10-09T08:16:46Z,1,35,36,,2,1
+355,2018-10-09T16:02:45Z,2018-10-11T01:50:27Z,2018-10-11T01:50:27Z,10,102,0,Refer to #353,2,1
+357,2018-10-21T09:11:22Z,2018-10-23T08:35:18Z,2018-10-23T08:35:18Z,1,7,8,"There was not much to fix in this part of the code except for a few comment fixes. But I am unsure as to whether the subroutine calls on page 36 were left out intentionally or are just missing. Should they be added?
+EDIT: Also, this closes #263",2,2
+358,2018-10-30T04:04:53Z,2018-11-13T16:12:25Z,2018-11-13T16:12:25Z,1,61,68,"PR for #227 , covers pages 1252 to 1261
+Most of the changes were around whitespace in comment blocks. Biggest change to the code was many instances of ZI which (as far as I could tell) should be Z1",3,2
+363,2018-12-12T01:04:46Z,2018-12-29T17:21:35Z,2018-12-29T17:21:35Z,1,8,8,"I've corrected a few misspellings, and changed some words in the README",3,1
+364,2018-12-19T17:57:23Z,2018-12-30T00:37:10Z,2018-12-30T00:37:10Z,12,115,12,"Add the Russian version of the README file.
+Some words and phrases were left without translation, so as not to lose meaning.",3,3
+370,2019-01-22T01:13:07Z,2019-01-25T03:31:23Z,2019-01-25T03:31:23Z,1,37,42,"Hi @chrislgarry @wopian
+PR for #245
+I've proof read the R30.agc file. And fixed several things.
+PS: Each commit stand for an page. So you can cherry pick the fixes u needed.
+If there are things still missing plz ping me to correct or add them.
+Kind Regards,
+Tim Joosten",3,3
+372,2019-01-28T01:46:45Z,2019-01-28T04:35:41Z,2019-01-28T04:35:41Z,1,8,4,"The links to the scans are included as a simple a ""note"" at the bottom of the README, when they should be at the top.",2,1
+374,2019-02-12T11:50:35Z,2019-02-12T23:02:55Z,2019-02-12T23:02:56Z,1,17,14,"…s on p1513
+No changes to actual code",2,1
+376,2019-03-14T02:40:17Z,2019-03-27T16:09:46Z,2019-03-27T16:09:46Z,1,27,36,Closes #252,2,1
+380,2019-04-22T11:53:51Z,2019-05-02T14:04:09Z,2019-05-02T14:04:09Z,1,139,155,"🕵️ Proofread #201.
+@chrislgarry @wopian @oldmud0 @keller0 Do you guys think we can finish all the proof tasks before the code turns 50 years old (half a century) this July? Gave it a shout on my Facebook asking for more volunteers/contributors. 😃",3,1
+381,2019-04-23T18:26:05Z,2019-05-02T14:06:27Z,2019-05-02T14:06:27Z,1,67,141,🕵️ Proofread #203.,2,0
+382,2019-04-24T18:18:34Z,2019-05-02T14:11:42Z,2019-05-02T14:11:43Z,1,70,71,🕵️ Proofread #223.,3,3
+383,2019-04-25T17:45:07Z,2019-05-02T14:13:38Z,2019-05-02T14:13:38Z,1,15,15,🕵🏻 Proofread #240.,2,0
+384,2019-04-27T08:37:23Z,2019-05-08T13:33:32Z,2019-05-08T13:33:32Z,1,75,79,🕵🏻 Proofread #243.,2,0
+385,2019-04-27T09:04:16Z,2019-05-08T17:55:16Z,2019-05-08T17:55:16Z,1,46,39,🕵🏻 Proofread #244.,2,0
+386,2019-04-28T08:52:16Z,2019-05-08T18:41:37Z,2019-05-08T18:41:37Z,1,62,64,🕵🏻 Proofread #247.,2,0
+387,2019-04-28T09:09:11Z,2019-05-08T23:17:49Z,2019-05-08T23:17:49Z,1,28,33,🕵🏻 Proofread #265.,2,0
+388,2019-04-30T14:23:17Z,2019-05-09T04:40:19Z,2019-05-09T04:40:19Z,1,68,80,🕵🏻 Proofread #220.,2,0
+389,2019-05-01T09:04:16Z,2019-05-11T18:46:36Z,2019-05-11T18:46:36Z,1,28,33,🕵🏻 Proofread #229.,2,0
+390,2019-05-01T09:49:06Z,2019-07-21T17:04:42Z,2019-07-21T17:04:42Z,1,179,174,🕵🏻 Proofread #230.,2,2
+391,2019-05-02T19:29:04Z,2019-07-19T10:18:31Z,2019-07-19T10:18:32Z,1,91,109,🕵🏻 Proofread #232.,2,0
+392,2019-05-03T19:02:14Z,2019-07-15T20:37:51Z,2019-07-15T20:37:51Z,1,99,105,🕵🏻 Proofread #242.,2,0
+393,2019-05-04T07:31:22Z,2019-07-15T20:37:09Z,2019-07-15T20:37:09Z,1,98,99,🕵🏻 Proofread #249.,2,0
+394,2019-05-04T19:50:46Z,2019-06-16T15:07:19Z,2019-06-16T15:07:19Z,1,184,164,🕵🏻 Proofread #255.,2,0
+397,2019-05-08T13:12:43Z,2019-05-12T12:07:29Z,2019-05-12T12:07:29Z,1,43,40,🕵🏻 Proofread #266.,2,0
+398,2019-05-09T21:04:09Z,2019-07-19T22:18:51Z,2019-07-19T22:18:51Z,1,95,93,🕵🏻 Proofread #271.,3,0
+400,2019-05-19T17:02:10Z,2019-09-15T19:04:13Z,2019-09-15T19:04:13Z,1,269,290,🕵🏻 Proofread #206.,2,0
+401,2019-05-22T18:03:20Z,2019-09-02T15:11:25Z,2019-09-02T15:11:25Z,1,224,218,🕵🏻 Proofread #208.,3,1
+402,2019-05-23T21:52:42Z,2019-09-11T17:22:24Z,2019-09-11T17:22:24Z,1,84,77,🕵🏻 Proofread #211.,3,0
+403,2019-05-24T18:44:02Z,2019-10-14T20:07:55Z,2019-10-14T20:07:55Z,1,80,82,🕵🏻 Proofread #213.,7,10
+413,2019-07-18T01:31:00Z,2019-07-18T13:38:21Z,2019-07-18T13:38:21Z,1,1,1,"This fixes a mismatch compared with the scanned page 789.
+Solves #412.
+Is related to #238.",2,1
+414,2019-07-18T04:50:12Z,,2019-07-18T21:08:38Z,1,1,1,,5,4
+418,2019-07-18T10:53:39Z,,2019-07-20T07:09:46Z,9,109,0,README.md in Turkish,4,2
+419,2019-07-18T10:59:55Z,2019-07-18T13:27:17Z,2019-07-18T13:27:17Z,1,1,1,The original translator might not know that Deborah is a female name,3,0
+422,2019-07-18T15:05:41Z,2019-09-11T19:03:33Z,2019-09-11T19:03:33Z,16,115,0,"Add Romanian translation for README
+
+
+Update README.md
+
+
+Update README.ar.md
+
+
+Update README.ca.md
+
+
+Update README.de.md
+
+
+Update README.es.md
+
+
+Update README.fr.md
+
+
+Update README.hi_in.md
+
+
+Update README.id.md
+
+
+Update README.it.md
+
+
+Update README.ja.md
+
+
+Update README.ko_kr.md
+
+
+Update README.pt_br.md
+
+
+Update README.ru.md
+
+
+Update README.zh_cn.md
+
+
+Update README.zh_tw.md",2,1
+423,2019-07-18T17:30:31Z,2019-10-14T20:10:12Z,2019-10-14T20:10:12Z,20,223,3,,3,5
+483,2019-07-20T02:34:26Z,2019-08-05T20:38:31Z,2019-08-05T20:38:31Z,1,3,3,Improve Translation for zh_cn,3,1
+492,2019-07-20T21:26:45Z,2019-08-03T12:47:06Z,2019-08-03T12:47:06Z,1,7,7,"Updated date format from English to Hindi.
+Previously:  28 Mar 69
+Now: २८ मार्च ६९",2,1
+493,2019-07-21T02:59:33Z,2019-08-06T10:09:19Z,2019-08-06T10:09:20Z,1,3,3,,3,3
+508,2019-07-22T12:01:23Z,2019-11-20T01:45:12Z,2019-11-20T01:45:13Z,1,19,15,See issue #217,2,3
+509,2019-07-22T12:17:30Z,2019-12-05T16:59:13Z,2019-12-05T16:59:13Z,1,95,103,"[ #215 ]
+Proofreading of INTEGRATION_INITIALIZATION to match scans
+Lines: 1183
+Page: 1309—1333
+NOTES
+There were cases where some comments read DIMOFLAG instead of the correct DIM0FLAG. It is not easy from the scans to tell between O & 0 so if people disagree I can recheck",2,1
+525,2019-07-25T12:13:12Z,2019-12-05T17:02:59Z,2019-12-05T17:02:59Z,1,2,2,,2,1
+528,2019-07-26T04:46:00Z,,2020-03-04T18:08:43Z,1,11,0,Resolve #485,4,3
+530,2019-08-03T10:30:28Z,2020-02-19T23:45:36Z,2020-02-19T23:45:36Z,1,395,388,"Proofread #233
+There's still some stuff that might need fixing. I wasn't sure if i should copy the comments 1:1 with all the alignments made just like in the scans (using spaces) or if i should leave the alignment with tabs as is (for a good example see Page 681, in the scans the alignment is a disaster, but i could replicate it easy enough, if wanted)",2,1
+531,2019-08-06T08:53:49Z,2020-01-07T17:42:11Z,2020-01-07T17:42:11Z,5,108,2,,3,1
+541,2019-10-04T17:25:03Z,2019-10-06T03:55:24Z,2019-10-06T03:55:24Z,1,2,2,I made a couple of changes in order to improve the context of some frases.,2,0
+553,2020-01-05T18:01:36Z,2020-02-19T05:25:01Z,2020-02-19T05:25:01Z,5,121,46,"Added some more syntax-only extensions for other popular code editors.
+
+ Arabic
+ English
+ Korean
+ Portuguese
+ Turkish",5,6
+558,2020-02-19T19:12:24Z,2020-02-25T11:50:06Z,2020-02-25T11:50:06Z,1,11,11,Turkish readme modified to be more idiomatic.,3,1
+561,2020-02-19T22:45:27Z,2020-02-26T10:18:08Z,2020-02-26T10:18:08Z,31,283,0,"Provide Dutch translations as mentioned in #560
+I've updated the other README.* and CONTRIBUTING.* to refer to this new translation. Are these supposed to be in alphabetical order? I've currently added Dutch to the bottom of each.
+Thanks for your work.",2,4
+607,2020-02-20T02:07:37Z,2020-02-26T20:38:18Z,2020-02-26T20:38:18Z,7,132,0,"Translate 'CONTRIBUTING' in format of other docs
+Add links for Spanish doc in other docs
+closes #654",3,1
+652,2020-02-20T04:37:08Z,2020-02-20T23:30:50Z,2020-02-20T23:30:51Z,1,11,11,"Hi, this is my first time proofing. Please give any necessary feedback.
+One question: How crucial is exact spacing in comments--e.g. in line 100 comment in the scan the ""= 2"" is one char to the left of the ""= 1"" of the preceding line, but in the code it is two chars to the right. So, to get the scan alignment would mean using five spaces instead of the final tab in the code.
+It's a great excuse to read the code. Thank you.",2,3
+653,2020-02-20T19:38:21Z,2020-02-21T01:36:37Z,2020-02-21T01:36:37Z,1,7,7,Mostly formatting details; one substantive (though obvious) change to a comment (line 142).,2,1
+662,2020-03-01T18:44:06Z,2020-03-01T21:09:34Z,2020-03-01T21:09:34Z,1,20,23,,3,3
+663,2020-03-04T07:15:38Z,2020-03-04T17:33:11Z,2020-03-04T17:33:11Z,1,17,17,I would like to discuss how to handle line 269,2,2
+668,2020-05-02T20:51:05Z,2020-05-05T17:30:38Z,2020-05-05T17:30:38Z,12,134,2,,3,3
+670,2020-05-16T09:47:57Z,2020-05-21T07:42:48Z,2020-05-21T07:42:48Z,1,4,5,Hi! Figured I'd have a stab at proofing #563,3,1
+672,2020-06-01T22:35:51Z,2020-06-02T19:02:37Z,2020-06-02T19:02:38Z,1,6,8,"Checked for typos with the reduced quality scans.
+I didn't check for the line breaks though..",2,0
+673,2020-06-07T04:24:38Z,2020-06-09T19:57:03Z,2020-06-09T19:57:03Z,1,1,1,"Entire file has been checked and one issue fount.
+Page: 1249—1258",2,1
+674,2020-06-07T11:55:54Z,2020-06-09T20:22:14Z,2020-06-09T20:22:14Z,1,15,20,All pages checked.,2,2
+677,2020-06-22T02:55:04Z,2020-06-23T12:02:27Z,2020-06-23T12:02:27Z,2,41,37,"This PR does not involve any code changes, only modifications to some of the translation documents related to ZH_CN.
+Based on the following principles.
+
+Chinese characters and English characters separated by spaces
+Chinese characters and numbers separated by spaces
+Partial symbols replaced by full angle symbols
+Translation of omitted content",2,2
+681,2020-07-05T19:26:42Z,2020-07-06T16:11:34Z,2020-07-06T16:11:34Z,1,1,1,"I noticed that the charset configuration present in .editorconfig was not working for my text editor, so i realized that it was utf8  when it should be utf-8",3,1
+682,2020-07-08T22:01:35Z,2020-07-09T00:39:06Z,2020-07-09T00:39:07Z,1,2,2,"Resolves #564
+Changes:
+
+OCT21103 -> OCT1103 (1383)
+
+USER'S -> USERS (1384)",2,1
+683,2020-07-09T10:46:39Z,2020-07-09T17:34:40Z,2020-07-09T17:34:40Z,1,4,4,"Resolves #574
+Changes:
+
+HEREIN IS -> HEREIN ARE (1406)
+
+P. S. WEISSMAN -> P S WEISSMAN (1407)
+
+Indent line to match scan whitespace (1409)",2,2
+685,2020-07-31T22:11:17Z,2020-08-01T00:55:50Z,2020-08-01T00:55:50Z,2,257,0,,2,1
+686,2020-08-02T15:46:29Z,2020-08-03T20:51:27Z,2020-08-03T20:51:27Z,1,20,18,"See:
+http://www.ibiblio.org/apollo/ScansForConversion/Luminary099/1284.jpg
+http://www.ibiblio.org/apollo/ScansForConversion/Luminary099/1285.jpg
+http://www.ibiblio.org/apollo/ScansForConversion/Luminary099/1287.jpg
+http://www.ibiblio.org/apollo/ScansForConversion/Luminary099/1288.jpg
+http://www.ibiblio.org/apollo/ScansForConversion/Luminary099/1289.jpg
+http://www.ibiblio.org/apollo/ScansForConversion/Luminary099/1290.jpg
+Found by comparing this file against Comanche055/AGC_BLOCK_TWO_SELF-CHECK.agc and then double-checking the scans listed above.",2,2
+688,2020-08-02T16:45:52Z,2020-08-03T20:50:53Z,2020-08-03T20:50:53Z,1,12,12,"See:
+http://www.ibiblio.org/apollo/ScansForConversion/Luminary099/0003.jpg
+http://www.ibiblio.org/apollo/ScansForConversion/Luminary099/0006.jpg
+http://www.ibiblio.org/apollo/ScansForConversion/Luminary099/0007.jpg
+http://www.ibiblio.org/apollo/ScansForConversion/Luminary099/0008.jpg
+http://www.ibiblio.org/apollo/ScansForConversion/Luminary099/0018.jpg
+http://www.ibiblio.org/apollo/ScansForConversion/Luminary099/0022.jpg
+http://www.ibiblio.org/apollo/ScansForConversion/Luminary099/0027.jpg",2,3
+694,2020-08-17T17:03:07Z,2020-08-17T18:19:05Z,2020-08-17T18:19:05Z,13,167,0,"Add CONTRIBUTING.ja.md
+Mod other CONTRIBUTING.md (add link to CONTRIBUTING.ja.md)",2,2
+699,2020-09-15T16:03:55Z,2020-09-16T15:09:29Z,2020-09-16T15:09:29Z,1,17,19,(based on the english version) which were difficult to understand,3,1
+700,2020-09-15T17:00:33Z,2020-09-19T21:16:44Z,2020-09-19T21:16:45Z,1,3,3,"Full file checked:
+
+Line 63: Unsure if period or commas -- left unchanged from scan",2,2
+703,2020-10-03T16:50:49Z,2020-10-07T01:14:08Z,2020-10-07T01:14:08Z,1,15,16,,2,1
+705,2020-10-03T17:17:14Z,2020-10-07T20:24:46Z,2020-10-07T20:24:46Z,1,2,2,,2,1
+706,2020-10-03T17:56:17Z,2020-11-06T19:03:33Z,2020-11-06T19:03:33Z,1,77,78,,2,5
+707,2020-10-03T22:18:40Z,2020-10-14T16:55:47Z,2020-10-14T16:55:47Z,1,87,88,Closes #587.,2,3
+708,2020-10-04T05:58:14Z,2020-10-11T02:01:07Z,2020-10-11T02:01:07Z,1,166,167,Proofread INPUT_OUTPUT_CHANNEL_BIT_DESCRIPTIONS.acg for issue #592.,2,1
+709,2020-10-04T10:42:11Z,2021-01-06T19:32:24Z,2021-01-06T19:32:25Z,1,30,38,Fixing issue #613,3,3
+710,2020-10-04T16:38:00Z,2020-10-08T22:32:36Z,2020-10-08T22:32:36Z,1,6,6,Fixed spelling mistake and error in translation.,2,3
+711,2020-10-04T16:45:03Z,2020-10-13T17:53:32Z,2020-10-13T17:53:33Z,1,66,66,"Issue #631: Proofed the entire file.
+I have a few parts I am not sure. These are all on Page 190 of the image.
+
+
+(Line38-L39) The original quotation marks look like ' (single quote) on both sides, but the current source code uses ` (backtick) on the left side. I modified them to single quotes.
+
+
+(L55-L57) Not sure how to handle the spacing/indentation of these lines. I thought I should better use tabs in line 57 to align with line 55, such as
+
+
+#	TCF	RCSMONIT		(IN INTERRUPT MODE, EVERY 480 MS.)
+#
+# EXIT:	TCF	RCSMONEX		(ALL PATHS EXIT VIA SUCH AN INSTRUCTION)
+
+but they are not aligned in the original image. So I left it as-is.
+
+(L67) It looks 1.5 to me, while the previous line looks 1'S. Could you please double-check?
+
+I referred to CONTRIBUTING.md and Luminary099/README.md but this is the first time I contribute to this project so please let me know if I'm missing something.",3,2
+712,2020-10-04T20:36:59Z,2020-10-13T18:12:45Z,2020-10-13T18:12:45Z,1,32,32,See #582,2,1
+713,2020-10-05T16:37:25Z,2020-10-13T18:41:19Z,2020-10-13T18:41:19Z,1,53,66,"Have doubts about the following: (line numbers referring to the PR version)
+Related to http://www.ibiblio.org/apollo/ScansForConversion/Luminary099/0985.jpg
+=> comments hand-written. Is it ok to handle them as comments?
+#L111 =>   AXT,1 (PR version) or AXT.1 ?
+#L117 =>  ZERO$ (PR version) or ZEROS ?
+Related to: http://www.ibiblio.org/apollo/ScansForConversion/Luminary099/0987.jpg
+#L175 => ZEROS ?
+#L182 => star at the beginning of the line. Should it be transcribed?
+#L184 / 185 / 186 => are starting with numbers. Not sure if they must be transcribed.",2,2
+714,2020-10-05T17:46:56Z,2020-10-13T18:59:53Z,2020-10-13T18:59:53Z,1,63,67,,2,5
+715,2020-10-05T20:04:35Z,2020-10-13T19:13:18Z,2020-10-13T19:13:18Z,1,26,28,"I found no changes needed for the code part of the file. I only changed a few things in the comments.
+Here a few of the changes I made:
+
+(page 1303: line 0019) line 51 in file: IT'S -> ITS
+(page 1303: line 0032) line 70 in file:  LONGCALL -> LONGCAL
+(page 1303: line 0036) line 74 in file:  IT'S -> ITS
+(page 1303: line 0037) line 76 in file:  CAN'T -> CANT and HERE. -> HERE
+
+And a few other minor comment typos.
+Per the guidelines in the Contributing page, I deliberately added typos that are in the original scans.
+Please let me know if you need me to add/change anything.
+This is my first time working on this so please let me know if I made any mistakes in the pull request.",2,0
+716,2020-10-06T16:42:59Z,2020-10-13T00:31:02Z,2020-10-13T00:31:02Z,2,261,0,,2,5
+719,2020-10-06T22:31:43Z,2020-10-19T17:39:09Z,2020-10-19T17:39:09Z,1,21,16,#618  Completely proofed.,2,0
+720,2020-10-07T14:02:19Z,2020-10-13T00:31:09Z,2020-10-13T00:31:09Z,41,343,0,,2,2
+728,2020-10-07T19:02:09Z,2020-10-13T00:31:35Z,2020-10-13T00:31:35Z,1,143,0,,2,4
+730,2020-10-08T00:02:04Z,2020-10-19T18:39:31Z,2020-10-19T18:39:31Z,1,39,37,,2,1
+731,2020-10-08T16:46:57Z,2020-10-19T19:04:36Z,2020-10-19T19:04:36Z,2,40,41,,2,0
+734,2020-10-09T04:19:16Z,2020-10-19T19:32:08Z,2020-10-19T19:32:08Z,1,84,71,Proofed all 10 pages.,2,0
+735,2020-10-09T10:22:11Z,2020-10-20T14:56:01Z,2020-10-20T14:56:01Z,1,16,24,"resolves #598
+Checked all 5 pages (365-369).
+I was a bit unsure of what to do with the following bit, which seems to have been modified in 2009:
+		# The following 2 lines seem to have no purpose at all.
+		# I am removing them because they only serve to confuse
+		# the assembler by getting in between EXTEND and MP.
+		#					--- RSB 2009.
+		#SETLOC	KALCMON1
+		#BANK
+
+I removed the comment & uncommented the code, as the contribution guidelines for this repo say to strictly follow the original source code. I'm assuming that is desired, but will happily revert that if it is preferred.",2,0
+737,2020-10-09T17:34:20Z,2020-10-20T15:26:58Z,2020-10-20T15:26:58Z,1,18,20,"Proofread the KEYRUPT_UPRUPT file against the scans.
+There was one thing I wasn't sure about was all of the quotes in the file started with a grave accent ( ` )
+
+but it doesn't look like they do in the scans:
+
+I couldn't find anything in the guidelines that said quotes should start with the grave accent so I changed them to a single quote mark.",2,0
+739,2020-10-09T19:24:50Z,,2022-02-14T15:32:14Z,1,7,1,,2,1
+740,2020-10-09T19:55:36Z,2020-10-13T16:51:59Z,2020-10-13T16:51:59Z,1,23,25,Turkish CONTRIBUTING.md file has been updated to add changes in commit 16aa215,2,2
+742,2020-10-09T22:48:53Z,2020-10-24T17:41:54Z,2020-10-24T17:41:54Z,1,28,31,,2,1
+743,2020-10-10T03:43:03Z,2020-11-11T03:00:58Z,2020-11-11T03:00:58Z,1,112,122,Complete proofreading done for R60_62 Issue #628,2,4
+745,2020-10-11T11:45:10Z,2020-10-13T16:54:07Z,2020-10-13T16:54:07Z,1,120,0,added Assamese README,2,2
+747,2020-10-11T16:11:36Z,2020-10-13T00:31:52Z,2020-10-13T00:31:52Z,1,146,0,,2,1
+753,2020-10-12T13:54:04Z,2020-10-12T23:58:11Z,2020-10-12T23:58:11Z,1,22,24,,2,1
+755,2020-10-12T22:24:12Z,2020-10-13T00:01:29Z,2020-10-13T00:01:29Z,2,23,26,,2,1
+761,2020-10-15T08:52:30Z,2020-10-15T16:26:53Z,2020-10-15T16:26:53Z,1,1,1,Fixed typo in Greek README md file.,2,1
+765,2020-10-16T10:24:24Z,2020-10-27T02:24:13Z,2020-10-27T02:24:13Z,1,2,2,Fixed spelling mistakes.,2,0
+766,2020-10-16T16:31:40Z,2020-10-27T02:25:43Z,2020-10-27T02:25:43Z,1,9,9,"Improved existing contributing file with additional words, sentence structure, some grammar mistakes were fixed.",2,0
+798,2020-10-30T19:33:53Z,2020-11-01T03:39:42Z,2020-11-01T03:39:42Z,1,1,1,"Putting this single fix in to get out of the way for @HeroicHitesh, who is going to work on this issue.
+Sorry about that.
+Partially fixes #565",2,0
+806,2020-12-13T09:39:35Z,2020-12-22T17:02:39Z,2020-12-22T17:02:39Z,1,22,25,"contents updated.
+ref:
+16aa215#commitcomment-43116252",2,2
+809,2021-03-06T22:29:00Z,2021-04-13T15:27:21Z,2021-04-13T15:27:21Z,1,8,8,Rephrased some sentences and corrected some typos here and there.,2,1
+810,2021-03-07T07:50:33Z,2021-03-08T21:31:41Z,2021-03-08T21:31:41Z,7,8,8,"Fixed below.
+
+Github -> GitHub
+Document format",2,1
+812,2021-03-25T20:56:01Z,2022-11-03T20:06:53Z,2022-11-03T20:06:53Z,48,252,5,,2,1
+813,2021-04-11T20:35:16Z,2021-04-13T15:28:15Z,2021-04-13T15:28:15Z,1,6,6,,2,1
+814,2021-04-11T20:39:56Z,2021-04-13T15:28:36Z,2021-04-13T15:28:36Z,1,2,2,,2,0
+826,2021-10-04T16:04:29Z,2021-10-06T15:36:49Z,2021-10-06T15:36:49Z,1,3,3,Spelling Correction,2,1
+831,2021-10-16T12:02:11Z,2021-10-18T09:17:38Z,2021-10-18T09:17:38Z,1,2,2,"Fixed some spelling mistakes on the CONTRIBUTING.gr.md file.
+I am a native Greek speaker and propose these changes.",2,1
+847,2021-10-31T10:05:51Z,2021-11-01T10:01:30Z,2021-11-01T10:01:30Z,1,14,14,,2,5
+848,2021-10-31T10:45:24Z,,2021-11-01T09:56:08Z,1,1,1,,3,0
+849,2021-11-13T21:30:41Z,2021-11-15T10:03:57Z,2021-11-15T10:03:57Z,1,3,3,"Wording change in favor of the commonly used term for ""command module"".
+The word ""komuta"" (not ""yönetim"") is used to refer to the CM.
+
+
+Change word mistakenly translated as ""program"" into ""programming"".
+Margeret H. Hamilton, Colossus Programming Leader
+
+
+Stay true(-er) to the original explanation in first paragraph.
+Be clearer on what's considered an issue - a difference between the original scans and the repository.",2,0
+859,2022-02-03T14:59:42Z,2023-10-02T18:41:01Z,2023-10-02T18:41:01Z,2,2,2,,2,0
+869,2022-09-12T08:28:54Z,2022-09-12T11:45:49Z,2022-09-12T11:45:49Z,1,1,1,a missing blank,2,0
+875,2022-10-01T10:50:30Z,2022-10-03T13:40:30Z,2022-10-03T13:40:30Z,1,2,2,Small french improvements,2,0
+879,2022-10-07T10:26:52Z,2022-10-11T15:35:35Z,2022-10-11T15:35:36Z,1,155,0,added Bahasa Indonesia on CONTRIBUTING.md,2,2
+880,2022-10-07T15:43:13Z,,2022-10-25T03:11:47Z,4,288,0,,2,0
+881,2022-10-08T20:13:27Z,2022-10-11T15:29:16Z,2022-10-11T15:29:16Z,1,153,0,Added CONTRIBUTING.hi_in.md file- Hindi translation.,2,1
+887,2022-10-19T16:36:18Z,2022-10-19T18:14:59Z,2022-10-19T18:14:59Z,1,2,2,Changed the link in the text from README.md to README.ja.md.,2,1
+890,2022-10-25T07:27:08Z,2022-11-03T20:07:38Z,2022-11-03T20:07:38Z,1,4,4,"Alignment with English source file
+Minor rewordings to more closely match the original / more faithfully represent wordings in the original
+Minor typographical corrections",2,1
+891,2022-10-25T18:58:00Z,2022-11-03T20:08:02Z,2022-11-03T20:08:02Z,1,38,19,"Alignment with English source file
+Translate previously untranslated sections
+Make translated words consistent with README.de.md
+Minor rewordings to more closely match the original / more faithfully represent wordings in the original
+Minor typographical corrections",2,1
+898,2023-06-05T18:02:25Z,2023-06-05T21:22:54Z,2023-06-05T21:22:54Z,1,2,2,minor modifactions: necessary grammatical and typo corrections; rephrasing certain sentences to improve readability and clarity; also included original names in parentheses after transliterations.,2,1
+899,2023-08-10T21:56:53Z,2023-10-02T18:39:08Z,2023-10-02T18:39:09Z,2,65,71,"For my contribution to this cool project. I have:
+
+corrected translation logic in several places, and some ICT-related technical mistranslation in the contribution guidelines
+removed residual from previous editing; repetitions and misplaced words;
+created more fluent wording and phrasing in some places (IMO);
+fixed some typos;
+affected more consistency in wording;
+inserted English names of institutions for reference;
+other minor fixes, including avoiding Latin words qualified by the Arabic article.
+updated the text to the current English: the contribution guide seems to have been based on an earlier source.",2,1
+903,2023-08-26T04:00:35Z,2023-10-02T18:40:05Z,2023-10-02T18:40:05Z,53,388,0,"Add Ukrainian README
+Add Ukrainian CONTRIBUTING",2,1

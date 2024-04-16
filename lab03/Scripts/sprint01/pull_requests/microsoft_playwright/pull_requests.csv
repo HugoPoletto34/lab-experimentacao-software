@@ -1,0 +1,670 @@
+number,created_at,merged_at,closed_at,files,additions,deletions,body_text,participants,comments
+2,2019-11-19T05:33:13Z,2019-11-19T21:59:52Z,2019-11-19T21:59:52Z,3,323,327,,2,0
+4,2019-11-19T15:43:01Z,2019-11-19T18:49:10Z,2019-11-19T18:49:10Z,3,0,174,,2,0
+24,2019-11-19T20:32:59Z,2019-11-20T00:30:25Z,2019-11-20T00:30:25Z,3,90,0,,2,0
+30,2019-11-20T04:00:31Z,2019-11-20T17:28:23Z,2019-11-20T17:28:23Z,5,3,128,,2,0
+31,2019-11-20T04:24:51Z,2019-11-20T17:28:41Z,2019-11-20T17:28:41Z,4,0,92,,3,4
+39,2019-11-20T23:31:55Z,2019-11-21T00:39:13Z,2019-11-21T00:39:13Z,5,53,40,"Add keyboard.sendCharacter and fixes up all of the keyboard tests.
+Drive-by to actually allow selectively installing browsers.",2,0
+42,2019-11-21T01:09:15Z,2019-11-21T22:43:31Z,2019-11-21T22:43:31Z,6,88,5,Drive-by: setup injected script in the execution context to host all injected code.,2,1
+43,2019-11-21T04:56:59Z,2019-11-21T22:41:39Z,2019-11-21T22:41:39Z,18,294,217,,2,0
+44,2019-11-21T17:59:02Z,,2019-11-27T17:14:34Z,8,80,17,,3,1
+46,2019-11-22T00:18:51Z,2019-11-22T05:19:21Z,2019-11-22T05:19:22Z,8,171,28,,2,0
+47,2019-11-22T00:36:20Z,2019-11-22T05:17:24Z,2019-11-22T05:17:24Z,11,34,168,"The environment variables we inherited from puppeteer well as puppeteer-core don't necessarily make sense when considering multiple browsers.
+This patch removes everything, so that we have a blank slate on which to figure out our npm story.
+install.js now only contains code that should be run for the github checkout, so I added it to .npmignore.",2,0
+49,2019-11-22T01:11:47Z,2019-11-22T05:16:00Z,2019-11-22T05:16:00Z,3,20,9,,2,0
+50,2019-11-22T01:29:39Z,2019-11-22T23:36:18Z,2019-11-22T23:36:18Z,17,340,48,,3,0
+51,2019-11-22T05:14:58Z,2019-11-22T18:05:33Z,2019-11-22T18:05:33Z,4,30,57,,2,1
+52,2019-11-22T06:26:26Z,2019-11-22T19:25:53Z,2019-11-22T19:25:53Z,6,39,45,,2,0
+53,2019-11-22T16:59:30Z,2019-11-22T19:24:56Z,2019-11-22T19:24:56Z,7,74,101,,2,0
+55,2019-11-22T19:54:38Z,2019-11-22T21:14:08Z,2019-11-22T21:14:08Z,2,6,1,,2,1
+56,2019-11-22T19:57:39Z,2019-12-05T01:58:38Z,2019-12-05T01:58:38Z,12,65,32,"await playwright.downloadBrowser()
+Easy one liner to download a browser, optionally showing the progress bar.
+No test at the moment. Need to add some environment variables back for that, in order to mock the host
+#48",3,1
+59,2019-11-22T22:09:46Z,2019-11-23T00:25:37Z,2019-11-23T00:25:37Z,2,16,1,fixes #57,2,0
+65,2019-11-23T21:13:58Z,,2019-11-25T23:07:28Z,17,162,129,"This makes various evaluate functions do type-checking on the arguments.
+result = await page.evaluate((n: number, s: string) => n + s, foo, bar)
+result = await arrayHandle.evaluate((self: string[], n: number, s: string) => n + s, foo, bar)
+
+// Both of the calls enforce the following types:
+// foo: number | JSHandle
+// bar: string | JSHandle
+// result: string
+
+Unfortunately, I wasn't able to make perfect forwarding work, because ...args tuple is not inferred as extends any[]. This is mitigated by ...args as any in the forwarding calls.",3,2
+66,2019-11-24T01:29:15Z,2019-11-26T00:55:03Z,2019-11-26T00:55:03Z,1,66,42,This opens up opportunity for reuse.,2,0
+67,2019-11-24T01:29:21Z,2019-11-26T04:28:34Z,2019-11-26T04:28:34Z,4,243,538,,2,1
+68,2019-11-24T16:59:50Z,2019-11-26T16:57:53Z,2019-11-26T16:57:53Z,6,391,451,,2,1
+69,2019-11-25T18:13:20Z,2019-11-25T19:19:20Z,2019-11-25T19:19:20Z,13,287,452,"Note that firefox implementation had a bug around shift handling (using 4 as modifier, but checking for 8), and now fails one test.",2,0
+73,2019-11-25T23:16:49Z,2019-11-26T15:52:55Z,2019-11-26T15:52:55Z,10,168,227,,2,0
+75,2019-11-25T23:20:46Z,2019-11-27T20:24:53Z,2019-11-27T20:24:53Z,5,105,2,,4,3
+77,2019-11-25T23:41:10Z,2019-11-26T00:42:38Z,2019-11-26T00:42:38Z,5,76,37,,2,0
+79,2019-11-26T00:49:50Z,2019-11-26T15:53:48Z,2019-11-26T15:53:48Z,5,35,29,,2,0
+81,2019-11-26T04:48:57Z,2019-11-26T15:55:35Z,2019-11-26T15:55:35Z,4,88,153,,2,0
+82,2019-11-26T06:03:21Z,2019-11-26T19:23:14Z,2019-11-26T19:23:14Z,12,268,308,,2,0
+83,2019-11-26T06:11:44Z,2019-11-26T17:00:11Z,2019-11-26T17:00:11Z,2,27,55,,2,0
+84,2019-11-26T16:04:02Z,2019-11-26T19:00:55Z,2019-11-26T19:00:55Z,3,0,31,,2,0
+87,2019-11-26T17:28:09Z,2019-11-26T19:16:21Z,2019-11-26T19:16:21Z,6,96,126,"This almost removes the DOMWorld, so we can unify them across the browsers.",2,0
+88,2019-11-26T19:54:51Z,2019-11-26T22:29:22Z,2019-11-26T22:29:22Z,10,119,108,,2,0
+94,2019-11-26T23:44:08Z,2019-12-04T18:33:29Z,2019-12-04T18:33:29Z,10,127,10,closes #9,3,0
+97,2019-11-27T02:52:45Z,2019-11-27T16:47:38Z,2019-11-27T16:47:38Z,2,333,50,,2,0
+98,2019-11-27T02:54:38Z,2019-11-27T21:50:25Z,2019-11-27T21:50:25Z,4,62,10,,3,1
+100,2019-11-27T17:06:28Z,2019-11-27T20:38:27Z,2019-11-27T20:38:27Z,19,265,1036,,2,0
+112,2019-11-28T01:50:53Z,2019-11-28T20:50:53Z,2019-11-28T20:50:53Z,18,252,236,,2,0
+113,2019-11-29T05:06:19Z,2019-12-02T21:12:28Z,2019-12-02T21:12:28Z,15,90,97,This requires moving ElementHandle next to JSHandle to avoid circular require dependency.,2,0
+114,2019-11-30T05:12:56Z,2019-12-02T18:53:59Z,2019-12-02T18:53:59Z,8,232,177,"This makes multiple element screenshots to not fight for the page viewport
+by putting viewport manipulation under screenshot task queue.
+Drive-by: encapsulated all screenshot logic in Screenshotter.",2,0
+115,2019-11-30T05:15:54Z,2019-12-02T18:53:24Z,2019-12-02T18:53:24Z,9,38,172,,2,0
+116,2019-11-30T05:57:56Z,2019-12-02T21:01:01Z,2019-12-02T21:01:01Z,11,67,145,,2,0
+117,2019-12-02T18:09:41Z,2019-12-02T20:58:45Z,2019-12-02T20:58:45Z,1,2,2,,2,0
+118,2019-12-02T22:35:26Z,2019-12-03T01:33:45Z,2019-12-03T01:33:45Z,6,238,106,This adds support for generic engine=body [>> engine=body]* selector syntax and auto-detects simple css or xpath.,2,1
+119,2019-12-02T23:07:20Z,2019-12-03T00:17:54Z,2019-12-03T00:17:54Z,5,62,11,,2,0
+121,2019-12-02T23:20:45Z,2019-12-03T00:36:47Z,2019-12-03T00:36:47Z,5,60,59,,4,4
+122,2019-12-03T01:41:13Z,2019-12-03T18:43:13Z,2019-12-03T18:43:13Z,4,97,110,,2,0
+129,2019-12-03T23:09:30Z,2019-12-04T21:11:10Z,2019-12-04T21:11:10Z,16,398,210,,3,1
+134,2019-12-04T21:25:22Z,2019-12-05T16:45:37Z,2019-12-05T16:45:37Z,2,6,5,"There is no way to trigger this issue through the api just yet, but there will be
+once we support handles as selectors.",3,0
+138,2019-12-05T00:42:06Z,,2019-12-05T20:49:09Z,2,13,2,,4,1
+139,2019-12-05T00:52:20Z,2019-12-05T17:54:51Z,2019-12-05T17:54:51Z,11,211,243,"Browsers now implement boundingBox(), contentQuads() and layoutViewport().",2,0
+140,2019-12-05T00:59:40Z,2019-12-06T00:26:09Z,2019-12-06T00:26:09Z,14,84,54,"This makes it so that JSHandles and ElementHandles are aware of what types they point to. As a fun bonus, $eval('input') knows its going to get an HTMLInputElement.
+Most of this patch is casting things where previously we just assumed ElementHandles held the right kind of node. This gets us closer to being able to turn on noImplicityAny as well.
+#6",2,0
+144,2019-12-05T02:12:16Z,2019-12-05T16:32:52Z,2019-12-05T16:32:53Z,2,19,1,,2,0
+146,2019-12-05T06:58:39Z,2019-12-05T16:30:59Z,2019-12-05T16:30:59Z,4,7,1,,2,1
+148,2019-12-05T17:38:36Z,2019-12-05T19:29:17Z,2019-12-05T19:29:17Z,5,53,48,"setup .npmignore;
+index.js selecting a browser;
+minor package.json tweaks;
+example script which works against npm pack'ed module.",3,0
+150,2019-12-05T19:44:03Z,2019-12-05T22:13:18Z,2019-12-05T22:13:18Z,1,0,8,,2,0
+151,2019-12-05T19:56:07Z,2019-12-05T22:11:48Z,2019-12-05T22:11:48Z,12,155,115,Page and BrowserContext are now closer to be reused between browsers.,2,0
+160,2019-12-05T23:08:44Z,2019-12-09T22:51:20Z,2019-12-09T22:51:20Z,3,54,6,"An element is fillable if its:
+
+In dom
+Not display:none or visibility:hidden
+textarea or input or contenteditable
+
+if textarea or input it must also be
+
+not readOnly
+not disabled
+
+#133",3,0
+161,2019-12-05T23:55:35Z,2019-12-06T19:28:24Z,2019-12-06T19:28:24Z,10,27,534,"protocol.d.ts had to move to protocol.ts otherwise typescript refuses to include it in the out directory.
+Removed the old d.ts generator. It will need to be rewritten anyway.
+These new types include private stuff that they probably shouldn't, and are missing documentation. I'll follow up with a better d.ts generator later.
+#6",2,0
+163,2019-12-06T05:03:04Z,2019-12-06T21:36:48Z,2019-12-06T21:36:48Z,6,149,143,This brings us closer to reusing Page between browsers.,2,0
+168,2019-12-06T22:54:42Z,,2019-12-09T22:49:38Z,2,120,31,This will let us do page.on('popup') in webkit.,2,0
+169,2019-12-06T23:07:49Z,2019-12-07T00:34:27Z,2019-12-07T00:34:28Z,5,99,106,,2,0
+172,2019-12-07T01:52:44Z,2019-12-10T00:34:43Z,2019-12-10T00:34:43Z,12,244,108,"This moves 'load' and 'domcontentloaded' to Frame and starts using them in all three navigation watchers. Network idle lifecycle events are removed, to be reimplemented on top of NetworkManager.",2,0
+173,2019-12-07T05:15:02Z,2019-12-08T00:35:33Z,2019-12-08T00:35:33Z,2,150,57,,2,0
+174,2019-12-07T16:34:26Z,2019-12-08T01:15:32Z,2019-12-08T01:15:32Z,2,71,30,,2,0
+176,2019-12-08T07:17:02Z,2019-12-08T23:14:17Z,2019-12-08T23:14:17Z,2,136,54,Formatted diff: yury-s/WebKit@63ae94c,2,2
+177,2019-12-08T18:17:58Z,2019-12-08T21:29:04Z,2019-12-08T21:29:04Z,14,206,659,,2,1
+180,2019-12-09T01:23:44Z,2019-12-09T20:20:58Z,2019-12-09T20:20:58Z,2,78,36,pavelfeldman/WebKit@b040cd8,2,0
+185,2019-12-09T21:26:32Z,2019-12-09T23:22:12Z,2019-12-09T23:22:12Z,2,205,40,pavelfeldman/WebKit@94042c2,2,0
+191,2019-12-10T01:51:40Z,2019-12-10T19:15:15Z,2019-12-10T19:15:15Z,30,125,321,,2,0
+192,2019-12-10T04:37:25Z,,2019-12-12T18:14:21Z,2,85,34,pavelfeldman/WebKit@a42e806,2,0
+195,2019-12-10T07:25:50Z,2019-12-10T23:17:43Z,2019-12-10T23:17:43Z,4,27,15,,3,0
+196,2019-12-10T08:28:26Z,2019-12-10T18:39:41Z,2019-12-10T18:39:41Z,2,150,94,Review URL: aslushnikov/WebKit@d360425,3,0
+197,2019-12-10T08:31:22Z,2019-12-10T21:22:02Z,2019-12-10T21:22:02Z,10,197,31,This incorporates MacEditingShortcuts PR,3,0
+201,2019-12-10T21:56:04Z,2019-12-10T23:13:57Z,2019-12-10T23:13:57Z,18,297,329,,2,0
+204,2019-12-10T23:45:10Z,2019-12-11T01:09:06Z,2019-12-11T01:09:06Z,4,4,4,,2,0
+207,2019-12-11T01:31:18Z,2019-12-11T03:26:14Z,2019-12-11T03:26:14Z,4,7,4,,2,0
+208,2019-12-11T02:06:27Z,2019-12-11T15:17:33Z,2019-12-11T15:17:33Z,10,270,608,,2,0
+209,2019-12-11T04:47:06Z,2019-12-11T15:18:44Z,2019-12-11T15:18:44Z,11,102,89,,2,0
+210,2019-12-11T16:19:44Z,2019-12-11T19:26:34Z,2019-12-11T19:26:34Z,6,36,6,,2,0
+211,2019-12-11T18:10:25Z,2019-12-11T21:51:04Z,2019-12-11T21:51:04Z,2,68,49,,2,0
+214,2019-12-11T22:30:43Z,2019-12-12T17:02:38Z,2019-12-12T17:02:38Z,7,983,5,,2,0
+219,2019-12-12T01:43:31Z,2019-12-13T04:11:34Z,2019-12-13T04:11:34Z,5,39,6,,2,0
+221,2019-12-12T05:42:08Z,2019-12-12T18:23:25Z,2019-12-12T18:23:26Z,2,49,19,pavelfeldman/WebKit@b62bd41,2,0
+222,2019-12-12T05:49:55Z,2019-12-12T16:59:34Z,2019-12-12T16:59:34Z,2,9,5,,2,0
+223,2019-12-12T06:30:01Z,2019-12-12T16:58:38Z,2019-12-12T16:58:38Z,2,6,19,,2,0
+228,2019-12-12T18:49:47Z,2019-12-13T01:51:06Z,2019-12-13T01:51:06Z,9,228,394,,2,0
+235,2019-12-13T05:12:17Z,2019-12-13T18:52:34Z,2019-12-13T18:52:34Z,4,26,115,,2,1
+237,2019-12-13T06:51:31Z,,2019-12-13T21:02:44Z,5,103,159,,2,0
+238,2019-12-13T19:40:27Z,2019-12-13T21:03:53Z,2019-12-13T21:03:53Z,3,37,38,,2,0
+244,2019-12-13T23:11:57Z,2019-12-14T00:35:11Z,2019-12-14T00:35:11Z,9,58,39,,2,0
+248,2019-12-14T01:56:32Z,2019-12-14T16:20:52Z,2019-12-14T16:20:52Z,9,59,66,This requires new firefox verison.,2,0
+251,2019-12-14T17:23:09Z,,2019-12-16T19:59:50Z,2,4,4,,2,0
+252,2019-12-14T17:32:47Z,2019-12-16T17:17:15Z,2019-12-16T17:17:15Z,2,16,7,,3,2
+254,2019-12-15T00:47:14Z,2019-12-15T03:13:23Z,2019-12-15T03:13:23Z,9,125,108,"Allow actions to wait for selector
+Make visible requirement default",2,0
+260,2019-12-16T22:23:19Z,2019-12-17T01:47:38Z,2019-12-17T01:47:38Z,2,2,2,Also roll WebKit to 1042,2,0
+264,2019-12-17T00:01:23Z,2019-12-17T01:33:36Z,2019-12-17T01:33:36Z,3,9,8,,2,0
+269,2019-12-17T01:55:25Z,2019-12-17T04:19:42Z,2019-12-17T04:19:42Z,1,1,1,The backend was fixed by 6b9f475,2,0
+270,2019-12-17T01:58:39Z,2019-12-17T04:49:19Z,2019-12-17T04:49:19Z,8,60,79,,2,0
+272,2019-12-17T06:01:46Z,,2020-01-13T21:33:49Z,7,37,8,,3,1
+273,2019-12-17T17:27:59Z,2019-12-17T19:28:10Z,2019-12-17T19:28:10Z,5,52,75,,2,0
+274,2019-12-17T17:42:23Z,2019-12-17T19:31:53Z,2019-12-17T19:31:53Z,8,27,55,,2,0
+278,2019-12-17T19:23:59Z,2019-12-17T22:00:40Z,2019-12-17T22:00:40Z,5,230,34,,2,0
+279,2019-12-17T19:32:31Z,2019-12-17T20:33:05Z,2019-12-17T20:33:05Z,2,6,7,,2,0
+281,2019-12-17T22:51:09Z,2019-12-18T01:34:33Z,2019-12-18T01:34:33Z,4,29,40,,2,0
+283,2019-12-17T23:01:39Z,2019-12-18T01:33:07Z,2019-12-18T01:33:07Z,7,10,10,This relies on #282 to be landed and uploaded by buildbots.,2,0
+284,2019-12-17T23:16:41Z,2019-12-18T22:28:17Z,2019-12-18T22:28:17Z,13,143,111,Most methods like click wait for element to be visible.,2,0
+288,2019-12-18T02:09:51Z,2019-12-18T20:23:33Z,2019-12-18T20:23:33Z,34,478,663,,4,0
+293,2019-12-18T22:35:20Z,2019-12-18T23:49:44Z,2019-12-18T23:49:44Z,2,3,5,#292,2,0
+295,2019-12-18T23:32:31Z,2019-12-19T19:44:08Z,2019-12-19T19:44:08Z,6,69,26,,2,0
+298,2019-12-19T00:28:47Z,2019-12-19T01:42:17Z,2019-12-19T01:42:17Z,5,49,0,"Mouse, Keyboard, and others are broken in WebKit after the first cross-process navigation.",3,2
+300,2019-12-19T00:51:21Z,2019-12-19T02:03:02Z,2019-12-19T02:03:02Z,3,67,28,,2,0
+301,2019-12-19T00:59:25Z,2019-12-19T23:07:20Z,2019-12-19T23:07:20Z,3,65,28,Link to commit: JoelEinbinder/webkit@ebb8bbd,3,0
+306,2019-12-19T06:56:55Z,2019-12-19T18:21:27Z,2019-12-19T18:21:27Z,12,98,141,,3,0
+307,2019-12-19T17:28:52Z,2019-12-19T23:07:58Z,2019-12-19T23:07:58Z,6,221,142,,2,0
+308,2019-12-19T18:22:41Z,2019-12-19T22:51:49Z,2019-12-19T22:51:49Z,31,378,445,,2,0
+310,2019-12-19T21:26:22Z,2019-12-20T23:32:31Z,2019-12-20T23:32:31Z,6,85,11,"This one waits for current navigation to finish, matching by url if asked. If there is no current navigation or current navigation/url does not match, it waits for the next matching one.",2,0
+324,2019-12-20T22:50:39Z,2019-12-23T21:12:57Z,2019-12-23T21:12:57Z,3,287,12,JoelEinbinder/webkit@313ad6b,2,1
+329,2019-12-21T06:07:21Z,2019-12-21T17:03:53Z,2019-12-21T17:03:53Z,9,166,157,,2,0
+330,2019-12-23T16:16:50Z,2019-12-23T21:20:05Z,2019-12-23T21:20:05Z,2,20,10,,2,2
+336,2019-12-23T23:31:11Z,2020-01-03T18:10:18Z,2020-01-03T18:10:18Z,3,55,20,Clients may have WKDEBUG in their environment and we don't want to break because of that. Since Debug builds are only used for development we can have a separate pw_run_debug.sh which is configured with WKPATH in development environment.,2,0
+340,2019-12-27T00:57:00Z,2020-01-08T16:16:54Z,2020-01-08T16:16:54Z,3,533,0,"This patch adds a basic source map support to test runner.
+SourceMap support is powered by Chromium DevTools source map
+implementation (thus copyright). Unlike popular source-map npm
+module, it's sync.
+The SourceMap.js file has a few modifications wrt upstream
+Chromium version:
+
+reverse mappings API is removed. There's no need to ever compute them
+the upperBoundary function from DevTools' platform is inlined
+using path to resolve source paths",2,0
+341,2019-12-27T00:57:38Z,2019-12-29T18:14:10Z,2019-12-29T18:14:10Z,2,349,18,"pavelfeldman/WebKit@315532f
+pavelfeldman/WebKit@7a22960",3,0
+342,2019-12-28T23:18:18Z,2019-12-29T00:38:38Z,2019-12-29T00:38:38Z,1,1,1,Was missing an await,2,0
+343,2019-12-30T01:05:15Z,2019-12-30T22:05:28Z,2019-12-30T22:05:28Z,19,441,512,,2,0
+344,2019-12-30T04:50:53Z,2019-12-30T16:46:56Z,2019-12-30T16:46:56Z,2,146,31,pavelfeldman/WebKit@01e8ed5,3,0
+345,2019-12-30T16:53:56Z,2019-12-30T21:23:02Z,2019-12-30T21:23:02Z,2,64,23,pavelfeldman/WebKit@74ded7a,2,0
+347,2019-12-31T00:07:10Z,2020-01-02T20:19:21Z,2020-01-02T20:19:21Z,2,11,9,"This is one part of mobile emulation. It causes webkit to take into account meta viewport tags. GTK doesn't actually scale the content, but it sets the correct widths at least.
+JoelEinbinder/webkit@6a75f10",2,0
+348,2019-12-31T00:10:21Z,2020-01-09T04:15:30Z,2020-01-09T04:15:30Z,2,13,2,Depends on #347,2,1
+349,2019-12-31T00:39:08Z,,2020-01-09T22:10:06Z,3,17,14,depends on #348,2,1
+350,2019-12-31T03:37:41Z,2020-01-03T19:15:44Z,2020-01-03T19:15:44Z,12,415,212,,2,0
+352,2020-01-02T04:39:56Z,2020-01-02T23:06:29Z,2020-01-02T23:06:29Z,8,67,60,Drive-by: move page initialization routine into *Page.ts,2,0
+354,2020-01-02T21:32:38Z,2020-01-02T23:28:15Z,2020-01-02T23:28:15Z,4,10,0,,2,0
+361,2020-01-03T16:48:07Z,2020-01-03T18:14:51Z,2020-01-03T18:14:51Z,11,77,87,,2,0
+362,2020-01-03T17:05:03Z,2020-01-03T18:07:50Z,2020-01-03T18:07:50Z,4,10,21,,2,0
+368,2020-01-03T19:50:41Z,2020-01-03T20:59:28Z,2020-01-03T20:59:28Z,2,40,29,This counters Firefox not cancelling existing requests on navigation.,2,0
+370,2020-01-03T21:24:57Z,2020-01-03T22:42:19Z,2020-01-03T22:42:19Z,5,39,8,,2,0
+371,2020-01-03T21:49:21Z,,2020-01-06T17:00:49Z,3,18,4,,3,2
+373,2020-01-03T22:24:19Z,2020-01-03T23:39:02Z,2020-01-03T23:39:02Z,2,5,22,This is possible because of #316,3,1
+375,2020-01-03T23:20:39Z,2020-01-06T17:06:10Z,2020-01-06T17:06:10Z,2,223,54,yury-s/WebKit@db770d4,3,2
+376,2020-01-04T00:23:17Z,2020-01-04T18:12:41Z,2020-01-04T18:12:41Z,3,22,42,,2,0
+377,2020-01-05T00:48:52Z,2020-01-05T22:39:17Z,2020-01-05T22:39:17Z,9,15,28,,2,0
+382,2020-01-06T18:18:25Z,2020-01-06T21:16:57Z,2020-01-06T21:16:57Z,6,63,20,This also replaces isIntersectingViewport with visibleRatio for more flexibility.,2,0
+387,2020-01-06T22:03:46Z,2020-01-07T00:31:38Z,2020-01-07T00:31:38Z,3,4,2,,2,0
+388,2020-01-06T22:42:09Z,2020-01-07T00:32:30Z,2020-01-07T00:32:30Z,2,25,11,"Passing objectId that represents a DOM Node into getFullAxTree will return foundObject: true on an AXNode who's DOM node matches the objectId.
+This will enable the root option in playwright's accessibility.snapshot()",2,0
+389,2020-01-06T23:15:13Z,2020-01-07T02:22:36Z,2020-01-07T02:22:36Z,29,608,76,,3,1
+392,2020-01-07T01:11:06Z,2020-01-07T19:55:25Z,2020-01-07T19:55:25Z,30,369,160,,2,0
+393,2020-01-07T01:14:46Z,2020-01-07T17:50:46Z,2020-01-07T17:50:46Z,2,40,54,yury-s/WebKit@fa642b5,2,0
+394,2020-01-07T01:24:39Z,2020-01-07T18:39:02Z,2020-01-07T18:39:02Z,6,265,194,,2,0
+395,2020-01-07T02:15:44Z,2020-01-08T21:57:28Z,2020-01-08T21:57:29Z,2,96,3,"gtk: JoelEinbinder/webkit@0482118
+mac: JoelEinbinder/webkit@b2a3c79",3,2
+396,2020-01-07T02:35:33Z,2020-01-07T17:53:34Z,2020-01-07T17:53:34Z,1,1,1,was breaking the lint,2,0
+398,2020-01-07T18:15:57Z,2020-01-08T23:30:13Z,2020-01-08T23:30:13Z,1,7,2,,2,0
+400,2020-01-07T18:54:58Z,2020-01-07T20:59:02Z,2020-01-07T20:59:02Z,19,351,199,,2,0
+402,2020-01-07T19:16:59Z,2020-01-07T20:41:38Z,2020-01-07T20:41:38Z,3,7,7,,2,0
+417,2020-01-08T00:46:20Z,2020-01-08T22:02:53Z,2020-01-08T22:02:54Z,7,100,104,,2,0
+420,2020-01-08T02:01:52Z,2020-01-08T22:04:34Z,2020-01-08T22:04:34Z,7,40,36,,2,0
+421,2020-01-08T04:36:38Z,2020-01-08T16:56:59Z,2020-01-08T16:56:59Z,2,92,15,pavelfeldman/WebKit@d574ca4,2,0
+423,2020-01-08T18:18:33Z,2020-01-08T22:35:11Z,2020-01-08T22:35:11Z,2,249,82,"pavelfeldman/WebKit@377bcca
+pavelfeldman/WebKit@75c5628",3,0
+425,2020-01-08T18:59:39Z,2020-01-08T21:52:12Z,2020-01-08T21:52:12Z,1,1,1,I made a mistake while publishing after #414 :(,2,0
+426,2020-01-08T19:07:38Z,2020-01-08T21:55:39Z,2020-01-08T21:55:39Z,10,105,97,,2,0
+437,2020-01-09T01:37:55Z,2020-01-09T19:02:55Z,2020-01-09T19:02:55Z,7,95,132,This allows to remove WKTargetSession and use WKSession instead.,2,0
+439,2020-01-09T06:14:47Z,2020-01-09T21:36:35Z,2020-01-09T21:36:35Z,2,154,29,pavelfeldman/WebKit@df0c6f2,2,0
+440,2020-01-09T06:30:05Z,2020-01-10T01:06:07Z,2020-01-10T01:06:07Z,4,23,15,,2,1
+441,2020-01-09T12:26:19Z,2020-01-09T16:37:19Z,2020-01-09T16:37:19Z,1,8,6,"Whenever test runner crashes due to UnhandledPromiseRejection, the
+related error should be run through ""sourcemap decoding"".",2,0
+443,2020-01-09T18:57:36Z,2020-01-09T22:49:23Z,2020-01-09T22:49:23Z,9,523,360,,3,3
+444,2020-01-09T20:22:30Z,2020-01-10T00:41:57Z,2020-01-10T00:41:57Z,2,34,29,"gtk_window_resize is asynchronous. Previously we called it, and then waited for the drawing area update. But this was racey if something else would trigger an update, such as setting fixedLayout. This patch makes everything synchronous, by immediately calling setSize on the WebPageProxy before resizing the window with gtk.
+In theory this might still have a race if you try to resize the window smaller than the smallest size allowed by gtk, but I'd argue that that is undefined behavior.
+JoelEinbinder/webkit@632339f
+JoelEinbinder/webkit@74c1c6a",2,1
+445,2020-01-09T21:28:15Z,2020-01-09T23:14:24Z,2020-01-09T23:14:24Z,2,53,19,"JoelEinbinder/webkit@e1f51d2
+This is the webkit equivalent of #388. It will enable the root option in page.accessibility.snapshot().",2,0
+449,2020-01-10T01:32:21Z,2020-01-10T18:53:35Z,2020-01-10T18:53:35Z,2,183,27,yury-s/WebKit@bba3645,2,0
+450,2020-01-10T01:37:44Z,,2020-01-23T18:39:40Z,11,198,72,,2,1
+451,2020-01-10T12:54:58Z,2020-01-10T18:50:03Z,2020-01-10T18:50:03Z,3,45,46,"Review URL: aslushnikov/juggler@c3a577c
+With this roll, Firefox has DocumentChannel enabled by default in Desktop Firefox:
+
+https://phabricator.services.mozilla.com/D57898
+
+DocumentChannel, unlike nsIHttpChannel, doesn't have a channelId that we use to attribute navigation requests (see #249).
+The feature has to be disabled for now in PlayWright with the
+browser.tabs.documentchannel pref until we figure how to support it.",2,0
+452,2020-01-10T13:08:35Z,2020-01-10T18:54:25Z,2020-01-10T18:54:25Z,3,4,5,This depends on #451,3,0
+454,2020-01-10T20:34:02Z,2020-01-10T23:16:07Z,2020-01-10T23:16:07Z,3,3,5,,2,0
+455,2020-01-10T21:49:03Z,2020-01-11T00:03:11Z,2020-01-11T00:03:11Z,22,273,163,,2,1
+456,2020-01-10T23:17:19Z,2020-01-11T01:25:29Z,2020-01-11T01:25:29Z,5,68,18,,2,0
+460,2020-01-11T02:28:51Z,2020-01-11T05:20:59Z,2020-01-11T05:20:59Z,2,15,4,"JoelEinbinder/webkit@f7d6b35
+On Mac, we build mouse events via native events. So we have to translate from protocol/webkit modifier flags to NSEvent modifier flags.",2,0
+461,2020-01-11T06:15:01Z,2020-01-11T16:37:51Z,2020-01-11T16:37:51Z,3,18,4,,2,0
+463,2020-01-13T01:53:16Z,2020-01-13T21:32:45Z,2020-01-13T21:32:45Z,13,183,307,... and a handful of drive-by s,2,0
+464,2020-01-13T06:23:18Z,2020-01-13T17:14:29Z,2020-01-13T17:14:29Z,8,33,5,,2,0
+466,2020-01-13T18:46:59Z,2020-01-13T21:33:26Z,2020-01-13T21:33:26Z,45,346,277,,2,0
+470,2020-01-13T22:10:53Z,2020-01-13T23:36:23Z,2020-01-13T23:36:23Z,2,9,1,,2,0
+471,2020-01-13T22:27:55Z,2020-01-13T23:39:13Z,2020-01-13T23:39:13Z,3,39,14,,2,0
+472,2020-01-13T22:40:36Z,2020-01-14T00:29:08Z,2020-01-14T00:29:08Z,2,53,11,,2,0
+473,2020-01-13T23:26:04Z,2020-01-14T00:35:08Z,2020-01-14T00:35:08Z,2,444,73,yury-s/WebKit@87e0b39,2,0
+475,2020-01-13T23:32:26Z,2020-01-14T01:39:44Z,2020-01-14T01:39:44Z,4,135,2,,2,0
+476,2020-01-14T00:14:26Z,2020-01-14T01:15:43Z,2020-01-14T01:15:43Z,2,4,4,"readOnlyValue() was confusingly only the aria-readonly value. The real readonly value was determined by reading the canSetValueAttribute and enabled states.
+JoelEinbinder/webkit@57d6598",2,0
+481,2020-01-14T02:30:02Z,,2020-02-28T20:14:22Z,1,33,0,,3,2
+482,2020-01-14T04:25:49Z,2020-01-14T06:08:35Z,2020-01-14T06:08:35Z,16,110,105,,2,0
+486,2020-01-14T17:51:27Z,2020-01-14T19:46:09Z,2020-01-14T19:46:09Z,8,43,17,,2,0
+489,2020-01-14T21:49:05Z,2020-01-16T17:32:59Z,2020-01-16T17:32:59Z,4,23,5,,2,0
+491,2020-01-14T21:59:37Z,2020-01-14T23:34:44Z,2020-01-14T23:34:44Z,1,14,2,This is similar to chromium and firefox implementations.,2,0
+495,2020-01-14T23:39:46Z,2020-01-15T00:54:51Z,2020-01-15T00:54:51Z,9,229,201,"This adds support for root in accessibility.snapshot
+firefox role names are now normalized to aria roles where they match
+webkit roledescriptions are less noisey on mac
+webkit mac/linux results are further defined
+interestingOnly tests are replaced by one that doesn't rely on undefined behavior
+the main accessibility test was split up a bit for more refined testing.",2,0
+496,2020-01-15T01:14:29Z,2020-01-16T06:05:28Z,2020-01-16T06:05:28Z,1,2,1,These flake on the bots in firefox. Running 100 times and in parallel to replicate locally. Fails with either Missing injected script for given executionContextId in webkit or Navigation to http://localhost:8907/redirectloop1.html was canceled by another one in firefox.,3,1
+497,2020-01-15T06:12:13Z,2020-01-15T18:48:28Z,2020-01-15T18:48:28Z,2,867,42,"pavelfeldman/WebKit@9132162
+pavelfeldman/WebKit@3568283",2,0
+500,2020-01-16T01:06:52Z,2020-01-16T19:52:23Z,2020-01-16T19:52:23Z,2,182,81,dgozman/gecko-dev@211f1f1,2,0
+504,2020-01-16T05:05:24Z,2020-01-16T20:49:18Z,2020-01-16T20:49:18Z,2,73,66,"pavelfeldman/WebKit@0036a05
+pavelfeldman/WebKit@c2692a7
+pavelfeldman/WebKit@7a92080",2,0
+507,2020-01-16T17:21:01Z,2020-01-16T20:57:29Z,2020-01-16T20:57:29Z,8,31,18,,2,0
+508,2020-01-16T17:59:16Z,2020-01-16T19:13:00Z,2020-01-16T19:13:00Z,2,17,9,yury-s/WebKit@f541ffd,2,0
+510,2020-01-16T21:04:50Z,2020-01-16T22:11:34Z,2020-01-16T22:11:34Z,2,42,25,dgozman/gecko-dev@96d5585,2,0
+511,2020-01-16T21:06:54Z,2020-01-16T23:24:37Z,2020-01-16T23:24:37Z,6,33,24,Depends on #510.,2,0
+512,2020-01-16T22:23:30Z,2020-01-17T00:58:03Z,2020-01-17T00:58:03Z,5,31,31,,2,0
+514,2020-01-16T22:54:50Z,2020-01-17T01:03:33Z,2020-01-17T01:03:33Z,3,5,4,,2,0
+520,2020-01-17T06:10:46Z,,2020-01-19T01:47:33Z,2,3109,163,pavelfeldman/WebKit@515af68,2,1
+523,2020-01-17T18:14:13Z,2020-01-17T22:02:58Z,2020-01-17T22:02:58Z,4,53,26,,2,0
+525,2020-01-17T20:45:22Z,2020-01-21T20:22:18Z,2020-01-21T20:22:18Z,21,323,55,"Npm Packages
+playwright-chromium
+
+installs chromium
+exposes chromium api from playwright-core
+
+playwright-firefox
+
+installs firefox
+exposes firefox api from playwright-core
+
+playwright-webkit
+
+installs webkit
+exposes webkit api from playwright-core
+
+playwright-core
+
+downloads no browsers
+contains all of the js code
+designed for internal use
+
+playwright
+
+downloads all browsers
+exposes the entire api from playwright-core
+
+github
+
+downloads all browsers, generates protocol definitions, builds typescript
+exposes ""playwright-core"" api",3,5
+526,2020-01-17T22:13:35Z,2020-01-18T00:40:31Z,2020-01-18T00:40:31Z,2,363,78,dgozman/gecko-dev@a0549a0,2,0
+527,2020-01-17T22:20:15Z,2020-01-17T23:33:55Z,2020-01-17T23:33:55Z,3,103,28,,2,0
+532,2020-01-18T00:46:03Z,2020-01-18T01:51:03Z,2020-01-18T01:51:03Z,4,74,17,,2,0
+535,2020-01-18T01:27:50Z,2020-01-18T02:46:46Z,2020-01-18T02:46:46Z,2,12,2,,2,0
+540,2020-01-18T21:01:25Z,2020-01-20T16:54:04Z,2020-01-20T16:54:04Z,3,188,180,pavelfeldman/WebKit@198b404,2,1
+542,2020-01-20T03:05:41Z,2020-01-21T19:48:49Z,2020-01-21T19:48:49Z,12,354,19,,2,0
+543,2020-01-20T03:08:54Z,2020-01-21T18:16:57Z,2020-01-21T18:16:57Z,2,57,18,"pavelfeldman/WebKit@afce329
+pavelfeldman/WebKit@c72d4eb",2,0
+544,2020-01-20T03:57:41Z,2020-01-20T19:30:23Z,2020-01-20T19:30:23Z,5,8,45,,2,0
+545,2020-01-20T21:28:24Z,2020-01-21T18:41:05Z,2020-01-21T18:41:05Z,3,65,49,,2,0
+555,2020-01-22T01:28:31Z,,2020-01-22T21:24:31Z,3,81,39,Copied from #555,2,0
+556,2020-01-22T01:47:09Z,,2020-01-23T23:51:30Z,5,39,31,I wasn't actually able to test this completely because my WPE build is broken for unrelated reasons. But it should work.,2,1
+562,2020-01-22T20:31:16Z,2020-01-24T01:45:32Z,2020-01-24T01:45:32Z,18,182,153,,2,0
+567,2020-01-22T22:26:51Z,2020-01-23T00:47:57Z,2020-01-23T00:47:57Z,1,0,10,,2,0
+570,2020-01-23T00:03:31Z,2020-01-23T01:42:11Z,2020-01-23T01:42:12Z,16,246,123,,3,0
+571,2020-01-23T00:45:12Z,2020-01-23T18:38:29Z,2020-01-23T18:38:29Z,5,42,12,,2,0
+574,2020-01-23T02:01:24Z,2020-01-23T16:51:43Z,2020-01-23T16:51:43Z,11,28,57,,2,0
+579,2020-01-23T05:54:22Z,2020-01-23T23:56:38Z,2020-01-23T23:56:38Z,2,95,57,"pavelfeldman/WebKit@453c8a3
+pavelfeldman/WebKit@229b22f",2,0
+580,2020-01-23T06:43:24Z,2020-01-23T16:50:38Z,2020-01-23T16:50:38Z,1,1,1,,2,0
+582,2020-01-23T07:08:27Z,,2020-01-24T00:14:29Z,1,1,1,"This change edits the suggested documentation message so that it points to a valid URL.
+It makes sense that eventually we should write a troubleshooting doc. In the meantime, I think this is a reasonable alternative. Happy to point it somewhere else if it's desired.",4,3
+593,2020-01-23T17:18:20Z,2020-01-23T18:33:06Z,2020-01-23T18:33:06Z,1,6,1,,2,0
+595,2020-01-23T17:25:35Z,2020-01-23T18:36:14Z,2020-01-23T18:36:14Z,1,21,0,,2,0
+599,2020-01-23T18:25:05Z,2020-01-23T22:40:37Z,2020-01-23T22:40:37Z,23,263,391,,2,0
+602,2020-01-23T19:53:36Z,2020-01-23T22:58:31Z,2020-01-23T22:58:31Z,3,36,7,This is a follow-up fix for #567,2,0
+604,2020-01-23T20:37:52Z,2020-01-23T23:00:31Z,2020-01-23T23:00:31Z,1,1,1,This should make closing firefox a lot more stable.,2,0
+605,2020-01-23T21:05:57Z,2020-01-23T23:54:10Z,2020-01-23T23:54:10Z,2,295,1,"This is mostly copied from Puppeteer's troubleshooting.md, with everything under a Chromium header and a few tweaks to make things make sense for Playwright.
+We can add other browsers to this document once we figure out how to troubleshoot them.
+Fixes #583",3,0
+607,2020-01-23T21:15:43Z,,2020-01-23T23:32:32Z,1,7,3,"This test was not awaiting turning off interception, and sometimes throwing unhandled promise rejections in later tests.",2,0
+616,2020-01-24T00:33:33Z,2020-01-24T19:54:50Z,2020-01-24T19:54:50Z,5,39,31,"Second try at #556. Uses absolute paths for the environment variables so that WPEDependencies builds properly. Switches from WebKitBuildWPE to WebKitBuild/WPE to avoid the need to change the .gitignore.
+My computer takes a long time to build, but it appears to be working.",2,1
+621,2020-01-24T04:48:47Z,2020-01-24T19:12:57Z,2020-01-24T19:12:57Z,10,135,353,,2,0
+623,2020-01-24T08:53:01Z,2020-01-24T17:04:54Z,2020-01-24T17:04:54Z,2,6,1,"closes #622
+drive-by to fix the doc gen on windows.",2,0
+628,2020-01-24T16:27:09Z,2020-01-25T01:12:02Z,2020-01-25T01:12:02Z,1,1,0,"Resolves #627
+I tested this works locally with npm link.",3,0
+631,2020-01-24T17:54:32Z,2020-01-24T20:19:17Z,2020-01-24T20:19:17Z,1,18,11,,2,0
+636,2020-01-24T20:14:26Z,2020-01-24T22:49:48Z,2020-01-24T22:49:48Z,13,341,408,,3,0
+640,2020-01-24T22:54:46Z,2020-01-24T23:56:42Z,2020-01-24T23:56:42Z,2,11,3,,2,0
+646,2020-01-25T00:34:33Z,2020-01-25T01:42:24Z,2020-01-25T01:42:24Z,3,4,4,Fixes #560,2,0
+648,2020-01-25T01:18:22Z,,2020-01-27T20:17:46Z,1,1,1,,3,2
+649,2020-01-25T01:28:44Z,2020-01-27T16:59:33Z,2020-01-27T16:59:33Z,2,23,3,yury-s/WebKit@dc89f86,2,0
+650,2020-01-25T02:02:34Z,2020-01-28T21:07:54Z,2020-01-28T21:07:54Z,7,150,47,,2,2
+655,2020-01-26T15:20:24Z,2020-01-28T21:26:27Z,2020-01-28T21:26:27Z,1,30,0,"Hi ✋,
+First of all, thanks a ton for all the work done on this awesome project!
+I was looking at this issue #13 and immediately thought about giving the project a try and see how clicking on an CSS-animated element will behave. I have some solid experience with other e2e frameworks and clicking on an animated element is one of the most annoying thing to tackle.
+It happens that this is already handled out of the box by playwright! I made a quick proof test to validate it, hence I created this small PR.
+N.B.: I'd really love to contribute on fixing the aforementioned issue. Not sure though to fully get how the project wants to scope it. What I see as an issue is having e.g. a target you want to click on, hidden by some other animated div and then finally clickable.",3,3
+664,2020-01-27T08:53:18Z,2020-01-27T16:27:46Z,2020-01-27T16:27:46Z,1,12,2,"Follow-up to #641 that
+adds API entries.",2,0
+665,2020-01-27T11:42:17Z,2020-01-27T16:26:45Z,2020-01-27T16:26:46Z,1,1,1,"Just a small grammar change.
+The ""single tab or extension background page in Chromium"" could make you think that the Page is a Chromium class.",2,0
+671,2020-01-27T16:24:24Z,2020-01-27T17:37:33Z,2020-01-27T17:37:33Z,1,3,1,Addresses #669,2,0
+676,2020-01-27T18:02:53Z,2020-01-27T19:41:58Z,2020-01-27T19:41:58Z,2,24,83,yury-s/WebKit@16cf942,2,0
+678,2020-01-27T19:38:21Z,2020-01-29T02:04:51Z,2020-01-29T02:04:51Z,12,122,25,"Mac will come in a follow up!
+As a drive-by, removed npm build everywhere, because npm install already runs build.",4,1
+679,2020-01-27T19:48:28Z,2020-01-28T00:51:53Z,2020-01-28T00:51:53Z,6,51,49,,2,0
+690,2020-01-27T22:48:40Z,2020-01-28T21:05:39Z,2020-01-28T21:05:39Z,4,27,11,Depends on #689.,3,1
+693,2020-01-28T00:57:36Z,2020-01-28T19:07:36Z,2020-01-28T19:07:36Z,2,10,5,,2,1
+694,2020-01-28T01:07:55Z,2020-01-29T19:57:23Z,2020-01-29T19:57:23Z,2,41,1,dgozman/WebKit@549289d,2,2
+701,2020-01-28T05:02:45Z,2020-01-28T19:20:34Z,2020-01-28T19:20:35Z,9,188,29,Fixes #686.,2,0
+702,2020-01-28T05:52:10Z,2020-01-28T07:26:35Z,2020-01-28T07:26:35Z,2,43,22,pavelfeldman/WebKit@70efbd9,2,0
+703,2020-01-28T05:54:25Z,2020-01-28T22:29:46Z,2020-01-28T22:29:46Z,7,55,10,,2,0
+707,2020-01-28T08:37:51Z,2020-01-28T15:52:43Z,2020-01-28T15:52:43Z,3,3,3,Fixes a tiny typo packagage -> package,3,1
+708,2020-01-28T10:32:35Z,2020-01-28T18:39:54Z,2020-01-28T18:39:54Z,1,40,0,"Background
+related to #606
+How has this been tested?
+
+Clone the repository including this patch
+Create a sample project
+Install local module as npm package with npm install -S /absolute-path/to/playwright
+package.json should be like this:
+""dependencies"": {
+    ""playwright-core"": ""file:/path/to/playwright""
+}
+
+Create a main.js with following code:
+const devices = require(""playwright-core"").devices
+
+const deviceMap = new Map();
+for (const device of devices) {
+  deviceMap.set(device.name, device);
+}
+
+for (const name of deviceMap.keys()) {
+  if (name.endsWith("" landscape"")) continue;
+  const landscapeName = `${name} landscape`;
+  if (!deviceMap.has(landscapeName)) {
+    const landscapeDevice = deviceMap.get(name);
+    const {width, height} = landscapeDevice.viewport;
+    landscapeDevice.name = landscapeName;
+    landscapeDevice.viewport.width = height;
+    landscapeDevice.viewport.height = width;
+    console.log(`Missing device for ""${landscapeName}"", expected: ${JSON.stringify(landscapeDevice,     null, 2)}`);
+  }
+}
+
+It should not output log.
+
+Question
+
+I think it has a spec it to to avoid same error. What do you think?",3,2
+709,2020-01-28T11:05:26Z,2020-01-28T15:54:42Z,2020-01-28T15:54:42Z,1,1,1,requires browser object instead of page to launch the cdp session.,3,0
+729,2020-01-29T00:27:53Z,,2020-01-29T22:09:54Z,3,1516,1589,,1,0
+734,2020-01-29T02:38:21Z,2020-02-12T20:30:48Z,2020-02-12T20:30:48Z,3,96,0,,2,1
+736,2020-01-29T08:36:08Z,2020-01-30T03:13:45Z,2020-01-30T03:13:45Z,2,6,6,,2,0
+737,2020-01-29T08:38:22Z,2020-01-29T22:46:06Z,2020-01-29T22:46:06Z,3,1543,1660,"pavelfeldman/WebKit@3033a40
+pavelfeldman/WebKit@3941bf4",2,0
+740,2020-01-29T11:22:03Z,2020-01-29T17:40:14Z,2020-01-29T17:40:14Z,1,1,1,Just fix typo in zsSelectorEngine,2,0
+741,2020-01-29T12:04:01Z,2020-01-29T17:39:44Z,2020-01-29T17:39:44Z,1,1,1,Just a minor it name change.,2,0
+744,2020-01-29T16:26:11Z,,2020-01-30T02:57:22Z,2,19,3,,2,1
+748,2020-01-29T19:07:49Z,2020-01-29T20:51:15Z,2020-01-29T20:51:15Z,13,257,200,,2,0
+752,2020-01-29T22:51:29Z,2020-01-30T17:08:23Z,2020-01-30T17:08:23Z,2,149,9,Tackles #688.,3,0
+755,2020-01-30T00:47:38Z,2020-01-30T02:56:11Z,2020-01-30T02:56:11Z,2,66,3,"Should fix some flaky accessibility tests on Firefox for mac.
+JoelEinbinder/juggler@7711b0e",2,0
+758,2020-01-30T11:26:17Z,2020-01-30T20:07:08Z,2020-01-30T20:07:08Z,1,2,14,"Tell me if this makes sense.
+Describe plainttext contenteditable is not running on Firefox and Webkit. Therefore we shouldn't need those specific node values.",3,1
+760,2020-01-30T17:45:19Z,2020-01-30T18:50:25Z,2020-01-30T18:50:25Z,1,1,1,,2,0
+770,2020-01-30T22:24:34Z,2020-01-31T01:30:47Z,2020-01-31T01:30:47Z,5,39,32,,3,0
+775,2020-01-31T00:17:12Z,2020-01-31T01:24:23Z,2020-01-31T01:24:23Z,1,1,1,This should fix the webkit linux failures. Windows still crashes a lot.,2,0
+779,2020-01-31T06:11:43Z,,2020-02-03T23:06:44Z,1,55,6,image credits to @pavelfeldman :),3,2
+781,2020-01-31T07:07:11Z,2020-01-31T18:28:32Z,2020-01-31T18:28:32Z,2,60,9,pavelfeldman/WebKit@e3ba7f0,2,0
+789,2020-01-31T21:33:03Z,2020-02-01T01:23:18Z,2020-02-01T01:23:18Z,1,72,100,,2,0
+791,2020-01-31T23:42:53Z,2020-02-01T01:08:49Z,2020-02-01T01:08:49Z,1,1,1,Tests in that describe are about clearCookies,2,0
+797,2020-02-01T06:23:38Z,2020-02-02T22:20:20Z,2020-02-02T22:20:20Z,2,20,1,"This was causing crashes in Windows, but I think it can happen on any platform.
+JoelEinbinder/webkit@d60184b",2,0
+801,2020-02-02T07:15:57Z,2020-02-03T20:03:16Z,2020-02-03T20:03:16Z,2,51,19,pavelfeldman/WebKit@ea35489,2,0
+806,2020-02-02T20:42:13Z,2020-02-02T22:18:29Z,2020-02-02T22:18:29Z,1,1,1,That link is broken.,2,0
+809,2020-02-03T06:11:59Z,2020-02-03T22:23:25Z,2020-02-03T22:23:25Z,10,192,192,,4,2
+818,2020-02-03T19:59:37Z,2020-02-03T22:24:03Z,2020-02-03T22:24:04Z,3,21,3,"This patch changes top-level exports for the vendor-specific
+packages:
+
+playwright-chromium: now exports an object with a single chromium
+field
+playwright-wekbit: now exports an object with a single webkit
+playwright-firefox: now exports an object with a single firefox
+
+Fixes #814",2,1
+819,2020-02-03T20:59:54Z,2020-02-03T23:50:45Z,2020-02-03T23:50:46Z,2,32,5,Fixes #811,2,0
+825,2020-02-04T00:53:01Z,2020-02-05T03:39:53Z,2020-02-05T03:39:53Z,3,11,1,Fixes #803,3,0
+826,2020-02-04T01:43:35Z,2020-02-04T22:39:11Z,2020-02-04T22:39:11Z,5,192,18,,3,0
+828,2020-02-04T07:34:59Z,,2020-02-11T21:33:25Z,7,129,303,,2,0
+832,2020-02-04T22:21:22Z,2020-02-05T03:36:47Z,2020-02-05T03:36:47Z,3,9,10,,3,0
+833,2020-02-04T22:24:55Z,2020-02-05T03:34:55Z,2020-02-05T03:34:55Z,1,6,5,"We are not planning to change this in the near future, so let's expect current behavior instead of skipping the test.",2,0
+834,2020-02-05T00:37:32Z,2020-02-11T19:33:49Z,2020-02-11T19:33:49Z,6,40,4,Fixes #823,3,1
+835,2020-02-05T00:54:28Z,2020-02-05T03:32:23Z,2020-02-05T03:32:23Z,1,1,1,,3,0
+836,2020-02-05T01:07:37Z,2020-02-05T03:31:58Z,2020-02-05T03:31:58Z,3,5,3,error.stack is supposed to have error message as the first line.,2,0
+838,2020-02-05T01:50:32Z,2020-02-05T03:41:39Z,2020-02-05T03:41:39Z,19,161,290,,2,0
+840,2020-02-05T05:41:11Z,2020-02-05T20:41:56Z,2020-02-05T20:41:56Z,31,479,422,,2,0
+841,2020-02-05T07:51:11Z,2020-02-06T22:14:46Z,2020-02-06T22:14:46Z,2,58,6,"Fixes what I consider to be a bug in our pipe, and the same one in the non-standard ws module. Our protocol messages are I/O events, and therefore they should each be executed in their own task. I can not detect any performance overhead. Micro benchmarks suggest it is it equivalent in cost to a single Promise.resolve per protocol message.
+I think there is a lot of hacks we can remove once this is landed, but I'll fix that separately in case this has any side effects.",3,4
+847,2020-02-05T18:23:34Z,2020-02-05T23:17:13Z,2020-02-05T23:17:13Z,2,90,21,dgozman/WebKit@df17c8d,2,0
+848,2020-02-05T18:24:01Z,2020-02-05T22:57:30Z,2020-02-05T22:57:31Z,2,72,12,dgozman/gecko-dev@1cfb6fd,2,0
+850,2020-02-05T22:48:36Z,2020-02-06T00:08:28Z,2020-02-06T00:08:29Z,1,4,3,,2,0
+863,2020-02-06T04:24:53Z,2020-02-06T20:41:44Z,2020-02-06T20:41:44Z,15,236,163,"implements webkit multiplex
+makes close() disconnect in case of remote browser
+isolates browser contexts of the connected browsers",3,0
+866,2020-02-06T06:13:17Z,2020-02-06T21:41:26Z,2020-02-06T21:41:26Z,2,35,27,,2,0
+867,2020-02-06T07:35:42Z,2020-02-06T23:51:04Z,2020-02-06T23:51:04Z,1,2,0,,3,0
+871,2020-02-06T19:22:05Z,2020-02-07T00:07:53Z,2020-02-07T00:07:53Z,2,97,52,dgozman/gecko-dev@153a95c,2,0
+877,2020-02-06T23:46:12Z,2020-02-07T00:55:04Z,2020-02-07T00:55:04Z,3,197,183,Review URL: aslushnikov/WebKit@6a862b3,2,0
+878,2020-02-07T00:02:50Z,2020-02-07T03:02:56Z,2020-02-07T03:02:56Z,14,218,181,"We now only allow to resize the page, leaving isMobile and deviceScaleFactor as browser context options.",2,0
+882,2020-02-07T03:11:37Z,2020-02-11T02:35:48Z,2020-02-11T02:35:48Z,9,284,262,"Chromium flaked some tests on the bots, and I ended up refactoring all of our navigation code. ptal",2,0
+883,2020-02-07T04:19:08Z,,2020-02-27T05:33:41Z,1,101,70,"Restructures the readme to lead with value prop, adds a new example to show more capabilities, and minor word smithing.",3,2
+892,2020-02-07T16:31:54Z,2020-02-07T18:00:35Z,2020-02-07T18:00:35Z,2,6,3,,2,0
+893,2020-02-07T16:50:55Z,2020-02-11T18:30:09Z,2020-02-11T18:30:10Z,7,53,75,,2,0
+901,2020-02-08T00:00:23Z,,2020-02-14T02:23:22Z,1,7,1,"This works in headful webkit, but only because the browser steals my actual focus and I'm not fast enough to click away before it passes.
+In the future, we could use Emulation.setFocusEmulationEnabled to allow the user to control this. But for now, it is important that all of our headless modes think the page has focus.",3,1
+903,2020-02-08T00:19:55Z,,2020-02-12T02:15:39Z,1,4,0,,2,2
+906,2020-02-08T06:31:12Z,2020-02-10T18:41:46Z,2020-02-10T18:41:46Z,22,123,117,"rename .browserContext(s) to .context(s)
+remove url from newPage
+make browser.newPage own created context",2,0
+913,2020-02-09T18:48:30Z,2020-02-10T17:15:16Z,2020-02-10T17:15:17Z,3,104,111,Fixes #887,2,0
+915,2020-02-10T08:44:28Z,2020-02-10T21:20:14Z,2020-02-10T21:20:14Z,45,246,6,"I enabled vscode autocomplete in our test files. Typechecking had too many errors to enable, but it caught some real bugs that I will fix in a follow up.
+This patch contains:
+
+test/types.d.ts - d.ts file for our test runner.
+test/tsconfig.json - typescript project for our tests.
+JSDoc header in all specs to mark the describe as a TestSuite
+Drive-by fix of a launcher test that was using if instead of it
+Some drive-by fixes of unimpactful typos in tests.",3,2
+918,2020-02-10T20:35:59Z,2020-02-11T18:27:20Z,2020-02-11T18:27:20Z,10,52,12,,3,0
+928,2020-02-11T17:38:05Z,2020-02-11T19:32:38Z,2020-02-11T19:32:38Z,2,254,249,"introduce BrowserContext abstraction;
+attach to all pages from owned browser contexts on creation;
+move page emulation to PageTarget/FrameTree, away from sessions and agents;
+remove explicit enable methods, replaced by Page.ready event;
+pass browser context options on creation.
+
+dgozman/gecko-dev@c73fb44",2,0
+931,2020-02-11T19:52:50Z,2020-02-12T02:52:02Z,2020-02-12T02:52:02Z,9,218,151,,2,0
+932,2020-02-11T21:32:12Z,2020-02-11T22:51:10Z,2020-02-11T22:51:10Z,5,46,78,,2,0
+934,2020-02-11T22:43:06Z,2020-02-14T19:55:34Z,2020-02-14T19:55:35Z,8,236,63,,2,0
+939,2020-02-12T01:01:23Z,2020-02-13T18:51:18Z,2020-02-13T18:51:18Z,8,19,18,,3,1
+941,2020-02-12T01:40:14Z,2020-02-12T03:10:58Z,2020-02-12T03:10:58Z,3,8,2,,3,0
+951,2020-02-12T19:08:39Z,2020-02-12T21:02:28Z,2020-02-12T21:02:28Z,4,54,2,,3,0
+963,2020-02-12T23:38:49Z,2020-02-13T06:35:07Z,2020-02-13T06:35:07Z,8,37,15,"Similarly to how we handle stdio, this captures all protocol messages and logs them when a test fails. Great for when debugging tests in parallel or for bot failures!
+Currently I made DEBUGP=true turn this on locally, and turned it on always for the CI. Open to
+suggestions for a better environment variable. I would turn it on by default always, like the stdio logging, but it adds an enormous amount of noise to our error messages.",2,0
+970,2020-02-13T01:33:57Z,2020-02-13T02:43:57Z,2020-02-13T02:43:57Z,2,10,6,"Otherwise we can get stale quads. Causes failures of ""ElementHandle.boundingBox should work with page scale"" test.
+JoelEinbinder/webkit@6835789",2,1
+971,2020-02-13T01:36:36Z,2020-02-13T05:25:18Z,2020-02-13T05:25:18Z,2,5,17,,2,0
+972,2020-02-13T02:19:37Z,2020-02-13T20:24:18Z,2020-02-13T20:24:18Z,9,58,12,,2,0
+973,2020-02-13T03:11:25Z,2020-02-13T19:47:53Z,2020-02-13T19:47:53Z,3,163,153,,3,2
+976,2020-02-13T06:22:21Z,2020-02-14T01:39:15Z,2020-02-14T01:39:15Z,8,121,154,Fixes #955,3,0
+982,2020-02-13T17:42:24Z,2020-02-13T19:29:14Z,2020-02-13T19:29:14Z,3,59,0,Fixes #979,2,0
+984,2020-02-13T19:53:58Z,2020-02-13T21:19:26Z,2020-02-13T21:19:26Z,7,17,6,,2,0
+985,2020-02-13T20:01:21Z,2020-02-13T21:23:30Z,2020-02-13T21:23:30Z,2,9,7,,2,0
+998,2020-02-14T01:03:00Z,2020-02-14T02:22:15Z,2020-02-14T02:22:15Z,1,1,1,,3,1
+1011,2020-02-14T19:38:39Z,2020-02-19T22:08:30Z,2020-02-19T22:08:30Z,1,28,0,,3,0
+1012,2020-02-14T20:14:57Z,,2020-02-15T00:40:54Z,1,18,18,sidenote: I made the mistake of creating this on a branch in origin -- sorry about that; was trying out GitHub's new cli :(,2,2
+1015,2020-02-14T23:21:20Z,2020-02-15T03:02:17Z,2020-02-15T03:02:18Z,1,80,10,,2,0
+1021,2020-02-15T01:31:48Z,2020-02-15T03:09:52Z,2020-02-15T03:09:52Z,1,1,1,,2,0
+1025,2020-02-15T01:51:29Z,2020-02-15T03:13:09Z,2020-02-15T03:13:09Z,7,11,11,,2,1
+1028,2020-02-15T04:51:10Z,2020-02-18T17:15:48Z,2020-02-18T17:15:48Z,2,5,2,Fixes #924,2,0
+1029,2020-02-15T05:30:32Z,2020-02-25T15:09:28Z,2020-02-25T15:09:28Z,2,28,7,Partially addresses #1002,3,1
+1034,2020-02-15T15:25:51Z,2020-02-15T18:07:42Z,2020-02-15T18:07:42Z,1,1,0,,2,0
+1047,2020-02-17T12:06:25Z,2020-02-17T22:35:12Z,2020-02-17T22:35:12Z,1,1,1,"Docs fix: the return type of browserType.launchPersistent is BrowserContext, not  BrowserServer.",2,0
+1048,2020-02-17T12:50:45Z,2020-02-25T02:32:18Z,2020-02-25T02:32:18Z,5,44,3,"First encountered at jest-playwright repo:
+playwright-community/jest-playwright#38
+Solution based on:
+https://stackoverflow.com/questions/4339288/typeof-for-regexp#comment4724685_4339350",5,11
+1052,2020-02-18T18:11:04Z,2020-02-19T17:34:58Z,2020-02-19T17:34:58Z,8,242,63,,2,0
+1053,2020-02-18T18:56:32Z,2020-02-18T22:30:57Z,2020-02-18T22:30:57Z,1,42,26,,2,3
+1054,2020-02-18T19:22:59Z,2020-02-19T03:57:00Z,2020-02-19T03:57:00Z,3,28,7,,4,3
+1055,2020-02-18T20:00:30Z,2020-02-19T03:58:05Z,2020-02-19T03:58:05Z,1,4,3,"In WebKit, we sometimes get the following:
+
+page starts a navigation in some frame;
+we issue page.goto();
+new navigation commits;
+old page is still alive and cancels the frame navigation;
+while waiting for 'Page.frameNavigated' on the frontend from the new target, we receive 'Browser.provisionalLoadFailed' for the frame navigation from the old target;
+this counts as cancel for the new navigation, although it was clearly a cancellation of some other navigation.
+
+Wasn't able to write a reliable test. Any ideas are welcome! Fixes #1044.",3,2
+1058,2020-02-19T03:38:00Z,2020-02-19T22:26:03Z,2020-02-19T22:26:03Z,1,28,13,"The network idle tests were waiting for requests to appear on the server, but not for playwright to be notified of the request via protocol. They also assumed performance.now would match up with setTimeout times.",2,0
+1066,2020-02-19T21:25:54Z,2020-02-22T14:16:29Z,2020-02-22T14:16:29Z,9,92,100,"Default waitFor: true now waits for element to exist, stop moving and become a hit target in input actions, and only only exist in non-input actions.
+Note that this removes the ability to wait for visible from fill() and select() methods.",2,5
+1068,2020-02-19T22:24:24Z,,2020-02-24T19:52:06Z,6,97,109,Also introduces clear option on fill to let user add to existing value.,4,4
+1069,2020-02-19T23:01:21Z,2020-02-20T00:08:26Z,2020-02-20T00:08:26Z,3,9,50,,2,0
+1070,2020-02-19T23:43:36Z,2020-02-20T23:15:49Z,2020-02-20T23:15:49Z,15,275,176,All tests should clean up their contexts themselves.,2,0
+1071,2020-02-20T00:18:41Z,2020-02-20T02:29:43Z,2020-02-20T02:29:43Z,2,99,4,"See issue #844.
+dgozman/WebKit@9ebd535",2,0
+1073,2020-02-20T19:52:17Z,,2020-02-26T21:48:35Z,2,10,7,dgozman/WebKit@b8cb549,4,0
+1075,2020-02-20T23:24:14Z,2020-02-24T16:53:31Z,2020-02-24T16:53:31Z,4,416,373,"This is in preparation for moving targets to BrowserContext, so that one can work with targets in default context.",2,1
+1076,2020-02-20T23:38:08Z,2020-02-24T16:31:59Z,2020-02-24T16:31:59Z,4,23,29,,2,0
+1077,2020-02-21T05:25:54Z,2020-02-21T06:55:40Z,2020-02-21T06:55:40Z,10,320,193,"This patch re-implements matching and reporting for test runner.
+Among other improvements:
+
+test failures now show a short snippet from test
+test failures now explicitly say what received and what was expected
+expect.toBe() now does text diff when gets strings as input
+expect.toEqual now does object diff
+
+Example output of a failed test:",2,0
+1079,2020-02-21T20:08:48Z,2020-02-21T21:21:46Z,2020-02-21T21:21:46Z,1,3,0,,2,0
+1084,2020-02-23T21:55:06Z,2020-02-24T17:00:54Z,2020-02-24T17:00:54Z,1,1,0,"Hello!
+We love playwright where I work and are slowly starting to use it in a variety of ways.
+I've created a community tutorial that shows users how to use playwright to do some user interactions and assertions for a TypeScript + React project:
+https://github.com/azemetre/playwright-react-typescript-jest-example
+I liked to it in the community section for the docs/showcase.md.",2,0
+1088,2020-02-24T16:49:24Z,2020-02-24T20:07:13Z,2020-02-24T20:07:13Z,3,249,562,pavelfeldman/WebKit@2ed7558,2,0
+1092,2020-02-24T23:05:07Z,2020-02-25T05:12:03Z,2020-02-25T05:12:03Z,7,56,66,,2,0
+1093,2020-02-24T23:59:14Z,2020-02-25T15:06:21Z,2020-02-25T15:06:21Z,4,173,159,,2,0
+1095,2020-02-25T00:27:57Z,2020-02-25T02:25:48Z,2020-02-25T02:25:48Z,2,61,0,"#1094
+The test file comes from mdn: https://developer.mozilla.org/en-US/docs/Web/API/DataTransfer/setData",2,0
+1096,2020-02-25T01:26:49Z,2020-02-25T19:30:29Z,2020-02-25T19:30:29Z,2,14,50,yury-s/WebKit@f5896ee,2,2
+1106,2020-02-25T17:09:46Z,2020-02-25T19:43:18Z,2020-02-25T19:43:18Z,2,3,1,,2,0
+1108,2020-02-25T19:43:24Z,2020-02-26T19:01:47Z,2020-02-26T19:01:47Z,2,3,1,,2,0
+1109,2020-02-25T21:06:08Z,,2020-03-23T17:17:25Z,10,162,89,"Later on, we can validate our api.md against this interface instead of implementation, because typescript should check the interface <-> implementation compatibility for us.",2,0
+1111,2020-02-26T00:06:00Z,2020-02-26T01:24:07Z,2020-02-26T01:24:07Z,2,60,35,dgozman/gecko-dev@3d834ae,2,0
+1116,2020-02-26T01:26:44Z,2020-02-26T20:42:21Z,2020-02-26T20:42:21Z,14,134,30,,2,0
+1119,2020-02-26T05:33:31Z,2020-02-26T19:01:01Z,2020-02-26T19:01:01Z,2,2,1,Fixes #1105,2,0
+1123,2020-02-26T10:50:34Z,2020-02-26T18:58:37Z,2020-02-26T18:58:37Z,1,4,4,Couldn't find any reference to request.respond. Perhaps it's meant to be request.fulfill?,2,0
+1132,2020-02-26T21:13:01Z,2020-02-26T23:03:00Z,2020-02-26T23:03:00Z,2,9,12,"The actual support was done with #1110; this adds a test.
+Fixes #822",2,0
+1133,2020-02-26T21:48:37Z,2020-02-26T23:13:31Z,2020-02-26T23:13:32Z,9,69,59,"This patch makes it so all our packages, like playwright and
+browser-specific flavors, download browsers to their
+directories rather then using directory of playwright-core.
+This way yarn@1 caches are not busted: they didn't expect that directory
+content might change after packages's explicit install step
+is failed, there's that was what we were doing.
+Fixes #1085",2,0
+1138,2020-02-27T00:36:04Z,2020-02-27T16:43:02Z,2020-02-27T16:43:02Z,2,4,4,,2,0
+1139,2020-02-27T00:53:13Z,2020-02-27T16:49:10Z,2020-02-27T16:49:10Z,4,81,98,,2,0
+1144,2020-02-27T19:33:13Z,2020-02-27T22:09:25Z,2020-02-27T22:09:25Z,4,18,6,,2,0
+1148,2020-02-27T23:39:01Z,2020-02-28T00:54:33Z,2020-02-28T00:54:33Z,1,1,1,,2,0
+1156,2020-02-28T03:49:13Z,2020-02-28T17:02:26Z,2020-02-28T17:02:27Z,2,2,2,Fixes #1030.,2,0
+1160,2020-02-28T19:31:47Z,2020-02-28T22:41:33Z,2020-02-28T22:41:33Z,3,25,23,,2,0
+1161,2020-02-28T20:13:53Z,2020-02-28T22:40:27Z,2020-02-28T22:40:27Z,3,1606,0,,3,2
+1162,2020-02-28T21:07:19Z,2020-02-28T23:34:08Z,2020-02-28T23:34:08Z,18,136,111,,2,0
+1166,2020-02-29T00:37:04Z,2020-03-20T08:30:35Z,2020-03-20T08:30:36Z,26,1342,38,"#6
+A place for discussion",2,8
+1173,2020-03-02T18:40:16Z,2020-03-02T19:49:43Z,2020-03-02T19:49:43Z,6,19,14,"Playwright API is parametrized with a downloadPath - a path that
+is used to download browsers and to look for downloaded browsers.
+This patch starts respecting downloadPath as part of
+download-browser.js utility.",2,0
+1176,2020-03-02T19:29:43Z,2020-03-04T00:46:07Z,2020-03-04T00:46:07Z,12,311,89,,2,0
+1177,2020-03-02T19:40:58Z,2020-03-02T21:51:33Z,2020-03-02T21:51:33Z,9,82,81,References: #1101,2,0
+1178,2020-03-02T19:42:27Z,2020-03-02T21:47:09Z,2020-03-02T21:47:09Z,22,62,58,,2,0
+1179,2020-03-02T19:45:03Z,2020-03-02T21:45:11Z,2020-03-02T21:45:11Z,10,47,10,"This patch starts respecting PLAYWRIGHT_DOWNLOAD_HOST env variable
+in playwright package and it's vendored flavors (playwright-firefox,
+playwright-chromium and playwright-webkit).
+Fixes #1045",2,0
+1185,2020-03-02T22:22:58Z,2020-03-02T23:47:50Z,2020-03-02T23:47:51Z,2,18,7,Fixes #1169.,2,0
+1186,2020-03-03T01:02:24Z,2020-03-03T02:32:56Z,2020-03-03T02:32:56Z,8,153,127,References: #1101,2,0
+1189,2020-03-03T04:20:52Z,2020-03-03T06:09:07Z,2020-03-03T06:09:07Z,1,2,2,"found while working on #6
+page.coverage was marked as an unhelpful any.",2,0
+1193,2020-03-03T18:35:34Z,2020-03-03T22:11:18Z,2020-03-03T22:11:18Z,2,2,2,,2,0
+1194,2020-03-03T19:05:11Z,2020-03-04T00:09:32Z,2020-03-04T00:09:32Z,15,212,128,,2,1
+1195,2020-03-03T19:38:55Z,2020-03-03T23:02:07Z,2020-03-03T23:02:07Z,7,106,174,,2,0
+1198,2020-03-03T22:26:21Z,2020-03-04T00:58:38Z,2020-03-04T00:58:38Z,1,10,10,,2,0
+1199,2020-03-03T23:51:31Z,2020-03-04T01:14:01Z,2020-03-04T01:14:01Z,1,8,4,This fixes flaky 'Page.click should timeout waiting for visible' test.,2,0
+1200,2020-03-04T00:23:45Z,2020-03-05T03:15:02Z,2020-03-05T03:15:02Z,6,214,40,,3,0
+1205,2020-03-04T01:07:11Z,2020-03-04T07:04:08Z,2020-03-04T07:04:08Z,2,5,1,,2,0
+1209,2020-03-04T04:42:54Z,2020-03-04T22:33:49Z,2020-03-04T22:33:50Z,2,299,280,"Review URL: aslushnikov/juggler@6364381
+Refactor inter-process communication inside Firefox. The goal is
+to have a single abstraction that works nicely for all our cross-process
+communication needs (browser <-> content, content <-> workers, content
+<-> file:// process, e.t.c.)
+This is step 1 that eliminates content sessions everywhere.
+Step 2 will move workers onto SimpleChannel as well.
+This is a pre-requisite for #720: with a single browser <-> content
+communication channel it will be easier to await permission change in tabs.
+References #720",2,1
+1210,2020-03-04T04:56:16Z,2020-03-04T19:02:51Z,2020-03-04T19:02:51Z,1,1,1,Fixes #1184,2,0
+1217,2020-03-04T18:24:35Z,2020-03-04T21:05:13Z,2020-03-04T21:05:13Z,3,0,0,Making the docs a little more user-friendly,2,0
+1223,2020-03-04T21:07:58Z,2020-03-05T01:58:13Z,2020-03-05T01:58:13Z,14,79,51,,2,0
+1225,2020-03-04T22:46:13Z,2020-03-04T23:59:27Z,2020-03-04T23:59:27Z,3,22,13,…se finished,3,3
+1226,2020-03-05T01:17:55Z,2020-03-05T18:45:33Z,2020-03-05T18:45:33Z,7,128,80,References: #1101,2,0
+1229,2020-03-05T01:48:09Z,2020-03-05T23:18:28Z,2020-03-05T23:18:28Z,14,161,118,"This way we do not miss any popups, even immediately closed ones.",2,0
+1231,2020-03-05T01:59:30Z,2020-03-05T18:09:05Z,2020-03-05T18:09:05Z,8,9,77,All usecases are superseeded by separate browser context.,2,1
+1232,2020-03-05T02:52:01Z,2020-03-05T05:18:57Z,2020-03-05T05:18:57Z,2,411,287,"Review URL: aslushnikov/juggler@4753d01
+This patch:
+
+Moves Workers to FrameTree
+Introduces WorkerData in PageAgent that proxies runtime agent
+in worker to browser process
+Introduces WorkerHandler in PageHandler that handles communicates
+with runtime agent in worker and handles Juggler protocol
+
+As part of this patch, SimpleChannel no longer manages lifetime of
+any of its handlers.",2,0
+1233,2020-03-05T04:33:48Z,2020-03-05T22:47:05Z,2020-03-05T22:47:05Z,6,128,43,,2,0
+1236,2020-03-05T06:49:51Z,2020-03-05T19:59:30Z,2020-03-05T19:59:30Z,2,40,8,,2,0
+1244,2020-03-05T18:01:10Z,2020-03-06T01:45:42Z,2020-03-06T01:45:42Z,9,174,225,"This includes rename waitForSelector -> waitForElement and removes $wait.
+Fixes #1238.",3,2
+1247,2020-03-05T20:35:03Z,2020-03-05T22:46:13Z,2020-03-05T22:46:13Z,2,22,4,,3,0
+1250,2020-03-05T23:56:00Z,,2020-03-06T19:40:20Z,13,113,69,Drive-by: fixes #720 since it rolls past r1037.,2,1
+1252,2020-03-06T00:06:57Z,2020-03-06T01:22:57Z,2020-03-06T01:22:57Z,15,157,133,,2,0
+1255,2020-03-06T01:24:50Z,2020-03-06T16:24:33Z,2020-03-06T16:24:33Z,15,316,163,,2,0
+1256,2020-03-06T01:33:38Z,2020-03-06T19:41:46Z,2020-03-06T19:41:46Z,3,143,218,,2,0
+1259,2020-03-06T05:32:20Z,2020-03-06T22:58:35Z,2020-03-06T22:58:35Z,2,158,227,dgozman/gecko-dev@324956f,2,0
+1260,2020-03-06T06:17:05Z,2020-03-09T18:42:57Z,2020-03-09T18:42:57Z,2,11,1,,3,1
+1261,2020-03-06T08:01:30Z,2020-03-06T16:21:15Z,2020-03-06T16:21:15Z,2,13,3,"webkitWebViewCreateNewPage returns a WebPageProxy* that is owned by the caller. completionHandler takes a RefPtr<WebPageProxy>. Previously, this code was implictly constructing a new RefPtr. However it needs to use adoptRef instead, as it owns the raw WebPageProxy* pointer.
+This impacts WPE and GTK.
+JoelEinbinder/webkit@71dbb9f",2,1
+1264,2020-03-06T17:48:44Z,2020-03-06T22:32:16Z,2020-03-06T22:32:16Z,6,119,69,,2,0
+1267,2020-03-06T19:40:01Z,2020-03-06T21:50:43Z,2020-03-06T21:50:43Z,13,113,69,Drive-by: fixes #720 since it rolls past r1037.,2,0

@@ -1,0 +1,919 @@
+number,created_at,merged_at,closed_at,files,additions,deletions,body_text,participants,comments
+64,2017-01-20T07:28:11Z,,2017-02-03T16:27:55Z,1,67,0,"This is program is implementing the quick sort algorithm for an array of numbers selected from a standard normal distribution and also the pivot chosen randomly between the starting element and the last element.
+This program outputs the normal distribution graph of the array and also prints the number of comparisons.",2,3
+72,2017-04-01T15:52:01Z,2017-04-05T06:52:56Z,2017-04-05T06:52:56Z,1,83,0,The code contains all basic operations associated with Heap Data Structure.,2,0
+73,2017-04-05T06:00:35Z,2017-04-06T12:10:30Z,2017-04-06T12:10:30Z,1,11,30,,5,0
+74,2017-04-07T02:25:13Z,2017-04-10T15:02:47Z,2017-04-10T15:02:47Z,1,41,12,The program now returns the entire longest increasing subsequence instead of returning only the length. Also: Code optimized and entirely explained in comments,3,0
+75,2017-04-11T22:14:57Z,2017-04-13T05:57:25Z,2017-04-13T05:57:25Z,1,9,10,,3,0
+84,2017-06-20T07:28:19Z,2017-06-21T07:07:35Z,2017-06-21T07:07:35Z,3,103,1,"Add the structures Binary Search Tree, code with example",2,0
+99,2017-07-29T19:16:31Z,2017-08-08T08:03:37Z,2017-08-08T08:03:37Z,1,141,0,The k-means clustering is done by using tensorflow which is the vital and growing machine learning library of google.,2,0
+100,2017-08-08T08:30:42Z,2017-08-13T19:12:20Z,2017-08-13T19:12:20Z,1,1,1,Fixed #91,2,1
+101,2017-08-10T14:21:52Z,2017-08-13T19:11:57Z,2017-08-13T19:11:57Z,1,1,1,,2,0
+103,2017-08-19T02:47:58Z,2017-09-03T07:34:33Z,2017-09-03T07:34:33Z,1,102,0,Create a playfair cipher implementation as described on https://en.wikipedia.org/wiki/Playfair_cipher#Description,2,0
+106,2017-08-27T11:25:11Z,2017-09-04T15:14:44Z,2017-09-04T15:14:44Z,4,165,7,Neural Network Perceptron,2,0
+107,2017-08-29T14:17:03Z,2017-09-10T08:19:00Z,2017-09-10T08:19:00Z,2,100,11,,2,0
+108,2017-08-29T16:44:36Z,2017-09-03T07:34:51Z,2017-09-03T07:34:51Z,1,123,0,,2,0
+109,2017-09-03T17:06:06Z,2017-09-05T09:45:21Z,2017-09-05T09:45:21Z,1,4,2,"front is added so that dequeue can be done any number of times.Without front,it displays only self.entries[0] as dequeued.",4,0
+110,2017-09-06T20:12:15Z,2017-09-09T19:03:31Z,2017-09-09T19:03:32Z,1,61,0,check it,3,1
+111,2017-09-10T07:17:34Z,2017-09-10T18:10:34Z,2017-09-10T18:10:34Z,1,75,0,Regarding #105 I've worked on a Trie implementation using a dict,4,2
+112,2017-09-11T10:08:17Z,,2017-10-13T15:37:23Z,1,14,41,"The old BFS implementation was not working.So I corrected it. Additionally, I have also made the algorithm directional i.e. the graph edges are no longer bi-directional.",2,0
+113,2017-09-12T00:03:45Z,,2018-01-13T05:16:25Z,1,103,49,"Heap sort with min heapify, max heapify, extract minimum, extract maximum, min heap sort, max heap sort functions.",4,0
+116,2017-09-22T07:22:34Z,2017-10-15T03:55:16Z,2017-10-15T03:55:16Z,1,305,0,"I add convolution_neural_network.py
+--Next
+I would improve this and add more comment or annotation about the detail
+I would add a example file about the cnn model use based on MINST Data",3,2
+117,2017-09-28T12:48:21Z,,2018-01-13T05:17:43Z,1,23,0,for hacktoberfest 2017,4,0
+167,2017-10-14T15:08:42Z,,2018-01-20T10:49:49Z,1,101,0,Thought it could be useful to make a list for the sake of the project's clearness :),2,0
+181,2017-10-20T20:52:21Z,,2018-01-16T02:20:19Z,147,7955,281,,59,1
+193,2017-10-25T01:57:13Z,2017-10-30T03:49:15Z,2017-10-30T03:49:15Z,1,25,0,,3,1
+202,2017-10-30T06:37:31Z,,2017-11-24T18:03:28Z,1,2,0,,3,1
+203,2017-11-01T07:05:40Z,2017-11-02T17:40:14Z,2017-11-02T17:40:14Z,2,30,48,,2,0
+286,2018-04-14T05:51:05Z,,2018-04-17T20:58:54Z,1,34,0,"This script contains python implementation of Fibonacci sequence in two forms.
+
+Formula Implementation.
+Iterative Implementation.",3,1
+287,2018-04-14T09:43:14Z,,2018-04-17T20:59:09Z,1,36,0,,2,0
+301,2018-05-20T18:01:13Z,2018-05-21T14:38:36Z,2018-05-21T14:38:36Z,1,19,0,"Python implementation of merge sort algorithm.
+Takes an average of 0.6 microseconds to sort a list of length 1000 items.
+Best Case Scenario : O(n)
+Worst Case Scenario : O(n)",3,3
+302,2018-05-22T10:08:09Z,,2019-08-03T20:18:37Z,1,42,7,Thank you very much for pointing that out. I am really sorry I accidentally uploaded the wrong file last time. The changes you made didn't worked for some inputs. This one works fine.,5,1
+314,2018-06-05T12:15:54Z,,2019-07-08T15:44:15Z,3,116,111,"The readme feels a bit all in one right now, we should split the docs up at different places, it'll be easier maintain as well as easy for people to find what they are looking for.
+This is first step in the process, we probably need to have a dedicated readme for each algorithm, where we can put detailed stuff. (Lemme know your thoughts on this one)",3,2
+319,2018-06-14T07:00:30Z,,2019-08-03T20:20:20Z,1,69,0,,3,0
+322,2018-06-24T10:00:47Z,2019-02-09T01:54:08Z,2019-02-09T01:54:08Z,1,56,2,"Add iteration version for pre-order, in-order and post-order",2,0
+326,2018-07-08T10:44:48Z,2019-05-26T16:37:40Z,2019-05-26T16:37:40Z,2,121,0,generate all possible subset of size n of a given array of size r,3,1
+333,2018-08-03T13:08:20Z,2019-10-22T08:01:15Z,2019-10-22T08:01:15Z,1,55,0,This code is for calculating newton forward difference interpolation for fixed difference.,3,1
+335,2018-08-13T15:05:01Z,,2019-10-18T09:38:25Z,1,2,0,A simpler code has been added to project euler #16,4,4
+337,2018-09-05T16:01:33Z,,2019-12-09T06:53:11Z,1,131,0,"Hi, in machine_learning\descision_tree.py, the test_case's y_label is not correct. They should be np.sin(test_cases)",3,4
+338,2018-09-06T12:32:58Z,2019-02-09T02:14:24Z,2019-02-09T02:14:24Z,1,20,22,"Remove useless variable, and use placement as a loop variable to fix  #336  .",3,0
+341,2018-09-13T08:20:59Z,,2018-09-13T12:28:38Z,1,4,1,having output for the following code will help people get code early.,2,1
+345,2018-09-15T11:23:31Z,,2019-10-18T06:15:27Z,1,15,0,"this sorting algorithm sorts an array using the principle of bubble sort , but does it both from left to right and right to left , hence i decided to call it ""double sort""",4,5
+346,2018-09-16T16:31:41Z,2019-10-22T07:42:57Z,2019-10-22T07:42:57Z,1,92,0,"Aho - Corasick string matching algorithm, that creates automaton and searches multiple keywords from a string in a linear fashion.
+Aho-Corasick Algorithm Wikipedia",3,0
+350,2018-09-25T18:47:28Z,,2018-10-02T15:26:43Z,6,142,0,"Basic Maths Algorithms
+
+Euler Phi
+Number of Divisors
+Prime Factors
+Segmented Sieve
+Sieve of Eratosthenes
+Sum of Divisors",2,0
+352,2018-09-26T17:02:49Z,,2019-12-22T00:06:15Z,1,20,0,Finding primary number ...,3,6
+354,2018-09-28T16:58:25Z,,2019-12-22T00:06:14Z,1,59,0,This is file with full description of Merge and sort is efficient in all cases.,2,2
+358,2018-09-29T16:31:06Z,2018-10-19T13:36:38Z,2018-10-19T13:36:38Z,1,10,11,"Just emboldened terms and standardized some of the formatting. :)
+modified:   README.md",3,0
+362,2018-09-30T21:10:07Z,,2019-12-14T06:01:30Z,88,174,174,"I hope I got everything right.
+Solves: #315",3,4
+364,2018-10-01T10:40:02Z,2019-12-06T06:34:21Z,2019-12-06T06:34:22Z,1,44,0,this is an implementation of pigeonhole sorting in python language which has a time complexity of O(n+ range),2,0
+373,2018-10-01T20:07:18Z,2019-02-09T02:57:24Z,2019-02-09T02:57:24Z,1,58,0,"Added the Rod Cutting algorithm that solves the titular problem from Cormer et al. Also, I included in comments some documentation about the definition and solution of the problem.",2,0
+376,2018-10-01T20:57:45Z,2018-10-02T09:36:24Z,2018-10-02T09:36:24Z,2,6,42,"The removed counting sort file is a duplicate and only works on strings containing 8-bit chars. This PR utilizes the existing generalized counting sort to provide a counting_sort_string wrapper. It uses the unicode value of characters to sort them, and returns a sorted string. It also improves the name of the method so it's not misleading.",2,0
+385,2018-10-02T03:11:58Z,2018-10-02T08:58:07Z,2018-10-02T08:58:07Z,1,62,0,"Add sentinel linear search algorithm (also known as ""sentinel search"" or ""linear search with sentinel"").
+References:
+
+https://thecodeaddict.wordpress.com/tag/sentinel-search/
+http://www.delorie.com/gnu/docs/avl/libavl_26.html",3,0
+386,2018-10-02T04:51:08Z,2019-02-11T09:53:50Z,2019-02-11T09:53:50Z,1,56,0,,3,0
+391,2018-10-02T09:29:26Z,2018-10-02T17:21:28Z,2018-10-02T17:21:28Z,1,51,0,,3,0
+393,2018-10-02T13:00:02Z,2018-10-02T17:19:51Z,2018-10-02T17:19:51Z,1,16,0,A simple Fibonacci Series implementation in python,2,0
+395,2018-10-02T15:41:24Z,2018-10-03T19:55:56Z,2018-10-03T19:55:56Z,9,431,0,"Following programs are added:
+
+Finding Articulation points in Undirected Graph
+Check whether a graph is bipartite or not using BFS
+Finding bridges in Undirected graph
+Finding longest distance in Directed Acyclic Graph using Kahns Algorithm
+Using Kahn's Algorithm to find Topological ordering of Directed Acyclic Graph using BFS
+MinimumSpanning Tree using Prim's Algorithm
+Basic Maths functions
+Finding prime numbers using Segmented Sieve ( Space complexity is reduced in Segmented sieve )
+Sieve of Eratosthenes ( To find prime numbers )",3,0
+399,2018-10-02T19:53:38Z,2019-05-26T16:42:56Z,2019-05-26T16:42:56Z,1,13,0,,2,0
+400,2018-10-02T22:39:53Z,,2019-05-26T16:44:29Z,1,19,1,Added Interpolation search description and picture to README,3,0
+404,2018-10-03T12:09:08Z,,2019-12-23T00:03:47Z,5,28,0,,2,2
+407,2018-10-03T14:45:51Z,2018-10-04T09:37:12Z,2018-10-04T09:37:13Z,2,8,4,,3,5
+408,2018-10-03T16:15:46Z,2019-02-11T09:52:15Z,2019-02-11T09:52:15Z,2,75,0,,3,2
+414,2018-10-04T14:02:16Z,,2019-05-26T17:38:40Z,1,3,2,,3,0
+421,2018-10-05T09:30:46Z,,2019-12-13T22:05:28Z,1,109,0,,3,2
+425,2018-10-05T18:19:53Z,2019-05-26T18:04:49Z,2019-05-26T18:04:49Z,1,8,0,added a solve for the problem,7,10
+426,2018-10-05T18:47:36Z,,2019-12-21T00:04:39Z,1,17,0,added a new solution to the problem,3,2
+427,2018-10-05T18:49:48Z,,2020-01-07T00:04:37Z,1,15,0,other solutions,4,2
+430,2018-10-05T19:02:36Z,,2019-12-21T00:04:37Z,1,16,0,added an easier solution.,4,3
+437,2018-10-07T18:21:40Z,,2019-08-20T16:39:37Z,1,66,0,Added Bellman-Ford algorithm in graphs.,4,0
+442,2018-10-10T15:30:48Z,,2018-10-16T18:19:57Z,2,3,1,,2,0
+443,2018-10-11T01:10:08Z,,2018-10-11T14:55:09Z,1,63,0,,1,0
+445,2018-10-11T03:30:53Z,,2019-08-03T22:26:42Z,1,45,0,"Let me know of any other improvements I can make. 👍
+mrvnmchm@M3-Q-X70-A:/some_folder/TheAlg/Python$ python Maths/ZellersCongruence.py --help
+usage: ZellersCongruence.py [-h] date_input
+
+Find out what day of the week you were born on, or any other date. Accepts birthday as a string in
+mm-dd-yyyy or mm/dd/yyyy format.
+
+positional arguments:
+  date_input        Date as a string (mm-dd-yyyy or mm/dd/yyyy)
+
+optional arguments:
+  -h, --help  show this help message and exit
+mrvnmchm@M3-Q-X70-A:/some_folder/TheAlg/Python$ python Maths/ZellersCongruence.py '01/04/1989'
+The date 01/04/1989, is a Wednesday!
+>>> import ZellersCongruence as z
+>>> z.zeller('10/10/2018')
+The date 10/10/2018, is a Wednesday!
+>>> z.zeller('04-23-1991')
+The date 04-23-1991, is a Tuesday!
+>>> z.zeller('01-31-1976')
+The date 01-31-1976, is a Saturday!",2,0
+447,2018-10-11T22:43:36Z,2018-10-14T13:37:08Z,2018-10-14T13:37:09Z,4,33,28,Wrap in the main structure and other improvements,2,1
+453,2018-10-13T18:44:17Z,,2019-12-21T00:04:35Z,2,71,0,,2,1
+466,2018-10-16T05:47:56Z,2019-02-09T04:00:10Z,2019-02-09T04:00:10Z,1,1,1,,2,0
+471,2018-10-17T01:03:25Z,,2019-09-05T03:41:56Z,2,139,0,"This adds the solution to the problem 67, which is exactly the same as the one from problem 18, but with a different triangle.",3,5
+481,2018-10-18T17:04:08Z,,2018-10-19T12:59:58Z,1,14,161,,3,0
+487,2018-10-19T15:57:38Z,2018-10-19T17:15:54Z,2018-10-19T17:15:54Z,1,17,0,Added a new Algorithm to check if a number is prime or not. It takes one + half the amount of iterations of the square root of the number. Returns Boolean value.,3,2
+489,2018-10-19T18:25:51Z,,2020-03-30T00:09:13Z,1,79,0,"This Genetic algorithm recreates a target string by selecting random characters.
+Efficiency: medium",5,3
+495,2018-10-20T07:48:54Z,,2019-12-23T17:12:16Z,1,77,0,Hill Climbing Algorithm Implementation for the Traveling Salesman Problem,4,3
+504,2018-10-21T20:55:20Z,2019-05-19T20:36:46Z,2019-05-19T20:36:47Z,1,77,0,The Python implementation!,2,0
+508,2018-10-23T11:20:43Z,2019-09-18T14:01:06Z,2019-09-18T14:01:06Z,1,526,0,Sequential minimal optimization (SMO) is an algorithm for solving the quadratic programming (QP) problem that arises during the training of support vector machines. wiki,4,4
+528,2018-10-27T02:39:15Z,2018-10-31T10:44:31Z,2018-10-31T10:44:31Z,6,865,0,,5,0
+533,2018-10-27T10:39:23Z,,2019-12-11T04:26:24Z,1,19,0,,3,1
+537,2018-10-27T15:47:26Z,,2019-12-19T00:04:35Z,1,6,8,"I would like to propose the change I have made in caesar_cipher.py
+The key was not being added or removed correctly..... so the decrypted or encrypted message was faulty.",3,3
+541,2018-10-28T11:21:00Z,,2019-12-11T04:29:05Z,1,2,6,,5,3
+548,2018-10-29T10:30:13Z,,2019-12-11T04:29:44Z,1,20,0,,4,1
+559,2018-10-30T11:54:01Z,,2018-10-30T13:31:32Z,1,4,0,,2,0
+560,2018-10-30T11:59:46Z,,2018-10-30T13:36:12Z,1,6,0,,3,0
+565,2018-10-31T09:50:04Z,2018-11-23T17:18:25Z,2018-11-23T17:18:25Z,1,36,0,Addition and multiplication algorithm of two square matrix,3,1
+567,2018-10-31T15:07:37Z,,2019-11-18T19:22:20Z,1,75,0,"#416
+boyer moore is one of the string-search algorithms.
+Please check and review.",2,0
+568,2018-10-31T16:00:08Z,,2019-12-11T04:30:44Z,1,2,0,Add return failure by using if else,3,1
+570,2018-10-31T16:11:20Z,,2019-12-11T04:32:33Z,1,2,0,Added return failure to if else statement,3,1
+572,2018-10-31T18:12:57Z,,2019-12-11T04:33:03Z,1,9,0,,3,1
+577,2018-10-31T18:24:01Z,,2019-10-28T12:43:21Z,1,12,0,,3,1
+587,2018-10-31T21:48:17Z,,2019-12-17T00:06:19Z,7,218,0,,3,1
+592,2018-11-01T22:53:44Z,2018-11-05T17:19:09Z,2018-11-05T17:19:09Z,10,53,50,"I preserved the old algorithm which I don't know if is working as expected or not because, both methods return a different values.
+But according the Wikipedia Example: https://en.wikipedia.org/wiki/Peak_signal-to-noise_ratio
+The first one method will be the correct one. 👍",2,1
+602,2018-11-09T08:14:42Z,2019-02-15T16:01:11Z,2019-02-15T16:01:11Z,1,5,7,Condition was wrong in absMax() function and in main() absVal was used on a list.,3,1
+606,2018-11-12T18:37:17Z,2018-11-23T17:28:13Z,2018-11-23T17:28:13Z,3,54,93,"In src/lib.py :
+Changed size() to __len__() built-in
+Changed  self.__components = components to self.__components = list(components) (generating new list instead of just assigning the list, to avoid unwanted changes to self.__components when components is changed)
+Replaced some for loops with list comprehension to improve code performance
+allowing negative indexes in component and changeComponent functions
+Updated src/tests.py and  README.md according to changes in src/lib.py",3,1
+617,2018-11-26T18:52:37Z,,2019-12-18T00:05:09Z,1,48,8,"Added eq , lt , le , gt , ge , ne functions in Vector class.
+Minor formatting and spelling changes.",3,2
+619,2018-11-29T05:24:20Z,,2018-12-04T08:27:54Z,5,37,16,"absMax fix bug.And in absMin.py,
+import error,fix it.just make it better.",2,4
+621,2018-11-30T18:09:09Z,2019-03-01T16:53:30Z,2019-03-01T16:53:30Z,3,115,2,"Fixed issue #620
+Added infix to prefix conversion & Postfix evaluation",2,0
+629,2018-12-05T11:24:35Z,2018-12-05T13:25:01Z,2018-12-05T13:25:01Z,2,4,8,use tuple swap for cleaner syntax.,2,0
+631,2018-12-05T11:50:16Z,2019-02-09T16:35:53Z,2019-02-09T16:35:53Z,1,1,1,use Floor division instead of Floating point division to return answer as integer.,2,0
+632,2018-12-05T12:13:57Z,2019-02-11T02:42:44Z,2019-02-11T02:42:44Z,1,9,11,"3 digit numbers should include 100.
+maintaining a list in memory is not required.",2,0
+636,2018-12-06T10:10:09Z,2019-02-27T17:49:14Z,2019-02-27T17:49:14Z,1,0,22,May I kindly suggest deleting find_hcf.py since maths/greater_common_divisor.py contained the same exact function with arguably more readable code. May I also suggest mergingMathsand maths folders?,2,0
+637,2018-12-06T10:20:15Z,,2019-12-07T05:45:47Z,1,21,0,clean implementation oflcm()piggybacking on gcd() funtion,4,1
+639,2018-12-06T11:07:51Z,2019-08-01T15:54:03Z,2019-08-01T15:54:04Z,1,28,0,refactor ofMaths/3n+1.py.,2,0
+640,2018-12-06T12:56:43Z,2019-02-14T04:08:22Z,2019-02-14T04:08:22Z,1,20,0,,2,0
+642,2018-12-06T13:34:37Z,2019-02-09T17:49:58Z,2019-02-09T17:49:58Z,1,28,0,"Solution using a generator to process inputs that are large.
+We should also probably make this repo a package to allow for better code reuse. Instead of copy pasting checkPrime(), it would be nice to directly import it.",2,0
+643,2018-12-06T14:28:25Z,2019-02-13T10:02:33Z,2019-02-13T10:02:33Z,1,1,1,"small off by one error. Boundary condition: if len(number) =13 , we would need to check exactly 1 combination, namely the number itself. However  for i in range(len(number)-13): will iterate 0 times.",2,0
+644,2018-12-06T14:38:42Z,2019-02-13T06:55:48Z,2019-02-13T06:55:48Z,1,8,0,intuitive solution using functional programming,2,0
+645,2018-12-06T15:01:49Z,2019-02-12T16:40:05Z,2019-02-12T16:40:06Z,1,6,0,clean solution to project Euler problem 9 with list comp.,2,0
+646,2018-12-06T15:08:49Z,,2019-12-07T05:42:51Z,1,8,0,prime generator was handy in several project Euler problems. Please suggest where to merge this function if it is not suitable as a stand alone file.,3,3
+650,2018-12-07T01:07:08Z,2019-02-11T16:15:50Z,2019-02-11T16:15:50Z,1,50,0,Implemented Newton-Raphson method using pure python. Third party library is used only for visualizing error variation with each iteration.,3,0
+651,2018-12-07T12:02:44Z,2019-02-09T18:00:05Z,2019-02-09T18:00:05Z,1,16,0,,2,0
+654,2018-12-07T13:24:02Z,,2019-12-17T00:06:14Z,4,145,0,"The problem was a beautiful demonstration of the power of dynamic programming. By memorizing the best path at each layer the running time was cut down from exponential to linear.
+From project Euler website:
+
+NOTE: As there are only 16384 routes, it is possible to solve this problem by trying every route. However, Problem 67, is the same challenge with a triangle containing one-hundred rows; it cannot be solved by brute force, and requires a clever method! ;o)",2,1
+656,2018-12-07T17:00:59Z,2019-04-19T16:00:40Z,2019-04-19T16:00:40Z,1,2,14,,2,0
+657,2018-12-07T17:19:34Z,,2019-12-17T00:06:13Z,1,6,0,"A concise solution,  albeit probably too convoluted lol",2,1
+658,2018-12-07T17:33:12Z,2019-02-20T16:57:49Z,2019-02-20T16:57:49Z,1,10,0,,2,0
+666,2018-12-20T20:24:19Z,,2019-12-16T00:08:43Z,4,235,0,"Given an array A . Fin d the sum of maximum sum increasing subsequence of the given array.
+if A=[1 101 2 3 100 4 5] then answer shold be 106>>>>>>1,2,3,100",3,6
+667,2018-12-23T07:08:46Z,2018-12-25T13:09:37Z,2018-12-25T13:09:37Z,1,75,0,I am adding a program to swap two nodes in a Linked list,2,4
+669,2018-12-25T08:16:16Z,2019-02-09T16:59:43Z,2019-02-09T16:59:43Z,2,11,8,,2,0
+671,2018-12-26T11:45:11Z,2018-12-26T13:06:35Z,2018-12-26T13:06:35Z,1,7,6,fixed wrong image's path while debuggin in VSCode,2,0
+673,2018-12-27T16:01:23Z,2019-01-19T20:49:06Z,2019-01-19T20:49:06Z,3,77,9,calculate and print the avrage of number list.,3,0
+676,2018-12-29T13:19:40Z,2019-01-02T11:17:57Z,2019-01-02T11:17:57Z,1,52,0,manacher's algorithm to find palindromic string in linear time complexity,2,1
+679,2019-01-05T11:15:25Z,2019-01-08T08:58:47Z,2019-01-08T08:58:47Z,4,6,6,"Hello,
+This is a little patch to fix several DeprecationWarning: invalid escape sequence.",2,0
+680,2019-01-05T11:18:44Z,2019-01-06T01:12:18Z,2019-01-06T01:12:18Z,1,6,6,"Hello,
+This fixes several assertEquals() for assertEqual() in tests.",2,0
+686,2019-01-25T20:17:17Z,2019-01-26T13:09:19Z,2019-01-26T13:09:19Z,1,0,0,…ected (Weighted) Graph.py,2,0
+688,2019-01-31T02:26:52Z,,2019-12-16T00:08:41Z,1,17,14,"Add try/except to catch ""ValueError: invalid literal for int() with base 10: '(user input)'"" exception.",3,2
+696,2019-02-11T13:46:53Z,2019-02-21T16:19:28Z,2019-02-21T16:19:28Z,1,167,0,A python class that implements the Hill cipher algorithm.,2,0
+699,2019-02-12T20:16:41Z,2019-02-16T16:16:43Z,2019-02-16T16:16:43Z,1,39,9,,2,1
+702,2019-02-16T07:21:00Z,2019-02-19T15:26:09Z,2019-02-19T15:26:09Z,1,3,3,,2,0
+704,2019-02-17T20:59:08Z,2019-02-18T15:35:46Z,2019-02-18T15:35:46Z,1,47,0,,2,0
+705,2019-02-18T13:36:50Z,2019-03-27T17:59:32Z,2019-03-27T17:59:32Z,1,90,0,Added Bitmask and DP code for resolving issue #703.,2,1
+706,2019-02-20T04:53:38Z,2019-02-20T16:54:26Z,2019-02-20T16:54:26Z,1,9,4,…e and index.,2,0
+707,2019-02-20T05:42:03Z,,2019-02-25T15:41:49Z,2,4,8,Fixes #687,2,0
+709,2019-02-21T02:20:04Z,,2019-12-14T00:06:50Z,1,22,4,,2,1
+713,2019-02-21T19:22:34Z,,2019-12-12T00:09:57Z,1,39,0,,3,2
+715,2019-02-23T13:15:54Z,2019-02-23T14:18:21Z,2019-02-23T14:18:21Z,1,29,0,,2,0
+717,2019-02-23T14:47:59Z,,2019-02-24T13:08:17Z,11,1,1,,2,2
+718,2019-02-24T13:49:10Z,,2019-02-25T08:43:41Z,25,0,0,now all graph algorithms are inside one folder. also created number theory folder and moved factorial.py to that.,2,0
+720,2019-02-25T18:43:25Z,2019-02-27T14:29:00Z,2019-02-27T14:29:00Z,1,51,0,Added the extended euclidean algorithm to the Maths directory.,2,1
+722,2019-02-26T20:02:34Z,2019-02-27T14:33:30Z,2019-02-27T14:33:30Z,1,1,1,,2,0
+724,2019-02-28T03:15:19Z,2019-04-25T11:48:15Z,2019-04-25T11:48:15Z,1,182,0,"Edmonds Karp algorithm is traditionally with only one source and one sink. What do you do if you have multiple sources and sinks? This algorithm is a generalized algorithm that regardless of however many sinks and sources you have, will allow you to use this algorithm. It does this by using the traditional algorithm but adding an artificial source and sink that allows with ""infinite"" weight.",3,0
+725,2019-03-02T07:20:45Z,2019-03-07T15:53:29Z,2019-03-07T15:53:29Z,1,4,4,I have added the comments for better understanding.,2,0
+726,2019-03-02T07:31:18Z,2019-03-04T08:49:37Z,2019-03-04T08:49:37Z,1,7,6,Added comments for the better understanding of heap.,2,0
+730,2019-03-06T01:46:10Z,2019-04-19T15:31:07Z,2019-04-19T15:31:07Z,1,2,0,I want to enhance the README.md file.,3,0
+732,2019-03-08T06:49:40Z,2019-04-10T15:59:49Z,2019-04-10T15:59:49Z,1,91,0,,2,0
+733,2019-03-08T15:06:33Z,,2019-05-04T22:44:44Z,1,92,0,,3,3
+734,2019-03-09T07:33:43Z,2019-03-17T18:12:23Z,2019-03-17T18:12:23Z,1,21,0,Sorting technique used for arranging array elements.,2,0
+735,2019-03-09T14:48:22Z,2019-03-10T02:10:30Z,2019-03-10T02:10:30Z,1,1,1,The method returns the true when the stack is empty,2,0
+738,2019-03-20T07:43:20Z,2019-03-20T15:59:36Z,2019-03-20T15:59:36Z,1,27,0,,2,0
+741,2019-03-24T18:48:47Z,2019-03-27T17:46:47Z,2019-03-27T17:46:47Z,1,10,10,,2,0
+745,2019-03-27T15:39:21Z,2019-03-27T17:50:44Z,2019-03-27T17:50:44Z,1,40,1,"Added functions for matrix transposition, identity, minor, determinant, and inverse.",2,0
+746,2019-03-28T20:31:39Z,2019-04-03T19:27:37Z,2019-04-03T19:27:37Z,1,86,0,"Hello, I've implemented Trifid cipher, I would appreciate contributing in such an interesting project!",2,0
+748,2019-04-04T20:49:21Z,2019-04-07T15:53:51Z,2019-04-07T15:53:51Z,1,16,0,Added a function to perform InOrder traversal on the binary tree.,2,0
+749,2019-04-06T16:22:36Z,2019-04-07T15:55:32Z,2019-04-07T15:55:32Z,1,12,8,Since the already taken input nodes will not be sufficient so I wanted to add input to the file.,2,0
+752,2019-04-07T15:53:04Z,2019-04-20T07:13:03Z,2019-04-20T07:13:03Z,1,0,0,,3,1
+757,2019-04-16T08:18:33Z,,2019-12-12T00:09:56Z,1,14,4,"Previous version would drop 2nd last run when sorting, test case would omit -18",3,1
+758,2019-04-20T04:41:54Z,,2019-12-04T04:12:39Z,1,68,0,"Please find the attached screenshot.
+
+Do mention if I need to change something in my code to get the PR accepted :)",3,2
+760,2019-04-20T15:33:37Z,,2019-12-11T00:10:22Z,1,22,0,"Full Domain Hash Algorithm.
+The function with prototype fdh(string,n) generates a hash digest of bitsize = n bits.
+This is achieved by repeatedly appending an incremental value at the end of input string and calculation of SHA256 hash. These are concatenated to generate hash of desired bit size",3,2
+763,2019-04-21T05:51:47Z,2019-04-22T14:53:57Z,2019-04-22T14:53:57Z,36,13,0,"Added a recursive factorial algorithm.
+Some directories where duplicated, i.e. Maths and maths.
+I removed the ones with the capital letters and now all directories have a lower case.",2,0
+767,2019-04-25T17:39:04Z,2019-05-16T11:26:46Z,2019-05-16T11:26:46Z,3,7,7,"Identity is not the same thing as equality.  We want the latter.
+$ python
+>>> raw = 'ra'
+>>> raw += 'w'
+>>> raw
+'raw'
+>>> raw == 'raw'
+True
+>>> raw is 'raw'
+False
+>>> 0 == 0.0
+True
+>>> 0 is 0.0
+False
+flake8 testing of https://github.com/TheAlgorithms/Python on Python 3.7.1
+$ flake8 . --count --select=E9,F63,F72,F82 --show-source --statistics
+./project_euler/problem_17/sol1.py:25:7: F632 use ==/!= to compare str, bytes, and int literals
+			if i%100 is not 0:
+      ^
+./project_euler/problem_19/sol1.py:33:40: F632 use ==/!= to compare str, bytes, and int literals
+		if day > days_per_month[month-1] and month is not 2:
+                                       ^
+./project_euler/problem_19/sol1.py:36:21: F632 use ==/!= to compare str, bytes, and int literals
+		elif day > 29 and month is 2:
+                    ^
+./project_euler/problem_19/sol1.py:48:21: F632 use ==/!= to compare str, bytes, and int literals
+	if year < 2001 and day is 1:
+                    ^
+./graphs/Directed and Undirected (Weighted) Graph.py:162:100: F821 undefined name 'on_the_way_back'
+					if visited.count(__[1]) > 0 and __[1] != parent and indirect_parents.count(__[1]) > 0 and not on_the_way_back:
+                                                                                                   ^
+./graphs/Directed and Undirected (Weighted) Graph.py:209:100: F821 undefined name 'on_the_way_back'
+					if visited.count(__[1]) > 0 and __[1] != parent and indirect_parents.count(__[1]) > 0 and not on_the_way_back:
+                                                                                                   ^
+./graphs/Directed and Undirected (Weighted) Graph.py:377:100: F821 undefined name 'on_the_way_back'
+					if visited.count(__[1]) > 0 and __[1] != parent and indirect_parents.count(__[1]) > 0 and not on_the_way_back:
+                                                                                                   ^
+./graphs/Directed and Undirected (Weighted) Graph.py:424:100: F821 undefined name 'on_the_way_back'
+					if visited.count(__[1]) > 0 and __[1] != parent and indirect_parents.count(__[1]) > 0 and not on_the_way_back:
+                                                                                                   ^
+4     F632 use ==/!= to compare str, bytes, and int literals
+4     F821 undefined name 'on_the_way_back'
+8",2,0
+768,2019-04-26T07:14:50Z,2019-04-26T09:43:52Z,2019-04-26T09:43:52Z,1,8,8,"According to PEP 8 naming conventions, variable in function should be lowercase",2,0
+769,2019-04-26T18:51:39Z,2019-06-07T15:38:43Z,2019-06-07T15:38:44Z,2,159,0,"Here are single and multi-threaded implementations of Odd-Even transposition sort.
+It is an O(n) sorting algorithm that performs its swaps simultaneously.
+https://en.wikipedia.org/wiki/Odd%E2%80%93even_sort",2,0
+770,2019-04-28T05:28:33Z,,2019-12-03T09:05:10Z,1,36,0,"This is small game made with python,In this game you have to guess any number and that print a status of your guess. For more information run program and please, read instruction.",4,3
+774,2019-04-29T20:02:34Z,2019-04-30T13:16:43Z,2019-04-30T13:16:43Z,1,33,0,,2,1
+776,2019-05-01T10:18:55Z,2019-05-01T16:44:21Z,2019-05-01T16:44:21Z,1,13,0,"Added a solution that uses the golden ratio, phi to determine the sum of even fibonacci numbers.",2,0
+777,2019-05-01T17:56:28Z,,2019-12-11T00:10:21Z,5,544,29,"Add new binary cipher.
+Fixed a typo in Caesar, line 42 said encrpyt.",3,2
+780,2019-05-03T14:57:05Z,2019-05-12T11:46:48Z,2019-05-12T11:46:48Z,1,72,0,,3,6
+784,2019-05-05T00:23:02Z,2019-05-25T13:41:25Z,2019-05-25T13:41:25Z,14,120,48,"Content of the Pull Request:
+
+Improving readability on some existing sorting algorithms (insertion sort and merge sort)
+Renaming some sorting algorithms to have a name standard (as sortname_sort, bubble_sort instead of bubblesort or bubbleSort for example)
+Moving some algorithms examples inside the condition if __name__ == '__main__' to avoid their execution in case of import
+Adding unit tests to (nearly) all the existing sorting algorithms.",2,0
+787,2019-05-05T13:28:16Z,2019-05-16T11:20:28Z,2019-05-16T11:20:29Z,1,93,0,,2,0
+789,2019-05-06T07:38:49Z,2019-05-06T09:54:32Z,2019-05-06T09:54:32Z,1,12,12,To avoid confusion all 'sorted' to 'ascending sorted' in comments,2,0
+790,2019-05-07T15:09:11Z,2019-05-10T11:03:06Z,2019-05-10T11:03:06Z,1,25,0,Calculates base^(power) using only O(logn) multiplications,5,2
+791,2019-05-07T15:39:08Z,2019-05-08T19:48:31Z,2019-05-08T19:48:31Z,1,2,2,http://www.lpb-riannetrujillo.com/blog/python-fractal/ moved to http://www.riannetrujillo.com/blog/python-fractal/,2,0
+793,2019-05-09T08:24:01Z,2019-05-18T02:59:13Z,2019-05-18T02:59:13Z,3,160,24,"fix an endless bug, for example, if collection = [10,30,40,45,50,66,77,93], item = 67.
+fix divide 0 bug,  when right=left it is not OK to point = left + ((item - sorted_collection[left]) * (right - left)) // (sorted_collection[right] - sorted_collection[left])
+update 'sorted' to 'ascending sorted' in description to avoid confusion",2,0
+796,2019-05-10T12:01:26Z,2019-05-11T11:20:26Z,2019-05-11T11:20:26Z,1,48,7,"Current implementation is buggy and hard to read.
+
+Negative values were raising a TypeError due to math.sqrt
+1 was considered prime, it is not.
+2 was considered not prime, it is.
+
+The implementation has been corrected to fix the bugs and to enhance
+readability.
+A docstring has been added with the definition of a prime number.
+A complete test suite has been written, it tests the 10 first primes, a
+negative value, 0, 1 and some not prime numbers.
+closes #795",3,1
+797,2019-05-10T13:19:23Z,2019-05-25T22:20:38Z,2019-05-25T22:20:38Z,1,129,0,Added basic implementation of treap. In future it is possible to add mass operations and implicit key treap.,3,1
+798,2019-05-11T02:20:10Z,2019-05-13T05:15:28Z,2019-05-13T05:15:28Z,1,87,0,"Implemented Huffman Coding, taught in courses as a basic compression algorithm.",3,0
+799,2019-05-11T05:35:28Z,,2019-12-03T09:05:47Z,1,27,0,"Create combinatorics folder and add basic functions. Hope to add more interesting examples (ie. Stirling number of the second kind, and wrapper functions for counting number of outputs of a function)
+This is my first pull request, if I made a mistake, please help me rectify it",3,3
+800,2019-05-11T15:01:59Z,,2019-05-12T21:24:05Z,1,7,7,Added changes to the style of FindMin.py to match FindMax.py,2,0
+801,2019-05-11T19:29:58Z,,2019-12-11T00:10:20Z,2,55,0,"An implementation of Harris Detector[1].
+[1]C. Harris and M. Stephens, “A Combined Corner and Edge Detector,” in Proceedings of Alvey Vision Conference 1988, Manchester, 1988, pp. 23.1-23.6.",2,1
+803,2019-05-13T16:21:23Z,2019-05-16T11:20:43Z,2019-05-16T11:20:43Z,1,6,11,,2,0
+804,2019-05-14T05:04:11Z,2019-05-14T10:17:26Z,2019-05-14T10:17:26Z,2,55,44,"Replace
+def merge_sort(LIST):
+    start = []
+    end = []
+    while len(LIST) > 1:
+        a = min(LIST)
+        b = max(LIST)
+        start.append(a)
+        end.append(b)
+        LIST.remove(a)
+        LIST.remove(b)
+    if LIST: start.append(LIST[0])
+    end.reverse()
+    return (start + end)
+
+with
+def merge_sort(collection):
+    start, end = [], []
+    while len(collection) > 1:
+        min_one, max_one = min(collection), max(collection)
+        start.append(min_one)
+        end.append(max_one)
+        collection.remove(min_one)
+        collection.remove(max_one)
+    end.reverse()
+    return start + collection + end",2,1
+806,2019-05-14T12:44:03Z,2019-05-14T17:15:54Z,2019-05-14T17:15:54Z,1,1,1,,2,0
+807,2019-05-14T13:38:25Z,,2019-05-18T14:57:11Z,1,71,0,"It can be in strings or dynamic programming directories, both are OK.",5,4
+808,2019-05-14T14:02:17Z,2019-05-16T11:24:57Z,2019-05-16T11:24:57Z,1,33,0,It's similar to check_bipartite_graph_bfs.,3,0
+809,2019-05-14T14:14:56Z,2019-05-16T11:23:25Z,2019-05-16T11:23:25Z,1,1,1,,2,0
+818,2019-05-17T17:41:54Z,2019-07-30T06:47:55Z,2019-07-30T06:47:55Z,1,35,0,Finds the largest among two very large numbers of the form x^y. Numbers like 512^513 etc,3,0
+820,2019-05-18T15:14:54Z,2019-05-21T06:06:06Z,2019-05-21T06:06:06Z,2,43,74,Removed the (incorrectly named) redundant file graph_list.py and renamed graph.py to graph_list.py,2,0
+821,2019-05-19T05:45:29Z,2019-05-19T09:00:55Z,2019-05-19T09:00:55Z,1,27,37,Simplify the code make it easy to read.,2,0
+822,2019-05-19T16:01:35Z,,2019-12-10T00:04:26Z,1,66,0,Added a new Algorithm called the Johnson's Algorithm. It works for negative edge weights unlike DIjkstra's.,3,1
+824,2019-05-20T04:54:37Z,2019-05-20T13:22:21Z,2019-05-20T13:22:21Z,1,1,1,change besd to best,2,0
+826,2019-05-21T02:14:01Z,2019-05-22T12:09:37Z,2019-05-22T12:09:37Z,1,13,25,,3,0
+828,2019-05-22T13:57:49Z,,2019-12-10T00:04:25Z,1,24,0,This is a new insertion sort algorithm which is much more faster than algorithms shared before!,3,1
+830,2019-05-23T12:15:36Z,2019-05-24T15:54:04Z,2019-05-24T15:54:04Z,1,10,2,"Modify the list comprehensions to reduce the number of judgments, the speed has increased by more than 50%.",2,0
+833,2019-05-24T04:19:17Z,2019-05-24T17:16:40Z,2019-05-24T17:16:40Z,1,50,0,"Simple algorithm for Pigeon Hole Sort.
+I opted to make it the more human-understandable as possible. Also added some simple comments just to tell what's going on inside the code.
+It's recommended to see a video of this algorithm before trying to understand it.",2,0
+836,2019-05-25T13:24:52Z,2019-05-26T12:46:46Z,2019-05-26T12:46:46Z,1,33,0,It's a really nice code and I'll try to add some features from R studio to improve the outcome.,3,0
+841,2019-05-26T14:53:42Z,2019-05-26T16:33:54Z,2019-05-26T16:33:54Z,1,2,1,,2,0
+843,2019-05-26T16:31:29Z,,2019-12-01T04:44:21Z,1,50,0,Implementing basic Binary Search Tree,3,2
+844,2019-05-26T19:41:51Z,2019-06-26T15:57:09Z,2019-06-26T15:57:09Z,1,66,0,"This program print the matix in spiral form.
+This problem has been solved through recursive way.
+  Matrix must satisfy below conditions
+    i) matrix should be only one or two dimensional
+    ii)column of all the row should be equal",2,0
+846,2019-05-27T10:03:21Z,,2019-06-08T08:16:34Z,1,7,6,Correction and variable name changes,2,0
+847,2019-05-27T12:57:18Z,2019-05-28T12:51:49Z,2019-05-28T12:51:49Z,1,30,0,,12,6
+848,2019-05-28T14:49:09Z,2019-05-31T08:02:57Z,2019-05-31T08:02:57Z,1,5,1,"This PR adds a suggestion to use gitpod.io for contributing and generally playing around with the algorithms.
+We've developed Gitpod to lower friction for collaboration on GitHub and other code hosting platforms by skipping the local setup, maintenance of such and automating workflows. It's free for open-source.
+We could configure Gitpod with a Dockerfile so it preinstalls certain tools or python packages, but it looked like most algorithms worked out of the box so I skipped additional configuration.",2,1
+849,2019-05-28T22:35:01Z,2019-05-30T00:47:01Z,2019-05-30T00:47:01Z,1,33,34,"Hey!
+I fixed spelling, coding style in function declaration.",3,1
+850,2019-05-29T13:59:50Z,,2019-10-22T06:56:51Z,1,908,0,This notebook has neural-network implemented from scratch in python,3,2
+851,2019-05-30T11:40:18Z,2019-05-31T08:05:25Z,2019-05-31T08:05:25Z,1,3,2,"I am a chinese ,I find one mistake ,",2,0
+852,2019-05-30T13:21:46Z,,2019-12-09T00:09:14Z,2,54,0,,3,3
+853,2019-05-30T13:42:00Z,,2019-06-03T05:59:05Z,1,11,0,"problem deals with highest sum of digits in a^b where a,b<100",2,0
+854,2019-05-30T14:06:58Z,2019-05-31T08:03:56Z,2019-05-31T08:03:56Z,1,1,1,,2,0
+855,2019-05-30T17:06:52Z,2019-06-05T01:09:05Z,2019-06-05T01:09:05Z,1,16,9,"@sateslayer and @AnupKumarPanwar your reviews please.
+LGTM tests are failing because of the Python syntax error in #425",2,1
+863,2019-06-01T11:22:10Z,,2019-06-02T21:37:45Z,3,47,0,,2,0
+864,2019-06-01T23:28:54Z,2019-06-02T04:14:19Z,2019-06-02T04:14:19Z,3,128,11,"Create a tailor-made contribution guide
+
+Closes #802",2,0
+866,2019-06-02T15:02:07Z,,2019-06-08T12:25:42Z,1,12,0,This shows 2 functions to find and print first 5 fibonacci numbers,2,0
+867,2019-06-02T15:20:33Z,2019-06-04T08:34:29Z,2019-06-04T08:34:29Z,1,7,2,"The old iterative DFS is wrong. The order it explores the graph is not in a DFS way. I think my code is correct.
+Reference:
+
+https://www.techiedelight.com/depth-first-search/
+https://www.geeksforgeeks.org/iterative-depth-first-traversal/",2,1
+869,2019-06-02T21:36:43Z,,2019-06-08T05:44:18Z,3,67,0,,3,1
+871,2019-06-03T01:16:29Z,2019-10-28T18:04:27Z,2019-10-28T18:04:27Z,1,62,0,"The class should mimic how page replacement works under LRU caching scheme.
+
+ When a new key is referenced, we add/update it in the cache store.
+ If the store runs out of memory and we have to add a new element, the key which was used the least recently should be removed.
+ If the user specifies he does not want any memory limit with a None object we should set it as so.
+ If specified by a positive integer the store should respect the memory limit.",2,0
+872,2019-06-04T14:27:33Z,2019-06-05T01:37:05Z,2019-06-05T01:37:05Z,1,0,3,"It is weird that the graphs folder does not show up when I open the project locally, therefore, I modified it directly on GitHub.",3,1
+873,2019-06-04T17:07:07Z,,2019-06-08T06:14:31Z,1,79,0,A circular linked list where the last node points to the first node. I don't know why it is missing and I think it should be here. Helps in traversing the list in circular order and we don't have to start traversing from head every time,3,2
+876,2019-06-05T10:42:55Z,2019-10-28T18:27:01Z,2019-10-28T18:27:01Z,1,28,0,Implementation of Secant Method.,3,1
+877,2019-06-05T18:34:09Z,,2019-06-11T00:00:57Z,3,8,0,Please can you move your file to maths  and delete Maths  sub repository you created..  yours is duplicate dir.,2,3
+882,2019-06-07T00:55:09Z,2019-06-08T12:25:34Z,2019-06-08T12:25:35Z,6,164,8,"This is a duplicate of the request #866 , I couldn't figure how to add it to the request, so I'm creating a new pull request.  I've included the changes using the iterative fibonacci.  First pull request, so any feedback is appreciated :D.
+--Added two ways to calculate the fibonacci sequence:  (1) iterative  (2) formula.
+--I've also added a timer decorator so someone can see the difference in computation time between these two methods.
+--Added two unittests using the slash framework.",2,0
+883,2019-06-07T06:11:55Z,2019-06-16T13:19:20Z,2019-06-16T13:19:20Z,1,32,0,,4,5
+884,2019-06-07T21:18:12Z,,2019-07-08T15:40:59Z,1,195,0,Directory that was suggested in #860,5,6
+885,2019-06-08T05:36:29Z,,2019-11-14T19:35:02Z,9,630,0,"done all the changes according to guidelines
+sorry for inconvenience i am little new to github 😉😁",3,7
+887,2019-06-08T08:25:52Z,2019-07-03T07:21:04Z,2019-07-03T07:21:04Z,2,4,37,"language: python
+install: pip install flake8
+script: flake8 . --count --select=E9,F63,F72,F82 --show-source --statistics",3,8
+889,2019-06-08T22:08:41Z,2019-06-17T10:17:54Z,2019-06-17T10:17:54Z,2,444,0,"I added a python script that scans through the directory and generates the corresponding DIRECTORY.md. I have also done some formatting for the names, for example, replace underscores to whitespaces, capitalize folder names. However, contributors must still run python script.py in order to generate DIRECTORY.md.",3,7
+892,2019-06-09T03:23:18Z,,2019-12-08T00:10:44Z,9,104,0,"Removes punctuation from string.punctuation.  The dash is replaces with a whitespace to preserve hyphenated words.  There is an option to remove control characters as well.
+I've used this many times when searching for word frequencies, etc.  Not sure if it belongs with all these algorithms, but it's an ""algorithm"" to remove punctuation :D
+To test, look at the tests folder and run test_punctuation.py",2,1
+894,2019-06-10T01:05:42Z,2019-06-11T11:24:54Z,2019-06-11T11:24:54Z,9,8,7,Added print function into matrix_multiplication_addition.py and removed blank space in data_structures/binary tree directory. Also  removed .vs/ folder per #893,2,0
+895,2019-06-10T15:25:06Z,2019-06-18T10:28:02Z,2019-06-18T10:28:02Z,1,78,24,"I've added comments to make understanding this method a little easier for those that are not familiar.  This should close out #727 .
+Other changes:
+
+added if name == 'main' rather than the ""# MAIN"" comment
+put in return for distances and vertices.  Previously everything was just printed out, but someone may find it useful to have the algorithm return something.
+Other PEP8 changes
+Added example input and expected output as a check to make sure any future changes will give the same output.",2,0
+897,2019-06-10T15:52:01Z,2019-06-12T14:54:31Z,2019-06-12T14:54:31Z,7,0,0,Per Issue #896,2,0
+898,2019-06-11T09:53:55Z,,2019-07-09T00:35:46Z,1,11,4,"…matrices. Also added checks for invalid dimensions
+The original code for matrix multiplication did not support non square matrices (reference to #837 )
+The function also did not check if the 2 matrices can even be multiplied.
+The error has been fixed, and the check has been added",2,0
+900,2019-06-14T00:36:58Z,2019-06-18T10:27:09Z,2019-06-18T10:27:09Z,1,5,5,File looks more elegant now ;-),2,0
+902,2019-06-15T13:55:03Z,2019-06-15T20:37:24Z,2019-06-15T20:37:24Z,1,1,1,,11,0
+903,2019-06-15T23:55:18Z,2019-06-17T10:13:37Z,2019-06-17T10:13:37Z,1,0,1,"explored set should not append the root/start outside of the while loop because the root/start is already in explored set and stack would be empty after the first pop. The ""if v in explored"" statement then triggers ""continue"" then it would exit the loop. As a result, this implementation would always return {'A'}.",2,0
+906,2019-06-17T09:18:52Z,2019-11-30T05:17:13Z,2019-11-30T05:17:13Z,1,162,0,"Adds a heap which is generic and can be made Min or max using just a key function.
+Also easier to read and understand because of modularity of functions.
+Also adds update_item and delete_item functionalities.",2,1
+908,2019-06-19T00:20:48Z,2019-06-22T04:42:29Z,2019-06-22T04:42:29Z,1,2,3,Reduced lines of code and extra processing on the line: n += 1,2,0
+909,2019-06-19T07:49:06Z,2019-06-23T15:32:13Z,2019-06-23T15:32:13Z,1,2,2,"Given visited is a list(), ""if v in visited:"" is a O(n) operation in python which yields more complexity to this implementation as the if statement is nested in a for loop. Changing visited into a hash set grants only O(1) for checking ""if v in visited:"".",2,0
+913,2019-06-22T17:12:39Z,,2019-12-08T00:10:41Z,1,6,3,"the previous example creates a list and not an array.
+an array with 10000000 float numbers is now generated to exemplify.",2,1
+914,2019-06-23T01:35:09Z,2019-06-24T10:11:07Z,2019-06-24T10:11:07Z,2,3,3,,2,2
+915,2019-06-24T00:58:44Z,,2019-08-01T07:33:30Z,1,3,2,use pattern_temp,3,1
+916,2019-06-26T03:46:48Z,,2019-12-08T00:10:41Z,3,120,0,"For Issue #840
+Regression class
+--least squares regression of nth order
+--output polynomial coefficients
+--plot result
+I'm re-entering this because I made a royal mess of #901.  Now I'm just entering changes for the poly regression and keeping other changes separate.",3,3
+917,2019-06-26T19:10:43Z,2019-07-03T15:31:11Z,2019-07-03T15:31:11Z,1,2,2,,3,0
+918,2019-06-26T21:18:06Z,2019-07-12T15:16:15Z,2019-07-12T15:16:15Z,1,6,1,Update Bucket Sort time complexity analysis,2,0
+920,2019-06-27T00:59:21Z,2019-07-07T15:45:43Z,2019-07-07T15:45:43Z,1,0,1,"error = abs(f(a)) was declared on line 24 and line 32. It is unnecessary to have in both places.
+I removed the second instance since it wastes resources to keep redefining the variable inside the for loop.
+This fixes an issue found by lgtm",3,1
+921,2019-06-27T01:14:06Z,2019-06-30T04:41:26Z,2019-06-30T04:41:26Z,1,1,1,"Since j is redefined before it is used, it makes more sense to declare it with the value None instead of 1.
+This fixes a warning from lgtm",2,0
+922,2019-06-27T01:41:00Z,2019-07-06T15:35:13Z,2019-07-06T15:35:13Z,1,0,1,"I removed import sys because it is not used in the program.
+This addresses a recommendation from lgtm",2,0
+923,2019-06-27T02:06:52Z,,2019-07-10T19:52:54Z,1,1,1,This addresses a recommendation from lgtm and makes Pylint happy.,2,1
+924,2019-06-27T02:18:18Z,2019-07-01T08:10:19Z,2019-07-01T08:10:19Z,12,154,87,I modified the file to make Pylint happier and make the code more readable.,3,0
+925,2019-06-27T03:07:18Z,2019-07-20T03:06:30Z,2019-07-20T03:06:30Z,3,217,34,"Included error checks in matrix operation. There were some cases where the functions would not work correctly.
+
+
+PEP8 changes to matrix_operations.py.
+
+
+Added test cases for matrix operations to improve error checking.",2,1
+926,2019-06-28T02:22:47Z,2019-07-04T15:18:57Z,2019-07-04T15:18:57Z,2,13,11,,3,0
+929,2019-06-29T08:43:43Z,2019-07-02T15:23:36Z,2019-07-02T15:23:36Z,1,34,0,,2,0
+930,2019-06-29T10:23:38Z,2019-07-17T06:22:09Z,2019-07-17T06:22:10Z,1,34,0,calculating factorial using memoization added,3,5
+931,2019-06-30T13:00:19Z,,2019-12-08T00:10:39Z,1,60,0,User-defined functions are used instead of inbuilt functions.,2,1
+932,2019-07-01T08:31:30Z,2019-07-07T06:49:16Z,2019-07-07T06:49:16Z,1,61,0,Enigma machine algorithm simulator added to project.,3,0
+935,2019-07-01T20:17:42Z,2019-07-08T16:58:59Z,2019-07-08T16:58:59Z,3,111,0,"Project Euler Problem #13 Alternate Solution
+Pythonic version of #16 Problem's solution",2,0
+936,2019-07-01T20:42:54Z,,2019-12-07T00:10:15Z,1,48,0,Added function in Python that calculates the first quartile of a list.,5,5
+938,2019-07-02T10:33:08Z,2019-07-02T12:20:26Z,2019-07-02T12:20:26Z,1,72,0,"issue #817
+created divide_and_conquer folder and added max_sub_array_sum.py",2,0
+939,2019-07-02T20:03:11Z,2019-07-10T05:21:05Z,2019-07-10T05:21:05Z,1,0,0,"'average.py' is ambiguous. There are several kinds of averages, so 'average_mean.py' is a more precise name.",3,0
+940,2019-07-02T22:13:03Z,,2019-11-14T19:35:02Z,1,85,0,Added algorithm that prints outliers and strong outliers from a list.,2,2
+943,2019-07-03T09:16:11Z,2019-07-04T07:49:15Z,2019-07-04T07:49:15Z,2,188,0,"added closest pair of points algorithm under divide and conquer.
+Please review.
+;)",2,2
+944,2019-07-03T11:30:50Z,2019-07-05T08:47:19Z,2019-07-05T08:47:19Z,1,28,0,Creates an example of KNN algorithm using sklearn library.,2,0
+947,2019-07-03T12:24:55Z,2019-07-07T04:59:59Z,2019-07-07T04:59:59Z,1,28,0,,2,1
+948,2019-07-03T13:28:42Z,2019-07-05T08:36:48Z,2019-07-05T08:36:48Z,3,104,0,"I created:
+
+A program to calculate the median of a list of numbers.
+A decimal to binary converter.
+A decimal to octal converter.",2,0
+949,2019-07-03T16:40:04Z,2019-07-05T08:34:46Z,2019-07-05T08:34:47Z,1,1,3,"Removed two unused variables.
+Changed a to _ since the a variable is never used.
+
+This addresses 3 alerts from lgtm.",2,0
+953,2019-07-04T04:45:25Z,2019-07-05T08:48:36Z,2019-07-05T08:48:36Z,3,129,77,The backtracking folder consists of two algorithms nQueens and sum_of_subsets that follow the backtracking algorithmic-approach.,3,2
+954,2019-07-04T05:53:52Z,2019-07-05T08:43:17Z,2019-07-05T08:43:17Z,1,665,0,I wrote a RedBlackTree class and some test cases for it.,2,0
+955,2019-07-04T09:00:54Z,2019-07-05T08:20:12Z,2019-07-05T08:20:12Z,3,54,1,add gaussian filter algorithm and lena.jpg,2,0
+956,2019-07-04T09:27:17Z,,2019-07-04T15:20:04Z,1,0,0,i am working on your repo for study purpose,2,1
+960,2019-07-05T14:49:15Z,2019-07-10T20:09:25Z,2019-07-10T20:09:25Z,13,314,157,"I improved formatting and style to make PyLama happier.
+Linters used:
+
+mccabe
+pep257
+pydocstyle
+pep8
+pycodestyle
+pyflakes
+pylint
+isort",2,5
+961,2019-07-05T22:48:43Z,2019-07-06T13:13:51Z,2019-07-06T13:13:51Z,1,42,0,,12,1
+962,2019-07-05T23:07:45Z,2019-07-06T13:19:37Z,2019-07-06T13:19:37Z,1,45,0,,11,1
+964,2019-07-06T09:34:12Z,2019-07-08T15:27:52Z,2019-07-08T15:27:52Z,11,56,365,"Fixes #309
+https://github.com/python/black
+https://docs.python.org/3/library/doctest.html
+https://flake8.pycqa.org
+http://mypy-lang.org
+https://pytest.org
+All running in less than 60 seconds.",4,14
+965,2019-07-06T13:31:21Z,2019-07-06T15:31:53Z,2019-07-06T15:31:53Z,1,1,1,@poyea @siriak please review and merge this one.,4,2
+968,2019-07-07T04:18:20Z,2019-07-07T15:17:39Z,2019-07-07T15:17:39Z,1,42,24,"Added main() function
+Simplified password_generator
+Formatted file according to pep 8",4,0
+969,2019-07-07T09:02:04Z,2019-07-08T15:38:48Z,2019-07-08T15:38:48Z,1,22,5,"Blocked by #964  Recommend the use of black, doctests, flake8, and mypy.",2,0
+971,2019-07-08T09:27:36Z,2019-07-08T17:26:27Z,2019-07-08T17:26:27Z,2,80,0,add img_convolve algorithm and sobel_filter algorithm,2,1
+972,2019-07-08T12:06:08Z,2019-07-30T16:06:49Z,2019-07-30T16:06:49Z,1,24,23,"Update tim_sort.py
+The previous algorithm was skipping numbers, according to issue #959, and my own tests.
+The version I am applying uses a while loop, which works correctly and is easier to compute, as there is no break statement.
+This implementation only builds up increasing runs, without making decreasing ones, which are later inverted.",3,1
+974,2019-07-08T12:53:23Z,2019-09-13T12:07:25Z,2019-09-13T12:07:25Z,2,2,2,F4 tests check for import errors. Implements issue #973,2,3
+975,2019-07-08T13:08:56Z,2019-07-10T20:00:31Z,2019-07-10T20:00:31Z,1,4,2,"I modified the Docstrings at the beginning of the file to fix D400, W0105, and E402.",2,0
+977,2019-07-08T16:54:49Z,2019-07-09T07:03:19Z,2019-07-09T07:03:19Z,1,43,0,I didn't update the directory because I noticed that the other conversion algorithms were not listed,3,5
+979,2019-07-09T05:26:36Z,2019-07-09T15:20:43Z,2019-07-09T15:20:43Z,1,28,21,n*logn algorithm for closest pair of points.,3,0
+980,2019-07-09T08:39:49Z,2019-07-10T04:59:40Z,2019-07-10T04:59:40Z,3,31,3,"Let’s make sure that there is no global code in Python files so that we can run Pytest across the repo.
+Ready for review.  This has allowed us to discover and open #983,#984,#985,#986,#987,#988,#989  Once those issues are fixed we can simplify the pytest command in a future pull request. @PatOnTheBack",2,0
+990,2019-07-09T13:12:15Z,2019-07-11T16:21:48Z,2019-07-11T16:21:48Z,1,9,10,"Changing the boolean expression avoids the use of a continue statement.
+This way the code becomes easier/faster to compute on lower level and it has a
+better coding style.",4,1
+991,2019-07-10T03:08:25Z,2019-07-10T14:41:06Z,2019-07-10T14:41:06Z,3,122,8,add canny edge detection algorithm and modify sobel_filter,3,0
+993,2019-07-10T16:38:13Z,2019-07-11T09:16:43Z,2019-07-11T09:16:43Z,23,0,0,"#491 and #362 seemed to tackle this as well but seemed to currently have conflicts with the main branch
+Used a simple python script to turn all names into snake_case (done for clarity, not efficiency)
+import os
+import re
+
+path = '.'
+
+def snake_it(filename):
+    newfilename = filename.replace('-','_')
+    newfilename = re.sub(r'([a-z])([A-Z])', r'\1_\2' , newfilename)
+    return newfilename.lower()
+
+for root, subdirs, files in os.walk(path):
+    for filename in files:
+        if filename.endswith('.py'):
+            fullpath = root + '/' + filename
+            newfullpath = snake_it(fullpath)
+            print( fullpath + ' -> ' + newfullpath)
+            os.rename(fullpath, newfullpath)",2,5
+995,2019-07-10T17:15:18Z,2019-07-13T07:12:55Z,2019-07-13T07:12:55Z,1,57,58,A hopefully clearer implementation without dependence on global variables.,2,4
+996,2019-07-10T17:34:55Z,2019-07-13T07:04:43Z,2019-07-13T07:04:43Z,1,26,15,Made variable names more meaningful and removed nested functions.,2,2
+997,2019-07-10T18:06:22Z,2019-07-11T04:43:04Z,2019-07-11T04:43:04Z,1,15,8,"fix docstring for doctest to work properly (add space after >>>). Added another possible method of finding abs_max(), Changed function name according to repo guidelines. I understand these changes are trivial ,please close PR if so.",2,3
+998,2019-07-10T18:27:44Z,2019-07-10T20:38:11Z,2019-07-10T20:38:11Z,1,18,25,"added doctest, fixed TypeError: list indices must be integers or slices, not float error due to number/2 producing float type as index.",2,1
+999,2019-07-10T19:00:10Z,,2019-12-07T00:10:10Z,1,19,43,clean code and made fixes.def number_of_divisors(n)gives wrong answer.,3,2
+1000,2019-07-11T04:24:00Z,2019-07-17T16:12:25Z,2019-07-17T16:12:25Z,1,22,2,added another method of computing maximum sum subarray,3,1
+1001,2019-07-11T05:16:49Z,2019-07-13T07:10:03Z,2019-07-13T07:10:03Z,1,34,0,"added bottom up method.
+I referenced this article: geekforgeeks",2,0
+1002,2019-07-11T05:49:43Z,2019-07-15T16:17:42Z,2019-07-15T16:17:42Z,1,27,0,a simple dp problem seen on LeetCode:,2,0
+1004,2019-07-11T09:08:49Z,2019-07-11T16:20:41Z,2019-07-11T16:20:41Z,2,4,2,from Maths.abs import absVal does not work.,4,2
+1007,2019-07-12T06:05:59Z,,2019-07-20T16:37:18Z,1,12,0,"Calculating the Log-Likelihood
+The log-likelihood can be viewed as a sum over all the training data.",3,1
+1009,2019-07-12T20:27:15Z,,2019-10-21T19:48:09Z,1,518,0,"The file is in ipynb format can be renderd in jupyter-notebook.
+The file contains code that picks up random dataset from sklearn library and shows implementation of SVM algorithm on that dataset with plot visualistaion
+Suggest changes",3,2
+1013,2019-07-13T18:15:10Z,2019-07-13T19:50:37Z,2019-07-13T19:50:38Z,3,73,56,"Moved and renamed ~script.py to scripts/build_directory_md.py
+
+
+Added script, .github and requirements.txt to the list of ignore files in build_directory_md.py
+
+
+Updated DIRECTORY.md file.",3,2
+1014,2019-07-14T01:05:53Z,2019-07-16T23:09:54Z,2019-07-16T23:09:54Z,100,2651,1468,,3,5
+1015,2019-07-14T04:36:34Z,2019-07-14T05:45:54Z,2019-07-14T05:45:54Z,1,41,0,Return all possible combinations of k numbers out of 1 ... n.,2,6
+1016,2019-07-14T06:07:49Z,2019-08-10T20:48:01Z,2019-08-10T20:48:01Z,5,15,134,"Fixes #985  @dilson @AlexDvorak Your reviews please?
+$ Travis CI: Add pytest --doctest-modules neural_network_
+neural_network/perceptron.py:123: in <module>
+    sample.insert(i, float(input('value: ')))
+../lib/python3.7/site-packages/_pytest/capture.py:693: in read
+    raise IOError(""reading from stdin while output is captured"")
+E   OSError: reading from stdin while output is captured
+-------------------------------------------------------------------------------- Captured stdout --------------------------------------------------------------------------------
+('\nEpoch:\n', 399)
+------------------------
+
+value:",3,1
+1017,2019-07-14T07:29:34Z,,2019-07-18T22:17:45Z,1,10,6,Added comments and improved the quality of code into a more readable form.,2,0
+1018,2019-07-14T08:50:12Z,2019-07-17T04:07:26Z,2019-07-17T04:07:26Z,9,148,135,"Fixes #984     if name == ""main"":",3,1
+1019,2019-07-14T08:54:48Z,2019-07-18T21:40:52Z,2019-07-18T21:40:52Z,1,13,4,Improved code quality and added comments.,2,1
+1020,2019-07-14T09:28:35Z,2019-07-21T06:16:29Z,2019-07-21T06:16:29Z,5,35,29,Fixes #986,3,2
+1021,2019-07-14T23:40:15Z,2019-07-15T06:48:36Z,2019-07-15T06:48:36Z,1,99,0,"This method rotate the matrix by 90, 180, 270. (Like rotating the image)",2,0
+1023,2019-07-15T06:57:56Z,2019-07-22T22:07:10Z,2019-07-22T22:07:10Z,1,58,57,@obelisk0114 Your review please?,3,4
+1025,2019-07-15T16:34:15Z,2019-07-16T05:26:28Z,2019-07-16T05:26:28Z,1,41,26,@SandersLin Your review please?,4,0
+1026,2019-07-15T22:31:36Z,,2019-12-07T00:10:08Z,1,3,2,"Hello!
+Just discovered that there is an error in sieve of Eratosthenes. Value from sqrt was rounded to floor but it has to be rounded to ceil.
+Simple example: implementation without provided fix will count 9 as prime number while finding prime numbers less than 10. So this is incorrect and should be fixed.
+Thanks!",4,9
+1028,2019-07-16T23:26:28Z,2019-07-18T11:10:53Z,2019-07-18T11:10:53Z,2,15,13,,2,0
+1029,2019-07-17T02:41:28Z,2019-07-17T18:32:05Z,2019-07-17T18:32:05Z,1,176,0,"I added a docstring with parameters and return explanation but I'm not sure what is the right way to write it, I looked at google for a reference and only found PEP 257 that does not define exactly how these things should be written in a strict way.
+I also found this stack overflow question that talks about PEP 287 and how reStructuredText (reST) format is used by Sphinx to generate documentation and seems to be a good approach.
+I think it would be nice to adopt a style to standardize the project documentation. What you guys think?",2,1
+1032,2019-07-17T07:03:12Z,2019-07-18T10:47:15Z,2019-07-18T10:47:15Z,1,0,1,,2,0
+1033,2019-07-17T17:46:08Z,,2019-09-19T16:04:08Z,53,2191,1144,"The old version of Fisher-Yates shuffle is wrong.
+def FYshuffle(LIST):
+    for i in range(len(LIST)):
+        a = random.randint(0, len(LIST)-1)
+        b = random.randint(0, len(LIST)-1)
+        LIST[a], LIST[b] = LIST[b], LIST[a]
+    return LIST
+
+If the probability that the second element goes to second last position is 1/n, it's the ideal case.
+However, it's not 1/n in this case.
+The probability is P(choose the second element) * P(choose the second last element)
+= 1/n * 1/n * Sigma(others)
+But Sigma(others) < n in this case.
+
+Correct me if I am wrong.",10,3
+1034,2019-07-18T00:37:56Z,2019-07-18T17:05:15Z,2019-07-18T17:05:15Z,8,125,11,,2,1
+1038,2019-07-18T20:02:49Z,2019-07-25T07:49:01Z,2019-07-25T07:49:01Z,5,212,221,A second attempt at #994,3,0
+1039,2019-07-18T21:31:49Z,2019-07-18T22:34:30Z,2019-07-18T22:34:30Z,9,36,41,"Fixes #1037  # This syntax will autoclose 1037 when this PR gets merged.
+Tests that were too slow to execute on Project Euler, problems 9, 10, 12 and 14 were commented. #1037",2,3
+1041,2019-07-18T23:30:50Z,2019-07-19T04:33:29Z,2019-07-19T04:33:29Z,1,3,2,,2,0
+1042,2019-07-19T04:38:36Z,2019-07-19T07:41:38Z,2019-07-19T07:41:38Z,1,88,0,"Implemented matrix exponentiation for finding nth fibonnaci.
+Complexity is about O(nlog(n)*8), here 8 is for matrix multiplication of size 2 by 2.",2,5
+1044,2019-07-19T08:34:34Z,,2019-08-09T19:45:07Z,3,56,55,Fixes #983  The two Python files in the file_transfer_protocol directory currently fail the Travis CI pytests.  This pull request makes the changes necessary for Travis CI to run pytest on these files without hanging.,2,3
+1046,2019-07-19T10:31:50Z,2019-07-20T07:36:56Z,2019-07-20T07:36:56Z,1,14,13,https://github.com/TheAlgorithms/Python/blob/49ce57130544a3b21c0957e8b497b16141007703/DIRECTORY.md,2,0
+1050,2019-07-19T21:39:59Z,2019-07-30T16:00:25Z,2019-07-30T16:00:25Z,1,42,0,Add Lucas–Lehmer test for Mersenne prime testing.,2,0
+1052,2019-07-20T10:30:31Z,2019-07-20T16:31:09Z,2019-07-20T16:31:09Z,1,2,2,"DeprecationWarning: invalid escape sequence \
+=============================== warnings summary ===============================
+graphs/dijkstra.py:81
+  /home/travis/build/TheAlgorithms/Python/graphs/dijkstra.py:81: DeprecationWarning: invalid escape sequence \ 
+    """"""
+graphs/dijkstra.py:97
+  /home/travis/build/TheAlgorithms/Python/graphs/dijkstra.py:97: DeprecationWarning: invalid escape sequence \ 
+    """"""
+-- Docs: https://docs.pytest.org/en/latest/warnings.html
+=================== 126 passed, 7 warnings in 19.35 seconds ====================",2,0
+1058,2019-07-20T14:49:39Z,2019-07-21T08:35:43Z,2019-07-21T08:35:43Z,2,82,0,,2,5
+1062,2019-07-22T16:21:29Z,2019-07-25T18:38:25Z,2019-07-25T18:38:25Z,4,800,665,Checks if a statically determinate system is in static equilibrium.,2,3
+1063,2019-07-22T17:30:54Z,,2019-12-07T00:10:06Z,1,31,24,,3,4
+1064,2019-07-23T18:16:05Z,2019-07-24T12:34:23Z,2019-07-24T12:34:23Z,1,9,5,"The following badges were added
+
+Docs
+Python Version
+Contributions
+Hits",2,13
+1066,2019-07-24T07:24:02Z,2019-07-24T09:32:05Z,2019-07-24T09:32:06Z,1,39,9,"Previous solution is based on the hash function of python.
+Implemented ruling hash to get the appropriate complexity of rabin karp.",2,6
+1069,2019-07-24T17:27:14Z,,2019-07-25T12:06:29Z,2,5,0,Enforces PEP8's Python filename standards.,2,0
+1071,2019-07-25T01:32:46Z,2019-07-26T16:28:32Z,2019-07-26T16:28:32Z,1,45,14,,2,8
+1076,2019-07-26T08:47:15Z,2019-07-28T15:27:24Z,2019-07-28T15:27:24Z,3,48,71,Rewrite scripts/build_directory_md.py for ease of maintenance.,2,0
+1077,2019-07-26T09:13:06Z,,2019-11-14T19:35:03Z,2,246,120,,3,0
+1082,2019-07-27T01:19:46Z,,2019-08-02T04:40:31Z,5,6308,11,Tkinter GUI calculator with some exception handling,2,2
+1086,2019-07-28T18:02:50Z,2019-07-30T10:02:14Z,2019-07-30T10:02:14Z,4,29,0,"Fixes #1005
+Add scripts/validate_filenames.py which is run in our automated testing to ensure that all Python filenames contain no uppercase characters, no spaces, and are inside of at least one directory.
+Rename the two existing code files that violate these rules.",2,0
+1087,2019-07-30T14:41:40Z,2019-08-06T19:53:12Z,2019-08-06T19:53:12Z,1,27,1,"This PR allows us to see which of our files are still fail pytests.  As we fix each file so that it passes pytest, we can remove the custom configuration to simplify our testing script.  This PR replaces #1055 by running each of our currently failing pytests in allow_failures mode so that we can see them fail without failing the entire Travis CI run.
+Complex now but simple once all files pass pytest.",2,0
+1088,2019-07-30T17:47:22Z,2019-07-31T15:14:36Z,2019-07-31T15:14:36Z,3,3,4,,2,0
+1089,2019-07-31T05:05:34Z,2019-07-31T11:20:33Z,2019-07-31T11:20:33Z,1,58,0,edit new solution using sieve-of-eratosthenes to solve problem 10 of project Euler,2,1
+1093,2019-08-02T18:36:48Z,2019-08-03T18:00:11Z,2019-08-03T18:00:11Z,1,46,13,"Fixes #1090
+bin(num) in decimal_to_binary.py can now convert ZERO and negative decimal numbers to binary. Consistent with built-in python bin(x) function.",3,14
+1095,2019-08-03T22:33:42Z,2019-08-05T03:22:29Z,2019-08-05T03:22:29Z,1,157,0,"Let me know of any other improvements I can make. 👍
+Marvins-MBP:maths marvinmichum$ python3 zellers_congruence.py --help
+usage: zellers_congruence.py [-h] date_input
+
+Find out what day of the week nearly any date is or was. Enter date as a
+string in the mm-dd-yyyy or mm/dd/yyyy format
+
+positional arguments:
+  date_input  Date as a string (mm-dd-yyyy or mm/dd/yyyy)
+
+optional arguments:
+  -h, --help  show this help message and exit
+>>> import ZellersCongruence as z
+>>> z.zeller('10/10/2018')
+Your date 10/10/2018, is a Wednesday!
+>>> z.zeller('04-23-1991')
+Your date 04-23-1991, is a Tuesday!
+>>> z.zeller('01-31-1976')
+Your date 01-31-1976, is a Saturday!
+Marvins-MBP:maths marvinmichum$ python3 zellers_congruence.py -v
+Trying:
+    zeller('01-31-2010')
+Expecting:
+    Your date 01-31-2010, is a Sunday!
+ok
+Trying:
+    zeller('13-31-2010')
+Expecting:
+    Traceback (most recent call last):
+    ...
+    ValueError: Month must be between 1 - 12
+ok
+Trying:
+    zeller('.2-31-2010')
+Expecting:
+    Traceback (most recent call last):
+    ...
+    ValueError: invalid literal for int() with base 10: '.2'
+ok
+Trying:
+    zeller('01-33-2010')
+Expecting:
+    Traceback (most recent call last):
+        ...
+    ValueError: Date must be between 1 - 31
+ok
+Trying:
+    zeller('01-.4-2010')
+Expecting:
+    Traceback (most recent call last):
+        ...
+    ValueError: invalid literal for int() with base 10: '.4'
+ok
+Trying:
+    zeller('01-31*2010')
+Expecting:
+    Traceback (most recent call last):
+        ...
+    ValueError: Date seperator must be '-' or '/'
+ok
+Trying:
+    zeller('01^31-2010')
+Expecting:
+    Traceback (most recent call last):
+        ...
+    ValueError: Date seperator must be '-' or '/'
+ok
+Trying:
+    zeller('01-31-8999')
+Expecting:
+    Traceback (most recent call last):
+        ...
+    ValueError: Year out of range. There has to be some sort of limit...right?
+ok
+Trying:
+    zeller()
+Expecting:
+    Traceback (most recent call last):
+        ...
+    TypeError: zeller() missing 1 required positional argument: 'date_input'
+ok
+Trying:
+    zeller('')
+Expecting:
+    Traceback (most recent call last):
+        ...
+    ValueError: Must be 10 characters long
+ok
+Trying:
+    zeller('01-31-19082939')
+Expecting:
+    Traceback (most recent call last):
+        ...
+    ValueError: Must be 10 characters long
+ok
+1 items had no tests:
+    __main__
+1 items passed all tests:
+  11 tests in __main__.zeller
+11 tests in 2 items.
+11 passed and 0 failed.
+Test passed.",2,3
+1096,2019-08-05T03:27:54Z,2019-08-05T05:07:53Z,2019-08-05T05:07:53Z,1,7,0,,3,0
+1097,2019-08-05T03:38:28Z,2019-08-05T05:05:36Z,2019-08-05T05:05:36Z,1,17,0,"Added a few doctests
+>>> decimal_to_binary(3,[1.5])
+['0.00.01.5']
+
+>>> check(['0.00.01.5'])
+['0.00.01.5']
+
+>>> prime_implicant_chart(['0.00.01.5'],['0.00.01.5'])
+[[1]]
+
+>>> selection([[1]],['0.00.01.5'])
+['0.00.01.5']",2,0
+1098,2019-08-05T19:41:12Z,2019-08-06T00:06:16Z,2019-08-06T00:06:16Z,3,8,2,,2,0
+1099,2019-08-06T02:27:06Z,2019-08-06T09:17:18Z,2019-08-06T09:17:18Z,1,13,0,added some tests to the file,3,2
+1100,2019-08-06T07:06:57Z,2019-08-06T11:16:30Z,2019-08-06T11:16:30Z,1,154,133,"hashes/md5.py has tabs vs spaces inconsistency, it was also resolved.",2,0
+1101,2019-08-06T07:33:43Z,2019-08-06T10:14:24Z,2019-08-06T10:14:24Z,13,133,133,No space between print and (.,2,1
+1104,2019-08-06T15:41:52Z,2019-08-06T19:31:45Z,2019-08-06T19:31:45Z,0,0,0,"A second attempt at #1101
+@ harshildarji your review please.",2,0
+1105,2019-08-06T16:10:52Z,2019-08-07T19:39:45Z,2019-08-07T19:39:45Z,1,7,20,"Removed issue of unused variables.
+Referencing issue #1024 regarding the issue of unused variables in logistic_regression",3,0
+1106,2019-08-06T16:14:11Z,2019-08-07T13:44:48Z,2019-08-07T13:44:49Z,5,63,58,fixes issues found in PR#1044 @cclauss,2,8
+1107,2019-08-06T17:14:48Z,2019-08-06T19:32:28Z,2019-08-06T19:32:28Z,1,32,32,,2,0
+1111,2019-08-07T04:30:47Z,,2019-08-08T15:00:26Z,4,108,2,"Added pytests to digital_image_processing. Also, potential typo found in digital_image_processing/filters/median_filter.py line 18
+Found typo during testing.
+
+Error resolved after fix",2,3
+1114,2019-08-07T15:02:05Z,,2019-08-11T19:35:12Z,9,1180,49,,2,3
+1115,2019-08-07T16:08:25Z,2019-08-07T17:35:37Z,2019-08-07T17:35:37Z,2,0,0,Closes #1112,3,0
+1116,2019-08-07T16:13:19Z,2019-08-07T20:02:32Z,2019-08-07T20:02:32Z,2,0,0,Fixes #1113,3,0
+1118,2019-08-08T21:51:38Z,2019-08-09T19:37:17Z,2019-08-09T19:37:17Z,8,2,2,"$ git mv file_transfer_protocol file_transfer  # See #1113
+$ git mv linear_algebra_python linear_algebra  # Python is in the repo name so we don't need it in the directory name.",2,0
+1119,2019-08-09T15:36:05Z,,2019-12-06T00:10:14Z,1,11,10,"The merge algorithm was incredibly slow. In testing, the one I am submitting about 3 times quicker than the recursive one.",2,4
+1121,2019-08-11T08:26:54Z,2019-08-11T11:00:59Z,2019-08-11T11:00:59Z,2,0,67,Adjust our Travis CI tests to match recent improvements made in file_transfer and the removal of the redundant machine_learning/perceptron.py.  @siddharthjain1611 Your review please.,2,0
+1122,2019-08-11T09:00:44Z,2019-08-12T07:13:58Z,2019-08-12T07:13:58Z,1,130,0,"Hey,
+I added a new linear algebra algorithm which takes a number of x and y coordinates as input and then outputs a polynomial function that connects them.
+Thank you for taking a look at it.",2,1
+1123,2019-08-11T14:04:18Z,2019-08-12T16:00:00Z,2019-08-12T16:00:00Z,1,50,53,,2,0
+1125,2019-08-11T15:28:43Z,2019-08-13T09:50:14Z,2019-08-13T09:50:14Z,1,8,0,Adds a few more tests to our automated Pytests.,2,1
+1127,2019-08-13T00:06:14Z,2019-08-16T22:46:34Z,2019-08-16T22:46:34Z,1,25,9,,2,0
+1128,2019-08-13T08:22:59Z,2019-08-13T13:51:07Z,2019-08-13T13:51:07Z,1,151,0,"I have added sudoku.py which is a program to solve the famous sudoku puzzle in python. Please review it and suggest improvements/comments, if any.",2,6
+1129,2019-08-13T13:57:31Z,2019-08-14T21:24:59Z,2019-08-14T21:24:59Z,1,420,10,,2,0
+1130,2019-08-13T14:30:41Z,2019-08-15T11:19:39Z,2019-08-15T11:19:39Z,1,0,0,"git mv linear_algebra/src/python-polynom-for-points.py \
+       linear_algebra/src/polynom-for-points.py",3,0
+1131,2019-08-13T14:53:49Z,2019-08-13T17:16:11Z,2019-08-13T17:16:11Z,2,26,0,Solution for problem Euler 56,2,0
+1133,2019-08-15T14:39:16Z,2019-08-15T18:07:43Z,2019-08-15T18:07:43Z,1,173,0,,2,3
+1135,2019-08-17T12:54:06Z,2019-08-17T15:36:31Z,2019-08-17T15:36:31Z,1,431,0,"A naive brute-force algorithm
+A divide-and-conquer algorithm",2,2
+1138,2019-08-17T21:12:24Z,2019-08-22T16:55:42Z,2019-08-22T16:55:42Z,1,33,15,"compare_string('0010','0110')
+'0_10'
+is_for_table('__1','011',2)
+True
+The above doctests were added",4,1
+1139,2019-08-18T21:36:43Z,2019-08-19T05:39:40Z,2019-08-19T05:39:40Z,1,116,15,Also reformatted parts of the original file.,2,0
+1141,2019-08-19T01:01:20Z,2019-08-20T05:02:44Z,2019-08-20T05:02:44Z,1,3,1,,3,0
+1142,2019-08-19T06:34:23Z,2019-08-19T07:40:37Z,2019-08-19T07:40:37Z,1,68,22,,2,1
+1143,2019-08-19T07:38:40Z,2019-08-19T13:37:50Z,2019-08-19T13:37:50Z,145,367,976,135 days until Python 2 end of life.  http://pythonclock.org  Removes 600+ lines of code.,2,0
+1146,2019-08-22T12:27:31Z,2019-09-05T05:58:38Z,2019-09-05T05:58:38Z,1,442,0,"Implementing the binomial heap data structure.
+Reference: Advanced Data Structures, Peter Brass",2,3
+1148,2019-08-24T12:41:45Z,,2019-08-26T09:37:55Z,1,0,12,See https://github.com/TheAlgorithms/.github,4,3
+1149,2019-08-25T10:51:56Z,2019-08-25T12:14:17Z,2019-08-25T12:14:17Z,1,116,0,"Added a few doctests
+>>> root = TreeNode(1)
+>>> tree_node2 = TreeNode(2)
+>>> tree_node3 = TreeNode(3)
+>>> tree_node4 = TreeNode(4)
+>>> tree_node5 = TreeNode(5)
+>>> tree_node6 = TreeNode(6)
+>>> tree_node7 = TreeNode(7)
+>>> root.left, root.right = tree_node2, tree_node3
+>>> tree_node2.left, tree_node2.right = tree_node4 , tree_node5
+>>> tree_node3.left, tree_node3.right = tree_node6 , tree_node7
+
+>>> pre_order(root)
+1 2 4 5 3 6 7 
+
+>>> in_order(root)
+4 2 5 1 6 3 7 
+
+>>> post_order(root)
+4 5 2 6 7 3 1 
+
+>>> level_order(root)
+1 2 3 4 5 6 7 
+
+>>> level_order_actual(root)
+1 
+2 3 
+4 5 6 7 
+
+>>> pre_order_iter(root)
+1 2 4 5 3 6 7 
+
+>>> in_order_iter(root)
+4 2 5 1 6 3 7 
+
+>>> post_order_iter(root)
+4 5 2 6 7 3 1",2,5
+1150,2019-08-25T18:42:09Z,,2019-12-06T00:10:13Z,1,33,0,"…ack, Morris inorder Traversal",2,2
+1152,2019-08-26T16:55:46Z,2019-12-06T06:13:11Z,2019-12-06T06:13:11Z,2,886,0,I added a new class created to calculate a index vegetation used at remote sensing or precision agriculture,2,5
+1156,2019-08-27T15:34:29Z,2019-08-28T10:56:44Z,2019-08-28T10:56:44Z,1,54,0,"for issue #840
+I would like to add the Support Vector Machine algorithm implemented in Python 3.6.7
+Requirements:
+- sklearn",2,3
+1158,2019-08-28T13:26:22Z,2019-08-28T15:16:13Z,2019-08-28T15:16:13Z,1,18,0,This PR adds stale.yml in .github folder to automatically label issues and PRs which are unresponsive for 14 days and close them after 7 days of inactivity after labeling them.,2,1
+1159,2019-08-29T04:41:57Z,,2019-12-06T00:10:12Z,1,50,18,,3,1
+1160,2019-08-29T14:07:23Z,,2019-10-03T15:30:09Z,1,34,5,"Subset sum problem takes O(n^2) space for the table. We can reduce the space to linear time.
+Here's how I reduced the space.
+The function my_submission() contains the solution with the linear space.
+You can run it on the local machine.
+Thank you!",3,3
+1161,2019-08-30T18:21:31Z,2019-09-06T09:02:38Z,2019-09-06T09:02:38Z,2,117,511,"Index more problems from sections like
+
+Machine Learning
+Project Euler
+Scripts",2,1
+1162,2019-08-31T05:05:36Z,2019-09-03T07:02:54Z,2019-09-03T07:02:54Z,1,255,0,"I created method to apply Sherman-Morrison formula to Matrix.
+Sherman-Morrison formula is important to reduce time complexity on calculating inverse matrix on some special cases. This formula is also used to improve BFGS update performance. For deeper stuffs please look into this documents:
+https://en.wikipedia.org/wiki/Sherman%E2%80%93Morrison_formula
+https://en.wikipedia.org/wiki/Broyden%E2%80%93Fletcher%E2%80%93Goldfarb%E2%80%93Shanno_algorithm
+https://en.wikipedia.org/wiki/Quasi-Newton_method",2,3
+1163,2019-08-31T08:13:32Z,2019-08-31T11:40:51Z,2019-08-31T11:40:51Z,1,1,1,The comparison at line 53 was not checking if (j > 0). Issue #1024,2,0
+1164,2019-08-31T20:34:41Z,2019-09-01T06:07:32Z,2019-09-01T06:07:32Z,2,204,0,"Hello,
+This would be my first contribution, so if there is anything I could have done better, I would greatly appreciate any feedback.
+Thanks!",2,1
+1165,2019-09-01T16:59:49Z,2019-09-08T05:07:15Z,2019-09-08T05:07:15Z,1,364,0,"This is far from done but just a little project I was working on for fun that I thought would be nice to add to this repo eventually.  I still need to add determinants, cofactors, etc. but I thought it might be good to post this and see if I got any advice / criticisms of things to think or if you guys thought it looked good to keep going the way it is.  I just noticed that you guys are now recommending running Python Black, which I haven't done yet but will get to soon.  Anyway, let me know what you think!",3,8
+1166,2019-09-02T12:11:57Z,2019-09-06T09:06:57Z,2019-09-06T09:06:57Z,1,222,0,"Created a dynamic implementation of the radix - 2 Fast Fourier Transform for fast polynomial multiplication.
+Reference: https://en.wikipedia.org/wiki/Cooley%E2%80%93Tukey_FFT_algorithm#The_radix-2_DIT_case",3,0
+1168,2019-09-04T17:43:30Z,2019-09-04T20:06:45Z,2019-09-04T20:06:45Z,1,1,1,,2,0
+1169,2019-09-04T19:57:27Z,2019-09-05T06:22:07Z,2019-09-05T06:22:07Z,1,183,47,,2,0
+1170,2019-09-05T03:40:43Z,2019-09-08T08:40:08Z,2019-09-08T08:40:08Z,3,149,0,This PR adds the solution the the Euler Project problem 67.,2,3
+1174,2019-09-07T12:34:23Z,,2019-10-15T11:23:46Z,2,83,0,,2,0
+1175,2019-09-08T07:15:25Z,2019-09-10T05:49:08Z,2019-09-10T05:49:08Z,1,16,29,@jasper256 Your review please.,2,0
+1177,2019-09-10T04:40:10Z,2019-09-13T20:24:25Z,2019-09-13T20:24:26Z,1,68,16,"Hi, Thank you for this awesome repository. @cclauss kindly review the changes.",3,5
+1178,2019-09-13T02:27:30Z,2019-09-13T11:40:14Z,2019-09-13T11:40:14Z,2,4,4,Fixing tests from #1117. Testing seems much more efficient after adding smaller version of the image.,2,0
+1179,2019-09-13T04:02:23Z,2019-09-13T11:13:56Z,2019-09-13T11:13:56Z,1,40,0,"Function that computes the kth lexicographic permtation of 0,1,2,...,n-1 in O(n^2) time",2,0
+1182,2019-09-15T12:31:54Z,,2020-01-22T00:05:46Z,5,722,152,Rewrited singly_linked_list.py and doubly_linked_list.py. Added some new methods. Created unittests for these classes.,4,4
+1184,2019-09-17T16:00:29Z,,2019-09-20T13:21:21Z,1,5,4,Removed the unnecessary usage of break and restored single entry single exit mechanism.,3,1
+1185,2019-09-18T21:25:05Z,,2019-12-14T00:06:48Z,1,57,0,,2,1
+1186,2019-09-19T16:03:18Z,,2019-12-06T00:10:09Z,2,40,22,Originally #1033 by @obelisk0114.,3,1

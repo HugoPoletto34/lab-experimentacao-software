@@ -1,0 +1,168 @@
+number,created_at,merged_at,closed_at,files,additions,deletions,body_text,participants,comments
+597,2016-10-07T19:30:56Z,2016-10-18T18:15:59Z,2016-10-18T18:15:59Z,1,1,0,"Jest is a JavaScript testing framework, used by Facebook to test JavaScript code including React applications.
+https://facebook.github.io/jest/",2,3
+632,2016-12-09T09:39:33Z,2016-12-17T00:44:20Z,2016-12-17T00:44:20Z,1,1,0,"https://github.com/nodeca/unhomoglyph
+This package ""normalize"" string look by replace all homoglyphs with base characters (AΑАᎪᗅᴀꓮ -> AAAAAAA).
+That's useful to detect similar strings. For example, if you wish to prohibit ""duplicates"" with confusing nicknames and so on.",2,1
+660,2017-03-06T07:44:59Z,2017-03-15T10:25:15Z,2017-03-15T10:25:15Z,1,1,0,"adding fusebox to the build / bundling tools:
+
+FuseBox - Extremely fast build system that combines the power of webpack, JSPM and SystemJS, with first-class typescript support.",4,4
+665,2017-03-09T08:33:50Z,,2017-04-30T10:46:57Z,1,1,0,,3,3
+679,2017-03-27T12:50:06Z,2017-04-30T15:05:56Z,2017-04-30T15:05:56Z,1,1,0,Close #665,2,0
+725,2017-08-23T21:51:56Z,2017-09-22T20:52:01Z,2017-09-22T20:52:01Z,1,1,0,"By submitting this pull request, I promise I have read the contribution guidelines twice and ensured my submission follows it. I realize not doing so wastes the maintainers' time that they could have spent making the world better. 🖖
+⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆",3,12
+753,2017-11-20T12:30:54Z,2018-05-03T19:29:30Z,2018-05-03T19:29:30Z,1,6,0,"I added a library for authorization and related article of how to integrate this library with Express based API.
+The library is called CASL - https://github.com/stalniy/casl. There are also a lot of interesting stuff in  documentation - https://stalniy.github.io/casl/ and related articles on Medium.
+The library has been around for few months, I used it on several projects and believe it's a very good addition to this list.
+Thanks for your time guys!
+Relates to #752",2,1
+784,2018-02-24T02:56:32Z,2018-05-03T18:57:42Z,2018-05-03T18:57:42Z,1,1,0,"Reason to add
+
+Faster than any other pure JS implementation
+don't loose any information in reverse transformation. (xml -> js -> xml)
+can be used in NPM package, browser, or CLI",2,4
+827,2018-06-30T00:20:07Z,2018-10-15T18:38:19Z,2018-10-15T18:38:19Z,1,1,0,,2,2
+835,2018-07-17T12:47:29Z,,2019-04-29T04:26:20Z,1,1,1,"By submitting this pull request, I promise I have read the contribution guidelines twice and ensured my submission follows it. I realize not doing so wastes the maintainers' time that they could have spent making the world better. 🖖
+⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆",2,0
+843,2018-07-28T08:12:10Z,,2019-06-29T14:57:14Z,1,1,1,"By submitting this pull request, I promise I have read the contribution guidelines twice and ensured my submission follows it. I realize not doing so wastes the maintainers' time that they could have spent making the world better. 🖖
+⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆",2,5
+890,2018-12-31T13:53:58Z,2019-04-28T16:03:52Z,2019-04-28T16:03:52Z,1,1,0,"By submitting this pull request, I promise I have read the contribution guidelines twice and ensured my submission follows it. I realize not doing so wastes the maintainers' time that they could have spent making the world better. 🖖
+⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆",3,0
+900,2019-02-05T19:28:08Z,,2019-05-29T19:27:58Z,1,1,0,"Hi,
+I'm the CTO and Co-Founder of datree.io and AWS Community Hero. This is a hands-on Webinar with live coding that I'm presenting about how to build a CI/CD pipeline with GitHub Actions, Node.js and AWS ECS Fargate. We have hundreds of RSVPs and I genuinely think that it's valuable to this community.
+https://dtr.ee/2DURIVu
+Let me know what you think!
+Best regards,
+Shimon Tolts
+By submitting this pull request, I promise I have read the contribution guidelines twice and ensured my submission follows it. I realize not doing so wastes the maintainers' time that they could have spent making the world better. 🖖
+⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆",2,1
+906,2019-02-26T23:07:34Z,2019-04-29T03:29:36Z,2019-04-29T03:29:36Z,1,1,0,Adds https://github.com/gajus/slonik.,3,1
+915,2019-03-22T08:33:28Z,,2019-05-10T12:28:04Z,1,1,0,"By submitting this pull request, I promise I have read the contribution guidelines twice and ensured my submission follows it. I realize not doing so wastes the maintainers' time that they could have spent making the world better. 🖖
+⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆",2,0
+918,2019-04-02T13:56:32Z,2019-04-29T05:35:42Z,2019-04-29T05:35:42Z,1,1,0,"By submitting this pull request, I promise I have read the contribution guidelines twice and ensured my submission follows it. I realize not doing so wastes the maintainers' time that they could have spent making the world better. 🖖
+⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆
+NLP.js is a general natural language set of utilities for nodejs. It has support for 27 languages. It incorporates Intent recognition, Entity extraction, Sentiment Analysis, Language detection and others...
+It also has it's own dashboard https://github.com/axa-group/nlp.js-app",4,0
+921,2019-04-13T13:30:22Z,,2019-04-17T18:53:01Z,1,1,0,"This page helps us find the version of that module on npm match range.
+My English is not good so I want you to help me improve the message for this page.",2,0
+923,2019-04-14T08:31:43Z,,2019-05-29T19:25:42Z,1,1,0,"https://github.com/standard-things/esm
+This is awesome because NodeJS needs to get on the ES6 bandwagon already.
+It is also already integrated with npm:
+npm init esm",3,0
+925,2019-04-15T08:50:04Z,,2019-04-17T17:49:32Z,1,5,0,"By submitting this pull request, I promise I have read the contribution guidelines twice and ensured my submission follows it. I realize not doing so wastes the maintainers' time that they could have spent making the world better. 🖖
+Add some project:
+
+Grav - Modern Flat-File CMS.
+Hugo - Fast & Modern Static Website Engine.
+Jekyll - Transform your plain text into static websites and blogs.
+Svbtle - Blogging platform designed to help you think.
+Vuepress - Minimalistic Vue-powered static site generator.
+⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆
+
+
+Thank you! ❤️",3,2
+927,2019-04-17T18:54:52Z,2019-04-19T12:30:01Z,2019-04-19T12:30:01Z,1,1,0,This page helps us find the version of that module on npm match range.,3,5
+938,2019-05-31T10:57:14Z,,2019-06-29T15:15:49Z,1,1,1,"By submitting this pull request, I promise I have read the contribution guidelines twice and ensured my submission follows it. I realize not doing so wastes the maintainers' time that they could have spent making the world better. 🖖
+⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆
+I haven't encountered any similar library in awesome-nodejs, it brings a new elegant approach of commonly used functions (memoize, debounce, throttle), while also bringing some new useful functionality such as timeMemoize, lruMemoize, asyncRetry, which could be useful in writing more elegant, clean & useful code.
+Link: https://github.com/danrevah/segal-decorators",3,5
+967,2019-08-18T18:12:09Z,2019-09-26T09:31:05Z,2019-09-26T09:31:05Z,1,1,0,"Trace API calls and Monitor API performance, health and usage statistics.
+With statistics and metrics exposed by swagger-stats you may spot problematic API endpoints, see where most of errors happens, catch long-running requests, analyze details of last errors, observe trends, setup alerting.
+By submitting this pull request, I promise I have read the contribution guidelines twice and ensured my submission follows it. I realize not doing so wastes the maintainers' time that they could have spent making the world better. 🖖
+⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆",2,0
+1005,2020-01-07T03:05:49Z,2020-02-22T19:42:26Z,2020-02-22T19:42:26Z,1,1,0,"By submitting this pull request, I promise I have read the contribution guidelines twice and ensured my submission follows it. I realize not doing so wastes the maintainers' time that they could have spent making the world better. 🖖
+⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆
+And it is actively developed and maintained.  Features added last year:
+
+Node.js Diagnostic Reports
+Brakecode.com
+VSCode Integration
+Multiple Debug Session (Tabs) Support
+DevTools Compatibility setting",2,0
+1016,2020-02-19T08:35:02Z,2020-07-07T19:27:12Z,2020-07-07T19:27:12Z,1,1,0,"By submitting this pull request, I promise I have read the contribution guidelines twice and ensured my submission follows it. I realize not doing so wastes the maintainers' time that they could have spent making the world better. 🖖
+⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆
+The pipcook is a front-end algorithm framework to create a ML pipeline based on tfjs-node in JavaScript, and it's included in tfjs gallery: https://github.com/tensorflow/tfjs/blob/master/GALLERY.md
+GitHub: https://github.com/alibaba/pipcook",2,3
+1018,2020-02-23T08:22:53Z,2020-07-19T20:49:22Z,2020-07-19T20:49:22Z,1,1,0,,2,2
+1032,2020-04-12T15:39:32Z,2020-04-13T07:27:15Z,2020-04-13T07:27:15Z,1,1,0,"Docusaurus create a website with Markdown + React.js.
+Feature:
+
+Document Versioning: Support users on all versions of your project. Document versioning helps you keep documentation in sync with project releases
+Document Search: Make it easy for your community to find what they need in your documentation (Algolia DocSearch)
+Translations: Localization comes pre-configured (Crowdin )",3,4
+1041,2020-06-21T03:27:35Z,2020-07-05T17:44:37Z,2020-07-05T17:44:38Z,1,1,0,"By submitting this pull request, I promise I have read the contribution guidelines twice and ensured my submission follows it. I realize not doing so wastes the maintainers' time that they could have spent making the world better. 🖖
+⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆",2,0
+1044,2020-07-08T23:44:56Z,,2021-03-07T09:55:13Z,1,1,0,"By submitting this pull request, I promise I have read the contribution guidelines twice and ensured my submission follows it. I realize not doing so wastes the maintainers' time that they could have spent making the world better. 🖖
+⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆
+GitHub: https://github.com/opticdev/optic
+Website: https://www.useoptic.com
+Optic automatically documents changes, tests every endpoint, and gives you valuable insight into how your APIs are being used.
+Features:
+📝 Accurate API Documentation - We built Optic to make maintaining accurate specs for your APIs automatic and developer friendly. Once you add Optic to your API repo, it automatically tracks your API’s behavior and maintains a change log of its behavior over time.
+It’s kind of like Git, but instead of tracking files, Optic automatically diffs and tracks API endpoints. When new behavior is observed, Optic makes it easy to update the spec.
+⚙️ Automated Testing - Automate most of your contract testing. Optic uses live testing with spec coverage to make testing APIs easy.
+👍 Beautiful Docs - Stripe-style documentation for every API managed by Optic.
+👋 100% Open Source, Runs locally, data is only stored in your API Repo",2,3
+1046,2020-07-15T23:36:31Z,,2020-11-05T13:11:46Z,1,1,0,"By submitting this pull request, I promise I have read the contribution guidelines twice and ensured my submission follows it. I realize not doing so wastes the maintainers' time that they could have spent making the world better. 🖖
+⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆
+I'm proposing to add mineflayer to the ""Mad Science"" category as I think it can be an interesting project to discover, both for beginners and more advanced coders. It's been maintained for many years and still very active.",2,2
+1048,2020-07-27T09:31:06Z,,2020-09-26T23:50:05Z,1,1,0,"By submitting this pull request, I promise I have read the contribution guidelines twice and ensured my submission follows it. I realize not doing so wastes the maintainers' time that they could have spent making the world better. 🖖
+⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆
+Please approve this PR adding GuideChimp in the list of Guided Tours libraries.",3,1
+1055,2020-09-05T09:17:28Z,2020-09-05T13:01:31Z,2020-09-05T13:01:31Z,1,1,1,"👋 I decided to update the description of my OAuth client, that I initially added to this list in 2015 #230
+A lot have changed since then, and so I though that it might be useful to outline the key selling points as of today, because that might be useful information for anyone searching for such solution.
+Main difference is that Grant now ships with 4 serverless handlers, making it a viable solution for Lambda Functions, and then I also added a handler for Fastify.",2,1
+1059,2020-09-10T20:15:10Z,,2020-11-05T13:10:57Z,12,3,0,Yup is a Dead simple Object schema validation,2,2
+1109,2021-03-26T06:40:09Z,,2023-06-20T10:35:36Z,1,1,0,"By submitting this pull request, I promise I have read the contribution guidelines twice and ensured my submission follows it. I realize not doing so wastes the maintainers' time that they could have spent making the world better. 🖖
+⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆
+pure-http is a simple web framework for Node.js with zero dependencies and low latency. That helps you use the middleware and router in native HTTP.
+Usage
+Basic server:
+const pureHttp = require('pure-http');
+
+const app = pureHttp();
+
+app.get('/', (req, res) => {
+  res.send('Hello world');
+});
+
+app.listen(3000);
+Exist server:
+const http = require('http');
+const pureHttp = require('pure-http');
+
+const server = http.createServer();
+
+const app = pureHttp({ server });
+
+app.listen(3000);
+Secure server:
+const https = require('https');
+const pureHttp = require('pure-http');
+
+const server = https.createServer({
+  key: ...,
+  cert: ...,
+});
+
+const app = pureHttp({ server });
+
+app.listen(3000);
+Router
+const { Router } = require('pure-http');
+
+const router = Router();
+
+router.get('/', (req, res) => {
+  res.send('Hello world');
+});
+
+/* ... */
+
+const pureHttp = require('pure-http');
+
+const app = pureHttp();
+
+app.use('/api', router);
+
+app.listen(3000);",3,1

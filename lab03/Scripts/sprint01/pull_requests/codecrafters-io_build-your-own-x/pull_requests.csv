@@ -1,0 +1,73 @@
+number,created_at,merged_at,closed_at,files,additions,deletions,body_text,participants,comments
+10,2018-05-11T10:08:57Z,2018-05-12T07:55:36Z,2018-05-12T07:55:36Z,1,1,0,"This is a collection of three blog posts, but I've linked to only Part I in this PR and readers can follow on from there (links to consecutive parts are available at the end of each blog post).",2,1
+16,2018-05-12T08:21:04Z,,2018-05-13T10:53:26Z,1,1,0,,2,1
+35,2018-05-13T14:44:31Z,2018-05-14T06:51:54Z,2018-05-14T06:51:54Z,1,1,0,,2,1
+59,2018-05-14T14:37:35Z,2018-05-15T13:35:32Z,2018-05-15T13:35:32Z,1,1,0,proposal: add https://developer.github.com/v3/guides/building-a-ci-server/,2,1
+63,2018-05-14T17:30:12Z,2018-05-14T18:55:00Z,2018-05-14T18:55:00Z,1,2,1,Added two tutorials,2,1
+137,2018-05-24T05:49:20Z,2018-05-24T09:21:06Z,2018-05-24T09:21:06Z,1,9,1,added few items in that category and moved an item C: Build Your Own Text Editor to Text Editor category,3,1
+211,2018-06-24T09:09:39Z,,2018-06-29T10:33:16Z,1,2,0,"Found a Web site hosting these tutorials on their page, as a 'Web version': www.byo-x.org with a link back to here.
+Originally found: on this rant.
+Just a thought that you might want to include it on your page for anyone interested in using it!",3,1
+343,2019-03-27T02:34:20Z,,2019-10-07T02:28:58Z,1,1,0,,3,1
+380,2019-10-06T15:01:26Z,,2020-10-30T19:20:29Z,1,1,0,,3,1
+404,2019-11-10T21:06:49Z,,2022-11-28T09:34:36Z,1,1,0,,2,0
+425,2020-02-07T13:37:24Z,,2023-07-30T08:45:16Z,1,1,0,,2,1
+512,2020-07-27T02:13:06Z,,2024-02-12T22:30:30Z,1,2,2,,2,0
+514,2020-08-02T21:17:08Z,,2023-07-16T16:00:52Z,1,1,0,"I don't know which category this repository fits in so I put it in the uncategorized, it has tutorials on how to create virtual machines, compilers, hash tables, and others.",2,0
+534,2020-10-01T12:55:06Z,,2020-10-25T18:24:41Z,1,3,3,This Tutorial walk you through Golang Language by teaching you how to build a webserver/application in golang using different libraries and frameworks,3,0
+536,2020-10-03T19:26:47Z,,2021-12-02T14:21:40Z,1,1,0,Closes #535,2,0
+542,2020-10-11T11:29:49Z,2023-01-31T07:38:01Z,2023-01-31T07:38:01Z,1,1,0,"Main programming language
+Python
+Tutorial title
+ugit: Learn Git Internals by Building Your Own Git
+Tutorial URL
+https://www.leshenko.net/p/ugit/
+Category
+
+ 3D Renderer
+ Augmented Reality
+ BitTorrent Client
+ Blockchain / Cryptocurrency
+ Bot
+ Command-Line Tool
+ Database
+ Docker
+ Emulator / Virtual Machine
+ Front-end Framework / Library
+ Game
+ Git
+ Network Stack
+ Neural Network
+ Operating System
+ Physics Engine
+ Programming Language
+ Regex Engine
+ Search Engine
+ Shell
+ Template Engine
+ Visual Recognition System
+ Voxel Engine
+ Web Search Engine
+ Web Server
+ Uncategorized",3,0
+551,2020-11-17T02:38:14Z,2023-01-31T07:44:39Z,2023-01-31T07:44:39Z,1,1,0,"Closes #550
+Ray Tracing in One Weekend by Peter Shirley is a really great tutorial on how to build a basic ray tracer from scratch. I think it would be a great addition to this repository.",3,0
+634,2021-06-16T14:11:33Z,,2021-08-29T15:42:17Z,1,1,0,Add a tutorial about writing a Tetris game in ClojureScript.,2,0
+674,2021-11-05T16:13:59Z,2021-11-30T08:41:01Z,2021-11-30T08:41:01Z,1,0,1,,3,0
+678,2021-11-17T20:04:08Z,,2022-07-18T13:41:33Z,1,1,0,Can you check this. added cryptoCurreny miner and dockerize tuturial,3,1
+696,2022-02-13T17:59:19Z,2022-02-16T14:06:28Z,2022-02-16T14:06:28Z,1,1,1,"So I know this is lame, but I found a missing <em> tag on the Implementing a Regular Expression Engine topic.",3,1
+748,2022-06-17T12:00:53Z,,2023-07-04T13:04:41Z,1,1,0,Linking to the Rust CLI book => https://rust-cli.github.io/book/tutorial/index.html,5,1
+775,2022-07-16T11:43:47Z,2022-07-20T14:00:56Z,2022-07-20T14:00:56Z,1,1,1,https://gameswithgo.org/ This website is no longer available. Hence update the URL to point to it's Original YouTube Video Playlist instead,3,1
+795,2022-08-15T01:52:46Z,,2022-11-08T10:10:48Z,1,1,0,A 2D game development with just vanilla JavaScript for beginners from freeCodeCamp,2,0
+802,2022-09-02T02:55:49Z,,2023-03-02T06:23:48Z,1,1,0,I recently created a python slack bot that that listens for messages containing IP addresses and responds with security info about them.,4,0
+809,2022-10-05T17:56:03Z,2022-10-09T10:17:49Z,2022-10-09T10:17:49Z,1,1,0,closes #568,4,1
+855,2023-02-14T19:48:30Z,2023-02-16T11:17:42Z,2023-02-16T11:17:42Z,1,1,0,"Build your own fast, persistent KV store in Ruby",2,1
+870,2023-03-26T10:00:21Z,,2023-10-16T15:00:21Z,1,1,1,,3,1
+893,2023-05-09T09:03:51Z,2023-05-10T00:26:40Z,2023-05-10T00:26:40Z,1,1,0,"A tutorial project for building you own VPN/Virtual Switch.
+Please consider and merge it. Thanks.
+@rohitpaulk",2,0
+934,2023-09-30T06:56:25Z,2023-10-26T20:04:50Z,2023-10-26T20:04:50Z,1,1,1,"Fixes the issue #932 .
+Replaced the link with similar article from https://www.smashingmagazine.com/2020/02/cryptocurrency-blockchain-node-js/",3,0
+944,2023-10-11T11:40:19Z,,2023-10-16T17:13:38Z,1,1,0,Resolves #943,2,0
+961,2023-11-23T18:00:26Z,,2023-11-24T11:55:09Z,1,1,0,,3,0
+1030,2024-04-12T03:57:56Z,,2024-04-14T10:53:53Z,1,2,0,An interactive command line tool built using python along with poetry as a package manager.,2,0

@@ -1,0 +1,95 @@
+number,created_at,merged_at,closed_at,files,additions,deletions,body_text,participants,comments
+25,2010-11-11T22:43:05Z,,2024-03-06T12:27:10Z,3,70,6,"Although the work to use the zsets order in the sort command works for the basic case.  I had a need to be able to use the full capabilities of the ZRANGEBYSCORE and ZREVRANGEBYSCORE commands while fetching associated keys.
+I basically exposed the lookupKeyByPattern and createSortOperation commands from sort.c and reused the same based code as sort.c within the genericZrangebyscore function.  I also added a few simple test cases that basically match the sort GET test cases.",1,0
+654,2012-08-30T07:08:32Z,,2024-03-06T11:03:36Z,1,55,44,"I can't split the commits into two pull requests, so put them in a single one.
+What the first commit does:
+Insert the timer event in sorted order, so it's O(1) to get
+the nearest timer. Insert and delete a timer is O(N).
+
+And the second:
+When system time changes back, the timer will not worker properly
+hence some core functionality of redis will stop working(e.g. replication,
+bgsave, etc). 
+
+The patch saves the previous time and when a system clock skew is detected,
+it will force expire all timers.
+
+See issue #633 for details of the second commit.",4,7
+803,2012-12-01T12:19:42Z,,2021-06-01T06:25:32Z,2,58,1,"It's now possible to use ~ or environmental variables like $HOME in
+the config file (where appropriate).",3,4
+1339,2013-10-21T21:53:57Z,,2021-06-30T12:18:49Z,2,24,9,"Using accept4 on linux lets us skip the two calls to fcntl() to set a socket as non-blocking. This saves two system calls on linux. A corresponding issue was filed at #1332.
+A few other reasons to justify this change (as pointed by @moreaki):
+http://article.gmane.org/gmane.linux.kernel/758201
+http://lwn.net/Articles/281965/
+http://udrepper.livejournal.com/20407.html
+http://danwalsh.livejournal.com/53603.html
+Accept4 was in Linux 2.6.28 (Dec 2008) and support in GLIBC is available starting with version 2.10 (May 2009). We could also add support for older GLIBC versions if the maintainers think it would be useful.",4,5
+1482,2013-12-25T13:10:12Z,,2024-03-12T11:10:57Z,1,30,10,"Hi, this is a demo of concept, use code to discuss the concept.
+When we have content need to be written to TCP buffer, instead of
+
+register AE_WRITABLE event
+get notified that the TCP buffer has space
+write the buffer
+deregister‎ AE_WRITABLE event
+
+We can first try 3, if all the content get copied to TCP buffer, then we save at least 2 system calls. If not, follow the original path.
+Benchmark shows, even under heavy load of redis-benchmark, the latter happens rarely. So, most of the time, we can save two system call(two epoll_ctl on linux, which is O(n)), and less latency, since we do not need to wait until the next round, aeProcessEvents get called.
+Only commands handing modified, we may need to modify replication logic too.
+With this patch, /src/redis-benchmark -t get -n 500000 can get 2%-3% faster.
+You can see from a profile without the patch, epoll_ctl cost ~8%  of the CPU time.",2,0
+1690,2014-04-15T18:51:52Z,2020-08-12T14:58:57Z,2020-08-12T14:58:57Z,8,306,0,"This is a Linux-specific feature, sorry, but it's still a useful one.
+When Linux runs out of memory the kernel's OOM killer chooses which processes are going to be killed based on various parameters.  By tuning the oom_score_adj parameter (in /proc), it's possible to hint the kernel what processes should be killed first.
+The oom-score-adj configuration parameter allows Redis processes to tune their own oom_score_adj value depending on their current state/role and thus implement policies such as:
+
+Kill bgsave/bgrewriteaof childs before anything else
+Kill slaves before masters",5,6
+1727,2014-05-07T13:42:02Z,,2024-03-01T04:37:29Z,6,40,25,"We use redis to store raw, unaggregated data in our database.
+The database is snapshotted every night before aggregation, and kept for 30 days. So the algorithm can be re-run on old data if a bug is discovered in the algorithm.
+When loading old dumps we encountered the problem that the ttls of those keys have already expired, and we ended up with an empty database.
+This parameter option allows one to disable ttl checking in these cases.",5,6
+1973,2014-08-28T13:15:02Z,,2023-11-29T15:07:11Z,2,4,4,,2,0
+2046,2014-10-06T14:37:21Z,,2022-04-07T09:39:27Z,2,16,9,"Don't change dirty or notify for a change when we set the same bit twice with setbit.
+setbit should work like sadd which also doesn't mark anything dirty or send any notification when nothing changes.",3,2
+2080,2014-10-20T01:12:54Z,2021-06-30T13:46:06Z,2021-06-30T13:46:07Z,1,1,1,Adds call to intrev16ifbe to ensure ZIPLIST_LENGTH is compared correctly,4,4
+2085,2014-10-22T02:20:41Z,,2021-10-20T09:01:53Z,1,1,0,closes #2074,5,11
+2233,2014-12-22T16:36:15Z,,2024-02-22T08:46:32Z,2,42,25,"Just correct some output msg in redis-check-*
+To keep consistence with zmalloc, just exit when memory is not enough in redis-check-dump.
+Mind for the edge case of dump_version, loadDoubleValue & printErrorStack.
+:-)",2,0
+2252,2015-01-03T02:35:01Z,,2024-02-15T12:18:49Z,2,29,79,"We already have a function setTypeRandomElements.
+It is more elegant in code style and more efficient in speed to use it dealing with case 3 & 4. :-)",4,0
+2430,2015-03-03T03:39:30Z,,2020-09-09T16:29:32Z,1,1,1,,3,1
+2450,2015-03-12T01:14:10Z,,2021-05-25T12:40:34Z,1,13,20,"correct size for EMBSTR
+The amount of memory used by the sds string at object->ptr for a REDIS_ENCODING_EMBSTR object is:
+sdslen(o->ptr) + sizeof(struct sdshdr) + 1;
+
+
+replace a code block with existing sdigits10",3,3
+2457,2015-03-19T19:52:18Z,,2024-02-22T08:52:42Z,1,14,0,When monitoring the state of the redis server instance via INFO it is useful to see how the length is changing over time.,3,3
+2469,2015-03-23T08:23:56Z,,2020-09-09T16:29:29Z,1,5,3,,2,1
+2484,2015-03-31T10:28:43Z,,2021-06-22T05:56:09Z,1,14,6,"dup succeed, but listAddNodeTail failed, memory may leak.
+need release **value.",4,3
+2497,2015-04-04T18:40:50Z,,2024-02-22T08:49:05Z,1,1,0,"Aactually the only way
+to input a IPv6 node is without using brackets, which isnt widely used.
+See RFC: https://tools.ietf.org/html/rfc5952#section-6",2,0
+2507,2015-04-08T11:19:21Z,2018-01-09T16:36:04Z,2018-01-09T16:36:04Z,1,45,8,"#The format of migrate command is ""MIGRATE host port key destination-db timeout [COPY] [REPLACE]"". If the destination server is protected by a paassword, it will not work. This obstacle has confused so many people and so long time (for example:http://redis.io/commands/migrate, the question asked by Marc-Olivier LaBarre ""Does it work if the destination redis instance is protected by a password?"") that I decided to add this feature by myself.",8,12
+2568,2015-05-08T09:13:32Z,,2020-09-09T16:29:26Z,2,3,3,"readme.md: 2 grammar and typo changes
+redis.conf: changed ""uncomment""  to ""comment out"", as the word used was opposite of the intended meaning.",2,1
+2698,2015-07-26T14:08:29Z,,2021-06-30T09:23:31Z,1,2,1,"For the sdscatfmt function in sds.c, when the parameter fmt ended up with '%', the behavior is undefined. This commit fix this bug.",4,1
+2747,2015-08-28T01:57:51Z,,2021-04-21T06:36:01Z,2,3,2,use defined constant instead of digital -1,4,2
+2754,2015-09-08T11:00:48Z,,2021-03-18T14:55:55Z,1,20,1,"Full random field name tests for HSET and HMSET. HMSET also uses a
+random hash name too for more accurate testing.
+Tested and data checked using the redis-cli. Performance seems within the likely range when compared to other commands.",4,2
+2795,2015-10-03T02:39:35Z,2021-08-02T05:57:49Z,2021-08-02T05:57:50Z,3,229,6,"Add NX, XX, GT, and LT flags to EXPIRE, PEXPIRE, EXPIREAT, PEXAPIREAT.
+
+NX - only modify the TTL if no TTL is currently set
+XX - only modify the TTL if there is a TTL currently set
+GT - only increase the TTL (considering non-volatile keys as infinite expire time)
+LT - only decrease the TTL (considering non-volatile keys as infinite expire time)
+return value of the command is 0 when the operation was skipped due to one of these flags.
+
+
+Just some quick work to add an NX option to expire commands. This allows expiration to be set for only once, just like setnx. In our application, we have some zsets and hashes that update frequently, but expire at a fixed time defined at its creation.
+Searched issue history, I also found some others who had similar requirements: #1840
+This is just the first commit. If you think it's OK I will add docs and tests for this feature. Thanks!
+EDIT: spelling",8,16

@@ -1,0 +1,3 @@
+number,created_at,merged_at,closed_at,files,additions,deletions,body_text,participants,comments
+1590,2014-05-23T03:30:25Z,2014-05-28T17:14:59Z,2014-05-28T17:14:59Z,1,21,1,"This strategy avoids a runtime check for every set (as opposed to using a mutation method).
+Test Plan: Verify that changing className works on a div and a rect in latest Chrome, latest Firefox, IE9. Verify that the div works in IE8.",5,3

@@ -1,0 +1,77 @@
+number,created_at,merged_at,closed_at,files,additions,deletions,body_text,participants,comments
+8,2023-02-24T21:48:32Z,,2023-09-07T12:15:12Z,2,32,8,"Utilize parameter substitution in download.sh to allow both PRESIGNED_URL and TARGET_FOLDER to be assigned via environmental variables.
+This removes the need to manually edit/sed the file once a developer receives the confirmation url.",7,9
+62,2023-03-02T15:17:00Z,,2023-09-06T17:17:22Z,1,2,1,"Creating the TARGET_FOLDER before downloading the tokenizer, otherwise if the TARGET_FOLDER does not exist the download of the tokenizer fails.",6,1
+71,2023-03-02T22:51:45Z,,2023-09-01T20:07:21Z,1,4,1,Added alternative torchrun through python.,6,5
+73,2023-03-02T23:05:55Z,,2023-09-01T20:09:52Z,1,1,1,,503,301
+109,2023-03-04T16:41:23Z,,2023-09-01T20:14:49Z,1,3,0,The torrent seed is extremely slow this should definitely help out,15,18
+113,2023-03-04T20:53:00Z,,2023-08-31T23:07:28Z,1,2,2,,8,4
+114,2023-03-04T21:03:01Z,,2023-08-31T23:07:36Z,1,2,2,,7,4
+116,2023-03-04T21:08:39Z,,2023-08-31T23:07:54Z,1,2,2,,9,4
+129,2023-03-05T22:40:55Z,,2024-02-13T22:27:52Z,5,176,12,"The current implementation of download.sh does not check whether a particular shard of the weight has already been downloaded and re-downloads them anyway, wasting time and internet. I have updated to check whether the file exists and if the checksum matches, only if these conditions fail should the download start.",4,3
+141,2023-03-06T19:05:43Z,,2023-09-06T16:10:36Z,1,2,2,,8,3
+178,2023-03-11T11:32:05Z,,2023-09-01T20:24:36Z,8,65,23,,4,1
+184,2023-03-12T11:31:03Z,,2023-07-18T20:15:24Z,1,1,1,"From an economical and ecological perspective the current ""Non-commercial bespoke"" model license is sub-optimal and should be changed to a truly liberal open-source license like for example Apache 2.0.
+In the current state Meta published the whole replication recipe open-source (GPL v3) but asks other entities to spend a lot of energy (potentially releasing massive amounts of CO2 into the atmosphere) to replicate and release a truly open-source version of LLaMA. Given the fact that LLaMA model weights are currently already available for download at many different places this is from an ecological perspective a preposterous management decision and in my personal opinion not well aligned with the overall ecological ambitions of Meta.
+If you say ""open"" (as in the LLaMA paper) and you want to get the bonus credibility that comes with it .. please do it fully and not half-hearted as done currently.",477,250
+290,2023-04-27T20:58:30Z,,2023-09-06T19:23:07Z,0,0,0,"This PR improves the download.sh script:
+
+Accept the PRESIGNED_URL as parameter, so the user don't have to edit the file and add it.
+Accept MODEL_SIZE and TARGET_FOLDER as environments variables, with default values.
+Added the parameter --no-check-certificate for cases behind proxies.
+Check downloaded files integrity before download it again, so it'll download only the corrupted or the missing ones.
+
+Now we can call like those options:
+
+
+With parameters (URL_FROM_EMAIL in quotes is mandatory)
+MODEL_SIZE=""7B,13B,30B,65B"" TARGET_FOLDER=""model-weights"" ./download.sh ""URL_FROM_EMAIL""
+
+
+Basic form (it'll use previous values as default, URL_FROM_EMAIL in quotes is mandatory) skipping TLS
+./download.sh --no-check-certificate ""URL_FROM_EMAIL""",5,2
+377,2023-07-18T22:54:31Z,2023-07-19T12:22:30Z,2023-07-19T12:22:30Z,1,4,0,Add help on how to re-download model.,4,0
+390,2023-07-19T06:23:19Z,2023-08-31T20:34:12Z,2023-08-31T20:34:12Z,3,6,6,added type hint in example for easier understanding,4,2
+451,2023-07-20T10:08:44Z,2023-09-05T09:21:33Z,2023-09-05T09:21:33Z,1,1,1,"Bash won't always be available at /bin/bash, (e.g. on NixOS), but /usr/bin/env bash is more portable and will generally work on such systems",6,3
+487,2023-07-21T16:13:31Z,,2023-07-24T04:24:30Z,2,28,2,,2,0
+492,2023-07-22T05:48:01Z,2023-08-31T19:37:44Z,2023-08-31T19:37:44Z,1,1,1,HuggingFace -> Hugging Face,5,0
+510,2023-07-23T09:25:51Z,2023-08-31T18:14:35Z,2023-08-31T18:14:36Z,1,1,1,,3,0
+511,2023-07-23T09:28:10Z,2023-08-26T02:17:53Z,2023-08-26T02:17:53Z,1,2,2,,3,1
+512,2023-07-23T09:28:58Z,2023-08-26T02:14:54Z,2023-08-26T02:14:54Z,1,1,1,,4,0
+513,2023-07-23T10:32:55Z,,2023-09-01T19:51:31Z,1,2,1,Do not have the right to copy paste my link to be able to download the software,6,2
+520,2023-07-24T12:56:15Z,,2023-09-05T09:43:20Z,1,2,2,,8,2
+536,2023-07-25T12:28:38Z,,2023-09-06T16:38:39Z,1,0,0,"Now ""download.sh"" can be run without changing file permissions",6,5
+552,2023-07-26T09:28:38Z,,2023-09-06T19:26:58Z,1,7,7,"Since these models are pretty big in size re-running the download script starts download all over again from the start. That's most likely not expected behavior.
+Setting -c flag in wget will continue the download from the point it was interrupted.
+In my case I resumed download that was interrupted when ~3 GB were already downloaded.",5,5
+589,2023-07-30T07:53:54Z,,2023-09-05T09:39:03Z,1,1,1,,7,3
+632,2023-08-07T10:27:29Z,,2023-09-05T09:36:06Z,1,1,1,,7,2
+647,2023-08-09T03:24:23Z,2023-09-07T17:57:56Z,2023-09-07T17:57:56Z,1,16,7,"To allow meaningful logprobs for completed tokens, the logprob should be computed after the completed token is sampled.
+Running example_text_completion.py with logprob=True and printing result['logprobs'] on the first prompt  before the fix
+I believe the meaning of life is
+> to be happy. I believe we are
+> [-0.0, -0.0, -0.0, -0.0, -0.0, -0.0, -0.0, -0.0]
+versus after the fix
+I believe the meaning of life is
+> to be happy. I believe we are
+> [-0.4371837377548218, -1.7769237756729126, -0.6551999449729919, -0.727012038230896, -1.5545899868011475, -1.2382391691207886, -2.5726795196533203, -1.5549036264419556]
+This also does not change the prompt logprobs, when echo=True.",4,0
+664,2023-08-11T13:22:26Z,2023-08-11T14:38:07Z,2023-08-11T14:38:07Z,1,3,1,Updating to add the date of the updates..,3,0
+672,2023-08-15T04:49:52Z,,2023-09-01T19:52:29Z,1,1,1,,6,1
+695,2023-08-20T09:24:07Z,2023-09-01T16:41:43Z,2023-09-01T16:41:43Z,1,2,0,,4,3
+727,2023-08-28T05:22:59Z,2023-09-01T08:22:35Z,2023-09-01T08:22:35Z,1,11,2,fix the issue that checksum is not working properly in Silicon Mac.,5,2
+754,2023-09-02T22:24:35Z,2023-09-03T18:11:39Z,2023-09-03T18:11:39Z,1,2,0,Approaching issue #658,5,3
+755,2023-09-03T10:20:23Z,2023-09-10T23:49:25Z,2023-09-10T23:49:25Z,1,1,1,#!/usr/bin/env bash works on systems that don't have /bin/bash such as NixOS.,5,2
+768,2023-09-08T15:53:38Z,,2023-09-18T00:14:16Z,1,1,0,add test,4,4
+769,2023-09-08T18:31:32Z,2023-09-09T14:39:13Z,2023-09-09T14:39:13Z,1,22,0,Adding some common FAQs from closed issues.,4,2
+775,2023-09-09T22:22:49Z,2023-09-11T15:15:23Z,2023-09-11T15:15:23Z,1,28,4,Adding Quick Start guide to README.md. This is based off various issues from the bug bash with people asking how to run the models locally without relying on Hugging Face,4,1
+779,2023-09-11T14:50:39Z,2023-09-15T23:18:27Z,2023-09-15T23:18:27Z,1,2,1,"Make the generator seedable (e.g., for doing ensembling, or pass@, or majority voting)",4,0
+813,2023-09-20T22:18:46Z,2023-09-21T00:47:42Z,2023-09-21T00:47:42Z,1,3,1,Updated intended use cases to clarify that developers can fine tune for non-english languages.,3,0
+814,2023-09-20T22:24:13Z,2023-09-21T00:47:22Z,2023-09-21T00:47:22Z,1,1,1,Updating the answer for whether developers can fine tune on non-english languages.,3,0
+892,2023-11-02T04:42:13Z,,2023-11-08T19:43:58Z,1,33,26,"I added error handling for initialization, encoding, and decoding processes, and I used more informative logging to catch and report errors. This should make the code more robust and easier to debug.",4,2
+906,2023-11-07T00:00:57Z,,2024-02-28T18:24:39Z,1,1,1,correct the URL to the FAQ.md file,5,1
+1033,2024-02-21T22:40:09Z,2024-02-23T04:17:53Z,2024-02-23T04:17:53Z,1,1,1,Repair URL to link to Llama examples safety checker.  The existing URL was out of date.,3,2
+1053,2024-03-01T07:33:25Z,2024-03-01T14:22:31Z,2024-03-01T14:22:31Z,1,6,6,Fixed some minor grammatical issues.,4,4
+1059,2024-03-06T08:06:27Z,,2024-03-12T15:05:33Z,3,11,11,Improved some documentations grammatically,4,3
+1077,2024-03-21T02:21:50Z,2024-03-21T15:50:25Z,2024-03-21T15:50:25Z,1,2,2,This PR update the code to use the module's __call__ in #1055,3,2
+1091,2024-04-08T14:13:07Z,2024-04-09T16:16:48Z,2024-04-09T16:16:49Z,1,1,1,,3,0

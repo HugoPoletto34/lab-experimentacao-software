@@ -1,0 +1,261 @@
+number,created_at,merged_at,closed_at,files,additions,deletions,body_text,participants,comments
+8,2017-04-20T02:59:48Z,2017-04-20T16:52:38Z,2017-04-20T16:52:38Z,1,5,5,,2,0
+151,2017-11-12T04:56:47Z,2017-11-12T22:12:00Z,2017-11-12T22:12:00Z,2,7,7,"Fixes #149
+Build passing: https://travis-ci.org/anishkny/realworld/builds/300826986#L421",2,0
+153,2017-11-13T23:48:02Z,2017-11-15T19:01:09Z,2017-11-15T19:01:10Z,1,5,0,"Just to see what it could look like
+Would close #150",3,5
+205,2018-04-16T15:02:48Z,2018-04-16T21:02:36Z,2018-04-16T21:02:36Z,1,1,1,,2,1
+213,2018-05-04T09:21:51Z,2018-05-06T03:44:31Z,2018-05-06T03:44:31Z,1,3,0,,2,1
+224,2018-06-01T13:17:50Z,2018-06-04T13:10:52Z,2018-06-04T13:10:52Z,8,401,2,"This PR includes just the code so that TravisCI can run daily and send out PRs in case the README changes. Here is what the generated README would look like:
+https://github.com/anishkny/realworld/blob/updated-readme/README.md
+Note that WIP sections are now auto-generated also based on querying issues in the main repo. E.g.:
+https://github.com/gothinkster/realworld/issues?q=is%3Aopen+is%3Aissue+label%3Abackend+label%3Awip",2,1
+225,2018-06-04T15:18:42Z,2018-06-04T20:15:20Z,2018-06-04T20:15:20Z,1,23,18,,2,0
+238,2018-07-02T04:52:41Z,2018-07-02T16:02:07Z,2018-07-02T16:02:07Z,1,28,0,,3,2
+241,2018-07-18T02:16:36Z,,2018-10-29T17:55:30Z,2,95,14,"""reponsible"" --> ""responsible""
+""All WIP stacks that are a WIP are experimental and incomplete."" --> ""All WIP stacks are experimental and incomplete.""
+""continuously helping push the project"" --> ""who are continuously helping push the project""
+""who have helped contributed to RealWorld"" --> ""who have contributed to RealWorld""",2,3
+248,2018-08-04T19:48:47Z,2018-08-04T21:29:19Z,2018-08-04T21:29:19Z,1,4,1,,2,1
+251,2018-08-07T21:51:59Z,2018-08-08T23:02:00Z,2018-08-08T23:02:00Z,3,12,13,"Also, error out if GH_TOKEN is not present",2,1
+255,2018-08-22T18:25:48Z,2018-09-01T21:58:19Z,2018-09-01T21:58:19Z,5,705,482,"Running the API Postman collection should be more robust now. Try:
+./api/run-api-tests.sh",2,1
+260,2018-08-30T23:24:33Z,2018-10-29T17:49:50Z,2018-10-29T17:49:50Z,1,39,39,"Hi,
+I've recently finished a backend impl (#202), but had trouble with the postman test, because SQLite I've used for the project uses 3 more decimals for microseconds, which get lost in the new Date(t).toISOString() conversion and fail the tests, even though it's a valid ISO 8601 date format.
+I've adapted the regex from https://stackoverflow.com/a/3143231/3210255.
+I also tried to set the regex as a variable in the collection with:
+{
+  ""variable"": [
+    {
+      ""name"": ""iso8601"",
+      ""value"": ""/^\\d{4,}-[01]\\d-[0-3]\\dT[0-2]\\d:[0-5]\\d:[0-5]\\d\\.\\d+(?:[+-][0-2]\\d:[0-5]\\d|Z)$/"",
+      ""type"": ""RegExp""
+    }
+  ], ...
+}
+and using it in the tests with:
+ps.variables.get('iso8601')
+to avoid repetition, but I couldn't get it to work in newman (with latest version 4.1.0), only in postman, so I left it out.",4,1
+261,2018-08-31T00:07:27Z,2018-08-31T15:08:12Z,2018-08-31T15:08:12Z,1,3,0,Closes #202,2,0
+287,2018-10-23T00:34:54Z,2018-10-23T02:45:26Z,2018-10-23T02:45:26Z,1,3,0,,2,0
+289,2018-10-28T16:23:20Z,2018-10-29T16:09:47Z,2018-10-29T16:09:47Z,1,3,0,,3,2
+292,2018-11-03T22:34:57Z,2018-11-05T17:51:25Z,2018-11-05T17:51:25Z,1,1,1,I fixed an assertion description where it should say ... is false instead of ... is true.,2,1
+324,2019-01-11T20:34:47Z,2019-01-12T01:04:59Z,2019-01-12T01:04:59Z,1,14,16,"@anishkny and @Cameron-C-Chapman have poured so much amazing work into this project over the past few years, and RealWorld would never have grown to this size (nor will it keep growing) without their continued efforts.
+While Albert and I spent a lot of time initially getting RW off the ground, our contributions have been slim as of late. As such, I'd like to amend the readme to list Anish & Cameron as the primary/core maintainers of this project. They most certainly deserve it. (Also, it'll help me sleep better 😛)
+Anish/Cameron- would you like to do the honors? :)",3,4
+440,2019-11-17T14:18:34Z,2019-11-19T16:09:38Z,2019-11-19T16:09:38Z,1,1,1,,3,2
+488,2020-04-07T18:37:03Z,2020-05-19T22:57:51Z,2020-05-19T22:57:51Z,1,3,0,,2,0
+510,2020-05-23T17:30:55Z,2021-01-25T11:15:52Z,2021-01-25T11:15:52Z,1,0,3,"After discussions in the Ember community we've decided to merge the ""Ember Octane Realworld"" app into the regular Ember Realworld app so there is no longer a need for both anymore.",3,1
+516,2020-06-02T15:29:19Z,,2021-01-29T14:07:05Z,1,1,1,,2,0
+528,2020-07-10T19:21:56Z,,2021-02-26T22:38:03Z,1,3,0,This PR address #527,3,2
+533,2020-07-18T13:12:47Z,2021-01-23T09:06:55Z,2021-01-23T09:06:55Z,1,1,1,For reference: https://en.wikipedia.org/wiki/Wikipedia:Lists_of_common_misspellings/For_machines,2,0
+553,2020-09-02T22:37:48Z,2021-01-23T14:23:45Z,2021-01-23T14:23:45Z,1,1,1,The url is obsolete because master branch has been renamed to main some time ago,3,0
+609,2021-02-14T09:44:52Z,2021-02-14T11:17:03Z,2021-02-14T11:17:03Z,1,1,4,"Riot.js projects were merged #606
+@abdusabri
+Thanks. Please check it.",2,1
+617,2021-02-28T06:43:17Z,,2021-04-20T00:39:15Z,1,4,2,To register a new user POST to /users not to /user.,3,2
+618,2021-03-08T21:50:31Z,2021-03-10T14:43:54Z,2021-03-10T14:43:55Z,1,3,0,"Closes #518
+@Weedshaker I've created this PR to close your issue and add the repo/project to the README.
+Have a look and let me know if you have any comments or questions.
+Once the PR is merged, the repo would appear in the README within 24 hours as it is auto-generated :)",4,4
+623,2021-03-20T16:02:57Z,,2021-04-15T09:48:43Z,1,70,34,Add Android(Kotlin) example project link please review and merge into the master repo.,3,4
+667,2021-05-04T07:04:28Z,2021-06-02T21:05:24Z,2021-06-02T21:05:24Z,4,317,2,"update contributing.md
+add github templates
+related to #663",2,0
+678,2021-05-29T14:59:49Z,2021-06-02T20:44:34Z,2021-06-02T20:44:34Z,1,64,0,"This is exactly the same as the previous test with login,
+but this time without login.
+This catches some JSON serialization errors that I had observed in a
+backend implementation.",2,1
+685,2021-06-23T06:55:33Z,2021-07-01T11:15:31Z,2021-07-01T11:15:31Z,1,1,1,"Previously we had newman"": ""^3.5.2"", but if you install exactly 3.5.2
+e.g. with npm install newman@3.5.2 the ./api/run-api-tests.sh fails with:
+Unrecognized arguments: --global-var
+because that feature was added after 3.5. It works with npm install
+because if fetches the newer version currently 3.10 which has it.
+Since I was upgrading this, I though I might as well update to 5 as it just
+works.
+PR Checklist
+Please check if your PR fulfills the following requirements:
+
+ The commit message follows our guidelines: https://github.com/gothinkster/realworld/blob/master/CONTRIBUTING.md#commit
+
+PR Type
+What kind of change does this PR introduce?
+
+
+ Bugfix
+ Feature
+ Other... Please describe:
+
+What is the current behavior?
+
+Issue Number: N/A
+What is the new behavior?
+Does this PR introduce a breaking change?
+
+ Yes
+ No
+
+
+Other information",2,1
+744,2021-10-06T17:48:19Z,2021-10-07T10:28:06Z,2021-10-07T10:28:06Z,1,3,3,"PR Checklist
+Please check if your PR fulfills the following requirements:
+
+ The commit message follows our guidelines: https://github.com/gothinkster/realworld/blob/master/CONTRIBUTING.md#commit
+
+PR Type
+What kind of change does this PR introduce?
+
+
+ Bugfix
+ Feature
+ Other... Please describe: fix documentation links
+
+What is the current behavior?
+
+Issue Number: N/A
+What is the new behavior?
+Does this PR introduce a breaking change?
+
+ Yes
+ No
+
+
+Other information",2,1
+745,2021-10-06T20:31:30Z,2021-10-12T11:53:49Z,2021-10-12T11:53:49Z,1,2244,2180,"PR Checklist
+Please check if your PR fulfills the following requirements:
+
+ The commit message follows our guidelines: https://github.com/gothinkster/realworld/blob/master/CONTRIBUTING.md#commit
+
+PR Type
+What kind of change does this PR introduce?
+
+
+ Bugfix
+ Feature
+[*] Other... Please describe:
+
+What is the current behavior?
+
+Issue Number: N/A
+What is the new behavior?
+Does this PR introduce a breaking change?
+
+ Yes
+[*] No
+
+
+Other information",2,4
+766,2021-10-18T22:17:33Z,2021-10-23T08:11:12Z,2021-10-23T08:11:12Z,1,19,0,"Dependabot will create PRs to update out of date dependencies.
+It will already do this for security releases, but this will create PRs
+for non-security releases of dependencies.
+PR Checklist
+Please check if your PR fulfills the following requirements:
+
+ The commit message follows our guidelines: https://github.com/gothinkster/realworld/blob/master/CONTRIBUTING.md#commit
+
+PR Type
+What kind of change does this PR introduce?
+
+
+ Bugfix
+ Feature
+ Other... Please describe:
+
+What is the current behavior?
+
+Issue Number: N/A
+What is the new behavior?
+Does this PR introduce a breaking change?
+
+ Yes
+ No
+
+
+Other information",2,1
+767,2021-10-20T18:24:57Z,2021-10-21T14:42:55Z,2021-10-21T14:42:55Z,1,3,3,"PR Checklist
+Please check if your PR fulfills the following requirements:
+
+ The commit message follows our guidelines: https://github.com/gothinkster/realworld/blob/master/CONTRIBUTING.md#commit
+
+PR Type
+What kind of change does this PR introduce?
+
+
+ Bugfix
+ Feature
+ Other... Please describe:
+
+What is the current behavior?
+
+Issue Number: N/A
+What is the new behavior?
+Does this PR introduce a breaking change?
+
+ Yes
+ No
+
+
+Other information",2,1
+776,2021-10-25T08:26:47Z,2021-10-25T21:52:26Z,2021-10-25T21:52:26Z,1,4,0,"PR Checklist
+Please check if your PR fulfills the following requirements:
+
+ The commit message follows our guidelines: https://github.com/gothinkster/realworld/blob/master/CONTRIBUTING.md#commit
+
+PR Type
+What kind of change does this PR introduce?
+
+
+ Bugfix
+ Feature
+ Other... Please describe: Documentation
+
+What is the current behavior?
+
+Issue Number: 775
+What is the new behavior?
+Show a link to CodebaseShow as first element of the Community section in the footer
+Does this PR introduce a breaking change?
+
+ Yes
+ No
+
+
+Other information",2,1
+778,2021-10-28T15:35:18Z,2021-10-28T16:40:17Z,2021-10-28T16:40:17Z,1,1,1,"changed postman test link to reflect change in branch name
+PR Checklist
+Please check if your PR fulfills the following requirements:
+
+ The commit message follows our guidelines: https://github.com/gothinkster/realworld/blob/master/CONTRIBUTING.md#commit
+
+PR Type
+What kind of change does this PR introduce?
+
+
+ Bugfix
+ Feature
+ Other... Please describe:
+
+What is the current behavior?
+
+Issue Number: N/A
+What is the new behavior?
+Does this PR introduce a breaking change?
+
+ Yes
+ No
+
+
+Other information",2,1
+1384,2023-08-02T20:22:17Z,2023-09-19T08:03:34Z,2023-09-19T08:03:34Z,1,5,5,"Summary
+
+🤖 Generated by Copilot at 2205361
+This pull request improves the frontend templates documentation by fixing grammar, style, and clarity issues. It also adds more details about the tabs and their behavior.
+Details
+
+🤖 Generated by Copilot at 2205361
+
+Add clarity and consistency to the documentation by using the word ""should"" and adding commas after the conditions in the templates section ([link](https://github.com/gothinkster/realworld/pull/1384/files?diff=unified&w=0#diff-c126f8ffec25af69f772f5e58d2478736fa0edfca506ac2d438626a5415aca83L37-R37), [link](https://github.com/gothinkster/realworld/pull/1384/files?diff=unified&w=0#diff-c126f8ffec25af69f772f5e58d2478736fa0edfca506ac2d438626a5415aca83L67-R67) in apps/documentation/docs/specs/frontend-specs/templates.md)",2,4
+1519,2024-01-03T17:01:40Z,2024-01-03T18:11:47Z,2024-01-03T18:11:47Z,21,143,173,"Summary
+copilot:summary
+Details
+copilot:walkthrough",1,3

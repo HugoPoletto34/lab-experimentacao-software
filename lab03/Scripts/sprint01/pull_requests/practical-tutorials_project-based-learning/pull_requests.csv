@@ -1,0 +1,728 @@
+number,created_at,merged_at,closed_at,files,additions,deletions,body_text,participants,comments
+36,2017-07-11T03:56:03Z,2017-07-11T14:07:37Z,2017-07-11T14:07:37Z,1,4,0,,2,0
+37,2017-07-12T23:53:49Z,2017-07-13T03:41:54Z,2017-07-13T03:41:54Z,1,1,0,,2,0
+38,2017-07-13T09:37:03Z,2017-07-14T00:41:40Z,2017-07-14T00:41:40Z,1,1,0,,2,0
+56,2018-04-17T04:09:04Z,2018-04-17T15:36:03Z,2018-04-17T15:36:03Z,1,1,0,,1,0
+61,2018-04-19T06:10:23Z,2018-04-20T04:17:17Z,2018-04-20T04:17:17Z,1,4,0,"Full title: ""Vue 2 + Firebase: How to build a Vue app with Firebase authentication system in 15 minutes""",1,0
+67,2018-04-20T14:28:10Z,2018-04-27T17:25:36Z,2018-04-27T17:25:36Z,1,2,1,"Add link to the official site of the Handmade Hero video game creation video tutorial series to the C++ OpenGL subsection.
+Sort C++ OpenGL subsection tutorials alphabetically.",2,0
+69,2018-04-21T09:53:13Z,2018-04-21T18:36:37Z,2018-04-21T18:36:37Z,1,3,0,,2,0
+70,2018-04-21T18:50:39Z,2018-04-22T00:50:01Z,2018-04-22T00:50:01Z,1,1,0,,2,0
+71,2018-04-22T07:51:45Z,2018-04-24T18:59:37Z,2018-04-24T18:59:37Z,1,10,0,,2,1
+72,2018-04-25T16:54:43Z,2018-04-26T21:39:59Z,2018-04-26T21:39:59Z,1,6,0,,2,0
+73,2018-04-29T05:39:21Z,2018-04-30T10:33:04Z,2018-04-30T10:33:04Z,1,6,0,,2,0
+75,2018-05-09T09:59:37Z,2018-06-14T15:34:39Z,2018-06-14T15:34:39Z,1,17,6,"Add additional sub-section in C/C++ section about network programming.
+Move ""Let's Code a TCP/IP Stack"" tutorial series in it.
+Add series of tutorials about writing concurrent servers by Eli Bendersky.",2,2
+77,2018-05-23T07:30:00Z,2018-05-24T19:47:44Z,2018-05-24T19:47:44Z,1,6,0,,2,1
+79,2018-05-25T07:49:16Z,2018-05-27T23:16:00Z,2018-05-27T23:16:00Z,1,5,0,,2,1
+81,2018-05-27T18:07:34Z,2018-05-27T23:17:54Z,2018-05-27T23:17:54Z,1,1,0,Add tutorial about writing a Tetris game by Javier López.,2,0
+82,2018-05-27T18:08:07Z,2018-05-30T04:11:35Z,2018-05-30T04:11:35Z,1,1,0,Add tutorial about writing of a high performance matrix multiplication in C++ by Jean Guegant.,2,0
+84,2018-05-28T19:43:39Z,2018-06-03T19:33:21Z,2018-06-03T19:33:21Z,1,1,0,,1,0
+85,2018-05-29T13:28:33Z,2018-06-03T19:32:58Z,2018-06-03T19:32:58Z,1,5,1,,2,1
+110,2018-08-30T07:53:43Z,2018-09-09T07:01:29Z,2018-09-09T07:01:29Z,1,5,0,Add Erlang and one tutorial,2,0
+116,2018-09-22T07:37:56Z,2018-09-25T03:52:30Z,2018-09-25T03:52:30Z,1,1,0,How to create an OS from scratch : https://github.com/cfenollosa/os-tutorial,2,0
+119,2018-10-04T02:46:24Z,2018-10-07T08:02:58Z,2018-10-07T08:02:58Z,1,1,0,"Added Hack Club Workshops!
+Hack Club Workshops are a collection of workshops written by an international open-source student non-profit. It contains a series of guides and tutorials for students to start learning to build or to code via creating various projects.",2,0
+131,2018-10-25T15:38:35Z,2018-10-28T03:40:58Z,2018-10-28T03:40:58Z,1,1,0,Added an intuitive Python based ML tutorial that I've referred to in the past.,2,0
+141,2018-11-05T00:43:52Z,2021-08-28T05:42:32Z,2021-08-28T05:42:32Z,1,1,1,"Rewrote introduction paragraph in the README.md file to increase conciseness and remove ambiguities.
+Description
+Changed ""learners"" to ""aspiring software developers"". ""Learners"" might be confusing.
+Motivation and Context
+
+
+How Has This Been Tested?
+
+
+
+Types of changes
+
+
+ Content Update (change which fixes an issue or updates an already existing submission)
+ New Article (change which adds functionality)
+ Documentation change
+
+Checklist:
+
+
+
+ My code follows the code style of this project.
+ I have updated the documentation accordingly.
+ I have read the CONTRIBUTING document.
+ I have made checks to ensure URLs and other resources are valid",2,0
+177,2019-09-19T11:02:16Z,,2021-08-26T10:08:34Z,1,4,0,"Description
+
+Motivation and Context
+
+
+How Has This Been Tested?
+
+
+
+Types of changes
+
+
+ Content Update (change which fixes an issue or updates an already existing submission)
+ New Article (change which adds functionality)
+ Documentation change
+
+Checklist:
+
+
+
+ My code follows the code style of this project.
+ I have updated the documentation accordingly.
+ I have read the CONTRIBUTING document.
+ I have made checks to ensure URLs and other resources are valid",3,1
+178,2019-09-25T20:13:29Z,2020-02-18T19:18:45Z,2020-02-18T19:18:45Z,1,1,0,"Description
+
+Motivation and Context
+
+
+How Has This Been Tested?
+
+
+
+Types of changes
+
+
+ Content Update (change which fixes an issue or updates an already existing submission)
+ New Article (change which adds functionality)
+ Documentation change
+
+Checklist:
+
+
+
+ My code follows the code style of this project.
+ I have updated the documentation accordingly.
+ I have read the CONTRIBUTING document.
+ I have made checks to ensure URLs and other resources are valid",2,0
+182,2019-10-06T16:31:11Z,2019-10-14T15:15:07Z,2019-10-14T15:15:07Z,1,5,0,"Description
+
+Added F# section and a tutorial which learns how to write a simple Excel in 100 lines of F#
+Motivation and Context
+
+
+F# was not on the list. Now it is.
+How Has This Been Tested?
+
+
+
+Test what?
+Types of changes
+
+
+ Content Update (change which fixes an issue or updates an already existing submission)
+ New Article (change which adds functionality)
+ Documentation change
+
+Checklist:
+
+
+
+ My code follows the code style of this project.
+ I have updated the documentation accordingly.
+ I have read the CONTRIBUTING document.
+ I have made checks to ensure URLs and other resources are valid",2,0
+183,2019-10-10T04:54:03Z,2019-10-12T02:07:44Z,2019-10-12T02:07:44Z,1,3,1,"Description
+
+I was going to add a good Angular 8 tutorial that uses firebase and several design components, but I noticed that the tutorial was included under the Angular 6 version. Since that entry was submitted, the tutorial has been updated to Angular 8 and a second edition has been released.
+Motivation and Context
+
+
+Issue #28 was addressed
+How Has This Been Tested?
+
+
+
+I checked the links to make sure they linked to the proper pages
+Types of changes
+
+
+[ x] Content Update (change which fixes an issue or updates an already existing submission)
+[ x] New Article (change which adds functionality)
+ Documentation change
+
+Checklist:
+
+
+
+[ x] My code follows the code style of this project.
+[ x] I have updated the documentation accordingly.
+[ x] I have read the CONTRIBUTING document.
+[ x] I have made checks to ensure URLs and other resources are valid",3,0
+184,2019-10-10T06:45:32Z,2019-10-11T20:17:48Z,2019-10-11T20:17:48Z,1,1,0,"Description
+Added a beginner-friendly Ruby tutorial - a step-by-step walkthrough on how to build a Rails application that lets users post information about sharks and their behavior.",2,0
+186,2019-10-13T04:38:24Z,,2021-08-26T08:36:39Z,1,1,0,"Description
+
+I add tutorial to make game in c++
+Motivation and Context
+
+this to make game in c++
+
+How Has This Been Tested?
+
+I haven't tested before but I see the tutorial is good
+
+
+Types of changes
+
+
+ Content Update (change which fixes an issue or updates an already existing submission)
+ New Article (change which adds functionality)
+ Documentation change
+
+Checklist:
+
+
+
+ My code follows the code style of this project.
+ I have updated the documentation accordingly.
+ I have read the CONTRIBUTING document.
+ I have made checks to ensure URLs and other resources are valid",3,1
+187,2019-10-13T21:05:05Z,2019-10-14T15:13:26Z,2019-10-14T15:13:26Z,1,9,0,"Description
+Added a comprehensive tutorial in 6 parts + bonus to build an MQTT broker from scratch in C.
+Motivation and Context
+The project covers a lot of interesting CS topics, like low level networks, EPOLL interface and data structures implementation.
+How Has This Been Tested?
+All URLs are working correctly
+Types of changes
+
+ Content Update (change which fixes an issue or updates an already existing submission)
+ New Article (change which adds functionality)
+ Documentation change
+
+Checklist:
+
+
+
+ My code follows the code style of this project.
+ I have updated the documentation accordingly.
+ I have read the CONTRIBUTING document.
+ I have made checks to ensure URLs and other resources are valid",2,0
+193,2019-10-25T17:50:42Z,,2021-08-26T07:57:59Z,1,21,0,"i am beginner, trying my hands in c language
+i have  written a  c programe to find factorial of a given number using recurssion",3,1
+196,2019-10-26T21:50:32Z,,2021-08-26T08:05:58Z,1,1,0,"This will help beginners on learning c++ programming language.
+Description
+
+added Introduction to C++ in C/C++ section.
+Motivation and Context
+
+
+How Has This Been Tested?
+
+
+
+Types of changes
+
+
+ Content Update (change which fixes an issue or updates an already existing submission)
+ New Article (change which adds functionality)
+ Documentation change
+
+Checklist:
+
+
+
+ My code follows the code style of this project.
+ I have updated the documentation accordingly.
+ I have read the CONTRIBUTING document.
+ I have made checks to ensure URLs and other resources are valid",5,4
+201,2019-10-30T15:13:13Z,2020-08-03T08:56:53Z,2020-08-03T08:56:53Z,1,1,0,"Description
+I found this project interesting and thought it needs to be listed in your Clojure section.",2,0
+205,2019-12-04T18:09:57Z,2020-02-23T02:46:07Z,2020-02-23T02:46:07Z,1,6,0,"Description
+Added a 4-part tutorial series to build a toy Redis implementation in Ruby.
+Motivation and Context
+This tutorial covers the following topics:
+
+TCP servers
+the Redis protocol
+event loops
+
+How Has This Been Tested?
+Previewed markdown locally, tested all links.
+Types of changes
+
+ Content Update (change which fixes an issue or updates an already existing submission)
+ New Article (change which adds functionality)
+ Documentation change
+
+Checklist:
+
+ My code follows the code style of this project.
+ I have updated the documentation accordingly.
+ I have read the CONTRIBUTING document.
+ I have made checks to ensure URLs and other resources are valid",3,1
+206,2019-12-26T07:36:39Z,2020-02-19T18:17:00Z,2020-02-19T18:17:00Z,1,5,0,"Scala- projects
+Description
+
+I have been added some links to projects in Scala
+Motivation and Context
+
+
+There weren't any projects to learn Scala
+How Has This Been Tested?
+
+
+
+Types of changes
+
+
+ Content Update (change which fixes an issue or updates an already existing submission)
+ New Article (change which adds functionality)
+ Documentation change
+
+Checklist:
+
+
+
+[ +] My code follows the code style of this project.
+[ +] I have updated the documentation accordingly.
+[ +] I have read the CONTRIBUTING document.
+[ +] I have made checks to ensure URLs and other resources are valid",1,0
+208,2020-01-14T04:46:41Z,2020-02-05T23:21:13Z,2020-02-05T23:21:13Z,1,1,0,"Todoist clone with React and Firebase
+Description
+We're going to be creating the popular Todoist list application (https://todoist.com) from scratch using React (Custom Hooks, Context), Firebase & React Testing Library (unit & integration testing).
+Motivation and Context
+
+I think this will help lot of beginners like me. Also I am learning GitHub so want to contribute to community.
+Types of changes
+
+ Content Update (change which fixes an issue or updates an already existing submission)
+ New Article (change which adds functionality)
+ Documentation change
+
+Checklist:
+
+ My code follows the code style of this project.
+ I have updated the documentation accordingly.
+ I have read the CONTRIBUTING document.
+ I have made checks to ensure URLs and other resources are valid
+
+Thanks :)",2,2
+209,2020-02-07T09:59:10Z,2020-02-14T19:04:53Z,2020-02-14T19:04:53Z,1,2,0,"Description
+
+Motivation and Context
+
+
+How Has This Been Tested?
+
+
+
+Types of changes
+
+
+ Content Update (change which fixes an issue or updates an already existing submission)
+ New Article (change which adds functionality)
+ Documentation change
+
+Checklist:
+
+
+
+ My code follows the code style of this project.
+ I have updated the documentation accordingly.
+ I have read the CONTRIBUTING document.
+ I have made checks to ensure URLs and other resources are valid",2,1
+234,2020-05-06T14:10:13Z,2020-08-03T08:58:25Z,2020-08-03T08:58:25Z,1,1,0,"Description
+
+Motivation and Context
+
+
+How Has This Been Tested?
+
+
+
+Types of changes
+
+
+ Content Update (change which fixes an issue or updates an already existing submission)
+[ x] New Article (change which adds functionality)
+ Documentation change
+
+Checklist:
+
+
+
+ My code follows the code style of this project.
+[ x] I have updated the documentation accordingly.
+[ x] I have read the CONTRIBUTING document.
+[ x] I have made checks to ensure URLs and other resources are valid",2,0
+235,2020-05-08T18:21:32Z,2020-06-19T06:25:38Z,2020-06-19T06:25:38Z,1,1,1,"Description
+
+Link was provided by this guy
+Motivation and Context
+
+
+How Has This Been Tested?
+
+
+
+Types of changes
+
+
+ Content Update (change which fixes an issue or updates an already existing submission)
+ New Article (change which adds functionality)
+ Documentation change
+
+Checklist:
+
+
+
+ My code follows the code style of this project.
+ I have updated the documentation accordingly.
+ I have read the CONTRIBUTING document.
+ I have made checks to ensure URLs and other resources are valid",2,1
+237,2020-05-14T06:53:43Z,2021-08-25T23:01:10Z,2021-08-25T23:01:10Z,1,8,0,"Description
+
+Add some tutorial about golang
+Motivation and Context
+
+
+How Has This Been Tested?
+
+
+
+Types of changes
+
+
+ Content Update (change which fixes an issue or updates an already existing submission)
+ New Article (change which adds functionality)
+ Documentation change
+
+Checklist:
+
+
+
+ My code follows the code style of this project.
+ I have updated the documentation accordingly.
+ I have read the CONTRIBUTING document.
+ I have made checks to ensure URLs and other resources are valid",3,0
+239,2020-06-14T05:39:34Z,2020-07-22T06:56:34Z,2020-07-22T06:56:34Z,1,1,0,"Description
+
+Motivation and Context
+
+
+How Has This Been Tested?
+
+
+
+Types of changes
+
+
+ Content Update (change which fixes an issue or updates an already existing submission)
+ New Article (change which adds functionality)
+ Documentation change
+
+Checklist:
+
+
+
+ My code follows the code style of this project.
+ I have updated the documentation accordingly.
+ I have read the CONTRIBUTING document.
+ I have made checks to ensure URLs and other resources are valid",2,1
+240,2020-06-25T20:58:17Z,,2021-08-27T08:41:13Z,1,21,0,"Created a new category for HTML/CSS/JS tutorials
+Description
+
+Motivation and Context
+
+
+How Has This Been Tested?
+
+
+
+Types of changes
+
+
+ Content Update (change which fixes an issue or updates an already existing submission)
+ New Article (change which adds functionality)
+ Documentation change
+
+Checklist:
+
+
+
+ My code follows the code style of this project.
+ I have updated the documentation accordingly.
+ I have read the CONTRIBUTING document.
+ I have made checks to ensure URLs and other resources are valid",3,3
+245,2020-08-03T23:29:31Z,2020-08-22T22:14:22Z,2020-08-22T22:14:22Z,1,1,1,"Description
+
+Replaced 'How to Write an Emulator (CHIP-8 Interpreter)' with an alternate tutorial, 'Building a CHIP-8 Emulator'
+Motivation and Context
+
+The previous tutorial link was no longer working and was insecure.
+
+Fixes this issue: #244
+How Has This Been Tested?
+
+
+
+The only test was to make sure that the new link works and the changes don't affect any other part of the repository.
+Types of changes
+
+
+ Content Update (change which fixes an issue or updates an already existing submission)
+ New Article (change which adds functionality)
+ Documentation change
+
+Checklist:
+
+
+
+ My code follows the code style of this project.
+ I have updated the documentation accordingly.
+ I have read the CONTRIBUTING document.
+ I have made checks to ensure URLs and other resources are valid",2,0
+248,2020-08-30T14:58:12Z,,2021-08-25T22:17:10Z,1,1,0,"Description
+
+
+Added tutorial for a simple CSS exercise
+
+Motivation and Context
+
+
+
+Great exercise for first timers
+
+How Has This Been Tested?
+
+
+
+
+Validated by many coders online
+
+Types of changes
+
+
+ Content Update (change which fixes an issue or updates an already existing submission)
+ New Article (change which adds functionality)
+ Documentation change
+
+Checklist:
+
+
+
+ My code follows the code style of this project.
+ I have updated the documentation accordingly.
+ I have read the CONTRIBUTING document.
+ I have made checks to ensure URLs and other resources are valid",3,1
+258,2020-10-01T16:33:45Z,2021-08-25T21:23:09Z,2021-08-25T21:23:09Z,1,0,1,"Hey @tuvtran
+just removing a broken link here.
+Cheers!",3,1
+270,2020-11-25T14:46:00Z,,2021-08-25T21:18:43Z,1,1,0,"Description
+
+Motivation and Context
+
+
+How Has This Been Tested?
+
+
+
+Types of changes
+
+
+ Content Update (change which fixes an issue or updates an already existing submission)
+ New Article (change which adds functionality)
+ Documentation change
+
+Checklist:
+
+
+
+ My code follows the code style of this project.
+ I have updated the documentation accordingly.
+ I have read the CONTRIBUTING document.
+ I have made checks to ensure URLs and other resources are valid",3,1
+290,2021-03-21T10:31:42Z,2021-07-07T21:48:29Z,2021-07-07T21:48:29Z,1,7,7,"Description
+The domain jeiwan.cc is not resolving. The correct one is jeiwan.net.
+Fixes #273",3,0
+302,2021-06-16T14:17:46Z,2021-07-07T21:47:27Z,2021-07-07T21:47:27Z,1,1,0,Add a tutorial about writing a Tetris game in ClojureScript.,2,0
+305,2021-07-22T08:10:24Z,2021-08-16T07:49:14Z,2021-08-16T07:49:14Z,1,5,0,,2,0
+307,2021-08-03T11:01:28Z,2021-08-16T07:35:01Z,2021-08-16T07:35:01Z,1,5,0,"Description
+
+Added ""Let's build a URL shortener in Go - with Gin & Redis"" project
+Motivation and Context
+
+
+Found this project tutorial a week ago, and it's quality is really good.
+How Has This Been Tested?
+
+
+
+I completed the project.
+Types of changes
+
+
+ Content Update (change which fixes an issue or updates an already existing submission)
+ New Article (change which adds functionality)
+ Documentation change
+
+Checklist:
+
+
+
+ My code follows the code style of this project.
+ I have updated the documentation accordingly.
+ I have read the CONTRIBUTING document.
+ I have made checks to ensure URLs and other resources are valid",2,0
+311,2021-08-17T14:57:24Z,,2022-01-28T10:56:20Z,1,4,0,"Added few more projects .
+
+Description
+Just added a few extra
+Motivation and Context
+
+
+It enables people to create more
+How Has This Been Tested?
+I have done it personally!
+
+
+
+Types of changes
+
+
+[x ] Content Update (change which fixes an issue or updates an already existing submission)
+[x ] New Article (change which adds functionality)
+[x ] Documentation change
+
+Checklist:
+
+
+
+ My code follows the code style of this project.
+[ x] I have updated the documentation accordingly.
+[ x] I have read the CONTRIBUTING document.
+[x ] I have made checks to ensure URLs and other resources are valid",3,1
+312,2021-08-20T00:27:11Z,2021-08-23T17:10:35Z,2021-08-23T17:10:35Z,1,1,1,"Description
+
+Fixed the link for Go webdev tutorial.
+Motivation and Context
+The link was broken; it just redirects to the main GitBooks page. And from there it was nontrivial to find the intended article.
+How Has This Been Tested?
+Double-checked that the link now works.
+Types of changes
+
+
+ Content Update (change which fixes an issue or updates an already existing submission)
+ New Article (change which adds functionality)
+ Documentation change
+
+Checklist:
+
+
+
+ My code follows the code style of this project.
+ I have updated the documentation accordingly.
+ I have read the CONTRIBUTING document.
+ I have made checks to ensure URLs and other resources are valid",2,0
+321,2021-08-27T10:26:06Z,2021-08-27T19:06:46Z,2021-08-27T19:06:46Z,1,17,0,"Prepare config for stalebot.
+https://github.com/apps/stale
+!!Don't merge it until you installed Stalebot for this repo.",2,0
+331,2021-09-07T15:18:04Z,,2022-04-12T09:29:38Z,1,14,0,"Description
+
+New topic named ""Arduino"" was added in C/C++ section of the README.md file with links to Arduino official website tutorials. The tutorials were chosen and organized in a logical sequence in order to provide the opportunity for begginers to have a general contact with the application and from there build more skills.
+Motivation and Context
+
+
+Fix Issue #94 .
+How Has This Been Tested?
+
+
+
+All the procedures was tested during my trajectory as and Arduino programmer in an Arduino Nano board, a protoboard, a PC running Windows 10 and the Arduino IDE.
+Types of changes
+
+
+ Content Update (change which fixes an issue or updates an already existing submission)
+ New Article (change which adds functionality)
+ Documentation change
+
+Checklist:
+
+
+
+ My code follows the code style of this project.
+ I have updated the documentation accordingly.
+ I have read the CONTRIBUTING document.
+ I have made checks to ensure URLs and other resources are valid",3,4
+345,2022-01-30T17:06:03Z,,2022-04-12T09:27:39Z,1,1,0,"Description
+
+The Selenium FormFiller can be used to auto complete various online forms including google surveys, data entry, email response message boxes, and more. This tutorial I made will walk a user through the auto completion of a google online survey. The script assumes that a user already has the Senium library pre-installed and only minor edits need to be made for filling out a custom form other than the included example
+Motivation and Context
+
+There is currently a Selenium based example project which I used to learn about the Selenium Webdriver but there is little information in this project that helped me fulfill the purpose for why I needed Selenium: an auto form filler. I had to do the rest of the learning on my own and I wanted to share my results.
+
+How Has This Been Tested?
+
+Testing was performed on my personal Windows based environment and my personal Linux based enviroment running on an Ubuntu based VM. With a simple project addition like this, testing ran smoothly and indicated a successful implementation of the example project
+
+Windows 11 base platform with Linux VM. Ran script side testing on both OS platforms. Testing was performed by evaluating the completion level of the Form Filler.
+
+No other areas of the code are affected.
+Types of changes
+
+
+ Content Update (change which fixes an issue or updates an already existing submission)
+ New Article (change which adds functionality)
+ Documentation change
+
+Checklist:
+
+
+
+ My code follows the code style of this project.
+ I have updated the documentation accordingly.
+ I have read the CONTRIBUTING document.
+ I have made checks to ensure URLs and other resources are valid",3,1
+364,2022-07-02T16:25:16Z,2022-08-28T05:18:14Z,2022-08-28T05:18:14Z,1,18,1,"Added Flutter Tutorials in Dart Subsection
+Description
+Added Flutter Full Stack Projects and UI Tutorials to the list. Created New List with Dart as the main category and Flutter as sub category.
+Motivation and Context
+Fixes issue #282 - #282
+How Has This Been Tested?
+All the tutorials in this project are up-to-date.
+Types of changes
+
+ Content Update (change which fixes an issue or updates an already existing submission)
+ New Article (change which adds functionality)
+ Documentation change
+
+Checklist:
+
+ My code follows the code style of this project.
+ I have updated the documentation accordingly.
+ I have read the CONTRIBUTING document.
+ I have made checks to ensure URLs and other resources are valid",3,2
+384,2022-10-06T09:23:41Z,,2023-08-15T06:10:12Z,1,2,0,"Description
+
+Added 2 resources
+1. Machine Learning - Andrew Ng, Stanford University Full Course
+2. Real Python - Learn Everything Python from Group Up
+Motivation and Context
+
+
+I have completed the Machine Learning Course by Andrew Ng on Coursera and now it is also available on YouTube as well, the top course referred to start.
+Real Python has a vast collection of everything to learn using Python from basics to APIs, Web Dev, Scraping, and beyond.
+How Has This Been Tested?
+
+
+
+Documentation has been added.
+Types of changes
+
+
+ Content Update (change which fixes an issue or updates an already existing submission)
+ New Article (change which adds functionality)
+ Documentation change
+
+Checklist:
+
+
+
+ My code follows the code style of this project.
+ I have updated the documentation accordingly.
+ I have read the CONTRIBUTING document.
+ I have made checks to ensure URLs and other resources are valid",2,0

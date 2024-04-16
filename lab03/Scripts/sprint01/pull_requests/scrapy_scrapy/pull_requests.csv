@@ -1,0 +1,89 @@
+number,created_at,merged_at,closed_at,files,additions,deletions,body_text,participants,comments
+999,2014-12-31T00:09:52Z,2014-12-31T03:52:44Z,2014-12-31T03:52:44Z,1,19,1,"This PR fixes #985
+The issue while closing the spider on that domain raised while closing the HTTP11DownloadHandler (it can be seen here). The server doesn't close the connection properly so the client waits for a confirmation that doesn't arrive. I've reported this on the Twisted issue tracker (#7738) since this a problem concerning their HTTPConnectionPool while cleaning persistent connections, but I've patched it externally by firing a deferred on a DelayedCalled.
+This problem hasn't came up before the changes on the crawling API because the reactor was stopped along the download handlers on the engine_stop signal (CrawlerProcess@8fece4b and DownloadHandlers@8fece4b). Instead of that, now the reactor is stopped after the crawl deferreds has been fired (CrawlerProcess), which happens after each engine has stopped, so the HTTP11DownloadHandler.close isn't abruptly terminated.
+I chose a _disconnect_timeout of one second on a tradeoff between the previous instant termination and giving a little time to the connections to close in an orderly manner. It could be a new Scrapy setting, and that's why I set this variable on the class init, but I think that kind of parametrization is not needed right now.
+I struggled on mocking a server that mimics this behavior (Twisted doesn't provide a way to do it as they manage the sockets internally, and I'm still not sure how to do it otherwise), so that's why I'm submitting the PR as it is and later I'll try to add a proper test.",4,3
+1272,2015-06-01T15:44:52Z,,2023-08-01T18:19:00Z,28,2002,75,"Based on #1149 and #1423 #1586 master
+Closes #591 and #1215
+Implementation of SEP-021 (updated version from this PR, original version)
+Design decision to-do here
+Old to-do:
+
+Design decisions
+
+ Configuration entry point (settled on INSTALLED_ADDONS setting and additional support for scrapy.cfg so far)
+ Integration into start-up process
+ Add-on interactions (can add-ons configure other add-ons?)
+ Find better name for AddonManager?
+ Update SEP
+
+
+Code
+
+ Add-on interface
+ Base Addon class
+ Load add-on configuration from scrapy.cfg
+ Load add-on configuration from settings module
+ Search add-ons by name
+
+ Improve get_project_path() robustness (done partially, still fails when settings module does not live in project's root)
+
+
+ Load & verify add-ons
+ Add-on ""holding"" (a place where loaded add-ons live)
+ Helper functions to call add-on callbacks
+ Dependency clash management
+
+ Add version support Use pkg_resources' extensive dependency management
+ Should pkg_resources be used throughout the manager and not just within the dependency checking? Will go to separate PR if we decide to
+
+
+ Integrate into standard start-up process
+
+ Integrate dependency clash checks
+
+
+ Allow putting objects (not just class paths) in component lists, e.g. PIPELINES (check #1215)
+ Write add-ons for built-in components
+
+ Fix add-ons for components which do not prepend their settings with their name
+
+
+ Move settings for built-in components from global namespace to add-ons (is this possible without making them harder to configure?) Allow setting global namespace settings via add-on framework
+ Allow spider to implement add-on callbacks (like it already does with update_settings())
+
+
+Tests
+
+ Base Addon class
+ Loading configuration from cfg files
+ Loading configuration from Python modules
+ Search add-ons
+ Load and verify add-ons
+ Callback helper functions
+ Dependency clash management
+ Integration into start-up process
+
+ Fix test for check_configuration()
+
+
+ Putting objects in component lists
+
+
+Documentation
+
+ Docstrings for AddonManager, then use autodoc in docs/topics/api.rst
+ New topic on add-ons
+
+ Mention _addon attribute, more versatile examples (using _addon, module as add-on)",9,36
+1331,2015-07-01T11:25:14Z,,2020-03-26T12:58:19Z,1,1,1,"A fix for #1330.
+It is better to understand why can exception messages contain weird characters before making this change.",4,3
+1582,2015-11-03T18:30:43Z,2022-01-23T16:40:21Z,2022-01-23T16:40:21Z,1,8,0,,6,6
+1605,2015-11-16T17:32:27Z,2018-07-25T14:55:38Z,2018-07-25T14:55:38Z,5,183,15,"Addresses #1567. This moves the ""which constructor should I call"" logic from the middleware manager into a util function, and re-uses it in the feed exporter extension.
+Feed exporters and storages can now provide a from_crawler() class method and properly access settings.",8,6
+1728,2016-01-26T19:32:52Z,2017-02-20T14:23:50Z,2017-02-20T14:23:50Z,6,82,32,"Fixes #1495.
+Todo:
+
+ implementation is incorrect; fix it
+ tests",4,2

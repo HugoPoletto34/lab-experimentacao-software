@@ -1,0 +1,3548 @@
+number,created_at,merged_at,closed_at,files,additions,deletions,body_text,participants,comments
+317,2015-08-11T08:30:07Z,2017-11-04T02:42:06Z,2017-11-04T02:42:06Z,1,16,0,,2,0
+352,2016-04-18T20:45:26Z,2017-09-22T13:58:00Z,2017-09-22T13:58:00Z,1,1,0,,4,2
+366,2016-08-28T10:35:28Z,,2018-01-19T03:39:15Z,1,1,0,Add one JS question.,4,2
+372,2016-12-05T22:48:21Z,2017-01-23T01:00:34Z,2017-01-23T01:00:34Z,1,246,0,,5,3
+374,2017-01-22T23:44:46Z,2017-01-23T01:00:08Z,2017-01-23T01:00:08Z,1,1,1,Small update of readme file,2,0
+375,2017-02-05T08:21:30Z,2017-03-24T03:52:20Z,2017-03-24T03:52:20Z,1,303,0,"I've add Farsi (Persian) translation of the document.
+I'm really sorry about not following the rule of 'Just one Commit' thing ... but creating a bidirectional markdown proved to be a pain in the butt!",4,4
+376,2017-02-07T16:02:30Z,2017-02-08T01:41:25Z,2017-02-08T01:41:25Z,1,24,19,,2,0
+378,2017-02-24T05:25:44Z,,2018-01-23T01:41:29Z,1,1,0,This is a question I was asked recently in an interview.,4,2
+379,2017-03-11T14:17:20Z,,2018-05-22T10:24:44Z,1,2,0,,6,2
+386,2017-04-06T13:41:48Z,2017-04-06T15:27:09Z,2017-04-06T15:27:09Z,1,1,1,small fix to title format,2,0
+389,2017-05-19T01:39:42Z,2017-09-20T08:07:06Z,2017-09-20T08:07:06Z,1,11,11,,2,0
+391,2017-05-20T10:55:21Z,2017-07-02T08:57:44Z,2017-07-02T08:57:44Z,1,29,29,Fix markdown and some typos.,2,0
+395,2017-06-22T10:57:35Z,2017-07-02T08:56:11Z,2017-07-02T08:56:11Z,1,1,1,added missing spacebar,2,0
+397,2017-07-02T06:46:03Z,2017-07-02T08:54:04Z,2017-07-02T08:54:04Z,1,114,54,"update new questions.
+deprecated old qustions.
+refactor categorys position.",2,0
+398,2017-07-07T14:58:41Z,2017-09-20T07:41:33Z,2017-09-20T07:41:33Z,1,10,10,,2,1
+400,2017-07-26T14:03:03Z,2017-09-20T08:03:27Z,2017-09-20T08:03:27Z,1,9,9,,2,0
+401,2017-07-28T15:52:21Z,,2019-03-29T23:43:54Z,1,8,0,"I've added the following questions I find helpful when conducting FED interviews:
+What are appropriate uses for HTML tables?
+What does semantic HTML mean, and how do you apply this principle to your markup?
+When calculating specificity, what value do elements, classes and IDs have?
+What other CSS property must be set in order for z-index to be applied?
+What CSS styles could potentially cause accessibility issues?
+What are the pros and cons of using jQuery? What feautres of ES2015 are likely to make jQuery less ubiquitous?
+Explain the difference between var and let
+Please merge, thanks :-)",3,3
+402,2017-07-29T12:41:49Z,2017-09-23T11:56:57Z,2017-09-23T11:56:57Z,1,260,0,,4,1
+406,2017-09-02T13:47:44Z,,2019-03-24T15:44:22Z,1,12,0,,5,4
+407,2017-09-08T12:34:56Z,2017-09-20T08:01:33Z,2017-09-20T08:01:33Z,1,1,1,add a space,2,0
+408,2017-09-10T05:43:01Z,2017-09-20T06:48:03Z,2017-09-20T06:48:03Z,1,10,10,,3,1
+411,2017-10-10T21:05:36Z,,2019-03-29T23:43:53Z,1,7,0,added new questions under general section and JS section,4,4
+417,2017-10-27T08:02:46Z,2017-11-04T02:29:04Z,2017-11-04T02:29:04Z,1,1,0,"JSPerf gives a very good example code: https://jsperf.com/loop-vs-map-vs-foreach
+For detailed explanation: https://medium.com/@manojsinghnegi/array-methods-explained-filter-vs-map-vs-reduce-vs-foreach-ea3127c6d319",3,3
+420,2017-12-14T23:58:11Z,2017-12-15T01:50:06Z,2017-12-15T01:50:06Z,1,34,4,,2,0
+422,2018-01-04T22:19:53Z,,2019-03-29T23:43:55Z,1,1,0,I believe currying is a really great concept to gauge a developer's knowledge of JavaScript and I've been asked about it a couple of times during interviews. I thought it would be a great addition for people studying. Great list of questions!,5,8
+426,2018-01-11T00:19:53Z,2018-01-11T15:01:29Z,2018-01-11T15:01:29Z,1,1,1,"This question will only ever get a straw-man's argument at best. And this article Responsive vs Adaptive Design – Which is Best for Mobile Viewing of Your Website? only strengthens the position that there is now real difference between the two when it comes to coding a solution. Sure, there may be a design strategy here, but this is not a list of questions for designers.
+The replacement question gets to the core of the question about an actual implementation strategy for development.
+The expected answer from the question would be the expectation that the interviewee would understand that there is a significant different between coding a UI from a desktop-first perspective versus a mobile-first one. Also, this person would expect to understand the difference between min-width versus max-width in these scenarios.",2,1
+434,2018-01-11T17:20:45Z,2018-01-17T18:51:41Z,2018-01-17T18:51:41Z,1,7,1,"The operation is called a Ternary operator, not an expression. This PR updates that term.
+What are some advantages for using the new arrow => function syntax?
+This question will determine a developer's understanding of the new function syntax. An interviewer would expect to hear answers like; reduced verbosity for creating anonymous functions and lexical scoping.
+What advantage does using the arrow syntax for a method in a constructor offer?
+This question is more focused at determining a developer's understanding of lexical scoping.
+What is the definition of a higher-order function?
+Evaluating the general knowledge of a developer's understanding of higher-order functions. An interviewer would expect an answer along the lines of;
+
+a function that takes a function as an argument, or
+a function that returns a function
+
+An interviewer may also ask the developer to illustrate an example of a higher-order function. For example:
+// a function that accepts a function as an argument
+eventTrigger.addEventListener('click', consoleClick);
+// a function that returns a function 
+function character(string) {
+  const concatString = `I am ${string}`;
+  const punc = '!';
+
+  return function() {
+    console.log(concatString + punc);
+  }
+}
+
+const groot = character('Groot');
+groot(); // ""I am Groot!""
+Can you give an example for destructuring an object or an array?
+This question is to determine a developer's understanding of this new syntax. Examples should resemble the following:
+// destructuring an array
+const listing1040Willow = ['remodeled kitchen', '4 bedrooms', '2.5 baths'];
+const [feature, bedrooms, baths] = listing1040Willow;
+// destructuring an object
+const purchases = {
+  purchaseOnline: {
+    one: 'http://www.amazon.com',
+    two: 'http://www.bestbuy.com',
+    three: 'http://www.costco.com'
+  }
+}
+
+const {one, two, three} = purchases.purchaseOnline;
+A developer illustrating code more advanced then these examples, or using a combination/shorthand syntax for complex objects would be considered a senior developer IMHO.
+ES6 Template Literals offer a lot of flexibility in generating strings, can you give an example?
+Everyone should know about using the back-tick ${} syntax. A developer offering up additional uses, for example a block of HTML as used with frameworks like React would show an advanced understanding of this new syntax.
+Can you give an example of a curry function and why this syntax offers an advantage?
+A common understanding of a curry function would be the following:
+function foo(a) {
+  return function(b) {
+    return a + b;
+  }
+}
+Advantages would a developer's ability to breakdown complex functions and allow for nested functions to be returned as a function and be assigned to other variables.",3,0
+438,2018-01-17T18:38:53Z,,2018-10-10T21:34:35Z,1,6,10,"Pull Request
+This update address context issues related to the Pull Request template.
+Fixes # (issue)
+Type of change
+Please check the options that are applicable
+
+ Bug fix (non-breaking change which fixes an issue)
+ New feature (non-breaking change which adds functionality)
+
+Checklist:
+
+ My code follows the style guidelines of this project
+ I have performed a self-review of my own code
+ I have made corresponding changes to the documentation",2,0
+439,2018-01-17T19:55:50Z,,2019-03-24T15:45:02Z,1,1,1,"Pull Request
+One question was removed as it is a duplicate question in relation to media queries.
+The new question is added to inquire as to a person's knowledge of the two very different code styles when writing CSS.
+Can you explain the differences between Functional CSS and Component CSS development styles? What are some advantages/disadvantages of either style?
+
+An interviewer would expect answers to illustrate the differences between these coding styles and possible naming conventions. Advantages/disadvantages are opinions for the most part and would allow the interviewer to gain perspective as to the developer's personal insights on the subject.
+Type of change
+Please delete options that are not relevant.
+
+ Bug fix (non-breaking change which fixes an issue)
+ New feature (non-breaking change which adds functionality)
+
+Checklist:
+
+ My code follows the style guidelines of this project
+ I have performed a self-review of my own code
+ I have made corresponding changes to the documentation",4,2
+442,2018-01-18T06:17:52Z,,2018-08-31T15:00:20Z,1,1,1,"I added a space after ""BFC"".
+Type of change
+
+ Bug fix (non-breaking change which fixes an issue)
+
+How Has This Been Tested?
+N/A
+Checklist:
+
+ My code follows the style guidelines of this project
+ I have performed a self-review of my own code
+ I have made corresponding changes to the documentation",3,2
+445,2018-01-23T01:50:00Z,2018-01-23T03:41:31Z,2018-01-23T03:41:31Z,10,254,265,"Pull Request Template
+This splits all questions into separate files.
+Closes #444",2,1
+447,2018-01-23T03:54:32Z,2018-01-24T00:49:30Z,2018-01-24T00:49:30Z,6,2100,2,"closes #446
+This creates a CONTRIBUTORS.md file and adds some other tweaks to README file.
+preview:",2,0
+460,2018-02-22T04:15:30Z,,2019-03-24T15:46:00Z,1,2,0,"https://davidwalsh.name/javascript-debounce-function
+https://css-tricks.com/the-difference-between-throttling-and-debouncing/
+Fixes # (issue)
+Type of change
+Please delete options that are not relevant.
+
+ New Question
+ Revision of an existing question
+ Infrastructure change (automation, etc.)
+ Other (please elaborate)
+
+Checklist:
+
+ My prose follows the style guidelines of this project
+ I have performed a self-review of my own prose",3,5
+482,2018-06-29T13:05:33Z,2018-07-02T16:51:53Z,2018-07-02T16:51:53Z,1,305,0,"Added Hebrew translation as discussed on #480.
+Adresses #480
+Type of change
+
+ Added Hebrew translation of questions.
+
+Checklist:
+
+ My prose follows the style guidelines of this project
+ I have performed a self-review of my own prose",2,4
+492,2018-10-01T05:41:39Z,,2018-10-02T11:28:16Z,1,3,0,"Pull Request
+Added new questions in javascript-questions.md
+Type of change
+
+ New Question
+
+Checklist:
+
+ My prose follows the style guidelines of this project
+ I have performed a self-review of my own prose
+
+Thanks!",3,1
+493,2018-10-01T05:47:10Z,,2018-10-02T11:14:40Z,1,2,0,"Pull Request
+New questions added in html-questions.md.
+Fixes # (issue)
+Type of change
+
+ New Question
+
+Checklist:
+
+ My prose follows the style guidelines of this project
+ I have performed a self-review of my own prose
+
+Thanks!",3,1
+494,2018-10-01T05:49:04Z,2018-10-03T16:48:36Z,2018-10-03T16:48:36Z,1,1,0,"Pull Request
+New question added in general-question.md
+Fixes # (issue)
+Type of change
+
+ New Question
+
+Checklist:
+
+ My prose follows the style guidelines of this project
+ I have performed a self-review of my own prose
+
+Thanks!",3,2
+498,2018-10-16T19:15:23Z,,2019-04-29T08:40:34Z,1,1,0,"Pull Request
+There are several ways to centrally align any element in relative to the parent element. Specially to align vertically center is a challenge itself. But this can be done very easily.
+Fixes # (issue)
+Type of change
+
+ New Question
+
+Checklist:
+
+ My prose follows the style guidelines of this project
+ I have performed a self-review of my own prose",3,4
+501,2018-10-26T07:15:36Z,,2019-03-29T23:43:58Z,1,1,0,"Pull Request
+Added a new JS question as to "" At what time will the Settimeout() function be executed, if called at 4000 milliseconds?",4,2
+502,2018-10-29T19:13:18Z,,2019-03-29T23:43:57Z,1,2,0,"This PR is for a question to talk about optimizing resources JS/CSS/Images for performance.
+
+Breaking PR into separate PRs
+
+
+Adding 3 new questions on performance.",3,3
+503,2018-10-29T19:31:40Z,2019-01-07T11:23:22Z,2019-01-07T11:23:22Z,1,1,0,Adds question on domain pre-fetching and its performance benefits.,2,2
+504,2018-11-14T17:51:45Z,2019-01-07T17:20:26Z,2019-01-07T17:20:26Z,1,18,30,"Some of the JavaScript questions are stale. I'm making an editorial pass to clean up those questions, removing stuff that's more 2008 than 2018.  I feel like some of these would stump people I'd be happy to hire. I am going to add a review to this PR to explain my reasoning for removing certain questions.",5,3
+505,2018-11-26T13:45:52Z,2018-12-02T21:28:34Z,2018-12-02T21:28:34Z,125,7886,698,"New website is made w/ https://11ty.io and runs via npm. Main commands:
+
+npm start run this at localhost:9090
+npm run build generate the dist folder _site
+npm run deploy push the _site folder to gh-pages
+
+Test Plan:
+
+Check out this branch
+npm i
+npm start
+Check that all files are generated in http://localhost:9090
+
+Preview:
+
+We will need to update the readme/contributing docs to point to the new docs path which was moved to website's src/. Also, need to add instructions on how to build the website.",3,4
+506,2018-12-10T19:39:50Z,2018-12-11T04:40:34Z,2018-12-11T04:40:34Z,1,2,2,"Pull Request
+Type of change
+
+ Other (please elaborate)
+
+Corrects a typo in the Questions navigation.
+Performance was mis-spelled as perfomance
+Checklist:
+
+ My content follows the style guidelines of this project
+ I have performed a self-review of my own content",2,0
+507,2018-12-25T17:36:40Z,2018-12-25T18:53:29Z,2018-12-25T18:53:29Z,1,25,25,"Pull Request
+Type of change
+Please delete options that are not relevant.
+
+ Other (please elaborate)
+
+Fix minor errors, use of the Web Standards dictionary, and other translation improvements.
+Checklist:
+
+ My content follows the style guidelines of this project
+ I have performed a self-review of my own content",2,0
+508,2019-01-09T10:01:25Z,2019-01-09T11:57:37Z,2019-01-09T11:57:37Z,1,12,12,"Pull Request
+Type of change
+
+ Other
+Translation grammar fixes
+
+Checklist:
+
+ My content follows the style guidelines of this project
+ I have performed a self-review of my own content",2,0
+510,2019-02-14T00:46:53Z,2019-02-16T13:56:49Z,2019-02-16T13:56:49Z,6,212,22,"Pull Request
+
+Made navigation responsive
+
+Added toggle button & JS to handle
+Styled button to match current design
+
+
+Changed container max-width (to accommodate nav width)
+Improved nav link styles:
+
+Highlight ""current page""
+Icon for external links: clearer UI than previous overline
+
+
+
+Fixes #509
+Type of change
+Please delete options that are not relevant.
+
+ New Question
+ Revision of an existing question
+ Infrastructure change (automation, etc.)
+ Other: CSS changes for better mobile usability
+
+Checklist:
+
+ My content follows the style guidelines of this project
+ I have performed a self-review of my own content
+
+Pull requests should be thought of as a conversation. There will be some back and forth when trying to get code merged into this or any other project. With all but the simplest changes you can and should expect that the maintainers of the project will request changes to your code. Please be aware of that and check in after you open your PR in order to get your code merged in cleanly.
+Thanks!",4,7
+512,2019-02-21T19:51:35Z,2019-02-21T21:57:27Z,2019-02-21T21:57:28Z,1,2,2,"Pull Request
+Included the the Array. prefix in the question regarding .forEach and .map since the .forEach method reference is ambiguous and also used by array like built-in objects such as NodeList and HTML element collections. Updated the question regarding .call and .apply to reflect the same verbosity.
+Type of change
+
+ Revision of an existing question
+
+Checklist:
+
+ My content follows the style guidelines of this project
+ I have performed a self-review of my own content",2,1
+513,2019-02-23T18:44:26Z,2019-02-24T11:03:02Z,2019-02-24T11:03:02Z,11,56,56,"replicates the work in #387 which has a million conflicts. I'd prefer to get that to work, but if I can't get that PR to work, I've got this one. This stuff actually needs to be fixed.",2,0
+514,2019-03-16T14:18:43Z,,2019-05-26T10:38:20Z,1,1,0,"Pull Request
+The primary purpose of the CSS naming convention is to give meaningful names so that they are as informative as possible for the developer.
+I've asked this question during a number of interviews and have found that it allows for a much clearer understanding of a candidates CSS abilities.
+Type of change
+
+ New Question
+
+Checklist:
+
+ My content follows the style guidelines of this project
+ I have performed a self-review of my own content",5,2
+515,2019-04-10T21:22:04Z,,2019-04-11T15:24:26Z,1,1,0,"Pull Request
+Please include a summary of the change and which issue is fixed. Please also include relevant motivation and context. List any dependencies that are required for this change.
+Fixes # (issue)
+Type of change
+Please delete options that are not relevant.
+
+ New Question
+ Revision of an existing question
+ Infrastructure change (automation, etc.)
+ Other (please elaborate)
+
+Checklist:
+
+ My content follows the style guidelines of this project
+ I have performed a self-review of my own content
+
+Pull requests should be thought of as a conversation. There will be some back and forth when trying to get code merged into this or any other project. With all but the simplest changes you can and should expect that the maintainers of the project will request changes to your code. Please be aware of that and check in after you open your PR in order to get your code merged in cleanly.
+Thanks!",5,3
+516,2019-04-17T10:59:04Z,2019-04-17T20:28:12Z,2019-04-17T20:28:12Z,1,1,0,"This PR is basically the same as stale PR #385
+
+I think it's kind of advanced question, but it can be a good start point to further discussion about performance.
+In worth case you'll hear something like ""It can speed up assets loading"", but with an experienced developer you can find out his knowledge about web apps performance: RTT, caching, DDOS prevention, etc.
+
+Type of change
+
+ New Question
+
+Checklist:
+
+ My content follows the style guidelines of this project
+ I have performed a self-review of my own content
+
+Thanks!",6,0
+519,2019-05-01T17:48:55Z,2019-05-02T05:40:20Z,2019-05-02T05:40:20Z,1,40,54,"Pull Request
+I've updated Ukrainian translation of Contributors and General sections. I guess it was not updated for years. I'm going to update other outdates sections too but later
+Type of change
+Please delete options that are not relevant.
+
+ Translation update
+
+Checklist:
+
+ My content follows the style guidelines of this project
+ I have performed a self-review of my own content
+
+Pull requests should be thought of as a conversation. There will be some back and forth when trying to get code merged into this or any other project. With all but the simplest changes you can and should expect that the maintainers of the project will request changes to your code. Please be aware of that and check in after you open your PR in order to get your code merged in cleanly.
+Thanks!",2,3
+526,2019-06-20T08:27:04Z,2019-06-20T15:00:19Z,2019-06-20T15:00:19Z,1,1,1,"Pull Request
+update copyright year and change (c) to ©
+Type of change
+Please delete options that are not relevant.
+
+ New Question
+ Revision of an existing question
+ Infrastructure change (automation, etc.)
+ Other (please elaborate)
+
+Checklist:
+
+ My content follows the style guidelines of this project
+ I have performed a self-review of my own content",2,0
+532,2019-07-24T04:21:26Z,2019-07-25T00:19:50Z,2019-07-25T00:19:50Z,17,4680,1178,"Pull Request
+
+Add contributors to README.md
+Update package.json deps (there was a security alert before for an out-of-date dep)
+Add a copy step to npm run contributors:generate into ./src/_data/contributors.json
+Update ""About"" page with all relevant contributors, maintainers & history
+Fix some styling of the website
+Rearranged Questions navigation to reflect the order in the README.md
+
+Fixes #531
+Type of change
+Please delete options that are not relevant.
+
+ Infrastructure change (automation, etc.)
+ Other (please elaborate)
+
+Website & docs updates...
+Checklist:
+
+ My content follows the style guidelines of this project
+ I have performed a self-review of my own content",2,1
+533,2019-07-25T22:02:47Z,2019-07-27T00:32:51Z,2019-07-27T00:32:52Z,6,0,11,"Type of change
+
+ Other (please elaborate)
+
+This PR is to remove me from the list of maintainers. It's been a while after my last contribution, and I'm no longer active here. This project helped me a lot since it started, and I'm proud to have helped it somehow and hope it stays active for years to come, but it's my time to leave.
+Checklist:
+
+ My content follows the style guidelines of this project
+ I have performed a self-review of my own content",3,1
+535,2019-09-30T20:48:26Z,2019-11-08T06:31:38Z,2019-11-08T06:31:38Z,1,28,0,"Pull Request
+Please include a summary of the change and which issue is fixed. Please also include relevant motivation and context. List any dependencies that are required for this change.
+Fixes # (issue)
+Type of change
+Please delete options that are not relevant.
+
+ New Question
+ Revision of an existing question
+ Infrastructure change (automation, etc.)
+ Other (please elaborate)
+
+Checklist:
+
+ My content follows the style guidelines of this project
+ I have performed a self-review of my own content
+
+Pull requests should be thought of as a conversation. There will be some back and forth when trying to get code merged into this or any other project. With all but the simplest changes you can and should expect that the maintainers of the project will request changes to your code. Please be aware of that and check in after you open your PR in order to get your code merged in cleanly.
+Thanks!",3,1
+536,2019-10-09T16:27:02Z,2019-11-08T18:53:25Z,2019-11-08T18:53:25Z,2,4,0,"Pull Request
+Added several questions to the  general list.
+Type of change
+
+[ X] New Question
+
+Checklist:
+
+[ X] My content follows the style guidelines of this project
+[ X] I have performed a self-review of my own content",2,1
+537,2019-10-10T05:01:43Z,2019-11-09T08:42:26Z,2019-11-09T08:42:26Z,1,7,0,,2,1
+542,2019-10-27T12:27:10Z,,2019-12-18T08:54:27Z,1,32,31,"Pull Request
+I found that there is no questions about animations which is quite important. In my question the best answer is to talk about transform(), which is much better than for example position absolute and moving to right/left. Transformed elements doesn't require another rendering.
+Type of change
+
+ New Question",2,2
+544,2019-10-29T03:13:37Z,,2019-12-18T08:53:57Z,1,5,1,"Pull Request
+
+Added several questions to the CSS list.
+Updated 01 questions in CSS list.
+
+Type of change
+Please delete options that are not relevant.
+
+ New Question
+ Revision of an existing question
+
+Checklist:
+
+ My content follows the style guidelines of this project
+ I have performed a self-review of my own content
+
+Thanks!",2,1
+550,2020-01-06T02:38:08Z,,2020-02-06T07:33:01Z,1,3,0,"Pull Request
+Please include a summary of the change and which issue is fixed. Please also include relevant motivation and context. List any dependencies that are required for this change.
+Fixes # (issue)
+Type of change
+Please delete options that are not relevant.
+
+ New Question
+ Revision of an existing question
+ Infrastructure change (automation, etc.)
+ Other (please elaborate)
+
+Checklist:
+
+ My content follows the style guidelines of this project
+ I have performed a self-review of my own content
+
+Pull requests should be thought of as a conversation. There will be some back and forth when trying to get code merged into this or any other project. With all but the simplest changes you can and should expect that the maintainers of the project will request changes to your code. Please be aware of that and check in after you open your PR in order to get your code merged in cleanly.
+Thanks!",2,1
+553,2020-01-25T05:33:26Z,,2020-02-06T07:33:59Z,1,1,0,"Pull Request
+Please include a summary of the change and which issue is fixed. Please also include relevant motivation and context. List any dependencies that are required for this change.
+Fixes # (issue)
+Type of change
+Please delete options that are not relevant.
+
+ New Question
+ Revision of an existing question
+ Infrastructure change (automation, etc.)
+ Other (please elaborate)
+
+Checklist:
+
+ My content follows the style guidelines of this project
+ I have performed a self-review of my own content
+
+Pull requests should be thought of as a conversation. There will be some back and forth when trying to get code merged into this or any other project. With all but the simplest changes you can and should expect that the maintainers of the project will request changes to your code. Please be aware of that and check in after you open your PR in order to get your code merged in cleanly.
+Thanks!",2,1
+558,2020-04-29T12:12:44Z,,2020-05-29T16:34:27Z,1,2,0,"Pull Request
+Please include a summary of the change and which issue is fixed. Please also include relevant motivation and context. List any dependencies that are required for this change.
+Fixes # (issue)
+Type of change
+Please delete options that are not relevant.
+
+ New Question
+ Revision of an existing question
+ Infrastructure change (automation, etc.)
+ Other (please elaborate)
+
+Checklist:
+
+ My content follows the style guidelines of this project
+ I have performed a self-review of my own content
+
+Pull requests should be thought of as a conversation. There will be some back and forth when trying to get code merged into this or any other project. With all but the simplest changes you can and should expect that the maintainers of the project will request changes to your code. Please be aware of that and check in after you open your PR in order to get your code merged in cleanly.
+Thanks!",3,1
+559,2020-05-08T04:12:45Z,,2020-05-29T18:01:27Z,1,1,1,"Pull Request
+Please include a summary of the change and which issue is fixed. Please also include relevant motivation and context. List any dependencies that are required for this change.
+Fixes # (issue)
+Type of change
+Please delete options that are not relevant.
+
+ New Question
+ Revision of an existing question
+ Infrastructure change (automation, etc.)
+ Other (please elaborate)
+
+Checklist:
+
+ My content follows the style guidelines of this project
+ I have performed a self-review of my own content
+
+Pull requests should be thought of as a conversation. There will be some back and forth when trying to get code merged into this or any other project. With all but the simplest changes you can and should expect that the maintainers of the project will request changes to your code. Please be aware of that and check in after you open your PR in order to get your code merged in cleanly.
+Thanks!",2,1
+563,2020-07-08T02:59:06Z,2020-08-03T13:19:19Z,2020-08-03T13:19:19Z,1,1,0,"Pull Request
+Please include a summary of the change and which issue is fixed. Please also include relevant motivation and context. List any dependencies that are required for this change.
+Fixes # (issue)
+Type of change
+Please delete options that are not relevant.
+
+ New Question
+ Revision of an existing question
+ Infrastructure change (automation, etc.)
+ Other (please elaborate)
+
+Checklist:
+
+ My content follows the style guidelines of this project
+ I have performed a self-review of my own content
+
+Pull requests should be thought of as a conversation. There will be some back and forth when trying to get code merged into this or any other project. With all but the simplest changes you can and should expect that the maintainers of the project will request changes to your code. Please be aware of that and check in after you open your PR in order to get your code merged in cleanly.
+Thanks!",2,0
+569,2020-07-25T18:17:53Z,,2020-07-25T19:53:58Z,1,2,2,"Pull Request
+Please include a summary of the change and which issue is fixed. Please also include relevant motivation and context. List any dependencies that are required for this change.
+Fixes # (issue)
+Type of change
+Please delete options that are not relevant.
+
+ New Question
+ Revision of an existing question
+ Infrastructure change (automation, etc.)
+ Other (please elaborate)
+
+Checklist:
+
+ My content follows the style guidelines of this project
+ I have performed a self-review of my own content
+
+Pull requests should be thought of as a conversation. There will be some back and forth when trying to get code merged into this or any other project. With all but the simplest changes you can and should expect that the maintainers of the project will request changes to your code. Please be aware of that and check in after you open your PR in order to get your code merged in cleanly.
+Thanks!",2,1
+570,2020-07-29T16:52:59Z,2020-08-06T00:01:06Z,2020-08-06T00:01:06Z,2,4,0,"Pull Request
+Please include a summary of the change and which issue is fixed. Please also include relevant motivation and context. List any dependencies that are required for this change.
+Questions included:
+
+Can you explain the difference between px, em and rem as it related to font sizing?
+Can you give me an example use case for a pseudo class?
+Could you provide me with an example of some block level elements and inline elements?
+
+Fixes # (issue)
+Type of change
+Please delete options that are not relevant.
+
+ New Question
+ Revision of an existing question
+ Infrastructure change (automation, etc.)
+ Other (please elaborate)
+
+Checklist:
+
+ My content follows the style guidelines of this project
+ I have performed a self-review of my own content
+
+Pull requests should be thought of as a conversation. There will be some back and forth when trying to get code merged into this or any other project. With all but the simplest changes you can and should expect that the maintainers of the project will request changes to your code. Please be aware of that and check in after you open your PR in order to get your code merged in cleanly.
+Thanks!",6,5
+572,2020-08-03T16:45:29Z,,2020-08-04T02:00:07Z,1,2,0,"Pull Request
+Adding deep-clone as JS coding question
+Fixes # (issue)
+None
+Type of change
+Please delete options that are not relevant.
+
+ New Question
+ Revision of an existing question
+ Infrastructure change (automation, etc.)
+ Other (please elaborate)
+
+Checklist:
+
+ My content follows the style guidelines of this project
+ I have performed a self-review of my own content
+
+Pull requests should be thought of as a conversation. There will be some back and forth when trying to get code merged into this or any other project. With all but the simplest changes you can and should expect that the maintainers of the project will request changes to your code. Please be aware of that and check in after you open your PR in order to get your code merged in cleanly.
+Thanks!",3,2
+577,2020-09-05T05:14:59Z,2020-09-06T00:06:07Z,2020-09-06T00:06:07Z,1,8,0,"Add dependabot config (same as we use on other H5BP repos.
+Type of change
+
+ New Question
+ Revision of an existing question
+ Infrastructure change (automation, etc.)
+ Other (please elaborate)
+
+Checklist:
+
+ My content follows the style guidelines of this project
+ I have performed a self-review of my own content",2,0
+585,2020-09-08T08:29:59Z,2020-09-09T02:14:03Z,2020-09-09T02:14:03Z,1,1,0,"Many people are confused about whether to use svg or canvas to create graphics on webpages. So I think this question would help.
+Please include a summary of the change and which issue is fixed. Please also include relevant motivation and context. List any dependencies that are required for this change.
+Fixes # (issue)
+Type of change
+Please delete options that are not relevant.
+
+ New Question
+ Revision of an existing question
+ Infrastructure change (automation, etc.)
+ Other (please elaborate)
+
+Checklist:
+
+ My content follows the style guidelines of this project
+ I have performed a self-review of my own content
+
+Pull requests should be thought of as a conversation. There will be some back and forth when trying to get code merged into this or any other project. With all but the simplest changes you can and should expect that the maintainers of the project will request changes to your code. Please be aware of that and check in after you open your PR in order to get your code merged in cleanly.
+Thanks!",3,1
+590,2020-09-28T08:54:22Z,,2020-11-21T07:29:55Z,1,10,0,"Updates the coding-question.md file to add Javascript coding question.
+Please include a summary of the change and which issue is fixed. Please also include relevant motivation and context. List any dependencies that are required for this change.
+Type of change
+Please delete options that are not relevant.
+
+[x ] New Question
+
+Checklist:
+
+[ x] My content follows the style guidelines of this project
+[ x] I have performed a self-review of my own content
+
+Pull requests should be thought of as a conversation. There will be some back and forth when trying to get code merged into this or any other project. With all but the simplest changes you can and should expect that the maintainers of the project will request changes to your code. Please be aware of that and check in after you open your PR in order to get your code merged in cleanly.
+Thanks!",2,3
+591,2020-09-30T18:55:46Z,,2020-11-01T02:05:00Z,1,17,3,"Please include a summary of the change and which issue is fixed. Please also include relevant motivation and context. List any dependencies that are required for this change.
+Fixes # (issue)
+Type of change
+Please delete options that are not relevant.
+
+ New Question
+ Revision of an existing question
+ Infrastructure change (automation, etc.)
+ Other (please elaborate)
+
+Checklist:
+
+ My content follows the style guidelines of this project
+ I have performed a self-review of my own content
+
+Pull requests should be thought of as a conversation. There will be some back and forth when trying to get code merged into this or any other project. With all but the simplest changes you can and should expect that the maintainers of the project will request changes to your code. Please be aware of that and check in after you open your PR in order to get your code merged in cleanly.
+Thanks!",3,1
+598,2020-10-04T09:48:46Z,,2020-11-14T09:22:55Z,2,75,66,"Please include a summary of the change and which issue is fixed. Please also include relevant motivation and context. List any dependencies that are required for this change.
+Fixes # (issue)
+Type of change
+Please delete options that are not relevant.
+
+ New Question
+ Revision of an existing question
+ Infrastructure change (automation, etc.)
+ Other (please elaborate)
+
+Checklist:
+
+ My content follows the style guidelines of this project
+ I have performed a self-review of my own content
+
+Pull requests should be thought of as a conversation. There will be some back and forth when trying to get code merged into this or any other project. With all but the simplest changes you can and should expect that the maintainers of the project will request changes to your code. Please be aware of that and check in after you open your PR in order to get your code merged in cleanly.
+Thanks!",2,5
+608,2020-10-19T03:01:40Z,2020-10-20T12:48:06Z,2020-10-20T12:48:06Z,2,745,8,"Bumps @11ty/eleventy-plugin-syntaxhighlight from 3.0.2 to 3.0.4.
+
+Commits
+
+d8bab4a v3.0.4
+8a8c995 Adds lineSeparator option to fix #17.
+ede8740 Merge pull request #30 from byoigres/master
+bc9971a v3.0.3
+313ea26 Make it sync by default, change the export to capitalized because it is a class.
+1696a3c Add individual character wrap feature.
+daa4cad Fix a few failing tests, upgrade deps
+c449b4a Updated results to pass tests
+See full diff in compare view
+
+
+
+
+Dependabot will resolve any conflicts with this PR as long as you don't alter it yourself. You can also trigger a rebase manually by commenting @dependabot rebase.
+
+
+Dependabot commands and options
+
+You can trigger Dependabot actions by commenting on this PR:
+
+@dependabot rebase will rebase this PR
+@dependabot recreate will recreate this PR, overwriting any edits that have been made to it
+@dependabot merge will merge this PR after your CI passes on it
+@dependabot squash and merge will squash and merge this PR after your CI passes on it
+@dependabot cancel merge will cancel a previously requested merge and block automerging
+@dependabot reopen will reopen this PR if it is closed
+@dependabot close will close this PR and stop Dependabot recreating it. You can achieve the same result by closing it manually
+@dependabot ignore this major version will close this PR and stop Dependabot creating any more for this major version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this minor version will close this PR and stop Dependabot creating any more for this minor version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this dependency will close this PR and stop Dependabot creating any more for this dependency (unless you reopen the PR or upgrade to it yourself)",2,0
+612,2020-11-05T23:23:25Z,2021-01-19T14:20:09Z,2021-01-19T14:20:09Z,1,1,1,"UPDATED : Copyright © 2012 - 2019
+TO :  Copyright © 2012 - 2020
+Please include a summary of the change and which issue is fixed. Please also include relevant motivation and context. List any dependencies that are required for this change.
+Fixes # (issue)
+Type of change
+Please delete options that are not relevant.
+
+ New Question
+ Revision of an existing question
+ Infrastructure change (automation, etc.)
+[*] Other (Updated Copyright © 2012 - 2019) to 2020
+
+Checklist:
+
+[*] My content follows the style guidelines of this project
+[*] I have performed a self-review of my own content
+
+Pull requests should be thought of as a conversation. There will be some back and forth when trying to get code merged into this or any other project. With all but the simplest changes you can and should expect that the maintainers of the project will request changes to your code. Please be aware of that and check in after you open your PR in order to get your code merged in cleanly.
+Thanks!",2,2
+623,2021-01-17T14:25:51Z,,2021-01-19T13:54:30Z,1,17,3,"suggestion of my point of view in your website page requirement ... little bit change's in the css (cascadding style sheet).
+most of the thing's are used in the external css model. changes the software development life cycle model.",3,1
+624,2021-01-21T10:41:58Z,,2021-07-21T01:08:49Z,2,8,1,"added some questions in html qn section
+.
+
+ New Question
+ Revision of an existing question
+ Infrastructure change (automation, etc.)
+ Other (please elaborate)
+
+Checklist:
+
+ My content follows the style guidelines of this project
+ I have performed a self-review of my own content
+
+Pull requests should be thought of as a conversation. There will be some back and forth when trying to get code merged into this or any other project. With all but the simplest changes you can and should expect that the maintainers of the project will request changes to your code. Please be aware of that and check in after you open your PR in order to get your code merged in cleanly.
+Thanks!",1,2
+644,2021-04-09T09:06:55Z,,2021-07-21T01:08:50Z,1,1,1,"Resolved Issue:  Grammar correction on a question #643
+Fixes # (issue)
+Grammatically corrected the general-questions.md line number 34
+Type of change
+
+ New Question
+ Revision of an existing question
+ Infrastructure change (automation, etc.)
+ Other (please elaborate)
+
+Checklist:
+
+ My content follows the style guidelines of this project
+ I have performed a self-review of my own content",2,2
+675,2021-09-08T08:03:53Z,2021-09-14T13:40:41Z,2021-09-14T13:40:41Z,1,2,2,"Guía is a Spanish word that needs an accent mark.
+More Info: https://llevatilde.es/palabra/gu%C3%ADa
+Type of change
+Typo
+Checklist:
+
+ My content follows the style guidelines of this project
+ I have performed a self-review of my own content",2,1
+676,2021-09-14T10:59:21Z,2021-09-28T14:52:26Z,2021-09-28T14:52:26Z,2,4602,3,"Added a new CSS question:
+""What is the difference between CSS Grid and Flexbox? When would you use one over the other?""
+Type of change
+
+ New Question
+
+Checklist:
+
+ My content follows the style guidelines of this project
+ I have performed a self-review of my own content",2,0
+698,2022-01-07T14:55:08Z,2022-01-18T02:46:24Z,2022-01-18T02:46:24Z,1,1,1,"fix: links to post blog
+Please include a summary of the change and which issue is fixed. Please also include relevant motivation and context. List any dependencies that are required for this change.
+Fixes # (issue)
+Broken link to post
+Type of change
+Please delete options that are not relevant.
+
+ Fix content
+
+Checklist:
+
+ My content follows the style guidelines of this project
+ I have performed a self-review of my own content
+
+Pull requests should be thought of as a conversation. There will be some back and forth when trying to get code merged into this or any other project. With all but the simplest changes you can and should expect that the maintainers of the project will request changes to your code. Please be aware of that and check in after you open your PR in order to get your code merged in cleanly.
+Thanks!",2,0
+717,2022-04-04T03:00:22Z,2022-04-20T14:42:19Z,2022-04-20T14:42:19Z,2,8,8,"Bumps clean-css from 5.2.4 to 5.3.0.
+
+Changelog
+Sourced from clean-css's changelog.
+
+5.3.0 / 2022-03-31
+
+Adds customizable value optimizers for variables.
+Fixed issue #1159 - adds optimization for nth-child and nth-of-type.
+Fixed issue #1181 - CSS level 4 color functions with spaces.
+Fixed issue #1183 - fraction optimizer breaks image-set.
+Fixed issue #1208 - handling generic family names.
+Fixed issue #1210 - handling file:// protocol.
+
+
+
+
+Commits
+
+ba834c6 Version 5.3.0.
+3dd762d Updates docs to add information about a new variableValueOptimizers option.
+d53fecf Adds customizable value optimizers for variables. (#1217)
+d89424d Adds safer regular expressions to avoid performance issues.
+9083e10 Bump path-parse from 1.0.6 to 1.0.7 (#1214)
+941f4d8 Bump elliptic from 6.5.3 to 6.5.4 (#1215)
+3f9e3aa Bump cached-path-relative from 1.0.2 to 1.1.0 (#1213)
+7ca481e Bump follow-redirects from 1.13.1 to 1.14.9 (#1212)
+ebb8aa2 Bump minimist from 1.2.5 to 1.2.6 (#1211)
+a452156 Fixes #1181 - CSS level 4 color functions with spaces.
+Additional commits viewable in compare view
+
+
+
+
+Dependabot will resolve any conflicts with this PR as long as you don't alter it yourself. You can also trigger a rebase manually by commenting @dependabot rebase.
+
+
+Dependabot commands and options
+
+You can trigger Dependabot actions by commenting on this PR:
+
+@dependabot rebase will rebase this PR
+@dependabot recreate will recreate this PR, overwriting any edits that have been made to it
+@dependabot merge will merge this PR after your CI passes on it
+@dependabot squash and merge will squash and merge this PR after your CI passes on it
+@dependabot cancel merge will cancel a previously requested merge and block automerging
+@dependabot reopen will reopen this PR if it is closed
+@dependabot close will close this PR and stop Dependabot recreating it. You can achieve the same result by closing it manually
+@dependabot ignore this major version will close this PR and stop Dependabot creating any more for this major version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this minor version will close this PR and stop Dependabot creating any more for this minor version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this dependency will close this PR and stop Dependabot creating any more for this dependency (unless you reopen the PR or upgrade to it yourself)",1,0
+718,2022-04-09T21:36:54Z,2022-04-12T02:57:48Z,2022-04-12T02:57:48Z,1,6,6,"Bumps minimist from 1.2.5 to 1.2.6.
+
+Commits
+
+7efb22a 1.2.6
+ef88b93 security notice for additional prototype pollution issue
+c2b9819 isConstructorOrProto adapted from PR
+bc8ecee test from prototype pollution PR
+See full diff in compare view
+
+
+
+
+Dependabot will resolve any conflicts with this PR as long as you don't alter it yourself. You can also trigger a rebase manually by commenting @dependabot rebase.
+
+
+Dependabot commands and options
+
+You can trigger Dependabot actions by commenting on this PR:
+
+@dependabot rebase will rebase this PR
+@dependabot recreate will recreate this PR, overwriting any edits that have been made to it
+@dependabot merge will merge this PR after your CI passes on it
+@dependabot squash and merge will squash and merge this PR after your CI passes on it
+@dependabot cancel merge will cancel a previously requested merge and block automerging
+@dependabot reopen will reopen this PR if it is closed
+@dependabot close will close this PR and stop Dependabot recreating it. You can achieve the same result by closing it manually
+@dependabot ignore this major version will close this PR and stop Dependabot creating any more for this major version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this minor version will close this PR and stop Dependabot creating any more for this minor version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this dependency will close this PR and stop Dependabot creating any more for this dependency (unless you reopen the PR or upgrade to it yourself)
+You can disable automated security fix PRs for this repo from the Security Alerts page.",1,0
+719,2022-04-11T03:00:30Z,2022-04-20T14:53:33Z,2022-04-20T14:53:33Z,2,8,8,"Bumps markdown-it-anchor from 8.4.1 to 8.6.2.
+
+Changelog
+Sourced from markdown-it-anchor's changelog.
+
+[8.6.2] - 2021-04-08
+
+Fix types to reflect optional permalink arguments and properties. (#114)
+
+[8.6.1] - 2021-04-08
+
+Fix type for headerLink permalink options. (#108)
+Allow to customize the space text (e.g. using &nbsp;). (#88)
+
+[8.6.0] - 2021-04-08
+
+Add a getTokensText option to customize how we extract the title
+text from the heading tokens. (#112)
+
+[8.5.0] - 2021-04-04
+
+Support wrapping output of linkAfterHeader. (#100, #110)
+
+
+
+
+Commits
+
+a461303 8.6.2
+e8eb39d Update changelog
+e10d169 Merge pull request #114 from mvargeson/make-permalink-functions-opts-arg-opti...
+c29b1d8 Make permalink functions' opts arg optional
+cbb808b 8.6.1
+d37ae8b Build
+0b51661 Allow to customize the space text
+5e4bdd7 Fix type for headerLink permalink options
+185af95 8.6.0
+170729a Remove empty line
+Additional commits viewable in compare view
+
+
+
+
+Dependabot will resolve any conflicts with this PR as long as you don't alter it yourself. You can also trigger a rebase manually by commenting @dependabot rebase.
+
+
+Dependabot commands and options
+
+You can trigger Dependabot actions by commenting on this PR:
+
+@dependabot rebase will rebase this PR
+@dependabot recreate will recreate this PR, overwriting any edits that have been made to it
+@dependabot merge will merge this PR after your CI passes on it
+@dependabot squash and merge will squash and merge this PR after your CI passes on it
+@dependabot cancel merge will cancel a previously requested merge and block automerging
+@dependabot reopen will reopen this PR if it is closed
+@dependabot close will close this PR and stop Dependabot recreating it. You can achieve the same result by closing it manually
+@dependabot ignore this major version will close this PR and stop Dependabot creating any more for this major version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this minor version will close this PR and stop Dependabot creating any more for this minor version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this dependency will close this PR and stop Dependabot creating any more for this dependency (unless you reopen the PR or upgrade to it yourself)",1,0
+720,2022-04-12T02:56:53Z,2022-04-19T16:25:07Z,2022-04-19T16:25:07Z,1,38,0,REF: https://docs.github.com/en/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning,2,0
+724,2022-04-20T01:29:43Z,2022-04-20T14:46:10Z,2022-04-20T14:46:10Z,2,714,833,"Bumps @11ty/eleventy from 1.0.0 to 1.0.1.
+
+Release notes
+Sourced from @​11ty/eleventy's releases.
+
+Eleventy v1.0.1: It’s Elementary
+Eleventy v1.0.1 🎈🐀⚡️🕚
+
+Full docs for v1.0.1 on our web site
+
+This project would not be possible without our lovely community. Thank you to everyone that built something with Eleventy (×524 authors on our web site!), wrote a blog post about Eleventy, contributed code to core or plugins, documentation, asked questions, answered questions, braved The Leaderboards, participated on Discord, filed issues, attended (or organized!) a meetup, said a kind word on Twitter ❤️.
+
+🏆 A super special thanks to Peter DeHaan for their tireless contributions on the Eleventy Issue tracker.
+All of our supporters on Open Collective ❤️
+
+Gold Sponsors: Sanity.io, Nordhealth and Silver Sponsors: Set Creative Studio, Unabridged Software, PQINA, The Coders Guild, Bejamas, Nathan Smith, Flatirons Development, Monarch Air Group
+A full list of Backers can be found below!
+
+
+Contribute on Open Collective
+How else can you contribute to Eleventy?
+
+Install or Upgrade
+
+Install to your local project: npm install @11ty/eleventy
+Already installed in your local project? Upgrade your version: npm update @11ty/eleventy
+Read more about local project versus global installation
+
+Features
+
+Performance improvement to lodash/isPlainObject resulted in 28% build time improvement to web.dev (and likely made your project speedier too!) #2214 #2219
+
+Read more on Twitter
+
+
+Adds new date: git Last Modified feature to fix issues with Content Dates in production environments #142
+
+Content Dates docs
+
+
+New default global data: eleventy.version (holds the current version e.g. 1.0.1) and eleventy.generator (for use in <meta name=""generator"" content=""{{ eleventy.generator }}"">) #1217 #2293
+
+Eleventy-Supplied Data docs
+
+
+Extra argument to the pagination before callback with current template’s data. #1209
+
+Pagination docs: The before callback
+
+
+Improved error messaging with Transforms and Plugins #646
+jsdoc Comments for ConsoleLogger class #1914
+
+Milestone
+All bug fix issues can be perused at the GitHub milestone:
+https://github.com/11ty/eleventy/milestone/37?closed=1
+Some highlights:
+
+#2221 Changes default serverless generated file content to fix bug with encoded path variables in Eleventy Serverless.
+#2267 Regression with addExtension API and return; in the compile function to skip/ignore a template.
+#2217 Fix for this.defaultRenderer is not a function error when using an async function with addExtension’s compile
+#1313 When your config file throws an error, Eleventy would sometimes still process data files when using --version and --help.
+#2298 Bug with front matter in layouts
+#2278 Obscure bug with passthrough copy and --incremental mistakenly creating a file instead an output folder
+#2145 Fix to allow setting a layout via addGlobalData configuration API
+#2179 Fix addGlobalData configuration API to execute once per build
+
+
+
+... (truncated)
+
+
+Commits
+
+6ea1944 v1.0.1
+b184ac9 v1.0.1-canary.4
+8fd660e Update dependencies for 1.0.1
+e2b121f Add a named function for serverless middleware to make it more obvious what’s...
+6b3db05 Switch to static functions for Eleventy version and help args. Fixes #1313
+e25a7d2 Fixes #2267
+bf130f7 Downgrade ava for Node dump errors
+7ce1494 Cherry pick to 1.x: Adds eleventy.version and eleventy.generator to Eleve...
+e42467b Update dependencies
+5d12aad Update dependencies for 1.x
+Additional commits viewable in compare view
+
+
+
+
+Dependabot will resolve any conflicts with this PR as long as you don't alter it yourself. You can also trigger a rebase manually by commenting @dependabot rebase.
+
+
+Dependabot commands and options
+
+You can trigger Dependabot actions by commenting on this PR:
+
+@dependabot rebase will rebase this PR
+@dependabot recreate will recreate this PR, overwriting any edits that have been made to it
+@dependabot merge will merge this PR after your CI passes on it
+@dependabot squash and merge will squash and merge this PR after your CI passes on it
+@dependabot cancel merge will cancel a previously requested merge and block automerging
+@dependabot reopen will reopen this PR if it is closed
+@dependabot close will close this PR and stop Dependabot recreating it. You can achieve the same result by closing it manually
+@dependabot ignore this major version will close this PR and stop Dependabot creating any more for this major version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this minor version will close this PR and stop Dependabot creating any more for this minor version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this dependency will close this PR and stop Dependabot creating any more for this dependency (unless you reopen the PR or upgrade to it yourself)",1,0
+725,2022-05-01T03:00:26Z,2022-05-31T20:13:53Z,2022-05-31T20:13:53Z,2,115,36,"Bumps markdown-it from 12.3.2 to 13.0.0.
+
+Changelog
+Sourced from markdown-it's changelog.
+
+[13.0.0] - 2022-04-22
+Added
+
+Added a new token type text_special to store escaped characters, same as text but
+unaffected by replacement plugins (smartquotes, typographer, linkifier, etc.).
+Added a new rule text_join in core ruler. Text replacement plugins may choose to
+insert themselves before it.
+
+Changed
+
+(p) is no longer replaced with § by typographer (conflicts with ℗), #763.
+text_collapse rule is renamed to fragments_join.
+
+Fixed
+
+Smartquotes, typographic replacements and plain text links can now be escaped
+with backslash (e.g. \(c) or google\.com are no longer replaced).
+Fixed collision of emphasis and linkifier (so http://example.org/foo._bar_-_baz
+is now a single link, not emphasized). Emails and fuzzy links are not affected by this.
+
+
+
+
+Commits
+
+6ec0b76 13.0.0 released
+0e4c0f4 Dist rebuild
+d1757ed Bump linkify-it to v4
+bab0baf Added examples on how to add and modify rules (#619)
+e6d1bfd refactor: replace deprecated String.prototype.substr()
+f523514 Remove (p) => § replacement in typographer
+3fc0deb Put entities to separate token
+6b58ec4 Add linkifier rule to inline chain for full links
+75037c6 Put escape sequences into separate token
+750a954 Merge pull request #858 from kaankabalak/patch-1
+Additional commits viewable in compare view
+
+
+
+
+Dependabot will resolve any conflicts with this PR as long as you don't alter it yourself. You can also trigger a rebase manually by commenting @dependabot rebase.
+
+
+Dependabot commands and options
+
+You can trigger Dependabot actions by commenting on this PR:
+
+@dependabot rebase will rebase this PR
+@dependabot recreate will recreate this PR, overwriting any edits that have been made to it
+@dependabot merge will merge this PR after your CI passes on it
+@dependabot squash and merge will squash and merge this PR after your CI passes on it
+@dependabot cancel merge will cancel a previously requested merge and block automerging
+@dependabot reopen will reopen this PR if it is closed
+@dependabot close will close this PR and stop Dependabot recreating it. You can achieve the same result by closing it manually
+@dependabot ignore this major version will close this PR and stop Dependabot creating any more for this major version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this minor version will close this PR and stop Dependabot creating any more for this minor version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this dependency will close this PR and stop Dependabot creating any more for this dependency (unless you reopen the PR or upgrade to it yourself)",1,0
+729,2022-06-01T03:55:22Z,2022-06-27T14:52:50Z,2022-06-27T14:52:50Z,2,16,16,"Bumps markdown-it from 13.0.0 to 13.0.1.
+
+Changelog
+Sourced from markdown-it's changelog.
+
+[13.0.1] - 2022-05-03
+Fixed
+
+Bumped linkify-it to 4.0.1. That should fix some hangs, caused by wrong
+data, returned from linkify-it.
+
+
+
+
+Commits
+
+e843acc Merge branch 'master' of github.com:markdown-it/markdown-it
+bda7182 13.0.1 released
+b8b610f Dist rebuild
+d17df13 Bump linkify-it to 4.0.1
+0c19c37 Merge pull request #866 from yne/patch-1
+e157cd2 doc: Add syntax highlighting
+See full diff in compare view
+
+
+
+
+Dependabot will resolve any conflicts with this PR as long as you don't alter it yourself. You can also trigger a rebase manually by commenting @dependabot rebase.
+
+
+Dependabot commands and options
+
+You can trigger Dependabot actions by commenting on this PR:
+
+@dependabot rebase will rebase this PR
+@dependabot recreate will recreate this PR, overwriting any edits that have been made to it
+@dependabot merge will merge this PR after your CI passes on it
+@dependabot squash and merge will squash and merge this PR after your CI passes on it
+@dependabot cancel merge will cancel a previously requested merge and block automerging
+@dependabot reopen will reopen this PR if it is closed
+@dependabot close will close this PR and stop Dependabot recreating it. You can achieve the same result by closing it manually
+@dependabot ignore this major version will close this PR and stop Dependabot creating any more for this major version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this minor version will close this PR and stop Dependabot creating any more for this minor version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this dependency will close this PR and stop Dependabot creating any more for this dependency (unless you reopen the PR or upgrade to it yourself)",1,0
+732,2022-06-14T09:54:12Z,2022-06-27T13:15:58Z,2022-06-27T13:15:58Z,1,1,1,"Type of change
+Fix gramma
+Please delete options that are not relevant.
+
+ Revision of an existing question
+
+Checklist:
+
+ My content follows the style guidelines of this project
+ I have performed a self-review of my own content",4,1
+734,2022-07-01T03:00:25Z,2022-07-08T01:21:26Z,2022-07-08T01:21:26Z,2,8,8,"Bumps @11ty/eleventy-plugin-syntaxhighlight from 4.0.0 to 4.1.0.
+
+Commits
+
+7b7b547 v4.1.0
+dbd3689 Fixes #68
+3b8e3a7 Fixes 11ty/eleventy-plugin-syntaxhighlight#64
+24f6212 Merge pull request #60 from rmcginty/master
+921e296 Tests for #52
+4273f21 Handle class on preAttributes or codeAttributes
+a8ebb01 Merge pull request #50 from chriskirknielsen/master
+4049efc SVG logo
+0d6f705 README logo
+23761d7 Test that the 11ty.js version works with diff-
+Additional commits viewable in compare view
+
+
+
+
+Dependabot will resolve any conflicts with this PR as long as you don't alter it yourself. You can also trigger a rebase manually by commenting @dependabot rebase.
+
+
+Dependabot commands and options
+
+You can trigger Dependabot actions by commenting on this PR:
+
+@dependabot rebase will rebase this PR
+@dependabot recreate will recreate this PR, overwriting any edits that have been made to it
+@dependabot merge will merge this PR after your CI passes on it
+@dependabot squash and merge will squash and merge this PR after your CI passes on it
+@dependabot cancel merge will cancel a previously requested merge and block automerging
+@dependabot reopen will reopen this PR if it is closed
+@dependabot close will close this PR and stop Dependabot recreating it. You can achieve the same result by closing it manually
+@dependabot ignore this major version will close this PR and stop Dependabot creating any more for this major version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this minor version will close this PR and stop Dependabot creating any more for this minor version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this dependency will close this PR and stop Dependabot creating any more for this dependency (unless you reopen the PR or upgrade to it yourself)",1,0
+740,2022-07-13T04:58:23Z,2022-07-13T10:42:48Z,2022-07-13T10:42:48Z,1,2,2,fix broken urls,2,0
+741,2022-07-13T12:36:53Z,2022-07-13T13:56:52Z,2022-07-13T13:56:52Z,1,2,2,"Fix URL and copyright year in footer
+Type of change
+Please delete options that are not relevant.
+
+ New Question
+ Revision of an existing question
+ Infrastructure change (automation, etc.)
+ Other (please elaborate)
+
+Checklist:
+
+ My content follows the style guidelines of this project
+ I have performed a self-review of my own content",2,0
+747,2022-08-01T03:00:25Z,2022-08-01T14:28:35Z,2022-08-01T14:28:35Z,2,23,8,"Bumps luxon from 2.4.0 to 3.0.1.
+
+Changelog
+Sourced from luxon's changelog.
+
+3.0.1 (2022-07-09)
+
+Add DateTime.parseFormatForOpts
+
+3.0.0 (2022-07-09)
+
+Add ""default"" as an option for specifying a zone, and change ""system"" to really mean the system zone (breaking change)
+
+2.5.0 (2022-07-09)
+
+Support for ESM-style node imports
+Fix Wednesday parsing for RFC 850 strings
+Increase number of digits allowed in ISO durations
+
+
+
+
+Commits
+
+190f437 Bump to 3.0.1
+4017a8d Add DateTime.parseFormatForOpts
+857812f bump to 3.0.0
+5fdcfc8 Add condition for system setZone (#1206)
+4817697 bump to 2.5.0
+00f1d72 fix changelog
+eebc657 Add support for ESM-style node imports (#1218)
+f1c181c Update why.md (#1211)
+4332730 mention escaping behavior in Duration.toFormat docstring (#1221)
+7b4a9d0 Bump parse-url from 6.0.0 to 6.0.2 (#1230)
+Additional commits viewable in compare view
+
+
+
+
+Dependabot will resolve any conflicts with this PR as long as you don't alter it yourself. You can also trigger a rebase manually by commenting @dependabot rebase.
+
+
+Dependabot commands and options
+
+You can trigger Dependabot actions by commenting on this PR:
+
+@dependabot rebase will rebase this PR
+@dependabot recreate will recreate this PR, overwriting any edits that have been made to it
+@dependabot merge will merge this PR after your CI passes on it
+@dependabot squash and merge will squash and merge this PR after your CI passes on it
+@dependabot cancel merge will cancel a previously requested merge and block automerging
+@dependabot reopen will reopen this PR if it is closed
+@dependabot close will close this PR and stop Dependabot recreating it. You can achieve the same result by closing it manually
+@dependabot ignore this major version will close this PR and stop Dependabot creating any more for this major version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this minor version will close this PR and stop Dependabot creating any more for this minor version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this dependency will close this PR and stop Dependabot creating any more for this dependency (unless you reopen the PR or upgrade to it yourself)",1,1
+748,2022-08-01T03:00:35Z,2022-08-01T13:56:51Z,2022-08-01T13:56:51Z,2,8,8,"Bumps clean-css from 5.3.0 to 5.3.1.
+
+Changelog
+Sourced from clean-css's changelog.
+
+5.3.1 / 2022-07-13
+
+Fixed issue #1218 - double hyphen in at-rule breaks parsing.
+Fixed issue #1220 - adds optimization for nth-* rules.
+
+
+
+
+Commits
+
+f1047cd Version 5.3.1.
+93391d1 Updates changelog for 5.3.1 release.
+f311d38 Fixes #1218 - double hyphen in at-rule breaks parsing (#1219)
+4c1399d Add optimization for nth-last-child and nth-last-of-type (#1220)
+See full diff in compare view
+
+
+
+
+Dependabot will resolve any conflicts with this PR as long as you don't alter it yourself. You can also trigger a rebase manually by commenting @dependabot rebase.
+
+
+Dependabot commands and options
+
+You can trigger Dependabot actions by commenting on this PR:
+
+@dependabot rebase will rebase this PR
+@dependabot recreate will recreate this PR, overwriting any edits that have been made to it
+@dependabot merge will merge this PR after your CI passes on it
+@dependabot squash and merge will squash and merge this PR after your CI passes on it
+@dependabot cancel merge will cancel a previously requested merge and block automerging
+@dependabot reopen will reopen this PR if it is closed
+@dependabot close will close this PR and stop Dependabot recreating it. You can achieve the same result by closing it manually
+@dependabot ignore this major version will close this PR and stop Dependabot creating any more for this major version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this minor version will close this PR and stop Dependabot creating any more for this minor version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this dependency will close this PR and stop Dependabot creating any more for this dependency (unless you reopen the PR or upgrade to it yourself)",1,0
+751,2022-09-01T03:00:43Z,2022-09-02T02:24:59Z,2022-09-02T02:24:59Z,2,376,572,"Bumps @11ty/eleventy from 1.0.1 to 1.0.2.
+
+Release notes
+Sourced from @​11ty/eleventy's releases.
+
+Eleventy v1.0.2: One bug fix for Liquid Shortcode Argument Parsing
+Eleventy v1.0.2 🎈🐀⚡️🕚
+
+Full docs for v1.0.2 on our web site
+
+This project would not be possible without our lovely community. Thank you to everyone that built something with Eleventy (×595 authors on our web site!), wrote a blog post about Eleventy, contributed code to core or plugins, documentation, asked questions, answered questions, braved The Leaderboards, participated on Discord, filed issues, attended (or organized!) a meetup, said a kind word on Twitter ❤️.
+
+🏆 A super special thanks to Peter DeHaan for their tireless contributions on the Eleventy Issue tracker.
+All of our supporters on Open Collective ❤️
+
+Gold Sponsors: Sanity.io, Nordhealth, CloudCannon and Silver Sponsors: Set Creative Studio, Unabridged Software, PQINA, The Coders Guild, Bejamas, Nathan Smith, Flatirons Development, Monarch Air Group, Ben Nash, getform.io, OCEG, Mercury Jets
+A full list of Backers can be found below!
+
+
+Contribute on Open Collective
+How else can you contribute to Eleventy?
+
+Install or Upgrade
+
+Install to your local project: npm install @11ty/eleventy
+Already installed in your local project? Upgrade your version: npm update @11ty/eleventy
+Read more about local project versus global installation
+
+Features
+
+Fixes for liquid argument parsing on shortcodes #2154 #2348 #2367 #2369
+
+Help from @​epelc @​lexoyo @​denisenadal @​mahnunchik @​harttle
+
+
+
+Milestone
+All bug fix issues can be perused at the GitHub milestone:
+https://github.com/11ty/eleventy/milestone/39?closed=1
+Major Version Dependency Upgrades
+There are no major version dependency updates between 1.0.2 and 1.0.1.
+THANK YOU NOTES
+Gold Sponsors: Sanity.io, Nordhealth, CloudCannon
+Silver Sponsors: Set Creative Studio, Unabridged Software, PQINA, The Coders Guild, Bejamas, Nathan Smith, Flatirons Development, Monarch Air Group, Ben Nash, getform.io, OCEG, Mercury Jets
+OpenCollective Monthly Backers: Viljami Salminen, Tyler Gaw, Peter deHaan, Melanie Sumner, Alejandro Rodríguez, Mat Marquis, Philip Borenstein, Jérôme Coupé, Max Böck, Bryce Wray, Kristof Michiels, Nicolas Hoizey, Mike Aparicio, Ben Myers, Katie Sylor-Miller, Mark Buskbjerg, mortendk, Aaron Hans, Lauris Consulting, John Meyerhofer, Todd Libby, Luke Bonaccorsi, Dimitrios Grammatikogiannis, Wellness Researched, Devin Clark, Eric Bailey, Dave Rupert, Manuel Matuzovic, Phil Hawksworth, shawn j sandy, Jenn Schiffer, Tianyu Ge, Kyosuke Nakamura, Hans Gerwitz, Makoto Kawasaki, Horacio Gonzalez, Matthew Tole, Ivan Buncic, Rob Sterlini, Mark Boulton, Søren Birkemeyer, Richard  Hemmer, Nick Nisi, Andrew Harvard, John SJ Anderson, Ryan Swaney, Tim Giles, Alistair Shepherd, Ivo Herrmann, Flaki, John Hall, Scott McCracken, James Steinbach, Miriam Suzanne, Bentley Davis, Angelique Weger, vince falconi, Martin Schneider, Stephanie Eckles, Frontend Weekly Tokyo, Ferpection, Josh Crain, Chris Burnell, Ximenav Vf., Juan Miguel, Rich Holman, Kasper Storgaard, Kevin Healy, Greg Gibson, Hidde, Michelle Barker, Alesandro Ortiz, David A. Herron, Paul Robert Lloyd, Andrea Vaghi, Bryan Robinson, Ashur Cabrera, Raymond Camden, John Meguerian, Joe Lamyman, Jeffrey A Morgan, Brett Nelson, Paul Welsh, Ingo Steinke, Melanie Richards, Dorin Vancea, Marco Zehe, Wes Ruvalcaba, Luc Poupard, Entle Web Solutions, Ken Hawkins, Ara Abcarians, Fershad Irani, Nikita Dubko, Aaron Gustafson, Chris, Sam, Benjamin Geese, Marcus Relacion, Netin nopeustesti, Bobby Ray, Christian Miles, Cthos, Sia Karamalegos, Daniel Ryan, Raphael Höser, Noel Forte, Saneef Ansari, Flemming Meyer, Colin Fahrion, Dan Burzo, Jon Kuperman, Dan Ott, Mobilemall.pk, Cheap VPS, David Darnes, Jon Roobottom, Dana Byerly, Oisín Quinn, Renkaatsopivasti, Windesol Sähkön Kilpailutus, Luke Mitchell, SignpostMarv, THE PADDING, Bob Monsour, Patrick Byrne, zapscribbles, Frank Reding, quinnanya, Richmond Insulation, Cory Birdsong, Aram ZS, Michel van der Kroef, Vinicius Depizzol, Andy Stevenson, HelppoHinta.fi, Tanner Dolby, jpoehnelt, Ingo Sobolewski, Andrew Weisbeck, Richmond Concrete, Tom, CelineDesign, Nic Chan, Duc Lam, Alex Zappa, Stephen Bell, Brett DeWoody, alistairtweedie, Meta Tier List, Robert Haselbacher, Lene
+
+
+
+Commits
+
+f90e54f v1.0.2 code coverage
+bd42a2a v1.0.2
+8a0d955 Bump dependencies (no major version bumps on deps, only devdeps)
+880255e Cherry pick 11ty/eleventy#2369
+5cae435 Cherry pick of 4c710d68965b0d0d19d9a6e7e76b1004f4e6e4e1
+baca2ad fix liquid template argument parsing
+See full diff in compare view
+
+
+
+
+Dependabot will resolve any conflicts with this PR as long as you don't alter it yourself. You can also trigger a rebase manually by commenting @dependabot rebase.
+
+
+Dependabot commands and options
+
+You can trigger Dependabot actions by commenting on this PR:
+
+@dependabot rebase will rebase this PR
+@dependabot recreate will recreate this PR, overwriting any edits that have been made to it
+@dependabot merge will merge this PR after your CI passes on it
+@dependabot squash and merge will squash and merge this PR after your CI passes on it
+@dependabot cancel merge will cancel a previously requested merge and block automerging
+@dependabot reopen will reopen this PR if it is closed
+@dependabot close will close this PR and stop Dependabot recreating it. You can achieve the same result by closing it manually
+@dependabot ignore this major version will close this PR and stop Dependabot creating any more for this major version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this minor version will close this PR and stop Dependabot creating any more for this minor version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this dependency will close this PR and stop Dependabot creating any more for this dependency (unless you reopen the PR or upgrade to it yourself)",1,0
+752,2022-09-01T03:00:50Z,2022-09-02T10:56:40Z,2022-09-02T10:56:40Z,2,8,8,"Bumps luxon from 3.0.1 to 3.0.3.
+
+Changelog
+Sourced from luxon's changelog.
+
+Changelog
+3.0.2 (2022-08-28)
+
+Lots of doc changes
+Added DateTime.expandFormat
+Added support for custom conversion matrices in Durations
+
+
+
+
+Commits
+
+0ebb436 bump to 3.0.3
+6f5eb7a fix build mess
+9e287c3 bump to 3.0.2
+964e977 fix documentation on toLocaleString
+d7c8501 fix duration tests
+e42637e add expandFormat
+da9d072 fixes default for extendedZone in api docs (#1245)
+f0ba8f3 Duration support custom matrix (#1220)
+12a104d Update link to CONTRIBUTING.md (#1273)
+7fae9c7 Update parsing docs to show syntax for literals (#1271)
+Additional commits viewable in compare view
+
+
+
+
+Dependabot will resolve any conflicts with this PR as long as you don't alter it yourself. You can also trigger a rebase manually by commenting @dependabot rebase.
+
+
+Dependabot commands and options
+
+You can trigger Dependabot actions by commenting on this PR:
+
+@dependabot rebase will rebase this PR
+@dependabot recreate will recreate this PR, overwriting any edits that have been made to it
+@dependabot merge will merge this PR after your CI passes on it
+@dependabot squash and merge will squash and merge this PR after your CI passes on it
+@dependabot cancel merge will cancel a previously requested merge and block automerging
+@dependabot reopen will reopen this PR if it is closed
+@dependabot close will close this PR and stop Dependabot recreating it. You can achieve the same result by closing it manually
+@dependabot ignore this major version will close this PR and stop Dependabot creating any more for this major version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this minor version will close this PR and stop Dependabot creating any more for this minor version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this dependency will close this PR and stop Dependabot creating any more for this dependency (unless you reopen the PR or upgrade to it yourself)",1,1
+753,2022-09-03T03:39:16Z,,2022-09-03T13:10:53Z,1,1,0,"Please include a summary of the change and which issue is fixed. Please also include relevant motivation and context. List any dependencies that are required for this change.
+Added new HTML question to HTML section. What is the difference between span and div?
+Fixes # (issue)
+Type of change
+
+ New Question
+
+Checklist:
+
+ My content follows the style guidelines of this project
+ I have performed a self-review of my own content
+
+Pull requests should be thought of as a conversation. There will be some back and forth when trying to get code merged into this or any other project. With all but the simplest changes you can and should expect that the maintainers of the project will request changes to your code. Please be aware of that and check in after you open your PR in order to get your code merged in cleanly.
+Thanks!",3,3
+756,2022-10-01T03:00:23Z,2022-10-03T20:19:09Z,2022-10-03T20:19:09Z,2,8,8,"Bumps luxon from 3.0.3 to 3.0.4.
+
+Changelog
+Sourced from luxon's changelog.
+
+3.0.4 (2022-09-24)
+
+Fix quarters in diffs (#1279)
+Export package.json in package (#1239)
+
+3.0.2 (2022-08-28)
+
+Lots of doc changes
+Added DateTime.expandFormat
+Added support for custom conversion matrices in Durations
+
+3.0.1 (2022-07-09)
+
+Add DateTime.parseFormatForOpts
+
+3.0.0 (2022-07-09)
+
+Add ""default"" as an option for specifying a zone, and change ""system"" to really mean the system zone (breaking change)
+
+2.5.0 (2022-07-09)
+
+Support for ESM-style node imports
+Fix Wednesday parsing for RFC 850 strings
+Increase number of digits allowed in ISO durations
+
+2.4.0 (2022-05-08)
+
+Add support for parsing the ISO zone extension, like 2022-05-08T20:42:00.000-04:00[America/New_York]
+Add an extendedZone option to toISO() and toISOTime
+Improvements to DateTime.isInDST()
+Fix for parsing in Vietnames (and probably other languages)
+
+2.3.2 (2022-04-17)
+
+Fix timezone calculations for negative years
+add week formatting token ""w"" for durations
+fix weekday computation for years 0-100
+
+2.3.1 (2022-02-23)
+
+Added an includeOffsetSpace option to toSQL and toSQLTime
+Added toUnixInteger
+Don't use -0 when negating durations with zeros in them
+
+2.3.0 (2022-01-02)
+
+Major perf improvements to toISO(), toISODate(), toISOTime(), and toSQLDate()
+Fixed date padding for negative years in toISO()
+Added Duration#toHuman()
+
+
+
+... (truncated)
+
+
+Commits
+
+07af510 bump to 3.0.4
+f5093b9 Update text example of DATETIME_FULL formatting (#1282)
+2ecde77 fix tests for node 18.9
+d84e44c DateTime.diff produces wrong results with unit quarter fix. (#1279)
+42e1e4b upgrade node in test
+7480340 Bump terser from 5.14.1 to 5.14.2 (#1246)
+50197fe [package.json] add ./package.json to exports (#1239)
+See full diff in compare view
+
+
+
+
+Dependabot will resolve any conflicts with this PR as long as you don't alter it yourself. You can also trigger a rebase manually by commenting @dependabot rebase.
+
+
+Dependabot commands and options
+
+You can trigger Dependabot actions by commenting on this PR:
+
+@dependabot rebase will rebase this PR
+@dependabot recreate will recreate this PR, overwriting any edits that have been made to it
+@dependabot merge will merge this PR after your CI passes on it
+@dependabot squash and merge will squash and merge this PR after your CI passes on it
+@dependabot cancel merge will cancel a previously requested merge and block automerging
+@dependabot reopen will reopen this PR if it is closed
+@dependabot close will close this PR and stop Dependabot recreating it. You can achieve the same result by closing it manually
+@dependabot ignore this major version will close this PR and stop Dependabot creating any more for this major version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this minor version will close this PR and stop Dependabot creating any more for this minor version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this dependency will close this PR and stop Dependabot creating any more for this dependency (unless you reopen the PR or upgrade to it yourself)",2,1
+757,2022-10-01T03:00:32Z,2022-10-09T01:35:22Z,2022-10-09T01:35:23Z,2,14,14,"Bumps all-contributors-cli from 6.20.0 to 6.22.0.
+
+Release notes
+Sourced from all-contributors-cli's releases.
+
+v6.22.0
+6.22.0 (2022-09-28)
+Features
+
+add footer with link to usage (#163) (b41e668)
+
+v6.21.0
+6.21.0 (2022-09-27)
+Features
+
+adapt to rst (#301) (7a9150f)
+
+v6.20.5
+6.20.5 (2022-09-23)
+Bug Fixes
+
+add alt value for contributor image (#334) (9d82568)
+set commitConvention default same as app (#318) (94b555e)
+set alt value for contributor image with no complete name (#335) (109b261)
+
+v6.20.4
+6.20.4 (2022-09-08)
+Bug Fixes
+
+incorrect usage of tbody (#311) (531b7e1)
+
+v6.20.3
+6.20.3 (2022-09-07)
+Bug Fixes
+
+trim nextLink before slicing (#309) (5df6b47)
+
+v6.20.2
+6.20.2 (2022-09-07)
+Bug Fixes
+
+set default value as 7 for contributorsPerLine (#139) (e1fd794)
+
+
+
+... (truncated)
+
+
+Commits
+
+048b4e3 Rename filename for CODEOWNERS
+b43a627 docs: add tenshiAMD as a contributor for test (#338)
+b41e668 feat: add footer with link to usage (#163)
+7a9150f feat: adapt to rst (#301)
+8db6710 docs: add 12rambau as a contributor for code (#337)
+109b261 fix: set alt value for contributor image with no complete name (#335)
+9d82568 fix: add alt value for contributor image (#334)
+94b555e fix: set commitConvention default same as app (#318)
+382f44c chore: create CODEOWNERS (#319)
+e9bc4e2 docs: add tenshiAMD as a contributor (#322)
+Additional commits viewable in compare view
+
+
+
+
+Dependabot will resolve any conflicts with this PR as long as you don't alter it yourself. You can also trigger a rebase manually by commenting @dependabot rebase.
+
+
+Dependabot commands and options
+
+You can trigger Dependabot actions by commenting on this PR:
+
+@dependabot rebase will rebase this PR
+@dependabot recreate will recreate this PR, overwriting any edits that have been made to it
+@dependabot merge will merge this PR after your CI passes on it
+@dependabot squash and merge will squash and merge this PR after your CI passes on it
+@dependabot cancel merge will cancel a previously requested merge and block automerging
+@dependabot reopen will reopen this PR if it is closed
+@dependabot close will close this PR and stop Dependabot recreating it. You can achieve the same result by closing it manually
+@dependabot ignore this major version will close this PR and stop Dependabot creating any more for this major version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this minor version will close this PR and stop Dependabot creating any more for this minor version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this dependency will close this PR and stop Dependabot creating any more for this dependency (unless you reopen the PR or upgrade to it yourself)",1,0
+758,2022-10-01T03:00:39Z,2022-11-02T14:33:25Z,2022-11-02T14:33:25Z,2,8,8,"Bumps markdown-it-anchor from 8.6.4 to 8.6.5.
+
+Changelog
+Sourced from markdown-it-anchor's changelog.
+
+[8.6.5] - 2022-09-12
+
+Support native ESM modules with TypeScript. (#118)
+
+
+
+
+Commits
+
+8918e4e 8.6.5
+4bf0843 Support native ESM modules with TypeScript (#118)
+5bbb520 Add a readme overview (#117)
+See full diff in compare view
+
+
+
+
+Dependabot will resolve any conflicts with this PR as long as you don't alter it yourself. You can also trigger a rebase manually by commenting @dependabot rebase.
+
+
+Dependabot commands and options
+
+You can trigger Dependabot actions by commenting on this PR:
+
+@dependabot rebase will rebase this PR
+@dependabot recreate will recreate this PR, overwriting any edits that have been made to it
+@dependabot merge will merge this PR after your CI passes on it
+@dependabot squash and merge will squash and merge this PR after your CI passes on it
+@dependabot cancel merge will cancel a previously requested merge and block automerging
+@dependabot reopen will reopen this PR if it is closed
+@dependabot close will close this PR and stop Dependabot recreating it. You can achieve the same result by closing it manually
+@dependabot ignore this major version will close this PR and stop Dependabot creating any more for this major version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this minor version will close this PR and stop Dependabot creating any more for this minor version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this dependency will close this PR and stop Dependabot creating any more for this dependency (unless you reopen the PR or upgrade to it yourself)",1,0
+759,2022-10-09T04:25:56Z,2022-10-13T01:54:07Z,2022-10-13T01:54:07Z,1,1,0,"Added a question to the javascript-questions.md file about using OOP principles when coding with JavaScript.
+Type of change
+
+[ x] New Question
+
+Checklist:
+
+[x ] My content follows the style guidelines of this project
+[ x] I have performed a self-review of my own content
+
+(Can you please add #hacktoberfest-accepted to the PR if you do accept it? Thank you!)",2,1
+763,2022-11-01T03:00:26Z,2022-11-16T02:01:01Z,2022-11-16T02:01:02Z,2,8,8,"Bumps all-contributors-cli from 6.22.0 to 6.24.0.
+
+Release notes
+Sourced from all-contributors-cli's releases.
+
+v6.24.0
+6.24.0 (2022-10-10)
+Features
+
+Add width and valign attributes for cleaner  (#344) (554667b)
+
+v6.23.1
+6.23.1 (2022-10-06)
+Bug Fixes
+
+cleanup table footer (#341) (0be7a63)
+
+v6.23.0
+6.23.0 (2022-10-04)
+Features
+
+add contribution type promotion (#339) (8fc7c7e)
+
+
+
+
+Commits
+
+554667b feat: Add width and valign attributes for cleaner <td> (#344)
+fb8f89f docs: add klieret as a contributor for bug (#343)
+d74e2f2 docs: add KnorpelSenf as a contributor for bug (#342)
+0be7a63 fix: cleanup table footer (#341)
+8fc7c7e feat: add contribution type promotion (#339)
+See full diff in compare view
+
+
+
+
+Dependabot will resolve any conflicts with this PR as long as you don't alter it yourself. You can also trigger a rebase manually by commenting @dependabot rebase.
+
+
+Dependabot commands and options
+
+You can trigger Dependabot actions by commenting on this PR:
+
+@dependabot rebase will rebase this PR
+@dependabot recreate will recreate this PR, overwriting any edits that have been made to it
+@dependabot merge will merge this PR after your CI passes on it
+@dependabot squash and merge will squash and merge this PR after your CI passes on it
+@dependabot cancel merge will cancel a previously requested merge and block automerging
+@dependabot reopen will reopen this PR if it is closed
+@dependabot close will close this PR and stop Dependabot recreating it. You can achieve the same result by closing it manually
+@dependabot ignore this major version will close this PR and stop Dependabot creating any more for this major version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this minor version will close this PR and stop Dependabot creating any more for this minor version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this dependency will close this PR and stop Dependabot creating any more for this dependency (unless you reopen the PR or upgrade to it yourself)",1,0
+768,2022-11-16T02:07:39Z,2022-12-06T20:37:02Z,2022-12-06T20:37:02Z,1,12,12,"Bumps minimatch from 3.0.4 to 3.1.2.
+
+Commits
+
+699c459 3.1.2
+2f2b5ff fix: trim pattern
+25d7c0d 3.1.1
+55dda29 fix: treat nocase:true as always having magic
+5e1fb8d 3.1.0
+f8145c5 Add 'allowWindowsEscape' option
+570e8b1 add publishConfig for v3 publishes
+5b7cd33 3.0.6
+20b4b56 [fix] revert all breaking syntax changes
+2ff0388 document, expose, and test 'partial:true' option
+Additional commits viewable in compare view
+
+
+
+
+Dependabot will resolve any conflicts with this PR as long as you don't alter it yourself. You can also trigger a rebase manually by commenting @dependabot rebase.
+
+
+Dependabot commands and options
+
+You can trigger Dependabot actions by commenting on this PR:
+
+@dependabot rebase will rebase this PR
+@dependabot recreate will recreate this PR, overwriting any edits that have been made to it
+@dependabot merge will merge this PR after your CI passes on it
+@dependabot squash and merge will squash and merge this PR after your CI passes on it
+@dependabot cancel merge will cancel a previously requested merge and block automerging
+@dependabot reopen will reopen this PR if it is closed
+@dependabot close will close this PR and stop Dependabot recreating it. You can achieve the same result by closing it manually
+@dependabot ignore this major version will close this PR and stop Dependabot creating any more for this major version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this minor version will close this PR and stop Dependabot creating any more for this minor version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this dependency will close this PR and stop Dependabot creating any more for this dependency (unless you reopen the PR or upgrade to it yourself)
+You can disable automated security fix PRs for this repo from the Security Alerts page.",1,0
+769,2022-11-22T06:22:06Z,2022-11-24T00:31:42Z,2022-11-24T00:31:42Z,1,6,6,"Bumps engine.io from 6.2.0 to 6.2.1.
+
+Release notes
+Sourced from engine.io's releases.
+
+6.2.1
+⚠️ This release contains an important security fix ⚠️
+A malicious client could send a specially crafted HTTP request, triggering an uncaught exception and killing the Node.js process:
+Error: read ECONNRESET
+    at TCP.onStreamRead (internal/stream_base_commons.js:209:20)
+Emitted 'error' event on Socket instance at:
+    at emitErrorNT (internal/streams/destroy.js:106:8)
+    at emitErrorCloseNT (internal/streams/destroy.js:74:3)
+    at processTicksAndRejections (internal/process/task_queues.js:80:21) {
+  errno: -104,
+  code: 'ECONNRESET',
+  syscall: 'read'
+}
+
+Please upgrade as soon as possible.
+Bug Fixes
+
+catch errors when destroying invalid upgrades (#658) (425e833)
+
+
+
+
+Changelog
+Sourced from engine.io's changelog.
+
+6.2.1 (2022-11-20)
+⚠️ This release contains an important security fix ⚠️
+A malicious client could send a specially crafted HTTP request, triggering an uncaught exception and killing the Node.js process:
+Error: read ECONNRESET
+    at TCP.onStreamRead (internal/stream_base_commons.js:209:20)
+Emitted 'error' event on Socket instance at:
+    at emitErrorNT (internal/streams/destroy.js:106:8)
+    at emitErrorCloseNT (internal/streams/destroy.js:74:3)
+    at processTicksAndRejections (internal/process/task_queues.js:80:21) {
+  errno: -104,
+  code: 'ECONNRESET',
+  syscall: 'read'
+}
+
+Please upgrade as soon as possible.
+Bug Fixes
+
+catch errors when destroying invalid upgrades (#658) (425e833)
+
+3.6.0 (2022-06-06)
+Bug Fixes
+
+add extension in the package.json main entry (#608) (3ad0567)
+do not reset the ping timer after upgrade (1f5d469), closes socketio/socket.io-client-swift#1309
+
+Features
+
+decrease the default value of maxHttpBufferSize (58e274c)
+
+This change reduces the default value from 100 mb to a more sane 1 mb.
+This helps protect the server against denial of service attacks by malicious clients sending huge amounts of data.
+See also: GHSA-j4f2-536g-r55m
+
+increase the default value of pingTimeout (f55a79a)
+
+
+
+
+Commits
+
+24b847b chore(release): 6.2.1
+425e833 fix: catch errors when destroying invalid upgrades (#658)
+99adb00 chore(deps): bump xmlhttprequest-ssl and engine.io-client in /examples/latenc...
+d196f6a chore(deps): bump minimatch from 3.0.4 to 3.1.2 (#660)
+7c1270f chore(deps): bump nanoid from 3.1.25 to 3.3.1 (#659)
+535a01d ci: add Node.js 18 in the test matrix
+1b71a6f docs: remove ""Vanilla JS"" highlight from README (#656)
+917d1d2 refactor: replace deprecated String.prototype.substr() (#646)
+020801a chore: add changelog for version 3.6.0
+ed1d6f9 test: make test script work on Windows (#643)
+See full diff in compare view
+
+
+
+
+Dependabot will resolve any conflicts with this PR as long as you don't alter it yourself. You can also trigger a rebase manually by commenting @dependabot rebase.
+
+
+Dependabot commands and options
+
+You can trigger Dependabot actions by commenting on this PR:
+
+@dependabot rebase will rebase this PR
+@dependabot recreate will recreate this PR, overwriting any edits that have been made to it
+@dependabot merge will merge this PR after your CI passes on it
+@dependabot squash and merge will squash and merge this PR after your CI passes on it
+@dependabot cancel merge will cancel a previously requested merge and block automerging
+@dependabot reopen will reopen this PR if it is closed
+@dependabot close will close this PR and stop Dependabot recreating it. You can achieve the same result by closing it manually
+@dependabot ignore this major version will close this PR and stop Dependabot creating any more for this major version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this minor version will close this PR and stop Dependabot creating any more for this minor version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this dependency will close this PR and stop Dependabot creating any more for this dependency (unless you reopen the PR or upgrade to it yourself)
+You can disable automated security fix PRs for this repo from the Security Alerts page.",1,0
+770,2022-12-01T03:00:26Z,2022-12-06T20:19:05Z,2022-12-06T20:19:05Z,2,115,132,"Bumps @11ty/eleventy-plugin-syntaxhighlight from 4.1.0 to 4.2.0.
+
+Release notes
+Sourced from @​11ty/eleventy-plugin-syntaxhighlight's releases.
+
+Eleventy Syntax Highlighter v4.2.0
+
+Updates from prismjs 1.26.0 to 1.29.0
+Adds syntax-highlight.webc WebC syntax highlighter component, in-use on https://github.com/11ty/demo-webc-image-compare/blob/358777337366dd2426c064c7bf2b200f10df98a5/index.webc (example usage)
+Adds GitHub actions to run the test suite.
+
+Full Changelog: 11ty/eleventy-plugin-syntaxhighlight@v4.1.0...v4.2.0
+
+
+
+Commits
+
+ac92151 v4.2.0
+b57bac5 Adds syntax-highlight webc component
+b67b5e8 Update dependencies!
+b444a9c GitHub actions!
+See full diff in compare view
+
+
+
+
+Dependabot will resolve any conflicts with this PR as long as you don't alter it yourself. You can also trigger a rebase manually by commenting @dependabot rebase.
+
+
+Dependabot commands and options
+
+You can trigger Dependabot actions by commenting on this PR:
+
+@dependabot rebase will rebase this PR
+@dependabot recreate will recreate this PR, overwriting any edits that have been made to it
+@dependabot merge will merge this PR after your CI passes on it
+@dependabot squash and merge will squash and merge this PR after your CI passes on it
+@dependabot cancel merge will cancel a previously requested merge and block automerging
+@dependabot reopen will reopen this PR if it is closed
+@dependabot close will close this PR and stop Dependabot recreating it. You can achieve the same result by closing it manually
+@dependabot ignore this major version will close this PR and stop Dependabot creating any more for this major version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this minor version will close this PR and stop Dependabot creating any more for this minor version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this dependency will close this PR and stop Dependabot creating any more for this dependency (unless you reopen the PR or upgrade to it yourself)",1,0
+771,2022-12-01T03:00:33Z,2022-12-06T16:37:52Z,2022-12-06T16:37:52Z,2,8,8,"Bumps luxon from 3.0.4 to 3.1.1.
+
+Changelog
+Sourced from luxon's changelog.
+
+3.1.1 (2022-11-28)
+
+Add Settings.twoDigitCutoffYear
+
+3.1.0 (2022-10-31)
+
+Add Duration.rescale
+
+
+
+
+Commits
+
+545ace5 bump to 3.1.1
+3858a2a Fix tests (#1336)
+d6ea633 Add Settings.twoDigitCutoffYear to configure parsing 'yy' token. (#1330)
+ee02e99 bump to 3.1.0
+7fe3eb0 feat: add rescale option to Duration.normalize method (#1299)
+See full diff in compare view
+
+
+
+
+Dependabot will resolve any conflicts with this PR as long as you don't alter it yourself. You can also trigger a rebase manually by commenting @dependabot rebase.
+
+
+Dependabot commands and options
+
+You can trigger Dependabot actions by commenting on this PR:
+
+@dependabot rebase will rebase this PR
+@dependabot recreate will recreate this PR, overwriting any edits that have been made to it
+@dependabot merge will merge this PR after your CI passes on it
+@dependabot squash and merge will squash and merge this PR after your CI passes on it
+@dependabot cancel merge will cancel a previously requested merge and block automerging
+@dependabot reopen will reopen this PR if it is closed
+@dependabot close will close this PR and stop Dependabot recreating it. You can achieve the same result by closing it manually
+@dependabot ignore this major version will close this PR and stop Dependabot creating any more for this major version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this minor version will close this PR and stop Dependabot creating any more for this minor version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this dependency will close this PR and stop Dependabot creating any more for this dependency (unless you reopen the PR or upgrade to it yourself)",1,0
+772,2022-12-09T17:03:55Z,,2023-09-06T13:40:38Z,2,9,1,"Please include a summary of the change and which issue is fixed. Please also include relevant motivation and context. List any dependencies that are required for this change.
+Fixes # (issue)
+Type of change
+Please delete options that are not relevant.
+
+ New Question
+ Revision of an existing question
+ Infrastructure change (automation, etc.)
+ Other (please elaborate)
+
+Checklist:
+
+ My content follows the style guidelines of this project
+ I have performed a self-review of my own content
+
+Pull requests should be thought of as a conversation. There will be some back and forth when trying to get code merged into this or any other project. With all but the simplest changes you can and should expect that the maintainers of the project will request changes to your code. Please be aware of that and check in after you open your PR in order to get your code merged in cleanly.
+Thanks!",2,1
+773,2023-01-01T03:00:23Z,2023-01-03T20:17:23Z,2023-01-03T20:17:23Z,2,8,8,"Bumps markdown-it-anchor from 8.6.5 to 8.6.6.
+
+Changelog
+Sourced from markdown-it-anchor's changelog.
+
+[8.6.6] - 2022-12-18
+
+npm audit fix. (#121)
+
+
+
+
+Commits
+
+410193c 8.6.6
+b834810 Update changelog
+77e3bc5 npm audit + restore types
+0fee189 Merge pull request #121 from stmtk1/master
+0e05d37 npm audit run
+See full diff in compare view
+
+
+
+
+Dependabot will resolve any conflicts with this PR as long as you don't alter it yourself. You can also trigger a rebase manually by commenting @dependabot rebase.
+
+
+Dependabot commands and options
+
+You can trigger Dependabot actions by commenting on this PR:
+
+@dependabot rebase will rebase this PR
+@dependabot recreate will recreate this PR, overwriting any edits that have been made to it
+@dependabot merge will merge this PR after your CI passes on it
+@dependabot squash and merge will squash and merge this PR after your CI passes on it
+@dependabot cancel merge will cancel a previously requested merge and block automerging
+@dependabot reopen will reopen this PR if it is closed
+@dependabot close will close this PR and stop Dependabot recreating it. You can achieve the same result by closing it manually
+@dependabot ignore this major version will close this PR and stop Dependabot creating any more for this major version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this minor version will close this PR and stop Dependabot creating any more for this minor version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this dependency will close this PR and stop Dependabot creating any more for this dependency (unless you reopen the PR or upgrade to it yourself)",1,0
+774,2023-01-01T03:00:32Z,2023-01-03T20:18:07Z,2023-01-03T20:18:07Z,2,8,8,"⚠️  Dependabot is rebasing this PR ⚠️
+Rebasing might not happen immediately, so don't worry if this takes some time.
+Note: if you make any changes to this PR yourself, they will take precedence over the rebase.
+
+Bumps luxon from 3.1.1 to 3.2.0.
+
+Changelog
+Sourced from luxon's changelog.
+
+3.2.0 (2022-12-29)
+
+Allow timeZone to be specified as an intl option
+Fix for diff's handling of end-of-month when crossing leap years (#1340)
+Add Interval.toLocaleString() (#1320)
+
+
+
+
+Commits
+
+c8f7191 bump to 3.2.0
+f9917c4 clarify equality docstring
+a6f2737 allow timeZone to be specified as an intl option
+f8285c7 find diff by duration hash instead of using repeated addition to cursor (#1340)
+d607d8f remove extra param from tokenForPart
+7e5d24d Add Interval.toLocaleString() (#1320)
+See full diff in compare view
+
+
+
+
+Dependabot will resolve any conflicts with this PR as long as you don't alter it yourself. You can also trigger a rebase manually by commenting @dependabot rebase.
+
+
+Dependabot commands and options
+
+You can trigger Dependabot actions by commenting on this PR:
+
+@dependabot rebase will rebase this PR
+@dependabot recreate will recreate this PR, overwriting any edits that have been made to it
+@dependabot merge will merge this PR after your CI passes on it
+@dependabot squash and merge will squash and merge this PR after your CI passes on it
+@dependabot cancel merge will cancel a previously requested merge and block automerging
+@dependabot reopen will reopen this PR if it is closed
+@dependabot close will close this PR and stop Dependabot recreating it. You can achieve the same result by closing it manually
+@dependabot ignore this major version will close this PR and stop Dependabot creating any more for this major version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this minor version will close this PR and stop Dependabot creating any more for this minor version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this dependency will close this PR and stop Dependabot creating any more for this dependency (unless you reopen the PR or upgrade to it yourself)",1,0
+775,2023-01-09T15:09:05Z,2023-03-01T01:28:59Z,2023-03-01T01:28:59Z,2,8,8,"Bumps luxon from 3.2.0 to 3.2.1.
+
+Changelog
+Sourced from luxon's changelog.
+
+Changelog
+
+
+
+Commits
+
+b1fee58 bump to 3.2.1
+5ab3bf6 fix rfc2822 regex
+806467a preserve language tags (#1354)
+acc4952 bump dev dependencies
+See full diff in compare view
+
+
+
+
+Dependabot will resolve any conflicts with this PR as long as you don't alter it yourself. You can also trigger a rebase manually by commenting @dependabot rebase.
+
+
+Dependabot commands and options
+
+You can trigger Dependabot actions by commenting on this PR:
+
+@dependabot rebase will rebase this PR
+@dependabot recreate will recreate this PR, overwriting any edits that have been made to it
+@dependabot merge will merge this PR after your CI passes on it
+@dependabot squash and merge will squash and merge this PR after your CI passes on it
+@dependabot cancel merge will cancel a previously requested merge and block automerging
+@dependabot reopen will reopen this PR if it is closed
+@dependabot close will close this PR and stop Dependabot recreating it. You can achieve the same result by closing it manually
+@dependabot ignore this major version will close this PR and stop Dependabot creating any more for this major version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this minor version will close this PR and stop Dependabot creating any more for this minor version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this dependency will close this PR and stop Dependabot creating any more for this dependency (unless you reopen the PR or upgrade to it yourself)
+You can disable automated security fix PRs for this repo from the Security Alerts page.",1,0
+777,2023-02-01T03:00:32Z,2023-03-01T01:29:42Z,2023-03-01T01:29:42Z,2,8,8,"⚠️  Dependabot is rebasing this PR ⚠️
+Rebasing might not happen immediately, so don't worry if this takes some time.
+Note: if you make any changes to this PR yourself, they will take precedence over the rebase.
+
+Bumps clean-css from 5.3.1 to 5.3.2.
+
+Changelog
+Sourced from clean-css's changelog.
+
+5.3.2 / 2023-01-19
+
+Fixed issue #1224 - incorrect parsing of selectors with double hyphen.
+Fixed issue #1228 - incorrect appending of '%' inside rgba colors.
+Fixed issue #1232 - support for @container keyword.
+Fixed issue #1239 - edge case in handling @import statements.
+Fixed issue #1242 - support for @layer keyword.
+
+
+
+
+Commits
+
+2f9761e Version 5.3.2.
+3c3b4a1 Updates changelog for version 5.3.2.
+d345240 Fixes #1224 - incorrect parsing of selectors with double hyphen.
+f6a4c29 Corrects variable name for understandability.
+17c4a46 #1239 suggested fix for import statements getting broken when there is no spa...
+576a0f0 Fixes #1242 - add support for the ""@​layer"" keyword (#1243)
+690fd43 Fixes #1232 - add support for the ""@​container"" keyword (#1241)
+cc7b605 Adds support for UTF-8 BOM.
+d9b4c63 Fixes incorrectly appending '%'s to rgba of numbers (#1228)
+See full diff in compare view
+
+
+
+
+Dependabot will resolve any conflicts with this PR as long as you don't alter it yourself. You can also trigger a rebase manually by commenting @dependabot rebase.
+
+
+Dependabot commands and options
+
+You can trigger Dependabot actions by commenting on this PR:
+
+@dependabot rebase will rebase this PR
+@dependabot recreate will recreate this PR, overwriting any edits that have been made to it
+@dependabot merge will merge this PR after your CI passes on it
+@dependabot squash and merge will squash and merge this PR after your CI passes on it
+@dependabot cancel merge will cancel a previously requested merge and block automerging
+@dependabot reopen will reopen this PR if it is closed
+@dependabot close will close this PR and stop Dependabot recreating it. You can achieve the same result by closing it manually
+@dependabot ignore this major version will close this PR and stop Dependabot creating any more for this major version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this minor version will close this PR and stop Dependabot creating any more for this minor version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this dependency will close this PR and stop Dependabot creating any more for this dependency (unless you reopen the PR or upgrade to it yourself)",1,0
+779,2023-03-01T01:36:16Z,2023-03-01T11:38:06Z,2023-03-01T11:38:06Z,1,165,257,"Bumps ua-parser-js and browser-sync. These dependencies needed to be updated together.
+Updates ua-parser-js from 1.0.2 to 1.0.33
+
+Changelog
+Sourced from ua-parser-js's changelog.
+
+Version 0.7.31 / 1.0.2
+
+Fix OPPO Reno A5 incorrect detection
+Fix TypeError Bug
+Use AST to extract regexes and verify them with safe-regex
+
+Version 0.7.32 / 1.0.32
+
+Add new browser : DuckDuckGo, Huawei Browser, LinkedIn
+Add new OS : HarmonyOS
+Add some Huawei models
+Add Sharp Aquos TV
+Improve detection Xiaomi Mi CC9
+Fix Sony Xperia 1 III misidentified as Acer tablet
+Fix Detect Sony BRAVIA as SmartTV
+Fix Detect Xiaomi Mi TV as SmartTV
+Fix Detect Galaxy Tab S8 as tablet
+Fix WeGame mistakenly identified as WeChat
+Fix included commas in Safari / Mobile Safari version
+Increase UA_MAX_LENGTH to 350
+
+Version 0.7.33 / 1.0.33
+
+Add new browser : Cobalt
+Identify Macintosh as an Apple device
+Fix ReDoS vulnerability
+
+Version 0.8
+Version 0.8 was created by accident. This version is now deprecated and no longer maintained, please update to version 0.7 / 1.0.
+
+
+
+Commits
+
+67005e3 Update patch version to 1.0.33 as a mirror of 0.7.33
+f2d0db0 Bump version 0.7.33
+a6140a1 Remove unsafe regex in trim() function
+a886604 Fix #605 - Identify Macintosh as Apple device
+b814bcd Merge pull request #606 from rileyjshaw/patch-1
+7f71024 Fix documentation
+c239ac5 Merge pull request #604 from obecerra3/master
+8d3c2d3 Add new browser: Cobalt
+a2b2e80 Update patch version to 1.0.32 as a mirror of 0.7.32
+d11fc47 Bump version 0.7.32
+Additional commits viewable in compare view
+
+
+
+Updates browser-sync from 2.27.10 to 2.28.1
+
+Release notes
+Sourced from browser-sync's releases.
+
+the one finally removes document.write
+What's Changed
+
+browser-sync-2017 use chalk everywhere by @​shakyShane in BrowserSync/browser-sync#2018
+fix: remove document.write by @​shakyShane in BrowserSync/browser-sync#2019
+
+Full Changelog: BrowserSync/browser-sync@v2.27.12...v2.28.0
+2.26.0 -> 2.26.3
+fixes
+
+application/wasm support - fixes #1598 d60cd916ff1c64a69fddaa5cd2ca1061f066266e
+deps - ensure previous users of browser-sync-client are not affected by new structure - fixes #1615 0a2ff5a25d9e5ca7df7b1ec63a235f76a220ada6
+npm audit fixes across all packages - fixes #1618 9f3fea4d0bef39b31c45e14cba669483f6e65448
+
+
+
+
+Commits
+
+9ea395f v2.28.1
+23c666f fix(deps): loosen range on ua-parser-js - fixes #2009 (#2020)
+52ab250 v2.28.0
+019f8ea fix: remove document.write (#2019)
+3b0581e browser-sync-2017 use chalk everywhere (#2018)
+c1db647 v2.27.12
+6a8133d build(deps): bump http-cache-semantics from 4.1.0 to 4.1.1 (#2011)
+61bfdd9 build(deps): bump cookiejar in /packages/browser-sync (#2006)
+9d71626 build(deps): bump cookiejar in /packages/browser-sync-ui (#2005)
+f5fd00f build(deps): bump parse-url and lerna (#2000)
+Additional commits viewable in compare view
+
+
+
+Dependabot will resolve any conflicts with this PR as long as you don't alter it yourself. You can also trigger a rebase manually by commenting @dependabot rebase.
+
+
+Dependabot commands and options
+
+You can trigger Dependabot actions by commenting on this PR:
+
+@dependabot rebase will rebase this PR
+@dependabot recreate will recreate this PR, overwriting any edits that have been made to it
+@dependabot merge will merge this PR after your CI passes on it
+@dependabot squash and merge will squash and merge this PR after your CI passes on it
+@dependabot cancel merge will cancel a previously requested merge and block automerging
+@dependabot reopen will reopen this PR if it is closed
+@dependabot close will close this PR and stop Dependabot recreating it. You can achieve the same result by closing it manually
+@dependabot ignore this major version will close this PR and stop Dependabot creating any more for this major version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this minor version will close this PR and stop Dependabot creating any more for this minor version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this dependency will close this PR and stop Dependabot creating any more for this dependency (unless you reopen the PR or upgrade to it yourself)
+You can disable automated security fix PRs for this repo from the Security Alerts page.",1,0
+783,2023-03-01T03:56:35Z,2023-03-01T11:40:07Z,2023-03-01T11:40:07Z,2,8,8,"Bumps markdown-it-anchor from 8.6.6 to 8.6.7.
+
+Changelog
+Sourced from markdown-it-anchor's changelog.
+
+[8.6.7] - 2023-02-16
+
+Fix link in deprecation warning. (#123)
+
+
+
+
+Commits
+
+aada48f 8.6.7
+1dfbbbf Fix link in deprecation warning (#123)
+See full diff in compare view
+
+
+
+
+Dependabot will resolve any conflicts with this PR as long as you don't alter it yourself. You can also trigger a rebase manually by commenting @dependabot rebase.
+
+
+Dependabot commands and options
+
+You can trigger Dependabot actions by commenting on this PR:
+
+@dependabot rebase will rebase this PR
+@dependabot recreate will recreate this PR, overwriting any edits that have been made to it
+@dependabot merge will merge this PR after your CI passes on it
+@dependabot squash and merge will squash and merge this PR after your CI passes on it
+@dependabot cancel merge will cancel a previously requested merge and block automerging
+@dependabot reopen will reopen this PR if it is closed
+@dependabot close will close this PR and stop Dependabot recreating it. You can achieve the same result by closing it manually
+@dependabot ignore this major version will close this PR and stop Dependabot creating any more for this major version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this minor version will close this PR and stop Dependabot creating any more for this minor version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this dependency will close this PR and stop Dependabot creating any more for this dependency (unless you reopen the PR or upgrade to it yourself)",1,0
+785,2023-04-01T03:56:36Z,2023-05-02T19:52:32Z,2023-05-02T19:52:32Z,1,0,14,"Bumps @11ty/eleventy from 1.0.2 to 2.0.1.
+
+Release notes
+Sourced from @​11ty/eleventy's releases.
+
+Eleventy v2.0.1: a Bug Fix Release
+Eleventy v2.0.1 is now available! You can try it out in your project now:
+npm install @11ty/eleventy@latest
+
+Read more about project versus global installation.
+
+New to Eleventy?
+Eleventy is a flexible and production-ready site generator known for its zero-client JavaScript footprint, speedy sites, speedy builds, and full control over the output.
+
+Build a blog from scratch in 6 minutes with Eleventy
+Watch The State of Eleventy in Two Minutes
+Read more about Eleventy’s project goals.
+
+Features and Fixes
+
+Fixed: this.eleventy in JavaScript template functions #2790
+Fixed: lodash security audits #2877
+Fixed: pagination targets with object bracket notation #2851
+Fixed: 11ty.js templates were too aggressively cached on watch/serve #2839 #2838
+Fixed: Handlebars partials were too aggressively cached on watch/serve #2799
+Fixed: Configuration reload fixes #2864 #2869 #2867
+New: Serverless pagination now works with Arrays and Objects #2853 #2544 Learn more: https://www.11ty.dev/docs/plugins/serverless/#dynamic-slugs-to-subset-your-pagination
+Typo fixes by @​deining in #2845
+
+Housekeeping
+
+Full milestone/issue list: https://github.com/11ty/eleventy/milestone/43?closed=1
+Full changelog: 11ty/eleventy@v2.0.0...v2.0.1
+
+Thank You Notes
+This project would not be possible without our lovely community. Thank you to everyone that built something with Eleventy (×684 authors on our web site!), wrote a blog post about Eleventy, contributed code, wrote a plugins, helped with documentation, asked questions, answered questions, braved The Leaderboards, participated on Discord, filed issues, attended (or organized!) a meetup, said a kind word on social media ❤️.
+
+A huge thank you to Netlify, especially:  @​biilmann, Chris Bach, Lauren Sell (alum), and Claire Knight, without whom this release would not have been possible.
+🏆 A special thanks to @​pdehaan for their tireless contributions on the Eleventy Issue tracker.
+Yet more thanks to the all star Discord Moderators and Meetup Coordinators @​BenDMyers, @​clottman, @​dleatherman, @​darthmall, @​nachtfunke, @​siakaramalegos and @​5t3ph.
+All of our supporters on Open Collective ❤️
+Contribute on Open Collective
+How else can you contribute to Eleventy?
+
+Open Collective Supporters
+
+Gold Sponsors: Sanity.io, Nordhealth, CloudCannon, Transloadit
+Silver Sponsors: Unabridged Software, PQINA, Bejamas, Nathan Smith, Monarch Air Group, Getform.io, Mercury Jets, OCEG
+Backers: Tyler Gaw, Ariel Salminen, Peter deHaan, Melanie Sumner, Ben Nash, Alejandro Rodríguez, Mat Marquis, Philip Borenstein, Jérôme Coupé, Nicolas Hoizey, Mike Aparicio, Ben Myers, Katie Sylor-Miller, Mark Buskbjerg, mortendk, Aaron Hans, Lauris Consulting, John Meyerhofer, Todd Libby, shawn j sandy, Luke Bonaccorsi, Higby, Jenn Schiffer, Dimitrios Grammatikogiannis, Devin Clark, Eric Bailey, Manuel Matuzovic, Tim Giles, Kyosuke Nakamura, Rob Sterlini, Horacio Gonzalez, Hans Gerwitz, Makoto Kawasaki, Josh Crain, Richard  Hemmer, Nick Nisi, John SJ Anderson, Ryan Swaney, Alistair Shepherd, Ivo Herrmann, Flaki, Angelique Weger, John Hall, Scott McCracken, James Steinbach, Miriam Suzanne, Bentley Davis, Ara Abcarians, vince falconi, Martin Schneider, Stephanie Eckles, Frontend Weekly Tokyo, Dorin Vancea, Chris Burnell, Ximenav Vf., Rich Holman, Kasper Storgaard, Kevin Healy, Greg Gibson, Michelle Barker, Alesandro Ortiz, David A. Herron, Paul Robert Lloyd, Andrea Vaghi, Bryan Robinson, Ashur Cabrera, Raymond Camden, John Meguerian, Joe Lamyman, Dan Ryan, Sam, Brett Nelson, Paul Welsh, Ingo Steinke, Noel Forte, Melanie Richards, Marco Zehe, Wes Ruvalcaba, Luc Poupard, Entle Web Solutions, Ken Hawkins, Fershad Irani, Nikita Dubko, Aaron Gustafson, Chris, Christian Miles, Benjamin Geese, Marcus Relacion, Netin nopeustesti, Raphael Höser, Cthos, Sia Karamalegos, Jon Kuperman, Saneef Ansari, Michel van der Kroef, Flemming Meyer, Colin Fahrion, Dan Burzo, Dan Ott, Mobilemall.pk, Cheap VPS, David Darnes, Jon Roobottom, Dana Byerly, Oisín Quinn, Renkaatsopivasti, Windesol Sähkön Kilpailutus, Luke Mitchell, SignpostMarv, THE PADDING, Bob Monsour, Richmond Insulation, Patrick Byrne, zapscribbles, Frank Reding, quinnanya, Cory Birdsong, Aram ZS, Andy Stevenson, Robin Rendle, HelppoHinta.fi, Tanner Dolby, jpoehnelt, xdesro, Alex Zappa, Richmond Concrete, Alexander Wunschik, Tom, CelineDesign, Nic Chan, Duc Lam, Stephen Bell, Robert Haselbacher, Lene, Brett DeWoody, alistairtweedie, Meta Tier List, Iva Tech, Daniel Saunders, Josh Vickerson, Dan Urbanowicz, dan leatherman, Jens Grochtdreis, CBD Review, Eric Gallager, Softermii, Eric Carlisle, Claus Conrad, Anna E. Cook, David Luhr, Matt Obee, Kiekkotorni - Nikotiinipussit
+
+
+
+... (truncated)
+
+
+Commits
+
+e71cb94 Coverage
+bbc3fc1 v2.0.1
+347d41b v2.0.1-beta.2
+3203e3a Update dependencies
+716f65a v2.0.1-beta.1
+273bf3b v2.0.1-alpha.3
+916805e Publish the dependency graph in eleventy.after args
+67ce615 Fixes #2754
+30c7113 Custom lodash build, fixes #2877
+a9323c3 Fixes #2790
+Additional commits viewable in compare view
+
+
+
+
+You can trigger a rebase of this PR by commenting @dependabot rebase.
+
+
+Dependabot commands and options
+
+You can trigger Dependabot actions by commenting on this PR:
+
+@dependabot rebase will rebase this PR
+@dependabot recreate will recreate this PR, overwriting any edits that have been made to it
+@dependabot merge will merge this PR after your CI passes on it
+@dependabot squash and merge will squash and merge this PR after your CI passes on it
+@dependabot cancel merge will cancel a previously requested merge and block automerging
+@dependabot reopen will reopen this PR if it is closed
+@dependabot close will close this PR and stop Dependabot recreating it. You can achieve the same result by closing it manually
+@dependabot ignore this major version will close this PR and stop Dependabot creating any more for this major version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this minor version will close this PR and stop Dependabot creating any more for this minor version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this dependency will close this PR and stop Dependabot creating any more for this dependency (unless you reopen the PR or upgrade to it yourself)
+
+> **Note**
+> Automatic rebases have been disabled on this pull request as it has been open for over 30 days.",1,2
+786,2023-04-01T03:56:43Z,2023-05-02T20:01:41Z,2023-05-02T20:01:41Z,1,379,440,"Bumps luxon from 3.2.1 to 3.3.0.
+
+Changelog
+Sourced from luxon's changelog.
+
+3.3.0 (2023-03-03)
+
+Fix off-by-one in Interval#count (#1308)
+Support formatting for custom zones (#1377)
+Fix parsing for narrow spaces (#1369)
+Handle leap year issue with AD 100 (#1390)
+Allow parsing of just an offset
+
+
+
+
+Commits
+
+88959de bump to 3.3.0
+8d48a70 fix space character in tests for node 19
+f8ad684 zones.md assign to defaultZoneName (#1264)
+5573a2e fix notes for quarter workaround (#1265)
+33f7957 Fix Interval#count counting the endpoint as part of the interval (#1308)
+304bddc Update docs on react native android support (#1367)
+c9f75ec Custom zone formatting support (#1377)
+5628d48 Add toUnixInteger() to the formatting documentation. (#1379)
+0c50b70 Fix support for Node.js 18.13+ (#1369)
+c5a6b0a Handle dates in year 99 rolling over into year 100 behaving as if year 100 wa...
+Additional commits viewable in compare view
+
+
+
+
+You can trigger a rebase of this PR by commenting @dependabot rebase.
+
+
+Dependabot commands and options
+
+You can trigger Dependabot actions by commenting on this PR:
+
+@dependabot rebase will rebase this PR
+@dependabot recreate will recreate this PR, overwriting any edits that have been made to it
+@dependabot merge will merge this PR after your CI passes on it
+@dependabot squash and merge will squash and merge this PR after your CI passes on it
+@dependabot cancel merge will cancel a previously requested merge and block automerging
+@dependabot reopen will reopen this PR if it is closed
+@dependabot close will close this PR and stop Dependabot recreating it. You can achieve the same result by closing it manually
+@dependabot ignore this major version will close this PR and stop Dependabot creating any more for this major version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this minor version will close this PR and stop Dependabot creating any more for this minor version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this dependency will close this PR and stop Dependabot creating any more for this dependency (unless you reopen the PR or upgrade to it yourself)
+
+> **Note**
+> Automatic rebases have been disabled on this pull request as it has been open for over 30 days.",1,0
+787,2023-04-20T21:42:56Z,2023-04-22T01:21:17Z,2023-04-22T01:21:17Z,1,6,6,"Bumps nunjucks from 3.2.3 to 3.2.4.
+
+Release notes
+Sourced from nunjucks's releases.
+
+v3.2.4
+What's Changed
+
+fix: html encode backslashes if used with escape filter or autoescape by @​fdintino in mozilla/nunjucks#1437. Fixes CVE-2023-2142
+ ([bugzilla #1825980](https://bugzilla.mozilla.org/show_bug.cgi?id=1825980))
+
+Full Changelog: mozilla/nunjucks@v3.2.3...v3.2.4
+
+
+
+Changelog
+Sourced from nunjucks's changelog.
+
+3.2.4 (Apr 13 2023)
+
+HTML encode backslashes when expressions are passed through the escape
+filter (including when this is done automatically with autoescape). Merge
+of #1437.
+
+
+
+
+Commits
+
+86a77f4 Release v3.2.4
+ec16d21 fix: html encode backslashes if used with escape filter or autoescape (#1437)
+See full diff in compare view
+
+
+
+
+Dependabot will resolve any conflicts with this PR as long as you don't alter it yourself. You can also trigger a rebase manually by commenting @dependabot rebase.
+
+
+Dependabot commands and options
+
+You can trigger Dependabot actions by commenting on this PR:
+
+@dependabot rebase will rebase this PR
+@dependabot recreate will recreate this PR, overwriting any edits that have been made to it
+@dependabot merge will merge this PR after your CI passes on it
+@dependabot squash and merge will squash and merge this PR after your CI passes on it
+@dependabot cancel merge will cancel a previously requested merge and block automerging
+@dependabot reopen will reopen this PR if it is closed
+@dependabot close will close this PR and stop Dependabot recreating it. You can achieve the same result by closing it manually
+@dependabot ignore this major version will close this PR and stop Dependabot creating any more for this major version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this minor version will close this PR and stop Dependabot creating any more for this minor version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this dependency will close this PR and stop Dependabot creating any more for this dependency (unless you reopen the PR or upgrade to it yourself)
+You can disable automated security fix PRs for this repo from the Security Alerts page.",2,1
+788,2023-05-01T03:56:30Z,2023-05-01T19:38:20Z,2023-05-01T19:38:20Z,2,5,157,"Bumps @11ty/eleventy-plugin-syntaxhighlight from 4.2.0 to 5.0.0.
+
+Release notes
+Sourced from @​11ty/eleventy-plugin-syntaxhighlight's releases.
+
+Eleventy Syntax Highlighter v5.0.0
+
+Breaking: we no longer throw an error when you pass in an invalid language. Use errorOnInvalidLanguage: true to re-enable errors by default. #70 #73
+Breaking: changes default lineSeparator option from ""<br>"" to ""\n"" #82 This fixes an issue with missing line breaks in some feed readers!
+Fixed: Markdown syntax highlighter generated invalid HTML in some cases #80 Thank you @​marvinhagemeister!
+Bug fixes for diff- syntax #75 #76
+Removes undocumented character wrapping feature #81
+
+Plugin documentation: https://www.11ty.dev/docs/plugins/syntaxhighlight/
+Milestone: https://github.com/11ty/eleventy-plugin-syntaxhighlight/milestone/14?closed=1
+Full Changelog: 11ty/eleventy-plugin-syntaxhighlight@v4.2.0...v5.0.0
+Contributors
+
+@​yehudab made their first contribution in 11ty/eleventy-plugin-syntaxhighlight#73
+
+
+
+
+Commits
+
+75d33c5 v5.0.0
+9a817ef Additional comment
+e7d31b3 Fix test suite on Windows
+4c3a22c Fixes #80
+2cd9429 Test for #75
+1016319 Fixes #76
+150d1ad Fixes #81
+9c86577 Fixes #82
+2159800 Adds errorOnInvalidLanguage which is defaulted to false. #73
+a7afa9b Merge pull request #73 from yehudab/master
+Additional commits viewable in compare view
+
+
+
+
+Dependabot will resolve any conflicts with this PR as long as you don't alter it yourself. You can also trigger a rebase manually by commenting @dependabot rebase.
+
+
+Dependabot commands and options
+
+You can trigger Dependabot actions by commenting on this PR:
+
+@dependabot rebase will rebase this PR
+@dependabot recreate will recreate this PR, overwriting any edits that have been made to it
+@dependabot merge will merge this PR after your CI passes on it
+@dependabot squash and merge will squash and merge this PR after your CI passes on it
+@dependabot cancel merge will cancel a previously requested merge and block automerging
+@dependabot reopen will reopen this PR if it is closed
+@dependabot close will close this PR and stop Dependabot recreating it. You can achieve the same result by closing it manually
+@dependabot ignore this major version will close this PR and stop Dependabot creating any more for this major version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this minor version will close this PR and stop Dependabot creating any more for this minor version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this dependency will close this PR and stop Dependabot creating any more for this dependency (unless you reopen the PR or upgrade to it yourself)",1,0
+793,2023-05-26T06:13:03Z,,2023-09-05T22:48:26Z,1,2,0,"New Javascript Questions
+
+What are primitive and non-primitive data types?
+Which of these two are passed by reference in a function?
+
+Context/Motivation
+
+Knowledge of primitive and non-primitive data types are really essential for writing error free code especially surrounding deep copy and shallow copy inside a function
+Deep understanding of these tests experience dealing with objects/array inside a function passed as a parameter
+
+Type of change
+
+ New Question
+
+Checklist:
+
+ My content follows the style guidelines of this project
+ I have performed a self-review of my own content
+
+Thanks!",2,1
+794,2023-05-31T14:10:20Z,2023-09-05T22:45:12Z,2023-09-05T22:45:12Z,1,40,40,"Please include a summary of the change and which issue is fixed. Please also include relevant motivation and context. List any dependencies that are required for this change.
+This is a fix for the few spelling mistakes for the Romanian translation markdown, and translate a question that was originally in English.
+Type of change
+Please delete options that are not relevant.
+
+ New Question
+ Revision of an existing question
+ Infrastructure change (automation, etc.)
+ Other (please elaborate)
+
+Checklist:
+
+ My content follows the style guidelines of this project
+ I have performed a self-review of my own content
+
+Pull requests should be thought of as a conversation. There will be some back and forth when trying to get code merged into this or any other project. With all but the simplest changes you can and should expect that the maintainers of the project will request changes to your code. Please be aware of that and check in after you open your PR in order to get your code merged in cleanly.
+Thanks!",2,0
+796,2023-06-04T20:50:10Z,2023-09-07T20:24:14Z,2023-09-07T20:24:14Z,1,1,0,"Add Javascript question about Truthy and Falsy Values
+
+ New Question
+
+Checklist:
+
+ My content follows the style guidelines of this project
+ I have performed a self-review of my own content",2,0
+801,2023-07-20T13:42:46Z,,2023-09-05T20:08:58Z,1,3,0,"Please include a summary of the change and which issue is fixed. Please also include relevant motivation and context. List any dependencies that are required for this change.
+Fixes # (issue)
+Type of change
+Please delete options that are not relevant.
+
+ New Question
+ Revision of an existing question
+ Infrastructure change (automation, etc.)
+ Other (please elaborate)
+
+Checklist:
+
+ My content follows the style guidelines of this project
+ I have performed a self-review of my own content
+
+Pull requests should be thought of as a conversation. There will be some back and forth when trying to get code merged into this or any other project. With all but the simplest changes you can and should expect that the maintainers of the project will request changes to your code. Please be aware of that and check in after you open your PR in order to get your code merged in cleanly.
+Thanks!",3,1
+802,2023-07-22T18:30:08Z,,2023-09-05T20:01:30Z,1,1,1,"Please include a summary of the change and which issue is fixed. Please also include relevant motivation and context. List any dependencies that are required for this change.
+Fixes # (issue)
+Outdated copyright year on the footer.
+Type of change
+Changed copyright year from, '2012 - 2022' to '2012-2023'.
+Please delete options that are not relevant.
+
+ Other (please elaborate)
+Updated copyright year to the current year on the footer component.
+
+Checklist:
+
+ My content follows the style guidelines of this project
+ I have performed a self-review of my own content
+
+Pull requests should be thought of as a conversation. There will be some back and forth when trying to get code merged into this or any other project. With all but the simplest changes you can and should expect that the maintainers of the project will request changes to your code. Please be aware of that and check in after you open your PR in order to get your code merged in cleanly.
+Thanks!",3,1
+803,2023-08-01T03:23:43Z,2023-09-05T20:06:06Z,2023-09-05T20:06:06Z,2,24,5,"Bumps all-contributors-cli from 6.25.0 to 6.26.1.
+
+Release notes
+Sourced from all-contributors-cli's releases.
+
+v6.26.1
+6.26.1 (2023-07-07)
+Bug Fixes
+
+add correct arguments to the formatConfig() call (#360) (cfb1d9c)
+
+v6.26.0
+6.26.0 (2023-05-28)
+Features
+
+use Prettier to write config file, if possible (#356) (e0a5312)
+
+v6.25.1
+6.25.1 (2023-05-12)
+Bug Fixes
+
+correct escape quotes in contributor names (#351) (959e361)
+
+
+
+
+Commits
+
+cfb1d9c fix: add correct arguments to the formatConfig() call (#360)
+e0a5312 feat: use Prettier to write config file, if possible (#356)
+45787a7 docs: add dwmkerr as a contributor for bug, test, and code (#353)
+959e361 fix: correct escape quotes in contributor names (#351)
+See full diff in compare view
+
+
+
+
+Dependabot will resolve any conflicts with this PR as long as you don't alter it yourself. You can also trigger a rebase manually by commenting @dependabot rebase.
+
+
+Dependabot commands and options
+
+You can trigger Dependabot actions by commenting on this PR:
+
+@dependabot rebase will rebase this PR
+@dependabot recreate will recreate this PR, overwriting any edits that have been made to it
+@dependabot merge will merge this PR after your CI passes on it
+@dependabot squash and merge will squash and merge this PR after your CI passes on it
+@dependabot cancel merge will cancel a previously requested merge and block automerging
+@dependabot reopen will reopen this PR if it is closed
+@dependabot close will close this PR and stop Dependabot recreating it. You can achieve the same result by closing it manually
+@dependabot ignore this major version will close this PR and stop Dependabot creating any more for this major version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this minor version will close this PR and stop Dependabot creating any more for this minor version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this dependency will close this PR and stop Dependabot creating any more for this dependency (unless you reopen the PR or upgrade to it yourself)",1,0
+805,2023-08-21T19:03:22Z,2023-08-31T01:10:57Z,2023-08-31T01:10:57Z,1,1,0,"Added question:
+
+Can you explain what happens when you enter a URL into the browser?
+
+Type of change
+Please delete options that are not relevant.
+
+ New Question
+
+Checklist:
+
+ My content follows the style guidelines of this project
+ I have performed a self-review of my own content",2,0
+808,2023-09-03T15:12:44Z,2023-09-05T20:00:49Z,2023-09-05T20:00:49Z,3,8,2,"The copyright year in the website footer and license file was outdated. In this pull request, specifically
+
+Updated the current year on LICENSE.md file
+Added script to automatically update the current year on the footer
+
+Fixes #799
+Type of change
+Please delete options that are not relevant.
+
+ Revision of an existing question
+ Infrastructure change (automation, etc.)
+
+Checklist:
+
+ My content follows the style guidelines of this project
+ I have performed a self-review of my own content
+
+Thanks!",2,0
+846,2023-09-22T03:53:06Z,2023-09-25T18:06:09Z,2023-09-25T18:06:09Z,1,172,290,"Fixes #832
+Type of change
+Update Portuguese Translations to match template
+
+ New Question
+ Revision of an existing question
+ Infrastructure change (automation, etc.)
+ Other (please elaborate)
+
+Checklist:
+
+ My content follows the style guidelines of this project
+ I have performed a self-review of my own content",2,0
+847,2023-09-28T21:27:25Z,2023-09-29T18:28:54Z,2023-09-29T18:28:54Z,1,3,0,"I questions from my recent SWE interviews, most are very basic (ex. the SSR vs CSR one)
+Type of change
+
+ New Question
+
+Checklist:
+
+[X ] My content follows the style guidelines of this project
+ I have performed a self-review of my own content",2,0
+848,2023-10-01T03:56:06Z,2023-10-02T16:16:24Z,2023-10-02T16:16:25Z,2,5,5,"Bumps luxon from 3.3.0 to 3.4.3.
+
+Changelog
+Sourced from luxon's changelog.
+
+3.4.3 (2023-09-05)
+
+Fixes another regression from 3.4.0 (#1496)
+
+3.4.2 (2023-08-26)
+
+Fixes regression from 3.4.1 (#1493)
+
+3.4.1 (2023-08-23)
+
+Fixes for regressions from 3.4.0 (#1482 and #1488)
+
+3.4.0 (2023-08-08)
+
+Fix type checking on input zones
+Fix Islamic months listing
+Fix normalize() for negative inputs
+
+
+
+
+Commits
+
+35a50c2 bump to 3.4.3
+e3c4004 Fix Duration#normalize, shiftTo and shiftToAll (#1498)
+8eff275 bump to 3.4.2
+e3d8031 upgrade node test version
+1a03b22 Fix and improve Duration#normalize (#1494)
+2316f21 bump to 3.4.1
+11e454c Fix for negative units in conversions
+559a212 Handle invalid Durations in toHuman and toMillis (#1489)
+bc43bbc add npm cmd for viewing rendered site
+4273b62 chore: Add search to website (#1481)
+Additional commits viewable in compare view
+
+
+
+
+Dependabot will resolve any conflicts with this PR as long as you don't alter it yourself. You can also trigger a rebase manually by commenting @dependabot rebase.
+
+
+Dependabot commands and options
+
+You can trigger Dependabot actions by commenting on this PR:
+
+@dependabot rebase will rebase this PR
+@dependabot recreate will recreate this PR, overwriting any edits that have been made to it
+@dependabot merge will merge this PR after your CI passes on it
+@dependabot squash and merge will squash and merge this PR after your CI passes on it
+@dependabot cancel merge will cancel a previously requested merge and block automerging
+@dependabot reopen will reopen this PR if it is closed
+@dependabot close will close this PR and stop Dependabot recreating it. You can achieve the same result by closing it manually
+@dependabot show <dependency name> ignore conditions will show all of the ignore conditions of the specified dependency
+@dependabot ignore this major version will close this PR and stop Dependabot creating any more for this major version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this minor version will close this PR and stop Dependabot creating any more for this minor version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this dependency will close this PR and stop Dependabot creating any more for this dependency (unless you reopen the PR or upgrade to it yourself)",1,0
+849,2023-10-01T03:56:14Z,2023-10-02T16:22:59Z,2023-10-02T16:22:59Z,2,5,5,"Bumps markdown-it from 13.0.1 to 13.0.2.
+
+Changelog
+Sourced from markdown-it's changelog.
+
+[13.0.2] - 2023-09-26
+Security
+
+Fixed crash/infinite loop caused by linkify inline rule, #957.
+
+Fixed
+
+Throw an error if 3rd party plugin doesn't increment line or pos counters
+(previously, markdown-it would likely go into infinite loop instead), #847.
+
+
+
+
+Commits
+
+e476f78 13.0.2 released
+dfd485b Dist rebuild
+80a3adc Fix crash in linkify inline rule on malformed input
+49ca65b Sync pathological tests with cmark
+2b6cac2 Sync pathological tests with cmark
+08444a5 Fix typo; minor copy-edits (#879)
+940459e fix: remove outdated comments (#891)
+1529ff4 Guard against custom rule not incrementing pos
+6325878 Multiple refactors
+9ff460e Drop a lot of extra code from blockquotes
+See full diff in compare view
+
+
+
+
+Dependabot will resolve any conflicts with this PR as long as you don't alter it yourself. You can also trigger a rebase manually by commenting @dependabot rebase.
+
+
+Dependabot commands and options
+
+You can trigger Dependabot actions by commenting on this PR:
+
+@dependabot rebase will rebase this PR
+@dependabot recreate will recreate this PR, overwriting any edits that have been made to it
+@dependabot merge will merge this PR after your CI passes on it
+@dependabot squash and merge will squash and merge this PR after your CI passes on it
+@dependabot cancel merge will cancel a previously requested merge and block automerging
+@dependabot reopen will reopen this PR if it is closed
+@dependabot close will close this PR and stop Dependabot recreating it. You can achieve the same result by closing it manually
+@dependabot show <dependency name> ignore conditions will show all of the ignore conditions of the specified dependency
+@dependabot ignore this major version will close this PR and stop Dependabot creating any more for this major version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this minor version will close this PR and stop Dependabot creating any more for this minor version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this dependency will close this PR and stop Dependabot creating any more for this dependency (unless you reopen the PR or upgrade to it yourself)",1,0
+850,2023-10-01T22:27:02Z,2023-10-02T18:28:49Z,2023-10-02T18:28:49Z,2,2,2,"Bumps actions/checkout from 3 to 4.
+
+Release notes
+Sourced from actions/checkout's releases.
+
+v4.0.0
+What's Changed
+
+Update default runtime to node20 by @​takost in actions/checkout#1436
+Support fetching without the --progress option by @​simonbaird in actions/checkout#1067
+Release 4.0.0 by @​takost in actions/checkout#1447
+
+New Contributors
+
+@​takost made their first contribution in actions/checkout#1436
+@​simonbaird made their first contribution in actions/checkout#1067
+
+Full Changelog: actions/checkout@v3...v4.0.0
+v3.6.0
+What's Changed
+
+Mark test scripts with Bash'isms to be run via Bash by @​dscho in actions/checkout#1377
+Add option to fetch tags even if fetch-depth > 0 by @​RobertWieczoreck in actions/checkout#579
+Release 3.6.0 by @​luketomlinson in actions/checkout#1437
+
+New Contributors
+
+@​RobertWieczoreck made their first contribution in actions/checkout#579
+@​luketomlinson made their first contribution in actions/checkout#1437
+
+Full Changelog: actions/checkout@v3.5.3...v3.6.0
+v3.5.3
+What's Changed
+
+Fix: Checkout Issue in self hosted runner due to faulty submodule check-ins by @​megamanics in actions/checkout#1196
+Fix typos found by codespell by @​DimitriPapadopoulos in actions/checkout#1287
+Add support for sparse checkouts by @​dscho and @​dfdez in actions/checkout#1369
+Release v3.5.3 by @​TingluoHuang in actions/checkout#1376
+
+New Contributors
+
+@​megamanics made their first contribution in actions/checkout#1196
+@​DimitriPapadopoulos made their first contribution in actions/checkout#1287
+@​dfdez made their first contribution in actions/checkout#1369
+
+Full Changelog: actions/checkout@v3...v3.5.3
+v3.5.2
+What's Changed
+
+Fix: Use correct API url / endpoint in GHES by @​fhammerl in actions/checkout#1289 based on #1286 by @​1newsr
+
+Full Changelog: actions/checkout@v3.5.1...v3.5.2
+v3.5.1
+What's Changed
+
+Improve checkout performance on Windows runners by upgrading @​actions/github dependency by @​BrettDong in actions/checkout#1246
+
+New Contributors
+
+@​BrettDong made their first contribution in actions/checkout#1246
+
+
+
+... (truncated)
+
+
+Changelog
+Sourced from actions/checkout's changelog.
+
+Changelog
+v4.1.0
+
+Add support for partial checkout filters
+
+v4.0.0
+
+Support fetching without the --progress option
+Update to node20
+
+v3.6.0
+
+Fix: Mark test scripts with Bash'isms to be run via Bash
+Add option to fetch tags even if fetch-depth > 0
+
+v3.5.3
+
+Fix: Checkout fail in self-hosted runners when faulty submodule are checked-in
+Fix typos found by codespell
+Add support for sparse checkouts
+
+v3.5.2
+
+Fix api endpoint for GHES
+
+v3.5.1
+
+Fix slow checkout on Windows
+
+v3.5.0
+
+Add new public key for known_hosts
+
+v3.4.0
+
+Upgrade codeql actions to v2
+Upgrade dependencies
+Upgrade @​actions/io
+
+v3.3.0
+
+Implement branch list using callbacks from exec function
+Add in explicit reference to private checkout options
+[Fix comment typos (that got added in #770)](actions/checkout#1057)
+
+v3.2.0
+
+Add GitHub Action to perform release
+Fix status badge
+Replace datadog/squid with ubuntu/squid Docker image
+Wrap pipeline commands for submoduleForeach in quotes
+Update @​actions/io to 1.1.2
+Upgrading version to 3.2.0
+
+v3.1.0
+
+Use @​actions/core saveState and getState
+Add github-server-url input
+
+v3.0.2
+
+
+... (truncated)
+
+
+Commits
+
+8ade135 Prepare 4.1.0 release (#1496)
+c533a0a Add support for partial checkout filters (#1396)
+72f2cec Update README.md for V4 (#1452)
+3df4ab1 Release 4.0.0 (#1447)
+8b5e8b7 Support fetching without the --progress option (#1067)
+97a652b Update default runtime to node20 (#1436)
+See full diff in compare view
+
+
+
+
+Dependabot will resolve any conflicts with this PR as long as you don't alter it yourself. You can also trigger a rebase manually by commenting @dependabot rebase.
+
+
+Dependabot commands and options
+
+You can trigger Dependabot actions by commenting on this PR:
+
+@dependabot rebase will rebase this PR
+@dependabot recreate will recreate this PR, overwriting any edits that have been made to it
+@dependabot merge will merge this PR after your CI passes on it
+@dependabot squash and merge will squash and merge this PR after your CI passes on it
+@dependabot cancel merge will cancel a previously requested merge and block automerging
+@dependabot reopen will reopen this PR if it is closed
+@dependabot close will close this PR and stop Dependabot recreating it. You can achieve the same result by closing it manually
+@dependabot show <dependency name> ignore conditions will show all of the ignore conditions of the specified dependency
+@dependabot ignore this major version will close this PR and stop Dependabot creating any more for this major version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this minor version will close this PR and stop Dependabot creating any more for this minor version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this dependency will close this PR and stop Dependabot creating any more for this dependency (unless you reopen the PR or upgrade to it yourself)",1,0
+851,2023-10-02T10:11:02Z,2023-10-03T13:12:58Z,2023-10-03T13:12:58Z,1,155,236,"Fixes # (issue)
+#824
+Type of change
+Please delete options that are not relevant.
+
+ New Question
+ Revision of an existing question
+ Infrastructure change (automation, etc.)
+ Other (please elaborate)
+
+Checklist:
+
+ My content follows the style guidelines of this project
+ I have performed a self-review of my own content
+
+Pull requests should be thought of as a conversation. There will be some back and forth when trying to get code merged into this or any other project. With all but the simplest changes you can and should expect that the maintainers of the project will request changes to your code. Please be aware of that and check in after you open your PR in order to get your code merged in cleanly.
+Thanks!",2,2
+856,2023-10-03T19:46:00Z,2023-11-01T17:43:31Z,2023-11-01T17:43:31Z,1,2,1,"Saw this question while prepping for a SWE interview
+Type of change
+Please delete options that are not relevant.
+
+ New Question
+
+Checklist:
+
+ My content follows the style guidelines of this project
+ I have performed a self-review of my own content",2,0
+857,2023-10-14T20:54:51Z,2023-10-18T23:12:23Z,2023-10-18T23:12:23Z,1,99,129,"Fixes #838
+Type of change
+Please delete options that are not relevant.
+
+ New Question
+ Revision of an existing question
+ Infrastructure change (automation, etc.)
+ Other (please elaborate)
+
+Checklist:
+
+ My content follows the style guidelines of this project
+ I have performed a self-review of my own content
+
+Pull requests should be thought of as a conversation. There will be some back and forth when trying to get code merged into this or any other project. With all but the simplest changes you can and should expect that the maintainers of the project will request changes to your code. Please be aware of that and check in after you open your PR in order to get your code merged in cleanly.
+Thanks!",2,0
+858,2023-10-15T08:29:24Z,,2023-10-18T22:59:43Z,1,23,0,"A JavaScript question on event loop is added for practice
+Please include a summary of the change and which issue is fixed. Please also include relevant motivation and context. List any dependencies that are required for this change.
+Fixes # (issue)
+Type of change
+Please delete options that are not relevant.
+
+ New Question
+ Revision of an existing question
+ Infrastructure change (automation, etc.)
+ Other (please elaborate)
+
+Checklist:
+
+ My content follows the style guidelines of this project
+ I have performed a self-review of my own content
+
+Pull requests should be thought of as a conversation. There will be some back and forth when trying to get code merged into this or any other project. With all but the simplest changes you can and should expect that the maintainers of the project will request changes to your code. Please be aware of that and check in after you open your PR in order to get your code merged in cleanly.
+Thanks!",3,10
+860,2023-11-01T22:58:40Z,2023-11-09T00:47:31Z,2023-11-09T00:47:31Z,1,1,1,"Bumps actions/setup-node from 3 to 4.
+
+Release notes
+Sourced from actions/setup-node's releases.
+
+v4.0.0
+What's Changed
+In scope of this release we changed version of node runtime for action from node16 to node20 and updated dependencies in actions/setup-node#866
+Besides, release contains such changes as:
+
+Upgrade actions/checkout to v4 by @​gmembre-zenika in actions/setup-node#868
+Update actions/checkout for documentation and yaml by @​dmitry-shibanov in actions/setup-node#876
+
+New Contributors
+
+@​gmembre-zenika made their first contribution in actions/setup-node#868
+
+Full Changelog: actions/setup-node@v3...v4.0.0
+v3.8.2
+What's Changed
+
+Update semver by @​dmitry-shibanov in actions/setup-node#861
+Update temp directory creation by @​nikolai-laevskii in actions/setup-node#859
+Bump @​babel/traverse from 7.15.4 to 7.23.2 by @​dependabot in actions/setup-node#870
+Add notice about binaries not being updated yet by @​nikolai-laevskii in actions/setup-node#872
+Update toolkit cache and core by @​dmitry-shibanov and @​seongwon-privatenote in actions/setup-node#875
+
+Full Changelog: actions/setup-node@v3...v3.8.2
+v3.8.1
+What's Changed
+In scope of this release, the filter was removed within the cache-save step by @​dmitry-shibanov in actions/setup-node#831. It is filtered and checked in the toolkit/cache library.
+Full Changelog: actions/setup-node@v3...v3.8.1
+v3.8.0
+What's Changed
+Bug fixes:
+
+Add check for existing paths by @​dmitry-shibanov in actions/setup-node#803
+Resolve SymbolicLink by @​dmitry-shibanov in actions/setup-node#809
+Change passing logic for cache input by @​dmitry-shibanov in actions/setup-node#816
+Fix armv7 cache issue by @​louislam in actions/setup-node#794
+Update check-dist workflow name by @​sinchang in actions/setup-node#710
+
+Feature implementations:
+
+feat: handling the case where ""node"" is used for tool-versions file. by @​xytis in actions/setup-node#812
+
+Documentation changes:
+
+Refer to semver package name in README.md by @​olleolleolle in actions/setup-node#808
+
+Update dependencies:
+
+Update toolkit cache to fix zstd by @​dmitry-shibanov in actions/setup-node#804
+Bump tough-cookie and @​azure/ms-rest-js by @​dependabot in actions/setup-node#802
+Bump semver from 6.1.2 to 6.3.1 by @​dependabot in actions/setup-node#807
+
+
+
+... (truncated)
+
+
+Commits
+
+8f152de Update actions/checkout for documentation and yaml (#876)
+23755b5 upgrade actions/checkout to v4 (#868)
+54534a2 Change node version for action to node20 (#866)
+See full diff in compare view
+
+
+
+
+Dependabot will resolve any conflicts with this PR as long as you don't alter it yourself. You can also trigger a rebase manually by commenting @dependabot rebase.
+
+
+Dependabot commands and options
+
+You can trigger Dependabot actions by commenting on this PR:
+
+@dependabot rebase will rebase this PR
+@dependabot recreate will recreate this PR, overwriting any edits that have been made to it
+@dependabot merge will merge this PR after your CI passes on it
+@dependabot squash and merge will squash and merge this PR after your CI passes on it
+@dependabot cancel merge will cancel a previously requested merge and block automerging
+@dependabot reopen will reopen this PR if it is closed
+@dependabot close will close this PR and stop Dependabot recreating it. You can achieve the same result by closing it manually
+@dependabot show <dependency name> ignore conditions will show all of the ignore conditions of the specified dependency
+@dependabot ignore this major version will close this PR and stop Dependabot creating any more for this major version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this minor version will close this PR and stop Dependabot creating any more for this minor version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this dependency will close this PR and stop Dependabot creating any more for this dependency (unless you reopen the PR or upgrade to it yourself)",1,0
+862,2023-12-01T03:04:55Z,2023-12-13T18:10:58Z,2023-12-13T18:10:58Z,2,5,5,"Bumps luxon from 3.4.3 to 3.4.4.
+
+Changelog
+Sourced from luxon's changelog.
+
+3.4.4 (2023-11-12)
+
+Localized week support (#1454)
+Added custom inspect for Node (#1526)
+Fix sorting in Interval.splitAt (#1524)
+
+
+
+
+Commits
+
+825b77a bump to 3.4.4
+cd1730f Bump @​babel/traverse from 7.20.10 to 7.23.2 (#1528)
+eefe64e Add custom inspect for node without depedency (#1526)
+8ef0828 Improve Duration#toHuman docblock (#1534)
+c8a8fa2 Fix Interval.splitAt datetime sorting (#1524)
+1b8679e Implement localized week information (#1454)
+5ea19fb Fix docstring example reference typo (#1507)
+See full diff in compare view
+
+
+
+
+Dependabot will resolve any conflicts with this PR as long as you don't alter it yourself. You can also trigger a rebase manually by commenting @dependabot rebase.
+
+
+Dependabot commands and options
+
+You can trigger Dependabot actions by commenting on this PR:
+
+@dependabot rebase will rebase this PR
+@dependabot recreate will recreate this PR, overwriting any edits that have been made to it
+@dependabot merge will merge this PR after your CI passes on it
+@dependabot squash and merge will squash and merge this PR after your CI passes on it
+@dependabot cancel merge will cancel a previously requested merge and block automerging
+@dependabot reopen will reopen this PR if it is closed
+@dependabot close will close this PR and stop Dependabot recreating it. You can achieve the same result by closing it manually
+@dependabot show <dependency name> ignore conditions will show all of the ignore conditions of the specified dependency
+@dependabot ignore this major version will close this PR and stop Dependabot creating any more for this major version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this minor version will close this PR and stop Dependabot creating any more for this minor version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this dependency will close this PR and stop Dependabot creating any more for this dependency (unless you reopen the PR or upgrade to it yourself)",1,0
+863,2023-12-01T03:05:04Z,2023-12-13T18:21:23Z,2023-12-13T18:21:23Z,2,5,5,"Bumps clean-css from 5.3.2 to 5.3.3.
+
+Changelog
+Sourced from clean-css's changelog.
+
+5.3.3 / 2023-11-30
+
+Fixed issue #1262 - dynamically require os for edge runtime compatibility.
+
+
+
+
+Commits
+
+1f0692e Version 5.3.3.
+dfc6980 Updates changelog.
+100c6a0 Fixes tests due to invalid URI.
+a653350 fix: dynamically require os for edge runtime compatibility (#1262)
+See full diff in compare view
+
+
+
+
+Dependabot will resolve any conflicts with this PR as long as you don't alter it yourself. You can also trigger a rebase manually by commenting @dependabot rebase.
+
+
+Dependabot commands and options
+
+You can trigger Dependabot actions by commenting on this PR:
+
+@dependabot rebase will rebase this PR
+@dependabot recreate will recreate this PR, overwriting any edits that have been made to it
+@dependabot merge will merge this PR after your CI passes on it
+@dependabot squash and merge will squash and merge this PR after your CI passes on it
+@dependabot cancel merge will cancel a previously requested merge and block automerging
+@dependabot reopen will reopen this PR if it is closed
+@dependabot close will close this PR and stop Dependabot recreating it. You can achieve the same result by closing it manually
+@dependabot show <dependency name> ignore conditions will show all of the ignore conditions of the specified dependency
+@dependabot ignore this major version will close this PR and stop Dependabot creating any more for this major version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this minor version will close this PR and stop Dependabot creating any more for this minor version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this dependency will close this PR and stop Dependabot creating any more for this dependency (unless you reopen the PR or upgrade to it yourself)",1,0
+865,2023-12-07T01:41:24Z,2024-01-07T18:55:24Z,2024-01-07T18:55:24Z,2,219,0,"Works on #864
+Type of change
+
+ New Translation
+
+Checklist:
+
+ My content follows the style guidelines of this project
+ I have performed a self-review of my own content
+
+I have added new Translation of language Bangla.
+Thanks!",2,4
+872,2024-01-01T03:32:17Z,2024-03-04T18:39:26Z,2024-03-04T18:39:26Z,2,85,20,"Bumps markdown-it from 13.0.2 to 14.0.0.
+
+Changelog
+Sourced from markdown-it's changelog.
+
+[14.0.0] - 2023-12-08
+Changed
+
+Drop ancient browsers support (use .fromCodePoint and other features).
+Rewrite to ESM (including all plugins/deps). CJS fallback still available.
+No signatures changed, except markdown-it-emoji plugin.
+Dropped dist/ folder from repo, build on package publish.
+Set punicode.js as external dependency.
+
+Fixed
+
+Html tokens inside img alt are now rendered as their original text, #896.
+Hardbreaks inside img alt are now rendered as newlines.
+
+
+
+
+Commits
+
+4949a10 14.0.0 released
+8725522 README: update samples to esm
+ccea8b1 demo: update twemoji cdn, close #912
+92f2150 rollup: polish configs
+74ca77a Demo: plugins bump
+d9885ba Render html tags inside img alt as their original text (#979)
+9f5e9c6 lint: remove key spacing
+8b815a6 lint: reduce empty lines
+3c66f25 eslint: config cleanup & drop nested configs
+5578e69 Cleanup internal exports
+Additional commits viewable in compare view
+
+
+
+
+Dependabot will resolve any conflicts with this PR as long as you don't alter it yourself. You can also trigger a rebase manually by commenting @dependabot rebase.
+
+
+Dependabot commands and options
+
+You can trigger Dependabot actions by commenting on this PR:
+
+@dependabot rebase will rebase this PR
+@dependabot recreate will recreate this PR, overwriting any edits that have been made to it
+@dependabot merge will merge this PR after your CI passes on it
+@dependabot squash and merge will squash and merge this PR after your CI passes on it
+@dependabot cancel merge will cancel a previously requested merge and block automerging
+@dependabot reopen will reopen this PR if it is closed
+@dependabot close will close this PR and stop Dependabot recreating it. You can achieve the same result by closing it manually
+@dependabot show <dependency name> ignore conditions will show all of the ignore conditions of the specified dependency
+@dependabot ignore this major version will close this PR and stop Dependabot creating any more for this major version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this minor version will close this PR and stop Dependabot creating any more for this minor version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this dependency will close this PR and stop Dependabot creating any more for this dependency (unless you reopen the PR or upgrade to it yourself)",1,0
+873,2024-01-01T22:06:12Z,2024-01-08T16:09:31Z,2024-01-08T16:09:31Z,1,3,3,"Bumps github/codeql-action from 2 to 3.
+
+Release notes
+Sourced from github/codeql-action's releases.
+
+CodeQL Bundle v2.15.5
+Bundles CodeQL CLI v2.15.5
+
+(changelog, release)
+
+Includes the following CodeQL language packs from github/codeql@codeql-cli/v2.15.5:
+
+codeql/cpp-queries (changelog, source)
+codeql/cpp-all (changelog, source)
+codeql/csharp-queries (changelog, source)
+codeql/csharp-all (changelog, source)
+codeql/go-queries (changelog, source)
+codeql/go-all (changelog, source)
+codeql/java-queries (changelog, source)
+codeql/java-all (changelog, source)
+codeql/javascript-queries (changelog, source)
+codeql/javascript-all (changelog, source)
+codeql/python-queries (changelog, source)
+codeql/python-all (changelog, source)
+codeql/ruby-queries (changelog, source)
+codeql/ruby-all (changelog, source)
+codeql/swift-queries (changelog, source)
+codeql/swift-all (changelog, source)
+
+CodeQL Bundle v2.15.4
+Bundles CodeQL CLI v2.15.4
+
+(changelog, release)
+
+Includes the following CodeQL language packs from github/codeql@codeql-cli/v2.15.4:
+
+codeql/cpp-queries (changelog, source)
+codeql/cpp-all (changelog, source)
+codeql/csharp-queries (changelog, source)
+codeql/csharp-all (changelog, source)
+codeql/go-queries (changelog, source)
+codeql/go-all (changelog, source)
+codeql/java-queries (changelog, source)
+codeql/java-all (changelog, source)
+codeql/javascript-queries (changelog, source)
+codeql/javascript-all (changelog, source)
+codeql/python-queries (changelog, source)
+codeql/python-all (changelog, source)
+codeql/ruby-queries (changelog, source)
+codeql/ruby-all (changelog, source)
+codeql/swift-queries (changelog, source)
+codeql/swift-all (changelog, source)
+
+CodeQL Bundle
+Bundles CodeQL CLI v2.15.3
+
+(changelog, release)
+
+Includes the following CodeQL language packs from github/codeql@codeql-cli/v2.15.3:
+
+codeql/cpp-queries (changelog, source)
+
+
+
+... (truncated)
+
+
+Changelog
+Sourced from github/codeql-action's changelog.
+
+
+Commits
+
+e0c2b0a change version numbers inside processing function as well
+8e4a6c7 improve handling of changelog processing for backports
+511f073 Merge pull request #2033 from github/dependabot/npm_and_yarn/npm-0a98872b3d
+ebf5a83 Merge pull request #2035 from github/mergeback/v3.22.11-to-main-b374143c
+7813bda Update checked-in dependencies
+2b2fb6b Update changelog and version after v3.22.11
+b374143 Merge pull request #2034 from github/update-v3.22.11-64e61baea
+95591ba Merge branch 'main' into dependabot/npm_and_yarn/npm-0a98872b3d
+e2b5cc7 Update changelog for v3.22.11
+See full diff in compare view
+
+
+
+
+Dependabot will resolve any conflicts with this PR as long as you don't alter it yourself. You can also trigger a rebase manually by commenting @dependabot rebase.
+
+
+Dependabot commands and options
+
+You can trigger Dependabot actions by commenting on this PR:
+
+@dependabot rebase will rebase this PR
+@dependabot recreate will recreate this PR, overwriting any edits that have been made to it
+@dependabot merge will merge this PR after your CI passes on it
+@dependabot squash and merge will squash and merge this PR after your CI passes on it
+@dependabot cancel merge will cancel a previously requested merge and block automerging
+@dependabot reopen will reopen this PR if it is closed
+@dependabot close will close this PR and stop Dependabot recreating it. You can achieve the same result by closing it manually
+@dependabot show <dependency name> ignore conditions will show all of the ignore conditions of the specified dependency
+@dependabot ignore this major version will close this PR and stop Dependabot creating any more for this major version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this minor version will close this PR and stop Dependabot creating any more for this minor version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this dependency will close this PR and stop Dependabot creating any more for this dependency (unless you reopen the PR or upgrade to it yourself)",1,0
+874,2024-01-07T09:56:49Z,2024-01-07T18:52:02Z,2024-01-07T18:52:03Z,1,78,90,"Fixes #820
+Type of change
+
+ New Question
+ Revision of an existing question
+
+Checklist:
+
+ My content follows the style guidelines of this project
+ I have performed a self-review of my own content
+
+Pull requests should be thought of as a conversation. There will be some back and forth when trying to get code merged into this or any other project. With all but the simplest changes you can and should expect that the maintainers of the project will request changes to your code. Please be aware of that and check in after you open your PR in order to get your code merged in cleanly.
+Thanks!",2,0
+876,2024-02-07T19:59:05Z,2024-03-20T10:37:15Z,2024-03-20T10:37:15Z,1,3,0,"Got this question about TDZ in a recent interview. Revised the question. Added hindi translation of a question.
+Type of change
+
+ Other (please elaborate)  - Hindi translation added for a question
+
+Checklist:
+
+ My content follows the style guidelines of this project
+ I have performed a self-review of my own content",3,1
+878,2024-04-01T03:13:13Z,2024-04-01T18:41:17Z,2024-04-01T18:41:17Z,2,9,9,"Bumps markdown-it from 14.0.0 to 14.1.0.
+
+Changelog
+Sourced from markdown-it's changelog.
+
+[14.1.0] - 2024-03-19
+Changed
+
+Updated CM spec compatibility to 0.31.2, #1009.
+
+Fixed
+
+Fixed quadratic complexity when parsing references, #996.
+Fixed quadratic output size with pathological user input in tables, #1000.
+
+
+
+
+Commits
+
+0fe7ccb 14.1.0 released
+a367c44 Fix typo in comments of text.mjs (#1015)
+7ad8179 add changelog
+5e90063 simplify logic in scanDelims
+d7ce5ec Merge pull request #1009 from notriddle/spec-0.31.2
+0bfc57d Update spec to 0.31.2
+cd24778 Update to comply with spec 0.31.2
+eaef476 Fix typo in architecture.md (#994)
+de814ca fix quadratic complexity in reference parser (#1004)
+00b8a93 limit the number of autocompleted cells in a table
+Additional commits viewable in compare view
+
+
+
+
+Dependabot will resolve any conflicts with this PR as long as you don't alter it yourself. You can also trigger a rebase manually by commenting @dependabot rebase.
+
+
+Dependabot commands and options
+
+You can trigger Dependabot actions by commenting on this PR:
+
+@dependabot rebase will rebase this PR
+@dependabot recreate will recreate this PR, overwriting any edits that have been made to it
+@dependabot merge will merge this PR after your CI passes on it
+@dependabot squash and merge will squash and merge this PR after your CI passes on it
+@dependabot cancel merge will cancel a previously requested merge and block automerging
+@dependabot reopen will reopen this PR if it is closed
+@dependabot close will close this PR and stop Dependabot recreating it. You can achieve the same result by closing it manually
+@dependabot show <dependency name> ignore conditions will show all of the ignore conditions of the specified dependency
+@dependabot ignore this major version will close this PR and stop Dependabot creating any more for this major version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this minor version will close this PR and stop Dependabot creating any more for this minor version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this dependency will close this PR and stop Dependabot creating any more for this dependency (unless you reopen the PR or upgrade to it yourself)",1,0
+886,2024-04-11T22:03:10Z,2024-04-15T00:22:09Z,2024-04-15T00:22:09Z,1,0,1,"This change removes the cookie, session storage, and local storage question from general-questions. This question is already asked in html-questions so I don't think it needs to be repeated here.
+If redundancy is okay and we want to keep it in general-questions, I would then suggest ending this with a period instead of a question mark since it is an imperative statement instead of a question.
+Type of change
+
+ Revision of an existing question
+
+Checklist:
+
+ My content follows the style guidelines of this project
+ I have performed a self-review of my own content",2,0
+887,2024-04-12T13:05:05Z,2024-04-15T00:20:45Z,2024-04-15T00:20:45Z,1,1,1,"This particular question ends in a period but should be replaced with a question mark since it is asked like a question.
+Type of change
+Please delete options that are not relevant.
+
+ Revision of an existing question
+
+Checklist:
+
+ My content follows the style guidelines of this project
+ I have performed a self-review of my own content",2,0

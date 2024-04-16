@@ -1,0 +1,90 @@
+number,created_at,merged_at,closed_at,files,additions,deletions,body_text,participants,comments
+363,2017-02-09T11:15:21Z,,2019-01-02T16:22:36Z,1,2,0,,3,3
+374,2017-03-01T09:51:53Z,2018-03-15T17:00:23Z,2018-03-15T17:00:23Z,1,25,0,fix #366,6,22
+497,2017-09-27T15:47:36Z,2017-09-28T07:55:04Z,2017-09-28T07:55:04Z,1,2,2,,4,1
+518,2017-10-29T15:42:02Z,,2017-11-02T13:55:18Z,1,19,13,I also squished the table into two Work/Don't Work sections.,3,5
+716,2019-02-15T00:16:36Z,,2019-10-20T17:41:48Z,1,1,1,This change is ,8,8
+742,2019-04-05T21:40:13Z,2019-04-06T15:04:06Z,2019-04-06T15:04:06Z,32,110,406,"Previously, I had several metadata-fixing tools in the move-check.sh script, to fix fonts for Google Fotns. However, these are generally useful for fonts that people might self-host, as well, so I've moved these steps into the build script.
+I also made the CSS a bit more resilient.",4,2
+878,2019-10-29T16:09:50Z,,2019-12-05T12:08:09Z,1,2,2,The current MacOS instructions don't work.,5,3
+1133,2020-10-06T15:23:12Z,,2021-06-12T03:51:49Z,1,5,5,Fixed some common writing errors.,4,3
+1366,2022-02-07T00:33:16Z,2022-02-07T18:33:55Z,2022-02-07T18:33:55Z,14,56,56,"This PR corrects misspellings identified by the check-spelling action.
+The misspellings have been reported at jsoref@4bc1511#commitcomment-66137496
+The action reports that the changes in this PR would make it happy: jsoref@f061d6e
+Note: this PR does not include the action. If you're interested in running a spell check on every PR and push, that can be offered separately.
+I intend to annotate this PR shortly. I'm happy to drop changes to files, drop specific terms, or split things as requested, although this may take some time.",2,1
+1387,2022-03-11T21:01:32Z,,2022-03-15T15:00:36Z,30,401,69,"Summary
+This PR introduces several flags to the build script that allows users to bake ligatures directly into the font and thus enabling them permanently. This is useful for those who want to use certain style sets or character variations in editors that otherwise don't allow for such features.
+How can it be used?
+Features to be baked in can be given to build.sh as a comma separated list with the -f / --features flag.
+All features that were not already in their own files were pulled out of FiraCode.glyphs into individual files. There is no way I will write a parser for the glyphs file to do that at runtime. The build script will then read the code in these feature files and appends it to the calt property inside the glyphs file.
+To more easily generate multiple font versions with different features baked in, there are flags -n / --family-name for build.sh that will allow users to set a custom family name for the font. The special value ""features"" will append the feature list to the font name. The family name is exported and used by the other build scripts as a directory to separate different font versions. The filenames were not changed, the directory name is enough separation.
+Via another flag, -w / --weights, a comma separated list of font weights to be generated can be given to build.sh. This was already possible by specifying font weights as separate arguments to build_ttf.sh but now they can be given to the overall automated build script as well.
+The flag -g / --generate-glyphs-only will cause the script to exit after the custom glyphs file has been created without actually building the font. I personally use this to generate a glyphs file I can then use with EzequielRamis/liga to patch other fonts with FiraCode's ligatures.
+
+Note for the future
+This implementation relies on the code for all features being inside a file called ./features/{name}.fea where {name} is the feature name, i.e. the code for the ss06 feature must be inside a file called features/ss06.fea. If that code contains lookups, those brackets must be on separate lines. Furthermore, the file must not contain inline comments (I don't know if these would be allowed in the first place). This is because all collected code blocks will be put on a single line.
+This is ok:
+lookup backslash_thin {
+  ignore sub backslash.ss06 backslash';
+  sub backslash' by backslash.ss06;
+} backslash_thin;
+
+# This is fine as well
+lookup backslash_thin {
+  ignore sub backslash.ss06 backslash'; sub backslash' by backslash.ss06;
+} backslash_thin;
+1. These are all NOT ok:
+# 1. This entire line will be ignored by grep
+lookup backslash_thin { ignore sub backslash.ss06 backslash';  sub backslash' by backslash.ss06; } backslash_thin;
+
+# 2. The first line will be ignored, the second line will be collected though, which breaks the resulting glyphs file with an unpaired }
+lookup backslash_thin { ignore sub backslash.ss06 backslash';  
+sub backslash' by backslash.ss06; } backslash_thin;
+
+# 3. This would end up commenting out all code below the inline comment
+lookup backslash_thin {
+  ignore sub backslash.ss06 backslash'; # Inline comment here,
+  sub backslash' by backslash.ss06;
+} backslash_thin;
+
+# 4. Semicolon on the wrong line will cause the line to be collected, see second bad example
+lookup backslash_thin {
+  ignore sub backslash.ss06 backslash';
+  sub backslash' by backslash.ss06
+#v 
+ ;} backslash_thin;
+
+Closes #1383
+Closes #1348
+Related, close at your own discretion:
+
+
+
+Issue
+Reason
+
+
+
+
+#1033
+Requested different style binaries
+
+
+#994
+Requested different style binaries
+
+
+#896
+Editor without support for style sets
+
+
+#869
+pyftfeatfreeze does not work (see also here)
+
+
+#842
+Editor without support for style setsRequested different style binaries",2,1
+1438,2022-07-11T15:03:18Z,2022-07-13T18:52:38Z,2022-07-13T18:52:38Z,1,7,6,"Godot resolved the hindering issue 2 years ago.
+Godot 4 ships by default with ligatures.
+Issue godotengine/godot-proposals#1180",3,1

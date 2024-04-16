@@ -1,0 +1,12 @@
+number,created_at,merged_at,closed_at,files,additions,deletions,body_text,participants,comments
+36,2022-08-19T16:02:29Z,2022-08-22T17:54:33Z,2022-08-22T17:54:33Z,1,28,2,"With @anton-l and @patil-suraj, we've made sure that the safety_checker works correctly see here: huggingface/diffusers#219
+The only thing we're not 100% sure about is whether this line https://github.com/huggingface/diffusers/blob/89e9521048067acacfdcbc2b985af8f6b155cfb6/src/diffusers/pipelines/stable_diffusion/safety_checker.py#L65 that defines the threshold is correct",8,7
+40,2022-08-20T01:31:21Z,,2022-09-05T19:42:31Z,2,7,4,"This is to follow the more common pattern of ""no seed = different each time"".
+Hopefully this will avoid a bunch of questions from people asking ""how do I make it different each time without generating my own random seed?""",2,0
+47,2022-08-21T01:25:28Z,2022-08-23T18:26:17Z,2022-08-23T18:26:17Z,0,0,0,"I don't have access to the models so I haven't tested this. But I have tested the torch.device code and it does work.
+To get this to work, the only thing that needs to be done differently is that the conda environment needs to use environment-mac.yaml instead of environment.yaml. That is because the cudatoolkit dependency in environment.yaml generates an error. I also believe (but haven't verified) that torch and torchvision need to be updated, so I updated them.",6,4
+163,2022-09-02T02:14:27Z,,2023-02-11T07:47:18Z,1,8,0,,4,1
+437,2022-10-28T12:25:29Z,,2023-03-31T14:32:15Z,1,7,0,How to download correctly the file sd-v1-4.ckpt,2,0
+440,2022-10-28T17:13:39Z,2022-11-16T11:51:43Z,2022-11-16T11:51:43Z,4,1276,1,"DPM-Solver (https://github.com/LuChengTHU/dpm-solver) is much faster than PLMS and DDIM, which can generate almost converged samples in only 20-25 steps.
+Example images of the difference between DDIM, PLMS, and DPM-Solver can be found in: https://github.com/LuChengTHU/dpm-solver/tree/main/example_v2/stable-diffusion",3,4
+652,2023-03-08T10:11:10Z,,2023-12-26T17:03:33Z,1,19,11,The example of how to use the diffusers library with Stable Diffusion was outdated. This PR fixes this.,1,0

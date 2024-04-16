@@ -1,0 +1,134 @@
+number,created_at,merged_at,closed_at,files,additions,deletions,body_text,participants,comments
+447,2015-10-29T07:45:49Z,2015-10-29T12:00:15Z,2015-10-29T12:00:15Z,3,123,2,"增加以下特性：
+
+表头支持列合并
+单元格占多行
+单元格占多列
+
+API变动：
+columns = [{
+  title: '列一',
+  dataindex: '',
+  colSpan: 2, // 列头占两列
+  render(value, record, index) {
+    return {
+      children: value,  // 单元格内容
+      props: {
+        align: 'right' // 向右对齐
+        colSpan: 2, // 单元格占两列
+        rowSpan: 2 // 单元格占两行
+      }
+    };
+  }
+}]",3,1
+2780,2016-08-19T10:00:46Z,2016-08-20T09:43:46Z,2016-08-20T09:43:46Z,6,102,5,Close: #2715,4,3
+2875,2016-08-29T10:49:25Z,2016-08-30T09:01:51Z,2016-08-30T09:01:51Z,3,18,23,"use rc-table ~4.6.0 emptyText
+some small style adjustments",3,1
+3032,2016-09-13T09:37:39Z,2016-09-18T01:28:28Z,2016-09-18T01:28:28Z,3,98,3,,5,4
+3041,2016-09-14T06:49:54Z,2016-09-18T01:54:47Z,2016-09-18T01:54:48Z,30,285,306,"#3020
+全新设计的图标，有增删改，尽可能兼容原来的图标。",3,1
+3050,2016-09-15T20:20:23Z,2016-09-18T01:26:39Z,2016-09-18T01:26:39Z,1,1,1,Just a small update of a label.,4,1
+3061,2016-09-18T05:03:44Z,2016-09-20T00:58:20Z,2016-09-20T00:58:20Z,4,21,5,为Modal组件的confirm、success、error、warning、info 子组件增加快捷键，模仿原生体验。,6,8
+3068,2016-09-18T10:24:36Z,2016-09-19T02:17:07Z,2016-09-19T02:17:07Z,26,113,33,,3,3
+3074,2016-09-19T07:52:22Z,2016-09-20T07:29:31Z,2016-09-20T07:29:31Z,1,29,5,,3,1
+3081,2016-09-19T19:36:59Z,2016-09-21T01:33:28Z,2016-09-21T01:33:28Z,2,2,2,,3,3
+3087,2016-09-20T03:58:04Z,2016-09-28T05:43:32Z,2016-09-28T05:43:33Z,6,301,30,"Close: #3020
+We are going to provide both of English and Chinese change log after 2.0.0",4,11
+3120,2016-09-22T04:11:45Z,2016-09-22T06:40:34Z,2016-09-22T06:40:35Z,2,19,17,Close: #3106,3,1
+3151,2016-09-23T16:56:42Z,,2016-09-26T01:59:58Z,2,7,5,"First of all, thanks for your contribution! :-)
+Please makes sure these boxes are checked before submitting your PR, thank you!
+
+ Make sure you follow antd's code convention.
+ Run npm run lint and fix those errors before submitting in order to keep consistent code style.
+ Rebase before creating a PR to keep commit history clear.
+ Add some descriptions and refer relative issues for you PR.",3,1
+3162,2016-09-26T07:41:11Z,2016-09-27T05:42:30Z,2016-09-27T05:42:30Z,8,56,45,"Close: #3161
+Also close: #3123",3,3
+3166,2016-09-26T12:46:04Z,2016-09-27T05:41:57Z,2016-09-27T05:41:57Z,1,5,1,"给table的dataSource的独立key加上检验逻辑
+修复key为0时recordkey为undefined的bug
+#3093",6,6
+3167,2016-09-27T02:45:10Z,2016-09-27T04:04:01Z,2016-09-27T04:04:01Z,2,2,1,,4,1
+3220,2016-09-29T09:45:08Z,2016-09-30T06:56:53Z,2016-09-30T06:56:53Z,1,4,4,,5,1
+3259,2016-09-30T17:16:10Z,2016-10-01T00:02:01Z,2016-10-01T00:02:01Z,1,19,19,,4,1
+3264,2016-10-01T01:54:49Z,2016-10-08T07:05:08Z,2016-10-08T07:05:08Z,1,3,3,,4,8
+3291,2016-10-02T16:35:17Z,2016-10-06T10:57:25Z,2016-10-06T10:57:25Z,1,1,1,,4,1
+3326,2016-10-08T07:41:46Z,2016-10-09T06:26:41Z,2016-10-09T06:26:41Z,4,27,26,Close: #3324,4,1
+3427,2016-10-14T03:55:29Z,2016-10-14T07:53:49Z,2016-10-14T07:53:50Z,2,66,0,,3,3
+3491,2016-10-19T11:23:33Z,2016-10-20T08:24:48Z,2016-10-20T08:24:48Z,3,52,18,Form.Item 彼此嵌套，还是需要手动处理。,4,3
+3548,2016-10-24T03:40:15Z,2016-10-26T01:33:44Z,2016-10-26T01:33:45Z,5,54,1,"First of all, thanks for your contribution! :-)
+Please makes sure these boxes are checked before submitting your PR, thank you!
+
+ Make sure you follow antd's code convention.
+ Run npm run lint and fix those errors before submitting in order to keep consistent code style.
+ Add some descriptions and refer relative issues for you PR.
+
+Close: #3543
+往message.config中添加了一个stack配置,允许设置message组件重叠显示还是排列
+已添加demo",4,6
+3555,2016-10-24T11:31:13Z,,2016-11-06T07:11:55Z,1,0,1,"First of all, thanks for your contribution! :-)
+Please makes sure these boxes are checked before submitting your PR, thank you!
+
+ Make sure you follow antd's code convention.
+ Run npm run lint and fix those errors before submitting in order to keep consistent code style.
+ Rebase before creating a PR to keep commit history clear.
+ Add some descriptions and refer relative issues for you PR.",3,1
+3638,2016-10-28T08:06:47Z,,2016-11-14T03:51:25Z,4,22,3,Fix #3455,4,3
+3640,2016-10-28T09:13:35Z,2016-10-28T10:30:18Z,2016-10-28T10:30:18Z,2,84,0,还需翻译。,3,3
+3658,2016-10-31T07:59:33Z,2016-11-02T07:52:10Z,2016-11-02T07:52:10Z,12,118,69,"add getSuggestionContainer callback function, which allow users modify the
+container element of suggestions dropdown.
+the suggestions dropdown will mount on document.body defaultly, instead of
+on editor.
+close #3588",4,2
+3671,2016-11-01T06:58:19Z,2016-11-10T08:05:02Z,2016-11-10T08:05:02Z,10,233,58,close: #3560,5,12
+3692,2016-11-02T07:01:49Z,2016-11-02T09:35:05Z,2016-11-02T09:35:05Z,4,46,1,"增加了 onFocus 和 onBlur；
+增加 automatic tokenization。",4,4
+3693,2016-11-02T07:47:45Z,2016-11-09T06:45:49Z,2016-11-09T06:45:49Z,1,156,0,close #3563,5,9
+3708,2016-11-03T07:03:25Z,2016-11-09T06:45:11Z,2016-11-09T06:45:11Z,1,67,26,close #3569,4,2
+3720,2016-11-03T08:50:24Z,2016-11-07T03:13:44Z,2016-11-07T03:13:44Z,12,481,1,close #3557,5,4
+3722,2016-11-03T10:01:40Z,2016-11-04T05:50:32Z,2016-11-04T05:50:32Z,2,75,36,,4,2
+3735,2016-11-04T09:34:57Z,2016-11-06T06:32:47Z,2016-11-06T06:32:47Z,10,131,4,@benjycui @afc163,3,15
+3736,2016-11-04T10:01:19Z,2016-11-08T08:11:45Z,2016-11-08T08:11:45Z,4,94,70,"Add controlled property Transfer[selectedKeys], close: #3729",4,6
+3753,2016-11-07T08:37:15Z,2016-11-21T02:45:56Z,2016-11-21T02:45:56Z,12,144,20,"Close: #1418
+设计师休假了，等她回来过完细节再合。",4,4
+3761,2016-11-08T06:36:38Z,2016-11-09T12:16:57Z,2016-11-09T12:16:57Z,2,54,23,Close #3743,4,6
+3799,2016-11-11T06:59:29Z,2016-11-11T09:50:48Z,2016-11-11T09:50:48Z,3,16,7,"ref: #3793
+把 DatePicker/RangePicker 里面的 TimePicker 的 column 宽度改为了百分比。",3,3
+3818,2016-11-12T08:31:41Z,2016-11-15T07:29:33Z,2016-11-15T07:29:33Z,3,58,12,"ref: https://github.com/benjycui/dekko
+避免此类问题 #3814 #3811 #3745",3,10
+3831,2016-11-14T03:58:25Z,2016-11-15T06:03:20Z,2016-11-15T06:03:20Z,3,10,5,close #3808,4,2
+3837,2016-11-14T09:54:56Z,2016-11-17T15:52:17Z,2016-11-17T15:52:17Z,5,161,14,close #3003,4,4
+3861,2016-11-15T17:08:50Z,2016-11-24T06:03:57Z,2016-11-24T06:03:57Z,9,278,102,close #3561,6,6
+3868,2016-11-16T09:14:20Z,2016-11-22T02:11:12Z,2016-11-22T02:11:12Z,27,338,47,"Close #2029
+发现跟  react-component/table 那样要重新实现一遍。
+然后我担心引入这个后又多了一个性能陷阱，因为直接在 Table 里嵌套 Column 的话 props.children 每次都是新的，columns 也就每次都是新的了。",5,9
+3869,2016-11-16T09:21:07Z,2016-11-19T14:26:21Z,2016-11-19T14:26:21Z,3,5,5,close #3867,3,1
+3888,2016-11-17T07:29:50Z,,2016-11-22T11:07:07Z,29,467,327,改动很多，优先 review 下吧，不然后面很多冲突。,4,6
+3916,2016-11-18T19:13:33Z,2016-11-22T05:43:53Z,2016-11-22T05:43:53Z,60,219,18,"Close #3902
+有问题的组件：
+
+ Mention - 每次生成的 data-offset-key 不同 facebookarchive/draft-js#385
+ Carousel - matchMedia not present, legacy browsers require a polyfill
+ Menu - 每次生成 aria-owns 不同 react-component/menu#63
+ Transfer - LazyLoad 每次生成的 DOM 结构不一样
+
+其他问题：
+
+ 需要给 typescript-babel-jest 加 cache",6,17
+3968,2016-11-23T03:45:40Z,2016-11-24T06:09:43Z,2016-11-24T06:09:43Z,4,4,4,#3966,4,7
+4006,2016-11-25T02:05:43Z,2016-11-26T06:48:35Z,2016-11-26T06:48:35Z,2,87,443,,4,14
+4027,2016-11-28T01:17:17Z,,2016-11-28T08:37:13Z,18,712,22,"change Anchor type
+add Layout
+
+close #3534",5,5
+4028,2016-11-28T03:44:08Z,2016-12-02T07:07:33Z,2016-12-02T07:07:33Z,10,53,16,,4,11
+4050,2016-11-29T07:32:26Z,2016-11-29T09:13:25Z,2016-11-29T09:13:25Z,16,24,24,Made various small changes to the documentation to improve the readability and consistency.,5,2
+4055,2016-11-29T10:32:05Z,2016-11-30T02:20:23Z,2016-11-30T02:20:23Z,59,212,274,Close: #4038,5,8
+4076,2016-11-30T07:49:05Z,2016-12-01T14:05:49Z,2016-12-01T14:05:49Z,4,84,114,close: #4068,4,4
+4080,2016-11-30T10:10:19Z,2016-12-02T07:06:59Z,2016-12-02T07:06:59Z,7,148,103,close: #4023,4,3
+4087,2016-11-30T16:04:42Z,2016-12-01T08:32:40Z,2016-12-01T08:32:40Z,17,1048,22,"change Anchor type
+new Layout
+
+close #3534",6,6
+4105,2016-12-02T02:56:17Z,2016-12-02T07:07:03Z,2016-12-02T07:07:03Z,3,8,7,Close: #3924,5,6
+4112,2016-12-02T09:54:55Z,2016-12-09T05:02:16Z,2016-12-09T05:02:16Z,16,154,303,Close: #3934,5,12
+4114,2016-12-02T13:32:42Z,2016-12-05T05:15:49Z,2016-12-05T05:15:49Z,1,1,0,,5,9

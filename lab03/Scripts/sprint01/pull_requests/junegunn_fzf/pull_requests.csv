@@ -1,0 +1,1143 @@
+number,created_at,merged_at,closed_at,files,additions,deletions,body_text,participants,comments
+759,2016-12-05T12:31:42Z,2016-12-14T06:37:27Z,2016-12-14T06:37:27Z,2,66,34,"Replace the ""temp file"" workaround with the ""read"" function: it's
+simpler and faster.
+Use proper escaping, remove the custom function.
+The ""file"" widget uses last token as root for the ""find"" command.
+This replaces the equivalent of '**' completion in bash/zsh.
+The ""$cwd"" non-expanded variable can be used in FZF_CTRL_T_COMMAND to
+set the root.
+This closes #443, #484, #486 and #747.",6,28
+784,2016-12-30T16:21:00Z,2017-01-16T02:58:14Z,2017-01-16T02:58:14Z,3,14,0,,2,8
+792,2017-01-06T04:56:49Z,,2017-01-19T18:04:25Z,1,50,1,"Hi @junegunn,
+This is a PR for accompanying issue #775. I've tried to make it the least invasive as possible. Basically it just adds a separate code path s:execute_tmux_async to run fzf-tmux asynchronously if Vim8 jobs or Neovim are available. s:execute_tmux_async is closely modeled after s:execute_tmux and s:execute_term.
+Please check the commit message for more details.
+Tested on both Linux and Mac using Vim 8.0.0086 and Neovim 0.1.7.",2,5
+836,2017-02-06T22:08:56Z,2017-02-07T05:42:08Z,2017-02-07T05:42:08Z,1,1,1,,2,1
+840,2017-02-08T06:15:17Z,2017-02-09T05:05:03Z,2017-02-09T05:05:03Z,1,6,1,fixes #839,2,1
+844,2017-02-15T15:09:58Z,2017-02-16T08:18:01Z,2017-02-16T08:18:01Z,3,8,9,,2,2
+895,2017-04-02T04:12:04Z,2017-04-03T02:49:54Z,2017-04-03T02:49:54Z,1,11,3,"Hi 🍣
+I tried fix issue #796.",2,3
+896,2017-04-02T20:27:26Z,2017-04-22T02:30:51Z,2017-04-22T02:30:51Z,1,97,36,"Category
+
+ fzf binary
+ fzf-tmux script
+ Key bindings
+ Completion
+ Vim
+ Neovim (starting 3adea89)
+ Etc.
+
+
+OS
+
+ Linux
+ Mac OS X
+ Windows
+ Windows Subsystem for Linux
+ Etc.
+
+
+Shell
+
+ bash
+ zsh
+ fish
+
+
+
+PR for the shellescaping issue I described in #882.
+I added wrapper functions to handle filepath functions in vim.
+
+set noshellslash for backslash in filepaths
+set shellslash for shellescape() to single quote first, and then double quote its output   (ex. path --> ""'path'"")
+
+Vim runs cmd.exe twice, one is a wrapper proxy, and the other is the actual command
+cmd.exe strips the double quotes of each argument
+C:\Program Files (x86)\ (no quotes) breaks on s:execute() so it must be escaped with single/double quotes in cmd.exe and powershell
+
+
+
+I wasn't sure where to put the new functions so I placed them just after if guard at the top of the file because I used fzf#expand for s:base_dir.",3,29
+916,2017-05-07T05:05:51Z,2017-05-29T01:06:06Z,2017-05-29T01:06:06Z,2,42,20,"Continuation of #896.
+Previous PR cannot escape double quotes properly in s:evaluate_opts because of escaping assumptions made by cmd.exe. Instead on relying shellescape which relies on shellslash, use s:shellesc to escape with \ in Unix and \^ in Windows. For now, only "" is escaped this way. The last backslash is escaped the same way as in s:fzf_shellescape.
+The outer double quotes are escaped via ^ so cmd.exe knows where the escaping starts and ends. Without it, shell redirection with > fails even if the double quote character is escaped.
+> fzf --prompt ""C:/Program \"" Files (x86)/"" ""--multi"" > tmp.txt
+unknown option: >",2,16
+927,2017-05-19T22:55:10Z,2017-05-20T10:08:57Z,2017-05-20T10:08:57Z,1,33,0,"As the README contains quite a bit of information, having a table of content would help navigation/jumping immediately to one's required information.
+You can preview it here
+Great project BTW 😋
+PS: I used ekalinin/github-markdown-toc",2,1
+929,2017-05-21T01:00:25Z,2017-05-31T00:56:02Z,2017-05-31T00:56:02Z,1,14,2,"Some commands in fzf.vim use utf-8 characters but cmd.exe doesn't use utf-8 by default.
+Permanently changing the encoding in cmd.exe or powershell affects other terminal programs so a temporary variable is required to store the current encoding and reverting to it after fzf runs successfully.
+Issue is if the command fails, then terminal users are left in a bad state with a permanently changed encoding.
+This change is limited to Windows and GUIs that use external terminals for fzf should be unaffected if the fzf fails.
+This PR should resolve fzf.vim commands that use utf-8 characters such as Commands
+Reference:
+https://ss64.com/nt/chcp.html",2,9
+933,2017-05-31T03:05:49Z,2017-06-05T04:54:47Z,2017-06-05T04:54:47Z,1,10,3,"Since cygwin sh/bash runs cmd.exe in the back (sh/bash by itself is run in a cmd.exe terminal) and use  TERM=cygwin, we can run cygwin vim and the fzf (Windows) binary in cmd.exe/powershell. Benefit of including cygwin support to the vim plugin is running the tests as is in Windows. I'm currently using this for the Vader tests.
+By unsetting TERM, fzf runs as if vim (Windows) is used. cygpath (via s:cygpath) is used for path conversion between Windows and cygwin filepaths. I updated s:escape to escape () for Windows filepaths.
+Currently, this PR does not support mintty (TERM=xterm) because fzf is run inline (no shell script or batchfile) and I can't get the start command to work with shell redirection yet. Neovim TUI in cygwin sh/bash is not supported in the vim plugin even though it runs fine (without mintty) in sh/bash. I'll work on that along with :terminal when 0.2.1 is released.
+I'm using the cygwin environment from Git For Windows and tested this PR in sh.exe with TERM=cygwin.",2,32
+944,2017-06-12T04:43:27Z,2017-06-25T12:16:15Z,2017-06-25T12:16:15Z,1,62,13,"This is an enhancement for fish shell key bindings. Currently the  keybinding only searches subdirectories of cwd. This allows for specifying the root directory to start search from.
+ipwnponies$ pwd                                                                                                              
+/Users/ipwnponies/repos/fzf/src/algo
+
+ipwnponies$ ~/repos/fzf<M-C>
+ >
+   11/11
+   /Users/ipwnponies/repos/fzf/bin
+   /Users/ipwnponies/repos/fzf/doc
+   /Users/ipwnponies/repos/fzf/man
+   /Users/ipwnponies/repos/fzf/man/man1
+   /Users/ipwnponies/repos/fzf/plugin
+   /Users/ipwnponies/repos/fzf/shell
+   /Users/ipwnponies/repos/fzf/src
+   /Users/ipwnponies/repos/fzf/src/algo
+   /Users/ipwnponies/repos/fzf/src/tui
+   /Users/ipwnponies/repos/fzf/src/util
+ > /Users/ipwnponies/repos/fzf/test
+
+ipwnponies$ ..<M-C>
+>
+  3/3
+> ../algo
+  ../tui
+  ../util",3,7
+954,2017-06-22T12:34:08Z,2017-06-25T12:09:51Z,2017-06-25T12:09:51Z,1,1,1,"Tested to work against fish 2.4 on Debian Stretch. I will be able to test against OS X tomorrow.
+Fix found by @amosbird at #953 (comment)
+closes #436",2,1
+970,2017-07-09T04:22:56Z,2017-07-09T17:06:14Z,2017-07-09T17:06:14Z,1,7,4,#896 did not consider relative filepaths in the exit handler because dir /s/b outputs absolute paths. I changed dict and temp to be part of the fzf job config to minimize issues with the exit handler when running :FZF consecutively in Neovim.,2,3
+972,2017-07-10T10:53:21Z,2017-07-15T09:50:23Z,2017-07-15T09:50:23Z,1,14,2,"... but multiline won't be supported in versions <2.4
+Issue #966
+I have yet to test this on version 2.3, but will.",2,2
+991,2017-07-24T11:09:18Z,2017-07-25T10:10:35Z,2017-07-25T10:10:35Z,1,4,4,Fish shell 2.6.0 was released in June 3: https://fishshell.com/release_notes.html,2,1
+1000,2017-07-30T00:42:53Z,,2017-07-30T11:05:13Z,1,1,1,"Fix for the regexp comparison for checking if directory filepath ends in a slash.
+I need this issue resolved before porting it to Files in fzf.vim",2,1
+1019,2017-08-17T01:36:32Z,2017-09-05T04:29:47Z,2017-09-05T04:29:47Z,1,22,3,"Initial work to use the neovim terminal by default in Windows.
+The double keypress remains for Windows 8+ because gdamore/tcell#159 is unresolved.
+I prefer to keep this open/unmerged until the 0.2.1 release while I test this with my pull requests in fzf.vim.
+@mikesmiffy128 I cherry-pick the commit as you suggested in #962 (comment)",5,35
+1048,2017-09-09T21:26:05Z,2017-09-11T00:18:26Z,2017-09-11T00:18:26Z,1,8,6,"If .bashrc/.zshrc doesn't exist, the install script will create an empty .bashrc/.zshrc even if n is answered to Do you want to update your shell configuration files?. This is a bit of unexpected behavior, e.g. a script which installs fzf and then symlinks .zshrc from somewhere else will fail.
+Ex:
+[ -f ~/.zshrc] && mv ~/.zshrc ~/.zshrc.bak
+printf 'y\ny\nn\n' | ~/fzf/install
+ln -s ~/dotfiles/.zshrc ~/.zshrc",2,1
+1052,2017-09-13T20:17:14Z,2017-09-17T08:12:21Z,2017-09-17T08:12:21Z,1,2,2,The current ones are outdated and no longer work.,2,2
+1056,2017-09-21T13:29:48Z,2017-09-28T13:23:44Z,2017-09-28T13:23:45Z,1,2,2,"This is a little improvement useful for my use case, but feel free declining it.
+I'm a tmux user and I uses a key binding which depending on the current execution process does several things.
+is_fzf='echo ""#{pane_current_command}"" | grep -iqE ""(^|\/)fzf$""'
+
+bind -n C-h run-shell ""($is_vim && tmux send-keys C-h) || \
+                 ($is_fzf && tmux send-keys C-h) || \
+                 ($is_zsh_prompt && tmux send-keys C-h) || \
+                 tmux select-pane -L""
+
+Currently if fzf is the current execution process, the process name is bash. With these changes the process name is fzf and I'm able to capture it in tmux.",2,5
+1072,2017-10-02T15:49:39Z,,2017-10-14T06:28:58Z,2,13,8,"Close #1018
+Run the command as is in cmd.exe with no parsing and escaping.
+Explicity set cmd.SysProcAttr so execCommand does not escape the command.
+Technically, the command should be escaped with ^ for special characters, including "".
+This allows cmd.exe commands to be chained together.
+See neovim/neovim#7343 (comment)
+However, this requires a new shellescape function that is specific to one of the following:
+
+interactive prompt
+batchfile
+command name
+
+fzf#shellescape in the Vim plugin can handle only the batchfile.",2,34
+1079,2017-10-08T12:01:32Z,2017-10-10T03:27:01Z,2017-10-10T03:27:01Z,1,1,1,This would prevent tabs from being escaped as $'\t' (definitely not what I would want to see as initial value in the search).,2,1
+1161,2017-11-24T16:21:48Z,,2017-11-26T11:38:28Z,1,8,8,"Allow fzf-history-widget in zsh to accept multi-select. If one entry is selected, then vi-fetch-history is invoked, as in previous code. If multiple entries are selected, then they're joined with &&.",2,3
+1195,2018-01-10T16:14:35Z,2018-01-13T18:19:34Z,2018-01-13T18:19:34Z,1,1,0,"The current install script hints that y will be the default answer to the various prompts, but if the user presses Enter without entering an answer, nothing happens.
+This PR sets the default answer to y as hinted in the prompt [y]/n so that the user can keep pressing Enter to accept the default answer.",3,4
+1212,2018-02-07T22:59:57Z,,2018-02-15T09:40:45Z,1,10,2,"Since both FZF_CTRL_T_COMMAND and FZF_ALT_C_COMMAND share the same
+ignore pattern for the file command, it makes sense to move the
+pattern to a distinct variable and let the user to optionally provide it
+via a global variable.
+It is useful to let the user to conceal some commonly ignore directories (a build directory for example).
+What do you think?",2,3
+1219,2018-02-17T23:06:31Z,,2018-03-13T05:58:26Z,319,303511,182,"In Go 1.10, go test runs go vet. This is a problem because fzf currently doesn't pass go vet. So fzf doesn't pass tests with Go 1.10.
+I based this off #1218, which vendors all the dependencies. I couldn't run go vet ./... or go test ./... on Go 1.10 because of missing packages in vendor/ (for some reason make wasn't fetching them all). I recommend reviewing #1218 first. That will remove a lot of noise from this PR.
+go vet fixes
+
+add String() methods to Token, term, Delimeter, and *util.Chars so they can be printed with %s
+replace %s with %v where the default string representation is good enough",2,1
+1251,2018-04-03T18:50:13Z,,2018-05-04T07:02:07Z,1,1,1,"Hi @junegunn, there's been a lot of confusion with my students trying to setup fzf on their vim at this particular step because of lack of instructions as to which file in particular to put the statements. This would be helpful to them and others :)",2,0
+1267,2018-04-18T14:20:54Z,2018-06-09T16:41:51Z,2018-06-09T16:41:51Z,5,136,30,"I'm quite used to have a prompt at the bottom of the screen (not to mention vim & emacs) while I prefer a list of items shown from top down.  I just don't want to be distracted by what I type but just like to concentrate on what to pick.
+So, I've extended the --reverse option so it optionally takes all, items or none so you can choose which area to reverse.",2,15
+1279,2018-05-03T08:13:04Z,2018-05-04T05:55:48Z,2018-05-04T05:55:49Z,1,2,2,Fixes #1278,2,1
+1282,2018-05-06T07:09:42Z,2018-06-01T02:54:59Z,2018-06-01T02:54:59Z,2,74,27,This makes it possible to keep your home directory free from fzf dotfiles. One thing to note is that this does not handle the case where a ~/.fzf.bash file already exists. I can include that if desired.,5,19
+1326,2018-06-29T02:31:16Z,2018-07-16T09:55:07Z,2018-07-16T09:55:07Z,3,40,118,"These patches add ppc64le to the build system and update the crypto lib to pull in a fix [1] for syscalls that's needed to get fzf working. These changes and building with Go 1.10 allows fzf to work on ppc64le (tested on Ubuntu 16.04). Building with Go 1.6-1.9 does not produce a working fzf, presumably due to bugs in Go.
+[1] https://go.googlesource.com/crypto/+/558b6879de74bc843225cde5686419267ff707ca
+Note: I'm not a Go user myself so I have no idea if the generated glide.lock file is correct, it's what was emitted when I did glide update.",2,3
+1341,2018-07-30T00:37:53Z,,2020-03-09T15:12:39Z,4,265,89,"--height works under Windows versions that support vt100 (https://twitter.com/shanselman/status/695738082209853440).
+Mouse support doesn't work.",4,12
+1401,2018-10-11T02:06:59Z,,2019-02-28T07:51:39Z,1,1,1,This change is ,3,1
+1557,2019-04-18T08:32:32Z,2019-04-18T09:49:31Z,2019-04-18T09:49:31Z,1,8,0,"https://www.youtube.com/watch?v=qgG5Jhi_Els
+I've created this screencast which highlights fzf features. It starts with a basics and next moves on to use cases, other than just searching for files. First part of the video is about general command line usage, and second part is devoted to ""fzf + Vim"" combo. The video can be thought as a documentation complement.
+Rationale: Most people use fzf just to search for files, and miss other invaluable features, like changing directory, sending signal to a process, looking up host name to SSH in, etc. This video would be useful for those who learn by watching and should engage people into using fzf at full power.",2,1
+1626,2019-07-01T15:51:05Z,2020-10-06T11:54:43Z,2020-10-06T11:54:43Z,2,2,2,"Having multiple ssh config files with no empty line at the end of file causes some host to be missing. This is due to cat merely merge all the files content without any delimiter. E.g.
+// a
+Host A
+HostName x.x.x.x
+// b
+Host B
+HostName y.y.y.y
+Will only return either A/B.",4,0
+1677,2019-08-31T10:43:03Z,2019-12-15T09:25:59Z,2019-12-15T09:25:59Z,1,8,5,"Add &shellcmdflag and TERM environment variable treatment.
+
+Make &shellcmdflag /C when &shell turns into cmd.exe
+Delete %TERM% environment variable before fzf execution
+
+On MSYS2 environment, vim is typically configured as follows:
+
+&shell: bash
+&shellcmdflag: -c
+$TERM(%TERM%): xterm or something
+
+Since this plugin does not change &shellcmdflag while it replaces &shell with cmd.exe,
+vim on MSYS2 environment cannot start fzf properly.
+(It try to do cmd.exe -c something... but it should be cmd.exe /C something....)
+And at the time of starting cmd.exe %TERM% is no longer needed.
+So delete this environment variable in the batch file to be executed.",3,9
+1733,2019-10-24T20:05:40Z,2019-10-27T14:50:13Z,2019-10-27T14:50:13Z,4,84,29,"If present the contents of the selection will be placed in a temporary file, and the filename will be placed into the string instead.
+Addresses comments in #1719",2,5
+1837,2020-01-25T20:55:58Z,2020-02-23T15:17:39Z,2020-02-23T15:17:39Z,1,6,11,"I updated #1817 to work on macOS, and replaced --tac --sync with fc -r. Would you consider giving it another review?",4,10
+1844,2020-01-29T02:56:46Z,2020-02-17T01:19:04Z,2020-02-17T01:19:04Z,6,203,73,"Thank you for developing and maintaining this state-of-the-art CLI.
+I opened this PR because as well as prompt, pointer sign and selected signs (in multi-select mode) should also be customizable with command line arguments.
+
+Such feature, for example, would be useful in a case, where UI-provider really want users to know ""WHAT"" will happen ( multi-delete 🔥 or multi-star ⭐️ ) with emoji.",2,8
+1845,2020-01-31T11:17:12Z,2020-02-12T08:56:53Z,2020-02-12T08:56:53Z,1,73,0,"To support following features:
+
+To download the fzf.exe if it is not exist.
+If the version of fzf.exe is not correct, also download the correct version.
+The batch file will try to find the third-party uncompress tool, e.g 7-zip or WinRAR at Windows. If can't found it, they may be not installed or not has been inside PATH.",2,12
+1847,2020-02-03T08:03:25Z,2020-02-04T03:31:01Z,2020-02-04T03:31:01Z,4,87,43,"Current implementation of walker on Windows use MSDOS command. But the output of the command is not UTF-8 encoded. Also heavily slow.
+
+This pull-request delete it and add implementation of native walker. This works 300 times faster on Windows on my environment.",3,12
+1861,2020-02-10T04:57:17Z,2020-02-10T08:52:16Z,2020-02-10T08:52:16Z,1,7,3,"fix: #1856
+Both of this and #1857 will fix #1856,
+but this one won't create new option ""ascii"".",2,2
+1878,2020-02-18T03:17:14Z,2020-03-11T00:58:59Z,2020-03-11T00:59:00Z,2,49,2,"Getting my vim colors to work with  fzf was quite a challenge. After some experimentation and ""code diving"" I think I've made sense of it. Adding some notes on this to the README-VIM file that may help others facing similar issues.",3,5
+1886,2020-02-23T21:12:17Z,2020-02-28T09:47:13Z,2020-02-28T09:47:14Z,3,64,54,"Retain the current command line when aborting C-r. Add --query ""$READLINE_LINE"" and fall back to the current behavior pre Bash 4.
+Fixes #432
+Fixes #731",2,6
+1891,2020-02-25T18:20:03Z,2020-02-27T17:38:33Z,2020-02-27T17:38:33Z,4,72,47,"Action 'backward-delete-char-non-empty' will either abort if query if empty or delete one character backwards.
+This is more geared towards something like zsh-interactive-cd, where pressing backspace on an empty query is the (at least my) natural tendency when you want to exit out of fzf.
+This would partially resolve mrjohannchang/zsh-interactive-cd#5.
+Also partially resolves #1797 . Doesn't implement the long-press repetition request though.",2,4
+1892,2020-02-25T21:34:29Z,2020-02-28T11:06:39Z,2020-02-28T11:06:39Z,1,34,32,,2,1
+1934,2020-03-21T05:44:11Z,,2020-03-30T12:41:34Z,2,15,6,"refer to #1931
+juse use builtin histtory and sort by reverse order, and use sed and tr to replace perl",2,9
+1939,2020-03-25T19:36:37Z,2020-03-29T16:42:59Z,2020-03-29T16:42:59Z,1,15,13,"It's very straightforward to use actual atomic instead of mutex. And it's paying off in nearly 10x margin in terms of performance
+goos: linux
+goarch: amd64
+pkg: github.com/junegunn/fzf/src/util
+BenchmarkMutex_Set-4            20000000                69.4 ns/op
+BenchmarkMutex_Get-4            20000000                68.9 ns/op
+BenchmarkAtomic_Set-4           200000000                7.66 ns/op
+BenchmarkAtomic_Get-4           2000000000               0.42 ns/op",3,3
+1962,2020-04-07T23:12:10Z,2020-04-21T01:12:01Z,2020-04-21T01:12:01Z,2,527,479,"What do you think of adding minitest assertions, to improve the automated tests output?
+Before
+  1) Error:
+TestZsh#test_process_completion:
+RuntimeError: timeout
+    test/test_go.rb:47:in `wait'
+    test/test_go.rb:118:in `until'
+    test/test_go.rb:2025:in `test_process_completion'
+
+After
+  1) Failure:
+TestZsh#test_process_completion [test/test_go.rb:2047]:
+Expected: ""kill 16358""
+  Actual: ""kill 1""",2,3
+1978,2020-04-12T20:39:43Z,2020-04-17T17:34:39Z,2020-04-17T17:34:39Z,2,75,118,This was originally part of #1900,2,4
+2000,2020-04-23T10:42:55Z,2020-05-15T06:25:33Z,2020-05-15T06:25:33Z,1,21,11,I propose to use pty-buffer instead of unnecessary shell process when opening popup window.,4,17
+2042,2020-05-17T05:03:37Z,2020-05-17T14:28:23Z,2020-05-17T14:28:23Z,1,4,5,This PR tries to fix the issue #2041.,2,1
+2140,2020-08-15T05:51:12Z,2020-09-02T08:27:57Z,2020-09-02T08:27:57Z,1,1,1,"Summary
+Fix the regular expression to capture the command containing asterisk.
+Details
+After this commit, CTRL-R command history search has failed to display some commands in zsh.
+The new method to cut the history number from the each line can't capture the command containing an asterisk(*) mark followed by the number.
+If you have command history like an example below, CTRL-R only displays ls, vi, man, git and ssh... .
+$ fc -rl 1 output example
+123* ls
+122* cd
+121* date
+120 vi
+119 man
+118* git
+117* which
+116* emacs
+115 ssh
+...
+I have little knowledge about perl, but I guess when it processes the 123* ls line, capturing failure makes 'undef' hash key. So the next commands(cd and date) including asterisks aren't be displayed because perl recognize them as the same commands.
+While I don't know why git is displayed, my assumption is undefs that are not produced in the continuous block are treated differently by perl internals.",4,7
+2145,2020-08-16T23:42:07Z,2020-10-05T12:58:57Z,2020-10-05T12:58:57Z,4,19,0,"Hi @junegunn,
+Awesome command. It took me one week-end to learn but I can jump anywhere.
+I would personally like to jump half screen in the preview window (like ctrl-d in vim), actually I map it to  alt-d.
+This PR does not change the default behavior.
+
+Well it's just like jumping a full screen divided by two but to follow french courtesy, I join a screencast where I 1/2 press alt-d and then ald-u",4,5
+2156,2020-08-27T03:07:51Z,2020-09-02T04:47:14Z,2020-09-02T04:47:14Z,5,25,15,"Update to latest tcell (1.4.0) which added 24 bit color Windows support
+light renderer under Windows defaults to Dark256, if possible
+Turns off Windows truecolor support if TCELL_TRUECOLOR is set to 'disable'",2,2
+2224,2020-10-27T08:22:17Z,2020-10-27T14:55:10Z,2020-10-27T14:55:10Z,1,1,1,"OS : Windows10
+vim : gvim 8.2
+This pull request is fixed candidate's text with Multibyte language(exe. Japanese).",3,10
+2246,2020-11-11T15:19:13Z,2020-11-12T17:16:55Z,2020-11-12T17:16:55Z,1,16,8,"Commit d4ad4a2 slowed loading of completion.bash significantly (on my
+laptop from 10 ms to 30 ms), then 54891d1 improved that (to 20 ms) but
+it still stands out as the heavy part of my .bashrc. Furthermore, an
+omission in d4ad4a2 caused meaningless ""complete _a"" and ""complete _v""
+completions to be defined.
+This pull request fixes that mistake, refactors the code to prevent
+making it again, and most importantly optimizes
+__fzf_orig_completion_filter so that loading completion.bash is as fast
+as it was before d4ad4a2, that is under 10 ms on my laptop.
+(I tried not to use any features not present in bash 3.2, but I didn't
+test it with bash 3.2. Can someone try this on MacOS please?)",3,10
+2251,2020-11-14T09:16:01Z,2020-12-05T12:48:55Z,2020-12-05T12:48:55Z,1,1,0,"When history sharing across shells is enabled (setopt SHARE_HISTORY), history written by shell A won't be available in shell B until re-rendering the prompt in B (e.g. by pressing Enter at the prompt).
+With this change, C-r will always reload the history file if history sharing is enabled, making the latest history searchable immediately.",4,15
+2322,2021-01-14T09:29:51Z,2021-01-15T01:10:10Z,2021-01-15T01:10:10Z,2,2,2,,2,1
+2349,2021-02-11T23:34:49Z,,2021-03-27T20:42:55Z,1,15,4,"The short story: this special handling doesn't work with any recent version of Cygwin. Without this special treatment, it just works.
+Forcing the users to set $TERM to ""cygwin"" just to get fzf running under Cygwin, as suggested in one comment is not cool, and breaks on its own many other things.
+Since there is no comment on why this special treatment was applied, it's hard to figure out what the initial intention was, and whether this was required in order to make things run at all, or to improve upon something lacking.
+This PR fixes #2153",5,8
+2368,2021-02-23T18:43:11Z,2021-03-11T10:34:50Z,2021-03-11T10:34:51Z,3,431,76,"This commit speeds up the parsing/processing of ANSI escape codes by roughly 7.5x. The speedup is mostly accomplished by replacing the regex with dedicated parsing logic (nextAnsiEscapeSequence()) and reducing the number of allocations in extractColor().
+Benchmarks
+name             old time/op    new time/op     delta
+ExtractColor-16    4.89µs ± 5%     0.64µs ± 2%   -86.87%  (p=0.000 n=9+9)
+
+name             old speed      new speed       delta
+ExtractColor-16  25.6MB/s ± 5%  194.6MB/s ± 2%  +661.43%  (p=0.000 n=9+9)
+
+name             old alloc/op   new alloc/op    delta
+ExtractColor-16    1.37kB ± 0%     0.31kB ± 0%   -77.31%  (p=0.000 n=10+10)
+
+name             old allocs/op  new allocs/op   delta
+ExtractColor-16      48.0 ± 0%        4.0 ± 0%   -91.67%  (p=0.000 n=10+10)
+
+TODO
+
+ANSI performance can be further improved by reducing conversions between string and []byte, for example most callers of extractColor convert the string response to []byte:
+
+core.go:72:74
+core.go:79:81
+terminal.go:539:540
+terminal.go:1021:1024",2,5
+2375,2021-02-28T07:51:43Z,2021-02-28T12:01:04Z,2021-02-28T12:01:04Z,2,24,3,Fix for #2374,2,2
+2396,2021-03-18T17:24:12Z,2021-03-20T03:32:44Z,2021-03-20T03:32:44Z,2,2,2,,2,1
+2443,2021-04-15T22:45:30Z,2021-04-17T11:48:11Z,2021-04-17T11:48:11Z,3,33,9,"Neovim supports a relative option in nvim_open_win() that allows you to position windows relative to the current window or the cursor (as opposed to the entirety of the editor).
+This PR:
+
+passes all options from s:popup to s:create_popup so that it can receive relative (plus other options like anchor)
+uses window width/height instead of &columns/&lines if the relative option is present
+
+A configuration of let g:fzf_layout = { 'window': { 'relative': 'win', 'width': 1.0, 'height': 0.4 }}] looks like this:",2,4
+2531,2021-06-19T11:10:55Z,,2022-12-27T15:19:21Z,2,9,0,hey this appears to be working correctly this is my first time using golang so please double check and if its incorrect or causes conflict please let me know as i patched this together after 8 hrs of research into golang and mirroring what was already in place,4,1
+2559,2021-07-16T04:11:59Z,,2022-12-27T15:11:24Z,4,75,1,"Add a change-query(...) action. This action will execute the given command and replace the current query with the result.
+closes: #2465",2,1
+2615,2021-09-21T17:23:09Z,2021-09-24T00:45:06Z,2021-09-24T00:45:07Z,2,53,23,"I needed to write some tests, but the existing tests were failing on Windows. In this pull request you can find changes that make the tests run and pass on both platforms.
+The first commit prepares the ground and make some strings in the tests parametric. I'm using the text/templates package from Go. The second commit then contains all changes related to Windows platform.",2,1
+2616,2021-09-21T18:00:59Z,2021-10-02T16:39:30Z,2021-10-02T16:39:30Z,3,481,12,"This pull request is focused on fixing some issues and adding new features in the FullscreenRenderer. Most of the branch is about keyboard events, but the last commit also implements mouse events.
+Keyboard
+
+I tried to bring the keyboard events in FullscreenRenderer as close as possible to the LightRenderer
+additions:
+
+extensive testing of the tcell events that fzf uses as source for keyboard events
+ability to input AltGr characters on foreign keyboards
+
+
+fixes:
+
+CtrlSpace event didn't work
+CtrlCaret event wasn't implement
+there was big discrepancy in how backspace key is handled between FullscreenRenderer and LightRenderer. The CtrlH event was emitted even in the cases where BSpace or AltBS was appropriate.
+
+
+
+Mouse
+The mouse events in LightRenderer are consumed by the shell in Windows, so I didn't have reference point. Based on existing code it should be close to what user would expect, but I noticed something that looked like Shift+Click support in LightRenderer, so this implementation may still lag behind the unix one.",2,3
+2624,2021-10-05T10:27:33Z,2021-10-15T13:32:00Z,2021-10-15T13:32:00Z,4,499,88,"Hi, this is some work I have done while playing with #2609. No changes though, just tests, refactoring and bit of docs.
+Notable:
+
+Most of the value is in the tests that improve the coverage of placeholder flags.
+But I have also refactored replacePlaceholder function, that seemed rather difficult to understand/edit at first. I have got tests before I touched anything; all the logic should be equivalent.",2,3
+2641,2021-10-19T20:32:09Z,2021-10-22T16:09:47Z,2021-10-22T16:09:47Z,2,53,13,"This PR makes fzf respect SHELL environment variable on Windows, like it does on *nix, whenever defined.
+Closes #2638",4,4
+2647,2021-10-27T07:52:09Z,2021-11-02T06:56:20Z,2021-11-02T06:56:21Z,3,98,10,Fix what was left in #2641,5,11
+2727,2022-02-06T07:20:59Z,,2022-02-14T02:18:58Z,1,119,26,"Prior to this commit, the zsh keybindings did not support a prefix search and did not support using an initial directory for commands.
+For instance, the following operation was impossible prior to this commit:
+Pressing Ctrl-T while the cursor was after a directory would not start searching from the given directory, i.e. > ls src/_ (where underscore denotes the current cursor) would always search for files in '.'.
+With this commit, zsh's behavior is now inline with Fish's behavior and will correctly start searching in the existing directory.
+The M-c (alt-c) behavior was also fixed to be compatible with Fish's behavior.
+
+The features implemented in this commit were only tested on zsh 5.8.
+I do not have enough knowledge about ZSH to assert that this PR will not introduce regressions.",3,4
+2813,2022-05-07T23:09:11Z,2024-04-13T05:58:11Z,2024-04-13T05:58:11Z,12,435,13,"This commit enables cpu, mem, block, and mutex profling of the FZF
+executable. To support flushing the profiles at program exit it adds
+util.AtExit to register ""at exit"" functions and mandates that util.Exit
+is used instead of os.Exit to stop the program.",2,6
+2817,2022-05-14T17:57:06Z,2022-10-25T00:34:58Z,2022-10-25T00:34:58Z,1,14,0,"Dependency Review GitHub Action in your repository to enforce dependency
+reviews on your pull requests.
+The action scans for vulnerable versions of dependencies introduced by package version
+changes in pull requests,
+and warns you about the associated security vulnerabilities.
+This gives you better visibility of what's changing in a pull request,
+and helps prevent vulnerabilities being added to your repository.
+
+https://docs.github.com/en/code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review#dependency-review-enforcement
+Signed-off-by: naveensrinivasan 172697+naveensrinivasan@users.noreply.github.com",2,1
+2828,2022-05-22T10:18:14Z,2022-05-25T00:50:10Z,2022-05-25T00:50:10Z,1,6,1,"shellescape() behaviour different when shell=fish, so we should set shell before calling shellescape(), otherwise some wired behaviour (such as kevinhwang91/nvim-bqf#56) may apper.",2,3
+2871,2022-07-11T20:32:44Z,2022-07-15T06:53:23Z,2022-07-15T06:53:23Z,1,4,0,"this isn't the full fix but I left an inline comment in case this ever
+bugs a future user and they're wondering where the last few flags'
+completions are (answer: they're not added yet, as they're just
+diminishing return for this particular quick itch-scratching).",2,4
+2885,2022-07-21T06:59:45Z,,2024-03-02T00:23:04Z,3,13,5,"The default find command was not printing dotfiles in the current directory.
+Added the default to readme and man pages: it was very difficult to fix via $FZF_DEFAULT_COMMAND as I did not know what the default was without digging into source.",3,3
+2894,2022-07-25T11:26:08Z,2022-07-28T23:18:06Z,2022-07-28T23:18:06Z,1,1,1,"Replace fzf#shellescape with shellescape as it was surround the command in ""^"" characters that powershell did not recognise as escape characters
+Prepend command with '&' in powershell to deal with quoted exe name",3,5
+2927,2022-08-16T15:53:53Z,2022-08-25T05:02:09Z,2022-08-25T05:02:09Z,1,14,6,"This commit slightly refactors the escape sequence matching functions
+for a 20% speed up.
+ANSI Benchmarks:
+goos: darwin
+goarch: arm64
+pkg: github.com/junegunn/fzf/src
+
+name                       old time/op    new time/op    delta
+NextAnsiEscapeSequence-10     114ns ± 1%      90ns ± 1%  -21.57%  (p=0.008 n=5+5)
+ExtractColor-10               544ns ± 0%     517ns ± 0%   -5.01%  (p=0.008 n=5+5)
+
+name                       old speed      new speed      delta
+NextAnsiEscapeSequence-10  1.09GB/s ± 1%  1.39GB/s ± 1%  +27.52%  (p=0.008 n=5+5)
+ExtractColor-10             230MB/s ± 0%   242MB/s ± 0%   +5.27%  (p=0.008 n=5+5)",2,3
+2948,2022-08-30T02:16:57Z,2022-08-30T04:28:01Z,2022-08-30T04:28:01Z,1,1,1,,2,1
+2952,2022-09-01T15:06:27Z,2022-09-10T02:38:41Z,2022-09-10T02:38:41Z,1,2,2,"This PR fixes the following minor problem.
+In bash completion, if an environment variable contains a newline, the completion list contains the value (not the name) of the variable. The same problem exists with aliases.
+Ex)
+$ export AAA=""
+aaa_line1
+aaa_line2
+""
+
+$ unset **<TAB>
+> < 91/91 (0)
+> AAA
+  aaa_line1
+  aaa_line2
+  ""
+  ...",2,1
+2965,2022-09-12T13:26:41Z,2022-09-28T07:55:13Z,2022-09-28T07:55:13Z,3,3,3,"Bumps actions/checkout from 629c2de402a417ea7690ca6ce3f33229e27606a5 to 61b9e3751b92087fd0b06925ba6dd6314e06f089.
+
+Changelog
+Sourced from actions/checkout's changelog.
+
+Changelog
+v3.0.2
+
+Add input set-safe-directory
+
+v3.0.1
+
+Fixed an issue where checkout failed to run in container jobs due to the new git setting safe.directory
+Bumped various npm package versions
+
+v3.0.0
+
+Update to node 16
+
+v2.3.1
+
+Fix default branch resolution for .wiki and when using SSH
+
+v2.3.0
+
+Fallback to the default branch
+
+v2.2.0
+
+Fetch all history for all tags and branches when fetch-depth=0
+
+v2.1.1
+
+Changes to support GHES (here and here)
+
+v2.1.0
+
+Group output
+Changes to support GHES alpha release
+Persist core.sshCommand for submodules
+Add support ssh
+Convert submodule SSH URL to HTTPS, when not using SSH
+Add submodule support
+Follow proxy settings
+Fix ref for pr closed event when a pr is merged
+Fix issue checking detached when git less than 2.22
+
+v2.0.0
+
+Do not pass cred on command line
+Add input persist-credentials
+Fallback to REST API to download repo
+
+v2 (beta)
+
+Improved fetch performance
+
+
+
+... (truncated)
+
+
+Commits
+
+28c7f3d changelog
+fb6f360 fix default branch for .wiki and when using ssh (#284)
+b4483ad changelog
+00a3be8 determine default branch (#278)
+453ee27 update troubleshooting instructions to include 'npm run format'
+65865e1 build because all is no more (#264)
+aabbfeb changelog
+e52d022 Fetch all history for all tags and branches when fetch-depth=0 (#258)
+2ff2fbd telemetry for incorrect merge commit (#253)
+df86c82 fix readme (#251)
+Additional commits viewable in compare view
+
+
+
+Dependabot will resolve any conflicts with this PR as long as you don't alter it yourself. You can also trigger a rebase manually by commenting @dependabot rebase.
+
+
+Dependabot commands and options
+
+You can trigger Dependabot actions by commenting on this PR:
+
+@dependabot rebase will rebase this PR
+@dependabot recreate will recreate this PR, overwriting any edits that have been made to it
+@dependabot merge will merge this PR after your CI passes on it
+@dependabot squash and merge will squash and merge this PR after your CI passes on it
+@dependabot cancel merge will cancel a previously requested merge and block automerging
+@dependabot reopen will reopen this PR if it is closed
+@dependabot close will close this PR and stop Dependabot recreating it. You can achieve the same result by closing it manually
+@dependabot ignore this major version will close this PR and stop Dependabot creating any more for this major version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this minor version will close this PR and stop Dependabot creating any more for this minor version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this dependency will close this PR and stop Dependabot creating any more for this dependency (unless you reopen the PR or upgrade to it yourself)",1,0
+2997,2022-10-10T14:00:56Z,2022-10-16T13:33:49Z,2022-10-16T13:33:49Z,3,3,3,"Bumps actions/checkout from 61b9e3751b92087fd0b06925ba6dd6314e06f089 to 3.1.0. This release includes the previously tagged commit.
+
+Release notes
+Sourced from actions/checkout's releases.
+
+v3.1.0
+What's Changed
+
+Inject GitHub host to be able to clone from another GitHub instance by @​peter-murray in actions/checkout#922
+Bump @​actions/core to 1.10.0 by @​rentziass in actions/checkout#939
+
+New Contributors
+
+@​peter-murray made their first contribution in actions/checkout#922
+@​rentziass made their first contribution in actions/checkout#939
+
+Full Changelog: actions/checkout@v3.0.2...v3.1.0
+
+
+
+Changelog
+Sourced from actions/checkout's changelog.
+
+Changelog
+v3.1.0
+
+Use @​actions/core saveState and getState
+Add github-server-url input
+
+v3.0.2
+
+Add input set-safe-directory
+
+v3.0.1
+
+Fixed an issue where checkout failed to run in container jobs due to the new git setting safe.directory
+Bumped various npm package versions
+
+v3.0.0
+
+Update to node 16
+
+v2.3.1
+
+Fix default branch resolution for .wiki and when using SSH
+
+v2.3.0
+
+Fallback to the default branch
+
+v2.2.0
+
+Fetch all history for all tags and branches when fetch-depth=0
+
+v2.1.1
+
+Changes to support GHES (here and here)
+
+v2.1.0
+
+Group output
+Changes to support GHES alpha release
+Persist core.sshCommand for submodules
+Add support ssh
+Convert submodule SSH URL to HTTPS, when not using SSH
+Add submodule support
+Follow proxy settings
+Fix ref for pr closed event when a pr is merged
+Fix issue checking detached when git less than 2.22
+
+v2.0.0
+
+Do not pass cred on command line
+Add input persist-credentials
+Fallback to REST API to download repo
+
+
+
+... (truncated)
+
+
+Commits
+
+93ea575 Prepare release v3.1.0 (#940)
+6a84743 Bump @​actions/core to 1.10.0 (#939)
+e6d535c Inject GitHub host to be able to clone from another GitHub instance (#922)
+2541b12 Prepare changelog for v3.0.2. (#777)
+0ffe6f9 Add set-safe-directory input to allow customers to take control. (#770)
+dcd71f6 Enforce safe directory (#762)
+add3486 Patch to fix the dependbot alert. (#744)
+5126516 Bump minimist from 1.2.5 to 1.2.6 (#741)
+d50f8ea Add v3.0 release information to changelog (#740)
+2d1c119 update test workflows to checkout v3 (#709)
+Additional commits viewable in compare view
+
+
+
+Dependabot will resolve any conflicts with this PR as long as you don't alter it yourself. You can also trigger a rebase manually by commenting @dependabot rebase.
+
+
+Dependabot commands and options
+
+You can trigger Dependabot actions by commenting on this PR:
+
+@dependabot rebase will rebase this PR
+@dependabot recreate will recreate this PR, overwriting any edits that have been made to it
+@dependabot merge will merge this PR after your CI passes on it
+@dependabot squash and merge will squash and merge this PR after your CI passes on it
+@dependabot cancel merge will cancel a previously requested merge and block automerging
+@dependabot reopen will reopen this PR if it is closed
+@dependabot close will close this PR and stop Dependabot recreating it. You can achieve the same result by closing it manually
+@dependabot ignore this major version will close this PR and stop Dependabot creating any more for this major version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this minor version will close this PR and stop Dependabot creating any more for this minor version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this dependency will close this PR and stop Dependabot creating any more for this dependency (unless you reopen the PR or upgrade to it yourself)",1,0
+2998,2022-10-10T14:01:04Z,2022-10-16T13:36:59Z,2022-10-16T13:36:59Z,1,3,3,"Bumps github/codeql-action from 2.1.25 to 2.1.27.
+
+Changelog
+Sourced from github/codeql-action's changelog.
+
+CodeQL Action Changelog
+[UNRELEASED]
+No user facing changes.
+2.1.27 - 06 Oct 2022
+
+We are rolling out a feature of the CodeQL Action in October 2022 that changes the way that Go code is analyzed to be more consistent with other compiled languages like C/C++, C#, and Java. You do not need to alter your code scanning workflows. If you encounter any problems, please file an issue or open a private ticket with GitHub Support and request an escalation to engineering.
+
+2.1.26 - 29 Sep 2022
+
+Update default CodeQL bundle version to 2.11.0. #1267
+
+2.1.25 - 21 Sep 2022
+
+We will soon be rolling out a feature of the CodeQL Action that stores some information used to make future runs faster in the GitHub Actions cache. Initially, this will only be enabled on JavaScript repositories, but we plan to add more languages to this soon. The new feature can be disabled by passing the trap-caching: false option to your workflow's init step, for example if you are already using the GitHub Actions cache for a different purpose and are near the storage limit for it.
+Add support for Python automatic dependency installation with Poetry 1.2 #1258.
+
+2.1.24 - 16 Sep 2022
+No user facing changes.
+2.1.23 - 14 Sep 2022
+
+Allow CodeQL packs to be downloaded from GitHub Enterprise Server instances, using the new registries input for the init action.  #1221
+Update default CodeQL bundle version to 2.10.5. #1240
+
+2.1.22 - 01 Sep 2022
+
+Downloading CodeQL packs has been moved to the init step. Previously, CodeQL packs were downloaded during the analyze step. #1218
+Update default CodeQL bundle version to 2.10.4. #1224
+The newly released Poetry 1.2 is not yet supported. In the most common case where the CodeQL Action is automatically installing Python dependencies, it will continue to install and use Poetry 1.1 on its own. However, in certain cases such as with self-hosted runners, you may need to ensure Poetry 1.1 is installed yourself.
+
+2.1.21 - 25 Aug 2022
+
+Improve error messages when the code scanning configuration file includes an invalid queries block or an invalid query-filters block. #1208
+Fix a bug where Go build tracing could fail on Windows. #1209
+
+2.1.20 - 22 Aug 2022
+No user facing changes.
+2.1.19 - 17 Aug 2022
+
+Add the ability to filter queries from a code scanning run by using the query-filters option in the code scanning configuration file. #1098
+In debug mode, debug artifacts are now uploaded even if a step in the Actions workflow fails. #1159
+Update default CodeQL bundle version to 2.10.3. #1178
+The combination of python2 and Pipenv is no longer supported. #1181
+
+
+
+... (truncated)
+
+
+Commits
+
+8075783 Merge main into releases/v2 (#1287)
+e0e5ded Merge pull request #1276 from github/update-v2.1.26-97054749
+c60b854 Update changelog for v2.1.26
+9705474 Merge pull request #1274 from github/aeisenberg/update-checks-script
+fb0f747 Update the checks script
+3400e51 Add dotnet env variable to workflow (#1273)
+74740ee Merge pull request #1270 from github/aeisenberg/cli-config-feature-flag
+1ec8ea9 Merge branch 'main' into aeisenberg/cli-config-feature-flag
+2466f0c Merge pull request #1267 from github/cklin/codeql-cli-2.11.0
+a711c76 Update default CodeQL version to 2.11.0
+Additional commits viewable in compare view
+
+
+
+
+Dependabot will resolve any conflicts with this PR as long as you don't alter it yourself. You can also trigger a rebase manually by commenting @dependabot rebase.
+
+
+Dependabot commands and options
+
+You can trigger Dependabot actions by commenting on this PR:
+
+@dependabot rebase will rebase this PR
+@dependabot recreate will recreate this PR, overwriting any edits that have been made to it
+@dependabot merge will merge this PR after your CI passes on it
+@dependabot squash and merge will squash and merge this PR after your CI passes on it
+@dependabot cancel merge will cancel a previously requested merge and block automerging
+@dependabot reopen will reopen this PR if it is closed
+@dependabot close will close this PR and stop Dependabot recreating it. You can achieve the same result by closing it manually
+@dependabot ignore this major version will close this PR and stop Dependabot creating any more for this major version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this minor version will close this PR and stop Dependabot creating any more for this minor version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this dependency will close this PR and stop Dependabot creating any more for this dependency (unless you reopen the PR or upgrade to it yourself)",1,0
+2999,2022-10-12T03:03:14Z,2022-10-16T08:15:19Z,2022-10-16T08:15:19Z,5,30,27,"when set -o nounset is enabled
+completion complains about these variables being unset:
+orig_var
+__fzf_no_space_commands",2,8
+3012,2022-10-17T13:42:22Z,2022-10-24T11:07:32Z,2022-10-24T11:07:32Z,2,2,2,"Bumps ruby/setup-ruby from 1.117.0 to 1.118.0.
+
+Release notes
+Sourced from ruby/setup-ruby's releases.
+
+Update dependencies to fix actions/core deprecation warning
+
+See ruby/setup-ruby#385
+
+
+
+
+Commits
+
+eae4796 yarn upgrade
+d240f61 Run pre-commit hook when changing yarn.lock
+See full diff in compare view
+
+
+
+
+Dependabot will resolve any conflicts with this PR as long as you don't alter it yourself. You can also trigger a rebase manually by commenting @dependabot rebase.
+
+
+Dependabot commands and options
+
+You can trigger Dependabot actions by commenting on this PR:
+
+@dependabot rebase will rebase this PR
+@dependabot recreate will recreate this PR, overwriting any edits that have been made to it
+@dependabot merge will merge this PR after your CI passes on it
+@dependabot squash and merge will squash and merge this PR after your CI passes on it
+@dependabot cancel merge will cancel a previously requested merge and block automerging
+@dependabot reopen will reopen this PR if it is closed
+@dependabot close will close this PR and stop Dependabot recreating it. You can achieve the same result by closing it manually
+@dependabot ignore this major version will close this PR and stop Dependabot creating any more for this major version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this minor version will close this PR and stop Dependabot creating any more for this minor version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this dependency will close this PR and stop Dependabot creating any more for this dependency (unless you reopen the PR or upgrade to it yourself)",1,0
+3021,2022-10-24T13:25:07Z,2022-10-25T06:54:44Z,2022-10-25T06:54:44Z,2,2,2,"Bumps actions/setup-go from 3.3.0 to 3.3.1.
+
+Release notes
+Sourced from actions/setup-go's releases.
+
+Fix cache issues and update dependencies
+In scope of this release we fixed the issue with the correct generation of the cache key when the go-version-file input is set (actions/setup-go#267). Moreover, we fixed an issue when the cache folder was not found. Besides, we updated actions/core to 1.10.0 version (actions/setup-go#273).
+
+
+
+Commits
+
+c4a742c fix(): cache resolve version input (#267)
+f556e5b Merge pull request #273 from rentziass/rentziass/update-actions-core
+514ae57 Update @​actions/core to 1.10.0
+30b9ddf Merge pull request #264 from e-korolevskii/258-not-throw-err-no-cache-folders
+c4e1698 prettier format
+db58e98 format
+2905db4 update build
+57452eb fix debug lines in test
+5547b9e fix(cache): Not throw err if no cache folders
+be45b27 build
+Additional commits viewable in compare view
+
+
+
+
+Dependabot will resolve any conflicts with this PR as long as you don't alter it yourself. You can also trigger a rebase manually by commenting @dependabot rebase.
+
+
+Dependabot commands and options
+
+You can trigger Dependabot actions by commenting on this PR:
+
+@dependabot rebase will rebase this PR
+@dependabot recreate will recreate this PR, overwriting any edits that have been made to it
+@dependabot merge will merge this PR after your CI passes on it
+@dependabot squash and merge will squash and merge this PR after your CI passes on it
+@dependabot cancel merge will cancel a previously requested merge and block automerging
+@dependabot reopen will reopen this PR if it is closed
+@dependabot close will close this PR and stop Dependabot recreating it. You can achieve the same result by closing it manually
+@dependabot ignore this major version will close this PR and stop Dependabot creating any more for this major version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this minor version will close this PR and stop Dependabot creating any more for this minor version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this dependency will close this PR and stop Dependabot creating any more for this dependency (unless you reopen the PR or upgrade to it yourself)",1,0
+3062,2022-11-26T11:24:00Z,2022-11-27T07:30:59Z,2022-11-27T07:30:59Z,1,122,2,,2,3
+3067,2022-11-30T12:36:27Z,,2022-12-26T07:26:40Z,2,2,0,"Little-endian 64 bit PowerPC (ppc64le) is the ""normal"" PowerPC architecture supported by standard Linux distributions (RedHat, SUSE, Ubuntu, etc.).
+Add support for this architecture in the install script, and add binary builds for it as well.",2,2
+3094,2022-12-17T15:27:26Z,2022-12-20T16:35:09Z,2022-12-20T16:35:09Z,7,440,251,"# Start HTTP server on port 6266
+fzf --listen 6266
+
+# Send actions to the server
+curl -XPOST localhost:6266 -d 'reload(seq 100)+change-prompt(hundred> )'
+Feedbacks are welcome. Do you like it? Are you going to use it? What are you planning to do with this?
+Drawbacks
+This will significantly increase the size of the binary (2.8MB to 5.7MB for darwin arm64). UPX might help with the issue. (However, upx/upx#601)
+Alternatives
+
+Using signals as suggested in #2019
+
+Limited to only two bindings, SIGUSR1 and SIGUSR2
+No SIGUSR1 or SIGUSR2 on Windows
+
+
+Non-HTTP socket server or named pipes
+
+Less expressive and less extensible. We can extend the HTTP server to support other HTTP verbs in the future.
+Likely less binary size? Haven't confirmed.
+Portability issue",4,11
+3117,2023-01-09T15:27:13Z,2023-01-10T01:46:13Z,2023-01-10T01:46:13Z,1,2,2,It's a long time that users are supposed to use apt for everything rather than apt-*,2,1
+3130,2023-01-17T18:46:14Z,2023-01-21T17:18:19Z,2023-01-21T17:18:19Z,8,203,118,"Actions to update border-label and preview-label.
+
+Use case:
+Instead of using ""prompt"" to identify my command, I prefer to use border-labels. The problem is that I have re-bindings to change which commands I'm using, but I can't update the label identifier.",2,1
+3160,2023-02-09T14:47:07Z,,2023-03-24T13:34:32Z,1,12,18,Misc quote fixes and additional safety checks,2,0
+3183,2023-02-22T04:58:40Z,2023-02-22T15:36:04Z,2023-02-22T15:36:04Z,5,20,4,,2,1
+3194,2023-02-27T14:03:26Z,2023-03-06T16:21:23Z,2023-03-06T16:21:23Z,1,1,1,"Bumps crate-ci/typos from 1.13.10 to 1.13.12.
+
+Release notes
+Sourced from crate-ci/typos's releases.
+
+v1.13.12
+[1.13.12] - 2023-02-23
+Features
+
+(action) Allow writing changes
+
+v1.13.11
+[1.13.11] - 2023-02-23
+Fixes
+
+Don't correct referer
+
+
+
+
+Changelog
+Sourced from crate-ci/typos's changelog.
+
+[1.13.12] - 2023-02-23
+Features
+
+(action) Allow writing changes
+
+[1.13.11] - 2023-02-23
+Fixes
+
+Don't correct referer
+
+
+
+
+Commits
+
+26c2ca1 chore: Release
+902fb3c docs: Update changelog
+efa3813 Merge pull request #657 from bnjbvr/write-changes
+59a10c2 chore: Release
+7417fed docs: Update changelog
+67bffe2 Merge pull request #665 from epage/referer
+7cd5a8c fix(dict): Don't correct Referer
+ed8683a chore: Release
+1ca5942 chore: Release
+5fc5101 Merge pull request #664 from epage/winnow
+Additional commits viewable in compare view
+
+
+
+
+Dependabot will resolve any conflicts with this PR as long as you don't alter it yourself. You can also trigger a rebase manually by commenting @dependabot rebase.
+
+
+Dependabot commands and options
+
+You can trigger Dependabot actions by commenting on this PR:
+
+@dependabot rebase will rebase this PR
+@dependabot recreate will recreate this PR, overwriting any edits that have been made to it
+@dependabot merge will merge this PR after your CI passes on it
+@dependabot squash and merge will squash and merge this PR after your CI passes on it
+@dependabot cancel merge will cancel a previously requested merge and block automerging
+@dependabot reopen will reopen this PR if it is closed
+@dependabot close will close this PR and stop Dependabot recreating it. You can achieve the same result by closing it manually
+@dependabot ignore this major version will close this PR and stop Dependabot creating any more for this major version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this minor version will close this PR and stop Dependabot creating any more for this minor version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this dependency will close this PR and stop Dependabot creating any more for this dependency (unless you reopen the PR or upgrade to it yourself)",1,6
+3257,2023-04-20T12:25:42Z,2023-04-21T11:23:04Z,2023-04-21T11:23:04Z,1,1,1,"If you are using Powershell 7 under Windows (meaning you have shell set to pwsh), FZF will fail to run with the following error:",2,1
+3327,2023-06-08T01:00:00Z,2023-06-10T05:48:29Z,2023-06-10T05:48:29Z,7,56,13,"I saw that you recently added the block border and would like to introduce a thinblock border as well. It is using the symbols from https://www.unicode.org/charts/PDF/U1FB00.pdf Symbols for Legacy Computing, ONE EIGHTH BLOCK elements.
+I searched for all places with BorderBlock and added BorderThinBlock. One thing to note about the symbols is that they a font specific, and may not exist or may not align perfectly depending on the font and terminal emulator. In the case of Kitty terminal, box drawings are handled by Kitty rather than the font so it appears correctly regardless of the font.
+MonaLisa font missing the corner symbols in Alacritty:
+
+Iosevka font in Alacritty
+
+Iosevka font in Wezterm
+
+Iosevka font in iTerm2
+
+MonaLisa font in Kitty
+
+MonaLisa Font: https://www.monolisa.dev/
+Iosevka Font: https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.2/Iosevka.zip
+Please let me know what you think. Thanks!",2,4
+3335,2023-06-17T04:24:28Z,2023-06-17T10:10:12Z,2023-06-17T10:10:12Z,2,4,4,,2,1
+3424,2023-09-04T13:08:14Z,2023-09-17T15:15:04Z,2023-09-17T15:15:04Z,3,80,18,"Solves #3416.
+Changes for zsh were tested on ArchLinux machine and changes for bash were tested on ArchLinux and Ubuntu Server machines.
+For bash had to copy-paste _fzf_complete call from _fzf_host_completion to _fzf_ssh_completion to make sure that _fzf_ssh_completion_post is called.",2,5
+3448,2023-09-23T22:32:11Z,2023-10-02T12:02:35Z,2023-10-02T12:02:35Z,1,2,2,"Again... someone should thoroughly double check these, especially I have no bash versions from the primordial times of the universe around. ;-)
+Speaking of which... does it really make sense to keep code for bash versions < 4? I mean bash 4 was something like early 2009.
+I'd just drop all code for those ancient versions, especially as all the use of \C-b\C-k, etc.  may anyway easily break, if a user has re-assigned them to something else.",2,12
+3454,2023-09-26T21:15:00Z,2023-10-12T11:44:26Z,2023-10-12T11:44:26Z,2,41,17,"Hey @junegunn.
+This would fix #3450 and incorporates a number of improvements and ideas:
+
+IMO, __fzf_list_hosts() should be considered to be a function for user customisation, for which we provide however some reasonable default.
+This includes, that it’s up to that function to sort the host list it produces (if desired so) and the remove duplicates, if any.
+To keep things simple for users, I moved out the username@ prefix handling from it into _fzf_complete_ssh() in c64fe9d.
+fbe4c54, makes completion.bash to use bash-completion’s _known_hosts_real(), if available, and falls back to the previous code for that, if not.
+
+Some open points:
+
+For completion.bash, shall we remove the old host-list code altogether and only use _known_hosts_real()? I guess probably not… we need the same code anyway for zsh, and in principle fzf’s completion stuff can be used without bash-completion (though I doubt many do).
+I'd like to provide an easy way for users to override the sorting of the lists generated by __fzf_list_hosts(), so that one could make it easily configurable, whether e.g. natural sort is used or not, or easily hook in something that does what I've described here or perhaps a sorting that places all IPv4/6 addresses in the end, etc. pp..
+What do you think about introducing e.g. FZF_COMPLETION_HOSTNAME_SORT_CMD, which I'd then default to sort -u --version-sort?
+Possible side effects of invoking _known_hosts_real().
+I went through it’s code, and if I didn’t miss anything, the only side effect is that it sets COMPREPLY, which I therefore made local. But of course, any bash-completion version may change that.
+Another approach would be to invoke _known_hosts_real and the printf in a ( … ) subshell. Would you prefer that?",2,10
+3462,2023-10-05T13:55:11Z,2023-10-11T04:07:47Z,2023-10-11T04:07:47Z,2,14,14,"Hey.
+This would be for #3458.
+
+
+The current commit (hopefully) adds command  to all commands that are not built-ins or functions.
+I haven't really tested it yet ;-) ... and guess anyway that it will be rather quite some effort to test all cases where command  is now used.
+
+
+A future commit might use builtin to protect further things like printf or echo. But arguably, it's always a trade off how far we go here (code readability vs. actually adding some benefit).
+But I do think, that at least ""regular"" (non-built-in) commands should all be ""protected"".
+
+
+Also, I made no effort to do the same for fish or zsh. Since this adds no real new feature, I hope this is okay.
+
+
+But I did notice that all zsh files have:
+
+  
+    
+      fzf/shell/completion.zsh
+    
+    
+         Line 70
+      in
+      488a236
+    
+  
+  
+    
+
+        
+          
+           'emulate' 'zsh' '-o' 'no_aliases' 
+        
+    
+  
+
+
+
+  
+    
+      fzf/shell/key-bindings.zsh
+    
+    
+         Line 35
+      in
+      488a236
+    
+  
+  
+    
+
+        
+          
+           'emulate' 'zsh' '-o' 'no_aliases' 
+        
+    
+  
+
+
+Not really sure how that works, but shouldn't it anyway make the command  superfluous, at least in terms of aliases (probably not in terms of functions)?",2,3
+3463,2023-10-06T10:53:07Z,2023-10-07T08:26:46Z,2023-10-07T08:26:46Z,1,7,9,"Use the all-compatible mawk -W version option. #3313 (comment).
+Do not remap the history key if no dependent commands is installed (perl, awk or mawk in this order).
+Run the command and not a function consistently with #3462.
+
+The version check bash code relies on the following mawk source code, extracted from mawk 1.3.4 20230322.
+version.c:
+18-  #include ""init.h""
+19-  #include ""patchlev.h""
+20-
+21:  #define	 VERSION_STRING	 \
+22-    ""mawk %d.%d%s %s\n\
+23-  Copyright 2008-2022,2023, Thomas E. Dickey\n\
+24-  Copyright 1991-1996,2014, Michael D. Brennan\n\n""
+....
+30-  void
+31-  print_version(FILE *fp)
+32-  {
+33:      fprintf(fp, VERSION_STRING, PATCH_BASE, PATCH_LEVEL, PATCH_STRING, DATE_STRING);
+34-      fflush(fp);
+35-
+36-  #define SHOW_RANDOM ""random-funcs:""
+
+patchlev.h:
+13-  /*
+14-   * $MawkId: patchlev.h,v 1.128 2023/03/23 00:23:57 tom Exp $
+15-   */
+16:  #define  PATCH_BASE	1
+17-  #define  PATCH_LEVEL	3
+18-  #define  PATCH_STRING	"".4""
+19-  #define  DATE_STRING    ""20230322""",3,6
+3471,2023-10-09T23:04:08Z,2023-10-11T01:54:50Z,2023-10-11T01:54:50Z,1,152,26,"Well, I tried to find out all possible options and ""fixed"" values as good as I could from the actual parsing code.
+Unfortunately both, --help-output and the manpage seem to be also outdated (see #3470), so these were couldn’t really be used as a reference.
+Yeah,... I remember your comment in #3457 (comment) ... but it sounded rather unclear whether/when you'd go that ""cobra""-way... and I don't want fzf’s own completion to be dropped.
+So here's an update.
+That being said, I still think we should do #3457, but maybe we can discuss that in terms of some larger ideas.
+btw:
+Why are you doing this:
+
+  
+    
+      fzf/shell/completion.bash
+    
+    
+        Lines 123 to 126
+      in
+      a0d61b4
+    
+  
+  
+    
+
+        
+          
+           --history) 
+        
+
+        
+          
+             COMPREPLY=() 
+        
+
+        
+          
+             return 0 
+        
+
+        
+          
+             ;; 
+        
+    
+  
+
+
+?
+Can it be dropped?",2,4
+3475,2023-10-11T18:45:40Z,,2023-10-12T13:17:13Z,1,3,0,"This improves commit 5cb5bbd by just returning
+from the script in case it’s sourced from a non-interactive shell, rather then
+using an if-block to not execute any further code (which is error prone, in
+case code gets accidentally added outside the if, and also less readable).
+This removes support for fish versions < 3.4.0, which should now no longer be
+used.",2,1
+3526,2023-12-05T17:35:13Z,2023-12-10T07:08:54Z,2023-12-10T07:08:54Z,1,3,2,"This PR adds a quick line showing how you can install fzf with Spack.
+Additionally I standardized the markdown table headers to be consistent with the last table in the README. Happy to revert if they were different by design.",2,0
+3557,2024-01-01T17:05:25Z,2024-01-05T01:47:54Z,2024-01-05T01:47:54Z,1,6,4,fix #3556,2,3
+3631,2024-02-17T07:29:37Z,2024-02-18T04:20:51Z,2024-02-18T04:20:51Z,2,3,5,This fixes the build for solaris/illumos and removes the extraneous godirwalk dependency.,2,1
+3647,2024-02-26T00:03:34Z,,2024-03-13T13:20:55Z,3,30,8,"Specifically, exclude any file with the com.apple.containermanager.uuid extended attribute from the default Ctrl-T and Alt-C commands.
+See additional discussion at #2705",2,1
+3655,2024-03-04T02:27:57Z,2024-03-05T02:03:56Z,2024-03-05T02:03:56Z,4,22,25,,2,2
+3675,2024-03-12T10:02:11Z,2024-03-13T14:59:34Z,2024-03-13T14:59:34Z,7,197,54,"This simplifies the distribution, and the users are less likely to have problems caused by using incompatible scripts and binaries.
+
+bash
+# Set up fzf key bindings and fuzzy completion
+eval ""$(fzf --bash)""
+
+zsh
+# Set up fzf key bindings and fuzzy completion
+eval ""$(fzf --zsh)""
+
+fish
+# Set up fzf key bindings
+fzf --fish | source",2,9
+3678,2024-03-15T08:40:55Z,2024-03-17T07:06:48Z,2024-03-17T07:06:48Z,6,60,23,"This makes it possible to skip one of the above key bindings or completions by setting a variable to an empty string. For example,
+FZF_CTRL_T_COMMAND= FZF_ALT_C_COMMAND= FZF_COMPLETION_TRIGGER= \
+  eval ""$(fzf --zsh)""
+
+would leave only the history search. Makes it more convenient then producing the files and changing them myself to not include what I don't want.
+This should be working, but for completeness it should also include at least some explaining comment at the top (since there's no docs about these vars?) and something equivalent for bash/fish.",3,12
+3687,2024-03-20T13:33:39Z,2024-03-20T23:33:28Z,2024-03-20T23:33:29Z,2,47,22,"description
+Usage of an issue template form written in YAML.
+refs
+Syntax for issue forms - GitHub Docs
+demo
+https://github.com/LangLangBart/fzf/issues/new/choose
+
+Pros
+
+Validates certain fields, such as fzf version, before filing a report
+Ensures consistency, as every report follows the same format
+…
+
+Cons
+
+Imposes more restrictions on the user to adhere to a specific format
+…",2,1
+3693,2024-03-25T08:29:13Z,2024-03-29T07:14:08Z,2024-03-29T07:14:08Z,4,44,2,"The new environment variable FZF_PREVIEW_LABEL  get the value of the preview label, even if it has been updated with an action. It can be useful to track the label of the preview and be able to switch between previews using only one binding.
+For example:
+  --bind='ctrl-p:transform:[[ $FZF_PREVIEW_LABEL =~ 'status' ]] \
+    && echo ""change-preview(git diff)+change-preview-label([[ diff ]])"" \
+    || echo ""change-preview(git status)+change-preview-label([[ status ]])""' \",2,1

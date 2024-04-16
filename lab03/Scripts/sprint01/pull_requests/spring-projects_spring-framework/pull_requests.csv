@@ -1,0 +1,11 @@
+number,created_at,merged_at,closed_at,files,additions,deletions,body_text,participants,comments
+894,2015-10-20T04:42:07Z,,2018-09-03T08:25:38Z,1,3,3,,4,5
+906,2015-10-31T13:31:59Z,,2019-11-08T09:51:15Z,1,5,5,"I've improved explanation for how to customization default error page of the Servlet Container.
+
+Specify a valid version of servlet container explicitly (3.1+).
+Change to use the LinkedHashMap instead of HashMap. The LinkedHashMap can be keep order of items. (I think more better that use LinkedHashMap in sample code)
+Change a JSON format(indent , white-space). In addition, this format is same with indentOutput of Jackson.
+
+I have signed and agree to the terms of the Spring ICLA.
+Thanks.",4,1
+915,2015-11-08T18:53:28Z,,2018-02-05T14:10:51Z,4,228,0,This pull request relates to #912 in a way that it covers some additional use cases that could be covered through AsyncRestTemplate like for instance request/response logging. To fully facilitate that you would require the responses to be buffered.,5,4

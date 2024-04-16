@@ -1,0 +1,290 @@
+number,created_at,merged_at,closed_at,files,additions,deletions,body_text,participants,comments
+281,2015-07-21T08:25:05Z,,2018-06-11T09:28:19Z,9,1791,0,"This is a continuation of #135 updated to latest imgui master
+
+Standalone samples that require no GLFW / GL3W
+Works on Windows and OSX
+Support for High DPI Displays",5,10
+883,2016-10-22T09:43:23Z,,2016-11-12T20:07:34Z,7,66,57,,6,14
+1017,2017-02-11T11:23:11Z,2017-05-01T13:27:40Z,2017-05-01T13:27:40Z,1,5,4,,3,1
+1775,2018-04-25T15:49:32Z,2018-04-26T07:51:46Z,2018-04-26T07:51:46Z,1,6,6,A couple of additional static analyzer fixes.,2,3
+1961,2018-07-22T21:07:13Z,,2019-09-20T13:49:16Z,1,5,2,"Use an un-flipped coordinate system in the window (Y increasing from top to bottom).
+Tell OSX we want mouseMoved and mouseDragged events.
+Pass mouseMoved and mouseDragged events to imgui handler.",4,5
+2002,2018-08-04T14:14:00Z,,2018-08-28T14:10:23Z,4,67,22,"This is not ready to merge yet, but I'm opening this PR so we can discuss changes related to #2001.
+For now I've only added the glad backend for glfw+opengl3. I believe sdl+opengl3 will be the only other example needing a custom OpenGL loader.
+I'll start with gl3w/glad/glew for now, as they are the more popular. Then we may add other loaders from this list, but honestly I'm not sure which one are popular enough so they should be added outside of this 3.",2,3
+2032,2018-08-19T21:04:26Z,,2023-04-07T15:31:17Z,5,515,0,"I've been using different flavors of Gtk3 bindings on Desktop/Linux so that I can have some level of integration with the window manager (i.e client side decoration on Wayland, retina displays, etc...).
+I figured somebody might want to reuse that, so here is a PR that reuses the existing OpenGL3 rendering implementation and just sets up the window system through GTK+.
+The makefile only supports Linux but I'm pretty sure someone could add support for MacOS/Windows in a few lines (unfortunately I don't have such systems).",4,16
+2112,2018-10-03T23:28:53Z,2018-10-07T16:14:25Z,2018-10-07T16:14:25Z,1,4,4,"I'm using an OpenGL binding that is quite strict about type safety (glbinding) and does not allow comparisons between GLints and GLbooleans. The OpenGL 3 example wouldn't compile before changing the status variable (in CheckShader/``CheckProgram) to a GLboolean`.
+Since this is a trivial fix I'm not including the error log for now, however if you have any doubts or would like more detailed information I can provide a full log.",4,6
+2289,2019-01-16T19:01:44Z,,2019-01-17T05:03:15Z,1,2,0,"Already explained in the issue #2288.
+Fixes for Direct3D 9.
+Need to have a look at Direct3D 10 and 11 now.",2,3
+2347,2019-02-13T23:11:30Z,,2019-02-14T19:30:34Z,4,47,23,"Adds an optional parameter to Selectable that allows clients to specify the text alignment within the Selectable, and adds a section in the demo to demonstrate text alignment support:
+
+In terms of implementation, this is extremely simple: Selectable was already calling an API that supports text alignment, but had hard-coded it to top-left. This adds a text_align parameter on the Selectable function and just passes that straight through to RenderTextClipped instead of the hard-coded (0, 0). Backwards-compatibility is preserved by defaulting the text_align parameter to (0, 0), i.e., top-left.
+A video of the demo in action:
+
+Works on #1260",2,10
+2384,2019-02-26T01:27:53Z,,2019-03-08T17:17:51Z,3,118,28,"This allows for lossless data round-trips through the color picker and color edit systems when an application stores colors as HSV. It lets you do things like track hue in applications even when saturation and/or value are zero:
+
+I chose to pass the _Input flags through the entire stack, letting each widget decide what to show based on the input data. This means that some paths are a little more expensive because HSV-to-RGB conversions are done more than once, but it also makes it much easier to make sure the whole Color family of functions is lossless.
+All drag-and-dropped color data is still RGB; HSV colors are converted to RGB when you drag them, and RGB data is converted to HSV when you drop a color onto a widget with _InputHSV specified.
+I didn't add anything to the demo, because it wasn't super clear to me that this was worth surfacing in the demo; it's more about enabling different backend representations than a frontend change. The only thing I could think of is showing both the RGB and HSV interpretations of the same ImVec4 with two different ColorEdits; is that worth including, or just confusing?
+Known backwards-incompatible changes
+
+ImGuiColorEditFlags__InputMask was renamed to ImGuiColorEditFlags__ShowMask, and ImGuiColorEditFlags__InputMask is now used for a different mask. Since this is internal this breakage should be fine.
+ColorEdit4 used to let you specify more than one of ImGuiColorEditFlags_RGB, ImGuiColorEditFlags_HSV, and ImGuiColorEditFlags_HEX, but the behavior of the function was a little odd. It now asserts that only one of those flags is provided.
+
+Fixes #2383",2,6
+2400,2019-03-05T05:09:45Z,,2019-03-06T16:30:09Z,6,62,11,"This PR adds the InputTextHinted widget. It works as a regular InputText, but with a hint
+
+It's more of an eye candy than an actually useful widget, but while doing a text field to filter logs for a terminal, I thought this way of ""labeling"" was prettier.
+I'm not very familiar with ImGui internal code base, so my apologizes if I coded something the wrong way",3,11
+2520,2019-04-29T12:56:41Z,,2019-05-06T10:14:55Z,1,33,0,"Hi @ocornut. I deal with the problem which I found in #2502
+The reason is that DX9 device lost. When you create new window through CreateAdditionalSwapChain(). New  resource was created.  So you must release all video memory before device reset.  You can see more detail in Windows DirectX Graphics document and search ""lost devices"".
+I add two function to do this thing. One is clean swap chain. Other is recreate it.",2,4
+2545,2019-05-09T19:37:37Z,,2019-05-11T08:53:06Z,4,57,11,Adds support for monochrome (aka without antialiasing) font rendering with freetype.,3,2
+2607,2019-06-04T14:39:17Z,,2019-06-04T18:49:54Z,2,2,1,,2,4
+2619,2019-06-11T21:02:16Z,2019-06-17T13:17:24Z,2019-06-17T13:17:25Z,1,2,2,and support python,2,0
+2630,2019-06-16T23:27:38Z,,2019-06-18T03:18:21Z,8,563,71,"Implement SDL/dx11 sample
+Add support for viewport when using SDL with dx11
+Addressing comments mentioned in #2482",2,3
+2696,2019-07-28T08:15:22Z,,2021-08-02T14:40:57Z,1,26,22,"Regarding issue #2445. This is what I've been running with without too much issues. I don't currently have viewports enabled, but that should be running the same logic as before.",3,3
+2706,2019-07-31T18:56:01Z,,2019-08-01T18:10:57Z,3,9,1,"ImGui always sets the MSAA level to 1 sample, disabling it. This means you get errors if you try to render with ImGui's into a multisampled framebuffer in Vulkan, because  Vulkan requires you to specify the correct multisampling level at pipeline creation time.
+This change adds a new member to the ImGui_ImplVulkan_InitInfo struct which users of ImGui can set to the correct multisample level for their target frame buffer. The zero value (which you'll get by default if the struct has been zero-initialised) is not a valid MSAA level in Vulkan, so we detect that case and use VK_SAMPLE_COUNT_1_BIT instead at setup time. Unless you've explicitly set the MSAASamples to something, the default behaviour should be exactly as it was previously, i.e. multisampling will be disabled.
+This fixes issue #2705
+Feedback very much appreciated!",2,1
+2770,2019-08-30T09:53:52Z,,2019-09-20T13:32:28Z,2,20,0,"There already was a fix for hue wrapping around. It depended on g.ActiveId != 0 && !g.ActiveIdAllowOverlap condition for detecting changes through DragInt/DragFloat and it no longer worked. Fix is simply a bool ColorFixHueWrap in ImGuiContext which is set whenever DragInt/DragFloat has modified color values, thus 100% reliable now.",2,10
+2772,2019-08-31T22:29:53Z,,2023-04-19T14:56:38Z,6,554,5,"This pull request is for the example project show casing using Dear ImGui's docking branch working with Win32 window API and OpenGl3 using the Glad loader.
+To use:
+-Pull commit.
+-Load ImGui solution.
+-Set imgui_impl_opengl3.h to use #define IMGUI_IMPL_OPENGL_LOADER_GLAD
+-Set included example project as startup.
+-Build and run.",7,21
+2778,2019-09-06T16:23:58Z,,2022-05-03T16:15:12Z,6,647,75,"The PR is part of multi-viewports on OSX.
+But I don't implement multi-viewports in imgui_impl_opengl2.cpp, It seem to be difficult to implement it without Objective-C.
+I implement it in my repo https://github.com/metarutaiga/xxImGui first.
+So I make a PR here.",4,21
+2802,2019-09-24T17:49:52Z,,2019-12-17T13:35:57Z,1,16,7,"When the SDL Video backend is set to wayland the function
+SDL_GetGlobalMouseState does not work. Most probably a security measure
+for programs to not grab everything the user does
+https://wiki.libsdl.org/SDL_GetGlobalMouseState
+using SDL_GetMouseState https://wiki.libsdl.org/SDL_GetMouseState works
+on wayland
+fixes #2800",2,3
+2837,2019-10-07T20:59:28Z,,2021-04-07T06:47:25Z,3,44,2,"This PR adds support for compiling SDL + opengl3 example on Raspberry Pi (RPi).
+RPi uses EGL instead of full openGL. Makefile was adjusted to pull in RPi specific headers and libraries found in /opt/vc through pkg-config.
+Since it seems to be no way of automatically detecting compilation for RPi target, it is essentially ARM CPU, a new define called RPI was introduced in the Makefile and passed to the compiler.
+The use of opengl ES 2.0 is also forced through -DIMGUI_IMPL_OPENGL_ES2 specified in the Makefile.
+The code was compiled natively and the result was successfully tested on the target.",13,58
+2865,2019-10-23T12:48:52Z,2019-10-24T09:24:55Z,2019-10-24T09:24:55Z,4,112,36,These are needed changes to switch CI testing to github actions. All pushes and pull requests are built for Windows/Linux/MacOS/iOS/Emscripten platforms. Subprojects workflow was created for testing possible breakage of projects that depend on Dear ImGui. For now only cimgui is tested and builds are performed once a day.,2,1
+2870,2019-10-25T08:57:27Z,,2020-01-07T20:11:41Z,3,8,0,"Hello!
+I think it is a good time to add support for https://github.com/cginternals/glbinding to ImGui.
+Since there is already a compile-time check in place for a couple of popular GL bindings libraries such as Glad and Gl3w.
+I think this is a shame that we still don't have out of the box support for Glbinding. This is a modern fancy OpenGL biding library that many (myself included) enjoy using.
+I really like using example OpenGL3 IMGUI rendering implementation in my projects (and I'm pretty sure many others do as well) as a simple and cheap out of the box solution. However, I also don't really like to modify or do some custom things with my modules, such as adding my custom define statements, which is my main motivation for this PR.
+Thanks!",2,5
+2890,2019-11-11T22:28:27Z,,2024-02-07T21:12:46Z,2,44,3,"In response to #2881, I added an internal flag to trigger a text input box to reinitialize to it's current value. This resets any selection and undo state but adds opportunity for new interaction opportunities.",3,12
+3061,2020-03-15T21:50:40Z,,2020-03-24T17:46:23Z,6,47,16,"For the moment I have only the older 2.x series available on my system
+which uses slightly different header filenames and initialisation, so
+as a slight variation of the 3.x series support recently implemented
+here the glue needed to make 2.x series work.
+I would hope a potential 4.x will not change filenames and such, so the
+existing flag isn't rebranded to 3 which also avoids breaking compat.
+References: #2870, 5e2329b
+No worries if you conclude that you don't want to support/include this, I am pushing the PR mostly at the off chance of it helping someone. That might already be achieved with the references. 😁",2,5
+3124,2020-04-13T16:00:09Z,,2022-03-18T08:57:27Z,0,0,0,"Hi, this is alternative implementation of PR #2749 . I'm in similiar situation where I don't need to render UI all the time, just rendering updates when they happen will do. The strategy I chose is it to report for each non-static widget a time in the future relative to current frame when it'll end up rendering something different. Then platform code using this information may choose to sleep for specified period of time. I've updated win32 dx12 sample to demonstrate this behavoiur and made text cursor blinking report it's time when it's goint to blink. Other examples which I didn't touch will work same way as they were before the change.",4,9
+3259,2020-05-25T00:46:58Z,,2020-05-25T16:39:40Z,1,28,6,"Fixes crash when minimized / recover from minimized of SDL_Vulkan example by adding additional events,
+SDL_WINDOWEVENT_MINIMIZED and SDL_WINDOWEVENT_RESTORED
+Thomas",3,3
+3264,2020-05-26T10:40:30Z,,2020-05-27T20:29:51Z,2,7,0,ImGui had a GetContentRegionWidth function but surprisingly not one for GetContentRegionHeight so I decided to add the function here.,3,2
+3446,2020-08-31T22:41:30Z,2021-03-04T09:35:44Z,2021-03-04T09:35:44Z,14,770,2,"I am working on a native Android backend with the goals of using the available OpenGL 3 renderer, and not having other dependencies (such as SDL).
+The PR branch contains the native Android backend, an example app and CI integration (GitHub Actions). The Android app project itself is (I believe) as tiny as possible. It is a ""modern"" Android project, based on CMake and Gradle with small wrapper code written in Kotlin.
+Progress: see backends/imgui_impl_android.cpp
+Maybe this is useful to others.",9,33
+3447,2020-09-01T05:34:33Z,,2021-02-18T12:52:48Z,1,3,2,"formula
+
+Result_alpha = Src_alpha + Dst_alpha * (1 - Src_alpha)
+Result_rgb = Result_color * Result_alpha = Src_color * Src_alpha + Dst_color * Dst_alpha * (1 - Src_alpha)
+
+assume
+
+Dst_rgb = Dst_color * Dst_alpha
+texture (like fonts) is (Src_color, Src_alpha), not premultiplied alpha, so Src_rgb = Src_color
+
+then
+
+Result_alpha = Src_alpha + Dst_alpha * (1 - Src_alpha)
+Result_rgb = Result_color * Result_alpha = Src_rgb * Src_alpha + Dst_rgb * (1 - Src_alpha)
+
+so
+
+SrcBlendAlpha = D3D12_BLEND_ONE
+DestBlendAlpha = D3D12_BLEND_INV_SRC_ALPHA
+
+Why nobody found this bug? Because Dst_alpha is useless In the general case (only use Src_alpha, see SrcBlend and DestBlend)
+I found this bug when I use two context, one for game, one for editor, and the error alpha in game context exposed in editor context.
+Here I show a demo (there are two contexts, one in game window)
+error result (text disappeared)
+
+correct result
+
+if fonts texture is premultiplied alpha, the blend mode should set to
+SrcBlend = D3D12_BLEND_ONE",3,2
+3753,2021-01-23T08:59:20Z,,2021-01-26T14:20:07Z,2,27,4,"Added support to remove a hook
+Linked issue: #3580
+Similar to previous pull request: #3626 but with only the hook removal",2,10
+3754,2021-01-23T09:40:41Z,,2021-01-26T13:10:21Z,3,5,2,"Fixed some Clang compile warnings under Windows, on Docking branch",2,1
+3844,2021-02-26T02:52:37Z,,2021-03-04T06:04:02Z,1,473,174,"1. BGRA color packing (also fix a bug)
+DX9 using B8G8R8A8 color packing (D3DCOLOR). I notice that imgui_impl_dx9 do color packing converting but in core library there is a IMGUI_USE_BGRA_PACKED_COLOR macro.
+So I think we can avoid color packing converting:
+
+before:
+
+vtx_dst->col = (vtx_src->col & 0xFF00FF00) | ((vtx_src->col & 0xFF0000) >> 16) | ((vtx_src->col & 0xFF) << 16);     // RGBA --> ARGB for DirectX9
+
+after:
+
+#ifndef IMGUI_USE_BGRA_PACKED_COLOR
+    vtx_dst->col = (vtx_src->col & 0xFF00FF00) | ((vtx_src->col & 0xFF0000) >> 16) | ((vtx_src->col & 0xFF) << 16);     // RGBA --> ARGB for DirectX9
+#else
+    vtx_dst->col = vtx_src->col;
+#endif
+This change will also fix a bug (default dark theme):
+
+before:
+
+after:
+
+
+2. Bug fix
+I think we forget to validate device and texture before drawing. My game crashes in some cases because of this.
+// Render function.
+void ImGui_ImplDX9_RenderDrawData(ImDrawData* draw_data)
+{
+    // Avoid rendering when device or texture is invalid
+    if (!g_pd3dDevice || !g_FontTexture)
+        return;
+3. The ordering of state recovery
+I don't known why, but this did fix a bug in my game.
+(see commits)
+4. Static texture
+We can create static texture to improve performance.
+// Create a texture without D3DUSAGE_DYNAMIC (static texture)
+// https://github.com/Microsoft/DirectXTex
+
+// 1. Create staging texture and write pixel data
+IDirect3DTexture9* texture_staging = NULL;
+struct com_helper
+{
+    // This is a helper to manage COM object
+    // We can also using Microsoft::WRL::ComPtr (wrl.h) or CComPtr (ATL)
+    IDirect3DTexture9*& ptr;
+    com_helper(IDirect3DTexture9*& tex) : ptr(tex) {}
+    ~com_helper() { if (ptr) { ptr->Release(); ptr = NULL; } }
+} texture_staging_ref(texture_staging);
+if (D3D_OK != g_pd3dDevice->CreateTexture(width, height, 1, D3DUSAGE_DYNAMIC, D3DFMT_A8R8G8B8, D3DPOOL_SYSTEMMEM, &texture_staging, NULL))
+    return false;
+D3DLOCKED_RECT tex_locked_rect;
+if (D3D_OK != texture_staging->LockRect(0, &tex_locked_rect, NULL, 0))
+    return false;
+for (int y = 0; y < height; y++)
+    memcpy((unsigned char*)tex_locked_rect.pBits + tex_locked_rect.Pitch * y, pixels + (width * bytes_per_pixel) * y, (width * bytes_per_pixel));
+if (D3D_OK != texture_staging->UnlockRect(0))
+    return false;
+
+// 2. Upload to graphic card memory
+g_FontTexture = NULL;
+if (D3D_OK != g_pd3dDevice->CreateTexture(width, height, 1, 0, D3DFMT_A8R8G8B8, D3DPOOL_DEFAULT, &g_FontTexture, NULL))
+    return false;
+if (D3D_OK != g_pd3dDevice->UpdateTexture(texture_staging, g_FontTexture))
+    return false;
+Thanks Dear-ImGui",4,22
+3923,2021-03-16T02:58:59Z,,2021-03-16T11:44:52Z,3,56,61,"This PR addresses some mistakes in the documentation comments. No code logic has been changed, only grammatical and punctuation improvements, deletion of unnecessary words. These commits are also gpg signed.
+Let me know if you have any objections/questions, I'll work on it as soon as possible.",3,2
+3926,2021-03-16T15:51:50Z,,2021-09-21T17:31:10Z,13,777,1,"If this SDL2 pull request is merged
+libsdl-org/SDL#4195
+Then it will be possible to render triangles with SDL_Renderer.
+This current PR is simply an example using ImGui + SDL/SDL_renderer
+(could be opengl, gles2, d3d11, metal or software rendering back-end underneath)
+Only tested on linux with Makefile.
+Though I've updated all build files taken from the initial ""example_sdl_opengl2"" example.
+NB:
+I've never use ImGui before and this was just done in a couple of hours.
+It was just done as a proof of concept and it may need to be implemented in a better way.",6,18
+4759,2021-11-24T19:34:27Z,,2021-12-13T11:03:39Z,6,271,93,"This PR makes changes to the macOS backend and the Apple example that uses the macOS backend.
+Firstly, the PR addresses some issues and shortcomings of in imgui_impl_osx.mm as follows
+
+Fixed keyboard support using kVK_ codes and keyboard modifier handling.
+
+Keyboard navigation now works correctly for features such as navigating windows
+
+
+Added complete gamepad support via GameController framework
+
+Secondly, the example_apple_metal.mm example has addressed the unhandled key event chimes, which adds a keyDown: handler.
+This PR does not touch the core of IMGUI.
+NOTE:
+There is a single breaking change to the ImGui_ImplOSX_Init API, which now takes the same NSView being used by the ImGui_ImplOSX_NewFrame. This NSView is used to attach an NSTextInputClient to the responder chain to process key presses using the same approach as GLFW and SDL. This approach ensures the macOS ImGui backend us macOS APIs for determining characters that should be accepted as text input.",4,17
+4867,2022-01-05T22:50:38Z,,2023-05-15T06:48:05Z,1,31,2,"In order to use ImGui with Vulkan you need to provide a descriptor set pool, which in many cases will get exclusively allocated for ImGui. This PR makes the parameter optional and automatically creates/destroys an internal pool if non is provided.
+I oriented the creation code on the examples, but the pool is obviously waaayy oversized for ImGui alone, it should probably get adopted to the real sizes needed.",4,10
+5170,2022-04-06T06:20:18Z,,2023-04-19T14:56:18Z,4,148,2,"Adds support for Win32 + OpenGL backends.  Previously, this combination didn't work correctly because spawned windows weren't given rendering contexts.  This PR makes it so OpenGL contexts are created and destroyed correctly for each new window.  Additionally, it links the contexts to the main one via wglShareLists().
+The only API change is the addition of an optional parameter, hglrc, in ImGui_ImplWin32_Init().  Passing in the main window's render context handle here will engage the new code.  If only the first parameter is passed, a non-OpenGL API will be inferred.  This makes it so existing projects using the Win32 backend will be able to merge this change without issue.
+When an OpenGL render context is specified, four WGL functions, wglCreateContext(), wglDeleteContext(), wglMakeCurrent(), and wglShareLists() will be loaded dynamically to enable the context management.  The OpenGL library will not be loaded if no hglrc is specified.",4,5
+5221,2022-04-20T13:51:02Z,,2022-04-27T13:19:42Z,2,129,69,Restructure imgui_impl_metal.mm and imgui_impl_osx.mm for support Muti-contexts,4,1
+5403,2022-06-16T20:57:55Z,,2022-06-30T18:21:01Z,3,39,9,"Apple has released some additional extensions to metal-cpp that provide the ability to create full macOS applications in C++. While working with these and implementing a simple test application, I came across some issues in imgui that this PR should address.
+In ARC based systems, __bridge is needed for the casts between the metal-cpp objects and their native types. For non-ARC systems, this is just a warning.
+The docking code assumes a BGRA8Unorm pixel format, but that may not be correct. The correct format is pulled from the frame buffer description to prevent a crash.
+The MetalContext initializer was losing references to renderPipelineStateCache and bufferCache for systems within an autorelease pool. The initializer now uses the property setters to ensure memory management is correct regardless of memory management scheme.
+WWDC22 introduced some new extensions akin to metal-cpp to allow for a full app creation in C++. There are conflicts with the OSX backend. The backend has been updated similarly to the metal-cpp support in the Metal backend. A IMGUI_IMPL_METAL_CPP_EXTENSIONS preprocessor macro and supporting functions has been added to allow use of these APIs that then handle the proper bridging / casting.
+Sample application using these changes: https://github.com/stack/walnut-apple
+WWDC22 session: https://developer.apple.com/wwdc22/10160",3,1
+5446,2022-07-02T17:01:19Z,,2023-12-19T11:02:45Z,2,103,5,"Version of #5037 for docking branch as requested by #5037 (comment). Sorry for the delay, completely forgot about my original PR.
+As we now load function pointers manually, it's possible for vkCmdBeginRenderingKHR and vkCmdEndRenderingKHR to be nullptr. Is it fine to just cause a segfault in ImGui_ImplVulkan_RenderWindow when UseDynamicRendering is enabled but the extension wasn't enabled on the device and the function pointers therefore possibly be nullptr?",7,42
+5675,2022-09-11T05:42:32Z,,2022-09-13T09:25:35Z,3,56,56,,3,1
+5723,2022-09-28T11:06:20Z,,2022-09-28T13:28:24Z,2,15,1,"This PR primarily adds support for swapped AB & XY buttons (classic on Nintendo consoles)
+It also disables SDL_HAS_CAPTURE_AND_GLOBAL_MOUSE for the __SWITCH__ platform but I'm not sure if its ok to add this check when there's no build workflow for it. Though one could likely be added using homebrew development tools. But again that's up for discussion.",2,14
+5724,2022-09-28T12:29:59Z,,2022-09-28T15:43:51Z,2,12,0,"This PR brings forward the few changes we have to use on our game that also supports the Wii U (through a custom GX2 backend).
+I've made the initial commit specifically about the Wii U to open conversation about whether these changes can in fact be upstreamed and also if there's a better solution. The final result can likely generalize the checks to something that's non Wii U specific.
+Context on changes:
+We opt out of usages of alloca for that platform because that's not available in the build system for Wii U -- and we have one check to avoid clearing state flags. As we use our own backend to support the system, we use the state flags to open the keyboard where necessary but for some reason they're getting cleared here (is this an ImGui bug?).",3,5
+6067,2023-01-09T10:22:36Z,,2023-03-22T19:50:47Z,1,26,3,"This change includes period (.) as a delimiter so that pressing ctrl+arrow key or ctrl+backspace/delete in InputText fields doesn't skip past them.
+Hitting ctrl+backspace with the cursor at the end of a buffer containing a command in the form cmd.shadows.enabled| will, after this change, result in cmd.shadows.| where previously the entire buffer would be cleared.
+This change also introduces support for ctrl+delete, matching the behavior of ctrl+backspace but in the opposite direction. shift+delete still works to cut text with this change.
+These are standard behaviors in all text editors, so this change makes InputText widgets better match what users' intuitions are.
+In the following video you can see the effect of consecutively pressing ctrl+backspace, and then once again from the beginning with ctrl+delete:
+
+  
+    
+    
+
+    2023_01_09_input_text.mp4",3,7
+6109,2023-01-22T12:33:56Z,,2023-02-16T18:12:39Z,0,0,0,"Since VulkanSDK 1.3.216 it is mandatory to use the VK_KHR_PORTABILITY_subset extension. Fixed by adding
+create_info.flags = VK_INSTANCE_CREATE_ENUMERATE_PORTABILITY_BIT_KHR;
+aswell as adding VK_KHR_GET_PHYSICAL_DEVICE_PROPERTIES_2_EXTENSION_NAME and VK_KHR_PORTABILITY_ENUMERATION_EXTENSION_NAME to the extensions array.
+Issue: #6101
+Note:
+Maybe considure changing the extensions array to a vector, for better readability and for easier adding new extensions.",4,16
+6188,2023-02-23T08:01:16Z,,2023-08-29T20:34:11Z,0,0,0,"The wgpu backend was only compatible with emscripten's flavor of WebGPU, which does not exactly match the officiel webgpu native headers.
+This PR adds support for the two main (and only?) implementations of WebGPU that one can use when building native binary applications instead of wasm:
+
+Dawn (Chrome's C++ backend)
+wgpu-native (binding Firefox' Rust backend)
+
+The header assumes that the following macros are defined:
+
+WEBGPU_BACKEND_WGPU iff wgpu-native backend is used
+WEBGPU_BACKEND_DAWN iff Dawn backend is used
+If none of the above is defined, WEBGPU_BACKEND_EMSCRIPTEN is assumed
+
+NB These macros are automatically defined in the WebGPU-binaries distributions (main branch uses wgpu-native, dawn branch uses Dawn) which are used in my LearnWebGPU for native C++ tutorial series. This gives the context in which I adapted this wgpu backend.
+Notable changes
+
+Switch to WGSL shaders instead of SPIR-V binary blobs
+Add gamma correction when the target texture format requires it (ending with ""Srgb"")
+Handle the Release methods, which are not specified in the standard webgpu.h header and have different names in the wgpu-native implem.
+Align buffer sizes to 16 bytes",3,14
+6286,2023-03-31T11:39:11Z,2023-05-30T18:30:30Z,2023-05-30T18:30:30Z,2,284,0,"Since SDL3 has changed naming convention for its functions, I propose this fix with two new files (imgui_impl_sdlrenderer3.cpp and imgui_impl_sdlrenderer3.h) where I simply updated the names of the functions that concern sdl, this way it works perfectly also with sdl3",3,2

@@ -1,0 +1,665 @@
+number,created_at,merged_at,closed_at,files,additions,deletions,body_text,participants,comments
+2112,2015-07-19T12:23:19Z,,2018-06-27T16:14:40Z,27,1160,51,"Abstract
+goal of this PR is to replace
+byte[] buf = new byte[BUF_SIZE];
+ByteArrayOutputStream baos = new ByteArrayOutputStream();
+
+with
+Buffers.Lease<byte[]> lease = Buffers.leaseByteArray();
+
+try{
+   byte[] buffer = lease.getBuffer();
+} finally {
+    lease.returnLease();
+}
+
+Buffers.Lease<ByteArrayOutputStream> lease = Buffers.leaseByteArrayOutputStream();
+
+try{
+   ByteArrayOutputStream baos = lease.getBuffer();
+} finally {
+    lease.returnLease();
+}
+
+
+
+in all cases where byte-array or ByteArrayOutputStreams are used method-internal, this way avoiding unneccessary memory allocation, increasing performance and enhancing the memory profile.
+Implementation
+[ThreadLocalBuffers](https://github.com/berndhopp/guava/blob/master/guava/src/com/google/common/io/
+Buffers.java) is the manager of thread-local byte-arrays and FastByteArrayOutputStreams. It uses SoftReferences or WeakReferences to store buffers, this way enabling Garbage Collection to collect the buffers when the system runs low on memory. All allocations of byte[] or ByteArrayOutputStream in where the allocated byte[]/BAOS is not the returned value of the method have been replaced with calls to ThreadLocalBuffers.
+ByteSource.contentEquals was challenging, because it used not one but two byte-arrays for buffering, so I used two ByteBuffers that wrap around the upper and lower part of the thread-local buffer, thereby mimicking the two buffers.
+Results
+The microbenchmarks show that avoiding buffer allocation yields a significant performance boost. Tests that did not show significant differences are left out. There have been no tests where performance dropped more than 2.00%.
+
+
+
+tested method
+bytes copied
+runtime w/ TL buffers
+runtime w/out TL buffers
+performance increase in %
+
+
+
+
+ByteStreams.copy
+10
+105569
+681130
+545,2
+
+
+ByteStreams.copy
+100
+107411
+698152
+549,98
+
+
+ByteStreams.copy
+10000
+840354
+1186307
+41,17
+
+
+ByteStreams.readBytes
+10
+68917
+633365
+819,03
+
+
+ByteStreams.readBytes
+100
+69802
+660336
+846,01
+
+
+ByteStreams.readBytes
+10000
+360357
+934588
+159,35
+
+
+ByteStreams.toByteArray
+10
+122681
+750095
+511,42
+
+
+ByteStreams.toByteArray
+100
+131705
+773561
+487,34
+
+
+ByteStreams.toByteArray
+10000
+1962961
+4962929
+152,83
+
+
+ByteSource.contentEquals
+10
+647140
+3614650
+458,56
+
+
+ByteSource.contentEquals
+100
+685559
+647694
+453,81
+
+
+ByteSource.contentEquals
+10000
+5987317
+9460941
+58,02
+
+
+
+you can find the results here:
+ByteStreamsBenchmark w/ ThreadLocal
+ByteStreamsBenchmark w/out ThreadLocal
+ByteSourceBenchmark w ThreadLocal
+ByteSourceBenchmark w/out ThreadLocal",8,25
+2544,2016-08-08T13:42:33Z,,2018-07-10T19:39:29Z,2,34,15,"The implementation of the method indexOf(Object o) in the AbstractList iterates over the iterator. In the case of Cartesian list, the index can be computed instead.",6,4
+2581,2016-09-29T02:14:08Z,,2016-09-29T18:44:11Z,4,13,20,"All code which initializes an IOException with a cause exception now uses the appropriate constructor (which was introduced in Java 6), rather than initCause. Since Guava now depends on Java 6, this (as far as I can tell) is a safe change to make.
+A change was made from using an Iterator to an enhanced for-loop for (arguably) improved readability and, by my understanding, no performance impact.
+All other changes should hopefully be self-explanatory. :)",3,3
+2627,2016-11-04T05:28:53Z,,2018-02-19T19:41:12Z,3,63,0,"Added lastIndexOf(byte[] array, byte[] target) method to Bytes primitive class and its corresponding tests.
+It is a fix for the issue #2617 .",4,6
+2637,2016-11-11T12:50:51Z,,2019-10-25T18:11:07Z,3,71,0,"Some times, we need events to be executed by specified executor.",7,9
+2649,2016-11-17T23:08:10Z,,2017-02-22T16:59:06Z,2,68,4,fixes #2648 .,5,15
+2673,2016-12-06T02:11:41Z,,2017-01-09T20:04:52Z,3,76,0,…tive iterators #2666,9,5
+2676,2016-12-06T18:36:55Z,,2023-06-26T13:02:46Z,4,102,0,Code and test in Sets and Maps instead.,7,1
+2682,2016-12-13T12:13:15Z,,2017-01-09T20:04:52Z,2,294,0,Random string generator and unit tests,9,8
+2761,2017-03-13T22:36:48Z,,2017-05-04T14:10:07Z,4,236,54,"Previously, the BloomFilter wasn't thread-safe and required external locking to ensure safety. Now, it's thread-safe and lock-free through the use of atomics and compare-and-swap.
+This PR introduces no API changes beyond an extra @ThreadSafe annotation on the BloomFilter class. It should also be entirely backwards (and forwards) compatible with the serialization format because that too isn't being changed.
+Please extend extra scrutiny to the LockFreeBitArray.putAll() method because it's not present in our internal fork of the BloomFilter class and has thus not gone through our integ tests or has seen prod (I wrote it for this PR).
+Fixes #2748.",6,25
+2771,2017-03-25T08:06:10Z,,2018-08-27T15:35:44Z,0,0,0,合并官方版本,5,5
+2791,2017-04-15T16:56:04Z,,2018-02-02T16:46:19Z,1,4,4,It turns out google is now a public suffix!,3,4
+2869,2017-07-10T18:40:19Z,,2017-07-12T16:04:30Z,2,30,34,Referencing: #2797,3,0
+2919,2017-08-19T15:11:02Z,,2017-08-30T06:38:37Z,10,10,10,,12,3
+2927,2017-08-30T07:10:34Z,,2017-09-01T14:42:19Z,13,13,13,,5,1
+2938,2017-09-11T05:30:38Z,,2017-09-12T03:13:48Z,1,2,1,Refer to objects by their interfaces(Item 52),4,3
+3002,2017-12-05T09:03:50Z,,2019-10-15T17:44:53Z,4,331,9,"(Fixes: #2375)
+Summary of the change
+Allows setting identifier, SubscriberExceptionHandler and other
+parameters of EventBus independently.",11,10
+3005,2017-12-06T22:09:20Z,,2017-12-09T11:39:24Z,2,258,0,"Issue: #2870
+Condition class exposes a number of methods to await on it.
+Most of them throw exception when executing thread gets interrupted.
+In scope of this change utility methods are introduced to serve as uninterruptible proxies.",3,3
+3018,2017-12-24T07:20:49Z,,2018-01-24T17:37:05Z,14,43,89,"This PR illustrates an approach where explicit null-checks are replaced by automatic checks.
+Consider a sample class - Iterators:
+Original source code
+public static <T> Iterator<T> concat(Iterator<? extends T> a, Iterator<? extends T> b) {
+  checkNotNull(a);
+  checkNotNull(b);
+  return concat(consumingForArray(a, b));
+}
+Suggested source code
+public static <T> Iterator<T> concat(Iterator<? extends T> a, Iterator<? extends T> b) {
+  return concat(consumingForArray(a, b));
+}
+Resulting bytecode looks like if it's compiled from the source below:
+public static <T> Iterator<T> concat(Iterator<? extends T> a, Iterator<? extends T> b) {
+  if (a == null) {
+    throw new NullPointerException(""a was null"");
+  }
+  if (b == null) {
+    throw new NullPointerException(""b was null"");
+  }
+  return concat(consumingForArray(new Iterator[] { a, b }));
+}
+Raw bytecode
+javap -c ./guava/target/classes/com/google/common/collect/Iterators.class
+...
+  public static <T> java.util.Iterator<T> concat(java.util.Iterator<? extends T>, java.util.Iterator<? extends T>);
+    Code:
+       0: aload_0
+       1: ifnonnull     14
+       4: new           #5                  // class java/lang/NullPointerException
+       7: dup
+       8: ldc           #51                 // String a was null
+      10: invokespecial #7                  // Method java/lang/NullPointerException.""<init>"":(Ljava/lang/String;)V
+      13: athrow
+      14: aload_1
+      15: ifnonnull     28
+      18: new           #5                  // class java/lang/NullPointerException
+      21: dup
+      22: ldc           #52                 // String b was null
+      24: invokespecial #7                  // Method java/lang/NullPointerException.""<init>"":(Ljava/lang/String;)V
+      27: athrow
+      28: iconst_2
+      29: anewarray     #53                 // class java/util/Iterator
+      32: dup
+      33: iconst_0
+      34: aload_0
+      35: aastore
+      36: dup
+      37: iconst_1
+      38: aload_1
+      39: aastore
+      40: invokestatic  #54                 // Method consumingForArray:([Ljava/lang/Object;)Ljava/util/Iterator;
+      43: invokestatic  #55                 // Method concat:(Ljava/util/Iterator;)Ljava/util/Iterator;
+      46: areturn
+
+Implementation
+The checks are generated by the Traute javac plugin - it finds existing package-level ParametersAreNonnullByDefault annotation and adds checks for all method parameters not marked by Nullable annotation (Checker's NullableDecl is supported by default).
+Restrictions
+Traute is a javac plugin and corresponding API is available since java8. Do you guys use something like javac8 -source 1.7 -target 1.7 for generating javac7 bytecode?
+Proposal
+I'd be glad to create a PR/modify current PR which replaces all explicit null-checks if the team likes the approach.",5,2
+3027,2018-01-08T10:27:40Z,,2018-01-24T20:09:15Z,5,35,3,"This PR documents the restriction that immutable collection factory methods with varargs pose on the length of the last argument, and adds a check for this precondition to prevent NegativeArraySizeException from being thrown.
+Fixes #3026.",4,3
+3083,2018-03-24T04:59:12Z,,2018-04-04T18:46:02Z,1,96,0,"Address #2999
+I have overloaded the methods listed in the issue so that they accept Duration as a parameter. One function I couldn't quite implement without a bunch of additional code was if the value was negative the error message would return the value + the unit. I cut the unit variable out and replaced it with nanoseconds. The value is also converted to nano.",6,5
+3217,2018-07-30T05:23:23Z,,2018-08-13T17:07:01Z,1,5,8,From Java 1.6 > the plus operator is changed into StringBuilder by compiler.,7,9
+3221,2018-08-02T06:37:57Z,,2018-08-13T13:49:18Z,1,2,0,"Added CONTRIBUTING,md into README,md",4,1
+3225,2018-08-03T22:37:48Z,,2018-08-14T17:39:21Z,2,112,7,"This fixes #3223
+Building large sets in ImmutableSet.RegularSetBuilderImpl regressed with change mentioned in the issue, with a slightly gain over the original performance.
+Instead of deduplicating all elements and rehashing when table needs to expand, we keep a list of overflow tables, and only deduplicate within each hashtable. This saves work from consistently rehashing elements while still allowing deduplication of elements as they come.
+JMH benchmarks results (Note: small set is 3 distinct elements, large set is 1000000 insertions, 500000 distinct elements, elements are Integers, building is add() and build() operations)
+
+
+
+testname
+Without Regression:
+With Regression
+With this change
+
+
+
+
+addAndBuildSmallSet
+12315677.054 ±  690237.444  ops/s
+14177773.234 ± 1175789.157  ops/s  ops/s
+12664284.533 ± 1089245.357  ops/s
+
+
+addAndBuildLargeSet
+17.900 ± 1.522  ops/s
+11.184 ± 1.794  ops/s
+19.312 ± 2.329  ops/s
+
+
+
+https://gist.github.com/bobyangyf/05189f515d37b6c3a471ff1659024e12",5,5
+3236,2018-08-14T06:24:06Z,,2018-09-12T21:42:21Z,1,9,16,"This commit also cleans up the method javadoc for newGuard() itself and replaces a lingering throw Throwables.propagate(throwable) with simply throw throwable (not related to newGuard(), but good to clean up).
+Note: I have not modified the copy of Monitor.java under the android directory because the newGuard() method was never added there.",4,6
+3237,2018-08-14T18:57:44Z,,2019-05-23T05:28:13Z,1,40,24,"ImmutableSet.copyOf() was not taking advantage of expectedSize when copying other sets.
+It was also creating redundant copies of arrays during copying that is later discarded.
+This partially fixes #3223 in terms of this method.
+Benchmarks below: These are adding 2000 distinct Objects with unique hashcodes that simply return the value of a field.
+
+
+
+test name
+with regression
+without regression
+with fix
+
+
+
+
+copySet
+12295.914 ±  264.252  ops/s
+32206.487 ±  882.676  ops/s
+35881.393 ± 2244.604  ops/s
+
+
+copyList
+14.723 ± 6.335  ops/s
+4.547 ± 5.599  ops/s
+14.331 ± 4.146  ops/s
+
+
+copyImmutableList
+13571.475 ± 1155.980  ops/s
+43166.369 ± 2471.499  ops/s
+43718.413 ± 1952.942  ops/s",4,3
+3269,2018-09-19T07:41:16Z,,2018-09-25T14:18:29Z,2,52,0,A funtionality similar to Suppliers.memoize() for Runnable,5,8
+3304,2018-10-20T16:36:26Z,,2023-06-26T15:55:42Z,2,41,2,"The concat() method in the per-type primitive utility classes throws unexpected NegativeArraySizeException or ArrayIndexOutOfBoundsException if the input arrays contain too many elements.
+Added test cases to demonstrate both overflow cases. A possible fix is provided.
+In this commit, only the module guava and only the utility class Longs are covered along with the unit tests.
+See #3303",6,0
+3310,2018-11-02T10:22:13Z,,2018-11-13T14:57:11Z,2,14,4,"nullify the value reference before calling the delegate to avoid
+unexpected leaks if the delegate fails",3,4
+3315,2018-11-10T20:34:02Z,,2019-10-02T15:11:52Z,1,4,1,"Strings can be used to represent a file system path even though some classes are specifically designed for this task. For instance, java.nio.Path. It is useful to change the type of the variable to Path, since strings can be combined in an undisciplined way, which can lead to invalid paths. Second, different operating systems use different file separators, which can cause bugs.",10,8
+3372,2019-01-31T23:33:15Z,,2023-06-25T11:54:41Z,1,10,0,"Override removeRange(int,int) for Lists.TransformingSequentialList and
+Lists.TransformingRandomAccessList so that source list has opportunity
+to do more efficient deletions. Call fromList.subList(from, to).clear()
+instead of removing with iterator.",6,1
+3431,2019-04-01T18:35:22Z,2019-04-02T14:07:05Z,2019-04-02T14:07:05Z,8,273,420,"This code has been reviewed and submitted internally. Feel free to discuss on the PR and we can submit follow-up changes as necessary.
+Commits:
+ Remove unused configuration of load factor
+This allows removal of loadFactor/threshold which saves 8 bytes per object.
+While here:
+
+Reduce diff between Map/Set classes
+Make base forEach() work for Linked classes
+
+Shallow object size (bytes):
+
+CompactHashMap: 64 -> 56
+CompactLinkedHashMap: 80 -> 72
+CompactHashSet: 40 -> 32
+CompactLinkedHashSet: 56 -> 48
+
+062afc3",4,0
+3476,2019-05-17T00:02:22Z,,2019-05-21T05:46:36Z,4,4,4,"Upgrade Maven Javadoc Plugin from 3.0.1 to 3.1.0
+Additionally added wildcard syntax to the list of excluded package names due to failing without it after the upgrade
+Comment from @njhill in PR #3370 notes a javadoc plugin issue with JDK 11 that should be resolved in this most recent version.",4,2
+3557,2019-08-10T14:18:46Z,,2019-10-02T19:29:35Z,1,30,0,,4,1
+3571,2019-08-20T22:02:59Z,,2019-08-21T18:48:27Z,2,11,1,Fix #3570 by resetting expandTableThreshold and maxRunBeforeFallback after resizing the hashTable. Unit test included: testReuseBuilderReducingHashTableSizeWithPowerOfTwoTotalElements,3,4
+3590,2019-09-02T07:18:37Z,,2022-10-02T14:32:07Z,1,15,2,"Add support for domain name labels that start with an underscore.
+some protocols such as DKIM use labels starting with an underscore (_domainkeys label)
+all labels that are not the last labels must be allowed to start with an underscore.
+see: https://tools.ietf.org/html/rfc6376",4,0
+3607,2019-09-14T17:27:30Z,,2019-11-07T22:45:42Z,3,5,15,Simplified some code for numerical comparison.,3,7
+3615,2019-09-20T17:55:30Z,,2023-02-10T04:07:06Z,1,12,2,"First, I think the Readme tells me that the maven and gradle are the two ways to use Guava,  I am a little confuse about what ""xml"" means. I think it means ""pom.xml"". But ""maven"" is clearer.
+Next, I think it would be clearer to describe the two situations separately. I introduce this project to my students and invite them to use Guava in their future work. However, in the early days of their learning, changing google's code was more difficult than copying google's code. I hope to lower the learning threshold of this project. This is also the purpose I have been working on.",7,2
+3622,2019-09-26T02:07:21Z,,2021-04-19T20:50:40Z,2,4,4,"1.Anonymous can be replaced with lambda.
+2.for loop replaceable with foreach.",6,11
+3631,2019-10-02T08:46:03Z,,2019-10-02T15:36:42Z,1,1,1,Will help in performance issues as appned is much faster in a loop.,4,4
+3663,2019-10-18T15:13:35Z,,2019-10-20T16:25:42Z,1,9,2,"The fallback read buffer is allocated only when fallback reads
+are used. The buffer size is bounded by the remaining bytes
+to skip, allowing small skip requests which do require a fallback
+read to avoid an 8k buffer allocation.",4,4
+3683,2019-11-06T11:08:49Z,,2023-06-28T18:16:07Z,16,964,2,"Hello again from Gradle 👋
+The following is a suggestion open for discussion. I provide this as a PR, instead of an issue only, as a proof of concept to aid the discussion.
+Background
+With the release of Gradle 6, Gradle fully supports a new metadata format called Gradle Module Metadata (GMM) - docs and spec. Such a metadata (.module) file can be published in addition to a .pom file and Gradle 6 will use it to obtain additional information about a library, its artifacts and transitive dependencies which can not be represented in the pom format. The GMM format has been under development at Gradle since about two years. With the release of Gradle 6, we are now at a point where it is ready to be adopted in larger scale. That's why we have been looking at popular JVM libraries, like Guava, to evaluate if Gradle users depending on a library would profit if the library would publish GMM.
+Why should Guava care?
+There are a couple of things Guava struggles with to express in their poms. Many of which have already been discussed at length here in other issues. I set up a repository with samples demonstrating these use cases. In detail, GMM offers modeling concepts, and with that solutions, for the following:
+Multiple variants in one component
+Use case with description: guava-jdk-variants
+At the core of Gradle 6 dependency management and GMM is the notion that a component can have multiple, and arbitrary many, variants. A concept Gradle has been adopting since 3.x internally and which is heavily used already by all Gradle JVM plugins to distinguish between runtime and compile time variants and to a larger extend, for example, by the Android build system or by Kotlin Native.
+Guava publishes two prominent variants - android and jre. It is solved in probably the most elegant way possible with POM by encoding the variant name in the version number. Still this often causes issues as built tools do not know that the versions also present variants.
+Each variant in GMM is identified by attributes. These attributes are used by Gradle to select the best fitting variant. Gradle defines a number of default attributes for JVM libraries. One of them is org.gradle.jvm.version. In the presented solution, we set the attribute to 6 for the android variants and to 8 for the jre variants. Gradle, knowing about the attribute, can now use that information. If you do in your build:
+java.targetCompatibility = JavaVersion.VERSION_1_6
+
+Gradle will automatically select android, if you set it to version 8 or higher, Gradle will select jre. If you set it to a lower version, Gradle will fail.
+It does not matter if you depend on Guava directly or if it is brought in transitively. The central idea behind the variant-aware mechanism is that dependencies are defined between modules, but the variant selection is done when the dependencies are resolved based on the current context. For example, Gradle can say ""give me everything I need to compile this library for Java 6"" or ""give me everything I need to run this application with Java 9"".
+Note: The presented solution keeps the way how Guava is publishing two ""versions"" at once. Only for Gradle now both versions are identical (both provide all variants). So in Gradle it would not matter if com.google.guava:guava:29.0-jre or com.google.guava:guava:29.0-android is in your dependency graph, as both provide the same variants. For Maven users, nothing changes as the poms are no different.
+Compile-only API dependencies / annotation processor libraries on runtime classpath
+Use case with description: guava-compile-only-dependencies
+This addresses what is being discussed in #2824. With the solution presented here, you would get the following classpathes:
+=== COMPILE ===
+guava-28.1-jre.jar
+failureaccess-1.0.1.jar
+jsr305-3.0.2.jar
+checker-qual-2.8.1.jar
+error_prone_annotations-2.3.3.jar
+j2objc-annotations-1.3.jar
+=== RUNTIME ===
+guava-28.1-jre.jar
+failureaccess-1.0.1.jar
+error_prone_annotations-2.3.3.jar
+
+It can be discussed if that is what is desired, but the essential bit is that you can have things on the compile classpath but not on the runtime classpath (not possible with poms currently).
+A component/variant can provide multiple capabilities
+Use case 1: guava-listenablefuture-conflict
+Use case 2: guava-vs-google-collections
+Another concept introduced with variants is capabilities. A capability is essentially an identifier for a ""feature"" that is implemented by a component. This allows you to express that:
+
+One component provides multiple features that you can individually use/depend on (in this case usually different variants of the component have different capabilities)
+Two or more components provide the same capability and can not be selected together (this is the interesting case for Guava).
+
+To be more concrete, each component has a default capability corresponding to its GAV coordinates:
+
+com.google.guava:guava has the com.google.guava:guava capability
+com.google.collections:google-collections has the com.google.collections:google-collections capability
+com.google.guava:listenablefuture has the com.google.guava:listenablefuture capability
+
+Now we can say that guava also has the com.google.collections:google-collections and com.google.guava:listenablefuture capabilities. Gradle will then not allow Guava together with these modules on the classpath and offers simple options to resolve the conflict. The 9999.0-empty-to-avoid-conflict-with-guava workaround is then no longer needed to avoid undesired old versions of com.google.guava:listenablefuture on the classpath.
+Note: since the pom is not changed, the workaround will stay in place for Maven.
+How does publishing GMM work with Maven builds?
+Usually, we would recommend using Gradle 6 as your build system if your library wants to publish individual variants or other GMM specifics, as it is not easy to manually set this up in a Maven build. However, the Guava build is already setup to do it - by combining two Maven builds. So everything is already in place, the only thing is that certain metadata information cannot be expressed/published in the poms.
+As you can see in this PR, I added the .module file to the repo. (In Gradle, these files are generated during publishing as are the poms.) Since it mostly contains the additional information and Guava does not have many dependencies (and also does not want to add more), the file is of reasonable size to be maintained manually along the poms. Since the naming of the module file is following Maven conventions, it can be treated and published as an additional artifact by Maven - as you can see in this PR.
+If you consider adopting this solution, I am happy to provide some kind of integration test (maybe based on the samples linked above) that validates that the module file is valid and that the information does not contradict the information in the pom files.
+Further details
+Sorry for this rather long text here. My goal is to illustrating the use cases and provide enough detail for a basic understanding of why we think many Gradle users would profit from having Guava publish Gradle Module Metadata. If you are interested in more details, here are a few links to sections in the Gradle user manual:
+
+Gradle Module Metadata
+Variant Selection
+Variant Attributes
+Capabilities
+Enriching Guava's current metadata with a rule
+
+We also recently did a Webinar on publishing that covers GMM:
+https://gradle.com/blog/dependency-management-with-gradle-part-3-publishing-and-release-strategies/ (you can directly jump to 'Section 5 - Metadata' in the video)
+And others have started to publish module files to central, so that is working :)
+https://repo1.maven.org/maven2/org/junit/jupiter/junit-jupiter-api/5.6.0-M1/junit-jupiter-api-5.6.0-M1.module
+I am happy to answer any questions on the topic and help working out a solution if there is interest in this on your side.",7,22
+3713,2019-11-19T18:47:56Z,,2019-12-09T16:41:18Z,2,5,5,"We appreciate your previous feedback and it's very helpful! Here's a reissue of #3435 with a new version of our tool. The tool made many fewer transformations. Again, we'd appreciate any feedback and are willing to make further changes if you wish to incorporate our PR into your project.
+Settings
+We have several analysis settings. We can vary these settings and rerun if you desire. The settings we are using in this pull request are:
+Treat CONFIG/WARNING/SEVERE levels as a category and not a traditional level, i.e., our tool ignores these log levels.
+Never lower the logging level of logging statements within catch blocks.
+Never lower the logging level of logging statements within if statements.
+Never lower the logging level of logging statements containing certain (important) keywords.
+Never raise the logging level of logging statements without particular keywords in their messages.
+Avoid log wrapping by disregarding logging statements contained in if statements mentioning log levels.
+The greatest number of commits from HEAD evaluated: 1000.
+The head at the time of analysis was: 71de406",4,5
+3716,2019-11-20T17:42:38Z,,2019-12-09T16:41:26Z,4,7,7,"Thank you for your feedback in our previous PR (#3713)! That PR has a setting that only transforms log levels below INFO. I rerun our tool with the new settings as mentioned below to make this PR. This PR has two additional transformations that we think they are reasonable.
+Settings
+The settings we are using in this pull request are:
+Treat CONFIG levels as a category and not a traditional level, i.e., our tool ignores these log levels.
+Never lower the logging level of logging statements within catch blocks.
+Never lower the logging level of logging statements within if statements.
+Never lower the logging level of logging statements containing certain (important) keywords.
+Never raise the logging level of logging statements without particular keywords in their messages.
+Avoid log wrapping by disregarding logging statements contained in if statements mentioning log levels.
+The greatest number of commits from HEAD evaluated: 1000.
+The head at the time of analysis was: 71de406
+These are CSV files generated by our tool.
+CSV_files_c_1000.tar.gz (updated)",3,1
+3746,2019-12-23T13:51:31Z,,2019-12-23T15:42:21Z,12,1016,970,"This code has been reviewed and submitted internally. Feel free to discuss on
+the PR, and we can submit follow-up changes as necessary.
+Commits:
+ Make Compact(Linked)HashMap fall back to a java.util.(Linked)HashMap if hash flooding is detected, just as the immutable collections do.
+40d75c9",5,1
+3816,2020-03-06T10:28:56Z,,2020-03-20T21:49:54Z,1,16,0,"I use base64Url in code if Gerrit to make the base64 URL safe.
+But found that it doesn't cover some basic cases.",3,0
+3878,2020-04-27T13:01:28Z,,2020-05-13T14:20:39Z,2,32,0,Implemented lastIndexOf() in CertesianList and added appropriate tests.,4,0
+3891,2020-05-03T01:35:05Z,,2020-05-04T20:39:03Z,2,10,1,Fixes #3890,4,2
+3974,2020-07-25T14:33:52Z,,2021-02-24T17:19:12Z,3,32,39,,4,2
+3998,2020-08-25T13:57:28Z,2020-08-25T15:19:28Z,2020-08-25T15:19:28Z,6,68,10,"This code has been reviewed and submitted internally. Feel free to discuss on
+the PR, and we can submit follow-up changes as necessary.
+Commits:
+ Throw if @subscribe is applied to a method that takes a primitive parameter.
+Fixes #3992.
+RELNOTES=Prevent @subscribe being applied to a method that takes a primitive, as that will never be called.
+9fe4ecd",3,4
+4007,2020-09-05T03:38:57Z,,2020-09-17T15:21:08Z,2,21,0,"Fix #4004, Got IAE instead of AssertionError.",3,6
+4012,2020-09-11T05:14:08Z,,2020-09-15T16:52:13Z,2,2,2,"I just ran stuff through grammar checkers and found some typos/grammatical errors. Since I only added some small changes, I didn't think I needed to do anything special like open an issue or something, but if I should in the future please tell me. If you think I got some stuff wrong, I'll fix it but there are definitely some typos in there.",5,4
+4019,2020-09-15T12:04:51Z,,2020-09-18T16:54:11Z,2,15,1,The same implementation as remove.,5,0
+5281,2020-10-15T17:52:33Z,,2020-10-16T19:26:20Z,1,6,2,"Builds upon my earlier work in #5272 and #5276, whilst also addressing #5254 a bit.",2,0
+5293,2020-10-24T15:22:00Z,2020-10-26T13:59:41Z,2020-10-26T13:59:42Z,2,54,22,"This code has been reviewed and submitted internally. Feel free to discuss on
+the PR, and we can submit follow-up changes as necessary.
+Commits:
+ Add ClassInfo.isTopLevel().
+Seems like a useful method? I can't remember why I didn't add it in the first place. Perhaps just an oversight.
+Partially addresses #3349
+RELNOTES=reflect: Added ClassInfo.isTopLevel().
+14173d1",3,1
+5315,2020-11-15T16:52:21Z,2020-12-03T18:24:58Z,2020-12-03T18:24:58Z,1,27,1,Fixes #4023,3,5
+5348,2020-12-05T06:56:29Z,,2021-02-12T16:09:15Z,2,80,3,"The asMap().compute implementation did not take into account that the present value may be loading. A load does not block other writes to that entry and takes into account that it may be clobbered, causing it to automatically discard itself. This is a known design choice that breaks linearizability assumptions (#1881). The compute should check if a load is in progress and call the appropriate internal removal method.
+Because a zombie entry remained in the cache and still is marked as loading, the loader could discover entry and try to wait for it to materialize. When the computation is a removal, indicated by a null value, the loader would see this as the zombie's result. Since a cache loader may not return null it would throw an exception to indicate a user bug.
+A new ComputingValueReference resolves both issues by indicating that the load has completed. The compute's removeEntry will then actually remove this entry and the loader will not wait on the zombie. Instead if it observes the entry, it will neither receive a non-null value or wait for it to load, but rather try to load anew under the lock. This piggybacks on the reference collection support where an entry is present but its value was garbage collected, causing the load to proceed. By the time the lock is obtained the compute method's entry was removed and the load proceeds as normal (so no unnecessary notification is produced).
+fixes #5342
+fixes #2827
+resolves underlying cause of #2108",3,0
+5371,2020-12-30T00:17:16Z,,2020-12-30T19:04:18Z,0,0,0,"Internal change
+RELNOTES=n/a",1,0
+5384,2021-01-18T16:38:46Z,,2021-01-30T03:20:38Z,1,1,0,,3,1
+5403,2021-02-09T11:12:47Z,,2021-02-12T20:49:42Z,1,1,1,"Added validation, if the iterator.hasNext() return true, then only we change the value of hasPeeked to true, because before what we are doing is without checking iterator contains some value or not, we mark hasPeeked to true in peek() method and, if the user call hasNext() method of PeekingImpl class immediately after calling peek() method, it will always return true.",2,2
+5429,2021-03-10T12:54:01Z,,2021-03-11T21:31:51Z,6,22,22,"#2394
+Refactor TrieParser, LineReader, and CacheLoaderTest by replacing LinkedList with ArrayDeque. LinkedList still occur at a few places where it does not make sense to replace it.",7,9
+5432,2021-03-16T10:08:20Z,,2021-03-17T16:35:56Z,1,12,0,Improved documentation of the Platform class,2,0
+5484,2021-04-12T09:36:59Z,,2021-04-12T22:13:00Z,1,1,1,"Bumps styfle/cancel-workflow-action from 0.8.0 to 0.9.0.
+
+Release notes
+Sourced from styfle/cancel-workflow-action's releases.
+
+0.9.0
+Minor Changes
+
+Add all_but_latest flag - cancel all workflows but the latest: #35
+Cleanup all_but_latest: #67
+
+Credits
+Huge thanks to @​thomwiggers for helping!
+
+
+
+Commits
+
+89f242e 0.9.0
+1f01010 Cleanup all_but_latest (#67)
+1adde81 Optionally cancel all workflows but the latest (#35)
+See full diff in compare view
+
+
+
+Dependabot will resolve any conflicts with this PR as long as you don't alter it yourself. You can also trigger a rebase manually by commenting @dependabot rebase.
+
+
+Dependabot commands and options
+
+You can trigger Dependabot actions by commenting on this PR:
+
+@dependabot rebase will rebase this PR
+@dependabot recreate will recreate this PR, overwriting any edits that have been made to it
+@dependabot merge will merge this PR after your CI passes on it
+@dependabot squash and merge will squash and merge this PR after your CI passes on it
+@dependabot cancel merge will cancel a previously requested merge and block automerging
+@dependabot reopen will reopen this PR if it is closed
+@dependabot close will close this PR and stop Dependabot recreating it. You can achieve the same result by closing it manually
+@dependabot ignore this major version will close this PR and stop Dependabot creating any more for this major version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this minor version will close this PR and stop Dependabot creating any more for this minor version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this dependency will close this PR and stop Dependabot creating any more for this dependency (unless you reopen the PR or upgrade to it yourself)",1,1
+5509,2021-04-19T17:52:45Z,,2021-04-19T19:44:42Z,2,108,0,"Discourage usage of EventBus.
+RELNOTES=n/a",3,0
+5551,2021-05-12T06:10:37Z,,2021-05-12T16:24:52Z,1,3,3,"Bumps actions/checkout from 2 to 2.3.4.
+
+Release notes
+Sourced from actions/checkout's releases.
+
+v2.3.4
+
+Add missing awaits
+Swap to Environment Files
+
+v2.3.3
+
+Remove Unneeded commit information from build logs
+Add Licensed to verify third party dependencies
+
+v2.3.2
+Add Third Party License Information to Dist Files
+v2.3.1
+Fix default branch resolution for .wiki and when using SSH
+v2.3.0
+Fallback to the default branch
+v2.2.0
+Fetch all history for all tags and branches when fetch-depth=0
+v2.1.1
+Changes to support GHES (here and here)
+v2.1.0
+
+Group output
+Changes to support GHES alpha release
+Persist core.sshCommand for submodules
+Add support ssh
+Convert submodule SSH URL to HTTPS, when not using SSH
+Add submodule support
+Follow proxy settings
+Fix ref for pr closed event when a pr is merged
+Fix issue checking detached when git less than 2.22
+
+
+
+
+Changelog
+Sourced from actions/checkout's changelog.
+
+Changelog
+v2.3.1
+
+Fix default branch resolution for .wiki and when using SSH
+
+v2.3.0
+
+Fallback to the default branch
+
+v2.2.0
+
+Fetch all history for all tags and branches when fetch-depth=0
+
+v2.1.1
+
+Changes to support GHES (here and here)
+
+v2.1.0
+
+Group output
+Changes to support GHES alpha release
+Persist core.sshCommand for submodules
+Add support ssh
+Convert submodule SSH URL to HTTPS, when not using SSH
+Add submodule support
+Follow proxy settings
+Fix ref for pr closed event when a pr is merged
+Fix issue checking detached when git less than 2.22
+
+v2.0.0
+
+Do not pass cred on command line
+Add input persist-credentials
+Fallback to REST API to download repo
+
+
+
+
+Commits
+
+See full diff in compare view
+
+
+
+
+Dependabot will resolve any conflicts with this PR as long as you don't alter it yourself. You can also trigger a rebase manually by commenting @dependabot rebase.
+
+
+Dependabot commands and options
+
+You can trigger Dependabot actions by commenting on this PR:
+
+@dependabot rebase will rebase this PR
+@dependabot recreate will recreate this PR, overwriting any edits that have been made to it
+@dependabot merge will merge this PR after your CI passes on it
+@dependabot squash and merge will squash and merge this PR after your CI passes on it
+@dependabot cancel merge will cancel a previously requested merge and block automerging
+@dependabot reopen will reopen this PR if it is closed
+@dependabot close will close this PR and stop Dependabot recreating it. You can achieve the same result by closing it manually
+@dependabot ignore this major version will close this PR and stop Dependabot creating any more for this major version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this minor version will close this PR and stop Dependabot creating any more for this minor version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this dependency will close this PR and stop Dependabot creating any more for this dependency (unless you reopen the PR or upgrade to it yourself)",1,1
+5579,2021-05-28T06:17:55Z,,2021-06-01T15:58:00Z,1,3,3,"Bumps actions/cache from 2.1.5 to 2.1.6.
+
+Release notes
+Sourced from actions/cache's releases.
+
+v2.1.6
+
+Catch unhandled ""bad file descriptor"" errors that sometimes occurs when the cache server returns non-successful response (actions/cache#596)
+
+
+
+
+Commits
+
+c64c572 Catch and log unhandled exceptions stemming from closed file descriptor (#596)
+cc2d767 Update Rust directories recommended for caching (#433)
+2fa955d Update examples.md (#588)
+3a69637 elixir typo - stray parenthesis (#569)
+366e5ba Update cache key for Elixir (#568)
+8d3f2fc Update dependencies (#565)
+See full diff in compare view
+
+
+
+
+Dependabot will resolve any conflicts with this PR as long as you don't alter it yourself. You can also trigger a rebase manually by commenting @dependabot rebase.
+
+
+Dependabot commands and options
+
+You can trigger Dependabot actions by commenting on this PR:
+
+@dependabot rebase will rebase this PR
+@dependabot recreate will recreate this PR, overwriting any edits that have been made to it
+@dependabot merge will merge this PR after your CI passes on it
+@dependabot squash and merge will squash and merge this PR after your CI passes on it
+@dependabot cancel merge will cancel a previously requested merge and block automerging
+@dependabot reopen will reopen this PR if it is closed
+@dependabot close will close this PR and stop Dependabot recreating it. You can achieve the same result by closing it manually
+@dependabot ignore this major version will close this PR and stop Dependabot creating any more for this major version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this minor version will close this PR and stop Dependabot creating any more for this minor version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this dependency will close this PR and stop Dependabot creating any more for this dependency (unless you reopen the PR or upgrade to it yourself)",2,2
+5654,2021-07-20T09:39:07Z,,2021-07-29T18:23:36Z,2,12,3,,3,5

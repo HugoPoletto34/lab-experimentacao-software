@@ -1,0 +1,447 @@
+number,created_at,merged_at,closed_at,files,additions,deletions,body_text,participants,comments
+2437,2014-11-11T12:17:34Z,,2016-11-18T17:31:57Z,5,264,0,"Hi Express team,
+To follow the discussion posted in the #2191 issue, I send you a proposal to implement tracing support in Express. Let me know if it matches your requirements. It is inspired by Koa Trace.
+Goal
+We want to allow to trace the response life-cycle. The tracing should support any tracing technology.
+Implementation
+
+Add a tracers array at the application level.
+Add an instrument function on the application prototype to add a tracer to the tracer list.
+Add a dispatch function on the application prototype to activate all set tracers.
+Add a trace on the response prototype to run tracers with current context and given event as arguments.
+Add tracing tests.
+Add tracing example.",10,53
+3100,2016-10-12T19:21:32Z,,2020-04-15T06:51:21Z,4,39,4,"I'm open to suggestions on improving this one. Basically if a route is ""/foo/:num/bar/:num"" and a client requests ""/foo/12/bar/32"" I would like to be able to see that they hit ""/foo/:num/bar/:num"":
+Here's how this PR does that:
+app.get('/foo/:num/bar/:num', function (req, res) {
+  var matched = req.matchedRoute; // ""/foo/:num/bar/:num""
+  var originalUrl = req.originalUrl; // ""/foo/12/bar/32""
+});
+It works for nested routes also. This can be seen in the new tests added.
+It would also be possible to expose an Array instead if desirable, e.g ['/foo/:num/bar/:num'] with each matched layer/router inside.",3,12
+3130,2016-11-17T08:06:59Z,,2016-11-18T18:44:07Z,7,15,14,"test/app.options.js
+respone  => response 
+test/app.router.js
+paranthesis => paranthesis 
+test/req.acceptsEncoding.js, test/req.acceptsEncodings.js, test/req.acceptsLanguage.js, test/req.acceptsLanguages.js
+accpeted => accepted",4,0
+3137,2016-11-23T19:32:56Z,,2016-11-27T20:50:55Z,2,53,14,"Currently if an invalid status code is sent in the response, node throws an exception on writeHead that afaik can't be handled in express. Instead it just leads to a hanging request. I realize that it's best practice for people to only send valid status codes, but I have seen:
+if (err) res.sendStatus(err.code || 500)
+far too many times.
+This change is similar to #2797, which I think is ultimately a better solution. But this fix should be non breaking.",2,11
+3143,2016-11-27T20:50:36Z,,2020-04-19T00:50:13Z,2,38,10,#3137 off the 5.0 branch,4,7
+3174,2017-01-14T01:35:28Z,,2017-02-28T00:39:05Z,1,16,1,,2,2
+3178,2017-01-18T06:32:40Z,,2017-01-21T05:26:04Z,1,1,1,Parallel structures should be followed when using conjunctions: https://owl.english.purdue.edu/owl/resource/623/01/. Changed the relevant section to reflect this.,3,0
+3179,2017-01-20T14:07:06Z,,2017-01-21T05:27:35Z,1,0,1,Remove dangling anchor Receiving Security Updates,2,0
+3183,2017-01-27T11:00:24Z,,2017-02-26T13:07:38Z,30,36,36,"This fixes  #3181
+I've gone ahead and replaced all of the examples to use Pug instead of Jade.",2,6
+3187,2017-01-29T03:48:33Z,2017-03-01T22:14:07Z,2017-03-01T22:14:07Z,20,350,102,"This is a tracking issue for release 4.15.
+Please keep feature requests in their own issues
+If you want to make a comment on a particular change, please make the comment in the ""Files changed"" tab so comments are not lost during a rebase.
+List of changes for release:
+
+ Add debug message when loading view engine #3158
+ Backport changes in router@1.3.0
+
+ Add next(""router"") to exit from router #2241 #2371
+ Fix case where router.use skipped requests routes did not #3037
+ Skip routing when req.url is not set
+ Use %o in path debug to tell types apart
+ lint: consolidate layer match failure path
+ lint: remove unreachable code
+ perf: add fast match path for * route
+
+
+ Improve req.ips performance #2723
+ Remove usage of res._headers private field #3174
+ Support Node.js 7.x
+ Upgrade debug module to 2.6.1
+ Upgrade etag module to 1.8.0 to bring in OOB FIPS compliance
+ Upgrade finalhandler module to 1.0.0 to bring in full HTML documents and security headers
+ Upgrade fresh module to 0.5.0 to bring in bug fixes and perf improvements
+ Upgrade qs module to 6.3.1 to bring in minor bug fixes
+ Upgrade send module to 0.15.0 to bring in precondition checks
+ Upgrade serve-static module to 1.12.0
+ Use Object.create to setup request & response prototypes
+ Use setprototypeof module to replace __proto__ setting #3164 #3103 #2613 #1967
+ Use statuses instead of http module for status messages #3215
+
+Testing this release
+If you want to try out this release, you can install it with the following commands:
+$ npm cache clean express
+$ npm install expressjs/express#4.15
+Owners/collaborators: please do not merge this PR :)",7,14
+3191,2017-02-01T09:28:46Z,,2017-02-05T01:44:24Z,1,1,1,"At the end of /lib/request.js I found an unnecessary semicolon which does not exist in other files.
+There is no effect on the operation in particular.
+However, in order to unify the format, I deleted it.",3,0
+3199,2017-02-06T12:11:16Z,,2017-02-08T00:44:50Z,1,1,1,"Rename 'decode querystring' to 'decode params' in test/app.router.js
+This is a fix for #3194",3,0
+3224,2017-02-26T13:39:38Z,,2017-03-01T23:23:05Z,4,22,26,"Further discussion can be seen at #3181 but this removes the requirement of Jade in this really simple example.
+Closer to removing Jade as a dependency 💪",3,0
+3227,2017-02-28T12:42:17Z,,2017-03-06T02:05:36Z,1,2,1,This commit would make the debugging message more intuitive when creating a new Layer. It will display the fn name as well. Eg. express:router:layer new / expressInit instead of express:router:layer new /,2,1
+3239,2017-03-08T14:11:06Z,,2017-03-10T04:37:51Z,1,0,1,"The link in which Русскоязычная документация links to has expired.
+Maybe there is an up to date link someone else is aware of we can replace it with or remove this.
+/OCD",3,0
+3241,2017-03-08T14:54:19Z,,2017-03-17T04:11:10Z,18,92,53,"Another EJS replacement for the route separation Jade example.
+Partially fixes #3181",3,4
+3249,2017-03-20T16:25:17Z,,2017-03-23T04:07:21Z,1,1,1,now it's time to rename jade to pug,2,0
+3251,2017-03-21T22:01:50Z,,2017-09-22T02:46:50Z,5,67,29,"There were 4 unit test that were failing with node-chakracore because of error message difference between v8 and chakracore. Added engine specific check to validate the expected error message.
+Ref: nodejs/node-chakracore#189",3,31
+3256,2017-03-24T08:54:10Z,,2017-03-24T21:08:00Z,1,1,1,Added a space before the Security heading to correctly parse the markdown.,3,0
+3269,2017-04-05T22:00:06Z,,2017-09-28T17:46:31Z,3,126,8,refs: #3268,2,3
+3302,2017-05-07T23:10:35Z,,2020-04-15T08:12:18Z,53,508,511,"Converted var to const. Refactored assignment statements
+of the form  var var1 \n , var2 to const var \n const var 2
+to better maintain consistency with other test files.",6,11
+3304,2017-05-09T20:37:32Z,,2017-05-11T19:48:34Z,1,1,1,,3,1
+3305,2017-05-10T04:17:53Z,,2017-05-11T03:34:35Z,2,50,31,better error message for : #3303,2,1
+3307,2017-05-10T20:25:19Z,,2017-05-15T03:58:48Z,2,21,3,This PR addresses #3303.,2,2
+3310,2017-05-17T08:09:12Z,,2017-05-18T01:46:08Z,6,18,6,"1. examples/params
+http://localhost:3000/users/0-2
+users tj, tobi     <-- lost loki
+Because user/0 is tj, that’s means the 0 is the data, not index of array.
+So, users/0-2 must be include user/2.
+　
+2. examples/route-separation
+http://localhost:3000
+Click link ""posts"", jumped to the ""users"" page.
+　
+3. examples/view-constructor
+http://localhost:3000/
+ReferenceError: https is not defined
+　
+4. examples/online, examples/search, and examples/session
+// install redis first:
+// https://redis.io/
+// then:
+// $ npm install redis
+// $ redis-server
+If the user has installed redis, then there is no problem reinstalling redis. But if the user has not done it yet, and here does not prompt the user to install redis, this example will run failure, the user will be confused.",4,2
+3314,2017-05-18T18:07:43Z,,2017-09-28T17:46:29Z,1,21,14,"After implementing the code, all tests passed and performance benchmarks checked out.",2,3
+3320,2017-05-25T16:39:13Z,,2017-05-25T17:47:26Z,1,1,1,"debug: 2.6.7 has a breaking change in it:
+debug-js/debug@cae07b7#diff-b056c1ad802eb5041886154caaf3a3d4
+This causes:
+  if (window && window.process && window.process.type === 'renderer') {
+      ^
+
+ReferenceError: window is not defined
+
+The change was reversed in debug: 2.6.8
+debug-js/debug@2482e08#diff-b056c1ad802eb5041886154caaf3a3d4",2,9
+3337,2017-06-12T00:39:51Z,,2017-07-26T15:38:27Z,1,1,1,"updated package debug from 2.6.7 to 2.6.8
+Npm link :  https://www.npmjs.com/package/debug
+Repository link : https://github.com/visionmedia/debug/releases",3,0
+3353,2017-06-27T09:48:14Z,,2017-07-26T15:53:47Z,1,1,1,,3,0
+3358,2017-07-07T14:48:41Z,,2017-07-08T11:27:15Z,1,8,0,"description
+We can bettor handle the error case when an undefined is sent as the status code in the response as it currently goes down to the node layer and does not give a clear error.
+var express = require('express');
+var app = express();
+
+app.get('/', function (req, res) {
+  //res.status(undefined).send('not ok');
+  // or
+ res.sendStatus(undefined);
+});
+
+app.listen(3000);
+If the status code is undefined when you call
+res.status(undefinded).send('');
+you get an error OF COURSE. But I think we could handle this case a bit more clearly than the stack trace allows.
+instructions to reproduce
+npm start
+then hit the end point
+curl -X GET http://localhost:3000/ 
+
+
+The following is what you currently see if you send an undefined statusCode in a response.
+> express-status-undefined-error@1.0.0 start /Users/ghinks/dev/doodles/express-status-undefined-error
+> node server.js
+
+TypeError: Cannot read property 'toString' of undefined
+    at ServerResponse.writeHead (_http_server.js:190:44)
+    at ServerResponse._implicitHeader (_http_server.js:157:8)
+    at ServerResponse.OutgoingMessage.end (_http_outgoing.js:548:10)
+    at ServerResponse.send (/Users/ghinks/dev/doodles/express-status-undefined-error/node_modules/express/lib/response.js:211:10)
+    at /Users/ghinks/dev/doodles/express-status-undefined-error/server.js:9:25
+    at Layer.handle [as handle_request] (/Users/ghinks/dev/doodles/express-status-undefined-error/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/ghinks/dev/doodles/express-status-undefined-error/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/Users/ghinks/dev/doodles/express-status-undefined-error/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/Users/ghinks/dev/doodles/express-status-undefined-error/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/ghinks/dev/doodles/express-status-undefined-error/node_modules/express/lib/router/index.js:281:22
+
+I think that something with
+Error: statusCode was not a number
+
+is maybe an improvement.",2,6
+3370,2017-07-20T12:09:27Z,,2017-09-28T17:46:30Z,2,82,8,"Added an ""options"" field to res.download, allowing for options to be passed into sendFile
+Options will include the existing Content-Disposition header by default, unless explicit headers are provided
+Added tests for the new res.download functionality - with blank options, with allowed dotfiles, and with a custom Content-Disposition",3,1
+3387,2017-08-05T11:03:33Z,,2017-08-06T00:11:03Z,13,51,51,"should.js' ok assertions must be called to work properly
+this doesn't raise error:
+describe.only('should.be.ok', function() {
+    it('passes, but should not', function() {
+        var x = false;
+        x.should.be.ok;
+    });
+});
+fails as it should:
+describe.only('should.be.ok', function() {
+    it('fails as it should', function() {
+        var x = false;
+        x.should.be.ok();
+    });
+});",3,2
+3390,2017-08-08T11:11:52Z,,2018-11-06T18:18:48Z,18,1793,1549,"Hi,
+PiniH here - used wrong account before (work...).
+Regarding this issue: #3388
+This is an initial proposal for making http2 work, this requires node to expose the Http2ServerRequest/Response and creates both request/response on the app and attaches the correct one depending on the request.
+This is just an initial proposal (and a working example if Http2ServerRequest/Response) is exposed.",15,83
+3430,2017-09-27T13:20:16Z,,2017-09-28T17:46:30Z,1,1,1,,2,0
+3434,2017-09-28T04:35:50Z,,2017-09-28T17:46:30Z,2,5,1,the lasted version  of vary on master branch is 1.1.2,2,0
+3435,2017-09-28T09:26:32Z,,2017-09-28T17:46:31Z,3,14,2,"This fixes a security issue found in mime, which got updated in send 0.16
+https://nodesecurity.io/advisories/535",3,9
+3445,2017-10-09T19:56:55Z,,2017-10-10T02:12:15Z,2,20,5,"A recent commit introduced a condition where TypeError will be thrown when calling res.send(Buffer).
+If an ETag has already been set, generateETag will be false, and if chunk is a Buffer with a length less than 1000, Buffer.byteLength will be used to calculate the length, but the chunk is a Buffer and not a string.",2,0
+3448,2017-10-11T03:03:18Z,,2018-01-03T00:11:45Z,1,13,1,"I think it is unnecessary about res equal res.
+Should add a new test case if want to validate res.send is chainable.",2,1
+3455,2017-10-23T15:03:21Z,2019-05-09T04:08:33Z,2019-05-09T04:08:33Z,4,448,0,expose the text middlware of bodyparser,3,0
+3540,2018-01-22T01:16:51Z,,2018-02-14T00:31:49Z,17,25,32,,3,7
+3543,2018-01-22T22:58:01Z,,2018-09-24T18:21:41Z,3,16,10,"Based on this benchmark on JsPerf, changed the for loop for for loop, reverse, pre-decrement",4,6
+3561,2018-02-13T08:32:05Z,,2018-02-13T21:46:48Z,4,9,10,".eslintrc is deprecated.
+See https://eslint.org/docs/user-guide/configuring#configuration-file-formats.
+I changed to .eslintrc.yaml because Node is using Yaml.(nodejs/node#7699)",4,2
+3568,2018-02-16T04:04:16Z,,2020-04-15T06:59:49Z,4,170,0,"Added app.extend(), which provides an easy way to update certain properties of a setting.
+Example:
+app.set('foo', { 'bar' : 1 })
+app.extend('foo', { 'baz' : 1 });
+app.get('foo');
+// => { ""bar"" : 1, ""baz"" : 1 }
+
+Related issue #3499",4,18
+3579,2018-03-02T00:46:23Z,2020-03-25T20:24:33Z,2020-03-25T20:24:24Z,1,1,1,"The ""npm"" badge and ""downloads"" badge currently both point to npmjs.org
+I was wondering if you might find it amenable to having it point to its download chart instead?
+Either just express by itself or alongside other server frameworks
+Wasn't sure whether it'd be better to make an issue to ask first, decided to error on the side of a PR to make it potentially less work if it's desirable to add :)",2,3
+3582,2018-03-04T00:58:54Z,2018-10-27T17:26:17Z,2018-10-27T17:26:17Z,3,17,0,so you don't get confusing errors like: function substring not found or something,3,4
+3587,2018-03-13T06:30:18Z,2022-03-26T05:55:54Z,2022-03-26T05:55:54Z,3,33,6,"... so that it may refer to the other handlers via this. This is useful for cases where you want to delegate the default behavior to one of the other registered handlers, e.g.:
+app.get('/:item', (req, res) => res.format({
+  json() { res.send(req.item) }
+, text() { res.send(req.item.toString()) }
+, xml()  { res.send(req.item.toXML()) }
+, default() { this.json() }
+}))
+Without this, I have to pre-declare the default json handler separately, making it inconsistent with how the non-default handlers are declared and making the overall code more complex:
+app.get('/:item', (req, res) => {
+  function sendJSON() { res.send(req.item) }
+  res.format({
+    json: sendJSON
+  , text() { res.send(req.item.toString()) }
+  , xml()  { res.send(req.item.toXML()) }
+  , default: sendJSON
+  })
+})
+The regular (non-default) handlers are already called with the obj as their context, so this would match their behavior too.",2,4
+3599,2018-03-20T10:01:11Z,2018-05-07T20:36:47Z,2018-05-07T20:36:47Z,1,1,1,Fixes #3598,3,9
+3617,2018-04-10T12:14:00Z,2018-10-27T05:22:53Z,2018-10-27T05:22:53Z,2,2,2,NodeJS 9 is no longer nightly. This is the current non-LTS version of nodejs.,2,4
+3621,2018-04-15T08:31:11Z,2021-12-18T05:09:55Z,2021-12-18T05:09:55Z,3,5,3,Implemented the change discussed in #3361,6,24
+3622,2018-04-16T13:30:05Z,,2018-04-16T14:48:10Z,2,48,0,"Added the functionality from #2564
+(Initial PR here: #3620)",2,4
+3623,2018-04-16T14:47:01Z,,2020-04-16T06:37:24Z,2,53,0,Implement PR #3622 but against 4.x master branch instead,4,8
+3655,2018-05-15T09:13:20Z,2018-09-19T16:38:47Z,2018-09-19T16:38:47Z,2,10,1,"This gets rid of new Buffer() deprecation warnings on Node v10 by bumping body-parser to the 1.18.3 version that was recently released by @dougwilson.
+Also bumped qs to 6.5.2 to avoid duplicate versions.
+See expressjs/body-parser#312 for details.",4,19
+3656,2018-05-16T16:39:42Z,2018-10-27T06:00:52Z,2018-10-27T06:00:52Z,2,2,2,"This updates the Travis CI and Appveyor build matrix to the latest versions available on both platforms and adds builds against Node 11.x nightlies on Travis.
+Closes #3617 because of similar changes for Node v9.",2,1
+3675,2018-06-23T08:55:02Z,,2018-08-11T15:14:41Z,1,9,1,"Proposing this new method
+nodejs/node#21482
+or maybe we could have a breaking change for express 5, where .listen return a Promise if no callback is given?
+I think it's be great, since doing:
+const server = app.listen(process.env.PORT || 3000);
+console.log(server.address().port)
+is unsafe (it can throw since .listen is async, and .address not necessarily available just after)
+but I guess you'll want to preserve the API chaining style for .listen
+maybe a app.ready() returning a Promise rather?",4,13
+3678,2018-06-27T08:41:02Z,2018-09-13T23:11:02Z,2018-09-13T23:11:02Z,1,5,3,Fixes #3558 & #3677,2,1
+3708,2018-08-08T04:47:54Z,2019-05-09T01:04:22Z,2019-05-09T01:04:22Z,4,394,0,"It's currently not possible to use the bodyParser.raw middleware through express. To have it one needs to use bodyParser directly. But alas, body-parser is not exposed through exports. So it's necessary to add it as a dependency to your project, which is clearly not desired as it might lead to multiple versions of body-parser (see #3706).
+This PR just adds the raw middleware to the exports object, same as json and urlencoded.",5,3
+3710,2018-08-09T19:01:49Z,2022-03-02T15:28:09Z,2022-03-02T15:28:08Z,1,3,0,This adds a new badge to the top of the README.md file to display the install size for express and it's dependencies.,6,21
+3713,2018-08-11T12:23:48Z,,2018-08-11T13:43:23Z,1,4,0,Suggested solution for issue: #3712,2,2
+3718,2018-08-15T01:41:30Z,2018-09-13T22:34:18Z,2018-09-13T22:34:18Z,2,2,2,Correct spelling error.,4,1
+3722,2018-08-21T09:15:20Z,,2018-09-13T22:19:00Z,1,1,1,,4,5
+3793,2018-11-04T18:27:38Z,,2019-05-25T22:13:28Z,6,11,9,"This removes the use of utils-merge and replaces it with merge-descriptors. Merge descriptors is already used as a dependency in other files and performs the same task as utils-merge. Merge descriptors has an additional parameter to allow for adding a field if it doesn't exist on the target object. Merge descriptors method of creating fields also is more robust. This reduces the need for the utils-merge dependency.
+I have run npm test and everything passed.
+@dougwilson",3,13
+3810,2018-11-27T03:02:20Z,2018-12-18T02:30:21Z,2018-12-18T02:30:21Z,1,9,9,,3,0
+3812,2018-11-29T08:07:17Z,2018-12-18T04:34:56Z,2018-12-18T04:34:56Z,3,3,3,,3,1
+3827,2018-12-13T07:10:57Z,2018-12-18T00:45:36Z,2018-12-18T00:45:36Z,1,1,1,"Hello!
+I found word 'dislosure', but I think it's not. So I fixed it with 'disclosure'.
+Thank you!",4,0
+3846,2019-01-05T07:41:49Z,2019-04-17T21:47:02Z,2019-04-17T21:47:02Z,1,4,0,Added contributing guidelines as part of the docs.,2,0
+3848,2019-01-08T02:59:01Z,,2019-05-09T22:05:05Z,1,4,3,"show router  register  and router   method , stack",4,2
+3859,2019-01-17T17:33:15Z,2019-04-16T15:35:20Z,2019-04-16T15:35:20Z,1,1,1,,2,0
+3860,2019-01-22T12:16:43Z,2020-03-25T21:29:12Z,2020-03-25T21:29:08Z,14,22,0,,3,4
+3873,2019-02-05T09:40:02Z,2019-04-16T05:20:41Z,2019-04-16T05:20:41Z,1,2,0,,2,0
+3875,2019-02-08T04:32:08Z,2019-04-16T18:31:44Z,2019-04-16T18:31:44Z,6,9,9,,4,0
+3924,2019-04-05T01:35:47Z,,2020-04-15T08:00:58Z,3,233,0,"I've created an Azure Pipelines build for express. This build will work for both Linux and Windows. I'd be happy to work with you to get this set up for your review, or show you the results from my fork.
+It can upload coveralls information for both Linux and Windows.  You just need to create a build variable with your coveralls key.
+Here is a partial view of the build completing for multiple Linux versions.
+Test result information is also lit up.
+Build time for the entire build (Linux + Windows) was around 8 minutes.
+EDIT:
+also added an issue related to this #3927",5,15
+3930,2019-04-11T06:10:20Z,,2020-04-15T07:59:41Z,1,14,1,"While require a module like const x = require(variable);, Webpack will
+print this warning Critical dependency: the request of a dependency is an expression.
+Based on webpack/webpack#196 (comment).",5,16
+3936,2019-04-18T13:00:40Z,2022-03-27T17:21:47Z,2022-03-27T17:21:48Z,3,38,3,Addresses issue #3935 .,2,3
+3946,2019-04-24T11:44:15Z,2019-05-16T13:53:42Z,2019-05-16T13:53:42Z,2,2,2,,3,6
+3979,2019-06-05T02:42:14Z,,2020-03-04T21:55:25Z,1,4,0,"Adds a badge showing the number of people helping this repo on CodeTriage.
+
+What is CodeTriage?
+CodeTriage is an Open Source app that is designed to make contributing to Open Source projects easier. It works by sending subscribers a few open issues in their inbox. If subscribers get busy, there is an algorithm that backs off issue load so they do not get overwhelmed
+Read more about the CodeTriage project.
+Why am I getting this PR?
+Your project was picked by the human, @schneems. They selected it from the projects submitted to https://www.codetriage.com and hand edited the PR. How did your project get added to CodeTriage? Roughly about 3 years ago, joshsaintjacque added this project to CodeTriage in order to start contributing. Since then, 40 people have subscribed to help this repo.
+What does adding a badge accomplish?
+Adding a badge invites people to help contribute to your project. It also lets developers know that others are invested in the longterm success and maintainability of the project.
+You can see an example of a CodeTriage badge on these popular OSS READMEs:
+
+ https://github.com/rails/rails
+ https://github.com/crystal-lang/crystal
+
+Have a question or comment?
+While I am a bot, this PR was manually reviewed and monitored by a human - @schneems. My job is writing commit messages and handling PR logistics.
+If you have any questions, you can reply back to this PR and they will be answered by @schneems. If you do not want a badge right now, no worries, close the PR, you will not hear from me again.
+Thanks for making your project Open Source! Any feedback is greatly appreciated.",7,9
+4028,2019-08-19T06:09:05Z,,2020-03-25T05:46:33Z,1,8,3,"GET /users/%22%3E%3Csvg%20onload=prompt()%3E HTTP/1.1
+Host: 192.168.122.246:3000
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101 Firefox/60.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Connection: close
+Upgrade-Insecure-Requests: 1",3,3
+4050,2019-09-12T08:05:38Z,2020-03-25T20:55:57Z,2020-03-25T20:55:57Z,1,3,0,"This PR is created from #4049
+Added explanation about $ npm init.",5,11
+4087,2019-10-25T22:42:31Z,,2020-03-25T20:58:13Z,1,29,2,Yarn is used by a lot of developers so I don't see any reason not to include it in the readme to both make the installation/usage of express easier for them and make sure nobody feels discriminated/left out.,5,4
+4102,2019-11-15T19:29:31Z,2020-03-25T23:36:52Z,2020-03-25T23:36:49Z,1,1,0,"Reason:
+if you search for http framework, express is not listed.",3,0
+4114,2019-12-04T06:26:50Z,2019-12-12T16:28:46Z,2019-12-12T16:28:46Z,1,5,0,"I have read and understood the project's Contributing guide.
+I also have read and understood the process and best practices around Express triaging.
+I request for a triager role for the below orgs:
+
+jshttp
+pillarjs
+express",2,0
+4115,2019-12-05T06:54:00Z,,2019-12-10T19:02:29Z,2,42,3,"fix: #3992
+Most beginners implement with reference to examples, so I think it would be worthwhile to improve the examples in the future.
+Thanks!",2,12
+4119,2019-12-10T19:04:18Z,2020-03-25T21:59:57Z,2020-03-25T21:59:55Z,1,4,3,fix: #3992,3,4
+4120,2019-12-10T19:22:27Z,2022-02-08T22:54:07Z,2022-02-08T22:54:06Z,3,15,1,fix: #3992 (comment),2,2
+4142,2019-12-30T05:01:25Z,,2020-01-04T21:22:54Z,1,1,4,"Hi,
+This PR addresses the issue:
+#4141
+I've opted for using the Array.from rather than the Spread operator for reasons such as:
+
+eslint/eslint#10307 (comment)
+Both have similar performance
+
+(poc) benchmark:
+http://jsben.ch/YCwrg
+References:
+Speeding up spread elements
+Ps. Notice how the current implementation is exactly like the one referenced on the blog post. Here",2,4
+4143,2019-12-31T23:09:57Z,2020-04-07T06:23:17Z,2020-04-07T06:23:14Z,1,139,0,"As a member of the Open JS Foundation, we need to add the code of conduct to all project repos.  To get started I wanted to at least get it on the main repo, and then if we are good with this we can automate adding it to the rest.
+This is part of the project onboarding: openjs-foundation/project-status#15",10,17
+4144,2019-12-31T23:44:05Z,2020-04-14T20:14:45Z,2020-04-14T20:14:43Z,1,92,0,"As a member for the OpenJS foundation, we are required to have a well defined charter for the project.  I tried to pull it together based on the template they provide and our existing docs.
+This is part of the onboarding process: openjs-foundation/project-status#15",5,6
+4145,2020-01-01T12:27:50Z,,2020-01-20T11:10:57Z,1,5,0,This commit is made in reference to issue #4049,2,0
+4151,2020-01-04T00:14:58Z,,2020-03-25T21:07:40Z,1,7,0,This is done in reference to issue #4049,7,7
+4155,2020-01-08T04:58:37Z,2020-05-20T23:49:20Z,2020-05-20T23:49:20Z,2,3,2,fixed response jsonp deprecate and comment,3,1
+4172,2020-02-05T08:04:43Z,,2020-02-05T13:26:54Z,1,10,10,"Main changes
+
+Upgraded outdated dependencies
+
+Context
+
+Related #4171",2,4
+4174,2020-02-05T17:13:42Z,2022-03-26T18:32:30Z,2022-03-26T18:32:30Z,2,4,1,"Main Changes
+
+Upgrade to depd@2.0.0
+
+Context
+
+Related #4171
+Discussion (call to action) #4171 (comment)",3,6
+4185,2020-02-14T03:39:07Z,,2020-07-11T00:35:59Z,1,1,0,"The following orgs:
+jshttp
+pillarjs
+express",4,5
+4192,2020-02-20T06:36:13Z,2020-05-20T22:15:08Z,2020-05-20T22:15:08Z,2,6,1,Fix of a typo  in the documentation for req.param,4,0
+4208,2020-03-06T15:16:47Z,,2020-04-23T03:48:58Z,1,7,0,"Refs: #3621
+
+I thought about checking the parser type before throwing deprecation, but then found that it wasn't necessary, as we are hard-coding it to extended
+the query part in var deprecate = require('depd')('query'); is my assumption about how it should be, let me know if that is not the case
+feel free to propose changes to the message.
+
+thanks!",2,30
+4210,2020-03-09T08:47:07Z,,2024-02-16T15:28:14Z,1,34,4,"Refs: expressjs/discussions#98
+Refs: expressjs/discussions#106 (comment)
+co-authored-by: Wes Todd @wesleytodd",7,23
+4211,2020-03-09T20:44:08Z,2020-05-11T05:05:04Z,2020-05-11T05:05:03Z,2,93,0,"With all the work being on I wanted to make sure these edits I had never pushed were available in case anyone could finish them up.  I did some rebasing, but it probably needs a bit more work and for sure a commit clean up pass.  I will prioritize the req/res stuff, but if I can I will also get to this over the next day or so.  If anyone wants to take this over and see that it gets finished let me know and you can take over.
+cc: @gireeshpunathil @dougwilson",6,36
+4217,2020-03-15T15:21:31Z,,2020-07-29T23:55:28Z,2,46,0,"As developers, our responsibility is not only to fix issues or implement new features, but to clearly communicate the development work to reviewers. A developer can convey proposed code changes and their purposes either through detailed documentation or other means of communication.",7,8
+4223,2020-03-21T20:43:25Z,2022-03-24T04:59:33Z,2022-03-24T04:59:33Z,3,197,12,"This relates to #4212 and actually does two things. First, it uses res.status everywhere that the this.statusCode = N was previously used in res. That shouldn't be a breaking change. It allows us to check the status codes in order to deprecate. The changes related to using res.status internally are copied from #4212.
+Wanted to open this as an option for inclusion in v4 to warn folks about breaking changes coming in v5 for their app.
+The goal here is to only print a deprecation message for behavior which will throw under v5 but does not currently throw under v4. Specifically I want to avoid users seeing a deprecation about something throwing soon, and then immediately after also seeing the Node.js throw error for bad statuses. I can already see the Github issues if that were the case.
+There are two dep messages, in order to hopefully help folks understand specifically what is happening and how the behavior will change.
+The two cases where a dep message will print:
+
+String values in range of what Node.js accepts as valid, i.e. '200' and '304.5'. All strings throw under v5
+Non integer values in range of what Node.js accepts as valid i.e. 200.5.",3,7
+4239,2020-04-13T17:27:13Z,,2020-07-11T00:34:42Z,1,1,0,Please add Olalekan Ikotun to the triage members.,3,2
+4276,2020-05-14T04:16:37Z,,2020-05-17T13:51:39Z,1,1,3,Slice method 3 times faster. I saw this method in vuejs,2,5
+4286,2020-05-19T08:05:38Z,,2020-06-26T21:45:44Z,1,1,1,,3,2
+4305,2020-06-04T20:02:24Z,,2021-12-30T16:59:39Z,3,7,1,"Adding a name property to the express application will enable libraries which take in apps from a number of different frameworks to easily identify which framework is running and take appropriate action. Alternatively, the property could be called framework and be an explicit property set in init or during the app variable declaration.",7,6
+4315,2020-06-14T20:14:03Z,2020-06-29T04:59:18Z,2020-06-29T04:59:18Z,1,3,3,"Signed-off-by: Moni usmoni@gmail.com
+I think these links are not correctly placed.",2,2
+4321,2020-06-18T23:06:08Z,2021-12-17T05:25:49Z,2021-12-17T05:25:49Z,5,97,208,"I went to test the new path-to-regexp behavior in 5.0.0-alpha.8 and realized that it relies on router@alpha.1, which doesn't have the new path-to-regexp behavior that's planned for v5.
+Not sure if this is intentional or not, so I wanted to open this PR as a reminder.
+I'm writing a blog post for work about changes in v5 and wanted folks to be able to try this part out.",5,13
+4327,2020-06-26T21:43:43Z,2020-06-29T04:58:28Z,2020-06-29T04:58:28Z,1,1,1,,3,1
+4338,2020-07-03T05:45:43Z,2021-12-16T07:28:24Z,2021-12-16T07:28:25Z,2,10,0,"Support Node.js 13.x.
+ Support Node.js 14.x.",4,11
+4340,2020-07-03T05:59:14Z,2021-11-16T04:32:29Z,2021-11-16T04:32:28Z,2,7,1,Update proxy-addr.,3,0
+4351,2020-07-16T17:58:34Z,2020-07-16T19:24:10Z,2020-07-16T19:24:10Z,1,1,1,,3,0
+4354,2020-07-19T12:00:24Z,2020-07-27T21:13:19Z,2020-07-27T21:13:19Z,1,30,0,"Following #4343 (comment) it was decided to move content from expressjs/expressjs.com#1178 into main express repo as a first step in popularization examples to people.
+/cc @dougwilson",2,1
+4364,2020-07-27T22:51:06Z,,2020-09-17T01:30:10Z,1,82,13,"Hello,
+I think , it's good idea to provide short guideline on how to submit a pull request on expressjs repo.
+This section could useful for new contributors .",2,2
+4370,2020-07-31T08:05:55Z,2020-08-04T15:09:45Z,2020-08-04T15:09:45Z,1,4,4,This PR implements suggestions from @crandmck (expressjs/expressjs.com#1178 (review)),5,1
+4376,2020-08-14T21:08:30Z,2020-09-17T05:48:54Z,2020-09-17T05:48:54Z,1,1,1,"Updated Readme:
+Concatenated ""web sites"" to ""websites""",3,0
+4411,2020-09-17T17:38:35Z,,2020-09-17T18:42:54Z,1,5,5,;,3,1
+4461,2020-11-13T10:16:08Z,,2021-12-16T20:47:52Z,1,7,0,"I'd love to add some examples to the repo that show how to use Express with a database in different scenarios, e.g. for building fullstack apps or REST and GraphQL APIs.
+At Prisma, we created a number of ready-to-run examples that show how to use Express in these different scenarios. I was wondering whether I should be duplicating the examples but I think it makes more sense to just link out to them (that's e.g. also what the Next.js folks are doing) because we make sure these examples are maintained, functional and als update their dependencies using renovate.
+Would love to hear some thoughts on whether linking out to an external example is fine in this case or whether it's preferred to duplicate the examples?",9,22
+4471,2020-11-29T04:15:51Z,2021-12-16T20:12:38Z,2021-12-16T20:12:38Z,2,4,4,"This is a minor improvement to the language of one of the error responses (404) from the web-service example, which also makes the message clearer:
+Sorry, can't find that",9,1
+4505,2021-01-07T07:44:43Z,,2021-01-07T13:16:46Z,11,704,631,correcting indentation in a new branch and will improve in test cases as well,3,1
+4511,2021-01-12T10:28:38Z,,2021-01-12T17:49:35Z,11,193,0,basic example using typescript,2,2
+4520,2021-01-31T04:46:27Z,,2021-04-21T12:40:32Z,1,1,0,"From the author of issue #4477
+Added discord server link. There are quite some members that joined even if the issue hasn't been resolved, so I think it's great to use a discord server, apart from other communities and discussion.",11,30
+4522,2021-02-02T03:41:36Z,,2021-02-02T08:18:21Z,1,5,5,"Updated benchmarks/middleware.js to use let and const instead of var
+and replaced function keywords with arrow functions.",2,2
+4551,2021-03-21T00:44:47Z,,2021-11-17T04:32:17Z,4,27,8,"Hi, everyone, I think moving constants-related codes to constants can be better that's why I created this pr.",6,19
+4554,2021-03-22T20:46:31Z,2021-07-31T19:59:18Z,2021-07-31T19:59:17Z,1,1,1,Fixed the spelling of Helvetica Neue.,9,0
+4564,2021-04-11T20:30:28Z,2021-07-31T22:30:29Z,2021-07-31T22:30:29Z,4,5,5,,6,0
+4573,2021-04-22T19:19:46Z,2021-08-01T02:14:56Z,2021-08-01T02:14:55Z,10,19,20,"Proposed changes
+
+Fix #4572 and other places where old code is used (EJS syntax changed in v3.0.1 and above)
+Update ejs devDependency to 3.1.6
+
+Signed-off-by: Aravind Nair 22199259+aravindvnair99@users.noreply.github.com",2,0
+4574,2021-04-22T21:39:18Z,2021-08-15T06:27:00Z,2021-08-15T06:26:59Z,2,5,5,"Update 12 series to Node.js@12.22
+Update 10 series to Node.js@10.24
+Fix missing Node.js@8.17 in AppVeyor (Travis CI was using 8.17 but AppVeyor was using 8.16)
+
+Signed-off-by: Aravind Nair 22199259+aravindvnair99@users.noreply.github.com",5,2

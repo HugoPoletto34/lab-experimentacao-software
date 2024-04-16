@@ -1,0 +1,427 @@
+number,created_at,merged_at,closed_at,files,additions,deletions,body_text,participants,comments
+584,2016-11-29T06:47:33Z,,2017-06-01T18:40:05Z,4,62,18,"Re #379
+I didn't see how commands like new would work from a local install, so I kept that behavior and added some failure paths for non ignored commands in the case of:
+
+No local install
+Missing required files
+
+Using a global install:
+
+In the same directory after installing (linking) locally:
+
+Let me know if you have any concerns and how you'd like to proceed!",2,3
+628,2017-01-08T17:50:50Z,2017-01-09T19:10:55Z,2017-01-09T19:10:55Z,1,4,4,,2,2
+666,2017-02-08T23:46:28Z,2017-02-09T20:36:11Z,2017-02-09T20:36:11Z,2,20,7,Adds the ability to replace the default ReactDOM.render() call. This allows you to customize the render call and wrap the router with additional components (like the Redux store provider).,3,10
+687,2017-02-21T01:45:02Z,2017-02-22T00:56:23Z,2017-02-22T00:56:23Z,29,3815,243,"With these two new plugins, most Gatsby sites can very easily become full-blown Progressive Web Apps! This includes working offline and (on Android) being able to “install” the website to your homescreen. Nifty! Once I got things working on my blog, I was able to quickly ""offline-ize"" three other websites very quickly.
+This is the Lighthouse result I recorded while testing my blog.
+
+These plugins are also a nice illustration of the versatility of Gatsby's plugin system and its ability to extract complex intertwining (complected) behaviors into a modular, reusable plugin. I'll walk through how the offline plugin works to illustrate this.
+The offline plugin converts Gatsby to use the AppShell pattern. For SPA apps, in short this pattern works by caching an HTML page which acts as a ""shell"" for the app. Since it'd be tedious to ask every user of the offline plugin to add a special page, the plugin simply implements the createPages API and adds one itself.
+exports.createPages = () => [
+  {
+    path: `/offline-plugin-app-shell-fallback/`,
+    component: path.resolve(`${__dirname}/app-shell.js`),
+  },
+]
+The plugin also ships with the component seen there.
+Next the plugin uses postBuild to create the service worker w/ precaching and offline support enabled:
+exports.postBuild = () => new Promise((resolve, reject) => {
+  const rootDir = `public`
+
+  const options = {
+    staticFileGlobs: [
+      `${rootDir}/**/*.{js,woff2}`,
+      `${rootDir}/index.html`,
+      `${rootDir}/manifest.json`,
+      `${rootDir}/offline-plugin-app-shell-fallback/index.html`,
+    ],
+    stripPrefix: rootDir,
+    navigateFallback: `/offline-plugin-app-shell-fallback/index.html`,
+    cacheId: `gatsby-plugin-offline`,
+    dontCacheBustUrlsMatching: /(.*.woff2|.*.js)/,
+    runtimeCaching: [
+      {
+        urlPattern: /.*.png/,
+        handler: `fastest`,
+      },
+      {
+        urlPattern: /.*.jpg/,
+        handler: `fastest`,
+      },
+      {
+        urlPattern: /.*.jpeg/,
+        handler: `fastest`,
+      },
+    ],
+    skipWaiting: false,
+  }
+
+  precache.write(`public/sw.js`, options, err => {
+    if (err) {
+      reject(err)
+    } else {
+      resolve()
+    }
+  })
+})
+And finally, it uses the modifyPostBodyComponents API to add the snippet of Javascript to the end of the body necessary to load the service worker.
+exports.modifyPostBodyComponents = () => [
+  (
+    <script
+    dangerouslySetInnerHTML={{
+        __html: (
+          `
+        if ('serviceWorker' in navigator) {
+          // Delay registration until after the page has loaded, to ensure that
+          // our precaching requests don't degrade the first visit experience.
+          // See https://developers.google.com/web/fundamentals/instant-and-offline/service-worker/registration
+          window.addEventListener('load', function() {
+            navigator.serviceWorker.register('/sw.js');
+          })
+        }
+      `
+        ),
+      }}
+  />
+  ),
+]
+Still need to add READMEs to the plugins before I merge this.",5,6
+708,2017-03-09T02:16:41Z,2017-03-09T18:03:04Z,2017-03-09T18:03:04Z,1,80,85,"I thought this was a more strightforward order for describing things,
+and it puts one of the most unique parts of Gatsby 1.0 right at the
+top.",4,7
+710,2017-03-09T17:50:22Z,2017-03-20T00:47:25Z,2017-03-20T00:47:25Z,4,25,6,This PR modifies the markdown default loader so that it automatically prefixes absolute links (such as /page1) with the linkPrefix property from the config.toml file.,4,6
+727,2017-03-19T02:24:09Z,2017-03-21T18:01:16Z,2017-03-21T18:01:16Z,3,15,16,"It looks like the contributing.md file for 1.0 isn't up to date. I still can't get it to work, but this is closer. I've never built a global cli tool with node before that needed to be linked, so when you throw lerna in on top of that I'm not sure how to get started.",5,9
+735,2017-03-21T00:32:22Z,2017-03-21T21:22:44Z,2017-03-21T21:22:44Z,7,1550,260,,5,14
+738,2017-03-21T02:03:13Z,2017-03-21T17:59:27Z,2017-03-21T17:59:27Z,3,59,4,"Adds support for: (depth: h1-6)
+allMarkdownRemark {
+  edges {
+    node {
+      headings(depth: h1) {
+        value
+      }
+    }
+  }
+}",3,4
+745,2017-03-21T19:11:53Z,2017-03-21T22:02:18Z,2017-03-21T22:02:18Z,7,155,0,"Additions
+
+modifies Webpack config to add appropriate loaders
+adds '.coffee', '.cjsx' to resolvable extensions
+transpiles source before Babylon parsing
+
+
+All right, here's a plugin to add CoffeeScript support to Gatsby.
+A few caveats: first, CoffeeScript + React is currently a troubled combination. This plugin relies upon deprecated modules that may someday prove to be dysfunctional or otherwise deficient.
+Second, the installed version of CoffeeScript is next. This is not optional - named exports are required for page queries to work properly.
+# good
+export pageQuery = """"""
+  # blah blah blah...
+""""""
+
+# bad
+module.exports.pageQuery = """"""
+  # blah blah blah
+""""""
+And finally, you will need to manually edit your coffee-loader installation and install coffeescript separately in your project directory to ensure that CoffeeScript@next is being loaded. The very first line of source in the former's index.js should be the following: note the lack of dash.
+var coffee = require(""coffeescript"");
+When coffee-loader starts to support CoffeeScript 2.x this hack will no longer be necessary.
+That's it. Fairly simple module. Add gatsby-plugin-coffeescript to your gatsby-config.js file and go to town.",2,1
+781,2017-04-07T07:31:45Z,2017-04-10T20:46:29Z,2017-04-10T20:46:29Z,23,1216,1157,"Last fixes to make gatsby develop works on windows 🚀 🎉
+Tested on gatsbygram:
+
+No error! And I can serve the project 😄
+I think we can add some tips for windows development (as use https://github.com/felixrieseberg/windows-build-tools for have a functionnal build env on windows (gcc like for windows)) somewhere, but I don't know where, so feel free to add this tips (needed to have sharp available easily)",3,8
+825,2017-04-19T16:16:34Z,2017-04-19T17:24:16Z,2017-04-19T17:24:16Z,2,12,17,"Remove mentions of yarn
+Cross-reference contributing and gatsby-dev-cli readme files",3,2
+828,2017-04-19T20:09:09Z,2017-04-21T17:01:01Z,2017-04-21T17:01:01Z,40,1682,841,"Running queries to date has been a fairly brute force operation. Let's make it faster/slimmer/testable/understandable.
+
+ cache queries so only re-run queries when a component changes if the query itself has changed
+ persist results of queries so only re-run the queries on page startup that have been invalidated
+ tests for the add-page-data-dependency action creator
+ only write routes files if there's been a path change
+ refactor query runner into multiple testable modules: query parser, routes writer, path invalidator, query runner.",3,4
+868,2017-04-27T20:31:58Z,2017-04-27T23:00:20Z,2017-04-27T23:00:20Z,3,33,6,"It looks like this was just put in the wrong place since safe isn't an
+option for unflatten on that lib.  The test has been expanded to have
+an empty array, which is what triggered the issue.",4,9
+876,2017-04-28T21:04:38Z,,2017-05-04T23:15:56Z,37,1115,888,Not done yet but a reasonable POC,3,17
+877,2017-04-29T07:40:28Z,2017-04-30T03:50:04Z,2017-04-30T03:50:04Z,99,727,576,"Use prettier-eslint for formatting.
+
+
+Enforce all strings to use backticks, except for imports and jsx.
+
+
+Makes vscode prettier settings obsolete.
+
+
+Allows prettier-eslint IDE plugin for auto-format on save.",3,7
+904,2017-05-03T02:12:45Z,2017-05-03T20:48:40Z,2017-05-03T20:48:40Z,12,148,163,"This simplifies children queries as the syntax for querying
+the node interface of ""children"" is verbose and requires
+advanced GraphQL skills.
+So now you could do queries like:
+{
+  allFile(absolutePath: { eq: $file }) {
+    childrenMarkdownRemark {
+      html
+    }
+  }
+}",3,7
+906,2017-05-03T09:34:01Z,2017-05-03T19:52:56Z,2017-05-03T19:52:56Z,35,275,257,"There is some noise because I renamed gatsby-dev-cli/bin/gatsby-dev.js to gatsby-dev-cli/src/index.js and the original gatsby-dev-cli/src/index.js to gatsby-dev-cli/src/watch.js
+The  point is to keep sources in the src folder and build to dist always. If code is used as a cli tool it doesn't have to be in a different location or have the filename mirror the cli command name. NPM will make a symlink with the correct name to whatever you point it to. So gatsby-dev references dist/index.js in this case.",4,3
+908,2017-05-03T16:05:01Z,,2017-05-03T21:31:23Z,4,62,21,"I still can't query object arrays from my data.
+Managed to get a bit further but now my app complains Schema must contain unique named types but contains multiple types named ""categoryTagsInputObject"". And categoryTags in this case is the key that contains the object array in my data.
+I'm sure it's something simple again, but I can't fully grasp it.",4,13
+912,2017-05-04T05:22:57Z,2017-05-04T23:14:59Z,2017-05-04T23:14:59Z,61,1204,33376,This is @jquense's PR #876 with a few fixes I found while trying out our new swanky Relay Compiler integration on my blog.,3,9
+914,2017-05-04T15:10:54Z,2017-05-04T16:35:10Z,2017-05-04T16:35:10Z,1,1,1,,5,5
+928,2017-05-06T01:20:17Z,2017-05-11T05:59:16Z,2017-05-11T05:59:17Z,19,579,197,ok mostly correct now. I haven’t completely tested it yet but should be 90% done at least :P,3,10
+938,2017-05-08T20:38:28Z,2017-05-09T22:03:02Z,2017-05-09T22:03:02Z,19,1419,970,this touches more bits than i’d have hoped! It’s at least all in the few files. I believe this covers more cases.,5,20
+939,2017-05-08T21:55:32Z,2017-05-09T05:05:27Z,2017-05-09T05:05:27Z,1,22,6,These occur when you manually delete the .cache directory. They block the bootstrap process.,3,6
+940,2017-05-09T00:38:28Z,2017-05-11T18:46:44Z,2017-05-11T18:46:44Z,60,1041,598,"Fixes #937
+Current status, rendering things correctly with the development server.",4,15
+949,2017-05-10T16:54:11Z,2017-06-15T16:14:39Z,2017-06-15T16:14:39Z,9,21,34,"Bug description
+Actually graphql queries are compiled with a complexe ast parser and a babel plugin. Due to typescript files don't use any babel loader and not finished by .js they are totally ignored in this process.
+What I did
+Just add a babel into typescript loader (and hijack query from js loader), and deal with .ts|.tsx|.jsx files for queries parsing
+Integration test on my starter",4,15
+958,2017-05-12T15:17:18Z,2017-05-16T17:28:19Z,2017-05-16T17:28:19Z,18,235,35,"This plugin mirrors the featureset in gatsby-plugin-sass, allowing the user to post-process with postcss plugins (configured in gastby-config.js) as well.
+Ultimately this should probably be set up such that it shares some level of functionality with gatsby-plugin-sass, but this will certainly do for now.",3,5
+960,2017-05-13T00:09:45Z,2017-05-15T15:56:26Z,2017-05-15T15:56:26Z,30,529,363,,4,3
+997,2017-05-18T20:18:30Z,2017-05-19T10:14:51Z,2017-05-19T10:14:51Z,11,144,0,"I created this example while I was testing out solutions to removing trailing slashes (that is, until @KyleAMathews pointed me to the docs).
+The example doesn't provide anything that you can't find in the docs aside from the avoidance of manipulation of '/' that's rather intuitive anyhow, but I figured I'd PR regardless.
+No need to merge if this isn't helpful.",3,4
+1035,2017-05-24T12:57:32Z,2017-05-26T08:29:48Z,2017-05-26T08:29:48Z,33,777,326,,3,8
+1047,2017-05-26T10:50:59Z,2017-05-30T04:04:52Z,2017-05-30T04:04:52Z,23,906,77,"This adds a ""duotone"" option (see I, II, III) to gatsby-plugin-sharp.
+It also changes the Base64 images generated by responsiveResolution and responsiveSizes to inherit grayscale and duotone effects applied to their respective source images.
+Given two hex colors shadow and highlight defining start and end color of the duotone gradient, e.g.
+responsiveResolution(
+  width: 800,
+  duotone: {
+    highlight: ""#f00e2e"",
+    shadow: ""#192550""
+  }
+) {
+  src
+  srcSet
+  base64
+}
+
+the source image colors will be converted to match a gradient color chosen based on each pixel's relative luminance. Logic is borrowed from react-duotone.",3,13
+1066,2017-05-30T20:26:10Z,2017-06-02T15:34:48Z,2017-06-02T15:34:49Z,1,15,9,"Closes #984
+I took a stab at cleaning up the 1.0 .travis.yml, and (if I install npm@5 first) everything passes properly.
+I re-enabled mac builds, and put node@4 back in, too. (Here's an example build, along with the config.)",5,26
+1071,2017-05-31T11:01:22Z,2017-06-01T18:49:07Z,2017-06-01T18:49:07Z,2,4,27,,3,6
+1080,2017-06-01T15:35:35Z,2017-06-01T18:42:49Z,2017-06-01T18:42:49Z,53,785,364,"Two main tricks.
+One was adding a way to track cascading work e.g. a source plugin adds a node which then transformer plugin takes and creates a new node which then another transformer plugin does more work on and so forth. Before there was no way to know when the last bit of work associated with the initial sourcing was finished. To solve this, I added a traceId which is passed in during the original API call and then all subsequent work passes it along. And rather nicely, this is all hidden from the plugins themselves as we inject the traceId into the actions that plugins create.
+Second was moving more internal work into internal plugins. This lets us take advantage of the new tracing capabilities above so that if internal work is triggered by an API call, we're tracking it along with every other plugin.
+Now the bootstrap/index.js file is quite straightforward to read especially with our use of async/await. It's now stepping cleanly through each step of the process.
+This solves two problems. The biggest is there was occasionally weird graphql errors where some data just wouldn't get processed in time before the debounce timeout. Those should be gone now. The other is the debouncing added time overhead to the bootstrap process. Removing that means bootstrap is sped up by something like 750-1000 milliseconds. Now a barebones Gatsby site's bootstrap can be as fast as 2.5-3 seconds (And most of that time is loading JavaScript so can't wait for prepack.io to get prod ready).
+I also snuck in a simple jobs system. gatsby-plugin-sharp (image processing plugin) is the only user atm but it let's plugins tell Gatsby it has long-running jobs going and block bootstrap from finishing while it's working. It should have all the data necessary for building a nice CLI UI @jquense",3,12
+1081,2017-06-01T15:56:12Z,2017-06-07T21:55:17Z,2017-06-07T21:55:17Z,13,195,0,Related: #1079,4,12
+1084,2017-06-01T23:22:40Z,2017-06-03T02:35:16Z,2017-06-03T02:35:16Z,16,876,0,"Includes:
+
+/packages/gatsby-source-contentful which is a prototype level new source plugin for pulling data from the Contentful.com CMS.
+/examples/using-contentful which is an example app leveraging the new plugin and an existing Contentful site. Site can be seen here: https://gatsby-using-contentful.netlify.com/.
+
+Lots of improvements are possible. Contentful seems like a great fit so I imagine this plugin will evolve tremendously.",6,12
+1113,2017-06-06T19:44:10Z,2017-06-07T06:41:43Z,2017-06-07T06:41:43Z,4,7,4,,3,9
+1123,2017-06-07T17:15:13Z,2017-06-21T15:31:41Z,2017-06-21T15:31:41Z,11,160,3,In the docs for tagmanager they suggested to inject one of the code snippets directly after the body opening tag. For this reason I add the preBodyComponents API.,4,20
+1125,2017-06-08T05:19:28Z,,2017-06-12T22:59:17Z,3,7,29,"@KyleAMathews this doesn't feel right given what you wrote in PR 1081 but I wasn't sure how to apply your comment. This workaround seems to work, but I'm not sure if it has downstream effects. Still acquainting myself with the code but thought I'd put this for review to get more ideas / feedback and collaborate on this issue.
+The issue, to restate it, is when using ES6 features that require webpack like import in gatsby-ssr.js then running gatsby develop dies a quick death.
+(function (exports, require, module, __filename, __dirname) { import React from 'react'
+                                                              ^^^^^^
+SyntaxError: Unexpected token import
+    at Object.exports.runInThisContext (vm.js:76:16)
+    at Module._compile (module.js:542:28)
+    at Object.Module._extensions..js (module.js:579:10)
+    at Module.load (module.js:487:32)
+    at tryModuleLoad (module.js:446:12)
+    at Function.Module._load (module.js:438:3)
+    at Module.require (module.js:497:17)
+    at require (internal/module.js:20:19)
+    at Object.<anonymous> (/Users/mericsson/dev/gatsby-using-redux/.cache/api-runner-ssr.js:2:15)
+    at Module._compile (module.js:570:32)
+    at Object.Module._extensions..js (module.js:579:10)
+    at Module.load (module.js:487:32)
+    at tryModuleLoad (module.js:446:12)
+    at Function.Module._load (module.js:438:3)
+    at Module.require (module.js:497:17)
+    at require (internal/module.js:20:19)
+
+Appreciate any help to dig into this. Thanks!",4,13
+1140,2017-06-10T13:34:56Z,2017-06-10T19:13:31Z,2017-06-10T19:13:31Z,1,22,7,Also mention the 'static' directory.,3,4
+1157,2017-06-12T23:13:16Z,2017-06-13T01:20:25Z,2017-06-13T01:20:25Z,2,22,6,"…and instead just copy them alongside GIFs in gatsby-remark-copy-linked-files.
+WIP, currently all SVGs get copied to public as undefined.svg :D",3,5
+1166,2017-06-14T06:59:09Z,2017-06-15T05:39:47Z,2017-06-15T05:39:47Z,2,26,3,"By default gatsby-remark-smartypants (retext-smartypant) renders -- as em-dash's.
+The canonical implementation states that -- (two dashes) rendered as an en-dash while --- (three dashes) rendered as an em-dash.
+This pull request would  would allow for that option along with any other retext-smartypant option.",4,5
+1184,2017-06-16T01:47:31Z,2017-06-16T17:00:56Z,2017-06-16T17:00:56Z,4,63,19,WIP…,3,4
+1202,2017-06-18T03:48:06Z,2017-06-18T06:17:45Z,2017-06-18T06:17:45Z,8,86,28,,4,8
+1253,2017-06-24T21:17:07Z,2017-06-28T03:09:17Z,2017-06-28T03:09:17Z,7,320,0,"This is mostly a port over from 0.12.X. It let us get fancy with js files, and pull data (or frontmatter) out of it much like we do with remark. We can then mix and match writing in markdown or in js whenever either best suits.",3,6
+1318,2017-06-30T20:57:55Z,2017-07-01T00:04:16Z,2017-07-01T00:04:16Z,4,33,10,"Fixes #1317
+GA metrics shows whatever the first SSR-served landing page is because page will never change due to an undefined reference.
+Also found a linearly growing page view bug where each call to onRouteUpdate is called more than one time. Added the ""solution"" to outline the problem but wanted to chat about it since I know we can probably see about preventing the handler from being attached more than once.
+Also adds:
+
+.editorconfig as there wasn't one (helps IDEs stay sane)",4,6
+1321,2017-07-01T15:02:15Z,2017-07-06T05:47:30Z,2017-07-06T05:47:30Z,57,2615,0,"This is a first PR for a gatsby-source-plugin and using-wordpress example.
+The source plugin is published on NPM --> https://www.npmjs.com/package/gatsby-source-wordpress
+The example site uses :
+
+Styled-components
+Wordpress.com as a source using gatsby-source-wordpress
+Hedron as a gridsystem
+
+I tried to make the site the ugliest on the internet as a praise to 1980's internet. I hope I succeeded.",8,15
+1351,2017-07-03T14:01:48Z,2017-07-04T17:54:54Z,2017-07-04T17:54:54Z,1,11,14,"The current default for the sitemap query only displays blog posts.
+I'd assume that the default sitemap query would be a sitemap of the whole website.
+Just my opinion but if you agree, here's a Pull request!",6,7
+1354,2017-07-03T20:08:35Z,,2017-07-06T19:42:03Z,5,75,63,"Haven’t had the time i wanted to work on this, but I thought i’d throw up what I have for the moment.
+The reason I went with doing this in the webpack config vs, inlining the loader in the page require is that this positions the feature better for a webpack2/3 upgrade. Ultimately you’ll get the most power from the API if you don’t need your loader and options to be string serializable.",3,13
+1370,2017-07-05T12:36:16Z,2017-07-06T14:59:16Z,2017-07-06T14:59:16Z,1,184,5,"This PR completes the Building with Components documentation page.
+I tried to keep following the outline as much as I could, but ended up describing the whole project structure. I'm not completely sure whether that should be in the same page, or a different one.
+Suggestions are welcome :)",3,6
+1415,2017-07-08T05:54:25Z,,2017-10-27T20:00:52Z,1,25,7,"This is very provisional, but I’m excited where it’s going :)",7,14
+1420,2017-07-08T15:16:03Z,2017-07-12T02:50:59Z,2017-07-12T02:50:59Z,1,2,2,figured to submit PR to fix broken links as I go through docs 😄,4,8
+1428,2017-07-08T23:03:16Z,2017-07-09T05:29:22Z,2017-07-09T05:29:22Z,2,23,0,"Including:
+
+Finishes the docpage for pathPrefix
+Adds a note about navigateTo",3,4
+1431,2017-07-08T23:49:07Z,2017-07-25T18:19:59Z,2017-07-25T18:19:59Z,13,199,9,"this also adds a new lifecycle callback onClientRender to Browser API.
+It is called when the initial render of a Gatsby App is done on the client.",5,22
+1437,2017-07-09T08:55:26Z,2017-07-12T01:01:27Z,2017-07-12T01:01:27Z,6,200,12,"What changed
+
+I filled out the gatsby-plugin-stylus module. We now have stylus support.
+I added ""stylus"" as a whitelisted key in webpack-validator. This allows full support of the stylus-loader
+I added what I hope is a helpfel error message for when the webpack validation fails
+
+Fixes #1432",4,14
+1441,2017-07-09T20:31:13Z,2017-07-09T22:40:52Z,2017-07-09T22:40:52Z,2,23,2,"Fixes #1434
+Remark now loads options with a data method instead of directly in the constructor.
+This change isn't really well documented right now, but you can see the details in this issue.",4,12
+1451,2017-07-10T13:00:22Z,2017-07-11T22:43:49Z,2017-07-11T22:43:49Z,2,39,24,"Feature 1:
+
+Now alt tags will be automatically generated from the file name if an alt tag is not present.
+
+Feature 2:
+
+Images being links are now optional",3,4
+1465,2017-07-11T12:03:01Z,2017-08-09T13:31:37Z,2017-08-09T13:31:37Z,5,572,1,"Summary
+This PR adds the logic for gatsby-transform-xml package
+TODO
+
+ Add Documentation
+ Add tests",3,14
+1478,2017-07-12T05:28:09Z,2017-07-12T16:47:50Z,2017-07-12T16:47:50Z,1,2,2,,4,4
+1480,2017-07-12T10:58:47Z,2017-07-12T19:58:52Z,2017-07-12T19:58:52Z,2,32,0,So I wrote something up for deploying gatsby.  If you want to take a look and make suggestions on other sections or changes let me know.  I will get it written up.  Any other issues or bugs that we should inform people about would be helpful too.,4,10
+1489,2017-07-13T01:13:43Z,2017-07-19T00:10:25Z,2017-07-19T00:10:25Z,1,28,18,"I took @KyleAMathews suggestion and looked into  react-router's Link component handleClick logic. This solution is almost a direct copy/paste of the important parts that gatsby-link needs in order for the click logic to behave more as expected.
+Now, cmd/ctrl-clicking opens links in a new tab, as expected! Also, target=""_blank"" now works too.
+Fixes #1417",4,14
+1491,2017-07-13T02:30:54Z,2017-07-13T21:07:15Z,2017-07-13T21:07:16Z,5,133,6,"Alternate option for #1488, also resolves issue #1486",4,11
+1492,2017-07-13T03:03:40Z,2017-07-18T19:16:43Z,2017-07-18T19:16:43Z,39,4993,1,"There is still stuff I could add (especially to the README), but wanted to get this out before I had to jump back to paid work. I tried to comment the files themselves well at least.",3,11
+1503,2017-07-14T15:20:10Z,2017-08-08T21:59:06Z,2017-08-08T21:59:06Z,47,923,324,"connects to #1494 && #1255
+After discussions with @jbolda, we thought it'd be a good idea to add layouts to the redux store and give em their own api.
+This PR adds:
+
+layouts to redux store.
+createLayout, deleteLayout actions
+createLayouts onCreateLayout node api hooks
+component-layout-creator internal plugin to auto create all layouts in /src/layouts.
+Ability to add graphql queries to layouts
+
+It doesn't add:
+
+Nested layouts
+
+Behaviour:
+If no layouts in src/layouts and pages don't have a page.layout attribute then no layout will be loaded.
+If src/layouts/index.js exists then it will be loaded for all pages that don't have a page.layout attribute.
+If you create a layout with createLayout and you assign it when creating a page(see example) then it'll load the specified layout.",8,39
+1506,2017-07-14T16:48:18Z,2017-07-19T02:25:02Z,2017-07-19T02:25:02Z,2,45,46,"Options for PNG and JPEG output need to be set prior to raw().toBuffer() so that toFormat() in duotone.js actually works.
+Things were working for JPEGs before because they are written toFile() as JPEGs explicitly. PNGs get processed with imagemin before writing them to disk, which requires a valid (PNG) buffer.
+When authoring the original feature, I moved the PNG/JPEG output settings after the actual duotone processing (for whatever reason 😬  – I guess I thought they get dropped when doing raw().toBuffer()) – this PR reverts that, and cleans up duotone.js.",3,6
+1535,2017-07-17T20:25:59Z,2017-07-19T00:03:02Z,2017-07-19T00:03:02Z,4,105,1,"Since, presumably, most people will be browsing github/npm readmes first, I have decided to include the ""Showcase"" segment in README.md.
+Also, in contrary to the v0 showcase, this one also will include general features of starters listed under their bullet points. That will make finding implementations of different features (tags/categories/GA) easier.
+I'm working on the website list right now. Unfortunately it seems like there are only 4 v1 starters available currently.
+I'll make sure this will be ready for merging tomorrow.",4,18
+1547,2017-07-19T00:16:47Z,2017-07-28T22:02:13Z,2017-07-28T22:02:13Z,11,51,78,Turns out the error only showed up on build. Too many refactors and I forgot that to update that location was expected on this.props.,3,20
+1548,2017-07-19T01:29:09Z,2017-07-19T04:38:29Z,2017-07-19T04:38:29Z,3,34,17,"This enhances the feeds plugin API when defining multiple feeds, but also keeps sensible defaults.",3,11
+1556,2017-07-19T12:35:17Z,2017-07-25T22:17:49Z,2017-07-25T22:17:49Z,2,42,1,Users who don't want Sharp to process anything now have that option.,3,7
+1560,2017-07-19T16:44:52Z,2017-07-19T18:33:32Z,2017-07-19T18:33:33Z,7,477,0,"Added the blog post per discussion with @KyleAMathews
+Hope this looks good, let me know if I can help with anything!",3,7
+1570,2017-07-19T21:50:20Z,2017-07-27T19:21:55Z,2017-07-27T19:21:55Z,28,528,80,"It contains:
+
+example site using-mongoDB
+plugin gatsby-source-mongoDB
+
+Still need to write a fill mongodb script in the example site, that will make it easier to set it up when someone wants to test this out on his local machine.",4,33
+1586,2017-07-21T21:10:18Z,2017-07-25T18:15:37Z,2017-07-25T18:15:37Z,0,0,0,,5,6
+1605,2017-07-25T18:25:57Z,2017-07-27T05:22:59Z,2017-07-27T05:22:59Z,23,1120,436,"WiP still unfortunately, but getting close! Little time right now, but will follow up with a decent list of what's changed and why later on … let's get this preview built now :P
+Blockers:
+
+Masthead background still has issues on iPad/iPad Pro in portrait mode
+Diagram font sizes for large screens
+Homepage blog posts need a little more love",6,27
+1610,2017-07-25T19:37:02Z,,2017-08-11T16:26:52Z,2,2,2,,3,4
+1611,2017-07-25T20:05:40Z,2017-08-01T17:09:45Z,2017-08-01T17:09:45Z,2,10,1,"This afternoon I was experimenting with Storybook to view my Gatsby components and test different states, as preparation for some redesign work on my blog.
+Unfortunately loading in components that imported gatsby-link failed in that context since __PREFIX_PATH__ was undefined.  There are workarounds to this, but there doesn't seem to be any reason that gatsby-link should require that variable to be defined to be used (since it doesn't require it to actually have a value, just a defined reference) so this PR adds a typeof check, which will allow it to be imported safely into environments like Storybook.",6,10
+1626,2017-07-26T15:49:34Z,2017-07-26T16:57:02Z,2017-07-26T16:57:02Z,1,8,2,Adds alampros/gatsby-starter-grommet to the docs,3,6
+1637,2017-07-27T16:51:54Z,2017-08-15T15:16:16Z,2017-08-15T15:16:16Z,90,8654,1186,"Not done yet I still need to update plugins to use the newer API, but everything is working (fingers crossed), check out the SASS plugin changes for some idea what the plugin api looks like.
+Breaking changes
+
+the whole modifyWebpackApi is different now, no webpack-configurator
+plugin-coffeescript no longer supports jsx
+removed plugin-sass-postcss and rolled it into the plain ol sass plugin.
+removed add-module-exports from the default babel config, webpack@2 is esmodule native...and complains about mixing the two module types in a file.",4,20
+1657,2017-07-29T11:48:31Z,2017-08-10T21:59:21Z,2017-08-10T21:59:21Z,2,60,13,"Package: gatsby-source-wordpress
+Authenticates with wordpress rest api using OAuth so it can query wordpress medias and other protected data.",6,7
+1666,2017-07-31T19:28:22Z,2017-08-01T17:46:35Z,2017-08-01T17:46:35Z,1,1,1,"When secondary dependencie (dependencie of dependencie) have version conflicts with main dependencie, it is installed in a nested way:
+
+But in current config, modules resolving starting from root node_modules, instead of package inner node_modules.",5,11
+1679,2017-08-01T16:25:00Z,2017-08-09T13:36:59Z,2017-08-09T13:36:59Z,2,3,1,,4,7
+1728,2017-08-06T00:33:27Z,2017-08-08T22:25:54Z,2017-08-08T22:25:54Z,1,1,1,,4,6
+1733,2017-08-06T09:57:22Z,2017-08-10T15:38:41Z,2017-08-10T15:38:41Z,2,134,108,"Package: gatsby-source-wordpress
+Currently you have to increase the default per_page value of the REST API in functions.php to get more posts. In this PR, the X-WP-Total header is used to create multiple async requests* for each WP entity type in order to get all of the entities without having to change anything in Wordpress
+Before:
+Max 10 posts returned without editing Wordpress backend
+Now:
+All entities retrieved with no Wordpress modification
+
+* Waterfall approach might be better in terms of server load, but can take a lot longer if there are a lot of pages. Perhaps adding request-rate-limiter (or equivalent) might help with this
+P.S. Sorry about the diff, my editor removes trailing whitespace",6,18
+1735,2017-08-06T14:59:09Z,2017-08-18T23:21:17Z,2017-08-18T23:21:17Z,20,266,231,"Tested locally and I'm getting async support in my bootstrap flows during development now.
+Let me know what steps I need to take to ensure I'm abiding by gatsby's standards.  I think I also will have to update the static app bootstrap as well?",6,17
+1743,2017-08-07T20:53:05Z,2017-08-09T13:27:00Z,2017-08-09T13:27:00Z,8,98,40,Get ride of the error to bootstrap the project,3,9
+1746,2017-08-08T20:29:26Z,2017-08-10T15:30:13Z,2017-08-10T15:30:13Z,17,8028,428,"Trying to consolidate the reporting code into a single place. Ultimately we need to get a handle on which errors should crash the process and which shouldn't, but first we need them to all go through one place",3,13
+1757,2017-08-10T16:39:51Z,2017-08-11T13:49:16Z,2017-08-11T13:49:17Z,58,471,583,"Use node current in a non production build, and don’t transpile the browser code at all (web pack will do that later)
+Also moves the cache dir up a level so as not to be confused with the other src code",3,6
+1761,2017-08-10T20:46:21Z,2017-08-10T21:53:41Z,2017-08-10T21:53:41Z,1,1,1,,4,3
+1763,2017-08-11T00:29:31Z,2017-08-15T00:00:43Z,2017-08-15T00:00:43Z,14,112,215,,3,5
+1765,2017-08-11T01:40:32Z,2017-09-02T18:05:56Z,2017-09-02T18:05:56Z,30,1025,558,"Sloppy WIP…
+
+Replace TeX Gyre Schola with Spectral … again. I'm still undecided, still convinced it's spaced a little too loose. If I only had to choose based on rendering and italic though … ;-). FWIW, Tex Gyre Schola is still not removed, so you can see how Gyre Schola looks at 1.5 line-height by changing bodyFontFamily in src/utils/typography back to Tex Gyre Schola. (Also there’s a Typekit script included that loads Garamond, PT Schoolbook and Calluna to play around with.)
+Bump baseLineHeight to 1.5 (was 1.4), blockMarginBottom to 0.8 (was 0.65); adjust a whole bunch of relatively sized components accordingly.
+Add previous/next links to blog posts.
+Add canonicalLink and publishedAt fields to blog post frontmatter. Probably should be canonical_link and published_at?!
+If a blog post has a canonicalLink, this adds a link rel=""canonical"" to the document head; in the meantime I discovered https://github.com/gatsbyjs/gatsby/tree/master/packages/gatsby-plugin-canonical-urls though…
+Add CSS class post-body to the blog post container.
+When in .post-body, pull .gatsby-highlight and .gatsby-resp-iframe-wrapper into the horizontal padding of their container (just like .gatsby-resp-image-link).
+Links in blog post copy are now Futura PT bold (currently only there).
+headerColor and bodyColor are now derived from the brand color.
+Reduce scaleRation to 2 (was 2.15), h1 font-size.
+No more italic h3.
+Don’t bump main navigation social link font-size for Desktop and up.
+Handle border around .gatsby-highlight via boxShadow.
+Simplify .gatsby-highlight-code-line styles, use rhythm(3/4) instead of blockMarginBottom.
+Add a bunch of new article images, some unused. Not super happy about the ones used in articles, either. All licensed under CC.",4,22
+1776,2017-08-11T16:52:30Z,2017-08-11T18:36:40Z,2017-08-11T18:36:40Z,23,177,73,Here is an attempt to fix the underlying issue with sub package builds. Added a babelrc to all browser packages that compiles it to a browser env,3,2
+1778,2017-08-11T22:02:12Z,2017-08-16T08:06:41Z,2017-08-16T08:06:41Z,2,100,107,"Should solve #1774
+
+  Modified regex validating node names.
+  Corrected some issue with the node referencing itself introduced in latest commit.
+  Also prefixed almost every console.log() to bring a quieter terminal at build, keeping only necessary info (we still need to see that the process did not hang on heavy sites).
+
+@jquense
+We surely need a better validation of names from GraphQL because /^[_a-zA-Z][_a-zA-Z0-9]*$/ see as valid some names that will break later on : graphql/graphql-js#632
+Example :
+building schemaName ""__jetpack_v4"" must not begin with ""__"", which is reserved by GraphQL introspection. In a future release of graphql this will become a hard error.",5,3
+1780,2017-08-11T23:37:50Z,2017-08-14T20:50:45Z,2017-08-14T20:50:45Z,2,13,9,,4,6
+1828,2017-08-15T19:28:26Z,,2017-08-26T06:13:46Z,2,54,1,"related issue: #1789
+So far I've coded the case insensitivity on tags field, I'll try to figure out adding an option in Graphql.",5,6

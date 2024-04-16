@@ -1,0 +1,430 @@
+number,created_at,merged_at,closed_at,files,additions,deletions,body_text,participants,comments
+9,2015-05-13T14:49:36Z,,2017-05-03T06:41:22Z,1,3,0,"…ble in textord/tospace.cpp
+https://code.google.com/p/tesseract-ocr/issues/detail?id=1106
+Reported by ettl.martin78, Feb 11, 2014
+Please review the attached patch. It fixes a potential usage of an uninitialized bool variable ('fuzzy_sp'). The fix simply initialized the variable by default to 'FALSE'. Before the fix, the value of 'fuzzy_sp' was not set, but used in the else-branch in line 1107:
+      else {
+        prev_blanks = blanks;
+        prev_fuzzy_sp = fuzzy_sp;
+        prev_fuzzy_non = fuzzy_non;
+      }
+
+Best regards and many thanks
+Feb 11, 2014
+#1 ettl.martin78
+The updated patch fixes two more uninitialized variable usages in the same function.
+Many thanks for reviewing.
+(http://web.archive.org/web/20150509223835/https://code.google.com/p/tesseract-ocr/issues/detail?id=1106)",7,3
+11,2015-05-13T15:49:21Z,,2017-09-25T14:36:38Z,28,90,363,"memry removal.
+
+This should be no-brainer. These functions never seemed to do anything useful. The only oddity was with alloc_string which rounded the allocation upwards to nearest multiple of 4. Based on my review of code, I could not identify any value in this feature, so even alloc_string was simply transformed to malloc.
+memry.* are removed. All code is adjusted to simply call malloc and free instead.
+listio.* are removed. The list reading function in these files appears to have been unused, and contained the only invocation of strsave define, which was one of the alloc_string users, so I removed both of them.
+https://code.google.com/p/tesseract-ocr/issues/detail?id=1199",6,2
+352,2016-06-17T21:17:21Z,2017-04-30T15:39:32Z,2017-04-30T15:39:32Z,3,9,13,"These commits reduce the number of memory allocations (in my test cases by about 15%).
+GenericVector should not prematurely allocate memory in the default constructor since quite a lot of vectors stay empty and there is no overhead in doing the allocation later.
+Also, I don't see any reason to do the extra allocation in LanguageModelDawgInfo.",4,0
+471,2016-11-08T21:21:04Z,2016-11-22T08:10:28Z,2016-11-22T08:10:28Z,1,1,1,C++ needs to escaped as C\+\+ in the AsciiDoc source code.,4,1
+506,2016-11-28T11:46:55Z,2016-12-01T19:34:04Z,2016-12-01T19:34:04Z,4,19,13,Signed-off-by: Stefan Weil sw@weilnetz.de,4,13
+507,2016-11-28T14:48:58Z,2016-11-29T21:55:41Z,2016-11-29T21:55:41Z,5,40,80,"It is not necessary to check for null pointers.
+Remove also unneeded delete operations and add missing delete operations
+in cube/bmp_8.cpp.
+Simplify also a conditional statement in cube/cube_object.cpp.
+Signed-off-by: Stefan Weil sw@weilnetz.de",5,2
+544,2016-12-07T21:31:27Z,2016-12-09T12:34:18Z,2016-12-09T12:34:18Z,4,62,13,"I suggest for 4.00 removing the old API entirely because it's not really usable without a lot of fiddling, and at a major version jump there are probably other API changes anyway, not that I'd know.
+For 3.x I suggest cherrypicking the first commit to add the new change and leaving DetectOS() intact but making it return FALSE instead of risk corrupting memory in the caller if there is disagreement about the OSResults results structure. Personally I think it's better to gently break the caller in this case without breaking their compilation, but opinions may differ so I am leaving 3.x untouched.",3,3
+593,2016-12-19T21:09:05Z,,2018-04-01T23:01:36Z,5,12,12,"@theraysmith @zdenop
+This PR replaces all 4.00.00 version numbers to 4.0.0.
+The idea is to follow semantic versioning since 4.0.0 branch. https://semver.org
+Following git tags should be also named as X.Y.Z[-name], e.g. 4.0.0, 4.0.1, 4.0.0-beta, 4.0.0-rc.1 etc.",5,5
+608,2016-12-25T07:37:07Z,2016-12-25T11:05:42Z,2016-12-25T11:05:42Z,1,1,1,,7,25
+643,2017-01-08T17:15:36Z,2017-01-08T18:20:56Z,2017-01-08T18:20:56Z,1,22,25,should fix #640,3,0
+658,2017-01-13T03:25:33Z,2017-01-13T07:19:13Z,2017-01-13T07:19:13Z,2,2,2,,3,0
+661,2017-01-14T01:44:30Z,,2017-01-23T20:27:05Z,1,6,2,"Verified that this compiles and runs on macOS El Capitan with homebrew gcc. I don't believe clang compiles at the moment so not sure if it works for that.
+Also added an #error if SIMD checking is missing. Autotools already causes configure to fail if there is no SIMD implementation, so if Makefiles are generated something is wrong.",4,8
+662,2017-01-16T00:13:19Z,2017-01-16T07:27:53Z,2017-01-16T07:27:53Z,11,27,102,"The code in ccutil/hashfn.h was needed for some old compilers. Now that we support MSVC >= 2010 and compilers that have good support for C++11, we can drop this code.
+As a result of this file removal, we now use:
+std::unordered_map
+std::unordered_set
+std::unique_ptr
+directly in the codebase with '#include' for the needed headers.",3,1
+666,2017-01-20T15:56:49Z,2017-01-23T20:51:05Z,2017-01-23T20:51:05Z,1,1,1,fix typo in script,3,0
+668,2017-01-21T09:40:08Z,2017-01-21T15:29:06Z,2017-01-21T15:29:07Z,2,2,2,I changed the parameter description because the older text was ambiguous.,2,1
+687,2017-01-29T12:13:09Z,2017-01-29T15:27:38Z,2017-01-29T15:27:38Z,2,3,3,Found using mwic.,3,0
+703,2017-02-05T11:56:35Z,,2017-05-02T06:37:42Z,72,768,728,"This PR is not ready for getting pulled. I put it here only for further discussion. See also issue #518.
+Writing training data on big endian machines is currently not addressed.",3,1
+706,2017-02-06T18:10:20Z,,2017-02-07T01:22:28Z,62,214,488,"Remove all code for auto detection of endianness used in data files.
+This prepares the switch to data files with fixed endianness.
+Signed-off-by: Stefan Weil sw@weilnetz.de",2,3
+750,2017-03-07T22:17:19Z,2017-03-10T07:11:42Z,2017-03-10T07:11:42Z,1,16,3,"Increase portability by insulating autogen.sh from platform variance.
+
+Specifically, test for the existence of either libtoolize or glibtoolize and caching its location into a script variable prior to running the utility in order to prevent either utility's invocation from spawning error messages of the form './autogen.sh: line $LINE: $COMMAND: command not found' (with the $LINE and $COMMAND pseudo-variables replaced with content relevant to what line the command that spawned this error message was on within autogen.sh and what command's invocation was attempted at that point, of course.)  In particular, this takes into account macOS's wonky libtool semantics, which involve the following idiosyncrasies:
+
+The version of libtool that Apple bundles within both Xcode and its separate associated 'Command-Line Developer Tools' package comes without a copy of libtoolize.
+macOS package managers like Homebrew and MacPorts typically install the GNU versions of libtool and libtoolize as glibtool and glibtoolize, respectively, when needed by another package as a dependency or otherwise requested by an end-user.
+
+The pre-existing code which was supposed to handle this case was not resilient with respect to errors finding either the system copy or the GNU variant of libtoolize, as it ran both libtoolize and glibtoolize, in that order, without checking for the existence of either utility!  (From the man page of the copy of bash included with macOS 'El Capitan' v10.11.6, which is reported to be GNU bash, version 3.2.57(1)-release (x86_64-apple-darwin15) by bash --version:
+
+…
+
+SHELL GRAMMAR
+
+…
+
+   Lists
+          A list is a sequence of one or more pipelines separated by one of the operators ;, &, &&, or ||,  and optionally terminated by one of ;, &, or <newline>.
+
+          Of  these  list  operators,  &&  and  || have equal precedence, followed by ; and &, which have equal precedence.
+
+          A sequence of one or more newlines may appear in a list instead of a semicolon to delimit commands.
+
+          If a command is terminated by the control operator &, the shell executes the  command  in  the  background in a subshell.  The shell does not wait for the command to finish, and the return status is 0.
+          Commands separated by a ; are executed sequentially; the shell waits for each command to terminate in turn.  The return status is the exit status of the last command executed.
+
+          The  control  operators  &&  and || denote AND lists and OR lists, respectively.  An AND list has the form
+
+                 command1 && command2
+
+          command2 is executed if, and only if, command1 returns an exit status of zero.
+
+          An OR list has the form
+
+                 command1 || command2
+
+          command2 is executed if and only if command1 returns a non-zero exit status.  The  return  status  of AND and OR lists is the exit status of the last command executed in the list.
+
+…
+
+
+— note, however, that this text only implies that execution of the second command in the || list can be short-circuited if the execution of the first command fails; that first command is always executed!)
+This root cause of this issue was initially clarified to me by the second half of this comment on Homebrew/homebrew-core#10380 because it appeared as a red herring of a side effect during diagnosis of that same issue.  Per this further comment on that issue, further corrections to autogen.sh may remain desired after the merger of this pull request into master.  (Never mind, that's #739 and has to do with api/Makefile.am.)  This pull request should also be backported to at least branch 3.05.",5,16
+752,2017-03-09T15:24:55Z,2017-03-10T07:13:06Z,2017-03-10T07:13:06Z,4,6,30,This fixes several compiler warnings.,5,8
+770,2017-03-18T10:14:51Z,2017-03-20T18:53:55Z,2017-03-20T18:53:55Z,1,7,7,,4,4
+778,2017-03-21T20:04:30Z,2017-04-28T16:58:40Z,2017-04-28T16:58:40Z,5,157,22,"Also fix ""C\++"" in the manpage. I've put that in a separate commit, not least because asciidoc is adding an additional escape character for --psm in the manpage.",5,3
+783,2017-03-23T08:48:57Z,2017-03-25T10:49:12Z,2017-03-25T10:49:12Z,1,19,3,"Add  major updates to 4.0.0alpha by Ray since Nov, 2016.
+@zdenop, @stweil, @egorpugin @amitdo Please update with other major changes. Thanks!",5,9
+813,2017-04-10T21:46:52Z,2017-04-11T10:43:24Z,2017-04-11T10:43:24Z,1,1,1,This change is needed to link Tesseract 4.00 with OpenCL on macOS.,4,7
+814,2017-04-10T21:50:30Z,2017-04-11T10:42:48Z,2017-04-11T10:42:48Z,2,2,2,"This includes and builds on @stweil 's patch to fix linkage on macOS.
+@zdenop This includes PR #809, so if you accept this you can close PR #809. Let's see if @stweil wants to cherrypick this and added other 3.05 changes.",4,4
+818,2017-04-11T19:23:26Z,,2017-05-23T07:31:21Z,1,5,5,,4,3
+823,2017-04-15T15:18:08Z,2017-04-15T17:12:51Z,2017-04-15T17:12:51Z,1,1,1,Saw this while messing around with #786 and just thought I'd go ahead and correct it really quickly.,4,2
+891,2017-05-06T07:13:49Z,2017-05-06T17:36:41Z,2017-05-06T17:36:41Z,1,12,0,,2,3
+897,2017-05-09T12:30:21Z,2017-05-11T14:06:44Z,2017-05-11T14:06:44Z,9,64,72,"Use the RAII idiom, e.g., to help prevent memory leaks.",6,18
+900,2017-05-10T22:52:32Z,2017-05-11T14:08:13Z,2017-05-11T14:08:13Z,39,98,97,"In most cases static_cast was sufficient, and sometimes there was no need for casting at all.",4,2
+903,2017-05-11T07:06:38Z,2017-05-11T09:28:51Z,2017-05-11T09:28:51Z,1,1,1,"The local variable intval is of type int.
+Signed-off-by: Stefan Weil sw@weilnetz.de",3,0
+911,2017-05-12T12:57:48Z,,2019-03-05T16:21:24Z,10,304,10,"This requires libminizip-dev, so expect failures from CI.
+Up to now, little endian tesseract works with the new zip format.
+More work is needed for training tools and big endian support and also to maintain
+compatibility with the current proprietary format.
+Signed-off-by: Stefan Weil sw@weilnetz.de",9,81
+920,2017-05-14T19:34:44Z,2017-05-14T20:38:12Z,2017-05-14T20:38:12Z,1,1,0,"Tesseract crashes with an unhandled exception (std::bad_alloc) if it gets
+a bad tessdata file where the numEntries data field is very large (also
+after swapping), for example 0x77777777.
+Signed-off-by: Stefan Weil sw@weilnetz.de",3,0
+921,2017-05-15T06:25:22Z,,2021-03-23T22:23:03Z,47,946,904,"Use the RAII idiom, e.g., to help prevent memory leaks.
+RFC about ccutil/raiileptonica.h?
+(2017-05-18 Heavily edited down.)",6,33
+964,2017-05-31T13:50:41Z,2017-06-03T09:35:45Z,2017-06-03T09:35:45Z,1,52,42,"Add an Issue Template
+Reorganize Readme.MD",3,4
+967,2017-06-02T19:50:25Z,2017-06-03T09:30:41Z,2017-06-03T09:30:41Z,1,1,1,"The official name of Apple's desktop / laptop operating system is macOS, not Mac OS X.",3,0
+972,2017-06-03T10:59:42Z,,2017-06-03T12:04:57Z,16,806,866,Use non-recursive make.,2,2
+1014,2017-06-29T22:29:36Z,2017-06-30T11:37:48Z,2017-06-30T11:37:48Z,1,1,1,"1.74.2 is no longer available from the leptonica website. But anyway, it seems safer going forward to download it from github. It's https, and it won't disappear as easily. Also, this is the same source used by travis, so there's less chance of shipping something untested.",5,3
+1017,2017-07-01T12:58:38Z,2017-07-01T15:47:59Z,2017-07-01T15:47:59Z,1,3,3,Fix for #1016,4,1
+1018,2017-07-02T21:43:04Z,2017-07-03T06:22:58Z,2017-07-03T06:22:58Z,81,88,88,"A few of the filenames in the comments do not list the actual name of the file. It looks like some were accidentally left (maybe after a regression?) or were copied.
+I was working on something where I had to touch many files, and decided to break out this fix and push it.",3,0
+1076,2017-08-12T22:18:25Z,2017-08-13T12:50:11Z,2017-08-13T12:50:11Z,1,5,4,"This causes errors caught by TessBaseAPI::Init in tesseractmain.cpp:main to not cause an exit immediately, though I doubt that this will cause serious problems.",4,4
+1077,2017-08-12T23:10:24Z,2017-08-13T12:50:27Z,2017-08-13T12:50:27Z,3,8,12,,3,1
+1088,2017-08-19T13:18:54Z,2017-09-05T18:40:01Z,2017-09-05T18:40:01Z,6,149,2,"@theraysmith @stweil
+Please check unittests after applying this PR.
+autoreconf -fiv
+git submodule update --init
+export TESSDATA_PREFIX=/prefix/to/path/to/tessdata
+make check",4,7
+1112,2017-09-07T00:57:57Z,2017-09-07T06:30:59Z,2017-09-07T06:30:59Z,1,7,0,Otherwise we abort with the message DotProductAVX can't be used on Android.,5,2
+1141,2017-09-19T16:22:47Z,,2017-11-10T14:48:17Z,1,0,25,"Hey there!
+I noticed that the LICENSE file includes the instructions on how to apply the license to your project, since it already has all the terms and conditions listed out directly then its not necessary to have that piece at the end of the license, I removed unnecessary text on license file.
+Please take a look.",3,4
+1153,2017-09-24T04:05:24Z,2017-10-13T09:46:43Z,2017-10-13T09:46:43Z,1,3,1,"fix the ""Phase UP: Generating unicharset and unichar properties files"" ERROR
+Please reference #1147",5,3
+1355,2018-03-02T23:53:52Z,2018-03-03T13:33:40Z,2018-03-03T13:33:40Z,1,1,1,Win64 receives syntax error.,4,2
+1360,2018-03-04T07:49:31Z,2018-03-04T13:43:29Z,2018-03-04T13:43:29Z,16,17,22,"The related code in training/util.h now uses the GOOGLE_TESSERACT macro
+to enable Google specific code to disable heap checking.
+Signed-off-by: Stefan Weil sw@weilnetz.de",3,0
+1365,2018-03-08T16:33:39Z,2018-03-08T20:12:24Z,2018-03-08T20:12:24Z,2,0,6,MSVC 8.0 was released in 2005 and we don't support it.,3,0
+1368,2018-03-10T07:45:23Z,2018-03-13T17:58:53Z,2018-03-13T17:58:53Z,1,1,0,"tessdata_fast includes bre.traineddata.
+Signed-off-by: Stefan Weil sw@weilnetz.de",3,1
+1369,2018-03-10T10:52:50Z,2018-03-10T19:52:40Z,2018-03-10T19:52:40Z,1,8,0,Signed-off-by: Stefan Weil sw@weilnetz.de,3,0
+1394,2018-03-17T11:42:24Z,2018-03-17T13:10:54Z,2018-03-17T13:10:54Z,1,14,0,"autoconf-archive and pkg-config are required, but users often missed that requirements.
+The script now detects and reports those missing requirements and removes
+the incomplete generated configure script.
+Signed-off-by: Stefan Weil sw@weilnetz.de",3,2
+1474,2018-04-13T01:23:27Z,2018-04-13T04:35:18Z,2018-04-13T04:35:18Z,1,14,0,"Building with G++ on Darwin breaks with the MacPorts toolchain, when either AVX, AVX2, or SSE4.1 compiler option is set, unless G++ is actually CLANG.
+This PR allows building with G++, by asking G++ to delegate assembly to the clang integrated assembler, instead of the GNU one.
+Situation
+GNU compilers choke when assembling with AS. After autogen.sh and configure, make ends quickly with such error trace:
+# ... Cut the beginning of the trace
+libtool: compile:  g++ -DHAVE_CONFIG_H -I. -I.. -O2 -DNDEBUG -I../ccstruct -I../ccutil -I../viewer -I/opt/local/include/leptonica -I/opt/local/include/pango-1.0 -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include -I/opt/local/include/cairo -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include -I/opt/local/include/pixman-1 -I/opt/local/include -I/opt/local/include/freetype2 -I/opt/local/include -I/opt/local/include/freetype2 -I/opt/local/include/libpng16 -I/opt/local/include -mavx -g -O2 -std=c++11 -MT libtesseract_avx_la-dotproductavx.lo -MD -MP -MF .deps/libtesseract_avx_la-dotproductavx.Tpo -c dotproductavx.cpp  -fno-common -DPIC -o .libs/libtesseract_avx_la-dotproductavx.o
+/var/folders/dy/7c6v04gn4x96qz9w1xrl_6r00000gn/T//cc9mtjB1.s:46:no such instruction: `vmovapd (%rdi), %ymm0'
+/var/folders/dy/7c6v04gn4x96qz9w1xrl_6r00000gn/T//cc9mtjB1.s:47:no such instruction: `vmulpd (%rsi), %ymm0,%ymm0'
+/var/folders/dy/7c6v04gn4x96qz9w1xrl_6r00000gn/T//cc9mtjB1.s:61:no such instruction: `vmovapd (%rdi,%rax,8), %ymm1'
+# ... several more missing instructions
+make[3]: *** [libtesseract_avx_la-dotproductavx.lo] Error 1
+make[2]: *** [all-recursive] Error 1
+make[1]: *** [all-recursive] Error 1
+make: *** [all] Error 2
+
+This is a common issue on macOS, where we need to ask the compiler to use the clang integrated assembler by passing -Wa,-q.
+The problem happens at least from tag 4.0.0-beta.1 to the present master  at 742a0875077e16f0010e99f1bf05823cd9bb725d.
+Tests conducted
+Configuration
+
+Commit: 742a0875077e16f0010e99f1bf05823cd9bb725d (current master at this time)
+macOS 10.12.6
+MacPorts 2.4.2
+Build with /opt/local/bin/g++, itself built with MacPorts (g++ (MacPorts gcc6 6.4.0_0) 6.4.0)
+Leptonica 1.75.3
+Machine with AVX, AVX2, SSE4.1 support.
+
+Tests after the fix
+Simple make
+
+Builds fine until completion.
+CLI trial, from the repository home:
+
+export TEST_IMG=/tmp/tesseract_test.jpg
+curl -o $TEST_IMG https://i.ytimg.com/vi/4KhEQKyByXs/maxresdefault.jpg
+export TESSDATA_PREFIX=/path/to/4.0/tessdata
+./api/.libs/tesseract $TEST_IMG stdout -l eng
+
+Results in:
+Warning. Invalid resolution 0 dpi. Using 70 instead.
+Estimating resolution as 2122
+SAMPLE TEXT
+
+make training
+
+Builds fine until completion.
+Same CLI trial as above.
+
+Extra Notes
+
+I am aware of this issue/documentation where the build seems to work fine on macOS 10.13 with Homebrew. Here I build with MacPorts, so the problem may be due to this toolchain.",4,18
+1484,2018-04-17T09:07:28Z,2018-04-18T06:26:02Z,2018-04-18T06:26:02Z,1,1,0,"CID: 1375399 Variable bb1 going out of scope leaks the storage it points to
+Signed-off-by: Noah Metzger noah.metzger@bib.uni-mannheim.de",4,3
+1487,2018-04-17T13:01:15Z,2018-04-17T15:17:11Z,2018-04-17T15:17:11Z,1,0,10,Pango versions older than 1.22.0 are not supported.,3,0
+1492,2018-04-19T12:05:03Z,2018-04-19T15:00:18Z,2018-04-19T15:00:18Z,29,115,114,,4,1
+1496,2018-04-20T00:37:16Z,2018-04-20T04:49:36Z,2018-04-20T04:49:36Z,1,1,15,"The newer macros that replace the obsolete ones are already present in configure.ac.
+
+AC_PROG_LIBTOOL -> LT_INIT
+AC_LANG_CPLUSPLUS -> AC_LANG([C++])",3,0
+1522,2018-04-23T23:40:03Z,2018-04-24T06:19:24Z,2018-04-24T06:19:24Z,1,0,14,"The support will require more work, and postpone for now.
+This contributes to #1500, and removes #1474 and #1516.",3,1
+1534,2018-04-27T19:23:01Z,2018-04-28T17:30:48Z,2018-04-28T17:30:48Z,4,57,60,,4,2
+1549,2018-05-02T17:59:29Z,,2018-05-03T10:23:02Z,43,2126,29,"I have added a folder for examples and added a couple of examples there.
+As a precursor to moving files to test repo, I have moved unittest related folders under a new folder called test.
+I have left the testing folder as is, since it has phototest.tif and eurotext.tif which have been around for many versions. The newer unittest files have been moved.
+@zdenop Please review/test before merging. Thanks.",5,11
+1569,2018-05-08T15:25:11Z,2018-05-08T19:43:46Z,2018-05-08T19:43:47Z,1,1,1,"The commit effa574 in 20.01.2017 added the bool textonly to the constructor of TessPDFRenderer. To maintain the compatibility to older APIs which are still using only two parameter, a default value for the textonly parameter is set.
+Signed-off-by: Noah Metzger noah.metzger@bib.uni-mannheim.de",3,0
+1584,2018-05-19T06:48:20Z,2018-05-19T10:42:25Z,2018-05-19T10:42:25Z,2,2,2,#1582,4,1
+1585,2018-05-19T20:10:00Z,2018-05-20T18:24:08Z,2018-05-20T18:24:08Z,216,857,783,"Hello.
+I started work on different refactorings inside tesseract (fixing warnings, adding missing const keyword, etc.).
+It's just initial commit. Please give me any feedback about this. Is it good for Tessaract? Can I continue my work on refactoring?",4,18
+1588,2018-05-20T19:48:44Z,2018-05-23T13:53:13Z,2018-05-23T13:53:13Z,66,1256,1283,"Hello.
+Here is refactoring about using bool instead of BOOL8.",5,9
+1591,2018-05-21T10:37:55Z,2018-05-22T18:59:49Z,2018-05-22T18:59:49Z,96,98,219,In C++11 was introduced default keyword. It's useful for declaring empty ctors/dtors. In this PR I have replaced empty ctors/dtors by default keyword.,3,6
+1607,2018-05-26T07:54:14Z,2018-05-26T09:11:43Z,2018-05-26T09:11:43Z,1,4,0,It can be used to format the code according to the Google C++ Style Guide (https://google.github.io/styleguide/cppguide.html).,3,1
+1614,2018-05-29T21:37:19Z,2018-06-02T06:54:21Z,2018-06-02T06:54:21Z,6,259,6,I need to use progress reporting while using C API. I have written bindings for the functionality.,4,9
+1639,2018-06-06T13:35:35Z,,2018-06-06T16:52:43Z,1,1,1,"if github repo is cloned with  shallow copy.
+the command git describe --abbrev=4  fails
+$ git describe --abbrev=4
+fatal: No tags can describe 'f8b689f85f6c302e4f286bfa249f2f247963ed02'.
+Try --always, or create some tags.",2,4
+1642,2018-06-07T17:55:59Z,2018-06-08T06:42:14Z,2018-06-08T06:42:14Z,3,0,201,"They don't contain useful information.
+Signed-off-by: Stefan Weil sw@weilnetz.de",3,7
+1643,2018-06-08T05:40:38Z,2018-06-08T06:40:40Z,2018-06-08T06:40:40Z,2,7,3,,3,0
+1644,2018-06-08T05:41:24Z,2018-06-08T10:57:03Z,2018-06-08T10:57:03Z,1,17,23,,3,3
+1645,2018-06-08T08:35:29Z,2018-06-08T10:59:35Z,2018-06-08T10:59:35Z,2,11,1,,3,0
+1646,2018-06-08T09:01:06Z,2018-06-08T10:58:32Z,2018-06-08T10:58:32Z,3,0,8,These files were generated during a test run and do not have correct values.,3,0
+1728,2018-07-02T20:35:23Z,2018-07-03T05:27:58Z,2018-07-03T05:27:58Z,1,2,2,Minor typo in options section for --user-patterns,3,0
+1761,2018-07-06T18:26:06Z,2018-07-06T20:11:36Z,2018-07-06T20:11:36Z,1,1,1,"int depth = strtol(*str + 1, str, 10);
+**str holds the words in the VGSL specification, and *str holds a single word, lets say, Fr64. Now, the strtol function modifies str to point to the first character which a non-digit number, and assumes that *str+1 points to a number (of valid integer format) as a string (automatically skipping all the white spaces, and no other characters), where in reality, it seems to point to r in Fr164.This is a bad argument, which results in strtol returning 0.
+ strtol (*str + 2, str, 10) should be passed instead.
+Kindly check issue #1748 for the full thread of discussion.",4,2
+1763,2018-07-07T11:48:41Z,,2018-07-07T19:54:05Z,334,17805,18775,,20,0
+1802,2018-07-25T15:53:08Z,2018-07-26T09:29:48Z,2018-07-26T09:29:48Z,11,138,16,"By using the parameter -c glyph_confidences=true the user is able to enrich
+the hOCR output with additional information. Tesseract then lists additionally
+the timesteps with all glyphs that were considered with their confidence
+for every timestep of the LSTM.
+The format of the hOCR output is slightly changed: There is now a linebreak
+after every word for better readability by humans.
+Signed-off-by: Noah Metzger noah.metzger@bib.uni-mannheim.de",3,1
+1812,2018-07-31T09:10:12Z,2018-07-31T10:52:06Z,2018-07-31T10:52:06Z,1,4,2,"CID: 1375395 (Dereference after null check)
+Signed-off-by: Noah Metzger noah.metzger@bib.uni-mannheim.de",4,0
+1825,2018-08-06T14:51:29Z,2018-08-06T16:23:53Z,2018-08-06T16:23:53Z,1,1,1,"The 3rd party library thesserocr needs `osdetect.h'.
+Please see below:
+Build with tesseract-4.0.0-beta-3 fails, missing include file osdetect.h, easy fix · Issue #129 · sirfz/tesserocr
+Related PR: Remove more header files from public API · tesseract-ocr/tesseract@e87e896",3,0
+1851,2018-08-20T09:41:49Z,2018-08-20T13:35:15Z,2018-08-20T13:35:15Z,7,111,17,"The parameter glyph_confidences is changed from bool to int.
+An execution with value 1 outputs the hOCR file enriched with glyph confidences
+for every timestep like before. An execution with value 2 outputs the timesteps
+accumulated over the recognized characters.
+Signed-off-by: Noah Metzger noah.metzger@bib.uni-mannheim.de",6,14
+1865,2018-08-27T08:55:10Z,2018-08-27T10:34:04Z,2018-08-27T10:34:04Z,2,8,2,Signed-off-by: Noah Metzger noah.metzger@bib.uni-mannheim.de,3,0
+1884,2018-08-30T04:35:32Z,2018-08-30T09:17:18Z,2018-08-30T09:17:18Z,2,4,7,Also update .gitignore,3,0
+1897,2018-09-04T12:01:58Z,2018-09-04T16:20:22Z,2018-09-04T16:20:22Z,51,178,69,,3,0
+1921,2018-09-20T07:44:07Z,,2021-04-11T22:18:05Z,1,2,2,,6,8
+1942,2018-10-04T06:54:38Z,,2018-10-06T06:33:01Z,6,80,1,"Fixes #1586 :
+
+extract directory from filename path (used in combine_tessdata)
+create output directory if not exists (it does not create directory recursively!)",2,3
+1950,2018-10-05T14:56:56Z,2018-10-05T16:09:32Z,2018-10-05T16:09:32Z,1,44,20,"Add also links to the user forum and to the Wiki and update the
+history text.
+Signed-off-by: Stefan Weil sw@weilnetz.de",3,1
+1993,2018-10-16T14:04:04Z,2018-10-16T16:17:22Z,2018-10-16T16:17:22Z,8,20,10,,3,0
+2026,2018-10-23T15:03:06Z,2018-10-23T16:20:22Z,2018-10-23T16:20:22Z,1,1,1,Signed-off-by: Noah Metzger noah.metzger@bib.uni-mannheim.de,3,0
+2039,2018-10-31T00:02:39Z,2018-10-31T10:30:46Z,2018-10-31T10:30:46Z,3,1,3,,3,1
+2051,2018-11-14T02:11:13Z,2018-11-15T13:34:22Z,2018-11-15T13:34:22Z,1,4,13,"The commit 10f2c45 unified the usage of mktemp, but with a
+incorrect bash syntax and unnecessary definition of LANG_CODE
+and TIMESTAMP. This patch fixes the above problems.",4,8
+2056,2018-11-15T14:42:03Z,2018-11-15T16:43:16Z,2018-11-15T16:43:16Z,1,1,0,Fixes #2054,2,4
+2067,2018-11-20T23:48:46Z,2018-11-30T05:09:37Z,2018-11-30T05:09:37Z,12,309,2,"I have added support for ALTO output as described in this issue.
+ALTO XML can be output by using the config file at tessdata/configs/alto. I have confirmed that this output validates against the schema defined here.
+This is my first pull request to a code base of this size, so please have patience if I have misunderstood anything. I use ALTO quite often and would love to have support for it in tesseract. I would be happy to make additional recommended improvements to my implementation.",5,12
+2100,2018-12-02T00:26:07Z,2018-12-15T09:38:00Z,2018-12-15T09:38:00Z,2,2,1,,3,5
+2106,2018-12-05T16:10:09Z,,2019-02-17T07:40:52Z,0,0,0,The improved performance is achieved by using float instead of double for the dotproduct. To minimize the accuracy loss we use the Kahan algorithm. By default double is used as before. To activate float use the parameter -c dotproduct_kahan_float_mode=true.,8,37
+2134,2018-12-27T14:01:30Z,2019-10-01T13:29:43Z,2019-10-01T13:29:43Z,3,48,3,"This allows OCR of images from the internet without downloading them first:
+tesseract http://IMAGE_URL OUTPUT ...
+
+It uses libcurl.
+Signed-off-by: Stefan Weil sw@weilnetz.de",7,11
+2146,2019-01-05T13:57:05Z,,2019-01-08T15:55:21Z,3,52,8,"This adds and ANDROID specific version of DeleteMatchingFiles, without
+the use of glob.h, in order to be backwards compatible with Android 6.0.
+cc @theraysmith @zdenop",2,6
+2167,2019-01-18T16:44:08Z,2019-01-18T19:52:37Z,2019-01-18T19:52:37Z,3,48,11,"unichar_test still getting error
+unichar_test.cc: In member function ‘virtual void {anonymous}::UnicharTest_Conversion_Test::TestBody()’:
+unichar_test.cc:24:21: error: ‘char32’ was not declared in this scope
+const std::vector kUTF32Src = {'a', 0x5d0, 0xca4, 0x2a714};
+^~~~~~
+unichar_test.cc:24:21: note: suggested alternative:
+In file included from unichar_test.cc:12:0:
+../src/ccutil/unichar.h:52:26: note:   ‘tesseract::char32’
+using char32 = signed int;
+^",3,1
+2169,2019-01-19T05:17:55Z,2019-01-19T08:05:40Z,2019-01-19T08:05:40Z,4,44,20,"@stweil Please review and fix.
+Still getting the following errors:
+unicharcompress_test.cc: In member function ‘virtual void tesseract::{anonymous}::UnicharcompressTest_GetEncodingAsString_Test::TestBody()’:
+unicharcompress_test.cc:242:15: error: ‘string’ was not declared in this scope
+std::vector lines =
+^~~~~~
+unicharcompress_test.cc:242:15: note: suggested alternatives:
+In file included from /usr/include/c++/6/string:39:0,
+from unicharcompress_test.cc:12:
+/usr/include/c++/6/bits/stringfwd.h:74:33: note:   ‘std::__cxx11::string’
+typedef basic_string    string;
+^~~~~~
+/usr/include/c++/6/bits/stringfwd.h:74:33: note:   ‘std::__cxx11::string’
+In file included from ../googletest/googletest/include/gtest/internal/gtest-internal.h:40:0,
+from ../googletest/googletest/include/gtest/gtest.h:59,
+from include_gunit.h:18,
+from unicharcompress_test.cc:21:
+../googletest/googletest/include/gtest/internal/gtest-port.h:1178:23: note:   ‘testing::internal::string’
+typedef ::std::string string;
+^~~~~~
+unicharcompress_test.cc:242:21: error: template argument 1 is invalid
+std::vector lines =
+^
+unicharcompress_test.cc:242:21: error: template argument 2 is invalid
+unicharcompress_test.cc:243:59: error: cannot convert ‘absl::strings_internal::Splitter<absl::ByString, absl::SkipEmpty>’ to ‘int’ in initialization
+absl::StrSplit(encoding_str, ""\n"", absl::SkipEmpty());
+^
+In file included from ../googletest/googletest/include/gtest/gtest.h:382:0,
+from include_gunit.h:18,
+from unicharcompress_test.cc:21:
+unicharcompress_test.cc:244:22: error: request for member ‘size’ in ‘lines’, which is of non-class type ‘int’
+EXPECT_EQ(5, lines.size());
+^
+unicharcompress_test.cc:246:28: error: invalid types ‘int[int]’ for array subscript
+EXPECT_EQ(""0\t "", lines[0]);
+^
+unicharcompress_test.cc:248:28: error: invalid types ‘int[int]’ for array subscript
+EXPECT_EQ(""1\ti"", lines[1]);
+^
+unicharcompress_test.cc:250:28: error: invalid types ‘int[int]’ for array subscript
+EXPECT_EQ(""2\tf"", lines[2]);
+^
+unicharcompress_test.cc:253:32: error: invalid types ‘int[int]’ for array subscript
+EXPECT_EQ(""2,1\tﬁ"", lines[3]);
+^
+unicharcompress_test.cc:255:32: error: invalid types ‘int[int]’ for array subscript
+EXPECT_EQ(""3\t"", lines[4]);
+^",2,1
+2172,2019-01-20T14:01:00Z,2019-01-21T16:36:09Z,2019-01-21T16:36:10Z,6,115,78,"@stweil Please review. Still getting build errors.
+layout_test.cc: In member function ‘void {anonymous}::LayoutTest::VerifyTotalContainment(int, tesseract::MutableIterator*)’:
+layout_test.cc:132:47: error: invalid use of incomplete type ‘class BLOCK’
+POLY_BLOCK* pb = pr_it->block()->block->poly_block();
+^~
+In file included from ../src/ccstruct/blamer.h:26:0,
+from ../src/ccstruct/pageres.h:27,
+from layout_test.cc:12:
+../src/ccstruct/boxword.h:26:7: note: forward declaration of ‘class BLOCK’
+class BLOCK;
+^~~~~
+layout_test.cc:134:44: error: invalid use of incomplete type ‘class BLOCK’
+FCOORD skew = pr_it->block()->block->skew();
+^~
+In file included from ../src/ccstruct/blamer.h:26:0,
+from ../src/ccstruct/pageres.h:27,
+from layout_test.cc:12:
+../src/ccstruct/boxword.h:26:7: note: forward declaration of ‘class BLOCK’
+class BLOCK;
+^~~~~",3,10
+2173,2019-01-20T17:25:31Z,,2019-01-22T12:39:39Z,1,3,2,"tesstrain_utils.sh was using training_text instead of wordlist. Error was introduced in commit 32c1e4f
+
+
+https://groups.google.com/forum/#!topic/tesseract-ocr/N0Wh72kMqKc  reported error with tesstrain.sh process where if more than 8 files were used then process would hang/end unexpectedly.  Removing 'set -e' for bash in tesstrain_utils.sh gets rid of the problem and the training process completes successfully.",2,8
+2180,2019-01-22T13:29:59Z,2019-01-24T07:01:20Z,2019-01-24T07:01:20Z,7,129,53,I will upload required testdata files to the test repo.,2,4
+2188,2019-01-23T18:03:29Z,2019-01-24T06:54:49Z,2019-01-24T06:54:49Z,1,1,3,"It seems that to decide whether to run phase S or not, tesstrain.sh was checking if ENABLE_SHAPE_CLUSTERING variable was set to ""y"". However, this variable is unbound, and the script fails when it reaches this point.
+It looks like whether to run shape clustering or not is decided with the --run_shape_clustering flag, which is checked in the tesstrain_utils.sh script instead.
+Therefore, it seemed to me that removing this if statement from tesstrain.sh seemed appropriate to solve this bug.",3,1
+2200,2019-01-26T12:27:25Z,2019-01-27T07:24:42Z,2019-01-27T07:24:42Z,13,298,122,,3,0
+2214,2019-02-02T11:16:52Z,2019-02-02T12:44:16Z,2019-02-02T12:44:16Z,2,2,2,(cherry picked from commit 94b8988),2,0
+2216,2019-02-02T11:48:33Z,2019-02-10T12:53:41Z,2019-02-10T12:53:42Z,10,145,1,Create box files (using code similar to tsv renderer) in the format needed for LSTM training i.e. with a line for space after every word and a line with tab to mark end of line.,4,8
+2220,2019-02-03T19:40:55Z,2019-02-16T12:53:47Z,2019-02-16T12:53:47Z,1,22,21,"Three commits here, first two should be straightforward:
+
+get.image is mentioned in tesseract(1), as get.images and not installed
+A typo and missing full stops in tesseract(1)
+
+At first read of tesseract(1) I didn't find it easy to follow what a config was and the third commit is my attempt to improve that. That's more subjective so please do look at it critically.",5,4
+2223,2019-02-05T20:00:28Z,2019-02-05T21:10:32Z,2019-02-05T21:10:32Z,2,1,1,get.images is mentioned in tesseract(1) and not installed.,2,1
+2224,2019-02-05T20:00:59Z,2019-02-05T21:07:53Z,2019-02-05T21:07:53Z,1,5,5,A typo and missing full stops.,2,1
+2259,2019-02-21T14:55:35Z,2019-02-22T20:06:29Z,2019-02-22T20:06:30Z,2,37,2,Fixes #1052,3,4
+2268,2019-02-25T18:52:53Z,2019-02-25T19:59:40Z,2019-02-25T19:59:40Z,1,6,5,"Fixes errors such as:
+Word started with a combiner:0x64b
+Normalization failed for string 'ًا'
+Encoding of string failed! Failure bytes: d9 8b d8 a7 d8 af d9 83 d8 a4 d9 85 db 94 d8 a9 d9 8a d8 b1 d8 a7 d8 af d8 a7 d9 84 d8 a7 20 d8 a9 d8 a6 d9 8a d9 87 d9 84 d8 a7 20 d8 a1 d8 a7 d8 b6 d8 b9 d8 a3 d8 a8 20 d8 a9 d9 82 d8 ab d9 84 d8 a7 20 d8 af d9 8a d8 af d8 ac d8 aa
+Can't encode transcription: 'نا ًادكؤم۔ةيرادالا ةئيهلا ءاضعأب ةقثلا ديدجت' in language ''",3,0
+2284,2019-03-02T12:08:39Z,2019-03-02T13:35:56Z,2019-03-02T13:35:56Z,7,29,33,,2,2
+2286,2019-03-02T16:31:42Z,2019-03-10T20:41:53Z,2019-03-10T20:41:53Z,2,2,2,,4,10
+2291,2019-03-05T19:51:25Z,2019-03-06T09:19:28Z,2019-03-06T09:19:28Z,1,4,3,"Useful for custom config or when pointing tessdata to alternate
+traineddata.",3,0
+2294,2019-03-07T00:47:34Z,2019-04-06T12:41:31Z,2019-04-06T12:41:31Z,6,45,26,"ignore matrix outputs in ComputeTopN if they
+belong to a disabled unichar_id
+pass UNICHARSET refs to check that
+in SetBlackAndWhitelist, also update the unicharset
+of the lstm_recognizer_ instance, if any",5,79
+2341,2019-03-22T14:12:16Z,2019-03-24T17:21:10Z,2019-03-24T17:21:10Z,3,35,28,,3,4
+2366,2019-04-03T19:07:11Z,2019-04-04T12:13:11Z,2019-04-04T12:13:11Z,14,464,506,,3,2
+2371,2019-04-04T20:22:35Z,2019-04-05T07:34:28Z,2019-04-05T07:34:28Z,17,85,97,Signed-off-by: Stefan Weil sw@weilnetz.de,3,1
+2437,2019-05-15T20:49:53Z,2019-05-16T15:02:03Z,2019-05-16T15:02:03Z,3,93,54,"The unittest failed with LANG=de_DE.UTF-8:
+$ unittest/apiexample_test
+Running main() from ../../../../unittest/../googletest/googletest/src/gtest_main.cc
+[==========] Running 4 tests from 2 test suites.
+[----------] Global test environment set-up.
+[----------] 1 test from EuroText
+[ RUN      ] EuroText.FastLatinOCR
+contains_unichar_id(unichar_id):Error:Assert failed:in file ../../../../../src/ccutil/unicharset.h, line 874
+
+Signed-off-by: Stefan Weil sw@weilnetz.de",3,6
+2451,2019-05-21T17:56:41Z,2019-05-22T10:19:44Z,2019-05-22T10:19:44Z,2,13,3,Fixes some LGTM alerts (maybe fixes potential bugs due to them?),4,4

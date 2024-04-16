@@ -1,0 +1,97 @@
+number,created_at,merged_at,closed_at,files,additions,deletions,body_text,participants,comments
+66,2023-03-27T09:50:26Z,2023-03-27T13:59:19Z,2023-03-27T13:59:19Z,3,12,3,,2,2
+96,2023-03-28T09:16:37Z,,2023-03-28T10:52:07Z,7,120,48,111,6,1
+148,2023-03-29T08:29:06Z,2023-03-29T10:05:53Z,2023-03-29T10:05:53Z,6,30,5,在Enter发送模式下，使用Meta+Enter对文本进行换行。并使ReactMarkdown组件正常显示换行符,2,5
+193,2023-03-30T02:02:44Z,,2023-03-30T04:19:53Z,0,0,0,解决Markdown不展示换行问题,2,2
+259,2023-03-31T00:54:21Z,2023-03-31T08:45:29Z,2023-03-31T08:45:29Z,5,164,4,"Hello @Yidadaa ,
+I have created a fork of the ChatGPT-Next-Web project and added or updated the locales to support the Spanish language. I have done some testing and everything seems to be working correctly.
+I hope you find these updates useful, and if you have any questions or suggestions, please don't hesitate to let me know.
+Thank you for your time and effort on this project!
+Best regards",2,4
+313,2023-04-01T07:14:17Z,,2023-04-05T20:12:39Z,8,123,3,增加对已发送消息的重编辑功能,2,4
+318,2023-04-01T09:36:36Z,2023-04-07T17:01:52Z,2023-04-07T17:01:52Z,9,155,9,"closed #572
+closed #312
+closed #298
+Optimize textarea height when inputting.
+pc
+
+  
+    
+    
+
+    2023-04-02.09.29.05.mov
+    
+  
+
+  
+
+  
+
+
+mobile
+
+  
+    
+    
+
+    2023-04-02.02.31.15.mov",4,7
+355,2023-04-02T11:43:32Z,2023-04-02T13:42:46Z,2023-04-02T13:42:46Z,1,1,1,Bug: The length of new Array(20).slice(20 - 24)  is 4 which should be 24.,2,1
+493,2023-04-05T06:12:25Z,,2023-06-24T04:19:08Z,0,0,0,"I've made some changes to the chat application that add support for Arabic language and right-to-left direction. This makes the app more accessible to users who prefer to read and write in Arabic.
+I've tested the changes and they work well. Please consider merging my changes into the main branch.
+Thank you
+https://tinypic.host/i/screenshot-20230405-214049-edge.zpRsY
+https://tinypic.host/i/ar.zLLDj",3,7
+800,2023-04-14T08:11:50Z,,2023-04-14T11:21:24Z,2,11,11,#796,2,0
+935,2023-04-19T12:19:58Z,,2023-11-09T18:44:10Z,19,407,77,"Azure OpenAI product details protal: https://portal.azure.com/#view/Microsoft_Azure_ProjectOxford/CognitiveServicesHub/~/OpenAI
+Effect snapshot:
+
+A fork for quick preview
+https://chatgpt.realduang.com/
+Introduction to use:
+If you want to use the Azure OpenAI API features, you will need to register your service in the portal above.
+It requires passing in three mandatory parameters for normal use, custom domain, instance name, and api key. You can refer to the product documentation for these parameters.
+It is worth noting that the custom subdomain value is the value that you will get from the detail list when you have registered with Azure OpenAI.",23,46
+1065,2023-04-24T20:59:37Z,2023-06-16T16:33:26Z,2023-06-16T16:33:26Z,3,166,1,,4,7
+1092,2023-04-26T01:35:32Z,,2023-05-04T06:56:24Z,2,8,0,"Whether to enable website visitor analysis on the Vercel platform, if left blank by default, it means false.",2,2
+1132,2023-04-28T04:50:38Z,,2023-05-01T15:46:51Z,4,45,22,"fix: #1130
+fix: #1131",2,1
+1152,2023-04-28T17:52:06Z,,2023-05-01T15:46:34Z,5,9903,780,"修复了当删除ChatItem时, 多次点击Toast会导致多次重复恢复的问题, 现在点击一次后, 经过一定延迟Toast就会马上消失, 不需要等待固定的时间. 同时完善了删除ChatListItem的UX, 拦截了点击DeleteIcon时的事件冒泡, 当删除当前打开session时, 会显示后一个的session, 如果当前session是最后一个, 则显示之前一个的session, 如果删除的不是当前session, 则当前显示的session及Chat不会变化",4,3
+1175,2023-04-30T06:44:07Z,,2023-05-01T15:45:59Z,2,30,14,"Description
+This pull request includes the following changes:
+
+Fixed issue causing Usage queries to fail due to time-related problems.
+Optimized query logic for both subscribed and non-subscribed accounts.
+Resolved issue with internal links not redirecting properly in markdown, and optimized behavior for external links to open in a new window.
+
+Details
+Fixed Issue
+Previously, the Usage queries were failing due to time-related problems. This pull request fixes the issue and ensures that the queries run smoothly.
+Optimized Query Logic
+The query logic for both subscribed and non-subscribed accounts has been optimized to improve performance and accuracy. For non-subscribed accounts, the 'startDate' parameter will now be set to 90 days ago.
+Resolved Markdown Issue
+This pull request also resolves an issue where internal links were not redirecting properly in markdown, and optimizes the behavior for external links to open in a new window.
+Testing
+The changes have been tested thoroughly to ensure they work as expected.",3,1
+1333,2023-05-08T14:50:50Z,2023-05-08T16:44:54Z,2023-05-08T16:44:54Z,13,155,74,,2,0
+1435,2023-05-12T00:22:49Z,2023-05-17T02:46:30Z,2023-05-17T02:46:30Z,14,266,1,"The content of French translation has been added. For the Russian part, only the option of French translation is added, while other content is modified automatically through formatting.
+新增了法语翻译的内容，俄语的部分仅增加法语翻译选项，其他内容为格式化自动修改。",2,0
+1533,2023-05-16T03:58:24Z,2023-05-16T07:33:27Z,2023-05-16T07:33:27Z,1,24,1,"Per the recommendation in #1367, adding another default English mask for the leaked GitHub Copilot prompt
+https://twitter.com/marvinvonhagen/status/1657060506371346432",2,3
+1574,2023-05-17T10:01:18Z,,2023-05-17T12:53:31Z,19,314,3,"This PR primarily includes two significant updates.
+First, I've added French translation content, which is a further development based on my previous French translation modifications. If you don't need this part of the French translation content, I can split it out.
+Secondly, I've added support for next export. Since our project is currently using the experimental feature of appDir set to true, this prevents us from using the next export command to export static pages. To address this issue, I've extracted the content of app/api into pages and transformed layout and pages.tsx into the basic content of the pages folder. Finally, I've adjusted the control scripts in package.json to compress and decompress the pages file directory, thereby achieving a structure where the app directory and pages directory coexist through the appDir configuration.
+这次PR主要包含两个重要的更新。
+首先，我增加了法语翻译的内容，这是在我之前的法语翻译修改基础上进行的进一步开发。如果你不需要这部分法语翻译的内容，我可以将其拆分出来。
+其次，我增加了对next export的支持。由于我们的项目目前使用了实验性质的appDir为true，这导致我们无法使用next export命令导出静态页面。为了解决这个问题，我将app/api的内容提取到pages，并将layout和pages.tsx转化为pages文件夹的基础内容。最后，我通过修改package.json的控制脚本来压缩和解压pages文件目录，从而实现app目录和pages目录通过appDir配置来共存的结构。",2,0
+1774,2023-05-28T06:21:43Z,,2023-05-29T02:42:19Z,5,9,7,,3,0
+1923,2023-06-13T01:41:24Z,,2023-06-13T06:25:11Z,5,6762,2,,3,2
+1939,2023-06-14T03:19:24Z,,2023-07-31T14:21:46Z,30,377,144,加了pages页面,3,0
+2002,2023-06-16T06:45:10Z,2023-06-16T10:11:09Z,2023-06-16T10:11:09Z,2,11,269,"A vulnerability in npm package yaml was discovered in April this year. Details about this vulnerability can be reviewed here: GHSA-f9xv-q969-pqx4.
+npm package lint-staged currently targets yaml version 2.2.1, which is an effected version of the package. This pull request resolves this issue by creating a package resolution for lint-staged, targeting version 2.2.2 and greater.",3,2
+2146,2023-06-26T07:34:08Z,,2023-07-31T04:49:35Z,0,0,0,"增加了联网搜索的功能
+Added internet search capability
+原理就是自建元数据搜索引擎，在用户将数据发送到openai前先获取网络搜索结果，最终一起发给chatgpt。新增环境变量，即自部署搜索引擎地址。
+update french translation更新法语翻译
+这个应该是分两次提，不太懂。
+已部署，预览网址：ganxing.tech",6,5
+2843,2023-09-15T09:06:30Z,,2023-11-12T11:46:49Z,1,51,2,Ref : [Bug] Dollar sign causing rendering issues? #2841,4,20

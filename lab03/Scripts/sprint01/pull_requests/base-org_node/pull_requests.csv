@@ -1,0 +1,235 @@
+number,created_at,merged_at,closed_at,files,additions,deletions,body_text,participants,comments
+8,2023-02-25T18:57:04Z,2023-02-26T17:31:23Z,2023-02-26T17:31:23Z,1,4,4,fixes #6,3,0
+10,2023-03-01T04:29:13Z,2023-03-03T15:15:16Z,2023-03-03T15:15:16Z,1,20,1,"Hello, in case welcome I added some nice (hopefully others think so 🤣) badges to the README. They link to various parts of the repository and also back to the Base website, blog, docs and Twitter account. You can play with them using the README on my fork.
+I've also included screenshots below to demonstrate the change, before and after. Each badge is its own commit in case you all would like to drop some but keep others. Cheers.
+Before:
+
+After:",2,1
+11,2023-03-01T14:51:47Z,2023-03-03T22:42:52Z,2023-03-03T22:42:53Z,1,56,0,"I grabbed and copy/pasted this from https://github.com/coinbase/salus/blob/master/CONTRIBUTING.md, assuming that might already be OK to use (since this repo didn't have it).",2,0
+12,2023-03-01T15:04:02Z,2023-03-03T22:39:22Z,2023-03-03T22:39:22Z,1,38,0,"Similarly to PR #11 , I grabbed this from https://github.com/coinbase/salus/blob/master/SECURITY.md thinking it would be OK to use. This template simply instructs people with reports to submit them via Coinbase's HackerOne page.",2,1
+13,2023-03-02T12:35:11Z,,2023-03-03T15:24:07Z,1,15,1,Providing more information about how Base Nodes work,2,2
+14,2023-03-02T19:36:54Z,2023-03-03T15:16:38Z,2023-03-03T15:16:38Z,1,1,1,make a bit less output,2,0
+17,2023-03-03T06:29:07Z,2023-03-03T15:19:57Z,2023-03-03T15:19:57Z,1,7,1,Providing more information in README.md (edited),3,0
+19,2023-03-03T14:07:56Z,2023-03-03T22:34:47Z,2023-03-03T22:34:47Z,2,6,6,"Due to customer confusion, I added some clarifying comments.",2,1
+21,2023-03-10T13:32:57Z,2023-03-14T16:23:18Z,2023-03-14T16:23:18Z,1,18,2,"The docker compose command does not work without --build flag
+Volume mapping is easy",4,1
+23,2023-03-13T05:20:45Z,2023-03-14T16:24:24Z,2023-03-14T16:24:24Z,1,1,1,,3,0
+24,2023-03-13T22:42:45Z,2023-03-14T16:25:20Z,2023-03-14T16:25:20Z,1,1,0,"Warn developer for missing package, as original error message does not say this straight.
+Another more ""polluted"" options is
+command -v jq &> /dev/null && echo Latest synced block behind by: \
+$((($( date +%s )-\
+$( curl -s -d '{""id"":0,""jsonrpc"":""2.0"",""method"":""optimism_syncStatus""}' -H ""Content-Type: application/json"" http://localhost:7545 |
+   jq -r .result.unsafe_l2.timestamp))/60)) minutes || { echo ""mvn is not installed"" 1>&2 ; }",2,0
+34,2023-03-22T22:06:23Z,2023-03-23T00:27:34Z,2023-03-23T00:27:34Z,2,2,3,"Reliability improvements, including fix for handling shapella L1 blocks (ethereum-optimism/optimism#5144).",3,2
+40,2023-04-11T21:41:37Z,2023-04-12T01:29:47Z,2023-04-12T01:29:47Z,1,1,1,Onchain is the next online.,6,3
+41,2023-04-12T01:32:44Z,2023-04-12T14:02:40Z,2023-04-12T14:02:40Z,1,1,1,,5,2
+44,2023-04-21T16:36:36Z,2023-04-21T19:06:50Z,2023-04-21T19:06:50Z,1,2,1,,2,0
+48,2023-05-04T00:55:07Z,2023-05-04T14:38:14Z,2023-05-04T14:38:14Z,1,40,0,,2,0
+49,2023-05-04T18:20:21Z,2023-06-15T23:40:54Z,2023-06-15T23:40:54Z,2,3,0,"Currently geth data is stored within the container. This means all chaindata is lost whenever the container is destroyed, for example when upgrading to the latest version using docker-compose down instead of docker-compose stop. This can be prevented by volume mounting the data directory to a directory on the host machine, which this PR proposes.",5,2
+54,2023-06-09T17:32:25Z,2023-06-15T22:54:42Z,2023-06-15T22:54:42Z,5,19,19,"What
+This updates the dockerfile and compose scripts slightly to cleanup some things and follow some best practices around docker
+
+
+Remove the whole local git repo configuration that is done to build both geth and optimism repos, as it is creates unnecessary complexity.  Instead simply download github public tarballs of the sha references.  Another additional benefit is that this can use sha256sum checking on the tarballs.  In order to use ADD --checksum=sha256: you must use the docker # syntax=docker/dockerfile:1-labs https://docs.docker.com/engine/reference/builder/#syntax
+
+
+Cleanup /var/lib/apt/lists as this is unnecessary bloat in the image
+
+
+Remove the .sh from the entrypoint files as they already have interpreters and exectuable files generally do not have extensions.
+
+
+Removes the ""sh"" command to run the entrypoints in the docker compose file, because of the same reason, the scripts have bash interpreters
+
+
+Only Copy the geth-entrypoint and op-node-entrypoint scripts and the appropriate goerli folder.  The current docker image includes all the other files in this repo due to a COPY . ., which is really not necessary
+
+
+$ docker run -it --entrypoint sh mitsuwa/node:latest
+# ls
+CONTRIBUTING.md  Dockerfile  LICENSE  README.md  SECURITY.md  docker-compose.yml  geth	geth-entrypoint.sh  goerli  logo.webp  op-node	op-node-entrypoint.sh
+
+The image reduction is about 20 mb
+Testing
+This builds the image via docker compose up --build and geth and op clients startup
+$ docker compose up --build
+[+] Building 122.0s (21/24)
+ => [node_geth internal] load build definition from Dockerfile                                                                                                                                                                                      0.0s
+ => => transferring dockerfile: 967B                                                                                                                                                                                                                0.0s
+ => [node_node internal] load build definition from Dockerfile                                                                                                                                                                                      0.0s
+ => => transferring dockerfile: 967B                                                                                                                                                                                                                0.0s
+ => [node_geth internal] load .dockerignore                                                                                                                                                                                                         0.0s
+ => => transferring context: 2B                                                                                                                                                                                                                     0.0s
+ => [node_node internal] load .dockerignore                                                                                                                                                                                                         0.0s
+ => => transferring context: 2B                                                                                                                                                                                                                     0.0s
+ => [node_geth internal] load metadata for docker.io/library/golang:1.19                                                                                                                                                                            0.6s
+ => [node_geth internal] load build context                                                                                                                                                                                                         0.3s
+ => => transferring context: 9.19MB                                                                                                                                                                                                                 0.2s
+ => [node_node geth 1/4] FROM docker.io/library/golang:1.19@sha256:83f9f840072d05ad4d90ce4ac7cb2427632d6b89d5ffc558f18f9577ec8188c0                                                                                                                 0.1s
+ => => resolve docker.io/library/golang:1.19@sha256:83f9f840072d05ad4d90ce4ac7cb2427632d6b89d5ffc558f18f9577ec8188c0                                                                                                                                0.0s
+ => => sha256:83f9f840072d05ad4d90ce4ac7cb2427632d6b89d5ffc558f18f9577ec8188c0 2.36kB / 2.36kB                                                                                                                                                      0.0s
+ => => sha256:0a2cfaee31baf5363dc433adc23c2c8ec395e9c456f5c42e8b725dfb8efb2ced 1.58kB / 1.58kB                                                                                                                                                      0.0s
+ => => sha256:b6def6c9f657f33b9ebd33e3b797325642231e265e3ca8b04e239b64f569b606 6.79kB / 6.79kB                                                                                                                                                      0.0s
+ => [node_node internal] load build context                                                                                                                                                                                                         0.2s
+ => => transferring context: 9.19MB                                                                                                                                                                                                                 0.2s
+ => [node_node geth 2/4] WORKDIR /app                                                                                                                                                                                                               0.1s
+ => [node_geth stage-2 2/8] RUN apt-get update &&     apt-get install -y jq curl &&     rm -rf /var/lib/apt/lists                                                                                                                                   4.8s
+ => [node_geth geth 3/4] RUN git init &&     git remote add origin https://github.com/ethereum-optimism/op-geth.git &&     git fetch --depth=1 origin a84992a3b7c33f038ccc69e761bafeefcd605fd3 &&     git reset --hard FETCH_HEAD                   3.9s
+ => [node_node op 3/4] RUN git init &&     git remote add origin https://github.com/ethereum-optimism/optimism.git &&     git fetch --depth=1 origin 09d23ee8995b7c318a4469a49276f9453535c6a9 &&     git reset --hard FETCH_HEAD                    9.8s
+ => [node_geth geth 4/4] RUN go run build/ci.go install -static ./cmd/geth                                                                                                                                                                        116.4s
+ => [node_geth stage-2 3/8] WORKDIR /app                                                                                                                                                                                                            0.0s
+ => [node_geth op 4/4] RUN cd op-node &&     make op-node                                                                                                                                                                                         110.3s
+ => [node_geth stage-2 4/8] COPY --from=op /app/op-node/bin/op-node ./                                                                                                                                                                              0.1s
+ => [node_geth stage-2 5/8] COPY --from=geth /app/build/bin/geth ./                                                                                                                                                                                 0.1s
+ => [node_node stage-2 6/8] COPY geth-entrypoint .                                                                                                                                                                                                  0.0s
+ => [node_node stage-2 7/8] COPY op-node-entrypoint .                                                                                                                                                                                               0.0s
+ => [node_node stage-2 8/8] COPY goerli ./goerli                                                                                                                                                                                                    0.0s
+ => [node_node] exporting to image                                                                                                                                                                                                                  0.3s
+ => => exporting layers                                                                                                                                                                                                                             0.3s
+ => => writing image sha256:70d7f92ac54734ac6167f6c0ea75e76370897d427237e2c2756bcc210f3d2ff6                                                                                                                                                        0.0s
+ => => naming to docker.io/library/node_geth                                                                                                                                                                                                        0.0s
+ => => naming to docker.io/library/node_node                                                                                                                                                                                                        0.0s
+[+] Running 3/3
+ ⠿ Network node_default   Created                                                                                                                                                                                                                   0.0s
+ ⠿ Container node-geth-1  Created                                                                                                                                                                                                                   0.1s
+ ⠿ Container node-node-1  Created                                                                                                                                                                                                                   0.1s
+Attaching to node-geth-1, node-node-1
+node-geth-1  | /data/geth/chaindata missing, running init
+node-geth-1  | Initializing genesis.
+node-geth-1  | INFO [06-09|16:01:12.845] Maximum peer count                       ETH=50 LES=0 total=50
+node-geth-1  | INFO [06-09|16:01:12.847] Smartcard socket not found, disabling    err=""stat /run/pcscd/pcscd.comm: no such file or directory""
+node-geth-1  | INFO [06-09|16:01:12.850] Set global gas cap                       cap=50,000,000
+node-geth-1  | INFO [06-09|16:01:12.852] Using leveldb as the backing database
+node-geth-1  | INFO [06-09|16:01:12.852] Allocated cache and file handles         database=/data/geth/chaindata cache=16.00MiB handles=16
+node-geth-1  | INFO [06-09|16:01:12.857] Using LevelDB as the backing database
+node-geth-1  | INFO [06-09|16:01:12.869] Opened ancient database                  database=/data/geth/chaindata/ancient/chain readonly=false
+node-geth-1  | INFO [06-09|16:01:12.870] Writing custom genesis block
+node-node-1  | waiting for geth to be ready
+node-geth-1  | INFO [06-09|16:01:13.185] Persisted trie from memory database      nodes=3118 size=448.43KiB time=5.0933ms gcnodes=0 gcsize=0.00B gctime=0s livenodes=1 livesize=0.00B
+node-geth-1  | INFO [06-09|16:01:13.301] Successfully wrote genesis state         database=chaindata                          hash=a3ab14..6b4f76
+node-geth-1  | INFO [06-09|16:01:13.301] Using leveldb as the backing database
+node-geth-1  | INFO [06-09|16:01:13.301] Allocated cache and file handles         database=/data/geth/lightchaindata          cache=16.00MiB handles=16
+node-geth-1  | INFO [06-09|16:01:13.307] Using LevelDB as the backing database
+node-geth-1  | INFO [06-09|16:01:13.320] Opened ancient database                  database=/data/geth/lightchaindata/ancient/chain readonly=false
+node-geth-1  | INFO [06-09|16:01:13.320] Writing custom genesis block
+node-geth-1  | INFO [06-09|16:01:13.603] Persisted trie from memory database      nodes=3118 size=448.43KiB time=5.0713ms gcnodes=0 gcsize=0.00B gctime=0s livenodes=1 livesize=0.00B
+node-geth-1  | INFO [06-09|16:01:13.711] Successfully wrote genesis state         database=lightchaindata                          hash=a3ab14..6b4f76
+node-geth-1  | INFO [06-09|16:01:13.832] Maximum peer count                       ETH=100 LES=0 total=100
+node-geth-1  | INFO [06-09|16:01:13.834] Smartcard socket not found, disabling    err=""stat /run/pcscd/pcscd.comm: no such file or directory""
+node-geth-1  | WARN [06-09|16:01:13.835] Disable transaction unindexing for archive node
+node-geth-1  | INFO [06-09|16:01:13.836] Enabling recording of key preimages since archive mode is used
+node-geth-1  | INFO [06-09|16:01:13.838] Set global gas cap                       cap=50,000,000
+node-geth-1  | INFO [06-09|16:01:13.839] Allocated trie memory caches             clean=307.00MiB dirty=0.00B
+node-geth-1  | INFO [06-09|16:01:13.840] Using leveldb as the backing database
+node-geth-1  | INFO [06-09|16:01:13.840] Allocated cache and file handles         database=/data/geth/chaindata cache=512.00MiB handles=524,288
+node-geth-1  | INFO [06-09|16:01:13.874] Using LevelDB as the backing database
+node-geth-1  | INFO [06-09|16:01:13.880] Opened ancient database                  database=/data/geth/chaindata/ancient/chain readonly=false
+node-geth-1  | INFO [06-09|16:01:13.881] Disk storage enabled for ethash caches   dir=/data/geth/ethash count=3
+node-geth-1  | INFO [06-09|16:01:13.881] Disk storage enabled for ethash DAGs     dir=/root/.ethash     count=2
+node-geth-1  | INFO [06-09|16:01:13.881]
+node-geth-1  | INFO [06-09|16:01:13.881] ---------------------------------------------------------------------------------------------------------------------------------------------------------
+node-geth-1  | INFO [06-09|16:01:13.881] Chain ID:  84531 (unknown)
+node-geth-1  | INFO [06-09|16:01:13.881] Consensus: Optimism
+node-geth-1  | INFO [06-09|16:01:13.881]
+node-node-1  | t=2023-06-09T16:01:18+0000 lvl=info msg=""Initializing Rollup Node""
+node-node-1  | t=2023-06-09T16:01:18+0000 lvl=info msg=""Rollup Config""            l2_chain_id=84531 l2_network=""unknown L2"" l1_chain_id=5 l1_network=goerli l2_start_time=1,675,193,616 l2_block_hash=0xa3ab140f15ea7f7443a4702da64c10314eb04d488e72974e02e2d728096b4f76 l2_block_number=0 l1_block_hash=0x73d89754a1e0387b89520d989d3be9c37c1f32495a88faf1ea05c61121ab0d19 l1_block_number=8,410,981 regolith_time=""@ 1683219600 ~ Thu May  4 17:00:00 UTC 2023""
+
+node-node-1  | t=2023-06-09T16:01:19+0000 lvl=info msg=""loaded new runtime config values!"" p2p_seq_address=0x32a4e99A72c11E9DD3dC159909a2D7BD86C1Bc51
+node-node-1  | t=2023-06-09T16:01:19+0000 lvl=info msg=""started p2p host""                  addrs=""[/ip4/172.19.0.3/tcp/9222 /ip4/127.0.0.1/tcp/9222]"" peerID=16Uiu2HAmBcJpEC3dq1iPMtRidcSX4oQd2fpwQYNbUXpuBwFr3jux
+node-node-1  | t=2023-06-09T16:01:19+0000 lvl=info msg=""New local node record""             seq=1,686,326,479,620 id=b9d39ca895dfef8c7f08901177c33b663ef012ebf9b952b7d1228078c9d7192e ip=67.87.167.165 udp=9222 tcp=9222
+node-node-1  | t=2023-06-09T16:01:19+0000 lvl=info msg=""started discovery service""         p2p=discv5 enr=enr:-J64QARbacZAt6HQX5tTvwhbfLjT-pmhym9Z-3tlwOpc37ccRlxaGheWlIlw1lkkUxct8_Xo5fVCt5ieYWHxLgPapnmGAYig5AsEgmlkgnY0gmlwhENXp6WHb3BzdGFja4SzlAUAiXNlY3AyNTZrMaEC8HRyzwqQ3qemh1VsRJqskq9AK0kosFmFtx1bgQdv-4eDdGNwgiQGg3VkcIIkBg id=b9d39ca895dfef8c7f08901177c33b663ef012ebf9b952b7d1228078c9d7192e
+node-node-1  | t=2023-06-09T16:01:19+0000 lvl=info msg=""Starting JSON-RPC server""
+node-node-1  | t=2023-06-09T16:01:19+0000 lvl=info msg=""starting metrics server""           addr=0.0.0.0 port=7300
+node-node-1  | t=2023-06-09T16:01:19+0000 lvl=info msg=""Starting rollup node""              version=v0.0.0-09d23ee8-1681910976
+node-node-1  | t=2023-06-09T16:01:19+0000 lvl=info msg=""Starting execution engine driver""
+node-node-1  | t=2023-06-09T16:01:19+0000 lvl=info msg=""Rollup node started""
+node-node-1  | t=2023-06-09T16:01:19+0000 lvl=info msg=""State loop started""
+node-node-1  | t=2023-06-09T16:01:19+0000 lvl=info msg=""Loaded current L2 heads""           unsafe=0xa3ab140f15ea7f7443a4702da64c10314eb04d488e72974e02e2d728096b4f76:0 safe=0xa3ab140f15ea7f7443a4702da64c10314eb04d488e72974e02e2d728096b4f76:0 finalized=0xa3ab140f15ea7f7443a4702da64c10314eb04d488e72974e02e2d728096b4f76:0 unsafe_origin=0x73d89754a1e0387b89520d989d3be9c37c1f32495a88faf1ea05c61121ab0d19:8410981 safe_origin=0x73d89754a1e0387b89520d989d3be9c37c1f32495a88faf1ea05c61121ab0d19:8410981
+node-node-1  | t=2023-06-09T16:01:19+0000 lvl=info msg=""Walking back L1Block by number""    curr=0x73d89754a1e0387b89520d989d3be9c37c1f32495a88faf1ea05c61121ab0d19:8410981 next=0x73d89754a1e0387b89520d989d3be9c37c1f32495a88faf1ea05c61121ab0d19:8410981 l2block=0xa3ab140f15ea7f7443a4702da64c10314eb04d488e72974e02e2d728096b4f76:0
+node-node-1  | t=2023-06-09T16:01:19+0000 lvl=info msg=""Hit finalized L2 head, returning immediately"" unsafe=0xa3ab140f15ea7f7443a4702da64c10314eb04d488e72974e02e2d728096b4f76:0 safe=0xa3ab140f15ea7f7443a4702da64c10314eb04d488e72974e02e2d728096b4f76:0 finalized=0xa3ab140f15ea7f7443a4702da64c10314eb04d488e72974e02e2d728096b4f76:0 unsafe_origin=0x73d89754a1e0387b89520d989d3be9c37c1f32495a88faf1ea05c61121ab0d19:8410981 safe_origin=0x73d89754a1e0387b89520d989d3be9c37c1f32495a88faf1ea05c61121ab0d19:8410981
+node-node-1  | t=2023-06-09T16:01:19+0000 lvl=info msg=""Sync progress""                     reason=""reset derivation work"" l2_finalized=0xa3ab140f15ea7f7443a4702da64c10314eb04d488e72974e02e2d728096b4f76:0 l2_safe=0xa3ab140f15ea7f7443a4702da64c10314eb04d488e72974e02e2d728096b4f76:0 l2_unsafe=0xa3ab140f15ea7f7443a4702da64c10314eb04d488e72974e02e2d728096b4f76:0 l2_time=1,675,193,616 l1_derived=0x73d89754a1e0387b89520d989d3be9c37c1f32495a88faf1ea05c61121ab0d19:8410981
+node-node-1  | t=2023-06-09T16:01:19+0000 lvl=info msg=""completed reset of derivation pipeline"" origin=0x73d89754a1e0387b89520d989d3be9c37c1f32495a88faf1ea05c61121ab0d19:8410981
+node-node-1  | t=2023-06-09T16:01:20+0000 lvl=info msg=""Reset of L1Retrieval done""              origin=0x73d89754a1e0387b89520d989d3be9c37c1f32495a88faf1ea05c61121ab0d19:8410981
+node-node-1  | t=2023-06-09T16:01:20+0000 lvl=info msg=""Advancing bq origin""                    origin=0x9a0d190f60d041217e993488603e91d6bd4db2640c59d9051d66845987c4cfbe:8410982 originBehind=false
+node-node-1  | t=2023-06-09T16:01:23+0000 lvl=info msg=""Advancing bq origin""                    origin=0xeedaf79c6b2cf29bfca4007a7a3a588cb28cd73d9d4c82968a8512ff46ac7d0a:8410983 originBehind=false
+node-node-1  | t=2023-06-09T16:01:24+0000 lvl=info msg=""attempting connection""                  peer=16Uiu2HAm2DDytyPY7a2Wja3sBrWzo8YdeBrj1kfg3bTLBM5zZkAL
+node-node-1  | t=2023-06-09T16:01:24+0000 lvl=info msg=""attempting connection""                  peer=16Uiu2HAm5L4KDH5oJmwnozT2Azr7x4sVNQhHfAiy9TQJWjJYEms6
+node-node-1  | t=2023-06-09T16:01:24+0000 lvl=info msg=""attempting connection""                  peer=16Uiu2HAm2LrxjYdR4Y7sDXqq4gJBzqN5hFUroTVextDbG39PT6gw
+node-node-1  | t=2023-06-09T16:01:24+0000 lvl=info msg=""attempting connection""                  peer=16Uiu2HAkuy49f6LWv42drP2Vszsi8q3wQEGq5TRk8Z2y6h5UXMZf
+node-node-1  | t=2023-06-09T16:01:24+0000 lvl=info msg=""Advancing bq origin""                    origin=0x6d0c9e4de1c039e81c6aa3c37cfb96dbc8e95ec0ec939cf84f4849e4e949458c:8410984 originBehind=false
+node-node-1  | t=2023-06-09T16:01:24+0000 lvl=info msg=""connected to peer""                      peer=16Uiu2HAm2DDytyPY7a2Wja3sBrWzo8YdeBrj1kfg3bTLBM5zZkAL addr=/ip4/34.200.196.89/tcp/30303
+node-node-1  | t=2023-06-09T16:01:24+0000 lvl=info msg=""connected to peer""                      peer=16Uiu2HAm2LrxjYdR4Y7sDXqq4gJBzqN5hFUroTVextDbG39PT6gw addr=/ip4/54.242.71.143/tcp/9222
+node-node-1  | t=2023-06-09T16:01:24+0000 lvl=info msg=""connected to peer""                      peer=16Uiu2HAm5L4KDH5oJmwnozT2Azr7x4sVNQhHfAiy9TQJWjJYEms6 addr=/ip4/3.86.131.48/tcp/9222
+node-node-1  | t=2023-06-09T16:01:24+0000 lvl=info msg=""attempting connection""                  peer=16Uiu2HAm6kiaEHm1kgU6wynVtTAL3vnmWMFGTE7ZoebmgcTnisQF
+node-node-1  | t=2023-06-09T16:01:24+0000 lvl=info msg=""attempting connection""                  peer=16Uiu2HAm2bXHt5gwZKCyw2EQfLuB85WWnRVZ9fw59cDhshnv3NEq
+node-node-1  | t=2023-06-09T16:01:24+0000 lvl=info msg=""attempting connection""                  peer=16Uiu2HAmEzDUdCujo6vJusnVZkEGqgVton9pL5qqtnuyY3Prpr9c
+node-node-1  | t=2023-06-09T16:01:24+0000 lvl=info msg=""connected to peer""                      peer=16Uiu2HAmEzDUdCujo6vJusnVZkEGqgVton9pL5qqtnuyY3Prpr9c addr=/ip4/34.194.131.51/tcp/30303
+node-node-1  | t=2023-06-09T16:01:24+0000 lvl=info msg=""connected to peer""                      peer=16Uiu2HAm2bXHt5gwZKCyw2EQfLuB85WWnRVZ9fw59cDhshnv3NEq addr=/ip4/44.215.42.170/tcp/30303
+node-node-1  | t=2023-06-09T16:01:24+0000 lvl=info msg=""connected to peer""                      peer=16Uiu2HAkuy49f6LWv42drP2Vszsi8q3wQEGq5TRk8Z2y6h5UXMZf addr=/ip4/194.60.201.245/tcp/9222
+node-node-1  | t=2023-06-09T16:01:24+0000 lvl=info msg=""attempting connection""                  peer=16Uiu2HAmB7HPUCrqMFcEkDspA4MPWxQzPNvXCQnshJxZ3oAP9tQV
+node-node-1  | t=2023-06-09T16:01:24+0000 lvl=info msg=""attempting connection""                  peer=16Uiu2HAkvnd5SsQ6Qwbva2ucMF6Byg8S8G3o9CEYh9Ru37utWXeB
+node-node-1  | t=2023-06-09T16:01:25+0000 lvl=info msg=""connected to peer""                      peer=16Uiu2HAkvnd5SsQ6Qwbva2ucMF6Byg8S8G3o9CEYh9Ru37utWXeB addr=/ip4/3.235.246.196/tcp/9222
+node-node-1  | t=2023-06-09T16:01:25+0000 lvl=info msg=""connected to peer""                      peer=16Uiu2HAm6kiaEHm1kgU6wynVtTAL3vnmWMFGTE7ZoebmgcTnisQF addr=/ip4/45.77.5.208/tcp/9222
+node-node-1  | t=2023-06-09T16:01:25+0000 lvl=info msg=""connected to peer""                      peer=16Uiu2HAmB7HPUCrqMFcEkDspA4MPWxQzPNvXCQnshJxZ3oAP9tQV addr=/ip4/52.55.83.1/tcp/30303
+node-node-1  | t=2023-06-09T16:01:25+0000 lvl=info msg=""attempting connection""                  peer=16Uiu2HAkvNgBox8juqCyVu7ti53qZYX8cvXVpztGMZg1JUJ4Wgrh
+node-node-1  | t=2023-06-09T16:01:25+0000 lvl=info msg=""attempting connection""                  peer=16Uiu2HAm5nQaZukJUVwuee76Wp25KrNmKjGZ2zaxgSZxfgMJfgPL
+node-node-1  | t=2023-06-09T16:01:25+0000 lvl=info msg=""attempting connection""                  peer=16Uiu2HAmByiHBNFZ39h383aYgV6zrtF7pQ3UijMWgssDkCrXAj3p
+node-node-1  | t=2023-06-09T16:01:25+0000 lvl=info msg=""connected to peer""                      peer=16Uiu2HAkvNgBox8juqCyVu7ti53qZYX8cvXVpztGMZg1JUJ4Wgrh addr=/ip4/34.206.0.13/tcp/30303
+node-node-1  | t=2023-06-09T16:01:25+0000 lvl=info msg=""connected to peer""                      peer=16Uiu2HAm5nQaZukJUVwuee76Wp25KrNmKjGZ2zaxgSZxfgMJfgPL addr=/ip4/54.145.88.85/tcp/9222
+node-node-1  | t=2023-06-09T16:01:25+0000 lvl=info msg=""Received signed execution payload from p2p"" id=0x93b2301518a6941d8f3ccc8215711a27b0d32a495438f89aa3d9ff077a9bbf74:5566434 peer=16Uiu2HAkvnd5SsQ6Qwbva2ucMF6Byg8S8G3o9CEYh9Ru37utWXeB
+node-node-1  | t=2023-06-09T16:01:25+0000 lvl=info msg=""connected to peer""                      peer=16Uiu2HAmByiHBNFZ39h383aYgV6zrtF7pQ3UijMWgssDkCrXAj3p addr=/ip4/95.216.10.106/tcp/9222
+node-node-1  | t=2023-06-09T16:01:25+0000 lvl=info msg=""Received signed execution payload from p2p"" id=0xb1eab9b4d02e29dacb37189bf1511286e80a14505464e4d5f2f050da13b6e542:5566435 peer=16Uiu2HAmB7HPUCrqMFcEkDspA4MPWxQzPNvXCQnshJxZ3oAP9tQV",4,1
+62,2023-06-23T05:31:07Z,2023-06-23T16:05:27Z,2023-06-23T16:05:27Z,1,12,5,"docker's --env-file parsing doesn't like the trailing comments, so move them onto separate lines
+minor formatting cleanup",3,1
+72,2023-07-17T12:51:31Z,2023-07-17T23:02:47Z,2023-07-17T23:02:47Z,2,2,2,"Currently, any attempt at shutting down the container will result in a forced stop due to the app being created as its own process in the entrypoint script. Adding exec will run the app as PID 1 and handle graceful shutdowns.
+Any forced shutdowns with geth or similar software usually results in corrupted and lost state that will result in syncing from a much greater timeframe on reboot.",2,1
+74,2023-07-22T05:42:15Z,2023-07-24T18:40:09Z,2023-07-24T18:40:10Z,1,12,5,Same as #62 but for mainnet.,2,0
+77,2023-07-27T12:57:14Z,2023-07-27T15:57:22Z,2023-07-27T15:57:22Z,1,3,2,Adds a badge with a link to the Base Discord in the README; shows number of people currently online.,2,0
+80,2023-07-31T15:24:23Z,2023-07-31T17:18:47Z,2023-07-31T17:18:47Z,1,1,1,mainet -> mainnet,2,0
+93,2023-08-16T12:49:53Z,2023-08-16T16:31:03Z,2023-08-16T16:31:03Z,1,2,0,"Additng P2P_PORT into geth-entrypoint.
+For Docker with host network it could be important.",2,0
+102,2023-08-28T07:01:59Z,,2023-10-06T20:02:05Z,1,3,1,"Add a dumb-init to support forwards signals to children process to support graceful shutdown in op-geth/op-node
+ref => https://github.com/Yelp/dumb-init",4,3
+109,2023-09-14T03:42:41Z,,2023-09-19T07:27:14Z,1,24,1,"SSD requirements 100GB -> 1 TB
+Adding how to download a snapshot",2,1
+112,2023-09-17T14:19:24Z,2023-09-19T17:17:22Z,2023-09-19T17:17:22Z,1,17,1,"This PR updates the hdd requirements and also adds snapshot info.
+Currently to restore a snapshot for mainnet, it would require approximately 450GB of disk space. This would exceed the current minimum requirement of 100GB mentioned in the README, so I've updated it to 500GB 1TB.
+Closes #110
+Closes #109",5,3
+115,2023-09-27T06:24:34Z,2023-09-27T20:32:49Z,2023-09-27T20:32:49Z,6,15325,2,,4,1
+129,2023-10-24T19:54:37Z,2023-10-24T22:08:49Z,2023-10-24T22:08:49Z,1,7,7,"https://github.com/ethereum-optimism/optimism/releases/tag/v1.2.0
+https://github.com/ethereum-optimism/op-geth/releases/tag/v1.101301.1",2,0
+139,2023-11-06T18:39:36Z,2023-11-07T17:19:18Z,2023-11-07T17:19:18Z,5,15,18,,2,2
+141,2023-11-07T12:36:50Z,2023-11-07T17:04:29Z,2023-11-07T17:04:29Z,1,7,3,"The README is not entirely clear how snapshots are handled (eg. see related discussion on Discord). The instructions pretty much stop at downloading the file. This PR suggests adding statements that:
+a) the snapshot archive needs to be decompressed
+b) data directory needs to mounted
+Feedback is welcome. Happy to adapt!
+Closes #118",2,0
+144,2023-11-07T15:15:21Z,,2023-11-07T17:08:06Z,1,1,1,#143,2,0
+147,2023-11-08T03:09:23Z,2023-11-08T18:14:36Z,2023-11-08T18:14:36Z,1,33,33,Make the formatting consistent throughout the startup scripts.,2,0
+155,2023-11-27T17:15:57Z,,2023-12-05T15:47:08Z,1,5,0,,2,0
+161,2023-12-14T18:44:33Z,2023-12-15T17:04:20Z,2023-12-15T17:04:21Z,1,4,4,,2,0
+176,2024-01-16T11:45:03Z,2024-01-25T20:09:06Z,2024-01-25T20:09:06Z,1,2,2,156acc0,2,0
+177,2024-01-18T17:40:04Z,2024-01-18T18:49:37Z,2024-01-18T18:49:37Z,1,1,1,,2,0
+190,2024-02-05T08:17:24Z,2024-02-23T07:40:53Z,2024-02-23T07:40:53Z,2,11,1,"This PR updates the Docker workflow to provide linux/arm64 images.
+Example workflow execution: https://github.com/mikery/base-node/actions/runs/7773045091/job/21196224081",4,5
+193,2024-02-12T16:12:15Z,2024-02-13T19:38:49Z,2024-02-13T19:38:49Z,1,4,4,"Description
+Upgrade to the latest op-node/op-geth versions",5,1
+200,2024-02-20T17:23:51Z,,2024-02-21T19:12:13Z,1,4,4,"Description
+Update op-geth and op-node to the latest releases. This release contains an Optimisitic activation for Ecotone on Base Mainnet. See here for full release notes.",2,1
+204,2024-02-26T21:18:24Z,2024-02-26T23:13:05Z,2024-02-26T23:13:05Z,1,1,1,"Description
+Specify the version when building op-node, this
+# Before
+❯ curl -X POST -H ""Content-Type: application/json"" --data \
+    '{""jsonrpc"":""2.0"",""method"":""optimism_version"",""params"":[],""id"":1}' \
+    http://localhost:7545
+{""jsonrpc"":""2.0"",""id"":1,""result"":""v0.0.0-""}
+
+# After
+❯ curl -X POST -H ""Content-Type: application/json"" --data \
+    '{""jsonrpc"":""2.0"",""method"":""optimism_version"",""params"":[],""id"":1}' \
+    http://localhost:7545
+{""jsonrpc"":""2.0"",""id"":1,""result"":""v1.5.1-""}",2,0
+209,2024-02-29T06:46:12Z,2024-03-05T02:24:49Z,2024-03-05T02:24:49Z,2,2,0,"To enable op-geth snapsync, it will be required to set the syncmode to execution-layer",4,0
+232,2024-04-01T17:27:55Z,2024-04-02T00:19:00Z,2024-04-02T00:19:00Z,3,11,5,Have full node syncing mode back until we have the snap sync to be more stable.,3,0
+233,2024-04-02T02:31:05Z,2024-04-02T08:54:34Z,2024-04-02T08:54:34Z,4,3,4,This PR changes GCMODE to full instead of archive and also makes a few small documentation related changes.,2,0

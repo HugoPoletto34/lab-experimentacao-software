@@ -1,0 +1,93 @@
+number,created_at,merged_at,closed_at,files,additions,deletions,body_text,participants,comments
+19,2018-02-07T00:29:32Z,,2018-02-08T23:30:03Z,1,1,0,Fixes #18,6,3
+21,2018-02-07T00:31:31Z,,2018-10-17T03:26:14Z,1,1,1,Resolves Issue #17.,5,0
+24,2018-02-07T00:34:25Z,,2022-12-06T02:31:11Z,1,22,202,"Proposal to use a 0-clause BSD License instead of Apache.
+(I am not a lawyer.)",4,2
+25,2018-02-07T00:35:44Z,,2021-04-02T06:25:44Z,1,1,0,,2,0
+26,2018-02-07T00:39:11Z,,2022-11-07T23:28:31Z,1,1,0,"I added a file of examples to illustrate usage. If they are acceptable, please merge.",4,1
+48,2018-02-07T02:03:45Z,,2020-10-30T19:37:19Z,1,1,0,,4,3
+59,2018-02-07T02:36:03Z,,2019-03-27T19:19:18Z,1,4,0,,4,1
+71,2018-02-07T03:34:19Z,,2018-02-20T16:05:14Z,1,19,0,"I am excited about the prospect of no code, but am afraid that even with its extraordinarily low latencies on general purpose thoughtware that it will not be performant enough for certain hype-bubbles within the industry.
+Thus I am proposing a streaming framework. It is somewhat protocol agnostic. I would prefer no handshake, no authorization and no acknowledgement but let's face it, enterprises are going to want TLS and OAUTH 2.",3,2
+76,2018-02-07T04:14:05Z,,2018-02-14T14:57:56Z,0,0,0,,5,1
+91,2018-02-07T05:28:52Z,,2022-12-23T21:41:28Z,1,55,0,"I am trying to keep it simple (and readable) for every language, I know there are a lot of file extensions that could have code for this languages and of course, I am just adding the common ones. Feel free to add more languages.
+I have read the contributing guidelines before doing this pull request.",15,8
+105,2018-02-07T06:03:05Z,2018-08-29T19:14:35Z,2018-08-29T19:14:35Z,0,0,0,,30,24
+163,2018-02-07T08:50:52Z,,2018-02-15T14:23:07Z,1,0,0,this is not the PR you are looking for...,2,0
+209,2018-02-07T11:20:41Z,,2019-02-03T22:14:39Z,1,6,0,fixes #211,8,3
+216,2018-02-07T11:39:09Z,,2023-01-08T04:16:38Z,0,0,0,No ssl==no heartbleed ==security,2,0
+256,2018-02-07T12:54:57Z,,2022-03-08T16:52:39Z,1,0,0,"Used to have the potential to solve  #228 while breaking the most important rule. It was also barely tried and tested.
+Now? It hopefully solves #261",3,2
+311,2018-02-07T14:06:47Z,,2021-03-02T13:40:27Z,51,4226,0,"Added Doxygen documentation so that every developer can understand the project completely.
+To regenerate the doc simply run:
+doxygen",3,2
+374,2018-02-07T15:41:27Z,,2020-06-24T19:11:01Z,1,7,0,"Why Docker, when everything missed after build?",2,0
+432,2018-02-07T18:44:14Z,,2019-09-06T20:39:35Z,1,353,0,"Adding a gitignore will help keep the repo clean. Large projects can become cumbersome and messy, if we don't limit items.",4,3
+469,2018-02-07T21:57:13Z,,2021-07-29T09:35:34Z,1,0,0,,3,0
+472,2018-02-07T21:59:05Z,,2019-01-10T15:00:50Z,1,2,2,Because it hurts my eyes and brain.,2,1
+509,2018-02-08T01:25:02Z,,2018-07-12T15:35:11Z,0,0,0,,8,6
+551,2018-02-08T04:54:24Z,,2018-08-27T17:29:18Z,1,0,24,,4,2
+746,2018-02-08T13:59:34Z,,2019-03-23T18:01:59Z,1,53,0,"Hello everyone!
+Thanks for this brilliant project to @kelseyhightower
+I just wanted to see this cool project in my native language 😄",3,2
+814,2018-02-08T18:11:11Z,,2020-06-26T21:45:50Z,4,111,0,"Added /docs folder, translations page, and Chinese version.
+Set up GitHub pages for this repo, and make it more sharable!",3,4
+850,2018-02-08T20:18:03Z,,2022-04-01T17:29:41Z,1,1,1,This fixes bug #849,4,0
+1124,2018-02-09T09:05:37Z,,2018-10-31T03:07:36Z,4,0,257,,2,0
+1361,2018-02-10T09:06:52Z,,2023-02-03T02:58:48Z,1,3,2,Add punctuation,2,0
+1370,2018-02-10T10:57:12Z,,2021-06-22T04:45:52Z,1,1,0,adding new bug,3,0
+1608,2018-02-12T16:02:07Z,,2018-05-17T07:24:02Z,1,6,0,(Because you can't write no code without providing no tests.),2,0
+1614,2018-02-12T17:09:24Z,,2018-03-21T19:09:26Z,1,1,0,,6,1
+1702,2018-02-13T15:29:01Z,,2018-07-13T12:33:36Z,0,0,0,,6,7
+1823,2018-02-15T21:56:05Z,,2021-04-22T20:43:10Z,1,24,0,Now you can write no code using NodeJS!,4,2
+1861,2018-02-16T22:01:09Z,,2018-08-08T15:58:13Z,1,12,12,blubb,5,3
+1882,2018-02-18T16:14:12Z,,2023-06-22T05:26:08Z,1,8,0,Added prerequisites to readme for better documentation,2,0
+1930,2018-02-20T19:10:20Z,,2020-06-16T18:01:36Z,1,0,0,,3,0
+2065,2018-03-07T11:07:57Z,,2019-10-31T15:35:11Z,1,1,1,"I think we should concider removing code from the Dockerfile. Writing code means automatically introducing bugs and other problems. Removing it fixes everything.
+In the future we can write our Dockerfiles like this:",3,0
+2230,2018-04-01T08:09:56Z,,2021-01-25T20:54:12Z,2,57,0,,3,0
+2290,2018-04-23T07:49:08Z,,2021-08-01T04:23:21Z,1,4,0,enjoy,4,3
+2325,2018-05-03T16:16:37Z,,2020-01-22T22:37:17Z,1,3,1,RIP IE,4,3
+2681,2018-10-26T22:55:24Z,,2021-04-01T14:16:38Z,0,0,0,,19,12
+2767,2018-12-15T05:41:06Z,,2019-06-20T01:56:28Z,1,1,0,,2,0
+2842,2019-01-28T07:43:20Z,,2023-08-08T13:56:32Z,0,0,0,"This PR add supports to multiple devices and platform. Here is the full list of supported with this PR
+
+Smart Fridge #2830
+Chromecast #2841
+FireTV #2841
+Amazon Alexa #1951
+Google Home #1998
+Panzer IV
+Gatebox
+And many other that is too much to mention",5,4
+2852,2019-02-02T03:33:33Z,,2021-03-11T15:17:32Z,1,4,0,To continue to do nothing otherwise this container would not keep doing nothing.,6,4
+2917,2019-03-20T04:56:26Z,,2021-07-22T04:01:27Z,1,1,0,It may increase the bundle size initially but future proofs scaling,3,0
+2980,2019-04-04T18:44:20Z,,2021-04-28T14:36:00Z,1,2,0,This way no-code can be used by doge in doge-friendly language,3,4
+3110,2019-06-21T04:01:07Z,,2021-09-02T03:15:03Z,1,1,0,「Doing nothing often leads to the very best something 」 Winnie-the-Pooh,2,0
+3234,2019-09-12T10:11:35Z,,2020-10-09T09:36:34Z,1,3,0,fixing all current architectural issues,2,0
+3253,2019-10-02T12:41:41Z,,2019-12-24T19:05:53Z,1,2,1,cz hacktoberfest,2,0
+3841,2020-02-21T14:05:22Z,,2020-05-22T21:39:58Z,5,0,300,"With this update you can still write no code, but with just – less.
+BREAKING CHANGE: Beyond of all recognition. Some documentation need update.
+fix #3825, fix #3814, fix #3811, fix #3807, fix #3805, fix #3804, fix #3803
+Includes a fix for new privacy laws in Europe (GDPR).",4,2
+3870,2020-03-04T12:57:21Z,,2023-11-21T04:52:11Z,4,6,6,,5,5
+3891,2020-03-04T18:30:16Z,,2020-03-05T22:11:51Z,1,13,0,Great work!,3,1
+3937,2020-03-07T17:35:26Z,,2023-06-04T17:12:38Z,1,2,0,,5,2
+4089,2020-07-09T17:52:40Z,,2021-09-03T16:05:24Z,1,2,0,,2,0
+4101,2020-07-18T05:32:52Z,,2022-02-27T17:22:57Z,4,4,2,,4,1
+4137,2020-08-19T14:57:53Z,,2020-09-29T19:38:59Z,1,2,0,Added a Run on repl.it badge,2,0
+4174,2020-09-09T15:54:19Z,,2020-10-13T13:10:56Z,1,1,1,~,1,0
+4215,2020-11-03T17:06:17Z,,2022-06-28T13:23:11Z,0,0,0,There is no diff.,15,9
+4336,2021-02-07T20:03:47Z,,2021-02-14T16:02:26Z,1,1,0,,2,0
+4356,2021-02-22T16:10:49Z,,2023-10-26T15:57:06Z,1,1,1,Can't believe this thing littered our lack of code for three years!,5,0
+4407,2021-04-17T17:50:33Z,,2022-09-19T22:37:10Z,1,1,0,I added some important modules,2,4
+4433,2021-05-04T22:28:45Z,,2021-05-05T13:17:08Z,0,0,0,"The University of Minnesota have found multiple CRITICAL SECURITY ISSUE (aka CVE-2021-26804, CVE-2021-29478, CVE-2021-29477 and CVE-2021-21551)
+Please merge our patches",1,1
+4455,2021-05-08T19:18:28Z,,2021-12-18T10:29:24Z,2,9,0,"added CI
+ does not contain code
+ fixed bug that caused workflow validation to happen, which is not no code",4,1
+4466,2021-05-12T13:12:45Z,,2022-10-01T18:33:32Z,1,1,1,Replace semicolon with a comma to improve readability,3,2
+4816,2022-02-22T15:57:37Z,,2023-04-23T04:05:44Z,1,1,0,adds a simple hello world example,5,4
+4913,2022-07-22T03:47:04Z,,2022-08-17T06:17:35Z,3,0,45,,2,0
+5001,2022-12-13T21:24:56Z,,2023-10-18T11:56:59Z,1,0,52,‎,8,4
+5163,2023-09-07T22:59:02Z,,2023-09-12T00:34:23Z,1,1,0,It's important for software with high visibility to stay up to date with current trends,4,0

@@ -1,0 +1,11 @@
+number,created_at,merged_at,closed_at,files,additions,deletions,body_text,participants,comments
+935,2012-07-05T23:15:59Z,2017-06-16T16:11:48Z,2017-06-16T16:11:48Z,4,181,17,"Hi all,
+I am working on an incremental data loader for the svmlight format that reads chunks of a big file that is not expected to all fit in memory in smaller CSR matrix to be dumped as set of memmapable  files in folders to be later reconcatenated into a single, large CSR memmaped matrix.
+The goal being to be able to load big svmlight files (multiple tens of GB) into an efficient memmaped CSR in an out-of-core manner (possible using several workers in //).
+The first step is to augment the existing parser to be able to load chunks of a svmlight using seeks to bytes offsets.
+Edit: the scope of this PR has changed. It is now just about loading a chunk (given by byte offset and length) of a large svmlight file as CSR matrix that fits in RAM. This would make it possible to efficiently load and parse a large svmlight file by workers on PySpark or dask distributed for instance.",9,31
+970,2012-07-19T19:43:38Z,,2023-07-30T10:21:26Z,5,207,50,"The k-Nearest-Neighbors and Radius Neighbors classifiers now make explicit use of the Bayesian prior probabilities of the classes (self.class_prior_). By default, each of these prior probabilities (for a given class) is set to the proportion of sample points which are in the given class; but they can also be set to other values by the class user.
+(This is my first submission so I'd be grateful for any and all advices. Thank you!)
+Fixes #399",8,24
+1454,2012-12-09T01:15:42Z,,2019-08-07T12:14:39Z,4,694,1,"There have been several requests lately for class rebalancing using under/oversampling. This utility function addresses most of the use cases I can think of for sampling with replacement from a dataset.
+One thing it does not do is to sample without replacement before sampling with replacement because it changes the code substantially and there is no efficient version of random.sample as per #1438 (comment). I could add that feature eventually.",14,87

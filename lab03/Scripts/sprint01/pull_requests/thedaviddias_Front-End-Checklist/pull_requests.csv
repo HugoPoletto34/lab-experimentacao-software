@@ -1,0 +1,538 @@
+number,created_at,merged_at,closed_at,files,additions,deletions,body_text,participants,comments
+31,2017-10-19T11:52:58Z,2017-10-19T14:03:38Z,2017-10-19T14:03:38Z,1,45,33,"use https when possible
+minor Markdown consistency changes
+
+This should be merged after #30.",2,1
+39,2017-10-20T13:17:11Z,,2017-10-20T16:37:07Z,1,1,0,,2,3
+40,2017-10-20T14:54:15Z,2017-10-20T16:32:49Z,2017-10-20T16:32:49Z,1,20,3,"Hi David,
+I added a few options in regards to security of websites. This is mainly targeting HTTP headers. With the URLs to scanning services one would be able to tweak and improve their site(s) easily.
+Regards, JoKi",2,1
+48,2017-10-20T20:58:37Z,,2017-10-23T06:48:29Z,1,1,1,,2,1
+51,2017-10-21T15:09:57Z,,2018-07-22T04:45:54Z,1,0,2,"Awesome job on such a comprehensive list!
+I had one rather large problem with the use of pixel perfect as a recommendation. With the proliferation of mobile devices and constant drive upwards in screen density I feel as a highly recommended practice this should be actively discouraged.
+Now more than ever we are building systems of components that work together within the constraints of this large device landscape. Having this on the list sends the wrong message that it's acceptable without the context of the whole system. We should actively discourage the workflow in favour of close collaboration and education with designers less familiar with our front-end challenges. Often small discrepancies between mock and prod are due to needed compromise and aim to make the design stronger / more maintainable in the long term.
+Falling down the rabbit hole of pixel nudging at arbitrary resolutions will only compromise the overall integrity of a system.
+Just my 2c, thanks again for the work you have put in here.",8,14
+96,2017-10-25T20:11:27Z,2017-10-26T06:31:19Z,2017-10-26T06:31:19Z,1,1,4,#88 This is my suggested wording (feel free to edit),2,0
+97,2017-10-26T10:27:43Z,2017-10-26T11:36:16Z,2017-10-26T11:36:16Z,1,2,2,"I confused what width and height are meaning during I was translating this cool documentation.
+I think attributes should be written like `width`.
+Thanks 😊",2,1
+100,2017-10-26T18:33:37Z,2017-10-27T02:20:50Z,2017-10-27T02:20:50Z,1,4,0,"Hello,
+I continue adding points from my performance checklist with the recommendation to use static components instead of iframes or components relying on external websites when possible.
+I've set a medium level of flexibility on this one, as it can have an important impact on performance but depends on the kind of component you want to use.",2,3
+103,2017-10-26T21:21:54Z,2017-10-27T02:19:04Z,2017-10-27T02:19:04Z,1,1,1,,2,1
+106,2017-10-27T14:13:44Z,,2017-11-30T12:23:51Z,1,13,20,"Grammar corrections on lines: 85, 156, 200, 540",4,5
+109,2017-10-27T21:32:16Z,2017-10-28T17:27:39Z,2017-10-28T17:27:39Z,1,6,0,"Providing these options ensures that the share image is immediately rendered in preview every time, without it the first time there will be no image preview until Facebook has crawled the site once - particularly useful if you have generated share images.",3,3
+114,2017-10-29T03:07:30Z,2017-10-29T06:19:28Z,2017-10-29T06:19:28Z,1,1,0,"@thedaviddias
+Here is Traditional Chinese version.
+Thanks for share awesome checklist.",2,1
+117,2017-10-29T20:33:36Z,2017-10-30T06:20:11Z,2017-10-30T06:20:11Z,1,3,1,"Add Kraken.io as an alternative tool to optimize;
+Add about aria roles categorization;
+Add Google considerations about web fonts.",2,1
+141,2017-11-06T19:10:25Z,2017-11-09T01:06:19Z,2017-11-09T01:06:19Z,3,100,4,"This pull request adds backers and sponsors from your Open Collective https://opencollective.com/Front-End-Checklist ❤️
+It adds two badges at the top to show the latest number of backers and sponsors. It also adds placeholders so that the avatar/logo of new backers/sponsors can automatically be shown without having to update your README.md. [more info]. See how it looks on this repo.
+You can also add a ""Donate"" button to your website and automatically show your backers and sponsors there with our widgets. Have a look here: https://opencollective.com/widgets
+P.S: As with any pull request, feel free to comment or suggest changes. The only thing ""required"" are the placeholders on the README because we believe it's important to acknowledge the people in your community that are contributing (financially or with code!).
+Thank you for your great contribution to the open source community. You are awesome! 🙌
+And welcome to the open collective community! 😊
+Come chat with us in the #opensource channel on https://slack.opencollective.com - great place to ask questions and share best practices with other open source sustainers!",2,1
+155,2017-11-16T15:00:00Z,2017-11-16T18:58:56Z,2017-11-16T18:58:56Z,1,12,0,"Fixes: #61
+
+ Check the commit's or even all commits' message styles matches our requested structure.
+ Check your code additions will fail neither code linting checks nor unit test.
+
+Short description of what this resolves:
+Adds link tags for paginated content",2,1
+172,2017-11-29T09:58:01Z,2017-11-29T11:49:23Z,2017-11-29T11:49:23Z,1,1,0,"Fixes: #
+🚨 Please review the guidelines for contributing and our code of conduct to this repository. 🚨
+Please complete these steps and check these boxes (by putting an x inside the brackets) before filing your PR:
+
+ Check the commit's or even all commits' message styles matches our requested structure.
+ Check your code additions will fail neither code linting checks nor unit test.
+
+Short description of what this resolves:
+Prevents repainting while scrolling by pomoting the sidebar to its own compositor layer.
+Proposed changes:
+Promotes the sidebar to its own layer by using will-change: transform
+👍 Thank you!",2,1
+186,2017-12-04T18:45:31Z,,2018-07-22T04:45:55Z,1,6,0,Frontend applications frequently include libraries that are either not required in modern browsers or do too much extra stuff than required.,2,4
+195,2017-12-07T14:13:48Z,2017-12-10T12:10:51Z,2017-12-10T12:10:51Z,1,36,43,"…rors
+
+Fixes: #
+🚨 Please review the guidelines for contributing and our code of conduct to this repository. 🚨
+Please complete these steps and check these boxes (by putting an x inside the brackets) before filing your PR:
+
+ Check the commit's or even all commits' message styles matches our requested structure.
+ Check your code additions will fail neither code linting checks nor unit test.
+
+Short description of what this resolves:
+Proposed changes:
+
+delete duplicated Sitemap HTML in SEO rules
+correct order rules SEO
+
+👍 Thank you!",2,2
+196,2017-12-08T23:56:23Z,,2017-12-10T12:09:49Z,1,1,1,"Version 0.61.0 of flow-bin was just published.
+
+  
+    
+      Dependency
+    
+    
+      flow-bin
+    
+  
+  
+    
+      Current Version
+    
+    
+      0.59.0
+    
+  
+  
+    
+      Type
+    
+    
+      devDependency
+    
+  
+
+The version 0.61.0 is not covered by your current version range.
+If you don’t accept this pull request, your project will work just like it did before. However, you might be missing out on a bunch of new features, fixes and/or performance improvements from the dependency update.
+It might be worth looking into these changes and trying to get this project onto the latest version of flow-bin.
+If you have a solid test suite and good coverage, a passing build is a strong indicator that you can take advantage of these changes directly by merging the proposed change into your project. If the build fails or you don’t have such unconditional trust in your tests, this branch is a great starting point for you to work on the update.
+
+
+Commits
+The new version differs by 5 commits.
+
+e4dcfdb v0.61.0
+873a43a v0.60.1
+65d93cf v0.60.0
+1829d25 Merge pull request #99 from flowtype/mit
+e527bf1 Update license to MIT
+
+See the full diff
+
+
+  FAQ and help
+There is a collection of frequently asked questions. If those don’t help, you can always ask the humans behind Greenkeeper.
+
+
+Your Greenkeeper bot 🌴",2,0
+197,2017-12-09T05:56:23Z,,2018-07-22T04:45:58Z,1,3,2,"Google officially increases length of snippets in search results
+
+Fixes:
+🚨 Please review the guidelines for contributing and our code of conduct to this repository. 🚨
+Please complete these steps and check these boxes (by putting an x inside the brackets) before filing your PR:
+
+ Check the commit's or even all commits' message styles matches our requested structure.
+ Check your code additions will fail neither code linting checks nor unit test.
+
+Short description of what this resolves:
+Meta Description length has grown from 160 characters to almost 230 characters on average.
+Proposed changes:
+
+
+
+
+
+👍 Thank you!",4,5
+243,2018-03-24T18:53:01Z,2018-03-28T15:29:02Z,2018-03-28T15:29:02Z,1,1,1,"Fixes: N/A
+🚨 Please review the guidelines for contributing and our code of conduct to this repository. 🚨
+Please complete these steps and check these boxes (by putting an x inside the brackets) before filing your PR:
+
+ Check the commit's or even all commits' message styles matches our requested structure.
+ Check your code additions will fail neither code linting checks nor unit test.
+
+Short description of what this resolves:
+Changes a small piece of literature in README.md due to X-UA-Compatible being deprecated in IE11, this slipped through 8686dd6.
+Proposed changes:
+
+N/A
+
+👍 Thank you!",2,1
+256,2018-05-18T16:57:23Z,2018-07-23T18:40:13Z,2018-07-23T18:40:13Z,1,1,2,"Great project; thanks!
+
+Fixes: #
+🚨 Please review the guidelines for contributing and our code of conduct to this repository. 🚨
+Please complete these steps and check these boxes (by putting an x inside the brackets) before filing your PR:
+
+ Check the commit's or even all commits' message styles matches our requested structure.
+ Check your code additions will fail neither code linting checks nor unit test.
+
+Short description of what this resolves:
+Duplicate index entry, broken add-new-translation entry
+Proposed changes:
+
+Minor change to TOC
+
+👍 Thank you!",2,4
+275,2018-08-04T16:42:45Z,2018-08-06T11:57:32Z,2018-08-06T11:57:33Z,1,1,1,"Check the commit's or even all commits' message styles matches our requested structure.
+ Check your code additions will fail neither code linting checks nor unit test.
+
+Short description of what this resolves:
+HTTPS is one of the most important things on the internet today. There is no legitimate reason that websites shouldn't be using HTTPS, especially with tools such as Let's Encrypt. Especially with Google Chrome's recent change to mark HTTP sites as ""Not Secure"" HTTPS is more important than ever, and there is no reason that websites shouldn't be using it. Therefor I believe HTTPS should be considered high priority instead of medium.
+Below are a few links to resources about why HTTPS is important:
+
+https://security.googleblog.com/2016/09/moving-towards-more-secure-web.html
+https://www.troyhunt.com/heres-why-your-static-website-needs-https/
+https://developers.google.com/web/fundamentals/security/encrypt-in-transit/why-https
+https://mashable.com/2011/05/31/https-web-security/#u5TLPUa2x5qH
+https://doesmysiteneedhttps.com
+
+Proposed changes:
+
+Setting HTTPS task to high priority instead of medium",2,0
+277,2018-08-15T18:16:20Z,2018-08-20T02:03:54Z,2018-08-20T02:03:54Z,4,5,5,"Fixes: #
+🚨 Please review the guidelines for contributing and our code of conduct to this repository. 🚨
+Please complete these steps and check these boxes (by putting an x inside the brackets) before filing your PR:
+
+ Check the commit's or even all commits' message styles matches our requested structure.
+ Check your code additions will fail neither code linting checks nor unit test.
+
+Short description of what this resolves:
+sonarwhal got renamed to webhint recently. This PR updates all references to the new package.
+Ref: https://medium.com/webhint/webhint-a-hinting-engine-for-the-web-ef0d3fa32ea9",2,0
+293,2018-10-04T21:22:09Z,,2020-04-17T18:37:07Z,4,32,2,"Fixes: #
+🚨 Please review the guidelines for contributing and our code of conduct to this repository. 🚨
+Please complete these steps and check these boxes (by putting an x inside the brackets) before filing your PR:
+
+ Check the commit's or even all commits' message styles matches our requested structure.
+ Check your code additions will fail neither code linting checks nor unit test.
+
+Short description of what this resolves:
+Proposed changes:
+
+Link Page AMP
+
+
+
+👍 Thank you!",3,5
+300,2018-11-30T13:03:15Z,,2019-01-10T20:40:47Z,1,1,1,"The devDependency imagemin-webp was updated from 4.1.0 to 5.0.0.
+This version is not covered by your current version range.
+If you don’t accept this pull request, your project will work just like it did before. However, you might be missing out on a bunch of new features, fixes and/or performance improvements from the dependency update.
+
+Find out more about this release.
+
+  FAQ and help
+There is a collection of frequently asked questions. If those don’t help, you can always ask the humans behind Greenkeeper.
+
+
+Your Greenkeeper bot 🌴",1,0
+303,2018-12-13T22:03:56Z,2019-01-10T20:39:55Z,2019-01-10T20:39:55Z,1,67,64,"Check the commit's or even all commits' message styles matches our requested structure.
+ Check your code additions will fail neither code linting checks nor unit test. (Note: gulp test was failing on a vanilla clone, so I'm not positive what to do about this one)
+
+Short description of what this resolves:
+Starting to bring the gulpfile style up to match your eslint settings. I tried to avoid any of the polarizing ones (e.g. comma dangle in function parameters), so I just did some basic formatting and wanted to check before I went too far.",2,0
+310,2019-02-12T06:40:48Z,,2019-02-14T15:32:42Z,2,132,62,"The devDependency yargs was updated from 12.0.5 to 13.1.0.
+This version is not covered by your current version range.
+If you don’t accept this pull request, your project will work just like it did before. However, you might be missing out on a bunch of new features, fixes and/or performance improvements from the dependency update.
+
+Find out more about this release.
+
+  FAQ and help
+There is a collection of frequently asked questions. If those don’t help, you can always ask the humans behind Greenkeeper.
+
+
+Your Greenkeeper bot 🌴",2,0
+321,2019-05-13T12:31:19Z,2019-05-24T11:11:16Z,2019-05-24T11:11:16Z,1,1,1,"The link went to an empty site, now it refers to the actual site. This shouldn't mess with any tests or guidelines, as I only changed the address. Still read the guidelines and I think this is fine.
+
+
+🚨 Please review the guidelines for contributing and our code of conduct to this repository. 🚨
+Please complete these steps and check these boxes (by putting an x inside the brackets) before filing your PR:
+
+ Check the commit's or even all commits' message styles matches our requested structure.
+ Check your code additions will fail neither code linting checks nor unit test.
+
+Short description of what this resolves:
+Possibly outdated link on the README changed for actual link
+👍 You're welcome :)",2,0
+325,2019-07-05T20:53:33Z,2019-07-28T17:54:07Z,2019-07-28T17:54:07Z,1,1,1,"Please complete these steps and check these boxes (by putting an x inside the brackets) before filing your PR:
+
+ Check the commit's or even all commits' message styles matches our requested structure.
+ Check your code additions will fail neither code linting checks nor unit test.
+
+Short description of what this resolves:
+I think we should have had dropdowns if videos available.
+They should reveal links to these videos.
+I was expecting this:
+
+Instead, on frontendchecklist.io, we see the below with no dropdown:",2,0
+328,2019-08-08T20:10:17Z,2019-08-16T15:14:22Z,2019-08-16T15:14:22Z,1,6,0,"Fixes: #327
+Please complete these steps and check these boxes (by putting an x inside the brackets) before filing your PR:
+
+ Check the commit's or even all commits' message styles matches our requested structure.
+ Check your code additions will fail neither code linting checks nor unit test.
+
+Proposed changes:
+
+check for duplicates before adding to storage
+This can fix other potential issues down the line.",2,0
+334,2019-09-17T15:04:13Z,2020-01-04T23:51:31Z,2020-01-04T23:51:31Z,1,1,1,"Fixes: #
+🚨 Please review the guidelines for contributing and our code of conduct to this repository. 🚨
+Please complete these steps and check these boxes (by putting an x inside the brackets) before filing your PR:
+
+ Check the commit's or even all commits' message styles matches our requested structure.
+ Check your code additions will fail neither code linting checks nor unit test.
+
+Short description of what this resolves:
+The link for Dirty Markup pointed to a redirect URL whose cert has been invalid for 3 three months.
+Proposed changes:
+
+Change the link to go to the page that we were being redirected to anyway so the invalid cert doesn't stop/confuse people
+
+👍 Thank you!",2,0
+343,2019-12-25T06:04:03Z,2020-01-04T23:58:07Z,2020-01-04T23:58:07Z,2,16,0,"Hi! there 🙂 .
+This PR simplifies code contributions by adding configuration for gitpod (A Free online VS Code like Ide). With a single click, it will launch a ready to code workspace with all the dependencies being pre-installed & the start & build scripts in process so that anyone interested in contributing can start coding straight away without wasting any time on dev setup.
+You can give it a try on My Fork of the repo:
+https://gitpod.io/#https://github.com/nisarhassan12/Front-End-Checklist",2,0
+345,2020-02-14T03:34:40Z,2020-02-25T14:09:51Z,2020-02-25T14:09:51Z,3,5,6,"Fixes: #344
+🚨 Please review the guidelines for contributing and our code of conduct to this repository. 🚨
+Please complete these steps and check these boxes (by putting an x inside the brackets) before filing your PR:
+
+ Check the commit's or even all commits' message styles matches our requested structure.
+ Check your code additions will fail neither code linting checks nor unit test.
+
+Short description of what this resolves:
+This resolves the issue of broken images in the README.md
+Proposed changes:
+
+Edited the image paths in the markdown
+
+
+
+👍 Thank you!",2,0
+392,2020-03-19T10:40:30Z,2020-04-17T18:40:14Z,2020-04-17T18:40:14Z,2,8,2,"Hi! 🙂
+This PR enhances the Gitpod setup by removing the build task to make the server start fast and it also makes its description precise in the README.md",2,0
+412,2020-07-02T16:41:32Z,2020-09-30T23:59:36Z,2020-09-30T23:59:36Z,1,1,0,"Added link to Polish version.
+
+Fixes: #
+🚨 Please review the guidelines for contributing and our code of conduct to this repository. 🚨
+Please complete these steps and check these boxes (by putting an x inside the brackets) before filing your PR:
+
+[x ] Check the commit's or even all commits' message styles matches our requested structure.
+[x ] Check your code additions will fail neither code linting checks nor unit test.
+
+Short description of what this resolves:
+Added link to Polish translation.
+https://github.com/mbiesiad/Front-End-Checklist
+👍 Thank you!
+Best wishes,",3,3
+415,2020-07-10T06:14:38Z,,2020-12-14T13:33:50Z,1,435,809,"Added Arabic translation in Translations section
+
+Fixes: #320
+🚨 Please review the guidelines for contributing and our code of conduct to this repository. 🚨
+Please complete these steps and check these boxes (by putting an x inside the brackets) before filing your PR:
+
+ Check the commit's or even all commits' message styles matches our requested structure.
+ Check your code additions will fail neither code linting checks nor unit test.
+
+Short description of what this resolves:
+Added the Arabic Translation of README page in the Translations section, which was contributed by @iAbdullahWaleed.
+Proposed changes:
+
+Addition of Arabic translations
+
+Closes: #320
+👍 Thank you!",3,2
+416,2020-08-03T08:09:10Z,2020-09-30T23:56:59Z,2020-09-30T23:56:59Z,1,1,1,"As discussed by others in #405, there's no good reason for Google Analytics being in a category where it:
+
+can't be omitted by any reason.
+
+To add on to what others have said, this statement above is also misleading. There shouldn't be a requirement to fork over user data to Google as part of all, or even most, front end development.
+Fixes #405",3,0
+419,2020-09-16T15:27:52Z,2020-09-30T23:57:40Z,2020-09-30T23:57:40Z,1,2,2,"Fixes: #Added missing GitHub issues links. I haven't opened a separate issue for it.
+🚨 Please review the guidelines for contributing and our code of conduct to this repository. 🚨
+Please complete these steps and check these boxes (by putting an x inside the brackets) before filing your PR:
+
+
+ Check the commit's or even all commits' message styles matches our requested structure.
+
+
+ Check your code additions will fail neither code linting checks nor unit test.
+
+
+👍 Thank you!",3,0
+420,2020-09-27T11:03:04Z,2020-09-30T23:54:40Z,2020-09-30T23:54:40Z,1,7,0,"Tools added to check whether the website is Responsive under the Responsive web design section.
+
+Fixes: #
+🚨 Please review the guidelines for contributing and our code of conduct to this repository. 🚨
+Please complete these steps and check these boxes (by putting an x inside the brackets) before filing your PR:
+
+ Check the commit's or even all commits' message styles matches our requested structure.
+ Check your code additions will fail neither code linting checks nor unit test.
+
+Short description of what this resolves:
+Proposed changes:
+-Tools Added for checking Responsiveness of the website.
+👍 Thank you!",2,0
+421,2020-09-28T21:24:40Z,2020-09-29T12:33:39Z,2020-09-29T12:33:39Z,1,13,13,"Fixes: #
+🚨 Please review the guidelines for contributing and our code of conduct to this repository. 🚨
+Please complete these steps and check these boxes (by putting an x inside the brackets) before filing your PR:
+
+ Check the commit's or even all commits' message styles matches our requested structure.
+ Check your code additions will fail neither code linting checks nor unit test.
+
+Short description of what this resolves:
+For better homogeneity of markdown syntax, I replaced dashes symbol used in minority for list items by stars.
+Proposed changes:
+
+Replace dashes symbol by stars as list item symbol
+
+👍 Thank you!",2,0
+425,2020-09-30T21:07:53Z,,2021-01-07T00:36:55Z,1,1,1,"Fixes: #
+🚨 Please review the guidelines for contributing and our code of conduct to this repository. 🚨
+Please complete these steps and check these boxes (by putting an x inside the brackets) before filing your PR:
+
+ Check the commit's or even all commits' message styles matches our requested structure.
+ Check your code additions will fail neither code linting checks nor unit test.
+
+Short description of what this resolves:
+Proposed changes:
+
+
+
+
+
+👍 Thank you!",3,2
+430,2020-10-03T05:52:13Z,2020-11-23T03:46:17Z,2020-11-23T03:46:18Z,1,0,1,"I have deleted this link from the SEO section of the readme.md page because this link - https://rdfa.info/  doesn't have valid ssl or tls and doesn't abide by the basic security measures which pose a potential threat to the users and moreover the webpage is not accessible because the browser doesn't allow these kind of pages to be displayed.
+
+Fixes: #
+🚨 Please review the guidelines for contributing and our code of conduct to this repository. 🚨
+Please complete these steps and check these boxes (by putting an x inside the brackets) before filing your PR:
+
+ Check the commit's or even all commits' message styles matches our requested structure.
+ Check your code additions will fail neither code linting checks nor unit test.
+
+Short description of what this resolves:
+Proposed changes:
+-Deleted RDFa - Linked Data in HTML from SEO section of readme.md other than that everything is left untouched.
+👍 Thank you!",2,0
+435,2020-12-26T10:34:06Z,,2021-03-21T15:49:58Z,1,1,1,"Fixes: #
+🚨 Please review the guidelines for contributing and our code of conduct to this repository. 🚨
+Please complete these steps and check these boxes (by putting an x inside the brackets) before filing your PR:
+
+ Check the commit's or even all commits' message styles matches our requested structure.
+ Check your code additions will fail neither code linting checks nor unit test.
+
+Short description of what this resolves:
+Proposed changes:
+
+
+
+
+
+👍 Thank you!",2,1
+443,2021-04-15T17:33:42Z,2021-05-21T03:14:36Z,2021-05-21T03:14:36Z,1,1,1,"Fixes: #
+Issue #441
+Short description of what this resolves:
+Corrected the broken URL to point to https://developer.chrome.com/docs/devtools/coverage/
+mods, please verify if newly added url is indeed what we are looking for.
+👍 Thank you!",7,4
+459,2021-07-31T10:36:48Z,2022-06-03T19:59:48Z,2022-06-03T19:59:48Z,1,1,1,"On the site, it says that the compression is lossy, not lossless.",3,8
+482,2022-05-20T22:44:14Z,2022-06-03T19:58:23Z,2022-06-03T19:58:23Z,1,1,1,"Fixes: #
+🚨 Please review the guidelines for contributing and our code of conduct to this repository. 🚨
+Please complete these steps and check these boxes (by putting an x inside the brackets) before filing your PR:
+
+ Check the commit's or even all commits' message styles matches our requested structure.
+ Check your code additions will fail neither code linting checks nor unit test.
+
+Short description of what this resolves:
+Proposed changes:
+
+
+
+
+
+👍 Thank you!",2,0
+483,2022-06-03T18:07:40Z,2022-06-03T19:58:05Z,2022-06-03T19:58:05Z,1,1,1,"Fixes: #
+🚨 Please review the guidelines for contributing and our code of conduct to this repository. 🚨
+Please complete these steps and check these boxes (by putting an x inside the brackets) before filing your PR:
+
+ Check the commit's or even all commits' message styles matches our requested structure.
+ Check your code additions will fail neither code linting checks nor unit test.
+
+Short description of what this resolves:
+Update broken link of aria-label
+Proposed changes:
+
+
+
+
+
+👍 Thank you!",2,0
+484,2022-06-15T08:18:48Z,,2023-01-07T15:44:24Z,2,7,7,"Fixes: #
+🚨 Please review the guidelines for contributing and our code of conduct to this repository. 🚨
+Please complete these steps and check these boxes (by putting an x inside the brackets) before filing your PR:
+
+ Check the commit's or even all commits' message styles matches our requested structure.
+ Check your code additions will fail neither code linting checks nor unit test.
+
+Short description of what this resolves:
+It fixed the grammar and errors and improve reading experience.
+Proposed changes:
+
+Remove grammar error in Readme.md
+-Remove grammar error and typing mistakes n Code of Conduct
+
+
+👍 Thank you!",2,2
+493,2022-10-09T08:29:56Z,,2023-04-02T05:20:41Z,1,1,1,"Hi, I have fixed the back to top button in the readme.md file by doing the necessary changes.  hope you like it.
+Thank you!😊
+
+Fixes: #
+🚨 Please review the guidelines for contributing and our code of conduct to this repository. 🚨
+Please complete these steps and check these boxes (by putting an x inside the brackets) before filing your PR:
+
+ Check the commit's or even all commits' message styles matches our requested structure.
+ Check your code additions will fail neither code linting checks nor unit test.
+
+Short description of what this resolves:
+I have fixed the back to top button in the readme.md file by doing the necessary changes.
+Proposed changes:
+Hi, I have fixed the back to top button in the readme.md file by doing the necessary changes.
+hope you like it.
+Thank you!😊
+
+
+
+
+👍 Thank you!",2,2
+505,2022-12-24T02:25:54Z,2024-03-25T13:41:29Z,2024-03-25T13:41:29Z,1,2,0,"Fixes #486
+
+ Check the commit's or even all commits' message styles matches our requested structure.
+ Check your code additions will fail neither code linting checks nor unit test.
+
+Short description of what this resolves:
+Adds SVG favicon as another recommended alternative in the README.md, warning not to use it when targeting old browsers
+Proposed changes:
+
+self-explanatory
+
+👍 Thank you!",3,3
+510,2023-05-28T10:00:20Z,2023-08-16T00:10:42Z,2023-08-16T00:10:42Z,1,7,3,"Short description of what this resolves:
+Grammatical error in the line mentioned
+Proposed changes:
+All items in the Front-End Checklist are required for the majority of the projects, but some elements can be omitted or are not essential (in the case of an administration web app, you may not need RSS feed for example). We choose to use 3 levels of flexibility:
+All items in the Front-End Checklist are necessary for the majority of projects, but some elements can be omitted or are not essential. For example, in an administration web app, you may not need an RSS feed. We have categorized the flexibility into three levels:
+![Low][low_img] indicates that the item is recommended but can be omitted in certain situations.
+![Medium][medium_img] indicates that the item is highly recommended but can potentially be omitted in very specific cases. However, omitting these elements can negatively impact performance or SEO.
+![High][high_img] indicates that the item cannot be omitted under any circumstances. Removing these elements may result in page malfunctions or cause accessibility and SEO issues. Testing should prioritize these elements first.",2,0
+512,2023-08-14T08:28:38Z,,2023-12-09T01:48:25Z,2,7,7,"Fixes: #
+🚨 Please review the guidelines for contributing and our code of conduct to this repository. 🚨
+Please complete these steps and check these boxes (by putting an x inside the brackets) before filing your PR:
+
+ Check the commit's or even all commits' message styles matches our requested structure.
+ Check your code additions will fail neither code linting checks nor unit test.
+
+Short description of what this resolves:
+Proposed changes:
+
+
+
+
+
+👍 Thank you!",3,3

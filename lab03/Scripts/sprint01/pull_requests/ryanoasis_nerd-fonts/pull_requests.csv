@@ -1,0 +1,62 @@
+number,created_at,merged_at,closed_at,files,additions,deletions,body_text,participants,comments
+132,2017-02-19T09:47:03Z,2017-02-19T22:42:49Z,2017-02-19T22:42:49Z,2,2,2,"Description
+Fix link to FAQ in GitHub files.
+Requirements / Checklist
+
+ Read the Contributing Guidelines
+ Read or at least glanced at the FAQ
+ Read or at least glanced at the Wiki
+ Scripts execute without error (if necessary):
+
+If any of the scripts were modified they have been tested and execute without error, e.g.:
+
+./font-patcher Inconsolata.otf --fontawesome --octicons --pomicons
+./gotta-patch-em-all-font-patcher\!.sh Hermit
+
+
+
+
+ Extended the README and documentation if necessary, e.g. You added a new font please update the table",2,1
+133,2017-02-19T20:52:07Z,2017-02-19T22:45:31Z,2017-02-19T22:45:31Z,1,1,1,"Description
+Corrected installation via Homebrew instructions. (In the current instructions, the command given searches for an unrelated cask called Nerdtool)
+What does this Pull Request (PR) do?
+Corrects the command in the readme instruction
+How should this be manually tested?
+N/A
+Any background context you can provide?
+The command doesn't seem like it would have ever done anything useful, TBH. I'd guess this was mistakenly written at some point. It is possible that this was mistakenly omitted as the first step, in which case it might make sense to add it previous to the search rather than replace it.
+What are the relevant tickets (if any)?
+N/A",2,3
+162,2017-05-13T22:20:57Z,2017-05-20T01:27:26Z,2017-05-20T01:27:26Z,11,42,30,"Description
+Added [Nerd Fonts] prefix to all script output per issue #119
+Requirements / Checklist
+
+[x ] Read the Contributing Guidelines
+[x ] Read or at least glanced at the FAQ
+[x ] Read or at least glanced at the Wiki
+
+What does this Pull Request (PR) do?
+Adds a prefix to all script output
+What are the relevant tickets (if any)?
+Closes #119",2,12
+184,2017-07-17T08:35:12Z,2017-07-23T19:42:43Z,2017-07-23T19:42:43Z,3,8,8,"Requirements / Checklist
+
+ Read the Contributing Guidelines
+ Read or at least glanced at the FAQ
+ Read or at least glanced at the Wiki
+ Scripts execute without error (if necessary):
+
+If any of the scripts were modified they have been tested and execute without error, e.g.:
+
+./font-patcher Inconsolata.otf --fontawesome --octicons --pomicons
+./gotta-patch-em-all-font-patcher\!.sh Hermit
+
+
+
+
+ Extended the README and documentation if necessary, e.g. You added a new font please update the table
+
+What does this Pull Request (PR) do?
+
+@AndreLGava changed his username to @AndreLZGava, updated references
+fixed a few typos in font-patcher",2,0

@@ -1,0 +1,294 @@
+number,created_at,merged_at,closed_at,files,additions,deletions,body_text,participants,comments
+9711,2016-07-25T16:27:18Z,,2017-01-20T17:32:58Z,1,14,13,,3,0
+12035,2016-09-14T17:01:18Z,2016-09-15T08:50:24Z,2016-09-15T08:50:25Z,5,63,9,"The following PR is a clumsy way to implement #11940
+Basically I've replicated the README logic as well trying to generalise it whenever possible.
+I'd love to get your thoughts as well some hints about how to test this, eventually.
+I put some notes in the code - I hope you might clarify those points.
+//cc @joaomoreno",4,8
+12055,2016-09-15T04:21:39Z,,2016-09-26T22:20:53Z,8,70,7,"Adds support for vim-style relative line numbers.
+Useful for vim motion plugins, replacing extension ""Relative Line Numbers"" by extr0py.
+
+word-wrapping aware
+adds editor.relativeLineNumbers option (changeable without restart), default to false
+current line is absolute, others are relative (behaviour of hybrid relative numbers in vim)",4,7
+12057,2016-09-15T05:43:26Z,2016-09-19T14:36:04Z,2016-09-19T14:36:04Z,1,1,0,#12056,3,2
+12104,2016-09-15T22:21:22Z,2016-09-16T07:30:50Z,2016-09-16T07:30:50Z,1,6,3,"Fixes #12063.
+This is a complement to #11870.
+Removed the ""Folder"" registry keys, restored the ""directory"" ones and added the ""Drive"" ones.",4,2
+12194,2016-09-17T17:07:50Z,2016-10-21T14:01:23Z,2016-10-21T14:01:23Z,2,27,17,"Currently whenever you try to checkout to a new branch, using the git quick open,
+it will only work as long as your branch name is valid.
+if your branch name is invalid you will only get ""No other branches"".
+On this PR I am adjusting this behaviour so vscode will correct any invalid characters from the branch name, and still offer the option of creating a new branch.
+Original Behaviour:
+
+New Behaviour:",4,4
+12291,2016-09-20T00:34:48Z,2016-09-20T08:48:38Z,2016-09-20T08:48:38Z,1,0,41,This markdown rendering worker script is not used as far as I can tell. I see no references to markdownToHtml in the codebase. This change removes it.,4,2
+12328,2016-09-20T15:54:11Z,2016-09-22T07:05:10Z,2016-09-22T07:05:10Z,11,538,69,This PR implements #239 by adding a onWillSaveTextDocument which allows for pre-save modifications of a document. The API around that is still in discussion.,5,4
+12400,2016-09-21T18:13:04Z,2016-10-20T03:51:41Z,2016-10-20T03:51:41Z,31,1219,64,"Opening this now to more easily track changes during development.
+Fixes #101
+TODO
+
+ Backup files that are modified
+ Add a delay to file backup to reduce amount of disk access
+ Discard backups when files are no longer dirty
+ Ensure no collisions occur with backup files
+
+ Untitled files
+ Text files
+
+
+ Discard backups when a window is being closed and there is another window open
+ Retain backups when the last window is being exited
+
+ Ensure backups are up to date
+
+
+ Restore backups if available on first window launch
+
+ Restore text files
+ Restore untitled files
+ Launch a second window if the backup folder is different to that requested
+
+
+
+Feedback Round 1
+
+ Clarify ""workspace"" name in IBackupService (fixed in 1a29d14)
+ Share BackupService between the main and renderer processes (fixed in c280e0c)
+ Move BackupService to vs/platform/backup/node/ (fixed in 3387b6c)
+ Opening empty workspaces currently errors out, disable completely for empty workspaces (fixed in 10aa709)
+ Avoid sync calls where possible (fixed in 2b0a65a)
+
+Clean up
+
+ Resolve remaining TODOs
+ Remove any console.log statements
+ Add some tests
+ Remove all empty lines at beginning of functions #12400 (review)
+ Have backup service tests use a temporary folder for backups (needed to have tests pass on Travis)
+
+Known issues/follow ups
+
+#13305 Support multiple folder restore
+
+Behavior on Mac is a little strange right now due to the fact that the application is kept open when all windows are closed. This will not feel natural on Mac until restoring multiple workspaces is resolved (made notes there)
+
+
+#13733 Support hot exit on empty workspaces
+#12327 Hot Exit: Restore files after an editor crashes
+#14038 The tab dirty indicator is up to date right after restore, the file needs to be opened before it refreshes. See call to this.setDirty(true); in TextFileEditorModel.load
+#14037 Merge backup path logic from node/fileService.ts into backupService.ts",3,7
+12419,2016-09-22T04:03:14Z,2016-09-22T13:44:18Z,2016-09-22T13:44:18Z,1,1,1,Fixed typo in message shown when git cannot open a file which has been deleted.,3,1
+12455,2016-09-22T14:41:56Z,2016-09-27T17:01:28Z,2016-09-27T17:01:28Z,3,9,6,The following PR should be the missing part to make #11940,4,12
+12472,2016-09-22T18:08:01Z,2016-09-26T17:12:12Z,2016-09-26T17:12:12Z,1,2,2,"Issue #7638
+Bug
+Open a .txt file containing markdown in VSCode. Select the editor language as markdown and the highlighing kicks in, but there is no preview button for the file.
+Fix
+Base display of the markdown preview button on resourceScheme instead of resourceLangId.
+
+Closes #7638",4,2
+12584,2016-09-25T20:15:42Z,2016-10-21T09:42:58Z,2016-10-21T09:42:58Z,1,3,2,"If there exist tag with same ps1 as checkout commit show tag name, otherwise use ps1 as before
+CC @joaomoreno, issue #1939",4,6
+12628,2016-09-26T12:19:21Z,,2017-01-19T08:08:35Z,7,53,15,"Moves the traffic buttons on the window into the space above the activity bar on macOS - for full context see #12377
+
+
+
+TODO:
+
+ Wrap up the config setting
+ migrate all CSS to be scoped by .use-inline-toolbar
+
+fixes #12377",9,74
+12704,2016-09-27T01:46:19Z,2016-09-27T08:30:27Z,2016-09-27T08:30:27Z,2,43,12,"Smoothly responsive to window height.  Never interferes with branding logo.  Vertically aligned to middle with branding logo.
+Darkest possible text while still meeting minimum accessibility compliance.
+Initial fade in added to speak to the user ""hey, this is not an editor""",8,2
+12900,2016-09-28T16:58:42Z,,2016-09-29T04:37:53Z,2,10,3,These are the changes described in #12899.,5,2
+12944,2016-09-28T21:24:33Z,2016-09-29T17:29:22Z,2016-09-29T17:29:22Z,1,4,4,"Adds a space after the default extension search queries so that users can start typing a query term right away. See Issue #12924 for details
+Closes #12924",4,3
+13169,2016-10-03T18:46:06Z,2016-10-09T02:32:24Z,2016-10-09T02:32:24Z,2,70,1,"Fixes #6979
+@sandy081 @aeschli @alexandrudima requesting feedback on the approach.",7,12
+13199,2016-10-04T09:37:23Z,2016-10-04T14:01:12Z,2016-10-04T14:01:12Z,3,26,2,For #11942,5,6
+13236,2016-10-05T08:03:20Z,,2016-10-26T04:51:50Z,1,17,11,The following PR will solve #12892 - allowing to have a preview editor while navigating into files from a QuickOpen menu.,5,19
+13255,2016-10-05T16:21:21Z,2016-10-07T10:11:38Z,2016-10-07T10:11:38Z,6,50,4,"Call AllowSetForegroundWindow before sending IPC to the running instance on Windows (Fixes #929)
+When a second instance of vscode is started on Windows, it now performs these actions:
+
+(New) Get PID of the original instance via IPC.
+(New) Call AllowSetForegroundWindow to allow the original instance to use SetForegroundWindow. (https://blogs.msdn.microsoft.com/oldnewthing/20090220-00/?p=19083)
+Send the start IPC to the original instance and exit.
+
+I created a windows-foreground-love npm package to wrap the AllowSetForegroundWindow API.",5,13
+13719,2016-10-14T03:27:08Z,2016-10-14T13:40:34Z,2016-10-14T13:40:34Z,1,1,0,,5,3
+13754,2016-10-14T12:52:39Z,,2021-08-18T12:31:03Z,6,188,5,"Implemented ""File Nesting"" feature, which was requested by community #6328.
+Also created new 'explorer.fileNesting' setting and user can enable or disable it.",19,44
+13909,2016-10-17T21:53:52Z,,2017-01-19T08:08:11Z,11,188,71,"refs #8939
+notes
+#8939 (comment)
+#8939 (comment)",7,39
+13925,2016-10-18T07:55:47Z,2016-10-21T06:46:23Z,2016-10-21T06:46:23Z,5,44,15,"allows one to continually open files while keeping quick open widget focused
+uses the right modifier key to open in background
+can open in split view if using the cmd trigger key
+
+refs #13711",5,14
+14115,2016-10-20T17:36:11Z,2016-11-11T20:18:16Z,2016-11-11T20:18:16Z,34,1353,65,"#14200 Hot Exit: Support hot exit on folder workspaces
+#12400 Original hot exit PR
+#14055 Hot Exit: avoid direct calls to fs.readdir()/fs.readdirSync() (aab05a8)
+#14060 Correctly clean up workspace backups when exiting (873d095)
+#14100 & #14067 Have TextFileEditorModel handle restores (b23229f)
+#14068 Hot Exit: do not load backup files to restore sync on startup in the renderer
+#14065 Hot Exit: push renderer backup logic into new backup service
+#14066 Hot Exit: backupService.ts feedback
+Big refactor to throw as much as possible into the now several Backup*Services and leverage events
+#14079 Remove public backup()
+#14074 Hot Exit: Careful when you veto the shutdown from failing backups
+#14181 Introduce on model dispose events to ITextFileEditorModelManager and IUntitledEditorService and track in BackupModelService
+#14180 Don't hash untitled resource names for their backup paths
+#14037 Merge backup path logic from node/fileService.ts into backupService.ts
+#14064 Hot Exit: backupService saves and loads a LOT - Resources are no longer tracked at all in workspace.json and instead the actual backup path is checked
+#14063 Hot Exit: deal with backup workspaces that do not exist anymore
+#14056 Hot Exit: backup workspace handling should all happen on main side
+#14330 Hot exit: Reloading the window should restore all files in the window
+#14132 Hot Exit: restoring file model issues
+#13305 Hot Exit: Support multiple folder restore (5bb2cb8, 57c6e72)
+#15134 Hot exit on Mac currently allows closing the final single window
+#15130 Cannot exit empty workspace windows on Windows when hot exit is enabled
+#15137 Close folder does not clear the backup workspace path",4,12
+14717,2016-10-30T14:21:11Z,,2017-01-03T09:25:54Z,3,11,1,I used the same logic used for the window.openFilesInNewWindow setting,4,10
+14811,2016-11-01T16:30:59Z,2016-11-04T19:24:20Z,2016-11-04T19:24:20Z,2,79,0,"In the newly introduced syntax extension the width and height of an image
+can be given in the image title using following format:
+![image](someimageurl 'caption|height=200, width=100').
+Both width and height parameters are optional, if they are not given the
+width and height attributes remains unset on the image element
+This resolves #14803",7,3
+15050,2016-11-05T23:25:38Z,2016-12-13T10:08:41Z,2016-12-13T10:08:41Z,1,21,3,,3,10
+15320,2016-11-10T22:21:55Z,2016-11-14T11:09:28Z,2016-11-14T11:09:28Z,3,28,3,,6,10
+15493,2016-11-15T03:49:18Z,2016-11-17T19:37:06Z,2016-11-17T19:37:06Z,11,151,71,Fixes #15260,5,1
+15526,2016-11-15T18:36:06Z,2016-11-18T06:50:36Z,2016-11-18T06:50:36Z,12,45,34,Fixes #14067,4,1
+15593,2016-11-16T22:54:29Z,2016-11-17T19:25:49Z,2016-11-17T19:25:49Z,6,49,10,"Fixes #15571
+
+@bpasero let me know if you see issues with this approach. Another way is to make the backup services @optional and only register them if backups are enabled.",4,1
+15716,2016-11-18T09:54:32Z,2016-11-21T08:58:33Z,2016-11-21T08:58:33Z,22,206,151,"Investigate to restore untitled dirty files via editor input factories (#15498)
+Hot Exit: Untitled files with no content should be restored (#14690)
+Untitled files are not restored to their previous groups (#14116)
+Fix dirty tab indicator after hot exit restore (#14038)",4,2
+15787,2016-11-21T05:51:08Z,2016-12-05T21:41:27Z,2016-12-05T21:41:27Z,2,358,1,"Add missing commands from Sublime/Atom per #3776 .
+TODO:
+
+ Join lines
+ Transpose
+ Upper/Lower case
+ Paste and format
+ Test cases
+
+Discussed with Kai and Alex, our contrib part of code is used as internal extension so it's Okay to put these missing commands into our code base. However while implementing them in core, I found that there is one new issue: key bindings conflicts. Will have a discuss with Alex and @waderyan on Monday.",7,6
+15797,2016-11-21T10:41:56Z,2016-11-22T10:05:50Z,2016-11-22T10:05:50Z,24,413,277,"@bpasero @jrieken
+The idea here is what we have discussed: make ITextModelResolverService the one-stop-shop for retrieving (workbench) text editor models, given a URI. The resolve method was renamed to a getModelReference() which returns a reference to a model. The contract is to dispose() that reference once the caller doesn't need the model any more.
+This PR adopts that interface and implements it for the contributable content provider models. The other two types (file: and untitled:) are wrapped around ImmortalReferences, which means they will live on forever, just like they have so far, until someone calls dispose() on the model itself. This needs adoption in the future. The PR further fulfils the reference contract by calling dispose() when the models are no longer needed. @jrieken this is mostly your area.
+The big goal is to allow proper disposal of text editor models without resorting to ugly methods such as looping through all the open editors. This first step already lets me implement my dirty diff contribution while doing proper model cleanup.",5,4
+15801,2016-11-21T12:19:27Z,2016-11-21T14:13:21Z,2016-11-21T14:13:21Z,2,3,6,,4,4
+15838,2016-11-21T20:59:53Z,2016-11-29T16:38:46Z,2016-11-29T16:38:46Z,1,26,0,Fix #11859 . Read character from view to get the correct width of a character.,4,3
+15892,2016-11-22T15:23:38Z,2016-11-23T07:19:58Z,2016-11-23T07:19:58Z,9,229,78,"This PR introduces a BackupsFileModel to BackupFileService. It resolves all backups that exist for a workspace on startup and keeps itself updated when changes to backups are made. Thus it avoids the constant disk lookup when resolving files or untitled models (#15653)
+In addition to that, it associates the versionId of the model with the resource that was backed up and thus allows to avoid backing up content of a model that is already backed up (#14075).
+Fixes:
+
+Avoid checking for backups on each resolve() of file/untitled (#15653)
+Hot Exit: backup all ignores existing backups? (#14075)
+
+@Tyriar I would think that the BackupsFileModel is also the right place of reading the meta data of the backups for #15718 to keep everything in one place. Once that is in, IBackupFileService should get a method that returns the paths of file and untitled resources that contain backups.",4,2
+15912,2016-11-22T19:52:45Z,2016-12-05T06:24:16Z,2016-12-05T06:24:16Z,4,72,24,Control if +/- should be shown by a new setting diffEditor.renderIndicators.,4,4
+15958,2016-11-23T13:26:30Z,2016-11-30T19:50:01Z,2016-11-30T19:50:01Z,4,36,29,"This PR fixes 2 problems with the focus handling of the integrated terminal (see #15103 and #14969) .
+Although they result in a  same usability/keybinding problem I initially described in #15103, my description was a little fuzzy because I didn't understand the cause fully.
+There are currently 2 problems:
+
+Problem Nr. 1
+Whenever a second (or third, …) terminal instance gets exited via the shell command exit or by pressing ctrl-d (which basically is ""exit"" because it sends EOF), the terminal panel loses focus and the editor gets focus.
+This hinders the workflow when working with multiple terminals, because you can't close a second one without refocusing the panel again, worst case scenario would be that a user write exit into an editor window without being aware of it.
+The only case where focus has to change is if there is only 1 instance left, in this case the panel closes itself so the user has a visual clue about whats going on.
+Just in case anyone asks, the reasoning I used focus(true) in setActiveInstanceByIndex() instead of inside _removeInstance() just in case there are some edge cases I didn't stumble upon yet. I'd guess you always want to focus your active instances, but correct me if I'm wrong.
+
+Problem Nr. 2
+To make the terminal work with various keyboard shortcuts, the setting terminal.integrated.commandsToSkipShell was introduced. The first part of my Issue I described in #15103 and I later found out to be described in #14969 as well is caused by the following:
+Currently, the settings are only handled in the panel itself when _updateCommandsToSkipShell() is called (whenever the panel gets opened). If you create a new instance with either the +-Button in the GUI or via a shortcut, a new terminal instance get's created, gets attached – but _skipTerminalKeybindings is empty.
+Calling the function to skip the commands from inside TerminalService#createInstance() made most sense to me because it's already aware of the settings, but correct me again if I'm wrong with this assumption.",4,7
+15981,2016-11-23T18:08:22Z,,2016-12-09T13:37:21Z,1,45,4,After running npm install for the extensions-folder check for identical (name & version) modules in the parent folder and remove dupes.,5,7
+16006,2016-11-24T09:27:06Z,,2016-12-05T13:35:50Z,4,48,3,"Provide a new language (phplanguage) for reference by services requiring PHP syntax highlighting for code without script/start end tags.
+Add workaround to prevent phplanguage from appearing in Language Mode list
+fix markdown + PHP fenced code blocks
+
+previously PHP wasn't working at all because we don't appear to properly support injections. This issue was addressed by pointing to a specific repository key (#languages).
+ensure ""fuzzy"" syntax highlighting for PHP/HTML code so that script start tags are not required
+
+
+
+close #14166, close #3746",8,8
+16016,2016-11-24T11:03:36Z,2016-12-14T02:24:34Z,2016-12-14T02:24:34Z,1,1,0,Fixes #16015,4,2
+16129,2016-11-28T06:07:36Z,2017-01-13T15:58:05Z,2017-01-13T15:58:05Z,3,429,1,"Write Tests.
+ Figure out how to get words from lines.
+ Figure out how to stop flashing on stepping because onDidContinue passes in null stack frame everytime
+ Figure out how to registerDecorator from public API.
+ setDecorators afterText doesn't work in python on lines with trailing ':'
+ Merge as single commit
+ Add screenshot",7,48
+16169,2016-11-28T19:56:15Z,2016-12-14T18:06:55Z,2016-12-14T18:06:55Z,2,93,2,"This adds support for building Flatpak application bundles, which should be runnable on any Linux distribution with Flatpak support.
+New Gulp tasks are added to prepare a directory with the needed files (vscode-linux-${arch}-prepare-flatpak), assembling the Flatpak bundles (vscode-linux-${arch}-flatpak), and for cleaning the build directories (clean-vscode-linux-${arch}-flatpak). This mimics how the Debian and RPM package creation works. Hence, building an application bundle is done with:
+$ gulp vscode-linux-x64-flatpak
+[...]
+$ ls *.flatpak
+com.visualstudio.code.oss-x86_64.flatpak
+
+Installing and running the application is achieved with:
+$ flatpak --user install --bundle com.visualstudio.code.oss-x86_64.flatpak
+$ flatpak run com.visualstudio.code.oss
+
+(Removing --user would install the application system-wide.)
+The org.freedesktop.Platform runtime needs to be installed for running the application, and for making builds the org.freedesktop.Sdk runtime is needed as well. There are installation instructions in the Flatpak website; the short version is:
+wget https://sdk.gnome.org/keys/gnome-sdk.gpg
+flatpak --user remote-add --gpg-import=gnome-sdk.gpg gnome https://sdk.gnome.org/repo/
+flatpak --user install org.freedesktop.Platform 1.4
+flatpak --user install org.freedesktop.Sdk 1.4
+
+The flatpak-bundler development dependency provides an asynchronous API to invoke flatpak-builder. The gulp-image-resize module is used to
+incorporate scaling of the application icon to multiple sizes, and uses ImageMagick (or GraphicsMagick) under the hood, which is commonly available on most GNU/Linux distributions.
+Instead of building the Electron dependencies, this reuses the    io.atom.electron.BaseApp (source) bundle as base application. The contents of the base application are imported at build time, and then Electron and the prepared files added on top. The prebuilt base application will be fetched automatically using the URL specified in the baseFlatpakref attribute, and it is kindly hosted at Amazon S3 by Endless Computers.
+Merging this would tackle issue #7112.",4,13
+16194,2016-11-29T02:38:29Z,2016-11-29T09:32:02Z,2016-11-29T09:32:02Z,8,238,30,"Fixes #15718
+
+@bpasero if this is close to what you had in mind feel free to merge and tweak as desired. One improvement that comes to mind is to store items in the IBackupFilesModel cache using Uri.fsPath instead of Uri.toString, wasn't sure if toString was chosen for a particular reason?",3,1
+16198,2016-11-29T06:07:07Z,2016-11-29T09:05:17Z,2016-11-29T09:05:17Z,9,76,42,@Tyriar please have a look. a fix for #15509,3,0
+16211,2016-11-29T10:48:47Z,2016-11-30T08:39:07Z,2016-11-30T08:39:07Z,4,112,9,This is for #16065 and avoids using node API for making http(s) requests,4,5
+16244,2016-11-29T22:14:15Z,2016-12-01T21:48:03Z,2016-12-01T21:48:03Z,20,215,111,Updates the Ts extension to use strict null checks.,3,2
+16250,2016-11-30T05:46:46Z,,2016-12-30T15:58:08Z,5,8,7,"For evaluating #15156
+@bpasero I would like to add a 'from' to the editor actions telemetry, the same way we have that for workbench actions. Could you take a look? I might be missing things since the data flows past a lot of code.",5,5
+16286,2016-11-30T18:41:42Z,2016-12-01T05:47:21Z,2016-12-01T05:47:21Z,6,552,262,"Fixes #15384 (comment), comment is updated with final timings.
+This PR rearranges the existing text search code to run using multiple processes. This doesn't include work to show results sooner - users still need to wait for a batch of 512 file matches to be filled. That work is tracked in #16284. Here's a brain dump for posterity -
+RawSearchService creates an instance of textSearch.Engine and passes it a FileWalker which is producing paths in the workspace. This is the same.
+textSearch.Engine creates some number of Search Worker processes. The number is determined by require('os').cpus().length which returns 8 on a MBP, because it has 4 physical cores, with hyperthreading.
+The fileWalker produces file paths, and the sizes in bytes of those files. They are grouped into batches of roughly equal sizes in bytes. The number of files in each batch may vary a lot, but each batch should represent files that are cumulatively about 1MB in size. Hopefully this will make them more likely to be processed in a similar amount of time, with a similar number of results, so one process isn't running for much longer than others. This might sound like a large batch - smaller workspaces won't benefit much from parallelization - but they don't need it. I did some testing on a few workspaces of different sizes with different batch sizes, and 1MB seemed like the sweet spot. I also experimented with a batch size that starts small and grows exponentially, thinking it might help on medium-sized workspaces, but it didn't seem to make a difference.
+Batches are sent to the worker as soon as they're ready, in a round-robin fashion. I experimented with sending one batch at a time to each process, with another when it's finished, but that was slower because the worker isn't doing anything while it's waiting for a new batch. I also tried sending a couple batches up front, and more as needed, but it was no better than sending them ASAP. Looking at timings, I think this is because the workers are slow to handle the first couple batches they receive - the fileWalker is actually often done by the time the workers are sending back their first batch of results. I need to investigate more to figure out why this is - maybe because the new processes are still loading code, JITting, etc. They process the rest of the batches much faster after those first few. It may be faster to keep the worker processes around between searches, but I don't know that we want to persist 8 (or more) processes per vscode window.
+The worker searches the files using the same code that we already had, this hasn't changed much. It does include the change to eliminate Buffer.slice calls that is already checked in. The only change is that I limited the number of files that it will open at a time, because I kept running into the OS open file limit without it.
+The batch includes the current maxResults, i.e. the initial max minus the number of results received so far. The main process might receive more than the max number of results from workers, so it has to trim the result set. This is kind of annoying to get exactly right, because the result set is not a flat list, but a tree of files with matches, lines in those files with matches, and the matches on each line. So, it will just take batches until the total is greater than the max. It can go over the max, but this is much easier.",5,4
+16303,2016-12-01T02:31:13Z,2016-12-03T04:13:39Z,2016-12-03T04:13:39Z,19,570,310,Fixes #13733,3,2
+16333,2016-12-01T17:51:54Z,2016-12-02T01:24:00Z,2016-12-02T01:24:00Z,3,104,2,"If the search process batch isn't filled in 2 seconds, it's sent to the frontend anyway. After 50 results are returned, it reverts to the original batching behavior. Also fixed to batch by actual number of results, instead of 'number of files with matches' which it ended up doing before.
+Fixes #16284",3,0
+16366,2016-12-02T09:53:59Z,2016-12-02T15:13:24Z,2016-12-02T15:13:24Z,9,195,41,This PR implements #16330 by adopting a new version of the loader and by configuring it to with cache data directory.,3,0
+16433,2016-12-03T08:53:37Z,2016-12-04T16:23:12Z,2016-12-04T16:23:12Z,2,49,5,"An attempt to fix #14705: If a backup workspace no longer exists, convert it to a ""empty workspace"" backup.",3,0
+16502,2016-12-05T13:14:17Z,2016-12-05T23:28:20Z,2016-12-05T23:28:20Z,1,23,1,"previously PHP wasn't working at all because we don't appear to properly support grammar injections. This issue was addressed by pointing to a specific repository key (#languages)
+ensure ""fuzzy"" syntax highlighting for PHP/HTML code so that script start tags are not required
+
+forked from #16006, related to #14166
+close #3746",3,1
+16568,2016-12-06T06:05:59Z,2017-01-19T17:29:48Z,2017-01-19T17:29:48Z,6,662,152,"Apply indent rule when users type. For instance, since not all languages uses brackets as block, some languages are using decreaseIndentRule to adjust indentation.
+Take Ruby as example",5,10
+16955,2016-12-09T01:05:46Z,2016-12-16T20:55:47Z,2016-12-16T20:55:47Z,1,14,7,"Fixes #16888
+Bug
+The js/ts completion provider can currently only complete whole words in most cases (as defined by TextDocument.getWordRangeAtPosition). This causes completion of literal string types to fail if they are not a whole word.
+
+Fix
+Instead of relaying on the default range, compute a range by taking the longest match of the replacement text backwards from the current position.",3,1
+16979,2016-12-09T13:36:11Z,2017-01-20T10:46:30Z,2017-01-20T10:46:31Z,2,100,38,"This PR adds outline support for Markdown files.
+
+Introduces a MDDocumentSymbolProvider which is able to provide symbols based on the same markdown-it parser.
+Optimizes the Front Matter regex to /^---\s*(.|\s)*?---\s*/.
+First attempt was #13238
+Fixes #3493",5,4
+17094,2016-12-12T23:13:44Z,2016-12-13T19:26:45Z,2016-12-13T19:26:45Z,1,1,1,"Fixes #16569
+This disables emmet expansion inside of markdown files by default. Users can enable these expansion again by adding ""emmet.excludeLanguages"": [] to their user settings.",3,0

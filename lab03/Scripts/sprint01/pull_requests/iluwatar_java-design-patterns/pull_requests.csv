@@ -1,0 +1,3235 @@
+number,created_at,merged_at,closed_at,files,additions,deletions,body_text,participants,comments
+400,2016-03-11T17:27:13Z,,2017-02-11T23:08:36Z,19,943,0,"Hi, I finalized issue #381 . I would appreciate it if somebody would review it. Thanks!",6,32
+483,2016-08-08T22:35:58Z,2016-10-18T04:43:01Z,2016-10-18T04:43:01Z,17,1038,1,Hey @iluwatar . Let me know if there are any issues with the implementation of the new pattern. Thanks.,3,22
+500,2016-10-04T12:37:44Z,2016-10-18T18:01:59Z,2016-10-18T18:01:59Z,2,13,0,"Fixes #436, #437.
+Lists drawbacks of the Service Locator and Singleton patterns.",3,6
+504,2016-10-11T10:27:06Z,,2016-11-26T13:16:15Z,34,2003,5,I closed previous Index table push because I hadn't updated the pom.xml file in it.,3,8
+512,2016-10-27T10:33:41Z,2016-12-01T18:53:12Z,2016-12-01T18:53:12Z,12,755,0,Pull request for Module pattern #62,3,8
+521,2016-11-20T11:05:54Z,2016-11-28T17:04:31Z,2016-11-28T17:04:31Z,16,776,5,"I have completed coding, design (UML), README.md. jUnit tests.
+This is my first code submission for open source.
+Please review and let me know the issues.
+I have one question,
+In the README.md file we have to generate the ""pumlid"". I don't know how to generate the same.
+As of now I have left it blank. Let me know how to generate the same.",2,16
+526,2016-12-08T16:04:35Z,2017-01-13T11:18:06Z,2017-01-13T11:18:06Z,6,83,1,"I have added blog for Queue-Based Load Leveling Pattern. Please review the same.
+There is one problem with images. I have added images to assets directory but still the images are not getting resolved. Please let me know how to resolve this issue.",3,13
+529,2016-12-16T10:44:19Z,2017-04-01T09:29:03Z,2017-04-01T09:29:03Z,13,929,2,"Example for using a ThreadLocal variable in a Runnable object. To show the problems when not using the Thread Local Storage pattern a second app named AppUgly is added. This second app does not use the Thread Local Storage pattern and produces exeception and / or bad results. For AppUgly no JUnit tests are provided because these would neither surely fail nor surley succeed. Both apps are described in the code (javadoc).
+I could not find a way to check the rendering of the READMD.md.",2,9
+532,2016-12-24T21:53:46Z,2017-01-23T06:21:08Z,2017-01-23T06:21:08Z,13,31,20,Adding noninstantiable class instead of interface constant idiom.,2,9
+533,2016-12-26T17:37:38Z,2017-01-21T11:24:13Z,2017-01-21T11:24:14Z,3,67,0,,2,1
+535,2017-01-05T21:04:02Z,,2017-04-22T11:58:12Z,18,545,0,,2,4
+536,2017-01-06T00:32:54Z,2017-03-26T12:00:22Z,2017-03-26T12:00:22Z,11,415,0,Pull request for Balking Pattern issue #66,2,4
+537,2017-01-06T00:35:27Z,2017-03-12T08:36:28Z,2017-03-12T08:36:28Z,9,300,1,pull request for guarded suspension pattern,2,6
+538,2017-01-25T22:11:55Z,,2017-04-22T11:58:36Z,14,631,0,,2,3
+544,2017-03-05T18:57:08Z,2017-04-22T12:17:32Z,2017-04-22T12:17:32Z,19,894,0,See issue #467,2,7
+546,2017-03-11T12:07:20Z,2017-04-01T11:17:38Z,2017-04-01T11:17:38Z,14,560,4,"My purpose of a Converter being a generic class instead of an interface was to enable very simple creation of an instance, providing only two converters as Java8 lambdas - very clean solution (example usage here: https://github.com/iluwatar/java-design-patterns/compare/master...Crossy147:converter?expand=1#diff-a47ad9e33423d70a452559b5562b8548R44)",2,4
+548,2017-03-21T17:21:29Z,2017-04-01T11:45:52Z,2017-04-01T11:45:53Z,105,575,282,"Added JavaDocType Rule
+Updated JavaDoc Comments
+Removed AvoidStarImport
+
+Please review.",2,0
+565,2017-04-12T16:02:04Z,2017-04-16T05:17:57Z,2017-04-16T05:17:57Z,1,1,1,"available.size() < 0 is impossible, so it has sense only in case available.size() = 0, and it means that collection is empty, besides function isEmpty() is faster, than checking of the size.",2,1
+566,2017-04-24T07:59:23Z,2017-05-16T18:59:50Z,2017-05-16T18:59:50Z,14,517,18,"The Event Queue is one of the Game Programming Patterns, it provides an asynchronous communications protocol, meaning that the sender and receiver of the event/message do not need to interact with the queue at the same time. I implemented in this PR a sound playing queue using this pattern.",2,10
+569,2017-04-28T10:04:33Z,2017-05-21T06:02:18Z,2017-05-21T06:02:18Z,3,133,11,"There are two types of dependency injection: Constructor dependency injection and Setter Dependency Injection. Both types have pluses and minuses and wide used (f.e. in Spring Framework). This patch describes second type of DI - Setter Dependency Injection.
+Class AdvancedSorceress is constructed by analogy with AdvancedWizard. Difference between them is in the way of dependency injection. Tests attached.",2,7
+571,2017-04-30T07:24:44Z,2017-05-15T05:13:29Z,2017-05-15T05:13:29Z,1,5,2,"The original code use PropertiesFeatureToggleVersion(), but for Block 3 case, it should use TieredFeatureToggleVersion().",2,1
+573,2017-05-03T19:25:37Z,2017-06-11T16:26:48Z,2017-06-11T16:26:48Z,25,676,0,Pull request for issue #541,2,5
+575,2017-05-07T08:00:16Z,2017-05-21T06:11:01Z,2017-05-21T06:11:01Z,1,16,0,Added few more points in applicability and also some use cases and consequences.,2,2
+576,2017-05-14T21:47:10Z,,2017-08-12T13:53:37Z,8,388,0,"Many Java applications have serious performance problems that can all be traced to one source - the use of double buffered graphics. Double buffered graphics is the trick of drawing into a off-screen buffer in main memory, and then copying the final image from the off-screen buffer to the screen. This trick has become part of the folklore of Java programming. How can you do flicker-free screen updates? The usual answer - use double buffered graphics. This is unfortunate. Double-buffered graphics are a massive performance hit for Java applications.",2,3
+579,2017-05-15T08:39:45Z,,2017-08-12T13:54:41Z,10,625,0,"Spatial-partition first part.
+Still needs to work on it, but would like to make the first pull req.",2,4
+580,2017-05-15T17:20:20Z,,2017-08-12T13:55:25Z,11,538,0,,2,3
+581,2017-05-16T20:25:18Z,,2017-08-12T13:56:32Z,9,391,0,,2,3
+583,2017-05-25T16:05:39Z,2017-08-12T13:58:01Z,2017-08-12T13:58:01Z,1,6,1,Added null check in private constructor to prevent instantiating by Reflection call,3,5
+588,2017-06-07T14:53:07Z,2017-06-14T17:14:09Z,2017-06-14T17:14:09Z,1,16,0,Adding Consequences and General usage of Adapter Pattern section to the Readme doc.,2,1
+589,2017-06-10T00:23:28Z,2017-06-14T17:19:44Z,2017-06-14T17:19:44Z,1,4,2,"Hello,
+I am a graduate student at Oregon State University and as a part of my research and subject CS562 Applied Software Engineering project (Study and Refactoring of Functional Interface in Java), I have done refactoring of the functional interface namely:
+
+BiFunction<Integer,Integer,Integer> --> IntBinaryOperator
+
+My project and research deals with the boxing and unboxing of Wrapper Class and the primitive data-types. I want to know that whether the open source community is ready to accept these micro-optimizing refactoring or not.
+Thank you,
+Harsh Thakor",2,1
+594,2017-06-15T22:05:12Z,,2017-07-04T20:56:39Z,1,1,1,,2,2
+595,2017-06-30T21:59:04Z,2017-07-29T17:45:55Z,2017-07-29T17:45:55Z,21,1142,0,,2,5
+597,2017-07-20T01:23:56Z,,2017-07-31T13:06:00Z,3,85,49,Fixed SonarQube reports bugs for dao module,3,2
+599,2017-07-22T22:35:56Z,2017-07-30T05:49:17Z,2017-07-30T05:49:17Z,6,26,40,,3,1
+604,2017-08-01T03:18:01Z,,2018-02-17T18:32:10Z,13,37,38,,4,5
+608,2017-08-11T11:29:21Z,2017-08-17T19:15:38Z,2017-08-17T19:15:38Z,10,438,0,Basic version of Data transfer object pattern implementation.,2,2
+610,2017-08-12T22:40:16Z,2017-09-03T08:46:12Z,2017-09-03T08:46:12Z,16,1441,1,,2,5
+629,2017-09-07T13:33:15Z,2017-09-11T19:30:12Z,2017-09-11T19:30:12Z,14,597,2,"#456
+Created throttling pattern which throttles request of a particular tenant.
+The service only allows a specified number of requests for a tenant and rejects the remaining ones.",2,4
+630,2017-09-09T00:37:12Z,,2018-02-17T18:38:31Z,18,2538,0,,4,9
+634,2017-09-15T22:27:50Z,2017-09-24T15:42:37Z,2017-09-24T15:42:37Z,2,25,26,,3,2
+636,2017-09-19T13:40:06Z,2017-09-23T06:35:36Z,2017-09-23T06:35:36Z,13,586,1,Implement Partial response pattern.,2,5
+641,2017-09-21T16:00:50Z,2017-09-26T04:35:43Z,2017-09-26T04:35:43Z,3,5,3,This PR is related to #547 which seems not a question to me but removed unused enumerations to avoid misunderstanding.,2,1
+642,2017-09-22T19:28:57Z,2017-12-03T19:02:49Z,2017-12-03T19:02:49Z,13,694,0,implement unit of work pattern,4,13
+644,2017-09-24T00:57:06Z,2018-02-17T18:39:52Z,2018-02-17T18:39:52Z,5,17,0,… and template method patterns,3,2
+646,2017-09-25T11:20:19Z,2017-10-09T05:28:58Z,2017-10-09T05:28:58Z,3,18,14,"Used AtomicLong instead of Integer in ConcurrentHashMap to make the increment calls atomic.
+Ref: 643",2,1
+648,2017-09-26T18:53:18Z,2017-10-09T05:30:44Z,2017-10-09T05:30:44Z,1,3,3,,3,4
+651,2017-10-04T17:12:58Z,2017-10-16T05:24:46Z,2017-10-16T05:24:46Z,10,260,1,"New pattern added - EIP Wire Tap.
+
+Added new directory - eip-wire-tap
+Added sources for wire tap pattern
+Added tests
+Added description to README.md file",2,7
+665,2017-11-08T00:14:52Z,2017-11-20T14:26:45Z,2017-11-20T14:26:45Z,3,79,10,"The explanation for the pattern mentions that it is ""a factory of factories"", but the example does not have any factory class that returns the concrete classes of KingdomFactory.
+This commit removes the direct instantiation of ElfKingdomFactory and OrcKingdomFactory from App.main() and delegates their creation to a new (factory of factories) FactoryMaker inner class of App.
+Even though the pattern itself does not necessarily need this, it helps to synchronize the explanation text with the coding example, making it easier to understand that statement.",2,3
+682,2017-12-25T13:53:59Z,2017-12-26T16:28:20Z,2017-12-26T16:28:21Z,1,1,0,"add CII Best Practices badge
+resolves #672",3,4
+684,2017-12-27T19:27:04Z,2017-12-30T07:53:29Z,2017-12-30T07:53:29Z,13,852,0,"Retry pattern
+
+Illustrates the Retry Pattern.
+Closes #451
+
+Description
+(NEW) Module ""retry""
+(NEW) Illustrative classes:
+      - App: simulates a production application
+      - BusinessOperation<T>: abstraction over any operation that can
+        potentially fail
+      - FindCustomer <: BusinessOperation<String>: illustrative
+        operation that can throw an error
+      - Retry <: BusinessOperation<T>: transparently implements the
+        retry mechanism
+      - Several ""business"" exceptions:
+        - BusinessException: top-level
+        - CustomerNotFoundException: can be ignored
+        - DatabaseNotAvailableException: fatal error
+(NEW) .puml and .png for UML",3,3
+687,2017-12-29T22:38:44Z,,2018-02-17T18:41:11Z,7,61,119,"with hook method. Also Request.isHandeld() can be used to interrupt
+chain
+Pull request title
+
+Clearly and concisely describes what it does
+Refer to the issue that it solves, if available
+
+Pull request description
+
+Describes the main changes that come with the pull request
+Any relevant additional information is provided
+
+
+For detailed contributing instructions see https://github.com/iluwatar/java-design-patterns/wiki/01.-How-to-contribute",2,1
+689,2017-12-31T07:38:35Z,2018-01-01T14:42:47Z,2018-01-01T14:42:48Z,408,2673,2182,"Migrate project to JUnit5
+
+Switched all modules to use junit platform
+If it is impossible to convert module to junit 5 engine, use vintage engine instead (run tests as junit4)
+Should potentially resolve #408",3,2
+690,2018-01-02T00:26:48Z,2018-01-02T17:29:15Z,2018-01-02T17:29:15Z,1,1,4,"This just cleans up leftovers from #689
+cc @iluwatar",2,1
+693,2018-01-02T10:31:52Z,2018-01-08T05:55:40Z,2018-01-08T05:55:40Z,5,88,102,"fixed the diagram bug and merge two pictures as one
+
+Clearly and concisely describes what it does
+As reporter says there has one error on the diagram, I've repaint the UML diagram and merge them together which make it clean and clear.
+
+Pull request description
+
+Describes the main changes that come with the pull request
+fixed the error and deleted unrelation pictures and files
+Any relevant additional information is provided",2,5
+695,2018-01-05T10:40:46Z,,2018-01-13T20:23:59Z,1,0,1,"Remove redundant explicit super() constructor calls #694
+Remove redundant explicit super() constructor
+The super() calls (taking no arguments) are inserted during compile time, so just make the code more verbose than required.",3,3
+696,2018-01-08T11:48:52Z,2018-02-25T06:45:37Z,2018-02-25T06:45:37Z,7,290,1,"Pull request title
+
+Add pattern trampoline.
+#677 -> #677
+
+Pull request description
+
+Add readme, code,test.
+
+
+For detailed contributing instructions see https://github.com/iluwatar/java-design-patterns/wiki/01.-How-to-contribute",2,7
+697,2018-01-11T05:24:40Z,2018-01-13T20:25:32Z,2018-01-13T20:25:32Z,7,1,9,"Removing all redundant super constructor calls,issue 694",2,1
+708,2018-01-27T08:46:20Z,2018-01-28T08:29:19Z,2018-01-28T08:29:19Z,1,1,1,IsServiceRunning is not stop.,2,1
+709,2018-01-27T15:03:13Z,2018-01-28T08:44:25Z,2018-01-28T08:44:25Z,14,96,47,"As per http://www.artima.com/intv/bloch13.html, clone method in java is
+broken or confusing. So staying away from clone method.
+SonarQube reports code smells #508
+
+SonarQube recommends Remove this ""clone"" implementation; use a copy constructor or copy factory instead
+
+Pull request description
+
+introduced copy method which uses copy constructor. keeps the implementation transparent and expect developer to make deep copy during copy operation.",3,1
+713,2018-02-07T19:11:23Z,2018-02-25T06:54:00Z,2018-02-25T06:54:00Z,11,36,8,"Use the TestInstance annotation in class to avoid static and  enable inhertied of methods refered by MethodSource.
+
+For detailed contributing instructions see https://github.com/iluwatar/java-design-patterns/wiki/01.-How-to-contribute",3,2
+714,2018-02-08T17:08:49Z,2018-04-08T17:01:42Z,2018-04-08T17:01:42Z,23,1558,0,"serveless implementation using aws compute engine and serverless framework
+
+serverless example implementation using aws compute engine and serverless framework
+function creates an info endpoint which provides data from lambda context
+resolves: #473 Serverless pattern
+
+Pull request description
+
+Implementation and documentation using aws compute engine and serverless framework",3,12
+716,2018-02-19T14:17:27Z,2018-03-07T19:52:51Z,2018-03-07T19:52:51Z,31,90,81,"Improve Javadoc
+This PR mainly fixs javadoc problems in
+
+Replace self-closing element, which should be not allowed since Javadoc in JDK8
+Fix break reference to class and member
+Javadoc html format update
+
+Please review.",2,3
+717,2018-02-19T16:10:42Z,2018-05-16T07:01:21Z,2018-05-16T07:01:21Z,11,377,1,Implementation of the Dirty Flag pattern,3,12
+723,2018-03-07T03:20:53Z,2018-03-11T19:59:14Z,2018-03-11T19:59:14Z,2,2,3,"Captain and RowingBoat aren't interchangable.
+Captain, as a client, may have a method to use the boat, but it isn't needed that they share the same interface, as it makes the code more confusing.",2,2
+726,2018-03-14T17:22:45Z,2018-03-24T14:24:06Z,2018-03-24T14:24:06Z,1,1,1,"Update link into badge URL as described in https://about.sonarcloud.io/news/2018/02/05/new-project-badges.html
+Fixes #725",2,1
+729,2018-03-20T18:52:11Z,2018-03-22T15:38:33Z,2018-03-22T15:38:33Z,1,1,1,Just fixed a little repetition in the javadoc comment.,2,1
+730,2018-03-28T05:42:08Z,2018-03-31T06:50:29Z,2018-03-31T06:50:29Z,13,41,41,"Adds the java annotation to the code snippets in the README files for each pattern that has them.
+This will also update the site pages when applied with changes on the gh-pages branch (PR incoming)",2,0
+731,2018-03-28T05:44:24Z,2018-03-31T06:53:27Z,2018-03-31T06:53:27Z,5,76,1,"Used in conjunction with changes in  #730
+
+Add syntax highlighting stylesheet
+Enabled syntax highlighting in Jekyll config settings
+Added the syntax highlighter gem to the Gemfile",2,5
+735,2018-04-06T20:34:00Z,,2018-08-01T12:00:28Z,1,34,29,"Trampoline pattern has logger object build error.
+The error fixed with using org.slf4j.Logger.
+Instead of using anatation, Logger object is created for logging.",2,2
+736,2018-04-06T21:37:20Z,,2018-08-01T12:01:14Z,3,36,22,"The AppTest class in factory pattern has an error because of junit-platform-launcher' eclipse bug on version Oxygen.3 Release (4.7.3).
+Dependency 'junit-platform-launcher' is added to pom.xml for running test classes.
+For detail info about Eclipse bug, please click here.",2,2
+740,2018-04-09T23:41:14Z,2018-04-12T17:37:31Z,2018-04-12T17:37:31Z,1,1,1,"The command in file CODE_COVERAGE.md creates jacoco.exec files but not the reports.
+This pull request changes the command to generate the reports, making the rest of the file correct.",2,1
+743,2018-04-11T08:16:23Z,2018-04-12T17:39:46Z,2018-04-12T17:39:46Z,2,3,6,Cleanup unnecessary code of Reactor pattern.,2,1
+744,2018-04-12T12:39:43Z,2018-04-12T18:02:08Z,2018-04-12T18:02:08Z,16,16,16,"Applied the eip-xxx naming convention to ""Message Channel"" and ""Publish Subscribe"" patterns.
+Resolve #733",2,1
+747,2018-04-22T13:24:16Z,,2019-07-21T14:33:11Z,10,467,0,"Implementation of the Combinator pattern
+Watch only last commit.",3,10
+751,2018-05-24T15:18:50Z,,2018-08-01T12:02:58Z,11,353,0,"The test cases contained in this PR were automatically generated by Diffblue's Deeptest software.
+Please feel free to merge them into your repository.
+These tests, and others similarly generated, can be viewed at http://diff.blue/demo.
+We would be very happy to hear any feedback you have on these tests.",3,3
+753,2018-05-27T14:33:50Z,2018-06-28T08:25:33Z,2018-06-28T08:25:33Z,20,929,0,Acyclic Visitor pattern implementation,4,7
+755,2018-06-04T21:52:31Z,2018-07-08T06:55:37Z,2018-07-08T06:55:37Z,12,653,1,"Ambassador Pattern
+
+Implementing the ambassador pattern suggested in this issue.
+
+Pull request description:
+
+Added a new module 'ambassador' and its implementation
+PR includes implementation, tests for each class and README.md with detailed description.",2,2
+763,2018-07-01T14:50:43Z,2018-08-10T19:42:10Z,2018-08-10T19:42:10Z,6,210,90,"It's a first proposal add interface primary ports for this issue #586.
+I have adapted the ConsoleLottery with LotteryService Interface and implemented this. The ConsoleLottery create a new instance of LotteryServiceImpl and move this logic in the LotteryServiceImpl.
+Maybe it's not a the best name for this class, but if you like the implementation, I will adapt the names of the classes and do the same with ConsoleAdministration.
+@iluwatar Do you like this adaptation for Hexagonal Architecture with interface?",2,4
+767,2018-07-08T16:18:39Z,2018-09-08T18:51:46Z,2018-09-08T18:51:46Z,13,776,2,"Added an implementation of Collection Pipeline Pattern.
+Added a new module 'collection-pipeline'.",4,9
+779,2018-08-05T01:15:33Z,2018-08-30T07:16:13Z,2018-08-30T07:16:13Z,15,572,179,"In a nutshell: Implemented a BSTIterator that iterates in-order, given a root node. README.md in /binarysearchtree discusses the trivial solution, and an optimal solution (the one implemented in this PR) in depth.
+Included comprehensive unit and integration tests. Refactored file structure to be friendly to future contributors with iterators of other data structures. Added JUnitPlatform to enable running test suite across all iterator implementations. Added README to /binarysearchtree to document what it does and how it works.
+This is my first PR against an open source project, would love feedback!",3,10
+787,2018-08-21T02:38:22Z,2018-08-21T05:50:17Z,2018-08-21T05:50:17Z,2,3,2,Fixed minor changes suggested by the Checkstyle guidelines.,3,1
+788,2018-08-23T13:10:52Z,2018-08-28T07:47:17Z,2018-08-28T07:47:17Z,1,1,4,"This pull request was created automatically as part of our ongoing efforts
+at https://diffblue.com to implement refactorings. Feel free to leave feedback
+here or contact us directly for any enquiries.
+The developer in charge is @krobelus.
+Changes:
+
+Replace try statements that close a resource in the finally block with a
+try-with-resources statement [1].
+
+[1] https://docs.oracle.com/javase/tutorial/essential/exceptions/tryResourceClose.html",3,1
+791,2018-09-06T14:52:17Z,2018-09-08T18:54:43Z,2018-09-08T18:54:43Z,2,7,10,"Refactor the Execute Around pattern to use a lambda. Lambdas make such patterns feel lighter weight.
+I first heard about this pattern in a talk by Venkat Subramanian. The thrust of the talk was that lambdas made such patterns nicer.
+I extracted the lambda to its own variable to make clearer the type it's implementing.",3,1
+792,2018-09-08T15:54:55Z,,2019-07-21T14:45:08Z,20,1091,2,"Implementation of various interchangeable Game Loops.
+The game loop pattern allows state and render to be updated in a loop. Based on the implementation, this can be together or independently.
+Issue #551
+Implementation includes:
+
+Swing display and game state
+Interchangeable loops
+Descriptions of loops in README
+UML Diagram",4,11
+793,2018-09-11T10:00:35Z,2018-10-13T15:28:41Z,2018-10-13T15:28:41Z,1,3,5,Fix redundant list alloc in LotteryNumbers,4,1
+794,2018-09-11T10:32:38Z,2018-09-25T19:45:26Z,2018-09-25T19:45:26Z,4,12,10,"Removed unchecked cast from acyclic visitor and used instanceof instead
+Improved javadocs a bit",2,0
+796,2018-09-24T09:14:38Z,2018-09-25T19:49:25Z,2018-09-25T19:49:25Z,3,2,46,"This addresses issue #795
+Both output.txt and error.txt are produced by tests.
+Each file contained a header that was overridden upon executing said
+tests causing tracked files to be changed.
+Added them to a local .gitignore file for this module.
+Apologies for creating a separate issue, I don't often use Github Pull requests.",2,1
+797,2018-09-29T09:26:02Z,,2018-11-06T19:47:58Z,35,2127,3,"Added new implementation of retry pattern with the exponential back-off : delay time increases exponentially with number of attempts, stops increasing once maxDelay is reached.
+Update: Added Spatial Partition design pattern.",4,14
+800,2018-10-15T03:46:02Z,2018-10-21T05:46:25Z,2018-10-21T05:46:25Z,5,10,10,"Remove redundant Exception from throws list in unit tests.
+If we assign new clubberTroll instance with the same variable, it will be wrapped by itself.",3,2
+801,2018-10-15T07:56:33Z,2018-10-21T06:54:28Z,2018-10-21T06:54:29Z,15,75,94,"Refactored LotteryNumbers to use Joiner from guava library to join lottery numbers.
+Solved potential thread safety issue in LotteryTicketId class, where it was using raw primitive value and incrementing it which is not thread-safe. So used AtomicInteger for brevity
+assertEquals arguments were in incorrect order at many places, so changed order of those
+Replaced assertFalse and assertTrue at some places with assertEquals and assertNotEquals for reducing complexity of code
+Removed public modifiers from test cases, as they are no more needed by JUnit 5",3,0
+802,2018-10-15T11:09:17Z,2018-10-21T06:25:07Z,2018-10-21T06:25:07Z,3,59,28,"Resolves #699
+While performing unit test cases there was race condition between two threads, so it was not guaranteed to work every time. Used an interface DelayProvider for simulating delay, and while unit testing fake delay provider is used that eradicates the use of Threads in unit test cases, which is not a good practice.
+This issue could also have been resolved by increasing the Thread.sleep(50) interval to higher value, but being design patterns repository I opted for better approach of not using threads when unit testing, due to complication of unit testing.
+
+ Update class diagram if needed. DelayProvider is an internal class so I am not sure if we should incorporate it in class diagram
+ Do we have a better name than DelayProvider?",3,1
+803,2018-10-15T12:03:36Z,2018-10-21T18:14:08Z,2018-10-21T18:14:08Z,9,120,27,"Resolves #643
+Root Cause
+Test cases failed due to presence of global state in CallsCount. Because AppTest was executed before B2BServiceTest, it scheduled 1 sec timer using ThrottleTimerImpl class. While resetting it used that global CallCount.reset() method, which reset all counters. So that causes thread safety issue because of unintended sharing of application state between test cases, which is not a good practice.
+Solution
+Solution was not to have global state using static map. Rather global state should be maintained using single object and passing that as dependency wherever needed.
+Todos
+
+ Update class diagram. (Once solution is approved)",2,2
+805,2018-10-15T14:49:02Z,2018-10-21T18:12:04Z,2018-10-21T18:12:04Z,7,65,14,"Changes
+
+Updated test cases to use Junit Assert method as compared to assert keyword
+Proper testing of RemoteService using RandomProvider interface. Introduced RandomProvider interface so that randomness can be controlled from test cases.
+For readability used constant for representing FAILURE
+
+Todos
+
+ Update class diagram once refactoring is approved -> no class diagram",3,2
+806,2018-10-16T06:51:36Z,2018-10-21T18:15:34Z,2018-10-21T18:15:34Z,4,64,43,"Test cases were not stopping AudioService before ending test case, but test comments suggested differently.
+
+// test that service is finished
+ assertFalse(!audio.isServiceRunning()); // which is equivalent to service is running
+
+
+
+Changed Audio to be a good singleton, previously because of Audio being bad singleton, test cases which were using static methods could have caused intermittent failures. After changes now each test case has dedicated instance of Audio service which provides isolation between test cases.
+
+
+Made stop() method blocking till service stops
+
+
+Made some other refactorings as well
+
+
+Todo
+
+ Update class diagram once PR is approved.",3,4
+807,2018-10-20T12:24:30Z,2018-10-23T08:15:41Z,2018-10-23T08:15:41Z,112,312,463,"Removed several use of raw types
+Removed unnecessary throws clauses
+Used lambda expressions wherever applicable
+Used apt assertion methods for readability
+Use of try with resources wherever applicable
+Corrected incorrect order of assertXXX arguments",3,9
+810,2018-10-20T23:31:14Z,2018-10-25T13:13:59Z,2018-10-25T13:13:59Z,4,195,234,"Fix blocker issues on sonar
+Solves #508
+
+Fix the 4 blocker issues related to :
+naked-objects-dom
+naked-objects-integtests",4,9
+812,2018-10-22T22:44:28Z,2018-10-24T20:17:47Z,2018-10-24T20:17:47Z,19,1121,18,"Refactor page-object
+
+Solves #524
+The goal here was to move all sources placed in src/test instead of src/main to be able to used the uml-reverse-mapper.
+
+Pull request description :
+
+
+Create 2 Sub modules such as in the initial commit from @colinbut :
+
+sample-application : that represents the sample application under test.
+test-automation : that represents the test project which tests that sample application
+
+
+
+The second commit was to replace e.printStackTrace with a Logger like recommanded by Sonar.
+
+
+PS : I update the root pom.xml to remove the scope ""test"" under net.sourceforge.htmlunit because now we need it for the test-automation src/main folder.",2,1
+814,2018-10-25T15:09:35Z,2018-10-27T11:09:16Z,2018-10-27T11:09:16Z,10,23,30,"Fixed wrong 'else if' (it had the same condition as previous 'if' but it should have been just 'else')
+Fixed typo and changed Finnish 'saldo' word to 'balance'
+Deleted unused imports
+Simplified few other things",3,1
+821,2018-11-09T02:35:35Z,,2019-07-21T14:46:19Z,3,32,0,"I think it's a good idea adding one more example to the Adapter pattern
+Add another example to the Adapter pattern",2,1
+827,2018-11-22T03:52:02Z,2018-11-25T17:35:23Z,2018-11-25T17:35:23Z,1,1,3,We don't need declare App class of module pattern as a utility class.,2,1
+828,2018-11-27T01:39:25Z,2018-12-22T21:37:32Z,2018-12-22T21:37:32Z,14,914,0,Spatial partition pattern implementation,2,2
+829,2018-12-01T12:24:36Z,2019-02-04T06:27:14Z,2019-02-04T06:27:14Z,3,246,0,Retry exponential backoff implementation,2,1
+831,2018-12-02T09:46:35Z,2019-02-13T21:04:17Z,2019-02-13T21:04:17Z,19,1016,0,Master worker pattern implementation,2,5
+842,2019-01-30T15:25:40Z,,2019-07-21T14:50:09Z,7,13,14,"I was inspecting this project on lgtm.com, and decided to polish it a bit by fixing those nit picks.
+Each alert shown on lgtm has a little (?) in the top right corner that explains it.",3,2
+848,2019-02-09T07:20:53Z,2019-07-24T19:08:31Z,2019-07-24T19:08:31Z,13,877,0,Type object pattern implementation,4,3
+851,2019-02-11T09:57:35Z,,2019-10-15T17:27:54Z,15,361,0,"Pull request title
+
+Implemented Component Pattern
+#556
+
+Pull request description
+
+Added new package named ""component "" to implement component pattern
+Any relevant additional information is provided",2,2
+852,2019-02-13T10:27:54Z,2019-07-28T12:39:41Z,2019-07-28T12:39:41Z,17,146,87,"Pull request title
+
+Sonar Queb Issue :  Move constants to a class or enum.
+#508
+
+Pull request description
+
+Fixes Sonar Qube Critical Issue : Move constants to a class or enum.",3,2
+853,2019-02-13T21:47:58Z,2019-02-15T17:55:24Z,2019-02-15T17:55:24Z,1,1,1,Fixing issue #846,2,2
+854,2019-02-15T08:17:59Z,2019-07-28T12:42:04Z,2019-07-28T12:42:04Z,3,72,55,"Refactor this method to reduce its Cognitive Complexity from 30 to the 15 allowed.
+Pull request title
+
+Sonar Qube COmplexity Issue Fixes
+#508
+
+Pull request description
+
+Cognitive Compexity of Methods has been reduced in these commits",2,3
+855,2019-02-15T12:04:26Z,2019-02-15T18:00:22Z,2019-02-15T18:00:22Z,1,11,0,"Pull request title
+
+Added the FAQ in faq.md
+#756
+
+Pull request description
+
+Faq added",2,1
+856,2019-02-15T18:46:41Z,2019-02-16T20:53:07Z,2019-02-16T20:53:07Z,1,1,4,"Pull request title
+
+unnecessary if-else-return deleted
+#845
+
+Pull request description
+
+unnecessary if-else-return deleted",3,1
+857,2019-02-17T10:38:46Z,2019-07-29T18:09:09Z,2019-07-29T18:09:09Z,32,2620,0,Commander pattern implementation attempt,2,3
+864,2019-03-22T21:42:49Z,2019-04-07T05:41:35Z,2019-04-07T05:41:35Z,1,2,2,"Two sentences read a little awkward, so I tweaked them.
+
+""Design patterns are formalized best practices that the programmer can use"" -> ""Design patterns are the best formalized practices a programmer can use""
+""Reusing design patterns helps to prevent subtle issues that can cause major"" -> ""Reusing design patterns help prevent subtle issues which cause major
+
+Hope this helps!",3,1
+869,2019-04-08T10:37:24Z,2019-07-29T18:12:14Z,2019-07-29T18:12:14Z,3,3,3,"Dear all,
+Should we apply best practice when compare enum in this case?
+Reference: https://stackoverflow.com/questions/1750435/comparing-java-enum-members-or-equals
+Thanks,",2,1
+872,2019-04-15T10:13:10Z,2019-07-29T18:16:22Z,2019-07-29T18:16:22Z,1,5,5,Fix the dependency conflict issue #868,2,3
+879,2019-05-14T08:14:32Z,2019-07-29T18:22:57Z,2019-07-29T18:22:57Z,1,1,1,Typo coresponding -> corresponding,2,1
+880,2019-05-23T16:06:47Z,2019-07-29T18:27:09Z,2019-07-29T18:27:09Z,1,7,10,"Bug fix for (#860  )
+
+fixed the failing tests for twin pattern
+
+Pull request description
+
+removed the timeout from VerificationMode passed to mockito verify method. This timeout was cause for failure. It seemed redundant as well, as there is a timeout on the test itself.
+Also, the tests were failing because the ballThread.start wasn't getting started fast enough and the Mockito verify gets called before the thread initialization.",4,8
+882,2019-05-30T14:24:15Z,2019-07-29T18:31:42Z,2019-07-29T18:31:42Z,1,1,0,"Added one more credit/article about the benefits of Repository pattern
+
+added a thread from Stack Overflow about the benefits of Repository Pattern",3,2
+885,2019-06-11T17:23:28Z,2019-08-04T14:11:56Z,2019-08-04T14:11:56Z,1,1,1,"Bug fix for (#883 )
+
+fixed | Pass same instance ""World"" object for schedule Job
+
+Pull request description
+
+Create single instance ""World"" object for schedule Job.
+
+
+For detailed contributing instructions see https://github.com/iluwatar/java-design-patterns/wiki/01.-How-to-contribute",2,1
+886,2019-06-11T21:53:50Z,,2019-10-15T17:31:21Z,2,10,5,"fix two dirty-flag's issues:
+
+every time new World is created. It leads that wolds.txt is always dirty.
+seems ""File file = new File(classLoader.getResource(filename).getFile());"" doesn't take into account any updates in the check file during runtime.
+
+Pull request description
+
+instantiate World only once. it fix the issue with the state;
+replace new File(classLoader.getResource(filename).getFile()); to new File(path) to take into account any changes in world.txt file in runtime;
+
+
+For detailed contributing instructions see https://github.com/iluwatar/java-design-patterns/wiki/01.-How-to-contribute",3,3
+888,2019-06-15T13:10:02Z,2019-08-31T18:10:36Z,2019-08-31T18:10:36Z,10,616,7,"Added priority queue design pattern
+
+Application posting a message can assign a priority to a message and the messages in the queue are automatically reordered so that messages with a higher priority will be received before those of a lower priority.
+Issue - #449
+
+Pull request description
+
+Implemented https://docs.microsoft.com/en-us/previous-versions/msp-n-p/dn589794(v=pandp.10)",3,3
+889,2019-06-16T07:14:00Z,2019-09-30T15:19:08Z,2019-09-30T15:19:08Z,13,633,0,"Pull request title
+
+Implemented Game Programming/Optimisation  Data Locality Patterns
+Modern CPUs have caches to speed up memory access. These can access memory adjacent to recently accessed memory much quicker. Take advantage of that to improve performance by increasing data locality — keeping data in contiguous memory in the order that you process it.
+
+Pull request description
+
+Ref http://gameprogrammingpatterns.com/data-locality.html",2,1
+890,2019-06-21T02:40:22Z,2019-08-11T18:06:28Z,2019-08-11T18:06:28Z,1,1,1,"Fix code example in Ambassador pattern
+
+Fixed syntax error in code example in README",2,1
+901,2019-07-19T05:41:51Z,2019-09-07T17:24:40Z,2019-09-07T17:24:40Z,1,1,1,"Code comment change.
+Hayes modem with Unix configurator to Hayes modem with Dos configurator",2,2
+910,2019-07-26T21:26:25Z,2019-09-07T18:07:02Z,2019-09-07T18:07:02Z,1,3,4,Use functional style code and direct foreach instead of entrySet one.,2,1
+911,2019-07-27T07:36:07Z,2019-07-28T11:20:18Z,2019-07-28T11:20:19Z,1,1,0,"Change Travis CI Build Environment to Trusty
+
+
+This PR is to fix an issue causing the Travis CI build to fail.  The problem seems to have stemmed from the build using Travis CI's Xenial build environment, which would not allow you to install anything less than java 9.
+
+
+This is in reference to Issue #903.
+
+
+Pull request description
+
+The only change made here is one line of code telling Travis CI to use the Trusty build environment instead of the Xenial one.",2,1
+913,2019-07-29T21:53:15Z,2019-07-30T04:53:21Z,2019-07-30T04:53:21Z,1,13,0,"This PR makes Travis CI use Java 8, which requires the Trusty build environment.
+Refer to the issue #912
+
+This comes from a known issue with the S3_website repo, which is not actively maintained. It seems to not support anything higher than Java 8, which makes the gh-pages build fail when Travis CI tries to use Java 11.",2,3
+916,2019-07-30T06:55:13Z,2019-07-30T19:46:38Z,2019-07-30T19:46:39Z,115,116,692,"Recreate this PR for resolving the conflict for this PR:
+#867
+Recap:
+So should we remove junit-jupiter-api dependency in where we already have junit-jupiter-engine?
+Reference: https://stackoverflow.com/questions/48448331/difference-between-junit-jupiter-api-and-junit-jupiter-engine
+
+Thank all for reading,",2,2
+919,2019-08-29T15:49:34Z,2019-09-07T17:52:49Z,2019-09-07T17:52:49Z,7,12,0,"added @OverRide annotation when overriding a method, it helps prevent errors.",3,1
+920,2019-09-05T06:00:01Z,2019-09-07T18:13:16Z,2019-09-07T18:13:16Z,3,25,1,"This PR solves issue #761
+
+Add a flag to record whether the constructor is invoked for the first time. If not, throw corresponding exception.
+Add test case to test creating new instance by reflection.",3,2
+921,2019-09-05T12:53:40Z,2019-09-07T18:18:13Z,2019-09-07T18:18:13Z,2,3,4,"Pull request title :
+Fix broken links
+#915
+Pull request description :
+
+Changed the link of BSD Unix networking subsystem (In Real world examples and Credits in half-sync-half-async/README.md)
+Changed the link of Struts 2 - Interceptors (In intercepting-filter/README.md)
+Removed the credits of Presentation Tier Patterns from Javagyan tutorial as Javagyan does not seem to be available now.",2,1
+923,2019-09-12T07:35:30Z,2019-10-08T15:30:00Z,2019-10-09T18:06:49Z,22,1719,0,"This PR fixes issue #447
+Implemented leader election pattern with the following algorithm:
+
+Token-ring
+Bully",2,4
+926,2019-09-19T18:37:22Z,2019-09-20T05:08:44Z,2019-09-20T05:08:44Z,1,2,3,"Doc update for Adapter pattern
+
+Updating doc for Adapter pattern, where the doc shows different code from src code.
+This should resolve issue#925
+
+Pull request description
+
+This pull request contains cosmetic change in README.md file only for ADAPTER pattern",2,1
+927,2019-09-20T09:33:59Z,2019-09-30T15:27:03Z,2019-09-30T15:27:03Z,1,0,1,"Updating partial-response doc to remove deadline
+As pointed out in issue#915 travis was failing due to a dead link, tried searching for the page if it moved to somewhere else, but couldn't find it
+Pull request description
+
+Updating README.md file for partial-response to get rid of dead link",2,2
+931,2019-09-29T14:32:26Z,2019-09-30T15:32:30Z,2019-09-30T15:32:30Z,2,18,0,"Bug fix for  (#929 )
+
+fixed the unclosed threads for half-sync-half-async pattern
+
+Pull request description
+
+add a close method to the AsynchronousService class, to wait for all tasks to be completed and shutdown the service
+call the close method at the end of the main thread",2,1
+935,2019-10-01T14:51:51Z,2019-10-01T18:34:19Z,2019-10-01T18:34:19Z,1,1,1,"Pull request description
+I have increased the sleep time from 200 -> 300.
+There is a Thread.sleep of 250 https://github.com/iluwatar/java-design-patterns/blob/master/twin/src/main/java/com/iluwatar/twin/BallThread.java#L60
+So having 200 causes the test to be flaky sometimes as reported in #922
+
+For detailed contributing instructions see https://github.com/iluwatar/java-design-patterns/wiki/01.-How-to-contribute",2,1
+937,2019-10-02T05:44:46Z,2019-10-02T07:53:58Z,2019-10-02T07:53:58Z,1,5,0,"Pull request title
+
+Clearly and concisely describes what it does
+Refer to the issue that it solves, if available
+
+Pull request description
+
+Describes the main changes that come with the pull request
+Any relevant additional information is provided
+
+
+For detailed contributing instructions see https://github.com/iluwatar/java-design-patterns/wiki/01.-How-to-contribute",2,1
+952,2019-10-05T11:52:31Z,2019-10-05T15:01:24Z,2019-10-05T15:01:24Z,1,5,0,"This fixes build warnings in #939
+
+By adding the JXR plugin the PMD report can pickup links in site and warning disappears.
+
+No more ""[WARNING] Unable to locate Source XRef to link to - DISABLED"" in output when building project.",2,1
+953,2019-10-05T12:30:46Z,2019-10-05T14:13:08Z,2019-10-05T14:13:08Z,2,5,9,"This fixes following issues during build process, #944.
+[WARNING]
+[WARNING] Some problems were encountered while building the effective model for com.iluwatar:image-microservice:jar:1.22.0-SNAPSHOT
+[WARNING] 'build.plugins.plugin.version' for org.springframework.boot:spring-boot-maven-plugin is missing. @ com.iluwatar:image-microservice:[unknown-version], /home/travis/build/iluwatar/java-design-patterns/api-gateway/image-microservice/pom.xml, line 55, column 15
+[WARNING]
+[WARNING] Some problems were encountered while building the effective model for com.iluwatar:price-microservice:jar:1.22.0-SNAPSHOT
+[WARNING] 'build.plugins.plugin.version' for org.springframework.boot:spring-boot-maven-plugin is missing. @ com.iluwatar:price-microservice:[unknown-version], /home/travis/build/iluwatar/java-design-patterns/api-gateway/price-microservice/pom.xml, line 57, column 15
+[WARNING]
+[WARNING] Some problems were encountered while building the effective model for com.iluwatar:api-gateway-service:jar:1.22.0-SNAPSHOT
+[WARNING] 'build.plugins.plugin.version' for org.springframework.boot:spring-boot-maven-plugin is missing. @ com.iluwatar:api-gateway-service:[unknown-version], /home/travis/build/iluwatar/java-design-patterns/api-gateway/api-gateway-service/pom.xml, line 64, column 15
+[WARNING]
+[WARNING] Some problems were encountered while building the effective model for com.iluwatar:information-microservice:jar:1.22.0-SNAPSHOT
+[WARNING] 'build.plugins.plugin.version' for org.springframework.boot:spring-boot-maven-plugin is missing. @ com.iluwatar:information-microservice:[unknown-version], /home/travis/build/iluwatar/java-design-patterns/aggregator-microservices/information-microservice/pom.xml, line 57, column 21
+[WARNING]
+[WARNING] Some problems were encountered while building the effective model for com.iluwatar:aggregator-service:jar:1.22.0-SNAPSHOT
+[WARNING] 'build.plugins.plugin.version' for org.springframework.boot:spring-boot-maven-plugin is missing. @ com.iluwatar:aggregator-service:[unknown-version], /home/travis/build/iluwatar/java-design-patterns/aggregator-microservices/aggregator-service/pom.xml, line 64, column 21
+[WARNING]
+[WARNING] Some problems were encountered while building the effective model for com.iluwatar:inventory-microservice:jar:1.22.0-SNAPSHOT
+[WARNING] 'build.plugins.plugin.version' for org.springframework.boot:spring-boot-maven-plugin is missing. @ com.iluwatar:inventory-microservice:[unknown-version], /home/travis/build/iluwatar/java-design-patterns/aggregator-microservices/inventory-microservice/pom.xml, line 56, column 21
+[WARNING]
+[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
+[WARNING]
+[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
+[WARNING]
+[WARNING] The project com.iluwatar:naked-objects:pom:1.22.0-SNAPSHOT uses prerequisites which is only intended for maven-plugin projects but not for non maven-plugin projects. For such purposes you should use the maven-enforcer-plugin. See https://maven.apache.org/enforcer/enforcer-rules/requireMavenVersion.html",2,1
+957,2019-10-05T19:25:49Z,2019-10-06T16:06:40Z,2019-10-06T16:06:40Z,2,20,0,"Issue:
+JAXB API and javax.Annotations were removed from jdk11, so some tests were failing.
+Changes:
+Add javax.annotation and java.xml.bind as external maven dependencies
+Verification:
+Verified tests with jdk-11",2,1
+958,2019-10-05T19:57:19Z,2019-10-06T15:27:40Z,2019-10-06T15:27:40Z,2,10,4,"Issue:
+Exception Handling code in Aggregator Microservices module was not complete.
+Changes:
+Handle ClientProtocolException and update error log messages.",2,3
+960,2019-10-06T10:40:17Z,2019-10-08T04:42:54Z,2019-10-08T04:42:55Z,14,72,54,Upgrade camel and spring-data to resolve the security vulnerabilities issue reported by Github.,2,3
+967,2019-10-06T17:12:55Z,2019-10-08T06:19:29Z,2019-10-08T06:19:29Z,11,464,0,"A sample implementation of the pipeline pattern.
+Resources:
+
+The Pipeline Pattern — for fun and profit
+The Pipeline design pattern (in Java)
+Pipelines | Microsoft Docs",3,6
+968,2019-10-07T02:05:13Z,2019-10-07T16:10:27Z,2019-10-07T16:10:27Z,1,3,3,Update dependencies reported by FDU Software Engineering Lab,2,1
+971,2019-10-07T20:35:04Z,2019-11-01T18:01:31Z,2019-11-01T18:01:31Z,3,24,6,"Changes:
+Add fall backs in Aggregator Service when other microservices fail. Default error messages (Product Title and Inventory) are returned to the user.",2,3
+972,2019-10-08T06:47:12Z,2019-10-08T15:08:58Z,2019-10-08T15:08:58Z,1,2,2,"Changes: Repaired logging in Repository design pattern, to print logs into the console.",3,1
+975,2019-10-10T12:57:41Z,2019-10-11T18:55:48Z,2019-10-11T18:55:49Z,10,169,3,"Added maven profiles activated by jdk 11, wich will not break java 8 support.
+Bumped lombok and datanucleus enhancer as the old versions dont work with 11.
+Pull request title
+
+Clearly and concisely describes what it does
+Refer to the issue that it solves, if available
+
+Pull request description
+
+Describes the main changes that come with the pull request
+Any relevant additional information is provided
+
+
+For detailed contributing instructions see https://github.com/iluwatar/java-design-patterns/wiki/01.-How-to-contribute",4,12
+979,2019-10-11T19:30:07Z,2019-10-12T09:58:49Z,2019-10-12T09:58:49Z,2,0,53,"Remove maven-pmd-plugin from the project
+
+deleted XML parts which were responsible for adding of maven-pmd-plugin, also deleted exclude-pmd.properties.
+#977",2,1
+980,2019-10-11T19:50:31Z,2019-10-12T05:39:59Z,2019-10-12T05:39:59Z,9,75,138,"Moved java XML and annotations dependencies to project level instead
+of as profiles
+
+
+Set compiler language level to 11
+
+
+Removed jdk8 from travis build
+
+
+Kept java level 8 in naked-objects/dom for datanucleus enhancer, for
+now.
+
+
+Pull request title
+
+Clearly and concisely describes what it does
+Refer to the issue that it solves, if available
+
+Pull request description
+
+Describes the main changes that come with the pull request
+Any relevant additional information is provided
+
+
+For detailed contributing instructions see https://github.com/iluwatar/java-design-patterns/wiki/01.-How-to-contribute",2,0
+982,2019-10-12T04:08:57Z,2019-10-13T20:41:12Z,2019-10-13T20:41:12Z,50,163,410,Replaces all usages of log4j with the Slf4j API. This PR also removes references of log4j in pom and resource files.,2,6
+986,2019-10-12T14:37:04Z,2019-10-14T18:32:20Z,2019-10-14T18:32:20Z,13,772,0,"Fixes issue #413 by adding an implementation of circuit breaker pattern
+
+Added the Circuit Breaker Pattern
+Wrote test cases with nearly 100% coverage for all of the component classes (except the main class)
+
+An example output:
+
+Code Coverage Report:
+
+Please mention whether something else needs to be done for this PR 😄",2,16
+992,2019-10-12T19:34:43Z,,2019-10-14T17:41:38Z,7,103,103,"Replaced all of the Apache HttpClients with Java's java.net.http
+This is to address ticket #988. As of Java 11 the HTTP Client provides mechanism to perform HTTP requests without the need of an external, third-party library.
+Pull request description
+
+
+All pom.xml files that had org.apache.httpcomponents in the dependencies no longer have this as a dependency.
+
+
+All Java files that were using any of the components of the org.apache.httpcomponents.httpClient have been modified to have equivalent code using java.net.http.",2,1
+994,2019-10-12T20:03:29Z,,2019-10-14T16:54:07Z,8,0,0,"#993 The source directory was not working in the 2019.09 version of Eclipse. The
+problem was in the layout of the project: after the src/main/java and
+src/test/java, the directory was naed com.iluwatar.pipeline. It should've
+been com/iluwatar/pipeline. This follows the hierarchy of all of the other
+patterns.
+Once these files were moved, the Pipeline project compiled without errors.",3,3
+995,2019-10-12T22:23:19Z,2019-10-21T05:09:29Z,2019-10-21T05:09:29Z,17,110,110,"Update the following patterns with local variable type inference:
+
+typeobjectpattern
+unit-of-work
+value-object
+visitor
+
+This solves part of issue #984.",2,2
+1003,2019-10-14T17:43:08Z,2019-10-15T16:14:09Z,2019-10-15T16:14:09Z,7,64,68,"Replaced all of the Apache HttpClients with Java's java.net.http
+This is to address ticket #988. As of Java 11 the HTTP Client provides mechanism to perform HTTP requests without the need of an external, third-party library.
+Pull request description
+All pom.xml files that had org.apache.httpcomponents in the dependencies no longer have this as a dependency.
+All Java files that were using any of the components of the org.apache.httpcomponents.httpClient have been modified to have equivalent code using java.net.http.",2,1
+1004,2019-10-14T18:23:29Z,2019-10-15T16:21:08Z,2019-10-15T16:21:08Z,8,0,0,"The source directory was not working in the 2019.09 version of Eclipse. The
+problem was in the layout of the project: after the src/main/java and
+src/test/java, the directory was naed com.iluwatar.pipeline. It should've
+been com/iluwatar/pipeline. This follows the hierarchy of all of the other
+patterns.
+Once these files were moved, the Pipeline project compiled without errors.
+Pull request title
+
+Clearly and concisely describes what it does
+Refer to the issue that it solves, if available
+
+Pull request description
+
+Describes the main changes that come with the pull request
+Any relevant additional information is provided
+
+
+For detailed contributing instructions see https://github.com/iluwatar/java-design-patterns/wiki/01.-How-to-contribute",2,1
+1006,2019-10-14T19:35:46Z,2019-10-15T16:33:37Z,2019-10-15T16:33:37Z,1,4,2,"Intermittent test failure in Spatial Partition pattern #1001
+Tested with repeated test for a sample of 10000 repeatitions to ensure intermittent issue doesn't come again.
+
+field should exist within the queryrange not other way.
+
+
+For detailed contributing instructions see https://github.com/iluwatar/java-design-patterns/wiki/01.-How-to-contribute",2,1
+1008,2019-10-14T20:41:48Z,2019-10-15T16:37:36Z,2019-10-15T16:37:36Z,1,5,5,"#1001 QuadTreeTest was showing intermittent failures.
+The problem was due to the Rect data structure using int to store values (x, y, height, width).
+Since the QuadTree divides its space in four, we need to either to change the Rect data structure or the divide algorithm.
+I find the former more readable and clear.",2,1
+1015,2019-10-17T13:23:12Z,2019-10-17T18:00:33Z,2019-10-17T18:00:33Z,1,7,1,"The missing class PreconditionViolationException is contained in
+junit-platform-commons which comes in transitively by this JUnit
+version. junit-jupiter-api had to be added because
+spring-boot-dependencies imports an older version of this dependency.",2,1
+1017,2019-10-18T00:03:50Z,2019-10-18T05:50:03Z,2019-10-18T05:50:03Z,3,13,11,"Fixed all of the SonarCloud blocking errors.
+The errors included:
+
+
+""@RequestMapping"" methods should specify HTTP method
+
+
+Links with ""target=_blank"" should prevent phishing attacks
+
+
+These changes are the recommended changes by SonarCube for each of the above problems.",2,2
+1018,2019-10-18T11:13:28Z,2019-10-19T15:41:13Z,2019-10-19T15:41:13Z,2,2,200,Moved the configuration out of the execution to make it being used in all executions. Fixes #1016,2,9
+1020,2019-10-19T15:28:10Z,2019-10-19T17:04:44Z,2019-10-19T17:04:44Z,12,25,19,"Fixed all of the blocking and critical Sonarcloud errors
+There were 12 blocking and critical errors in Sonarcloud. They are:
+
+circuit-breaker/.../com/iluwatar/circuitbreaker/App.java: Add an end condition to this loop
+commander/.../java/com/iluwatar/commander/Order.java: Save and re-use this ""Random""
+commander/.../java/com/iluwatar/commander/Retry.java: Save and re-use this ""Random""
+commander/.../java/com/iluwatar/commander/Service.java: Save and re-use this ""Random""
+hexagonal/.../iluwatar/hexagonal/sampledata/SampleData.java: Save and re-use this ""Random""
+leader-election/.../com/iluwatar/leaderelection/AbstractInstance.java: Add an end condition to this loop
+master-worker-pattern/.../java/com/iluwatar/masterworker/ArrayUtilityMethods.java: Save and re-use this ""Random""
+priority-queue/.../com/iluwatar/priority/queue/Worker.java: Add an end condition to this loop
+producer-consumer/.../com/iluwatar/producer/consumer/Producer.java: Save and re-use this ""Random""
+retry/.../main/java/com/iluwatar/retry/RetryExponentialBackoff.java: Save and re-use this ""Random""
+spatial-partition/.../com/iluwatar/spatialpartition/Bubble.java: Save and re-use this ""Random""
+typeobjectpattern/.../java/com/iluwatar/typeobject/CellPool.java: Save and re-use this ""Random""
+
+
+Since there were only two types of rules, the changes can be summarized as:
+
+
+Add an end condition to this loop: put a SuppressWarning annotation so SonarCloud will ignore
+
+
+Save and re-use this ""Random"": Make the random a constant in the file.",2,1
+1023,2019-10-19T21:10:08Z,2019-10-20T06:02:37Z,2019-10-20T06:02:37Z,2,2,4,"The two remaining files were still creating a Random every time the method
+was called. These were missed in the previous commit because the previous
+commit had fixed only one of the methods; in other words, there were
+multiple methods that were creating the Random object on each call.",2,1
+1024,2019-10-20T08:18:37Z,2019-10-20T15:55:36Z,2019-10-20T15:55:36Z,11,623,0,This PR fixes issue #550,2,2
+1025,2019-10-20T13:22:16Z,2019-10-20T16:01:03Z,2019-10-20T16:01:03Z,12,33,52,"Pull request title
+#984 var changes for
+abstract-document
+abstract-factory
+acyclic-visitor
+adapter
+aggregator-microservices
+Added var for local variables in cases var is improving readability
+
+For detailed contributing instructions see https://github.com/iluwatar/java-design-patterns/wiki/01.-How-to-contribute",2,1
+1027,2019-10-21T20:22:02Z,2019-10-22T05:15:36Z,2019-10-22T05:15:36Z,1246,2578,1312,"Issue #1021
+Google's Checkstyle ruleset doesn't play well with the javadoc license headers, because it demands the first line to have a dot at the end, a <p> tag at the beginning of a paragraph, etc.
+I changed the license header style to the SLASHSTAR_STYLE, provided with the license-maven-plugin (which is also the default one now, but after v3.0 there is no new release yet). Checkstyle didn't like that one either and wanted the package name to be ""separated from the previous statement"" by a blank line, so I ended up creating a custom license header with this blank line added (license-plugin-header-style.xml). This fixed the issues with the license header. There were minimal changes in the code and now the Checkstyle warnings are less than half (2,8k). The issue is not done yet, but this should be a good start.",2,4
+1028,2019-10-22T16:00:36Z,2019-10-23T14:25:46Z,2019-10-23T14:25:46Z,3,4,4,"replacing type with var
+Pull request title
+
+Clearly and concisely describes what it does
+Refer to the issue that it solves, if available
+
+Pull request description
+
+Describes the main changes that come with the pull request
+Any relevant additional information is provided
+
+
+For detailed contributing instructions see https://github.com/iluwatar/java-design-patterns/wiki/01.-How-to-contribute",2,3
+1029,2019-10-23T06:27:58Z,,2019-10-25T04:32:05Z,1,10,11,"Pull request title
+
+Clearly and concisely describes what it does
+Refer to the issue that it solves, if available
+
+Pull request description
+
+Describes the main changes that come with the pull request
+Any relevant additional information is provided
+
+
+For detailed contributing instructions see https://github.com/iluwatar/java-design-patterns/wiki/01.-How-to-contribute",2,0
+1030,2019-10-24T17:22:08Z,2019-10-25T03:58:34Z,2019-10-25T03:58:34Z,5,1,5,Remove from child pom not necessary information #1009 - according to maven dependency management https://maven.apache.org/guides/introduction/introduction-to-dependency-mechanism.html#Dependency_Management,3,2
+1031,2019-10-24T20:02:22Z,2019-10-26T17:58:41Z,2019-10-26T17:58:41Z,14,747,0,"The pattern Role object
+Based on #862",2,2
+1033,2019-10-25T21:26:06Z,2019-10-26T05:34:31Z,2019-10-26T05:34:31Z,5,39,31,,3,2
+1034,2019-10-26T05:20:51Z,2019-10-26T15:35:33Z,2019-10-26T15:35:33Z,5,45,45,"local variable type inference for service-layer design patterns
+Pull request title
+
+Clearly and concisely describes what it does
+Refer to the issue that it solves, if available
+
+Pull request description
+
+Describes the main changes that come with the pull request
+Any relevant additional information is provided
+
+
+For detailed contributing instructions see https://github.com/iluwatar/java-design-patterns/wiki/01.-How-to-contribute",2,2
+1035,2019-10-26T05:25:30Z,2019-10-26T15:38:10Z,2019-10-26T15:38:10Z,2,3,3,"local variable type inference changes for design pattern service locator
+Pull request title
+
+Clearly and concisely describes what it does
+Refer to the issue that it solves, if available
+
+Pull request description
+
+Describes the main changes that come with the pull request
+Any relevant additional information is provided
+
+
+For detailed contributing instructions see https://github.com/iluwatar/java-design-patterns/wiki/01.-How-to-contribute",2,2
+1036,2019-10-26T05:29:00Z,2019-10-26T15:40:15Z,2019-10-26T15:40:15Z,2,11,11,"local variable type inference changes for design pattern singleton
+Pull request title
+
+Clearly and concisely describes what it does
+Refer to the issue that it solves, if available
+
+Pull request description
+
+Describes the main changes that come with the pull request
+Any relevant additional information is provided
+
+
+For detailed contributing instructions see https://github.com/iluwatar/java-design-patterns/wiki/01.-How-to-contribute",2,2
+1038,2019-10-26T06:55:49Z,2019-10-26T15:41:39Z,2019-10-26T15:41:39Z,1,1,1,"local variable infere changes for STATE design pattern
+Pull request title
+
+Clearly and concisely describes what it does
+Refer to the issue that it solves, if available
+
+Pull request description
+
+Describes the main changes that come with the pull request
+Any relevant additional information is provided
+
+
+For detailed contributing instructions see https://github.com/iluwatar/java-design-patterns/wiki/01.-How-to-contribute",2,2
+1039,2019-10-26T06:58:50Z,2019-10-26T15:43:53Z,2019-10-26T15:43:53Z,2,4,4,"local variable type inference changes for step builder design pattern
+Pull request title
+
+Clearly and concisely describes what it does
+Refer to the issue that it solves, if available
+
+Pull request description
+
+Describes the main changes that come with the pull request
+Any relevant additional information is provided
+
+
+For detailed contributing instructions see https://github.com/iluwatar/java-design-patterns/wiki/01.-How-to-contribute",2,2
+1040,2019-10-26T07:01:26Z,2019-10-26T15:45:55Z,2019-10-26T15:45:55Z,1,1,1,"local variable type inference changes for strategy design pattern
+Pull request title
+
+Clearly and concisely describes what it does
+Refer to the issue that it solves, if available
+
+Pull request description
+
+Describes the main changes that come with the pull request
+Any relevant additional information is provided
+
+
+For detailed contributing instructions see https://github.com/iluwatar/java-design-patterns/wiki/01.-How-to-contribute",2,2
+1041,2019-10-26T07:03:26Z,2019-10-26T15:47:43Z,2019-10-26T15:47:43Z,2,2,2,"local variable type inference changes for template method design pattern
+Pull request title
+
+Clearly and concisely describes what it does
+Refer to the issue that it solves, if available
+
+Pull request description
+
+Describes the main changes that come with the pull request
+Any relevant additional information is provided
+
+
+For detailed contributing instructions see https://github.com/iluwatar/java-design-patterns/wiki/01.-How-to-contribute",2,2
+1042,2019-10-26T07:13:18Z,2019-10-26T15:50:48Z,2019-10-26T15:50:48Z,1,2,2,"local variable type inference changes for thread pool design pattern
+Pull request title
+
+Clearly and concisely describes what it does
+Refer to the issue that it solves, if available
+
+Pull request description
+
+Describes the main changes that come with the pull request
+Any relevant additional information is provided
+
+
+For detailed contributing instructions see https://github.com/iluwatar/java-design-patterns/wiki/01.-How-to-contribute",2,2
+1043,2019-10-26T07:21:34Z,2019-10-26T15:49:28Z,2019-10-26T15:49:28Z,2,8,8,"local variable type inference changes for throttling design pattern
+Pull request title
+
+Clearly and concisely describes what it does
+Refer to the issue that it solves, if available
+
+Pull request description
+
+Describes the main changes that come with the pull request
+Any relevant additional information is provided
+
+
+For detailed contributing instructions see https://github.com/iluwatar/java-design-patterns/wiki/01.-How-to-contribute",2,4
+1044,2019-10-26T09:06:34Z,2019-10-26T15:58:56Z,2019-10-26T15:58:56Z,4,32,28,"Pull request title
+
+Clearly and concisely describes what it does
+Refer to the issue that it solves, if available
+
+Pull request description
+
+Describes the main changes that come with the pull request
+Any relevant additional information is provided
+
+
+For detailed contributing instructions see https://github.com/iluwatar/java-design-patterns/wiki/01.-How-to-contribute",2,1
+1048,2019-10-27T14:31:19Z,2019-10-27T20:05:11Z,2019-10-27T20:05:11Z,11,117,143,"Add java 11 support for #987
+Added Convenience Factory Methods, unmodifiable collections
+
+ abstract-document
+ collection-pipeline
+ commander
+ composite
+ converter",2,1
+1049,2019-10-27T14:44:06Z,2019-10-27T20:08:10Z,2019-10-27T20:08:10Z,5,31,43,"Add java 11 support for #987
+Added Convenience Factory Methods, unmodifiable collections
+
+ dao
+ double-dispatch
+ facade
+ flyweight",2,1
+1050,2019-10-28T00:46:51Z,2019-10-28T15:02:17Z,2019-10-28T15:02:17Z,12,102,141,"Add java 11 support for #987
+Added Convenience Factory Methods, unmodifiable collections
+
+ hexagonal
+ iterator
+ layers
+ leader-election",2,1
+1051,2019-10-28T02:36:06Z,2019-10-29T06:37:41Z,2019-10-29T06:37:41Z,37,176,257,"Add java 11 support for #987
+Replace Arrays.asList, HashSet<>(List) with List.of, Set.of
+Added Convenience Factory Methods, unmodifiable collections:
+
+ observer
+ page-object
+ partial-response
+ sample-application
+ servant
+ service-layer
+ thread-pool",2,3
+1053,2019-10-29T22:50:28Z,2019-10-30T06:19:34Z,2019-10-30T06:19:34Z,6,36,26,decrease number of checkstyle errors in callback pattern,2,1
+1054,2019-10-31T12:25:23Z,2019-10-31T17:54:14Z,2019-10-31T17:54:14Z,39,182,201,"fixed:
+
+JavaDoc errors
+line length errors",2,1
+1056,2019-11-07T03:29:19Z,2019-11-08T06:20:33Z,2019-11-08T06:20:33Z,16,1010,0,"This PR should fix issue #454.
+Three types of sharding strategy are implemented:
+
+Range
+Lookup
+Hash",2,3
+1058,2019-11-09T16:53:59Z,2019-11-09T19:03:23Z,2019-11-09T19:03:23Z,29,179,225,"Reduces checkstyle errors for patterns:
+
+ambassador
+async-method-invocation
+balking
+bridge
+builder
+
+Changes Involved
+
+java docs
+reordering imports
+indentations
+line length issues",2,1
+1059,2019-11-09T17:13:48Z,2019-11-09T19:23:12Z,2019-11-09T19:23:12Z,21,119,134,"Reduces checkstyle errors for patterns:
+
+business-delegate
+bytecode
+caching
+
+Changes Involved
+
+java docs
+reordering imports
+indentations
+line length issues",2,1
+1060,2019-11-09T17:30:35Z,2019-11-09T19:27:15Z,2019-11-09T19:27:15Z,18,114,125,"Reduces checkstyle errors for patterns:
+
+callback
+chain
+circuit-breaker
+
+Changes Involved
+
+java docs
+reordering imports
+indentations
+line length issues
+missing summary doc",2,1
+1061,2019-11-09T17:59:02Z,2019-11-09T19:35:16Z,2019-11-09T19:35:16Z,41,646,574,"Reduces checkstyle errors for patterns:
+
+collection-pipeline
+command
+commander
+
+Changes Involved
+
+java docs
+reordering imports
+indentations
+line length issues",2,1
+1062,2019-11-09T18:01:38Z,2019-11-14T06:03:51Z,2019-11-14T06:03:51Z,29,1859,1,"Saga pattern
+#438",2,11
+1063,2019-11-09T19:06:41Z,2019-11-10T16:39:28Z,2019-11-10T16:39:28Z,16,129,127,"Reduces checkstyle errors for patterns:
+
+converter
+cqrs
+
+Changes Involved
+
+java docs
+reordering imports
+indentations
+line length issues",2,1
+1064,2019-11-09T19:36:31Z,2019-11-10T17:01:32Z,2019-11-10T17:01:33Z,34,382,359,"Reduces checkstyle errors for patterns:
+
+guarded-suspension
+half-sync-half-async
+hexagonal
+
+Changes Involved
+
+java docs
+reordering imports
+indentations
+line length issues
+javadoc summary",2,1
+1065,2019-11-09T19:53:37Z,2019-11-10T17:05:05Z,2019-11-10T17:05:05Z,27,99,122,"Reduces checkstyle errors for patterns:
+
+guarded-suspension
+half-sync-half-async
+hexagonal
+
+Changes Involved
+
+java docs
+reordering imports
+indentations
+line length issues",2,1
+1066,2019-11-09T20:03:24Z,2019-11-10T17:13:41Z,2019-11-10T17:13:41Z,30,188,172,"Reduces checkstyle errors for patterns:
+
+api-gateway
+lazy-loading
+leader-election
+
+Changes Involved
+
+java docs
+reordering imports
+indentations
+line length issues",2,1
+1067,2019-11-09T20:20:32Z,2019-11-10T17:27:09Z,2019-11-10T17:27:09Z,33,176,208,"Reduces checkstyle errors for patterns:
+
+dao
+data-bus
+data-locality
+data-mapper
+data-transfer-object
+decorator
+
+Changes Involved
+
+java docs
+reordering imports
+indentations
+line length issues",2,1
+1068,2019-11-09T20:29:39Z,2019-11-10T17:31:20Z,2019-11-10T17:31:20Z,35,154,215,"Reduces checkstyle errors for patterns:
+
+delegation
+dependency-injection
+dirty-flag
+double-buffer
+double-checked-locking
+double-dispatch
+
+Changes Involved
+
+java docs
+reordering imports
+indentations
+line length issues",2,1
+1069,2019-11-09T20:51:00Z,2019-11-10T17:34:43Z,2019-11-10T17:34:43Z,9,68,69,"Reduces checkstyle errors for patterns:
+
+eip-aggregator
+eip-message-channel
+eip-publish-subscribe
+eip-splitter
+eip-wire-tap
+
+Changes Involved
+
+java docs
+reordering imports
+indentations
+line length issues",2,1
+1070,2019-11-09T20:51:44Z,2019-11-10T17:37:11Z,2019-11-10T17:37:11Z,38,208,229,"Reduces checkstyle errors for patterns:
+
+event-aggregator
+event-asynchronous
+event-driven-architecture
+event-queue
+event-sourcing
+
+Changes Involved
+
+java docs
+reordering imports
+indentations
+line length issues",2,1
+1071,2019-11-09T20:52:13Z,2019-11-10T17:38:52Z,2019-11-10T17:38:52Z,15,27,29,"Reduces checkstyle errors for patterns:
+
+execute-around
+extension-objects
+
+Changes Involved
+
+java docs
+reordering imports
+indentations
+line length issues",2,1
+1072,2019-11-09T21:09:42Z,2019-11-10T17:42:26Z,2019-11-10T17:42:26Z,31,345,377,"Reduces checkstyle errors for patterns:
+
+reactor
+reader-writer-lock
+repository
+resource-acquisition-is-initialization
+retry
+
+Changes Involved
+
+java docs
+reordering imports
+indentations
+line length issues",2,1
+1073,2019-11-09T21:32:25Z,2019-11-10T17:45:18Z,2019-11-10T17:45:18Z,23,175,222,"Reduces checkstyle errors for patterns:
+
+template-method
+thread-pool
+throttling
+tls
+tolerant-reader
+
+Changes Involved
+
+java docs
+reordering imports
+indentations
+line length issues",2,1
+1074,2019-11-09T21:33:06Z,2019-11-10T17:47:33Z,2019-11-10T17:47:33Z,17,146,133,"Reduces checkstyle errors for patterns:
+
+trampoline
+twin
+typeobjectpattern
+unit-of-work
+value-object
+
+Changes Involved
+
+java docs
+reordering imports
+indentations
+line length issues",2,1
+1076,2019-11-10T07:00:33Z,2019-11-11T19:47:10Z,2019-11-11T19:47:10Z,27,173,176,"Migrates:
+ambassador
+async-method-invocation
+balking
+bridge
+builder",2,2
+1077,2019-11-11T03:29:06Z,2019-11-11T20:21:13Z,2019-11-11T20:21:13Z,29,195,197,"Reduces checkstyle errors for patterns:
+
+facade
+factory-kit
+spatial-partition
+state
+step-builder
+
+Changes Involved
+
+java docs
+reordering imports
+indentations
+line length issues",2,1
+1078,2019-11-11T03:40:28Z,2019-11-11T20:24:23Z,2019-11-11T20:24:23Z,46,196,257,"Reduces checkstyle errors for patterns:
+
+feature-toggle
+fluentinterface
+flux
+flyweight
+front-controller
+
+Changes Involved
+
+java docs
+reordering imports
+indentations
+line length issues",2,1
+1079,2019-11-11T03:50:06Z,2019-11-11T20:27:44Z,2019-11-11T20:27:44Z,40,211,274,"Reduces checkstyle errors for patterns:
+
+semaphore
+servant
+serverless
+service-layer
+service-locator
+
+Changes Involved
+
+java docs
+reordering imports
+indentations
+line length issues",2,1
+1080,2019-11-11T03:57:12Z,2019-11-11T20:30:09Z,2019-11-11T20:30:09Z,50,154,211,"Reduces checkstyle errors for patterns:
+
+abstract-document
+abstract-factory
+acyclic-visitor
+adapter
+aggregator-microservices
+
+Changes Involved
+
+java docs
+reordering imports
+indentations
+line length issues",2,1
+1081,2019-11-11T04:03:22Z,2019-11-12T19:56:47Z,2019-11-12T19:56:47Z,63,794,975,"Migrates:
+business-delegate
+bytecode
+caching
+callback
+chain
+circuit-breaker
+collection-pipeline
+command
+commander
+composite",2,2
+1082,2019-11-11T19:29:56Z,2019-11-12T19:26:16Z,2019-11-12T19:26:16Z,41,242,288,"Reduces checkstyle errors for patterns:
+
+naked-objects
+null-object
+object-mother
+object-pool
+observer
+queue-load-leveling
+
+Changes Involved
+
+java docs
+reordering imports
+indentations
+line length issues",2,1
+1083,2019-11-12T09:52:54Z,2019-11-16T12:40:24Z,2019-11-16T12:40:24Z,16,897,0,"This PR should fixed issue #551
+Implement Game Loop pattern.",2,3
+1084,2019-11-12T18:49:12Z,2019-11-13T16:04:52Z,2019-11-13T16:04:52Z,26,150,171,"Migrates:
+abstract-document
+abstract-factory
+acyclic-visitor
+adapter
+aggregator-microservices
+api-gateway",2,1
+1085,2019-11-12T18:50:17Z,2019-11-14T05:42:06Z,2019-11-14T05:42:06Z,45,366,409,"Migrates:
+template-method
+thread-pool
+throttling
+tls
+tolerant-reader
+trampoline
+twin
+typeobjectpattern
+unit-of-work
+value-object
+visitor",2,1
+1090,2019-11-15T07:01:56Z,2019-11-16T12:48:23Z,2019-11-16T12:48:23Z,66,374,423,"Resolves for patterns:
+marker
+master-worker-pattern
+mediator
+memento
+model-view-controller
+model-view-presenter
+module
+monad
+monostate
+multiton
+mute-idiom
+mutex",2,1
+1091,2019-11-15T07:02:47Z,2019-11-16T12:56:26Z,2019-11-16T12:56:27Z,56,284,316,"Resolves for patterns:
+page-object
+partial-response
+pipeline
+poison-pill
+priority-queue
+private-class-data
+producer-consumer
+promise
+property
+prototype
+proxy",2,1
+1092,2019-11-16T04:36:57Z,2019-11-19T19:37:19Z,2019-11-19T19:37:19Z,13,1083,932,"Package patterns into executable jars
+
+In this PR i have tried to create the base structure in parent pom and try to implement for abstarct document, if everything looks good then can replicate the same to other packages as well.
+This PR will resolve the issue#989 partially and if approved will do the required changes for other as well
+
+Pull request description
+
+This PR will have change in parent pom where we have steup the plugin managment for maven assembley plugin and leveraging the same for abstract-document pattern",2,6
+1096,2019-11-17T13:14:38Z,2019-11-18T17:04:41Z,2019-11-18T17:04:41Z,1,1,1,"As described in issue #1095, this pull request changes the description of the association between the decorator and its inner object. The current version states that this is an aggregation, but as explained in issue #1095 this should be a composition.",2,1
+1098,2019-11-17T14:19:39Z,2019-11-18T17:18:47Z,2019-11-18T17:18:47Z,1,2,2,"Adds a blank in the sentence
+
+coordinate with each other(via the twin BallThread} class represent the twin objects to coordinate with each other (via the twin reference)
+
+after ""other"".
+Moreover, I capitalized Java.",2,1
+1100,2019-11-17T14:43:51Z,,2022-10-05T08:40:03Z,4,11,5,"As described in issue #1099 it is recommended to declare the template method as final. This pull request changes the implementation in the sample code of the following patterns:
+
+template method pattern
+twin pattern
+
+The template pattern used in the callback pattern was already declared final (method executeWith in class com.iluwatar.callback.Task).",4,12
+1101,2019-11-17T15:09:35Z,2019-11-19T19:49:08Z,2019-11-19T19:49:08Z,1,7,2,"Adds a comment that the template method should be declared final (as discussed in Issue #1099).
+Moreover a real-world example is added.",2,3
+1102,2019-11-18T07:51:38Z,2019-11-19T19:57:21Z,2019-11-19T19:57:21Z,1,6,2,"You mention in the code example how the protoype pattern can be implemented in Java with the help of Java cloning (i.e. with support of Object.clone()), but then you should also invoke Object.clone.
+With the implementation
+public Sheep clone() throws CloneNotSupportedException {
+  return new Sheep(name);
+}
+
+it would not be possible (in general) to override clone() in a subclass (e.g. SpecialSheep), because invoking super.clone would return an object of the wrong type, and if we create a new instance of SpecialSheep it is not always possible to copy over the private fields.
+This problem can be fixed by using the mechanism provided by Object.clone, i.e. by invoking super.clone(). This creates a shallow copy (which is just fine in this example as the type of the name field (String) is immutable.",2,4
+1103,2019-11-18T08:17:15Z,2019-11-19T07:34:25Z,2019-11-19T07:34:25Z,13,194,89,"In the code you use the copy constructor approach to implement (in contrast to the Java-cloning approach in the description). If you follow this approach, then in every non-abstract class X the clone method is defined as
+public X clone() { return new X(this); }
+
+In addition, every class (also the abstract base classes) must provide a copy constructor. I have added such constructors to the abstract base classes (which would allow to evolve these classes, i.e. to add private fields later on). These copy constructors are called form the sub classes.
+The Cloneable interface does not need to be implemented, this interface is only needed when Java-Cloning is used, and the CloneNotSupportedException can also be dropped, as it is also only used in the context of Java Cloning (i.e. the mechanism provided by Object.clone, which is not used in this implmentation).
+As a consequence of the removal of the CloneNotSupportedException I also had to remove the test HeroFactoryImplTest.java as this test checked this behavior. Actually the test was strange as it invoked clone on abstract classes which never can have instances.
+I also decided to change the abstract class Prototype into an Interface.
+The contract of cloning states, that the returned object must be a new reference, but it must be equal to the origin. I added equals-implementations to all classes and added a line in the test to check whether the original and its copy are equal.",2,1
+1105,2019-11-20T22:08:29Z,2019-11-26T06:03:04Z,2019-11-26T06:03:04Z,9,556,27,#499,2,1
+1106,2019-11-21T08:58:53Z,2019-12-01T13:06:19Z,2019-12-01T13:06:19Z,12,1167,477,"Update Method pattern
+
+Implement update method pattern
+Refer to issue #552",2,4
+1108,2019-11-30T12:13:03Z,2019-12-18T20:04:08Z,2019-12-18T20:04:08Z,83,1855,281,"In this batch I have update all project having name started with B and C
+
+Update all the pom files, need to pay special attention to commander app's pom file which generate multiple jar in single go. This approach was used as this project has multiple main class.
+It resolves partially #issue-989",2,3
+1111,2019-12-06T17:01:54Z,2019-12-14T18:32:46Z,2019-12-14T18:32:46Z,75,573,710,"Pull requests converts the following patterns to Java 11:
+
+converter
+cqrs
+dao
+data-bus
+data-locality
+data-mapper
+data-transfer-object
+decorator
+delegation
+dependency-injection
+dirty-flag
+double-buffer
+double-checked-locking
+double-dispatch",2,2
+1115,2019-12-10T04:20:30Z,2019-12-22T12:41:19Z,2019-12-22T12:41:19Z,55,374,426,"Following patterns are converted in this PR:
+
+facade
+factory-kit
+factory-method
+feature-toggle
+fluentinterface
+flux
+flyweight
+front-controller",2,1
+1116,2019-12-16T12:12:10Z,2019-12-20T05:11:30Z,2019-12-20T05:11:30Z,68,453,532,"Following patterns are covered:
+
+game-loop
+guarded-suspension
+half-sync-half-async
+hexagonal
+intercepting-filter
+interpreter
+iterator",2,1
+1118,2019-12-26T19:52:11Z,2020-01-11T07:53:09Z,2020-01-11T07:53:09Z,1,26,0,"Pull request title
+Abstract document add module info file. Refers to #1047
+Pull request description
+Added module-info.java file in Abstract Document Design pattern.
+If this is the correct way, will add it to more design patterns.",2,3
+1119,2019-12-28T09:27:21Z,2019-12-29T12:41:21Z,2019-12-29T12:41:21Z,30,578,10,"In this batch I have update rest of the projects
+Update all the pom files to have maven generate executable jar",2,1
+1120,2019-12-28T14:38:28Z,2020-01-04T16:36:09Z,2020-01-04T16:36:09Z,98,717,854,"This pull request covers:
+
+saga
+semaphore
+servant
+serverless
+service-layer
+service-locator
+sharding
+singleton
+spatial-partition
+specification
+state
+step-builder
+strategy
+subclass-sandbox",2,1
+1121,2019-12-28T18:46:46Z,2020-01-04T16:43:12Z,2020-01-04T16:43:12Z,52,422,552,"This covers:
+
+queue-load-leveling
+reactor
+reader-writer-lock
+repository
+resource-acquisition-is-initialization
+retry
+role-object",2,1
+1122,2019-12-29T11:26:35Z,2020-01-16T06:06:36Z,2020-01-16T06:06:36Z,82,534,603,"This covers:
+
+page-object
+partial-response
+pipeline
+poison-pill
+priority-queue
+private-class-data
+producer-consumer
+promise
+property
+prototype
+proxy",2,3
+1123,2020-01-01T02:22:16Z,2020-01-04T17:04:23Z,2020-01-04T17:04:23Z,1,1,1,"Pull request title
+
+Clearly and concisely describes what it does
+Refer to the issue that it solves, if available
+
+Pull request description
+
+Describes the main changes that come with the pull request
+Any relevant additional information is provided
+
+
+For detailed contributing instructions see https://github.com/iluwatar/java-design-patterns/wiki/01.-How-to-contribute",2,1
+1126,2020-01-04T14:35:39Z,2020-01-08T20:16:54Z,2020-01-08T20:16:54Z,1,1,1,"Bumps maven-surefire-plugin from 3.0.0-M3 to 3.0.0-M4.
+
+Commits
+
+b0325d4 [maven-release-plugin] prepare release surefire-3.0.0-M4_vote-1
+25ee208 roadmap after 3.0.0-M4
+fd451b5 few more unit tests
+08ff28f [SUREFIRE-1717] Enable Process Checkers
+0c0d902 [SUREFIRE-1716] JUnit5 Parameterized tests and re-run should see unique test ...
+c49623a [github actions] ASF license, OS matrix, run on push and PR
+6c6b834 removed cleanWs() after the checkout - ensured at the end
+891a7b9 dump command output when fails
+8a769ca scheduleAtFixedRate() runs too frequent runs after GC paused the scheduler
+6e5ecba H31 gives OOME (let's see if others are stable again...)
+Additional commits viewable in compare view
+
+
+
+
+Dependabot will resolve any conflicts with this PR as long as you don't alter it yourself. You can also trigger a rebase manually by commenting @dependabot rebase.
+
+Note: This repo was added to Dependabot recently, so you'll receive a maximum of 5 PRs for your first few update runs. Once an update run creates fewer than 5 PRs we'll remove that limit.
+You can always request more updates by clicking Bump now in your Dependabot dashboard.
+
+Dependabot commands and options
+
+You can trigger Dependabot actions by commenting on this PR:
+
+@dependabot rebase will rebase this PR
+@dependabot recreate will recreate this PR, overwriting any edits that have been made to it
+@dependabot merge will merge this PR after your CI passes on it
+@dependabot squash and merge will squash and merge this PR after your CI passes on it
+@dependabot cancel merge will cancel a previously requested merge and block automerging
+@dependabot reopen will reopen this PR if it is closed
+@dependabot close will close this PR and stop Dependabot recreating it. You can achieve the same result by closing it manually
+@dependabot ignore this major version will close this PR and stop Dependabot creating any more for this major version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this minor version will close this PR and stop Dependabot creating any more for this minor version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this dependency will close this PR and stop Dependabot creating any more for this dependency (unless you reopen the PR or upgrade to it yourself)
+@dependabot use these labels will set the current labels as the default for future PRs for this repo and language
+@dependabot use these reviewers will set the current reviewers as the default for future PRs for this repo and language
+@dependabot use these assignees will set the current assignees as the default for future PRs for this repo and language
+@dependabot use this milestone will set the current milestone as the default for future PRs for this repo and language
+@dependabot badge me will comment on this PR with code to add a ""Dependabot enabled"" badge to your readme
+
+Additionally, you can set the following in your Dependabot dashboard:
+
+Update frequency (including time of day and day of week)
+Pull request limits (per update run and/or open at any time)
+Out-of-range updates (receive only lockfile updates, if desired)
+Security updates (receive only security updates, if desired)",1,0
+1127,2020-01-04T14:35:59Z,2020-01-08T20:17:59Z,2020-01-08T20:17:59Z,1,1,1,"Bumps mongo-java-driver from 3.3.0 to 3.12.0.
+
+Release notes
+Sourced from mongo-java-driver's releases.
+
+3.12.0
+Java Driver 3.12.0 (December 10, 2019)
+The 3.12.0 MongoDB Java Driver includes bug fixes, new features, and improvements. It supports MongoDB server versions from the 2.6 release through the 4.2 release.
+New Features
+See the What's New section of the reference documentation.
+Upgrade Considerations
+See the Upgrade Considerations section of the reference documentation.
+Downloads
+On maven central.
+API Documentation
+http://mongodb.github.io/mongo-java-driver/3.12/javadoc/
+Bug fixes
+You can find a full list of bug fixes here.
+Improvements
+You can find a full list of improvements here.
+New Features
+You can find a full list of new features here.
+3.11.2
+Java Driver 3.11.2 (November 5, 2019)
+The 3.11.2 MongoDB Java Driver is a patch to the 3.11.1 release.
+Reference documentation
+The documentation hub includes extensive documentation of the 3.11 driver, including
+
+What's New: what's new in the 3.11 driver
+Upgrading: upgrading from the 3.10.x driver
+Installation: how to get the driver
+
+and much more.
+Bug fixes
+You can find a full list of bug fixes here.
+ ... (truncated)
+
+
+
+Commits
+
+c29fc3a Bump to 3.12.0
+02e2c15 Bump 3.11 release version from 3.11.3 back to 3.11.2
+2d0ec0c Backport Javadoc apiref link fixes from 4.x to master
+ff0386e UUID specification implementation updates
+8d83a00 Move note about 3.x release to the top of the upgrading page
+3493b69 Add 3.12 release to reference documentation
+9832778 Update reference documentation for uuidRepresentation setting
+d688944 Implement UUID representation specification
+9d17bea Fix UUID decoder bug
+8f866e2 mongos pinning test expects no unpinning on MaxTimeoutMSExpired
+Additional commits viewable in compare view
+
+
+
+
+Dependabot will resolve any conflicts with this PR as long as you don't alter it yourself. You can also trigger a rebase manually by commenting @dependabot rebase.
+
+Note: This repo was added to Dependabot recently, so you'll receive a maximum of 5 PRs for your first few update runs. Once an update run creates fewer than 5 PRs we'll remove that limit.
+You can always request more updates by clicking Bump now in your Dependabot dashboard.
+
+Dependabot commands and options
+
+You can trigger Dependabot actions by commenting on this PR:
+
+@dependabot rebase will rebase this PR
+@dependabot recreate will recreate this PR, overwriting any edits that have been made to it
+@dependabot merge will merge this PR after your CI passes on it
+@dependabot squash and merge will squash and merge this PR after your CI passes on it
+@dependabot cancel merge will cancel a previously requested merge and block automerging
+@dependabot reopen will reopen this PR if it is closed
+@dependabot close will close this PR and stop Dependabot recreating it. You can achieve the same result by closing it manually
+@dependabot ignore this major version will close this PR and stop Dependabot creating any more for this major version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this minor version will close this PR and stop Dependabot creating any more for this minor version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this dependency will close this PR and stop Dependabot creating any more for this dependency (unless you reopen the PR or upgrade to it yourself)
+@dependabot use these labels will set the current labels as the default for future PRs for this repo and language
+@dependabot use these reviewers will set the current reviewers as the default for future PRs for this repo and language
+@dependabot use these assignees will set the current assignees as the default for future PRs for this repo and language
+@dependabot use this milestone will set the current milestone as the default for future PRs for this repo and language
+@dependabot badge me will comment on this PR with code to add a ""Dependabot enabled"" badge to your readme
+
+Additionally, you can set the following in your Dependabot dashboard:
+
+Update frequency (including time of day and day of week)
+Pull request limits (per update run and/or open at any time)
+Out-of-range updates (receive only lockfile updates, if desired)
+Security updates (receive only security updates, if desired)",1,0
+1129,2020-01-04T14:36:42Z,2020-01-08T20:22:50Z,2020-01-08T20:22:50Z,1,1,1,"Bumps maven-war-plugin from 2.4 to 3.2.3.
+
+Commits
+
+b7f6102 [maven-release-plugin] prepare release maven-war-plugin-3.2.3
+77e8828 [MWAR-425] - Upgrade plexus-utils to 3.2.0
+95131f4 [MWAR-424] - Upgrade maven-archiver to 3.4.0
+0bd3097 [MWAR-423] - Upgrade plexus-archiver to 4.1.0
+5869cce [MWAR-371] Overlays break first-win rule for web resource with target path en...
+0b48f8b upgraded parent POM from 32 to 33
+63b28db switch to asfMavenTlpPlgnBuild
+7d5c132 [MPOM-205] use sha512 checksums instead of sha1
+517ba2c [MNGSITE-341] use https for sigs, hashes and KEYS
+96e3d99 [MWAR-419] - Upgrade maven-plugins parent to version 32
+Additional commits viewable in compare view
+
+
+
+
+Dependabot will resolve any conflicts with this PR as long as you don't alter it yourself. You can also trigger a rebase manually by commenting @dependabot rebase.
+
+Note: This repo was added to Dependabot recently, so you'll receive a maximum of 5 PRs for your first few update runs. Once an update run creates fewer than 5 PRs we'll remove that limit.
+You can always request more updates by clicking Bump now in your Dependabot dashboard.
+
+Dependabot commands and options
+
+You can trigger Dependabot actions by commenting on this PR:
+
+@dependabot rebase will rebase this PR
+@dependabot recreate will recreate this PR, overwriting any edits that have been made to it
+@dependabot merge will merge this PR after your CI passes on it
+@dependabot squash and merge will squash and merge this PR after your CI passes on it
+@dependabot cancel merge will cancel a previously requested merge and block automerging
+@dependabot reopen will reopen this PR if it is closed
+@dependabot close will close this PR and stop Dependabot recreating it. You can achieve the same result by closing it manually
+@dependabot ignore this major version will close this PR and stop Dependabot creating any more for this major version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this minor version will close this PR and stop Dependabot creating any more for this minor version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this dependency will close this PR and stop Dependabot creating any more for this dependency (unless you reopen the PR or upgrade to it yourself)
+@dependabot use these labels will set the current labels as the default for future PRs for this repo and language
+@dependabot use these reviewers will set the current reviewers as the default for future PRs for this repo and language
+@dependabot use these assignees will set the current assignees as the default for future PRs for this repo and language
+@dependabot use this milestone will set the current milestone as the default for future PRs for this repo and language
+@dependabot badge me will comment on this PR with code to add a ""Dependabot enabled"" badge to your readme
+
+Additionally, you can set the following in your Dependabot dashboard:
+
+Update frequency (including time of day and day of week)
+Pull request limits (per update run and/or open at any time)
+Out-of-range updates (receive only lockfile updates, if desired)
+Security updates (receive only security updates, if desired)",1,0
+1130,2020-01-04T14:37:04Z,2020-01-11T07:31:39Z,2020-01-11T07:31:39Z,1,1,1,"Bumps guava-testlib from 19.0 to 23.0.
+
+Release notes
+Sourced from guava-testlib's releases.
+
+23.0
+Final Guava 23.0 release.
+23.0-rc1
+First Guava 23.0 release candidate.
+22.0
+Final Guava 22.0 release.
+22.0-rc1
+First release candidate for Guava 22.0.
+21.0
+Final Guava 21.0 release.
+This release requires Java 8.
+21.0-rc2
+Second release candidate for Guava 21.0.
+This release candidate fixes a small issue with rc1; a number of methods that create Collectors took Guava's functional types (e.g. base.Function) as parameters rather than the java.util.function equivalent.
+This release requires Java 8.
+21.0-rc1
+First release candidate for Guava 21.0.
+This release requires Java 8.
+20.0
+Final Guava 20.0 release.
+20.0-rc1
+First release candidate for Guava 20.0.
+
+
+
+Commits
+
+b48cdeb Set version numbers to 23.0
+6dae21f Remove some methods that are scheduled for removal in 23.0, along with one th...
+22da091 Rollforward [] which was rolled back in [] because it
+b87e1f1 Automated g4 rollback of changelist 162220754.
+44b9081 Set version numbers to 23.0-rc1
+ee12894 Implement ByteSource.asCharSource(charset).read() using the decoding string c...
+71b5b85 Add submitAsync and scheduleAsync methods, to ease the deprecation of Futures...
+b6c86db Short-circuit null check in Throwables#lazyStackTraceIsLazy
+dd78480 Update Public Suffix List.
+1d7f652 Add @SafeVarargs to Predicates.and(Predicate<? super T>...).
+Additional commits viewable in compare view
+
+
+
+
+Dependabot will resolve any conflicts with this PR as long as you don't alter it yourself. You can also trigger a rebase manually by commenting @dependabot rebase.
+
+Note: This repo was added to Dependabot recently, so you'll receive a maximum of 5 PRs for your first few update runs. Once an update run creates fewer than 5 PRs we'll remove that limit.
+You can always request more updates by clicking Bump now in your Dependabot dashboard.
+
+Dependabot commands and options
+
+You can trigger Dependabot actions by commenting on this PR:
+
+@dependabot rebase will rebase this PR
+@dependabot recreate will recreate this PR, overwriting any edits that have been made to it
+@dependabot merge will merge this PR after your CI passes on it
+@dependabot squash and merge will squash and merge this PR after your CI passes on it
+@dependabot cancel merge will cancel a previously requested merge and block automerging
+@dependabot reopen will reopen this PR if it is closed
+@dependabot close will close this PR and stop Dependabot recreating it. You can achieve the same result by closing it manually
+@dependabot ignore this major version will close this PR and stop Dependabot creating any more for this major version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this minor version will close this PR and stop Dependabot creating any more for this minor version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this dependency will close this PR and stop Dependabot creating any more for this dependency (unless you reopen the PR or upgrade to it yourself)
+@dependabot use these labels will set the current labels as the default for future PRs for this repo and language
+@dependabot use these reviewers will set the current reviewers as the default for future PRs for this repo and language
+@dependabot use these assignees will set the current assignees as the default for future PRs for this repo and language
+@dependabot use this milestone will set the current milestone as the default for future PRs for this repo and language
+@dependabot badge me will comment on this PR with code to add a ""Dependabot enabled"" badge to your readme
+
+Additionally, you can set the following in your Dependabot dashboard:
+
+Update frequency (including time of day and day of week)
+Pull request limits (per update run and/or open at any time)
+Out-of-range updates (receive only lockfile updates, if desired)
+Security updates (receive only security updates, if desired)",1,0
+1131,2020-01-04T15:30:50Z,2020-01-11T07:44:59Z,2020-01-11T07:44:59Z,1,2,2,"Pull request title
+
+Clearly and concisely describes what it does
+Refer to the issue that it solves, if available
+
+Pull request description
+
+Describes the main changes that come with the pull request
+Any relevant additional information is provided
+
+
+For detailed contributing instructions see https://github.com/iluwatar/java-design-patterns/wiki/01.-How-to-contribute",2,1
+1133,2020-01-06T03:45:34Z,2020-01-11T08:06:45Z,2020-01-11T08:06:46Z,1,1,1,"Bumps jackson.version from 2.8.5 to 2.10.2.
+Updates jackson-core from 2.8.5 to 2.10.2
+
+Commits
+
+35541ca [maven-release-plugin] prepare release jackson-core-2.10.2
+ef009f0 Merge branch '2.10' of github.com:FasterXML/jackson-core into 2.10
+ea01eba prepare for 2.10.2
+2ebf7ae Add missing delegation for JsonGenerator.canWriteFormattedNumbers
+d7fb44c Minor fix for custom escape handling wrt ""long"" (>6 chars) escape handling
+69c844c Minor fix to encoding of long UTF-8 text values
+f90ccdf One more small fix to FilteringGeneratorDelegate
+2baf031 ...
+cf1f6b1 Fix #582
+fedefb1 Update link in travis file; remove JDK 6 setup since build won't use it
+Additional commits viewable in compare view
+
+
+
+Updates jackson-databind from 2.8.5 to 2.10.2 This update includes security fixes.
+
+Vulnerabilities fixed
+Sourced from The GitHub Security Advisory Database.
+
+Low severity vulnerability that affects com.fasterxml.jackson.core:jackson-databind
+FasterXML jackson-databind 2.x before 2.9.9.1 might allow attackers to have a variety of impacts by leveraging failure to block the logback-core class from polymorphic deserialization. Depending on the classpath content, remote code execution may be possible.
+Affected versions: < 2.9.9.1
+
+Sourced from The GitHub Security Advisory Database.
+
+Moderate severity vulnerability that affects com.fasterxml.jackson.core:jackson-databind
+SubTypeValidator.java in FasterXML jackson-databind before 2.9.9.2 mishandles default typing when ehcache is used, leading to remote code execution.
+Affected versions: < 2.9.9.2
+
+Sourced from The GitHub Security Advisory Database.
+
+Moderate severity vulnerability that affects com.fasterxml.jackson.core:jackson-databind
+A Polymorphic Typing issue was discovered in FasterXML jackson-databind 2.x before 2.9.9.2. This occurs when Default Typing is enabled (either globally or for a specific property) for an externally exposed JSON endpoint and the service has the logback jar in the classpath.
+Affected versions: < 2.9.9.2
+
+Sourced from The GitHub Security Advisory Database.
+
+High severity vulnerability that affects com.fasterxml.jackson.core:jackson-databind
+FasterXML jackson-databind through 2.8.10 and 2.9.x through 2.9.3 allows unauthenticated remote code execution because of an incomplete fix for the CVE-2017-7525 deserialization flaw. This is exploitable by sending maliciously crafted JSON input to the readValue method of the ObjectMapper, bypassing a blacklist that is ineffective if the Spring libraries are available in the classpath.
+Affected versions: < 2.8.11
+
+Sourced from The GitHub Security Advisory Database.
+
+High severity vulnerability that affects com.fasterxml.jackson.core:jackson-databind
+A deserialization flaw was discovered in the jackson-databind in versions before 2.8.10 and 2.9.1, which could allow an unauthenticated user to perform code execution by sending the maliciously crafted input to the readValue method of the ObjectMapper. This issue extends the previous flaw CVE-2017-7525 by blacklisting more classes that could be used maliciously.
+Affected versions: < 2.8.11
+
+Sourced from The GitHub Security Advisory Database.
+
+High severity vulnerability that affects com.fasterxml.jackson.core:jackson-databind
+FasterXML jackson-databind before 2.8.11.1 and 2.9.x before 2.9.5 allows unauthenticated remote code execution because of an incomplete fix for the CVE-2017-7525 deserialization flaw. This is exploitable by sending maliciously crafted JSON input to the readValue method of the ObjectMapper, bypassing a blacklist that is ineffective if the c3p0 libraries are available in the classpath.
+Affected versions: < 2.8.11.1
+
+Sourced from The GitHub Security Advisory Database.
+
+Critical severity vulnerability that affects com.fasterxml.jackson.core:jackson-databind
+A Polymorphic Typing issue was discovered in FasterXML jackson-databind before 2.9.10. It is related to com.zaxxer.hikari.HikariConfig.
+Affected versions: < 2.9.10
+
+Sourced from The GitHub Security Advisory Database.
+
+Critical severity vulnerability that affects com.fasterxml.jackson.core:jackson-databind
+A Polymorphic Typing issue was discovered in FasterXML jackson-databind before 2.9.10. It is related to com.zaxxer.hikari.HikariDataSource. This is a different vulnerability than CVE-2019-14540.
+Affected versions: < 2.9.10
+
+Sourced from The GitHub Security Advisory Database.
+
+Moderate severity vulnerability that affects com.fasterxml.jackson.core:jackson-databind
+A Polymorphic Typing issue was discovered in FasterXML jackson-databind 2.0.0 through 2.9.10. When Default Typing is enabled (either globally or for a specific property) for an externally exposed JSON endpoint and the service has the commons-dbcp (1.4) jar in the classpath, and an attacker can find an RMI service endpoint to access, it is possible to make the service execute a malicious payload. This issue exists because of org.apache.commons.dbcp.datasources.SharedPoolDataSource and org.apache.commons.dbcp.datasources.PerUserPoolDataSource mishandling.
+Affected versions: < 2.9.10.1
+
+Sourced from The GitHub Security Advisory Database.
+
+Critical severity vulnerability that affects com.fasterxml.jackson.core:jackson-databind
+A Polymorphic Typing issue was discovered in FasterXML jackson-databind 2.0.0 through 2.9.10. When Default Typing is enabled (either globally or for a specific property) for an externally exposed JSON endpoint and the service has the apache-log4j-extra (version 1.2.x) jar in the classpath, and an attacker can provide a JNDI service to access, it is possible to make the service execute a malicious payload.
+Affected versions: < 2.9.10.1
+
+Sourced from The GitHub Security Advisory Database.
+
+Moderate severity vulnerability that affects com.fasterxml.jackson.core:jackson-databind
+A Polymorphic Typing issue was discovered in FasterXML jackson-databind 2.0.0 through 2.9.10. When Default Typing is enabled (either globally or for a specific property) for an externally exposed JSON endpoint and the service has the p6spy (3.8.6) jar in the classpath, and an attacker can find an RMI service endpoint to access, it is possible to make the service execute a malicious payload. This issue exists because of com.p6spy.engine.spy.P6DataSource mishandling.
+Affected versions: < 2.9.10.1
+
+Sourced from The GitHub Security Advisory Database.
+
+Low severity vulnerability that affects com.fasterxml.jackson.core:jackson-databind
+FasterXML jackson-databind 2.x before 2.9.9 might allow attackers to have a variety of impacts by leveraging failure to block the logback-core class from polymorphic deserialization. Depending on the classpath content, remote code execution may be possible.
+Affected versions: < 2.9.9
+
+
+
+Commits
+
+See full diff in compare view
+
+
+
+Updates jackson-annotations from 2.8.5 to 2.10.2
+
+Commits
+
+See full diff in compare view
+
+
+
+Dependabot will resolve any conflicts with this PR as long as you don't alter it yourself. You can also trigger a rebase manually by commenting @dependabot rebase.
+
+Note: This repo was added to Dependabot recently, so you'll receive a maximum of 5 PRs for your first few update runs. Once an update run creates fewer than 5 PRs we'll remove that limit.
+You can always request more updates by clicking Bump now in your Dependabot dashboard.
+
+Dependabot commands and options
+
+You can trigger Dependabot actions by commenting on this PR:
+
+@dependabot rebase will rebase this PR
+@dependabot recreate will recreate this PR, overwriting any edits that have been made to it
+@dependabot merge will merge this PR after your CI passes on it
+@dependabot squash and merge will squash and merge this PR after your CI passes on it
+@dependabot cancel merge will cancel a previously requested merge and block automerging
+@dependabot reopen will reopen this PR if it is closed
+@dependabot close will close this PR and stop Dependabot recreating it. You can achieve the same result by closing it manually
+@dependabot ignore this major version will close this PR and stop Dependabot creating any more for this major version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this minor version will close this PR and stop Dependabot creating any more for this minor version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this dependency will close this PR and stop Dependabot creating any more for this dependency (unless you reopen the PR or upgrade to it yourself)
+@dependabot use these labels will set the current labels as the default for future PRs for this repo and language
+@dependabot use these reviewers will set the current reviewers as the default for future PRs for this repo and language
+@dependabot use these assignees will set the current assignees as the default for future PRs for this repo and language
+@dependabot use this milestone will set the current milestone as the default for future PRs for this repo and language
+@dependabot badge me will comment on this PR with code to add a ""Dependabot enabled"" badge to your readme
+
+Additionally, you can set the following in your Dependabot dashboard:
+
+Update frequency (including time of day and day of week)
+Pull request limits (per update run and/or open at any time)
+Out-of-range updates (receive only lockfile updates, if desired)
+Security updates (receive only security updates, if desired)",1,0
+1135,2020-01-06T03:46:19Z,2020-01-11T08:09:57Z,2020-01-11T08:09:57Z,1,1,1,"Bumps mongodb-driver from 3.0.4 to 3.12.0.
+
+Release notes
+Sourced from mongodb-driver's releases.
+
+3.12.0
+Java Driver 3.12.0 (December 10, 2019)
+The 3.12.0 MongoDB Java Driver includes bug fixes, new features, and improvements. It supports MongoDB server versions from the 2.6 release through the 4.2 release.
+New Features
+See the What's New section of the reference documentation.
+Upgrade Considerations
+See the Upgrade Considerations section of the reference documentation.
+Downloads
+On maven central.
+API Documentation
+http://mongodb.github.io/mongo-java-driver/3.12/javadoc/
+Bug fixes
+You can find a full list of bug fixes here.
+Improvements
+You can find a full list of improvements here.
+New Features
+You can find a full list of new features here.
+3.11.2
+Java Driver 3.11.2 (November 5, 2019)
+The 3.11.2 MongoDB Java Driver is a patch to the 3.11.1 release.
+Reference documentation
+The documentation hub includes extensive documentation of the 3.11 driver, including
+
+What's New: what's new in the 3.11 driver
+Upgrading: upgrading from the 3.10.x driver
+Installation: how to get the driver
+
+and much more.
+Bug fixes
+You can find a full list of bug fixes here.
+ ... (truncated)
+
+
+
+Commits
+
+c29fc3a Bump to 3.12.0
+02e2c15 Bump 3.11 release version from 3.11.3 back to 3.11.2
+2d0ec0c Backport Javadoc apiref link fixes from 4.x to master
+ff0386e UUID specification implementation updates
+8d83a00 Move note about 3.x release to the top of the upgrading page
+3493b69 Add 3.12 release to reference documentation
+9832778 Update reference documentation for uuidRepresentation setting
+d688944 Implement UUID representation specification
+9d17bea Fix UUID decoder bug
+8f866e2 mongos pinning test expects no unpinning on MaxTimeoutMSExpired
+Additional commits viewable in compare view
+
+
+
+
+Dependabot will resolve any conflicts with this PR as long as you don't alter it yourself. You can also trigger a rebase manually by commenting @dependabot rebase.
+
+Note: This repo was added to Dependabot recently, so you'll receive a maximum of 5 PRs for your first few update runs. Once an update run creates fewer than 5 PRs we'll remove that limit.
+You can always request more updates by clicking Bump now in your Dependabot dashboard.
+
+Dependabot commands and options
+
+You can trigger Dependabot actions by commenting on this PR:
+
+@dependabot rebase will rebase this PR
+@dependabot recreate will recreate this PR, overwriting any edits that have been made to it
+@dependabot merge will merge this PR after your CI passes on it
+@dependabot squash and merge will squash and merge this PR after your CI passes on it
+@dependabot cancel merge will cancel a previously requested merge and block automerging
+@dependabot reopen will reopen this PR if it is closed
+@dependabot close will close this PR and stop Dependabot recreating it. You can achieve the same result by closing it manually
+@dependabot ignore this major version will close this PR and stop Dependabot creating any more for this major version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this minor version will close this PR and stop Dependabot creating any more for this minor version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this dependency will close this PR and stop Dependabot creating any more for this dependency (unless you reopen the PR or upgrade to it yourself)
+@dependabot use these labels will set the current labels as the default for future PRs for this repo and language
+@dependabot use these reviewers will set the current reviewers as the default for future PRs for this repo and language
+@dependabot use these assignees will set the current assignees as the default for future PRs for this repo and language
+@dependabot use this milestone will set the current milestone as the default for future PRs for this repo and language
+@dependabot badge me will comment on this PR with code to add a ""Dependabot enabled"" badge to your readme
+
+Additionally, you can set the following in your Dependabot dashboard:
+
+Update frequency (including time of day and day of week)
+Pull request limits (per update run and/or open at any time)
+Out-of-range updates (receive only lockfile updates, if desired)
+Security updates (receive only security updates, if desired)",1,0
+1147,2020-01-13T03:51:27Z,2020-01-18T19:02:57Z,2020-01-18T19:02:57Z,1,1,1,"Bumps gson from 2.8.1 to 2.8.6.
+
+Changelog
+Sourced from gson's changelog.
+
+Version 2.8.6
+2019-10-04  GitHub Diff
+
+Added static methods JsonParser.parseString and JsonParser.parseReader and deprecated instance method JsonParser.parse
+Java 9 module-info support
+
+Version 2.8.5
+2018-05-21  GitHub Diff
+
+Print Gson version while throwing AssertionError and IllegalArgumentException
+Moved utils.VersionUtils class to internal.JavaVersion. This is a potential backward incompatible change from 2.8.4
+Fixed issue google/gson#1310 by supporting Debian Java 9
+
+Version 2.8.4
+2018-05-01  GitHub Diff
+
+Added a new FieldNamingPolicy, LOWER_CASE_WITH_DOTS that mapps JSON name someFieldName to some.field.name
+Fixed issue google/gson#1305 by removing compile/runtime dependency on sun.misc.Unsafe
+
+Version 2.8.3
+2018-04-27  GitHub Diff
+
+Added a new API, GsonBuilder.newBuilder() that clones the current builder
+Preserving DateFormatter behavior on JDK 9
+Numerous other bugfixes
+
+Version 2.8.2
+2017-09-19  GitHub Diff
+
+Introduced a new API, JsonElement.deepCopy()
+Numerous other bugfixes
+
+
+
+
+Commits
+
+29c9389 [maven-release-plugin] prepare release gson-parent-2.8.6
+21fc362 Fixed tests for java 11 (#1454)
+c188138 restored Java 9 build (#1586)
+20dca86 Add docs to module-info.java (#1535)
+d6e6a01 Keep TypeAdapters from being stripped (#1546)
+7845c38 Minor cleanups in deprecations and other warnings (#1522)
+0e90771 Made the build work again with JDK 8 (#1585)
+0409a2e Fix typo in UserGuide (#1572)
+3958b1f Prefer writing chars instead of strings of length one (#1576)
+f885e60 Reverted the commit ce0fc4f34fe783ab685762341d61439fd5dc4670
+Additional commits viewable in compare view
+
+
+
+
+Dependabot will resolve any conflicts with this PR as long as you don't alter it yourself. You can also trigger a rebase manually by commenting @dependabot rebase.
+
+
+Dependabot commands and options
+
+You can trigger Dependabot actions by commenting on this PR:
+
+@dependabot rebase will rebase this PR
+@dependabot recreate will recreate this PR, overwriting any edits that have been made to it
+@dependabot merge will merge this PR after your CI passes on it
+@dependabot squash and merge will squash and merge this PR after your CI passes on it
+@dependabot cancel merge will cancel a previously requested merge and block automerging
+@dependabot reopen will reopen this PR if it is closed
+@dependabot close will close this PR and stop Dependabot recreating it. You can achieve the same result by closing it manually
+@dependabot ignore this major version will close this PR and stop Dependabot creating any more for this major version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this minor version will close this PR and stop Dependabot creating any more for this minor version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this dependency will close this PR and stop Dependabot creating any more for this dependency (unless you reopen the PR or upgrade to it yourself)
+@dependabot use these labels will set the current labels as the default for future PRs for this repo and language
+@dependabot use these reviewers will set the current reviewers as the default for future PRs for this repo and language
+@dependabot use these assignees will set the current assignees as the default for future PRs for this repo and language
+@dependabot use this milestone will set the current milestone as the default for future PRs for this repo and language
+@dependabot badge me will comment on this PR with code to add a ""Dependabot enabled"" badge to your readme
+
+Additionally, you can set the following in your Dependabot dashboard:
+
+Update frequency (including time of day and day of week)
+Pull request limits (per update run and/or open at any time)
+Out-of-range updates (receive only lockfile updates, if desired)
+Security updates (receive only security updates, if desired)",1,0
+1153,2020-01-20T03:45:57Z,2020-01-20T15:13:50Z,2020-01-20T15:13:50Z,1,1,1,"Bumps slf4j-api from 1.7.28 to 1.7.30.
+
+Commits
+
+0b97c41 move to 1.7.30
+c6c7a98 fix SLF4J-469
+ca93154 do not deploy slf4j-site
+d061e25 this module is Apache 2.0 licensed
+e8ce694 preapre release 1.7.29
+125e7cc Merge pull request #219 from delgurth/1.7-maintenance-with-slf4j-466
+a7562cb SLF4J-466: backport changes to 1.7
+9752c89 specify jdk8 in travis
+See full diff in compare view
+
+
+
+
+Dependabot will resolve any conflicts with this PR as long as you don't alter it yourself. You can also trigger a rebase manually by commenting @dependabot rebase.
+
+
+Dependabot commands and options
+
+You can trigger Dependabot actions by commenting on this PR:
+
+@dependabot rebase will rebase this PR
+@dependabot recreate will recreate this PR, overwriting any edits that have been made to it
+@dependabot merge will merge this PR after your CI passes on it
+@dependabot squash and merge will squash and merge this PR after your CI passes on it
+@dependabot cancel merge will cancel a previously requested merge and block automerging
+@dependabot reopen will reopen this PR if it is closed
+@dependabot close will close this PR and stop Dependabot recreating it. You can achieve the same result by closing it manually
+@dependabot ignore this major version will close this PR and stop Dependabot creating any more for this major version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this minor version will close this PR and stop Dependabot creating any more for this minor version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this dependency will close this PR and stop Dependabot creating any more for this dependency (unless you reopen the PR or upgrade to it yourself)
+@dependabot use these labels will set the current labels as the default for future PRs for this repo and language
+@dependabot use these reviewers will set the current reviewers as the default for future PRs for this repo and language
+@dependabot use these assignees will set the current assignees as the default for future PRs for this repo and language
+@dependabot use this milestone will set the current milestone as the default for future PRs for this repo and language
+@dependabot badge me will comment on this PR with code to add a ""Dependabot enabled"" badge to your readme
+
+Additionally, you can set the following in your Dependabot dashboard:
+
+Update frequency (including time of day and day of week)
+Pull request limits (per update run and/or open at any time)
+Out-of-range updates (receive only lockfile updates, if desired)
+Security updates (receive only security updates, if desired)",1,0
+1169,2020-02-01T03:33:20Z,2020-02-01T06:51:21Z,2020-02-01T06:51:21Z,1,1,1,"Bumps mongo-java-driver from 3.12.0 to 3.12.1.
+
+Release notes
+Sourced from mongo-java-driver's releases.
+
+3.12.1
+Java Driver 3.12.1 (January 17, 2020)
+The 3.12.1 MongoDB Java Driver is a patch to the 3.12.0 release.
+Reference documentation
+The documentation hub includes extensive documentation of the 3.12 driver, including
+
+What's New: what's new in the 3.12 driver
+Upgrading: upgrading from the 3.11.x driver
+Installation: how to get the driver
+
+and much more.
+Bug fixes
+You can find a full list of bug fixes here.
+API Documentation
+http://mongodb.github.io/mongo-java-driver/3.12/javadoc/
+
+
+
+Commits
+
+e70b336 Bump to 3.12.1
+db9c21d Update reference documentation to reference mongodb-crypt 1.0.1 release
+f09cc68 Build: Update MongoDB Crypt version to 1.0.1
+489016f Build: OSGI update for com.mongodb.crypt.capi
+612a2e1 Delay close cursor in AsyncChangeStreamBatchCursor and
+d256d1b Ensure server proof has been validated during SCRAM conversation
+95b27cf Add note about TXT records to Javadoc of ClusterSettings.Builder#srvHost
+ff55404 Set connection mode to MULTIPLE when srvHost is specified in ClusterSettings
+da844ef Fix functional test of Filters.metaTextScore
+4ea94c3 Add native-image.properties
+Additional commits viewable in compare view
+
+
+
+
+Dependabot will resolve any conflicts with this PR as long as you don't alter it yourself. You can also trigger a rebase manually by commenting @dependabot rebase.
+
+
+Dependabot commands and options
+
+You can trigger Dependabot actions by commenting on this PR:
+
+@dependabot rebase will rebase this PR
+@dependabot recreate will recreate this PR, overwriting any edits that have been made to it
+@dependabot merge will merge this PR after your CI passes on it
+@dependabot squash and merge will squash and merge this PR after your CI passes on it
+@dependabot cancel merge will cancel a previously requested merge and block automerging
+@dependabot reopen will reopen this PR if it is closed
+@dependabot close will close this PR and stop Dependabot recreating it. You can achieve the same result by closing it manually
+@dependabot ignore this major version will close this PR and stop Dependabot creating any more for this major version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this minor version will close this PR and stop Dependabot creating any more for this minor version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this dependency will close this PR and stop Dependabot creating any more for this dependency (unless you reopen the PR or upgrade to it yourself)
+@dependabot use these labels will set the current labels as the default for future PRs for this repo and language
+@dependabot use these reviewers will set the current reviewers as the default for future PRs for this repo and language
+@dependabot use these assignees will set the current assignees as the default for future PRs for this repo and language
+@dependabot use this milestone will set the current milestone as the default for future PRs for this repo and language
+@dependabot badge me will comment on this PR with code to add a ""Dependabot enabled"" badge to your readme
+
+Additionally, you can set the following in your Dependabot dashboard:
+
+Update frequency (including time of day and day of week)
+Pull request limits (per update run and/or open at any time)
+Out-of-range updates (receive only lockfile updates, if desired)
+Security updates (receive only security updates, if desired)",1,0
+1170,2020-02-01T03:33:38Z,2020-02-01T06:52:38Z,2020-02-01T06:52:38Z,1,1,1,"Bumps javassist from 3.25.0-GA to 3.26.0-GA.
+
+Commits
+
+See full diff in compare view
+
+
+
+
+Dependabot will resolve any conflicts with this PR as long as you don't alter it yourself. You can also trigger a rebase manually by commenting @dependabot rebase.
+
+
+Dependabot commands and options
+
+You can trigger Dependabot actions by commenting on this PR:
+
+@dependabot rebase will rebase this PR
+@dependabot recreate will recreate this PR, overwriting any edits that have been made to it
+@dependabot merge will merge this PR after your CI passes on it
+@dependabot squash and merge will squash and merge this PR after your CI passes on it
+@dependabot cancel merge will cancel a previously requested merge and block automerging
+@dependabot reopen will reopen this PR if it is closed
+@dependabot close will close this PR and stop Dependabot recreating it. You can achieve the same result by closing it manually
+@dependabot ignore this major version will close this PR and stop Dependabot creating any more for this major version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this minor version will close this PR and stop Dependabot creating any more for this minor version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this dependency will close this PR and stop Dependabot creating any more for this dependency (unless you reopen the PR or upgrade to it yourself)
+@dependabot use these labels will set the current labels as the default for future PRs for this repo and language
+@dependabot use these reviewers will set the current reviewers as the default for future PRs for this repo and language
+@dependabot use these assignees will set the current assignees as the default for future PRs for this repo and language
+@dependabot use this milestone will set the current milestone as the default for future PRs for this repo and language
+@dependabot badge me will comment on this PR with code to add a ""Dependabot enabled"" badge to your readme
+
+Additionally, you can set the following in your Dependabot dashboard:
+
+Update frequency (including time of day and day of week)
+Pull request limits (per update run and/or open at any time)
+Out-of-range updates (receive only lockfile updates, if desired)
+Security updates (receive only security updates, if desired)",1,0
+1173,2020-02-01T03:34:56Z,2020-02-01T06:55:07Z,2020-02-01T06:55:07Z,1,1,1,"Bumps mongodb-driver from 3.12.0 to 3.12.1.
+
+Release notes
+Sourced from mongodb-driver's releases.
+
+3.12.1
+Java Driver 3.12.1 (January 17, 2020)
+The 3.12.1 MongoDB Java Driver is a patch to the 3.12.0 release.
+Reference documentation
+The documentation hub includes extensive documentation of the 3.12 driver, including
+
+What's New: what's new in the 3.12 driver
+Upgrading: upgrading from the 3.11.x driver
+Installation: how to get the driver
+
+and much more.
+Bug fixes
+You can find a full list of bug fixes here.
+API Documentation
+http://mongodb.github.io/mongo-java-driver/3.12/javadoc/
+
+
+
+Commits
+
+e70b336 Bump to 3.12.1
+db9c21d Update reference documentation to reference mongodb-crypt 1.0.1 release
+f09cc68 Build: Update MongoDB Crypt version to 1.0.1
+489016f Build: OSGI update for com.mongodb.crypt.capi
+612a2e1 Delay close cursor in AsyncChangeStreamBatchCursor and
+d256d1b Ensure server proof has been validated during SCRAM conversation
+95b27cf Add note about TXT records to Javadoc of ClusterSettings.Builder#srvHost
+ff55404 Set connection mode to MULTIPLE when srvHost is specified in ClusterSettings
+da844ef Fix functional test of Filters.metaTextScore
+4ea94c3 Add native-image.properties
+Additional commits viewable in compare view
+
+
+
+
+Dependabot will resolve any conflicts with this PR as long as you don't alter it yourself. You can also trigger a rebase manually by commenting @dependabot rebase.
+
+
+Dependabot commands and options
+
+You can trigger Dependabot actions by commenting on this PR:
+
+@dependabot rebase will rebase this PR
+@dependabot recreate will recreate this PR, overwriting any edits that have been made to it
+@dependabot merge will merge this PR after your CI passes on it
+@dependabot squash and merge will squash and merge this PR after your CI passes on it
+@dependabot cancel merge will cancel a previously requested merge and block automerging
+@dependabot reopen will reopen this PR if it is closed
+@dependabot close will close this PR and stop Dependabot recreating it. You can achieve the same result by closing it manually
+@dependabot ignore this major version will close this PR and stop Dependabot creating any more for this major version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this minor version will close this PR and stop Dependabot creating any more for this minor version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this dependency will close this PR and stop Dependabot creating any more for this dependency (unless you reopen the PR or upgrade to it yourself)
+@dependabot use these labels will set the current labels as the default for future PRs for this repo and language
+@dependabot use these reviewers will set the current reviewers as the default for future PRs for this repo and language
+@dependabot use these assignees will set the current assignees as the default for future PRs for this repo and language
+@dependabot use this milestone will set the current milestone as the default for future PRs for this repo and language
+@dependabot badge me will comment on this PR with code to add a ""Dependabot enabled"" badge to your readme
+
+Additionally, you can set the following in your Dependabot dashboard:
+
+Update frequency (including time of day and day of week)
+Pull request limits (per update run and/or open at any time)
+Out-of-range updates (receive only lockfile updates, if desired)
+Security updates (receive only security updates, if desired)",1,0
+1179,2020-02-09T06:08:59Z,2020-02-16T19:02:40Z,2020-02-16T19:02:41Z,2,52,0,"Pull request title
+Organise design patterns into modules
+Refers to #1047
+Pull request description
+Arranged the following design patterns into modules:
+
+Chain
+Collection Pipeline
+
+
+For detailed contributing instructions see https://github.com/iluwatar/java-design-patterns/wiki/01.-How-to-contribute",2,1
+1180,2020-02-10T19:51:18Z,2020-03-07T11:12:07Z,2020-03-07T11:12:07Z,1,54,14,"Signed-off-by: yichen88 tang.yichenyves@gmail.com
+Pull request title
+
+Clearly and concisely describes what it does
+Refer to the issue that it solves, if available
+
+Pull request description
+
+Describes the main changes that come with the pull request
+Any relevant additional information is provided
+#1163
+
+
+For detailed contributing instructions see https://github.com/iluwatar/java-design-patterns/wiki/01.-How-to-contribute",2,1
+1181,2020-02-11T04:27:10Z,2020-03-07T11:20:45Z,2020-03-07T11:20:45Z,2,52,0,"Pull request title
+Organisation of design patterns into modules
+Refers to #1047
+Pull request description
+Organised below design patterns into modules:
+
+Command
+Composite
+
+
+For detailed contributing instructions see https://github.com/iluwatar/java-design-patterns/wiki/01.-How-to-contribute",2,1
+1182,2020-02-11T04:30:04Z,2020-03-07T11:22:55Z,2020-03-07T11:22:55Z,2,55,0,"Pull request title
+Organisation of design patterns into modules
+Refers to #1047
+Pull request description
+Organised below design patterns into modules:
+
+Converter
+Dao
+
+
+For detailed contributing instructions see https://github.com/iluwatar/java-design-patterns/wiki/01.-How-to-contribute",2,1
+1183,2020-02-11T04:33:19Z,2020-03-07T11:24:32Z,2020-03-07T11:24:32Z,2,52,0,"Pull request title
+Organisation of design patterns into modules
+Refers to #1047
+Pull request description
+Organised below design patterns into modules:
+
+Data Mapper
+Data Transfer Object
+
+
+For detailed contributing instructions see https://github.com/iluwatar/java-design-patterns/wiki/01.-How-to-contribute",2,1
+1184,2020-02-11T05:50:01Z,2020-03-12T18:37:37Z,2020-03-12T18:37:37Z,1,1,1,"Want to take over the Java ecosystem? All you need is a MITM!
+Update: Want to take over the Java ecosystem? All you need is a MITM!
+
+
+This is a security fix for a  vulnerability in your Apache Maven pom.xml file(s).
+The build files indicate that this project is resolving dependencies over HTTP instead of HTTPS.
+This leaves your build vulnerable to allowing a Man in the Middle (MITM) attackers to execute arbitrary code on your or your computer or CI/CD system.
+This vulnerability has a CVSS v3.0 Base Score of 8.1/10.
+POC code has existed since 2014 to maliciously compromise a JAR file in-flight.
+MITM attacks against HTTP are increasingly common, for example Comcast is known to have done it to their own users.
+This contribution is a part of a submission to the GitHub Security Lab Bug Bounty program.
+Detecting this and Future Vulnerabilities
+This vulnerability was automatically detected by LGTM.com using this CodeQL Query.
+As of September 2019 LGTM.com and Semmle are officially a part of GitHub.
+You can automatically detect future vulnerabilities like this by enabling the free (for open-source) LGTM App.
+I'm not an employee of GitHub nor of Semmle, I'm simply a user of LGTM.com and an open-source security researcher.
+Source
+Yes, this contribution was automatically generated, however, the code to generate this PR was lovingly hand crafted to bring this security fix to your repository.
+The source code that generated and submitted this PR can be found here:
+JLLeitschuh/bulk-security-pr-generator
+Opting-Out
+If you'd like to opt-out of future automated security vulnerability fixes like this, please consider adding a file called
+.github/GH-ROBOTS.txt to your repository with the line:
+User-agent: JLLeitschuh/bulk-security-pr-generator
+Disallow: *
+
+This bot will respect the ROBOTS.txt format for future contributions.
+Alternatively, if this project is no longer actively maintained, consider archiving the repository.
+CLA Requirements
+This section is only relevant if your project requires contributors to sign a Contributor License Agreement (CLA) for external contributions.
+It is unlikely that I'll be able to directly sign CLAs. However, all contributed commits are already automatically signed-off.
+
+The meaning of a signoff depends on the project, but it typically certifies that committer has the rights to submit this work under the same license and agrees to a Developer Certificate of Origin
+(see https://developercertificate.org/ for more information).
+- Git Commit Signoff documentation
+
+If signing your organization's CLA is a strict-requirement for merging this contribution, please feel free to close this PR.
+Tracking
+All PR's generated as part of this fix are tracked here:
+JLLeitschuh/bulk-security-pr-generator#2",2,1
+1185,2020-02-13T13:57:19Z,2020-03-07T11:47:24Z,2020-03-07T11:47:24Z,2,52,0,"Pull request title
+Refers to #1047
+Pull request description
+Organised below patterns into modules:
+
+Decorator
+Delegation
+
+
+For detailed contributing instructions see https://github.com/iluwatar/java-design-patterns/wiki/01.-How-to-contribute",2,1
+1186,2020-02-13T14:05:31Z,2020-03-07T11:48:26Z,2020-03-07T11:48:26Z,2,52,0,"Pull request title
+Refers #1047
+Pull request description
+Organisation of design patterns into modules:
+
+DIrty flag
+Double checked locking
+
+
+For detailed contributing instructions see https://github.com/iluwatar/java-design-patterns/wiki/01.-How-to-contribute",2,1
+1187,2020-02-15T07:28:23Z,2020-03-07T11:50:52Z,2020-03-07T11:50:52Z,2,53,0,"Arrange Patterns into modules
+Refers to #1047
+Pull request description
+Organisation of patterns into modules:
+
+Double DIspatch
+EIP Message Channel
+
+
+For detailed contributing instructions see https://github.com/iluwatar/java-design-patterns/wiki/01.-How-to-contribute",2,1
+1188,2020-02-17T05:13:06Z,2020-03-07T11:53:20Z,2020-03-07T11:53:20Z,2,53,0,"Pull request title
+Organisation of design patterns into modules
+Refers to #1047
+Pull request description
+Arranged the following patterns into modules:
+
+EIP Publish Channel
+Event Aggregator
+
+
+For detailed contributing instructions see https://github.com/iluwatar/java-design-patterns/wiki/01.-How-to-contribute",2,1
+1189,2020-02-24T14:13:48Z,2020-03-26T19:14:45Z,2020-03-26T19:14:45Z,15,737,0,"Pull request title
+
+Implemented Leader Followers Pattern
+
+Pull request description
+
+Ref Douglas C. Schmidt and Carlos O’Ryan - Leader/Followers",2,3
+1190,2020-02-26T04:30:05Z,2020-03-22T18:02:46Z,2020-03-22T18:02:46Z,23,238,243,"Pull request title
+
+Java 11 support for #984 #987 (l)
+
+Pull request description
+
+Updated the following patterns with local variable type inference(#984):
+layers
+lazy-loading
+leader-election
+Checked the code in lazy-loading pattern. Nothing should be changed to Java 11 new method(#987)",2,1
+1202,2020-03-01T03:23:17Z,2020-03-25T19:00:52Z,2020-03-25T19:00:52Z,1,1,1,"Bumps mockito-all from 1.9.5 to 1.10.19.
+
+Commits
+
+5bbaab9 ""Update release notes by Travis CI build 352 [ci skip]""
+0aaa36c Merge branch 'pbielicki-bug#128'
+3ca1ba3 Merged pbielicki-bug#128 onto the master
+3c8892b Merge pull request #125 from radimk/osgi-manifest
+eea214c removed unnecessary imports
+a777d48 Merge branch 'bug#128' of https://github.com/pbielicki/mockito into bug#128
+e49d2db Moved unit test to proposed org.mockitousage.bugs.deepstubs.DeepStubFailingWh...
+b8cfa22 Merge branch 'bug#128' of https://github.com/pbielicki/mockito into bug#128
+424df53 Fix proposal for issue #128
+ccc50cc Fixed release notes [ci skip]
+Additional commits viewable in compare view
+
+
+
+
+Dependabot will resolve any conflicts with this PR as long as you don't alter it yourself. You can also trigger a rebase manually by commenting @dependabot rebase.
+
+
+Dependabot commands and options
+
+You can trigger Dependabot actions by commenting on this PR:
+
+@dependabot rebase will rebase this PR
+@dependabot recreate will recreate this PR, overwriting any edits that have been made to it
+@dependabot merge will merge this PR after your CI passes on it
+@dependabot squash and merge will squash and merge this PR after your CI passes on it
+@dependabot cancel merge will cancel a previously requested merge and block automerging
+@dependabot reopen will reopen this PR if it is closed
+@dependabot close will close this PR and stop Dependabot recreating it. You can achieve the same result by closing it manually
+@dependabot ignore this major version will close this PR and stop Dependabot creating any more for this major version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this minor version will close this PR and stop Dependabot creating any more for this minor version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this dependency will close this PR and stop Dependabot creating any more for this dependency (unless you reopen the PR or upgrade to it yourself)
+@dependabot use these labels will set the current labels as the default for future PRs for this repo and language
+@dependabot use these reviewers will set the current reviewers as the default for future PRs for this repo and language
+@dependabot use these assignees will set the current assignees as the default for future PRs for this repo and language
+@dependabot use this milestone will set the current milestone as the default for future PRs for this repo and language
+@dependabot badge me will comment on this PR with code to add a ""Dependabot enabled"" badge to your readme
+
+Additionally, you can set the following in your Dependabot dashboard:
+
+Update frequency (including time of day and day of week)
+Pull request limits (per update run and/or open at any time)
+Out-of-range updates (receive only lockfile updates, if desired)
+Security updates (receive only security updates, if desired)",1,0
+1204,2020-03-01T03:23:53Z,2020-03-25T19:03:42Z,2020-03-25T19:03:42Z,1,1,1,"Bumps slf4j-test from 1.0.0 to 1.2.0.
+
+Dependabot will resolve any conflicts with this PR as long as you don't alter it yourself. You can also trigger a rebase manually by commenting @dependabot rebase.
+
+
+Dependabot commands and options
+
+You can trigger Dependabot actions by commenting on this PR:
+
+@dependabot rebase will rebase this PR
+@dependabot recreate will recreate this PR, overwriting any edits that have been made to it
+@dependabot merge will merge this PR after your CI passes on it
+@dependabot squash and merge will squash and merge this PR after your CI passes on it
+@dependabot cancel merge will cancel a previously requested merge and block automerging
+@dependabot reopen will reopen this PR if it is closed
+@dependabot close will close this PR and stop Dependabot recreating it. You can achieve the same result by closing it manually
+@dependabot ignore this major version will close this PR and stop Dependabot creating any more for this major version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this minor version will close this PR and stop Dependabot creating any more for this minor version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this dependency will close this PR and stop Dependabot creating any more for this dependency (unless you reopen the PR or upgrade to it yourself)
+@dependabot use these labels will set the current labels as the default for future PRs for this repo and language
+@dependabot use these reviewers will set the current reviewers as the default for future PRs for this repo and language
+@dependabot use these assignees will set the current assignees as the default for future PRs for this repo and language
+@dependabot use this milestone will set the current milestone as the default for future PRs for this repo and language
+@dependabot badge me will comment on this PR with code to add a ""Dependabot enabled"" badge to your readme
+
+Additionally, you can set the following in your Dependabot dashboard:
+
+Update frequency (including time of day and day of week)
+Pull request limits (per update run and/or open at any time)
+Out-of-range updates (receive only lockfile updates, if desired)
+Security updates (receive only security updates, if desired)",1,0
+1208,2020-03-17T09:45:44Z,2020-03-25T19:27:42Z,2020-03-25T19:27:42Z,2,52,0,"Arrange Patterns into modules
+Arranged following design patterns into modules
+
+Event Asynchronous
+Execute Around
+Refers to #1047
+
+
+For detailed contributing instructions see https://github.com/iluwatar/java-design-patterns/wiki/01.-How-to-contribute",2,1
+1209,2020-03-17T09:50:23Z,2020-03-26T19:03:10Z,2020-03-26T19:03:10Z,2,52,0,"Arrange design patterns into modules
+Refers to #1047
+Pull request description
+Arranged following design patterns into modules:
+
+Facade
+Factory Kit
+
+
+For detailed contributing instructions see https://github.com/iluwatar/java-design-patterns/wiki/01.-How-to-contribute",2,1
+1210,2020-03-17T09:54:35Z,2020-03-26T19:04:11Z,2020-03-26T19:04:11Z,2,52,0,"Arrange design patterns into modules
+Refers to #1047
+Arranged following design patterns into modules:
+
+Factory Method
+Feature Toggle
+
+
+For detailed contributing instructions see https://github.com/iluwatar/java-design-patterns/wiki/01.-How-to-contribute",2,3
+1214,2020-03-27T02:22:05Z,2020-03-28T18:26:37Z,2020-03-28T18:26:38Z,1,1,1,"Page doesn't exist anymore, so changed to use web archive
+Fixes #1161",2,1
+1220,2020-04-12T23:02:40Z,2020-08-05T14:38:54Z,2020-08-05T14:38:54Z,74,537,544,"Covers the following patterns:
+
+marker
+master-worker-pattern
+mediator
+memento
+model-view-controller
+model-view-presenter
+module
+monad
+monostate
+multiton
+mute-idiom
+mutex",2,6
+1221,2020-04-14T14:15:35Z,2020-05-17T18:44:54Z,2020-05-17T18:44:54Z,7,301,0,"Pull request title
+
+Implemented Arrange, Act, Assert pattern for #1218
+
+Pull request description
+
+Ref Arrange, Act, Assert: What is AAA Testing?",2,2
+1222,2020-04-14T14:26:25Z,2020-04-26T12:06:10Z,2020-04-26T12:06:10Z,14,57,57,"Pull request title
+
+Java 11 support for #984 #987 (o)
+
+Pull request description
+
+Updated the following patterns with local variable type inference(#984):
+object-mother
+object-pool
+observer
+Checked the following patterns. Nothing should be changed to Java 11 new method(#987):
+object-mother
+object-pool",2,1
+1228,2020-04-27T17:23:35Z,,2020-07-07T09:34:59Z,17,1408,0,"Association Table Mapping pattern.
+
+Implement association table mapping pattern
+refer to issue #347
+
+
+For detailed contributing instructions see https://github.com/iluwatar/java-design-patterns/wiki/01.-How-to-contribute",2,1
+1233,2020-05-06T20:24:55Z,,2020-05-30T14:58:31Z,16,701,1,"Pull request description
+
+for issue: #556
+create a component pattern demo",2,3
+1234,2020-05-08T08:39:24Z,,2021-10-24T15:35:04Z,7,531,0,"plugin pattern for issue #351
+
+add plugin pattern",3,6
+1235,2020-05-08T10:18:51Z,,2020-07-04T08:26:27Z,19,926,0,"Based on issue #870 , simple demo and description for strangler pattern.",2,4
+1237,2020-05-12T16:25:20Z,,2021-10-24T15:18:56Z,24,1782,0,"Pull request
+Microkernel architecture pattern implementation
+The related issue: #1086",5,5
+1238,2020-05-15T16:36:41Z,2020-05-31T07:45:28Z,2020-05-31T07:45:28Z,2,11,9,"#984 Added Java 11 support for Module
+Pull request description
+
+Added Java 11 support for Module and created constants in App.java for MESSAGE & ERROR
+
+
+For detailed contributing instructions see https://github.com/iluwatar/java-design-patterns/wiki/01.-How-to-contribute",2,1
+1239,2020-05-16T00:16:05Z,2020-05-31T07:47:15Z,2020-05-31T07:47:15Z,1,1,1,Just fix a typo selec -> select,3,1
+1249,2020-05-31T08:28:23Z,,2022-01-01T19:57:22Z,7,535,0,"for #443
+Pull request description
+
+add new pattern federated identity pattern",3,4
+1250,2020-05-31T11:09:22Z,2020-07-04T09:05:47Z,2020-07-04T09:05:47Z,19,927,0,"Correct package name.
+Add final to private members.
+Remove final of method parameters.",2,2
+1251,2020-05-31T12:32:14Z,,2020-08-29T14:07:15Z,9,9,33,"Pull request description
+It.s seems the equal() method in the abstract class isn't designed properly and I make some change in these abstract classes and their subclasses.
+for issue: #584
+Pull request title
+
+Clearly and concisely describes what it does
+Refer to the issue that it solves, if available
+
+Pull request description
+
+Describes the main changes that come with the pull request
+Any relevant additional information is provided
+
+
+For detailed contributing instructions see https://github.com/iluwatar/java-design-patterns/wiki/01.-How-to-contribute",2,3
+1342,2020-07-26T20:59:59Z,2020-07-27T13:50:32Z,2020-07-27T13:50:32Z,1,1,0,"Pull request title
+
+Fix broken logging in service layer
+#1339
+
+Pull request description
+
+Changes in service-layer logback.xml to fix logging",2,3
+1379,2020-07-28T16:39:18Z,2020-07-28T17:40:11Z,2020-07-28T17:40:11Z,2,10,0,"Adds @Tschis as a contributor for content.
+This was requested by iluwatar in this comment",2,2
+1380,2020-07-28T16:40:02Z,2020-07-28T17:43:10Z,2020-07-28T17:43:10Z,2,10,0,"Adds @qza as a contributor for code.
+This was requested by iluwatar in this comment",1,0
+1381,2020-07-28T16:40:56Z,2020-07-28T17:45:59Z,2020-07-28T17:45:59Z,2,10,0,"Adds @pitsios-s as a contributor for code.
+This was requested by iluwatar in this comment",1,0
+1382,2020-07-28T16:42:09Z,2020-07-29T14:36:33Z,2020-07-29T14:36:33Z,2,11,1,"Adds @llitfkitfk as a contributor for content.
+This was requested by iluwatar in this comment",1,0
+1383,2020-07-28T16:42:46Z,2020-07-29T14:39:12Z,2020-07-29T14:39:12Z,2,11,1,"Adds @gwildor28 as a contributor for code.
+This was requested by iluwatar in this comment",1,0
+1384,2020-07-28T16:43:43Z,2020-07-29T14:41:36Z,2020-07-29T14:41:36Z,2,11,1,"Adds @amit2103 as a contributor for code.
+This was requested by iluwatar in this comment",1,0
+1385,2020-07-28T16:44:28Z,2020-07-29T14:44:06Z,2020-07-29T14:44:06Z,2,13,1,"Adds @hoswey as a contributor for code.
+This was requested by iluwatar in this comment",1,0
+1386,2020-07-28T16:45:23Z,2020-07-29T14:47:06Z,2020-07-29T14:47:07Z,2,11,1,"Adds @gopinath-langote as a contributor for code.
+This was requested by iluwatar in this comment",1,0
+1387,2020-07-28T16:46:10Z,2020-07-29T14:49:00Z,2020-07-29T14:49:01Z,2,11,1,"Adds @ThatGuyWithTheHat as a contributor for content.
+This was requested by iluwatar in this comment",1,0
+1388,2020-07-28T16:46:57Z,2020-07-29T14:53:30Z,2020-07-29T14:53:31Z,2,13,1,"Adds @Azureyjt as a contributor for code.
+This was requested by iluwatar in this comment",1,0
+1389,2020-07-28T16:50:01Z,2020-07-29T14:50:54Z,2020-07-29T14:50:54Z,2,11,1,"Adds @vehpsr as a contributor for code.
+This was requested by iluwatar in this comment",1,0
+1390,2020-07-28T16:50:14Z,2020-07-29T14:55:54Z,2020-07-29T14:55:55Z,2,11,1,"Adds @mookkiah as a contributor for code.
+This was requested by iluwatar in this comment",1,0
+1391,2020-07-28T16:50:51Z,2020-07-29T14:58:01Z,2020-07-29T14:58:01Z,2,11,1,"Adds @llorllale as a contributor for code.
+This was requested by iluwatar in this comment",1,0
+1392,2020-07-28T16:51:29Z,2020-07-29T15:00:07Z,2020-07-29T15:00:07Z,2,11,1,"Adds @igeligel as a contributor for code.
+This was requested by iluwatar in this comment",1,0
+1393,2020-07-28T16:52:10Z,2020-07-29T15:02:14Z,2020-07-29T15:02:14Z,2,13,1,"Adds @hbothra15 as a contributor for code.
+This was requested by iluwatar in this comment",1,0
+1394,2020-07-28T16:52:24Z,2020-07-29T15:05:23Z,2020-07-29T15:05:23Z,2,11,1,"Adds @giorgosmav21 as a contributor for code.
+This was requested by iluwatar in this comment",1,0
+1395,2020-07-28T16:52:57Z,2020-07-29T15:07:16Z,2020-07-29T15:07:16Z,2,11,1,"Adds @oconnelc as a contributor for code.
+This was requested by iluwatar in this comment",1,0
+1396,2020-07-28T16:53:15Z,2020-07-29T15:09:00Z,2020-07-29T15:09:00Z,2,11,1,"Adds @npczwh as a contributor for code.
+This was requested by iluwatar in this comment",1,0
+1397,2020-07-28T16:53:53Z,2020-07-29T15:11:09Z,2020-07-29T15:11:09Z,2,12,0,"Adds @leogtzr as a contributor for code.
+This was requested by iluwatar in this comment",1,0
+1398,2020-07-28T16:54:08Z,2020-07-29T15:12:48Z,2020-07-29T15:12:48Z,2,10,0,"Adds @hannespernpeintner as a contributor for code.
+This was requested by iluwatar in this comment",1,0
+1399,2020-07-28T16:55:40Z,2020-07-29T15:14:31Z,2020-07-29T15:14:31Z,2,10,0,"Adds @dgruntz as a contributor for code.
+This was requested by iluwatar in this comment",1,0
+1400,2020-07-28T16:55:57Z,2020-07-29T15:16:13Z,2020-07-29T15:16:13Z,2,10,0,"Adds @christofferh as a contributor for code.
+This was requested by iluwatar in this comment",1,0
+1401,2020-07-28T16:56:34Z,2020-07-29T15:18:08Z,2020-07-29T15:18:08Z,2,12,0,"Adds @AnaghaSasikumar as a contributor for code.
+This was requested by iluwatar in this comment",1,0
+1402,2020-07-28T16:56:55Z,2020-07-29T15:19:54Z,2020-07-29T15:19:54Z,2,10,0,"Adds @waisuan as a contributor for code.
+This was requested by iluwatar in this comment",1,0
+1403,2020-07-28T16:57:30Z,2020-07-29T15:21:41Z,2020-07-29T15:21:41Z,2,10,0,"Adds @perwramdemark as a contributor for code.
+This was requested by iluwatar in this comment",1,0
+1404,2020-07-28T16:57:46Z,2020-07-29T15:23:24Z,2020-07-29T15:23:24Z,2,12,0,"Adds @leonmak as a contributor for code.
+This was requested by iluwatar in this comment",1,0
+1405,2020-07-28T16:58:20Z,2020-07-29T15:25:04Z,2020-07-29T15:25:04Z,2,10,0,"Adds @kanwarpreet25 as a contributor for code.
+This was requested by iluwatar in this comment",1,0
+1406,2020-07-28T16:58:34Z,2020-07-29T15:26:35Z,2020-07-29T15:26:35Z,2,10,0,"Adds @MSaifAsif as a contributor for code.
+This was requested by iluwatar in this comment",1,0
+1407,2020-07-28T16:59:07Z,2020-07-29T15:28:10Z,2020-07-29T15:28:10Z,2,10,0,"Adds @Alwayswithme as a contributor for code.
+This was requested by iluwatar in this comment",1,0
+1408,2020-07-28T16:59:23Z,2020-07-29T15:29:42Z,2020-07-29T15:29:42Z,2,10,0,"Adds @ranjeet-floyd as a contributor for code.
+This was requested by iluwatar in this comment",1,0
+1409,2020-07-28T16:59:57Z,2020-07-29T15:33:00Z,2020-07-29T15:33:00Z,2,20,0,"Adds @mitchellirvin as a contributor for code.
+This was requested by iluwatar in this comment",1,0
+1410,2020-07-28T17:00:13Z,2020-07-29T15:34:46Z,2020-07-29T15:34:46Z,2,10,0,"Adds @kirill-vlasov as a contributor for code.
+This was requested by iluwatar in this comment",1,0
+1411,2020-07-28T17:00:44Z,2020-07-29T15:36:28Z,2020-07-29T15:36:28Z,2,10,0,"Adds @joningiwork as a contributor for code.
+This was requested by iluwatar in this comment",1,0
+1412,2020-07-28T17:00:59Z,2020-07-29T15:38:08Z,2020-07-29T15:38:08Z,2,10,0,"Adds @jarpit96 as a contributor for code.
+This was requested by iluwatar in this comment",1,0
+1413,2020-07-28T17:01:39Z,2020-07-29T15:41:18Z,2020-07-29T15:41:18Z,2,10,0,"Adds @hoangnam2261 as a contributor for code.
+This was requested by iluwatar in this comment",1,0
+1414,2020-07-28T17:01:54Z,2020-07-29T15:42:56Z,2020-07-29T15:42:56Z,2,10,0,"Adds @fanofxiaofeng as a contributor for code.
+This was requested by iluwatar in this comment",1,0
+1415,2020-07-28T17:02:29Z,2020-07-29T15:44:29Z,2020-07-29T15:44:29Z,2,10,0,"Adds @dmitraver as a contributor for code.
+This was requested by iluwatar in this comment",1,0
+1416,2020-07-28T17:02:50Z,2020-07-29T15:45:54Z,2020-07-29T15:45:54Z,2,10,0,"Adds @besok as a contributor for code.
+This was requested by iluwatar in this comment",2,1
+1417,2020-07-28T17:03:18Z,2020-07-29T15:48:09Z,2020-07-29T15:48:10Z,2,12,0,"Adds @baislsl as a contributor for code.
+This was requested by iluwatar in this comment",1,0
+1418,2020-07-28T17:03:36Z,2020-07-29T15:49:47Z,2020-07-29T15:49:47Z,2,10,0,"Adds @akrystian as a contributor for code.
+This was requested by iluwatar in this comment",1,0
+1419,2020-07-28T17:04:06Z,2020-07-29T16:10:45Z,2020-07-29T16:10:45Z,2,10,0,"Adds @Rzeposlaw as a contributor for code.
+This was requested by iluwatar in this comment",1,0
+1420,2020-07-28T17:04:24Z,2020-07-29T16:12:47Z,2020-07-29T16:12:47Z,2,10,0,"Adds @LuigiCortese as a contributor for code.
+This was requested by iluwatar in this comment",1,0
+1421,2020-07-28T17:04:52Z,2020-07-29T16:14:27Z,2020-07-29T16:14:27Z,2,10,0,"Adds @juaanma as a contributor for code.
+This was requested by iluwatar in this comment",1,0
+1422,2020-07-28T17:05:08Z,2020-07-29T16:16:02Z,2020-07-29T16:16:03Z,2,10,0,"Adds @7agustibm as a contributor for code.
+This was requested by iluwatar in this comment",1,0
+1423,2020-07-28T17:05:34Z,2020-07-29T16:17:46Z,2020-07-29T16:17:46Z,2,10,0,"Adds @yosfik as a contributor for code.
+This was requested by iluwatar in this comment",1,0
+1424,2020-07-28T17:05:49Z,2020-07-29T16:19:24Z,2020-07-29T16:19:24Z,2,10,0,"Adds @vanogrid as a contributor for code.
+This was requested by iluwatar in this comment",1,0
+1425,2020-07-28T17:06:25Z,2020-07-29T16:21:23Z,2020-07-29T16:21:23Z,2,10,0,"Adds @valdar-hu as a contributor for code.
+This was requested by iluwatar in this comment",1,0
+1426,2020-07-28T17:06:38Z,2020-07-29T16:23:13Z,2020-07-29T16:23:13Z,2,10,0,"Adds @staillebois as a contributor for code.
+This was requested by iluwatar in this comment",1,0
+1427,2020-07-28T17:07:31Z,2020-07-29T16:25:03Z,2020-07-29T16:25:03Z,2,10,0,"Adds @sankypanhale as a contributor for content.
+This was requested by iluwatar in this comment",1,0
+1428,2020-07-28T17:07:48Z,2020-07-29T16:26:38Z,2020-07-29T16:26:38Z,2,10,0,"Adds @prafful1 as a contributor for content.
+This was requested by iluwatar in this comment",1,0
+1429,2020-07-28T17:08:16Z,2020-07-29T16:28:19Z,2020-07-29T16:28:19Z,2,10,0,"Adds @pnowy as a contributor for code.
+This was requested by iluwatar in this comment",1,0
+1430,2020-07-28T17:08:33Z,2020-07-29T16:29:56Z,2020-07-29T16:29:56Z,2,10,0,"Adds @lbroman as a contributor for code.
+This was requested by iluwatar in this comment",1,0
+1431,2020-07-28T17:09:06Z,2020-07-29T16:31:36Z,2020-07-29T16:31:36Z,2,10,0,"Adds @kaiwinter as a contributor for code.
+This was requested by iluwatar in this comment",1,0
+1432,2020-07-28T17:09:23Z,2020-07-29T16:33:18Z,2020-07-29T16:33:18Z,2,10,0,"Adds @jjjimenez100 as a contributor for code.
+This was requested by iluwatar in this comment",1,0
+1433,2020-07-28T17:09:52Z,2020-07-29T16:34:59Z,2020-07-29T16:34:59Z,2,12,0,"Adds @dzmitryh as a contributor for code.
+This was requested by iluwatar in this comment",1,0
+1434,2020-07-28T17:10:06Z,2020-07-29T16:36:36Z,2020-07-29T16:36:37Z,2,10,0,"Adds @christophercolumbusdog as a contributor for code.
+This was requested by iluwatar in this comment",1,0
+1435,2020-07-28T17:10:36Z,2020-07-29T16:38:23Z,2020-07-29T16:38:23Z,2,10,0,"Adds @anthonycampbell as a contributor for code.
+This was requested by iluwatar in this comment",1,0
+1436,2020-07-28T17:10:50Z,2020-07-29T16:40:01Z,2020-07-29T16:40:01Z,2,10,0,"Adds @amogozov as a contributor for code.
+This was requested by iluwatar in this comment",1,0
+1437,2020-07-28T17:11:19Z,2020-07-29T16:41:48Z,2020-07-29T16:41:48Z,2,12,0,"Adds @alexsomai as a contributor for code.
+This was requested by iluwatar in this comment",1,0
+1438,2020-07-28T17:11:35Z,2020-07-29T16:43:27Z,2020-07-29T16:43:27Z,2,10,0,"Adds @MaVdbussche as a contributor for code.
+This was requested by iluwatar in this comment",1,0
+1439,2020-07-28T17:12:03Z,2020-07-29T16:45:07Z,2020-07-29T16:45:08Z,2,10,0,"Adds @Harshrajsinh as a contributor for code.
+This was requested by iluwatar in this comment",1,0
+1440,2020-07-28T17:12:20Z,2020-07-29T16:47:29Z,2020-07-29T16:47:29Z,2,10,0,"Adds @Deathnerd as a contributor for code.
+This was requested by iluwatar in this comment",1,0
+1441,2020-07-28T17:12:43Z,2020-07-29T16:49:21Z,2020-07-29T16:49:21Z,2,12,0,"Adds @Anurag870 as a contributor for code.
+This was requested by iluwatar in this comment",1,0
+1442,2020-07-28T17:12:58Z,2020-07-29T16:51:04Z,2020-07-29T16:51:04Z,2,10,0,"Adds @Amarnath510 as a contributor for code.
+This was requested by iluwatar in this comment",1,0
+1443,2020-07-28T17:18:01Z,2020-07-29T16:53:14Z,2020-07-29T16:53:14Z,2,10,0,"Adds @IAmPramod as a contributor for review.
+This was requested by iluwatar in this comment",1,0
+1463,2020-08-01T02:59:52Z,2020-08-01T07:39:21Z,2020-08-01T07:39:21Z,2,8,8,"Opened for issue #1462
+This PR fixes the assertEquals parameter order in the arrange-act-assert module.
+assertEquals should be expected,  actual. Currently these are reversed and in the incorrect order.",2,3
+1470,2020-08-02T04:16:59Z,2020-08-02T08:51:15Z,2020-08-02T08:51:15Z,1,1,1,Updated ${artifactId} to ${project.artifactId} in parent pom. Usage of ${artifactId} is deprecated.,2,1
+1472,2020-08-03T14:57:32Z,2020-08-04T14:47:33Z,2020-08-04T14:47:33Z,6,19,23,"Typically command pattern is implemented using interfaces and concrete classes.
+Command interface will have an execute method and other helper methods. The concrete
+classes are supposed to implement the command interface.
+Refactor the code so that it follows the design",2,6
+1475,2020-08-05T13:53:30Z,2020-08-05T14:59:52Z,2020-08-05T14:59:52Z,12,56,130,"Its better to use enums instead of switch
+blocks which makes the code longer and difficult
+to maintain as and when new state appears.
+Instead of using switch cases to decide the weathertype
+we can initialize enums with the weathertype description
+and use that description to print in the logs.",2,1
+1479,2020-08-08T00:51:35Z,2020-08-08T19:32:44Z,2020-08-08T19:32:44Z,22,124,168,"Covers:
+
+null-object
+naked-object",2,2
+1480,2020-08-08T10:22:41Z,2020-08-11T13:59:49Z,2020-08-11T13:59:49Z,16,1411,0,,2,7
+1482,2020-08-08T19:21:26Z,2020-08-09T18:27:35Z,2020-08-09T18:27:35Z,1,103,0,Explanation for Private class data pattern. Would like to have some comment.,2,4
+1485,2020-08-09T13:37:03Z,2020-08-10T13:26:19Z,2020-08-10T13:26:19Z,4,57,2,"Logging in API Gateway
+
+Adds logging in api gateway to help in understanding the request flow.
+#1338",2,1
+1487,2020-08-11T06:21:40Z,2020-08-11T14:29:07Z,2020-08-11T14:29:07Z,1,1,1,Fixed word typo.,2,3
+1492,2020-08-15T17:57:20Z,2020-08-21T14:25:16Z,2020-08-21T14:25:16Z,196,1495,687,"SonarCloud Issue fixes
+
+This pull request is to resolve most of the issues that SonarCloud has picked up.
+
+Pull request description
+
+I've refactored most of the test cases that did not meet naming convention standards, attempted to fix the Cognitive Complexity issues within certain files, I haven't touched all of them as I was uncertain of the functionality. Mainly I've extracted parts of the original methods into their own methods to solve readability issues. I've also changed the unnecessary higher ranking access modifiers withing test cases, no changes were made to classes though, as I have no idea whether or not those methods should be used outside of the package/class itself.",2,12
+1493,2020-08-16T07:35:49Z,2020-08-17T16:18:40Z,2020-08-17T16:18:40Z,2,64,3,"Updated Continuous Integration Workflows
+
+ Created a separate job named Java PR Builder for handling Pull Requests
+ Added caching of maven dependencies for both the jobs
+
+What's the improvement for having a seperate PR builder?
+
+PR builder job will not show the build as failing anymore in the readme section badge for a faulty PR.
+
+How is caching going to help?
+
+Subsequent builds will be much faster reducing overall build time
+All artifacts from the previous build will be cached and need not be downloaded again for building the code.
+It will update the cache if newer dependencies are added to the pom files after completion of the job.",2,2
+1494,2020-08-17T06:54:19Z,2020-08-17T16:13:26Z,2020-08-17T16:13:26Z,1,1,1,"Pull request description
+The log message in the Orcs class should say orcs instead of hobbits.
+This is correct in the code example but wrong in the README.",3,9
+1499,2020-08-21T09:47:54Z,2020-08-23T13:56:06Z,2020-08-23T13:56:06Z,19,1266,0,"Filterer pattern
+
+Implemented filterer pattern described in issue #1444
+
+Pull request description
+
+New submodule with filterer pattern has been added",2,3
+1505,2020-08-24T21:18:02Z,2020-08-25T14:41:09Z,2020-08-25T14:41:09Z,4,40,45,"System Lambda is more specific. It only wraps the part of the code that
+produces the output.",2,4
+1507,2020-08-25T23:11:06Z,2020-08-26T18:20:12Z,2020-08-26T18:20:12Z,1,13,1,"Upgrade Mockito version
+
+This PR upgrades the mockito version to latest.
+#1486
+
+Pull request description
+
+The only change in the PR is upgrading the mockito version.",3,1
+1509,2020-08-28T06:54:01Z,2020-08-29T17:19:42Z,2020-08-29T17:19:43Z,2,8,11,"Added -y flag for installing xvfb
+
+
+ Removed the switching using if that I previously forgot to eliminate from the script which was useful for using the same file for push and pull requests from Java CI
+
+
+ Removed the if checking in the Pull Requests builder as well.
+
+
+ upgraded CI server version from Ubuntu 18.04 to 20.04",2,5
+1511,2020-08-29T21:04:33Z,2020-08-30T08:52:14Z,2020-08-30T08:52:14Z,1,3,0,"The message on Sonar Cloud displays the warning
+
+Shallow clone detected during the analysis. Some files will miss SCM information. This will affect features like auto-assignment of issues. Please configure your build to disable shallow clone.
+
+
+ To help eliminate this warning. I have made the changes to disable shallow clone.",2,1
+1512,2020-08-31T09:25:06Z,2020-08-31T17:17:40Z,2020-08-31T17:17:40Z,3,433,0,"Pull request description
+
+finish Chinese translations of adapter,observer and strategy pattern",2,1
+1513,2020-09-01T06:53:29Z,2020-09-01T13:38:45Z,2020-09-01T13:38:45Z,1,1,1,,2,2
+1515,2020-09-02T09:45:40Z,2020-09-02T16:59:08Z,2020-09-02T16:59:08Z,1,1,1,,2,1
+1516,2020-09-02T12:58:20Z,2020-09-06T16:33:04Z,2020-09-06T16:33:04Z,13,377,0,"Java source code demonstrate simple factory design pattern.
+relates to : #1477",3,8
+1517,2020-09-03T17:11:35Z,2020-09-12T16:57:29Z,2020-09-12T16:57:29Z,3,124,114,"Relates to #847
+Pull request description
+
+remove methods for test
+remove boilerplate code via Lombok",3,8
+1518,2020-09-05T18:22:47Z,,2021-03-07T12:01:57Z,1,544,545,"Description -
+
+
+There were 2 <plugins> elements inside the <build> elements of the pom.xml in base project. One the the  element was inside <pluginManagement> element but the other one was outside. I just made those 2 <plugins> elements as one and added the whole inside the <pluginManagement> element.
+
+
+I took help from here https://www.genuitec.com/forums/topic/pom-error-plugin-execution-not-covered-by-lifecycle/
+Here it is mentioned :
+""This is an M2eclipse problem. You are seeing it in MyEclipse as Maven4MyEclipse depends on M2Eclipse.
+Add <pluginManagement> to pom.xml just above the <plugins> element to make the error go away.""",3,7
+1522,2020-09-09T21:32:18Z,2020-09-13T14:21:29Z,2020-09-13T14:21:29Z,14,621,0,"Pull request description
+For issue: #1313
+Added a new  pattern ""Separated Interface""",2,3
+1525,2020-09-16T11:48:11Z,2020-10-04T11:21:25Z,2020-10-04T11:21:25Z,1,4,4,"I saw that some of the links on the event sourcing page were broken due to spaces in the markdown between link description and link URL.
+This simply removes the spaces to render the URLs correctly.",2,2
+1526,2020-09-22T08:56:53Z,2020-10-04T11:26:40Z,2020-10-04T11:26:40Z,5,732,0,"Chinese translation
+
+decorator,factory-method,builder,chain,facade pattern",2,1
+1527,2020-09-26T11:02:52Z,,2022-01-06T16:42:10Z,429,2057,1799,"Introduce Lombok
+
+This is first PR of many related to Lombok introduction. In this one logger from lombok is added.
+#1503",4,4
+1529,2020-09-27T13:31:51Z,2020-10-17T15:02:56Z,2020-10-17T15:02:56Z,3,5,11,"Using JUnit 5
+Reason
+
+Build failed with below error.
+
+Error:  Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.8.1:compile (default-compile) on project trampoline: Compilation failure
+Error:  /home/runner/work/java-design-patterns/java-design-patterns/trampoline/src/main/java/com/iluwatar/trampoline/Trampoline.java:[101,9] method does not override or implement a method from a supertype
+Error:    (due to <>, every non-private method declared in this anonymous class must override or implement a method from a supertype)
+
+
+Noticed using JUnit 4 and there is an issue for using JUnit 5.
+
+Pull request description
+
+Fixed the code to pass the build
+Used JUnit 5
+
+Sample Output
+[INFO] Running com.iluwatar.trampoline.TrampolineAppTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.176 s - in com.iluwatar.trampoline.TrampolineAppTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------",2,3
+1531,2020-10-01T00:02:05Z,2020-11-08T17:33:49Z,2020-11-08T17:33:49Z,12,208,438,"We can leverage the lambda expressions of Java 8 onwards
+to implement a command design pattern instead of traditional
+non-functional way
+In the traditional way, we usually have a Command interface and the concrete commands implement this interface
+This interface will have one abstract function called execute
+So each concrete command has to override just one function to achieve the functionality.
+We know that if any interface just has one abstract method then it can be used a functional interface and can be passed around as lambda expression instead of instantiating it.
+Fixes #1468",2,2
+1533,2020-10-01T15:40:51Z,,2020-10-02T06:50:27Z,1,1,1,"added a comment
+Pull request title
+
+Clearly and concisely describes what it does
+Refer to the issue that it solves, if available
+
+Pull request description
+
+Describes the main changes that come with the pull request
+Any relevant additional information is provided
+
+
+For detailed contributing instructions see https://github.com/iluwatar/java-design-patterns/wiki/01.-How-to-contribute",3,0
+1534,2020-10-01T15:42:25Z,2020-11-07T18:04:48Z,2020-11-07T18:04:48Z,16,769,255,"Changes made in circuit-breaker pattern as per #1510
+
+
+CircuitBreaker will be refactored to an interface, with a DefaultCircuitBreaker implementation (with current time-based logic)
+Introduce a RemoteService interface with call() method, which will be injected in CircuitBreaker implementation class and can be executed for any RemoteService implementation. CircuitBreaker will act as a fault tolerant wrapper on RemoteService implementations
+Provide two implementations of  RemoteService interface as 'DelayedRemoteServiceandQuickRemoteServiceinMonitoringService` to show interaction with remote services. DelayedRemoteService will accept the delay parameter.
+Remove the infinite while loop in App.java and call all services from monitoring service with certain delays (Thread sleep), showing the CLOSED->HALF_CLOSED->OPEN->CLOSED state worflow of CircuitBreaker.
+
+
+Updated Test cases and module diagram and README.md as per the changes",2,2
+1535,2020-10-01T16:54:55Z,2020-10-10T15:51:01Z,2020-10-10T15:51:01Z,1,14,0,"Added Caching of SonarCloud packages
+
+closes #1536",2,2
+1539,2020-10-01T20:04:33Z,,2020-10-17T14:50:19Z,1,9,11,"Corrected some grammar-mistake and errors in the file.
+Pull request title
+
+Clearly and concisely describes what it does
+Refer to the issue that it solves, if available
+
+Pull request description
+
+Describes the main changes that come with the pull request
+Any relevant additional information is provided
+
+
+For detailed contributing instructions see https://github.com/iluwatar/java-design-patterns/wiki/01.-How-to-contribute",3,0
+1541,2020-10-02T02:34:38Z,,2020-10-02T12:22:18Z,7,19,20,"Updated saga to JUnit 5
+This moves the saga module to JUnit 5 from JUnit 4
+
+For detailed contributing instructions see https://github.com/iluwatar/java-design-patterns/wiki/01.-How-to-contribute",3,2
+1542,2020-10-02T03:16:36Z,2021-03-04T05:19:31Z,2021-03-04T05:19:31Z,13,99,101,"Updated update-method module to JUnit 5
+
+For detailed contributing instructions see https://github.com/iluwatar/java-design-patterns/wiki/01.-How-to-contribute",3,8
+1543,2020-10-02T14:34:12Z,2020-12-08T05:04:43Z,2020-12-08T05:04:43Z,9,281,0,"Registry pattern
+
+Implemented Registry pattern addressing the issue #1310
+
+Description
+
+Added registry submodule and implemented the pattern there.
+Example for registry pattern was discussed in the issue itself #1310",3,8
+1548,2020-10-06T16:25:59Z,2020-11-07T12:31:26Z,2020-11-07T12:31:26Z,1,1,1,Add missing word in README.md sentence.,3,6
+1552,2020-10-09T13:08:18Z,,2021-01-02T04:21:00Z,8,269,0,"Page-Factory is a cross-platform framework that allows you to run tests on all popular browsers, because Selenium WebDriver is used to run them.",4,6
+1555,2020-10-10T21:42:43Z,,2020-11-07T18:14:49Z,8,47,6,"Pull request title
+changes in content and code",3,1
+1557,2020-10-11T07:37:37Z,,2020-11-07T18:16:06Z,1,14,0,"Pull request title
+
+Clearly and concisely describes what it does
+Refer to the issue that it solves, if available
+
+Pull request description
+
+Describes the main changes that come with the pull request
+Any relevant additional information is provided
+
+
+For detailed contributing instructions see https://github.com/iluwatar/java-design-patterns/wiki/01.-How-to-contribute",2,1
+1560,2020-10-12T21:21:17Z,2021-03-13T12:19:21Z,2021-03-13T12:19:21Z,681,2468,4962,"Use lombok
+
+Replace boiled code by lombok annotations
+#1503
+
+Pull request description
+
+Use @Slf4j instead of LOGGER var definition and initialisation
+Use @Getter and @Setter instead of vanila java implementations
+Use @ToString instead of custom implementations
+Use @EqualsAndHashcode instead of manually created equals() and hashCode()
+Autoformat project java classes
+Remove public for test methods using JUnit5",5,14
+1563,2020-10-13T17:30:42Z,2020-11-23T20:35:44Z,2020-11-23T20:35:44Z,13,748,0,Implemented Version Number pattern described in issue #1284,2,2
+1568,2020-10-16T04:16:38Z,2020-11-28T12:38:01Z,2020-11-28T12:38:01Z,2,13,4,"Improve Pull Request trigger behaviour
+Why does it need any improvement?
+⛔ Reopened Pull Request will not start to build automatically
+⛔ Labelling and unlabelling them will not start a build
+The Pull Request Builder will now automatically get triggered on the following events:
+
+ opened
+ reopened
+ synchronize
+ labeled
+ unlabeled
+
+These additional behaviours will work on top of the existing behaviour of:
+✔️  Opening a new Pull Request.
+✔️  Pushing a new commit to existing Pull Request.",2,4
+1570,2020-10-16T12:37:42Z,2020-12-09T07:21:25Z,2020-12-09T07:21:25Z,10,774,0,"Pull request title
+
+This PR implements a DTO design pattern using java Enums.
+Related issue
+
+Pull request description
+
+The new module added in pom.xml for this different implementation of the DTO design pattern
+DTO design pattern using Enums implemented
+Google code style check passed
+Test case implemented just for running the application to see it's functionality.
+
+
+For detailed contributing instructions see https://github.com/iluwatar/java-design-patterns/wiki/01.-How-to-contribute",5,9
+1576,2020-10-19T17:26:13Z,2020-11-30T14:55:20Z,2020-11-30T14:55:20Z,1,4,0,"Pull request description
+This adds a link to a tutorial to the Iterator pattern:
+(http://www.tutorialspoint.com/java/java_using_iterator.htm)
+
+For detailed contributing instructions see https://github.com/iluwatar/java-design-patterns/wiki/01.-How-to-contribute",2,2
+1580,2020-10-21T13:19:06Z,,2020-12-01T20:45:12Z,1,23,0,"Pull request title
+
+Clearly and concisely describes what it does
+Refer to the issue that it solves, if available
+
+Pull request description
+
+Describes the main changes that come with the pull request
+Any relevant additional information is provided
+
+
+For detailed contributing instructions see https://github.com/iluwatar/java-design-patterns/wiki/01.-How-to-contribute",3,1
+1581,2020-10-24T00:22:02Z,,2021-03-23T21:46:13Z,6,14,12,api-gateway: some code cleanup,4,3
+1582,2020-10-24T01:38:27Z,2020-12-20T18:18:24Z,2020-12-20T18:18:24Z,6,861,0,,3,3
+1586,2020-10-28T05:42:07Z,,2020-12-04T08:58:16Z,1,3,3,"Pull request title
+
+Clearly and concisely describes what it does
+Refer to the issue that it solves, if available
+
+Pull request description
+
+Describes the main changes that come with the pull request
+Any relevant additional information is provided
+
+
+For detailed contributing instructions see https://github.com/iluwatar/java-design-patterns/wiki/01.-How-to-contribute",3,0
+1587,2020-10-30T14:57:36Z,,2020-12-04T08:53:49Z,1,25,0,"Pull request title
+
+Clearly and concisely describes what it does
+Refer to the issue that it solves, if available
+
+Pull request description
+
+Describes the main changes that come with the pull request
+Any relevant additional information is provided
+
+
+For detailed contributing instructions see https://github.com/iluwatar/java-design-patterns/wiki/01.-How-to-contribute",4,3
+1588,2020-11-02T13:47:37Z,,2020-12-04T09:08:44Z,1,2,2,"Pull request title
+
+Clearly and concisely describes what it does
+Refer to the issue that it solves, if available
+
+Pull request description
+
+Describes the main changes that come with the pull request
+Any relevant additional information is provided
+
+
+For detailed contributing instructions see https://github.com/iluwatar/java-design-patterns/wiki/01.-How-to-contribute",4,0
+1589,2020-11-02T13:57:44Z,2020-12-07T17:55:14Z,2020-12-07T17:55:14Z,6,44,47,Changing the import from JUnit4 to JUnit5,3,2
+1590,2020-11-04T13:29:40Z,2020-12-05T08:34:50Z,2020-12-05T08:34:50Z,1,2,2,,2,2
+1592,2020-11-07T09:03:25Z,2020-12-05T08:56:01Z,2020-12-05T08:56:01Z,1,1,1,,2,1
+1597,2020-11-11T03:22:42Z,2020-12-04T18:03:15Z,2020-12-04T18:03:15Z,5,766,0,"add callback,state,command pattern,etc.",2,1
+1598,2020-11-19T03:41:02Z,2020-12-13T15:33:44Z,2020-12-13T15:33:44Z,1,10,0,Real world examples added for Factory pattern.,2,2
+1604,2020-11-30T09:58:31Z,2020-12-04T08:47:33Z,2020-12-04T08:47:33Z,1,1,1,Fix for #1601,3,5
+1621,2020-12-30T14:48:30Z,,2021-01-02T04:04:51Z,1,57,0,"Pull request title
+
+Clearly and concisely describes what it does
+Refer to the issue that it solves, if available
+
+Pull request description
+
+Describes the main changes that come with the pull request
+Any relevant additional information is provided
+
+
+For detailed contributing instructions see https://github.com/iluwatar/java-design-patterns/wiki/01.-How-to-contribute",3,1
+1622,2021-01-02T00:19:18Z,2021-01-04T13:57:32Z,2021-01-04T13:57:32Z,5,66,0,"#1620 french translation - initialisation part
+
+I have translated the main file README.md to /fr/README.md like others.
+#1620
+
+Pull request description
+
+I have added a french flag in the main README.md to be used as a link to the translation of it.
+The french flag is in assets/fr directory.
+I have translated the file README.md to french.
+The rest of patterns will be translated one part after the other
+I have added CN/KR flags for languages already presents and enabled links to them.
+
+Thanks in advance",4,5
+1624,2021-01-10T17:14:41Z,2021-01-13T07:36:22Z,2021-01-13T07:36:22Z,21,1084,0,"This PR implement the e-commerce system referred in the #1317 as the example for Special Case Pattern.
+To begin with, to focus on the pattern itself, I implement the DB and maintenance lock of the e-commerce system by the singleton instance.
+Use Case:  When a logged-in user purchases a product, different receipt view model will be showed based on different cases:
+
+If the transaction is successful, the default receipt will be showed.
+If the transaction is failed, the particular receipt of one of the special cases will be showed, instead of just a null object with no meaning.
+
+To sum up, we encapsulate special cases into subclasses that provide special behaviors of the target returned interface.",2,3
+1631,2021-01-18T17:50:25Z,2021-01-19T06:36:27Z,2021-01-19T06:36:27Z,5,103,2,"This PR implements the functional implementation of Strategy Pattern referred in the #1469.
+Use Case:  DragonSlayer can change its strategy by passing methods, which can be achieved by lambda expressions (after Java 8) combined with a enum.
+To sum up, we don't use java classes to implement Strategy but passing methods.
+Thanks to the discussion in #1574 for providing some ideas.",2,1
+1633,2021-01-19T09:32:34Z,2021-01-27T14:24:07Z,2021-01-27T14:24:07Z,4,11,18,,2,1
+1634,2021-01-24T12:34:17Z,2021-01-26T20:19:37Z,2021-01-26T20:19:37Z,27,0,1364,removed mutex and semaphore from the catalogue.,4,4
+1635,2021-01-24T18:10:11Z,2021-01-25T03:35:05Z,2021-01-25T03:35:05Z,37,674,358,Fixes #1617 by merging the two data transfer object patterns into one,2,0
+1639,2021-01-29T04:59:04Z,2021-01-30T10:53:29Z,2021-01-30T10:53:29Z,1,1,1,,2,2
+1640,2021-01-30T05:59:13Z,2021-10-16T17:08:53Z,2021-10-16T17:08:53Z,7,294,0,"Add Monitor design pattern
+Monitor pattern is used to create thread-safe object . In the concurrent application to prevent conflict between threads .
+Pull request description
+add new design pattern as Monitor !",4,20
+1646,2021-02-01T01:34:58Z,2021-02-08T15:37:49Z,2021-02-08T15:37:49Z,14,1204,2,submit new Chinese translation files,3,0
+1647,2021-02-01T08:17:02Z,2021-02-07T14:55:53Z,2021-02-07T14:55:53Z,1,2,1,"New Version is 3.8.0.2131
+
+earlier version 3.7.0.1746
+org.sonarsource.scanner.maven.sonar-maven-plugin",2,1
+1648,2021-02-02T11:24:07Z,2021-02-07T15:00:48Z,2021-02-07T15:00:48Z,3,43,1,ar translation,2,2
+1650,2021-02-10T19:20:44Z,2021-02-28T09:42:48Z,2021-02-28T09:42:49Z,12,693,0,This PR introduces Parameter Object pattern. It has a working example with tests and explanations.,3,5
+1653,2021-02-12T18:46:15Z,2021-02-14T09:57:57Z,2021-02-14T09:57:57Z,1625,2029,1870,updated license year to 2021 from 2019.,2,1
+1654,2021-02-14T18:48:39Z,2021-02-14T20:12:21Z,2021-02-14T20:12:21Z,3,171,0,"This pull request adds the first cloud design pattern to the catalog ☁️☁️☁️ 🍾🍾🍾
+
+Resolves issue #455
+The pattern is somewhat different to the others in a sense that it doesn't need to be built with Maven
+Instead there's an AWS specific example that can be followed
+The example sets up AWS S3 bucket and static web site
+Additionally CloudFront content distribution network is added to serve the web site from global edge locations
+Hopefully this serves as a starting point for many other cloud patterns in our issue list",2,0
+1656,2021-02-14T21:22:01Z,2021-02-15T15:13:07Z,2021-02-15T15:13:07Z,6,613,2,"Added Maven Wrapper
+These files are from Maven wrapper. It works similarly to the Gradle wrapper.
+This allows you to run the Maven project without having Maven installed and present on the path. It downloads the correct Maven version if it's not found (as far as I know by default in your user home directory).
+The mvnw file is for Linux (bash) and the mvnw.cmd is for the Windows environment.
+Partly addresses #1655
+
+ Maven Binary Version 3.6.3
+ Maven Wrapper Version 0.5.6",2,1
+1657,2021-02-15T15:22:48Z,2021-02-16T06:57:11Z,2021-02-16T06:57:11Z,2,24,1,"JaCoCo Upgrade
+To address the build time issue in master, this pull request upgrades jacoco library to latest version. See the console log below for error description.
+Caused by: java.io.IOException: Error while instrumenting javax/script/ScriptEngine.
+	at org.jacoco.agent.rt.internal_035b120.core.instr.Instrumenter.instrumentError(Instrumenter.java:158)
+	at org.jacoco.agent.rt.internal_035b120.core.instr.Instrumenter.instrument(Instrumenter.java:108)
+	at org.jacoco.agent.rt.internal_035b120.CoverageTransformer.transform(CoverageTransformer.java:91)
+	... 43 more
+Caused by: java.lang.IllegalArgumentException: Unsupported class file major version 59
+	at org.jacoco.agent.rt.internal_035b120.asm.ClassReader.<init>(ClassReader.java:195)
+	at org.jacoco.agent.rt.internal_035b120.asm.ClassReader.<init>(ClassReader.java:176)
+	at org.jacoco.agent.rt.internal_035b120.asm.ClassReader.<init>(ClassReader.java:162)
+	at org.jacoco.agent.rt.internal_035b120.core.internal.instr.InstrSupport.classReaderFor(InstrSupport.java:279)
+	at org.jacoco.agent.rt.internal_035b120.core.instr.Instrumenter.instrument(Instrumenter.java:74)
+	at org.jacoco.agent.rt.internal_035b120.core.instr.Instrumenter.instrument(Instrumenter.java:106)
+	... 44 more",2,1
+1658,2021-02-16T06:26:40Z,2021-02-21T13:21:12Z,2021-02-21T13:21:12Z,1,2,2,Updated the CI badge for the new pipeline build that we use.,2,1
+1659,2021-02-20T14:47:55Z,,2021-02-21T04:52:36Z,1,13,0,"Pull request title
+
+Clearly and concisely describes what it does
+Refer to the issue that it solves, if available
+
+Pull request description
+
+Describes the main changes that come with the pull request
+Any relevant additional information is provided
+
+
+For detailed contributing instructions see https://github.com/iluwatar/java-design-patterns/wiki/01.-How-to-contribute",3,0
+1660,2021-02-21T14:33:50Z,2021-03-14T06:23:41Z,2021-03-14T06:23:41Z,11,438,10,"This PR contains a project with the Active-Object pattern.
+resolves #65",4,13
+1661,2021-02-24T23:29:48Z,,2021-03-01T10:49:42Z,4,134,1,"#1625
+Pull request description
+
+Turkish translation is added for singleton design pattern",3,3
+1664,2021-02-28T13:04:42Z,2021-03-01T14:50:35Z,2021-03-01T14:50:35Z,11,98,34,"This should help run sonar analysis on pull requests from forked repositories as this is our primary source of contributions.
+The benefits has already been discussed here as it will resolve #1663
+There are a few license format changes that has been amended to this Pull Request as well, which lies beyond the scope of this PR.",2,4
+1665,2021-03-01T10:58:02Z,2021-03-01T13:50:06Z,2021-03-01T13:50:06Z,1,87,0,"#1625
+Pull request description
+Turkish translation is added for singleton design pattern",2,0
+1666,2021-03-03T05:11:22Z,2021-03-05T17:51:10Z,2021-03-05T17:51:10Z,2,8,14,"Removed ❌ the 🏷️  labeled and unlabeled behavior of triggering builds for Pull Requests.
+
+
+ Updated the versions of actions by GitHub to refer to the latest release directly by pointing to master",2,2
+1668,2021-03-05T03:05:47Z,2021-03-06T09:12:46Z,2021-03-06T09:12:46Z,53,333,412,"Update to JUnit5 across all modules
+This PR updates the project to JUnit 5 across the board with 1 or 2 exceptions where there are conflicts with some existing tests.",3,6
+1670,2021-03-06T09:16:10Z,2021-03-06T11:26:03Z,2021-03-06T11:26:03Z,15,32,31,As reported by SonarCloud use should use SecureRandom() instead of Random(),2,3
+1671,2021-03-07T05:30:47Z,2021-03-07T17:16:50Z,2021-03-07T17:16:50Z,1,25,9,"Set values to dependencies using properties.
+ Added formatting by spacing out certain version to increase readability.
+
+Updated certain versions of dependencies
+
+ byte-buddy from 1.9.7 to 1.10.21 🆕
+ javassist from 3.26.0-GA to 3.27.0-GA 🆕
+maven-checkstyle-plugin from 3.1.0 to 3.1.2 🆕",2,2
+1672,2021-03-11T03:23:41Z,,2021-03-16T18:39:30Z,26,1002,0,"MVVM is a design pattern commonly used in Android, along with Databinding and Gradle is used for the build process.
+The attempt in this code has been to create similar project in Maven, but I couldn't find databinding related setup in Maven as similar to that of gradle.
+This code will not compile as the dependencies for databinding couldn't resolve as android dependencies in Maven is not commonly found or implemented.
+Any suggestions as to how to go about this would be helpful.",3,8
+1673,2021-03-11T20:16:31Z,,2022-01-06T17:46:44Z,19,722,0,"Money Pattern Implementation
+
+I've implemented the Money pattern, and provided a demonstration of how it can be used.
+This implementation is to showcase how to work with multiple types of currencies.
+
+Pull request description
+
+There are certain things that I would have done differently within the demonstration aspect of the Money Pattern Implementation, i.e Error Handling, adding more checks to get rid of certain bugs, etc. but at that point I'd probably end up writing a whole banking system. 😂",3,6
+1675,2021-03-14T06:26:19Z,2021-03-14T14:07:39Z,2021-03-14T14:07:39Z,2,13,1,"Adds @noamgrinch as a contributor for code.
+This was requested by ohbus in this comment",2,1
+1676,2021-03-14T07:29:17Z,2021-03-14T14:08:53Z,2021-03-14T14:08:53Z,4,92,0,Added license headers to active object pattern,2,2
+1677,2021-03-16T16:53:03Z,,2022-01-07T08:13:34Z,3,72,80,,3,1
+1678,2021-03-16T19:44:05Z,2021-03-22T06:13:35Z,2021-03-22T06:13:35Z,15,730,2,"MVVM design pattern using zkoss framework.
+This is for initial review only, Readme, Comments etc are pending.
+@ohbus @iluwatar
+Just want to get some idea/suggestions/feedback for the code, if its acceptable then I can finish up the remaining pending tasks on this one.",3,6
+1679,2021-03-17T07:56:27Z,2021-03-18T05:19:45Z,2021-03-18T05:19:45Z,1,1,1,"Pull request title
+
+fix spelling errors
+
+Pull request description
+
+This Ferrari. -> This is Ferrari.",2,3
+1680,2021-03-17T20:01:15Z,2021-03-18T05:37:34Z,2021-03-18T05:37:34Z,2,159,17,"In this pull request
+
+Make the async method invocation more interesting. We are now firing space rockets and deploying lunar landers.
+Add an explanation and programmatic example
+Completes one small part of issue #590",2,2

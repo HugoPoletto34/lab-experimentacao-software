@@ -1,0 +1,132 @@
+number,created_at,merged_at,closed_at,files,additions,deletions,body_text,participants,comments
+50,2019-07-17T22:00:23Z,,2020-06-23T15:58:34Z,1,1,1,"File ""demo_cli.py"", line 161, in <module>
+    generated_wav = vocoder.infer_waveform(spec)
+  File ""/workspace/Real-Time-Voice-Cloning/vocoder/inference.py"", line 57, in infer_waveform
+    wav = _model.generate(mel, batched, target, overlap, hp.mu_law, progress_callback)
+  File ""/workspace/Real-Time-Voice-Cloning/vocoder/models/fatchord_version.py"", line 219, in generate
+    progress_callback(i, seq_len, b_size, gen_rate)
+  File ""/workspace/Real-Time-Voice-Cloning/vocoder/models/fatchord_version.py"", line 248, in gen_display
+    stream(msg)
+  File ""/workspace/Real-Time-Voice-Cloning/vocoder/display.py"", line 16, in stream
+    sys.stdout.write(""\r{%s}"" % message)
+UnicodeEncodeError: 'ascii' codec can't encode characters in position 4-19: ordinal not in range(128)
+ 
+During handling of the above exception, another exception occurred:
+ 
+Traceback (most recent call last):
+  File ""demo_cli.py"", line 184, in <module>
+    print(""Caught exception: %s"" % repr(e))
+UnicodeEncodeError: 'ascii' codec can't encode characters in position 52-67: ordinal not in range(128)",2,1
+159,2019-10-03T12:28:15Z,,2020-07-03T14:22:16Z,18,784,21,"I did wandb instrumentation of this repo, to log histograms, plots, audios while training. You can see the resulting report here
+Encoder Training results
+
+Synthesizer Training results
+
+
+Vocoder Training results",3,6
+205,2019-11-14T01:37:45Z,,2020-07-03T14:28:26Z,1,5,3,Modified structure of requirements list to have consistent formatting and greater clarity.,3,2
+244,2019-12-10T23:42:16Z,,2020-06-25T08:09:22Z,2,32,16,asdfasd,2,3
+328,2020-04-19T19:15:58Z,,2020-05-03T18:42:14Z,1,1,0,,3,6
+331,2020-04-28T07:28:46Z,,2020-06-22T16:46:14Z,34,624,449,,8,36
+366,2020-06-22T08:36:42Z,2020-06-22T16:44:36Z,2020-06-22T16:44:36Z,14,188,160,"This is a very carefully cleaned up version of #331. It implements suggestions provided by @CorentinJ and removes unnecessary changes for ease of review.
+Thanks to @pusalieth for the original implementation of these changes for CPU support.",3,1
+371,2020-06-22T21:50:00Z,2020-06-23T15:57:38Z,2020-06-23T15:57:39Z,5,5,5,"Newer versions of librosa>=0.7.0 do not accept a pathlib object for librosa.load()
+This will break demo_cli.py among other things. There was a fix for this in #331 but was not implemented because since it went too far in removing existing usage of pathlib.",1,2
+372,2020-06-23T04:49:31Z,2020-06-23T15:58:34Z,2020-06-23T15:58:35Z,1,6,1,"This will resolve #50 and #89 by removing non-ascii characters from the progress bar on systems which do not support them in stdout. While the vocoder is synthesizing output will look like this:
+Created the mel spectrogram
+Synthesizing the waveform:
+{|  14300/124800 | Batch Size: 13 | Gen Rate: 1.6kHz | }
+
+Behavior is unchanged for systems which do support unicode. These users will continue to see the progress bar.",1,1
+373,2020-06-23T06:25:05Z,2020-06-24T11:46:07Z,2020-06-24T11:46:07Z,1,1,1,"After successfully installing requirements.txt, running the toolbox presents the user with an error ""ModuleNotFoundError: No module named 'numba.decorators'. This is solved by using version 0.48 instead of the later versions, currently 0.50. This is because the latest version of numba removed the decorators module.",2,2
+374,2020-06-24T06:16:27Z,2020-06-24T08:38:02Z,2020-06-24T08:38:02Z,1,1,4,"This fixes a bug that was introduced in #366. In code to optimize CPU/GPU performance of the synthesizer, the GPU call is missing an argument. This resolves #337 and #344 .
+Another option is to pass the num_layers argument to tf.contrib.cudnn_rnn.CudnnLSTM, but it is deprecated. Reverting seems like the better option here.",1,1
+376,2020-06-25T04:56:33Z,2020-06-26T08:46:04Z,2020-06-26T08:46:04Z,5,48,7,Here is an idea for resolving #375 . I also suggest removing webrtcvad from requirements.txt to make installation easier for Windows users. The training instructions will need to include a step to install webrtcvad if using LibriSpeech or LibriTTS. Since training setup is already manual I find that preferable to including it in requirements.txt and complicating the install for everyone else.,1,3
+390,2020-06-30T00:45:02Z,2020-07-05T04:12:05Z,2020-07-05T04:12:05Z,2,67,4,"There can be multiple audio devices and I was actually having an issue on linux where sounddevice was picking my hdmi device as the default which doesn't even support the synthesizer samplerate raising an error  Invalid sample rate [PaErrorCode -9997].
+This filters unsupported devices for the synthesizer samplerate and adds a combobox on the gui to select the desired audio device.",2,6
+391,2020-06-30T07:57:41Z,2020-06-30T15:11:29Z,2020-06-30T15:11:29Z,1,0,2,"Resolves #389
+Encoder training works on CPU with this fix.",1,0
+397,2020-07-03T23:10:11Z,2020-07-04T14:00:23Z,2020-07-04T14:00:23Z,2,22,7,Resolves #396,1,0
+399,2020-07-04T16:39:55Z,2020-07-04T21:11:56Z,2020-07-04T21:11:56Z,3,6,5,"The situation: tensorflow-gpu is not published for mac so pip install -r requirements.txt will fail for those users. See #325 . I suggest removing the unnecessary packages tensorflow-cpu and tensorflow-gpu from requirements.txt for maximum compatibility.
+At the same time we might want to consider starting another requirements file with suggested packages like webrtcvad, and the removed tensorflow packages. @CorentinJ How do you think we should handle this?",1,1
+402,2020-07-06T01:50:58Z,2020-07-09T02:51:59Z,2020-07-09T02:51:59Z,3,85,2,"So this is my attempt of adding replay and export functions. I first thought on only keeping the last played wav, but then I thought would be nice to let the user choose among the last generated ones for like, comparing and choosing the best.
+I added a new row on the right side for the 3 new widgets. Turned out to be the best placement and  I hope this is fine until the interface cleanup. The interface looks like this now:",2,9
+416,2020-07-10T09:09:42Z,2020-07-10T15:46:27Z,2020-07-10T15:46:27Z,3,26,3,"A lot of people don't know what to do with the ""No encoder models found in encoder/saved_models"" error message, leading to issues like #387, #393 and #412.
+We just updated README.md to emphasize that downloading the pretrained models is part of the setup process, in #414 . However, I would also like to print a helpful error message when no models are found. This will allow the user to fix their own problem.",1,0
+417,2020-07-10T10:22:42Z,2020-07-10T15:47:02Z,2020-07-10T15:47:02Z,1,8,2,"Allow demo_cli.py to continue even if it is unable to play sound, when the ""--no_sound"" flag is not present.
+
+Some users may not immediately see ""--no_sound"" as a solution when they see the exception (problem: #214 (comment))
+The exception is currently fatal which forces the user to start from the beginning. On CPU, the configuration test and waveform generation are quite slow. This makes it annoying to rediscover this issue from time to time on systems that do not support audio output.
+
+Solution:
+
+When PortAudioError is caught, display the message and allow demo_cli.py to continue to the next step of saving the wav
+All other errors continue to be raised as normal",1,0
+422,2020-07-12T08:25:47Z,2020-07-12T16:09:22Z,2020-07-12T16:09:22Z,1,35,51,"Changes in this PR (resolves #418):
+
+Disable the ""Auto select next"" checkbox when <datasets_root> is not defined
+Move embedding history combobox to same row as the ""Use embedding from:"" label
+Delete ""Take generated"" button (does nothing)
+Move ""Browse"" button to spot formerly occupied by ""Take Generated""
+Delete ""Audio Input"" combobox
+
+Added in #390 because we had the space. No one requested the feature
+
+
+Move ""Audio Output"" combobox to empty spot beside Encoder/Synthesizer/Vocoder selection
+Move new features in #402 to a new row in the browser area
+Fix layout of UMAP projections
+
+After these changes this is what the toolbox GUI looks like:",1,0
+432,2020-07-19T18:03:55Z,2020-07-22T10:58:19Z,2020-07-22T10:58:19Z,6,117,15,"See #384. This PR adds a ""--seed"" option to make the output of the toolbox repeatable. It also implements a workaround for #53 by adding an option to trim silences in the vocoder output (caused by gaps in the spectrograms created during synthesizing).",2,10
+441,2020-07-23T12:31:16Z,2020-07-23T13:34:55Z,2020-07-23T13:34:55Z,2,71,34,"Resolves #413 by adding preprocessing support for other datasets. This is designed with LibriTTS in mind but is compatible with other datasets (e.g. VCTK) by using the same directory structure and file naming convention. This change is designed to be almost transparent for those using LibriSpeech. The training documentation on the wiki requires no update.
+These changes have been tested to ensure both LibriSpeech and LibriTTS can be processed and used in training without errors.
+Changes
+
+Remove hardcoding of dataset folder name and subfolders in synthesizer/preprocess.py. These are now specified with new command line arguments:
+
+--dataset_name (defaults to ""LibriSpeech"")
+--subfolders (defaults to train-clean-100, train-clean-360)
+
+
+New command line argument ""--no_alignments"" (default False)
+
+If True, does not split audio clips. For a given wave file ""filename.ext"" the preprocessing script will look for the text in ""filename.txt"" or ""filename.normalized.txt"" in the same location.",2,1
+517,2020-09-01T23:11:59Z,2020-09-03T22:31:52Z,2020-09-03T22:31:52Z,11,151,7,This is a fix for this issue Please let me know if anything else needs to get done,2,2
+536,2020-09-29T21:19:20Z,2020-09-30T09:12:17Z,2020-09-30T09:12:17Z,1,5,4,"Resolves two separate issues:
+
+Use spawned workers instead of forked workers to resolve CUDA_NOT_INITIALIZED_ERROR (closes #36)
+Passes seed to low_mem inference correctly, and in a way that does not require tensorflow to be pickled (closes #491, #529, #536)
+
+Requesting @mineLdiver to download the 491_fix_lowmem_seed branch of my fork and test these changes to make sure they work.",1,2
+562,2020-10-16T05:21:52Z,2020-10-16T15:32:06Z,2020-10-16T15:32:06Z,1,1,1,"The error message is confusing users (see #463, #476, #482, #494, #560). This is two-part update to improve the situation.
+
+Update wording of error message to explain that the models need to be installed
+Add detail to pretrained models wiki page to explain where the toolbox is expecting to find model files.",1,0
+563,2020-10-16T05:52:51Z,2020-10-16T15:32:46Z,2020-10-16T15:32:46Z,2,2,5,"Change LibriSpeech train-clean-100 download link to https (resolves #561)
+Remove reference to deleted UserAudio feature (see #527 (comment) ). If instead, you would like to bring back that feature then we could consider merging #527.",1,0
+573,2020-10-26T01:11:40Z,2020-10-26T07:29:13Z,2020-10-26T07:29:14Z,2,3,2,"In matplotlib 3.3.0, colorbar.set_clim() was removed. This causes the toolbox to break when plotting the embeds. This PR updates the code to use ScalarMappable.set_clim() as suggested in the matplotlib 3.3.0 API change list.
+Tested: demo_toolbox.py
+Resolves: #455",1,0
+581,2020-10-30T00:36:21Z,2020-11-02T23:10:06Z,2020-11-02T23:10:06Z,1,7,2,"Please see #580 for context.
+Some users do not have a valid audio output device, but still wish to save audio files from the toolbox. Currently, a PortAudio exception is raised during failed playback, preventing the vocoded audio from being added to the buffer for export. This PR fixes this problem by adding exception handling for audio playback errors.",1,0
+597,2020-11-18T05:26:02Z,2020-11-18T15:55:15Z,2020-11-18T15:55:15Z,1,2,1,Windows and Linux require different versions of numpy due to an unresolved Windows runtime bug. Reported in #596,1,0
+642,2021-01-24T05:37:23Z,,2021-02-17T20:38:11Z,2,143,38,"As discussed here, I have added instructions for using with venv.
+(Required for automation: Fix #640)
+(Mentions: @blue-fish)",12,62
+657,2021-02-14T16:37:52Z,2021-02-14T20:55:35Z,2021-02-14T20:55:35Z,1,0,763,"Proposed solution to #656.
+The extra commits are for lining up my repository's master branch with this one.",1,0
+668,2021-02-17T20:20:11Z,2021-02-18T07:29:21Z,2021-02-18T07:29:21Z,1,3,1,"Some users are having trouble identifying the problem when the pretrained models are not found (#638, #666). This PR adds some emphasis to draw attention to the error.
+The model check feature was originally implemented in #416.
+Before:
+Error: Model files not found. Follow these instructions to get and install the models:
+https://github.com/CorentinJ/Real-Time-Voice-Cloning/wiki/Pretrained-models
+
+After:
+********************************************************************************
+Error: Model files not found. Follow these instructions to get and install the models:
+https://github.com/CorentinJ/Real-Time-Voice-Cloning/wiki/Pretrained-models
+********************************************************************************",1,0
+825,2021-08-24T02:57:09Z,,2021-09-18T17:40:11Z,3,1,4,,2,1
+895,2021-11-19T06:41:15Z,2021-11-21T20:21:11Z,2021-11-21T20:21:11Z,1,1,1,To remove the warning that appears while training,2,4
+1030,2022-02-28T19:02:36Z,2022-03-01T11:39:59Z,2022-03-01T11:39:59Z,1,1,2,"Updated link of synthesizer to original drive file link where the link is of direct download after confirmation, should work perfectly now!",2,0

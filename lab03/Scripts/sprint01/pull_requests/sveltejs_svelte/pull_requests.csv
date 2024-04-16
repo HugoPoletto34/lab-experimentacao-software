@@ -1,0 +1,360 @@
+number,created_at,merged_at,closed_at,files,additions,deletions,body_text,participants,comments
+89,2016-12-01T20:32:01Z,2016-12-02T16:43:04Z,2016-12-02T16:43:04Z,3,30,2,Fixes the bug discovered in #85.,4,3
+94,2016-12-02T11:42:32Z,2016-12-02T16:35:55Z,2016-12-02T16:35:55Z,1,2,0,"gulp-svelte
+https://github.com/shinnn/gulp-svelte
+https://www.npmjs.com/package/gulp-svelte
+metalsmith-svelte
+https://github.com/shinnn/metalsmith-svelte
+https://www.npmjs.com/package/metalsmith-svelte",3,1
+121,2016-12-05T08:16:22Z,2016-12-05T15:56:07Z,2016-12-05T15:56:07Z,2,22,0,"This does not mean that svelte is using flow (yet ? :-), it is only
+that people using flow for code completion get some meaningful results
+instead of flow complaining about a missing .flowconfig file.
+The editorconfig is so that people who use spaces by default get their
+editor using tabs like expected.",4,3
+183,2016-12-11T15:02:22Z,2016-12-12T13:46:08Z,2016-12-12T13:46:08Z,15,412,223,"This is a slightly chunky PR but it doesn't change any functionality – would welcome feedback from collaborators on whether this is a sensible change or not.
+The basic thought here is that the readability of generated code is something that matters, and generating readable code probably requires some smarter abstractions than pushing lines of code to an array and joining them. To that end, this PR introduces a new internal class, CodeBuilder, which has addLine and addBlock methods. Consecutive lines are separated by a single newline, whereas blocks always have an extra newline around them. So instead of this sort of thing...
+
+...we get this sort of thing:
+
+We also get a testable, extensible (maybe in future we can add methods for creating objects and functions, or collapsing consecutive if blocks with the same conditions, etc), semantically meaningful interface for creating blocks of code, and there's slightly less code-that-generates-code as a result. But it is an extra layer of abstraction. Thoughts welcome!",3,1
+187,2016-12-11T19:10:34Z,2016-12-12T13:31:34Z,2016-12-12T13:31:34Z,3,12,1,Fixes #178 by using setAttribute(...) for list instead of updating the property,3,1
+190,2016-12-11T19:59:06Z,2016-12-12T13:31:24Z,2016-12-12T13:31:24Z,6,54,33,This prevents confusing errors of the sort encountered in #188,3,1
+212,2016-12-18T16:57:50Z,2016-12-20T15:41:06Z,2016-12-20T15:41:06Z,12,229,147,"This PR replaces things like document.createTextNode('foo') with createText('foo'), resulting in more minifiable and (arguably?) more readable code.
+While minified code gets smaller by a decent amount, zipped code only decreases in size by a tiny amount (<1% with svelte-todomvc). Theoretically it would also have a negative impact on performance because of the indirection, though in practice it looks like the impact is negligible (based on js-framework-benchmark). So it's not totally obvious whether it's a win or not, in the simple case.
+The real benefits, however, will come from being able to share functions between components. I've started this PR off with simple DOM helpers, but next up are methods that don't change between components. Once that's all in place, we'll be able to create non-standalone modules that import helpers from svelte/shared.js.",2,5
+242,2017-01-04T17:11:29Z,2017-01-04T18:45:14Z,2017-01-04T18:45:14Z,5,40,2,fixes #231,2,0
+280,2017-02-06T03:41:16Z,,2017-03-01T01:45:32Z,14,172,4,"This will close #195.
+It implements spread as:
+<input {{options}}/>
+into
+<input type=""text"" value=""Hello World""/>
+where options is:
+{
+  ""type"": ""text"",
+  ""value"": ""Hello World""
+}
+This is a work in progress until I've finished the implementation for Components.
+Some things that might need to be discussed:
+
+When the attributes are static, you can throw an error when they try to use 2 of the same attribute. When the attributes are dynamic through spreading, there's no such guarantee.
+In #195 it was suggested to use _ to spread all data, which would look like {{_}}. Is this the syntax we want to use?",5,16
+393,2017-03-19T08:04:54Z,2017-03-19T12:45:52Z,2017-03-19T12:45:52Z,3,4,4,"I realized my change in #390 didn't correctly handle the case when you are removing the last key in an object and it has a trailing comma. Previously, it would leave the comma, which would lead to malformed output. Now we're removing all the way up to the end of the object node, which seems like the best way to make sure we get the comma, if present.",2,0
+396,2017-03-19T16:52:41Z,2017-03-19T21:30:54Z,2017-03-19T21:30:54Z,12,84,47,"This isn't a particularly graceful solution. We simply make sure we avoid conflicts with all identifiers in the component's source, instead of just the ones that would actually collide with us. The code for determining the set of all identifiers lives inline in the case where we need it (when the export default isn't the last thing in the script), but it could be moved elsewhere if we end up needing this functionality anywhere else.",2,3
+453,2017-04-04T22:27:53Z,2017-04-10T15:36:59Z,2017-04-10T15:36:59Z,394,1125,1106,"Just a few high-level thoughts for now, since I'm about to leave my desk but want to get this out in the open. I have a completely unscientific feeling that there's a better way to handle a lot of the code generation stuff, that will be more readable, more maintainable and perhaps even more extensible, eventually.
+I'd like to create a new Fragment class (or maybe Block) that handles some of the work Generator currently does. At the moment, there's a lot of weird indirection, e.g. generator.addElement basically just hands over to the current fragment's init builder, which is a little confusing.
+I also think that node visitors should be responsible for visiting their own children, since that makes it easier to control the order in which stuff happens, and makes it possible to pass parameters down to child nodes without awkwardly sticking properties on objects all over the place.
+One of the immediate goals following this work is to hoist event handlers (where applicable), so this PR will need to bear that in mind (or include that work).",4,8
+467,2017-04-11T13:39:03Z,2017-04-11T15:03:20Z,2017-04-11T15:03:20Z,7,46,1,fixes #466,2,0
+468,2017-04-11T14:11:04Z,2017-04-11T15:56:29Z,2017-04-11T15:56:29Z,6,36,17,Ref #465. Still a few tests to work through,2,2
+482,2017-04-14T02:19:40Z,2017-04-14T13:41:53Z,2017-04-14T13:41:53Z,5,50,40,closes #481,2,0
+483,2017-04-14T02:29:41Z,2017-04-14T13:42:06Z,2017-04-14T13:42:06Z,7,161,134,"Based on #481 — updates set to clone the incoming state object to prevent mutation-related bugs. Had to move the contents of methods.js into the adjacent index.js to work around a cyclical dependency issue of some sort.
+Fixes #479",3,2
+494,2017-04-18T14:14:41Z,2017-04-19T01:20:33Z,2017-04-19T01:20:33Z,9,121,32,"This started out as a PR for #406, but I figured we ought to do some validation on bindings before adding any more of them.",2,0
+499,2017-04-19T01:55:35Z,2017-04-19T13:08:59Z,2017-04-19T13:08:59Z,5,48,8,Fixes #495,2,0
+506,2017-04-19T13:45:27Z,2017-04-19T21:28:20Z,2017-04-19T21:28:20Z,8,49,25,fixes #504 — results in slightly more readable code without the possibility of variables being initialised more than once,2,0
+510,2017-04-19T14:40:11Z,2017-04-19T21:28:45Z,2017-04-19T21:28:45Z,2,10,1,fixes #509,2,0
+511,2017-04-19T15:38:02Z,2017-04-19T22:08:12Z,2017-04-19T22:08:12Z,26,145,77,"This scratches a long-standing itch (#507) and fixes a bug whereby this would fail:
+{{#each roots as root}}
+  {{root}}
+{{/each}}
+The state equivalent now works, as state is treated as a reserved word.",2,1
+525,2017-04-25T20:12:18Z,2017-05-03T16:48:57Z,2017-05-03T16:48:57Z,54,4318,155,"This will probably be WIP for a while, as there will no doubt be lots of 'fun' challenges to solve along the way. So far, just adding support for in, out and transition directives (where transition just means 'both in and out').",6,14
+563,2017-05-04T13:34:41Z,2017-05-04T17:26:07Z,2017-05-04T17:26:07Z,4,51,3,Fixes #561,3,1
+628,2017-06-11T19:46:09Z,2017-06-11T20:53:52Z,2017-06-11T20:53:52Z,3,16,0,"This address #623, but we can leave the issue open so we don't forget to upgrade it to an error in v2",2,1
+629,2017-06-11T19:54:05Z,2017-06-11T20:54:05Z,2017-06-11T20:54:05Z,3,8,8,"Addresses #621. This is only really disguising the real problem, which is that people are generating ESM bundles for non-ESM environments, but it's probably not Svelte's job to deal with that. And even if it was, then a cryptic error of the type seen in #621 isn't the way to go about it.",2,0
+630,2017-06-11T20:54:46Z,2017-06-12T01:33:52Z,2017-06-12T01:33:52Z,6,38,8,fixes #620,2,0
+670,2017-06-24T20:51:08Z,2017-06-25T17:07:19Z,2017-06-25T17:07:19Z,21,120,82,"This PR substantially improves framerate when there are lots of CSS transitions in a document with a combination of techniques:
+
+rather than (insanely) creating a separate <style> tag for each transition, we just create the one, lazily, and update it
+Identical transitions are deduped — if an element has the exact same keyframes as another one that's currently in progress, we don't create a new CSS animation for it
+We use stylesheet.insertRule(rule, index) rather than style.textContent = rule
+Animations are only removed from the <style> tag once there are no active transitions — i.e. when frame drops caused by updating the CSSOM are less likely to be noticed",3,0
+680,2017-06-26T14:53:22Z,2017-07-05T16:04:16Z,2017-07-05T16:04:16Z,130,1179,133,"Making a start on #679 (and laying the groundwork for #678). Have hit a bit of a snag — the work needs to happen in preprocess, because of descendant selectors:
+<div>
+  <p>both this element and its parent need the scoping attribute</p>
+</div>
+
+<div>
+  <strong>neither of these two need the attribute</strong>
+</div>
+That's going to cause some nasty merge conflicts unless I merge #673 and #676, so I'll do that first.",2,3
+701,2017-07-08T14:46:42Z,2017-07-08T15:51:11Z,2017-07-08T15:51:11Z,3,32,1,fixes #699,2,0
+737,2017-07-30T03:43:11Z,2017-08-04T02:14:30Z,2017-08-04T02:14:30Z,20,1222,1342,"Doing a bit of housekeeping. Some of our dependencies are quite old. The behaviour of reify has changed in ways I don't really understand, so I've removed it in favour of a few cheeky regex hacks — the test suite runs 25-30% faster as a result.",4,5
+747,2017-08-04T02:38:24Z,2017-08-04T18:24:17Z,2017-08-04T18:24:17Z,12,28,9,Fixes #741,2,1
+806,2017-08-31T15:11:41Z,2017-08-31T16:42:48Z,2017-08-31T16:42:48Z,8,61,23,fixes #801,2,0
+807,2017-08-31T17:26:49Z,2017-09-01T14:41:12Z,2017-09-01T14:41:12Z,17,53,13,fixes #788,2,0
+815,2017-09-03T18:22:02Z,2017-09-05T17:55:15Z,2017-09-05T17:55:15Z,74,686,232,"Ref #374. I think the best way to approach this is to implement as many of the eslint-plugin-jsx-a11y rules as possible:
+
+ accessible-emoji
+ alt-text
+ anchor-has-content
+ anchor-is-valid
+ aria-activedescendant-has-tabindex
+ aria-props
+ aria-proptypes
+ aria-role
+ aria-unsupported-elements
+ click-events-have-key-events
+ heading-has-content
+ html-has-lang
+ iframe-has-title
+ img-redundant-alt
+ interactive-supports-focus
+ label-has-for
+ media-has-caption
+ mouse-events-have-key-events
+ no-access-key
+ no-autofocus
+ no-distracting-elements
+ no-interactive-element-to-noninteractive-role
+ no-noninteractive-element-interactions
+ no-noninteractive-element-to-interactive-role
+ no-noninteractive-tabindex
+ no-onchange
+ no-redundant-roles
+ no-static-element-interactions
+ role-has-required-aria-props
+ role-supports-aria-props
+ scope
+ tabindex-no-positive",2,1
+837,2017-09-10T21:59:43Z,,2017-09-12T12:27:45Z,3,9,9,"Thanks for merging #819, even though it wasn't perfect! Here are a two small fixes to things I've noticed when looking at d75ab85 or when playing around with the new release.",2,2
+845,2017-09-12T22:26:40Z,2017-09-13T18:34:25Z,2017-09-13T18:34:25Z,5,346,4,fixes #840,2,0
+954,2017-11-25T17:12:21Z,2017-11-25T22:18:29Z,2017-11-25T22:18:29Z,58,708,79,"Adjunct to #951. This adds a compute method to Store:
+import Store from 'svelte/store.js';
+
+const store = new Store({ foo: 1 });
+
+store.compute('bar', ['foo'], foo => foo * 2);
+store.get('bar'); // 2
+store.get(); // { foo: 1, bar: 2 }
+Computed properties can depend on other computed properties, and be observed etc. Setting a computed property will cause an error to be thrown.
+Might play around with the implementation a bit more but I think this is probably the right API. Thoughts?",4,5
+1023,2017-12-13T10:23:23Z,2017-12-13T23:20:29Z,2017-12-13T23:20:29Z,33,240,240,"Hey,
+I'm opening the PR to discuss the root property being public (it was briefly discussed in gitter and I'll try to describe the motivation here once again).
+I have an use case where I'd like to create a new instance of a component with an additional service property. The main motivation is easier testing with a fake service, secondary motivation is to make the chat be less dependent on a particular vendor.
+const service = new VendorService() // handles http/ws communication, the chat is not tied to a particular backend, it'll work for any as long as this service has right methods/events
+
+new Chat({
+   target: document.getElementById('foo'),
+   data: { brand: 'Bar Baz' },
+   service
+})
+the chat component itself looks like this:
+{{#if closed}}
+<Bar on:click='toggle(OPEN)'>Leave a message</Bar>
+{{/if}}
+
+{{#if open}}
+<Widget on:click='toggle(CLOSE)'/>
+{{/if}}
+then inside of the Widget I use the service e.g. to send a message, receive messages etc.:
+export default {
+  oncreate () {
+    this.service = this._root.options.service
+  },
+  methods () {
+    send (event) {
+      // set data etc.
+      this.service.emit('send:message', message.text)
+    }
+  }
+}
+other approaches I though of or that were suggested to solve this:
+a) propagate events from lowest components (e.g. form submits) and handle all of it outside of the chat component - I didn't like it because I'd need to propagate it via many layers, too much hassle, too close to redux kind of way which I find very verbose
+b) check if service can be passed like the store, so that it can be automatically injected into components below - based on discussion in gitter I understood that it seems that dependency injection was discussed before and it's seen as a fragile pattern (I have the same feeling based on what I saw in other libraries, however I also think that it's not necessarily the pattern that is wrong but the excessive use, any pattern is wrong when overused)
+new Chat({
+  target: document.getElementById('foo'),
+  store,
+  includes: { service }
+})
+then the line:
+this.service = this.root.options.service
+is unnecessary.
+c) pass it via store as store.service. A little bit weird, unexpected
+d) pass it via data. Weird as well, unexpected
+I do understand the desire to keep svelte as concise as possible so I'm open to all suggestions :) Thanks a lot.",4,4
+1053,2017-12-24T20:51:56Z,2017-12-30T17:50:37Z,2017-12-30T17:50:37Z,18,710,1,fixes #1027,3,3
+1059,2017-12-30T15:39:36Z,2017-12-30T17:49:45Z,2017-12-30T17:49:45Z,7,26,2,Alternative to #1056. Fixes #54,3,3
+1072,2018-01-05T02:35:46Z,2018-01-06T21:45:47Z,2018-01-06T21:45:47Z,3,25,7,"fixes #1071. Bit trickier than I hoped — turns out the scroll event doesn't fire synchronously when you call window.scrollTo(...), so we need to use timeouts. 100ms seems to be enough.",3,1
+1073,2018-01-05T03:34:33Z,2018-01-05T15:50:11Z,2018-01-05T15:50:11Z,6,23,5,fixes #1066,3,1
+1092,2018-01-11T02:49:00Z,2018-01-11T14:07:53Z,2018-01-11T14:07:53Z,8,311,5,"fixes #1079. This is an alternative to #1090 — it does basically the same thing, but without the additional AST walk",3,2
+1093,2018-01-11T03:05:20Z,2018-01-11T18:43:02Z,2018-01-11T18:43:02Z,3,24,0,fixes the easiest part of #1061,3,1
+1094,2018-01-11T03:17:53Z,2018-01-13T23:06:31Z,2018-01-13T23:06:31Z,4,49,0,Ref #1061. Between this and #1093 we might have everything covered.,3,1
+1095,2018-01-11T03:34:18Z,2018-01-11T18:42:49Z,2018-01-11T18:42:49Z,3,34,1,fixes #1062,3,4
+1105,2018-01-13T17:05:59Z,,2018-01-19T09:29:10Z,15,42,36,Attempt to close #1091 :),4,8
+1106,2018-01-14T03:56:31Z,2018-01-18T16:48:41Z,2018-01-18T16:48:41Z,10,153,1,"This is based on @asweingarten's PR #1099 (thanks!) and adds a couple of extra commits:
+
+It makes sense to check for reserved words (like try or new) while we're doing this check
+Rather than creating a fresh parser each time and wrapping it in a try-catch, it turns out we can use acorn.isIdentifierStart and acorn.isIdentifierChar to determine whether or not something is a valid identifier — same result, but more direct
+Before, err.pos was pointing to the error inside the function ${name}(){} program, which doesn't correspond to the error in the component. Elsewhere, we just point to the start of the offending key, so I've done that here instead
+Because this is specific to computed properties, we may as well do the check inside the existing forEach rather than iterating over the properties another time
+Added a suggestion for a valid identifier in the error message (a-b-c becomes a_b_c and so on)",5,3
+1119,2018-01-19T02:06:15Z,2018-01-20T15:19:26Z,2018-01-20T15:19:26Z,18,40,38,"Follow-up to #1105 that causes CSS scoping to be based on styles alone, but also preserves the previous ast.hash behaviour. The mysterious test failure is still present.",4,1
+1149,2018-02-03T23:00:23Z,2018-02-07T13:08:23Z,2018-02-07T13:08:23Z,8,35,10,fixes #1138,3,1
+1151,2018-02-04T04:27:07Z,2018-02-10T16:02:15Z,2018-02-10T16:02:15Z,5,33,1,"I think this is the correct solution to #1117 — basically, whenever the element is first mounted, flush initial oncreate (and before/after create) hooks.",3,1
+1153,2018-02-04T15:52:23Z,2018-02-09T15:04:53Z,2018-02-09T15:04:53Z,4,87,19,fixes #1100,3,1
+1154,2018-02-04T16:26:55Z,2018-02-09T13:38:44Z,2018-02-09T13:38:44Z,5,39,3,fixes #1065,3,1
+1179,2018-02-18T15:35:43Z,2018-02-23T13:41:33Z,2018-02-23T13:41:33Z,2,16,1,"The current 'is the component name capitalized?' check disregards the possibility of the first character being _ or $. The upcoming version of Sapper has components with names like _4xx and _5xx, so this PR checks that the first character isn't a-z rather than checking that it is A-Z. I think that's a sensible fix",4,2
+1204,2018-03-05T15:51:27Z,2018-03-05T20:40:44Z,2018-03-05T20:40:44Z,38,228,177,fixes #1202. This bug essentially resulted from the fact that we're not using params any more internally. Nulling out key for blocks that don't specify one is an easy way to ensure the argument isn't added erroneously.,2,0
+1226,2018-03-12T12:15:17Z,2018-03-12T14:41:32Z,2018-03-12T14:41:32Z,6,38,6,fixes #1224,3,1
+1247,2018-03-16T04:12:19Z,2018-03-24T16:23:43Z,2018-03-24T16:23:43Z,33,1025,132,"Actions add additional functionality to elements within your component's template that may be difficult to add with other mechanisms. Examples of functionality which actions makes trivial to attach are:
+
+tooltips
+image lazy loaders
+drag and drop functionality
+
+Actions can be added to an element with the use directive.
+<img use:lazyload data-src=""giant-photo.jpg>
+
+Data may be passed to the action as an object literal (e.g. use:b=""{ setting: true }"", a literal value (e.g. use:b=""'a string'""), or a value or function from your component's state (e.g. add:b=""foo"" or add:b=""foo()"").
+Actions are defined in a ""actions"" property on your component definition.
+<script>
+  export default {
+    actions: {
+      b(node, data) {
+        // do something
+        return {
+          update(data) {},
+          destroy() {}
+        }
+      }
+    }
+  }
+</script>
+A action is a function which receives a reference to an element and optionally the data if it is added in the HTML. This function can then attach listeners or alter the element as needed. The action can optionally return an object with the methods update(data) and destroy().
+When data is added in the HTML and comes from state, the action's update(data) will be called if defined whenever the state is changed.
+When the element is removed from the DOM destroy() will be called if provided, allowing for cleanup of event listeners, etc.
+See #469 for discussion around this feature and more examples of how it could be used.",10,26
+1348,2018-04-15T22:09:06Z,2018-04-19T12:54:34Z,2018-04-19T12:54:34Z,1245,3483,19149,here it comes...,3,7
+1388,2018-04-30T00:09:29Z,2018-04-30T12:58:15Z,2018-04-30T12:58:15Z,57,310,430,"There's no need to have a separate h() method (for adding attributes to DOM nodes etc) if we're not compiling in hydratable mode, since the only time that method is called is during c(). Instead, we can just merge those two methods into one, shaving off previous bytes.
+This PR also gets rid of the ES5-style methods, in favour of ES6 shorthand.",3,5
+1389,2018-04-30T00:26:35Z,2018-04-30T23:49:41Z,2018-04-30T23:49:41Z,57,2881,15,fixes #1360,3,6
+1392,2018-05-01T00:26:07Z,2018-05-01T01:36:51Z,2018-05-01T01:36:51Z,3,42,9,fixes #1390,3,3
+1481,2018-05-17T17:38:05Z,2018-05-24T12:37:18Z,2018-05-24T12:37:18Z,3,64,43,"My attempt at solving #1478
+
+Using shelljs instead of raw shell commands
+Removing the usage of alias since there isn't a good cross-platform version of that
+Require changing all the .sh files so they aren't quite complete commands any more, hopefully they're still close enough.
+
+I'm still getting local failures that look like line-ending differences, but the file contents & directory structure look correct now.",4,4
+1501,2018-05-26T17:56:27Z,2018-05-28T23:40:40Z,2018-05-28T23:40:41Z,24,283,355,"Fixes #1499.
+Here's a short clip of this feature being used in Sapper Studio. The App pane has an edit icon, which takes you to the current page, and a crosshairs icon which lets you select a specific element.",2,0
+1612,2018-07-23T15:17:10Z,2018-07-24T17:23:28Z,2018-07-24T17:23:28Z,4,35,0,Failing test and fix for #1589,3,1
+1615,2018-07-25T15:50:47Z,2018-08-01T14:43:54Z,2018-08-01T14:43:54Z,3,5102,1,,7,10
+1627,2018-08-04T13:35:47Z,2018-08-04T14:59:45Z,2018-08-04T14:59:45Z,21,85,31,"Alternative fix for #1598, which causes {null} to render as ""null"" instead of the empty string, which I think is more in line with how Svelte makes these decisions elsewhere.
+The addition of a new helper is unfortunate, though at least it will minify better, I guess...
+x.data=y.thing;
+a(x,y.thing);",3,0
+1628,2018-08-04T14:30:14Z,2018-08-04T23:40:28Z,2018-08-04T23:40:28Z,6,71,9,"Alright, let's fix #1540 once and for all. This adds support for rest elements in computed properties. It does so in a way that avoids the props.props.props.props thing we discovered — in a case like this...
+computed: {
+  foo: ({ x, ...y }) => y
+}
+...foo will be excluded from the object passed in. This might seem slightly magical, but I think it matches people's intuitions of how this should work.",2,0
+1630,2018-08-04T19:48:09Z,2018-08-04T20:55:26Z,2018-08-04T20:55:26Z,5,41,0,fixes #1621,2,0
+1631,2018-08-04T20:55:12Z,2018-08-04T23:39:59Z,2018-08-04T23:40:00Z,3,19,5,fixes #1618,2,0
+1632,2018-08-04T21:19:45Z,2018-08-05T01:57:18Z,2018-08-05T01:57:19Z,3,24,41,closes #1614,2,0
+1640,2018-08-08T05:44:09Z,2018-08-11T21:19:03Z,2018-08-11T21:19:03Z,13,830,1,"Re: Issue #1635
+Currently don't have a test case for nominal output, but that's planned for tomorrow night.
+Just wanted to submit the PR so I could go to bed + get some feedback on it. Went with the {@debug _ } to represent ""debug all changes"" which may or may not be something we want. But I added it anyway just to give an idea of what it looks like currently.",2,4
+1642,2018-08-09T09:53:57Z,2018-08-11T21:24:34Z,2018-08-11T21:24:34Z,2,2,2,"In iOS, the window object hangs around as an object husk with no methods in it.
+Instead of the whole object being nulled on removal of the target.",3,1
+1644,2018-08-10T15:20:31Z,,2018-08-11T21:25:01Z,12,816,1,was trying to make a PR to #1640 but apparently i skipped that day of git class,1,1
+1683,2018-08-24T12:23:24Z,2018-08-24T23:41:29Z,2018-08-24T23:41:29Z,4,8,1,fixes #1658,2,0
+1684,2018-08-24T15:16:46Z,2018-08-24T23:41:13Z,2018-08-24T23:41:13Z,1,4,2,Related to #1664,3,4
+1685,2018-08-24T16:10:19Z,2018-08-25T01:39:26Z,2018-08-25T01:39:26Z,13,140,2,"Allows <div class:active=""user.active""> to simplify templates littered with ternary statements.
+Addresses #890",4,6
+1691,2018-08-25T11:03:46Z,2018-08-26T23:59:52Z,2018-08-26T23:59:52Z,66,572,21,"@jacwright How do you feel about this version of #1520? Instead of adding options to _set that change its behaviour, it expresses that new behaviour in a separate method, _stage. I think it's slightly simpler, and it adds less code.",2,1
+1695,2018-08-25T20:27:00Z,2018-08-28T19:10:22Z,2018-08-28T19:10:22Z,4,40,8,"When no expression is used in a class directive the class name will be used to evaluate whether the class should be added/removed.
+E.g. the following will add the class ""active"" when you call component.set({ active });.
+<div class:active></div>
+Also, classes added this way are encapsulated in the stylesheet.
+Old
+<div class=""{active ? 'active' : ''}""></div>
+<style>
+.active {
+  /* Will be removed from the stylesheet since the compiler can't know it is used */
+}
+</style>
+New
+<div class:active=""active""></div>
+<style>
+.active {
+  /* Will be kept and encapsulate styles */
+}
+</style>",4,6
+1703,2018-08-28T15:39:44Z,2018-08-28T19:07:03Z,2018-08-28T19:07:03Z,9,26,16,"Fixes #1699
+I originally started adding new conditions to the array in Elements.ts, but once I figured out where to get the dependencies from, it seemed to make more sense to do it in Bindings.ts to keep from exposing anything more from the munge method.
+I didn't add any new tests, I updated/was guided by the existing test suite.  I could add a new test if someone can think of an appropriate one.",4,1
+1775,2018-10-17T20:51:55Z,2018-10-20T12:52:42Z,2018-10-20T12:52:42Z,3,18,1,closes #1774,2,0
+1776,2018-10-17T21:33:55Z,2018-10-20T12:52:54Z,2018-10-20T12:52:54Z,4,58,12,fixes #1772,2,0
+1792,2018-10-22T05:36:42Z,2018-10-23T01:40:26Z,2018-10-23T01:40:26Z,3,21,1,subj. Looks like it was just typo problem.,3,0
+1797,2018-10-24T12:12:30Z,2018-10-24T15:50:33Z,2018-10-24T15:50:33Z,6,63,16,fixes #1793,2,0
+1839,2018-11-05T02:01:20Z,2018-12-16T00:18:04Z,2018-12-16T00:18:04Z,1566,14779,17627,"This is gonna take a while. First order of business is updating all the tests. I'm going to see how far I can get doing it via svelte-upgrade: sveltejs/svelte-upgrade#12
+
+Assignment instrumentation:
+
+ (Nice-to-have) Short-circuit boolean operations have $$make_dirty called outside of the boolean operation:
+
+<script>
+	let foo;
+	let bar;
+	$: foo && (bar = 1); // is made dirty outside `&&`
+</script>",6,13
+1890,2018-12-21T04:51:53Z,2018-12-22T21:09:28Z,2018-12-22T21:09:28Z,220,16333,99,"https://v3.svelte.technology/
+There's a ton of work still to do, but I've made some progress on updating the site for v3 and moving it into the main repo. Massive thanks to @vedam in particular for creating the fabulous new logo and creating https://svelte-redesign.now.sh — this code is all adapted from that work.
+I've made a few design tweaks along the way (contrast ratios etc). Also, the more time I spent with it, the more I felt that Asap doesn't quite reflect Svelte's personality, so this design uses Overpass and Overpass Mono everywhere (which were already in the design for UI elements). It's a really great typeface — modern, playful, versatile, a bit like Open Sans but less bland.
+
+I'll probably make a project board tomorrow to track the many outstanding tasks, but in the meantime if you see something say something. Also, it's revealed a couple of bugs in Svelte itself:
+
+href=foo#{bar} comes out as foobar — the # is getting removed. This makes all the guide links broken
+bind:this={thing[foo]} doesn't work, if foo is an each block context",7,11
+1923,2018-12-29T02:06:02Z,2018-12-29T05:13:34Z,2018-12-29T05:13:34Z,3,43,1,fixes #1919,2,0
+1926,2018-12-29T03:24:37Z,2018-12-29T05:12:24Z,2018-12-29T05:12:24Z,7,34,53,fixes #1918,2,0
+1958,2019-01-04T14:05:04Z,2019-01-05T02:59:14Z,2019-01-05T02:59:14Z,5,38,33,fixes #1949,2,0
+1961,2019-01-04T18:51:13Z,2019-01-05T02:59:02Z,2019-01-05T02:59:02Z,5,18,5,"fixes #1957. Bit of a lazy fix, and as the test/js diffs show it reveals some (pre-existing) false positives, but it fixes the bug well enough ahead of a more comprehensive rethink of how stats is structured",2,0
+1962,2019-01-04T19:04:13Z,2019-01-05T02:58:46Z,2019-01-05T02:58:46Z,4,17,1,fixes #1960. file under 'rich is getting old and needs to increase the font size on his laptop',2,0
+1967,2019-01-05T03:58:35Z,2019-01-13T19:19:55Z,2019-01-13T19:19:55Z,3,47,1,should fix #1939. 'should' because i couldn't quite reproduce the bug as originally stated,3,1
+1982,2019-01-15T14:32:42Z,2019-01-16T01:39:18Z,2019-01-16T01:39:18Z,9,94,32,fixes #1968. I haven't thought yet about what the correct behaviour should be for the tag option,2,3
+1988,2019-01-17T14:21:58Z,2019-01-19T13:16:53Z,2019-01-19T13:16:53Z,5,67,8,"Thinking on #1976 a little more, it occurred to me that there's really no need for a beforeNextUpdate function. The only time you should need to hook into the update cycle is when you want to schedule some ad hoc work to take place after the DOM is up to date.
+This means we only need one new lifecycle function — afterFlush (🐃). This is the MVP version of that; it just aliases the existing internal add_render_callback function, thereby adding zero extra bytes. If we wanted to, we could add some infinite loop protection (the existing infinite loop protection is based on function identity, so wouldn't help here, though frankly I think you'd struggle to find yourself in that situation), or ensure that a flush was scheduled (at the moment it assumes one is already, otherwise the callback won't fire until a flush does happen). But maybe we can file those under YAGNI?
+Thoughts welcome on whether afterFlush is the correct name.",3,3
+1994,2019-01-19T15:53:20Z,2019-01-19T17:05:42Z,2019-01-19T17:05:42Z,5,41,15,"There's still some weirdness surrounding navigation/history API that I wasn't able to track down. If you are on a given example with version=local and then you navigate to another example and then press 'Back', you will end up on the first example with the latest alpha version, and I have no idea why. I don't know where else popstate is being handled.",2,0
+1998,2019-01-21T15:50:55Z,2019-01-26T23:53:48Z,2019-01-26T23:53:48Z,131,1059,445,"Implementing the fourth v3 RFC (sveltejs/rfcs#12), on the assumption that we decide to move forward with it.
+There are three elements to it:
+
+ Make slotted content render lazily rather than eagerly
+ Implement setContext and getContext API
+ Implement the expose: directive, which may change its name (a couple of other suggestions I quite like are with: and let:)
+
+Oh, and we need to make sure things behave sensible when compiling to web components. So far all the existing tests pass, but we haven't started putting <slot> elements inside each blocks yet",3,3
+2010,2019-01-27T14:27:37Z,2019-01-29T03:06:06Z,2019-01-29T03:06:06Z,6,83,4,"fixes #1997. I've come around to the idea that it should be possible to bind to store values, even though there are some caveats around which stores are suitable. Maybe a documentation question more than anything?
+One thing you can't do: bind to a nested property, e.g. bind:value={$user.name}. That's because stores check referential equality (i.e. they expect immutable data), and there's no way to create a clone of user with the new name property without making certain assumptions about what user is. It will currently throw an error instead. Suggestions for better alternatives welcome.",3,1
+2021,2019-01-29T19:11:27Z,2019-01-30T03:29:25Z,2019-01-30T03:29:25Z,48,153,154,Fixes #2017.,3,1
+2045,2019-02-04T01:39:37Z,2019-02-04T03:05:23Z,2019-02-04T03:05:24Z,3,21,3,fixes #2037,3,2
+2062,2019-02-06T19:51:00Z,2019-02-06T23:58:37Z,2019-02-06T23:58:37Z,7,119,19,fixes #2059,3,1
+2065,2019-02-07T16:36:52Z,2019-02-07T18:14:54Z,2019-02-07T18:14:54Z,8,24,11,fixes #2061,3,1
+2082,2019-02-14T22:05:29Z,2019-02-17T15:06:22Z,2019-02-17T15:06:22Z,1,1,1,"can't quite figure out how this situation would arise, but apparently it did, and the variable && suggests that i anticipated it albeit with broken code.",3,1
+2101,2019-02-18T16:29:55Z,2019-02-19T02:16:28Z,2019-02-19T02:16:28Z,3,13,4,"This is one possible solution to #2018. It penalises non-IE11 users, which I don't like, but I'm not sure there's a clean alternative that doesn't involve polyfilling (which is a nuisance, even if the polyfill is small and simple).
+Also, maybe it's better not to use legacy for this, since the other two places where it's used (for try-catching input.type = type, and replacing element.dataset.foo = bar with element.setAttribute('data-foo', bar)) are for IE9 (I think?), and it'd be nice if Svelte supported IE11 without the legacy flag since a lot of people are still in the unfortunate position of supporting it.
+Any strong feelings either way?",4,3
+2102,2019-02-18T18:56:13Z,2019-02-19T02:16:05Z,2019-02-19T02:16:05Z,41,231,221,just warnings so far,3,1
+2111,2019-02-20T02:17:30Z,2019-02-20T13:06:08Z,2019-02-20T13:06:08Z,12,85,67,fixes #2108,3,2
+2132,2019-02-25T02:35:12Z,2019-03-10T13:30:30Z,2019-03-10T13:30:30Z,384,8244,99,"Current snapshot (will keep this updated): https://v3sveltetechnology-jtkvhkqssx.now.sh/tutorial/basics it now lives at https://v3.svelte.technology/tutorial
+
+Not much work here yet, but I may as well do this in the open as much as possible. Thinking about breaking things up like so:
+
+
+Tutorial would be an interactive (i.e. REPL-based) walkthrough of Svelte's features — similar content to what's currently in the guide
+API Docs would detail the nuts and bolts of the component API, the lifecycle functions, the contents of svelte/motion and svelte/store etc
+Examples would contain the examples that are currently accessible via the dropdown in the REPL. Clicking on one would take you to the REPL (which may or may not need to keep the dropdown?)
+
+The final missing piece here is how-tos. I think the blog can serve that function.",12,29
+2187,2019-03-09T19:56:43Z,2019-03-10T02:59:14Z,2019-03-10T02:59:15Z,17,71,128,fixes #2186,3,2
+2195,2019-03-10T13:39:33Z,2019-03-10T15:00:31Z,2019-03-10T15:00:31Z,1,0,1,,3,1
+2206,2019-03-11T03:12:20Z,2019-03-30T01:49:32Z,2019-03-30T01:49:32Z,102,2364,459,,9,25
+2230,2019-03-16T04:48:30Z,2019-03-16T14:26:24Z,2019-03-16T14:26:24Z,321,1508,235,"Man, this was a slog. Fixes #2205.",3,1
+2235,2019-03-16T19:35:28Z,2019-03-17T14:32:08Z,2019-03-17T14:32:08Z,5,17,11,"Per discussion on #2139, this is an alternative to #2155. If a component has {$foo} and foo is undefined, Svelte issues the 'foo is not declared' warning as usual, but still compiles, on the assumption that foo is a global store. If it's not, then it errors at runtime.",4,1
+2242,2019-03-17T14:31:46Z,2019-03-17T15:46:26Z,2019-03-17T15:46:26Z,40,60,593,"Implements the accessors option as described in #2144 and sets the default to false. It makes me a tiny bit nervous that the default is to have such different behaviour for export let and export function, partly because it'll be a challenge to document, but it does seem weird if the default behaviour is to bloat up people's bundles.",3,6
+2273,2019-03-18T22:47:01Z,2019-03-19T13:26:24Z,2019-03-19T13:26:24Z,1,1,3,fixes #2271,3,3
+2274,2019-03-19T01:59:46Z,2019-03-19T13:25:11Z,2019-03-19T13:25:11Z,3,29,1,"Prevents overwriting code in between declarations by breaking the declaration grouping when any non-declaration node is found. Fixes #2022 (and #2046, cherry-picked over here)",4,3
+2283,2019-03-21T02:28:19Z,2019-03-25T01:45:30Z,2019-03-25T01:45:30Z,12,27,27,fixes #2280,4,4

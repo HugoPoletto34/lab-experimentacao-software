@@ -1,0 +1,5639 @@
+number,created_at,merged_at,closed_at,files,additions,deletions,body_text,participants,comments
+1186,2015-06-23T08:25:51Z,,2017-04-04T16:28:38Z,1,7,1,"Brings finer control over exactly what resources will be affected by ProvidePlugin.
+For instance, I might only want to provide window.jQuery to a single module, and have it evaluate to undefined everywhere else.",4,1
+1638,2015-11-17T01:18:48Z,,2017-01-30T19:59:57Z,1,9,0,"Hey,
+I have little time to debug this, so I'm not even 100% sure it works as expected, but it prevents an error in my project when using Dedupe plugin:
+
+Template cannot be applied as TemplateArgument: RequireResolveContextDependency
+
+I based this commit on:
+7b97101
+Could you help with failing test case?",3,7
+1960,2016-01-30T18:04:01Z,,2017-04-04T16:36:21Z,2,4,2,"While I play with webpack 2 async chunk loading, I was found this strange behaviour.
+This fix are very naive, but work fine.",5,5
+2452,2016-05-08T23:36:35Z,,2017-01-30T20:01:09Z,1,15,4,"Moved the ""Building an Example"" section to the top of the examples README.md and gave a little more structure to the example for readability.",4,1
+2517,2016-05-18T22:20:00Z,,2017-04-04T19:53:26Z,1,12,2,"This should fix IE9's terrible script caching. Alternatively, we could check for a cached script that hasn't installed it's chunk and reload with a unique timestamp to bust the cache. This first pass seems to work for me though, so it may be all that's necessary.
+Addresses #2506.",4,3
+2682,2016-06-23T11:30:42Z,,2017-04-04T19:53:56Z,1,9,1,"Please check if the PR fulfills these requirements
+
+ Tests for the changes have been added (for bug fixes / features)
+ Docs have been added / updated (for bug fixes / features)
+
+What kind of change does this PR introduce? (Bug fix, feature, docs update, ...)
+
+ Bugfix
+ Feature
+ Code style update (formatting, local variables)
+ Refactoring (no functional changes, no api changes)
+ Build related changes
+ CI related changes
+ Other... Please describe:
+
+Config option
+output: {
+  chunkFilename: `[name].chunk.js`,
+},
+
+What is the current behavior?
+
+What is the new behavior?
+
+Does this PR introduce a breaking change?
+
+ Yes
+ No",9,9
+2929,2016-08-29T22:43:53Z,,2016-10-31T14:12:41Z,75,6827,1989,"Please check if the PR fulfills these requirements
+
+ Tests for the changes have been added (for bug fixes / features)
+- [x] Ran manual tests to check functionality
+ Docs have been added / updated (for bug fixes / features)
+
+What kind of change does this PR introduce? (Bug fix, feature, docs update, ...)
+
+ Bugfix
+ Feature
+ Code style update (formatting, local variables)
+ Refactoring (no functional changes, no api changes)
+ Build related changes
+ CI related changes
+ Other... Please describe:
+
+What is the current behavior? (You can also link to an open issue here)
+#455
+Currently, webpack does provide a way to add nonces to scripts. Given that the future of CSP could be a more nonce-based approach, having support for nonces is increasingly important.
+https://research.google.com/pubs/pub45542.html
+What is the new behavior?
+When user specifies webpack_nonce, a nonce is added to all loaded scripts. Because nonces are generally different on each page load, the nonce is specified in the entry file, not in the config file, similarly to a public path not known ahead of time.
+Does this PR introduce a breaking change?
+
+ Yes
+ No",17,8
+2950,2016-09-03T17:06:51Z,,2017-04-04T19:54:40Z,1,6,0,"Please check if the PR fulfills these requirements
+
+ Tests for the changes have been added (for bug fixes / features)
+ Docs have been added / updated (for bug fixes / features)
+
+What kind of change does this PR introduce? (Bug fix, feature, docs update, ...)
+
+ Bugfix
+ Feature
+ Code style update (formatting, local variables)
+ Refactoring (no functional changes, no api changes)
+ Build related changes
+ CI related changes
+ Other... Please describe: Increase of strictness
+
+What is the current behavior? (You can also link to an open issue here)
+Currently, it is possible to add the --hot flag and add the HotModuleReplacementPlugin in the webpack config. The docs say that this should never be done. However, a lot of people don't think of reading the docs because the error message it produces seems unrelated.
+I have noticed this issue coming up a couple of times in webpack-dev-server, the only one I can find right now is webpack/webpack-dev-server#488.
+What is the new behavior?
+When using the --hot flag, and the HotModuleReplacementPlugin is already added in the webpack config, the CLI will throw an error, clarifying that you can't combine the two.
+Does this PR introduce a breaking change?
+
+ Yes
+ No
+
+Other information:
+This could possibly be seen as a breaking change, but using both ways almost always errors, so I didn't mark this as breaking.",4,4
+2957,2016-09-05T14:38:32Z,,2018-01-02T20:57:36Z,1,9,2,"Please check if the PR fulfills these requirements
+
+ Tests for the changes have been added (for bug fixes / features)
+ Docs have been added / updated (for bug fixes / features)
+
+What kind of change does this PR introduce? (Bug fix, feature, docs update, ...)
+
+ Bugfix
+ Feature
+ Code style update (formatting, local variables)
+ Refactoring (no functional changes, no api changes)
+ Build related changes
+ CI related changes
+ Other... Please describe:
+
+What is the current behavior? (You can also link to an open issue here)
+For the AMD module format, if an external dependency has ""request"" set to something falsy (or if ""request.amd"" is falsy), the external modules array will contain ""null"" for that module.
+What is the new behavior?
+The new behaviour strips out falsy dependencies from the dependency array for AMD. This allows require() to return undefined and allows the application to handle that case. In essence, it extends the concept of setting a module in the node block to ""empty"" to non-Node modules.
+Does this PR introduce a breaking change?
+
+ Yes
+ No
+
+If this PR contains a breaking change, please describe the following...
+
+Impact:
+Migration path for existing applications:
+Github Issue(s) this is regarding:
+
+Other information:
+We have an application which runs both inside a browser and which we ship as an Electron desktop app. The application startup code uses require() to check for the availability of various native modules we ship and use native JS fallbacks in the event they are not present.
+I can update the docs and tests but will need some guidance as to where and which.",5,5
+2984,2016-09-11T17:49:31Z,,2018-01-02T20:59:45Z,5,131,54,"Please check if the PR fulfills these requirements
+
+ Tests for the changes have been added (for bug fixes / features)
+ Docs have been added / updated (for bug fixes / features)
+
+What kind of change does this PR introduce? (Bug fix, feature, docs update, ...)
+
+ Bugfix
+ Feature
+ Code style update (formatting, local variables)
+ Refactoring (no functional changes, no api changes)
+ Build related changes
+ CI related changes
+ Other... Please describe:
+
+What is the current behavior? (You can also link to an open issue here)
+No support for exporting as multiple names.
+What is the new behavior?
+Adds support for exporting as a library with multiple names. (#2981, clappr/clappr#1145)
+Does this PR introduce a breaking change?
+
+ Yes
+ No
+
+Other information:
+I still need to add/update tests and the docs but would like someone to check I'm along the right lines first.
+I get an error building something with the libraryTarget set to ""amd"" or ""jsonp"", but I also get the same error when I build without the changes made in this PR so was wondering if this is a known bug at the moment?
+ERROR in chunk main [entry]
+[output file name here]
+path.replace is not a function
+
+Also I am aware this doesn't work with libraryType var at the moment as it results in var a = var b = X.",5,7
+3007,2016-09-18T05:58:07Z,2016-09-19T20:08:29Z,2016-09-19T20:08:29Z,1,51,29,"Please check if the PR fulfills these requirements
+
+ Tests for the changes have been added (for bug fixes / features)
+ Docs have been added / updated (for bug fixes / features)
+
+What kind of change does this PR introduce? (Bug fix, feature, docs update, ...)
+
+ Bugfix
+ Feature
+ Code style update (formatting, local variables)
+ Refactoring (no functional changes, no api changes)
+ Build related changes
+ CI related changes
+ Other... Please describe:
+
+What is the current behavior? (You can also link to an open issue here)
+Running webpack --config ""file1.js"" --config ""file2.js"" throws a syntax error. #2835
+What is the new behavior?
+Running webpack --config ""file1.js"" --config ""file1.js"" will trigger the MultiCompiler, the same behavior as exporting an array of config objects in a config file.
+Does this PR introduce a breaking change?
+
+ Yes
+ No
+
+If this PR contains a breaking change, please describe the following...
+
+Impact:
+Migration path for existing applications:
+Github Issue(s) this is regarding:
+
+Other information:",2,3
+3025,2016-09-20T13:02:13Z,2016-09-20T15:29:30Z,2016-09-20T15:29:30Z,1,1,1,"Please check if the PR fulfills these requirements
+
+ N/A - Tests for the changes have been added (for bug fixes / features)
+ N/A - Docs have been added / updated (for bug fixes / features)
+
+What kind of change does this PR introduce? (Bug fix, feature, docs update, ...)
+
+ Bugfix
+ Feature
+ Code style update (formatting, local variables)
+ Refactoring (no functional changes, no api changes)
+ Build related changes
+ CI related changes
+ Other... Please describe:
+Docs
+
+What is the current behavior? (You can also link to an open issue here)
+Deprecated readme link (https://github.com/MoOx/cssnext-loader)
+What is the new behavior?
+Updated to new link (https://github.com/MoOx/postcss-cssnext)
+Does this PR introduce a breaking change?
+
+ Yes
+ No
+
+If this PR contains a breaking change, please describe the following...
+
+Impact:
+Migration path for existing applications:
+Github Issue(s) this is regarding:
+
+Other information:",3,1
+3062,2016-09-24T21:16:00Z,2016-09-28T05:03:02Z,2016-09-28T05:03:02Z,1,1,0,"Please check if the PR fulfills these requirements
+
+[n/a] Tests for the changes have been added (for bug fixes / features)
+ Docs have been added / updated (for bug fixes / features)
+
+What kind of change does this PR introduce? (Bug fix, feature, docs update, ...)
+
+ Bugfix
+ Feature
+ Code style update (formatting, local variables)
+ Refactoring (no functional changes, no api changes)
+ Build related changes
+ CI related changes
+ Other... Please describe: added jsbeautify-loader into Readme.md file.
+
+What is the current behavior? (You can also link to an open issue here) n/a
+What is the new behavior? n/a
+Does this PR introduce a breaking change?
+
+ Yes
+ No
+
+If this PR contains a breaking change, please describe the following...  n/a
+Other information:
+Is it possible to add jsbeautify-loader into webpack organisation?",2,1
+3075,2016-09-28T10:58:09Z,2016-09-28T13:03:18Z,2016-09-28T13:03:18Z,2,6,6,"Please check if the PR fulfills these requirements
+
+ Tests for the changes have been added (for bug fixes / features)
+ Docs have been added / updated (for bug fixes / features)
+
+What kind of change does this PR introduce? (Bug fix, feature, docs update, ...)
+
+ Bugfix
+ Feature
+ Code style update (formatting, local variables)
+ Refactoring (no functional changes, no api changes)
+ Build related changes
+ CI related changes
+ Other... Please describe:
+
+What is the current behavior? (You can also link to an open issue here)
+The message incorrectly states that the plugins options is an object.
+What is the new behavior?
+The message states that the plugins options is an array.
+Does this PR introduce a breaking change?
+
+ Yes
+ No
+
+If this PR contains a breaking change, please describe the following...
+
+Impact:
+Migration path for existing applications:
+Github Issue(s) this is regarding:
+
+Other information:",3,1
+3077,2016-09-28T16:49:23Z,2016-10-29T10:58:19Z,2016-10-29T10:58:19Z,2,4,4,"Please check if the PR fulfills these requirements
+
+ Tests for the changes have been added (for bug fixes / features)
+[x ] Docs have been added / updated (for bug fixes / features)
+
+What kind of change does this PR introduce? (Bug fix, feature, docs update, ...)
+
+ Bugfix
+ Feature
+ Code style update (formatting, local variables)
+ Refactoring (no functional changes, no api changes)
+ Build related changes
+ CI related changes
+[x ] Other... Please describe:
+
+What is the current behavior? (You can also link to an open issue here)
+What is the new behavior?
+Does this PR introduce a breaking change?
+
+ Yes
+ No
+
+If this PR contains a breaking change, please describe the following...
+
+Impact:
+Migration path for existing applications:
+Github Issue(s) this is regarding:
+
+Other information:",3,2
+3094,2016-10-04T14:25:51Z,,2018-01-02T20:56:46Z,11,579,0,"Please check if the PR fulfills these requirements
+
+ Tests for the changes have been added (for bug fixes / features)
+ Docs have been added / updated (for bug fixes / features)
+
+What kind of change does this PR introduce? (Bug fix, feature, docs update, ...)
+
+ Bugfix
+ Feature
+ Code style update (formatting, local variables)
+ Refactoring (no functional changes, no api changes)
+ Build related changes
+ CI related changes
+ Other... Please describe:
+
+What is the current behavior? (You can also link to an open issue here)
+What is the new behavior?
+Does this PR introduce a breaking change?
+
+ Yes
+ No
+
+If this PR contains a breaking change, please describe the following...
+
+Impact:
+Migration path for existing applications:
+Github Issue(s) this is regarding:
+
+Other information:
+This resolves issue #3045.",12,21
+3102,2016-10-06T13:13:09Z,2016-10-25T21:03:59Z,2016-10-25T21:03:59Z,18,59,53,"RESOLVING CONFLICTS
+
+ Tests for the changes have been added (for bug fixes / features)
+
+No tests have been added. As @jhnns said
+
+Tests should usually check for actual behavior, not for behavior that used to be there.
+
+
+ Docs have been added / updated (for bug fixes / features)
+
+Loader part on the new documentation is not written yet.
+What kind of change does this PR introduce? (Bug fix, feature, docs update, ...)
+
+ Bugfix
+ Feature
+ Code style update (formatting, local variables)
+ Refactoring (no functional changes, no api changes)
+ Build related changes
+ CI related changes
+ Other... Please describe:
+
+What is the current behavior? (You can also link to an open issue here)
+webpack automatically appends -loader to a module when the first module lookup failed
+What is the new behavior?
+webpack should not append -loader
+Does this PR introduce a breaking change?
+
+ Yes
+ No
+
+If this PR contains a breaking change, please describe the following...
+
+Impact: everyone who is using module name without -loader will have adjust their webpack configs
+Migration path for existing applications: always append -loader at the end of module name in webpack config
+Github Issue(s) this is regarding: #2986",4,4
+3112,2016-10-09T18:16:40Z,2016-10-11T22:39:12Z,2016-10-11T22:39:12Z,1,14,3,"Please check if the PR fulfills these requirements
+
+ Tests for the changes have been added (for bug fixes / features)
+ Docs have been added / updated (for bug fixes / features)
+
+What kind of change does this PR introduce? (Bug fix, feature, docs update, ...)
+
+ Bugfix
+ Feature
+ Code style update (formatting, local variables)
+ Refactoring (no functional changes, no api changes)
+ Build related changes
+ CI related changes
+ Other... Please describe:
+
+What is the current behavior? (You can also link to an open issue here)
+What is the new behavior?
+Does this PR introduce a breaking change?
+
+ Yes
+ No
+
+If this PR contains a breaking change, please describe the following...
+
+Impact:
+Migration path for existing applications:
+Github Issue(s) this is regarding:
+
+Other information:
+Added missing properties/options for schema.json. Discussed here. Thanks @Kovensky for pointing it out.
+
+Additional options for target. Code
+Added console and Buffer properties for Node. Code",2,1
+3138,2016-10-14T14:22:04Z,,2016-10-16T22:36:32Z,1,48,12,"add o.c. badges
+remove old badges",3,7
+3144,2016-10-15T19:06:12Z,2016-10-15T22:02:48Z,2016-10-15T22:02:48Z,1,1,1,"What kind of change does this PR introduce?
+
+ Bugfix
+ Feature
+ Code style update (formatting, local variables)
+ Refactoring (no functional changes, no api changes)
+ Build related changes
+ CI related changes
+ Other... Please describe:
+
+What is the new behavior?
+No new behavior.
+Does this PR introduce a breaking change?
+
+ Yes
+ No
+
+Other information:
+Added a missing space in package.json.",2,0
+3145,2016-10-15T19:22:58Z,2016-10-17T18:26:53Z,2016-10-17T18:26:53Z,1,1,0,"What kind of change does this PR introduce?
+
+ Bugfix
+ Feature
+ Code style update (formatting, local variables)
+ Refactoring (no functional changes, no api changes)
+ Build related changes
+ CI related changes
+ Other... Please describe:
+
+What is the current behavior?
+eslint may proceed to parent directories to look for more .eslintrcs.
+What is the new behavior?
+By adding ""root"": true, we can explicitly terminate config resolution and prevent eslint from doing unexpected things.
+Does this PR introduce a breaking change?
+
+ Yes
+ No",3,1
+3146,2016-10-15T19:28:44Z,2016-10-17T18:26:22Z,2016-10-17T18:26:22Z,2,136,130,"What kind of change does this PR introduce?
+
+ Bugfix
+ Feature
+ Code style update (formatting, local variables)
+ Refactoring (no functional changes, no api changes)
+ Build related changes
+ CI related changes
+ Other... Please describe:
+
+What is the new behavior?
+No new behavior.
+Does this PR introduce a breaking change?
+
+ Yes
+ No
+
+Other information:
+Some segments of code in lib/Compiler.js and lib/Compilation.js have significant levels of callback nesting, and each callback must bind to this to be able to access the Compiler API. This is hazardous and difficult to maintain; it is better to alias this to another variable.",6,3
+3147,2016-10-15T20:19:07Z,,2017-04-04T16:22:39Z,1,2,1,"Please check if the PR fulfills these requirements
+
+ Tests for the changes have been added (for bug fixes / features)
+ Docs have been added / updated (for bug fixes / features)
+
+What kind of change does this PR introduce? (Bug fix, feature, docs update, ...)
+
+ Bugfix
+ Feature
+ Code style update (formatting, local variables)
+ Refactoring (no functional changes, no api changes)
+ Build related changes
+ CI related changes
+ Other... Please describe:
+
+What is the current behavior? (You can also link to an open issue here)
+Ignored module paths are stored absolutely, causing portability issues (issue #2991).
+What is the new behavior?
+Relativise path before storing in records.
+Does this PR introduce a breaking change?
+
+ Yes
+ No
+
+If this PR contains a breaking change, please describe the following...
+
+Impact:
+Migration path for existing applications:
+Github Issue(s) this is regarding:
+
+Other information:
+I couldn't figure out how to make a setup log an ignored module, so I wasn't able to write a test. Anyone can help me out with reproducing the behavior, I'll happily update this with a test.",4,4
+3163,2016-10-19T16:06:26Z,,2016-12-23T11:13:48Z,8,21,21,"Please check if the PR fulfills these requirements
+
+ Docs have been added / updated (for bug fixes / features)
+
+What kind of change does this PR introduce? (Bug fix, feature, docs update, ...)
+
+ Other... Please describe:
+
+Updated Webpack 2 website link
+What is the current behavior? (You can also link to an open issue here)
+Webpack website links are outdated for Webpack 2 release
+What is the new behavior?
+Update website links to new website, following webpack/webpack.js.org#262
+Does this PR introduce a breaking change?
+
+ No",4,5
+3166,2016-10-20T14:26:58Z,,2017-08-11T14:16:00Z,1,3,2,"Please check if the PR fulfills these requirements
+
+[] Tests for the changes have been added (for bug fixes / features)
+[] Docs have been added / updated (for bug fixes / features)
+
+What kind of change does this PR introduce? (Bug fix, feature, docs update, ...)
+
+ Bugfix
+ Feature
+ Code style update (formatting, local variables)
+ Refactoring (no functional changes, no api changes)
+ Build related changes
+ CI related changes
+ Other... Please describe:
+
+What is the current behavior? (You can also link to an open issue here)
+OS file limit is reached by processing too many files at the same time.
+What is the new behavior?
+Limits the number of files to 1000 or set by an environment variable. (Maybe it should be even lower ~500)
+Does this PR introduce a breaking change?
+
+ Yes
+ No
+
+Other information:
+Resolves #3164",4,2
+3176,2016-10-22T23:57:35Z,,2016-10-26T10:33:12Z,2,22,1,"Please check if the PR fulfills these requirements
+
+ Tests for the changes have been added (for bug fixes / features)
+ Docs have been added / updated (for bug fixes / features)
+
+What kind of change does this PR introduce? (Bug fix, feature, docs update, ...)
+
+ Bugfix
+ Feature
+ Code style update (formatting, local variables)
+ Refactoring (no functional changes, no api changes)
+ Build related changes
+ CI related changes
+ Other... Please describe:
+Source control exclusion
+
+What is the current behavior? (You can also link to an open issue here)
+yarn package manager generates a lock file locally, which shows up as a change in git repository.
+What is the new behavior?
+Generated yarn lock file is ignored by git.
+Does this PR introduce a breaking change?
+
+ Yes
+ No
+
+If this PR contains a breaking change, please describe the following...
+
+Impact:
+Migration path for existing applications:
+Github Issue(s) this is regarding:
+
+Other information:",8,17
+3191,2016-10-26T05:40:42Z,2016-10-26T19:09:27Z,2016-10-26T19:09:27Z,5,10,4714,Trying alternate to if statement from bash to run yarn link command. This is [WIP],4,3
+3194,2016-10-26T11:14:13Z,2016-10-27T13:36:35Z,2016-10-27T13:36:35Z,3,12,13,"Please check if the PR fulfills these requirements
+
+ Tests for the changes have been added (for bug fixes / features)
+ Docs have been added / updated (for bug fixes / features)
+
+What kind of change does this PR introduce? (Bug fix, feature, docs update, ...)
+
+ Bugfix
+ Feature
+ Code style update (formatting, local variables)
+ Refactoring (no functional changes, no api changes)(dependencies update)
+ Build related changes
+ CI related changes
+
+What is the current behavior? (You can also link to an open issue here)
+should.js compare two object deeply without their prototype
+acorn doesn't report duplicated variable declarations
+What is the new behavior?
+should.js compare two object deeply with their prototype
+acorn will report duplicated variable declarations
+Does this PR introduce a breaking change?
+
+ Yes
+ No
+
+If this PR contains a breaking change, please describe the following...
+
+Impact: Only if someone uses duplicated variable declarations with es6 module system(which is illegal) before, that will break down the webpack build flow.
+Migration path for existing applications:
+avoid duplicated variable declarations
+Github Issue(s) this is regarding:
+#1792
+
+Other Information:
+this PR can be merged only after #3193 is merged.",2,6
+3200,2016-10-27T13:58:59Z,2016-10-27T20:44:24Z,2016-10-27T20:44:24Z,2,13,5,"What kind of change does this PR introduce? (Bug fix, feature, docs update, ...)
+
+ CI related changes
+
+What is the current behavior? (You can also link to an open issue here)
+Currently we are only testing against node 6 and 4.
+What is the new behavior?
+Now that node 7 is current and we have agreed to support node 0.12 still, we should add those tests back onto travis.
+Does this PR introduce a breaking change?
+
+ No
+Impact: Low to None
+Migration path for existing applications: N/A
+Github Issue(s) this is regarding: (Core team meeting discussion).",2,4
+3208,2016-10-29T14:14:29Z,2016-10-31T13:49:54Z,2016-10-31T13:49:54Z,5,11,11,"Comments
+Changing function declarations function fnName() {}; to named function expression var fnName = function fnName() {};
+Please check if the PR fulfills these requirements
+
+ Tests for the changes have been added (for bug fixes / features)
+ Docs have been added / updated (for bug fixes / features)
+
+What kind of change does this PR introduce? (Bug fix, feature, docs update, ...)
+
+ Bugfix
+ Feature
+ Code style update (formatting, local variables)
+ Refactoring (no functional changes, no api changes)
+ Build related changes
+ CI related changes
+ Other... Please describe:
+
+What is the current behavior? (You can also link to an open issue here)
+What is the new behavior?
+Does this PR introduce a breaking change?
+
+ Yes
+ No
+
+If this PR contains a breaking change, please describe the following...
+
+Impact:
+Migration path for existing applications:
+Github Issue(s) this is regarding:
+
+Other information:",2,1
+3209,2016-10-29T15:46:10Z,2016-10-29T22:29:09Z,2016-10-29T22:29:09Z,1,1,1,"Please check if the PR fulfills these requirements
+
+ Tests for the changes have been added (for bug fixes / features)
+ Docs have been added / updated (for bug fixes / features)
+
+What kind of change does this PR introduce? (Bug fix, feature, docs update, ...)
+
+ Bugfix
+ Feature
+ Code style update (formatting, local variables)
+ Refactoring (no functional changes, no api changes)
+ Build related changes
+ CI related changes
+ Other... Please describe:
+
+What is the current behavior? (You can also link to an open issue here)
+What is the new behavior?
+Does this PR introduce a breaking change?
+
+ Yes
+ No
+
+If this PR contains a breaking change, please describe the following...
+
+Impact:
+Migration path for existing applications:
+Github Issue(s) this is regarding:
+
+Other information:
+
+matching the semi-colons to correct places for UMD builds",2,1
+3210,2016-10-30T02:16:50Z,2016-11-23T21:27:50Z,2016-11-23T21:27:50Z,9,39,5,"Please check if the PR fulfills these requirements
+
+ Tests for the changes have been added (for bug fixes / features)
+ Docs have been added / updated (for bug fixes / features)
+
+What kind of change does this PR introduce? (Bug fix, feature, docs update, ...)
+
+ Bugfix
+ Feature
+ Code style update (formatting, local variables)
+ Refactoring (no functional changes, no api changes)
+ Build related changes
+ CI related changes
+ Other... Please describe:
+
+What is the current behavior? (You can also link to an open issue here)
+#455
+Currently, webpack does provide a way to add nonces to scripts. Given that the future of CSP could be a more nonce-based approach, having support for nonces is increasingly important.
+https://research.google.com/pubs/pub45542.html
+What is the new behavior?
+When user specifies webpack_nonce, a nonce is added to all loaded scripts. Because nonces are generally different on each page load, the nonce is specified in the entry file, not in the config file, similarly to a public path not known ahead of time.
+Does this PR introduce a breaking change?
+
+ Yes
+ No
+
+If this PR contains a breaking change, please describe the following...
+
+Impact:
+Migration path for existing applications:
+Github Issue(s) this is regarding:
+
+Other information:",7,15
+3218,2016-11-01T14:39:29Z,2016-11-04T07:14:33Z,2016-11-04T07:14:33Z,3,12,11,"Please check if the PR fulfills these requirements
+
+ Tests for the changes have been added (for bug fixes / features)
+ Docs have been added / updated (for bug fixes / features)
+
+What kind of change does this PR introduce? (Bug fix, feature, docs update, ...)
+
+ Bugfix
+ Feature
+ Code style update (formatting, local variables)
+ Refactoring (no functional changes, no api changes)
+ Build related changes
+ CI related changes
+ Other... Please describe:
+
+What is the current behavior? (You can also link to an open issue here)
+With webpack.validate it is possible to validate webpack options.
+Example: webpack.validate({ entry: {} })
+What is the new behavior?
+It is now possible to add a second parameter to provide a custom schema. This is necessary for webpack-dev-server and webpack-dev-middleware, so they can provide their own schema without re-implementing the whole validation logic.
+Usage in webpack-dev-* would be like this:
+webpack.validate({ host: 'localhost', port: 8000 }, webpackDevServerSchema);
+Does this PR introduce a breaking change?
+
+ Yes
+ No
+
+Other information:
+I would still need to make the actual schema for webpack-dev-*, but I wanted to do this first so I know how to code the rest.",2,8
+3247,2016-11-07T23:34:11Z,2016-11-09T14:42:31Z,2016-11-09T14:42:31Z,13,154,70,This adds minor fixes to #2921,3,1
+3249,2016-11-07T23:48:45Z,,2016-11-28T15:17:22Z,1,1,2,"What kind of change does this PR introduce? (Bug fix, feature, docs update, ...)
+
+ CI related changes
+
+What is the current behavior? (You can also link to an open issue here)
+OSX and node 4 are optional
+What is the new behavior?
+OSX and node 4 are required.
+We support this versions and should test them",3,1
+3259,2016-11-09T03:33:42Z,2016-11-09T14:40:47Z,2016-11-09T14:40:47Z,5,39,5,"Please check if the PR fulfills these requirements
+
+[x ] Tests for the changes have been added (for bug fixes / features)
+ Docs have been added / updated (for bug fixes / features)
+
+What kind of change does this PR introduce? (Bug fix, feature, docs update, ...)
+
+[ x] Bugfix
+ Feature
+ Code style update (formatting, local variables)
+ Refactoring (no functional changes, no api changes)
+ Build related changes
+ CI related changes
+ Other... Please describe:
+
+What is the current behavior? (You can also link to an open issue here)
+Default argument assignment is missing. Ref #3252
+What is the new behavior?
+Default argument assignment will be correctly placed.
+Does this PR introduce a breaking change?
+
+ Yes
+[x ] No
+
+If this PR contains a breaking change, please describe the following...
+
+Impact:
+Migration path for existing applications:
+Github Issue(s) this is regarding:
+
+Other information:",2,3
+3266,2016-11-10T07:54:06Z,2016-11-15T10:26:38Z,2016-11-15T10:26:38Z,22,6,680,"What kind of change does this PR introduce? (Bug fix, feature, docs update, ...)
+
+ Feature
+
+What is the current behavior? (You can also link to an open issue here)
+DedupePlugin is available but often doesn't work correctly.
+It has problems with harmony modules.
+What is the new behavior?
+DedupePlugin is removed
+Does this PR introduce a breaking change?
+
+ Yes
+
+If this PR contains a breaking change, please describe the following...
+
+Impact:
+Migration path for existing applications:
+Remove DedupePlugin when referenced directly",7,15
+3268,2016-11-10T13:30:55Z,,2016-12-07T14:43:08Z,4,35,1,"Please check if the PR fulfills these requirements
+
+ Tests for the changes have been added (for bug fixes / features)
+ Docs have been added / updated (for bug fixes / features)
+
+What kind of change does this PR introduce? (Bug fix, feature, docs update, ...)
+
+ Bugfix
+ Feature
+ Code style update (formatting, local variables)
+ Refactoring (no functional changes, no api changes)
+ Build related changes
+ CI related changes
+ Other... Please describe:
+
+What is the current behavior? (You can also link to an open issue here)
+Webpack doesn't set __esModule value for ES6 modules. (#3168)
+What is the new behavior?
+Webpack sets __esModule to true when it's being used by another CommonJS module.
+Does this PR introduce a breaking change?
+
+ Yes
+ No
+
+If this PR contains a breaking change, please describe the following...
+
+Impact:
+Migration path for existing applications:
+Github Issue(s) this is regarding:
+
+Other information:",2,3
+3272,2016-11-10T20:08:40Z,2016-11-16T12:11:45Z,2016-11-16T12:11:45Z,1,16,6,"Please check if the PR fulfills these requirements
+
+ Tests for the changes have been added (for bug fixes / features)
+ Docs have been added / updated (for bug fixes / features)
+
+Not sure how to proper test&document this change, help me improvement please if they are necessary for this PR.
+What kind of change does this PR introduce? (Bug fix, feature, docs update, ...)
+
+ Bugfix
+ Feature
+ Code style update (formatting, local variables)
+ Refactoring (no functional changes, no api changes)
+ Build related changes
+ CI related changes
+ Other... Please describe:
+
+What is the current behavior? (You can also link to an open issue here)
+#2215
+What is the new behavior?
+Generated require calls is relative paths now.
+Does this PR introduce a breaking change?
+
+ Yes
+ No
+
+Other information:",4,8
+3279,2016-11-13T13:23:51Z,,2016-11-14T15:15:59Z,2,57,31,"Please check if the PR fulfills these requirements
+
+ Tests for the changes have been added (for bug fixes / features)
+ Docs have been added / updated (for bug fixes / features)
+
+What kind of change does this PR introduce? (Bug fix, feature, docs update, ...)
+
+ Bugfix
+ Feature
+ Code style update (formatting, local variables)
+ Refactoring (no functional changes, no api changes)
+ Build related changes
+ CI related changes
+ Other... Please describe:
+
+What is the current behavior? (You can also link to an open issue here)
+What is the new behavior?
+Does this PR introduce a breaking change?
+
+ Yes
+ No
+
+If this PR contains a breaking change, please describe the following...
+
+Impact:
+Migration path for existing applications:
+Github Issue(s) this is regarding:
+
+Other information:",4,4
+3289,2016-11-14T20:28:35Z,2016-11-15T08:15:12Z,2016-11-15T08:15:12Z,4,19,0,"Please check if the PR fulfills these requirements
+
+ Tests for the changes have been added (for bug fixes / features)
+
+What kind of change does this PR introduce? (Bug fix, feature, docs update, ...)
+
+ Bugfix
+ Feature
+
+What is the current behavior? (You can also link to an open issue here)
+require(""any!./file"");
+(webpack)/test/cases/resolving/issue-2986/index.js
+Module not found: Error: Can't resolve 'any' in '...'
+
+What is the new behavior?
+(webpack)/test/cases/resolving/issue-2986/index.js
+Module not found: Error: Can't resolve 'any' in '...'
+BREAKING CHANGE: It's no longer allowed to omit the '-loader' prefix when using loaders.
+                 You need to specify 'any-loader' instead of 'any'.
+
+Does this PR introduce a breaking change?
+
+ Yes
+ No
+
+Related to #2986",4,4
+3293,2016-11-14T23:36:22Z,2016-11-16T11:19:19Z,2016-11-16T11:19:19Z,1,169,39,,4,8
+3297,2016-11-15T13:11:15Z,2016-11-21T01:14:56Z,2016-11-21T01:14:56Z,12,212,11,"This adds a new BasicEvaluatedExpression type to hold the array of string literals that form a template literal.
+Some tagged template literal support is present, but the only supported tag is the standard String.raw. Nested literals are untested, but probably not relevant for now.
+Only tested with System.import; other expression positions will probably break in weird ways.
+Supports:
+var name = ""abc"".split('')
+// Creates a context for ""./abc""
+System.import(`./abc/${name[0]}${name[1]}${name[2]}Test`)
+// Creates a context for "".""
+System.import(String.raw`./${name.join("""")}/${name.join("""")}Test`)
+This has the same limitations as the present string concatenation support (only the first and last tokens are considered); but given how more information is gathered for template literals, it's not impossible to make the context regular expression stricter.
+Another possible improvement is to try to evaluate the expressions so, say, `./abc/${""abc""}Test` would resolve to the ""./abc/abcTest"" literal.",2,4
+3323,2016-11-17T20:17:59Z,2016-11-18T03:26:50Z,2016-11-18T03:26:50Z,2,19,60,"Please check if the PR fulfills these requirements
+
+ Tests for the changes have been added (for bug fixes / features)
+ Docs have been added / updated (for bug fixes / features)
+
+What kind of change does this PR introduce? (Bug fix, feature, docs update, ...)
+
+ Bugfix
+ Feature
+ Code style update (formatting, local variables)
+ Refactoring (no functional changes, no api changes)
+ Build related changes
+ CI related changes
+ Other... Please describe: issue template changes
+
+What is the current behavior? (You can also link to an open issue here)
+With the current issue template, people often won't know what to remove exactly.
+Also, the first lines are basically shouting at you TO NOT CREATE AN ISSUE IF YOU HAVE A QUESTION. This is okay, but this scares / confuses people (myself included 😱 ). Unfortunately, many people are still asking questions here.
+The current PR template has about the same problem; people don't know what to remove. The checkboxes are confusing in the overview, since it makes it seem like the PR is in progress.
+What is the new behavior?
+The new template asks real questions to the user, making it easier to fill out and know where to put the answers.
+It still strongly makes clear that you should not ask questions here, but does so more subtly.
+All hints are between HTML comments (<!-- -->), which means that even if the user forgets to remove that, it isn't visible in the issue anyway.
+This was heavily inspired by Yarn's issue template. Hope you don't mind, @cpojer!
+Does this PR introduce a breaking change?
+
+ Yes
+ No",4,5
+3333,2016-11-18T23:45:12Z,2017-09-15T07:47:54Z,2017-09-15T07:47:54Z,57,472,281,"What kind of change does this PR introduce?
+
+Feature
+Did you add tests for your changes?
+Yes
+If relevant, did you update the documentation?
+Not yet
+Summary
+move runtime to last loaded chunk
+this allows to use async on scripts
+commons chunk doesn't contain the runtime and changes less often
+
+
+Does this PR introduce a breaking change?
+
+Yes
+Could cause problems in same weird uses of the CommonsChunkPlugin.
+Other information",5,5
+3337,2016-11-19T15:50:08Z,2016-11-19T17:44:47Z,2016-11-19T17:44:47Z,1,3,0,"What kind of change does this PR introduce?
+Bugfix
+Did you add tests for your changes?
+Nope
+If relevant, did you update the documentation?
+Nope
+Summary
+With the schema validation, something like this was marked as invalid (#3299):
+externals: [
+        {
+            a: false,
+            b: true
+        },
+]
+But this is supported.
+Does this PR introduce a breaking change?
+No
+Other information
+It fixes #3299.",2,1
+3349,2016-11-22T17:01:05Z,2016-11-23T21:28:28Z,2016-11-23T21:28:28Z,14,127,10,"What kind of change does this PR introduce?
+
+feature
+Did you add tests for your changes?
+yes
+If relevant, did you update the documentation?
+not yet
+Summary
+Allows matching on query and adds support for custom data to loader transformation
+
+
+Does this PR introduce a breaking change?
+
+no
+Other information
+added function use to schema",2,0
+3350,2016-11-22T18:49:20Z,2016-12-07T22:11:29Z,2016-12-07T22:11:29Z,39,444,26,"What kind of change does this PR introduce?
+A feature
+Did you add tests for your changes?
+Yes
+If relevant, did you update the documentation?
+Not yet
+Summary
+
+
+Does this PR introduce a breaking change?
+
+It doesn't introduce a breaking change.
+Other information
+Performance budgets PR here is implementation of @addyosmani's RFC #3216
+Here are the schema properties with descriptors:
+    ""performance"": {
+      ""description"": ""Configuration for web performance recommendations."",
+      ""additionalProperties"": false,
+      ""properties"": {
+        ""hints"": {
+          ""description"": ""Turn hints on or off"",
+          ""type"": ""boolean""
+        },
+        ""maxInitialChunkSize"": {
+          ""description"": ""Total size of all initial chunks (in bytes)"",
+          ""type"": ""number""
+        },
+        ""maxAssetSize"": {
+          ""description"": ""Filesize limit (in bytes) when exceeded, that webpack will provide performance hints"",
+          ""type"": ""number""
+        },
+        ""errorOnHint"": {
+          ""description"": ""Throw errors instead of warnings when performance hints are found"",
+          ""type"": ""boolean""
+        }
+      },
+      ""type"": ""object""
+    }",6,6
+3354,2016-11-22T22:53:46Z,,2016-11-23T08:57:40Z,5,41,74,"What kind of change does this PR introduce?
+
+feature
+Did you add tests for your changes?
+No, because
+
+Tests fails on my local even if I don't touch the code.
+This is a proposal. I'd like to get comments before adding tests.
+
+If relevant, did you update the documentation?
+No
+Summary
+
+
+This PR enables to add/remove entry during watch mode.
+Related: #2874
+compiler.plugin('watch-run', function(watching, callback) {
+  // add
+  compiler.entry.myNewEntry = './foo.js'
+
+  // remove
+  delete compiler.entry.myOldEntry
+})
+Does this PR introduce a breaking change?
+
+Maybe no.
+Other information
+This PR is based on our work for next.js",3,2
+3372,2016-11-24T19:12:55Z,2016-12-15T03:33:41Z,2016-12-15T03:33:41Z,1,307,331,"README
+@webpack/core-team",7,6
+3386,2016-11-28T18:07:54Z,2016-12-06T06:02:53Z,2016-12-06T06:02:53Z,5,24,2,"What kind of change does this PR introduce?
+Fix lost context when invoking AMD require.  For example:
+require(['foo', 'bar'], function(foo, bar) {
+    this.something();   // Error, this points to global scope!!!
+}.bind(this));
+
+Did you add tests for your changes?
+No
+If relevant, did you update the documentation?
+N/A
+Summary
+Allow code that attempts to pass context to require callback to work with Webpack.
+Does this PR introduce a breaking change?
+No
+Other information
+I assumed the the webpack-1 branch was for ongoing 1.x development.  Please let me know if I need to submit this PR to a different branch.",5,14
+3400,2016-12-01T08:50:01Z,,2016-12-22T12:45:09Z,1,17,17,"#2506 Fix for #2506 bug
+1.0 webpack doesnt have async flag and works well with old ie browsers",8,8
+3413,2016-12-03T10:44:17Z,2016-12-03T20:23:12Z,2016-12-03T20:23:12Z,25,201,131,"What kind of change does this PR introduce?
+feature
+Did you add tests for your changes?
+yes
+If relevant, did you update the documentation?
+no
+Summary
+adds import(), that works like System.import(). System.import() will be deprecated in webpack 3.
+for reasons see #3098
+
+
+Does this PR introduce a breaking change?
+no
+
+Other information",4,1
+3417,2016-12-04T17:20:08Z,2016-12-04T20:17:42Z,2016-12-04T20:17:42Z,1,7,1,"What kind of change does this PR introduce?
+documentation
+
+Did you add tests for your changes?
+no
+If relevant, did you update the documentation?
+yes
+Summary
+make clear that tests are mandatory
+
+
+Does this PR introduce a breaking change?
+
+Other information",3,0
+3428,2016-12-06T18:34:29Z,2016-12-14T20:18:44Z,2016-12-14T20:18:44Z,27,364,227,"What kind of change does this PR introduce?
+performance
+
+Did you add tests for your changes?
+N/A
+
+If relevant, link to documentation update:
+N/A
+
+Summary
+improve the performance, add extra caching layer used in watch mode
+
+
+Does this PR introduce a breaking change?
+yes, an internal one
+Module has now a ""unbuild"" method that must work correctly
+Impact: probably nobody affected.
+
+Other information",2,0
+3435,2016-12-07T09:46:32Z,2016-12-07T21:54:53Z,2016-12-07T21:54:53Z,6,61,5,"What kind of change does this PR introduce?
+
+Did you add tests for your changes?
+
+If relevant, link to documentation update:
+
+Summary
+see #3168
+
+
+Does this PR introduce a breaking change?
+
+Other information
+fixes #3268",5,2
+3436,2016-12-07T10:00:31Z,,2017-04-04T09:10:47Z,8,71,6,"What kind of change does this PR introduce?
+This tries to fix this issue: #3361
+Did you add tests for your changes?
+Unfortunately i am not sure which test should cover it. There is ""named-chunks"" test case which I think suited for that.
+Summary
+I wanted to use chunk as hash and make them fixed.",6,11
+3441,2016-12-07T18:17:58Z,2016-12-07T22:50:25Z,2016-12-07T22:50:25Z,33,85,85,"What kind of change does this PR introduce?
+A typo in a comment that will be added to every generated bundle.
+Did you add tests for your changes?
+No
+If relevant, link to documentation update:
+No
+Summary
+There are a lot of typos to be fixed, but this one will be in every generated webpack-2 bundle :)
+Does this PR introduce a breaking change?
+No",2,1
+3442,2016-12-07T18:32:57Z,2016-12-14T14:27:27Z,2016-12-14T14:27:27Z,10,69,8,"What kind of change does this PR introduce?
+Sort of bug fix
+Did you add tests for your changes?
+No
+Summary
+This fixes a problem where webpack rendered modules with two ""use strict"" statements at the beginning
+Does this PR introduce a breaking change?
+No",3,4
+3443,2016-12-07T19:28:40Z,2016-12-08T01:02:24Z,2016-12-08T01:02:24Z,1,1,1,,4,1
+3445,2016-12-08T08:46:27Z,2016-12-14T15:05:48Z,2016-12-14T15:05:48Z,9,97,15,"What kind of change does this PR introduce?
+Feature/Bugfixish
+Did you add tests for your changes?
+Yes
+If relevant, link to documentation update:
+N/A
+Summary
+
+
+Fixes #3320
+Does this PR introduce a breaking change?
+No",2,2
+3449,2016-12-08T20:53:57Z,,2016-12-14T11:07:33Z,1,3,3,"What kind of change does this PR introduce? Bugfix
+Summary When using HashedModuleIdsPlugin along with a require.context() statement, value of this.id would be a string. It was previously passed unescaped which would compile improperly.
+Does this PR introduce a breaking change? No
+Other information
+I couldn't find a test case for this module and I'm not sure where I would create it. I'm happy to try though if someone tells me where to create the test case within the tests/ folder hierarchy.",4,6
+3454,2016-12-10T04:34:07Z,2016-12-14T12:02:57Z,2016-12-14T12:02:57Z,7,399,0,"What kind of change does this PR introduce?
+Adds a ContextModule+Code Splitting+Native import() example
+
+Did you add tests for your changes?
+N/A",4,0
+3471,2016-12-13T16:29:56Z,2016-12-14T12:28:59Z,2016-12-14T12:28:59Z,24,252,160,"What kind of change does this PR introduce?
+bugfix/feature
+
+Did you add tests for your changes?
+Yes
+
+If relevant, link to documentation update:
+N/A
+
+Summary
+This filters out .map files from the performance budget warnings. In addition I have changed the NoAsyncChunksWarning to use import() instead of System.import as the messaging since it is now in master and released.
+Fixes #3470
+Fixes #3469
+
+
+Does this PR introduce a breaking change?
+No",3,3
+3504,2016-12-16T17:07:48Z,2016-12-17T06:22:02Z,2016-12-17T06:22:02Z,8,89,6,"What kind of change does this PR introduce?
+bugfix
+
+Did you add tests for your changes?
+yes
+
+If relevant, link to documentation update:
+n/a
+
+Summary
+fixes #3500
+
+
+Does this PR introduce a breaking change?
+no",2,0
+3510,2016-12-17T08:07:37Z,2016-12-21T13:35:33Z,2016-12-21T13:35:33Z,19,230,0,"What kind of change does this PR introduce?
+test infrastructure
+
+Did you add tests for your changes?
+yes
+
+If relevant, link to documentation update:
+n/a
+
+Summary
+adds infrastructure for watch tests and some basic tests
+
+
+Does this PR introduce a breaking change?
+no",2,0
+3517,2016-12-19T12:26:33Z,2016-12-20T07:49:22Z,2016-12-20T07:49:22Z,1,0,1,"the named identifier for the scopedName is already set in line 35.
+Probably because line 35 was at some point lifted to where it is now.
+What kind of change does this PR introduce?
+Merely a cleanup of a duplicate line of code.
+Summary
+Cleanup of duplicate line of code.
+Does this PR introduce a breaking change?
+No",3,2
+3524,2016-12-19T22:56:02Z,2017-01-11T15:15:42Z,2017-01-11T15:15:43Z,19,147,42,"What kind of change does this PR introduce?
+Bugfix
+Did you add tests for your changes?
+Yes
+
+If relevant, link to documentation update:
+
+Summary
+
+
+Fixes #3512
+Does this PR introduce a breaking change?
+No
+
+Other information",3,3
+3544,2016-12-21T20:12:07Z,2016-12-22T07:41:14Z,2016-12-22T07:41:15Z,13,102,3,"What kind of change does this PR introduce?
+Bugfix. Fixes #959
+
+require.ensure was erroring when passing arrow function as callback.
+bumped uglify-js patch level deps
+add node target cases for import()
+
+Did you add tests for your changes?
+Yes
+
+If relevant, link to documentation update:
+N/A
+
+Summary
+
+
+Does this PR introduce a breaking change?
+No
+
+Other information",2,1
+3547,2016-12-21T22:04:30Z,2017-04-06T06:52:47Z,2017-04-06T06:52:47Z,1,42,0,"What kind of change does this PR introduce?
+test
+
+Did you add tests for your changes?
+yes
+
+If relevant, link to documentation update:
+n/a
+
+Summary
+add timeout to test to make it stable
+
+
+see #3545
+Does this PR introduce a breaking change?
+no
+
+Other information",3,4
+3555,2016-12-22T16:16:34Z,2016-12-23T11:27:00Z,2016-12-23T11:27:00Z,4,26,2,"What kind of change does this PR introduce?
+Bugfix
+
+Did you add tests for your changes?
+N/A
+
+If relevant, link to documentation update:
+N/A
+
+Summary
+Filters ES6 features so arrow functions don't fail node 0.12 builds on travis.
+
+
+Does this PR introduce a breaking change?
+No
+
+Other information
+Fixes #3552",2,7
+3557,2016-12-22T18:27:09Z,2016-12-23T13:20:30Z,2016-12-23T13:20:30Z,10,167,11,"What kind of change does this PR introduce?
+Bugfix
+
+Did you add tests for your changes?
+Yes
+
+If relevant, link to documentation update:
+
+Summary
+Fixes #3484
+
+
+Does this PR introduce a breaking change?
+No
+
+Other information",4,7
+3563,2016-12-23T13:22:08Z,2016-12-23T18:25:40Z,2016-12-23T18:25:40Z,1,6,4,"What kind of change does this PR introduce?
+bugfix
+
+Did you add tests for your changes?
+no, too difficult (no test infrastructure)
+
+If relevant, link to documentation update:
+n/a
+
+Summary
+add error when using options/query without loader in rule.
+
+
+Does this PR introduce a breaking change?
+no",2,0
+3567,2016-12-24T02:50:09Z,2017-01-04T05:23:57Z,2017-01-04T05:23:57Z,3,26,8,"What kind of change does this PR introduce?
+bugfix
+
+Did you add tests for your changes?
+Added one test
+
+If relevant, link to documentation update:
+N/A
+
+Summary
+#3534 The PR prevents users from having empty entries for bundles in the configuration file.
+
+
+Does this PR introduce a breaking change?
+No
+
+Other information",6,8
+3569,2016-12-24T07:45:28Z,2016-12-27T19:45:02Z,2016-12-27T19:45:02Z,3,60,10,"This PR adds a README.md inside of our test suite.
+What kind of change does this PR introduce?
+
+Repo Documentation
+Did you add tests for your changes?
+
+If relevant, link to documentation update:
+N/A
+
+Summary
+People seem to not quite yet understand how to add tests and work through the test suite in the webpack code. I think a small rundown will benefit the quality of tests and PR's submitted.
+
+
+Does this PR introduce a breaking change?
+
+Other information",3,2
+3572,2016-12-25T10:24:23Z,,2018-01-02T20:59:11Z,2,20,1,"What kind of change does this PR introduce?
+feature
+Did you add tests for your changes?
+Not yet :)
+Summary
+Fix for #3359
+Does this PR introduce a breaking change?
+No
+Other information
+Hi guys! It's my attempt to fix issue #3359. Please let me know if I'm going in the right direction. I'll add tests later if someone confirms that changes are ok.",5,3
+3580,2016-12-26T05:26:54Z,,2017-01-10T07:14:35Z,21,143,26,"What kind of change does this PR introduce?
+Ensures that the commonjs module and exports pseudo-globals are not visible from within harmony modules.
+
+See #3491, #3571
+Did you add tests for your changes?
+
+Yes.
+If relevant, link to documentation update:
+
+Summary
+
+
+module and exports should not be defined inside ES modules, unless the user defines them. Accessing them should throw ReferenceError, however actually implementing that would require making use of ES6's let. I added a TODO comment about that, as it could be made configurable in the future.
+This tries to implement that case by ensuring module and exports are undefined. The parameter received by the module function wrappers will be named __webpack_module__ and __webpack_exports__, instead.
+To ensure a potential module or exports global (from, say, running on Node) is not visible from the bundled module, a var module, exports is added to the end of each harmony module. These should just get stripped by the minifier.
+As always declaring var module, exports at the end could cause SyntaxError should the user actually have a local let or const with either of those names, a new ""program end"" parser step is used to check if either of those vars is in the top level declaration scope.
+To keep compatibility with existing hot reloading code, module.hot, module.id and module.loaded correspondingly map to the equivalent __webpack_module__ expression. module is otherwise completely undefined.
+In the future, when/if import meta-properties are defined, module.hot might be able to be moved to import.hot.
+Does this PR introduce a breaking change?
+
+Yes, but such code is already broken, only in a different way.
+The migration path is to not mix harmony import or export and commonjs exports.
+Other information",3,5
+3597,2016-12-28T06:13:03Z,2016-12-28T19:41:10Z,2016-12-28T19:41:10Z,4,22,2,"What kind of change does this PR introduce?
+Feature
+Did you add tests for your changes?
+Yes
+If relevant, link to documentation update:
+N/A
+Summary
+Implements the feature request in #2864
+The ProvidePlugin could previously only provide top-level (default) exports.  This adds support for providing named exports as well.  The existing API stays the same for default exports.  To provide named exports, the API can also accept an array as [""./module"", ""property""]
+new ProvidePlugin({
+  foobar: [""./foo"", ""bar""]
+})
+foo.js:
+module.exports = {
+  bar: ""baz""
+}
+console.log(foobar) // ""baz""
+Does this PR introduce a breaking change?
+No",5,4
+3609,2016-12-28T18:56:29Z,2016-12-29T14:44:21Z,2016-12-29T14:44:21Z,4,33,32,"What kind of change does this PR introduce?
+Refactor
+
+Did you add tests for your changes?
+Existing Tests are passing
+
+If relevant, link to documentation update:
+N/A
+
+Summary
+Updates UseStrictPlugin to ES6 class. Refactoring only.
+
+
+Does this PR introduce a breaking change?
+Nope
+
+Other information",3,3
+3615,2016-12-29T03:48:30Z,2016-12-30T08:21:34Z,2016-12-30T08:21:34Z,1,51,39,"What kind of change does this PR introduce?
+refactoring
+
+Did you add tests for your changes?
+No
+
+If relevant, link to documentation update:
+N/A
+
+Summary
+Update AmdMainTemplatePlugin to es2015.
+
+
+Does this PR introduce a breaking change?
+No
+
+Other information",4,3
+3617,2016-12-29T04:57:36Z,2016-12-29T14:47:57Z,2016-12-29T14:47:57Z,1,41,30,"What kind of change does this PR introduce?
+refactoring
+
+Did you add tests for your changes?
+no
+
+If relevant, link to documentation update:
+N/A
+
+Summary
+Update BannerPlugin to es2015 class.
+
+
+Does this PR introduce a breaking change?
+no
+
+Other information",3,1
+3618,2016-12-29T05:08:41Z,2016-12-29T07:40:32Z,2016-12-29T07:40:32Z,1,11,10,"What kind of change does this PR introduce?
+Refactoring (es5=>es6)
+
+Did you add tests for your changes?
+Existing tests passing.
+
+If relevant, link to documentation update:
+N/A
+
+Summary
+Update DllModuleFactory to es6
+
+
+Does this PR introduce a breaking change?
+No",3,0
+3619,2016-12-29T05:29:16Z,2016-12-29T07:05:11Z,2016-12-29T07:05:11Z,1,21,15,"What kind of change does this PR introduce?
+Refactor
+
+Did you add tests for your changes?
+Existing Tests Pass
+
+If relevant, link to documentation update:
+N/A
+
+Summary
+Upgrade NamedModulesPlugin to es6.
+
+
+Does this PR introduce a breaking change?
+Nada nada limonada.",3,2
+3620,2016-12-29T05:40:15Z,2016-12-29T07:07:28Z,2016-12-29T07:07:28Z,1,10,7,"What kind of change does this PR introduce?
+Refactor plugin from es5=>es6
+
+Did you add tests for your changes?
+Existing tests.
+
+If relevant, link to documentation update:
+N/A
+
+Summary
+Refactored plugin to use es6 class syntax.
+
+
+Does this PR introduce a breaking change?
+No
+
+Other information",3,1
+3621,2016-12-29T05:49:35Z,2016-12-29T07:08:47Z,2016-12-29T07:08:47Z,1,13,8,"What kind of change does this PR introduce?
+Refactor
+Did you add tests for your changes?
+Existing Tests Pass
+If relevant, link to documentation update:
+N/A
+Summary
+Upgrade ExternalsPlugin to es2015.
+Does this PR introduce a breaking change?
+No",2,0
+3623,2016-12-29T07:17:09Z,2016-12-29T10:02:16Z,2016-12-29T10:02:16Z,1,30,25,"What kind of change does this PR introduce?
+Refactor
+
+Did you add tests for your changes?
+Existing Tests are Passing 🍾
+
+If relevant, link to documentation update:
+N/A
+
+Summary
+Upgrade Entrypoint to es6 😍
+
+
+Does this PR introduce a breaking change?
+Nopers!",4,0
+3626,2016-12-29T10:06:34Z,2016-12-29T16:10:42Z,2016-12-29T16:10:42Z,13,54,44,"What kind of change does this PR introduce?
+Dep upgrade
+Did you add tests for your changes?
+N/A
+If relevant, link to documentation update:
+N/A
+Summary
+We used a very old version of eslint. This new version also makes converting to ES6 a LOT easier, since it has a --fix flag which can fix many ES6 stuff automatically. Note that for this to work, we'll need to add some extra rules to .eslintrc. This was out of the scope of this PR I think.
+Does this PR introduce a breaking change?
+No.",4,3
+3632,2016-12-29T15:18:33Z,2016-12-30T16:34:29Z,2016-12-30T16:34:29Z,1,101,109,"What kind of change does this PR introduce?
+Refactor
+
+Did you add tests for your changes?
+Existing tests should cover this refactor
+
+If relevant, link to documentation update:
+
+Summary
+
+
+Does this PR introduce a breaking change?
+Nope
+
+Other information",5,2
+3634,2016-12-29T16:39:16Z,2017-01-09T07:31:50Z,2017-01-09T07:31:50Z,15,153,17,"What kind of change does this PR introduce?
+feature
+
+Did you add tests for your changes?
+yes
+
+If relevant, link to documentation update:
+
+Summary
+Enable to change the value of the entry option during watch mode.
+Related: #3354, #2874
+
+
+Does this PR introduce a breaking change?
+No.
+
+Other information",4,7
+3636,2016-12-29T17:16:09Z,2016-12-30T15:43:50Z,2016-12-30T15:43:50Z,37,37,71,"What kind of change does this PR introduce?
+Refactor
+
+Did you add tests for your changes?
+Existing Tests Should Pass
+
+If relevant, link to documentation update:
+N/A
+
+Summary
+
+This change allows for buildin to now be part of the lint test by addition of an extra .eslintrc file which extends existing but sets es6 to false
+Turned on no-unused-vars for eslint, and then removed all warnings from turning that feature on
+Was getting notified of errors in ""quote"" property in eslintrc, so changed to correct value from error to 2.
+
+
+
+Does this PR introduce a breaking change?
+Nope",3,0
+3643,2016-12-30T06:48:46Z,,2017-01-08T19:12:35Z,6,108,1,"What kind of change does this PR introduce?
+🏗 Test Infrastructure 🏗
+
+Did you add tests for your changes?
+Well they are the changes 🤸‍♀️
+
+If relevant, link to documentation update:
+N/A ⛔️
+
+Summary
+Adding some foundational binCases suite for testing bin commands. They will call child_process.exec(), and handler will verify if successfully ran. I am just laying the foundation for the tests. And looking for @sokra 's help for how much surface area we want to cover.
+Helps make it possible to better cover changes in #3524.
+
+
+Does this PR introduce a breaking change?
+No way José!",3,6
+3648,2016-12-30T09:11:02Z,2016-12-30T16:39:02Z,2016-12-30T16:39:02Z,4,4070,3,"Removes yarn.lock from under git ignore and adds the lock file with current dependencies.
+Did you add tests for your changes?
+Not necessary.
+If relevant, link to documentation update:
+Closes #3606.
+Summary
+After all, we don't want to make @thejameskyle mad. And Mr. Travis likes lock files too.
+Does this PR introduce a breaking change?
+No breakage.
+Other information
+Should I maybe also add yarn as a dev dependency or we prefer people globally install it?",4,5
+3652,2016-12-30T16:33:16Z,2016-12-30T23:13:50Z,2016-12-30T23:13:50Z,9,14,19,"What kind of change does this PR introduce?
+Refactor, ESLINT ❤️
+
+Did you add tests for your changes?
+None needed!
+
+If relevant, link to documentation update:
+N/A
+
+Summary
+Because we have to support node >=4.7 we need to have a easy way to ensure that all linting and node api features are correctly in place.
+This PR adds eslint-node-plugin which allows us to essentially have our engine property set, and then get intelligent and appropriate linting settings with the exact ""ecmaFeatures"" that we are looking for. Aside from that I fixed any lint warnings in master. Now folks will be forced to add ""use strict""
+
+
+Does this PR introduce a breaking change?
+No.
+
+Other information",4,1
+3657,2016-12-31T01:11:59Z,2017-01-04T05:13:21Z,2017-01-04T05:13:21Z,1,29,27,"What kind of change does this PR introduce?
+Refactor (ES5 => ES6)
+Did you add tests for your changes?
+No functionality was changed, existing tests passed
+If relevant, link to documentation update:
+Not
+Summary
+Refactors the LoaderOptionsPlugin to an ES6 class. First time contributor 🎉
+Does this PR introduce a breaking change?
+Not
+Other information",6,3
+3658,2016-12-31T04:38:12Z,2016-12-31T16:08:41Z,2016-12-31T16:08:41Z,14,44,44,"What kind of change does this PR introduce?
+Feature
+
+Did you add tests for your changes?
+N/A
+
+If relevant, link to documentation update:
+
+Summary
+All browser engines currently can be signaled to lazy parse code by wrapping iife's with parents. After speaking with @fhinkel and a few other members of the V8 team, we were recommended that we use this heuristic technique. The change is very minimal in that in converts the output template to go from:
+/***/ function(module, exports, __webpack_require__) {
+		var add = __webpack_require__(/*! ./math */ 1).add;
+		exports.increment = function(val) {
+			return add(val, 1);
+		};
+/***/ },
+
+to
+/***/ (function(module, exports, __webpack_require__) {
+		var add = __webpack_require__(/*! ./math */ 1).add;
+		exports.increment = function(val) {
+			return add(val, 1);
+		};
+/***/ }),
+
+Overall findings by @nolanlawson state that load and performance gains of over 10%-50% depending on browser engine. https://github.com/nolanlawson/optimize-js#benchmark-overview
+
+
+Does this PR introduce a breaking change?
+No.
+
+Other information",8,10
+3659,2016-12-31T07:01:44Z,2017-01-01T17:26:23Z,2017-01-01T17:26:23Z,1,35,28,"What kind of change does this PR introduce?
+Refactoring
+Did you add tests for your changes?
+No functionality was changed, tested in my project (webpack@2.2.0-rc.3)
+If relevant, link to documentation update:
+N/A
+Summary
+Upgrade HashedModuleIdsPlugin to es6.
+Does this PR introduce a breaking change?
+Nope",3,3
+3661,2016-12-31T16:54:58Z,2017-01-02T08:10:13Z,2017-01-02T08:10:13Z,4,10,10,"What kind of change does this PR introduce?
+Feature
+
+Did you add tests for your changes?
+No, just updated existing expected output.
+
+If relevant, link to documentation update:
+
+Summary
+This back-ports c7b06ad to webpack-1 based on the Twitter thread for the original PR (#3658).
+
+
+Does this PR introduce a breaking change?
+No
+
+Other information
+This is my first webpack PR, so please let me know if there's anything I need to fix!",6,5
+3663,2016-12-31T21:18:12Z,2017-01-01T02:35:42Z,2017-01-01T02:35:42Z,1,20,14,"What kind of change does this PR introduce?
+Refactor (ES5 => ES6)
+Did you add tests for your changes?
+No functionality was changed, existing tests passed
+If relevant, link to documentation update:
+N/A
+Summary
+Refactors the DelegatedPlugin to an ES6 class.
+Does this PR introduce a breaking change?
+Nope
+Other information",2,0
+3664,2017-01-01T04:55:51Z,2017-01-01T17:21:47Z,2017-01-01T17:21:47Z,2,2,2,,4,2
+3665,2017-01-01T09:20:24Z,2017-01-01T17:23:58Z,2017-01-01T17:23:58Z,1,23,17,"What kind of change does this PR introduce?
+Refactor (ES5 => ES6)
+Did you add tests for your changes?
+No functionality was edited. Tested with webpack@2.2.0-rc.3!
+If relevant, link to documentation update:
+N/A
+Summary
+This is my first OSS contribution ever. Saw that this dependency needed some ES6 care... so I gave it some.
+Does this PR introduce a breaking change?
+Nope.",6,2
+3668,2017-01-01T19:26:08Z,2017-01-01T23:52:41Z,2017-01-01T23:52:41Z,1,7,5,"What kind of change does this PR introduce?
+Refactor
+Did you add tests for your changes?
+Existing Tests are passing
+If relevant, link to documentation update:
+N/A
+Summary
+update lib/webpack.web.js to ES6
+Does this PR introduce a breaking change?
+No",2,1
+3669,2017-01-01T20:08:14Z,2017-01-02T05:54:24Z,2017-01-02T05:54:24Z,1,19,14,"What kind of change does this PR introduce?
+Refactor
+Did you add tests for your changes?
+Existing Tests are passing
+If relevant, link to documentation update:
+N/A
+Summary
+update AbstractPlugin to ES6
+Does this PR introduce a breaking change?
+No",3,1
+3670,2017-01-01T23:43:48Z,2017-01-02T08:07:31Z,2017-01-02T08:07:31Z,1,152,0,"What kind of change does this PR introduce?
+
+Add tests for compareLocations
+Did you add tests for your changes?
+
+This PR is only tests
+If relevant, link to documentation update:
+
+N/A
+Summary
+
+
+Based on the coveralls report, the compareLocations file has 74% test coverage. There is no compareLocations specific test file - this is added in this PR and aims to achieve 100% test coverage for this.
+https://coveralls.io/builds/9483896/source?filename=lib%2FcompareLocations.js
+Does this PR introduce a breaking change?
+
+No
+Other information
+None",4,5
+3671,2017-01-02T01:06:10Z,2017-01-02T16:45:45Z,2017-01-02T16:45:45Z,2,131,129,"What kind of change does this PR introduce?
+ES5 => ES6 refactor
+
+Did you add tests for your changes?
+refactor, all existing tests pass
+
+If relevant, link to documentation update:
+N/A
+
+Summary
+Just a new part of the ES6 refactor
+
+
+Does this PR introduce a breaking change?
+Nope",4,3
+3672,2017-01-02T01:07:25Z,2017-01-02T08:09:24Z,2017-01-02T08:09:24Z,13,68,68,"What kind of change does this PR introduce?
+
+Test bugfix
+Did you add tests for your changes?
+
+This PR is only tests
+If relevant, link to documentation update:
+
+N/A
+Summary
+
+
+should type checks need to be called to error if the type check fails. Without calling, the test essentially has an empty body and will pass regardless.
+Change made using find/replace in sublime
+
+Find: (\.be\.[^(;]+);
+Replace: \1();
+
+Does this PR introduce a breaking change?
+
+No
+Other information
+None",4,1
+3675,2017-01-02T10:02:29Z,2017-01-02T17:00:09Z,2017-01-02T17:00:09Z,1,33,29,"What kind of change does this PR introduce?
+ES5 => ES6 refactor
+Did you add tests for your changes?
+refactor, all existing tests pass
+If relevant, link to documentation update:
+N/A
+Summary
+Helping in part of the ES6 refactor
+Does this PR introduce a breaking change?
+Nope",5,4
+3676,2017-01-02T10:23:14Z,2017-01-02T21:32:24Z,2017-01-02T21:32:24Z,1,174,150,"What kind of change does this PR introduce?
+ES5 => ES6 refactor
+Did you add tests for your changes?
+refactor, all existing tests pass
+If relevant, link to documentation update:
+N/A
+Summary
+Helping in part of the ES6 refactor
+Does this PR introduce a breaking change?
+Nope",5,2
+3680,2017-01-02T12:53:37Z,2017-01-02T21:32:56Z,2017-01-02T21:32:56Z,1,65,62,"What kind of change does this PR introduce?
+Refactor
+Did you add tests for your changes?
+Existing Tests are passing
+If relevant, link to documentation update:
+N/A
+Summary
+update CachePlugin to ES6
+Does this PR introduce a breaking change?
+No",2,0
+3682,2017-01-02T12:59:50Z,2017-01-03T20:19:07Z,2017-01-03T20:19:07Z,1,29,28,"What kind of change does this PR introduce?
+Refactor
+Did you add tests for your changes?
+Existing Tests are passing
+If relevant, link to documentation update:
+N/A
+Summary
+update AutomaticPrefetchPlugin to ES6
+Does this PR introduce a breaking change?
+No",5,10
+3683,2017-01-02T18:30:49Z,2017-01-02T21:30:09Z,2017-01-02T21:30:09Z,6,264,266,"What kind of change does this PR introduce?
+Refactor
+Did you add tests for your changes?
+Existing Tests are passing
+If relevant, link to documentation update:
+N/A
+Summary
+update Parser Plugins which depend on AbstractPlugin to ES6 and remove AbstractPlugin
+fixes #3674
+Does this PR introduce a breaking change?
+No",3,4
+3685,2017-01-02T19:04:41Z,2017-01-03T01:56:10Z,2017-01-03T01:56:10Z,3,124,5,"What kind of change does this PR introduce?
+
+Add tests for webworkerhotupdatechunktemplateplugin
+Did you add tests for your changes?
+
+This PR is only tests
+If relevant, link to documentation update:
+
+N/A
+Summary
+
+
+Based on the coveralls report, the webworkerhotupdatechunktemplateplugin file has 41% test coverage. There is no webworkerhotupdatechunktemplateplugin specific test file - this is added in this PR and aims to achieve 100% test coverage.
+https://coveralls.io/builds/9491731/source?filename=lib%2Fwebworker%2FWebWorkerHotUpdateChunkTemplatePlugin.js
+Does this PR introduce a breaking change?
+
+No
+Other information
+This PR is branched off PR #3684, which introduces the applyPluginWithOptions helper function. This helper has been used for testing this plugin too.
+This PR also introduces sinon (as recommended by mocha) to help with checking if callbacks are called, and if they are called with the correct parameters.",4,3
+3687,2017-01-03T01:40:40Z,2017-01-04T04:18:44Z,2017-01-04T04:18:44Z,3,29,17,"What kind of change does this PR introduce?
+Refactoring and an added unit test
+Did you add tests for your changes?
+Yes.
+If relevant, link to documentation update:
+
+Summary
+ES6 adaption for SingleEntryPlugin and no unit test from what I saw.
+Does this PR introduce a breaking change?
+Nopers",3,3
+3688,2017-01-03T01:50:15Z,2017-01-03T19:21:51Z,2017-01-03T19:21:51Z,4,130,158,"What kind of change does this PR introduce?
+Refactoring.
+Did you add tests for your changes?
+No.
+If relevant, link to documentation update:
+Summary
+Updated SizeLimitPlugin for node@4.0.0 syntax.
+Does this PR introduce a breaking change?
+No.",5,2
+3691,2017-01-03T02:55:28Z,2017-01-06T14:23:29Z,2017-01-06T14:23:29Z,2,116,43,"What kind of change does this PR introduce?
+Refactor
+
+Did you add tests for your changes?
+Existing tests passed
+
+If relevant, link to documentation update:
+N/A
+
+Summary
+Update RawModule to ES2015 syntax
+
+
+Does this PR introduce a breaking change?
+No",4,5
+3693,2017-01-03T04:10:48Z,2017-01-04T06:20:52Z,2017-01-04T06:20:52Z,6,42,36,"What kind of change does this PR introduce?
+Refactor
+Did you add tests for your changes?
+Existing tests are passing
+If relevant, link to documentation update:
+N/A
+Summary
+Upgrade WatchEntryPoint to es6
+Does this PR introduce a breaking change?
+No",3,2
+3694,2017-01-03T08:10:09Z,2017-01-04T16:17:49Z,2017-01-04T16:17:49Z,2,417,310,"What kind of change does this PR introduce?
+ES5 => ES6 refactor
+Did you add tests for your changes?
+refactor, all existing tests pass
+If relevant, link to documentation update:
+N/A
+Summary
+Helping in part of the ES6 refactor
+Does this PR introduce a breaking change?
+Nope",2,4
+3695,2017-01-03T08:10:20Z,2017-01-03T18:27:44Z,2017-01-03T18:27:44Z,1,15,10,"What kind of change does this PR introduce?
+ES5 => ES6 refactor
+Did you add tests for your changes?
+refactor, all existing tests pass
+If relevant, link to documentation update:
+N/A
+Summary
+Helping in part of the ES6 refactor
+Does this PR introduce a breaking change?
+Nope",3,1
+3696,2017-01-03T08:58:39Z,2017-01-08T06:15:46Z,2017-01-08T06:15:46Z,1,36,31,"What kind of change does this PR introduce?
+refactor
+Did you add tests for your changes?
+current tests should pass
+If relevant, link to documentation update:
+N/A
+Summary
+upgrade Dependency.js to es6
+Does this PR introduce a breaking change?
+No
+Other
+Dont expose compareLocations as Dependency attribute anymore as its only used internally anyways",3,9
+3697,2017-01-03T09:59:28Z,2017-01-04T04:57:43Z,2017-01-04T04:57:43Z,1,123,99,"What kind of change does this PR introduce?
+refactor
+Did you add tests for your changes?
+current tests should pass
+If relevant, link to documentation update:
+N/A
+Summary
+upgrade AMDDefineDependency and AMDDefineDependencyTemplate to es6
+Does this PR introduce a breaking change?
+No",4,1
+3698,2017-01-03T10:38:41Z,2017-01-03T19:10:51Z,2017-01-03T19:10:51Z,1,59,38,"What kind of change does this PR introduce?
+refactor
+Did you add tests for your changes?
+current tests should pass
+If relevant, link to documentation update:
+N/A
+Summary
+upgrade AMDRequireDependency and AMDRequireDependencyTemplate to es6
+Does this PR introduce a breaking change?
+No",3,0
+3699,2017-01-03T11:23:58Z,2017-01-03T20:40:15Z,2017-01-03T20:40:15Z,1,22,19,"What kind of change does this PR introduce?
+refactor
+Did you add tests for your changes?
+current tests should pass
+If relevant, link to documentation update:
+N/A
+Summary
+upgrade ConstDependency to es6
+Does this PR introduce a breaking change?
+No",3,0
+3701,2017-01-03T11:32:28Z,2017-01-03T19:03:49Z,2017-01-03T19:03:49Z,1,15,13,"What kind of change does this PR introduce?
+refactor
+Did you add tests for your changes?
+current tests should pass
+If relevant, link to documentation update:
+N/A
+Summary
+upgrade UnsupportedDependency and UnsupportedDependencyTemplate to es6
+Does this PR introduce a breaking change?
+No",3,0
+3702,2017-01-03T11:32:54Z,2017-01-03T19:08:16Z,2017-01-03T19:08:16Z,3,229,19,"What kind of change does this PR introduce?
+
+Add tests for RequireJsStuffPlugin
+Did you add tests for your changes?
+
+This PR is only tests
+If relevant, link to documentation update:
+
+N/A
+Summary
+
+
+Based on the coveralls report, the RequireJsStuffPlugin file has 82% test coverage. There is no RequireJsStuffPlugin specific test file - this is added in this PR and aims to achieve 100% test coverage.
+https://coveralls.io/builds/9498425/source?filename=lib%2FRequireJsStuffPlugin.js
+This plugin, although a higher percentage test coverage than other files, was taken on as an example of how to test nested event bindings. This PR extracts the PluginEnvironment helper into a separate file, and makes use of it in order to capture internal event handlers for testing.
+Does this PR introduce a breaking change?
+
+No
+Other information
+None",2,0
+3703,2017-01-03T11:43:31Z,2017-01-03T20:46:20Z,2017-01-03T20:46:20Z,1,17,16,"What kind of change does this PR introduce?
+refactor
+Did you add tests for your changes?
+current tests should pass
+If relevant, link to documentation update:
+N/A
+Summary
+upgrade RequireResolveHeaderDependency and RequireResolveHeaderDependencyTemplate to es6
+Does this PR introduce a breaking change?
+No",3,1
+3704,2017-01-03T11:54:48Z,2017-01-03T20:59:48Z,2017-01-03T20:59:48Z,1,17,16,"What kind of change does this PR introduce?
+refactor
+Did you add tests for your changes?
+current tests should pass
+If relevant, link to documentation update:
+N/A
+Summary
+upgrade RequireHeaderDependency and RequireHeaderDependencyTemplate to es6
+Does this PR introduce a breaking change?
+No",4,1
+3705,2017-01-03T11:59:23Z,2017-01-04T16:19:37Z,2017-01-04T16:19:37Z,1,23,17,"What kind of change does this PR introduce?
+refactor
+Did you add tests for your changes?
+current tests should pass
+If relevant, link to documentation update:
+N/A
+Summary
+upgrade RequireEnsureDependency and RequireEnsureDependencyTemplate to es6
+Does this PR introduce a breaking change?
+No",4,0
+3706,2017-01-03T12:08:34Z,2017-01-03T20:44:58Z,2017-01-03T20:44:58Z,1,16,15,"What kind of change does this PR introduce?
+refactor
+Did you add tests for your changes?
+current tests should pass
+If relevant, link to documentation update:
+N/A
+Summary
+upgrade LocalModuleDependency and LocalModuleDependencyTemplate to es6
+Does this PR introduce a breaking change?
+No",3,0
+3707,2017-01-03T12:10:21Z,2017-01-03T20:34:48Z,2017-01-03T20:34:48Z,1,1,1,"What kind of change does this PR introduce?
+
+Fix for development dependency placement in package.json file
+Did you add tests for your changes?
+
+N/A
+If relevant, link to documentation update:
+
+N/A
+Summary
+
+
+Moves the sinon package added in #3685 from the dependencies list to the devDependencies list in the package.json file.
+Does this PR introduce a breaking change?
+
+No
+Other information
+Kudos to @wtgtybhertgeghgtwtg for spotting - #3685 (comment)",2,0
+3708,2017-01-03T12:13:22Z,2017-01-04T16:20:32Z,2017-01-04T16:20:32Z,1,32,22,"What kind of change does this PR introduce?
+refactor
+Did you add tests for your changes?
+current tests should pass
+If relevant, link to documentation update:
+N/A
+Summary
+upgrade HarmonyAcceptDependency and HarmonyAcceptDependencyTemplate to es6
+Does this PR introduce a breaking change?
+No",4,0
+3709,2017-01-03T12:21:21Z,2017-01-04T05:22:10Z,2017-01-04T05:22:10Z,1,21,17,"What kind of change does this PR introduce?
+refactor
+Did you add tests for your changes?
+current tests should pass
+If relevant, link to documentation update:
+N/A
+Summary
+upgrade HarmonyCompatibilityDependency and HarmonyCompatibilityDependencyTemplate to es6
+Does this PR introduce a breaking change?
+No",3,1
+3710,2017-01-03T12:26:15Z,2017-01-04T16:21:58Z,2017-01-04T16:21:58Z,1,47,38,"What kind of change does this PR introduce?
+refactor
+Did you add tests for your changes?
+current tests should pass
+If relevant, link to documentation update:
+N/A
+Summary
+upgrade HarmonyExportExpressionDependency and HarmonyExportExpressionDependencyTemplate to es6
+Does this PR introduce a breaking change?
+No",4,2
+3711,2017-01-03T12:28:22Z,2017-01-03T21:04:19Z,2017-01-03T21:04:19Z,1,20,16,"What kind of change does this PR introduce?
+refactor
+Did you add tests for your changes?
+current tests should pass
+If relevant, link to documentation update:
+N/A
+Summary
+upgrade HarmonyExportHeaderDependency and HarmonyExportHeaderDependencyTemplate to es6
+Does this PR introduce a breaking change?
+No",3,0
+3714,2017-01-03T21:54:11Z,2017-01-04T06:22:20Z,2017-01-04T06:22:20Z,1,55,0,"What kind of change does this PR introduce?
+
+Add tests for CaseSensitiveModulesWarning
+Did you add tests for your changes?
+
+This PR is only tests
+If relevant, link to documentation update:
+
+N/A
+Summary
+
+
+Based on the coveralls report, the CaseSensitiveModulesWarning file has 18% test coverage. There is no CaseSensitiveModulesWarning specific test file - this is added in this PR and aims to achieve 100% test coverage.
+https://coveralls.io/builds/9506896/source?filename=lib%2FCaseSensitiveModulesWarning.js
+Does this PR introduce a breaking change?
+
+No
+Other information
+The coverage of this file appears to depend on whether it is called in other tests (in other builds it has a coverage of 95%) - https://coveralls.io/builds/9506579/source?filename=lib%2FCaseSensitiveModulesWarning.js",2,1
+3718,2017-01-04T01:31:27Z,2017-01-04T05:49:59Z,2017-01-04T05:49:59Z,3,2,127,"What kind of change does this PR introduce?
+Drops the ArrayMap class for native Map.
+
+Did you add tests for your changes?
+No.
+
+If relevant, link to documentation update:
+
+Summary
+Drops the ArrayMap class for the native Map.  Proposed to solve #3083.
+
+
+Does this PR introduce a breaking change?
+The clone method of dependencyFactories and dependencyTemplates no longer exists.  It is not used by any of the plugins in this repo, but it may be used by plugins outside of this repo.
+
+Change
+const newMap = dependencyTemplates.clone();
+
+to
+const newMap = new Map(dependencyTemplates);
+
+Other information",3,2
+3721,2017-01-04T07:32:52Z,,2017-01-04T19:34:57Z,1,36,35,"What kind of change does this PR introduce?
+ES5 => ES6 refactor
+Did you add tests for your changes?
+refactor, all existing tests pass
+If relevant, link to documentation update:
+N/A
+Summary
+Helping in part of the ES6 refactor
+Does this PR introduce a breaking change?
+Nope",3,2
+3722,2017-01-04T07:33:01Z,,2017-02-03T12:49:39Z,1,24,21,"What kind of change does this PR introduce?
+ES5 => ES6 refactor
+Did you add tests for your changes?
+refactor, all existing tests pass
+If relevant, link to documentation update:
+N/A
+Summary
+Helping in part of the ES6 refactor
+Does this PR introduce a breaking change?
+Nope",4,4
+3723,2017-01-04T07:50:46Z,2017-01-04T16:48:54Z,2017-01-04T16:48:54Z,1,14,9,"What kind of change does this PR introduce?
+ES5 => ES6 refactor
+Did you add tests for your changes?
+refactor, all existing tests pass
+If relevant, link to documentation update:
+N/A
+Summary
+Helping in part of the ES6 refactor
+Does this PR introduce a breaking change?
+Nope",2,1
+3724,2017-01-04T08:25:30Z,2017-01-04T17:24:56Z,2017-01-04T17:24:56Z,1,740,764,"What kind of change does this PR introduce?
+ES5 => ES6 refactor
+Did you add tests for your changes?
+refactor, all existing tests pass
+If relevant, link to documentation update:
+N/A
+Summary
+Helping in part of the ES6 refactor
+Does this PR introduce a breaking change?
+Nope",3,3
+3725,2017-01-04T08:32:28Z,2017-01-04T17:57:18Z,2017-01-04T17:57:18Z,1,29,25,"What kind of change does this PR introduce?
+ES5 => ES6 refactor
+Did you add tests for your changes?
+refactor, all existing tests pass
+If relevant, link to documentation update:
+N/A
+Summary
+Helping in part of the ES6 refactor
+Does this PR introduce a breaking change?
+Nope",2,0
+3726,2017-01-04T09:06:24Z,2017-01-04T18:00:10Z,2017-01-04T18:00:10Z,1,34,29,"What kind of change does this PR introduce?
+ES5 => ES6 refactor
+Did you add tests for your changes?
+refactor, all existing tests pass
+If relevant, link to documentation update:
+N/A
+Summary
+Helping in part of the ES6 refactor
+Does this PR introduce a breaking change?
+Nope",2,1
+3727,2017-01-04T10:29:58Z,2017-01-04T15:13:06Z,2017-01-04T15:13:06Z,1,48,45,"What kind of change does this PR introduce?
+ES5 => ES6 refactor
+Did you add tests for your changes?
+refactor, all existing tests pass
+If relevant, link to documentation update:
+N/A
+
+Summary
+Helps in refactoring the code base to ES6
+Does this PR introduce a breaking change?
+No",2,1
+3728,2017-01-04T10:33:56Z,2017-01-04T18:04:44Z,2017-01-04T18:04:44Z,1,244,163,"What kind of change does this PR introduce?
+refactor
+Did you add tests for your changes?
+current tests should pass
+If relevant, link to documentation update:
+N/A
+Summary
+upgrade HarmonyExportImportedSpecifierDependency and HarmonyExportImportedSpecifierDependencyTemplate to es6
+Does this PR introduce a breaking change?
+No",2,1
+3729,2017-01-04T10:57:04Z,2017-01-04T18:42:16Z,2017-01-04T18:42:16Z,1,56,44,"What kind of change does this PR introduce?
+refactor
+Did you add tests for your changes?
+current tests should pass
+If relevant, link to documentation update:
+N/A
+Summary
+upgrade HarmonyExportSpecifierDependency and HarmonyExportSpecifierDependencyTemplate to es6
+Does this PR introduce a breaking change?
+No",2,1
+3730,2017-01-04T11:02:30Z,2017-01-04T14:06:26Z,2017-01-04T14:06:26Z,1,24,16,"What kind of change does this PR introduce?
+bugfix
+Did you add tests for your changes?
+Its a test itself
+Summary
+There appears to be a global leak in the RequireJsStuff test
+Does this PR introduce a breaking change?
+No
+Other
+moved to es6 while i was at it",3,2
+3731,2017-01-04T11:35:56Z,2017-01-04T18:44:02Z,2017-01-04T18:44:02Z,1,33,31,"What kind of change does this PR introduce?
+refactor ES5 => ES6
+Did you add tests for your changes?
+No
+If relevant, link to documentation update:
+N/A
+Summary
+
+Upgrade RemoveParentModulesPlugin to ES6
+
+Does this PR introduce a breaking change?
+No",2,1
+3732,2017-01-04T11:50:18Z,2017-01-04T21:18:17Z,2017-01-04T21:18:17Z,1,104,99,"What kind of change does this PR introduce?
+refactor,  ES5 => ES6
+Did you add tests for your changes?
+No, existing tests pass
+If relevant, link to documentation update:
+N/A
+Summary
+Upgrade the AggressiveMergingPlugin to ES6 syntax
+Does this PR introduce a breaking change?
+No",3,1
+3734,2017-01-04T12:00:44Z,2017-01-04T18:50:36Z,2017-01-04T18:50:36Z,1,98,68,"What kind of change does this PR introduce?
+refactor
+Did you add tests for your changes?
+current tests should pass
+If relevant, link to documentation update:
+N/A
+Summary
+upgrade HarmonyImportSpecifierDependency and HarmonyImportSpecifierDependencyTemplate to es6
+Does this PR introduce a breaking change?
+No",2,0
+3737,2017-01-04T12:26:55Z,2017-01-05T05:46:14Z,2017-01-05T05:46:14Z,7,54,14,"What kind of change does this PR introduce?
+bugfix
+
+Did you add tests for your changes?
+yes
+
+If relevant, link to documentation update:
+
+Summary
+Multi configuration watch is reporting stale stats for configurations that were not changed
+
+
+Does this PR introduce a breaking change?
+no
+
+Other information
+There is some quirk about running watch tests on Windows/Linux. Change event doesn't fire. It is only observable when MultiCompilation is in use (probably because it uses parallel watchpacks). It is mitigated by adding small delay before changing the files, which is also part of this PR.",3,3
+3741,2017-01-04T12:48:37Z,2017-01-04T18:15:23Z,2017-01-04T18:15:23Z,1,0,26,"What kind of change does this PR introduce?
+deleted unused code
+Did you add tests for your changes?
+N/A
+If relevant, link to documentation update:
+N/A
+Summary
+after #3650 was merged there is no more reference to this dependency
+Does this PR introduce a breaking change?
+No",3,1
+3744,2017-01-04T14:37:36Z,2017-01-06T05:03:55Z,2017-01-06T05:03:55Z,7,44,5,"Without it, child compilations like those added by ""extract-text-webpack-plugin"" are not included in stats hash and aren't properly displayed on change.
+
+What kind of change does this PR introduce?
+bugfix
+
+Did you add tests for your changes?
+yes
+
+If relevant, link to documentation update:
+
+Summary
+Child compilations should affect parent hash.
+This bug affects at least extract-text-webpack-plugin. Since child compilation does not affect parent hash, this code hides the output.
+
+
+Does this PR introduce a breaking change?
+no
+
+Other information
+Causes webpack-contrib/extract-text-webpack-plugin#307",3,7
+3745,2017-01-04T14:57:42Z,2017-01-26T14:57:33Z,2017-01-26T14:57:33Z,1,163,166,"What kind of change does this PR introduce?
+refactor, ES5 => ES6
+Did you add tests for your changes?
+No, all existing tests pass
+If relevant, link to documentation update:
+N/A
+Summary
+upgraded commonsChunkPlugin to ES6
+Does this PR introduce a breaking change?
+No",6,3
+3746,2017-01-04T15:14:05Z,2017-01-04T17:28:35Z,2017-01-04T17:28:35Z,5,40,0,"What kind of change does this PR introduce?
+test
+
+Did you add tests for your changes?
+yes
+
+If relevant, link to documentation update:
+N/A
+
+Summary
+added test case for loader chaining
+
+
+Does this PR introduce a breaking change?
+no
+
+Other information",2,1
+3749,2017-01-04T16:38:32Z,2017-01-04T21:18:40Z,2017-01-04T21:18:40Z,1,10,7,"What kind of change does this PR introduce?
+refactor, ES5 => ES6
+Did you add tests for your changes?
+All existing tests pass
+If relevant, link to documentation update:
+N/A
+Summary
+upgraded DedupePlugin to ES6
+Does this PR introduce a breaking change?
+No",2,2
+3751,2017-01-04T16:58:00Z,2017-01-04T22:21:39Z,2017-01-04T22:21:39Z,1,28,25,"What kind of change does this PR introduce?
+refactor, ES5 => ES6
+Did you add tests for your changes?
+All existing tests pass
+If relevant, link to documentation update:
+N/A
+Summary
+Upgrade the EnsureChunkConditionsPlugin to ES6
+Does this PR introduce a breaking change?
+No",2,1
+3752,2017-01-04T16:58:10Z,2017-01-04T22:23:49Z,2017-01-04T22:23:49Z,1,19,16,"What kind of change does this PR introduce?
+refactor, ES5 => ES6
+Did you add tests for your changes?
+All existing tests pass
+If relevant, link to documentation update:
+N/A
+Summary
+Upgrade the FlagIncludedChunksPlugin to ES6
+Does this PR introduce a breaking change?
+No",3,0
+3753,2017-01-04T17:11:48Z,2017-01-05T02:18:24Z,2017-01-05T02:18:24Z,9,35,3,"What kind of change does this PR introduce?
+test, bugfix
+
+Did you add tests for your changes?
+no
+
+If relevant, link to documentation update:
+N/A
+
+Summary
+fixes position of __esModule flag (should be on top)
+add testcase for library with external
+
+
+Does this PR introduce a breaking change?
+no
+
+Other information",2,1
+3754,2017-01-04T17:58:49Z,2017-01-05T04:17:13Z,2017-01-05T04:17:13Z,1,48,45,"What kind of change does this PR introduce?
+refactor, ES5 => ES6
+Did you add tests for your changes?
+All existing tests pass
+If relevant, link to documentation update:
+N/A
+Summary
+Upgrade the LimitChunkCountPlugin to ES6
+Does this PR introduce a breaking change?
+No",2,2
+3755,2017-01-04T18:16:26Z,2017-01-09T16:11:35Z,2017-01-09T16:11:35Z,33,252,55,"What kind of change does this PR introduce?
+bugfix
+
+Did you add tests for your changes?
+yes
+
+If relevant, link to documentation update:
+N/A
+
+Summary
+emit errors if using AMD or CommonJS syntax in harmony modules
+and some refactorings needed for this
+
+
+Does this PR introduce a breaking change?
+yes",3,4
+3756,2017-01-04T18:47:05Z,2017-01-05T17:47:06Z,2017-01-05T17:47:06Z,1,100,95,"What kind of change does this PR introduce?
+refactor, ES5 => ES6
+Did you add tests for your changes?
+All existing tests pass
+If relevant, link to documentation update:
+N/A
+Summary
+Upgrade the OccurrenceOrderPlugin to ES6
+Does this PR introduce a breaking change?
+No",2,1
+3758,2017-01-04T18:47:56Z,2017-01-05T17:51:07Z,2017-01-05T17:51:07Z,1,21,18,"What kind of change does this PR introduce?
+refactor, ES5 => ES6
+Did you add tests for your changes?
+All existing tests pass
+If relevant, link to documentation update:
+N/A
+Summary
+Upgrade the MergeDuplicateChunksPlugin to ES6
+Does this PR introduce a breaking change?
+No",2,1
+3760,2017-01-04T19:04:51Z,2017-01-05T05:59:23Z,2017-01-05T05:59:23Z,1,32,26,"What kind of change does this PR introduce?
+ES5 => ES6 refactor
+
+Did you add tests for your changes?
+all tests are passing
+
+Summary
+Refactoring to ES2015/6
+
+
+Does this PR introduce a breaking change?
+No",3,2
+3762,2017-01-04T19:29:12Z,2017-01-05T06:03:20Z,2017-01-05T06:03:20Z,1,53,51,"What kind of change does this PR introduce?
+ES5 => ES6 refactor
+
+Did you add tests for your changes?
+all tests are passing
+
+Summary
+Refactoring to ES2015/6
+
+
+Does this PR introduce a breaking change?
+No",2,1
+3765,2017-01-04T21:06:45Z,2017-01-05T16:48:16Z,2017-01-05T16:48:16Z,1,14,12,"What kind of change does this PR introduce?
+refactor, ES5 => ES6
+Did you add tests for your changes?
+All existing tests pass
+If relevant, link to documentation update:
+N/A
+Summary
+Upgrade the RemoveEmptyChunksPlugin to ES6
+Does this PR introduce a breaking change?
+No",3,1
+3766,2017-01-04T21:58:31Z,2017-01-05T16:48:39Z,2017-01-05T16:48:40Z,1,1,1,"What kind of change does this PR introduce?
+Bugfix
+
+Did you add tests for your changes?
+I didn't see any tests for the CLI. I'm not sure how to add a test for this.
+
+Summary
+Fix #3759. Exit with code 1 when the configuration promise is rejected.
+
+
+Does this PR introduce a breaking change?
+It seems unlikely that anyone was relying on this behavior, but it does mean that builds that previously appeared to succeed will result in errors.",3,2
+3767,2017-01-04T22:39:57Z,2017-01-05T17:00:36Z,2017-01-05T17:00:36Z,1,920,975,"What kind of change does this PR introduce?
+ES5 => ES6 refactor
+
+Did you add tests for your changes?
+all tests are passing
+
+Summary
+Refactoring to ES2015/6
+
+
+Does this PR introduce a breaking change?
+No",3,6
+3771,2017-01-05T10:18:18Z,2017-01-05T16:47:34Z,2017-01-05T16:47:34Z,1,13,9,"What kind of change does this PR introduce?
+refactor
+Did you add tests for your changes?
+current tests should pass
+If relevant, link to documentation update:
+N/A
+Summary
+upgrade MultiEntryDependency to es6
+Does this PR introduce a breaking change?
+No",2,1
+3772,2017-01-05T10:40:30Z,2017-01-05T17:36:44Z,2017-01-05T17:36:44Z,2,135,32,"What kind of change does this PR introduce?
+ES5 => ES6 refactor
+Did you add tests for your changes?
+refactor, all existing tests pass. By the way, I'm adding some missed tests for DependenciesBlockVariable
+If relevant, link to documentation update:
+N/A
+Summary
+Helping in part of the ES6 refactor
+Does this PR introduce a breaking change?
+Nope",3,1
+3773,2017-01-05T11:12:24Z,2017-01-05T17:53:19Z,2017-01-05T17:53:19Z,2,15,13,"What kind of change does this PR introduce?
+refactor
+Did you add tests for your changes?
+current tests should pass
+If relevant, link to documentation update:
+N/A
+Summary
+upgrade DllEntryDependency to es6
+Does this PR introduce a breaking change?
+No
+Other Information
+is the removal of the ""type"" attribute/param ok?",2,1
+3774,2017-01-05T11:15:25Z,2017-01-05T17:57:37Z,2017-01-05T17:57:37Z,1,44,22,"What kind of change does this PR introduce?
+refactor
+Did you add tests for your changes?
+current tests should pass
+If relevant, link to documentation update:
+N/A
+Summary
+upgrade AMDRequireArrayDependency and AMDRequireArrayDependencyTemplate to es6
+Does this PR introduce a breaking change?
+No",3,1
+3775,2017-01-05T11:21:14Z,2017-01-05T17:08:59Z,2017-01-05T17:08:59Z,1,11,7,"What kind of change does this PR introduce?
+refactor
+Did you add tests for your changes?
+current tests should pass
+If relevant, link to documentation update:
+N/A
+Summary
+upgrade SingleEntryDependency to es6
+Does this PR introduce a breaking change?
+No",3,1
+3776,2017-01-05T11:52:19Z,2017-01-06T15:11:31Z,2017-01-06T15:11:31Z,1,49,49,"What kind of change does this PR introduce?
+ES5 => ES6 refactor
+Did you add tests for your changes?
+refactor, all existing tests pass
+If relevant, link to documentation update:
+N/A
+Summary
+Helping in part of the ES6 refactor
+Does this PR introduce a breaking change?
+Nope",2,2
+3778,2017-01-05T12:06:05Z,2017-01-05T18:00:27Z,2017-01-05T18:00:27Z,1,15,10,"What kind of change does this PR introduce?
+refactor
+Did you add tests for your changes?
+current tests should pass
+If relevant, link to documentation update:
+N/A
+Summary
+upgrade ModuleHotAcceptDependency to es6
+Does this PR introduce a breaking change?
+No",2,1
+3779,2017-01-05T12:06:28Z,2017-01-05T17:35:21Z,2017-01-05T17:35:21Z,1,15,10,"What kind of change does this PR introduce?
+refactor
+Did you add tests for your changes?
+current tests should pass
+If relevant, link to documentation update:
+N/A
+Summary
+upgrade ModuleHotDeclineDependency to es6
+Does this PR introduce a breaking change?
+No",3,1
+3780,2017-01-05T12:06:50Z,2017-01-05T17:59:05Z,2017-01-05T17:59:05Z,1,14,9,"What kind of change does this PR introduce?
+refactor
+Did you add tests for your changes?
+current tests should pass
+If relevant, link to documentation update:
+N/A
+Summary
+upgrade RequireResolveDependency to es6
+Does this PR introduce a breaking change?
+No",2,1
+3781,2017-01-05T12:07:08Z,2017-01-05T17:59:32Z,2017-01-05T17:59:32Z,1,11,7,"What kind of change does this PR introduce?
+refactor
+Did you add tests for your changes?
+current tests should pass
+If relevant, link to documentation update:
+N/A
+Summary
+upgrade LoaderDependency to es6
+Does this PR introduce a breaking change?
+No",2,1
+3782,2017-01-05T12:07:29Z,2017-01-06T15:16:13Z,2017-01-06T15:16:13Z,1,46,25,"What kind of change does this PR introduce?
+refactor
+Did you add tests for your changes?
+current tests should pass
+If relevant, link to documentation update:
+N/A
+Summary
+upgrade ImportDependency to es6
+Does this PR introduce a breaking change?
+No",3,1
+3784,2017-01-05T13:21:10Z,2017-01-05T17:58:35Z,2017-01-05T17:58:35Z,1,11,7,"What kind of change does this PR introduce?
+refactor
+Did you add tests for your changes?
+current tests should pass
+If relevant, link to documentation update:
+N/A
+Summary
+upgrade DelegatedSourceDependency to es6
+Does this PR introduce a breaking change?
+No",3,0
+3785,2017-01-05T13:21:32Z,2017-01-05T17:58:11Z,2017-01-05T17:58:11Z,1,13,9,"What kind of change does this PR introduce?
+refactor
+Did you add tests for your changes?
+current tests should pass
+If relevant, link to documentation update:
+N/A
+Summary
+upgrade ContextElementDependency to es6
+Does this PR introduce a breaking change?
+No",3,0
+3787,2017-01-05T13:25:41Z,2017-01-07T17:24:31Z,2017-01-07T17:24:31Z,3,75,55,"What kind of change does this PR introduce?
+refactor
+Did you add tests for your changes?
+current tests should pass
+If relevant, link to documentation update:
+N/A
+Summary
+upgrade HarmonyImportDependency and HarmonyAcceptImportDependency to es6
+Does this PR introduce a breaking change?
+No
+Other Information
+amend usage of HarmonyAcceptImportDependency in HarmonyAcceptDependency",3,2
+3789,2017-01-05T14:12:20Z,2017-01-06T09:05:29Z,2017-01-06T09:05:29Z,1,16,14,"What kind of change does this PR introduce?
+refactoring, ES5 => ES6
+
+Did you add tests for your changes?
+No behavioural changes in functions, so all tests should pass
+
+If relevant, link to documentation update:
+N/A
+
+Summary
+Upgrade the MovedToPluginWarningPlugin to ES6
+
+
+Does this PR introduce a breaking change?
+No",2,3
+3790,2017-01-05T16:25:30Z,2017-01-05T17:34:35Z,2017-01-05T17:34:35Z,1,12,6,"What kind of change does this PR introduce?
+refactor. ES5 => ES6
+Did you add tests for your changes?
+No.
+Current tests should pass.
+If relevant, link to documentation update:
+N/A
+Summary
+upgrade WebEnvironmentPlugin to es6
+Does this PR introduce a breaking change?
+No.",3,3
+3792,2017-01-05T17:34:06Z,2017-01-07T16:06:08Z,2017-01-07T16:06:08Z,2,41,29,"What kind of change does this PR introduce?
+refactor. ES5 => ES6
+Did you add tests for your changes?
+No.
+Current tests should pass.
+If relevant, link to documentation update:
+N/A
+Summary
+upgrade NodeChunkTemplatePlugin & NodeTemplatePlugin to ES6
+Does this PR introduce a breaking change?
+No.",2,0
+3793,2017-01-05T18:04:43Z,2017-01-06T15:17:22Z,2017-01-06T15:17:22Z,1,30,21,"What kind of change does this PR introduce?
+ES5 => ES6 refactor.
+Did you add tests for your changes?
+No.
+Current tests should pass.
+If relevant, link to documentation update:
+N/A
+Summary
+Upgrade JsonpExportMainTemplatePlugin to es6
+Does this PR introduce a breaking change?
+No.",3,2
+3795,2017-01-05T18:55:57Z,2017-01-08T04:07:59Z,2017-01-08T04:07:59Z,1,21,18,"What kind of change does this PR introduce?
+refactor, ES5 => ES6
+Did you add tests for your changes?
+No, all existing tests pass
+If relevant, link to documentation update:
+N/A
+Summary
+upgraded NodeHotUpdateChunkTemplatePlugin to ES6
+Does this PR introduce a breaking change?
+No",3,4
+3796,2017-01-05T19:01:39Z,2017-01-06T05:02:53Z,2017-01-06T05:02:53Z,1,19,16,"What kind of change does this PR introduce?
+refactor, ES5 => ES6
+Did you add tests for your changes?
+No, all existing tests pass
+If relevant, link to documentation update:
+N/A
+Summary
+upgraded NodeEnvironmentPlugin to ES6
+Does this PR introduce a breaking change?
+No",2,1
+3797,2017-01-05T22:09:07Z,,2017-04-04T09:33:35Z,1,1,1,"What kind of change does this PR introduce?
+Dependency update
+Did you add tests for your changes?
+N/A
+If relevant, link to documentation update:
+N/A
+Summary
+Watchpack version bump to 1.2.0 is already landed in webpack 2 via #3649.
+This PR is a cherry pick of e91c799 to apply this version version bump also for webpack 1 as the current version constraint ^0.2.1 does not satisfy 1.2.0.
+Fixes:
+
+watch mode fires an immediate rebuild  (webpack/watchpack#40)
+allow usage of watchOptions.ignored (webpack/watchpack#23)
+
+Does this PR introduce a breaking change?
+No
+Other information",5,3
+3799,2017-01-05T23:46:38Z,2017-01-06T05:02:11Z,2017-01-06T05:02:11Z,1,23,23,"What kind of change does this PR introduce?
+Refactors EntryOptionPlugin to ES2015
+
+Did you add tests for your changes?
+No - but no new functionality.
+
+If relevant, link to documentation update:
+
+Summary
+Help the ES2015 migration efforts and record a video on contributing to Webpack :)
+
+
+Does this PR introduce a breaking change?
+
+Other information",3,4
+3801,2017-01-06T05:27:57Z,2017-01-07T16:07:00Z,2017-01-07T16:07:00Z,1,27,24,"What kind of change does this PR introduce?
+refactor(es6): Upgrade MultiEntryPlugin to ES6 🎉 🎉
+
+Did you add tests for your changes?
+Existing Tests Look pretty darn good. 🍾
+
+If relevant, link to documentation update:
+N/A",2,0
+3802,2017-01-06T05:48:28Z,2017-01-07T06:56:48Z,2017-01-07T06:56:48Z,6,924,69,"What kind of change does this PR introduce?
+
+Add tests for MultiCompiler
+Did you add tests for your changes?
+
+This PR is only tests, with some code split out
+If relevant, link to documentation update:
+
+N/A
+Summary
+
+
+Based on the coveralls report, the MultiCompiler file has 86% test coverage (previously 66% when picked up). There is no MultiCompiler specific test file - this is added in this PR as well as splitting out MultiWatching and MultiStats into separate files for testing, and aims to achieve 100% test coverage.
+https://coveralls.io/builds/9547012/source?filename=lib%2FMultiCompiler.js
+Does this PR introduce a breaking change?
+
+No
+Other information
+None",2,2
+3803,2017-01-06T06:05:32Z,2017-01-06T15:24:01Z,2017-01-06T15:24:01Z,1,20,18,"What kind of change does this PR introduce?
+refactoring, ES5 to ES6
+Did you add tests for your changes?
+No, All Current test case passing
+Summary
+refactor lib/AMDRequireContextDependency: upgrade to ES6
+Does this PR introduce a breaking change?
+No",4,3
+3807,2017-01-06T13:19:00Z,2017-01-06T14:21:25Z,2017-01-06T14:21:25Z,1,24,16,"What kind of change does this PR introduce?
+refactor
+Did you add tests for your changes?
+current tests should pass
+If relevant, link to documentation update:
+N/A
+Summary
+upgrade RequireIncludeDependency to es6
+Does this PR introduce a breaking change?
+No",2,1
+3811,2017-01-06T13:29:26Z,2017-01-07T16:10:01Z,2017-01-07T16:10:01Z,1,13,9,"What kind of change does this PR introduce?
+refactor
+Did you add tests for your changes?
+current tests should pass
+If relevant, link to documentation update:
+N/A
+Summary
+upgrade RequireEnsureItemDependency to es6
+Does this PR introduce a breaking change?
+No",2,1
+3813,2017-01-06T13:45:42Z,2017-01-06T21:59:44Z,2017-01-06T21:59:44Z,1,2,1,"What kind of change does this PR introduce?
+CI
+
+Did you add tests for your changes?
+yes
+
+If relevant, link to documentation update:
+N/A
+
+Summary
+better appveyor script
+
+
+Does this PR introduce a breaking change?
+no",2,0
+3814,2017-01-06T14:29:19Z,2017-01-07T18:05:10Z,2017-01-07T18:05:10Z,1,23,16,"What kind of change does this PR introduce?
+refactor
+Did you add tests for your changes?
+current tests should pass
+If relevant, link to documentation update:
+N/A
+Summary
+upgrade ImportContextDependency to es6
+Does this PR introduce a breaking change?
+No",2,2
+3816,2017-01-06T14:29:59Z,2017-01-07T18:04:22Z,2017-01-07T18:04:22Z,1,22,15,"What kind of change does this PR introduce?
+refactor
+Did you add tests for your changes?
+current tests should pass
+If relevant, link to documentation update:
+N/A
+Summary
+upgrade RequireResolveContextDependency to es6
+Does this PR introduce a breaking change?
+No",2,1
+3817,2017-01-06T14:30:16Z,2017-01-07T18:03:28Z,2017-01-07T18:03:28Z,1,14,9,"What kind of change does this PR introduce?
+refactor
+Did you add tests for your changes?
+current tests should pass
+If relevant, link to documentation update:
+N/A
+Summary
+upgrade RequireContextDependency to es6
+Does this PR introduce a breaking change?
+No",2,1
+3818,2017-01-06T15:07:20Z,2017-01-08T04:03:26Z,2017-01-08T04:03:26Z,1,22,19,"What kind of change does this PR introduce?
+refactor
+Did you add tests for your changes?
+current tests should pass
+If relevant, link to documentation update:
+N/A
+Summary
+upgrade ContextDependency to es6
+Does this PR introduce a breaking change?
+No
+Other Information
+Depends on:
+
+ #3803
+ #3814
+ #3815
+ #3816
+ #3817",2,3
+3820,2017-01-06T17:24:04Z,2017-01-06T22:00:57Z,2017-01-06T22:00:57Z,1,0,10,"What kind of change does this PR introduce?
+Bugfix/Tests
+
+Did you add tests for your changes?
+Changes are in the tests
+
+If relevant, link to documentation update:
+N/A
+
+Summary
+Currently new PR's are failing due to an overly precise build test (https://travis-ci.org/webpack/webpack/jobs/189517362). This mitigates that.",2,0
+3821,2017-01-06T18:27:32Z,2017-01-07T01:36:10Z,2017-01-07T01:36:10Z,2,55,35,Requested change.,3,0
+3823,2017-01-07T00:32:08Z,2017-01-07T16:05:02Z,2017-01-07T16:05:02Z,1,34,32,"What kind of change does this PR introduce?
+Refactor to from ES5 => ES6.
+Did you add tests for your changes?
+Covered by existing tests.
+Summary
+Wanted to contribute, so here is a small update to refactor from ES5 => ES6.
+Does this PR introduce a breaking change?
+Nope.
+Let me know if there is more refactoring that can be done here.",3,1
+3826,2017-01-07T03:06:09Z,2017-01-21T18:37:04Z,2017-01-21T18:37:04Z,3,37,35,"What kind of change does this PR introduce?
+
+refactor and documentation
+Did you add tests for your changes?
+
+current tests pass
+If relevant, link to documentation update:
+
+N/A
+Summary
+
+
+refactor validateSchema and Validation.test to ES2015
+update documentation to use yarn instead of npm and clarify steps needed to start testing
+Does this PR introduce a breaking change?
+
+No
+Other information",6,5
+3830,2017-01-07T12:37:43Z,,2017-01-09T21:55:44Z,79,2036,587,"What kind of change does this PR introduce?
+feature [Nice To Have]
+
+Did you add tests for your changes?
+No, I'll be glad if someone could help me or share an idea how to do it.
+
+
+
+Summary
+Fixes #1740
+
+
+Does this PR introduce a breaking change?
+No.",12,5
+3831,2017-01-07T12:52:41Z,2017-01-08T18:49:54Z,2017-01-08T18:49:54Z,1,21,19,"What kind of change does this PR introduce?
+ES5 => ES6 refactor
+Did you add tests for your changes?
+refactor, all existing tests pass
+If relevant, link to documentation update:
+N/A
+Summary
+Helping in part of the ES6 refactor
+Does this PR introduce a breaking change?
+Nope",2,0
+3832,2017-01-07T17:52:00Z,2017-01-08T04:07:01Z,2017-01-08T04:07:01Z,1,26,27,"What kind of change does this PR introduce?
+refactoring, ES5 => ES6
+
+Did you add tests for your changes?
+No behavioural changes in functions, so all tests should pass
+
+If relevant, link to documentation update:
+N/A
+
+Summary
+Upgrade the MovedToPluginWarningPlugin to ES6
+
+
+Does this PR introduce a breaking change?
+NO",2,0
+3833,2017-01-07T18:04:15Z,2017-01-08T04:01:39Z,2017-01-08T04:01:39Z,1,11,12,"What kind of change does this PR introduce?
+refactoring, ES5 => ES6
+
+Did you add tests for your changes?
+No behavioural changes in functions, so all tests should pass
+
+If relevant, link to documentation update:
+N/A
+
+Summary
+Upgrade the ImportDependenciesBlock to ES6
+
+
+Does this PR introduce a breaking change?
+NO",2,1
+3834,2017-01-07T18:20:05Z,2017-01-08T04:05:14Z,2017-01-08T04:05:14Z,1,14,15,"What kind of change does this PR introduce?
+refactoring, ES5 => ES6
+
+Did you add tests for your changes?
+No behavioural changes in functions, so all tests should pass
+
+If relevant, link to documentation update:
+N/A
+
+Summary
+Upgrade the RequireEnsureDependenciesBlock to ES6
+
+
+Does this PR introduce a breaking change?
+NO",2,1
+3835,2017-01-07T18:27:11Z,2017-01-07T20:27:23Z,2017-01-07T20:27:23Z,2,325,2,"What kind of change does this PR introduce?
+
+Add tests for LibraryTemplatePlugin
+Did you add tests for your changes?
+
+This PR is only tests
+If relevant, link to documentation update:
+
+N/A
+Summary
+
+
+Based on the coveralls report, the LibraryTemplatePlugin file has 70% test coverage. There is no LibraryTemplatePlugin specific test file - this is added in this PR and aims to achieve 100% test coverage.
+https://coveralls.io/builds/9566761/source?filename=lib%2FLibraryTemplatePlugin.js
+Does this PR introduce a breaking change?
+
+No
+Other information
+The applyPluginWithOptions helper function has been extended to allow multiple arguments which will all be passed into the plugin on instantiation. This is a backwards compatible change.",2,1
+3837,2017-01-07T21:50:10Z,2017-01-08T00:17:21Z,2017-01-08T00:17:21Z,1,44,1,"Like the title says, bump up the test cov.
+A tiny contribution to => #3716
+What kind of change does this PR introduce?
+bumps up the test cov for NodeWatchFileSystem
+Did you add tests for your changes?
+They are just tests 😄
+Summary
+Adds a handful of more tests to NodeWatchFileSystem to bump up the test coverage.
+Does this PR introduce a breaking change?
+Nope
+Other information",4,3
+3840,2017-01-08T00:05:36Z,2017-01-08T02:11:54Z,2017-01-08T02:11:54Z,2,318,0,"What kind of change does this PR introduce?
+
+Add tests for CachePlugin
+Did you add tests for your changes?
+
+This PR is only tests
+If relevant, link to documentation update:
+
+N/A
+Summary
+
+
+Based on the coveralls report, the CachePlugin file has 84% test coverage. There is no CachePlugin specific test file - this is added in this PR and aims to achieve 100% test coverage.
+https://coveralls.io/builds/9567491/source?filename=lib%2FCachePlugin.js
+Does this PR introduce a breaking change?
+
+No
+Other information
+The coverage of this file appears to depend on whether it is called in other tests (in other builds it has a coverage of 86%) - https://coveralls.io/builds/9568583/source?filename=lib%2FCachePlugin.js
+The applyPluginWithOptions helper function has been update to expose the plugin and plugin environment if a custom context is provided. This is a backwards compatible change.",2,0
+3842,2017-01-08T04:39:16Z,2017-01-08T18:18:02Z,2017-01-08T18:18:02Z,1,4,3,"currently if you ""break"" warnings you have no idea which ones where supposed to show
+or which module actually failed.
+What kind of change does this PR introduce?
+better test hint
+Did you add tests for your changes?
+N/A
+Summary
+When breaking something on the expected warnings (as in they are not shown anymore) there is no way to figure out which files failed. This at least hints the file that was checked.
+Does this PR introduce a breaking change?
+NO",3,1
+3843,2017-01-08T05:40:14Z,2017-01-08T18:11:26Z,2017-01-08T18:11:26Z,14,106,125,"What kind of change does this PR introduce?
+refactoring
+Did you add tests for your changes?
+Is covered by existing tests
+If relevant, link to documentation update:
+N/A
+Summary
+While doing my refactorings to es6 i noticed that certain calls to the parser repeat themselves over several modules.
+First I tried to pull them as a whole into a helper function but then realized that for now a more atomic approach should probably be more reasonable, as it removes the sideeffects and makes it reusable throughout the code.
+For me the these helper functions abstract a lot of the clutter away and make the code more readable as I can see with one glimpse what is happening.
+Does this PR introduce a breaking change?
+No
+Other information
+If this approach is ""ok"" I would love to continue on this bit by bit.
+If the PR gets to big it will introduce too many conflicts with existing PRs I guess.
+Therefore if I may continue, I would try this with a bunch of smaller PRs to keep the impact on files and therefore other PRs as small as possible.",3,2
+3844,2017-01-08T11:02:56Z,2017-01-08T20:48:25Z,2017-01-08T20:48:25Z,7,158,0,"What kind of change does this PR introduce?
+
+Test Infrastructure
+Did you add tests for your changes?
+
+This PR is only tests
+If relevant, link to documentation update:
+
+N/A
+Summary
+
+
+
+Adding some foundational binCases suite for testing bin commands. They will call child_process.exec(), and handler will verify if successfully ran. I am just laying the foundation for the tests.
+Helps make it possible to better cover changes in #3524.
+
+From forked branch PR #3643
+Does this PR introduce a breaking change?
+
+No
+Other information
+From forked branch PR #3643",3,4
+3845,2017-01-08T12:42:38Z,2017-01-08T18:07:44Z,2017-01-08T18:07:44Z,1,51,49,"What kind of change does this PR introduce?
+ES5 => ES6 refactor
+Did you add tests for your changes?
+refactor, all existing tests pass
+If relevant, link to documentation update:
+N/A
+Summary
+Helping in part of the ES6 refactor
+Does this PR introduce a breaking change?
+Nope",2,1
+3846,2017-01-08T13:19:18Z,2017-01-27T07:32:15Z,2017-01-27T07:32:15Z,16,64,169,"What kind of change does this PR introduce?
+refactoring
+Did you add tests for your changes?
+Is covered by existing tests
+If relevant, link to documentation update:
+N/A
+Summary
+See #3843
+Does this PR introduce a breaking change?
+No
+Other information
+extends/continues #3843",4,8
+3850,2017-01-08T20:09:13Z,2017-01-25T22:05:06Z,2017-01-25T22:05:07Z,1,47,56,"What kind of change does this PR introduce?
+
+refactoring, ES5 => ES6
+replace trailing ',' from chunks ids string passed to hash() function in updateHash(), if any.
+
+
+Did you add tests for your changes?
+All tests are passing.
+
+If relevant, link to documentation update:
+N/A
+
+Summary
+Upgrade the AsyncDependenciesBlock to ES6
+
+
+Does this PR introduce a breaking change?
+NO",4,0
+3852,2017-01-08T23:48:52Z,2017-01-09T07:32:11Z,2017-01-09T07:32:11Z,11,56,19,"What kind of change does this PR introduce?
+bugfix
+
+Did you add tests for your changes?
+yes
+
+If relevant, link to documentation update:
+N/A
+
+Summary
+fix for #3769
+make dependency order stable, by adding an index to equal locations.
+
+
+Does this PR introduce a breaking change?
+no",3,0
+3853,2017-01-09T04:47:06Z,2017-01-09T07:32:45Z,2017-01-09T07:32:45Z,1,15,10,"What kind of change does this PR introduce?
+ES5 => ES6 refactor
+Did you add tests for your changes?
+refactor, all existing tests pass
+If relevant, link to documentation update:
+N/A
+Summary
+Helping in part of the ES6 refactor
+Does this PR introduce a breaking change?
+Nope",3,1
+3860,2017-01-09T19:28:19Z,2017-01-10T07:09:20Z,2017-01-10T07:09:20Z,2,39,31,"What kind of change does this PR introduce?
+refactor to es2015
+
+Did you add tests for your changes?
+Tests for the class already present
+
+If relevant, link to documentation update:
+
+Summary
+Refactor the function into an es2015 class
+
+
+Does this PR introduce a breaking change?
+No
+
+Other information",5,3
+3863,2017-01-09T22:00:15Z,2017-01-10T05:19:39Z,2017-01-10T05:19:39Z,1,13,16,"What kind of change does this PR introduce?
+
+Run quick NodeWatchFileSystem tests
+Did you add tests for your changes?
+
+This PR is only changes tests
+If relevant, link to documentation update:
+
+N/A
+Summary
+
+
+The NodeWatchFileSystem file has tests which are not run as part of the CI run as they are behind NO_WATCH_TESTS flag. However, error tests (added as part of #3837) are very fast and increase the reported test coverage. This PR moves these out of the NO_WATCH_TESTS flag to be included in the test coverage report.
+Does this PR introduce a breaking change?
+
+No
+Other information
+None",2,1
+3864,2017-01-09T22:30:38Z,2017-01-21T18:44:20Z,2017-01-21T18:44:20Z,1,49,47,"What kind of change does this PR introduce?
+refactor (es5 => es6)
+
+Did you add tests for your changes?
+refactor, existing tests pass
+
+If relevant, link to documentation update:
+N/A
+
+Summary
+refactor :all_the_things:
+
+
+Does this PR introduce a breaking change?
+Nope",3,1
+3865,2017-01-09T22:42:22Z,2017-01-10T05:15:29Z,2017-01-10T05:15:29Z,1,82,0,"What kind of change does this PR introduce?
+
+Add tests for WarnCaseSensitiveModulesPlugin
+Did you add tests for your changes?
+
+This PR is only tests
+If relevant, link to documentation update:
+
+N/A
+Summary
+
+
+Based on the coveralls report, the WarnCaseSensitiveModulesPlugin file has 86% test coverage. There is no WarnCaseSensitiveModulesPlugin specific test file - this is added in this PR and aims to achieve 100% test coverage.
+https://coveralls.io/builds/9590222/source?filename=lib%2FWarnCaseSensitiveModulesPlugin.js
+Does this PR introduce a breaking change?
+
+No
+Other information
+The coverage of this file appears to depend on whether it is called in other tests (in other builds it has a coverage of 100%) - https://coveralls.io/builds/9584589/source?filename=lib%2FWarnCaseSensitiveModulesPlugin.js",2,1
+3866,2017-01-09T23:30:57Z,2017-01-21T17:21:14Z,2017-01-21T17:21:14Z,1,277,0,"What kind of change does this PR introduce?
+
+Add tests for WebWorkerMainTemplatePlugin
+Did you add tests for your changes?
+
+This PR is only tests
+If relevant, link to documentation update:
+
+N/A
+Summary
+
+
+Based on the coveralls report, the WebWorkerMainTemplatePlugin file has 75% test coverage. There is no WebWorkerMainTemplatePlugin specific test file - this is added in this PR and aims to achieve 100% test coverage.
+https://coveralls.io/builds/9590525/source?filename=lib%2Fwebworker%2FWebWorkerMainTemplatePlugin.js
+Does this PR introduce a breaking change?
+
+No
+Other information
+None",3,2
+3867,2017-01-10T00:03:30Z,2017-01-10T05:17:00Z,2017-01-10T05:17:00Z,1,68,0,"What kind of change does this PR introduce?
+
+Add tests for HotUpdateChunkTemplate
+Did you add tests for your changes?
+
+This PR is only tests
+If relevant, link to documentation update:
+
+N/A
+Summary
+
+
+Based on the coveralls report, the HotUpdateChunkTemplate file has 80% test coverage. There is no HotUpdateChunkTemplate specific test file - this is added in this PR and aims to achieve 100% test coverage.
+https://coveralls.io/builds/9590525/source?filename=lib%2FHotUpdateChunkTemplate.js
+Does this PR introduce a breaking change?
+
+No
+Other information
+None",2,1
+3870,2017-01-10T06:01:37Z,,2017-01-18T15:32:58Z,0,0,0,"What kind of change does this PR introduce?
+Refactor (ES5 => ES6)
+Did you add tests for your changes?
+No functionality was changed, existing tests passed
+If relevant, link to documentation update:
+Not
+Summary
+Refactor the EvalDevToolModulePlugin to an ES6 class
+
+Does this PR introduce a breaking change?
+Not
+Other information",4,0
+3876,2017-01-10T10:33:06Z,2017-01-27T07:32:39Z,2017-01-27T07:32:39Z,1,49,46,"What kind of change does this PR introduce?
+Refactor (ES5 => ES6)
+Did you add tests for your changes?
+No functionality was changed, existing tests passed
+If relevant, link to documentation update:
+N/A
+Summary
+upgrade the CompatibilityPlugin to ES6
+Does this PR introduce a breaking change?
+No",4,2
+3877,2017-01-10T11:00:11Z,2017-01-26T14:56:04Z,2017-01-26T14:56:04Z,1,72,79,"What kind of change does this PR introduce?
+refactor, ES5 => ES6
+
+Did you add tests for your changes?
+All existing tests pass
+
+If relevant, link to documentation update:
+N/A
+
+Summary
+upgrade FlagDependencyExportsPlugin to ES6
+
+
+Does this PR introduce a breaking change?
+No",3,1
+3880,2017-01-10T12:17:33Z,2017-03-07T07:39:52Z,2017-03-07T07:39:52Z,2,213,210,"What kind of change does this PR introduce?
+refactor, ES5 => ES6
+
+Did you add tests for your changes?
+All existing tests pass
+
+If relevant, link to documentation update:
+N/A
+
+Summary
+upgrade AMDDefineDependencyParserPlugin to ES6
+
+
+Does this PR introduce a breaking change?
+No",4,1
+3882,2017-01-10T13:56:44Z,2017-01-25T23:03:20Z,2017-01-25T23:03:20Z,1,116,115,"What kind of change does this PR introduce?
+refactor, ES5 => ES6
+
+Did you add tests for your changes?
+All existing tests pass
+
+If relevant, link to documentation update:
+N/A
+
+Summary
+upgrade AMDPlugin to ES6
+
+
+Does this PR introduce a breaking change?
+No",3,1
+3883,2017-01-10T15:06:39Z,2017-01-26T07:53:00Z,2017-01-26T07:53:00Z,1,157,154,"What kind of change does this PR introduce?
+refactor, ES5 => ES6
+
+Did you add tests for your changes?
+All existing tests pass
+
+If relevant, link to documentation update:
+N/A
+
+Summary
+upgrade AMDRequireDependenciesBlockParserPlugin to ES6
+
+
+Does this PR introduce a breaking change?
+No",4,0
+3884,2017-01-10T15:07:06Z,,2017-01-25T22:59:59Z,1,32,30,"What kind of change does this PR introduce?
+refactor, ES5 => ES6
+
+Did you add tests for your changes?
+All existing tests pass
+
+If relevant, link to documentation update:
+N/A
+
+Summary
+upgrade CommonJsInHarmonyDependencyParserPlugin to ES6
+
+
+Does this PR introduce a breaking change?
+No",4,1
+3889,2017-01-10T17:50:27Z,2017-01-11T12:03:24Z,2017-01-11T12:03:24Z,5,18,1,"What kind of change does this PR introduce?
+bugfix
+Did you add tests for your changes?
+I didn't see any existing CLI tests, so no.
+Summary
+UglifyJsPlugin checks typeof options !== ""object"", which doesn't work as expected with null since its type is ""object"". 
+  
+    
+      webpack/lib/optimize/UglifyJsPlugin.js
+    
+    
+         Line 16
+      in
+      a1dca89
+    
+  
+  
+    
+
+        
+          
+           if(typeof options !== ""object"" || Array.isArray(options)) options = {}; 
+        
+    
+  
+
+
+See 48e17ab#commitcomment-20424582
+Does this PR introduce a breaking change?
+No",2,4
+3890,2017-01-10T18:01:49Z,2017-01-25T22:35:33Z,2017-01-25T22:35:33Z,1,78,75,"What kind of change does this PR introduce?
+refactor, ES5 => ES6
+
+Did you add tests for your changes?
+All existing tests pass
+
+If relevant, link to documentation update:
+N/A
+
+Summary
+upgrade CommonJsRequireDependencyParserPlugin to ES6
+
+
+Does this PR introduce a breaking change?
+No",4,0
+3891,2017-01-10T18:30:03Z,2017-01-25T22:35:59Z,2017-01-25T22:35:59Z,1,21,18,"What kind of change does this PR introduce?
+refactor, ES5 => ES6
+
+Did you add tests for your changes?
+All existing tests pass
+
+If relevant, link to documentation update:
+N/A
+
+Summary
+upgrade ContextDependencyTemplateAsId to ES6
+
+
+Does this PR introduce a breaking change?
+No",4,0
+3892,2017-01-10T18:30:03Z,2017-01-26T07:53:18Z,2017-01-26T07:53:18Z,1,23,29,"What kind of change does this PR introduce?
+refactor, ES5 => ES6
+
+Did you add tests for your changes?
+All existing tests pass
+
+If relevant, link to documentation update:
+N/A
+
+Summary
+upgrade ContextDependencyTemplateAsRequireCall to ES6
+
+
+Does this PR introduce a breaking change?
+No",4,0
+3902,2017-01-11T12:10:22Z,2017-01-26T07:53:32Z,2017-01-26T07:53:32Z,1,54,53,"What kind of change does this PR introduce?
+ES5 => ES6 refactor
+Did you add tests for your changes?
+refactor, all existing tests pass
+If relevant, link to documentation update:
+N/A
+Summary
+Helping in part of the ES6 refactor
+Does this PR introduce a breaking change?
+Nope",3,2
+3903,2017-01-11T12:10:41Z,2017-01-18T15:09:32Z,2017-01-18T15:09:32Z,1,8,5,"What kind of change does this PR introduce?
+ES5 => ES6 refactor
+Did you add tests for your changes?
+refactor, all existing tests pass
+If relevant, link to documentation update:
+N/A
+Summary
+Helping in part of the ES6 refactor
+Does this PR introduce a breaking change?
+Nope",2,1
+3904,2017-01-11T12:13:35Z,2017-01-18T15:08:40Z,2017-01-18T15:08:40Z,1,24,0,"What kind of change does this PR introduce?
+tests
+If relevant, link to documentation update:
+N/A
+Summary
+The goal of this PR is add tests for WebEnvironmentPlugin class.
+Does this PR introduce a breaking change?
+We don't have any breaking changes",2,1
+3905,2017-01-11T12:37:19Z,2017-01-26T07:53:51Z,2017-01-26T07:53:51Z,1,10,18,"What kind of change does this PR introduce?
+refactor
+Did you add tests for your changes?
+current tests should pass
+If relevant, link to documentation update:
+N/A
+Summary
+upgrade WebpackMissingModule to es6
+Does this PR introduce a breaking change?
+No",3,0
+3906,2017-01-11T15:29:12Z,2017-01-18T15:08:05Z,2017-01-18T15:08:05Z,1,17,11,"What kind of change does this PR introduce?
+Refactor (ES5 => ES6)
+Did you add tests for your changes?
+No functionality was changed, existing tests passed
+If relevant, link to documentation update:
+Not
+Summary
+Refactor the FunctionModulePlugin to an ES6 class
+Does this PR introduce a breaking change?
+Not
+Other information",2,1
+3907,2017-01-11T16:10:42Z,2017-01-18T15:07:28Z,2017-01-18T15:07:28Z,1,17,13,"What kind of change does this PR introduce?
+Refactor (ES5 => ES6)
+Did you add tests for your changes?
+No functionality was changed, existing tests passed
+If relevant, link to documentation update:
+N/A
+Summary
+Refactor the FlagInitialModulesAsUsedPlugin to an ES6 class
+Does this PR introduce a breaking change?
+N/A
+Other information",2,0
+3908,2017-01-11T17:15:45Z,2017-01-26T07:54:04Z,2017-01-26T07:54:04Z,1,0,1,Reverts #3186,2,0
+3910,2017-01-11T18:31:14Z,2017-01-26T07:54:15Z,2017-01-26T07:54:15Z,1,31,28,"What kind of change does this PR introduce?
+refactor, ES5 => ES6
+
+Did you add tests for your changes?
+All existing tests pass
+
+If relevant, link to documentation update:
+N/A
+
+Summary
+upgrade ImportParserPlugin to ES6
+
+
+Does this PR introduce a breaking change?
+No",2,0
+3912,2017-01-11T18:32:10Z,2017-02-03T12:39:24Z,2017-02-03T12:39:24Z,1,48,49,"What kind of change does this PR introduce?
+refactor, ES5 => ES6
+
+Did you add tests for your changes?
+All existing tests pass
+
+If relevant, link to documentation update:
+N/A
+
+Summary
+upgrade LoaderPlugin to ES6
+
+
+Does this PR introduce a breaking change?
+No",3,1
+3913,2017-01-11T18:32:43Z,2017-01-18T15:05:27Z,2017-01-18T15:05:27Z,1,17,13,"What kind of change does this PR introduce?
+refactor, ES5 => ES6
+
+Did you add tests for your changes?
+All existing tests pass
+
+If relevant, link to documentation update:
+N/A
+
+Summary
+upgrade LocalModule to ES6
+
+
+Does this PR introduce a breaking change?
+No",2,1
+3914,2017-01-11T18:33:45Z,2017-01-25T22:51:20Z,2017-01-25T22:51:20Z,1,28,24,"What kind of change does this PR introduce?
+refactor, ES5 => ES6
+
+Did you add tests for your changes?
+All existing tests pass
+
+If relevant, link to documentation update:
+N/A
+
+Summary
+upgrade ImportPlugin to ES6
+
+
+Does this PR introduce a breaking change?
+No",2,1
+3915,2017-01-11T18:43:06Z,2017-01-26T07:54:28Z,2017-01-26T07:54:28Z,1,15,17,"What kind of change does this PR introduce?
+refactor, ES5 => ES6
+
+Did you add tests for your changes?
+All existing tests pass
+
+If relevant, link to documentation update:
+N/A
+
+Summary
+upgrade ModuleDependencyTemplateAsId to ES6
+
+
+Does this PR introduce a breaking change?
+No",3,0
+3916,2017-01-11T18:43:09Z,2017-01-26T07:54:39Z,2017-01-26T07:54:39Z,1,15,17,"What kind of change does this PR introduce?
+refactor, ES5 => ES6
+
+Did you add tests for your changes?
+All existing tests pass
+
+If relevant, link to documentation update:
+N/A
+
+Summary
+upgrade ModuleDependencyTemplateAsRequireId to ES6
+
+
+Does this PR introduce a breaking change?
+No",3,0
+3918,2017-01-11T19:35:27Z,2017-01-18T15:01:14Z,2017-01-18T15:01:14Z,1,28,26,"What kind of change does this PR introduce?
+refactor, ES5 => ES6
+
+Did you add tests for your changes?
+All existing tests pass
+
+If relevant, link to documentation update:
+N/A
+
+Summary
+upgrade RequireEnsurePlugin to ES6
+
+
+Does this PR introduce a breaking change?
+No",2,1
+3919,2017-01-11T19:40:48Z,2017-01-18T15:00:54Z,2017-01-18T15:00:54Z,1,59,57,"What kind of change does this PR introduce?
+refactor, ES5 => ES6
+
+Did you add tests for your changes?
+All existing tests pass
+
+If relevant, link to documentation update:
+N/A
+
+Summary
+upgrade RequireContextPlugin to ES6
+
+
+Does this PR introduce a breaking change?
+No",2,1
+3920,2017-01-11T19:59:23Z,2017-01-18T15:00:24Z,2017-01-18T15:00:24Z,1,25,23,"What kind of change does this PR introduce?
+refactor, ES5 => ES6
+
+Did you add tests for your changes?
+All existing tests pass
+
+If relevant, link to documentation update:
+N/A
+
+Summary
+upgrade RequireIncludePlugin to ES6
+
+
+Does this PR introduce a breaking change?
+No",2,1
+3921,2017-01-11T19:59:24Z,2017-01-18T14:59:43Z,2017-01-18T14:59:43Z,1,59,56,"What kind of change does this PR introduce?
+refactor, ES5 => ES6
+
+Did you add tests for your changes?
+All existing tests pass
+
+If relevant, link to documentation update:
+N/A
+
+Summary
+upgrade RequireResolveDependencyParserPlugin to ES6
+
+
+Does this PR introduce a breaking change?
+No",2,1
+3923,2017-01-11T20:55:13Z,2017-01-18T14:59:18Z,2017-01-18T14:59:19Z,1,40,36,"What kind of change does this PR introduce?
+refactor, ES5 => ES6
+
+Did you add tests for your changes?
+All existing tests pass
+
+If relevant, link to documentation update:
+N/A
+
+Summary
+upgrade SystemPlugin to ES6
+
+
+Does this PR introduce a breaking change?
+No",2,1
+3924,2017-01-11T21:01:03Z,2017-01-18T14:58:54Z,2017-01-18T14:58:54Z,1,22,20,"What kind of change does this PR introduce?
+refactor, ES5 => ES6
+
+Did you add tests for your changes?
+All existing tests pass
+
+If relevant, link to documentation update:
+N/A
+
+Summary
+upgrade WebWorkerHotUpdateChunkTemplatePlugin to ES6
+
+
+Does this PR introduce a breaking change?
+No",2,1
+3934,2017-01-12T12:50:05Z,2017-04-23T10:10:20Z,2017-04-23T10:10:20Z,2,28,23,"based off of #3933 but could be made independent.
+What kind of change does this PR introduce?
+refactoring
+Did you add tests for your changes?
+No
+If relevant, link to documentation update:
+N/A
+Summary
+Simplify the _done method of Watching in Compiler
+Does this PR introduce a breaking change?
+No",5,5
+3937,2017-01-12T17:07:26Z,2017-01-18T14:58:34Z,2017-01-18T14:58:34Z,1,16,14,"What kind of change does this PR introduce?
+refactor, ES5 => ES6
+Did you add tests for your changes?
+All existing tests pass
+If relevant, link to documentation update:
+N/A
+Summary
+upgrade MultiWatching to ES6
+Does this PR introduce a breaking change?
+N/A
+Other information",3,1
+3938,2017-01-12T17:30:13Z,2017-01-18T14:58:08Z,2017-01-18T14:58:08Z,1,36,31,"What kind of change does this PR introduce?
+refactor, ES5 => ES6
+Did you add tests for your changes?
+All existing tests pass
+If relevant, link to documentation update:
+N/A
+Summary
+upgrade NormalModuleReplacementPlugin to ES6
+Does this PR introduce a breaking change?
+N/A
+Other information",3,1
+3940,2017-01-12T21:19:33Z,2017-01-18T14:57:45Z,2017-01-18T14:57:45Z,4,372,371,"Subclasses include MainTemplate, ChunkTemplate and
+HotUpdateChunkTemplate.
+
+What kind of change does this PR introduce?
+Refactor to ES2015.
+
+Did you add tests for your changes?
+Tests already present.
+
+If relevant, link to documentation update:
+
+Summary
+Move few files to ES2015.
+
+
+Does this PR introduce a breaking change?
+No.
+
+Other information",3,1
+3942,2017-01-13T03:35:16Z,2017-01-18T14:57:25Z,2017-01-18T14:57:25Z,1,24,18,"What kind of change does this PR introduce?
+refactor, ES5 => ES6
+Did you add tests for your changes?
+All existing tests pass
+If relevant, link to documentation update:
+N/A
+Summary
+upgrade EvalSourceMapDevToolPlugin to ES6
+Does this PR introduce a breaking change?
+N/A
+Other information",3,1
+3943,2017-01-13T04:00:51Z,2017-01-18T14:57:07Z,2017-01-18T14:57:07Z,1,15,11,"What kind of change does this PR introduce?
+refactor, ES5 => ES6
+Did you add tests for your changes?
+All existing tests pass
+If relevant, link to documentation update:
+N/A
+Summary
+upgrade JsonpTemplatePlugin to ES6
+Does this PR introduce a breaking change?
+N/A
+Other information",3,2
+3956,2017-01-14T20:47:16Z,2017-01-15T14:52:59Z,2017-01-15T14:52:59Z,3,9,6,"What kind of change does this PR introduce?
+Bugfix for #3946 - all stats options provided at Webpack config are being ignored.
+Did you add tests for your changes?
+It surprises me that such bug is passing existent tests.
+If relevant, link to documentation update:
+N/A
+Summary
+#3946 - stats options being ignored.
+Does this PR introduce a breaking change?
+No.
+Other information
+The whole issue is quite simple.
+I have examined the commit which introduced the bug:
+
+https://github.com/webpack/webpack/pull/3524/files
+
+Please pay attention at the changes for lib/MultiStats.js. There, the lines from 33 to 35 are preventing the bug. I just did the same.",3,2
+3958,2017-01-15T00:26:20Z,2017-01-15T14:32:01Z,2017-01-15T14:32:01Z,30,178,181,"What kind of change does this PR introduce?
+bugfix
+
+Did you add tests for your changes?
+yes
+
+If relevant, link to documentation update:
+not yet
+
+Summary
+remove error for CommonJs/AMD in ESM
+there are too many weird modules
+detect harmony modules before parsing
+exports is now undefined in ESM
+module.exports is now read-only in ESM and returns undefined
+define is now undefined in ESM
+see #3917
+
+
+Does this PR introduce a breaking change?
+yes",3,1
+3959,2017-01-15T03:17:20Z,2017-01-15T12:06:59Z,2017-01-15T12:06:59Z,1,0,4,"What kind of change does this PR introduce?
+Delete dead file
+Did you add tests for your changes?
+N/A
+If relevant, link to documentation update:
+N/A
+Summary
+buildin/return-require.js has no user anymore and can probably be deleted?
+Does this PR introduce a breaking change?
+I would think no.",2,1
+3960,2017-01-15T04:08:43Z,,2017-04-05T21:39:22Z,4,106,1,"What kind of change does this PR introduce?
+feature/build-related
+Did you add tests for your changes?
+No
+If relevant, link to documentation update:
+N/A
+Summary
+This should probably be handled by node itself, however as the ""engines"" checks have changed over the versions
+and one can not be sure which npm version is used the probably most consistent way is to run a selfprovided check?
+Should this be run pre-build as well? To poke everyone who didnt check their ""install"" spam :)?
+Does this PR introduce a breaking change?
+No
+Other Information
+Should help prevent issues like:  #3930 #3951 #3944 #3922
+TODO:
+
+ switch to chalk
+ add unit test
+ use semver properly
+ check yarn.lock",4,16
+3971,2017-01-15T18:04:27Z,2017-01-16T02:47:13Z,2017-01-16T02:47:13Z,5,16,2,"What kind of change does this PR introduce?
+Bugfix.
+
+Did you add tests for your changes?
+N/A
+
+If relevant, link to documentation update:
+N/A
+
+Summary
+Patches issue discovered in RC5. exportArguments should be tried first before ""exports"".
+
+
+Does this PR introduce a breaking change?
+No
+
+Other information
+Fixes #3917",3,1
+3976,2017-01-16T11:03:47Z,2017-01-16T14:52:25Z,2017-01-16T14:52:25Z,2,0,8,"What kind of change does this PR introduce?
+refactoring
+Did you add tests for your changes?
+No
+If relevant, link to documentation update:
+N/A
+Summary
+Remove specified defaults. Save you some bytes that made your website load so slow  .
+Does this PR introduce a breaking change?
+No
+Other information
+see defaults: https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty#Adding_properties_and_default_values",2,1
+3977,2017-01-16T13:29:22Z,2017-01-16T14:53:09Z,2017-01-16T14:53:09Z,10,106,30,"What kind of change does this PR introduce?
+Bug
+Did you add tests for your changes?
+Yes, I added tests.
+If relevant, link to documentation update:
+issue 2664",3,2
+3982,2017-01-16T22:03:35Z,2017-01-21T18:32:22Z,2017-01-21T18:32:23Z,1,48,0,"What kind of change does this PR introduce?
+
+Add tests for ModuleDependencyError
+Did you add tests for your changes?
+
+This PR is only tests
+If relevant, link to documentation update:
+
+N/A
+Summary
+
+
+Based on the coveralls report, the ModuleDependencyError file has 20% test coverage. There is no ModuleDependencyError specific test file - this is added in this PR and aims to achieve 100% test coverage.
+https://coveralls.io/builds/9689291/source?filename=lib%2FModuleDependencyError.js
+Does this PR introduce a breaking change?
+
+No
+Other information
+None",3,0
+3986,2017-01-17T06:00:52Z,2017-01-17T18:27:58Z,2017-01-17T18:27:58Z,8,121,89,"What kind of change does this PR introduce?
+Bugfix
+
+Did you add tests for your changes?
+N/A
+
+If relevant, link to documentation update:
+N/A
+
+Summary
+Because AWS Lambda (see #3984) is only supporting node 4.3 😦 as their max version, this PR rollsback use of Buffer.from in favor of the cross version supported new Buffer. It is deprecated for the future, but currently, warnings nor errors will emit from use of new Buffer even in Node 7@latest. To ensure that this is testing accurately, I've bumped our CI version for node down to 4.3 on travis as well and updated the engine field in our package.json
+
+
+Does this PR introduce a breaking change?
+No
+
+Other information
+Fixed #3984",3,1
+3988,2017-01-17T13:37:19Z,2017-01-17T18:28:55Z,2017-01-17T18:28:55Z,12,42,3,"What kind of change does this PR introduce?
+Regression bugfix
+Did you add tests for your changes?
+Yes, I added tests for this case
+If relevant, link to documentation update:
+issues/2664",2,1
+3999,2017-01-18T13:26:02Z,2017-01-24T16:03:55Z,2017-01-24T16:03:55Z,2,86,17,"What kind of change does this PR introduce?
+It adds tests for lib/node/NodeMainTemplatePlugin.js as described in issue #3716.
+
+Did you add tests for your changes?
+Only tests.
+
+Summary
+This PR increases the coverage for NodeMainTemplatePlugin.js above 80%. It also adds tests for chunk filename length, in addition to the existing filename length tests. This PR was inspired by #3716.
+Does this PR introduce a breaking change?
+No.",3,4
+4003,2017-01-18T15:58:01Z,2017-01-25T07:59:42Z,2017-01-25T07:59:42Z,1,60,79,"What kind of change does this PR introduce?
+refactor, ES5 => ES6
+
+Did you add tests for your changes?
+All existing tests pass
+
+If relevant, link to documentation update:
+N/A
+
+Summary
+Refactor AmdMainTemplatePlugin.test.js to ES6
+
+
+Does this PR introduce a breaking change?
+No",3,1
+4004,2017-01-18T15:59:43Z,2017-01-21T15:57:53Z,2017-01-21T15:57:53Z,1,118,147,"What kind of change does this PR introduce?
+refactor, ES5 => ES6
+
+Did you add tests for your changes?
+All existing tests pass
+
+If relevant, link to documentation update:
+N/A
+
+Summary
+Refactor CachePlugin.test.js to ES6
+
+
+Does this PR introduce a breaking change?
+No",3,0
+4005,2017-01-18T16:00:30Z,2017-01-25T22:42:55Z,2017-01-25T22:42:55Z,1,19,20,"What kind of change does this PR introduce?
+refactor, ES5 => ES6
+
+Did you add tests for your changes?
+All existing tests pass
+
+If relevant, link to documentation update:
+N/A
+
+Summary
+Refactor CaseSensitiveModulesWarning.test.js to ES6
+
+
+Does this PR introduce a breaking change?
+No",2,0
+4006,2017-01-18T16:01:09Z,2017-02-03T12:41:07Z,2017-02-03T12:41:07Z,1,47,68,"What kind of change does this PR introduce?
+refactor, ES5 => ES6
+
+Did you add tests for your changes?
+All existing tests pass
+
+If relevant, link to documentation update:
+N/A
+
+Summary
+Refactor Chunk.test.js to ES6
+
+
+Does this PR introduce a breaking change?
+No",3,1
+4007,2017-01-18T16:02:31Z,2017-01-25T22:52:05Z,2017-01-25T22:52:05Z,1,92,100,"What kind of change does this PR introduce?
+refactor, ES5 => ES6
+
+Did you add tests for your changes?
+All existing tests pass
+
+If relevant, link to documentation update:
+N/A
+
+Summary
+Refactor Compiler-caching.test.js to ES6
+
+
+Does this PR introduce a breaking change?
+No",2,1
+4008,2017-01-18T16:25:44Z,2017-03-07T07:43:22Z,2017-03-07T07:43:22Z,1,30,29,"What kind of change does this PR introduce?
+refactor, ES5 => ES6
+
+Did you add tests for your changes?
+All existing tests pass
+
+If relevant, link to documentation update:
+N/A
+
+Summary
+Refactor Compiler.test.js to ES6
+
+
+Does this PR introduce a breaking change?
+No",2,1
+4010,2017-01-18T17:14:22Z,2017-01-26T07:54:52Z,2017-01-26T07:54:52Z,2,14,3,"What kind of change does this PR introduce?
+bugfix
+
+Did you add tests for your changes?
+yes
+
+If relevant, link to documentation update:
+N/A
+
+Summary
+
+
+issue 4000
+Does this PR introduce a breaking change?
+
+Other information",4,4
+4011,2017-01-18T18:11:28Z,2017-01-25T22:52:42Z,2017-01-25T22:52:42Z,1,48,47,"What kind of change does this PR introduce?
+refactor, ES5 => ES6
+
+Did you add tests for your changes?
+All existing tests pass
+
+If relevant, link to documentation update:
+N/A
+
+Summary
+Refactor ConfigTestCases.test.js to ES6
+
+
+Does this PR introduce a breaking change?
+No",2,1
+4013,2017-01-18T18:31:30Z,2017-03-07T07:39:04Z,2017-03-07T07:39:04Z,1,32,40,"What kind of change does this PR introduce?
+refactor, ES5 => ES6
+
+Did you add tests for your changes?
+All existing tests pass
+
+If relevant, link to documentation update:
+N/A
+
+Summary
+Refactor DependenciesBlockVariable.test.js to ES6
+
+
+Does this PR introduce a breaking change?
+No",2,1
+4014,2017-01-18T18:32:44Z,2017-01-26T14:55:40Z,2017-01-26T14:55:40Z,1,34,32,"What kind of change does this PR introduce?
+refactor, ES5 => ES6
+
+Did you add tests for your changes?
+All existing tests pass
+
+If relevant, link to documentation update:
+N/A
+
+Summary
+Refactor Errors.test.js to ES6
+
+
+Does this PR introduce a breaking change?
+No",2,1
+4015,2017-01-18T18:33:24Z,2017-02-09T22:39:08Z,2017-02-09T22:39:08Z,1,13,13,"What kind of change does this PR introduce?
+refactor, ES5 => ES6
+
+Did you add tests for your changes?
+All existing tests pass
+
+If relevant, link to documentation update:
+N/A
+
+Summary
+Refactor Examples.test.js to ES6
+
+
+Does this PR introduce a breaking change?
+No",2,1
+4016,2017-01-18T18:35:00Z,2017-03-07T07:39:19Z,2017-03-07T07:39:19Z,1,23,21,"What kind of change does this PR introduce?
+refactor, ES5 => ES6
+
+Did you add tests for your changes?
+All existing tests pass
+
+If relevant, link to documentation update:
+N/A
+
+Summary
+Refactor HotModuleReplacementPlugin.test.js to ES6
+
+
+Does this PR introduce a breaking change?
+No",2,1
+4017,2017-01-18T18:35:21Z,2017-02-28T11:56:21Z,2017-02-28T11:56:21Z,1,40,41,"What kind of change does this PR introduce?
+refactor, ES5 => ES6
+
+Did you add tests for your changes?
+All existing tests pass
+
+If relevant, link to documentation update:
+N/A
+
+Summary
+Refactor HotTestCases.test.js to ES6
+
+
+Does this PR introduce a breaking change?
+No",2,1
+4018,2017-01-18T18:35:25Z,2017-02-03T13:01:11Z,2017-02-03T13:01:11Z,1,18,16,"What kind of change does this PR introduce?
+refactor, ES5 => ES6
+
+Did you add tests for your changes?
+All existing tests pass
+
+If relevant, link to documentation update:
+N/A
+
+Summary
+Refactor HotUpdateChunkTemplate.test.js to ES6
+
+
+Does this PR introduce a breaking change?
+No",2,1
+4019,2017-01-18T18:37:02Z,2017-02-03T13:01:47Z,2017-02-03T13:01:47Z,1,12,12,"What kind of change does this PR introduce?
+refactor, ES5 => ES6
+
+Did you add tests for your changes?
+All existing tests pass
+
+If relevant, link to documentation update:
+N/A
+
+Summary
+Refactor Integration.test.js to ES6
+
+
+Does this PR introduce a breaking change?
+No",2,1
+4020,2017-01-18T18:37:05Z,2017-02-28T11:56:35Z,2017-02-28T11:56:35Z,1,44,68,"What kind of change does this PR introduce?
+refactor, ES5 => ES6
+
+Did you add tests for your changes?
+All existing tests pass
+
+If relevant, link to documentation update:
+N/A
+
+Summary
+Refactor JsonpExportMainTemplatePlugin.test.js to ES6
+
+
+Does this PR introduce a breaking change?
+No",2,1
+4021,2017-01-18T18:37:12Z,2017-02-03T13:02:48Z,2017-02-03T13:02:48Z,1,26,37,"What kind of change does this PR introduce?
+refactor, ES5 => ES6
+
+Did you add tests for your changes?
+All existing tests pass
+
+If relevant, link to documentation update:
+N/A
+
+Summary
+Refactor JsonpHotUpdateChunkTemplatePlugin.test.js to ES6
+
+
+Does this PR introduce a breaking change?
+No",2,1
+4022,2017-01-18T18:37:54Z,2017-02-03T13:03:45Z,2017-02-03T13:03:45Z,1,144,178,"What kind of change does this PR introduce?
+refactor, ES5 => ES6
+
+Did you add tests for your changes?
+All existing tests pass
+
+If relevant, link to documentation update:
+N/A
+
+Summary
+Refactor MultiCompiler.test.js to ES6
+
+
+Does this PR introduce a breaking change?
+No",2,1
+4023,2017-01-18T18:39:17Z,2017-02-03T13:04:24Z,2017-02-03T13:04:24Z,1,42,56,"What kind of change does this PR introduce?
+refactor, ES5 => ES6
+
+Did you add tests for your changes?
+All existing tests pass
+
+If relevant, link to documentation update:
+N/A
+
+Summary
+Refactor MultiStats.test.js to ES6
+
+
+Does this PR introduce a breaking change?
+No",2,1
+4024,2017-01-18T18:39:24Z,2017-02-03T13:04:51Z,2017-02-03T13:04:51Z,1,18,20,"What kind of change does this PR introduce?
+refactor, ES5 => ES6
+
+Did you add tests for your changes?
+All existing tests pass
+
+If relevant, link to documentation update:
+N/A
+
+Summary
+Refactor MultiWatching.test.js to ES6
+
+
+Does this PR introduce a breaking change?
+No",2,1
+4025,2017-01-18T18:39:34Z,2017-02-28T14:29:49Z,2017-02-28T14:29:49Z,1,25,35,"What kind of change does this PR introduce?
+refactor, ES5 => ES6
+
+Did you add tests for your changes?
+All existing tests pass
+
+If relevant, link to documentation update:
+N/A
+
+Summary
+Refactor NodeHotUpdateChunkTemplatePlugin.test.js to ES6
+
+
+Does this PR introduce a breaking change?
+No",2,1
+4026,2017-01-18T18:39:44Z,2017-02-03T13:07:43Z,2017-02-03T13:07:43Z,1,17,15,"What kind of change does this PR introduce?
+refactor, ES5 => ES6
+
+Did you add tests for your changes?
+All existing tests pass
+
+If relevant, link to documentation update:
+N/A
+
+Summary
+Refactor NodeTemplatePlugin.test.js to ES6
+
+
+Does this PR introduce a breaking change?
+No",2,1
+4027,2017-01-18T19:33:08Z,2017-02-03T13:08:38Z,2017-02-03T13:08:38Z,1,20,17,"What kind of change does this PR introduce?
+refactor, ES5 => ES6
+Did you add tests for your changes?
+All existing tests pass
+If relevant, link to documentation update:
+N/A
+Summary
+upgrade NoErrorsPlugin to ES6
+Does this PR introduce a breaking change?
+N/A
+Other information",3,1
+4028,2017-01-18T19:47:26Z,2017-01-25T22:54:27Z,2017-01-25T22:54:27Z,1,14,11,"What kind of change does this PR introduce?
+refactor, ES5 => ES6
+Did you add tests for your changes?
+All existing tests pass
+If relevant, link to documentation update:
+N/A
+Summary
+upgrade NoEmitOnErrorsPlugin to es6
+Does this PR introduce a breaking change?
+N/A
+Other information",3,2
+4029,2017-01-18T20:55:55Z,2017-02-09T22:40:18Z,2017-02-09T22:40:18Z,1,18,14,"What kind of change does this PR introduce?
+refactor, ES5 => ES6
+Did you add tests for your changes?
+All existing tests pass
+If relevant, link to documentation update:
+N/A
+Summary
+upgrade ModuleNotFoundError to es6
+Does this PR introduce a breaking change?
+N/A
+Other information",2,1
+4032,2017-01-19T03:11:21Z,2017-03-07T07:39:32Z,2017-03-07T07:39:32Z,1,22,19,"What kind of change does this PR introduce?
+refactor, ES5 => ES6
+Did you add tests for your changes?
+All existing tests pass
+If relevant, link to documentation update:
+N/A
+Summary
+upgrade ModuleParseError to es6
+Does this PR introduce a breaking change?
+N/A
+Other information",2,1
+4033,2017-01-19T03:30:34Z,2017-01-21T18:52:39Z,2017-01-21T18:52:39Z,1,14,10,"What kind of change does this PR introduce?
+refactor, ES5 => ES6
+Did you add tests for your changes?
+All existing tests pass
+If relevant, link to documentation update:
+N/A
+Summary
+upgrade LoaderTargetPlugin to es6
+Does this PR introduce a breaking change?
+N/A
+Other information",3,1
+4034,2017-01-19T04:46:51Z,2017-01-27T08:04:57Z,2017-01-27T08:04:57Z,1,15,10,"What kind of change does this PR introduce?
+refactor, ES5 => ES6
+Did you add tests for your changes?
+All testing tests pass
+If relevant, link to documentation update:
+N/A
+Summary
+upgrade EvalDevToolModuleTemplatePlugin to es6
+reopen PR #3870
+Does this PR introduce a breaking change?
+N/A
+Other information",3,1
+4036,2017-01-19T06:17:44Z,2017-01-25T23:22:35Z,2017-01-25T23:22:35Z,1,39,63,"What kind of change does this PR introduce?
+Clean up minor issues in readme.
+Did you add tests for your changes?
+N/A
+If relevant, link to documentation update:
+N/A
+Summary
+
+Fix links for all plugins / loaders to now route to the proper library and not the image in github.
+Fix alignment in the Core Team table
+
+Does this PR introduce a breaking change?
+N/A
+Other information
+//cc @TheLarkInn",3,3
+4041,2017-01-19T11:38:39Z,2017-02-03T13:44:13Z,2017-02-03T13:44:13Z,1,100,85,"What kind of change does this PR introduce?
+refactor, ES5 => ES6
+
+Did you add tests for your changes?
+All existing tests pass
+
+If relevant, link to documentation update:
+N/A
+
+Summary
+Refactor Parser.test.js to ES6
+
+
+Does this PR introduce a breaking change?
+No",3,1
+4043,2017-01-19T11:39:04Z,2017-01-27T15:41:46Z,2017-01-27T15:41:46Z,1,19,21,"What kind of change does this PR introduce?
+refactor, ES5 => ES6
+
+Did you add tests for your changes?
+All existing tests pass
+
+If relevant, link to documentation update:
+N/A
+
+Summary
+Refactor RecordIdsPlugin.test.js to ES6
+
+
+Does this PR introduce a breaking change?
+No",3,1
+4044,2017-01-19T11:39:19Z,2017-01-27T08:08:41Z,2017-01-27T08:08:41Z,1,59,94,"What kind of change does this PR introduce?
+refactor, ES5 => ES6
+
+Did you add tests for your changes?
+All existing tests pass
+
+If relevant, link to documentation update:
+N/A
+
+Summary
+Refactor RequireJsStuffPlugin.test.js to ES6
+
+
+Does this PR introduce a breaking change?
+No",3,0
+4046,2017-01-19T11:41:19Z,2017-02-28T17:16:34Z,2017-02-28T17:16:34Z,1,121,90,"What kind of change does this PR introduce?
+refactor, ES5 => ES6
+
+Did you add tests for your changes?
+All existing tests pass
+
+If relevant, link to documentation update:
+N/A
+
+Summary
+Refactor RuleSet.test.js to ES6
+
+
+Does this PR introduce a breaking change?
+No",2,1
+4047,2017-01-19T11:41:42Z,2017-01-27T15:37:44Z,2017-01-27T15:37:44Z,1,46,65,"What kind of change does this PR introduce?
+refactor, ES5 => ES6
+
+Did you add tests for your changes?
+All existing tests pass
+
+If relevant, link to documentation update:
+N/A
+
+Summary
+Refactor SourceMapDevToolModuleOptionsPlugin.test.js to ES6
+
+
+Does this PR introduce a breaking change?
+No",3,1
+4048,2017-01-19T11:41:56Z,2017-04-08T22:32:50Z,2017-04-08T22:32:50Z,1,63,64,"What kind of change does this PR introduce?
+refactor, ES5 => ES6
+
+Did you add tests for your changes?
+All existing tests pass
+
+If relevant, link to documentation update:
+N/A
+
+Summary
+Refactor Stats.test.js to ES6
+
+
+Does this PR introduce a breaking change?
+No",3,1
+4049,2017-01-19T11:42:05Z,2017-01-27T15:39:23Z,2017-01-27T15:39:23Z,1,14,14,"What kind of change does this PR introduce?
+refactor, ES5 => ES6
+
+Did you add tests for your changes?
+All existing tests pass
+
+If relevant, link to documentation update:
+N/A
+
+Summary
+Refactor Template.test.js to ES6
+
+
+Does this PR introduce a breaking change?
+No",3,1
+4050,2017-01-19T11:42:15Z,2017-02-03T13:16:31Z,2017-02-03T13:16:31Z,1,41,45,"What kind of change does this PR introduce?
+refactor, ES5 => ES6
+
+Did you add tests for your changes?
+All existing tests pass
+
+If relevant, link to documentation update:
+N/A
+
+Summary
+Refactor TestCases.test.js to ES6
+
+
+Does this PR introduce a breaking change?
+No",3,2
+4051,2017-01-19T11:42:25Z,2017-02-09T22:36:22Z,2017-02-09T22:36:22Z,1,5,5,"What kind of change does this PR introduce?
+refactor, ES5 => ES6
+
+Did you add tests for your changes?
+All existing tests pass
+
+If relevant, link to documentation update:
+N/A
+
+Summary
+Refactor Validation.test.js to ES6
+
+
+Does this PR introduce a breaking change?
+No",2,1
+4052,2017-01-19T11:44:15Z,2017-02-03T13:23:05Z,2017-02-03T13:23:05Z,1,24,34,"What kind of change does this PR introduce?
+refactor, ES5 => ES6
+
+Did you add tests for your changes?
+All existing tests pass
+
+If relevant, link to documentation update:
+N/A
+
+Summary
+Refactor WarnCaseSensitiveModulesPlugin.test.js to ES6
+
+
+Does this PR introduce a breaking change?
+No",2,1
+4053,2017-01-19T11:44:28Z,2017-02-03T13:23:54Z,2017-02-03T13:23:54Z,1,31,28,"What kind of change does this PR introduce?
+refactor, ES5 => ES6
+
+Did you add tests for your changes?
+All existing tests pass
+
+If relevant, link to documentation update:
+N/A
+
+Summary
+Refactor WatchDetection.test.js to ES6
+
+
+Does this PR introduce a breaking change?
+No",2,1
+4054,2017-01-19T11:44:38Z,2017-02-03T13:25:06Z,2017-02-03T13:25:06Z,1,67,68,"What kind of change does this PR introduce?
+refactor, ES5 => ES6
+
+Did you add tests for your changes?
+All existing tests pass
+
+If relevant, link to documentation update:
+N/A
+
+Summary
+Refactor WatchTestCases.test.js to ES6
+
+
+Does this PR introduce a breaking change?
+No",2,1
+4055,2017-01-19T11:44:49Z,2017-02-13T08:21:27Z,2017-02-13T08:21:27Z,1,12,13,"What kind of change does this PR introduce?
+refactor, ES5 => ES6
+
+Did you add tests for your changes?
+All existing tests pass
+
+If relevant, link to documentation update:
+N/A
+
+Summary
+Refactor WebEnvironmentPlugin.test.js to ES6
+
+
+Does this PR introduce a breaking change?
+No",2,1
+4057,2017-01-19T11:45:14Z,2017-01-21T16:03:06Z,2017-01-21T16:03:06Z,1,59,74,"What kind of change does this PR introduce?
+refactor, ES5 => ES6
+
+Did you add tests for your changes?
+All existing tests pass
+
+If relevant, link to documentation update:
+N/A
+
+Summary
+Refactor compareLocations.test.js to ES6
+
+
+Does this PR introduce a breaking change?
+No",3,0
+4058,2017-01-19T11:45:24Z,2017-01-20T22:03:08Z,2017-01-20T22:03:08Z,1,5,3,"What kind of change does this PR introduce?
+refactor, ES5 => ES6
+
+Did you add tests for your changes?
+All existing tests pass
+
+If relevant, link to documentation update:
+N/A
+
+Summary
+Refactor formatLocation.test.js to ES6
+
+
+Does this PR introduce a breaking change?
+No",5,0
+4069,2017-01-20T14:03:34Z,2017-04-07T16:12:44Z,2017-04-07T16:12:44Z,9,187,39,"What kind of change does this PR introduce?
+Fixes #758 by adding support for an error handling callback to require.ensure
+
+Did you add tests for your changes?
+Yes, tests added in test/cases/parsing/issue-758
+These were borrowed/adapted from #3247.
+
+If relevant, link to documentation update:
+
+Summary
+
+System.import already supports error callbacks, but require.ensure is still useful for a couple of reasons:
+
+Supports chunk naming (#3132)
+Supports recursive code splitting (#3364 (comment))
+
+
+Does this PR introduce a breaking change?
+No. require.ensure still supports chunk naming with the old 3 argument style.
+
+Other information",5,11
+4075,2017-01-21T17:52:11Z,2017-02-15T14:02:28Z,2017-02-15T14:02:28Z,5,77,34,"What kind of change does this PR introduce?
+Refactoring
+
+Did you add tests for your changes?
+N/A
+
+If relevant, link to documentation update:
+
+Summary
+Convert multiple forEach statements to for loops. Should yield some strong wins on benchmarking tests
+
+
+Does this PR introduce a breaking change?
+No
+
+Other information
+Upon doing yarn some patch updates came in on install. Thus the yarn update is included but not relevant.",5,9
+4089,2017-01-23T19:37:37Z,2017-01-26T12:58:30Z,2017-01-26T12:58:30Z,3,323,172,"What kind of change does this PR introduce?
+Refactoring
+Did you add tests for your changes?
+N/A
+Summary
+Rewrote frequently used forEach and no optimal structure
+Does this PR introduce a breaking change?
+No",7,19
+4092,2017-01-24T05:03:20Z,2017-01-24T16:01:57Z,2017-01-24T16:01:57Z,6,11,10,"… functionality may not be working correctly
+
+What kind of change does this PR introduce?
+This PR is to satisfy code coverage. The example in question I had to change a bit to make the coverage pass. From what I can see from the example builds, B becomes a common chunk for all needed requirements.
+
+refactoring for coverage
+Did you add tests for your changes?
+Nope. This is to fix coverage and fix a test. (If that makes sense) :)
+
+If relevant, link to documentation update:
+
+Summary
+
+
+#3716
+Does this PR introduce a breaking change?
+
+Other information",2,1
+4095,2017-01-24T09:09:12Z,2017-01-25T09:03:06Z,2017-01-25T09:03:06Z,2,24,40,"What kind of change does this PR introduce?
+refactor/fix
+Did you add tests for your changes?
+yes, adjusted
+If relevant, link to documentation update:
+N/A
+Summary
+What the compareLocations function compares are SourceLocation objects
+or strings(based on current usage). There is no case to assume the input
+are position objects. Therefore, remove the useless and unreasonable
+code.
+Relatively, update the tests to indicate the actual usage.
+Does this PR introduce a breaking change?
+Not in this repo/on Github. (Not sure if someone misuse it somewhere else)",2,1
+4096,2017-01-24T09:13:04Z,,2017-04-05T13:37:50Z,5,42,5,"What kind of change does this PR introduce?
+bugfix
+Did you add tests for your changes?
+Yes
+If relevant, link to documentation update:
+N/A
+Summary
+There is a options property of LoaderContext. If user passes an object with options to LoaderOptionsPlugin, options will be override previously. Now ensure no more overriding.
+Does this PR introduce a breaking change?
+No",4,7
+4098,2017-01-24T12:25:32Z,,2017-02-03T13:30:05Z,1,27,22,"What kind of change does this PR introduce?
+ES5 => ES6 refactor
+Did you add tests for your changes?
+refactor, all existing tests pass
+If relevant, link to documentation update:
+N/A
+Summary
+Helping in part of the ES6 refactor
+Does this PR introduce a breaking change?
+Nope",3,1
+4102,2017-01-24T22:36:01Z,2017-04-05T12:15:28Z,2017-04-05T12:15:28Z,2,4,4,"What kind of change does this PR introduce?
+ES5 => ES6 Translation
+
+Did you add tests for your changes?
+Refactored tests for MultiStats to be written in ES6
+
+If relevant, link to documentation update:
+
+Summary
+ES6 Refactor
+
+
+Does this PR introduce a breaking change?
+No
+
+Other information
+The code imported from Stats in MutiStats did not work at times, so I had to declare some functions within the file that already existed in Stats.js, if there is a better way to fix this issue and keep the code modularized, please provide any feedback.",3,2
+4106,2017-01-25T19:56:09Z,,2017-04-05T10:59:03Z,10,311,2,"What kind of change does this PR introduce?
+
+Feature. Fixes #3359
+
+
+Did you add tests for your changes?
+
+Yes, but the integration tests are failing because I don't know how I can catch webpack errors.
+
+
+If relevant, link to documentation update:
+
+N/A
+
+
+Summary
+I wanted to start contribuiting to webpack and decided to challenge me with #3359.
+
+
+Does this PR introduce a breaking change?
+
+No.
+
+
+Other information
+Thank you again @TheLarkInn for your time! 😄",5,10
+4112,2017-01-26T13:12:02Z,2017-02-15T11:41:37Z,2017-02-15T11:41:37Z,3,281,160,"What kind of change does this PR introduce?
+refactoring
+Did you add tests for your changes?
+N/A
+If relevant, link to documentation update:
+N/A
+Summary
+Remove some superfluous code and simplify the code a bit to understand whats happening.
+Hope this holds true generally and not just for me :)
+Does this PR introduce a breaking change?
+No
+Other information",2,3
+4117,2017-01-27T04:49:41Z,,2017-02-05T20:42:22Z,15,347,164,"What kind of change does this PR introduce?
+Refactoring
+Did you add tests for your changes?
+N/A
+Summary
+Rewrote frequently used forEach and no optimal structure
+Does this PR introduce a breaking change?
+No",4,9
+4125,2017-01-28T02:43:52Z,2017-02-03T13:26:55Z,2017-02-03T13:26:55Z,1,34,29,"What kind of change does this PR introduce?
+ES5 => ES6 refactor
+Did you add tests for your changes?
+refactor, all existing tests pass
+If relevant, link to documentation update:
+N/A
+Summary
+Helping in part of the ES6 refactor
+Does this PR introduce a breaking change?
+Nope",2,1
+4134,2017-01-30T00:10:36Z,2017-02-15T14:07:54Z,2017-02-15T14:07:54Z,5,272,5,"What kind of change does this PR introduce?
+feature in UglifyJsPlugin
+Did you add tests for your changes?
+yes
+If relevant, link to documentation update:
+Not yet, I will create a documentation PR if you agree with this feature
+Summary
+License comments use up a lot of space, especially when using many small libraries with large license blocks. With this addition, you can extract all license comments to a separate file and remove them from the bundle files. A small banner points to the file containing all license information such that the user can find it if needed.
+Does this PR introduce a breaking change?
+No
+Other information
+This PR adds a new option extractComments to the UglifyJsPlugin.
+It can be omitted, then the behavior does not change, or it can be:
+
+true: All comments that normally would be preserved by the comments option will be moved to a separate file. If the original file is named foo.js, then the comments will be stored to foo.js.LICENSE
+regular expression (given as RegExp or string) or a function (astNode, comment) -> boolean:
+All comments that match the given expression (resp. are evaluated to true by the function) will be extracted to the separate file. The comments option specifies whether the comment will be preserved, i.e. it is possible to preserve some comments (e.g. annotations) while extracting others or even preserving comments that have been extracted.
+an object consisting of the following keys, all optional:
+
+condition: regular expression or function (see previous point)
+filename: The file where the extracted comments will be stored. Can be either a string or function (string) -> string which will be given the original filename. Default is to append the suffix .LICENSE to the original filename.
+banner: The banner text that points to the extracted file and will be added on top of the original file. will be added to the original file. Can be false (no banner), a string, or a function (string) -> string that will be called with the filename where extracted comments have been stored. Will be wrapped into comment.
+Default: /*! For license information please see foo.js.LICENSE */",2,4
+4137,2017-01-30T10:21:12Z,,2017-06-08T08:49:30Z,3,53,14,"What kind of change does this PR introduce?
+feature
+
+Did you add tests for your changes?
+yes
+
+If relevant, link to documentation update:
+I'd add this as a known issue/recipe to https://webpack.js.org/configuration/output/#output-sourcemapfilename if this PR is merged.
+
+Summary
+When chunk / source map size exceeds some threshold, Chrome caches external source maps too hard.
+In some cases, with very large chunks, inline / eval source maps slow down every page reload significantly, while only needed when actually debugging JS.
+""Disable cache"" helps, but isn't nice as it slows down everything.
+So this PR allows using sourceMapFilename: ""[file].map?[hash]"" as a watch-mode friendly cache busting mechanism.
+
+
+Does this PR introduce a breaking change?
+no
+
+Other information
+While we should all aim to have tiny chunks and lazy load all we can, when you retrofit webpack into a (very) large legacy application, it can take a while before that goal is achievable. Having fast watch mode development cycle is even more critical in large apps, and cheap-module-source-map with proper cache invalidation yields best results in my experience.",4,3
+4148,2017-01-31T11:44:33Z,,2017-04-05T13:41:11Z,8,111,89,"What kind of change does this PR introduce?
+refactoring
+Did you add tests for your changes?
+Yes
+If relevant, link to documentation update:
+N/A
+Summary
+related to #3073 although maybe fixed by #3086 this fixes it more generally
+also it unclutters modules from an extra attribute that is very specific for a single use case.
+Does this PR introduce a breaking change?
+No",5,6
+4149,2017-01-31T12:16:57Z,2017-02-09T21:49:48Z,2017-02-09T21:49:48Z,7,147,47,"What kind of change does this PR introduce?
+feature
+Did you add tests for your changes?
+N/A
+If relevant, link to documentation update:
+N/A
+Summary
+fixes #899
+blantantly stolen from @mxstbr PR #2698
+and updated to the latest version of webpack.
+Hope this gets through before conflicts :)
+Does this PR introduce a breaking change?
+No",4,14
+4164,2017-02-01T16:25:42Z,,2017-02-28T11:14:00Z,1,96,45,"What kind of change does this PR introduce?
+CI, benchmarking
+
+Did you add tests for your changes?
+N/A
+
+If relevant, link to documentation update:
+N/A
+
+Summary
+check if the benchmark is stable, and run it again when it's not.
+
+
+Does this PR introduce a breaking change?
+no",2,0
+4169,2017-02-02T00:31:41Z,2017-04-04T16:21:14Z,2017-04-04T16:21:14Z,3,14,11,"What kind of change does this PR introduce?
+Fixes #4156
+
+Did you add tests for your changes?
+Updated existing tests which checked for the previous (broken) behavior. Let me know if this is sufficient or you'd like more.
+
+If relevant, link to documentation update:
+N/A that I'm aware of, but let me know if I'm missing something and happy to update.
+
+Summary
+Previously, MultiCompiler.watch would apply the watchOptions only from the first set of options to all compilers, regardless of how many options with watchOptions were passed. This changes MultiCompiler to correctly treat those options as an array and apply the relevant watchOptions to each compiler.
+
+
+Does this PR introduce a breaking change?
+Possibly... if someone was depending on being able to pass a single set of watchOptions to a multicompile and have them applied to all compilers, they will no longer be able to do that.
+I believe that behavior was an implementation side effect and not something anyone would depend on, but if they were the migration path is to duplicate the options into an array with one entry for each compiler.
+
+Other information",4,5
+4200,2017-02-04T14:39:27Z,2017-02-09T13:08:02Z,2017-02-09T13:08:02Z,6,178,1,"What kind of change does this PR introduce?
+feature
+Did you add tests for your changes?
+yes
+If relevant, link to documentation update:
+N/A
+Summary
+fixes #1496 by adding a warningsFilter function to options for the UglifyJsPlugin that decides which warnings should be shown
+Does this PR introduce a breaking change?
+No
+Other information
+The test setup for uglifyJs is a bit messy so i just hacked in two tests. I didnt feel like making sense out of it.",2,1
+4203,2017-02-04T18:23:11Z,2017-04-08T05:20:40Z,2017-04-08T05:20:40Z,1,140,0,"What kind of change does this PR introduce?
+
+Add tests for ContextDependencyTemplateAsId
+Did you add tests for your changes?
+
+This PR is only tests
+If relevant, link to documentation update:
+
+N/A
+Summary
+
+
+Based on the coveralls report, the ContextDependencyTemplateAsId file has 79% test coverage. There is no ContextDependencyTemplateAsId specific test file - this is added in this PR and aims to achieve 100% test coverage.
+https://coveralls.io/builds/9993625/source?filename=lib%2Fdependencies%2FContextDependencyTemplateAsId.js
+Does this PR introduce a breaking change?
+
+No
+Other information
+None",3,5
+4204,2017-02-04T19:18:56Z,2017-02-08T07:30:55Z,2017-02-08T07:30:55Z,1,2,7,"What kind of change does this PR introduce?
+Remove unused function in WebpackMissingModule
+Did you add tests for your changes?
+No test needed
+Summary
+Deleted the moduleMetaInfo function in WebpackMissingModule, as part of the effort to increase test coverage (#3716). That function was only used in LabeledModuleDependency, a file that was deleted in a14e563
+Does this PR introduce a breaking change?
+No",2,1
+4205,2017-02-05T01:30:10Z,2017-02-08T08:44:04Z,2017-02-08T08:44:04Z,52,350,266,"What kind of change does this PR introduce?
+refactoring
+Did you add tests for your changes?
+N/A
+If relevant, link to documentation update:
+N/A
+Summary
+During the refactoring a lot of the var assignments where translated to let, const without taking into account that they are blockscoped.
+On top of that let should only be used when a reference is reassigned in the code.
+This allows for easier reading as something defined as a const can be considered ""never reassigned"" while something explicitly labeled as let will be reassigned later on.
+Does this PR introduce a breaking change?
+No
+Other information
+There are a couple of interesting finds that i stumpled upon while doing this change:
+
+in timse@c3abf8f some variables are assigned and checked and reassigne but are always false
+was this console.log intended? timse@bd386ec
+one assignment here will always be overridden, was that intended? timse@424a0ae",4,6
+4211,2017-02-05T21:08:14Z,,2017-02-08T20:50:09Z,1,44,38,"What kind of change does this PR introduce?
+Refactoring
+Did you add tests for your changes?
+N/A
+Summary
+Rewrote frequently used forEach and 5 unnecessary iteration for modules
+Does this PR introduce a breaking change?
+No",2,1
+4220,2017-02-06T11:54:17Z,,2017-07-27T14:13:46Z,6,46,40,"What kind of change does this PR introduce?
+refactor, ES5 => ES6
+
+Did you add tests for your changes?
+All existing tests pass
+
+If relevant, link to documentation update:
+N/A
+
+Summary
+Refactor all files in hot/ to ES6
+
+
+Does this PR introduce a breaking change?
+No
+
+Other information",3,3
+4224,2017-02-06T20:59:50Z,2017-02-08T08:43:17Z,2017-02-08T08:43:17Z,8,10,10,Replaces webpack.github.io links with links to the new documentation.,3,1
+4255,2017-02-10T15:40:34Z,,2017-11-11T17:53:42Z,18,690,9,"What kind of change does this PR introduce?
+Feature
+Did you add tests for your changes?
+Not yet, wasn't able to find where tests for the CommonsChunkPlugin would have to go or where are some already.
+If relevant, link to documentation update:
+Will update Docs as soon as I'm confident this change will make it in and works as intended.
+Summary
+If you use the CommonsChunkPlugin with the children flag enabled it currently only cares about direct children. This change makes it so it cares about all children that are not required from somewhere else than the common chunk.
+https://github.com/webpack/webpack/issues/3981
+Does this PR introduce a breaking change?
+If the config deepChildren isn't set the behavior stays the same as before, it only changes if the flag gets set.
+Other information
+Please be gentle, as this is my first try to get a PR merged.",18,37
+4256,2017-02-10T19:09:46Z,2017-04-04T16:16:51Z,2017-04-04T16:16:51Z,1,15,16,"Just a cosmetic change here, starting small. Hope to be able to make larger contributions down the line! No breaking here, no tests needed.",4,8
+4257,2017-02-10T22:43:34Z,2017-02-17T10:44:09Z,2017-02-17T10:44:09Z,16,29,40,"So at the moment, when there is a validation error, it only outputs the stack trace, and not the actual error message. Simple reproduction:
+const webpack = require('webpack')
+webpack({ foo: 'bar' })
+If you run this, you'll see that the stack trace shows up, but not the actual error message, which is pretty unfortunate.
+[...]/webpack/lib/webpack.js:19
+		throw new WebpackOptionsValidationError(webpackOptionsValidationErrors);
+		^
+
+Error
+    at webpack ([..]/webpack/lib/webpack.js:19:9)
+    at Object.<anonymous> ([...]/test.js:3:1)
+    at Module._compile (module.js:571:32)
+    at Object.Module._extensions..js (module.js:580:10)
+    at Module.load (module.js:488:32)
+    at tryModuleLoad (module.js:447:12)
+    at Function.Module._load (module.js:439:3)
+    at Module.runMain (module.js:605:10)
+    at run (bootstrap_node.js:418:7)
+    at startup (bootstrap_node.js:139:9)
+
+I messed around with this for a while and was rather confused about why it happens, and finally stumbled across the answer. Basically, when you call Error.captureStackTrace, it not only captures and sets the MyError.stack property, it also messed with the error message a bit.
+
+""The first line of the trace, instead of being prefixed with ErrorType: message, will be the result of calling targetObject.toString().""
+-- The Docs
+
+It does this immediately upon being called, so in this instance, it was calling toString on the instance before the error message was set, and therefore setting the error message to blank, leaving only the stack trace to show up when the error is thrown.
+The fix here is simply moving it down to the bottom of the constructor, where it will run after the error message has been set. When I tested this, the error message was logged out correctly as expected 🙌",3,11
+4259,2017-02-11T06:13:29Z,2017-02-16T10:03:29Z,2017-02-16T10:03:29Z,2,865,282,"What kind of change does this PR introduce?
+refactor
+Did you add tests for your changes?
+N/A
+If relevant, link to documentation update:
+N/A
+Summary
+refactor NormalModule to es6
+Does this PR introduce a breaking change?
+No
+Other information
+Some refactorings to split up bigger method bodies in smaller ones. (to make it easier to read for stupid people like me :D )",2,2
+4273,2017-02-13T11:28:21Z,2017-02-16T09:59:33Z,2017-02-16T09:59:33Z,6,159,201,"What kind of change does this PR introduce?
+test and dependency update
+
+Did you add tests for your changes?
+N/A
+
+If relevant, link to documentation update:
+N/A
+
+Summary
+update
+
+
+Does this PR introduce a breaking change?
+no
+
+Other information",2,1
+4282,2017-02-14T02:30:20Z,2017-02-15T13:10:26Z,2017-02-15T13:10:26Z,1,102,11,Fixes #4264,3,2
+4291,2017-02-15T19:24:47Z,2017-02-19T21:21:59Z,2017-02-19T21:21:59Z,1,289,296,"What kind of change does this PR introduce?
+Refactor
+
+Did you add tests for your changes?
+N/A
+
+If relevant, link to documentation update:
+N/A
+
+Summary
+Refactors 'lib/RuleSet.js' to es6
+
+
+Does this PR introduce a breaking change?
+No
+
+Other information
+No",3,3
+4304,2017-02-17T20:10:33Z,2017-02-19T21:19:01Z,2017-02-19T21:19:01Z,2,38,68,"What kind of change does this PR introduce?
+Refactor, ES5 => ES6
+Did you add tests for your changes?
+All existing tests pass
+If relevant, link to documentation update:
+N/A
+Summary
+Refactor ModuleDependencyError.test.js
+Does this PR introduce a breaking change?
+No",2,1
+4305,2017-02-18T01:24:01Z,2017-02-22T14:03:53Z,2017-02-22T14:03:53Z,16,56,1,"What kind of change does this PR introduce?
+feature
+Did you add tests for your changes?
+yes
+If relevant, link to documentation update:
+N/A
+Summary
+Allows multiple files to be added to a single entry point using the CLI.
+See #2559
+Does this PR introduce a breaking change?
+
+no
+Other information
+None",3,2
+4306,2017-02-18T12:02:56Z,2017-02-28T15:49:18Z,2017-02-28T15:49:18Z,1,233,196,"What kind of change does this PR introduce?
+refactor context module to esnext
+Did you add tests for your changes?
+N/A
+If relevant, link to documentation update:
+N/A
+Summary
+refactor context module to esnext and split up in smaller methods to make it easier to reason about.
+Does this PR introduce a breaking change?
+No",3,2
+4308,2017-02-18T14:39:38Z,,2018-01-02T21:13:58Z,4,24,29,"What kind of change does this PR introduce?
+Testing out babylon parser instead of acorn
+
+Did you add tests for your changes?
+
+No extra tests, more of an internal change (parser swap)
+Summary
+
+
+Use babylon for other syntax support
+
+ test perf differences",6,8
+4309,2017-02-19T02:19:34Z,2017-02-20T16:48:39Z,2017-02-20T16:48:39Z,2,2,2,"What kind of change does this PR introduce?
+bugfix
+Did you add tests for your changes?
+N/A
+If relevant, link to documentation update:
+N/A
+Summary
+In node v4 a for(const foo of bar) loop is not correctly evaluated:
+Actual:
+> for(const x of [1,2,3]) {console.log(x)}
+1
+1
+1
+undefined
+
+expected:
+> for(let x of [1,2,3]) {console.log(x)}
+1
+2
+3
+
+Does this PR introduce a breaking change?
+No",2,1
+4310,2017-02-19T06:36:59Z,2017-02-22T21:54:51Z,2017-02-22T21:54:51Z,19,402,134,"What kind of change does this PR introduce?
+refactor
+Did you add tests for your changes?
+N/A
+If relevant, link to documentation update:
+N/A
+Summary
+split up commons chunk plugin in smaller readable chunks
+Does this PR introduce a breaking change?
+No
+Other information
+should reallyUsedChunks be used here: 77df155#diff-1f5e5440c51d8accc603eb6f399cf08bR324 ?
+@sokra",2,2
+4311,2017-02-19T10:20:03Z,2017-03-01T20:28:55Z,2017-03-01T20:28:55Z,1,141,143,"What kind of change does this PR introduce?
+ES5 => ES6 refactor
+Did you add tests for your changes?
+refactor, all existing tests pass
+If relevant, link to documentation update:
+N/A
+Summary
+Helping in part of the ES6 refactor
+Does this PR introduce a breaking change?
+Nope",2,1
+4316,2017-02-20T13:32:06Z,2017-02-21T08:35:13Z,2017-02-21T08:35:13Z,1,21,18,"linting
+
+What kind of change does this PR introduce?
+refactor, ES5 => ES6
+
+Did you add tests for your changes?
+All existing tests pass
+
+If relevant, link to documentation update:
+N/A
+
+Summary
+
+
+Does this PR introduce a breaking change?
+No
+
+Other information
+NIL",3,2
+4317,2017-02-20T15:28:19Z,2017-02-22T13:22:19Z,2017-02-22T13:22:19Z,1,12,4,"A small change that passes the result of running Resolver.resolve up through the plugin chain a bit farther.
+One reason for this is that it gives compilation plugins access to all the resolved module metadata, like descriptionFileData and allows greater coordination between resolvers and the overall compilation. I think this should enable some more interesting use-cases. such as pruning and optimizing the dependency graph based on package metadata (like semver) instead of just module source hashes.
+Overall doing optimization based on package data has never been a good fit for webpack core, but this should allow others to add stuff on top to suit more personal or specific use cases.",3,3
+4319,2017-02-20T19:33:47Z,2017-02-21T08:38:47Z,2017-02-21T08:38:47Z,1,243,0,"What kind of change does this PR introduce?
+
+Did you add tests for your changes?
+
+If relevant, link to documentation update:
+
+Summary
+
+Increased coverage for ContextReplacementPlugin for the issue  #3716
+
+Does this PR introduce a breaking change?
+No
+
+Other information",2,2
+4320,2017-02-20T23:07:09Z,2017-02-21T08:40:22Z,2017-02-21T08:40:22Z,2,106,102,"linting
+
+What kind of change does this PR introduce?
+refactor, ES5 => ES6
+
+Did you add tests for your changes?
+All existing tests pass
+
+If relevant, link to documentation update:
+N/A
+
+Summary
+
+
+Does this PR introduce a breaking change?
+No
+
+Other information
+NIL",2,1
+4322,2017-02-21T09:44:48Z,2017-02-22T07:32:50Z,2017-02-22T07:32:50Z,2,11,11,"linting
+
+What kind of change does this PR introduce?
+refactor, ES5 => ES6
+
+Did you add tests for your changes?
+All existing tests pass
+
+If relevant, link to documentation update:
+N/A
+
+Summary
+
+
+Does this PR introduce a breaking change?
+No
+
+Other information
+NIL",2,1
+4323,2017-02-21T10:36:03Z,2017-02-22T13:28:55Z,2017-02-22T13:28:55Z,1,43,39,"linting
+
+What kind of change does this PR introduce?
+refactor, ES5 => ES6
+
+Did you add tests for your changes?
+All existing tests pass
+
+If relevant, link to documentation update:
+N/A
+
+Summary
+
+
+Does this PR introduce a breaking change?
+No
+
+Other information
+NIL",2,1
+4325,2017-02-21T14:14:26Z,2017-02-22T07:30:39Z,2017-02-22T07:30:39Z,3,381,388,"linting
+
+What kind of change does this PR introduce?
+refactor, ES5 => ES6
+
+Did you add tests for your changes?
+All existing tests pass
+
+If relevant, link to documentation update:
+N/A
+
+Summary
+
+
+Does this PR introduce a breaking change?
+No
+
+Other information
+NIL",2,1
+4330,2017-02-21T19:04:05Z,2017-02-22T07:30:01Z,2017-02-22T07:30:01Z,1,11,11,"What kind of change does this PR introduce?
+Refactor, ES5 => ES6
+Did you add tests for your changes?
+N/A
+If relevant, link to documentation update:
+N/A
+Summary
+Refactor MultiModuleFactory.js
+Does this PR introduce a breaking change?
+No",3,1
+4334,2017-02-22T08:13:32Z,2017-02-22T14:51:01Z,2017-02-22T14:51:01Z,4,221,215,"linting
+
+What kind of change does this PR introduce?
+refactor, ES5 => ES6
+
+Did you add tests for your changes?
+All existing tests pass
+
+If relevant, link to documentation update:
+N/A
+
+Summary
+
+
+Does this PR introduce a breaking change?
+No
+
+Other information
+NIL",2,1
+4336,2017-02-22T11:33:03Z,2017-02-22T13:28:35Z,2017-02-22T13:28:35Z,2,249,66,"What kind of change does this PR introduce?
+ES5 => ES6 refactor
+Did you add tests for your changes?
+Adding missed tests for HarmonyModulesHelpers library dependency
+If relevant, link to documentation update:
+N/A
+Summary
+Helping in part of the ES6 refactor
+Does this PR introduce a breaking change?
+Nope",2,1
+4337,2017-02-22T11:45:15Z,2017-02-22T21:53:52Z,2017-02-22T21:53:52Z,1,65,60,"linting
+
+What kind of change does this PR introduce?
+refactor, ES5 => ES6
+
+Did you add tests for your changes?
+All existing tests pass
+
+If relevant, link to documentation update:
+N/A
+
+Summary
+
+
+Does this PR introduce a breaking change?
+No
+
+Other information
+NIL",2,0
+4343,2017-02-22T17:11:29Z,2017-04-04T08:49:51Z,2017-04-04T08:49:51Z,3,283,287,"linting
+
+What kind of change does this PR introduce?
+refactor, ES5 => ES6
+
+Did you add tests for your changes?
+All existing tests pass
+
+If relevant, link to documentation update:
+N/A
+
+Summary
+
+
+Does this PR introduce a breaking change?
+No
+
+Other information
+NIL",4,7
+4344,2017-02-22T17:47:23Z,2017-03-01T20:30:25Z,2017-03-01T20:30:25Z,1,33,31,"linting
+
+What kind of change does this PR introduce?
+refactor, ES5 => ES6
+
+Did you add tests for your changes?
+All existing tests pass
+
+If relevant, link to documentation update:
+N/A
+
+Summary
+
+
+Does this PR introduce a breaking change?
+No
+
+Other information
+NIL",3,1
+4345,2017-02-22T17:59:17Z,,2017-04-04T19:51:11Z,0,0,0,"What kind of change does this PR introduce?
+Refactor, ES5 => ES6
+Did you add tests for your changes?
+All existing tests pass
+If relevant, link to documentation update:
+N/A
+Summary
+Refactor DelegatedModule.js
+Does this PR introduce a breaking change?
+No",4,6
+4348,2017-02-22T21:33:54Z,2017-02-25T19:53:59Z,2017-02-25T19:53:59Z,13,62,5,"What kind of change does this PR introduce?
+feature (bugfix)
+Resolves #4347
+
+Did you add tests for your changes?
+Yes 🎉
+
+If relevant, link to documentation update:
+Needs written.
+
+Summary
+This adds support for strict export presence so that a missing export becomes a compile error.
+
+
+Does this PR introduce a breaking change?
+No. It probably should be switched to true by default in 3.0 though.
+
+Other information",3,7
+4349,2017-02-22T21:56:01Z,2017-02-28T11:01:08Z,2017-02-28T11:01:09Z,2,75,19,"What kind of change does this PR introduce?
+ES5 => ES6 refactor
+Did you add tests for your changes?
+refactor, all existing tests pass
+If relevant, link to documentation update:
+N/A
+Summary
+Helping in part of the ES6 refactor
+Does this PR introduce a breaking change?
+Nope",3,2
+4356,2017-02-23T10:43:20Z,2017-02-23T22:24:47Z,2017-02-23T22:24:47Z,2,15,1,"What kind of change does this PR introduce?
+bugfix
+Did you add tests for your changes?
+Not yet, need to check if this is the way to go
+If relevant, link to documentation update:
+N/A
+Summary
+Instead of evaluating System to {} this injects a System ""polyfill""
+Does this PR introduce a breaking change?
+No
+Other information
+PTAL @sokra @ljharb
+i copy & pasted the buildExpression might need to want to extract that to parserHelpers if this approach is deemed to be ""ok""
+fixes #4329
+
+ move buildExpression to ParserHelper?
+ add test",3,6
+4359,2017-02-23T12:42:01Z,2017-02-28T11:00:47Z,2017-02-28T11:00:47Z,3,9,3,"What kind of change does this PR introduce?
+add comments, small refactor
+Did you add tests for your changes?
+N/A
+If relevant, link to documentation update:
+N/A
+Summary
+small things I ran over and thought I just change along the way.
+Does this PR introduce a breaking change?
+No
+Other information
+might improve speed in the RemoveParentModulesPlugin",2,1
+4361,2017-02-23T15:36:03Z,2017-04-05T21:28:50Z,2017-04-05T21:28:50Z,3,113,122,"linting
+
+What kind of change does this PR introduce?
+refactor, ES5 => ES6
+
+Did you add tests for your changes?
+All existing tests pass
+
+If relevant, link to documentation update:
+N/A
+
+Summary
+
+
+Does this PR introduce a breaking change?
+No
+
+Other information
+NIL",3,12
+4368,2017-02-23T22:40:24Z,2017-02-28T11:00:22Z,2017-02-28T11:00:22Z,2,16,1,"What kind of change does this PR introduce?
+Attempt to fix urgent issue #4072
+Did you add tests for your changes?
+I'm sorry, no. Don't know how to reproduce the test case with unit tests. For the time being you may want to test it against demo project by rguanghui in #4072. Previous to the PR it should run into the Error described in the related issue. When trying to build it with the fixed version of lib/dependencies/HarmonyExportImportedSpecifierDependency.js it should print an error message.
+Added unit test which tests on the result of HarmonyExportImportedSpecifierDependency#getHashCode(importedModule) when method parameter is null or undefined.
+Does this PR introduce a breaking change?
+Don't think so.",4,7
+4373,2017-02-24T13:39:30Z,2017-03-01T20:28:15Z,2017-03-01T20:28:15Z,5,27,29,"followup on #4356
+see there for detailed description",3,3
+4374,2017-02-24T14:11:46Z,2017-02-25T13:08:49Z,2017-02-25T13:08:49Z,3,1,7,"What kind of change does this PR introduce?
+clean up
+Did you add tests for your changes?
+N/A
+If relevant, link to documentation update:
+N/A
+Summary
+cleans up leftovers of the labeled module
+Does this PR introduce a breaking change?
+No
+Other information
+fixes #4354",2,1
+4381,2017-02-25T05:30:49Z,2017-04-03T10:09:59Z,2017-04-03T10:09:59Z,6,293,1,"What kind of change does this PR introduce?
+feature
+Did you add tests for your changes?
+Yes
+If relevant, link to documentation update:
+TBD
+Summary
+Allows to filter which warnings are to be shown.
+Does this PR introduce a breaking change?
+No
+Other information
+fixes #4263",4,11
+4382,2017-02-25T15:25:41Z,2017-02-28T10:49:14Z,2017-02-28T10:49:14Z,1,67,60,"What kind of change does this PR introduce?
+Refactor libraryTemplatePlugin to ES2015
+Did you add tests for your changes?
+No change in logic, tests passed locally.
+Summary
+Motivation is to move to es2015 class.
+Does this PR introduce a breaking change?
+No breaking changes.",4,2
+4384,2017-02-26T15:57:49Z,2017-02-28T10:50:51Z,2017-02-28T10:50:51Z,1,28,28,"What kind of change does this PR introduce?
+Refactor
+
+Did you add tests for your changes?
+N/A - no new functionality.
+
+If relevant, link to documentation update:
+N/A
+
+Summary
+Refactor ExtendedAPIPlugin.js to ES 2015.
+
+
+Does this PR introduce a breaking change?
+No
+
+Other information",5,5
+4393,2017-02-28T13:25:03Z,,2017-03-08T23:52:58Z,1,16,13,"What kind of change does this PR introduce?
+refactor
+Did you add tests for your changes?
+Not yet
+If relevant, link to documentation update:
+N/A
+Summary
+The parser currently tries to statically evaluate expressions e.g. && or || to check if it even needs to look into those.
+It currently is very conservative as in it  wants to be able to statically analyze both sides of the check. However this is not necessary.
+As for a ""&&"" it is enough for one side to be false and for ""||"" for one side to be true.
+This change takes advantage of that.
+Does this PR introduce a breaking change?
+No",3,3
+4402,2017-03-01T06:17:28Z,2017-03-01T20:08:14Z,2017-03-01T20:08:14Z,6,49,3,"What kind of change does this PR introduce?
+Bugfix
+Did you add tests for your changes?
+Yes
+Summary
+Joining Arrays of strings without providing separator defaults to "","". This looks odd in the console output when being warned about multiple oversized entry points.
+This PR fixes #4324 and includes a test case more or less matching the description in that issue.
+Does this PR introduce a breaking change?
+No",3,2
+4403,2017-03-01T07:18:35Z,,2017-04-14T02:47:49Z,2,12,1,"add cache for BannerPlugin to prevent properties like __SourceMapDevToolData set in SourceMapDevToolPlugin from losing efficacy when new asset is being created in BannerPlugin
+
+What kind of change does this PR introduce?
+bugfix
+Did you add tests for your changes?
+yes, I test this logic in my local project
+If relevant, link to documentation update:
+no
+Summary
+I find when I use BannerPlugin to add some snippet to asset in watch mode. The building process will get slower obviously.
+So I debug into the source code. I find SourceMapDevToolPlugin will add a property __SourceMapDevToolData to cache the sourcemap result.
+But when using BannerPlugin , it would return a new instance based by origin asset.
+compilation.assets[file] = new ConcatSource(banner, ""\n"", compilation.assets[file]);
+So the asset from createChunkAssets() and the new instance both could not have the property __SourceMapDevToolData from last compilation process so that the cache will fail.
+Does this PR introduce a breaking change?
+no
+Other information
+I hope this will reviewed or we can talk about how to solve this 🆘",6,17
+4410,2017-03-02T14:15:24Z,2017-03-02T20:22:35Z,2017-03-02T20:22:35Z,4,88,88,"What kind of change does this PR introduce?
+refactoring
+Did you add tests for your changes?
+I didn't add new test cases. All existing tests are passed.
+If relevant, link to documentation update:
+N/A
+Summary
+In shortly, consistent code base. I've updated variable declarations according to ES6. Related issue is #4099.
+Does this PR introduce a breaking change?
+It doesn't introduce any breaking change.
+Other information
+I've worked on these files;
+lib/AmdMainTemplatePlugin.js
+lib/BasicEvaluatedExpression.js
+lib/Chunk.js
+lib/Compilation.js",3,3
+4416,2017-03-03T12:55:18Z,,2017-11-27T07:04:33Z,18,675,9,master merge branch of #4255,8,8
+4418,2017-03-03T23:48:30Z,,2017-04-09T00:49:42Z,1,2,1,"What kind of change does this PR introduce?
+bugfix
+
+Did you add tests for your changes?
+No not yet, not sure how. I
+
+
+Summary
+contextRegExp should be checked if it is provided in both cases: normal-module-factory and context-module-factory.
+
+
+
+Other information
+Should fix: #4415",7,13
+4422,2017-03-04T10:27:23Z,2017-03-05T00:12:37Z,2017-03-05T00:12:37Z,4,6,6,"What kind of change does this PR introduce?
+Fix typo.
+enviroment => environment
+
+Did you add tests for your changes?
+No
+
+If relevant, link to documentation update:
+
+Summary
+
+
+Does this PR introduce a breaking change?
+No
+
+Other information",3,2
+4426,2017-03-04T21:07:21Z,2017-03-15T13:09:05Z,2017-03-15T13:09:05Z,2,99,61,"What kind of change does this PR introduce?
+Refactor code to es2015
+Did you add tests for your changes?
+no logic change - run the tests locally and passed.
+If relevant, link to documentation update:
+
+Summary
+I extend MultiStats from Stats to resolve the usage of toString - hopefully thats accepted solution.
+Does this PR introduce a breaking change?
+no
+Other information",2,2
+4427,2017-03-05T02:38:44Z,2017-03-07T14:15:13Z,2017-03-07T14:15:13Z,9,188,147,"What kind of change does this PR introduce?
+Bugfix / updated feature
+Did you add tests for your changes?
+Yes
+Summary
+Bumps the minimum version of UglifyJs and substitutes .compress() for .transform() as recommended. In addition to a new test covering compress options this commit also contains updates to make existing tests pass with the update.
+Fixes/Implements #4398
+Does this PR introduce a breaking change?
+No",6,5
+4431,2017-03-06T03:36:59Z,2017-03-07T08:19:00Z,2017-03-07T08:19:00Z,7,96,8,"This is a PR for #4405.
+
+Do you want to request a feature or report a bug?
+Feature
+What is the current behavior?
+The only way to know when the watcher stops watching is if you add a callback to watcher.close(). If I don't have access to the watcher (e.g. hot-dev-middleware created it and I no longer have access to the middleware), then I have no way of knowing that the watcher stopped.
+What is the expected behavior?
+There's already a watch-run event.
+I would like webpack.plugin('watch-close', () => console.log('watching closed')) to be emitted when the watcher has closed and compilation is done.
+
+  
+    
+      webpack/lib/Compiler.js
+    
+    
+         Line 135
+      in
+      479a0a4
+    
+  
+  
+    
+
+        
+          
+           callback(); 
+        
+    
+  
+
+
+If this is a feature request, what is motivation or use case for changing the behavior?
+To simplify waiting on a number of compilers to close.
+
+I tried to add tests for when watching.running === true but had issues with watching._done never being called if the compilation wasn't yet complete (e.g. done has been emitted).",2,1
+4459,2017-03-10T11:23:48Z,2017-03-15T10:17:45Z,2017-03-15T10:17:45Z,1,61,60,"What kind of change does this PR introduce?
+ES5 => ES6 refactor
+Did you add tests for your changes?
+refactor, all existing tests pass
+If relevant, link to documentation update:
+N/A
+Summary
+Helping in part of the ES6 refactor
+Does this PR introduce a breaking change?
+Nope",2,1
+4461,2017-03-10T12:44:36Z,2017-03-15T10:43:29Z,2017-03-15T10:43:29Z,1,28,0,"What kind of change does this PR introduce?
+Unit tests and increase code coverage
+If relevant, link to documentation update:
+N/A
+Summary
+Adding missed unit tests
+Does this PR introduce a breaking change?
+Nope",3,1
+4463,2017-03-10T17:32:27Z,2017-03-12T21:08:15Z,2017-03-12T21:08:15Z,1,92,84,"What kind of change does this PR introduce?
+Refactoring
+
+Did you add tests for your changes?
+No added tests, all current tests still pass.
+
+If relevant, link to documentation update:
+N/A
+
+Summary
+Updates to make the codebase a bit more consistent with ES6 standards. This is based on issue #4099
+
+
+Does this PR introduce a breaking change?
+No breaking changes.
+
+Other information
+First PR to webpack 🎉",4,3

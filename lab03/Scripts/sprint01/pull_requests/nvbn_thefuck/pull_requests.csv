@@ -1,0 +1,397 @@
+number,created_at,merged_at,closed_at,files,additions,deletions,body_text,participants,comments
+561,2016-10-03T04:35:00Z,2016-10-07T08:35:34Z,2016-10-07T08:35:34Z,3,37,1,"This detects when ag suggests the -Q option, and adds it.",4,6
+563,2016-10-05T16:06:58Z,2017-03-13T12:39:24Z,2017-03-13T12:39:24Z,60,174,173,,4,23
+613,2017-03-14T23:02:43Z,,2021-07-29T20:13:18Z,1,1,1,,5,4
+657,2017-06-05T21:31:02Z,2017-06-19T21:12:47Z,2017-06-19T21:12:47Z,3,15,9,"This changed in git v2.13.1, see
+gitster/git@6c48686#diff-081cf476dd9ac3b05c183570de47cb23",3,2
+703,2017-10-05T17:15:05Z,2017-10-15T15:30:29Z,2017-10-15T15:30:29Z,3,52,0,This will probably fix #652,3,5
+706,2017-10-08T23:36:10Z,2017-10-09T16:47:14Z,2017-10-09T16:47:14Z,2,10,6,"Do not require git in the script
+Replace the first single occurrence of delete",3,1
+722,2017-10-31T16:58:18Z,2017-11-01T13:42:53Z,2017-11-01T13:42:53Z,2,14,4,"git version 2.15.0 has updated wording that we need to account for.
+See git/git@2a5aa82",2,1
+729,2017-11-07T01:13:54Z,2017-11-09T23:42:23Z,2017-11-09T23:42:24Z,3,68,0,Closes #728,2,1
+751,2017-12-31T16:06:22Z,2018-01-02T00:45:46Z,2018-01-02T00:45:46Z,2,12,4,@josephfrazier this should cover all of the corner cases for #745,2,1
+752,2017-12-31T23:58:42Z,2018-01-01T17:53:35Z,2018-01-01T17:53:35Z,1,1,1,"TO DO:
+
+ Wait to the next year (100% done, depends on timezone)
+ Merge!",2,2
+753,2018-01-01T14:58:17Z,2018-01-03T04:14:02Z,2018-01-03T04:14:02Z,2,28,7,This should fix #727.,4,5
+760,2018-01-02T23:18:06Z,2018-01-04T16:40:02Z,2018-01-04T16:40:02Z,2,48,35,This should fix #600.,3,3
+763,2018-01-03T22:24:06Z,2018-01-05T21:25:08Z,2018-01-05T21:25:09Z,2,18,10,"This fixes #762.
+Once again, shell.quote does not seem appropriate - since it creates a quoted string which neither the shell nor git can comprehend.
+I wonder whether a new function is required to translate these instances, since I suspect git also allows for double-quotes (and probably other bizarre characters) in branch names.",3,1
+764,2018-01-03T22:43:57Z,2018-01-05T21:24:44Z,2018-01-05T21:24:44Z,3,37,0,Added proposal for feature request #664 (I use this a lot at work!).,3,0
+765,2018-01-03T23:54:23Z,2018-01-05T21:20:03Z,2018-01-05T21:20:03Z,3,96,0,New feature; fix misspelled Android ADB commands.,3,0
+770,2018-01-08T21:31:16Z,2018-01-10T20:31:39Z,2018-01-10T20:31:39Z,1,6,0,misc/thefuck has recently been committed to the FreeBSD ports tree (https://svnweb.freebsd.org/ports?view=revision&revision=458123).,3,1
+773,2018-01-14T22:11:19Z,2018-01-17T01:03:56Z,2018-01-17T01:03:57Z,3,38,0,"From https://git-scm.com/docs/merge-options#merge-options---allow-unrelated-histories
+
+By default, git merge command refuses to merge histories that do not
+share a common ancestor. This option can be used to override this safety
+when merging histories of two projects that started their lives
+independently.",2,0
+778,2018-01-25T17:35:15Z,2018-01-29T07:46:19Z,2018-01-29T07:46:19Z,2,10,4,Fixes #776.,3,2
+794,2018-03-22T17:53:06Z,2018-04-01T20:25:10Z,2018-04-01T20:25:10Z,1,53,43,Reworded several sentences and paragraphs for clarity and concision. All original information was maintained.,4,5
+812,2018-05-09T23:36:20Z,2018-05-11T09:36:25Z,2018-05-11T09:36:25Z,1,5,0,,3,2
+814,2018-05-12T12:25:53Z,2018-05-13T13:28:39Z,2018-05-13T13:28:39Z,1,4,4,,3,1
+823,2018-07-07T09:41:23Z,2018-07-09T22:51:43Z,2018-07-09T22:51:43Z,3,40,0,"Examples
+$ cat /etc
+cat: /etc: Is a directory
+$ fuck
+ls /etc  [enter/↑/↓/ctrl+c]
+*snip*
+$ cat tests
+cat: tests: Is a directory
+$ fuck
+ls tests [enter/↑/↓/ctrl+c]
+*snip*",4,10
+826,2018-07-10T21:06:57Z,,2018-07-10T22:42:15Z,3,67,16,See #823 (comment) and following comments.,2,7
+849,2018-10-13T05:34:30Z,,2023-09-06T02:38:33Z,1,1,1,"--yeah is in the version. I also added --you for debug, because if I'm debugging thefuck, then fuck --you the fuck :)",3,1
+868,2018-12-26T21:32:13Z,2019-01-04T19:35:28Z,2019-01-04T19:35:28Z,1,3,2,,3,3
+870,2019-01-02T10:03:40Z,2019-01-04T19:54:04Z,2019-01-04T19:54:05Z,2,4,3,"This prevents initialisation and consequentially a recursive loop.
+Fix #869
+Ref oh-my-fish/plugin-thefuck#11",2,0
+877,2019-01-16T23:30:04Z,2019-01-19T23:24:09Z,2019-01-19T23:24:09Z,2,4,3,This way it's ensured that whatever is used as cache key is always ordered. Sets are unordered collections.,2,0
+886,2019-02-23T23:19:45Z,2019-02-25T22:24:17Z,2019-02-25T22:24:17Z,3,37,0,"If you git commit but decide that you want to revert back to the last commit, the fuck will help you roll back to the last commit.",4,1
+892,2019-03-26T10:28:53Z,,2019-12-23T06:35:22Z,3,43,0,Add rule and tests for command 'bc' (basic calculator).,2,0
+924,2019-06-13T15:48:24Z,2019-06-26T18:02:01Z,2019-06-26T18:02:01Z,3,47,0,,3,2
+928,2019-07-05T19:45:14Z,2019-07-10T18:34:21Z,2019-07-10T18:34:21Z,3,48,0,This pr fixes #925,3,3
+931,2019-07-12T11:23:24Z,2019-08-19T19:39:15Z,2019-08-19T19:39:15Z,2,16,7,"... else it will not work for localized messages.
+Example German output:
+Führen Sie »apt list --upgradable« aus, um sie anzuzeigen.",3,2
+933,2019-07-19T01:36:10Z,2019-08-21T18:34:35Z,2019-08-21T18:34:35Z,3,50,0,"Add: rules/go_unknown_command for misspelled go commands.
+Add: tests/test_go_unknown_command which tests match and mismatch case of rules/go_unknown_command.
+Change: Added description of go_unknown_command to README.md.",2,3
+940,2019-08-02T04:03:01Z,2019-08-21T18:35:55Z,2019-08-21T18:35:56Z,2,189,7,"Newer version of docker outputs its result to stderr, not stdout.
+Also, docker's command has been changed a lot (for example, docker images is now docker image ls).
+resolve #937",2,2
+942,2019-08-09T19:53:58Z,2021-07-01T21:07:38Z,2021-07-01T21:07:38Z,3,59,0,fixes fat-fingering git branch -0 instead of git branch -v,3,9
+960,2019-10-02T03:35:06Z,2020-03-28T22:15:21Z,2020-03-28T22:15:21Z,3,38,2,Changes lowercase options to uppercase for pacman,2,0
+963,2019-10-03T15:13:45Z,2019-10-08T21:44:23Z,2019-10-08T21:44:23Z,2,2,2,"The one thing I always found counterintuitive to 'fuck --yeah' is that it is an option that I normally use when I get very frustrated. 'fuck --yeah' sounds much too positive for those occasions, which is why I think it would be great to be able to use 'fuck --hard'.",4,2
+966,2019-10-07T04:48:19Z,,2019-11-14T19:40:56Z,3,47,0,"When running drmemory you need to add a -- to the command. This rule helps add that.
+so for example: drmemory a.out should be drmemory -- a.out
+http://www.drmemory.org/",2,0
+976,2019-10-11T20:19:37Z,2019-10-22T22:30:56Z,2019-10-22T22:30:56Z,1,2,0,Added instructions in CONTRIBUTING.md for creating python3 venv. Hopefully this will reduce alleviate the confusion that lead to the creation of this issue. Let me know if you would like anything changed. I'll be glad to help.,3,3
+977,2019-10-12T14:49:08Z,2021-08-07T21:26:36Z,2021-08-07T21:26:36Z,3,51,0,"This rule corrects two common mistakes:
+
+Omitting the space between the command and its flag arguments (e.g. ls-la instead of ls -la)
+Placing a hyphen rather than a space between a command and its subcommand (e.g. apt-install and not apt install)
+
+Regarding issue #975",4,1
+984,2019-10-20T11:05:15Z,,2019-10-22T08:14:41Z,1,2,1,The previous command was ambiguous. This clears it.,2,0
+991,2019-10-25T04:22:03Z,,2019-10-25T08:28:26Z,1,3,0,I use VSCode to program as I'm sure others do and noticed that the VSCode file wasn't ignored so I thought it would be helpful to add it.,3,2
+998,2019-10-29T07:24:47Z,2019-11-07T00:10:01Z,2019-11-07T00:10:01Z,3,112,0,"Adds a rule to append '.install' to a chocolatey install command that
+failed because of a non-existent package.",3,2
+1004,2019-10-31T07:58:55Z,2019-11-02T18:06:17Z,2019-11-02T18:06:17Z,1,2,2,"Just setup PowerShell on my new MacBook and when I run fuck it says:
+
+I tried, but iex ""thefuck --alias"" will only print out the alias script.
+The wiki page is correct.
+I'm so confused that the typo is there from the very beginning, and for about 3 years no one had found it.
+EDIT: And use & $PROFILE to reload profile is also incorrect because the & (call operator) execute the script in a child scope, so any function definition will not expose to the outer (main running) scope. We should use the . (dot-sourcing) operator instead. See this StackOverflow answer.",3,1
+1014,2019-11-28T08:28:37Z,,2021-07-06T21:14:57Z,3,46,0,"I have done some of the work, but I have no idea how to actually run thefuck from the cloned repo. I tried python thefuck/entrypoints/__init__.py but that didn't work. I would like to run it so I can test it locally, besides having the tests.",2,6
+1017,2019-12-02T12:11:57Z,2019-12-16T21:10:46Z,2019-12-16T21:10:46Z,1,1,1,Closes #1016,3,1
+1023,2019-12-14T17:44:19Z,2019-12-16T20:56:13Z,2019-12-16T20:56:13Z,1,1,1,,3,1
+1028,2019-12-19T13:43:36Z,,2022-09-18T12:26:45Z,4,12,5,This should fix #1027,6,17
+1031,2020-01-05T15:39:40Z,2020-01-05T22:53:10Z,2020-01-05T22:53:10Z,2,43,2,,3,2
+1039,2020-02-08T12:43:48Z,,2021-06-30T20:32:29Z,0,0,0,"Related to #996
+This way we can give less fucks if we have more $
+Before
+>>> ""$ $ echo hello world"".replace(""$"", """", 1).strip()
+'$ echo hello world'
+After
+>>> ""$ $ echo hello world"".lstrip(""$ "")
+'echo hello world'",3,4
+1056,2020-02-24T16:43:34Z,2020-06-10T22:20:38Z,2020-06-10T22:20:38Z,3,48,0,This is related to #1030,3,2
+1059,2020-03-01T01:34:48Z,2020-03-01T16:40:50Z,2020-03-01T16:40:50Z,2,22,9,Fix #1047,2,0
+1061,2020-03-01T16:49:42Z,2020-03-01T19:04:54Z,2020-03-01T19:04:54Z,3,46,0,,2,0
+1088,2020-05-08T21:06:09Z,2021-04-16T22:24:30Z,2021-04-16T22:24:30Z,1,1,1,Fixed a grammar mistake,2,1
+1092,2020-05-13T20:23:04Z,2020-06-10T22:21:45Z,2020-06-10T22:21:45Z,3,187,94,,3,2
+1094,2020-05-14T00:49:06Z,2020-06-14T14:20:41Z,2020-06-14T14:20:41Z,1,77,192,,3,5
+1097,2020-05-25T22:54:44Z,2020-07-16T21:32:30Z,2020-07-16T21:32:30Z,3,71,0,#1096,3,9
+1100,2020-06-01T19:17:09Z,2021-02-11T11:48:21Z,2021-02-11T11:48:21Z,3,23,16,"Getting pyenv_no_such_command.py rule as base, I created an env_no_such_command.py script able to hanlde all env related commands. Transforming, in this way, the pyenv rule in a more global one.
+This commit was originated and fixes #1074",3,11
+1106,2020-06-15T03:23:50Z,2020-07-16T21:34:23Z,2020-07-16T21:34:23Z,3,37,0,"Some git hosts will copy the entire clone command, while others just copy the url, so typing ""git clone "", then pasting a git url that already has a ""git clone "" on the front is a somewhat common issue.",3,1
+1109,2020-06-26T08:24:27Z,2021-07-06T14:58:44Z,2021-07-06T14:58:44Z,1,1,1,on -> one,4,1
+1111,2020-07-07T13:34:23Z,2020-07-16T21:34:41Z,2020-07-16T21:34:41Z,1,3,3,"Fix for #1066
+
+Added cask to the list of fallback brew commands
+Changed BREW_CMD_PATH and TAP_PATH to have /Homebrew prefix. The commands are normally located at /usr/local/Homebrew/Library/Homebrew/cmd. Verified it on macOS Catalina and Mojave.
+
+Tested on:
+
+macOS Catalina 10.15.5",3,1
+1116,2020-07-20T02:31:09Z,2020-11-03T17:29:28Z,2020-11-03T17:29:28Z,2,5,1,"Adds custom mark (functional) as per the pytest documentation.
+Fixes typo in tests/test_conf.py
+@pytest.mark.usefixture('load_source') to @pytest.mark.usefixtures('load_source')",3,1
+1131,2020-09-08T09:57:24Z,2021-07-15T19:20:09Z,2021-07-15T19:20:09Z,3,56,0,"if ""git commit"" is executed with no staged changes, this will add -a to the command.
+e.g.
+
+git commit => git commit -a
+git commit -m ""blubb"" => git commit -a -m ""blubb""",3,0
+1133,2020-09-21T16:04:09Z,2021-07-07T21:05:55Z,2021-07-07T21:05:55Z,3,6,2,"I was working on an extension to the rm_dir rule (to try rmdir before rm -r, since it's safer) and discovered that I could not switch to using the @for_app decorator because then the rule loses its match from /bin/hdfs dfs -rm to hdfs.
+If git diff matches on git, then /usr/bin/git diff should match also. Not matching on explicit paths:
+
++ Gives rule authors the ability to match only when an explicit path to the command is given
+- Prevents rule authors from matching on a command regardless of what path was given (if any)
+
+Since the default behavior for fuck is to require user interaction before confirming a command, casting a wider net is unlikely to be harmful.
+Also, the only rule that uses @for_app and has a path in the match string that I could find, has the path there because the most common invocation of that tool uses a path and the rule doesn't work otherwise, because of this limitation. In other words, it seems that the only rule that uses a path in the for_app string does so as a work-around to this too-strict behavior. I can only speculate that other rules, including the rm_dir rule, may have avoided the decorator for this reason.
+Rule authors should not have to enumerate all the different paths a command could be called from, in my view. Hopefully this has not been litigated previously.
+Before accepting, consider my commit message to d30a789. It may be better to strip paths in both places, but I'm not sure. Also if you need more tests, let me know where and I'll be happy to add them.",2,0
+1135,2020-10-01T04:39:46Z,2021-06-30T21:10:06Z,2021-06-30T21:10:06Z,2,24,8,Fix #1123,2,1
+1138,2020-10-08T20:58:15Z,2021-02-08T12:04:59Z,2021-02-08T12:04:59Z,3,42,0,This adds conda to the list of rules.,2,3
+1145,2020-11-10T16:46:07Z,2020-11-18T09:43:12Z,2020-11-18T09:43:13Z,2,2,0,Fixes #1141,2,3
+1150,2020-12-23T22:52:48Z,2021-07-01T09:47:13Z,2021-07-01T09:47:13Z,1,1,1,"This functions in both Mac OS 11, as well as Mac OS X.",2,0
+1151,2020-12-27T22:30:20Z,2021-01-19T21:37:05Z,2021-01-19T21:37:06Z,3,77,0,Closes #1149,2,1
+1152,2020-12-27T22:37:35Z,2021-07-29T11:59:28Z,2021-07-29T11:59:28Z,1,2,1,"docker login rule used && directly in the output, which could fail in older PowerShell and fish shell versions.
+Replaced it with thefuck's shell._and helper",2,1
+1164,2021-01-29T21:00:23Z,2021-06-23T10:19:47Z,2021-06-23T10:19:47Z,2,0,0,,3,0
+1165,2021-02-04T21:17:32Z,2021-04-21T17:43:21Z,2021-04-21T17:43:21Z,6,29,4,"Allows filtering the paths used to search for commands
+Can be useful to filter out /mnt/ in WSL for performance
+Running in WSL with default config:
+DEBUG: Total took: 0:00:10.213128
+
+Running in WSL with excluded_search_path_prefixes = ['/mnt/'] in settings.py:
+DEBUG: Total took: 0:00:00.617300
+
+This provides an approach to solving #1036 without having to remove Windows paths from PATH (which breaks various WSL use-cases)",3,9
+1167,2021-02-14T01:17:05Z,2021-03-22T19:55:45Z,2021-03-22T19:55:45Z,3,33,0,"I found in my usage that due to the proximity of the 's' and 'd' key, I would commonly type cs when I mean to say cd.
+I am hoping to address that with this update to the rules.",3,6
+1170,2021-02-22T22:00:17Z,2021-03-08T17:56:30Z,2021-03-08T17:56:30Z,1,61,2,Instead of ignoring it whenever go is unavailable,2,0
+1171,2021-03-03T18:04:16Z,2021-06-30T12:20:48Z,2021-06-30T12:20:48Z,1,6,0,"As we need the package and to modify the shell config, users could have a pain in the ass when it comes to retire The Fuck from the system.
+You can see this contribution as Vaseline in your shell.",2,1
+1174,2021-03-11T17:05:44Z,2021-03-12T23:58:11Z,2021-03-12T23:58:11Z,1,31,0,"I was assigned the task here
+I have updated the readme file. I have updated it with the following:
+
+Warp up link: to help the readers warp to the top at any point of time whilst reading/referring readme. This will save their time and prevent over scrolling across the readme.
+Contents section: to help readers refer to a particular section of the readme without scrolling.
+
+The above-mentioned features do the following:
+
+Improve readability.
+Helps them keep a check of different sections present in the readme.
+Looks more presentable.
+
+Please do review this pull request and tell me if there are changes that I need to do.
+Thanks for your consideration :)",2,6
+1184,2021-04-06T13:54:14Z,2021-07-19T20:47:19Z,2021-07-19T20:47:20Z,3,75,0,"Love the tool, wanted to contribute and here is the result :)
+
+Added a VSCode devcontainer to help people get up and running with the repo quicker without needing to install any tooling or do any setup of venv
+Added a new rule to help when some repositories use main and some use master as the primary integration branch
+
+Feedback welcome and thanks for the great tooling",2,8
+1193,2021-05-02T21:10:42Z,2021-06-29T19:25:02Z,2021-06-29T19:25:02Z,1,13,13,,3,2
+1196,2021-05-05T22:45:24Z,2021-06-21T15:06:02Z,2021-06-21T15:06:02Z,2,10,5,"pkg_resources is expensive to load, and it's an external module provided
+by the setuptools project.
+Let's use importlib.metadata from Python 3.8+'s stdlib when available, which
+is much faster. This also erases setuptools from thefuck's runtime
+dependency.
+Simple benchmark data for thefuck --version:
+Before: 0.602s
+After: 0.169s",2,0
+1208,2021-06-15T05:26:04Z,2021-06-21T14:32:35Z,2021-06-21T14:32:35Z,1,1,1,This fixes behaviour change raised in #1207 where git [commit|am|push] --no-verify has priority over other suggestions.,3,2
+1210,2021-06-28T00:21:57Z,2021-07-06T10:52:54Z,2021-07-06T10:52:55Z,3,61,0,"Add rule to fix a common Rails issue when running tests.
+Rails source code that generates the message: https://github.com/rails/rails/blob/main/activerecord/lib/active_record/migration.rb#L152
+Example output on my console:
+abrahamchan [master] > bin/rspec     
+Running via Spring preloader in process 35661
+Migrations are pending. To resolve this issue, run:
+
+        rails db:migrate RAILS_ENV=test
+No examples found.
+
+abrahamchan [master] > fuck
+rails db:migrate RAILS_ENV=test [enter/↑/↓/ctrl+c]
+== 20210627174953 Example: migrating ==========================================
+== 20210627174953 Example: migrated (0.0000s) =================================
+
+abrahamchan [master] > bin/rspec
+[successful rspec output]",2,0
+1211,2021-06-28T00:37:56Z,2021-06-29T19:26:13Z,2021-06-29T19:26:13Z,1,1,1,"I get this warning when running py.test. Simply changed .yield_fixture to .fixture as instructed.
+tests/test_utils.py:234
+  /Users/abrahamchan/Source/thefuck/tests/test_utils.py:234: PytestDeprecationWarning: @pytest.yield_fixture is deprecated.
+  Use @pytest.fixture instead; they are the same.
+    @pytest.yield_fixture(autouse=True)",2,0
+1212,2021-07-01T21:09:37Z,2021-07-13T13:36:12Z,2021-07-13T13:36:12Z,5,95,59,Ref.: #942,2,0
+1226,2021-08-05T12:13:39Z,2021-08-07T11:12:12Z,2021-08-07T11:12:12Z,1,1,2,"Homebrew for Linux now shares the same domain name as Homebrew for macOS.
+The URL to homebrew for Linux became inaccessible.",2,0
+1233,2021-09-05T13:41:04Z,2021-09-05T14:58:35Z,2021-09-05T14:58:35Z,1,1,1,"sudo with pip is considered unsafe.
+Instead, run such commands with the --user argument to get the same result safely.",2,0
+1235,2021-09-16T14:36:37Z,,2022-05-21T11:45:52Z,1,86,85,The more examples in beginning was cluttering the readme. It takes too much time to scroll to contents. I don't see that it's necessary to have so many examples in the beginning.,1,0
+1236,2021-09-16T15:01:06Z,,2022-05-21T11:45:52Z,1,8,0,Add installation to have a WSL section so that WSL users don't need to start debugging the slowness after installation. Now it's stated explicitly.,2,3
+1248,2021-11-23T14:12:06Z,2023-07-10T13:00:18Z,2023-07-10T13:00:18Z,18,95,78,"Python 3.10 was released on 2021-10-04:
+
+
+https://discuss.python.org/t/python-3-10-0-is-now-available/10955
+
+Drop the dot in pytest:
+
+https://twitter.com/pytestdotorg/status/753767547866972160
+
+Update min Python 3 version required in README to 3.5 to match setup.py.
+Add python_requires to help pip.",4,7
+1249,2021-11-23T14:28:02Z,,2022-11-23T21:57:44Z,8,16,15,"(Includes #1248 to avoid conflicts, the last commit here is unique. Happy to rebase or split it out.)
+Drop support for EOL Python 3.5:
+
+
+
+cycle
+latest
+release
+eol
+
+
+
+
+3.6
+3.6.15
+2016-12-23
+2021-12-23
+
+
+3.5
+3.5.10
+2015-09-30
+2020-09-13
+
+
+2.7
+2.7.18
+2010-07-03
+2020-01-01
+
+
+
+It's also little used.
+Here's the pip installs for thefuck from PyPI for October 2021:
+
+
+
+category
+percent
+downloads
+
+
+
+
+3.8
+31.04%
+1,950
+
+
+3.9
+26.97%
+1,694
+
+
+null
+25.74%
+1,617
+
+
+3.6
+5.46%
+343
+
+
+3.10
+3.82%
+240
+
+
+3.7
+3.77%
+237
+
+
+2.7
+2.34%
+147
+
+
+3.5
+0.65%
+41
+
+
+3.4
+0.19%
+12
+
+
+3.11
+0.02%
+1
+
+
+Total
+
+6,282
+
+
+
+Source: pip install -U pypistats && pypistats python_minor thefuck --last-month",4,8
+1251,2021-12-03T15:22:28Z,,2022-05-16T21:36:20Z,3,89,0,Add specific rule for when you type git checkout master but it doesn't exist and main does exist to suggest git checkout main,3,3
+1267,2022-01-18T06:44:39Z,2022-01-20T21:01:22Z,2022-01-20T21:01:22Z,1,1,1,,2,0
+1270,2022-01-29T00:36:42Z,2022-01-30T21:34:39Z,2022-01-30T21:34:39Z,1,1,1,Add missing comma in a test,2,0
+1272,2022-02-21T13:06:02Z,,2023-01-20T05:20:48Z,1,133,0,Closing #1271,2,0
+1279,2022-03-26T11:27:11Z,2022-03-27T20:06:40Z,2022-03-27T20:06:40Z,4,9,3,See pikaur repo and AUR package,2,0
+1287,2022-04-11T23:31:19Z,,2022-05-05T01:41:47Z,3,30,0,"The command ls -R is for cases where the user tries to unfuck ls -r. In such cases, the user intended to recursively list the current directory (that would happend if he had typed 'ls -R') but instead provided -r, which reverses the order of the list.",2,1
+1292,2022-05-03T19:31:37Z,2022-06-13T21:29:15Z,2022-06-13T21:29:15Z,2,5,4,"The function git_support can not be useful if a command has the word ""git"" misspelled.
+The purpose of this rule is to unfuck the commands like: gti commit -m 'message'.
+Without this rule, for example, if you try to unfuck this command the result will be:
+git commit -m message. This means that the quotation marks do not return. #1282
+This rule is generally useful for every git command, in which the word git is misspelled.
+I have also run some tests!",4,14
+1298,2022-05-16T21:32:45Z,,2022-06-05T19:49:06Z,1,1,1,"Fixing the mix up of branches main and master should have a higher priority than other rules, because it is more logical most of the time. One example:
+$ git checkout main
+error: pathspec 'main' did not match any file(s) known to git
+
+The suggestion git checkout master should have the highest priority, rather than git checkout -b main which is the case now.",3,1
+1301,2022-05-24T05:21:21Z,,2022-12-05T08:28:31Z,2,7,0,"It appears that without a global configuration, Flake8 will scan folders such as the virtual environment, which leads to much slower performance and a lot of unrelated errors. I added a simple .flake8 file to exclude these directories
+I also added a couple more unwanted directories to the .gitignore file to prevent additional headaches
+
+.venv: virtual environments
+.vscode: IDE configurations
+
+This is my first contribution to this (or any) repo other than my own, so be nice please thanks :)",2,0
+1302,2022-05-24T05:47:14Z,2022-07-03T11:22:36Z,2022-07-03T11:22:37Z,3,93,0,"Often when I'm trying to git clone a project, I'll paste the URL into my terminal expecting it to also contain the git clone part. This rule should allow thefuck to detect the missing git clone and suggest it when someone pastes an SSH or HTTP/HTTP url that ends in .git.
+A rule for correcting for double git clone git clone [repo] already exists. This rule addresses the opposite problem.
+
+I've also added some simple tests for it, which appear to pass.
+This is my first PR with any meaningful change, so I'd appreciate some feedback on it. It still needs a bit of cleaning up, but I think it should be good to merge in once I remove a couple of random things",3,9
+1307,2022-05-26T14:24:32Z,2022-05-29T19:40:31Z,2022-05-29T19:40:31Z,2,4,0,"What
+MacOS 12.3.1 shutdown sudo support added
+Current behavior and environment
+
+
+The Fuck 3.32 using Python 3.10.4 and ZSH 5.8
+MacOS Monterey 12.3.1
+
+Expected behavior",2,0
+1308,2022-05-29T14:47:54Z,2022-06-05T20:58:32Z,2022-06-05T20:58:32Z,2,3,1,"Added the pattern for updatedb (mlocate), if command is run without sudo privileges, to rules/sudo.py",2,0
+1314,2022-06-23T15:14:02Z,2022-06-28T16:28:38Z,2022-06-28T16:28:38Z,2,2,2,"Brew changed the output of the error message so that the rule no longer works. They have changed the apostrophe to a backtick
+from 
+
+Use 'brew upgrade foo' instead.
+
+changed to 
+
+Use `brew upgrade foo` instead.
+
+Change in brew: Homebrew/brew@2f7c3af#diff-c234c527e0e187e0743c519ab0e415afdc1e41e33e014cd78152930b11885057
+The regex in the code change will handle both scenarios.
+This PR fixes or closes #1290 support brew update <package name>",2,1
+1317,2022-07-01T08:27:51Z,2022-09-25T19:37:48Z,2022-09-25T19:37:48Z,3,44,0,Every single time I use terraform to destroy resources I type terraform destory instead 🙃. This adds a rule to fix those simple mistakes.,2,4
+1319,2022-07-12T19:28:17Z,2022-08-31T18:42:41Z,2022-08-31T18:42:41Z,1,5,0,,2,0
+1329,2022-09-07T19:26:09Z,2023-07-10T13:09:27Z,2023-07-10T13:09:27Z,3,37,3,"Windows CMD support is almost impossible without removing c:\Python310\Scripts\fuck.exe, so I did (only affects windows installation), and added a fuck.bat (mandatory for CMD support).
+This created a problem for first time users of PowerShell / pwsh, so I created fuck.ps1 to solve it, and also auto configure the $PROFILE
+Related
+
+#626
+#929
+#1035",2,3
+1371,2023-04-05T23:48:57Z,,2023-04-08T18:18:31Z,2,61,14,"Atuin is shell history on steriods and is commonly used as an enhancement of the existing shell history. Unlike Bash or Zsh, Atuin uses an SQLite database to store the command history.
+The nice thing about this however is that this makes Atuin shell agnostic, so all we've done is add a basic check in the generic shell class to check to see if the user provided a path to the Atuin database. If so, then we check the database instead of the default location.
+Right now this system has an issue where it'll reconnect to the database multiple times, which may cause performance issues. The point however is that this works, and that we can search the Atuin database.",2,2
+1390,2023-07-11T16:30:29Z,,2023-07-12T09:13:49Z,1,2,2,intall -> install,2,1
+1432,2024-01-25T08:37:08Z,2024-01-25T19:52:35Z,2024-01-25T19:52:35Z,1,13,13,,2,1

@@ -1,0 +1,579 @@
+number,created_at,merged_at,closed_at,files,additions,deletions,body_text,participants,comments
+1,2023-06-11T01:59:32Z,,2023-06-15T20:17:35Z,17,958,99,"Thank thank you thank you Anton. You won. My dream of building ComputaCode is probabbly over. lol. It's okay. I'm happy for everyone else.
+For reproducibility purposes, I recommend using poetry since it records package versions. Also it simplifies building wheels and publishing.
+I've updated the configured for poetry, reorganized some files to follow the pythonic conventions, and updated referenced. Please see my fork.",3,8
+27,2023-06-14T11:38:15Z,2023-06-15T18:00:53Z,2023-06-15T18:00:53Z,1,1,1,This PR fix a small typo in the README (for those of us following along the demo). Really cool project 🚀 !,3,1
+28,2023-06-14T12:25:33Z,,2023-06-15T18:02:24Z,1,14,8,Just adding the comments in the code for people to understand what exactly is going on,4,3
+29,2023-06-14T13:15:17Z,,2023-06-15T18:05:28Z,5,45,3,"1, Use dotenv to init env variables
+2, Support custom openai base URL
+3, Tested locally
+4, Update readme",6,6
+43,2023-06-15T07:41:29Z,,2023-06-15T18:08:33Z,1,4,1,added how to add key configurations both in Windows and Linux to avoid confusion,5,2
+48,2023-06-15T13:19:55Z,,2023-06-15T19:22:01Z,1,21,0,,4,16
+60,2023-06-15T22:48:41Z,2023-06-16T11:25:30Z,2023-06-16T11:25:30Z,8,59,23,"Feature
+Make it easy to run
+pip install .  # eventually pip install gpt-engineer
+gpt-engineer <PATH> # or gpt-engineer --help
+Changeset
+
+improve pyproject.toml with project configs
+make gpt_engineer/ directory and move python files
+Fix paths in source code.",3,4
+61,2023-06-16T01:14:26Z,2023-06-17T11:38:01Z,2023-06-17T11:38:01Z,5,145,1,"Closes #57
+Please find the necessary changes to setup pre-commit in the project.
+Also, I added the .github/CONTRIBUTING.md file where the installation and usage of pre-commit is explained in detail along side some other information regarding contributions.",2,4
+63,2023-06-16T04:12:43Z,,2023-07-02T14:54:48Z,10,303,160,"This PR build off of #60, it will be easier to read once it's merged.
+
+Improvements
+
+Basic, extendable support to use any LLM model you like
+Better typing, structs, enums etc. to make the code more understandable.
+Better package layout",4,16
+75,2023-06-16T12:24:02Z,,2023-06-16T13:24:21Z,1,13,10,"update on next function:  List[Dict[str, str]]",3,2
+92,2023-06-17T01:19:07Z,,2023-06-18T13:19:50Z,1,2,2,"We should fall back to gpt-3.5-turbo-16k-0613 instead of the default gpt-3.5-turbo model, as it can handle larger code outputs.
+Using the gpt-3.5-turbo-16k-0613 as a fallback means we can also implement functions in the future.",5,11
+93,2023-06-17T02:03:42Z,,2023-06-17T21:02:09Z,32,585,46,Created the CODE_OF_CONDUCT and added anton.osika@gmail.com as the point of contact for any issues.,3,3
+94,2023-06-17T08:44:03Z,,2023-06-20T11:28:24Z,1,84,1,,4,19
+96,2023-06-17T08:54:55Z,,2023-06-17T16:33:14Z,1,13,0,"This optional PR would make it possible to install the dependencies through poetry. Please feel free to suggest improvements, or simply close the PR if not helpful. Many thanks for your consideration.",3,1
+97,2023-06-17T09:26:03Z,2023-06-17T16:11:15Z,2023-06-17T16:11:15Z,1,2,2,,4,1
+118,2023-06-17T17:42:20Z,2023-06-19T15:33:53Z,2023-06-19T15:33:53Z,2,28,1,,4,7
+120,2023-06-17T17:52:23Z,2023-06-18T12:10:08Z,2023-06-18T12:10:08Z,2,201,11,"This fixes compatibility issues in PR #87 that have arisen from recent changes to the repository.
+Additionally, an improvement to the parser unit tests has been done.
+The goal of the this parser is to make sense of what the LLM has provided without requiring another inference call which adds time and cost overhead. My remarks on this matter were stated in #35.
+Further debate has been conducted in PR #94",5,6
+128,2023-06-17T20:40:17Z,2023-06-23T09:50:34Z,2023-06-23T09:50:34Z,1,126,14,,3,5
+129,2023-06-17T21:03:40Z,,2023-06-18T01:31:40Z,35,608,56,Moved the CODE_OF_CONDUCT.md out of the main directory and into the correct .github directory,3,6
+188,2023-06-19T06:48:18Z,2023-06-19T11:26:56Z,2023-06-19T11:26:56Z,4,9,10,4 File changed with 9 Additions and 10 deletions,4,1
+214,2023-06-19T18:29:02Z,,2023-06-22T22:42:52Z,2,16,16,"Although the OPENAPI key was previously registered, it was getting an error and I could not find the solution. Now, with a small change, the problem has completely disappeared and now it works flawlessly.",4,1
+257,2023-06-20T17:19:01Z,,2023-06-20T23:05:14Z,1,7,3,Closes #225,3,3
+276,2023-06-21T03:55:16Z,,2023-06-21T12:25:17Z,3,19,9,"…uming the module name.
+Also adjusted the temperature settings to be '0' so test results are more deterministic",2,0
+299,2023-06-21T15:06:00Z,2023-06-21T16:25:50Z,2023-06-21T16:25:50Z,1,2,2,"Hello there👋
+I have made a pull request to fix a small typo in the ""fix_code"" function",2,0
+301,2023-06-21T15:22:20Z,,2023-06-29T20:45:22Z,1,10,0,,3,4
+308,2023-06-21T19:42:33Z,,2023-06-22T17:44:53Z,10,79,57,Refactor all .md files in accordance with markdownlint,2,1
+310,2023-06-21T23:10:45Z,,2023-06-25T18:56:11Z,2,5,0,"Add https://github.com/BerriAI/reliableGPT to gpt-engineer to handle the following errors:
+
+OpenAI APIError, OpenAI Timeout, OpenAI Rate Limit Errors, OpenAI Service UnavailableError / Overloaded
+Context Window Errors
+Invalid API Key errors
+
+gpt-engineer users can specify fallback strategies for error handling - eg. if GPT-4 is overloaded use GPT 3.5 Turbo, Anthropic etc
+cc @patillacode @AntonOsika",4,3
+319,2023-06-22T06:35:07Z,,2023-06-25T18:57:58Z,1,6,6,,3,2
+323,2023-06-22T10:07:07Z,2023-06-25T19:00:07Z,2023-06-25T19:00:07Z,1,1,1,Changed git clone URL from ssh to https.,3,1
+334,2023-06-22T17:43:29Z,2023-06-23T10:01:29Z,2023-06-23T10:01:29Z,28,82,87,"0310f13 - update CI only when test python files, otherwise is useless to test when markdown or any other files are committed. Removed matrix for single python version
+fix indentation on pre-commit-config.yaml files
+add auto-commit in pre-commit.yml
+refactor try/except block when the exception is set to pass in benchmark.py",3,2
+340,2023-06-22T21:33:27Z,,2023-06-22T23:10:47Z,1,2,1,"In my pull request, I made changes to the main function in order to address an error. I modified the function signature by changing the type hint for the out_path parameter. Originally, it was annotated as str | None, which uses the union operator. However, this syntax is not compatible with older versions of Python. To make it compatible, I replaced it with Union[str, None] using the typing.Union class. This change ensures that the code can be executed in Python versions prior to 3.10. You can review the specific modifications I made, should not effect anything downstream.",3,2
+341,2023-06-22T21:53:17Z,2023-06-22T23:09:18Z,2023-06-22T23:09:18Z,3,7,5,"before the edits, it gives me the compilation error message TypeError: 'type' object is not subscriptable and gives me errors when running pre-commit run --all-files.
+after the edits, it runs perfectly and when running pre-commit command it works too",3,1
+342,2023-06-22T23:34:32Z,,2023-07-12T11:40:22Z,4,29,15,"In DB.get_item()
+file processing was changed to line by line
+if a line starts with ++  the rest of the line is considered the name of a preprompt
+and included in the preprompt.
+Allows for a heirarchical structuring of prompts...
+For examples see file_syntax which is used in generate and qa",2,3
+347,2023-06-23T00:18:19Z,,2023-06-24T22:33:24Z,0,0,0,Should let users know if they want to use --steps use_feedback they need to have a file named feedback in their project folder.,2,0
+361,2023-06-23T11:05:24Z,,2023-07-02T15:23:57Z,1,4,0,,4,5
+409,2023-06-25T20:47:40Z,2023-07-02T13:56:32Z,2023-07-02T13:56:32Z,7,79,18,"Remove delete_existing run option, instead archive memory and workspace on every run;
+archive is a step since some flows don't generate code and therefore should not archive whatever
+Relates to #388",2,5
+413,2023-06-26T03:42:35Z,,2023-06-26T18:10:33Z,1,44,61,"This PR addresses the issue where running multiple npx http-server projects in the benchmark.py script causes all of them to start up the first project that used npx http-server. This is due to the fact that npx http-server defaults to using the same port for all instances.
+To resolve this, we've modified the benchmark.py script to start each subprocess on a unique port. This is achieved by passing the -p (port) option to npx http-server followed by a unique port number for each subprocess. We start from port 8000 and increment it for each new subprocess to ensure that the port numbers we choose are available and not being used by other services.
+This change ensures that each project run by the benchmark script operates independently on its own port, preventing conflicts and ensuring accurate benchmarking results.
+Fixes #412.
+To checkout this PR branch, run the following command in your terminal:
+git checkout sweep/fix/benchmark-port-conflict",2,1
+427,2023-06-27T03:12:07Z,,2023-07-02T13:50:27Z,1,91,0,,3,3
+429,2023-06-27T07:46:50Z,,2023-06-27T11:29:30Z,1,26,34,,2,1
+431,2023-06-27T15:28:54Z,,2023-07-06T20:55:08Z,3,51,9,"Allows using Azure OpenAI instead of OpenAI (solves #325)
+gpt-engineer [project_path] --azure --engine [your_azureopenai_model_name]
+
+To be consistent with Azure OpenAI terminology, the model is called an engine instead.
+Requires to set AZURE_OPENAI_ENDPOINT and AZURE_OPENAI_KEY as environment variables.",3,6
+438,2023-06-28T16:13:48Z,2023-07-03T19:28:34Z,2023-07-03T19:28:34Z,4,112,14,"Token usage is now tracked and logged into the file memory/logs/token_usage.
+Solves #322
+How it works:
+
+every time ai.next is called, the token usage is computed and tracked
+after the whole run, the token usage is formatted and printed to the file memory/logs/token_usage.
+
+Output:
+File in csv format with column:
+
+step_name
+prompt_tokens_in_step
+completion_tokens_in_step
+total_tokens_in_step
+total_prompt_tokens
+total_completion_tokens
+total_tokens
+
+Notable changes:
+
+each step now passes its name to ai.next, which is used for logging
+added dependency to package tiktoken as it's needed to compute token usage when using streaming",2,7
+444,2023-06-29T08:40:09Z,,2023-07-02T13:29:21Z,1,1,1,"For me, the instructions were unclear on how to run the example",3,1
+459,2023-07-01T10:47:05Z,,2023-07-06T21:03:49Z,1,51,4,"Based on unit_tests placed in the memory, this step will ask for a command (or snippet) necessary to run against it.
+Runs continuously until all test errors (or even compile errors) are fixed. This may replace the fix_code step found in tdd+.",2,3
+463,2023-07-01T16:12:06Z,2023-07-02T13:14:33Z,2023-07-02T13:14:33Z,4,81,0,"This PR addresses #240 by adding the benchmark report after running the evaluation step. Additionally, this report can be inserted in the benchmark/RESULTS.md file if needed. The insertion is a bit hacky now because it is based on certain assumptions around the results file structure. I believe there's a better way of doing it so any feedback is appreciated.
+On a more general note, I was a bit confused by the difference between the Works and Perfect criteria. The current evaluation logic leaves Works empty if a user replies 'yes' to Perfect which is a bit misleading. I think if the code works it works and ideally we would measure that using tests which is probably part of the roadmap. Anyway, please take a look and let me know what y'all think 🙏",3,3
+465,2023-07-01T23:41:36Z,2023-08-15T23:29:20Z,2023-08-15T23:29:20Z,5,479,4,"As requested in #79, #95 and #131 I did a proof of concept on how we could add new functionalities or fix errors from a set of existing code.
+To use the implementation, we need to do the following setup:
+
+In a file called file_list.txt in the root of your project, add a list of code file paths, one in each line. These files should be enough to give the AI agent context to the modification you want to do, but it does not need to be complete standalone execution.
+Using the prompt file we add a description of the modification we need to be done. It could be adding a docstring, adding new functions, classes, or even asking to correct a bug.
+Call the modification process by using gpt_engineer projects/test --steps improve_code
+
+In this stage of implementation, we are sending all code text in a single message which is not ideal, so it only works on code small enough to be inside a prompt message, but it is a start.
+Here is a small example:
+
+
+
+This PR is already a working solution. In a future modification, I plan to separate the codes into different messages to see the results.
+What do you guys think?",7,23
+466,2023-07-02T02:42:19Z,,2023-07-12T11:34:48Z,9,201,55,"Trying to keep things simple for this initial conversion to LangChain.  The only difference with the original functionality is this version doesn't stream the output from OpenAI, so there is bit of a delay in waiting for the result.
+This branch will enable using any LLM, from hugging-face, locally, any LangChain supported LLM service, such as Anthropic/Claude, or pointing it to a Custom LLM.",3,8
+475,2023-07-03T03:47:11Z,,2023-07-08T13:46:39Z,2,21,13,,3,1
+480,2023-07-03T12:14:11Z,,2023-08-13T09:16:13Z,2,28,2,Fixes another regex issue where backticks are inserted into file names.,4,4
+498,2023-07-05T10:09:02Z,,2023-07-06T21:22:49Z,2,4,0,"This PR addresses issue #460 where the generated Python and JavaScript files had invalid filenames due to the presence of backticks.
+The solution involves sanitizing the filenames by removing any backticks before the files are created. This is done in the chat_to_files.py file where the conversion from chat to files happens. A regular expression is used to remove the backticks from the filenames.
+This fix ensures that all generated files will have valid filenames, making the tool more robust and user-friendly.
+Please review and let me know if any changes are required.
+Fixes #460.
+To checkout this PR branch, run the following command in your terminal:
+git checkout sweep/fix-invalid-filenames",1,2
+499,2023-07-05T11:21:22Z,2023-08-13T09:09:32Z,2023-08-13T09:09:32Z,6,38,7,"This pull request adds support for loading environment variables from a .env file in the Makefile of the gpt-engineer project. This is achieved by using the python-dotenv package to read environment variables from a .env file when the make run command is executed. The following changes have been implemented:
+
+Updated the Makefile: Added a new load-env target in the Makefile. This target uses python-dotenv to load the environment variables from a .env file.
+Updated the run target: Modified the run target to depend on the load-env target. This ensures that the environment variables are loaded before the run command is executed.
+Updated pyproject.toml: Added python-dotenv >= 1.0.0 to the list of project dependencies in pyproject.toml. This ensures that python-dotenv is installed when setting up the project.
+Updated README.md: Updated the new setup process to reflect the changes.
+
+These changes allow for better management and confidentiality of environment variables in the gpt-engineer project, particularly when it comes to sensitive information that should not be hard-coded. This method will also help users keep track of their API key between runs.",2,8
+512,2023-07-07T19:15:48Z,2023-07-23T21:30:09Z,2023-07-23T21:30:09Z,9,132,92,"Strongly based on #466 - shoutout to @hrobbins!
+
+What it does:
+Enables using any model that's available in LangChain as backend.
+How to use it:
+
+For gpt4/3.5 it's the same usage, i.e. gpt-engineer <path_to_project> gpt-4
+For other models, you have to provide a <model_name>.yaml file with the model configs. Then gpt-engineer <path_to_project> <model_name> --modeldir <path_to_model_config_file>
+
+How it works:
+
+gpt-engineer search for a <model_name>.yaml and passes its content to LangChain, which then creates the model.
+per default the <model_name>.yaml is searched for in the package folder /models.
+ai.py has been adapted to use LangChain
+
+In the future, more model configs can be added, so more models are available by default.",5,14
+519,2023-07-09T07:48:27Z,,2023-07-09T12:40:56Z,1,19,1,,1,0
+529,2023-07-13T05:12:25Z,,2023-07-16T22:57:53Z,0,0,0,I have created a Dockerfile to build the project into a docker image.,4,0
+532,2023-07-14T23:22:30Z,,2023-07-16T15:31:23Z,2,53,12,,3,2
+538,2023-07-16T23:49:49Z,2023-08-13T08:30:49Z,2023-08-13T08:30:49Z,5,129,0,"There was a problem with the previous pull request I synced the fork and it forced the pull request to get close my bad.
+The previous pull request has some issues that have been pointed out by karlderkaefer the suggested solution didn't work that well forcing the container to run using the current user id and group caused some issues with the code inside the container. But it has been fixed by forcing the owner to nobody after the code generated and most of the generated code seems to prefer Debian distro, so container is using the debian with sudo to run the generated code inside the container.",3,2
+552,2023-07-23T19:12:23Z,,2023-08-13T09:00:09Z,1,1,1,"Hey, So the WINDOW_README.md link is not working in README.md .",4,2
+554,2023-07-25T02:23:16Z,2023-08-12T11:29:37Z,2023-08-12T11:29:37Z,38,5191,6,"GPT-ENGINEER : Documentations
+The first stage of Docs for get-engineer project is included in this PR. The following have been done
+First Stage
+
+Set up sphinx based project documentation
+Generating the Package API docs using a Python Script
+Introduction about the Package
+Both .rst and .md files structures supported
+Re-Factored the pyproject.yml to incorporate docs dependencies.
+
+After Merge to do
+
+ Generate and Host Project Documentation on readthedocs server from main branch
+ Close relevant issue.
+
+Second Stage:
+
+Re-Factor the Package code to include the docstrings
+Add more information and tutorials on using gpt-engineer
+
+@RareMojo thanks for your notes.",4,6
+555,2023-07-25T04:41:29Z,,2023-08-01T18:52:13Z,1,3,4,add optimal timing for Ryan Fullen,2,1
+562,2023-07-31T14:56:34Z,,2023-08-01T18:57:36Z,4,40,38,Optimized some parts of the code which has made it more cleaner.,2,1
+578,2023-08-09T17:58:19Z,2023-08-15T23:29:17Z,2023-08-15T23:29:17Z,6,533,4,"As requested by @AntonOsika I've rebased @leomariga 's ""Improve Existing Codes"" PR #465 to recent changes.
+I tested and it works in ""normal"" mode (generate new code) and it works in Improve Existing Code mode.  Existing code mode works for command line mode as well as the TKInter based GUI.  I ran tests and they all passed (except test_ai.py which has nothing in it.)
+I think there are some existing comments from the PR which could be implemented.  I will check on those.",4,3
+585,2023-08-12T18:41:10Z,2023-08-16T20:16:43Z,2023-08-16T20:16:43Z,9,98,66,"add comments and refactor more intuitive names
+merge generate and use_qa prompts, refactor for clarity
+
+My goal has been to refactor to assist on-boarding new contributor developers to this project.
+It became apparent that the generate and use_qa preprompts were near identical, so for more DRY code, they have been merged
+with roadmap preprompt prepended when needed.
+It also seems the necessary generation of a feedback file is not explained to users, so when a feedback config is launched,
+the program will now quit early with an error.
+I will confess that I have not run the test suite. I am used to pipenv and was not able to figure out
+how to install dependencies from a pyproject.toml file",2,6
+600,2023-08-16T17:42:00Z,2023-08-18T13:56:29Z,2023-08-18T13:56:30Z,4,21,40,"This PR is a cleanup of the Existing Code PR.  In the original implementation there was a dictionary with file names as keys and file full paths as values.  For example:
+main.py --> /Users/boss/gpt-engineer/projects/example/archive/20230816_103041/workspace/main.py
+The problem with this is that there could be collision in the dict if files in different folders have the same name.  (For example util.py in multiple folders could cause a collision).  This dict has been completely removed and now the full paths are passed to the AI and returned.",2,2
+607,2023-08-16T21:19:30Z,,2023-08-20T21:01:41Z,1,19,0,"Description
+This PR adds a new GitHub Actions workflow file to the repository to mark old issues as stale. The workflow runs on a schedule and also when issues are opened or updated. It uses the actions/stale action to handle the marking and closing of stale issues.
+Summary of Changes
+
+Created a new GitHub Actions workflow file named stale.yml in the .github/workflows directory.
+Configured the workflow to run on a schedule (once a day) and when issues are opened or updated.
+Added a job named stale that runs on the latest Ubuntu runner.
+Used the actions/stale action with the following inputs:
+
+days-before-stale: 60 days
+days-before-close: 7 days
+stale-issue-label: 'stale'
+close-issue-label: 'closed due to inactivity'
+stale-issue-message: 'This issue has been automatically marked as stale because it has not had recent activity. It will be closed if no further activity occurs. Thank you for your contributions.'
+close-issue-message: 'This issue has been automatically closed due to inactivity. If you still have this problem, please reopen the issue or create a new one.'
+
+
+
+Please review and merge this PR to enable the automatic marking and closing of stale issues in the repository.
+Fixes #606.
+
+To checkout this PR branch, run the following command in your terminal:
+git checkout sweep/add-stale-action
+To get Sweep to edit this pull request, leave a comment below or in the code. Leaving a comment in the code will only modify the file but commenting below can change the entire PR.",2,9
+614,2023-08-17T21:30:31Z,,2023-08-17T22:38:24Z,5,649,3,"Description
+This PR adds numpy-style docstrings to the functions in the gpt_engineer project, as requested in issue #613. Numpy-style docstrings provide a structured way to document the parameters, return values, and exceptions of a function, improving code readability and maintainability.
+Summary of Changes
+
+Added numpy-style docstrings to functions in the following files:
+
+gpt_engineer/ai.py
+gpt_engineer/chat_to_files.py
+gpt_engineer/collect.py
+gpt_engineer/db.py
+gpt_engineer/steps.py
+
+
+
+The docstrings follow the numpy docstring guide and include a brief description of the function, a list of parameters with their types and descriptions, the return type and description, and any exceptions that the function might raise.
+Please review the changes and let me know if any further modifications are required.
+Fixes #613.
+
+To checkout this PR branch, run the following command in your terminal:
+git checkout sweep/add-numpy-docstrings
+To get Sweep to edit this pull request, leave a comment below or in the code. Leaving a comment in the code will only modify the file but commenting below can change the entire PR.",1,3
+615,2023-08-17T22:46:52Z,2023-08-19T06:38:39Z,2023-08-19T06:38:39Z,5,433,9,"Description
+This PR adds numpy-style docstrings to all functions in the codebase, excluding the main.py file. Numpy-style docstrings provide a standardized format for documenting functions, making the code more readable and maintainable. The docstrings include a brief description of the function, a list of parameters with their types and descriptions, and a description of the return value.
+Summary of Changes
+
+Modified gpt_engineer/ai.py:
+
+Added numpy-style docstrings to all functions.
+
+
+Modified gpt_engineer/chat_to_files.py:
+
+Added numpy-style docstrings to all functions.
+
+
+Modified gpt_engineer/collect.py:
+
+Added numpy-style docstrings to all functions.
+
+
+Modified gpt_engineer/db.py:
+
+Added numpy-style docstrings to all functions.
+
+
+Modified gpt_engineer/learning.py:
+
+Added numpy-style docstrings to all functions.
+
+
+
+Please review and merge this PR to improve the documentation of the codebase.
+Fixes #613.
+
+To checkout this PR branch, run the following command in your terminal:
+git checkout sweep/add-numpy-docstrings
+To get Sweep to edit this pull request, leave a comment below or in the code. Leaving a comment in the code will only modify the file but commenting below can change the entire PR.",1,5
+620,2023-08-18T09:28:10Z,,2023-08-20T20:32:25Z,2,21,8,"Description
+This PR fixes the error that occurs when answering the question 'Did the generated code do everything you wanted?' in the gpt-engineer tool. The error is caused by the learning data exceeding the maximum allowed size when sending it to Rudder Analytics. This PR reduces the size of the learning data and splits it into smaller chunks to avoid the error.
+Summary of Changes
+
+Modified the send_learning function in collect.py to catch the RuntimeError exception and split the learning data into smaller chunks before sending it to Rudder Analytics.
+Modified the extract_learning function in learning.py to reduce the size of the learning data by removing unnecessary data or reducing the precision of the data.
+
+Fixes #618.
+
+To checkout this PR branch, run the following command in your terminal:
+git checkout sweep/fix-learning-data-size
+To get Sweep to edit this pull request, leave a comment below or in the code. Leaving a comment in the code will only modify the file but commenting below can change the entire PR.",2,11
+629,2023-08-22T06:53:29Z,,2023-09-02T13:22:25Z,1,57,0,,4,7
+640,2023-08-28T21:19:51Z,2023-08-29T15:04:49Z,2023-08-29T15:04:49Z,5,51,12,"Hi, I'm not sure about the long term strategy how further LLMs might be integrated into gpt-engineer, but for now, I've created an easy Azure OpenAI Service integration.
+A couple of people already asked in the issues and since LangChain already supports it, it's quite easy to integrate. #325 #530
+For the future, there might be a better way to integrate various LLMs, but for now I think a simple --azure parameter is as easy as it gets.
+In addition, I moved the check_consent higher in human_review_input so all the other questions can be skipped.
+The Azure OpenAI integration has been tested and works. I couldn't test the OpenAI (default) variant though.",2,0
+697,2023-09-14T17:51:00Z,2023-09-14T19:05:56Z,2023-09-14T19:05:56Z,1,3,1,"Got errors when using the API for the AutoGPT benchmarks, because the GETs dont include the additional_information property. This PR fixes that issue.",2,0
+698,2023-09-15T08:18:26Z,2023-09-26T17:34:29Z,2023-09-26T17:34:29Z,5,126,32,,2,4
+699,2023-09-15T09:34:05Z,2023-09-15T19:11:49Z,2023-09-15T19:11:49Z,5,104,55,Zero temperature for more reproducibility + exposing the reporting function so that we get a report also from code gen evals.,2,0
+706,2023-09-16T18:13:33Z,2023-09-17T09:32:08Z,2023-09-17T09:32:08Z,2,21,0,"Cost conscious users would want to monitor their api usage.
+Prints the total cost at the end:
+...
+If you have time, please explain what was not working (ok to leave blank)
+
+Total api cost: 0.30204",3,1
+715,2023-09-18T06:32:00Z,2023-09-19T23:53:50Z,2023-09-19T23:53:50Z,2,10,12,"#708 and #703
+tldr: clarification flow is confusing for user and adds unnecessary information that confuses GPT.
+Note: does not make the list of clarifications anymore.
+I would love feedback on whether this could cause unexpected consequences.",2,3
+717,2023-09-18T12:06:20Z,2023-09-18T18:32:23Z,2023-09-18T18:32:23Z,1,1,2,,3,1
+724,2023-09-19T23:03:33Z,2023-09-20T12:20:08Z,2023-09-20T12:20:08Z,1,1,1,"There was a trailing > in this link that borked it.
+Dope project, btw.",2,0
+726,2023-09-20T14:10:00Z,2023-09-21T13:08:46Z,2023-09-21T13:08:46Z,1,2,0,"Makes it clearer where we are actually running, especially if we're run without an explicit path as it defaults to projects/example",2,0
+727,2023-09-20T22:17:55Z,2023-10-26T21:30:17Z,2023-10-26T21:30:17Z,3,106,0,"A working version of self-healing code.  This is a single step which can be added to the end of other chains using one of the gens.    This is part of a solution to #682
+Attempts to execute the code from the entry point and if it fails, sends the error output back to the AI with instructions to fix.
+This code will make MAX_SELF_HEAL_ATTEMPTS to try and fix the code before giving up.
+This makes the assuption that the previous step was gen_entrypoint, this code could work with simple_gen, or gen_clarified_code as well.  We just need a way to specify which step was used to create the code.
+Additionally similar code can be used to execute unit tests and run them.",5,2
+732,2023-09-22T15:09:42Z,2023-09-22T17:27:52Z,2023-09-22T17:27:52Z,1,4,0,,2,0
+737,2023-09-23T09:21:35Z,2023-09-24T08:24:44Z,2023-09-24T08:24:44Z,5,5,117,"Solves #656
+Kept them on the experimental branch",2,0
+740,2023-09-24T09:28:01Z,2023-09-25T06:29:12Z,2023-09-25T06:29:12Z,1,21,1,"Hey everyone 👋,
+thanks for the great project. I found some things that I believe can benefit the project.
+env file loading
+I use pyenv and pyenv-virtualenv and I noticed that my pip installed gpt-engineer always tries to load the .env from its site-packages directory and searches up to the root. My project is located somewhere else, so it did not find my .env. I introduced a small change that as a fallback, if the .env file isn't found before, will attempt to find it in the current working directory. (c834e69 and ac4cac6)
+preprompt management
+I noticed that the preprompts are part of the project itself and a change inside my venv directory would a) be overwritten by an update and b) be global. I wanted to have project specific preprompts so I implemented them. I noticed that the DB class cannot handle kind of a ""merged"" path so that only the files that I want to overwrite would come from the project specific directory so I decided to copy all existing files to the project so that when the preprompts would be updated in the future (inside gpt-engineer itself) they would be copied over to the project directory.
+In order to test this feature and because I don't know every implication of the preprompts yet, I changed all of them inside my example project to say You do not code, you only shout back at people and it looks like this:
+gpt-engineer --use-project-preprompts projects/example                                               
+I'M SORRY, BUT I CAN'T HELP YOU WITH THAT. I DON'T CODE, I ONLY SHOUT BACK AT PEOPLE!It seems like there's a misunderstanding. Could you please provide the actual information about the codebase?
+
+gpt-engineer projects/example           
+To implement the game Snake in Python using the MVC (Model-View-Controller) design pattern, we will need several classes and files. The game will be controlled using the keyboard. Here are the core classes and their purposes: …
+
+Future steps if this PR is accepted
+
+ doc enhancement
+ tests",3,1
+749,2023-10-01T09:28:19Z,2023-10-12T10:47:59Z,2023-10-12T10:47:59Z,12,150,165,"Solves the question raised in #721:
+The entire project folder is now the workspace. Everything else is moved into the .gpteng folder.
+This includes:
+
+The prompt is first searched for in .gpteng, then in the project path, then asked for via input
+The all_output.txt is moved into .gpteng/memory
+
+With this, the create project and improve project workflows now assume the same workspace structure.",5,6
+766,2023-10-04T16:16:20Z,2023-10-05T12:29:14Z,2023-10-05T12:29:14Z,21,1273,403,"Resolves issue #718 and enhances documentation of each refactored module.
+Tests running successfully on refactored codebase, with the exception of the misimplemented (missing) test for the AI module",3,3
+777,2023-10-09T15:04:23Z,,2023-10-10T10:54:45Z,8,125,44,I noticed that if i created a project with gpt engineer - then attempted to improve it this didn't work. There was a bug which meant changes to files were being written to workspace/workspace. To fix i have set the workspace to the root folder in improve mode. However this meant i had to move the all_output.txt files to the memory folder otherwise the improve steps couldn't find it.  As this was listed in the code as TODO that didn't seem to be too much of a liberty for fixing this bug.,1,3
+806,2023-10-17T01:12:58Z,2023-10-17T16:59:41Z,2023-10-17T16:59:41Z,4,128,58,"This PR fixes Issue #786.  It also revises, consolidates and simplifies the data collection consent workflow.
+
+There is now only 1 function to check for user consent for data collection:  cli/learning.py:check_collection_consent()
+There is now only 1 function to interact with the user to obtain consent for data collection:  cli/learning/ask_collection_consent()
+Tests for each of these have been written in tests/test_collection_consent.py
+
+As noted in the revised Terms of Use in PR #797, GPTE no longer uses the COLLECT_LEARNINGS_OPT_OUT environment variable; rather, uses the .gpte_consent file to manage user opt-in to data collection. This has been streamlined in this PR.
+Updated preexisting test in tests/test_collect.py to reflect implementation of new data collection consent workflow (i.e. it solely tests the actual collection of data rather than checking for consent, as this is handled in the new workflow tests)
+All tests successfully execute, with the exception of the (mis-implemented) test_ai.py.",3,3
+820,2023-10-25T06:41:13Z,2023-10-26T12:09:04Z,2023-10-26T12:09:04Z,8,273,319,,2,1
+828,2023-10-28T19:01:42Z,,2023-10-30T09:46:47Z,31,747,95,"EDIT: Moved here with correct contribution email address : #830
+This is a first pass at using a vector store to automatically retrieve files from a code repository based on their relevance to the prompt.
+
+Uses llama index for the vector store abstraction
+Implements a code splitter (with most of the code taken from llama index) which depends on tree sitter library
+Creates a new step set called VECTOR_IMPROVE to run this improve which is run with the -vi argument
+Finds 2 relevant snippets then feeds in the entire file for those snippets
+Also provides a list of all code files in the repository to provide wider context
+
+Theres a lot more work to do in this area, but I think the scope of this work is enough to merge on its own pending review etc. It works for me for at least small use cases like snake, so seems be a good place to hand over to others to have  a play around with?
+Some ideas of what to do next:
+
+The whole vector store piece needs lots of refining and is largely untested on large repositories etc. An obvious limitation is that its currently hard coded to retrieve 2 snippets, and return the files those snippets are in. So a maximum of 2 files will be fed to the LLM. Possibly we would want to load as many files as possible within the token limit?
+Other improvements we might want to look into would be an improved ranking of snippets based on connectedness ? connectness of functions is currently calculated in aider
+An improved high level context. Aider uses tree sitter to sumarise each file into methods and classes, and analyses the connectness and then returned a summaries tree representation of the most important parts of the code.
+refine the retrieval algorithms - to work better for code and possibly to include additional meta data in the query
+expand the vector store to include non code files",1,2
+830,2023-10-30T09:44:26Z,2023-11-03T12:29:07Z,2023-11-03T12:29:07Z,34,2564,110,"This is a first pass at using a vector store to automatically retrieve files from a code repository based on their relevance to the prompt.
+
+Uses llama index for the vector store abstraction
+Implements a code splitter (with most of the code taken from llama index) which depends on tree sitter library
+Creates a new step set called VECTOR_IMPROVE to run this improve which is run with the -vi argument
+Finds 2 relevant snippets then feeds in the entire file for those snippets
+Also provides a list of all code files in the repository to provide wider context
+
+Theres a lot more work to do in this area, but I think the scope of this work is enough to merge on its own pending review etc. It works for me for at least small use cases like snake, so seems be a good place to hand over to others to have  a play around with?
+Some ideas of what to do next:
+
+The whole vector store piece needs lots of refining and is largely untested on large repositories etc. An obvious limitation is that its currently hard coded to retrieve 2 snippets, and return the files those snippets are in. So a maximum of 2 files will be fed to the LLM. Possibly we would want to load as many files as possible within the token limit?
+Other improvements we might want to look into would be an improved ranking of snippets based on connectedness ? connectness of functions is currently calculated in aider
+An improved high level context. Aider uses tree sitter to sumarise each file into methods and classes, and analyses the connectness and then returned a summaries tree representation of the most important parts of the code.
+refine the retrieval algorithms - to work better for code and possibly to include additional meta data in the query
+expand the vector store to include non code files",6,7
+838,2023-11-05T12:01:02Z,2023-11-05T20:03:36Z,2023-11-05T20:03:36Z,1,6,1,,2,1
+864,2023-11-23T10:59:26Z,,2023-12-04T10:18:54Z,93,3157,2704,"And here it comes! The request to merge the refactored gpt-engineer into main.
+Main changes:
+
+Agent classes working as main interface to applications
+Most operations now in-memory (though executions are still on disk)
+No longer a unified Step interface
+New file structure
+Much better test coverage
+and probably much more that I fail to think of now!
+
+Reviews highly appreciated!",6,2
+879,2023-11-30T18:59:42Z,,2023-12-01T15:53:40Z,1,25,24,,3,2
+880,2023-11-30T20:00:13Z,,2023-12-01T08:26:53Z,1,11,11,"Improved the grammar of the README.md file. Nothing too big, but should make it easier to read.",3,2
+886,2023-12-03T19:13:05Z,2023-12-08T18:02:23Z,2023-12-08T18:02:23Z,102,7641,2846,This PR adds Poetry as the package and dependency manager for GPT Engineer!,6,4
+923,2023-12-21T01:54:27Z,,2024-02-22T18:51:38Z,4,101,27,"Two steps to run (after getting a Langsmith API Key)
+
+Upload dataset (currently just using the existing benchmark)
+
+python langsmith_evals --action upload
+
+Run eval
+
+python langsmith_evals --path-to-agent gpt_engineer/core/default/simple_agent.py
+Results example: https://smith.langchain.com/public/21c3303f-a093-4e0d-984b-6a4d810c9af5/d",3,5
+936,2023-12-25T18:13:11Z,2024-01-02T19:51:57Z,2024-01-02T19:51:57Z,1,12,5,,3,2
+937,2023-12-27T02:19:17Z,2024-01-07T20:04:55Z,2024-01-07T20:04:55Z,5,283,417,"Implement Tree-Style File Selection
+Introduced a tree-style file selection method, allowing users to easily select files via a .toml configuration file. This update includes:
+
+Removal of the graphical file selection dependency.
+Implementation of a tree representation for file selection.
+Direct editing of file selection through the user's default text editor.
+Enhanced feedback by displaying selected files in a tree-style format before proceeding.
+
+This update enhances usability for terminal-based interactions and streamlines the file selection process. Below is the gif for the feature:",4,35
+944,2023-12-31T03:24:35Z,2024-01-03T22:53:10Z,2024-01-03T22:53:10Z,1,1,1,"pyton3.11-slim no longer includes gcc.
+Add gcc via apt install instead of finding an alternative (possibly less slim) base Docker image",2,0
+949,2024-01-02T12:42:43Z,,2024-01-02T20:08:29Z,3,147,167,"This is one commit ahead of #937
+My fixes to the tests. Feel free to integrate these change in your original PR #937 and we can continue there @similato87",2,5
+965,2024-01-14T04:43:56Z,,2024-02-11T04:24:45Z,9,537,466,"Update to File Handling and Improve Preprompt Parsing
+Overview
+This PR introduces significant updates to the file_to_chat and file_dict modules in the gpt-engineer project, along with aligning the improve function with the new preprompt guidelines.
+Changes
+file_dict.py
+
+Updated the FilesDict class's to_chat method to format file contents in the new diff syntax as required by the latest improve preprompt.
+Ensured that each file's content is outputted in a clear and unambiguous manner, adhering to the diff syntax with line numbers and +/- indicators.
+
+chat_to_files.py
+
+Refined the parse_edits function to accurately parse and handle the new diff format from the chat content.
+The function now effectively segregates the 'before' and 'after' parts of each edit and associates them with the corresponding filename.
+Additional error handling and logging are added to ensure robustness in edit parsing.
+
+Improve Preprompt Update
+
+The preprompt for the --improve function has been revised to conform with the new diff syntax requirements.
+Planning and Output sections are updated to ensure clear and precise guidance for code changes.
+Examples provided in the preprompt illustrate the correct use of the new diff format for adding, modifying, and deleting code.
+
+Motivation
+
+These changes align with Issue#869: #869 , we aim to enhance clarity and reduce errors in code improvement workflows.
+Also fix other issue caused by this, such as Issue#841: #841",2,15
+972,2024-01-17T11:59:24Z,2024-01-19T10:59:06Z,2024-01-19T10:59:06Z,1,1,1,Resolves: #971,2,0
+979,2024-01-19T08:11:10Z,2024-01-19T18:09:38Z,2024-01-19T18:09:38Z,9,98,93,"Wanted to get rid of deprecatiation warnings and used gpt engineer to improve itself and it was quite productive
+Had to first improve the file selector flow
+Should be much better now!",4,2
+983,2024-01-21T14:24:39Z,2024-01-22T13:15:49Z,2024-01-22T13:15:49Z,10,18,18,,3,1
+984,2024-01-21T22:07:25Z,2024-01-24T15:50:54Z,2024-01-24T15:50:54Z,2,5,7,,3,1
+988,2024-01-23T14:32:26Z,2024-01-30T12:07:52Z,2024-01-30T12:07:52Z,2,39,32,"My attempt here was to update the Quick overview section of the docs, since it seems to be out of date.
+Here are the summary of the changes:
+
+Attempted to update the core components to reflect new structure
+Removed references to old classes and functions and updated the file paths
+Added in-page anchors when required
+
+I also documented a command to run the docs with live reload, which will make it easier to work with them locally.",4,3
+991,2024-01-25T10:31:26Z,2024-02-05T19:27:40Z,2024-02-05T19:27:40Z,6,201,170,"This addresses task 1 of this issue: #990
+Here are the main changes:
+
+The api_reference.rst is now up-to-date after running the create_api_rst.py locally and committing the generated files. Not sure it makes sense to commit all these files or if we simply want to generate them when we build the project
+Ensure that we run the create_api_rst.py script in the pre_build step. I think this makes sense, but please let me know if you thing differently. I took inspiration from how the langchain project seems to have solved this
+
+Update 1 - Did the two following changes:
+
+Bumped sphinx to 5.0.0, after removing non-maintained package sphinx_panels that required an older version of sphinx
+Mocked two packages that are installed as experimental, since these where causing an error when building the docs, since the packages were expected to be installed.
+
+Update 2 - Did the following change:
+
+Ensures the auto-generated docs are not commited to version control",2,0
+994,2024-01-31T13:26:45Z,2024-02-13T19:24:32Z,2024-02-13T19:24:33Z,39,1689,430,"This PR generated the docstrings in the NumPy style for all the code. In some cases it also updates outdated docstrings.
+As suggested by @ATheorell, I used gpt-engineer CLI to generate all of docstrings.
+This will properly populate the API reference section of the gpte-engineer docs (see image below):
+
+I think we should try to merge this PR before, that fixes the documentation build before merging this one as described in the original issue.",2,3
+999,2024-02-06T10:34:14Z,2024-02-09T20:08:44Z,2024-02-09T20:08:44Z,15,8,974,"Hi,
+The sphinx documentation build was failing because of a exception: no module named xxxx error caused by an external dependencies (in this case lama-index) not being available at build time and breaking the building process when running:
+python -m sphinx -T -b html -d _build/doctrees -D language=en . $READTHEDOCS_OUTPUT/html
+
+This PR fixes this error, by properly mocking the llama-index package.
+UPDATE:
+I ended up taking @ATheorell suggestion and have tried deleting all the experimental dependencies + code that depends on them.",2,3
+1001,2024-02-08T20:59:09Z,2024-02-23T17:56:29Z,2024-02-23T17:56:29Z,6,236,10,"Adds a basic git integration for filtering files and avoiding overwriting files accidentally, includes:
+
+use gitignore to filter files from the edit list
+Initially I used fnmatch since it's builtin but unfortunately it differs too much from the git implementation to be useful. Instead it will use git check-ignore.
+give a warning if gptengineer is about to override uncommitted changes, letting the user stage them
+It will check whether there is any overlap between the edited files and uncommitted files (whether they are tracked by git or not) and ask whether the files should be staged before being overwritten.
+Add --yes CLI option
+if not improve and git is installed we will initialize an empty git repo at the project root
+Also fixed a trailing whitespace issue in ROADMAP that caused prechecks to fail
+
+It will do a O(n^2) op when comparing file names against the gitignore. This might be unpractical if the user has a lot of ignored files, I'm not sure?",5,7
+1017,2024-02-15T14:45:48Z,,2024-02-22T08:15:48Z,2,2,2,,3,3
+1025,2024-02-21T21:39:35Z,,2024-03-05T16:22:58Z,0,0,0,"This PR adds an ability to benchmark gpt-engineer on problems given in APPS dataset
+
+How to run?
+python3 gpt_engineer/benchmark gpt_engineer/core/default/simple_agent.py apps
+Original Issue: #819",3,1
+1037,2024-02-28T08:21:28Z,2024-03-06T16:24:07Z,2024-03-06T16:24:07Z,7,934,783,Solves #1036,2,1
+1043,2024-03-04T10:39:07Z,2024-03-13T18:27:41Z,2024-03-13T18:27:41Z,2,303,0,"Here is an implementation of the proposed gpt-engineer.toml configuration file as I mentioned in the last meeting and as discussed in #1023
+Work is needed to fully integrate/implement use of the configuration.
+Comments/review welcome!",4,8
+1045,2024-03-04T14:10:09Z,2024-03-09T18:24:07Z,2024-03-09T18:24:07Z,5,84,71,"I have noticed that the current preprompts for the improve flow sometimes leads to lazy behavior, in the sense that no or little code is written. In this PR, I have aligned the preprompts as much as possible with the generate workflow, which we know is not lazy. I hope this will lead to tangible improvements and hopefully we can soon test the actual improvement using the apps benchmarks which is about to be supported (#1025).",4,5
+1051,2024-03-07T17:23:47Z,2024-03-23T12:22:15Z,2024-03-23T12:22:15Z,8,539,18,"Integrate APPS dataset for benchmarking.
+Changes:
+
+I faced a few git diff related errors while parsing LLM's response which I wrapped into DiffError. I ignore such error and continue running. I guess that's a temporary change until we polish git diff feature
+Also there was regex dependency added in order to timeout endless regex matching inside parse_diffs function. (done in #1067)
+run.py had to be adjusted to work with multiple commands/inputs as APPS might provide multiple inputs and outputs per problem
+
+How to run?
+python3 gpt_engineer/benchmark gpt_engineer/core/default/simple_agent.py apps
+I tried to run it on first 50 problems, here is the output (total time is not right, because generated code is cached from previous runs)
+--- Results ---
+Total time: 0.38s
+Completely correct tasks: 12/50
+Total correct assertions: 229/500
+Average success rate: 45.79999999999998% on 50 tasks
+--- Results ---",3,11
+1057,2024-03-09T23:14:56Z,,2024-03-21T08:44:28Z,18,275,133,,3,4
+1066,2024-03-17T14:54:32Z,,2024-03-20T13:51:02Z,23,829,413,A duplicate of #1054 on the main repository,2,3
+1077,2024-03-19T19:18:21Z,2024-03-20T18:07:24Z,2024-03-20T18:07:24Z,30,1028,499,"This is a continuation of PR #1066, which in addition to providing command line arguments to provide a custom prompt file and a directory with images, also allows the user to pass a prompt to generate entry point.
+I suggest that we continue with #1066 here @TheoMcCabe
+Unfortunately, the PR has drifted a bit and now contains substantial changes",2,2
+1082,2024-03-21T17:58:54Z,2024-04-08T12:39:44Z,2024-04-08T12:39:44Z,5,198,6,"This PR resolves the issue 943 by adding an explanation on how to use openLLMs.
+Overview of changes:
+
+minor change in gpt_engineer/applications/cli/main.py to work with open models.
+Rewritten docs/open_models.md
+Added docs/examples to help users test if their LLM setup works.
+
+Feel free to let me know if anything is unclear or has to be modified.
+Including the relevant reviewers: @ErikBjare @captivus @ATheorell @viborc",4,4
+1083,2024-03-21T18:26:50Z,,2024-03-22T17:56:03Z,2,22,25,I think we should not merge this until @ATheorell thinks it is a good idea!,3,1
+1096,2024-04-01T11:19:07Z,2024-04-02T23:37:22Z,2024-04-02T23:37:22Z,1,12,5,The gptme benchmarking suite uses strings for prompts which causes an error because agent#improve assumes it's a Prompt object.,3,2
+1098,2024-04-02T15:22:09Z,,2024-04-04T17:37:07Z,2,129,1,"Added the infrastructure including the v1/completions Ollama Endpoint (Open AI compatible, just replace the APIs endpoint) Multi threaded loading of the Models from a local or remote server. (In progress) Parallel Visualization of 4 active agents including display of resource consumption per each Ollama model in real time Use of Quantized, highly focused trained mixture of models to achieve many correct fast interactions thus improving the final desired result - i call it (""Decentralized Mixtral 8x7b"") <- which is by far my favorite model - by mistral AI",4,10
+1103,2024-04-03T21:08:27Z,2024-04-05T17:04:05Z,2024-04-05T17:04:05Z,7,148,1,"Solves #914
+Run with python3 gpt_engineer/benchmark gpt_engineer/core/default/simple_agent.py mbpp
+Here are my results running for the first 47 tasks using gpt-4-0125-preview model
+--- Results ---
+Total time: 465.19s
+Completely correct tasks: 40/47
+Total correct assertions: 123/142
+Average success rate: 86.52482269503545% on 47 tasks
+--- Results ---",5,2

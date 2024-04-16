@@ -1,0 +1,614 @@
+number,created_at,merged_at,closed_at,files,additions,deletions,body_text,participants,comments
+152,2016-11-07T01:53:33Z,2016-11-08T16:14:33Z,2016-11-08T16:14:33Z,9,52,4,,2,0
+183,2016-12-18T17:25:08Z,2016-12-19T13:30:44Z,2016-12-19T13:30:44Z,39,5156,79,finish #37 #119,2,0
+187,2016-12-21T04:10:58Z,2016-12-21T06:04:16Z,2016-12-21T06:04:16Z,3,260,28,,2,0
+207,2016-12-30T08:28:24Z,2016-12-30T10:01:03Z,2016-12-30T10:01:03Z,4,47,0,,2,0
+320,2017-05-18T16:01:13Z,2017-05-18T18:05:34Z,2017-05-18T18:05:34Z,4,139,42,,2,0
+375,2017-06-21T06:47:40Z,2017-06-21T10:50:48Z,2017-06-21T10:50:48Z,1,2,2,Fix incorrect filenames,2,0
+390,2017-07-04T15:06:16Z,2017-07-04T17:27:42Z,2017-07-04T17:27:42Z,1,1,1,fix a typo,2,1
+454,2017-09-06T04:57:38Z,2017-09-06T06:07:37Z,2017-09-06T06:07:37Z,1,21,0,实在是抱歉。第一次提交开源代码，对Github的PR实在是不熟。,2,1
+455,2017-09-06T16:30:00Z,,2018-03-29T05:59:09Z,1,53,21,利用命令行来配置frps 而不需要配置文件,2,3
+473,2017-09-26T13:07:38Z,2017-09-27T16:55:18Z,2017-09-27T16:55:18Z,2,2,2,fix spelling error in README file,2,1
+486,2017-10-20T07:58:38Z,2017-10-20T09:12:47Z,2017-10-20T09:12:47Z,1,8,14,Optimize duplicate code,2,0
+539,2017-11-28T08:33:08Z,2017-11-29T02:34:37Z,2017-11-29T02:34:37Z,3,15,3,"类似（但不是一个功能）场景及讨论 #327 #371 ，此 PR 用于解决 dashboard 默认采用 frps 的监听 ip 不够灵活的问题。
+
+服务器多网卡。对外提供服务的网卡和 dashboard 监控网卡分离，因为业务上没有绑定在一起的必然性。
+权限问题。监听 127.0.0.1 只用于本地或者 nginx 反代等特定方式访问，或仅用于内网等场景的访问。虽然防火墙能够做到，但此功能不应与防火墙耦合。对外暴露的验证也不是绝对的安全。实现场景类似 tomcat 默认的 manager 及 host-manager 配置，需手动添加授权用户且默认只允许 127.0.0.1 本地访问。
+Issues 只有反应问题的模板，以 dashboard 为关键字并没有搜索到类似情况，所以直接申请 PR，请见谅。",2,0
+596,2018-01-08T05:57:54Z,2018-01-10T02:36:28Z,2018-01-10T02:36:28Z,1,1,0,"I think sans-serif fonts are more suitable to this page.
+Set a font-family to body will do the work.",2,1
+646,2018-02-27T04:02:41Z,2018-02-27T15:14:16Z,2018-02-27T15:14:16Z,2,5,1,This creates both amd64 and 386 packages for FreeBSD.,2,0
+688,2018-04-04T06:38:50Z,2018-04-10T09:57:27Z,2018-04-10T09:57:27Z,3,148,0,against issue #636,2,0
+726,2018-04-28T02:38:42Z,2018-05-02T13:51:03Z,2018-05-02T13:51:03Z,1,8,4,1、目前 server 对命令行解析出错或者配置文件解析出错时，这个 error 会被忽略掉，从而导致仍然使用 default 的配置,2,0
+744,2018-05-05T20:19:36Z,2018-05-06T14:54:00Z,2018-05-06T14:54:00Z,1,1,1,,2,0
+807,2018-06-06T16:40:46Z,2018-06-08T02:52:05Z,2018-06-08T02:52:05Z,1,14,0,"I want to run multiple frpses on one host as a service, this option allows me to cover my scenario without create/update/secure config files for each service customer.",2,0
+814,2018-06-08T13:37:26Z,2018-06-08T14:51:13Z,2018-06-08T14:51:13Z,1,1,1,Update the log information of xtcp when Accept() error occur,2,0
+875,2018-08-03T11:42:11Z,2018-08-06T07:20:10Z,2018-08-06T07:20:10Z,5,177,15,for issue: 希望frpc登陆支持websocket协议 #871,2,5
+879,2018-08-06T14:27:43Z,,2018-08-08T02:51:17Z,4,19,1,"The problem of long connection for more than 30 seconds and disconnection of the server
+#770",2,2
+886,2018-08-10T03:46:43Z,2018-08-10T08:36:03Z,2018-08-10T08:36:03Z,12,1480,57,,3,0
+891,2018-08-12T07:10:09Z,2018-08-12T14:04:50Z,2018-08-12T14:04:50Z,1,1,1,"Same as #684
+I tested with:
+docker build -t frp -f Dockerfile_multiple_build .
+then
+Successfully built de3d1be831d2
+Successfully tagged frp:latest
+
+I like Dockerfile_multiple_build, since it provide small image size 😄",2,0
+947,2018-10-19T19:01:31Z,2018-10-29T02:16:59Z,2018-10-29T02:16:59Z,1,1,0,,2,2
+955,2018-10-24T22:58:09Z,2018-10-25T02:43:02Z,2018-10-25T02:43:02Z,1,1,1,I think this reads nicer and more accurately describes the HTTP reverse proxying.,2,1
+974,2018-11-16T04:54:03Z,2018-11-19T02:55:22Z,2018-11-19T02:55:22Z,1,1,1,"Fix setting basic auth password doc
+http_passwd doesn't work it should be http_pwd",2,1
+1048,2019-01-16T05:13:42Z,2019-01-16T06:34:21Z,2019-01-16T06:34:21Z,2,16,2,"frpc: fixup ini config parse problem in sub command status and reload
+problem:
+when run frpc -c /path-to/frpc.ini status or frpc -c /path-to/frpc.ini reload,
+we'll get the error result:
+
+parse ini conf file error: invalid INI syntax on line 1: /path-to/frpc.ini
+
+since func parseClientCommonCfg(fileType int, content string) (err error)
+only accept file content, not a filename.
+we should call config.GetRenderedConfFromFile first to avoid the problem.
+just like the code in cmd/frpc/sub/root.go:
+	content, err = config.GetRenderedConfFromFile(cfgFilePath)
+	if err != nil {
+		return
+	}
+	g.GlbClientCfg.CfgFile = cfgFilePath
+
+	err = parseClientCommonCfg(CfgFileTypeIni, content)",2,0
+1082,2019-02-11T10:06:15Z,,2019-02-12T03:32:11Z,1,3,2,在frps前加了nginx，匹配domain和location时出错。需要记录domain和location的值。,2,0
+1147,2019-03-21T03:44:07Z,2019-03-21T09:46:37Z,2019-03-21T09:46:37Z,4,54,0,"Ref #1058
+Ref https://aur.archlinux.org/packages/frp/
+Co-authored-by: vimsucks dev@vimsucks.com",2,0
+1271,2019-05-30T14:33:50Z,2019-05-31T16:44:04Z,2019-05-31T16:44:04Z,4,134,118,"whether it's success or fail, otherwise it will cause memory leak
+ref: https://golang.org/pkg/net/http/",2,1
+1275,2019-06-01T02:09:32Z,2019-06-02T13:22:29Z,2019-06-02T13:22:29Z,1,1,1,replace the _,2,0
+1382,2019-08-13T13:15:51Z,2019-08-14T13:00:17Z,2019-08-14T13:00:17Z,4,18,0,,2,1
+1395,2019-08-19T17:12:24Z,2019-08-20T03:03:06Z,2019-08-20T03:03:06Z,2,14,15,"(This PR contains the same changes as #1391, but now is based off the dev branch instead of master)
+The client and server services now only attempt to load assets if the dashboard or admin panel are enabled. This change makes it possible to use FRP as a library without having to manage assets.
+If a library user wants to start a server with the dashboard enabled, they will need to set the DashboardPort and AssetsDir fields of ServerCommonConf.
+If a library use wants to start a client with the admin panel enabled, that isn't currently possible because there's no way to customize the admin panel's assets directory. I can send a PR for that as well if there's interest.
+Related: #1387",2,1
+1396,2019-08-19T23:17:16Z,2019-08-20T16:30:03Z,2019-08-20T16:30:03Z,14,117,149,"The ServerCommonConf is now passed around as an argument instead of being shared between components as a global variable. This allows for more natural interaction with server.Session as a library and allows for multiple servers to co-exist within the same process.
+This on its own is not an ideal solution because a lot more information is being passed around than is necessary. Splitting up this configuration information may be done as a future step by @fatedier.
+Related: #1387",2,1
+1397,2019-08-20T00:23:30Z,2019-08-20T03:06:13Z,2019-08-20T03:06:13Z,5,24,15,"This option allows users to specify where they want assets to be loaded from, like the ""assets_dir"" option that already exists for frps. This allows library users to use the admin panel without having to bundle assets with statik.
+This PR is based off of the branch from #1395, so that PR should be reviewed first.
+Related: #1387",2,0
+1401,2019-08-20T21:21:51Z,2019-08-21T16:14:57Z,2019-08-21T16:14:57Z,19,162,164,"The ClientCommonConf, configuration file path, and server UDP port are now passed around as arguments instead of being shared between components as global variables. This allows for multiple clients to exist in the same process, and allows client.Session to be used as a library more easily.
+This is similar to #1396 but for the client side, and comes with the same caveats.
+Related: #1387",2,0
+1408,2019-08-24T22:29:33Z,2019-08-25T13:15:33Z,2019-08-25T13:15:33Z,4,261,73,"Now that the common configuration objects and session objects are part of a public API, they need to be documented in a way that can be read with GoDoc.
+This documentation is not yet complete on the client side. I still need to write documentation for the specific proxy objects like TcpProxyConf and HttpProxyConf, but I figured this was enough to review for one pull request.
+I documented these fields to the best of my ability but I'm sure I got some details wrong. Please let me know what I can clarify and improve.
+Related: #1387",2,0
+1417,2019-08-30T12:51:20Z,,2019-11-24T18:30:27Z,3,136,0,issue #1366,2,3
+1419,2019-08-31T05:31:45Z,,2019-08-31T13:16:30Z,1,14,18,,2,0
+1420,2019-08-31T13:26:23Z,2019-09-01T12:49:14Z,2019-09-01T12:49:14Z,1,13,13,fix #1347,2,0
+1451,2019-10-01T19:59:03Z,2019-10-10T02:54:10Z,2019-10-10T02:54:10Z,1,45,45,,3,1
+1458,2019-10-11T06:35:21Z,,2019-11-08T10:12:00Z,4,12,0,"If not,when frp too much connection,report an error:“accept4: too many open files”,then crash.",2,1
+1460,2019-10-13T21:51:07Z,2019-10-15T05:52:14Z,2019-10-15T05:52:14Z,1,169,170,"I fixed some typos and grammar issues in the README.md file, especially in some headers. I rewrote some parts of the doc.",2,0
+1465,2019-10-15T04:21:33Z,2019-10-15T16:51:27Z,2019-10-15T16:51:27Z,1,1,0,"Description
+A mutex mu is locked at line 115 of udp.go, and unlocked at line 124. However, there is a continue at line 120 if err != nil, and there is no unlock before this continue. So if the continue is executed, there will be a double lock bug.
+How it is fixed
+Add an mu.Unlock() before the continue.",2,0
+1495,2019-11-02T17:23:05Z,2019-11-08T13:05:13Z,2019-11-08T13:05:13Z,14,719,13,,2,0
+1510,2019-11-11T22:41:49Z,2019-11-12T06:02:49Z,2019-11-12T06:02:49Z,1,2,0,Remade existing PR to dev branch,3,0
+1529,2019-11-20T13:05:18Z,2019-11-22T07:25:02Z,2019-11-22T07:25:02Z,2,115,0,,2,0
+1556,2019-12-08T13:44:48Z,,2020-04-16T23:50:31Z,7,358,1,prometheus monitor,6,6
+1597,2020-01-06T20:31:27Z,,2020-04-16T23:49:53Z,1,28,0,,2,0
+1605,2020-01-09T04:16:42Z,,2020-05-10T03:21:11Z,2,6,4,,3,0
+1643,2020-02-10T17:15:46Z,2020-02-11T05:57:04Z,2020-02-11T05:57:04Z,5,111,2,Enforce connections received by FRPS to be TLS only (not plain) if configured,2,0
+1644,2020-02-10T17:31:31Z,2020-02-12T02:39:04Z,2020-02-12T02:39:04Z,4,51,32,,2,3
+1661,2020-02-17T09:24:14Z,2020-03-05T13:47:50Z,2020-03-05T13:47:50Z,22,565,26,Use HTTP CONNECT headers on a single port to receive connections to any proxy,3,7
+1666,2020-02-19T17:47:50Z,2020-03-01T02:57:02Z,2020-03-01T02:57:02Z,190,47570,61,"Perform OIDC authentication (configurable to be instead of current token authentication) between frpc and frps. Authentication can be performed on login message and ping messages.
+This is implemented by a new auth plugin system.",4,3
+1668,2020-02-20T13:05:03Z,2020-03-11T05:20:27Z,2020-03-11T05:20:27Z,889,680,333138,Only care about first commit. Just remove vendor codes in second commit since we use go mod instead.,3,1
+1679,2020-03-01T16:41:10Z,2020-03-02T03:20:09Z,2020-03-02T03:20:09Z,1,1,1,It may cause all proxy restart when api reload.,2,0
+1690,2020-03-09T13:57:21Z,2020-03-10T07:23:38Z,2020-03-10T07:23:38Z,1,1,0,Currently the request is being sent as Content-Type: application/octet-stream which is identified by web servers as a binary upload.,2,0
+1700,2020-03-12T21:34:44Z,2020-03-14T15:26:36Z,2020-03-14T15:26:36Z,3,37,22,Include RunId in NewProxy message sent to Server Plugin in order to link between different REST API requests on the same user.,2,3
+1702,2020-03-14T03:48:02Z,2020-03-17T17:52:45Z,2020-03-17T17:52:45Z,6,161,15,"RPC call on Ping messages to execute external code every heartbeat.
+This PR includes the feature/run-id-server-plugin PR (#1700), so please merge that one first.",2,1
+1711,2020-03-19T08:20:43Z,2020-03-26T09:41:19Z,2020-03-26T09:41:19Z,2,8,3,The current example doesn't distinguish *_port fields very well. This PR attepmts to improve that.,2,2
+1730,2020-04-04T15:35:56Z,2020-04-22T13:37:46Z,2020-04-22T13:37:46Z,15,669,1,#1280,3,2
+1740,2020-04-09T14:56:39Z,2020-04-16T05:06:47Z,2020-04-16T05:06:47Z,10,177,4,"Issues associated with this PR
+#1731",3,7
+1765,2020-04-18T00:01:12Z,2020-04-20T05:35:48Z,2020-04-20T05:35:48Z,4,253,28,Group TCPMux proxies together (currently only HTTP Connect multiplexer is supported) if configured with group and groupKey. This is useful to load balance multiple proxies with the same domain.,2,1
+1794,2020-05-07T05:06:23Z,2020-05-07T09:47:37Z,2020-05-07T09:47:37Z,8,43,8,#1487,2,0
+1798,2020-05-09T10:28:22Z,2020-05-12T06:33:35Z,2020-05-12T06:33:35Z,10,14,0,#1797,2,1
+1803,2020-05-12T06:16:33Z,2020-05-12T07:55:36Z,2020-05-12T07:55:36Z,1,1,1,#1801,2,0
+1805,2020-05-12T11:53:12Z,2020-05-12T14:09:17Z,2020-05-12T14:09:17Z,3,18,17,#1804,2,0
+1811,2020-05-18T13:41:08Z,2020-05-19T02:49:30Z,2020-05-19T02:49:30Z,9,20,72,,2,0
+1820,2020-05-23T05:22:44Z,2020-05-24T03:28:57Z,2020-05-24T03:28:57Z,3,5,3,,2,0
+1852,2020-06-11T06:20:11Z,2020-06-11T07:40:00Z,2020-06-11T07:40:00Z,1,1,1,Send PR to dev branch.,2,0
+1919,2020-07-28T11:54:41Z,,2021-01-10T01:57:57Z,5,21,7,,4,3
+1974,2020-09-08T01:41:00Z,2020-09-18T11:58:59Z,2020-09-18T11:58:59Z,6,247,34,,2,0
+1998,2020-09-21T09:26:43Z,2020-09-23T03:05:51Z,2020-09-23T03:05:51Z,3,123,0,,2,1
+2002,2020-09-22T13:32:36Z,2020-09-23T04:05:06Z,2020-09-23T04:05:06Z,4,13,9,#1924,2,0
+2008,2020-09-24T12:14:31Z,2020-09-25T08:10:20Z,2020-09-25T08:10:20Z,1,3,1,,2,0
+2013,2020-09-29T06:16:13Z,2020-09-29T07:44:52Z,2020-09-29T07:44:53Z,1,3,2,"Resolve #2007
+0.34.0创建tls工作连接有问题，重现步骤：
+frps.ini
+[common]
+bind_port = 7000
+log_level = trace
+token = xxx
+tcp_mux = false
+tls_only = true
+tls_cert_file = tls.crt
+tls_key_file = tls.key
+
+frpc.ini
+[common]
+server_addr = some.domain.com
+server_port = 7000
+token = xxx
+log_level = trace
+tcp_mux = false
+tls_enable = true
+tls_trusted_ca_file = ca.crt
+
+[web]
+type = tcp
+local_ip = 127.0.0.1
+local_port = 8080
+remote_port = 28080
+
+
+frpc logs
+2020/09/29 14:00:00 [I] [service.go:288] [20a8b38f554e9ef0] login to server success, get run id [20a8b38f554e9ef0], server udp port [0]
+2020/09/29 14:00:00 [I] [proxy_manager.go:144] [20a8b38f554e9ef0] proxy added: [web]
+2020/09/29 14:00:00 [T] [proxy_wrapper.go:171] [20a8b38f554e9ef0] [web] change status from [new] to [wait start]
+2020/09/29 14:00:00 [I] [control.go:180] [20a8b38f554e9ef0] [web] start proxy success
+2020/09/29 14:00:00 [W] [control.go:151] [20a8b38f554e9ef0] work connection write to server error: tls: either ServerName or InsecureSkipVerify must be specified in the tls.Config",3,0
+2014,2020-09-29T07:04:05Z,2020-09-30T03:05:34Z,2020-09-30T03:05:35Z,2,16,6,"缩小docker镜像体积
+实际上ADD和RUN chmod会添加两层重复的数据
+优化前
+$ docker images | grep fatedier/frp
+fatedier/frps                          v0.34.0                          b9f2e995389b        5 days ago          34.3MB
+fatedier/frpc                          v0.34.0                          dcad2637a36e        5 days ago          27.8MB
+
+优化后
+$ docker images | grep new/frp
+new/frps                          v0.34.0                          9d35ba17f07d        8 minutes ago       18.8MB
+new/frpc                          v0.34.0                          dea6506a0e30        8 minutes ago       15.5MB",3,2
+2023,2020-10-07T16:33:47Z,2020-10-08T06:25:04Z,2020-10-08T06:25:04Z,1,8,1,"Hey I just started with FRP and encountered errors which is fixed in issue #1761  but frpc_full.ini still don't contain  'authenticate_heartbeats' and 'authenticate_new_work_conns' fields which are required for authentication and could lead new users to same issue (like me).
+Please correct if this is not a right solution.
+if you don't mind please merge with ""hacktoberfest-accepted"" label.
+Thank you",2,0
+2060,2020-11-06T09:24:21Z,2020-11-09T08:56:54Z,2020-11-09T08:56:54Z,1,16,16,,2,0
+2061,2020-11-06T11:40:06Z,2020-11-09T11:39:56Z,2020-11-09T11:39:57Z,4,71,29,,2,3
+2089,2020-11-20T10:17:05Z,2020-11-23T03:38:22Z,2020-11-23T03:38:22Z,7,53,31,,2,0
+2096,2020-11-23T01:26:59Z,2020-11-23T06:52:56Z,2020-11-23T06:52:56Z,1,1,1,fix dashboard horizontal scrollbar,3,0
+2098,2020-11-23T06:32:39Z,2021-01-26T03:31:08Z,2021-01-26T03:31:08Z,31,2745,1637,,2,0
+2101,2020-11-23T09:37:07Z,2020-12-03T12:20:49Z,2020-12-03T12:20:49Z,33,10483,10520,"upgrade vue-cli 4
+add eslint
+refactor requests
+
+Compiles and hot-reloads for development
+npm run serve // not dev in vue-cli4
+
+
+
+目前vue-cli4是主流，vue-cli4环境无法运行vue-cli2项目。升级项目以便他人运行。
+使用 eslint 规范代码。",2,13
+2103,2020-11-23T15:49:33Z,2020-12-03T06:36:15Z,2020-12-03T06:36:15Z,3,37,13,"This is in relation to #2102. It allows me to use the following server plugin config to talk to a https service without tls verification:
+[plugin.user-manager]
+addr = https://localhost:8443
+path = /login
+ops  = Login
+tls_verify = false
+
+It is backwards compatible, so if you don't specify a schema, it will default to http: as before. If you don't specify tls_verify it will default to true.
+I am not a golang programmer, so I apologise if the quality of my PR isn't good enough. I am happy to make changes if you need them.",3,0
+2163,2020-12-24T08:43:13Z,2020-12-24T13:48:26Z,2020-12-24T13:48:27Z,4,49,13,,2,1
+2165,2020-12-25T03:13:50Z,2020-12-25T05:39:27Z,2020-12-25T05:39:27Z,1,1,1,"Reduced log level of ""get hostname from http/https request error"" to debug so that it won't overwhelms the log file when user is using apache/ngix as their own SSL backend
+as stated by issue #2131",2,0
+2199,2021-01-18T14:09:45Z,2021-01-19T07:40:42Z,2021-01-19T07:40:42Z,3,50,20,,4,3
+2201,2021-01-18T19:02:20Z,2021-01-27T05:14:17Z,2021-01-27T05:14:17Z,4,152,2,this creates a client side plugin which will allow for a https vhost to communicate with a https backend,3,2
+2218,2021-01-25T20:54:12Z,,2021-01-26T20:53:54Z,1,28,6,"General spelling corrections
+Improved TLS section",3,0
+2221,2021-01-26T20:54:28Z,2021-01-27T05:07:44Z,2021-01-27T05:07:45Z,1,28,6,,3,1
+2240,2021-02-07T06:42:26Z,2021-02-18T08:15:35Z,2021-02-18T08:15:36Z,9,20,14,,2,0
+2253,2021-02-22T06:31:27Z,,2021-05-12T00:33:55Z,1,10,0,support apple M1,2,1
+2255,2021-02-23T17:39:47Z,2021-08-17T12:20:04Z,2021-08-17T12:20:05Z,12,43,77,"Intro
+go1.16 introduced the embed package, it's the more graceful solution for embedding file into binary.
+https://golang.org/pkg/embed/
+Pros
+
+The code itself is more graceful
+It makes the binary smaller slightly
+
+
+(Even with upx packed)
+Oh that's sweet, what's the cost?
+Use go1.16, well i'm changed ci configurations already",2,5
+2278,2021-03-05T08:58:08Z,2021-03-07T06:57:23Z,2021-03-07T06:57:23Z,5,20,5,fix #2268,2,0
+2289,2021-03-10T13:13:05Z,2021-03-19T09:31:16Z,2021-03-19T09:31:16Z,11,15,13,"/api/ -> ../api/   in vendor.js
+Support reverseproxy to dashboard with addtional parts in path.
+
+The dashboard may fail to open with url like this:
+https://www.abc.com/frps/static/#/
+Because vendor.js call /api/serverinfo as absolute path. In the example, https://www.abc.com/api/serverinfo
+Replace /api/ in vendor.js with ../api/ so that it call the api with a workable path. In the example above, it actually calls https://www.abc.com/frps/api/serverinfo, which can be correctly reverse proxyed.",3,2
+2304,2021-03-16T03:30:24Z,2021-03-19T09:36:39Z,2021-03-19T09:36:39Z,4,18,18,and why use it as the field name?,2,2
+2316,2021-03-19T10:47:54Z,2021-03-22T03:30:12Z,2021-03-22T03:30:12Z,2,10,13,,3,0
+2376,2021-05-01T15:18:08Z,,2022-10-09T11:27:29Z,1,70,46,"See #1585 #1795
+Add processing when visitor receives the client's reply earlier than the server's. Fix timeout.
+Use ListenUDP rather than Dial. This make XTCP works when client is Symmetric NAT.",7,10
+2416,2021-05-28T08:50:07Z,,2021-07-29T00:33:19Z,1,10,0,#1788,2,2
+2429,2021-06-03T15:05:01Z,2021-06-04T03:21:52Z,2021-06-04T03:21:52Z,1,1,1,,2,0
+2467,2021-07-02T13:03:19Z,2021-07-05T02:27:15Z,2021-07-05T02:27:15Z,5,23,2,"How this happen
+When the frps have massive concurrent connection establishments(especially for long-lived connections, e.g. http2, WebSocket), frps will use many file descriptors(expected behaviours), and eventually reach the ulimit -n limit.
+After that the frps proxy listener simply log and quit, and the whole frps is refused to accepting any further connections.
+Which is prone to DDOS attacks.
+How to reproduce this bug
+frps
+No config file required, just use the defaults.
+frpc
+client.ini
+[common]
+server_addr = 127.0.0.1
+server_port = 7000
+
+[too-many-open-files-test]
+type = tcp
+remote_port = 1053
+# Change to yours
+local_ip = 192.168.200.1
+local_port = 53
+Why use DNS for test: simply because it's relative long-lived, anything else would be ok.
+concurrent-conn.sh
+#!/bin/bash
+
+while :; do
+    # Fire and forget(reach `ulimit -n` quickly)
+    dig @127.0.0.1 -p1053 dns.google +tcp +short > /dev/null &
+done
+Reproduce procedures
+Env: Ubuntu 20.04.2 LTS x86_64
+
+./frps
+./frpc -c client.ini
+prlimit --pid $(pidof frps) --nofile=128:128
+Explicitly decrease nofile limit of frps to reach ulimit -n quickly
+prlimit --pid $(pidof frpc) --nofile=102400:102400
+Explicitly increase nofile limit of frpc so frpc won't be the bottleneck
+./concurrent-conn.sh
+
+frps output
+2021/07/02 20:25:05 [I] [proxy.go:165] [fad8fd4213b57280] [too-many-open-files-test] get a user connection [127.0.0.1:46129]
+2021/07/02 20:25:05 [I] [proxy.go:165] [fad8fd4213b57280] [too-many-open-files-test] get a user connection [127.0.0.1:50013]
+2021/07/02 20:25:05 [I] [proxy.go:165] [fad8fd4213b57280] [too-many-open-files-test] get a user connection [127.0.0.1:40547]
+2021/07/02 20:25:05 [I] [proxy.go:165] [fad8fd4213b57280] [too-many-open-files-test] get a user connection [127.0.0.1:42587]
+2021/07/02 20:25:05 [I] [proxy.go:165] [fad8fd4213b57280] [too-many-open-files-test] get a user connection [127.0.0.1:54785]
+2021/07/02 20:25:05 [I] [proxy.go:165] [fad8fd4213b57280] [too-many-open-files-test] get a user connection [127.0.0.1:49519]
+2021/07/02 20:25:05 [I] [proxy.go:165] [fad8fd4213b57280] [too-many-open-files-test] get a user connection [127.0.0.1:60873]
+2021/07/02 20:25:05 [I] [proxy.go:165] [fad8fd4213b57280] [too-many-open-files-test] get a user connection [127.0.0.1:42663]
+2021/07/02 20:25:05 [I] [proxy.go:165] [fad8fd4213b57280] [too-many-open-files-test] get a user connection [127.0.0.1:51231]
+2021/07/02 20:25:05 [I] [proxy.go:165] [fad8fd4213b57280] [too-many-open-files-test] get a user connection [127.0.0.1:58995]
+2021/07/02 20:25:05 [I] [proxy.go:165] [fad8fd4213b57280] [too-many-open-files-test] get a user connection [127.0.0.1:48041]
+2021/07/02 20:25:05 [I] [proxy.go:165] [fad8fd4213b57280] [too-many-open-files-test] get a user connection [127.0.0.1:43217]
+2021/07/02 20:25:05 [W] [proxy.go:158] [fad8fd4213b57280] [too-many-open-files-test] listener is closed: *net.OpError accept tcp [::]:1053: accept4: too many open files
+
+
+Verification taken from concurrent-conn.sh
+
+After that the frps proxy listener simply log and quit, and the whole frps is refused to accepting any further connections.
+
+# Check after we met 'accept: too many open files'
+$ dig @127.0.0.1 -p1053 dns.google +tcp +short
+
+; <<>> DiG 9.16.1-Ubuntu <<>> @127.0.0.1 -p1053 dns.google +tcp +short
+; (1 server found)
+;; global options: +cmd
+;; connection timed out; no servers could be reached",2,0
+2504,2021-08-01T13:38:25Z,2021-08-03T14:58:03Z,2021-08-03T14:58:03Z,3,80,155,Fix #2500,2,0
+2520,2021-08-08T13:49:13Z,2021-08-11T15:10:36Z,2021-08-11T15:10:36Z,8,49,12,Fix #2380,2,0
+2592,2021-09-28T16:32:29Z,2021-09-29T02:33:57Z,2021-09-29T02:33:57Z,19,38,44,ref https://golang.org/doc/go1.16#ioutil.,2,0
+2621,2021-10-16T04:52:55Z,2021-10-19T06:57:26Z,2021-10-19T06:57:26Z,3,15,5,"#2620
+复现问题
+frpc
+[common]
+server_addr = 0.0.0.0
+server_port = 7000
+log_level = debug
+protocol = kcp
+tls_enable = true
+
+[http_web]
+type = tcp
+local_ip = 127.0.0.1
+local_port = 8890
+remote_port = 8891
+
+frps
+[common]
+bind_addr = 0.0.0.0
+bind_port = 7000
+kcp_bind_port = 7000
+vhost_http_port = 80
+vhost_https_port = 443
+dashboard_addr = 0.0.0.0
+dashboard_port = 7500
+log_level = debug
+
+
+
+ 启动  frps，frpc
+ 杀掉 frpc，立刻启动 frpc，出现 conflict，frps 没有释放资源
+
+解决思路
+等待一段时间，等 sendch 的释放消息发出去，等待 frps 释放。",3,1
+2648,2021-11-09T04:07:58Z,2021-11-09T06:18:40Z,2021-11-09T06:18:40Z,2,7,1,,2,0
+2672,2021-11-23T04:15:14Z,2021-11-23T06:14:27Z,2021-11-23T06:14:27Z,6,82,26,Fix #2669,2,0
+2677,2021-11-25T11:53:44Z,,2022-01-05T00:33:41Z,1,1,1,error spelling should not be capitalized(go statistic),2,1
+2720,2021-12-28T10:57:26Z,2021-12-28T13:14:57Z,2021-12-28T13:14:58Z,6,142,60,,3,0
+2731,2022-01-03T11:36:14Z,2022-01-04T02:40:45Z,2022-01-04T02:40:46Z,2,4,4,"FRP Docker Images update alpine version to fix security vulnerabilties
+Issue: #2730",2,0
+2758,2022-01-12T10:50:28Z,2022-01-13T06:26:07Z,2022-01-13T06:26:08Z,11,228,146,"fix #2754
+If tcp_mux is enabled, yamux will do heartbeat checks in its layer. Add tcp_mux_keepalive_interval to allow users to config this behavior.
+Beyond that, we can disable the application layer heartbeat to reduce traffic consumption.",2,0
+2767,2022-01-19T08:01:55Z,2022-01-20T12:03:07Z,2022-01-20T12:03:07Z,9,114,195,,2,0
+2774,2022-01-24T08:57:08Z,2022-01-26T11:47:40Z,2022-01-26T11:47:40Z,4,14,0,#2718,3,0
+2802,2022-02-16T05:57:38Z,,2022-03-03T17:05:56Z,1,3,0,"Certain implementations of oauth2, such as auth0, require the audience
+parameter to be send to the token generation endpoint.
+This commit adds an additional parameter to, by default, send the
+audience parameter.
+This should be be broadly compatible and ignored by other
+implementations. Otherwise, we can consider an additional configuration
+option",3,4
+2814,2022-02-21T12:34:39Z,2022-03-07T06:23:49Z,2022-03-07T06:23:49Z,3,28,8,"#2802
+#1714",4,4
+2816,2022-02-23T13:37:11Z,2022-02-24T03:59:36Z,2022-02-24T03:59:37Z,2,28,15,Fix #2760,2,0
+2823,2022-03-02T08:08:08Z,2022-03-08T07:08:10Z,2022-03-08T07:08:10Z,7,145,2,"This is an implementation of #2821 ,but currently does not work.
+It seems that similar types of plugin requests are dispatched here, but after adding a fmt.Printf(""%+v\n"", m), no message is sent to this channel when I press Ctrl-C in frpc, am I missing something?
+
+  
+    
+      frp/server/control.go
+    
+    
+        Lines 455 to 457
+      in
+      19739ed
+    
+  
+  
+    
+
+        
+          
+           case *msg.CloseProxy: 
+        
+
+        
+          
+           	ctl.CloseProxy(m) 
+        
+
+        
+          
+           	xl.Info(""close proxy [%s] success"", m.ProxyName) 
+        
+    
+  
+
+
+
+
+I have chosen to ignore any response from the plugin since there is nothing to modify in this operation (we can't prevent a proxy from closing).
+Help is needed also for end-to-end tests, since it is passing when really should not.",3,6
+2832,2022-03-10T14:39:08Z,2022-03-11T06:51:47Z,2022-03-11T06:51:47Z,1,2,1,"Fix for issue #2831
+ServerName gets added to TLSConfig even if no ca has been added, so that SNI based routing works as intended.",3,3
+2844,2022-03-15T01:44:28Z,2022-03-17T04:03:20Z,2022-03-17T04:03:20Z,1,28,15,#2842,3,0
+2858,2022-03-19T20:11:57Z,,2022-04-27T00:34:24Z,2,2,2,"Fixed go vet warnings:
+$ go vet ./...
+# github.com/fatedier/frp/test/e2e/plugin
+test/e2e/plugin/server.go:148:18: Sprintf call needs 1 arg but has 2 args
+# github.com/fatedier/frp/cmd/frpc/sub
+cmd/frpc/sub/root.go:125:2: misuse of unbuffered os.Signal channel as argument to signal.Notify",2,1
+2873,2022-03-27T16:41:16Z,2022-03-28T04:12:35Z,2022-03-28T04:12:35Z,5,66,32,,2,1
+2891,2022-04-13T22:04:06Z,2022-04-14T03:14:20Z,2022-04-14T03:14:20Z,1,6,0,"Fixes some data races when accessing github.com/fatedier/frp/client.(*Service).ctl.
+==================
+WARNING: DATA RACE
+Read at 0x00c0003d8910 by goroutine 11:
+  github.com/fatedier/frp/client.(*Service).GracefulClose()
+      /home/colin/go/pkg/mod/github.com/fatedier/frp@v0.41.0/client/service.go:345 +0x57
+  github.com/fatedier/frp/client.(*Service).Close()
+      /home/colin/go/pkg/mod/github.com/fatedier/frp@v0.41.0/client/service.go:340 +0x5c
+  github.com/coder/coder/coderd/devtunnel.New.func2()
+      /home/colin/Projects/coder/coder/coderd/devtunnel/tunnel.go:88 +0x50
+
+Previous write at 0x00c0003d8910 by goroutine 10:
+  github.com/fatedier/frp/client.(*Service).Run()
+      /home/colin/go/pkg/mod/github.com/fatedier/frp@v0.41.0/client/service.go:118 +0x444
+  github.com/coder/coder/coderd/devtunnel.New.func1()
+      /home/colin/Projects/coder/coder/coderd/devtunnel/tunnel.go:82 +0x39
+
+Goroutine 11 (running) created at:
+  github.com/coder/coder/coderd/devtunnel.New()
+      /home/colin/Projects/coder/coder/coderd/devtunnel/tunnel.go:86 +0xa87
+  github.com/coder/coder/coderd/devtunnel_test.TestTunnel()
+      /home/colin/Projects/coder/coder/coderd/devtunnel/tunnel_test.go:41 +0x231
+  testing.tRunner()
+      /usr/lib/go/src/testing/testing.go:1439 +0x213
+  testing.(*T).Run.func1()
+      /usr/lib/go/src/testing/testing.go:1486 +0x47
+
+Goroutine 10 (running) created at:
+  github.com/coder/coder/coderd/devtunnel.New()
+      /home/colin/Projects/coder/coder/coderd/devtunnel/tunnel.go:81 +0x9c5
+  github.com/coder/coder/coderd/devtunnel_test.TestTunnel()
+      /home/colin/Projects/coder/coder/coderd/devtunnel/tunnel_test.go:41 +0x231
+  testing.tRunner()
+      /usr/lib/go/src/testing/testing.go:1439 +0x213
+  testing.(*T).Run.func1()
+      /usr/lib/go/src/testing/testing.go:1486 +0x47
+==================
+    testing.go:1312: race detected during execution of test",2,0
+2925,2022-05-04T10:52:15Z,,2022-06-13T00:35:05Z,2,2,2,frp builds and runs just fine on OpenBSD so it could be packaged for it.,2,1
+2932,2022-05-10T08:18:08Z,2022-05-26T15:57:31Z,2022-05-26T15:57:31Z,22,605,282,,2,1
+2978,2022-06-13T09:31:10Z,2022-06-14T06:24:35Z,2022-06-14T06:24:35Z,4,19,16,,2,0
+2982,2022-06-16T14:21:17Z,2022-06-27T02:08:03Z,2022-06-27T02:08:03Z,5,93,28,"Added a simple if-else statement that checks TLSOnly mode enabled. If enabled, serves the dashboard in HTTPS mode. Otherwise, serves the dashboard in HTTP mode.
+If TLSCertFile and TLSKeyFile are not used in config but TLSOnly is enabled, the HTTPS dashboard does not loads.
+Tested on Debian Linux and Windows Server 2012.",2,10
+3012,2022-07-12T09:32:55Z,2022-07-12T10:43:58Z,2022-07-12T10:43:58Z,1,4,0,"About:
+Fixed a bug where service loops reconnection after disconnection. If service is shut down ,it can not exit goroutine.
+Description:
+After the connection is disconnected, the service begins to reconnect. At this point, the service is externally shut down, and the reconnected coroutine cannot exit.",2,0
+3081,2022-08-29T02:56:00Z,2022-08-29T04:25:36Z,2022-08-29T04:25:36Z,2,2,2,Signed-off-by: Abirdcfly fp544037857@gmail.com,2,0
+3192,2022-11-29T19:05:17Z,2022-12-09T03:46:35Z,2022-12-09T03:46:35Z,1,12,1,"allow scope to be passed in for oidc credentials, maintaining backwards compatibility. this was discussed in #3177",2,6
+3198,2022-12-05T09:09:13Z,2022-12-12T03:04:11Z,2022-12-12T03:04:11Z,12,328,189,,2,0
+3205,2022-12-13T12:24:48Z,2022-12-13T14:37:06Z,2022-12-13T14:37:06Z,2,11,1,,3,0
+3209,2022-12-14T12:32:32Z,2023-01-15T11:15:48Z,2023-01-15T11:15:48Z,1,1,1,As i understand frps creates the proxy on remote_port of frpc. In that case port 6000 would be open on server A. Architecture diagram tells the same.,2,5
+3211,2022-12-14T13:10:38Z,2022-12-18T10:43:42Z,2022-12-18T10:43:42Z,12,76,37,,2,0
+3224,2022-12-22T02:45:32Z,2022-12-22T09:55:07Z,2022-12-22T09:55:07Z,3,12,9,,2,0
+3246,2023-01-09T10:16:57Z,2023-01-10T02:19:38Z,2023-01-10T02:19:38Z,1,5,0,Fix #3243,2,0
+3254,2023-01-13T21:06:34Z,2023-01-14T13:43:27Z,2023-01-14T13:43:27Z,1,1,1,"could be ~30% faster, it's a hot function that deserves an optimization
+goos: windows
+goarch: amd64
+pkg: github.com/fatedier/frp/pkg/util/util
+cpu: AMD Ryzen 9 5950X 16-Core Processor
+BenchmarkGetAuthKey
+BenchmarkGetAuthKey-32           6673195               179.0 ns/op            96 B/op          4 allocs/op
+BenchmarkGetAuthKeyOld
+BenchmarkGetAuthKeyOld-32        4884744               244.7 ns/op           128 B/op          6 allocs/op
+
+Use this patch for benchmark: patch.txt",2,0
+3266,2023-01-23T10:53:59Z,2023-01-29T15:54:40Z,2023-01-29T15:54:40Z,1,2,2,,2,0
+3271,2023-01-26T04:47:05Z,2023-02-08T16:38:37Z,2023-02-08T16:38:37Z,27,284,41,"Allow setting the proxy bandwidth_limit from a server plugin.
+Fixes: #3085",2,10
+3404,2023-04-12T21:29:51Z,,2023-06-28T14:17:18Z,1,6,1,"This adds support for using protocol=websocket and TLS at the same time in frpc.
+The issue was the TLS handshake has to run before the websocket handshake. This required a small patch in golib: fatedier/golib#20
+Tested working with this config. The server is running frps behind an NGINX reverse proxy that terminates TLS.
+[common]
+server_addr = frp.example.com
+server_port = 443
+protocol = websocket
+tls_enable = true
+disable_custom_tls_first_byte = true",4,4
+3434,2023-05-07T14:10:16Z,2023-05-08T13:28:44Z,2023-05-08T13:28:44Z,1,1,1,"Summary
+fixed trivial typo
+WHY
+Walkthrough",2,0
+3460,2023-05-29T14:01:09Z,2023-05-30T02:55:00Z,2023-05-30T02:55:00Z,16,230,68,"Summary
+
+🤖 Generated by Copilot at 0d7862a
+This pull request adds a new feature of visitor-to-visitor connection redirection and fallback for STCP and XTCP proxies. It also fixes some bugs and improves the performance and reliability of the NAT hole punching process. It refactors some code, adds comments and documentation, and updates the configuration and test files accordingly.
+WHY
+
+Walkthrough
+
+🤖 Generated by Copilot at 0d7862a
+
+Add a feature of not binding to the port and only receiving connections redirected from other visitors for stcp and xtcp visitors (link, link, link, link, link, link)
+Add a feature of falling back to another visitor if the tunnel opening fails within a timeout for xtcp visitors (link, link, link, link, link, link, link, link, link, link)
+Add a feature of transferring connections from other visitors to the visitor and a function to do so in the visitor manager (link, link, link, link, link, link, link, link, link, link)
+Fix a bug that causes false positive detection of regular ports change and affects the hole punching process for xtcp visitors (link, link)
+Improve the success rate and performance of the hole punching process for xtcp visitors by changing the send delays and ports range numbers (link, link, link)
+Avoid resource leaks and ensure graceful shutdown by closing the internal listener and the base listener for sudp and stcp visitors and closing all the visitors and the stop channel in the visitor manager (link, link)
+Avoid concurrent access and nil pointer errors by adding a mutex lock and a condition to check if the cancel function is not nil before calling it in the xtcp visitor (link)
+Avoid timeout errors and flaky tests by changing the request timeout from 5 to 10 seconds in the basic test case (link)
+Add a new test case for the feature of falling back to another visitor if the tunnel opening fails within a timeout in the test/e2e/basic/xtcp.go file (link)
+Improve the code style and readability by removing empty lines in the pkg/config/visitor.go file (link, link)",3,4
+3472,2023-06-01T13:05:23Z,2023-06-02T08:06:29Z,2023-06-02T08:06:29Z,17,355,176,"Summary
+
+🤖 Generated by Copilot at ae8d19f
+This pull request adds a new feature to allow proxy owners to specify which users can access their server role proxies as visitors, and improves the end-to-end testing and error handling for this feature. It also adds a script to download the latest frp release and refactors some configuration and message code for consistency and clarity. The main files affected are pkg/config/proxy.go, pkg/nathole/controller.go, server/control.go, server/visitor/visitor.go, test/e2e/basic/basic.go, hack/download.sh, pkg/msg/msg.go, and the proxy files in server/proxy.
+WHY
+
+Walkthrough
+
+🤖 Generated by Copilot at ae8d19f
+
+Add a new script to download the latest frp release from GitHub (link)
+Add two new fields to the NewProxy message to support server role proxies and the allow_users feature (link)
+Add a new field to the ClientCfg struct to store the list of users that are allowed to access the proxy as visitors (link)
+Modify the NatHoleController to accept and check the allowUsers and visitorUser parameters for xtcp proxies (link, link)
+Modify the Control struct to pass the visitor user name to the NatHoleController and improve the error messages for proxy registration (link, link, link)
+Modify the Service struct to get the visitor user name from the control manager and pass it to the VisitorManager (link)
+Modify the VisitorManager to use a new type listenerBundle to wrap the listener, sk, and allowUsers fields together, and check the visitor user's permission before accepting the connection (link, link, link, link, link, link)
+Modify the STCPProxy, SUDPProxy, and XTCPProxy structs to accept the allowUsers parameter and pass it to the VisitorManager or the NatHoleController (link, link, link)
+Modify the proxy config package to add methods to marshal and unmarshal the common fields for server role proxies, improve the error messages for configuration parsing, and rename some parameters for consistency (link, link, link, link, link, link, link, link, link, link, link, link, link, link, link)
+Modify the run-e2e.sh script to use /bin/sh instead of /usr/bin/env bash, and allow setting the FRPC_PATH and FRPS_PATH variables to use custom binaries for frpc and frps (link, link)
+Add new targets to the Makefile for running end-to-end tests with the last released version of frpc or frps, and remove the lastversion directory after running the e2e-compatibility target (link, link)
+Modify the basic package to add new fields and parameters to support the allow_users feature for server role proxies, and use a shorter timeout and the keep_tunnel_open option for xtcp proxies to reduce the testing time (link, link, link, link, link)",2,0
+3474,2023-06-02T12:20:53Z,2023-06-04T11:58:55Z,2023-06-04T11:58:55Z,4,4,2,"Summary
+
+🤖 Generated by Copilot at f37825b
+Increased the fmux MaxStreamWindowSize parameter from 2 MB to 6 MB in all files related to xtcp proxy mode. This improves the performance and stability of xtcp proxy mode by allowing more TCP streams to be multiplexed over a single connection.
+WHY
+Fix #2987
+Walkthrough
+
+🤖 Generated by Copilot at f37825b
+
+Increase MaxStreamWindowSize of fmux configuration from 2 MB to 6 MB for xtcp proxy mode (link, link, link, link)",2,1
+3503,2023-06-28T14:13:26Z,2023-06-29T03:20:45Z,2023-06-29T03:20:45Z,10,116,42,"Fix #3162
+Fix #2119
+This PR also fixes an issue in which part of the wss protocol could not be forwarded correctly in the plugin due to yamux.",2,0
+3614,2023-09-14T12:56:22Z,2023-09-15T02:33:32Z,2023-09-15T02:33:33Z,41,566,1363,,2,0
+3620,2023-09-18T04:46:13Z,2023-09-18T06:28:05Z,2023-09-18T06:28:05Z,5,28,9,#3618,2,0
+3671,2023-10-13T09:53:04Z,2023-11-14T07:16:24Z,2023-11-14T07:16:24Z,8,909,10,,2,0
+3723,2023-10-24T15:10:38Z,,2023-12-03T00:34:05Z,3,42,5,"Summary
+
+🤖 Generated by Copilot at d0e5852
+This pull request adds retry support for OIDC authentication in frp clients. It defines a new AuthRetryConfig struct to store the retry parameters, and uses it in the OidcAuthProvider, ClientCommonConfig, and AuthOIDCClientConfig structs. It also modifies the pkg/auth/oidc.go and pkg/config/v1/client.go files to implement the retry logic and configuration parsing.
+WHY
+When the OIDC provider is unavailable when a new token is requested, the client
+is stuck for an indefinite state. This is only resolved by restarting the client or
+the server.
+With this feature, we want to achieve a scenario where a token is requested for a
+set amount of retries when the OIDC provider is not available.",4,12
+3737,2023-10-31T09:30:20Z,,2023-12-15T00:34:05Z,5,63,40,"Summary
+
+🤖 Generated by Copilot at 24e5b67
+This pull request refactors and improves the docker-related files and workflows of the project. It adds a Dockerfile that builds a single image for both frpc and frps, using build arguments and multi-stage build. It also adds a .dockerignore file and a .github/dependabot.yml file, and simplifies the .github/workflows/build-and-push-image.yml file. It deletes the dockerfiles/Dockerfile-for-frpc and dockerfiles/Dockerfile-for-frps files, as they are no longer needed.
+WHY
+Docker improvements:
+
+Improve security by running rootless
+Add standard labels
+Unify docker build into single file",4,8
+3738,2023-10-31T09:53:36Z,2023-10-31T11:40:49Z,2023-10-31T11:40:49Z,2,12,12,"Summary
+
+🤖 Generated by Copilot at 85030c3
+This pull request updates the go.mod file to manage the dependencies of the frp project more effectively. It removes some unused modules and upgrades others to newer versions. This may enhance the project's quality and functionality as a fast reverse proxy.
+WHY
+Update dependencies to improve stability and security",2,3
+3745,2023-11-03T09:46:52Z,2023-11-06T02:51:48Z,2023-11-06T02:51:48Z,11,690,529,"Summary
+
+🤖 Generated by Copilot at d6dba4c
+This pull request refactors the control connection logic and message handling for both the client and the server, adds encryption support for network connections, adds some metrics and utilities for the project, and fixes a bug in the oidc authentication method. It also improves the code quality, readability, and error handling in several files.
+WHY",2,0
+3773,2023-11-15T11:57:20Z,2023-11-16T07:42:50Z,2023-11-16T07:42:50Z,11,119,47,"Summary
+
+🤖 Generated by Copilot at 70600fb
+This pull request adds a new feature to enable strict configuration parsing mode for both frpc and frps, which will reject any config file with unknown fields. It introduces a new command line flag --strict_config and modifies various config loading and service starting functions to use the flag. It also adds new test cases and imports a new yaml package to implement the feature. The affected files are client/service.go, client/admin_api.go, cmd/frpc/sub/*.go, cmd/frps/root.go, and cmd/frps/verify.go in the fatedier/frp repository.
+WHY
+See #3769.
+This PR adds a new --strict_config option that makes all configuration parsing stricter, for all modes of operation (not just verify). Right now it means that extraneous keys are not allowed, making it easier to catch e.g. typos in configuration.
+This is opt-in.",2,0
+3783,2023-11-17T10:55:52Z,2023-11-22T06:30:23Z,2023-11-22T06:30:23Z,19,32,32,"Summary
+
+🤖[deprecated] Generated by Copilot at 8477582
+This pull request fixes various typos in comments, error messages, flag descriptions, and test names across different files and packages. These fixes improve the readability, clarity, and consistency of the code and documentation. No functional changes are introduced by this pull request.",2,0
+3805,2023-11-28T03:50:06Z,2023-11-28T05:48:33Z,2023-11-28T05:48:33Z,4,300,18,"Summary
+
+🤖[deprecated] Generated by Copilot at ad8bc42
+This pull request adds support for SSH tunneling as a new feature of frp. It fixes some issues and enhances the functionality of the pkg/ssh/server.go file, and adds new files test/e2e/pkg/ssh/client.go and test/e2e/v1/features/ssh_tunnel.go for implementing and testing the SSH tunnel client and the frp proxy creation via SSH commands.",2,0
+3841,2023-12-13T08:14:09Z,2023-12-14T12:32:40Z,2023-12-14T12:32:40Z,3,211,0,,2,0
+3875,2023-12-21T09:06:41Z,2023-12-21T12:51:10Z,2023-12-21T12:51:10Z,3,17,19,"WHY
+modify ext func, specify whether exit immediately
+Fix #3860
+Fix #3870
+Fix #3876",2,0
+3898,2023-12-26T11:12:49Z,2023-12-27T02:44:13Z,2023-12-27T02:44:13Z,7,23,9,,2,0
+3963,2024-01-31T12:32:13Z,2024-02-01T02:54:57Z,2024-02-01T02:54:57Z,39,2063,2997,Fix #3817,2,0
+3971,2024-02-02T13:26:34Z,2024-02-04T07:41:09Z,2024-02-04T07:41:09Z,1,2,0,Some people set servers in purpose to be accessed through public internet. This line gets rid of some misunderstanding if they want publicly accessed server.,2,0
+3999,2024-02-17T21:25:15Z,2024-02-19T03:43:09Z,2024-02-19T03:43:09Z,1,2,2,Improved the http proxy command by using %h and %p to avoid typing the host name twice,2,0
+4038,2024-03-02T12:27:23Z,2024-03-03T14:57:17Z,2024-03-03T14:57:18Z,1,1,1,"The absolute path of the API has been changed to a relative path, fixing the issue of incorrect API address when using path reverse proxy.",2,0
+4085,2024-03-19T10:26:35Z,2024-03-20T06:58:03Z,2024-03-20T06:58:03Z,4,22,2,Healthcheck can't work when local web verify header,2,2
+4153,2024-04-11T23:58:43Z,,2024-04-12T06:13:03Z,1,0,1,WHY,2,0

@@ -1,0 +1,56 @@
+number,created_at,merged_at,closed_at,files,additions,deletions,body_text,participants,comments
+86,2023-03-29T07:29:42Z,,2023-04-05T06:28:06Z,29,6627,362,增加Token使用量显示,26,2
+388,2023-04-09T03:53:51Z,2023-04-09T16:39:54Z,2023-04-09T16:39:54Z,2,1,2,"更新内容
+
+修改英译中的提示词为地道翻译成中文：
+
+测试效果
+
+请翻译成中文：We introduce the Segment Anything (SA) project: a new task, model, and dataset for image segmentation. Using our efficient model in a data collection loop, we built the largest segmentation dataset to date (by far), with over 1 billion masks on 11M licensed and privacy respecting images. The model is designed and trained to be promptable, so it can transfer zero-shot to new image distributions and tasks. We evaluate its capabilities on numerous tasks and find that its zero-shot performance is impressive -- often competitive with or even superior to prior fully supervised results. We are releasing the Segment Anything Model (SAM) and corresponding dataset (SA-1B) of 1B masks and 11M images at \href{https://segment-anything.com}{https://segment-anything.com} to foster research into foundation models for computer vision.
+
+结果：
+我们介绍了“Segment Anything（SA）”项目：这是一个新的图像分割任务、模型和数据集。我们利用高效的模型，在数据收集循环中构建了迄今为止最大的分割数据集（远远超过以往），其中包含超过11M张经过授权且尊重隐私的图片，有超过10亿个掩模。该模型经过设计和训练，可以进行逐步提示，因此可以将其传输到新的图像分布和任务中。我们评估其在众多任务中的能力，并发现其零样本性能非常出色——通常具有或甚至优于以前的全监督结果。我们正在发布“Segment Anything Model（SAM）”以及相应的1B掩模和11M图像的数据集（SA-1B），旨在促进计算机视觉基础模型的研究，您可以在 \href{https://segment-anything.com}{https://segment-anything.com} 上获取。
+
+地道翻译成中文：We introduce the Segment Anything (SA) project: a new task, model, and dataset for image segmentation. Using our efficient model in a data collection loop, we built the largest segmentation dataset to date (by far), with over 1 billion masks on 11M licensed and privacy respecting images. The model is designed and trained to be promptable, so it can transfer zero-shot to new image distributions and tasks. We evaluate its capabilities on numerous tasks and find that its zero-shot performance is impressive -- often competitive with or even superior to prior fully supervised results. We are releasing the Segment Anything Model (SAM) and corresponding dataset (SA-1B) of 1B masks and 11M images at \href{https://segment-anything.com}{https://segment-anything.com} to foster research into foundation models for computer vision.
+
+结果：
+我们推出了“Segment Anything（SA）”项目：一个针对图像分割的新任务、模型和数据集。我们在数据收集的循环中使用了高效的模型，构建了目前最大的分割数据集（远远超过以往），其中包括了超过11亿样本，用于分割超过11M张经过授权和注重隐私的图片。该模型经过设计和训练，可以进行逐步提示，因此可以将其零样本地转移到新的图像分布和任务中。我们评估了该模型在多个任务上的能力，并发现其零样本性能令人印象深刻——通常具有甚至优于先前全监督结果的竞争力。我们将发布“Segment Anything Model（SAM）”和对应的1B掩模和11M图像的数据集（SA-1B），以促进计算机视觉基础模型的研究。您可以在\ href {https://segment-anything.com}{https://segment-anything.com} 上获取相关信息。
+
+DeepL结果：我们介绍了Segment Anything（SA）项目：一个用于图像分割的新任务、模型和数据集。在数据收集循环中使用我们的高效模型，我们建立了迄今为止最大的分割数据集（到目前为止），在1100万张特许和尊重隐私的图像上有超过10亿个掩码。该模型的设计和训练是可提示的，因此它可以零距离地转移到新的图像分布和任务。我们评估了它在许多任务上的能力，发现它的零拍摄性能令人印象深刻--通常与先前的完全监督结果竞争，甚至优于后者。我们在\href{https://segment-anything.com}{https://segment-anything.com}上发布了Segment Anything Model（SAM）和相应的数据集（SA-1B），包括1B个掩码和1100万张图像，以促进对计算机视觉基础模型的研究。",4,4
+662,2023-04-30T05:08:39Z,2023-05-03T17:32:53Z,2023-05-03T17:32:53Z,1,62,2,"主要完成了两个方面的工作：
+
+#489 使用Github Actions根据Dockerfile编译镜像，然后上传到ghcr.io
+#652 从环境变量中读取配置
+
+由于Docker通常使用环境变量或者env_file作为配置项目的方法，在使用Github Actions自动编译镜像之后还修改了config.py来从环境变量读取配置。不过读取环境变量作为配置的部分写的比较粗糙，可能需要修改来匹配项目。
+现在使用Docker Compose部署服务的一个示例:
+# docker-compose.yml
+version: '3'
+services:
+  gpt_academic:
+    image: ghcr.io/sperjar/gpt_academic:master
+    container_name: gpt_academic
+    environment:
+      GPT_ACADEMIC_API_KEY: your-api-key-here
+      GPT_ACADEMIC_WEB_PORT: 10054
+      # more config
+    ports:
+      - 10054:10054",3,8
+1472,2024-01-13T00:33:25Z,2024-01-13T06:35:04Z,2024-01-13T06:35:04Z,1,0,16,"删除 ""chatgpt_website"" 函数，从而不再支持此类的基于逆向工程方法的接口，该方法对应的项目为：https://github.com/acheong08/ChatGPT-to-API/。目前，该项目已被开发者 archived，且该方法由于其实现的原理，而不可能是稳健和完美的，因此不是可持续维护的。
+作为补充和替代，下面是一个可能更好的类似实现：
+https://github.com/mufeng510/Free-ChatGPT-API
+相关站点：
+https://chat-shared.zhile.io/shared.html?v=2
+https://chat-shared3.zhile.io/
+pandoranext部署后的quota：
+https://docs.pandoranext.com/api-reference/proxy#quota-consumption
+https://docs.pandoranext.com/license/license_id
+https://dash.pandoranext.com/
+上面页面显示的quota结果的说明：
+follow
+https://github.com/wozulong
+star
+https://github.com/pandora-next/deploy
+各加500条quota。
+下面的bug已经被官方修复，但是此网站列举的其他几个相关链接，应该还可以进行对应的操作：
+https://ai-20240110.fakeopen.com/team",2,0

@@ -1,0 +1,2009 @@
+number,created_at,merged_at,closed_at,files,additions,deletions,body_text,participants,comments
+1,2019-11-07T09:57:11Z,2019-11-08T04:31:24Z,2019-11-08T04:31:24Z,9,836,40,,2,1
+96,2020-06-10T18:10:46Z,2020-06-11T11:36:45Z,2020-06-11T11:36:45Z,1,8,0,changes have been done please rectify them.,3,9
+98,2020-06-15T14:37:24Z,2020-06-16T04:33:28Z,2020-06-16T04:33:28Z,3,54,73,"What kind of change does this PR introduce? (Bug fix, feature, docs update, ...)
+
+docs update",2,3
+139,2020-08-09T09:04:17Z,2020-08-13T07:14:35Z,2020-08-13T07:14:35Z,12,393,307,"r? @kiwicopple @awalias
+
+What kind of change does this PR introduce? (Bug fix, feature, docs update, ...)
+
+I've submitted this example to the next.js repo: vercel/next.js#16016. These are the changes I had to make for the linting on their ent to pass.
+
+Changes to pass linting.
+Update the README to be coherent with the other examples.",3,1
+156,2020-08-28T09:09:51Z,2020-08-29T07:27:15Z,2020-08-29T07:27:15Z,2,58,8,"What kind of change does this PR introduce?
+update docs with UMD bundle example
+What is the new behavior?
+
+Additional context
+#155",3,1
+157,2020-08-28T12:07:55Z,,2020-11-02T03:36:23Z,4,108,0,Adds docs for email confirmation and password reset to avoid people trying to implement it themselves,2,1
+253,2020-10-15T14:20:10Z,2020-11-02T03:08:02Z,2020-11-02T03:08:02Z,189,75628,6474,"What kind of change does this PR introduce?
+Updates the docs with the new developer experience: https://deploy-preview-253--supabase.netlify.app/docs
+
+
+Documents the new Auth using gotrue-js
+
+
+Fixes #179
+
+
+ Add OAuth links #241 (comment)
+
+
+ Add docs on Policies
+
+
+Additional context
+Related PR on supabase-js supabase/supabase-js#50",2,2
+398,2020-12-16T19:45:22Z,2020-12-16T23:12:55Z,2020-12-16T23:12:55Z,5,48,31,"What kind of change does this PR introduce?
+(This one is based on #370.)
+On top of the changes in #370, I consolidated two separates sections on policies in guides/auth.mdx into a single section. I think it's slightly easier to read that way.",2,1
+399,2020-12-16T21:01:07Z,2020-12-16T23:08:19Z,2020-12-16T23:08:19Z,17,21,21,"What kind of change does this PR introduce?
+Fixing the cases of JavaScript and TypeScript for consistency.",2,1
+406,2020-12-17T00:30:35Z,,2020-12-23T18:49:54Z,3,10,12,"Regenerated client docs with the following command in web:
+ts-node ReferenceGenerator.ts -o docs/client spec/supabase.yml
+It seems like the only changes it made were changing the order of the parameters for some reason.",2,5
+407,2020-12-17T03:33:41Z,2021-01-08T11:27:42Z,2021-01-08T11:27:42Z,6,328,196,"This PR is related to #383.
+It fixes part of the second issue in #383, but not the whole thing.
+When I send a password reset request and click the link, this app is now able to handle it.
+However, when I send a magic login request and click that link, this app does the same thing (shows you the password reset form).
+It's because there doesn't seem to be any way to distinguish these two redirect links - both of them have type=recovery in them. Anyway, I'd be happy to look into the backend if it helps.",3,9
+527,2021-01-15T10:08:55Z,2021-01-16T03:58:02Z,2021-01-16T03:58:02Z,12,4211,17737,"What kind of change does this PR introduce?
+
+fix(examples/nextjs-todo-list): refactor initSupabase
+fix(examples/nextjs-todo-list): Add Supabase UI Auth component
+
+cc @MildTomato @phamhieu",2,1
+530,2021-01-15T11:42:31Z,2021-01-21T06:24:16Z,2021-01-21T06:24:16Z,22,12473,0,"What kind of change does this PR introduce?
+Adds a create-react-app todo example
+Additional context
+closes #209
+So I mostly took help from the nextjs-todo-list example but I have added a password reset component too.
+I have copy-pasta'd the readme from nextjs-todo and made minor changes in it for cra but haven't added a demo and deploy with vercel since it requires the folder to be in this repo (?)
+Tell me if there are any changes to be made!",2,5
+746,2021-02-18T11:43:02Z,2021-02-18T12:51:43Z,2021-02-18T12:51:43Z,1,3,1,"What kind of change does this PR introduce?
+Bug fix, feature, docs update, ...
+What is the current behavior?
+Please link any relevant issues here.
+What is the new behavior?
+Feel free to include screenshots if it includes visual changes.
+Additional context
+Add any other context or screenshots.",2,2
+763,2021-02-22T08:05:44Z,2021-02-22T09:29:39Z,2021-02-22T09:29:39Z,4,4,4,"What kind of change does this PR introduce?
+Docs Update: The examples require Quick Starts, but instructions on how to run these were too brief.
+What is the current behavior?
+New users are unable to find the ""Quick Start""s as mentioned in the example README.md's, getting stuck.
+What is the new behavior?
+Readme.md now tells users where to find the Quick Starts. in the future a screenshot similar to the one used in the Slack Scone example might also be a good idea.
+Additional context
+I had trouble with the examples because I just assumed Quick Starts were TBA, and these were just being updated. That is until I realized that you had to run them from https://app.supabase.io/. So I'm just forking this in, hoping to save a few headaches.",2,2
+818,2021-03-06T05:24:41Z,2021-03-08T01:29:52Z,2021-03-08T01:29:52Z,3,209,0,For review / edits,2,1
+833,2021-03-08T07:33:42Z,2021-03-12T09:26:25Z,2021-03-12T09:26:25Z,1,2,2,The syntax seems to have changed at some point.,2,1
+846,2021-03-10T00:57:23Z,2021-03-10T11:54:06Z,2021-03-10T11:54:06Z,2,3,1,"What kind of change does this PR introduce?
+docs update
+What is the current behavior?
+User isn't sure of the impact of removeSubscription().
+What is the new behavior?
+User now knows that Realtime server will be less performant if there are more and more simultaneous users subscribed and unused subscriptions are not removed.
+Additional context
+This is a follow up to a user specifically asking what happens if they do not remove subscriptions.",2,1
+873,2021-03-15T07:28:20Z,2021-03-17T09:10:28Z,2021-03-17T09:10:28Z,167,7168,314,,3,3
+914,2021-03-22T08:05:19Z,2021-03-24T06:34:51Z,2021-03-24T06:34:51Z,2,5,1,"What kind of change does this PR introduce?
+I fixed the same issue as in #912
+What is the current behavior?
+Please link any relevant issues here.
+What is the new behavior?
+Feel free to include screenshots if it includes visual changes.
+Additional context
+Add any other context or screenshots.",3,5
+918,2021-03-22T20:31:50Z,,2021-04-09T15:28:56Z,7,31,21,"What kind of change does this PR introduce?
+Home page UI improvements",4,5
+1007,2021-03-31T11:05:32Z,2021-07-23T06:40:45Z,2021-07-23T06:40:45Z,4,150,3,"Adds the storage schema to postgres
+Updates the docker-compose file to use storage-api docker image",3,1
+1054,2021-04-04T15:49:43Z,,2022-08-09T13:51:51Z,2,55,7,"What kind of change does this PR introduce?
+Trying to emulate localStorage which is synchronous with AsyncLocalStorage in the Expo example. It's not the most elegant solution but it should do the job.
+What is the current behavior?
+Supabase relies on localStorage but and does not expect it to return a promise, which causes that Supabase is not able to get values from the storage (e.g. auth).
+What is the new behavior?
+Emulated storage retrieves all keys from the AsyncLocalStorage and stores them locally, so they can be accessed synchronously. Also, it pauses the rendering of the App until the storage is ready and SupabaseClient can be initialized. Additionally, I've disabled detecting of the session in the URL because window.location is not available in Expo.",6,11
+1058,2021-04-04T18:36:11Z,2021-04-15T08:45:13Z,2021-04-15T08:45:13Z,26,36,36,"What kind of change does this PR introduce?
+docs update
+What is the current behavior?
+A few grammar mistakes and typos, also not sure what lang (en-US or en-GB) you guys are following to keep the documentation, I just sensed, most of the documentation is following the en-GB rule, so I change the text accordingly.
+What is the new behavior?
+Feel free to include screenshots if it includes visual changes.
+Additional context
+No, there's no additional context.",4,9
+1115,2021-04-10T10:47:02Z,2021-04-10T15:06:39Z,2021-04-10T15:06:39Z,1,1,1,"What kind of change does this PR introduce?
+Bug fix
+Please link any relevant issues here.
+#1103
+Feel free to include screenshots if it includes visual changes.",3,3
+1213,2021-04-20T05:15:07Z,2021-04-21T08:52:41Z,2021-04-21T08:52:41Z,12,301,47,"What kind of change does this PR introduce?
+Adds some jobs",2,1
+1215,2021-04-20T15:49:28Z,2021-04-23T05:35:21Z,2021-04-23T05:35:21Z,1,5,1,"What kind of change does this PR introduce?
+Docs Update
+What is the new behavior?
+I added a note regarding the types generated by array columns. AFAIK the types will always be generated as string as they're stored as JSON strings, while supabase returns proper arrays when using the client.
+Not sure how I can check how this will be formatted in the docs though
+well, there it is!",2,5
+1256,2021-04-23T14:57:21Z,2021-09-09T11:33:36Z,2021-09-09T11:33:36Z,10,18480,22901,"Use an unreleased version of Docusaurus to test the webpack5 support works for this site, detect potential problems, and perf improvements.
+See also facebook/docusaurus#4089",3,6
+1316,2021-04-29T16:01:25Z,2021-05-10T12:31:07Z,2021-05-10T12:31:07Z,2,18,14,"Updated auth example to handle this.
+signUp function now gives error if the user is already registered.
+signIn function gives error when invalid email or password is entered.",4,4
+1342,2021-05-01T09:59:45Z,2021-05-01T14:23:14Z,2021-05-01T14:23:14Z,2,94,0,"What kind of change does this PR introduce?
+Created a German version of readme.md and put it inside i18n directory.
+What is the current behavior?
+There are no German readme.md
+What is the new behavior?
+There is German readme.md",3,1
+1349,2021-05-01T15:19:37Z,2021-05-03T14:12:31Z,2021-05-03T14:12:31Z,2,82,0,"What kind of change does this PR introduce?
+Baseline chinese translation for README.md. Would be nice to get a native speaker to review though!
+What is the current behavior?
+NA
+What is the new behavior?
+Basic Chinese translation.  Helps out with #1341
+Additional context
+Add any other context or screenshots.",4,9
+1361,2021-05-02T02:31:50Z,2021-05-02T03:56:56Z,2021-05-02T03:56:56Z,1,20,20,"What kind of change does this PR introduce?
+Docs' translation update. It fixes some translations errors of the Spanish README.md.
+What is the current behavior?
+There was a PR for the Spanish translation (#1352). While the translation quality was overall fine, I noticed some translation mistakes. I was doing a PR review to suggest every change, but it got merged; so I decided to implement these changes in a separate PR.
+What is the new behavior?
+Improved translations.
+Edit: Mentioning @gomflo in case they want to review these changes.",3,4
+1363,2021-05-02T07:05:52Z,2021-05-02T08:35:17Z,2021-05-02T08:35:17Z,1,8,8,"What kind of change does this PR introduce?
+Improve Japanese README. 🗾😁
+
+Improve expression
+Correct grammatical mistakes
+Unify the notation
+
+What is the current behavior?
+What is the new behavior?
+Additional context",4,4
+1364,2021-05-02T07:48:50Z,2021-05-02T09:23:49Z,2021-05-02T09:23:50Z,1,92,0,,3,1
+1374,2021-05-02T13:05:11Z,,2021-05-17T07:14:01Z,1,91,0,"What kind of change does this PR introduce?
+Add README file for Indonesian
+What is the current behavior?
+
+
+
+What is the new behavior?
+
+
+
+Additional context",6,4
+1377,2021-05-02T14:49:04Z,2021-05-04T03:44:44Z,2021-05-04T03:44:44Z,1,3,1,"Currently, authenticated role does not have access to the auth schema, so permission is denied for SECURITY INVOKER functions that use functions like auth.uid().
+As discussed with @steve-chavez in #1290, giving authenticated role access to execute auth schema functions in this PR.",2,1
+1380,2021-05-03T00:06:32Z,,2021-05-03T11:27:16Z,7,35,12974,,2,3
+1387,2021-05-03T14:14:20Z,2021-05-06T09:35:06Z,2021-05-06T09:35:06Z,1,2,2,,3,1
+1429,2021-05-04T22:24:39Z,2021-05-11T12:35:03Z,2021-05-11T12:35:03Z,15,1033,81,"add variables to docker compose
+see: #1376",2,6
+1443,2021-05-05T12:34:04Z,2021-05-06T08:22:13Z,2021-05-06T08:22:13Z,2,17448,18,"What kind of change does this PR introduce?
+Docs update
+What is the current behavior?
+I haven't seen a Vue 3 wrapper for Supabase Client yet (only for Vue 2).
+What is the new behavior?
+The Doc explains an easy way to use the Supabase Client in Vue 3 projects",2,2
+1458,2021-05-06T14:49:46Z,2021-05-07T01:14:38Z,2021-05-07T01:14:38Z,1,1,1,#1446 - The problem has been solved,3,1
+1461,2021-05-06T22:36:21Z,2021-05-07T01:47:16Z,2021-05-07T01:47:16Z,1,2,1,"What kind of change does this PR introduce?
+Bug fix, feature, docs update, ...
+What is the current behavior?
+Please link any relevant issues here.
+What is the new behavior?
+Feel free to include screenshots if it includes visual changes.
+Additional context
+Add any other context or screenshots.",2,1
+1470,2021-05-07T12:52:01Z,2021-05-10T07:42:06Z,2021-05-10T07:42:06Z,1,1,1,"What kind of change does this PR introduce?
+Docs update to link to the examples folder, instead of the main repo.",2,1
+1484,2021-05-08T04:04:58Z,2021-05-10T07:57:03Z,2021-05-10T07:57:03Z,1,2,2,"What kind of change does this PR introduce?
+Slight style change in the Code section of the homepage. Fixes #1319.
+What is the current behavior?
+The current behavior is that there are two borders in the Code/Layout section on the homepage.
+What is the new behavior?
+There is only one border now. I did have to tweak the margin slightly because otherwise the border of the next Swipe would show in the current one. I am open to other ideas. I tried width first but that seemed worse since in responsive scenarios it broke the layout.",3,1
+1518,2021-05-10T15:58:46Z,,2021-05-17T05:12:31Z,1,3,4,"What kind of change does this PR introduce?
+Bug fix
+What is the current behavior?
+#1511
+What is the new behavior?
+Flyout with full width.",2,2
+1519,2021-05-10T19:36:07Z,2021-05-17T05:09:48Z,2021-05-17T05:09:48Z,3,182,223,"What kind of change does this PR introduce?
+Improvement
+What is the current behavior?
+The navbar is not sticky, so the user has to scroll to the top to access the links. Also, the FlyOut component is weird because he is not full width.
+What is the new behavior?
+The navbar is now sticky and the FlyOut component is now full width.
+Additional context
+I have modified the Nav and the beta page to move the FlyOut menu to the right location, according to the new implementation.
+Also, I put a Fragment in the Nav to prepare my next PR.",2,3
+1525,2021-05-11T07:14:38Z,2021-05-11T13:56:02Z,2021-05-11T13:56:02Z,1,5,1,"What kind of change does this PR introduce?
+Improvement
+What is the current behavior?
+At blog/[year]/[month]/[slug], there is a list of the tags on the right but here are not clickable.
+What is the new behavior?
+Clicking on a tag now goes to /blog/tags/<tag>",2,1
+1599,2021-05-18T08:03:02Z,2021-05-27T12:22:57Z,2021-05-27T12:22:57Z,44,46567,3,"React Guide: https://docs-git-docs-reactguide-supabase.vercel.app/docs/guides/with-react
+Next.js Guide: https://docs-git-docs-reactguide-supabase.vercel.app/docs/guides/with-nextjs
+
+ An error is thrown when a user doesn't have a profile uploaded yet",2,1
+1612,2021-05-19T09:16:25Z,2021-05-20T06:34:59Z,2021-05-20T06:35:00Z,2,15,6,"What kind of change does this PR introduce?
+Update auth documentation with Twitter and Apple as external providers.
+Update set up instructions",2,1
+1643,2021-05-21T00:28:31Z,2021-05-22T22:14:33Z,2021-05-22T22:14:33Z,1,0,4,"What kind of change does this PR introduce?
+There are useless curly braces in stored procedures documentation",3,2
+1793,2021-06-02T07:34:30Z,2021-06-02T12:43:12Z,2021-06-02T12:43:12Z,11,133,0,,3,1
+1800,2021-06-02T13:30:33Z,2021-06-03T02:54:15Z,2021-06-03T02:54:15Z,5,7,7,"What kind of change does this PR introduce?
+Removed ""be"" from sentence. Sentence originally read ""data is be protected so..."".",2,2
+1808,2021-06-03T12:25:42Z,2021-06-11T04:23:43Z,2021-06-11T04:23:43Z,1,5,0,"fixes: #1756
+https://docs-git-fix-codeparams-supabase.vercel.app/docs/reference/javascript/auth-signin#parameters",2,3
+1855,2021-06-07T10:03:04Z,2021-06-10T13:51:44Z,2021-06-10T13:51:44Z,3,551,1,"What kind of change does this PR introduce?
+I created a svelte quickstart demo which is similar to this
+What is the new behavior?
+
+Additional context
+I implemented this feature in about an hour after watching the build-in public youtube series from supabase. watch here. In my opinion, it wasn't really necessary to create an issue, because of the quick development. This is my first supabase contribution, so I hope I have managed to comply with all guidelines. Any suggestions are welcome",3,2
+1858,2021-06-07T17:51:43Z,2021-06-20T12:28:24Z,2021-06-20T12:28:24Z,15,1585,5,"What kind of change does this PR introduce?
+Creates a new temporary sidebar section guides2
+Adds 2 new guides:
+
+Working With Arrays
+Working With JSON Data
+Reset Database Password",5,1
+1996,2021-06-16T22:31:20Z,2021-06-18T13:32:31Z,2021-06-18T13:32:31Z,1,1,1,It's a small typo error 😅,2,1
+2007,2021-06-18T07:49:25Z,2021-06-18T13:32:51Z,2021-06-18T13:32:51Z,1,1,1,"What kind of change does this PR introduce?
+docs update
+What is the current behavior?
+https://supabase.io/docs/guides/api#restful-api
+What is the new behavior?
+
+Additional context",2,1
+2013,2021-06-19T02:08:49Z,2021-06-20T04:32:02Z,2021-06-20T04:32:02Z,1,2,2,"What kind of change does this PR introduce?
+docs update related nextjs
+What is the current behavior?
+https://supabase.io/docs/guides/with-nextjs
+What is the new behavior?
+no changes for user perspective
+Additional context
+improve code efficiency",2,1
+2091,2021-06-25T12:53:37Z,2021-06-28T07:00:05Z,2021-06-28T07:00:05Z,1,1,1,"What kind of change does this PR introduce?
+docs update - typo fix",3,1
+2164,2021-06-30T19:54:01Z,2021-07-02T03:17:10Z,2021-07-02T03:17:10Z,1,1,1,"What kind of change does this PR introduce?
+docs update
+What is the current behavior?
+In this example, we will create a posts and comments database and then ...
+Please link any relevant issues here.
+What is the new behavior?
+In this example, we will create a posts and comments tables and then...
+Feel free to include screenshots if it includes visual changes.
+Additional context
+Add any other context or screenshots.",3,3
+2240,2021-07-06T13:32:27Z,2021-07-07T09:49:42Z,2021-07-07T09:49:42Z,3,89,0,"What kind of change does this PR introduce?
+Sinhala Language Translation
+Sinhala README in i18n folder
+Sinhala language added to the list of languages in i18n/languages.md
+Sinhala language added to the main README.md
+What is the current behavior?
+There is currently no Sinhala translation.
+What is the new behavior?
+The readme file is translated into Sinhala.
+Additional context
+i have previous experiences with sinhala translations.
+promote-open-source-project
+dogehouse",2,2
+2281,2021-07-08T12:26:52Z,,2021-11-30T14:53:13Z,72,10333,0,"What kind of change does this PR introduce?
+Starts the work on a self-hosted dashboard.
+
+context
+Livestream
+
+Build in Public 006: Supabase Studio
+Build in Public 007: Supabase Studio - API Docs
+Build in Public 008: Supabase Studio
+Build in Public 009: Supabase Studio - Postgres Meta",10,2
+2342,2021-07-12T18:46:32Z,2021-07-15T11:55:47Z,2021-07-15T11:55:47Z,15,328,41,"What kind of change does this PR introduce?
+Added auth page to Studio
+auth navbar
+
+auth > policies
+
+auth > users
+
+auth > templates",2,4
+2363,2021-07-14T12:46:21Z,2021-07-28T14:42:40Z,2021-07-28T14:42:40Z,7,124,0,"What kind of change does this PR introduce?
+Added new guide for Twitch Authentication.",3,1
+2444,2021-07-19T13:28:32Z,2021-07-23T03:58:28Z,2021-07-23T03:58:28Z,4,612,0,"What kind of change does this PR introduce?
+Added a quick start guide for Flutter.
+What is the current behavior?
+There are no guides for Flutter.
+What is the new behavior?
+Added a quick start guide for Flutter.
+Additional context
+I haven't included the bonus portion using storage yet. I will add it later on in another PR!",3,3
+2492,2021-07-22T13:13:56Z,2021-07-24T08:23:52Z,2021-07-24T08:23:52Z,3,10,2,"• updated OG image for launch week 2
+• also updated RSS feed",2,1
+2558,2021-07-26T06:38:46Z,,2021-07-26T13:05:57Z,1,21,21,"Mostly minor grammatical changes:
+
+hyphenation where appropriate
+em dashes instead of hyphens
+some minor rephrasing
+more consistently treating collective nouns as plural (TIL that British English does this)",1,1
+2584,2021-07-27T08:25:34Z,2021-07-27T13:20:21Z,2021-07-27T13:20:21Z,1,1,1,I'm pretty sure you guys meant public here :),3,2
+2616,2021-07-28T17:33:40Z,,2021-10-11T10:16:57Z,1,8,0,"What kind of change does this PR introduce?
+Docs update
+What is the current behavior?
+Missing a code example
+What is the new behavior?
+I've reintroduced a code example from the old docs: https://supabase.io/docs/gotrue/client/update#update-a-users-email-address
+I wasn't sure this was possible until I found this, and it looks like it works, so may be handy to have in up to date docs.
+Additional context
+Add any other context or screenshots.",2,2
+2617,2021-07-28T17:49:41Z,,2021-07-29T03:20:47Z,2,5,1,"What kind of change does this PR introduce?
+Bug fix
+What is the current behavior?
+Brank image on home page does not change cursor style to signify a link is present.
+What is the new behavior?
+Brand image on home page now signifies a link is present via cursor change to pointer.
+Additional context
+N/A",3,1
+2629,2021-07-29T14:28:26Z,2021-08-04T00:45:18Z,2021-08-04T00:45:18Z,1,1,1,"What kind of change does this PR introduce?
+Typo fix.
+HTH",3,2
+2632,2021-07-29T16:45:48Z,2021-08-04T00:21:08Z,2021-08-04T00:21:08Z,3,90,0,"What kind of change does this PR introduce?
+README I18n update for Vietnamese
+What is the current behavior?
+Missing Vietnamese translations for README file in i18n/
+What is the new behavior?
+Added new Vietnamese translations for README file in i18n/
+Additional context
+none",3,6
+2634,2021-07-29T17:30:46Z,2021-08-02T04:40:30Z,2021-08-02T04:40:30Z,1,1,1,"The UI tab of the numbered list was 1, 2, 4. Correcting it to 1, 2, 3. I'm skipping creating an issue for this since it's such a straightforward change.
+What kind of change does this PR introduce?
+Docs update, fixes a typo in the numbered instructions.
+What is the current behavior?
+List numbers counted incorrectly as ""1, 2, 4""
+Please link any relevant issues here.
+
+Not related to any issues
+
+What is the new behavior?
+List numbers counted correctly as ""1, 2, 3""
+Additional context
+Add any other context or screenshots.",3,2
+2653,2021-07-31T03:01:21Z,2021-08-04T00:46:33Z,2021-08-04T00:46:33Z,1,5,5,,4,2
+2672,2021-08-01T16:44:08Z,2021-09-06T04:33:39Z,2021-09-06T04:33:39Z,1,107,0,"What kind of change does this PR introduce?
+Self-hosting docs update
+What is the current behavior?
+Users currently have to piece different things together from the GoTrue docs which can take more time than necessary. Improving the docs in some areas can help streamline the process of self-hosting
+What is the new behavior?
+
+Added an example config of environment variables for the GoTrue container",2,1
+2683,2021-08-03T00:49:24Z,2021-11-02T10:38:42Z,2021-11-02T10:38:42Z,1,12,0,Users have asked why they cannot access tables outside the public schema from the Javascript client.  This documents the schema option for the createClient method.,3,1
+2742,2021-08-06T07:48:31Z,2021-08-08T10:44:48Z,2021-08-08T10:44:48Z,1,1,1,"What kind of change does this PR introduce?
+Bug fix, feature, docs update, ...
+docs
+What is the current behavior?
+simploy
+Please link any relevant issues here.
+no issue
+What is the new behavior?
+simply
+Feel free to include screenshots if it includes visual changes.
+Additional context
+Add any other context or screenshots.",3,1
+2790,2021-08-10T06:58:11Z,2021-08-12T01:48:02Z,2021-08-12T01:48:02Z,1,10,2,"I add CDN information on installation section
+What kind of change does this PR introduce?
+Bug fix, feature, docs update, ...
+What is the current behavior?
+Please link any relevant issues here.
+What is the new behavior?
+Feel free to include screenshots if it includes visual changes.
+Additional context
+Add any other context or screenshots.",3,1
+2791,2021-08-10T07:55:38Z,2021-08-11T02:47:13Z,2021-08-11T02:47:13Z,1,4,4,,2,1
+2866,2021-08-17T07:40:45Z,2021-08-17T09:55:21Z,2021-08-17T09:55:21Z,29,142,1137,"What kind of change does this PR introduce?
+First step in cleaning up our docs is to move the jobs to a new site
+
+removed from docs: https://docs-8ac3o46hx-supabase.vercel.app/docs
+migrated to about.supabase.com: https://about-git-chore-migratecareers-supabase.vercel.app/",2,2
+2875,2021-08-17T11:18:27Z,2021-08-18T05:04:22Z,2021-08-18T05:04:22Z,23,152,2482,"Updates here https://docs-git-chore-docssimplify-supabase.vercel.app/docs
+
+removes the resources page
+moves the auth deep dive to the Guides section
+added a very basic ""Tables"" guide (so that the Database category is a bit more robust)
+removes all the tools",2,1
+2882,2021-08-18T03:22:14Z,2021-08-27T17:19:18Z,2021-08-27T17:19:18Z,5,7,7,@ltanady merge when you're ready!,3,1
+2900,2021-08-19T09:58:45Z,2021-08-23T03:51:49Z,2021-08-23T03:51:49Z,2,2,2,,2,1
+2901,2021-08-19T14:36:53Z,2021-08-23T03:57:59Z,2021-08-23T03:57:59Z,1,2,2,"What kind of change does this PR introduce?
+Docs update
+What is the current behavior?
+CacheControl is typed as a string, but the example docs show it being used with a number.
+What is the new behavior?
+This corrects the example docs to use a string instead.",2,2
+2904,2021-08-19T15:56:03Z,2021-08-23T03:57:11Z,2021-08-23T03:57:11Z,1,1,1,"What kind of change does this PR introduce?
+docs update
+What is the current behavior?
+filters docs .not() section with rpc() example code snippet is missing a closing quote.
+
+Please link any relevant issues here.
+What is the new behavior?
+filters docs .not() section with rpc() example code snippet is now correct.",2,1
+2910,2021-08-20T09:00:57Z,2021-08-24T10:57:33Z,2021-08-24T10:57:33Z,1,3,1,@inian to correct exact verbiage,2,1
+2912,2021-08-20T15:21:10Z,2021-08-23T03:58:26Z,2021-08-23T03:58:26Z,9,18,18,"In the example docs, await is used inside of functions that are not async functions. JS doesn't allow this :( This PR makes these example functions async functions.",2,3
+2913,2021-08-20T15:51:03Z,2021-08-23T03:52:54Z,2021-08-23T03:52:54Z,1,1,1,"What kind of change does this PR introduce?
+Docs
+https://pablopunk.com/posts/how-to-create-a-real-time-ui-with-nextjs-and-supabase",2,2
+2921,2021-08-21T05:50:44Z,2021-08-23T03:51:17Z,2021-08-23T03:51:17Z,1,1,1,"What kind of change does this PR introduce?
+Styling update on the pricing page
+What is the current behavior?
+Go to the pricing page on desktop: https://supabase.io/pricing
+Scroll the page, and on the table section (Database, Auth, ...) we can see the sticky offset is way too far from the top
+
+What is the new behavior?",2,1
+2924,2021-08-21T17:36:28Z,2021-08-23T03:56:25Z,2021-08-23T03:56:25Z,1,1,1,"What kind of change does this PR introduce?
+Fixes a minor typo in the docs, where there the generated types for a Github Action have mismatched pathnames.",2,1
+2952,2021-08-25T09:23:59Z,,2021-09-16T05:12:57Z,13,1050,878,,2,1
+2953,2021-08-25T09:58:42Z,2021-08-26T12:30:16Z,2021-08-26T12:30:16Z,1,1,1,,2,1
+2970,2021-08-27T19:10:39Z,2021-08-28T07:51:59Z,2021-08-28T07:51:59Z,2,90,0,"What kind of change does this PR introduce?
+Docs update
+Added hungarian translation to readme
+What is the current behavior?
+Please link any relevant issues here.
+What is the new behavior?
+Feel free to include screenshots if it includes visual changes.
+Additional context
+Add any other context or screenshots.",2,1
+2977,2021-08-28T13:11:44Z,2021-08-30T08:12:05Z,2021-08-30T08:12:05Z,1,1,0,"What kind of change does this PR introduce?
+Bug fix, feature, docs update, ...
+Added hungarian translation link to the main README
+What is the current behavior?
+Please link any relevant issues here.
+What is the new behavior?
+Feel free to include screenshots if it includes visual changes.
+Additional context
+Add any other context or screenshots.",2,1
+2982,2021-08-28T22:16:34Z,,2021-11-29T03:38:37Z,188,24738,27749,"What kind of change does this PR introduce?
+Feature: Adds Create Table functionality",36,3
+2988,2021-08-29T06:43:56Z,2021-08-30T06:01:21Z,2021-08-30T06:01:22Z,2,4,4,"What kind of change does this PR introduce?
+This PR fixes #2933 by setting the right ownership on kong's config file and postgres's init files.
+What is the current behavior?
+See #2933
+What is the new behavior?
+Containers start when using the local supabase developement environment",3,2
+3005,2021-08-30T12:31:54Z,2021-08-30T15:04:29Z,2021-08-30T15:04:29Z,1,3,2,Added missing line that creates the index.,2,1
+3013,2021-08-30T22:00:05Z,2021-08-30T23:03:12Z,2021-08-30T23:03:12Z,1,2,0,"What kind of change does this PR introduce?
+Adds a default statement_timeout to kill  long running statements/queries that come through postgrest to improve resiliency to accidentally slow queries, and DOS
+What is the current behavior?
+2 minute global timeout
+Please link any relevant issues here.
+resolves #2887
+What is the new behavior?
+unauthenticated users have a 3 second statement timeout & authenticated users have an 8 second timeout",2,2
+3019,2021-08-31T03:04:46Z,2021-09-01T13:43:37Z,2021-09-01T13:43:37Z,4,5,4,"What kind of change does this PR introduce?
+
+Update self-hosted docker image version to make it closed to app.supabase.io version
+Update search_path fix: #338
+
+What is the current behavior?
+
+Some of self-hosted docker image version is different with app.supabase.io version
+Extension function need extensions. prefix eg: extensions.generate_uuid_v4()
+
+What is the new behavior?
+
+Updated supabase/postgres
+Updated postgrest/postgrest
+Updated search_path for role postgres",2,1
+3021,2021-08-31T07:04:15Z,2021-09-01T13:41:23Z,2021-09-01T13:41:23Z,1,1,1,"What kind of change does this PR introduce?
+Docs are not including mandatory search text configuration (added default 'english'). Also add column statement has not correct syntax (wrap to_tsvector).
+What is the current behavior?
+Add column statement does not work according to the docs.
+What is the new behavior?
+Generated column fts can be created.",2,2
+3022,2021-08-31T12:00:19Z,2021-11-29T09:41:18Z,2021-11-29T09:41:19Z,53,1087,0,"Prisma: https://docs-git-docs-integration-prisma-supabase.vercel.app/docs/guides/integrations/prisma
+ Auth0
+ Vercel
+
+http://localhost:3006/docs/guides/integrations/prisma",5,3
+3026,2021-08-31T21:14:28Z,2021-09-01T12:15:08Z,2021-09-01T12:15:08Z,2,28,0,,4,1
+3035,2021-09-01T14:28:56Z,2021-09-02T01:19:29Z,2021-09-02T01:19:29Z,23,580,136,"A few key changes.
+Landing page is now less wordy:
+
+
+Compressed the sidebar
+
+And moved some of the sidebar items over to Guides",2,1
+3037,2021-09-01T17:56:59Z,2021-09-02T01:31:46Z,2021-09-02T01:31:46Z,1,2,2,"What kind of change does this PR introduce?
+Docs update
+What is the current behavior?
+The example SQL command fails to run.
+What is the new behavior?
+The SQL command should run with the added comma.",2,1
+3039,2021-09-01T19:21:33Z,2021-09-06T07:55:19Z,2021-09-06T07:55:20Z,1,630,256,"Bumps next from 10.0.8 to 11.1.2.
+
+Release notes
+Sourced from next's releases.
+
+v11.1.2
+Core Changes
+
+chore: upgrade styled-jsx to 4.0.1: #28626
+getServerSideProps should support props value as Promise: #28607
+Ensure custom app regex is correct for Windows: #28631
+
+Credits
+Huge thanks to @​huozhi and @​kara for helping!
+v11.1.2-canary.0
+Core Changes
+
+chore: upgrade styled-jsx to 4.0.1: #28626
+getServerSideProps should support props value as Promise: #28607
+Ensure custom app regex is correct for Windows: #28631
+
+Credits
+Huge thanks to @​huozhi and @​kara for helping!
+v11.1.1
+Core Changes
+
+Next.js swc publish flow: #27984
+Ensure config file message is only shown once: #28017
+Add missing fields to NextConfig type: #27974
+use a shared worker pool for collecting page data and static page generation: #27924
+Use @​next scope for native packages: #28046
+Fix generateBuildId type that can be async function: #28040
+Fix image optimization encoding url: #28045
+Clean up Document in preparation for streaming: #28032
+Render as a concatenation of streams: #28082
+Add support for dynamic HTML: #28085
+Support suspense in next dynamic: #27611
+Handle blob urls in image component: #27975
+Bypass webpack compilation for precompiled @​next/polyfills-nomodule: #27596
+Update util to 0.12.4: #27939
+Remove duplicate doctypes: #28089
+Fix revalidate for initial notFound: true paths: #28097
+Add proper error when failing to load next.config.js: #28099
+Fix: wrong link error message: #28127
+Add support for Jaeger trace target: #28129
+Enable pure client suspense in blocking rendering: #28165
+Add entrypoint tracing: #25538
+Add module type to build-module trace: #28128
+Update to latest babel versions: #28174
+Improve jaeger traces: #28168
+fix development mode bug with pages with ""+"" and other special characters: #28122
+
+
+
+... (truncated)
+
+
+Commits
+
+97456e8 v11.1.2
+248b341 v11.1.2-canary.0
+ff9dcc6 Ensure custom app regex is correct for Windows (#28631)
+9be387c getServerSideProps should support props value as Promise (#28607)
+8c553e8 chore: upgrade styled-jsx to 4.0.1 (#28626)
+804971f v11.1.1
+194d70f v11.1.1-canary.19
+36d922f Add apiVersion to config (#28610)
+a60690f v11.1.1-canary.18
+7afc97c Add CSP to Image Optimization API (#28620)
+Additional commits viewable in compare view
+
+
+
+
+Dependabot will resolve any conflicts with this PR as long as you don't alter it yourself. You can also trigger a rebase manually by commenting @dependabot rebase.
+
+
+Dependabot commands and options
+
+You can trigger Dependabot actions by commenting on this PR:
+
+@dependabot rebase will rebase this PR
+@dependabot recreate will recreate this PR, overwriting any edits that have been made to it
+@dependabot merge will merge this PR after your CI passes on it
+@dependabot squash and merge will squash and merge this PR after your CI passes on it
+@dependabot cancel merge will cancel a previously requested merge and block automerging
+@dependabot reopen will reopen this PR if it is closed
+@dependabot close will close this PR and stop Dependabot recreating it. You can achieve the same result by closing it manually
+@dependabot ignore this major version will close this PR and stop Dependabot creating any more for this major version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this minor version will close this PR and stop Dependabot creating any more for this minor version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this dependency will close this PR and stop Dependabot creating any more for this dependency (unless you reopen the PR or upgrade to it yourself)
+@dependabot use these labels will set the current labels as the default for future PRs for this repo and language
+@dependabot use these reviewers will set the current reviewers as the default for future PRs for this repo and language
+@dependabot use these assignees will set the current assignees as the default for future PRs for this repo and language
+@dependabot use this milestone will set the current milestone as the default for future PRs for this repo and language
+
+You can disable automated security fix PRs for this repo from the Security Alerts page.",1,1
+3040,2021-09-01T19:26:36Z,2021-09-06T08:46:43Z,2021-09-06T08:46:43Z,3,1694,389,"Bumps next from 10.2.0 to 11.1.1.
+
+Release notes
+Sourced from next's releases.
+
+v11.1.1
+Core Changes
+
+Next.js swc publish flow: #27984
+Ensure config file message is only shown once: #28017
+Add missing fields to NextConfig type: #27974
+use a shared worker pool for collecting page data and static page generation: #27924
+Use @​next scope for native packages: #28046
+Fix generateBuildId type that can be async function: #28040
+Fix image optimization encoding url: #28045
+Clean up Document in preparation for streaming: #28032
+Render as a concatenation of streams: #28082
+Add support for dynamic HTML: #28085
+Support suspense in next dynamic: #27611
+Handle blob urls in image component: #27975
+Bypass webpack compilation for precompiled @​next/polyfills-nomodule: #27596
+Update util to 0.12.4: #27939
+Remove duplicate doctypes: #28089
+Fix revalidate for initial notFound: true paths: #28097
+Add proper error when failing to load next.config.js: #28099
+Fix: wrong link error message: #28127
+Add support for Jaeger trace target: #28129
+Enable pure client suspense in blocking rendering: #28165
+Add entrypoint tracing: #25538
+Add module type to build-module trace: #28128
+Update to latest babel versions: #28174
+Improve jaeger traces: #28168
+fix development mode bug with pages with ""+"" and other special characters: #28122
+let loaders automatically infer source map setting: #28204
+Avoid fs write next-env.d.ts on read-only filesystems: #28206
+Document usage of suspense option of next/dynamic: #28210
+Add warning when parent styles break next/image: #28221
+Use zen-observable library: #28214
+Fix HMR when custom _app or _document is removed: #28227
+Add relationship between issuer and module to traces: #28192
+Update generating next-server dependencies: #28223
+Fix next/image blur placeholder when JS is disabled: #28269
+Ensure adding _app/_document HMRs correctly: #28279
+upgrade webpack to 5.51.1: #28291
+[ESLint] Adds process.exit to next lint success output: #28299
+Fix next env vars injection in dynamic: #28309
+Add layout to data-nimg attribute: #28312
+Add data attribute to script component: #28310
+Ensure @​babel/core is de-duped when nccing: #28384
+Fix forked NODE_OPTIONS except for inspect: #28420
+[ESLint] Enable caching by default: #28349
+Update test config to leverage swc: #28400
+Add missing typescript property to NextConfig: #28459
+next/script fix duplicate scripts : #28428
+Ensure error is shown correctly for empty headers field: #28430
+
+
+
+... (truncated)
+
+
+Commits
+
+804971f v11.1.1
+194d70f v11.1.1-canary.19
+36d922f Add apiVersion to config (#28610)
+a60690f v11.1.1-canary.18
+7afc97c Add CSP to Image Optimization API (#28620)
+8711c5c Tests: Remove unnecessary await (#28594)
+d209435 Small grammar fixes (#28590)
+04cc37f Add docs for using pageExtensions to colocate other files with page component...
+f1dbc92 Ensure dev server side errors are correct (#28520)
+27c2937 Update with-jest packages and docs (#28209)
+Additional commits viewable in compare view
+
+
+
+
+Dependabot will resolve any conflicts with this PR as long as you don't alter it yourself. You can also trigger a rebase manually by commenting @dependabot rebase.
+
+
+Dependabot commands and options
+
+You can trigger Dependabot actions by commenting on this PR:
+
+@dependabot rebase will rebase this PR
+@dependabot recreate will recreate this PR, overwriting any edits that have been made to it
+@dependabot merge will merge this PR after your CI passes on it
+@dependabot squash and merge will squash and merge this PR after your CI passes on it
+@dependabot cancel merge will cancel a previously requested merge and block automerging
+@dependabot reopen will reopen this PR if it is closed
+@dependabot close will close this PR and stop Dependabot recreating it. You can achieve the same result by closing it manually
+@dependabot ignore this major version will close this PR and stop Dependabot creating any more for this major version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this minor version will close this PR and stop Dependabot creating any more for this minor version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this dependency will close this PR and stop Dependabot creating any more for this dependency (unless you reopen the PR or upgrade to it yourself)
+@dependabot use these labels will set the current labels as the default for future PRs for this repo and language
+@dependabot use these reviewers will set the current reviewers as the default for future PRs for this repo and language
+@dependabot use these assignees will set the current assignees as the default for future PRs for this repo and language
+@dependabot use this milestone will set the current milestone as the default for future PRs for this repo and language
+
+You can disable automated security fix PRs for this repo from the Security Alerts page.",1,1
+3041,2021-09-01T19:40:17Z,2021-09-06T07:54:09Z,2021-09-06T07:54:09Z,2,2165,494,"Bumps next from 10.0.9 to 11.1.1.
+
+Release notes
+Sourced from next's releases.
+
+v11.1.1
+Core Changes
+
+Next.js swc publish flow: #27984
+Ensure config file message is only shown once: #28017
+Add missing fields to NextConfig type: #27974
+use a shared worker pool for collecting page data and static page generation: #27924
+Use @​next scope for native packages: #28046
+Fix generateBuildId type that can be async function: #28040
+Fix image optimization encoding url: #28045
+Clean up Document in preparation for streaming: #28032
+Render as a concatenation of streams: #28082
+Add support for dynamic HTML: #28085
+Support suspense in next dynamic: #27611
+Handle blob urls in image component: #27975
+Bypass webpack compilation for precompiled @​next/polyfills-nomodule: #27596
+Update util to 0.12.4: #27939
+Remove duplicate doctypes: #28089
+Fix revalidate for initial notFound: true paths: #28097
+Add proper error when failing to load next.config.js: #28099
+Fix: wrong link error message: #28127
+Add support for Jaeger trace target: #28129
+Enable pure client suspense in blocking rendering: #28165
+Add entrypoint tracing: #25538
+Add module type to build-module trace: #28128
+Update to latest babel versions: #28174
+Improve jaeger traces: #28168
+fix development mode bug with pages with ""+"" and other special characters: #28122
+let loaders automatically infer source map setting: #28204
+Avoid fs write next-env.d.ts on read-only filesystems: #28206
+Document usage of suspense option of next/dynamic: #28210
+Add warning when parent styles break next/image: #28221
+Use zen-observable library: #28214
+Fix HMR when custom _app or _document is removed: #28227
+Add relationship between issuer and module to traces: #28192
+Update generating next-server dependencies: #28223
+Fix next/image blur placeholder when JS is disabled: #28269
+Ensure adding _app/_document HMRs correctly: #28279
+upgrade webpack to 5.51.1: #28291
+[ESLint] Adds process.exit to next lint success output: #28299
+Fix next env vars injection in dynamic: #28309
+Add layout to data-nimg attribute: #28312
+Add data attribute to script component: #28310
+Ensure @​babel/core is de-duped when nccing: #28384
+Fix forked NODE_OPTIONS except for inspect: #28420
+[ESLint] Enable caching by default: #28349
+Update test config to leverage swc: #28400
+Add missing typescript property to NextConfig: #28459
+next/script fix duplicate scripts : #28428
+Ensure error is shown correctly for empty headers field: #28430
+
+
+
+... (truncated)
+
+
+Commits
+
+804971f v11.1.1
+194d70f v11.1.1-canary.19
+36d922f Add apiVersion to config (#28610)
+a60690f v11.1.1-canary.18
+7afc97c Add CSP to Image Optimization API (#28620)
+8711c5c Tests: Remove unnecessary await (#28594)
+d209435 Small grammar fixes (#28590)
+04cc37f Add docs for using pageExtensions to colocate other files with page component...
+f1dbc92 Ensure dev server side errors are correct (#28520)
+27c2937 Update with-jest packages and docs (#28209)
+Additional commits viewable in compare view
+
+
+
+
+Dependabot will resolve any conflicts with this PR as long as you don't alter it yourself. You can also trigger a rebase manually by commenting @dependabot rebase.
+
+
+Dependabot commands and options
+
+You can trigger Dependabot actions by commenting on this PR:
+
+@dependabot rebase will rebase this PR
+@dependabot recreate will recreate this PR, overwriting any edits that have been made to it
+@dependabot merge will merge this PR after your CI passes on it
+@dependabot squash and merge will squash and merge this PR after your CI passes on it
+@dependabot cancel merge will cancel a previously requested merge and block automerging
+@dependabot reopen will reopen this PR if it is closed
+@dependabot close will close this PR and stop Dependabot recreating it. You can achieve the same result by closing it manually
+@dependabot ignore this major version will close this PR and stop Dependabot creating any more for this major version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this minor version will close this PR and stop Dependabot creating any more for this minor version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this dependency will close this PR and stop Dependabot creating any more for this dependency (unless you reopen the PR or upgrade to it yourself)
+@dependabot use these labels will set the current labels as the default for future PRs for this repo and language
+@dependabot use these reviewers will set the current reviewers as the default for future PRs for this repo and language
+@dependabot use these assignees will set the current assignees as the default for future PRs for this repo and language
+@dependabot use this milestone will set the current milestone as the default for future PRs for this repo and language
+
+You can disable automated security fix PRs for this repo from the Security Alerts page.",1,1
+3043,2021-09-02T01:20:28Z,2021-09-06T07:52:54Z,2021-09-06T07:52:54Z,2,926,5285,"Bumps next from 10.0.1 to 11.1.1.
+
+Release notes
+Sourced from next's releases.
+
+v11.1.1
+Core Changes
+
+Next.js swc publish flow: #27984
+Ensure config file message is only shown once: #28017
+Add missing fields to NextConfig type: #27974
+use a shared worker pool for collecting page data and static page generation: #27924
+Use @​next scope for native packages: #28046
+Fix generateBuildId type that can be async function: #28040
+Fix image optimization encoding url: #28045
+Clean up Document in preparation for streaming: #28032
+Render as a concatenation of streams: #28082
+Add support for dynamic HTML: #28085
+Support suspense in next dynamic: #27611
+Handle blob urls in image component: #27975
+Bypass webpack compilation for precompiled @​next/polyfills-nomodule: #27596
+Update util to 0.12.4: #27939
+Remove duplicate doctypes: #28089
+Fix revalidate for initial notFound: true paths: #28097
+Add proper error when failing to load next.config.js: #28099
+Fix: wrong link error message: #28127
+Add support for Jaeger trace target: #28129
+Enable pure client suspense in blocking rendering: #28165
+Add entrypoint tracing: #25538
+Add module type to build-module trace: #28128
+Update to latest babel versions: #28174
+Improve jaeger traces: #28168
+fix development mode bug with pages with ""+"" and other special characters: #28122
+let loaders automatically infer source map setting: #28204
+Avoid fs write next-env.d.ts on read-only filesystems: #28206
+Document usage of suspense option of next/dynamic: #28210
+Add warning when parent styles break next/image: #28221
+Use zen-observable library: #28214
+Fix HMR when custom _app or _document is removed: #28227
+Add relationship between issuer and module to traces: #28192
+Update generating next-server dependencies: #28223
+Fix next/image blur placeholder when JS is disabled: #28269
+Ensure adding _app/_document HMRs correctly: #28279
+upgrade webpack to 5.51.1: #28291
+[ESLint] Adds process.exit to next lint success output: #28299
+Fix next env vars injection in dynamic: #28309
+Add layout to data-nimg attribute: #28312
+Add data attribute to script component: #28310
+Ensure @​babel/core is de-duped when nccing: #28384
+Fix forked NODE_OPTIONS except for inspect: #28420
+[ESLint] Enable caching by default: #28349
+Update test config to leverage swc: #28400
+Add missing typescript property to NextConfig: #28459
+next/script fix duplicate scripts : #28428
+Ensure error is shown correctly for empty headers field: #28430
+
+
+
+... (truncated)
+
+
+Commits
+
+804971f v11.1.1
+194d70f v11.1.1-canary.19
+36d922f Add apiVersion to config (#28610)
+a60690f v11.1.1-canary.18
+7afc97c Add CSP to Image Optimization API (#28620)
+8711c5c Tests: Remove unnecessary await (#28594)
+d209435 Small grammar fixes (#28590)
+04cc37f Add docs for using pageExtensions to colocate other files with page component...
+f1dbc92 Ensure dev server side errors are correct (#28520)
+27c2937 Update with-jest packages and docs (#28209)
+Additional commits viewable in compare view
+
+
+
+
+Dependabot will resolve any conflicts with this PR as long as you don't alter it yourself. You can also trigger a rebase manually by commenting @dependabot rebase.
+
+
+Dependabot commands and options
+
+You can trigger Dependabot actions by commenting on this PR:
+
+@dependabot rebase will rebase this PR
+@dependabot recreate will recreate this PR, overwriting any edits that have been made to it
+@dependabot merge will merge this PR after your CI passes on it
+@dependabot squash and merge will squash and merge this PR after your CI passes on it
+@dependabot cancel merge will cancel a previously requested merge and block automerging
+@dependabot reopen will reopen this PR if it is closed
+@dependabot close will close this PR and stop Dependabot recreating it. You can achieve the same result by closing it manually
+@dependabot ignore this major version will close this PR and stop Dependabot creating any more for this major version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this minor version will close this PR and stop Dependabot creating any more for this minor version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this dependency will close this PR and stop Dependabot creating any more for this dependency (unless you reopen the PR or upgrade to it yourself)
+@dependabot use these labels will set the current labels as the default for future PRs for this repo and language
+@dependabot use these reviewers will set the current reviewers as the default for future PRs for this repo and language
+@dependabot use these assignees will set the current assignees as the default for future PRs for this repo and language
+@dependabot use this milestone will set the current milestone as the default for future PRs for this repo and language
+
+You can disable automated security fix PRs for this repo from the Security Alerts page.",1,1
+3046,2021-09-02T02:17:45Z,2021-09-02T13:20:54Z,2021-09-02T13:20:54Z,1,4,4,"What kind of change does this PR introduce?
+Improved translation. Fixed typo.
+What is the current behavior?
+Please link any relevant issues here.
+What is the new behavior?
+Feel free to include screenshots if it includes visual changes.
+Additional context
+Add any other context or screenshots.",2,1
+3057,2021-09-03T06:15:06Z,2021-09-04T12:06:34Z,2021-09-04T12:06:35Z,1,1,0,"Due to this breaking change in the replace plugin: rollup/plugins#903.
+As reported by @ahl389 in #3015.",2,1
+3058,2021-09-03T07:45:17Z,2021-09-04T12:06:05Z,2021-09-04T12:06:05Z,12,186,197,"What kind of change does this PR introduce?
+Update supabase(dart), supabase-flutter packages to latest version
+Additional context
+#2895",2,1
+3070,2021-09-03T21:03:47Z,2021-09-04T12:05:11Z,2021-09-04T12:05:11Z,1,9,9,"Await is missing in the examples, data will give an error, expects a promise
+What kind of change does this PR introduce?
+Bug fix, feature, docs update, ...
+What is the current behavior?
+Please link any relevant issues here.
+What is the new behavior?
+Feel free to include screenshots if it includes visual changes.
+Additional context
+Add any other context or screenshots.",2,1
+3094,2021-09-06T08:04:38Z,2021-09-13T07:09:29Z,2021-09-13T07:09:29Z,10,66,3,"What kind of change does this PR introduce?
+Changes the file path of the logo to SVG
+What is the current behavior?
+The nav and footer have PNG logos
+Linked Issue
+What is the new behavior?
+The logo path has been changed to point to the SVG logos",2,2
+3097,2021-09-06T09:41:15Z,2021-09-06T13:20:38Z,2021-09-06T13:20:38Z,14,11115,7467,,3,1
+3100,2021-09-06T13:05:43Z,2021-09-07T11:06:45Z,2021-09-07T11:06:45Z,19,476,272,,2,1
+3131,2021-09-09T08:44:27Z,2021-09-09T11:21:49Z,2021-09-09T11:21:49Z,1,1,1,,2,1
+3133,2021-09-09T11:45:10Z,2021-09-12T03:44:23Z,2021-09-12T03:44:23Z,4,623,531,"updated to Version: 2.0.0-beta.6
+https://docs-git-chore-update-docusaurus-beta-supabase.vercel.app/docs",2,1
+3134,2021-09-09T11:50:21Z,2021-09-24T00:57:57Z,2021-09-24T00:57:57Z,17,603,333,"split it into AuthN and AuthZ
+ Add the RLS video
+ Add an Auth landing page
+ Relabel all the Oauth with XX to Login with XX
+ Relabel SMS OTP with XX to Phone login with XX
+ Add a ""login with email"" page
+ Add a ""login with magic link page
+
+Summary:
+
+Shortened Auth overview: https://docs-git-docs-plugins-supabase.vercel.app/docs/guides/auth
+New Auth section: https://docs-git-docs-plugins-supabase.vercel.app/docs/guides/auth/intro
+New RLS section: https://docs-git-docs-plugins-supabase.vercel.app/docs/guides/auth/row-level-security
+
+Screenshot",3,1
+3148,2021-09-10T13:18:45Z,2021-09-11T10:14:50Z,2021-09-11T10:14:50Z,1,11,0,"What kind of change does this PR introduce?
+Doc update
+Added bulk upsert example to docs -  #3089",2,1
+3151,2021-09-10T14:09:53Z,2021-09-11T03:24:41Z,2021-09-11T03:24:41Z,1,1,1,Fix typo,2,1
+3156,2021-09-10T23:30:08Z,2021-09-11T03:24:17Z,2021-09-11T03:24:17Z,1,1,1,"What kind of change does this PR introduce?
+Fix wrong text direction  in Arabic README file
+What is the current behavior?
+Arabic Readme is displayed in LTR
+What is the new behavior?
+Arabic Readme is displayed in RTL
+Additional context
+Add any other context or screenshots.",2,1
+3160,2021-09-11T10:08:34Z,2021-09-15T02:43:20Z,2021-09-15T02:43:20Z,1,1,1,"I copy paste that example in my code and I didn't understand why count was null. In the current example, it looks like 3 arguments are accepted.",2,1
+3162,2021-09-11T14:22:25Z,2021-09-12T02:16:42Z,2021-09-12T02:16:42Z,1,13,2,"What kind of change does this PR introduce?
+docs update
+Fixes #3161
+What is the current behavior?
+https://supabase.io/docs/guides/client-libraries#managing-data
+Python example missing for filtering and insert not updated yet.
+What is the new behavior?
+added example for insert and filtering using python",2,3
+3166,2021-09-12T05:26:50Z,2021-09-12T08:47:52Z,2021-09-12T08:47:52Z,1,2,2,"What kind of change does this PR introduce?
+docs update
+What is the current behavior?
+https://supabase.io/docs/guides/client-libraries#managing-data
+
+Typo in bulk insert - missing closing bracket for list
+Select python example is not working
+
+What is the new behavior?
+
+Fixed typo for bulk insert
+fixed select example - replace from_ with table method",2,1
+3171,2021-09-12T09:56:37Z,2021-09-13T06:54:55Z,2021-09-13T06:54:55Z,1,76,77,,2,1
+3173,2021-09-12T12:14:47Z,2021-09-12T13:24:32Z,2021-09-12T13:24:32Z,3,334,53,"What kind of change does this PR introduce?
+This PR adds the bonus part of Flutter quick starter guide where the user can learn about how to use Supabase storage to upload images.
+Also includes some minor code updates with the latest version of Flutter Quickstart app and typo fixes.
+Related #3103
+Related #2895
+What is the current behavior?
+There is no bonus section about Supabase storage
+What is the new behavior?
+There is a bonus section where users can learn how to use Flutter and Supabase together to interact with files.",2,1
+3180,2021-09-13T06:53:24Z,2021-09-13T08:50:56Z,2021-09-13T08:50:56Z,1,3,3,,2,1
+3181,2021-09-13T06:54:31Z,2021-09-13T08:51:05Z,2021-09-13T08:51:05Z,1,1,1,,2,1
+3189,2021-09-13T14:14:28Z,2021-09-14T03:33:09Z,2021-09-14T03:33:10Z,1,2,2,Small typo fix,2,1
+3206,2021-09-15T00:08:24Z,2021-09-15T02:24:00Z,2021-09-15T02:24:00Z,5,1934,1558,"What kind of change does this PR introduce?
+docs update
+What is the new behavior?
+See the SECURITY WARNING table at the bottom of the screenshot.
+
+Additional context
+Related issue: #3053
+Related comments: #3053 (comment) + #3053 (comment)",2,1
+3219,2021-09-15T17:07:22Z,2021-09-16T01:44:23Z,2021-09-16T01:44:23Z,1,2,2,Docs update,2,1
+3223,2021-09-16T02:26:11Z,2021-09-16T05:13:42Z,2021-09-16T05:13:42Z,1,7,7,"What kind of change does this PR introduce?
+Client Libraries
+
+Ruby added
+Go added
+
+Community & Support
+
+Discord added
+
+What is the current behavior?
+Please link any relevant issues here.
+What is the new behavior?
+Feel free to include screenshots if it includes visual changes.
+Additional context
+Add any other context or screenshots.",2,1
+3254,2021-09-19T09:46:45Z,2021-09-20T08:34:17Z,2021-09-20T08:34:17Z,1,2,2,"What kind of change does this PR introduce?
+docs update
+What is the current behavior?
+Please link any relevant issues here.
+What is the new behavior?
+Feel free to include screenshots if it includes visual changes.
+Additional context
+Add any other context or screenshots.",2,1
+3260,2021-09-20T02:51:59Z,2021-09-20T06:25:19Z,2021-09-20T06:25:19Z,1,11,0,,2,1
+3262,2021-09-20T08:08:15Z,2021-09-20T09:33:29Z,2021-09-20T09:33:29Z,1,15,1,,2,1
+3263,2021-09-20T08:33:19Z,2021-09-21T11:19:26Z,2021-09-21T11:19:26Z,1,0,28,"we removed this a few months back, updating this page now",2,1
+3272,2021-09-21T11:19:05Z,2021-09-21T12:52:12Z,2021-09-21T12:52:12Z,1,7,2,,3,1
+3274,2021-09-21T13:42:31Z,2021-09-22T09:39:29Z,2021-09-22T09:39:30Z,1,5,5,"What kind of change does this PR introduce?
+Docs update
+What is the current behavior?
+#3269 (comment)
+What is the new behavior?
+Does not create a function that leaks the team ids the user is a member of.",3,1
+3280,2021-09-21T22:31:38Z,2021-09-22T09:40:25Z,2021-09-22T09:40:25Z,2,34,25,"What kind of change does this PR introduce?
+Fixed few minor things that I found in Dart docs and Dart code samples in full-text-search guide
+What is the current behavior?
+
+Package names in Dart docs were not consistent.
+await and .execute() were missing from code samples in full-text-search guide
+
+What is the new behavior?
+
+Consistent package names within Dart docs
+Added await and execute() to code samples",2,1
+3282,2021-09-22T05:38:15Z,2021-09-30T10:39:47Z,2021-09-30T10:39:47Z,1,3,3,"Bumps tmpl from 1.0.4 to 1.0.5.
+
+Commits
+
+See full diff in compare view
+
+
+
+
+Dependabot will resolve any conflicts with this PR as long as you don't alter it yourself. You can also trigger a rebase manually by commenting @dependabot rebase.
+
+
+Dependabot commands and options
+
+You can trigger Dependabot actions by commenting on this PR:
+
+@dependabot rebase will rebase this PR
+@dependabot recreate will recreate this PR, overwriting any edits that have been made to it
+@dependabot merge will merge this PR after your CI passes on it
+@dependabot squash and merge will squash and merge this PR after your CI passes on it
+@dependabot cancel merge will cancel a previously requested merge and block automerging
+@dependabot reopen will reopen this PR if it is closed
+@dependabot close will close this PR and stop Dependabot recreating it. You can achieve the same result by closing it manually
+@dependabot ignore this major version will close this PR and stop Dependabot creating any more for this major version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this minor version will close this PR and stop Dependabot creating any more for this minor version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this dependency will close this PR and stop Dependabot creating any more for this dependency (unless you reopen the PR or upgrade to it yourself)
+@dependabot use these labels will set the current labels as the default for future PRs for this repo and language
+@dependabot use these reviewers will set the current reviewers as the default for future PRs for this repo and language
+@dependabot use these assignees will set the current assignees as the default for future PRs for this repo and language
+@dependabot use this milestone will set the current milestone as the default for future PRs for this repo and language
+
+You can disable automated security fix PRs for this repo from the Security Alerts page.",1,1
+3285,2021-09-22T10:48:58Z,2021-09-22T12:13:54Z,2021-09-22T12:13:54Z,1,1,0,"What kind of change does this PR introduce?
+Update documentation.
+What is the new behavior?
+Shows that functions which return tables can have their columns filtered as well.",2,1
+3302,2021-09-23T17:45:47Z,2021-09-30T10:55:25Z,2021-09-30T10:55:25Z,3,17,38,"What kind of change does this PR introduce?
+Improvement
+What is the current behavior?
+Currently the annoucement nav has a Discord color but is talking about fundraise.
+What is the new behavior?
+The nav is now using the brand color.",3,6
+3303,2021-09-24T00:58:49Z,2021-09-30T10:39:17Z,2021-09-30T10:39:17Z,1,3,3,"Bumps ansi-regex from 5.0.0 to 5.0.1.
+
+Release notes
+Sourced from ansi-regex's releases.
+
+v5.0.1
+Fixes (backport of 6.0.1 to v5)
+This is a backport of the minor ReDos vulnerability in ansi-regex@<6.0.1, as requested in #38.
+
+Fix ReDoS in certain cases (#37)
+You are only really affected if you run the regex on untrusted user input in a server context, which it's very unlikely anyone is doing, since this regex is mainly used in command-line tools.
+
+CVE-2021-3807
+https://github.com/chalk/ansi-regex/compare/v5.0.0..v5.0.1
+Thank you @​yetingli for the patch and reproduction case!
+
+
+
+Commits
+
+a9babce 5.0.1
+4657833 fix incorrect format
+c3c0b3f Fix potential ReDoS (#37)
+178363b Move to GitHub Actions (#35)
+0755e66 Add @​Qix- to funding.yml
+See full diff in compare view
+
+
+
+
+Dependabot will resolve any conflicts with this PR as long as you don't alter it yourself. You can also trigger a rebase manually by commenting @dependabot rebase.
+
+
+Dependabot commands and options
+
+You can trigger Dependabot actions by commenting on this PR:
+
+@dependabot rebase will rebase this PR
+@dependabot recreate will recreate this PR, overwriting any edits that have been made to it
+@dependabot merge will merge this PR after your CI passes on it
+@dependabot squash and merge will squash and merge this PR after your CI passes on it
+@dependabot cancel merge will cancel a previously requested merge and block automerging
+@dependabot reopen will reopen this PR if it is closed
+@dependabot close will close this PR and stop Dependabot recreating it. You can achieve the same result by closing it manually
+@dependabot ignore this major version will close this PR and stop Dependabot creating any more for this major version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this minor version will close this PR and stop Dependabot creating any more for this minor version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this dependency will close this PR and stop Dependabot creating any more for this dependency (unless you reopen the PR or upgrade to it yourself)
+@dependabot use these labels will set the current labels as the default for future PRs for this repo and language
+@dependabot use these reviewers will set the current reviewers as the default for future PRs for this repo and language
+@dependabot use these assignees will set the current assignees as the default for future PRs for this repo and language
+@dependabot use this milestone will set the current milestone as the default for future PRs for this repo and language
+
+You can disable automated security fix PRs for this repo from the Security Alerts page.",2,1
+3304,2021-09-24T03:58:26Z,2021-09-24T05:02:08Z,2021-09-24T05:02:08Z,1,1,1,"What kind of change does this PR introduce?
+We now show custom SMTP settings are free on the pricing page",3,1
+3305,2021-09-24T06:05:45Z,2021-09-30T09:11:38Z,2021-09-30T09:11:38Z,1,192,204,"What kind of change does this PR introduce?
+Due to a bug on the Dart library, filtering methods were not available on rpc() until recently, but we were able to fix that bug with this PR, so I added docs to use filters with rpc().
+Also added a comment about why is() became is_() in Dart.
+What is the current behavior?
+There are no documentations to use filter methods with rpc().
+What is the new behavior?
+There are examples of how to use filter methods with rpc().
+Additional context
+N/A",2,1
+3335,2021-09-27T16:18:55Z,2021-09-30T09:18:04Z,2021-09-30T09:18:04Z,2,3,2,"What kind of change does this PR introduce?
+Bug fix
+What is the current behavior?
+
+What is the new behavior?",2,1
+3338,2021-09-28T05:39:36Z,2021-09-28T07:07:32Z,2021-09-28T07:07:32Z,4,146,3,https://www-git-blog-supabase-hacktoberfest-hackathon-2021-supabase.vercel.app/new/blog/2021/09/28/supabase-hacktoberfest-hackathon-2021,2,1
+3339,2021-09-28T06:05:57Z,2021-09-30T09:19:24Z,2021-09-30T09:19:24Z,1,2,2,Closes #3337.,2,1
+3341,2021-09-28T07:33:56Z,2021-09-30T11:16:23Z,2021-09-30T11:16:23Z,1,2,2,"changes the headline to funnel people to join the hackathon for next week
+can revert back to Series A news after?",2,2
+3345,2021-09-28T13:49:00Z,2021-09-30T10:28:18Z,2021-09-30T10:28:19Z,1,2,2,"What kind of change does this PR introduce?
+Hacktoberfest duration 7  days fix to 10 days",2,1
+3352,2021-09-29T03:48:13Z,2021-09-29T08:48:45Z,2021-09-29T08:48:45Z,2,21,0,"What kind of change does this PR introduce?
+Blog pages were looking weird on mobile as some of the URL texts were too long - added some CSS to break em
+Also added ""Blog"" to the mobile nav menu below the Github option",2,2
+3353,2021-09-29T09:18:27Z,2021-09-30T10:32:58Z,2021-09-30T10:32:58Z,2,4,10,"stats on there are outdated, but it's still useful to link people to the sections occasionally",2,1
+3363,2021-09-29T20:57:44Z,2021-09-30T10:38:53Z,2021-09-30T10:38:53Z,1,1,1,"In the example shown for downloading a storage file, there is a second parameter used in the download call.
+What kind of change does this PR introduce?
+docs update",2,1
+3366,2021-09-29T23:45:54Z,2021-09-30T11:34:14Z,2021-09-30T11:34:14Z,22,423,1551,"moved step-by-step instructions to the README - easier to keep them in sync when they're side by side
+moved the traefik setup to supabase-community
+db and storage now persists data",2,1
+3376,2021-09-30T10:44:39Z,2021-09-30T15:28:07Z,2021-09-30T15:28:07Z,1,2,2,#3347,2,1
+3396,2021-10-01T12:47:42Z,2021-10-11T10:14:43Z,2021-10-11T10:14:43Z,1,3,4,fix #3390,2,1
+3397,2021-10-01T14:22:25Z,2021-10-04T13:40:44Z,2021-10-04T13:40:44Z,1,2,2,"Missed out the first '7' days previously, now change to 10 days. Changes the 'tens' to '10' for consistency.",2,1
+3398,2021-10-01T14:52:15Z,2021-10-07T07:32:08Z,2021-10-07T07:32:08Z,2,50,0,@roryw10 has some additions but kaizen,2,2
+3411,2021-10-03T21:32:33Z,2021-10-03T23:07:28Z,2021-10-03T23:07:28Z,2,35,36,"What kind of change does this PR introduce?
+This PR contains a doc update
+What is the current behaviour?
+Its position doesn't clarify instructions for new contributors. See issue #3095",2,1
+3412,2021-10-04T05:31:11Z,2021-10-04T09:32:58Z,2021-10-04T09:32:58Z,3,13,45,matches https://github.com/supabase/supabase/blob/master/SECURITY.md,2,1
+3416,2021-10-04T16:08:45Z,2021-10-04T17:36:47Z,2021-10-04T17:36:47Z,15,132,0,https://www-git-blog-sept-2021-supabase.vercel.app/new/blog/2021/10/04/supabase-beta-sept-2021,2,1
+3425,2021-10-05T09:56:29Z,2021-10-05T13:12:41Z,2021-10-05T13:12:41Z,1,1,0,https://twitter.com/thorwebdev/status/1441041268411277322,2,2
+3437,2021-10-07T02:44:48Z,2021-10-07T09:02:08Z,2021-10-07T09:02:08Z,1,1,1,"Description for auth.signInWithProvider() has a slight typo
+What kind of change does this PR introduce?
+Docs update to fix typo
+What is the current behavior?
+Description says: Signs the user in using thrid party OAuth providers.
+What is the new behavior?
+Description will say: Signs the user in using third party OAuth providers.
+Additional context",2,1
+3450,2021-10-07T20:11:32Z,2021-10-11T10:05:18Z,2021-10-11T10:05:18Z,14,935,828,"Updates the self-hosting docs to include more information on database configuration
+https://docs-git-docs-config-supabase.vercel.app/docs/guides/hosting/overview
+I've added
+
+Notes on database roles
+Notes on database extensions
+A JWT generator for API keys
+cleaned up the docker instructions",4,2
+3454,2021-10-08T01:02:54Z,2021-11-29T03:40:44Z,2021-11-29T03:40:44Z,1,6,1,"What kind of change does this PR introduce?
+Docs update.
+What is the current behavior?
+Docs code was not working.
+What is the new behavior?
+Replace some code to match the demo repo.",2,1
+3466,2021-10-09T12:26:39Z,2021-10-11T10:08:48Z,2021-10-11T10:08:48Z,1,1,1,"Link error
+What kind of change does this PR introduce?
+Bug fix, feature, docs update, ...
+What is the current behavior?
+Please link any relevant issues here.
+What is the new behavior?
+Feel free to include screenshots if it includes visual changes.
+Additional context
+Add any other context or screenshots.",2,1
+3483,2021-10-11T05:56:37Z,2021-10-11T12:15:40Z,2021-10-11T12:15:40Z,3,87,0,"What kind of change does this PR introduce?
+Add README for Malay language
+What is the current behavior?
+
+
+
+What is the new behavior?
+
+
+
+Additional context",2,2
+3485,2021-10-11T07:53:45Z,2021-10-11T10:06:37Z,2021-10-11T10:06:37Z,1,1,0,,2,1
+3496,2021-10-12T13:26:06Z,2021-10-12T15:42:01Z,2021-10-12T15:42:01Z,1,1,0,"What kind of change does this PR introduce?
+Added myself to humans.txt as part of onboarding tasks.
+Additional context
+Per ""Welcome to team"" onboarding tasks in Notion.",2,1
+3518,2021-10-14T05:01:29Z,2021-10-14T19:23:08Z,2021-10-14T19:23:08Z,9,52,1,,2,1
+3520,2021-10-14T06:34:45Z,2021-10-14T19:24:35Z,2021-10-14T19:24:35Z,3,53,0,I moved some items into todo in the notion doc that aren't yet complete,2,1
+3521,2021-10-14T08:01:28Z,2021-11-10T11:15:00Z,2021-11-10T11:15:00Z,4,84,10,,5,1
+3527,2021-10-14T13:29:02Z,2021-10-15T12:11:21Z,2021-10-15T12:11:22Z,12,157,0,https://www-git-blog-hacktoberfest-hackathon-winners-2021-supabase.vercel.app/new/blog/2021/10/14/hacktoberfest-hackathon-winners-2021,3,1
+3543,2021-10-15T00:55:21Z,2021-10-15T10:31:15Z,2021-10-15T10:31:15Z,2,37,57,"A bit sparse I think, but can be kaizen'd over time.",2,1
+3566,2021-10-16T19:41:27Z,2021-10-18T11:48:39Z,2021-10-18T11:48:39Z,2,101,97,"Ref: supabase/supabase-js#289.
+Context: .filter() expects you to use raw PostgREST syntax, so it should only be used as an escape hatch in case other filters don't work. We should deprioritize it (put it at the bottom) in the list of filters and add a note clarifying its usage.",2,1
+3573,2021-10-17T16:07:19Z,2021-10-28T06:09:20Z,2021-10-28T06:09:20Z,4,764,1,"What kind of change does this PR introduce?
+This PR is a current draft for a RedwoodJS Quickstart guide.
+It is a work in progress, and will be followed up with an example repo that people can use.
+Note. This example stays true to the other Quickstart guides, but is not typically how one would create a Redwood app.
+It relies on all client web side interaction with Supabase for fetching profiles etc.
+However, Prisma has some shortcomings that make this quick start impractical to do:
+
+it cannot introspect or use cross schema foreign keys. That is the profile user id cannot link to the auth.users table.
+RLS on the Redwood api side is not possible with Prisma because it cannot set the auth user's token in the transaction
+While I could have rewritten the guide to use the Supabase client on the api side, still use GraphQL for profile fetching and mutation, this felt like more an exercise in learning Redwood that Supabase. Though, these should still be authored and added as ""advanced"" examples.
+
+So, we'll just use Supabase from the web side, which is perfectly fine. This example still leverages Redwood's Supabase auth integration and all the useAuth() hooks for sign in/out and determining if your user is logged in.
+And the token is still verified on the API side via the JWT_SECRET and the Supabase decoder.
+TODO:
+
+ Update final app screenshot
+ Have a few people test and review for completeness
+ Draft of example repo at https://github.com/dthyresson/redwoodjs-supabase-quickstart",4,4
+3577,2021-10-18T07:13:53Z,,2021-11-29T03:39:33Z,21,373,1386,,3,1
+3592,2021-10-19T11:09:07Z,2021-10-19T12:11:11Z,2021-10-19T12:11:12Z,5,104,1,Replenysh blog updates,2,1
+3597,2021-10-19T19:35:01Z,2021-10-19T23:54:19Z,2021-10-19T23:54:19Z,1,1,1,"What kind of change does this PR introduce?
+Fix typo on documentation.",2,1
+3598,2021-10-20T03:40:52Z,2021-10-20T07:48:07Z,2021-10-20T07:48:07Z,1,6,6,blog updates,2,1
+3600,2021-10-20T14:13:56Z,2021-10-29T13:59:54Z,2021-10-29T13:59:54Z,55,1691,79,"rendered:
+
+company page: https://www-git-www-company-supabase.vercel.app/new/company
+series a: https://www-git-www-company-supabase.vercel.app/new/blog/2021/10/28/supabase-series-a
+
+Remaining:
+
+ OG and cover image for blog post
+ Add new investors to company page
+ Format the investor list in the blog post?",3,2
+3608,2021-10-21T13:50:57Z,2021-10-21T17:05:51Z,2021-10-21T17:05:51Z,1,1,1,"What kind of change does this PR introduce?
+Fixed a typo",2,1
+3618,2021-10-22T02:35:29Z,2021-10-22T09:25:07Z,2021-10-22T09:25:07Z,1,2,2,update blog,4,1
+3619,2021-10-22T02:41:41Z,2021-10-22T15:16:51Z,2021-10-22T15:16:52Z,1,3,3,update blog,2,1
+3627,2021-10-23T02:41:36Z,2021-10-28T05:44:29Z,2021-10-28T05:44:29Z,1,3,3,"What kind of change does this PR introduce?
+Docs update.
+What is the current behavior?
+Please link any relevant issues here.
+What is the new behavior?
+Replaces the PostgreSQL localhost:54322 port with the proper localhost:5432 which is the default.
+Additional context
+Add any other context or screenshots.",2,1
+3644,2021-10-24T23:02:27Z,2021-10-28T05:50:11Z,2021-10-28T05:50:11Z,3,8,8,"What kind of change does this PR introduce?
+Change the spelling of Annoucement to Announcement.
+What is the current behavior?
+Wrong spelling of Announcement.
+What is the new behavior?
+The correct spelling of Announcement.",2,1
+3668,2021-10-26T07:42:32Z,2021-10-28T05:58:54Z,2021-10-28T05:58:55Z,1,1,1,"What kind of change does this PR introduce?
+A grammatical error in docs",2,1
+3691,2021-10-28T10:46:39Z,2021-11-01T08:38:43Z,2021-11-01T08:38:43Z,73,1412,1165,"What kind of change does this PR introduce?
+Bug fix, feature, docs update, ...
+What is the current behavior?
+Please link any relevant issues here.
+no multi zones 😢
+What is the new behavior?
+multi zones!
+lots of thanks to @tomhanson for updating the www site in a previously closed PR",3,2
+3696,2021-10-28T15:19:11Z,,2021-11-01T10:00:26Z,2,12,231,"What kind of change does this PR introduce?
+Bug fix,
+Closes to #3512
+What is the current behavior?
+When a user clicks on the Supabase logo, he gets redirected to /new
+When he resreshes the page or gets a link to /new it results in:
+
+What is the new behavior?
+When a user clicks on the logo he will be redirected to / wich is a working page
+Additional context
+In file www/components/Nav/index.tsx on line 197
+The <Link/> was not working due to the base URL being configured as /new in next.config.js
+Other links in the Navbar are regular <a/>
+Changing this link to a regular <a> like the others fixes the issues.
+We could also change the baseUrl in next.config.js
+But that will be a bigger change that can break the site and the redirects 🤔
+eg #3682
+What do you guys think?
+(New contributor feedback, forgive me if I missed something 😅)
+Thanks!",4,4
+3702,2021-10-29T03:06:07Z,2021-10-29T04:11:45Z,2021-10-29T04:11:45Z,4,4,4,"What kind of change does this PR introduce?
+Bug fix,
+Closes issue #3670
+What is the current behavior?
+The procedure numbers skip 3 and jump to 4
+What is the new behavior?
+The procedure numbers are in the correct order.",2,2
+3706,2021-10-29T14:37:13Z,2021-11-02T11:05:02Z,2021-11-02T11:05:02Z,1,18,2,"What kind of change does this PR introduce?
+Because redwood typically uses Prisma to seed, create the schema, run migrations and there is an issue with Prisma and foreign keys across schemas, one couldn't introspect the schema.
+This QS adds some cautionary wording around it to make sure people don't reset their database.
+Additional context
+Alternatively, I could rework with QS and not use the Auth Management setup but instead move all that schema and data loading into Redwood.
+But, I think that might be better in a separate Quick Start since it is ""less quick"".",2,2
+3710,2021-10-29T21:14:08Z,2021-10-31T11:04:49Z,2021-10-31T11:04:49Z,3,3,3,"What kind of change does this PR introduce?
+Typo fix
+What is the current behavior?
+The incorrect spelling for the word ""database"" shows up in various places.
+What is the new behavior?
+Corrected spelling",4,2
+3713,2021-10-29T22:18:53Z,2021-10-31T11:05:35Z,2021-10-31T11:05:35Z,1,1,1,"""super.initState()"" should always be called first.  For dispose, it's called last.
+What kind of change does this PR introduce?
+Bug fix, feature, docs update, ...
+What is the current behavior?
+Please link any relevant issues here.
+What is the new behavior?
+Feel free to include screenshots if it includes visual changes.
+Additional context
+Add any other context or screenshots.",2,2
+3715,2021-10-29T23:42:59Z,2021-11-01T03:16:26Z,2021-11-01T03:16:26Z,11,26,26,"What kind of change does this PR introduce?
+fixes typos for Docs
+What is the current behavior?
+Incorrect spelling.
+What is the new behavior?
+Correct spelling",2,3
+3720,2021-10-30T15:26:26Z,2021-10-31T11:22:59Z,2021-10-31T11:22:59Z,1,17,0,"What kind of change does this PR introduce?
+Docs improvement. Add one more example to auth.signUp() method.
+What is the current behavior?
+No.
+What is the new behavior?
+No.
+Additional context
+No.",2,2
+3723,2021-10-30T20:42:55Z,2021-10-31T11:21:00Z,2021-10-31T11:21:00Z,1,15,5,"What kind of change does this PR introduce?
+Closes #3716.
+Adds a link to the Discord server in the footer.
+What is the current behavior?
+
+What is the new behavior?
+
+Additional context
+Let me know if I should change the Discord invite link. The current Discord invite link will never close and allows the new members only temporary access until they join fully.",2,2
+3733,2021-11-01T08:21:35Z,2021-11-07T06:18:14Z,2021-11-07T06:18:14Z,16,633,17,"added auth Providers: https://docs-git-docs-newproviders-supabase.vercel.app/docs/guides/auth/intro
+slack: https://docs-git-docs-newproviders-supabase.vercel.app/docs/guides/auth/auth-slack
+spotify: https://docs-git-docs-newproviders-supabase.vercel.app/docs/guides/auth/auth-spotify
+generateLink(): https://zones-docs-git-docs-newproviders-supabase.vercel.app/docs/reference/javascript/api-generatelink",3,1
+3735,2021-11-01T14:34:37Z,,2022-08-09T13:57:58Z,10,93,21,"What kind of change does this PR introduce?
+Docs update",3,3
+3741,2021-11-02T10:18:02Z,2021-11-03T05:32:08Z,2021-11-03T05:32:08Z,1,8,17,,2,1
+3742,2021-11-02T11:03:31Z,2021-11-03T06:44:37Z,2021-11-03T06:44:37Z,1,11,5,,3,1
+3744,2021-11-02T11:31:25Z,2021-11-03T04:33:51Z,2021-11-03T04:33:51Z,1,17,0,fixes #3743,3,3
+3757,2021-11-03T00:32:11Z,2021-11-03T04:54:48Z,2021-11-03T04:54:48Z,4,180,132,"What kind of change does this PR introduce?
+Fix a bug where images in quickstart Flutter guide is returning 404.
+What is the current behavior?
+Images in flutter quickstart guide is returning 404 and now shown.
+What is the new behavior?
+Images are rendered properly.",2,2
+3760,2021-11-03T04:43:16Z,2021-11-03T06:46:02Z,2021-11-03T06:46:02Z,2,4,4,"fix: & character breaking rss feed
+fixes #3759",2,1
+3775,2021-11-03T18:50:32Z,2021-11-05T04:13:30Z,2021-11-05T04:13:30Z,2,2,2,"What kind of change does this PR introduce?
+docs update",2,2
+3796,2021-11-05T12:17:53Z,2021-11-07T04:52:52Z,2021-11-07T04:52:52Z,1,6,6,"Just fixing some typo's
+What kind of change does this PR introduce?
+Docs update
+What is the current behavior?
+Typographical errors
+What is the new behavior?
+Valid English words",3,3
+3799,2021-11-05T14:18:39Z,,2021-11-06T10:04:51Z,1,20,12,"What kind of change does this PR introduce?
+OSS page and txt files such as humans.txt are returning 404. This PR will redirect those links to /doc/ where they are now located.
+Related #3797
+What is the current behavior?
+OSS page and txt files return 404.
+This is due to the following reasons:
+
+txt files had rewrite rule set up in next.config.js, but since the rewrite path is not on the same next.js app, the rule was ignored, hence returning 404.
+OSS page did not have any rewrite or redirect configurations on next.config.js
+
+What is the new behavior?
+When users try to access OSS page and txt files on the old URL, they will be redirected to /docs/ path.
+Additional context
+Not sure if this is the fix we want to do, so any inputs/opinions are welsome!",2,4
+3817,2021-11-06T16:20:06Z,2021-11-08T12:16:10Z,2021-11-08T12:16:10Z,9,13,13,"What kind of change does this PR introduce?
+Fixes typo
+What is the current behavior?
+Wrong spelling
+What is the new behavior?
+correct spelling",2,2
+3838,2021-11-09T03:15:57Z,2021-11-09T04:21:03Z,2021-11-09T04:21:04Z,3,3,3,fixes #3831,2,1
+3844,2021-11-10T00:53:32Z,2021-11-10T03:25:57Z,2021-11-10T03:25:57Z,2,3,3,"What kind of change does this PR introduce?
+Yet another typo fix.
+What is the current behavior?
+incorrect spelling
+What is the new behavior?
+correct spelling",2,2
+3850,2021-11-10T05:23:15Z,2021-11-11T09:17:26Z,2021-11-11T09:17:27Z,10,34,82,"since our master is protected, prettier can't auto commit changes ref
+moving to prettier check on PR instead",2,1
+3870,2021-11-11T18:45:08Z,2021-11-15T04:23:38Z,2021-11-15T04:23:38Z,3,266,0,"What kind of change does this PR introduce?
+Added requested docs from issue #3849, and will close #3849.
+Additional context
+I didn't know where to put the new docs, so let me know If I did anything wrong or needs to be changed.",2,5
+3880,2021-11-13T13:15:20Z,2021-11-15T06:29:57Z,2021-11-15T06:29:57Z,1,1,1,"What kind of change does this PR introduce?
+Fix typo
+What is the current behavior?
+The typo was originally PosgresSQL.
+What is the new behavior?
+For consistency with other references to Postgres in the other roles, I renamed this to Postgres instead.",3,2
+3891,2021-11-14T17:20:16Z,2021-11-15T06:33:01Z,2021-11-15T06:33:01Z,1,0,2370,"What kind of change does this PR introduce?
+
+schemas/memes/_init.sql: File removed.
+
+What is the current behavior?
+
+What is the new behavior?
+
+Additional context
+#828 (comment)
+https://twitter.com/kiwicopple/status/1459281572167704578",3,3
+3898,2021-11-15T04:02:45Z,2021-11-17T11:54:31Z,2021-11-17T11:54:31Z,1,4,3,Minor change as part of team onboarding,3,3
+3909,2021-11-15T21:31:15Z,2021-11-20T11:32:35Z,2021-11-20T11:32:35Z,2,94,0,"What kind of change does this PR introduce?
+This PR adds a feature request from #3860 to have local development docs, and closes #3860. Currently, there are no docs on starting a localhost, so this PR should help new people be able to start a localhost and contribute to the repo.
+What is the current behavior?
+No docs on how to start a local development server.
+What is the new behavior?
+Docs in the readme showing someone how to start a local development server.",2,4
+3911,2021-11-15T21:44:00Z,2021-11-16T07:43:22Z,2021-11-16T07:43:22Z,1,3,3,"What kind of change does this PR introduce?
+Fixing Typo
+What is the current behavior?
+Incorrect spelling
+What is the new behavior?
+Correct spelling",2,2
+3922,2021-11-16T16:23:03Z,2021-11-18T03:55:08Z,2021-11-18T03:55:08Z,2,209,23,,2,1
+3931,2021-11-18T02:02:36Z,2021-11-20T10:54:08Z,2021-11-20T10:54:08Z,1,1,1,"What kind of change does this PR introduce?
+This is a very small and nit-picky problem but this PR fixes a problem with the demo video not truly being rounded.
+What is the current behavior?
+As you can see its kind of hard to notice but its not fully rounded.
+
+What is the new behavior?
+As you can see its kind of hard to see but its fixed.
+
+Additional context
+This is just something that I saw once and can't unsee.",2,2
+3934,2021-11-18T03:00:12Z,2021-11-20T10:54:40Z,2021-11-20T10:54:40Z,3,51,3,"unfreeze support role
+adds auth role",3,1
+3946,2021-11-18T17:48:35Z,2021-11-20T11:04:36Z,2021-11-20T11:04:36Z,1,1,1,"Just using ""relationships"" confused a user on discord:
+
+Hey everyone. I've been reading through the docs, and have been having some trouble wrapping my head around something. This section in the docs states ""If your database has relationships..."", but I've not been able to figure out what exactly it means by relationships. I created a few tables, but wasn't able to figure out how to establish true foreign key relationships. Is that what this is referring to?
+
+https://discord.com/channels/839993398554656828/843999948717555735/910895081677025330",3,1
+3951,2021-11-19T10:02:19Z,2021-11-20T11:32:02Z,2021-11-20T11:32:02Z,104,759,776,supabase.com is the main domain for the static site now,2,1
+3954,2021-11-19T11:24:44Z,2021-11-20T11:11:29Z,2021-11-20T11:11:29Z,1,1,1,"in line 124, return void is wrong.
+the correct syntax would be returns.
+What kind of change does this PR introduce?
+docs update
+What is the current behavior?
+in line 124 of /docs/guides/database/functions.mdx, there is a wrong syntax for returning void, return void.
+What is the new behavior?
+as per the postgres create function docs it would be returns void.
+Additional context",2,2
+3955,2021-11-19T11:36:36Z,2021-11-20T11:12:10Z,2021-11-20T11:12:10Z,1,1,1,"What kind of change does this PR introduce?
+Only a small typo error
+What is the current behavior?
+What is the new behavior?
+Additional context
+His name is Tom Preston-Werner according to his website  😅",2,3
+3958,2021-11-19T14:29:51Z,2021-11-20T11:15:39Z,2021-11-20T11:15:39Z,1,2,0,"Probably obvious for more seasoned developers ... but I just spent a long time on this detail 😅
+(I also put this into StackOverflow).
+Feel free to rephrase my change if something else would be better.
+What kind of change does this PR introduce?
+docs update",2,3
+3964,2021-11-20T01:10:59Z,2021-11-20T11:17:55Z,2021-11-20T11:17:55Z,1,3,2,"What kind of change does this PR introduce?
+Docs update
+
+Adds Nuxt3 Starter Kit
+Updates the links to Svelte and SolidJS starter kits",2,2
+3968,2021-11-20T10:01:28Z,2021-11-20T11:20:18Z,2021-11-20T11:20:18Z,2,27,15,"What kind of change does this PR introduce?
+
+Fixes #3924 using this suggestion
+Replaced Select component for filtering blogpost category with a scrollable Dropdown component
+minimum version of supabase/ui has been bumped to ^0.25.0 since a Radio Dropdown is used
+
+What is the current behavior?
+
+as described in the linked issue, a Select component is used which does not seem to be support and be readable in Dark Mode
+
+What is the new behavior?
+
+a Dropdown component (RadioGroup type) is now used to filter blogpost category
+the Dropdown's options are now readable
+
+
+Additional context
+
+Not sure if this is the preferred way to implement scrollable behaviour in a Dropdown - but scrollable behaviour is required since the display for the number of possible tags exceeds most viewports
+Not sure if you want the button to have a fixed width based on viewport size - currently just uses as much space as the tag name requires",2,2
+3971,2021-11-20T17:26:18Z,2021-12-03T07:08:09Z,2021-12-03T07:08:09Z,5,109,15,"What kind of change does this PR introduce?
+Fix #3828 by adding SEO to pages without any.
+What is the current behavior?
+Not all pages have SEO
+What is the new behavior?
+Pages now have SEO
+Additional context
+Let me know if you want me to reword it.",2,5
+3972,2021-11-20T18:36:21Z,2021-11-22T05:28:12Z,2021-11-22T05:28:13Z,1,2,2,"What kind of change does this PR introduce?
+Fix #3962 by moving angular and electron away from the examples making it less confusing.
+What is the current behavior?
+
+What is the new behavior?",2,2
+3973,2021-11-20T19:49:42Z,2021-11-22T07:23:28Z,2021-11-22T07:23:29Z,1,4,4,"Updated the relative links for:
+
+Cover image
+User management video
+Row level security video
+Policies video
+
+What kind of change does this PR introduce?
+Bug fix
+What is the current behavior?
+images and videos were not loading
+Please link any relevant issues here.
+#3935
+What is the new behavior?
+Feel free to include screenshots if it includes visual changes.
+Additional context
+Add any other context or screenshots.",3,2
+3976,2021-11-21T03:21:40Z,2021-11-22T07:24:13Z,2021-11-22T07:24:13Z,1,1,1,"What kind of change does this PR introduce?
+
+noticed small typo while going through docs, refereed should be referred
+
+What is the current behavior?
+
+...many people refereed to it as Postgres...
+
+What is the new behavior?
+
+...many people referred to it as Postgres...
+
+Additional context",3,2
+3977,2021-11-21T08:21:41Z,2021-11-22T07:25:49Z,2021-11-22T07:25:49Z,36,85,85,"What kind of change does this PR introduce?
+Fixed typos and grammar in the docs.
+What is the current behavior?
+Incorrect spelling and grammar
+What is the new behavior?
+Correct spelling and grammar",3,2
+3988,2021-11-22T03:01:01Z,2021-11-23T16:31:08Z,2021-11-23T16:31:08Z,35,9089,21634,"What kind of change does this PR introduce?
+update self-hosted to postgrest v9",5,1
+3996,2021-11-22T09:29:58Z,2021-11-22T11:24:57Z,2021-11-22T11:24:57Z,1,4,4,"What kind of change does this PR introduce?
+Bug fix
+What is the current behavior?
+Cover image and videos not loading
+Please link any relevant issues here.
+#3935
+What is the new behavior?
+corrected link to image and videos
+Feel free to include screenshots if it includes visual changes.
+Additional context
+Add any other context or screenshots.",2,2
+3997,2021-11-22T09:47:26Z,2021-11-22T11:30:26Z,2021-11-22T11:30:26Z,1,1,1,"What kind of change does this PR introduce?
+Bug fix
+What is the current behavior?
+Cover image is not loading for this blog post: https://supabase.com/blog/2020/12/02/case-study-monitoro
+Please link any relevant issues here.
+What is the new behavior?
+changed link to cover image
+Feel free to include screenshots if it includes visual changes.
+Additional context
+Add any other context or screenshots.",2,2
+3998,2021-11-22T10:12:00Z,2021-11-22T11:31:31Z,2021-11-22T11:31:31Z,1,1,1,"What kind of change does this PR introduce?
+Bug fix
+What is the current behavior?
+Cover image is not loading for the blog post: https://supabase.com/blog/2020/12/02/case-study-tayfa
+Please link any relevant issues here.
+What is the new behavior?
+Edited link to cover image
+Feel free to include screenshots if it includes visual changes.
+Additional context
+Add any other context or screenshots.",2,2
+3999,2021-11-22T10:18:21Z,2021-11-22T11:32:04Z,2021-11-22T11:32:04Z,1,1,1,"What kind of change does this PR introduce?
+Bug fix
+What is the current behavior?
+cover image is not loading for the blog post: https://supabase.com/blog/2021/03/02/supabase-beta-february-2021
+Please link any relevant issues here.
+What is the new behavior?
+edited link to the cover image.
+Feel free to include screenshots if it includes visual changes.
+Additional context
+Add any other context or screenshots.",2,2
+4003,2021-11-22T16:47:51Z,2021-11-23T13:50:28Z,2021-11-23T13:50:28Z,1,4,4,"What kind of change does this PR introduce?
+This PR fixes a problem with spacing for a button.
+What is the current behavior?
+As you can see, you can click anywhere in the blue box and the link will work.
+
+What is the new behavior?
+but we want it to only work on the button like this.
+
+Additional context
+It's kind of hard to explain, for something simple.",3,2
+4007,2021-11-23T05:48:07Z,2022-01-07T17:36:51Z,2022-01-07T17:36:51Z,2,15,11,"sponsorsResponse.totalCount 51
+
+
+Looks like  @cryptojobslist is missing from the list. Perhaps the graphql endpoint is not pulling from live data?",6,4
+4010,2021-11-23T07:10:32Z,2021-11-23T13:49:32Z,2021-11-23T13:49:33Z,1,1,1,"What kind of change does this PR introduce?
+Found one more link using the old URL",3,1
+4011,2021-11-23T08:33:16Z,2021-11-24T00:12:40Z,2021-11-24T00:12:40Z,6,11,29,"It doesn't work OOTB after 6bc7fdc:
+Error response from daemon: failed to mount local volume: mount ./volumes/db/data:/var/lib/docker/volumes/docker_volume_database/_data, flags: 0x1000: no such file or directory
+
+Also updated images.",2,4
+4012,2021-11-23T11:41:57Z,2021-11-23T13:29:02Z,2021-11-23T13:29:02Z,2,36,8,"What kind of change does this PR introduce?
+Bug fix, feature, docs update, ...
+What is the current behavior?
+A discord coloured announcement bar
+What is the new behavior?
+Using more brand esque colors.
+to do:
+
+ Add localstorage stuff to detect if announcement bar has been clicked or closed
+
+Feel free to include screenshots if it includes visual changes.
+Additional context
+Add any other context or screenshots.",2,1
+4020,2021-11-23T15:35:25Z,2021-11-23T16:35:58Z,2021-11-23T16:35:58Z,1,4,0,"Added @cryptojobslist to the latest sponsors
+https://github.com/orgs/cryptojobslist/sponsoring
+cc @kiwicopple @Isaiah-Hamilton",2,3
+4021,2021-11-23T16:23:09Z,2021-11-23T17:26:08Z,2021-11-23T17:26:08Z,1,1,1,😒,2,1
+4023,2021-11-23T17:24:20Z,2021-11-24T00:15:46Z,2021-11-24T00:15:46Z,1,43,8,"What kind of change does this PR introduce?
+Bug fix, feature, docs update, ...
+What is the current behavior?
+Announcement bar will always be shown
+Please link any relevant issues here.
+What is the new behavior?
+Announcement bar will be hidden when clicked on.
+can also be closed using the 'x' icon.
+When a new announcement is published, the new announcement will be visible until clicked or closen.",3,1
+4025,2021-11-23T18:37:00Z,2021-11-29T03:37:24Z,2021-11-29T03:37:24Z,2,9,6,"What kind of change does this PR introduce?
+Fixing my mistake of adding the wrong link and adding The dart client code.
+What is the current behavior?
+wrong link and no dart client code.
+What is the new behavior?
+correct link and added dart client code.",2,3
+4029,2021-11-24T06:48:56Z,2021-11-25T16:22:02Z,2021-11-25T16:22:02Z,2,4,4,"What kind of change does this PR introduce?
+Closes #3923. Moves swiper buttons to be more readable and easier to use.
+What is the current behavior?
+
+What is the new behavior?",2,4
+4031,2021-11-24T09:57:46Z,2021-11-26T08:10:10Z,2021-11-26T08:10:10Z,2,19,0,"to test:
+
+npm run docker:dev
+npm run test",3,1
+4032,2021-11-24T11:50:20Z,2021-11-29T03:36:05Z,2021-11-29T03:36:05Z,2,7,2,"Meta is running very slow on docker for some reason (3.449396req/s to fetch tables). Kong is responding at > 600 req/s so it can't be docker networking
+  execution: local
+     script: ./tests/performance/meta.js
+     output: -
+
+  scenarios: (100.00%) 1 scenario, 1 max VUs, 40s max duration (incl. graceful stop):
+           * default: 1 looping VUs for 10s (gracefulStop: 30s)
+
+
+running (10.1s), 0/1 VUs, 35 complete and 0 interrupted iterations
+default ✓ [======================================] 1 VUs  10s
+
+    data_received..............: 2.4 MB 236 kB/s
+    data_sent..................: 3.0 kB 296 B/s
+    http_req_blocked...........: avg=68.11µs  min=2µs      med=3µs      max=2.24ms   p(90)=6µs      p(95)=8µs     
+    http_req_connecting........: avg=20.65µs  min=0s       med=0s       max=723µs    p(90)=0s       p(95)=0s      
+    http_req_duration..........: avg=289.16ms min=268.78ms med=284.29ms max=341.01ms p(90)=309.29ms p(95)=315.96ms
+    http_req_receiving.........: avg=1.2ms    min=706µs    med=1.18ms   max=1.89ms   p(90)=1.52ms   p(95)=1.63ms  
+    http_req_sending...........: avg=50.62µs  min=14µs     med=22µs     max=941µs    p(90)=33.2µs   p(95)=51.49µs 
+    http_req_tls_handshaking...: avg=0s       min=0s       med=0s       max=0s       p(90)=0s       p(95)=0s      
+    http_req_waiting...........: avg=287.91ms min=267.76ms med=283.37ms max=338.68ms p(90)=308.18ms p(95)=314.58ms
+    http_reqs..................: 35     3.449396/s
+    iteration_duration.........: avg=289.37ms min=268.91ms med=284.39ms max=343.84ms p(90)=309.39ms p(95)=316.08ms
+    iterations.................: 35     3.449396/s
+    vus........................: 1      min=1 max=1
+    vus_max....................: 1      min=1 max=1",2,3
+4039,2021-11-24T18:03:44Z,2021-11-29T03:36:28Z,2021-11-29T03:36:28Z,1,108,14,docs update,2,2
+4045,2021-11-25T04:05:34Z,2021-11-25T09:07:37Z,2021-11-25T09:07:37Z,1,20546,2857,"What kind of change does this PR introduce?
+Set the lockfileVersion to 2 in packege-lock.json and run npm install to keep the dependencies that were working properly.
+What is the current behavior?
+When I run docusaurus on localhost and view the site, the images are not displayed.
+
+
+Please link any relevant issues here.
+
+In the following PR, the lockfileVersion in package-lock.json is set to 1, which seems to have broken the dependency that was working fine until now.
+#3988
+What is the new behavior?
+
+Feel free to include screenshots if it includes visual changes.
+
+
+Additional context
+
+Add any other context or screenshots.
+
+It would be nice to be able to identify which package has the problem with the latest dependencies, but I was not able to check that far.",2,2
+4046,2021-11-25T04:53:58Z,2021-11-25T09:08:25Z,2021-11-25T09:08:25Z,2,4,4,"What kind of change does this PR introduce?
+Bug fix, feature, docs update, ...
+announcement bar checks if localstorage item is present before showing
+also removed anchor tag since it didn't work well
+What is the new behavior?
+Feel free to include screenshots if it includes visual changes.
+Additional context
+Add any other context or screenshots.",3,1
+4048,2021-11-25T09:08:40Z,2021-11-29T03:35:48Z,2021-11-29T03:35:48Z,1,3,3,"Bumps algoliasearch-helper from 3.2.2 to 3.6.2.
+
+Changelog
+Sourced from algoliasearch-helper's changelog.
+
+3.6.2 - 2021-10-19
+
+fix(SearchParameters): ignore invalid parameters (#880) algolia/algoliasearch-helper-js@4ff542b
+
+3.6.1 - 2021-10-15
+
+fix(facetOrdering): make sure ordered facets is a dense array (#879) algolia/algoliasearch-helper-js@990f8bc
+
+3.6.0 - 2021-10-08
+
+ci(circle): update node image (#875) algolia/algoliasearch-helper-js@3648463
+feat(facets): when * is present, only send that parameter (#874) algolia/algoliasearch-helper-js@fc183ec
+
+3.5.5 - 2021-07-30
+
+feat(ts): allow showParentLevel in hierarchicalFacet algolia/algoliasearch-helper-js@cef547d
+
+3.5.4 - 2021-07-05
+
+fix(facetOrdering): facetOrdering.facets, not facetOrdering.facet algolia/algoliasearch-helper-js@97d769a
+
+3.5.3 - 2021-06-14
+
+fix(ts): correct required for getFacetValues algolia/algoliasearch-helper-js@55a909f
+
+3.5.2 - 2021-06-14
+
+fix(facetOrdering): hierarchical attributes sort by path algolia/algoliasearch-helper-js@c1d9764
+
+3.5.1 - 2021-06-14
+
+fix(ts): correctly optional renderingContent algolia/algoliasearch-helper-js@41d27f8
+
+3.5.0 - 2021-06-14
+
+feat(getFacetValues): process facetOrdering (#822) algolia/algoliasearch-helper-js@8c7ff44
+
+3.4.5 - 2021-06-10
+
+feat(ts): document renderingContent (#823) algolia/algoliasearch-helper-js@7b176a7
+
+3.4.4 - 2021-02-16
+
+fix(ts): add rootPath to HierarchicalFacet algolia/algoliasearch-helper-js@06fb959
+
+3.4.3 - 2021-02-15
+
+docs(examples): remove frameworks algolia/algoliasearch-helper-js@c71f9c5
+fix(ts): correct type for HierarchicalFacet parameter (#811) algolia/algoliasearch-helper-js@3b705dd
+
+3.4.2 - 2021-02-10
+
+fix(types): add relevancyStrictness to SearchParameters (#810) algolia/algoliasearch-helper-js@3860179
+
+3.4.1 - 2021-02-10
+
+chore: update yarn.lock algolia/algoliasearch-helper-js@4f9360c
+fix(ts): add types for smart sort (#809) algolia/algoliasearch-helper-js@236822e
+fix(ts): make queryID optional (#806) algolia/algoliasearch-helper-js@67ad89b
+
+3.4.0 - 2021-01-12
+
+feat(answers): add findAnswers (#804) algolia/algoliasearch-helper-js@4635dd5
+
+3.3.4 - 2020-12-09
+
+
+... (truncated)
+
+
+Commits
+
+0da37cc 3.6.2 - 2021-10-19
+4ff542b fix(SearchParameters): ignore invalid parameters (#880)
+dff9e32 3.6.1 - 2021-10-15
+990f8bc fix(facetOrdering): make sure ordered facets is a dense array (#879)
+b5b3d72 3.6.0 - 2021-10-08
+fc183ec feat(facets): when * is present, only send that parameter (#874)
+3648463 ci(circle): update node image (#875)
+2053c79 3.5.5 - 2021-07-30
+cef547d feat(ts): allow showParentLevel in hierarchicalFacet
+3b4cdd9 3.5.4 - 2021-07-05
+Additional commits viewable in compare view
+
+
+
+
+Dependabot will resolve any conflicts with this PR as long as you don't alter it yourself. You can also trigger a rebase manually by commenting @dependabot rebase.
+
+
+Dependabot commands and options
+
+You can trigger Dependabot actions by commenting on this PR:
+
+@dependabot rebase will rebase this PR
+@dependabot recreate will recreate this PR, overwriting any edits that have been made to it
+@dependabot merge will merge this PR after your CI passes on it
+@dependabot squash and merge will squash and merge this PR after your CI passes on it
+@dependabot cancel merge will cancel a previously requested merge and block automerging
+@dependabot reopen will reopen this PR if it is closed
+@dependabot close will close this PR and stop Dependabot recreating it. You can achieve the same result by closing it manually
+@dependabot ignore this major version will close this PR and stop Dependabot creating any more for this major version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this minor version will close this PR and stop Dependabot creating any more for this minor version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this dependency will close this PR and stop Dependabot creating any more for this dependency (unless you reopen the PR or upgrade to it yourself)
+@dependabot use these labels will set the current labels as the default for future PRs for this repo and language
+@dependabot use these reviewers will set the current reviewers as the default for future PRs for this repo and language
+@dependabot use these assignees will set the current assignees as the default for future PRs for this repo and language
+@dependabot use this milestone will set the current milestone as the default for future PRs for this repo and language
+
+You can disable automated security fix PRs for this repo from the Security Alerts page.",1,1
+4055,2021-11-25T16:17:52Z,2021-11-26T05:21:18Z,2021-11-26T05:21:18Z,3,57,40,"What kind of change does this PR introduce?
+Bugfix, feature, docs update, ...
+What is the current behavior?
+• Broken arrrows on sidebar for darkmode
+• images on docs homepage won't load on localhost
+• spacing in sidebar is wrong for nested items
+Please link any relevant issues here.
+What is the new behavior?
+Fixed the above :)
+Feel free to include screenshots if it includes visual changes.
+Additional context
+Add any other context or screenshots.",2,1
+4062,2021-11-26T05:45:52Z,2021-11-29T03:45:43Z,2021-11-29T03:45:43Z,2,1484,268,"Bumps next from 11.0.1 to 11.1.1.
+
+Commits
+
+804971f v11.1.1
+194d70f v11.1.1-canary.19
+36d922f Add apiVersion to config (#28610)
+a60690f v11.1.1-canary.18
+7afc97c Add CSP to Image Optimization API (#28620)
+8711c5c Tests: Remove unnecessary await (#28594)
+d209435 Small grammar fixes (#28590)
+04cc37f Add docs for using pageExtensions to colocate other files with page component...
+f1dbc92 Ensure dev server side errors are correct (#28520)
+27c2937 Update with-jest packages and docs (#28209)
+Additional commits viewable in compare view
+
+
+
+
+Dependabot will resolve any conflicts with this PR as long as you don't alter it yourself. You can also trigger a rebase manually by commenting @dependabot rebase.
+
+
+Dependabot commands and options
+
+You can trigger Dependabot actions by commenting on this PR:
+
+@dependabot rebase will rebase this PR
+@dependabot recreate will recreate this PR, overwriting any edits that have been made to it
+@dependabot merge will merge this PR after your CI passes on it
+@dependabot squash and merge will squash and merge this PR after your CI passes on it
+@dependabot cancel merge will cancel a previously requested merge and block automerging
+@dependabot reopen will reopen this PR if it is closed
+@dependabot close will close this PR and stop Dependabot recreating it. You can achieve the same result by closing it manually
+@dependabot ignore this major version will close this PR and stop Dependabot creating any more for this major version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this minor version will close this PR and stop Dependabot creating any more for this minor version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this dependency will close this PR and stop Dependabot creating any more for this dependency (unless you reopen the PR or upgrade to it yourself)
+@dependabot use these labels will set the current labels as the default for future PRs for this repo and language
+@dependabot use these reviewers will set the current reviewers as the default for future PRs for this repo and language
+@dependabot use these assignees will set the current assignees as the default for future PRs for this repo and language
+@dependabot use this milestone will set the current milestone as the default for future PRs for this repo and language
+
+You can disable automated security fix PRs for this repo from the Security Alerts page.",1,1
+4069,2021-11-26T06:32:12Z,,2021-11-26T07:42:38Z,604,90839,1807,,8,1
+4095,2021-11-27T02:39:36Z,2021-11-27T08:06:51Z,2021-11-27T08:06:51Z,1,2,2,"What kind of change does this PR introduce?
+Fixes link that leads to nowhere now leads back to supabase.io.
+What is the current behavior?
+Issue #3717 has been solved already, but this just makes sure that it's solved.
+What is the new behavior?
+Now leads back to supabase.io.",2,3
+4098,2021-11-27T05:08:36Z,2021-11-29T03:34:32Z,2021-11-29T03:34:32Z,1,64,8,"What kind of change does this PR introduce?
+Updates docs to support the new studio directory. Also Fix #4100.
+What is the current behavior?
+No support for the new studio directory.
+What is the new behavior?
+support for the new studio directory.",2,3
+4102,2021-11-27T08:02:46Z,2021-11-28T00:54:56Z,2021-11-28T00:54:56Z,2,3,3,"What kind of change does this PR introduce?
+Fix Typo
+What is the current behavior?
+Typo
+What is the new behavior?
+No Typo",3,3
+4111,2021-11-28T03:08:20Z,2021-11-29T02:35:29Z,2021-11-29T02:35:29Z,1,1,1,"What kind of change does this PR introduce?
+change links to point directly to supabase.com in README.ca.md",2,2
+4113,2021-11-28T09:31:53Z,2021-11-29T02:36:03Z,2021-11-29T02:36:03Z,1,1,1,"What kind of change does this PR introduce?
+Bugfix
+What is the current behavior?
+#4109
+What is the new behavior?
+Added docs URL for dart
+
+Additional context
+None",3,2
+4114,2021-11-28T10:32:35Z,2021-11-29T02:37:02Z,2021-11-29T02:37:02Z,1,1,0,"What kind of change does this PR introduce?
+docs update - link to Remix + Supabase Starter Kit",3,2
+4116,2021-11-28T14:01:41Z,2021-11-29T02:37:41Z,2021-11-29T02:37:41Z,1,5,5,"What kind of change does this PR introduce?
+Bug fix, feature, docs update, ...
+What is the current behavior?
+Please link any relevant issues here.
+What is the new behavior?
+Feel free to include screenshots if it includes visual changes.
+Additional context
+Add any other context or screenshots.",3,3
+4120,2021-11-29T03:34:51Z,2021-11-29T04:44:01Z,2021-11-29T04:44:02Z,5,16,25,,3,2
+4121,2021-11-29T04:35:46Z,2021-11-29T09:19:39Z,2021-11-29T09:19:39Z,9,743,1219,,2,1
+4125,2021-11-29T08:27:49Z,,2021-11-29T14:17:40Z,11,260,3,moved to #4135,4,1
+4126,2021-11-29T08:31:05Z,2021-11-29T12:32:50Z,2021-11-29T12:32:50Z,7,186,5,"https://zone-www-dot-com-git-blog-postgres-14-supabase.vercel.app/blog/2021/11/28/whats-new-in-postgres-14
+
+ og image",3,1
+4128,2021-11-29T09:20:24Z,2021-11-29T15:09:18Z,2021-11-29T15:09:18Z,140,4519,1801,,14,1
+4129,2021-11-29T10:26:08Z,2021-11-30T14:53:13Z,2021-11-30T14:53:13Z,11,211,65,"Release at 7amPT
+closes: #2281",5,1
+4130,2021-11-29T10:59:52Z,2021-12-09T19:33:24Z,2021-12-09T19:33:24Z,20,393,258,"What kind of change does this PR introduce?
+Bug fix, feature, docs update, ...
+What is the current behavior?
+• new blog post layout
+• new /blog layout
+• added some case study blog posts into their own pages
+Please link any relevant issues here.
+What is the new behavior?
+Feel free to include screenshots if it includes visual changes.
+Additional context
+Add any other context or screenshots.",2,1
+4131,2021-11-29T11:36:15Z,2021-11-29T12:41:22Z,2021-11-29T12:41:22Z,1,1,1,"What kind of change does this PR introduce?
+Hardcoded title bug, outdated since logs endpoint was adjusted to return 24h chart data instead of 7 day chart data.",2,1
+4139,2021-11-29T15:07:52Z,2021-11-30T06:05:00Z,2021-11-30T06:05:00Z,4,19,3,"What kind of change does this PR introduce?
+Bug fix, feature, docs update, ...
+What is the current behavior?
+wrong images
+What is the new behavior?
+correct images 👍
+Additional context
+Add any other context or screenshots.",3,1
+4145,2021-11-29T15:28:26Z,2021-11-30T13:59:53Z,2021-11-30T13:59:53Z,1,16,15,"What kind of change does this PR introduce?
+
+
+Bug fix, feature, docs update, ...
+What is the current behavior?
+Please link any relevant issues here.
+What is the new behavior?
+Feel free to include screenshots if it includes visual changes.
+Additional context
+Add any other context or screenshots.",2,2

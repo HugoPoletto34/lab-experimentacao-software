@@ -1,0 +1,3857 @@
+number,created_at,merged_at,closed_at,files,additions,deletions,body_text,participants,comments
+3181,2016-06-29T16:30:33Z,2016-06-30T15:01:37Z,2016-06-30T15:01:37Z,1,117,0,reference: #3177,3,0
+3656,2016-09-10T20:25:14Z,2016-09-11T14:54:47Z,2016-09-11T14:54:47Z,1,5,1,"Adding an undefined property to methods on vue components leads to a very ambiguous error message: Uncaught TypeError: Cannot read property 'length' of undefined
+Example:
+import stuff from './stuff'
+
+export default {
+  template: '...',
+  methods: {
+    someMethod: stuff.someMetod // typo!!!
+  }
+}
+It's an easy mistake to make. This checks for undefined properties and warns if it finds one.",4,0
+3659,2016-09-12T03:20:27Z,,2016-10-12T04:56:07Z,1,7,0,"Currently using vm.$set with only two arguments, as in Vue.js 1 results in a somewhat cryptic TypeError.
+Uncaught TypeError: Cannot create property [VAL] on string [KEY]
+
+Since it would appear that in no scenario can set take less than three arguments, I've added a development warning in this case that directs the user to the new documentation for Vue.set:
+Set now requires you to specify the object you are modifying as the first argument. See: http://rc.vuejs.org/api/#Vue-set
+
+I understand if this is deemed not needed or potentially volatile due to the fact it references the temporary rc.vuejs.org site. Just thought it might be useful to users who are migrating as the difference isn't immediately clear. I answered this exact question twice on Gittr within two hours.
+Thanks!",5,0
+3710,2016-09-20T20:00:18Z,,2016-10-12T04:56:07Z,5,124,1,"Function as a child is a very powerful pattern employed in react.  It allows the consumer of a component to choose how to render a component, while having access to data passed down by the parent.
+It is similar to slots, in a way, except slots only gain you access to the data in the hosting component.
+For more information on the possibilities that this pattern enables, please see this blog post, this presentation from Ryan Florence at React Rally, as well as the new API for React Router 4.0.
+Before I go on, I do want to say that the pattern is achievable right now using props:
+It is possible now to mimic this using props with the following pattern:
+const ComponentWithInfo = {
+    props: ['render'],
+    render (h) {
+       return this.render('Hello, World');
+    }
+}
+
+new Vue({
+    render (h) {
+         return <ComponentWithData render={data => <span>{data}</span>}></ComponentWithData>
+    }
+})
+
+However, ""first-class"" support would be nice.
+As far as the vue flavor, the API looks like this:
+const ComponentWithInfo = {
+    render (h) {
+       return this.$slots.default('Hello, World')
+    }
+}
+
+new Vue({
+    render (h) {
+         return <ComponentWithData>{data => <span>{data}</span>}</ComponentWithData>
+    }
+})
+
+A couple of things:
+
+In my implementation, if an array is passed for children, and any of the children are a function, that will throw away all children, except for the function
+I understand that there is an API freeze, but this is not breaking any existing APIs, only adding on.
+Please feel free to reject this specific PR, although if you do, I think this is worthwhile feature to consider.",3,5
+3765,2016-09-26T04:17:05Z,2016-09-28T19:04:08Z,2016-09-28T19:04:08Z,2,15,1,"According to the doc, $refs is a dictionary of Vue instance or Element. This pull request reflect this by a union type. So users can declare html elements in $refs.
+A test is also added. User defined components may have better knowledge about $refs' data structure. So users can also reify special properties to more specific types.
+@ktsn your review is appreciated, thanks.",3,3
+3776,2016-09-26T14:13:46Z,2016-09-27T18:37:50Z,2016-09-27T18:37:50Z,2,6,4,"fix #3768
+Object.keys(groupedMap) returns an array whose elements are strings, so it breaks the sort function.",4,5
+3793,2016-09-27T22:38:15Z,2016-09-28T19:33:29Z,2016-09-28T19:33:29Z,2,17,0,"Hi,
+Open to different wording on the error & I wasn't sure where to put these tests so I've put them in a new file for now.
+An alternative to this PR would be something like:
+function Vue (options) {
++  if (!(this instanceof Vue)) {
++    return new Vue(options)
++  }
+   this._init(options)
+}
+I'm not sure which would be better in the long run but the alternative would be more forgiving.
+I could also wrap this in env check so this is left out of the production build, but it's also not a lot of code to leave in.
+Let me know what you think.",3,2
+3803,2016-09-28T16:21:38Z,2016-09-28T19:32:59Z,2016-09-28T19:32:59Z,1,4,2,Fix for #3798,2,0
+3818,2016-09-30T04:47:28Z,2016-09-30T17:57:39Z,2016-09-30T17:57:39Z,6,49,10,"According to 06b4703, namespace has been removed, so I updated the types.
+Also, I fixed the first argument of $createElement.
+In addition, add FunctionalComponentOptions to Vue.extend",5,2
+3826,2016-10-01T17:31:48Z,2016-10-05T19:13:14Z,2016-10-05T19:13:14Z,2,17,2,It may be a better way to move the textnode out of the static render tree,3,0
+3858,2016-10-05T17:06:15Z,2016-10-05T20:04:32Z,2016-10-05T20:04:32Z,1,2,2,I'm unsure about the first link update because there's no real equivalent on the v2 docs. It may be worth to update the whole line,3,2
+3864,2016-10-07T07:41:05Z,2016-10-07T21:39:51Z,2016-10-07T21:39:51Z,6,17,17,Replaced all http vuejs.org links with https.,4,2
+3885,2016-10-09T14:18:06Z,2016-10-10T23:20:44Z,2016-10-10T23:20:44Z,1,15,1,"the getType func only returns the first prop type, even if the prop type is an array.
+Add getTypeList func to get prop types.
+fix #3879",3,0
+3967,2016-10-17T23:51:02Z,2016-11-20T14:50:38Z,2016-11-20T14:50:38Z,4,54,8,"This might seem like a very naive implementation, but I think it should work as expected. When we pass a callback to nextTick, we just defer it (ideally to the microtask queue), with our preferred strategy being native promises. In cases where promises are polyfilled, it seems projects like Bluebird actually use very similar scheduling fallbacks to nextTick, so we should see similar results.",6,3
+3978,2016-10-18T19:00:33Z,2016-10-19T14:33:17Z,2016-10-19T14:33:17Z,1,1,1,,3,0
+4015,2016-10-22T21:14:15Z,2016-10-24T12:25:08Z,2016-10-24T12:25:08Z,1,1,1,Fixed the spelling error of optimizier to optimizer in compiler src.,3,0
+4022,2016-10-24T14:29:52Z,2016-11-01T15:50:22Z,2016-11-01T15:50:22Z,7,104,19,fix #4018,4,0
+4043,2016-10-27T05:27:55Z,2016-11-01T15:17:25Z,2016-11-01T15:17:25Z,3,6,5,Fixes #4042.,5,3
+4051,2016-10-28T07:12:17Z,2016-11-01T15:30:43Z,2016-11-01T15:30:43Z,1,14,2,"This commit adds a check for falsy names (null or empty string) before attempting to add or remove them, to prevent a DOM exception. A warning will also be triggered if in development env.",5,3
+4069,2016-10-31T02:53:08Z,2016-11-01T15:48:47Z,2016-11-01T15:48:47Z,2,25,25,"Thank you for great library!
+This PR includes only small improvements.",4,2
+4076,2016-10-31T15:21:38Z,2016-11-04T13:38:52Z,2016-11-04T13:38:52Z,3,126,15,The fix is discussed in #4055. I think attrs module should also have this fix.,2,7
+4084,2016-11-01T15:23:17Z,,2016-11-01T18:14:19Z,2,36,0,"As discused in #4060 , we could introduce a warning in dev mode for v-bind with literal to avoid unnessary rendering.",3,1
+4086,2016-11-02T03:21:27Z,,2016-11-03T15:26:19Z,4,11,11,so as to specify props and slots(),3,7
+4091,2016-11-02T19:21:57Z,2016-11-03T14:53:43Z,2016-11-03T14:53:43Z,2,4,0,To be able to use css-module,2,1
+4111,2016-11-04T05:40:07Z,2016-11-04T11:44:47Z,2016-11-04T11:44:47Z,2,18,2,,3,7
+4267,2016-11-21T13:09:03Z,2016-11-30T17:15:18Z,2016-11-30T17:15:18Z,5,165,10,Modifier once for v-on is added.,3,3
+4271,2016-11-21T17:18:01Z,2016-11-21T20:24:54Z,2016-11-21T20:24:54Z,10,332,31,"Support v-if multiple conditions
+<div v-if=""tester1""></div>
+<div v-elseif=""tester2""></div>
+<div v-elseif=""tester3""></div>
+<div v-else></div>
+Collects if and v-elseif and v-else into element.conditions when parsing and generates code like (a)?_h:(c)?_h:_e()",4,1
+4297,2016-11-23T15:33:32Z,,2016-11-23T18:17:45Z,3,24,7,"If a tag was nested inside a template it would cause the initial block to be considered ended
+
+Check depth is 0 when checking special tag in SFC
+Moved depth decrement on SFC parser to make use clearer
+Updated tests to ensure regression is covered
+
+Edit: See below comment",4,4
+4337,2016-11-29T10:25:56Z,2016-11-29T11:49:33Z,2016-11-29T11:49:33Z,7,7,7,"NOTE:
+consistently keep the examples of vuejs.org.
+https://vuejs.org/v2/examples/",4,5
+4356,2016-12-01T06:22:08Z,,2016-12-01T19:32:28Z,3,35,14,"Modifier keys v-on modifier for keyboard event.
+Spelling correct.
+Invalid v-on modifier key alias warning.",3,5
+4383,2016-12-04T11:44:30Z,,2016-12-06T09:13:00Z,1,1,0,,5,7
+4402,2016-12-07T02:35:09Z,,2016-12-08T15:57:56Z,2,85,2,"fix #4392
+We should update the elm.value when in these cases:
+
+the elm is not active and the value is not equal to model.value
+the elm needs to be casted to number or trimed, and the casted value is not equal to model.value",5,4
+4435,2016-12-10T12:49:10Z,2016-12-11T15:16:23Z,2016-12-11T15:16:23Z,2,13,0,fix #4432,3,2
+4477,2016-12-14T12:23:00Z,,2016-12-23T05:18:55Z,1,1,0,当子组件是空的时候，调用$broadcast会报can't read length of null错误,3,0
+4499,2016-12-16T11:07:56Z,2016-12-16T16:50:53Z,2016-12-16T16:50:53Z,2,19,1,"Fix #4497
+At first I added an else if at the end since strings are rarely used in v-for loops but it felt wrong not to reuse the first if",3,0
+4506,2016-12-17T11:52:26Z,,2017-02-16T07:23:34Z,5,91,9,"Fix #4387. Improve async component SSR performance by reducing bailing.
+The basic idea here is, skip checking async component when hydration. To support this, I introduced a new flag on VNode isAsyncPlaceholder. A placeholder VNode is same as an emptyVNode, except the new flag set to true. Before this commit, an async component will be rendered to emptyVNode(in createElement). After this commit, an async component will be rendered to placeholderVNode. So the behavior in client-side rendering or bailed SSR rendering should be kept.
+In SSR hydration, we skip checking a placeholder VNode against a real element. After component is resolved, the Vue instance in question will $forceUpdate in callback. So even if the real element dismatches with resolved VNode, rendered dom structure should be up to date.
+Current implementation cannot reuse dom for async component because isHydrating is not available in createComponent.
+Another potential problem is that third party code can attach event handler / store data on SSR element. Those information will be lost in $forceUpdate callback. But I would suggest library users should care about it because I wonder if a library can provide a silver-bullet strategy.",4,9
+4518,2016-12-19T17:15:20Z,2016-12-20T02:20:08Z,2016-12-20T02:20:08Z,1,2,2,Update default value for ignoredElements so that the docs (https://vuejs.org/v2/api/#ignoredElements) don't lie.,3,0
+4528,2016-12-20T16:38:10Z,2016-12-21T21:22:55Z,2016-12-21T21:22:55Z,4,102,8,fix #4514,4,0
+4548,2016-12-22T15:39:27Z,2016-12-23T02:17:41Z,2016-12-23T02:17:41Z,2,15,5,"fix #4535
+relative commit d0afcd3#diff-4c8bbf2657619e18d911574dbc6b32e9",4,0
+4573,2016-12-26T18:04:14Z,2016-12-27T21:09:22Z,2016-12-27T21:09:22Z,2,2,2,"For SSR issue, it's better to recommend the user to privide reproduction repository.",2,0
+4642,2017-01-04T00:11:54Z,2017-01-04T19:44:02Z,2017-01-04T19:44:03Z,1,1,1,,3,0
+4652,2017-01-05T00:11:16Z,,2017-12-12T21:36:29Z,6,167,60,"(This is all open for debate and I understand that it is previously undiscussed pull request, but it is easier to debate it with concrete code changes available.)
+I am working on integration of Vue with Meteor and I would like that Vue could be a drop-in replacement for Blaze. That is almost possible, because architecture is very similar. Vue is also using reactive dependency tracking, observer, while Meteor/Blaze is using Tracker. Now, there is a lot of code written for Meteor which is using Tracker and it would be great if it could just work with Vue. And in fact it is doable. I managed to create a full 100% compatible Tracker implementation on top of Vue's observer. But there are some changes necessary to observer's implementation and some internals have to be exposed.
+This pull request is initial version of changes I had to do to get this first version of Tracker implemented, to get discussion rolling. I would really like to see if this or something like this could get merged into Vue. From my perspective changes do not really change how observer is working, and all existing tests are still passing.
+A list of changes:
+
+added support for after flush callbacks
+adding a way to force flushing
+fixed exception recovery for pushTarget/popTarget
+correctly cleanup queue if there is an exception from getter
+exposing some internals (probably too much, API could be cleaner there)
+
+Requesting comments, feedback, suggestions. This is work in progress. I will add tests in the future, after we finalize that this is OK to do and everything else.
+Example app. Notice how I can use Meteor ReactiveVar inside computed value directly.",10,31
+4672,2017-01-06T17:47:14Z,2017-01-12T23:45:44Z,2017-01-12T23:45:44Z,1,8,3,"SauceLabs has sunset all versions of Android prior to 4.4:
+https://wiki.saucelabs.com/pages/viewpage.action?pageId=67012495
+Let me save you the pain I've endured the past few days, getting my SauceLabs Android 4.2 Selendroid configuration upgraded to Android 4.4 on Appium. Oh honey child let me save you! 💋",2,1
+4674,2017-01-07T04:44:33Z,,2017-01-12T23:39:20Z,1,5,7,"This commit uses ES2015 destructuring assignment to swap two variables instead of using a tmp var. Flow has an open issue (facebook/flow#183) with this feature, though, so // $FlowFixMe is used to temporarily suppress the error.",3,2
+4684,2017-01-10T07:42:55Z,2017-01-12T23:41:08Z,2017-01-12T23:41:08Z,1,2,2,"parseFloat() support only one param, see MDN: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/parseFloat
+maybe it's better to use isNaN() to judge the conversion result?",5,1
+4714,2017-01-15T08:13:52Z,,2017-02-06T17:00:38Z,1,3,3,"Just a small change to make the readme nicer.
+
+(I'm pushing to master since this change affects only the readme file)",3,9
+4731,2017-01-17T10:52:23Z,2017-02-15T22:25:48Z,2017-02-15T22:25:48Z,12,577,1,"Hi.
+This is a PR to add TypeScript definition files for Vue.js 1.x into this repository.
+Since Vue decided to bundle its definition files, they were hosted on DefinitelyTyped.
+
+DefinitelyTyped/DefinitelyTyped#13230
+DefinitelyTyped/DefinitelyTyped#13235
+DefinitelyTyped/DefinitelyTyped#13236
+
+However, as these PRs imply, vue.d.ts was removed and currently there's no way to manage the 1.x's one.
+In addition, there were a lot of changes between 2.x's and 1.x's definition, such as vuejs namespace, plural or singular. So I changed its content in order to allow users to use what version they like with TypeScript.
+Of course, the past definitions were written for TS 1.x, but this one is for TS 2.x.
+
+DirectiveOption(s) is going to be generic interface
+Directive -> DirectiveInstance<V extends Vue>
+
+Thanks.",5,2
+4747,2017-01-19T02:18:06Z,2017-01-19T15:41:33Z,2017-01-19T15:41:33Z,2,29,1,"Since the Vue.set support to insert an item to array, the Vue.delete should also support to delete an item from array.
+Take the following code as an example:
+const vm = new Vue({
+  template: '<div><span v-for=""obj in lists"">{{obj.name}}</span></div>',
+  data: {
+    lists: [
+      { name: 'A' },
+      { name: 'B' }
+    ]
+  }
+}).$mount()
+
+Vue.delete(vm.lists, 1)
+// vm.lists.length--
+The Vue.delete(vm.lists, 1) just delete the property 1 from the array, but the vm.lists.length is still be 2. Evaluating obj.name at the second time will caught a TypeError (undefined is not an object).",3,0
+4753,2017-01-19T11:38:17Z,2017-01-20T03:23:21Z,2017-01-20T03:23:21Z,2,10,1,"<template>
+    <span><</span>
+</template>
+Vue will run into infinite loop with such component.
+It's better to give some warning?",3,1
+4756,2017-01-19T14:35:56Z,2017-01-19T18:36:19Z,2017-01-19T18:36:20Z,2,30,4,Determine multiple in runtime. fix #4755,2,0
+4770,2017-01-23T06:54:55Z,2017-01-23T13:57:08Z,2017-01-23T13:57:08Z,2,0,41,"This commit aims to close #4733, for the reason explained there.",5,0
+4797,2017-01-27T02:22:07Z,2017-01-31T17:03:50Z,2017-01-31T17:03:50Z,1,11,13,"Chained replaces here may cause problems if the order isn't carefully arranged.Currently we get "" after decoding &amp;quot; while &quot; is expected.
+For a quick fix, I could move the replace which replaces &amp;s to the last.However, I prefer one single replace so that we don't bother with chaining order.",3,3
+4829,2017-02-01T03:06:27Z,2017-02-01T15:10:38Z,2017-02-01T15:10:38Z,1,1,1,,3,0
+4844,2017-02-02T16:31:34Z,2017-02-14T18:30:11Z,2017-02-14T18:30:11Z,2,63,1,"The filter parser wasn't considering ""closing"" parentheses in the check for regex.
+Fix for issue #4838",4,4
+4848,2017-02-04T09:33:12Z,2017-02-14T16:39:06Z,2017-02-14T16:39:07Z,6,83,27,"I've implemented a $props special attribute on components to access its props because I thought the feature proposed in #4571 was great.
+For this implementation, I rewritten proxy function in src/core/instance/state.js to general purpose one.
+Thanks for the wonderful suggestion, @Akryum!",4,2
+4857,2017-02-05T16:14:38Z,2017-02-15T23:37:10Z,2017-02-15T23:37:10Z,4,282,11,"Add a new duration prop on <transition> component (see #4371):
+<!-- Both enter and leave explicit total duration -->
+<transition name=""complex-animation"" duration=""500"">
+<transition name=""complex-animation"" duration="".5s"">
+<transition name=""complex-animation"" duration=""500ms"">
+<!-- Specific enter and leave explicit total durations -->
+<transition name=""complex-animation"" :duration=""{ enter: 1000, leave: '500ms' }"">",5,2
+4859,2017-02-05T21:18:48Z,2017-02-06T16:58:36Z,2017-02-06T16:58:37Z,2,18,1,"Fix #4855
+edit: Is multiple supposed to be bindable at all? #4864",3,0
+4860,2017-02-06T03:19:40Z,2017-02-15T23:39:53Z,2017-02-15T23:39:53Z,4,27,8,#4856,3,2
+4890,2017-02-09T07:55:37Z,2017-02-09T22:44:30Z,2017-02-09T22:44:30Z,2,3,3,"We have two different JSFiddle starter links here, none of which is the version on Gitter.im (which appears to be more aligned with Vue's coding standard i.e. no root <body> tag, spacings and such). Modifying this issue template to use the Gitter.im version instead.",6,6
+4899,2017-02-10T07:20:22Z,2017-02-14T18:24:22Z,2017-02-14T18:24:22Z,4,13,6,"Makes watch handler argument to be typechecked when the expression is set
+as a function.",4,3
+4904,2017-02-10T10:52:13Z,,2017-02-11T18:18:18Z,0,0,0,,3,1
+4907,2017-02-11T11:01:43Z,,2017-02-12T23:49:21Z,1,4,1,"Hi,
+From the discussions here:
+https://forum.vuejs.org/t/hide-notify-you-are-running-vue-in-development-mode/5661
+and here:
+aa6f7b4
+and because it also annoys me, I decided to try and set up a flag, which will allow a dev to ""consciously"" remove the production tips info.
+It is also related to (requires) this PR for the webpack template.
+vuejs-templates/webpack#510
+The flag is currently set to ""false"", so the client dev will have to go into the file and set it to true, to remove the production tips info.
+If you let me know how to best document the availability of the flag (if the two PRs get accepted), I'd be also glad to add into about the flag to the docs too.
+Also, this currently only works for the webpack setup. I haven't looked into the other build possibilities.
+Scott",11,14
+4910,2017-02-11T17:36:41Z,2017-02-12T23:49:48Z,2017-02-12T23:49:48Z,2,3,3,"Use an inline script tag with unpkg to explicitly show what we're
+including. It allows to easily test regressions by appending @2.x.x at
+the end of the of the link.
+It also allows to directly check if the repro is using the latest
+version
+Following #4890",3,0
+4911,2017-02-11T18:19:42Z,,2017-02-15T14:59:55Z,4,64,2,"Following work from @Kingwl
+#4900",3,4
+4925,2017-02-14T01:09:25Z,2017-02-14T19:35:46Z,2017-02-14T19:35:46Z,2,13,15,"See #4914
+This PR passes attributes down to parseComponent so that build tools layered on top of vue-template-compiler can have access to that information without having to parse the src to retrieve it.",3,7
+4926,2017-02-14T01:16:00Z,2017-02-14T19:36:37Z,2017-02-14T19:36:37Z,1,2,2,"See #4813.
+This fix adds foreignObject as a recognized SVG object. Doing so allows foreignObject to be the root element in a child component that's contained in a parent component that uses the svg element.",3,0
+4928,2017-02-14T05:08:16Z,2017-02-14T18:40:57Z,2017-02-14T18:40:57Z,3,36,1,"If the prototype of a function is also a function, we treat it as Function constructor.
+This check is context independent, so server side can safely extract vue as an external library. And it is not expensive.
+Of course it is not silver bullet. Users can pass a value of which the prototype is set to a function. But naughty users can also rewrite Function global, so I think this change is at most as bad as current check.
+Other counter examples are welcome!",2,0
+4930,2017-02-14T08:34:46Z,,2017-06-27T02:41:11Z,2,86,8,#3961,5,4
+4932,2017-02-14T09:45:37Z,2017-02-14T14:05:01Z,2017-02-14T14:05:01Z,1,3,4,,4,0
+4950,2017-02-17T04:27:48Z,2017-02-18T14:09:27Z,2017-02-18T14:09:28Z,2,36,6,"When you specify a method on a component with the same name as a prop you get an error about mutating a prop directly, but it can be hard for people new to vue to figure out what this means.
+This PR adds a more explicit warning message indicating exactly what went wrong.",5,3
+4975,2017-02-20T10:38:07Z,,2017-07-11T02:31:53Z,9,140,19,"Currently, whenever you call Vue.set or Vue.delete, all observers on the object being modified are executed.  This is a ""safe"" practice, because it ensures that any objects who had previously attempted to access the key being added or deleted get their dependencies re-computed.
+However, consider the case where you have an object with many different keys and watchers, which might be expensive to call.  In this case, Vue.set will do a lot of work executing all of the watchers, even if none of them respond to the new field in the object, causing poor performance.
+Here is a fiddle to demonstrate the issue: https://jsfiddle.net/exe3nxzg/2/ .  Adding new keys to the object causes the watcher on the original field to be triggered, even though that watcher doesn't care about the values of the new keys.
+This PR offers a possible fix to the problem, which is to add an options object as the final argument of Vue.set and Vue.delete.  If the user wishes to manually suppress notifications on the object and prevent all watchers from being computed, they can pass { notify: false } as the final argument.
+Another possible fix would be to add a new function called Vue.get.  If Vue.set replaces the syntax obj[key]=value and Vue.delete replaces the syntax delete obj[key], then Vue.get would replace the syntax obj[key] || default.  More precisely, a definition could look something like:
+Vue.get = function(obj, key, defaultValue) {
+	if (!obj.hasOwnProperty(key)) {
+		// create the key on the object with the default value.
+		// call defineReactive(), etc.
+		// however, do NOT call notify on the object.
+	}
+	return obj[key];
+};
+This way, whenever a key access is attempted, a reactive is left behind, such that setting the property in the future, even via Vue.set, will not cause a full notify.
+Thoughts?",5,6
+4994,2017-02-23T23:34:47Z,,2017-04-17T04:07:12Z,195,46387,21856,"When exploring css-in-js solutions for vue, I came across the fact that some auto prefixed style objects (for example, by postcss-js) cannot be directly used as style option on elements, when they have an array as value, e.g.
+{ display: ['-webkit-box', '-webkit-flex', '-ms-flexbox', 'flex'] }
+
+...which happens when a rule value needs to be prefixed, other examples:
+{ backgroundImage: ['radial-gradient(...)', '-webkit-radial-gradient(...)']
+{ cursor: ['-webkit-grab','grab'] }
+
+This PR adds support for directly consuming such objects as style option.
+This is really an edge case (inline style option + style object with value as an array), so I totally understand if this is not going into the core.
+In fact I only need this for rendering email templates that require inline styles on html elements with vue SSR, though it seems nice to add support for such usage maybe to give people more freedom when choosing css-in-js solutions.",36,3
+5009,2017-02-26T11:16:37Z,2017-02-26T13:06:36Z,2017-02-26T13:06:36Z,1,2,0,Add missed vue.esm.js and vue.runtime.esm.js to files section package.json,3,1
+5016,2017-02-26T23:46:47Z,,2017-07-01T03:23:16Z,5,34,36,"This PR will change Vue's TS typings to use ES-style exports so that it works better with the new ES module build + webpack 2 combo.
+So instead of:
+import Vue = require('vue')
+TS users should now use:
+import Vue from 'vue'
+...which is consistent with recommended plain ES usage.
+This is technically a breaking change, but since we've already unintentionally caused a breaking change for webpack 2 + TS users, we should probably just fully migrate to ES-based exports to avoid more breakage in the future.
+Related:
+
+vuejs/vue-router#1204
+vuejs/vuex#658",5,17
+5024,2017-02-27T09:45:36Z,2017-02-27T14:07:32Z,2017-02-27T14:07:32Z,1,2,4,"Inside genChildren function, not need to invoke getNormalizationType() when checkSkip is false.",2,1
+5044,2017-03-01T09:07:44Z,2017-03-01T16:01:25Z,2017-03-01T16:01:25Z,2,9,9,Fixes #5043,4,1
+5054,2017-03-01T17:44:12Z,2017-03-03T04:04:05Z,2017-03-03T04:04:05Z,1,7,8,"I found unnecessary conditional in lang.js.
+https://github.com/vuejs/vue/blob/dev/src/core/util/lang.js#L30-L32
+if bailRE.test(path) is true, It's return.
+So, the next else clause is unnecessary.",5,0
+5056,2017-03-01T23:02:17Z,2017-03-03T03:51:58Z,2017-03-03T03:51:58Z,4,20,3,"Basically, copy of #4860",4,0
+5059,2017-03-02T00:28:15Z,2017-03-05T20:36:39Z,2017-03-05T20:36:39Z,3,39,12,"SFC parseComponent pads all content with spaces when { pad: true } is provided. That is, all content is converted to spaces. Previously, each line was truncated to //. The new padding method works better with character-oriented tools that calculate positions by distance from the beginning of the file instead of by line
+number.
+Fixes #5058.",4,2
+5065,2017-03-02T12:14:46Z,2017-03-02T15:16:38Z,2017-03-02T15:16:38Z,1,2,2,,4,0
+5072,2017-03-02T19:47:59Z,2017-03-03T04:09:00Z,2017-03-03T04:09:00Z,2,28,0,Fix: #4966,4,1
+5073,2017-03-02T20:20:34Z,2017-03-03T02:41:14Z,2017-03-03T02:41:14Z,1,36,0,"Adding a Pull Request Template for external contributors.
+Please check if the PR fulfills these requirements
+
+ Do not submit PRs against the master branch.
+ Checkout a topic branch from the relevant branch, e.g. dev, and merge back against that branch.
+ The tests are running: https://github.com/vuejs/vue/blob/dev/.github/CONTRIBUTING.md#development-setup
+
+What kind of change does this PR introduce? (check at least one with ""x"")
+[ ] Bugfix
+[ ] Feature
+[ ] Code style update
+[ ] Refactoring
+[ ] Build related changes
+[X] Other... Please describe:
+A template to help people to contribute with Vue
+
+Does this PR introduce a breaking change? (check one with ""x"")
+[ ] Yes
+[X] No",3,1
+5085,2017-03-03T18:12:25Z,,2017-03-03T19:39:23Z,18,74,93,"What kind of change does this PR introduce?
+
+ Bugfix
+ Feature
+ Code style update
+ Refactoring
+ Build related changes
+ Other... Please describe:
+
+Does this PR introduce a breaking change?
+
+ Yes
+ No
+`
+
+Other information:
+Maybe we should add no-else-return rule to the eslint config?",3,2
+5088,2017-03-04T01:11:54Z,2017-03-04T15:10:11Z,2017-03-04T15:10:11Z,1,2,2,"Please check if the PR fulfills these requirements
+
+ Do not submit PRs against the master branch.
+ Checkout a topic branch from the relevant branch, e.g. dev, and merge back against that branch.
+ The tests are running: https://github.com/vuejs/vue/blob/dev/.github/CONTRIBUTING.md#development-setup
+
+If adding new feature:
+
+ Added accompanying test case.
+ In the commit message, provide convincing reason to add this feature.
+Ideally you should open a suggestion issue first and have it greenlighted before working on it.
+
+If fixing a bug:
+
+ If you are resolving a special issue, add (fix #xxxx[,#xxx]) (#xxxx is the issue id) in your PR title
+ Provide detailed description of the bug in the PR. Live demo preferred.
+ Add appropriate test coverage if applicable.
+
+What kind of change does this PR introduce? (check at least one with ""x"")
+[ ] Bugfix
+[ ] Feature
+[ ] Code style update
+[x] Refactoring
+[ ] Build related changes
+[ ] Other... Please describe:
+
+Does this PR introduce a breaking change? (check one with ""x"")
+[ ] Yes
+[x] No
+
+If this PR contains a breaking change, please describe the impact and migration path for existing applications:
+Other information:",3,0
+5091,2017-03-04T12:48:50Z,2017-03-05T00:40:15Z,2017-03-05T00:40:15Z,1,1,1,"Please check if the PR fulfills these requirements
+
+ Do not submit PRs against the master branch.
+ Checkout a topic branch from the relevant branch, e.g. dev, and merge back against that branch.
+ The tests are running: https://github.com/vuejs/vue/blob/dev/.github/CONTRIBUTING.md#development-setup
+
+If adding new feature:
+
+ Added accompanying test case.
+ In the commit message, provide convincing reason to add this feature.
+Ideally you should open a suggestion issue first and have it greenlighted before working on it.
+
+If fixing a bug:
+
+ If you are resolving a special issue, add (fix #xxxx[,#xxx]) (#xxxx is the issue id) in your PR title
+ Provide detailed description of the bug in the PR. Live demo preferred.
+ Add appropriate test coverage if applicable.
+
+What kind of change does this PR introduce? (check at least one with ""x"")
+[ ] Bugfix
+[ ] Feature
+[ ] Code style update
+[x] Refactoring
+[ ] Build related changes
+[ ] Other... Please describe:
+
+Does this PR introduce a breaking change? (check one with ""x"")
+[ ] Yes
+[x] No
+
+If this PR contains a breaking change, please describe the impact and migration path for existing applications:
+Other information:",3,0
+5092,2017-03-04T16:13:46Z,2017-03-08T02:14:56Z,2017-03-08T02:14:56Z,1,7,2,"Please check if the PR fulfills these requirements
+
+ Do not submit PRs against the master branch.
+ Checkout a topic branch from the relevant branch, e.g. dev, and merge back against that branch.
+ The tests are running: https://github.com/vuejs/vue/blob/dev/.github/CONTRIBUTING.md#development-setup
+
+If adding new feature:
+
+ Added accompanying test case.
+ In the commit message, provide convincing reason to add this feature.
+Ideally you should open a suggestion issue first and have it greenlighted before working on it.
+
+If fixing a bug:
+
+ If you are resolving a special issue, add (fix #xxxx[,#xxx]) (#xxxx is the issue id) in your PR title
+ Provide detailed description of the bug in the PR. Live demo preferred.
+ Add appropriate test coverage if applicable.
+
+What kind of change does this PR introduce? (check at least one with ""x"")
+[ ] Bugfix
+[ ] Feature
+[ ] Code style update
+[x] Refactoring
+[ ] Build related changes
+[ ] Other... Please describe:
+
+Does this PR introduce a breaking change? (check one with ""x"")
+[ ] Yes
+[x] No
+
+If this PR contains a breaking change, please describe the impact and migration path for existing applications:
+Other information:",3,0
+5093,2017-03-04T16:30:21Z,2017-03-05T00:40:36Z,2017-03-05T00:40:36Z,1,1,0,"Please check if the PR fulfills these requirements
+
+ Do not submit PRs against the master branch.
+ Checkout a topic branch from the relevant branch, e.g. dev, and merge back against that branch.
+ The tests are running: https://github.com/vuejs/vue/blob/dev/.github/CONTRIBUTING.md#development-setup
+
+If adding new feature:
+
+ Added accompanying test case.
+ In the commit message, provide convincing reason to add this feature.
+Ideally you should open a suggestion issue first and have it greenlighted before working on it.
+
+If fixing a bug:
+
+ If you are resolving a special issue, add (fix #xxxx[,#xxx]) (#xxxx is the issue id) in your PR title
+ Provide detailed description of the bug in the PR. Live demo preferred.
+ Add appropriate test coverage if applicable.
+
+What kind of change does this PR introduce? (check at least one with ""x"")
+[ ] Bugfix
+[ ] Feature
+[ ] Code style update
+[x] Refactoring
+[ ] Build related changes
+[ ] Other... Please describe:
+
+Does this PR introduce a breaking change? (check one with ""x"")
+[ ] Yes
+[x] No
+
+If this PR contains a breaking change, please describe the impact and migration path for existing applications:
+Other information:",3,0
+5094,2017-03-04T16:43:53Z,2017-03-05T00:40:49Z,2017-03-05T00:40:49Z,1,1,1,"Please check if the PR fulfills these requirements
+
+ Do not submit PRs against the master branch.
+ Checkout a topic branch from the relevant branch, e.g. dev, and merge back against that branch.
+ The tests are running: https://github.com/vuejs/vue/blob/dev/.github/CONTRIBUTING.md#development-setup
+
+If adding new feature:
+
+ Added accompanying test case.
+ In the commit message, provide convincing reason to add this feature.
+Ideally you should open a suggestion issue first and have it greenlighted before working on it.
+
+If fixing a bug:
+
+ If you are resolving a special issue, add (fix #xxxx[,#xxx]) (#xxxx is the issue id) in your PR title
+ Provide detailed description of the bug in the PR. Live demo preferred.
+ Add appropriate test coverage if applicable.
+
+What kind of change does this PR introduce? (check at least one with ""x"")
+[ ] Bugfix
+[ ] Feature
+[ ] Code style update
+[x] Refactoring
+[ ] Build related changes
+[ ] Other... Please describe:
+
+Does this PR introduce a breaking change? (check one with ""x"")
+[ ] Yes
+[x] No
+
+If this PR contains a breaking change, please describe the impact and migration path for existing applications:
+Other information:",3,0
+5101,2017-03-06T01:59:11Z,2017-03-06T08:50:49Z,2017-03-06T08:50:49Z,17,27,27,"Please check if the PR fulfills these requirements
+
+ Do not submit PRs against the master branch.
+ Checkout a topic branch from the relevant branch, e.g. dev, and merge back against that branch.
+ The tests are running: https://github.com/vuejs/vue/blob/dev/.github/CONTRIBUTING.md#development-setup
+
+If adding new feature:
+
+ Added accompanying test case.
+ In the commit message, provide convincing reason to add this feature.
+Ideally you should open a suggestion issue first and have it greenlighted before working on it.
+
+If fixing a bug:
+
+ If you are resolving a special issue, add (fix #xxxx[,#xxx]) (#xxxx is the issue id) in your PR title
+ Provide detailed description of the bug in the PR. Live demo preferred.
+ Add appropriate test coverage if applicable.
+
+What kind of change does this PR introduce? (check at least one with ""x"")
+[ ] Bugfix
+[ ] Feature
+[ ] Code style update
+[x] Refactoring
+[ ] Build related changes
+[ ] Other... Please describe:
+
+Does this PR introduce a breaking change? (check one with ""x"")
+[ ] Yes
+[x] No
+
+If this PR contains a breaking change, please describe the impact and migration path for existing applications:
+Other information:",3,0
+5103,2017-03-06T02:18:16Z,2017-03-06T08:56:23Z,2017-03-06T08:56:23Z,1,2,2,"Please check if the PR fulfills these requirements
+
+ Do not submit PRs against the master branch.
+ Checkout a topic branch from the relevant branch, e.g. dev, and merge back against that branch.
+ The tests are running: https://github.com/vuejs/vue/blob/dev/.github/CONTRIBUTING.md#development-setup
+
+If adding new feature:
+
+ Added accompanying test case.
+ In the commit message, provide convincing reason to add this feature.
+Ideally you should open a suggestion issue first and have it greenlighted before working on it.
+
+If fixing a bug:
+
+ If you are resolving a special issue, add (fix #xxxx[,#xxx]) (#xxxx is the issue id) in your PR title
+ Provide detailed description of the bug in the PR. Live demo preferred.
+ Add appropriate test coverage if applicable.
+
+What kind of change does this PR introduce? (check at least one with ""x"")
+[ ] Bugfix
+[ ] Feature
+[ ] Code style update
+[x] Refactoring
+[ ] Build related changes
+[ ] Other... Please describe:
+
+Does this PR introduce a breaking change? (check one with ""x"")
+[ ] Yes
+[x] No
+
+If this PR contains a breaking change, please describe the impact and migration path for existing applications:
+Other information:
+I am not very sure this is a breaking change or not on type definition.",3,0
+5104,2017-03-06T02:39:48Z,2017-03-06T08:54:31Z,2017-03-06T08:54:31Z,6,14,14,"Please check if the PR fulfills these requirements
+
+ Do not submit PRs against the master branch.
+ Checkout a topic branch from the relevant branch, e.g. dev, and merge back against that branch.
+ The tests are running: https://github.com/vuejs/vue/blob/dev/.github/CONTRIBUTING.md#development-setup
+
+If adding new feature:
+
+ Added accompanying test case.
+ In the commit message, provide convincing reason to add this feature.
+Ideally you should open a suggestion issue first and have it greenlighted before working on it.
+
+If fixing a bug:
+
+ If you are resolving a special issue, add (fix #xxxx[,#xxx]) (#xxxx is the issue id) in your PR title
+ Provide detailed description of the bug in the PR. Live demo preferred.
+ Add appropriate test coverage if applicable.
+
+What kind of change does this PR introduce? (check at least one with ""x"")
+[ ] Bugfix
+[ ] Feature
+[ ] Code style update
+[x] Refactoring
+[ ] Build related changes
+[ ] Other... Please describe:
+
+Does this PR introduce a breaking change? (check one with ""x"")
+[ ] Yes
+[x] No
+
+If this PR contains a breaking change, please describe the impact and migration path for existing applications:
+Other information:
+Note that packages/* and dist/* changed too, but I didn't included in commit.",3,0
+5106,2017-03-06T05:23:38Z,2017-03-08T02:18:03Z,2017-03-08T02:18:03Z,1,30,35,"Using the updated PR template below - so meta!
+
+
+
+What kind of change does this PR introduce? (check at least one)
+
+ Bugfix
+ Feature
+ Code style update
+ Refactor
+ Build-related changes
+ Other, please describe: contributor documentation update
+
+Does this PR introduce a breaking change? (check one)
+
+ Yes
+ No
+
+The PR fulfills these requirements:
+
+ It's submitted to the dev branch for v2.x (or to a previous version branch), not the master branch
+ All tests are passing: https://github.com/vuejs/vue/blob/dev/.github/CONTRIBUTING.md#development-setup
+
+Other information:
+
+Improved consistency of language in the template
+Reorganized template a little
+Added instructions at the top for how to check boxes",6,1
+5127,2017-03-08T04:21:23Z,2017-03-08T05:47:39Z,2017-03-08T05:47:39Z,1,6,7,,3,0
+5132,2017-03-08T07:44:18Z,2017-04-05T06:35:17Z,2017-04-05T06:35:17Z,5,67,6,"Bugfix
+ Feature
+ Code style update
+ Refactor
+ Build-related changes
+ Other, please describe:",6,4
+5143,2017-03-09T05:30:27Z,2017-03-10T01:39:39Z,2017-03-10T01:39:39Z,2,29,4,Fix #5121,4,1
+5144,2017-03-09T05:37:17Z,2017-03-10T01:40:04Z,2017-03-10T01:40:04Z,1,7,5,"What kind of change does this PR introduce? (check at least one)
+
+ Bugfix
+ Feature
+ Code style update
+ Refactor
+ Build-related changes
+ Other, please describe:
+
+Does this PR introduce a breaking change? (check one)
+
+ Yes
+ No
+
+It seems that the previous way is unable to change the value of input.checked, so input.checked will not equal to true even if when after removing the prevent modifier.",4,0
+5147,2017-03-09T10:40:40Z,2017-03-10T01:42:15Z,2017-03-10T01:42:15Z,3,40,1,"#5146
+@posva
+review need",3,2
+5161,2017-03-10T04:12:45Z,2017-03-13T07:41:27Z,2017-03-13T07:41:27Z,2,31,0,"What kind of change does this PR introduce? (check at least one)
+
+ Bugfix
+ Feature
+ Code style update
+ Refactor
+ Build-related changes
+ Other, please describe:
+
+Does this PR introduce a breaking change? (check one)
+
+ Yes
+ No
+
+Hi,
+Please see #5145
+This patch adds a warning when user is not passing props in kebab-case mistakenly, for example:
+<foo someProp=""bar""></foo>
+should be
+<foo some-prop=""bar""></foo>
+I know this is stated on the guide, but since it's a very common mistake (based on the questions on stackoverflow (see the issue above) and the forum), I think it is worth to add a warning and I believe this will save a lot of people's debugging time and provide a more friendly development experience.
+And for the performance, this is not a complex algorithm. It only adds a fews operations (both toLowerCase and hasOwnProperty are fast enough) in O(n) so I would say the impact on performance is negligible (almost no impact when running unit test on my machine).
+thanks!",3,4
+5206,2017-03-16T08:03:27Z,,2017-03-17T04:10:30Z,2,28,8,"What kind of change does this PR introduce? (check at least one)
+
+ Bugfix
+ Feature
+ Code style update
+ Refactor
+ Build-related changes
+ Other, please describe:
+
+Does this PR introduce a breaking change? (check one)
+
+ Yes
+ No",4,3
+5229,2017-03-20T05:45:14Z,2017-03-21T07:22:32Z,2017-03-21T07:22:32Z,2,69,1,"What kind of change does this PR introduce? (check at least one)
+
+ Bugfix
+ Feature
+ Code style update
+ Refactor
+ Build-related changes
+ Other, please describe:
+
+Does this PR introduce a breaking change? (check one)
+
+ Yes
+ No
+
+If yes, please describe the impact and migration path for existing applications:
+The PR fulfills these requirements:
+
+ It's submitted to the dev branch for v2.x (or to a previous version branch), not the master branch
+ When resolving a specific issue, it's referenced in the PR's title (e.g. fix #xxx[,#xxx], where ""xxx"" is the issue number)
+ All tests are passing: https://github.com/vuejs/vue/blob/dev/.github/CONTRIBUTING.md#development-setup
+ New/updated tests are included
+
+If adding a new feature, the PR's description includes:
+
+ A convincing reason for adding this feature (to avoid wasting your time, it's best to open a suggestion issue first and wait for approval before working on it)
+
+Other information:
+#5223",5,9
+5233,2017-03-20T07:48:06Z,2017-03-21T07:20:58Z,2017-03-21T07:20:58Z,2,37,4,"What kind of change does this PR introduce? (check at least one)
+
+ Bugfix
+ Feature
+ Code style update
+ Refactor
+ Build-related changes
+ Other, please describe:
+
+Does this PR introduce a breaking change? (check one)
+
+ Yes
+ No
+
+If yes, please describe the impact and migration path for existing applications:
+The PR fulfills these requirements:
+
+ It's submitted to the dev branch for v2.x (or to a previous version branch), not the master branch
+ When resolving a specific issue, it's referenced in the PR's title (e.g. fix #xxx[,#xxx], where ""xxx"" is the issue number)
+ All tests are passing: https://github.com/vuejs/vue/blob/dev/.github/CONTRIBUTING.md#development-setup
+ New/updated tests are included
+
+If adding a new feature, the PR's description includes:
+
+ A convincing reason for adding this feature (to avoid wasting your time, it's best to open a suggestion issue first and wait for approval before working on it)
+
+Other information:
+#5191",5,3
+5242,2017-03-21T10:48:24Z,,2017-03-22T05:59:17Z,3,25,6,"What kind of change does this PR introduce? (check at least one)
+
+ Bugfix
+ Feature
+ Code style update
+ Refactor
+ Build-related changes
+ Other, please describe:
+
+Does this PR introduce a breaking change? (check one)
+
+ Yes
+ No
+
+If yes, please describe the impact and migration path for existing applications:
+The PR fulfills these requirements:
+
+ It's submitted to the dev branch for v2.x (or to a previous version branch), not the master branch
+ When resolving a specific issue, it's referenced in the PR's title (e.g. fix #xxx[,#xxx], where ""xxx"" is the issue number)
+ All tests are passing: https://github.com/vuejs/vue/blob/dev/.github/CONTRIBUTING.md#development-setup
+ New/updated tests are included
+
+If adding a new feature, the PR's description includes:
+
+ A convincing reason for adding this feature (to avoid wasting your time, it's best to open a suggestion issue first and wait for approval before working on it)
+
+Other information: Close #5095",5,3
+5253,2017-03-22T07:42:56Z,2017-03-23T04:00:45Z,2017-03-23T04:00:45Z,1,1,1,"What kind of change does this PR introduce? (check at least one)
+
+ Bugfix
+ Feature
+ Code style update
+ Refactor
+ Build-related changes
+ Other, please describe:
+
+Does this PR introduce a breaking change? (check one)
+
+ Yes
+ No
+
+The PR fulfills these requirements:
+
+ It's submitted to the dev branch for v2.x (or to a previous version branch), not the master branch
+ When resolving a specific issue, it's referenced in the PR's title (e.g. fix #xxx[,#xxx], where ""xxx"" is the issue number)
+ All tests are passing: https://github.com/vuejs/vue/blob/dev/.github/CONTRIBUTING.md#development-setup
+ New/updated tests are included
+
+Other information:
+On IE9, we are currently marking vmodel flag in real DOM and virtually trigger input event when selectionchange is triggered by the element. But input[type=password] element is not set vmodel flag since it does not match the condition.
+BTW, should we also add conditions for other input types that can be input texts like search, url and so on?",5,0
+5267,2017-03-23T21:42:23Z,2017-03-27T02:41:30Z,2017-03-27T02:41:30Z,2,37,1,"What kind of change does this PR introduce? (check at least one)
+
+ Bugfix
+ Feature
+ Code style update
+ Refactor
+ Build-related changes
+ Other, please describe:
+
+Does this PR introduce a breaking change? (check one)
+
+ Yes
+ No
+
+If yes, please describe the impact and migration path for existing applications:
+The PR fulfills these requirements:
+
+ It's submitted to the dev branch for v2.x (or to a previous version branch), not the master branch
+ When resolving a specific issue, it's referenced in the PR's title (e.g. fix #xxx[,#xxx], where ""xxx"" is the issue number)
+ All tests are passing: https://github.com/vuejs/vue/blob/dev/.github/CONTRIBUTING.md#development-setup
+ New/updated tests are included
+
+If adding a new feature, the PR's description includes:
+
+ A convincing reason for adding this feature (to avoid wasting your time, it's best to open a suggestion issue first and wait for approval before working on it)
+
+Other information:
+I ran all test locally. I'm having some failures related to SSR and selenium which appear to be completely unrelated. I've confirmed the new test works by reverting my change and adding it back in.
+I am using noop for the getter if one does not exist to avoid exceptions when calling functions on the getter.",7,2
+5322,2017-03-29T17:22:34Z,2017-04-03T03:36:50Z,2017-04-03T03:36:50Z,2,45,1,"What kind of change does this PR introduce? (check at least one)
+
+ Bugfix
+ Feature
+ Code style update
+ Refactor
+ Build-related changes
+ Other, please describe:
+
+Does this PR introduce a breaking change? (check one)
+
+ Yes
+ No
+
+If yes, please describe the impact and migration path for existing applications:
+The PR fulfills these requirements:
+
+ It's submitted to the dev branch for v2.x (or to a previous version branch), not the master branch
+ When resolving a specific issue, it's referenced in the PR's title (e.g. fix #xxx[,#xxx], where ""xxx"" is the issue number)
+ All tests are passing: https://github.com/vuejs/vue/blob/dev/.github/CONTRIBUTING.md#development-setup
+ New/updated tests are included
+
+If adding a new feature, the PR's description includes:
+
+ A convincing reason for adding this feature (to avoid wasting your time, it's best to open a suggestion issue first and wait for approval before working on it)
+
+Other information:
+This PR fixes #5321
+Reproduction link: https://jsfiddle.net/rstoenescu/uqsath1t/2/ (follow instructions in the Github issue)",2,3
+5324,2017-03-30T02:03:51Z,2017-04-03T03:37:55Z,2017-04-03T03:37:55Z,2,28,5,"#5314
+
+
+
+What kind of change does this PR introduce? (check at least one)
+
+ Bugfix
+ Feature
+ Code style update
+ Refactor
+ Build-related changes
+ Other, please describe:
+
+Does this PR introduce a breaking change? (check one)
+
+ Yes
+ No
+
+If yes, please describe the impact and migration path for existing applications:
+The PR fulfills these requirements:
+
+ It's submitted to the dev branch for v2.x (or to a previous version branch), not the master branch
+ When resolving a specific issue, it's referenced in the PR's title (e.g. fix #xxx[,#xxx], where ""xxx"" is the issue number)
+ All tests are passing: https://github.com/vuejs/vue/blob/dev/.github/CONTRIBUTING.md#development-setup
+ New/updated tests are included",3,0
+5411,2017-04-10T17:40:55Z,2017-04-10T20:52:03Z,2017-04-10T20:52:03Z,1,1,1,"What kind of change does this PR introduce? (check at least one)
+
+ Bugfix
+ Feature
+ Code style update
+ Refactor
+ Build-related changes
+ Other, please describe:
+a typo
+
+Does this PR introduce a breaking change? (check one)
+
+ Yes
+ No
+
+If yes, please describe the impact and migration path for existing applications:
+The PR fulfills these requirements:
+
+ It's submitted to the dev branch for v2.x (or to a previous version branch), not the master branch
+ When resolving a specific issue, it's referenced in the PR's title (e.g. fix #xxx[,#xxx], where ""xxx"" is the issue number)
+ All tests are passing: https://github.com/vuejs/vue/blob/dev/.github/CONTRIBUTING.md#development-setup
+ New/updated tests are included
+
+If adding a new feature, the PR's description includes:
+
+ A convincing reason for adding this feature (to avoid wasting your time, it's best to open a suggestion issue first and wait for approval before working on it)
+
+Other information:",3,1
+5462,2017-04-17T16:44:57Z,2017-04-18T03:42:38Z,2017-04-18T03:42:38Z,1,1,0,"What kind of change does this PR introduce? (check at least one)
+
+ Bugfix
+ Feature
+ Code style update
+ Refactor
+ Build-related changes
+ Other, please describe:
+
+Does this PR introduce a breaking change? (check one)
+
+ Yes
+ No
+
+If yes, please describe the impact and migration path for existing applications:
+The PR fulfills these requirements:
+
+ It's submitted to the dev branch for v2.x (or to a previous version branch), not the master branch
+ When resolving a specific issue, it's referenced in the PR's title (e.g. fix #xxx[,#xxx], where ""xxx"" is the issue number)
+ All tests are passing: https://github.com/vuejs/vue/blob/dev/.github/CONTRIBUTING.md#development-setup
+ New/updated tests are included
+
+If adding a new feature, the PR's description includes:
+
+ A convincing reason for adding this feature (to avoid wasting your time, it's best to open a suggestion issue first and wait for approval before working on it)
+
+Other information:
+Add the declaration of the local variable i in removeAndInvokeRemoveHook",4,1
+5481,2017-04-21T17:03:54Z,2017-04-25T04:25:28Z,2017-04-25T04:25:28Z,2,15,1,"Closes #5480
+
+
+
+What kind of change does this PR introduce? (check at least one)
+
+ Bugfix
+ Feature
+ Code style update
+ Refactor
+ Build-related changes
+ Other, please describe:
+
+Does this PR introduce a breaking change? (check one)
+
+ Yes
+ No
+
+If yes, please describe the impact and migration path for existing applications:
+The PR fulfills these requirements:
+
+ It's submitted to the dev branch for v2.x (or to a previous version branch), not the master branch
+ When resolving a specific issue, it's referenced in the PR's title (e.g. fix #xxx[,#xxx], where ""xxx"" is the issue number)
+ All tests are passing: https://github.com/vuejs/vue/blob/dev/.github/CONTRIBUTING.md#development-setup
+ New/updated tests are included
+
+If adding a new feature, the PR's description includes:
+
+ A convincing reason for adding this feature (to avoid wasting your time, it's best to open a suggestion issue first and wait for approval before working on it)
+
+Other information:",4,4
+5508,2017-04-25T02:19:18Z,2017-04-25T04:18:27Z,2017-04-25T04:18:27Z,2,2,0,"What kind of change does this PR introduce? (check at least one)
+
+ Bugfix
+ Feature
+ Code style update
+ Refactor
+ Build-related changes
+ Other, please describe: TypeScript Definition Update
+
+Does this PR introduce a breaking change? (check one)
+
+ Yes
+ No
+
+If yes, please describe the impact and migration path for existing applications:
+The PR fulfills these requirements:
+
+ It's submitted to the dev branch for v2.x (or to a previous version branch), not the master branch
+ When resolving a specific issue, it's referenced in the PR's title (e.g. fix #xxx[,#xxx], where ""xxx"" is the issue number)
+ All tests are passing: https://github.com/vuejs/vue/blob/dev/.github/CONTRIBUTING.md#development-setup
+ New/updated tests are included
+
+If adding a new feature, the PR's description includes:
+
+ A convincing reason for adding this feature (to avoid wasting your time, it's best to open a suggestion issue first and wait for approval before working on it)
+
+Other information:
+Vue 2.2.0 added support for Vue.delete(arr, index). This updates the TypeScript definition to allow that.
+Refs: https://github.com/vuejs/vue/releases/tag/v2.2.0",3,2
+5514,2017-04-25T08:57:03Z,2017-04-26T06:51:25Z,2017-04-26T06:51:25Z,2,27,3,"What kind of change does this PR introduce? (check at least one)
+
+ Bugfix
+ Feature
+ Code style update
+ Refactor
+ Build-related changes
+ Other, please describe:
+
+Does this PR introduce a breaking change? (check one)
+
+ Yes
+ No
+
+If yes, please describe the impact and migration path for existing applications:
+The PR fulfills these requirements:
+
+ It's submitted to the dev branch for v2.x (or to a previous version branch), not the master branch
+ When resolving a specific issue, it's referenced in the PR's title (e.g. fix #xxx[,#xxx], where ""xxx"" is the issue number)
+[] All tests are passing: https://github.com/vuejs/vue/blob/dev/.github/CONTRIBUTING.md#development-setup
+ New/updated tests are included
+
+Other information:
+This patch fixes vuejs/vue-class-component#87 issue.
+This includes following changes:
+
+Fixing the problem that Mixing feature drops original lifecycle hooks.
+Its test code.
+
+In my environment, some e2e tests failed. But these tests also fail without my modifications.",3,0
+5539,2017-04-27T15:55:58Z,2017-04-29T06:42:36Z,2017-04-29T06:42:36Z,2,19,1,"issue: #5536
+Originally I wanted to use isDef but the flow was a bit of a problem
+What kind of change does this PR introduce? (check at least one)
+
+ Bugfix
+ Feature
+ Code style update
+ Refactor
+ Build-related changes
+ Other, please describe:
+
+Does this PR introduce a breaking change? (check one)
+
+ Yes
+ No
+
+If yes, please describe the impact and migration path for existing applications:
+The PR fulfills these requirements:
+
+ It's submitted to the dev branch for v2.x (or to a previous version branch), not the master branch
+ When resolving a specific issue, it's referenced in the PR's title (e.g. fix #xxx[,#xxx], where ""xxx"" is the issue number)
+ All tests are passing: https://github.com/vuejs/vue/blob/dev/.github/CONTRIBUTING.md#development-setup
+ New/updated tests are included
+
+If adding a new feature, the PR's description includes:
+
+ A convincing reason for adding this feature (to avoid wasting your time, it's best to open a suggestion issue first and wait for approval before working on it)
+
+Other information:",4,5
+5540,2017-04-27T19:19:46Z,2017-04-29T06:16:23Z,2017-04-29T06:16:24Z,3,10,4,"Hello. During upgrade process of Nuxt.js to vue 2.3.x (nuxt/nuxt#633) we encounter strange behavior which adds duplicate entries to initial section of client manifest json file. This PR fixes this issue and also ensures every section's items are unique to prevent such kind of problem in future. This PR also prevents an unexpected exception when detecting and ignoring duplicated chunks.
+{
+  ""publicPath"": ""/_nuxt/"",
+  ""all"": [
+    ""0.nuxt.bundle.309097aded56ffb03943.js"",
+    ""1.nuxt.bundle.38d034e2ba6054b908d2.js"",
+    ""nuxt.bundle.83400ec2bd4f29e215ba.js"",
+    ""vendor.bundle.5953dc67058e339c4b85.js"",
+    ""manifest.5953dc67058e339c4b85.js"",
+    ""index.html""
+  ],
+  ""initial"": [
+    ""manifest.5953dc67058e339c4b85.js"",
+    ""vendor.bundle.5953dc67058e339c4b85.js"",
+    ""nuxt.bundle.83400ec2bd4f29e215ba.js"",
+    ""manifest.5953dc67058e339c4b85.js"",
+    ""vendor.bundle.5953dc67058e339c4b85.js""
+  ],
+  ""async"": [
+    ""0.nuxt.bundle.309097aded56ffb03943.js"",
+    ""1.nuxt.bundle.38d034e2ba6054b908d2.js""
+  ],
+}
+
+Type: Bug Fix
+Breaking: No",2,2
+5549,2017-04-28T09:58:35Z,2017-04-29T06:24:06Z,2017-04-29T06:24:06Z,9,26,10,"What kind of change does this PR introduce? (check at least one)
+
+ Other, please describe:
+improve flow type coverage to make isDef narrow nullable value to no-null value.
+
+Does this PR introduce a breaking change? (check one)
+
+ Yes
+ No
+
+If yes, please describe the impact and migration path for existing applications:
+The PR fulfills these requirements:
+
+ It's submitted to the dev branch for v2.x (or to a previous version branch), not the master branch
+ When resolving a specific issue, it's referenced in the PR's title (e.g. fix #xxx[,#xxx], where ""xxx"" is the issue number)
+ All tests are passing: https://github.com/vuejs/vue/blob/dev/.github/CONTRIBUTING.md#development-setup
+ New/updated tests are included: no new test needed.
+
+Other information:
+Currently isDef cannot narrow nullable value, as tracked in facebook/flow#34. Howerver, we can use a special %checks comment to instruct flow inline the function.
+To make this happen, we need first to type check utl/index.js. So some type definition changes are required. I have tried my best to keep changes constrained to type level. But still some changes influence runtime.",3,2
+5564,2017-04-29T15:24:30Z,2017-04-30T03:32:39Z,2017-04-30T03:32:39Z,1,2,2,"What kind of change does this PR introduce? (check at least one)
+
+ Bugfix
+ Feature
+ Code style update
+ Refactor
+ Build-related changes
+ Other, please describe:
+
+Does this PR introduce a breaking change? (check one)
+
+ Yes
+ No
+
+If yes, please describe the impact and migration path for existing applications:
+The PR fulfills these requirements:
+
+ It's submitted to the dev branch for v2.x (or to a previous version branch), not the master branch
+ When resolving a specific issue, it's referenced in the PR's title (e.g. fix #xxx[,#xxx], where ""xxx"" is the issue number)
+ All tests are passing: https://github.com/vuejs/vue/blob/dev/.github/CONTRIBUTING.md#development-setup
+ New/updated tests are included
+
+If adding a new feature, the PR's description includes:
+
+ A convincing reason for adding this feature (to avoid wasting your time, it's best to open a suggestion issue first and wait for approval before working on it)
+
+Other information:",3,0
+5589,2017-05-03T14:12:28Z,2017-05-07T13:46:33Z,2017-05-07T13:46:34Z,2,47,0,"Fix #5586
+
+
+
+What kind of change does this PR introduce? (check at least one)
+
+ Bugfix
+ Feature
+ Code style update
+ Refactor
+ Build-related changes
+ Other, please describe:
+
+Does this PR introduce a breaking change? (check one)
+
+ Yes
+ No
+
+If yes, please describe the impact and migration path for existing applications:
+The PR fulfills these requirements:
+
+ It's submitted to the dev branch for v2.x (or to a previous version branch), not the master branch
+ When resolving a specific issue, it's referenced in the PR's title (e.g. fix #xxx[,#xxx], where ""xxx"" is the issue number)
+ All tests are passing: https://github.com/vuejs/vue/blob/dev/.github/CONTRIBUTING.md#development-setup
+ New/updated tests are included
+
+If adding a new feature, the PR's description includes:
+
+ A convincing reason for adding this feature (to avoid wasting your time, it's best to open a suggestion issue first and wait for approval before working on it)
+
+Other information:",4,3
+5622,2017-05-06T15:33:37Z,,2017-05-09T02:57:51Z,1,24,2,"What kind of change does this PR introduce? (check at least one)
+
+ Bugfix
+ Feature
+ Code style update
+ Refactor
+ Build-related changes
+ Other, please describe:
+
+Does this PR introduce a breaking change? (check one)
+
+ Yes
+ No
+
+If yes, please describe the impact and migration path for existing applications:
+The PR fulfills these requirements:
+
+ It's submitted to the dev branch for v2.x (or to a previous version branch), not the master branch
+ When resolving a specific issue, it's referenced in the PR's title (e.g. fix #xxx[,#xxx], where ""xxx"" is the issue number)
+ All tests are passing: https://github.com/vuejs/vue/blob/dev/.github/CONTRIBUTING.md#development-setup
+ New/updated tests are included
+
+If adding a new feature, the PR's description includes:
+
+ A convincing reason for adding this feature (to avoid wasting your time, it's best to open a suggestion issue first and wait for approval before working on it)
+
+Other information:
+in issue #5618 , then VNode in the first layer of the array don't get a key when father component call normalizeChildren,
+but get a key when child component call normalizeChildren.
+this leads to a changeable key, and component was re-created.",3,6
+5627,2017-05-07T17:30:32Z,2017-05-09T15:21:50Z,2017-05-09T15:21:50Z,4,58,3,"#5618
+
+
+What kind of change does this PR introduce? (check at least one)
+
+ Bugfix
+ Feature
+ Code style update
+ Refactor
+ Build-related changes
+ Other, please describe:
+
+Does this PR introduce a breaking change? (check one)
+
+ Yes
+ No
+
+If yes, please describe the impact and migration path for existing applications:
+The PR fulfills these requirements:
+
+ It's submitted to the dev branch for v2.x (or to a previous version branch), not the master branch
+ When resolving a specific issue, it's referenced in the PR's title (e.g. fix #xxx[,#xxx], where ""xxx"" is the issue number)
+ All tests are passing: https://github.com/vuejs/vue/blob/dev/.github/CONTRIBUTING.md#development-setup
+ New/updated tests are included
+
+If adding a new feature, the PR's description includes:
+
+ A convincing reason for adding this feature (to avoid wasting your time, it's best to open a suggestion issue first and wait for approval before working on it)
+
+Other information:",3,10
+5642,2017-05-09T23:03:34Z,2017-05-12T02:22:00Z,2017-05-12T02:22:00Z,5,39,0,"#5605
+
+
+
+What kind of change does this PR introduce? (check at least one)
+
+ Bugfix
+ Feature
+ Code style update
+ Refactor
+ Build-related changes
+ Other, please describe:
+
+Does this PR introduce a breaking change? (check one)
+
+ Yes
+ No
+
+If yes, please describe the impact and migration path for existing applications:
+The PR fulfills these requirements:
+
+ It's submitted to the dev branch for v2.x (or to a previous version branch), not the master branch
+ When resolving a specific issue, it's referenced in the PR's title (e.g. fix #xxx[,#xxx], where ""xxx"" is the issue number)
+ All tests are passing: https://github.com/vuejs/vue/blob/dev/.github/CONTRIBUTING.md#development-setup
+ New/updated tests are included
+
+If adding a new feature, the PR's description includes:
+
+ A convincing reason for adding this feature (to avoid wasting your time, it's best to open a suggestion issue first and wait for approval before working on it)
+
+Other information:",3,0
+5653,2017-05-11T10:43:24Z,2017-06-06T05:48:31Z,2017-06-06T05:48:31Z,3,81,1,"When performing multiple extends/mixins watches are converted to arrays of handlers.
+If the parent does not watch an element, but the children do, it will not run the parent.concat code and instead always wrap the child.
+If the child is already an array it does not need to be wrapped again.
+Fixing #5652
+
+
+
+What kind of change does this PR introduce? (check at least one)
+
+ Bugfix
+ Feature
+ Code style update
+ Refactor
+ Build-related changes
+ Other, please describe:
+
+Does this PR introduce a breaking change? (check one)
+
+ Yes
+ No
+
+If yes, please describe the impact and migration path for existing applications:
+The PR fulfills these requirements:
+
+ It's submitted to the dev branch for v2.x (or to a previous version branch), not the master branch
+ When resolving a specific issue, it's referenced in the PR's title (e.g. fix #xxx[,#xxx], where ""xxx"" is the issue number)
+ All tests are passing: https://github.com/vuejs/vue/blob/dev/.github/CONTRIBUTING.md#development-setup
+ New/updated tests are included
+
+If adding a new feature, the PR's description includes:
+
+ A convincing reason for adding this feature (to avoid wasting your time, it's best to open a suggestion issue first and wait for approval before working on it)
+
+Other information:",4,6
+5654,2017-05-11T17:12:04Z,2017-05-12T02:21:26Z,2017-05-12T02:21:26Z,2,2,0,"What kind of change does this PR introduce? (check at least one)
+
+ Bugfix
+ Feature
+ Code style update
+ Refactor
+ Build-related changes
+ Other, please describe:
+
+Does this PR introduce a breaking change? (check one)
+
+ Yes
+ No
+
+If yes, please describe the impact and migration path for existing applications:
+The PR fulfills these requirements:
+
+ It's submitted to the dev branch for v2.x (or to a previous version branch), not the master branch
+ When resolving a specific issue, it's referenced in the PR's title (e.g. fix #xxx[,#xxx], where ""xxx"" is the issue number)
+ All tests are passing: https://github.com/vuejs/vue/blob/dev/.github/CONTRIBUTING.md#development-setup
+ New/updated tests are included
+
+If adding a new feature, the PR's description includes:
+
+ A convincing reason for adding this feature (to avoid wasting your time, it's best to open a suggestion issue first and wait for approval before working on it)
+
+Other information:
+This PR adds the missing TypeScript definition for this.$ssrContext, which was added in v2.3.2.",4,0
+5675,2017-05-15T16:36:36Z,2017-05-16T01:21:55Z,2017-05-16T01:21:55Z,1,1,1,"This change will make sure the below error is not seen while unit testing components using picture in their template: [Vue warn]: Unknown custom element: picture - did you register the component correctly? For recursive components, make sure to provide the ""name"" option.
+What kind of change does this PR introduce?
+
+ Bugfix
+ Feature
+ Code style update
+ Refactor
+ Build-related changes
+ Other, please describe: suppresses unneeded warning while unit testing
+
+Does this PR introduce a breaking change? (check one)
+
+ Yes
+ No
+
+If yes, please describe the impact and migration path for existing applications:
+The PR fulfills these requirements:
+
+ It's submitted to the dev branch for v2.x (or to a previous version branch), not the master branch
+ When resolving a specific issue, it's referenced in the PR's title (e.g. fix #xxx[,#xxx], where ""xxx"" is the issue number)
+ All tests are passing: https://github.com/vuejs/vue/blob/dev/.github/CONTRIBUTING.md#development-setup
+ New/updated tests are included
+
+If adding a new feature, the PR's description includes:
+
+ A convincing reason for adding this feature (to avoid wasting your time, it's best to open a suggestion issue first and wait for approval before working on it)",3,0
+5681,2017-05-16T06:30:43Z,2017-05-29T05:49:50Z,2017-05-29T05:49:50Z,2,33,0,"#5628
+
+
+
+What kind of change does this PR introduce? (check at least one)
+
+ Bugfix
+ Feature
+ Code style update
+ Refactor
+ Build-related changes
+ Other, please describe:
+
+Does this PR introduce a breaking change? (check one)
+
+ Yes
+ No
+
+If yes, please describe the impact and migration path for existing applications:
+The PR fulfills these requirements:
+
+ It's submitted to the dev branch for v2.x (or to a previous version branch), not the master branch
+ When resolving a specific issue, it's referenced in the PR's title (e.g. fix #xxx[,#xxx], where ""xxx"" is the issue number)
+ All tests are passing: https://github.com/vuejs/vue/blob/dev/.github/CONTRIBUTING.md#development-setup
+ New/updated tests are included
+
+If adding a new feature, the PR's description includes:
+
+ A convincing reason for adding this feature (to avoid wasting your time, it's best to open a suggestion issue first and wait for approval before working on it)
+
+Other information:",3,2
+5688,2017-05-17T02:43:41Z,2017-05-30T05:33:49Z,2017-05-30T05:33:49Z,1,1,1,"What kind of change does this PR introduce? (check at least one)
+
+ Bugfix
+ Feature
+ Code style update
+ Refactor
+ Build-related changes
+ Other, please describe:
+
+Does this PR introduce a breaking change? (check one)
+
+ Yes
+ No
+
+If yes, please describe the impact and migration path for existing applications:
+The PR fulfills these requirements:
+
+ It's submitted to the dev branch for v2.x (or to a previous version branch), not the master branch
+ When resolving a specific issue, it's referenced in the PR's title (e.g. fix #xxx[,#xxx], where ""xxx"" is the issue number)
+ All tests are passing: https://github.com/vuejs/vue/blob/dev/.github/CONTRIBUTING.md#development-setup
+ New/updated tests are included
+
+If adding a new feature, the PR's description includes:
+
+ A convincing reason for adding this feature (to avoid wasting your time, it's best to open a suggestion issue first and wait for approval before working on it)
+
+Other information:
+none",2,0
+5775,2017-05-28T07:30:06Z,2017-05-28T12:08:58Z,2017-05-28T12:08:58Z,4,150,0,"What kind of change does this PR introduce? (check at least one)
+
+ Other, please describe: Add type declarations
+
+Does this PR introduce a breaking change? (check one)
+
+ No
+
+The PR fulfills these requirements:
+
+ It's submitted to the dev branch for v2.x (or to a previous version branch), not the master branch
+ When resolving a specific issue, it's referenced in the PR's title (e.g. fix #xxx[,#xxx], where ""xxx"" is the issue number)
+ All tests are passing: https://github.com/vuejs/vue/blob/dev/.github/CONTRIBUTING.md#development-setup
+ New/updated tests are included
+
+Other information:
+Added the type declaration file of vue-server-renderer into its package directory. Also added a brief test code of the declaration.",4,2
+5796,2017-05-31T18:00:03Z,,2017-06-05T14:23:14Z,3,80,3,"issue: #5760
+
+
+What kind of change does this PR introduce? (check at least one)
+
+ Bugfix
+ Feature
+ Code style update
+ Refactor
+ Build-related changes
+ Other, please describe:
+
+Does this PR introduce a breaking change? (check one)
+
+ Yes
+ No
+
+If yes, please describe the impact and migration path for existing applications:
+The PR fulfills these requirements:
+
+ It's submitted to the dev branch for v2.x (or to a previous version branch), not the master branch
+ When resolving a specific issue, it's referenced in the PR's title (e.g. fix #xxx[,#xxx], where ""xxx"" is the issue number)
+ All tests are passing: https://github.com/vuejs/vue/blob/dev/.github/CONTRIBUTING.md#development-setup
+ New/updated tests are included
+
+If adding a new feature, the PR's description includes:
+
+ A convincing reason for adding this feature (to avoid wasting your time, it's best to open a suggestion issue first and wait for approval before working on it)
+
+Other information:",3,5
+5808,2017-06-02T16:55:02Z,,2017-06-03T05:56:16Z,1,11,3,"#5804
+
+
+
+What kind of change does this PR introduce? (check at least one)
+
+ Bugfix
+ Feature
+ Code style update
+ Refactor
+ Build-related changes
+ Other, please describe:
+
+Does this PR introduce a breaking change? (check one)
+
+ Yes
+ No",2,2
+5827,2017-06-05T15:24:03Z,2017-06-15T14:15:36Z,2017-06-15T14:15:36Z,3,46,6,"#5603
+What kind of change does this PR introduce? (check at least one)
+
+ Bugfix
+ Feature
+ Code style update
+ Refactor
+ Build-related changes
+ Other, please describe:
+
+Does this PR introduce a breaking change? (check one)
+
+ Yes
+ No
+
+If yes, please describe the impact and migration path for existing applications:
+The PR fulfills these requirements:
+
+ It's submitted to the dev branch for v2.x (or to a previous version branch), not the master branch
+ When resolving a specific issue, it's referenced in the PR's title (e.g. fix #xxx[,#xxx], where ""xxx"" is the issue number)
+ All tests are passing: https://github.com/vuejs/vue/blob/dev/.github/CONTRIBUTING.md#development-setup
+ New/updated tests are included
+
+If adding a new feature, the PR's description includes:
+
+ A convincing reason for adding this feature (to avoid wasting your time, it's best to open a suggestion issue first and wait for approval before working on it)
+
+Other information:",2,2
+5883,2017-06-14T12:19:12Z,2017-06-14T13:37:27Z,2017-06-14T13:37:27Z,5,54,5,"Similar to errorHandler, but for warnings. https://vuejs.org/v2/api/#errorHandler
+Sorry for not following the ""Ideally you should open a suggestion issue first and have it greenlighted before working on it."" rule, no loss on my side if you don't want to accept this.
+I would like this feature as it will allow Vue to call a user provided callback for warnings which helps for asserting the state of warnings during testing or development, without having to either spyon or monkeypatch the console.error function.
+What kind of change does this PR introduce? (check at least one)
+
+ Bugfix
+ Feature
+ Code style update
+ Refactor
+ Build-related changes
+ Other, please describe:
+
+Does this PR introduce a breaking change? (check one)
+
+ Yes
+ No
+
+If yes, please describe the impact and migration path for existing applications:
+The PR fulfills these requirements:
+
+ It's submitted to the dev branch for v2.x (or to a previous version branch), not the master branch
+ When resolving a specific issue, it's referenced in the PR's title (e.g. fix #xxx[,#xxx], where ""xxx"" is the issue number)
+ All tests are passing: https://github.com/vuejs/vue/blob/dev/.github/CONTRIBUTING.md#development-setup
+ New/updated tests are included
+
+If adding a new feature, the PR's description includes:
+
+ A convincing reason for adding this feature (to avoid wasting your time, it's best to open a suggestion issue first and wait for approval before working on it)
+
+(sorry!)
+Other information:
+jsfiddle example: https://jsfiddle.net/vx0ks9yo/3/",2,4
+5887,2017-06-14T23:07:28Z,,2017-08-29T14:36:49Z,17,1900,661,"This PR improves the Vue .d.ts files so that users can get some improved inference when using the noImplicitThis compiler option. It takes advantage of many of the features the TypeScript team has been working on over the last few versions. Thus, it requires a minimum TypeScript version of 2.4. You can get this working with the current typescript@next (which is 2.5.0-dev.20170614, but don't let that version number fool you - this will work with the final release of 2.4).
+The best part about this change is that it makes using Vue easier when users choose not to use classes and inheritance. In other words, users and can more easily new up an instance using the Vue constructor, and can create components using the Vue.extend and Vue.component APIs a little more naturally. Extending Vue as a class will still work, so if you prefer to use vue-class-component and the rest, that should still work! However, those dependencies may need to be updated for this change.
+There's definitely some amount of complexity that's been introduced but I'm willing to iterate on this with the help of others. Given the feedback that we've heard on TypeScript-Vue-Starter, it's been a positive experience for users.
+Fixes many of the issues users have asked about in #478.
+Tests are probably failing at this point because I need to update the project's dependency on TypeScript.",16,34
+5889,2017-06-15T10:44:22Z,2017-06-16T01:37:31Z,2017-06-16T01:37:31Z,2,19,1,"#5884
+
+
+What kind of change does this PR introduce? (check at least one)
+
+ Bugfix
+ Feature
+ Code style update
+ Refactor
+ Build-related changes
+ Other, please describe:
+
+Does this PR introduce a breaking change? (check one)
+
+ Yes
+ No
+
+If yes, please describe the impact and migration path for existing applications:
+The PR fulfills these requirements:
+
+ It's submitted to the dev branch for v2.x (or to a previous version branch), not the master branch
+ When resolving a specific issue, it's referenced in the PR's title (e.g. fix #xxx[,#xxx], where ""xxx"" is the issue number)
+ All tests are passing: https://github.com/vuejs/vue/blob/dev/.github/CONTRIBUTING.md#development-setup
+ New/updated tests are included
+
+If adding a new feature, the PR's description includes:
+
+ A convincing reason for adding this feature (to avoid wasting your time, it's best to open a suggestion issue first and wait for approval before working on it)
+
+Other information:",3,0
+5890,2017-06-15T16:46:48Z,2017-06-16T18:02:38Z,2017-06-16T18:02:38Z,7,86,14,"#5881
+
+
+What kind of change does this PR introduce? (check at least one)
+
+ Bugfix
+ Feature
+ Code style update
+ Refactor
+ Build-related changes
+ Other, please describe:
+
+Does this PR introduce a breaking change? (check one)
+
+ Yes
+ No
+
+If yes, please describe the impact and migration path for existing applications:
+The PR fulfills these requirements:
+
+ It's submitted to the dev branch for v2.x (or to a previous version branch), not the master branch
+ When resolving a specific issue, it's referenced in the PR's title (e.g. fix #xxx[,#xxx], where ""xxx"" is the issue number)
+ All tests are passing: https://github.com/vuejs/vue/blob/dev/.github/CONTRIBUTING.md#development-setup
+ New/updated tests are included
+
+If adding a new feature, the PR's description includes:
+
+ A convincing reason for adding this feature (to avoid wasting your time, it's best to open a suggestion issue first and wait for approval before working on it)
+
+Other information:",3,3
+5909,2017-06-18T06:37:49Z,2017-06-29T04:39:02Z,2017-06-29T04:39:02Z,1,18,18,"Fix the location of the test case
+
+
+
+What kind of change does this PR introduce? (check at least one)
+
+ Bugfix
+ Feature
+ Code style update
+ Refactor
+ Build-related changes
+ Other, please describe: correcting existing test case
+
+Does this PR introduce a breaking change? (check one)
+
+ Yes
+ No
+
+If yes, please describe the impact and migration path for existing applications:
+The PR fulfills these requirements:
+
+ It's submitted to the dev branch for v2.x (or to a previous version branch), not the master branch
+ When resolving a specific issue, it's referenced in the PR's title (e.g. fix #xxx[,#xxx], where ""xxx"" is the issue number)
+ All tests are passing: https://github.com/vuejs/vue/blob/dev/.github/CONTRIBUTING.md#development-setup
+ New/updated tests are included
+
+If adding a new feature, the PR's description includes:
+
+ A convincing reason for adding this feature (to avoid wasting your time, it's best to open a suggestion issue first and wait for approval before working on it)
+
+Other information:",5,1
+5912,2017-06-18T14:09:09Z,2017-06-30T06:57:16Z,2017-06-30T06:57:16Z,1,5,2,"Related to #5800
+
+
+
+What kind of change does this PR introduce? (check at least one)
+
+ Bugfix
+ Feature
+ Code style update
+ Refactor
+ Build-related changes
+ Other, please describe:
+
+Does this PR introduce a breaking change? (check one)
+
+ Yes
+ No
+
+If yes, please describe the impact and migration path for existing applications:
+The PR fulfills these requirements:
+
+ It's submitted to the dev branch for v2.x (or to a previous version branch), not the master branch
+ When resolving a specific issue, it's referenced in the PR's title (e.g. fix #xxx[,#xxx], where ""xxx"" is the issue number)
+ All tests are passing: https://github.com/vuejs/vue/blob/dev/.github/CONTRIBUTING.md#development-setup
+ New/updated tests are included
+
+If adding a new feature, the PR's description includes:
+
+ A convincing reason for adding this feature (to avoid wasting your time, it's best to open a suggestion issue first and wait for approval before working on it)
+
+Other information:",2,2
+5943,2017-06-21T08:00:16Z,2017-06-30T00:46:55Z,2017-06-30T00:46:55Z,5,59,5,"What kind of change does this PR introduce? (check at least one)
+
+ Bugfix
+ Feature
+ Code style update
+ Refactor
+ Build-related changes
+ Other, please describe:
+
+Does this PR introduce a breaking change? (check one)
+
+ Yes
+ No
+
+If yes, please describe the impact and migration path for existing applications:
+The PR fulfills these requirements:
+
+ It's submitted to the dev branch for v2.x (or to a previous version branch), not the master branch
+ When resolving a specific issue, it's referenced in the PR's title (e.g. fix #xxx[,#xxx], where ""xxx"" is the issue number)
+ All tests are passing: https://github.com/vuejs/vue/blob/dev/.github/CONTRIBUTING.md#development-setup
+ New/updated tests are included
+
+If adding a new feature, the PR's description includes:
+
+ A convincing reason for adding this feature (to avoid wasting your time, it's best to open a suggestion issue first and wait for approval before working on it)
+
+Other information:
+#5937",3,0
+5956,2017-06-23T03:45:41Z,2017-06-30T00:50:31Z,2017-06-30T00:50:31Z,2,43,5,"Support array syntax for keep-alive include and exclude. #5914
+API looks like:
+<keep-alive :include=""['a', 'b', 'c']"" :exclude=""['foo']""></keep-alive>
+
+
+
+What kind of change does this PR introduce? (check at least one)
+
+ Bugfix
+ Feature
+ Code style update
+ Refactor
+ Build-related changes
+ Other, please describe:
+
+Does this PR introduce a breaking change? (check one)
+
+ Yes
+ No
+
+If yes, please describe the impact and migration path for existing applications:
+The PR fulfills these requirements:
+
+ It's submitted to the dev branch for v2.x (or to a previous version branch), not the master branch
+ When resolving a specific issue, it's referenced in the PR's title (e.g. fix #xxx[,#xxx], where ""xxx"" is the issue number)
+ All tests are passing: https://github.com/vuejs/vue/blob/dev/.github/CONTRIBUTING.md#development-setup
+ New/updated tests are included
+
+If adding a new feature, the PR's description includes:
+
+ A convincing reason for adding this feature (to avoid wasting your time, it's best to open a suggestion issue first and wait for approval before working on it)
+
+Other information:",3,2
+5963,2017-06-24T15:38:54Z,2017-06-30T00:58:09Z,2017-06-30T00:58:09Z,1,1,1,"What kind of change does this PR introduce? (check at least one)
+
+ Bugfix
+ Feature
+ Code style update
+ Refactor
+ Build-related changes
+ Other, please describe:
+
+Does this PR introduce a breaking change? (check one)
+
+ Yes
+ No
+
+If yes, please describe the impact and migration path for existing applications:
+The PR fulfills these requirements:
+
+ It's submitted to the dev branch for v2.x (or to a previous version branch), not the master branch
+ When resolving a specific issue, it's referenced in the PR's title (e.g. fix #xxx[,#xxx], where ""xxx"" is the issue number)
+ All tests are passing: https://github.com/vuejs/vue/blob/dev/.github/CONTRIBUTING.md#development-setup
+ New/updated tests are included
+
+If adding a new feature, the PR's description includes:
+
+ A convincing reason for adding this feature (to avoid wasting your time, it's best to open a suggestion issue first and wait for approval before working on it)
+
+Other information:",6,0
+5971,2017-06-26T08:07:55Z,2017-06-30T00:59:08Z,2017-06-30T00:59:08Z,1,0,2,"Combining switch cases.
+
+
+
+What kind of change does this PR introduce? (check at least one)
+
+ Bugfix
+ Feature
+ Code style update
+ Refactor
+ Build-related changes
+ Other, please describe:
+
+Does this PR introduce a breaking change? (check one)
+
+ Yes
+ No",6,0
+5977,2017-06-26T14:29:54Z,2017-10-04T16:37:00Z,2017-10-04T16:37:01Z,4,109,3,"Add a new event modifier .bare to check if event is ""bare"" (no shift/ctrl/meta/alt key is
+pressed)
+
+
+What kind of change does this PR introduce? (check at least one)
+
+ Bugfix
+ Feature
+ Code style update
+ Refactor
+ Build-related changes
+ Other, please describe:
+
+Does this PR introduce a breaking change? (check one)
+
+ Yes
+ No
+
+If yes, please describe the impact and migration path for existing applications:
+The PR fulfills these requirements:
+
+ It's submitted to the dev branch for v2.x (or to a previous version branch), not the master branch
+ When resolving a specific issue, it's referenced in the PR's title (e.g. fix #xxx[,#xxx], where ""xxx"" is the issue number)
+ All tests are passing: https://github.com/vuejs/vue/blob/dev/.github/CONTRIBUTING.md#development-setup
+ New/updated tests are included
+
+If adding a new feature, the PR's description includes:
+
+ A convincing reason for adding this feature (to avoid wasting your time, it's best to open a suggestion issue first and wait for approval before working on it)
+
+Other information:
+Discussion: #5976",13,35
+5984,2017-06-26T23:12:01Z,2017-06-30T01:02:02Z,2017-06-30T01:02:02Z,2,14,0,"What kind of change does this PR introduce? (check at least one)
+
+ Bugfix
+ Feature
+ Code style update
+ Refactor
+ Build-related changes
+ Other, please describe:
+
+Does this PR introduce a breaking change? (check one)
+
+ Yes
+ No
+
+If yes, please describe the impact and migration path for existing applications:
+The PR fulfills these requirements:
+
+ It's submitted to the dev branch for v2.x (or to a previous version branch), not the master branch
+ When resolving a specific issue, it's referenced in the PR's title (e.g. fix #xxx[,#xxx], where ""xxx"" is the issue number)
+ All tests are passing: https://github.com/vuejs/vue/blob/dev/.github/CONTRIBUTING.md#development-setup
+ New/updated tests are included
+
+Reasons
+ignore dist files until release
+improves contributor experience
+ensures dist files can't be accidentally committed in",6,1
+5985,2017-06-27T05:49:34Z,2017-06-30T03:20:43Z,2017-06-30T03:20:43Z,2,20,6,"What kind of change does this PR introduce? (check at least one)
+
+ Bugfix
+ Feature
+ Code style update
+ Refactor
+ Build-related changes
+ Other, please describe:
+
+Does this PR introduce a breaking change? (check one)
+
+ Yes
+ No
+
+If yes, please describe the impact and migration path for existing applications:
+The PR fulfills these requirements:
+
+ It's submitted to the dev branch for v2.x (or to a previous version branch), not the master branch
+ When resolving a specific issue, it's referenced in the PR's title (e.g. fix #xxx[,#xxx], where ""xxx"" is the issue number)
+ All tests are passing: https://github.com/vuejs/vue/blob/dev/.github/CONTRIBUTING.md#development-setup
+ New/updated tests are included
+
+If adding a new feature, the PR's description includes:
+
+ A convincing reason for adding this feature (to avoid wasting your time, it's best to open a suggestion issue first and wait for approval before working on it)
+
+Other information:",4,3
+5988,2017-06-28T06:02:14Z,2017-06-29T04:38:14Z,2017-06-29T04:38:14Z,2,25,13,"watcher.get should always clean up observee stack in order to prevent memory leak. Also, non-user
+defined watch should rethrow error.
+#5975",5,0
+5993,2017-06-28T16:02:59Z,,2017-07-21T00:43:11Z,2,73,1,"#5908
+
+
+
+What kind of change does this PR introduce? (check at least one)
+
+ Bugfix
+ Feature
+ Code style update
+ Refactor
+ Build-related changes
+ Other, please describe: Improvement
+
+Does this PR introduce a breaking change? (check one)
+
+ Yes
+ No
+
+If yes, please describe the impact and migration path for existing applications:
+The PR fulfills these requirements:
+
+ It's submitted to the dev branch for v2.x (or to a previous version branch), not the master branch
+ When resolving a specific issue, it's referenced in the PR's title (e.g. fix #xxx[,#xxx], where ""xxx"" is the issue number)
+ All tests are passing: https://github.com/vuejs/vue/blob/dev/.github/CONTRIBUTING.md#development-setup
+ New/updated tests are included
+
+If adding a new feature, the PR's description includes:
+
+ A convincing reason for adding this feature (to avoid wasting your time, it's best to open a suggestion issue first and wait for approval before working on it)
+
+Other information:",6,8
+6010,2017-07-01T08:46:13Z,2017-07-01T13:36:23Z,2017-07-01T13:36:23Z,1,1,1,"What kind of change does this PR introduce? (check at least one)
+
+ Bugfix
+ Feature
+ Code style update
+ Refactor
+ Build-related changes
+ Other, please describe:
+
+Does this PR introduce a breaking change? (check one)
+
+ Yes
+ No
+
+If yes, please describe the impact and migration path for existing applications:
+The PR fulfills these requirements:
+
+ It's submitted to the dev branch for v2.x (or to a previous version branch), not the master branch
+ When resolving a specific issue, it's referenced in the PR's title (e.g. fix #xxx[,#xxx], where ""xxx"" is the issue number)
+ All tests are passing: https://github.com/vuejs/vue/blob/dev/.github/CONTRIBUTING.md#development-setup
+ New/updated tests are included
+
+If adding a new feature, the PR's description includes:
+
+ A convincing reason for adding this feature (to avoid wasting your time, it's best to open a suggestion issue first and wait for approval before working on it)
+
+Other information:
+avaialbe => available",2,0
+6015,2017-07-02T17:29:53Z,,2017-07-04T06:46:20Z,3,604,15,"What kind of change does this PR introduce? (check at least one)
+
+ Bugfix
+ Feature
+ Code style update
+ Refactor
+ Build-related changes
+ Other, please describe:
+
+Does this PR introduce a breaking change? (check one)
+
+ Yes
+ No
+
+If yes, please describe the impact and migration path for existing applications:
+The PR fulfills these requirements:
+
+ It's submitted to the dev branch for v2.x (or to a previous version branch), not the master branch
+ When resolving a specific issue, it's referenced in the PR's title (e.g. fix #xxx[,#xxx], where ""xxx"" is the issue number)
+ All tests are passing: https://github.com/vuejs/vue/blob/dev/.github/CONTRIBUTING.md#development-setup
+ New/updated tests are included
+
+If adding a new feature, the PR's description includes:
+
+ A convincing reason for adding this feature (to avoid wasting your time, it's best to open a suggestion issue first and wait for approval before working on it)
+
+Other information:
+size-limit is a tool to show how many kilobytes your JS library increases the user bundle. You can set size budget and size-limit will prevent JavaScript libraries bloat on Travis CI.
+It already used in Autoprefixer, PostCSS and JSS. For instance, I reduce Logux Client size 2x because I found some unexpected huge dependencies.
+For Vue this tool can be useful to always know project size and prevent unexpected size regression.",5,5
+6022,2017-07-03T15:30:35Z,2017-07-10T13:42:01Z,2017-07-10T13:42:01Z,2,30,6,"What kind of change does this PR introduce? (check at least one)
+
+ Bugfix
+ Feature
+ Code style update
+ Refactor
+ Build-related changes
+ Other, please describe:
+
+Does this PR introduce a breaking change? (check one)
+
+ Yes
+ No
+
+If yes, please describe the impact and migration path for existing applications:
+The PR fulfills these requirements:
+
+ It's submitted to the dev branch for v2.x (or to a previous version branch), not the master branch
+ When resolving a specific issue, it's referenced in the PR's title (e.g. fix #xxx[,#xxx], where ""xxx"" is the issue number)
+ All tests are passing: https://github.com/vuejs/vue/blob/dev/.github/CONTRIBUTING.md#development-setup
+ New/updated tests are included
+
+If adding a new feature, the PR's description includes:
+
+ A convincing reason for adding this feature (to avoid wasting your time, it's best to open a suggestion issue first and wait for approval before working on it)
+
+Other information:
+fix #5992",4,1
+6039,2017-07-06T10:31:10Z,2017-07-07T03:37:20Z,2017-07-07T03:37:20Z,3,55,3,"fix #5997 .
+When registering ref, if refs[key] is an array and ref is already in refs[key], then do nothing.
+
+
+
+What kind of change does this PR introduce? (check at least one)
+
+ Bugfix
+ Feature
+ Code style update
+ Refactor
+ Build-related changes
+ Other, please describe:
+
+Does this PR introduce a breaking change? (check one)
+
+ Yes
+ No
+
+If yes, please describe the impact and migration path for existing applications:
+The PR fulfills these requirements:
+
+ It's submitted to the dev branch for v2.x (or to a previous version branch), not the master branch
+ When resolving a specific issue, it's referenced in the PR's title (e.g. fix #xxx[,#xxx], where ""xxx"" is the issue number)
+ All tests are passing: https://github.com/vuejs/vue/blob/dev/.github/CONTRIBUTING.md#development-setup
+ New/updated tests are included",4,3
+6074,2017-07-11T17:20:25Z,,2017-07-11T20:34:12Z,1,1,0,"What kind of change does this PR introduce? (check at least one)
+
+ Bugfix
+ Feature
+ Code style update
+ Refactor
+ Build-related changes
+ Other, please describe: Add .idea directory to .gitignore
+
+Does this PR introduce a breaking change? (check one)
+
+ Yes
+ No
+
+If yes, please describe the impact and migration path for existing applications:
+The PR fulfills these requirements:
+
+ It's submitted to the dev branch for v2.x (or to a previous version branch), not the master branch
+ When resolving a specific issue, it's referenced in the PR's title (e.g. fix #xxx[,#xxx], where ""xxx"" is the issue number)
+ All tests are passing: https://github.com/vuejs/vue/blob/dev/.github/CONTRIBUTING.md#development-setup
+ New/updated tests are included
+
+Other information:",2,1
+6084,2017-07-12T18:32:55Z,2017-07-13T02:53:15Z,2017-07-13T02:53:15Z,1,2,3,"What kind of change does this PR introduce? (check at least one)
+
+ Bugfix
+ Feature
+ Code style update
+ Refactor
+ Build-related changes
+ Other, please describe: README update for chat migration
+
+Does this PR introduce a breaking change? (check one)
+
+ Yes
+ No
+
+If yes, please describe the impact and migration path for existing applications:
+The PR fulfills these requirements:
+
+ It's submitted to the dev branch for v2.x (or to a previous version branch), not the master branch
+ When resolving a specific issue, it's referenced in the PR's title (e.g. fix #xxx[,#xxx], where ""xxx"" is the issue number)
+ All tests are passing: https://github.com/vuejs/vue/blob/dev/.github/CONTRIBUTING.md#development-setup
+N/A: New/updated tests are included
+
+If adding a new feature, the PR's description includes:
+
+ A convincing reason for adding this feature (to avoid wasting your time, it's best to open a suggestion issue first and wait for approval before working on it)
+
+Other information:",4,0
+6156,2017-07-18T19:00:23Z,2017-07-19T22:09:22Z,2017-07-19T22:09:22Z,2,16,2,"close #6150
+
+
+
+What kind of change does this PR introduce? (check at least one)
+
+ Bugfix
+ Feature
+ Code style update
+ Refactor
+ Build-related changes
+ Other, please describe:
+
+Does this PR introduce a breaking change? (check one)
+
+ Yes
+ No
+
+If yes, please describe the impact and migration path for existing applications:
+The PR fulfills these requirements:
+
+ It's submitted to the dev branch for v2.x (or to a previous version branch), not the master branch
+ When resolving a specific issue, it's referenced in the PR's title (e.g. fix #xxx[,#xxx], where ""xxx"" is the issue number)
+ All tests are passing: https://github.com/vuejs/vue/blob/dev/.github/CONTRIBUTING.md#development-setup
+ New/updated tests are included
+
+If adding a new feature, the PR's description includes:
+
+ A convincing reason for adding this feature (to avoid wasting your time, it's best to open a suggestion issue first and wait for approval before working on it)
+
+Other information:",4,0
+6194,2017-07-23T14:36:07Z,2017-08-29T16:52:19Z,2017-08-29T16:52:19Z,2,41,1,"What kind of change does this PR introduce? (check at least one)
+
+ Bugfix
+ Feature
+ Code style update
+ Refactor
+ Build-related changes
+ Other, please describe:
+
+Does this PR introduce a breaking change? (check one)
+
+ Yes
+ No
+
+If yes, please describe the impact and migration path for existing applications:
+The PR fulfills these requirements:
+
+ It's submitted to the dev branch for v2.x (or to a previous version branch), not the master branch
+ When resolving a specific issue, it's referenced in the PR's title (e.g. fix #xxx[,#xxx], where ""xxx"" is the issue number)
+ All tests are passing: https://github.com/vuejs/vue/blob/dev/.github/CONTRIBUTING.md#development-setup
+ New/updated tests are included
+
+If adding a new feature, the PR's description includes:
+
+ A convincing reason for adding this feature (to avoid wasting your time, it's best to open a suggestion issue first and wait for approval before working on it)
+
+Other information:
+#6193
+
+It seems we still need the value matching check, only detect options change is not enough.",6,2
+6204,2017-07-25T05:25:43Z,,2017-09-01T21:28:17Z,7,1614,522,"#6202
+
+
+
+What kind of change does this PR introduce? (check at least one)
+
+ Bugfix
+ Feature
+ Code style update
+ Refactor
+ Build-related changes
+ Other, please describe:
+
+correctly render the embed attribute allowfullscreen
+Does this PR introduce a breaking change? (check one)
+
+ Yes
+ No
+
+If yes, please describe the impact and migration path for existing applications:
+The PR fulfills these requirements:
+
+ It's submitted to the dev branch for v2.x (or to a previous version branch), not the master branch
+ When resolving a specific issue, it's referenced in the PR's title (e.g. fix #xxx[,#xxx], where ""xxx"" is the issue number)
+ All tests are passing: https://github.com/vuejs/vue/blob/dev/.github/CONTRIBUTING.md#development-setup
+ New/updated tests are included
+
+If adding a new feature, the PR's description includes:
+
+ A convincing reason for adding this feature (to avoid wasting your time, it's best to open a suggestion issue first and wait for approval before working on it)
+
+Other information:",5,1
+6220,2017-07-26T01:11:13Z,2017-09-01T21:35:41Z,2017-09-01T21:35:41Z,2,29,1,"What kind of change does this PR introduce? (check at least one)
+
+ Bugfix
+ Feature
+ Code style update
+ Refactor
+ Build-related changes
+ Other, please describe:
+
+Does this PR introduce a breaking change? (check one)
+
+ Yes
+ No
+
+If yes, please describe the impact and migration path for existing applications:
+The PR fulfills these requirements:
+
+ It's submitted to the dev branch for v2.x (or to a previous version branch), not the master branch
+ When resolving a specific issue, it's referenced in the PR's title (e.g. fix #xxx[,#xxx], where ""xxx"" is the issue number)
+ All tests are passing: https://github.com/vuejs/vue/blob/dev/.github/CONTRIBUTING.md#development-setup
+ New/updated tests are included
+
+If adding a new feature, the PR's description includes:
+
+ A convincing reason for adding this feature (to avoid wasting your time, it's best to open a suggestion issue first and wait for approval before working on it)
+
+Other information:
+Fix #6219",3,0
+6227,2017-07-26T11:28:29Z,,2017-08-11T23:57:44Z,2,12,1,"What kind of change does this PR introduce? (check at least one)
+
+ Bugfix
+ Feature
+ Code style update
+ Refactor
+ Build-related changes
+ Other, please describe:
+
+Does this PR introduce a breaking change? (check one)
+
+ Yes
+ No
+
+If yes, please describe the impact and migration path for existing applications:
+The PR fulfills these requirements:
+
+ It's submitted to the dev branch for v2.x (or to a previous version branch), not the master branch
+ When resolving a specific issue, it's referenced in the PR's title (e.g. fix #xxx[,#xxx], where ""xxx"" is the issue number)
+ All tests are passing: https://github.com/vuejs/vue/blob/dev/.github/CONTRIBUTING.md#development-setup
+ New/updated tests are included
+
+If adding a new feature, the PR's description includes:
+
+ A convincing reason for adding this feature (to avoid wasting your time, it's best to open a suggestion issue first and wait for approval before working on it)
+
+Other information:
+#6158",2,1
+6244,2017-07-28T15:40:52Z,,2017-09-01T21:32:06Z,8,1684,521,"close #6241 .
+
+
+
+What kind of change does this PR introduce? (check at least one)
+
+ Bugfix
+ Feature
+ Code style update
+ Refactor
+ Build-related changes
+ Other, please describe:
+
+Does this PR introduce a breaking change? (check one)
+
+ Yes
+ No
+
+If yes, please describe the impact and migration path for existing applications:
+The PR fulfills these requirements:
+
+ It's submitted to the dev branch for v2.x (or to a previous version branch), not the master branch
+ When resolving a specific issue, it's referenced in the PR's title (e.g. fix #xxx[,#xxx], where ""xxx"" is the issue number)
+ All tests are passing: https://github.com/vuejs/vue/blob/dev/.github/CONTRIBUTING.md#development-setup
+ New/updated tests are included",6,1
+6269,2017-08-02T01:27:56Z,2017-09-05T19:54:53Z,2017-09-05T19:54:53Z,7,1611,523,"remove repeat line
+
+
+
+What kind of change does this PR introduce? (check at least one)
+
+ Bugfix
+ Feature
+ Code style update
+ Refactor
+ Build-related changes
+ Other, please describe:
+
+Does this PR introduce a breaking change? (check one)
+
+ Yes
+ No
+
+If yes, please describe the impact and migration path for existing applications:
+The PR fulfills these requirements:
+
+ It's submitted to the dev branch for v2.x (or to a previous version branch), not the master branch
+ When resolving a specific issue, it's referenced in the PR's title (e.g. fix #xxx[,#xxx], where ""xxx"" is the issue number)
+ All tests are passing: https://github.com/vuejs/vue/blob/dev/.github/CONTRIBUTING.md#development-setup
+ New/updated tests are included
+
+If adding a new feature, the PR's description includes:
+
+ A convincing reason for adding this feature (to avoid wasting your time, it's best to open a suggestion issue first and wait for approval before working on it)
+
+Other information:",5,0
+6274,2017-08-02T09:39:02Z,2017-09-05T19:48:43Z,2017-09-05T19:48:43Z,7,1612,525,"Modify the regular to make the replace method call only once to optimize
+performance.
+
+
+
+What kind of change does this PR introduce? (check at least one)
+
+ Bugfix
+ Feature
+ Code style update
+ Refactor
+ Build-related changes
+ Other, please describe:
+
+Does this PR introduce a breaking change? (check one)
+
+ Yes
+ No
+
+If yes, please describe the impact and migration path for existing applications:
+The PR fulfills these requirements:
+
+ It's submitted to the dev branch for v2.x (or to a previous version branch), not the master branch
+ When resolving a specific issue, it's referenced in the PR's title (e.g. fix #xxx[,#xxx], where ""xxx"" is the issue number)
+ All tests are passing: https://github.com/vuejs/vue/blob/dev/.github/CONTRIBUTING.md#development-setup
+ New/updated tests are included
+
+If adding a new feature, the PR's description includes:
+
+ A convincing reason for adding this feature (to avoid wasting your time, it's best to open a suggestion issue first and wait for approval before working on it)
+
+Other information:
+This is  a performance test:  https://jsperf.com/vue-hyphenate",6,5
+6322,2017-08-08T08:00:23Z,2017-10-05T19:44:32Z,2017-10-05T19:44:33Z,3,58,5,"Allow to define inject as object with name and default properties. The default is used if no provide
+is found, and no warning is emitted.
+close #6097
+
+
+
+What kind of change does this PR introduce? (check at least one)
+
+ Bugfix
+ Feature
+ Code style update
+ Refactor
+ Build-related changes
+ Other, please describe:
+
+Does this PR introduce a breaking change? (check one)
+
+ Yes
+ No
+
+If yes, please describe the impact and migration path for existing applications:
+The PR fulfills these requirements:
+
+ It's submitted to the dev branch for v2.x (or to a previous version branch), not the master branch
+ When resolving a specific issue, it's referenced in the PR's title (e.g. fix #xxx[,#xxx], where ""xxx"" is the issue number)
+ All tests are passing: https://github.com/vuejs/vue/blob/dev/.github/CONTRIBUTING.md#development-setup
+ New/updated tests are included
+
+If adding a new feature, the PR's description includes:
+
+ A convincing reason for adding this feature (to avoid wasting your time, it's best to open a suggestion issue first and wait for approval before working on it)
+
+Other information:
+In case of components that can work both as standalone and as children, it would be nice to be able to provide default values for the not provided dependencies.
+It would also avoid the warning for missing inject in case this is one of the expected use case.
+inject: Array | { [key: string]: string | Symbol | { name?: string | Symbol, default?: any } }",7,9
+6325,2017-08-08T12:35:51Z,2017-09-05T19:57:06Z,2017-09-05T19:57:06Z,11,1644,523,"What kind of change does this PR introduce? (check at least one)
+
+ Bugfix
+ Feature
+ Code style update
+ Refactor
+ Build-related changes
+ Other, please describe: Add TS declaration
+
+Does this PR introduce a breaking change? (check one)
+
+ Yes
+ No
+
+If yes, please describe the impact and migration path for existing applications:
+The PR fulfills these requirements:
+
+ It's submitted to the dev branch for v2.x (or to a previous version branch), not the master branch
+ When resolving a specific issue, it's referenced in the PR's title (e.g. fix #xxx[,#xxx], where ""xxx"" is the issue number)
+ All tests are passing: https://github.com/vuejs/vue/blob/dev/.github/CONTRIBUTING.md#development-setup
+ New/updated tests are included
+
+If adding a new feature, the PR's description includes:
+
+ A convincing reason for adding this feature (to avoid wasting your time, it's best to open a suggestion issue first and wait for approval before working on it)
+
+Other information:
+As webpack officially supports a config file written in TypeScript, I think it would make sense to have declaration files of webpack plugins.
+https://webpack.js.org/configuration/configuration-languages/#typescript
+fix #6301",4,0
+6327,2017-08-08T20:11:49Z,,2017-10-02T20:02:17Z,11,1731,527,"What kind of change does this PR introduce? (check at least one)
+
+ Bugfix?
+ Feature
+
+Does this PR introduce a breaking change? (check one)
+
+ No, unless someone was using v-model to purposefully bind an element's value directly to a DOM Event, which I think would be strange.
+
+If adding a new feature, the PR's description includes:
+
+ A convincing reason for adding this feature (to avoid wasting your time, it's best to open a suggestion issue first and wait for approval before working on it)
+
+I brought this up in #6216 a couple weeks ago and it didn't encounter any opposition, so here we go!
+TLDR: Since v-bind=""$attrs"" and v-on=""$listeners"" were added, a lot of people have been assuming that combining these should be sufficient to allow v-model on the component. This PR makes v-model work as users expect.",6,10
+6328,2017-08-08T22:19:39Z,,2017-08-11T23:44:13Z,1,25,3,"What kind of change does this PR introduce? (check at least one)
+
+ Bugfix
+ Feature
+ Code style update
+ Refactor
+ Build-related changes
+ Other, please describe:
+
+Does this PR introduce a breaking change? (check one)
+
+ Yes
+ No
+
+If yes, please describe the impact and migration path for existing applications:
+The PR fulfills these requirements:
+
+ It's submitted to the dev branch for v2.x (or to a previous version branch), not the master branch
+ When resolving a specific issue, it's referenced in the PR's title (e.g. fix #xxx[,#xxx], where ""xxx"" is the issue number)
+ All tests are passing: https://github.com/vuejs/vue/blob/dev/.github/CONTRIBUTING.md#development-setup
+ New/updated tests are included
+
+If adding a new feature, the PR's description includes:
+
+ A convincing reason for adding this feature (to avoid wasting your time, it's best to open a suggestion issue first and wait for approval before working on it)
+
+Other information:
+A lot of people ask specifically about object spread support in vue templates but it's limited to environment where compilation is happening. Since most of the time people are using babel which uses babylon as parser, we can use same parser for vue templates if available. Discussion: #6307.
+Tests are not included because tests are runnnig in PhantomJS where require() is not available. Tested locally.",4,6
+6344,2017-08-11T04:19:00Z,2017-09-01T22:49:39Z,2017-09-01T22:49:39Z,10,1642,528,"What kind of change does this PR introduce? (check at least one)
+
+ Bugfix
+ Feature
+ Code style update
+ Refactor
+ Build-related changes
+ Other, please describe:
+
+Does this PR introduce a breaking change? (check one)
+
+ Yes
+ No
+
+If yes, please describe the impact and migration path for existing applications:
+The PR fulfills these requirements:
+
+ It's submitted to the dev branch for v2.x (or to a previous version branch), not the master branch
+ When resolving a specific issue, it's referenced in the PR's title (e.g. fix #xxx[,#xxx], where ""xxx"" is the issue number)
+ All tests are passing: https://github.com/vuejs/vue/blob/dev/.github/CONTRIBUTING.md#development-setup
+ New/updated tests are included
+
+If adding a new feature, the PR's description includes:
+
+ A convincing reason for adding this feature (to avoid wasting your time, it's best to open a suggestion issue first and wait for approval before working on it)
+
+Other information:
+fix #6313",7,2
+6359,2017-08-13T07:01:11Z,2017-08-13T12:53:18Z,2017-08-13T12:53:18Z,1,1,1,"What kind of change does this PR introduce? (check at least one)
+
+ Bugfix
+ Feature
+ Code style update
+ Refactor
+ Build-related changes
+ Other, please describe:
+
+Firefox has a ""watch"" function..., not Firefix has a ""watch"" function...
+Does this PR introduce a breaking change? (check one)
+
+ Yes
+ No
+
+If yes, please describe the impact and migration path for existing applications:
+The PR fulfills these requirements:
+
+ It's submitted to the dev branch for v2.x (or to a previous version branch), not the master branch
+ When resolving a specific issue, it's referenced in the PR's title (e.g. fix #xxx[,#xxx], where ""xxx"" is the issue number)
+ All tests are passing: https://github.com/vuejs/vue/blob/dev/.github/CONTRIBUTING.md#development-setup
+ New/updated tests are included
+
+If adding a new feature, the PR's description includes:
+
+ A convincing reason for adding this feature (to avoid wasting your time, it's best to open a suggestion issue first and wait for approval before working on it)
+
+Other information:",4,0
+6363,2017-08-14T06:07:44Z,2017-09-05T20:02:39Z,2017-09-05T20:02:39Z,9,1613,521,"What kind of change does this PR introduce? (check at least one)
+
+ Bugfix
+ Feature
+ Code style update
+ Refactor
+ Build-related changes
+ Other, please describe: typing update
+
+Does this PR introduce a breaking change? (check one)
+
+ Yes
+ No
+
+The PR fulfills these requirements:
+
+ It's submitted to the dev branch for v2.x (or to a previous version branch), not the master branch
+ When resolving a specific issue, it's referenced in the PR's title (e.g. fix #xxx[,#xxx], where ""xxx"" is the issue number)
+ All tests are passing: https://github.com/vuejs/vue/blob/dev/.github/CONTRIBUTING.md#development-setup
+ New/updated tests are included
+
+Other information:
+fix #6357",5,0
+6369,2017-08-15T03:09:49Z,2017-08-29T20:09:21Z,2017-08-29T20:09:21Z,12,1708,527,"What kind of change does this PR introduce? (check at least one)
+
+ Bugfix
+ Feature
+ Code style update
+ Refactor
+ Build-related changes
+ Other, please describe:
+
+Does this PR introduce a breaking change? (check one)
+
+ Yes
+ No
+
+If yes, please describe the impact and migration path for existing applications:
+The PR fulfills these requirements:
+
+ It's submitted to the dev branch for v2.x (or to a previous version branch), not the master branch
+ When resolving a specific issue, it's referenced in the PR's title (e.g. fix #xxx[,#xxx], where ""xxx"" is the issue number)
+ All tests are passing: https://github.com/vuejs/vue/blob/dev/.github/CONTRIBUTING.md#development-setup
+ New/updated tests are included
+
+If adding a new feature, the PR's description includes:
+
+ A convincing reason for adding this feature (to avoid wasting your time, it's best to open a suggestion issue first and wait for approval before working on it)
+
+Other information:
+#6256",4,1
+6391,2017-08-17T12:09:30Z,2017-10-06T18:45:14Z,2017-10-06T18:45:14Z,10,394,157,"This pull request supersedes #5887 .
+Key improvements:
+
+More backward compatible via generic default
+Props type inference
+
+@ktsn @kaorun343 @DanielRosenwasser Your reviews or suggestions are welcome!
+
+This section provides more background for other reviewers/readers.
+Vue + TS users currently need helper library like vue-component-class to provide alternative API for TypeScript. Alternative API uses code pattern that TypeScript recognizes, but it splits Vue community.
+Thankfully, TypeScript introduces ThisType which can greatly improve Vue's canonical API. This PR introduces ThisType to Vue's official typing.
+More importantly, this  improvement also benefits JavaScript users! VSCode users or Vue-language-server users exploits TypeScript compiler to provide editor services for JavaScript. Thus the typing improvement can help JavaScript completion more intelligent.
+Goal:
+
+Provide good enough completions for both JS users and new TS users (if they use canonical API).
+Don't break existing TS libraries or projects. Or, make breaking minimal.
+
+Non Goal:
+
+This PR won't provide 100% typing precision or use case coverage. Such typing would be too prohibitive for both maintainers and users to reason.
+Checking errors in JS isn't kept in mind. So changing existing JS to TS will cause errors.
+
+Known limitations:
+
+new Vue() wouldn't return a type with props type. This is caused by compiler limitations.
+Props typing uses a hacky trick.
+returning properties on this might trigger cyclic error, manual annotation is needed.
+Prop type's union type declaration like oneProp: [String, User] might not work without manual annotation.
+
+Next step:
+Since we already has a canonical Vue API in TS, next we can ship tsx support in the official repo.",10,17
+6453,2017-08-25T11:48:27Z,,2017-09-05T22:17:34Z,2,33,2,"What kind of change does this PR introduce? (check at least one)
+
+ Bugfix
+ Feature
+ Code style update
+ Refactor
+ Build-related changes
+ Other, please describe:
+
+Does this PR introduce a breaking change? (check one)
+
+ Yes
+ No
+
+If yes, please describe the impact and migration path for existing applications:
+The PR fulfills these requirements:
+
+ It's submitted to the dev branch for v2.x (or to a previous version branch), not the master branch
+ When resolving a specific issue, it's referenced in the PR's title (e.g. fix #xxx[,#xxx], where ""xxx"" is the issue number)
+ All tests are passing: https://github.com/vuejs/vue/blob/dev/.github/CONTRIBUTING.md#development-setup
+ New/updated tests are included
+
+If adding a new feature, the PR's description includes:
+
+ A convincing reason for adding this feature (to avoid wasting your time, it's best to open a suggestion issue first and wait for approval before working on it)
+
+Other information:
+fixes #6361",3,1
+6477,2017-08-30T05:13:37Z,2017-09-05T19:25:16Z,2017-09-05T19:25:16Z,4,17,5,"What kind of change does this PR introduce? (check at least one)
+
+ Bugfix
+ Feature
+ Code style update
+ Refactor
+ Build-related changes
+ Other, please describe:
+
+Does this PR introduce a breaking change? (check one)
+
+ Yes
+ No
+
+If yes, please describe the impact and migration path for existing applications:
+The PR fulfills these requirements:
+
+ It's submitted to the dev branch for v2.x (or to a previous version branch), not the master branch
+ When resolving a specific issue, it's referenced in the PR's title (e.g. fix #xxx[,#xxx], where ""xxx"" is the issue number)
+ All tests are passing: https://github.com/vuejs/vue/blob/dev/.github/CONTRIBUTING.md#development-setup
+ New/updated tests are included
+
+If adding a new feature, the PR's description includes:
+
+ vuejs/vue-router#1619 (comment)",4,0
+6494,2017-09-02T14:54:50Z,,2017-09-05T04:06:53Z,1,17,17,"What kind of change does this PR introduce? (check at least one)
+
+ Bugfix
+ Feature
+ Code style update
+ Refactor
+ Build-related changes
+ Other, please describe:
+
+Does this PR introduce a breaking change? (check one)
+
+ Yes
+ No
+
+If yes, please describe the impact and migration path for existing applications:
+The PR fulfills these requirements:
+
+ It's submitted to the dev branch for v2.x (or to a previous version branch), not the master branch
+ When resolving a specific issue, it's referenced in the PR's title (e.g. fix #xxx[,#xxx], where ""xxx"" is the issue number)
+ All tests are passing: https://github.com/vuejs/vue/blob/dev/.github/CONTRIBUTING.md#development-setup
+ New/updated tests are included
+
+If adding a new feature, the PR's description includes:
+
+ A convincing reason for adding this feature (to avoid wasting your time, it's best to open a suggestion issue first and wait for approval before working on it)
+
+Other information:",4,3
+6530,2017-09-06T16:35:25Z,2017-09-13T06:25:50Z,2017-09-13T06:25:50Z,3,12,4,"What kind of change does this PR introduce? (check at least one)
+
+ Other, please describe: Add missing typings
+
+Does this PR introduce a breaking change? (check one)
+
+ No
+
+The PR fulfills these requirements:
+
+ It's submitted to the dev branch for v2.x (or to a previous version branch), not the master branch
+ When resolving a specific issue, it's referenced in the PR's title (e.g. fix #xxx[,#xxx], where ""xxx"" is the issue number)
+ All tests are passing: https://github.com/vuejs/vue/blob/dev/.github/CONTRIBUTING.md#development-setup
+ New/updated tests are included
+
+Other information:
+Looks like current functional component can have inject option but the typings do not have it. https://vuejs.org/v2/guide/render-function.html#Functional-Components",3,0
+6532,2017-09-07T00:18:30Z,,2017-09-07T02:44:05Z,1,1,1,"What kind of change does this PR introduce? (check at least one)
+
+ Bugfix
+ Feature
+ Code style update
+ Refactor
+ Build-related changes
+ Other, please describe: comment, typo fix
+
+Does this PR introduce a breaking change? (check one)
+
+ Yes
+ No
+
+If yes, please describe the impact and migration path for existing applications:
+The PR fulfills these requirements:
+
+ It's submitted to the dev branch for v2.x (or to a previous version branch), not the master branch
+ When resolving a specific issue, it's referenced in the PR's title (e.g. fix #xxx[,#xxx], where ""xxx"" is the issue number)
+ All tests are passing: https://github.com/vuejs/vue/blob/dev/.github/CONTRIBUTING.md#development-setup
+ New/updated tests are included
+
+If adding a new feature, the PR's description includes:
+
+ A convincing reason for adding this feature (to avoid wasting your time, it's best to open a suggestion issue first and wait for approval before working on it)
+
+Other information:",3,1
+6535,2017-09-07T04:08:36Z,2017-09-07T11:33:10Z,2017-09-07T11:33:10Z,20,27,27,"What kind of change does this PR introduce? (check at least one)
+
+ Bugfix
+
+Does this PR introduce a breaking change? (check one)
+
+ No
+
+If yes, please describe the impact and migration path for existing applications:
+The PR fulfills these requirements:
+
+ It's submitted to the dev branch for v2.x (or to a previous version branch), not the master branch
+ All tests are passing: https://github.com/vuejs/vue/blob/dev/.github/CONTRIBUTING.md#development-setup
+
+Sorry, I'm a drive-by contributor and your build system fails w/ my node9 on ppc64le.",4,0
+6547,2017-09-08T07:28:18Z,2017-09-11T17:13:38Z,2017-09-11T17:13:38Z,1,7,10,"Signed-off-by: Clark Du clark.duxin@gmail.com
+
+
+
+What kind of change does this PR introduce? (check at least one)
+
+ Bugfix
+ Feature
+ Code style update
+ Refactor
+ Build-related changes
+ Other, please describe:
+
+Does this PR introduce a breaking change? (check one)
+
+ Yes
+ No
+
+If yes, please describe the impact and migration path for existing applications:
+The PR fulfills these requirements:
+
+ It's submitted to the dev branch for v2.x (or to a previous version branch), not the master branch
+ When resolving a specific issue, it's referenced in the PR's title (e.g. fix #xxx[,#xxx], where ""xxx"" is the issue number)
+ All tests are passing: https://github.com/vuejs/vue/blob/dev/.github/CONTRIBUTING.md#development-setup
+ New/updated tests are included
+
+If adding a new feature, the PR's description includes:
+
+ A convincing reason for adding this feature (to avoid wasting your time, it's best to open a suggestion issue first and wait for approval before working on it)
+
+Other information:
+
+perf will never be null or undefined due to previous definition, so remove the block
+even if perf is null or undefined, the block will throw and Cannot read property error",3,0
+6573,2017-09-11T21:15:52Z,2017-09-12T13:10:39Z,2017-09-12T13:10:39Z,1,1,1,"correct ""a input"" to ""an input""
+
+
+
+What kind of change does this PR introduce? (check at least one)
+
+ Bugfix
+ Feature
+ Code style update
+ Refactor
+ Build-related changes
+ Other, please describe: Fix Typo
+
+Does this PR introduce a breaking change? (check one)
+
+ Yes
+ No
+
+If yes, please describe the impact and migration path for existing applications:
+The PR fulfills these requirements:
+
+ It's submitted to the dev branch for v2.x (or to a previous version branch), not the master branch
+ When resolving a specific issue, it's referenced in the PR's title (e.g. fix #xxx[,#xxx], where ""xxx"" is the issue number)
+[ x] All tests are passing: https://github.com/vuejs/vue/blob/dev/.github/CONTRIBUTING.md#development-setup
+ New/updated tests are included
+
+If adding a new feature, the PR's description includes:
+
+ A convincing reason for adding this feature (to avoid wasting your time, it's best to open a suggestion issue first and wait for approval before working on it)
+
+Other information:",4,0
+6576,2017-09-12T02:11:59Z,2017-09-12T13:11:22Z,2017-09-12T13:11:22Z,1,1,1,"What kind of change does this PR introduce? (check at least one)
+
+ Bugfix
+ Feature
+ Code style update
+ Refactor
+ Build-related changes
+ Other, please describe:
+
+Does this PR introduce a breaking change? (check one)
+
+ Yes
+ No
+
+If yes, please describe the impact and migration path for existing applications:
+The PR fulfills these requirements:
+
+ It's submitted to the dev branch for v2.x (or to a previous version branch), not the master branch
+ When resolving a specific issue, it's referenced in the PR's title (e.g. fix #xxx[,#xxx], where ""xxx"" is the issue number)
+ All tests are passing: https://github.com/vuejs/vue/blob/dev/.github/CONTRIBUTING.md#development-setup
+ New/updated tests are included
+
+If adding a new feature, the PR's description includes:
+
+ A convincing reason for adding this feature (to avoid wasting your time, it's best to open a suggestion issue first and wait for approval before working on it)
+
+Other information:
+When I read genOnce in vue-server-renderer/basic.js, I found that key will never be false here.",3,0
+6577,2017-09-12T02:49:18Z,2017-09-12T13:10:19Z,2017-09-12T13:10:19Z,4,4,4,"What kind of change does this PR introduce? (check at least one)
+
+ Bugfix
+ Feature
+ Code style update
+ Refactor
+ Build-related changes
+ Other, please describe:
+
+Does this PR introduce a breaking change? (check one)
+
+ Yes
+ No
+
+If yes, please describe the impact and migration path for existing applications:
+The PR fulfills these requirements:
+
+ It's submitted to the dev branch for v2.x (or to a previous version branch), not the master branch
+ When resolving a specific issue, it's referenced in the PR's title (e.g. fix #xxx[,#xxx], where ""xxx"" is the issue number)
+ All tests are passing: https://github.com/vuejs/vue/blob/dev/.github/CONTRIBUTING.md#development-setup
+ New/updated tests are included
+
+If adding a new feature, the PR's description includes:
+
+ A convincing reason for adding this feature (to avoid wasting your time, it's best to open a suggestion issue first and wait for approval before working on it)
+
+Other information:",3,0
+6600,2017-09-14T08:51:51Z,2017-09-14T12:37:53Z,2017-09-14T12:37:53Z,1,1,0,"What kind of change does this PR introduce? (check at least one)
+
+ Bugfix
+ Feature
+ Code style update
+ Refactor
+ Build-related changes
+ Other, please describe:
+
+Does this PR introduce a breaking change? (check one)
+
+ Yes
+ No
+
+If yes, please describe the impact and migration path for existing applications:
+The PR fulfills these requirements:
+
+ It's submitted to the dev branch for v2.x (or to a previous version branch), not the master branch
+ When resolving a specific issue, it's referenced in the PR's title (e.g. fix #xxx[,#xxx], where ""xxx"" is the issue number)
+ All tests are passing: https://github.com/vuejs/vue/blob/dev/.github/CONTRIBUTING.md#development-setup
+ New/updated tests are included
+
+If adding a new feature, the PR's description includes:
+
+ A convincing reason for adding this feature (to avoid wasting your time, it's best to open a suggestion issue first and wait for approval before working on it)
+
+Other information:",3,0
+6681,2017-09-25T03:01:48Z,2017-09-25T16:31:28Z,2017-09-25T16:31:28Z,2,5,5,"What kind of change does this PR introduce? (check at least one)
+
+ Bugfix
+
+Does this PR introduce a breaking change? (check one)
+
+ No
+
+The PR fulfills these requirements:
+
+ It's submitted to the dev branch for v2.x (or to a previous version branch), not the master branch
+ All tests are passing: https://github.com/vuejs/vue/blob/dev/.github/CONTRIBUTING.md#development-setup
+
+Other information:
+When mentioning certain library names like vueify and vue-loader, the documentation uses backticks in some places but not in others.  Of the cases I noticed, most were in links.  GitHub permits backticks within links and they are rendered with the fixed-width fontQ
+The main README.md omits them for vue-loader.  To show the difference, I took the specific line from the table and included both forms:
+
+
+
+Project
+Status
+Description
+
+
+
+
+vue-loader
+
+Single File Component (*.vue file) loader for webpack
+
+
+vue-loader
+
+Single File Component (*.vue file) loader for webpack
+
+
+
+This PR does not include the aforementioned change, but if that is desirable I can add it in.",4,0
+6704,2017-09-27T21:46:36Z,2017-09-28T14:53:40Z,2017-09-28T14:53:40Z,1,1,1,"Attempting to parseFloat on a Symbol throws the error Cannot convert a Symbol value to a string. Type checking for a Symbol before attempting to parse avoids the error and allows Vue.set to be called on Symbols.
+
+
+
+What kind of change does this PR introduce? (check at least one)
+
+ Bugfix
+ Feature
+ Code style update
+ Refactor
+ Build-related changes
+ Other, please describe:
+
+Does this PR introduce a breaking change? (check one)
+
+ Yes
+ No
+
+If yes, please describe the impact and migration path for existing applications:
+The PR fulfills these requirements:
+
+ It's submitted to the dev branch for v2.x (or to a previous version branch), not the master branch
+ When resolving a specific issue, it's referenced in the PR's title (e.g. fix #xxx[,#xxx], where ""xxx"" is the issue number)
+ All tests are passing: https://github.com/vuejs/vue/blob/dev/.github/CONTRIBUTING.md#development-setup
+ New/updated tests are included
+
+If adding a new feature, the PR's description includes:
+
+ A convincing reason for adding this feature (to avoid wasting your time, it's best to open a suggestion issue first and wait for approval before working on it)
+
+Other information:",3,2
+6713,2017-09-28T17:00:55Z,,2017-10-06T19:37:37Z,4,44,2,"v-html and v-text both overwrote the content of the element if anything
+was present: this change checks if there's content and throws an warning
+if there is.
+
+
+
+What kind of change does this PR introduce? (check at least one)
+
+ Bugfix
+ Feature
+ Code style update
+ Refactor
+ Build-related changes
+ Other, please describe:
+
+Improvement.
+Does this PR introduce a breaking change? (check one)
+
+ Yes
+ No
+
+If yes, please describe the impact and migration path for existing applications:
+The PR fulfills these requirements:
+
+ It's submitted to the dev branch for v2.x (or to a previous version branch), not the master branch
+ When resolving a specific issue, it's referenced in the PR's title (e.g. fix #xxx[,#xxx], where ""xxx"" is the issue number)
+ All tests are passing: https://github.com/vuejs/vue/blob/dev/.github/CONTRIBUTING.md#development-setup
+ New/updated tests are included
+
+Other information:",4,10
+6715,2017-09-28T23:49:16Z,2017-10-03T22:00:52Z,2017-10-03T22:00:52Z,2,8,1,"…ix #6703)
+
+
+
+What kind of change does this PR introduce? (check at least one)
+
+ Bugfix
+ Feature
+ Code style update
+ Refactor
+ Build-related changes
+ Other, please describe:
+
+Does this PR introduce a breaking change? (check one)
+
+ Yes
+ No
+
+If yes, please describe the impact and migration path for existing applications:
+The PR fulfills these requirements:
+
+ It's submitted to the dev branch for v2.x (or to a previous version branch), not the master branch
+ When resolving a specific issue, it's referenced in the PR's title (e.g. fix #xxx[,#xxx], where ""xxx"" is the issue number)
+ All tests are passing: https://github.com/vuejs/vue/blob/dev/.github/CONTRIBUTING.md#development-setup
+ New/updated tests are included
+
+If adding a new feature, the PR's description includes:
+
+ A convincing reason for adding this feature (to avoid wasting your time, it's best to open a suggestion issue first and wait for approval before working on it)
+
+Other information:",3,0
+6716,2017-09-29T06:36:41Z,2017-09-29T18:33:28Z,2017-09-29T18:33:28Z,1,1,1,"What kind of change does this PR introduce? (check at least one)
+
+ Bugfix
+ Feature
+ Code style update
+ Refactor
+ Build-related changes
+ Other, please describe:
+
+Does this PR introduce a breaking change? (check one)
+
+ Yes
+ No
+
+If yes, please describe the impact and migration path for existing applications:
+The PR fulfills these requirements:
+
+ It's submitted to the dev branch for v2.x (or to a previous version branch), not the master branch
+ When resolving a specific issue, it's referenced in the PR's title (e.g. fix #xxx[,#xxx], where ""xxx"" is the issue number)
+ All tests are passing: https://github.com/vuejs/vue/blob/dev/.github/CONTRIBUTING.md#development-setup
+ New/updated tests are included
+
+If adding a new feature, the PR's description includes:
+
+ A convincing reason for adding this feature (to avoid wasting your time, it's best to open a suggestion issue first and wait for approval before working on it)
+
+Other information:",3,0
+6735,2017-10-03T14:31:04Z,2017-10-03T15:45:38Z,2017-10-03T15:45:39Z,1,5,3,"What kind of change does this PR introduce? (check at least one)
+
+ Bugfix
+ Feature
+ Code style update
+ Refactor
+ Build-related changes
+ Other, please describe:
+
+Improved error message.
+Does this PR introduce a breaking change? (check one)
+
+ Yes
+ No
+
+Other information:
+Fixes #6657",4,2
+6736,2017-10-04T10:29:44Z,2017-10-06T19:48:00Z,2017-10-06T19:48:00Z,2,61,1,"v-bind with not object warning
+close #6677
+
+
+
+What kind of change does this PR introduce? (check at least one)
+
+ Bugfix
+ Feature
+ Code style update
+ Refactor
+ Build-related changes
+ Other, please describe:
+
+Does this PR introduce a breaking change? (check one)
+
+ Yes
+ No
+
+If yes, please describe the impact and migration path for existing applications:
+The PR fulfills these requirements:
+
+ It's submitted to the dev branch for v2.x (or to a previous version branch), not the master branch
+ When resolving a specific issue, it's referenced in the PR's title (e.g. fix #xxx[,#xxx], where ""xxx"" is the issue number)
+ All tests are passing: https://github.com/vuejs/vue/blob/dev/.github/CONTRIBUTING.md#development-setup
+ New/updated tests are included
+
+If adding a new feature, the PR's description includes:
+
+ A convincing reason for adding this feature (to avoid wasting your time, it's best to open a suggestion issue first and wait for approval before working on it)
+
+Other information:",3,1
+6760,2017-10-09T10:16:26Z,2017-10-10T13:39:31Z,2017-10-10T13:39:31Z,2,18,1,"#6739
+
+
+
+What kind of change does this PR introduce? (check at least one)
+
+ Bugfix
+ Feature
+ Code style update
+ Refactor
+ Build-related changes
+ Other, please describe:
+
+Does this PR introduce a breaking change? (check one)
+
+ Yes
+ No
+
+If yes, please describe the impact and migration path for existing applications:
+The PR fulfills these requirements:
+
+ It's submitted to the dev branch for v2.x (or to a previous version branch), not the master branch
+ When resolving a specific issue, it's referenced in the PR's title (e.g. fix #xxx[,#xxx], where ""xxx"" is the issue number)
+ All tests are passing: https://github.com/vuejs/vue/blob/dev/.github/CONTRIBUTING.md#development-setup
+ New/updated tests are included
+
+If adding a new feature, the PR's description includes:
+
+ A convincing reason for adding this feature (to avoid wasting your time, it's best to open a suggestion issue first and wait for approval before working on it)
+
+Other information:",4,1
+6763,2017-10-10T03:37:54Z,2017-10-10T15:06:48Z,2017-10-10T15:06:48Z,1,4,1,"Enable intial state script to automatically remove itself from the DOM if server environment is
+prod. (#6761)
+What kind of change does this PR introduce? (check at least one)
+
+ Bugfix
+ Feature
+ Code style update
+ Refactor
+ Build-related changes
+ Other, please describe:
+
+Does this PR introduce a breaking change? (check one)
+
+ Yes
+ No
+
+The PR fulfills these requirements:
+
+ It's submitted to the dev branch for v2.x (or to a previous version branch), not the master branch
+ When resolving a specific issue, it's referenced in the PR's title (e.g. fix #xxx[,#xxx], where ""xxx"" is the issue number)
+ All tests are passing: https://github.com/vuejs/vue/blob/dev/.github/CONTRIBUTING.md#development-setup
+ New/updated tests are included
+
+If adding a new feature, the PR's description includes:
+
+ A convincing reason for adding this feature (to avoid wasting your time, it's best to open a suggestion issue first and wait for approval before working on it)",4,3
+6764,2017-10-10T06:18:55Z,,2017-12-12T21:22:37Z,3,72,3,"#6338
+
+
+
+What kind of change does this PR introduce? (check at least one)
+
+ Bugfix
+ Feature
+ Code style update
+ Refactor
+ Build-related changes
+ Other, please describe:
+
+Does this PR introduce a breaking change? (check one)
+
+ Yes
+ No
+
+If yes, please describe the impact and migration path for existing applications:
+The PR fulfills these requirements:
+
+ It's submitted to the dev branch for v2.x (or to a previous version branch), not the master branch
+ When resolving a specific issue, it's referenced in the PR's title (e.g. fix #xxx[,#xxx], where ""xxx"" is the issue number)
+ All tests are passing: https://github.com/vuejs/vue/blob/dev/.github/CONTRIBUTING.md#development-setup
+ New/updated tests are included
+
+If adding a new feature, the PR's description includes:
+
+ A convincing reason for adding this feature (to avoid wasting your time, it's best to open a suggestion issue first and wait for approval before working on it)
+
+Other information:",3,2
+6794,2017-10-13T08:07:25Z,2017-10-13T12:52:34Z,2017-10-13T12:52:35Z,1,1,1,"What kind of change does this PR introduce? (check at least one)
+
+ Bugfix
+ Feature
+ Code style update
+ Refactor
+ Build-related changes
+ Other, please describe:
+
+Does this PR introduce a breaking change? (check one)
+
+ Yes
+ No
+
+If yes, please describe the impact and migration path for existing applications:
+The PR fulfills these requirements:
+
+ It's submitted to the dev branch for v2.x (or to a previous version branch), not the master branch
+ When resolving a specific issue, it's referenced in the PR's title (e.g. fix #xxx[,#xxx], where ""xxx"" is the issue number)
+ All tests are passing: https://github.com/vuejs/vue/blob/dev/.github/CONTRIBUTING.md#development-setup
+ New/updated tests are included
+
+If adding a new feature, the PR's description includes:
+
+ A convincing reason for adding this feature (to avoid wasting your time, it's best to open a suggestion issue first and wait for approval before working on it)
+
+Other information:
+#6763 (comment)",5,1
+6795,2017-10-13T08:29:43Z,2017-10-13T12:53:07Z,2017-10-13T12:53:07Z,1,1,1,"What kind of change does this PR introduce? (check at least one)
+
+ Bugfix
+ Feature
+ Code style update
+ Refactor
+ Build-related changes
+ Other, please describe: Avoid unnecessary judgment conditions
+
+Does this PR introduce a breaking change? (check one)
+
+ Yes
+ No
+
+If yes, please describe the impact and migration path for existing applications:
+The PR fulfills these requirements:
+
+ It's submitted to the dev branch for v2.x (or to a previous version branch), not the master branch
+ When resolving a specific issue, it's referenced in the PR's title (e.g. fix #xxx[,#xxx], where ""xxx"" is the issue number)
+ All tests are passing: https://github.com/vuejs/vue/blob/dev/.github/CONTRIBUTING.md#development-setup
+ New/updated tests are included
+
+If adding a new feature, the PR's description includes:
+
+ A convincing reason for adding this feature (to avoid wasting your time, it's best to open a suggestion issue first and wait for approval before working on it)
+
+Other information:",3,0
+6856,2017-10-19T13:07:03Z,2018-12-05T22:50:14Z,2018-12-05T22:50:14Z,3,29,10,"What kind of change does this PR introduce? (check at least one)
+
+ Bugfix
+ Feature
+ Code style update
+ Refactor
+ Build-related changes
+ Other, please describe:
+
+Does this PR introduce a breaking change? (check one)
+
+ Yes
+ No
+
+If yes, please describe the impact and migration path for existing applications:
+The PR fulfills these requirements:
+
+ It's submitted to the dev branch for v2.x (or to a previous version branch), not the master branch
+ When resolving a specific issue, it's referenced in the PR's title (e.g. fix #xxx[,#xxx], where ""xxx"" is the issue number)
+ All tests are passing: https://github.com/vuejs/vue/blob/dev/.github/CONTRIBUTING.md#development-setup
+ New/updated tests are included
+
+If adding a new feature, the PR's description includes:
+
+ A convincing reason for adding this feature (to avoid wasting your time, it's best to open a suggestion issue first and wait for approval before working on it)
+
+See #6850.
+Other information:",26,38
+6860,2017-10-20T02:02:38Z,2017-10-21T12:32:03Z,2017-10-21T12:32:03Z,4,9,20,"What kind of change does this PR introduce? (check at least one)
+
+ Bugfix
+ Feature
+ Code style update
+ Refactor
+ Build-related changes
+ Other, please describe:
+
+Does this PR introduce a breaking change? (check one)
+
+ Yes
+ No
+
+If yes, please describe the impact and migration path for existing applications:
+The PR fulfills these requirements:
+
+ It's submitted to the dev branch for v2.x (or to a previous version branch), not the master branch
+ When resolving a specific issue, it's referenced in the PR's title (e.g. fix #xxx[,#xxx], where ""xxx"" is the issue number)
+ All tests are passing: https://github.com/vuejs/vue/blob/dev/.github/CONTRIBUTING.md#development-setup
+ New/updated tests are included
+
+If adding a new feature, the PR's description includes:
+
+ A convincing reason for adding this feature (to avoid wasting your time, it's best to open a suggestion issue first and wait for approval before working on it)
+
+Other information:",3,1
+6875,2017-10-21T16:46:05Z,,2017-10-21T21:56:51Z,5,34,36,"What kind of change does this PR introduce? (check at least one)
+
+ Bugfix
+ Feature
+ Code style update
+ Refactor
+ Build-related changes
+ Other, please describe:
+
+Does this PR introduce a breaking change? (check one)
+
+ Yes
+ No
+
+If yes, please describe the impact and migration path for existing applications:
+The PR fulfills these requirements:
+
+ It's submitted to the dev branch for v2.x (or to a previous version branch), not the master branch
+ When resolving a specific issue, it's referenced in the PR's title (e.g. fix #xxx[,#xxx], where ""xxx"" is the issue number)
+ All tests are passing: https://github.com/vuejs/vue/blob/dev/.github/CONTRIBUTING.md#development-setup
+ New/updated tests are included
+
+If adding a new feature, the PR's description includes:
+
+ A convincing reason for adding this feature (to avoid wasting your time, it's best to open a suggestion issue first and wait for approval before working on it)
+
+Other information:",5,3
+6910,2017-10-25T13:57:37Z,2017-11-03T02:03:20Z,2017-11-03T02:03:20Z,2,62,3,"#6903
+
+
+
+What kind of change does this PR introduce? (check at least one)
+
+ Bugfix
+ Feature
+ Code style update
+ Refactor
+ Build-related changes
+ Other, please describe:
+
+Does this PR introduce a breaking change? (check one)
+
+ Yes
+ No
+
+If yes, please describe the impact and migration path for existing applications:
+The PR fulfills these requirements:
+
+ It's submitted to the dev branch for v2.x (or to a previous version branch), not the master branch
+ When resolving a specific issue, it's referenced in the PR's title (e.g. fix #xxx[,#xxx], where ""xxx"" is the issue number)
+ All tests are passing: https://github.com/vuejs/vue/blob/dev/.github/CONTRIBUTING.md#development-setup
+ New/updated tests are included
+
+If adding a new feature, the PR's description includes:
+
+ A convincing reason for adding this feature (to avoid wasting your time, it's best to open a suggestion issue first and wait for approval before working on it)
+
+Other information:",3,0
+6932,2017-10-26T18:52:22Z,2017-10-27T01:08:11Z,2017-10-27T01:08:11Z,3,5,2,"What kind of change does this PR introduce? (check at least one)
+
+ Bugfix
+ Feature
+ Code style update
+ Refactor
+ Build-related changes
+ Other, please describe:
+
+Does this PR introduce a breaking change? (check one)
+
+ Yes
+ No
+
+If yes, please describe the impact and migration path for existing applications:
+The PR fulfills these requirements:
+
+ It's submitted to the dev branch for v2.x (or to a previous version branch), not the master branch
+ When resolving a specific issue, it's referenced in the PR's title (e.g. fix #xxx[,#xxx], where ""xxx"" is the issue number)
+ All tests are passing: https://github.com/vuejs/vue/blob/dev/.github/CONTRIBUTING.md#development-setup
+ New/updated tests are included
+
+If adding a new feature, the PR's description includes:
+
+ A convincing reason for adding this feature (to avoid wasting your time, it's best to open a suggestion issue first and wait for approval before working on it)
+
+Other information:
+The development environment on Windows is flaky and crashes a lot. I'm also seeing intermittent failures that seem unrelated to my change (they also occur on the dev branch with no changes). Filing the PR now to get feedback and to see if CI has the same failures.",4,0
+6940,2017-10-27T10:28:30Z,,2020-12-17T13:29:46Z,7,25,3,"What kind of change does this PR introduce? (check at least one)
+
+ Bugfix
+ Feature
+ Code style update
+ Refactor
+ Build-related changes
+ Other, please describe:
+
+Does this PR introduce a breaking change? (check one)
+
+ Yes
+ No
+
+If yes, please describe the impact and migration path for existing applications:
+The PR fulfills these requirements:
+
+ It's submitted to the dev branch for v2.x (or to a previous version branch), not the master branch
+ When resolving a specific issue, it's referenced in the PR's title (e.g. fix #xxx[,#xxx], where ""xxx"" is the issue number)
+ All tests are passing: https://github.com/vuejs/vue/blob/dev/.github/CONTRIBUTING.md#development-setup
+ New/updated tests are included
+
+Other information:
+close #6914 .",9,11
+6985,2017-11-01T12:29:33Z,,2017-11-02T04:15:09Z,2,52,2,"What kind of change does this PR introduce? (check at least one)
+
+ Bugfix
+ Feature
+ Code style update
+ Refactor
+ Build-related changes
+ Other, please describe:
+
+Does this PR introduce a breaking change? (check one)
+
+ Yes
+ No
+
+If yes, please describe the impact and migration path for existing applications:
+The PR fulfills these requirements:
+
+ It's submitted to the dev branch for v2.x (or to a previous version branch), not the master branch
+ When resolving a specific issue, it's referenced in the PR's title (e.g. fix #xxx[,#xxx], where ""xxx"" is the issue number)
+ All tests are passing: https://github.com/vuejs/vue/blob/dev/.github/CONTRIBUTING.md#development-setup
+ New/updated tests are included
+
+Other information:
+anonymous components aslo have tag , so func getComponentName can not be used anymore.",4,4
+7023,2017-11-08T17:00:58Z,2017-11-16T14:29:27Z,2017-11-16T14:29:27Z,1,3,1,"What kind of change does this PR introduce? (check at least one)
+
+ Bugfix
+ Feature
+ Code style update
+ Refactor
+ Build-related changes
+ Other, please describe:
+
+Does this PR introduce a breaking change? (check one)
+
+ Yes
+ No
+
+An out-in transition could get stuck if the child with v-if was not yet shown and then replaced with a different child. In this case, ""afterLeave"" would never get fired, thus ""_leaving"" stayed true indefinitely. This was likely to happen with vue-router and asynchronous data loading before the new page is shown.
+Fixes #6687.",4,8
+7026,2017-11-09T10:48:13Z,2017-11-13T16:47:04Z,2017-11-13T16:47:04Z,1,1,1,"Give link for vue examples
+
+
+
+What kind of change does this PR introduce? (check at least one)
+
+ Bugfix
+ Feature
+ Code style update
+ Refactor
+ Build-related changes
+ Other, please describe:
+
+Does this PR introduce a breaking change? (check one)
+
+ Yes
+ No
+
+If yes, please describe the impact and migration path for existing applications:
+The PR fulfills these requirements:
+
+ It's submitted to the dev branch for v2.x (or to a previous version branch), not the master branch
+ When resolving a specific issue, it's referenced in the PR's title (e.g. fix #xxx[,#xxx], where ""xxx"" is the issue number)
+ All tests are passing: https://github.com/vuejs/vue/blob/dev/.github/CONTRIBUTING.md#development-setup
+ New/updated tests are included
+
+If adding a new feature, the PR's description includes:
+
+ A convincing reason for adding this feature (to avoid wasting your time, it's best to open a suggestion issue first and wait for approval before working on it)
+
+Other information:",3,0
+7046,2017-11-11T15:48:15Z,2017-11-13T16:49:06Z,2017-11-13T16:49:06Z,4,42,9,"What kind of change does this PR introduce?
+
+ Feature
+
+Does this PR introduce a breaking change?
+
+ No
+
+Other information:
+Support batch update styles and attributes on weex platform. Use the setStyles and setAttrs API if it exists, otherwise, use the origin APIs.
+Refs: apache/incubator-weex@30716b6",3,0
+7053,2017-11-14T03:17:12Z,2017-11-14T13:19:32Z,2017-11-14T13:19:32Z,4,14,100,"What kind of change does this PR introduce?
+
+ Feature
+ Refactor
+
+Does this PR introduce a breaking change?
+
+ Yes
+
+This feature only compatible with 0.23.1 or higher versions of weex-js-runtime.
+Other information:
+The receiveTasks API is moved to weex-js-runtime in order to maintain the consistency of communication behavior between Weex and native.
+Also, expose the registerHook API in utils and fix spelling mistakes about the ""transition"".",3,0
+7056,2017-11-14T12:54:47Z,2017-11-16T16:24:23Z,2017-11-16T16:24:23Z,2,41,0,"Address issue #7048
+I don't have much experience with contributing so any feedback would be very welcome.
+What kind of change does this PR introduce? (check at least one)
+
+ Bugfix
+ Feature
+ Code style update
+ Refactor
+ Build-related changes
+ Other, please describe:
+
+Does this PR introduce a breaking change? (check one)
+
+ Yes
+ No",2,1
+7089,2017-11-20T22:40:48Z,,2017-11-23T21:42:26Z,2,19,1,"close #7070
+
+
+
+What kind of change does this PR introduce? (check at least one)
+
+ Bugfix
+ Feature
+ Code style update
+ Refactor
+ Build-related changes
+ Other, please describe:
+
+Does this PR introduce a breaking change? (check one)
+
+ Yes
+ No
+
+If yes, please describe the impact and migration path for existing applications:
+The PR fulfills these requirements:
+
+ It's submitted to the dev branch for v2.x (or to a previous version branch), not the master branch
+ When resolving a specific issue, it's referenced in the PR's title (e.g. fix #xxx[,#xxx], where ""xxx"" is the issue number)
+ All tests are passing: https://github.com/vuejs/vue/blob/dev/.github/CONTRIBUTING.md#development-setup
+ New/updated tests are included
+
+If adding a new feature, the PR's description includes:
+
+ A convincing reason for adding this feature (to avoid wasting your time, it's best to open a suggestion issue first and wait for approval before working on it)
+
+Other information:
+As the docs says:
+
+Properties that start with _ or $ will not be proxied on the Vue instance because they may conflict with Vue’s internal properties and API methods. You will have to access them as vm.$data._property.`
+
+But, this is a little bit hidden during development. It would be better if a warn could be raised to show developer that the data property will not be proxied on the Vue instance.",2,5
+7113,2017-11-23T02:53:19Z,2017-11-23T15:20:19Z,2017-11-23T15:20:19Z,1,1,1,"Random find :)
+
+
+
+What kind of change does this PR introduce? (check at least one)
+
+ Bugfix
+ Feature
+ Code style update
+ Refactor
+ Build-related changes
+ Other, please describe:
+
+Does this PR introduce a breaking change? (check one)
+
+ Yes
+ No
+
+If yes, please describe the impact and migration path for existing applications:
+The PR fulfills these requirements:
+
+ It's submitted to the dev branch for v2.x (or to a previous version branch), not the master branch
+ When resolving a specific issue, it's referenced in the PR's title (e.g. fix #xxx[,#xxx], where ""xxx"" is the issue number)
+ All tests are passing: https://github.com/vuejs/vue/blob/dev/.github/CONTRIBUTING.md#development-setup
+ New/updated tests are included
+
+If adding a new feature, the PR's description includes:
+
+ A convincing reason for adding this feature (to avoid wasting your time, it's best to open a suggestion issue first and wait for approval before working on it)
+
+Other information:",3,0
+7121,2017-11-23T16:25:49Z,2018-03-07T19:38:42Z,2018-03-07T19:38:42Z,2,54,6,"What kind of change does this PR introduce? (check at least one)
+
+ Bugfix
+ Feature
+ Code style update
+ Refactor
+ Build-related changes
+ Other, please describe:
+
+Does this PR introduce a breaking change? (check one)
+
+ Yes
+ No
+
+If yes, please describe the impact and migration path for existing applications:
+The PR fulfills these requirements:
+
+ It's submitted to the dev branch for v2.x (or to a previous version branch), not the master branch
+ When resolving a specific issue, it's referenced in the PR's title (e.g. fix #xxx[,#xxx], where ""xxx"" is the issue number)
+ All tests are passing: https://github.com/vuejs/vue/blob/dev/.github/CONTRIBUTING.md#development-setup
+ New/updated tests are included
+
+If adding a new feature, the PR's description includes:
+
+ A convincing reason for adding this feature (to avoid wasting your time, it's best to open a suggestion issue first and wait for approval before working on it)
+
+Other information:
+#6900",3,0
+7127,2017-11-25T14:26:18Z,2018-12-22T02:58:33Z,2018-12-22T02:58:33Z,21,325,127,"What kind of change does this PR introduce? (check at least one)
+
+ Bugfix
+ Feature
+ Code style update
+ Refactor
+ Build-related changes
+ Other, please describe:
+
+Does this PR introduce a breaking change? (check one)
+
+ Yes
+ No
+
+The PR fulfills these requirements:
+
+ It's submitted to the dev branch for v2.x (or to a previous version branch), not the master branch
+ When resolving a specific issue, it's referenced in the PR's title (e.g. fix #xxx[,#xxx], where ""xxx"" is the issue number)
+ All tests are passing: https://github.com/vuejs/vue/blob/dev/.github/CONTRIBUTING.md#development-setup
+ New/updated tests are included
+
+If adding a new feature, the PR's description includes:
+
+ A convincing reason for adding this feature (to avoid wasting your time, it's best to open a suggestion issue first and wait for approval before working on it)
+
+Other information:
+Just like #6764, but will output the range data instead of writing it into the error message. Here's an example of how it works:
+https://gist.github.com/gzzhanghao/363fac4a201306f5fccf903e35bc652a",5,7
+7135,2017-11-27T09:31:08Z,2017-11-27T14:28:39Z,2017-11-27T14:28:39Z,5,42,40,"What kind of change does this PR introduce? (check at least one)
+
+ Bugfix
+
+Does this PR introduce a breaking change? (check one)
+
+ Yes
+ No
+
+The PR fulfills these requirements:
+
+ It's submitted to the dev branch for v2.x (or to a previous version branch), not the master branch
+ When resolving a specific issue, it's referenced in the PR's title (e.g. fix #xxx[,#xxx], where ""xxx"" is the issue number)
+ All tests are passing: https://github.com/vuejs/vue/blob/dev/.github/CONTRIBUTING.md#development-setup
+ New/updated tests are included
+
+Other information:
+Component is too restrictive about props type: it either accepts an array or an object, but not both. This makes it illegal to assign CompoenntOptions to Component. Actually it is a typing bug, but it requires TS 2.6 to find this out.
+So this pull request also bumps the compiler version. It only affects development.
+Bumping version also finds another method naming problem in directive test :)
+cc @ktsn",3,0
+7156,2017-11-30T06:17:24Z,2017-11-30T16:34:46Z,2017-11-30T16:34:46Z,1,1,1,"What kind of change does this PR introduce? (check at least one)
+
+ Bugfix
+ Feature
+ Code style update
+ Refactor
+ Build-related changes
+ Other, please describe: docs update
+
+Does this PR introduce a breaking change? (check one)
+
+ Yes
+ No
+
+If yes, please describe the impact and migration path for existing applications:
+The PR fulfills these requirements:
+
+ It's submitted to the dev branch for v2.x (or to a previous version branch), not the master branch
+ When resolving a specific issue, it's referenced in the PR's title (e.g. fix #xxx[,#xxx], where ""xxx"" is the issue number)
+ All tests are passing: https://github.com/vuejs/vue/blob/dev/.github/CONTRIBUTING.md#development-setup
+ New/updated tests are included
+
+If adding a new feature, the PR's description includes:
+
+ A convincing reason for adding this feature (to avoid wasting your time, it's best to open a suggestion issue first and wait for approval before working on it)
+
+Other information:",4,0
+7158,2017-11-30T07:13:37Z,,2017-11-30T17:32:42Z,1,7,0,"What kind of change does this PR introduce? (check at least one)
+
+ Bugfix
+ Feature
+ Code style update
+ Refactor
+ Build-related changes
+ Other, please describe:
+
+Does this PR introduce a breaking change? (check one)
+
+ Yes
+ No
+
+If yes, please describe the impact and migration path for existing applications:
+The PR fulfills these requirements:
+
+ It's submitted to the dev branch for v2.x (or to a previous version branch), not the master branch
+ When resolving a specific issue, it's referenced in the PR's title (e.g. fix #xxx[,#xxx], where ""xxx"" is the issue number)
+ All tests are passing: https://github.com/vuejs/vue/blob/dev/.github/CONTRIBUTING.md#development-setup
+ New/updated tests are included
+
+If adding a new feature, the PR's description includes:
+
+ A convincing reason for adding this feature (to avoid wasting your time, it's best to open a suggestion issue first and wait for approval before working on it)
+
+It will allow to use more key codes, ex. @keydown.home=""""
+Other information:",3,1
+7165,2017-12-01T08:13:45Z,2017-12-04T14:59:01Z,2017-12-04T14:59:01Z,14,433,13,"What kind of change does this PR introduce?
+
+ Feature
+
+Does this PR introduce a breaking change?
+
+ No
+
+Other information:
+Partially implement the virtual component for <recycle-list>.
+https://github.com/Hanks10100/weex-native-directive/tree/master/component",3,0
+7171,2017-12-02T16:25:19Z,,2018-12-26T20:12:26Z,1,19,4,"添加v-for循环对迭代器(Iterator)的支持
+
+
+
+What kind of change does this PR introduce? (check at least one)
+
+ Bugfix
+ Feature
+ Code style update
+ Refactor
+ Build-related changes
+[] Other, please describe:
+
+Does this PR introduce a breaking change? (check one)
+
+ Yes
+ No
+
+If yes, please describe the impact and migration path for existing applications:
+The PR fulfills these requirements:
+
+ It's submitted to the dev branch for v2.x (or to a previous version branch), not the master branch
+ When resolving a specific issue, it's referenced in the PR's title (e.g. fix #xxx[,#xxx], where ""xxx"" is the issue number)
+ All tests are passing: https://github.com/vuejs/vue/blob/dev/.github/CONTRIBUTING.md#development-setup
+ New/updated tests are included
+
+If adding a new feature, the PR's description includes:
+
+ A convincing reason for adding this feature (to avoid wasting your time, it's best to open a suggestion issue first and wait for approval before working on it)
+
+Other information:",6,6
+7215,2017-12-11T05:24:44Z,2018-12-21T16:59:34Z,2018-12-21T16:59:34Z,2,31,1,"Add feature for #7054
+usage: vue_template_compiler.parseComponent(vue, { deindent: false })
+deindent can be true or false, default is true
+What kind of change does this PR introduce? (check at least one)
+
+ Bugfix
+ Feature
+ Code style update
+ Refactor
+ Build-related changes
+ Other, please describe:
+
+Does this PR introduce a breaking change? (check one)
+
+ Yes
+ No
+
+If yes, please describe the impact and migration path for existing applications:
+The PR fulfills these requirements:
+
+ It's submitted to the dev branch for v2.x (or to a previous version branch), not the master branch
+ When resolving a specific issue, it's referenced in the PR's title (e.g. fix #xxx[,#xxx], where ""xxx"" is the issue number)
+ All tests are passing: https://github.com/vuejs/vue/blob/dev/.github/CONTRIBUTING.md#development-setup
+ New/updated tests are included
+
+If adding a new feature, the PR's description includes:
+
+ A convincing reason for adding this feature (to avoid wasting your time, it's best to open a suggestion issue first and wait for approval before working on it)",4,0
+7258,2017-12-16T16:54:30Z,2017-12-16T20:47:45Z,2017-12-16T20:47:45Z,1,2,1,"What kind of change does this PR introduce? (check at least one)
+
+ Bugfix
+ Feature
+ Code style update
+ Refactor
+ Build-related changes
+ Other, please describe: Avoid unnecessary judgment conditions
+
+Does this PR introduce a breaking change? (check one)
+
+ Yes
+ No
+
+If yes, please describe the impact and migration path for existing applications:
+The PR fulfills these requirements:
+
+ It's submitted to the dev branch for v2.x (or to a previous version branch), not the master branch
+ When resolving a specific issue, it's referenced in the PR's title (e.g. fix #xxx[,#xxx], where ""xxx"" is the issue number)
+ All tests are passing: https://github.com/vuejs/vue/blob/dev/.github/CONTRIBUTING.md#development-setup
+ New/updated tests are included
+
+If adding a new feature, the PR's description includes:
+
+ A convincing reason for adding this feature (to avoid wasting your time, it's best to open a suggestion issue first and wait for approval before working on it)
+
+Other information:",3,1
+7274,2017-12-19T08:22:11Z,2017-12-19T14:34:36Z,2017-12-19T14:34:36Z,1,13,11,"fix #7273
+
+
+
+What kind of change does this PR introduce? (check at least one)
+
+ Bugfix
+ Feature
+ Code style update
+ Refactor
+ Build-related changes
+ Other, please describe:
+
+Does this PR introduce a breaking change? (check one)
+
+ Yes
+ No
+
+If yes, please describe the impact and migration path for existing applications:
+The PR fulfills these requirements:
+
+ It's submitted to the dev branch for v2.x (or to a previous version branch), not the master branch
+ When resolving a specific issue, it's referenced in the PR's title (e.g. fix #xxx[,#xxx], where ""xxx"" is the issue number)
+ All tests are passing: https://github.com/vuejs/vue/blob/dev/.github/CONTRIBUTING.md#development-setup
+ New/updated tests are included
+
+If adding a new feature, the PR's description includes:
+
+ A convincing reason for adding this feature (to avoid wasting your time, it's best to open a suggestion issue first and wait for approval before working on it)
+
+Other information:",4,0
+7286,2017-12-20T05:55:20Z,2017-12-20T14:05:22Z,2017-12-20T14:05:22Z,2,2,2,"/cc @Hanks10100 🌝
+
+
+
+What kind of change does this PR introduce? (check at least one)
+
+ Bugfix
+ Feature
+ Code style update
+ Refactor
+ Build-related changes
+ Other, please describe:
+
+Does this PR introduce a breaking change? (check one)
+
+ Yes
+ No
+
+If yes, please describe the impact and migration path for existing applications:
+The PR fulfills these requirements:
+
+ It's submitted to the dev branch for v2.x (or to a previous version branch), not the master branch
+ When resolving a specific issue, it's referenced in the PR's title (e.g. fix #xxx[,#xxx], where ""xxx"" is the issue number)
+ All tests are passing: https://github.com/vuejs/vue/blob/dev/.github/CONTRIBUTING.md#development-setup
+ New/updated tests are included
+
+If adding a new feature, the PR's description includes:
+
+ A convincing reason for adding this feature (to avoid wasting your time, it's best to open a suggestion issue first and wait for approval before working on it)
+
+Other information:",4,0
+7287,2017-12-20T06:53:43Z,2017-12-20T14:09:24Z,2017-12-20T14:09:24Z,2,15,4,"What kind of change does this PR introduce? (check at least one)
+
+ Bugfix
+ Feature
+ Code style update
+ Refactor
+ Build-related changes
+ Other, please describe:
+
+Does this PR introduce a breaking change? (check one)
+
+ Yes
+ No
+
+If yes, please describe the impact and migration path for existing applications:
+The PR fulfills these requirements:
+
+ It's submitted to the dev branch for v2.x (or to a previous version branch), not the master branch
+ When resolving a specific issue, it's referenced in the PR's title (e.g. fix #xxx[,#xxx], where ""xxx"" is the issue number)
+ All tests are passing: https://github.com/vuejs/vue/blob/dev/.github/CONTRIBUTING.md#development-setup
+ New/updated tests are included
+
+If adding a new feature, the PR's description includes:
+
+ A convincing reason for adding this feature (to avoid wasting your time, it's best to open a suggestion issue first and wait for approval before working on it)
+
+Other information:
+
+Replaced VNodeChildren with VNodeChildrenArrayContents in its recursive declaration. The current VNodeChildrenArrayContents type looks inaccurate because it can include a scoped slot in the returned value of another scoped slot.
+VNodeChildrenArrayContents inherits Array interface so that we can narrow the type with Array.isArray function.",3,0
+7291,2017-12-20T12:42:02Z,2017-12-27T02:33:38Z,2017-12-27T02:33:38Z,7,179,7,"What kind of change does this PR introduce?
+
+ Feature
+
+Does this PR introduce a breaking change?
+
+ No
+
+Other information:
+Required acorn and escodegen in weex-template-compiler to compile expression strings into specified weex native directives. (Hanks10100/weex-native-directive#11)",2,0
+7302,2017-12-21T18:10:39Z,2018-03-07T19:58:12Z,2018-03-07T19:58:12Z,1,4,1,"The defineReactive gets the property of the object, only if it has no getter
+fix #7280
+
+
+
+What kind of change does this PR introduce? (check at least one)
+
+ Bugfix
+ Feature
+ Code style update
+ Refactor
+ Build-related changes
+ Other, please describe:
+
+Does this PR introduce a breaking change? (check one)
+
+ Yes
+ No
+
+If yes, please describe the impact and migration path for existing applications:
+The PR fulfills these requirements:
+
+ It's submitted to the dev branch for v2.x (or to a previous version branch), not the master branch
+ When resolving a specific issue, it's referenced in the PR's title (e.g. fix #xxx[,#xxx], where ""xxx"" is the issue number)
+ All tests are passing: https://github.com/vuejs/vue/blob/dev/.github/CONTRIBUTING.md#development-setup
+ New/updated tests are included
+
+If adding a new feature, the PR's description includes:
+
+ A convincing reason for adding this feature (to avoid wasting your time, it's best to open a suggestion issue first and wait for approval before working on it)
+
+Other information:",3,0

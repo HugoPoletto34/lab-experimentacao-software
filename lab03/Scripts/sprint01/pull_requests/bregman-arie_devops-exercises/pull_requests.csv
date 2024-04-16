@@ -1,0 +1,165 @@
+number,created_at,merged_at,closed_at,files,additions,deletions,body_text,participants,comments
+10,2019-10-20T19:02:36Z,2019-10-21T13:36:56Z,2019-10-21T13:36:56Z,1,12,0,Adding new answers,2,1
+11,2019-10-21T03:51:54Z,2019-10-21T08:16:07Z,2019-10-21T08:16:07Z,2,185,1,"Added some SQL questions to the repo.
+Additionally, formatted the top part of the reamed to include a SQL Icon and the links for easy navigation.",2,2
+16,2019-10-22T11:28:06Z,2019-10-22T12:59:56Z,2019-10-22T12:59:56Z,1,67,2,,2,0
+18,2019-10-22T12:10:39Z,,2019-10-23T17:07:49Z,1,355,1,Beginners and Intermediate level SQL questions,3,3
+19,2019-10-22T12:16:29Z,,2019-10-23T16:52:54Z,1,271,1,45 Python Question and answers,3,1
+20,2019-10-22T12:23:31Z,,2019-10-23T16:21:08Z,1,147,1,18 Questions . Q13 to Q18 is advanced level.,2,0
+25,2019-10-22T16:18:14Z,2019-10-22T21:09:19Z,2019-10-22T21:09:19Z,1,21,1,,4,0
+45,2019-11-26T06:11:41Z,2019-11-28T12:38:46Z,2019-11-28T12:38:46Z,1,12,8,"Answered the definition questions for provider, resources and provisioner and those of terraform commands.",3,4
+67,2020-01-21T22:55:29Z,2020-01-22T07:46:49Z,2020-01-22T07:46:49Z,1,25,3,"Added Answers to 6 Security Questions
+Deleted a duplicate question ""Buffer Overflow"". Now it was worded different, but they both wanted the same answer.",2,0
+82,2020-03-13T01:01:47Z,2020-03-16T18:41:27Z,2020-03-16T18:41:27Z,1,2,1,"Added answer ""What is a AAAA Record?"" (DNS)
+And please, check my grammar.",2,0
+99,2020-08-28T12:24:59Z,,2020-09-09T23:22:33Z,1,113,1,"Ansible Questions
+1 Ansible  Answer updated
+1 Ansible Question Added",2,0
+104,2020-09-03T15:54:03Z,2020-09-07T18:05:17Z,2020-09-07T18:05:17Z,1,141,1,Adding more sections on K8s with core concepts and scheduling,2,5
+106,2020-09-09T16:19:35Z,2020-09-10T02:47:28Z,2020-09-10T02:47:28Z,1,9,1,Also did a minor grammar change,2,0
+108,2020-09-14T07:01:33Z,2020-09-14T14:44:48Z,2020-09-14T14:44:48Z,1,42,3,,2,0
+109,2020-09-15T04:42:24Z,2020-09-15T20:04:57Z,2020-09-15T20:04:57Z,1,40,0,,2,1
+115,2020-10-08T09:11:56Z,,2020-10-23T05:39:47Z,1,13,1273,"I have answered the unanswered questions of Cloud.
+If there is anything to improve, do let me know",2,1
+116,2020-10-23T05:41:11Z,2020-12-22T11:45:17Z,2020-12-22T11:45:17Z,1,11,7,,3,0
+124,2021-01-22T11:33:11Z,2021-01-22T22:43:08Z,2021-01-22T22:43:08Z,1,28,4,"Added few answers to questions. Also, combined two questions into one, because one was almost a subset of another. (At least based on my answer)
+I am new to contributing and stuff. Please let me know if I do something wrong, etc. Thanks.",2,0
+159,2021-09-24T22:58:52Z,2021-09-27T08:00:16Z,2021-09-27T08:00:16Z,3,14,0,,2,0
+169,2021-11-03T03:11:11Z,2021-11-03T08:55:50Z,2021-11-03T08:55:50Z,1,1,0,The Docker Image build image question is updated with the docker command along with podman,3,1
+184,2021-11-17T19:59:17Z,2021-11-18T08:16:51Z,2021-11-18T08:16:51Z,2,289,0,New perl topic and questions added,2,2
+191,2021-11-24T00:18:40Z,2021-11-24T19:12:25Z,2021-11-24T19:12:25Z,1,95,0,,2,0
+195,2021-12-31T17:06:11Z,2022-04-26T16:05:48Z,2022-04-26T16:05:48Z,1,27,0,Here I added the appropriate answer for the question.,2,5
+205,2022-01-25T05:11:37Z,,2022-04-26T04:37:15Z,1,6,0,,2,0
+211,2022-03-15T04:33:42Z,2022-03-15T06:55:26Z,2022-03-15T06:55:26Z,1,56,0,"Hi, I added an answer for linux ssh-keygen question in Linux - SSH section.
+I also tested changes I made :
+$ sh scripts/run_ci.sh
+Output :
+Tests passed successfully.
+PEP8 Passed
+
+Any suggestions are appreciated.",2,0
+229,2022-05-02T18:36:16Z,2022-05-22T09:57:38Z,2022-05-22T09:57:38Z,1,98,9,"Hello again @bregman-arie !
+We added a few answers to already existing questions. Additionally, we created questions about software supply chain, package management and security concerns related to the topics. We are more than happy to hear your feedback and fix potential issues if there are any, and kudos to you and the other contributors in this repo!
+Best regards,
+@Akseluhr & @Abdullah1428",2,4
+230,2022-05-02T21:12:56Z,2022-05-05T06:24:14Z,2022-05-05T06:24:14Z,1,3,0,"Question : What is the role of an SSH key?
+What do you think ?",2,0
+231,2022-05-02T21:36:50Z,2022-05-04T05:43:13Z,2022-05-04T05:43:13Z,1,6,0,"Question : Explain CVE and CVSS
+What do you think ?",2,0
+232,2022-05-03T03:35:47Z,,2022-06-29T06:10:17Z,1,32,0,"Added basic CI Workflow - Issue #182
+Workflow that will run scripts/run_ci.sh every time someone submits a pull request as requested in issue #182",2,1
+234,2022-05-04T20:31:25Z,2022-07-08T20:10:08Z,2022-07-08T20:10:08Z,1,14,0,I tried to sum up as much as I can and detailed a bit X.509 standard.,2,0
+236,2022-05-08T01:14:13Z,,2022-05-08T15:59:06Z,1,28,0,It's a better way to calculate the mid value which can avoid overflow.,2,0
+241,2022-05-13T14:38:42Z,2022-09-02T11:53:01Z,2022-09-02T11:53:01Z,1,69,0,"Hi @bregman-arie,
+In this PR, I add a solution to the directories comparison shell script exercise. Please let me know if there are any changes I need to make!",2,2
+242,2022-05-19T02:06:39Z,2022-05-19T06:46:40Z,2022-05-19T06:46:40Z,1,15,3,,2,0
+244,2022-05-20T10:07:08Z,2022-05-30T08:40:53Z,2022-05-30T08:40:53Z,1,127,0,Adding answers to questions in #4. Also added new questions and answers,2,3
+248,2022-05-30T01:19:56Z,2022-05-30T08:39:56Z,2022-05-30T08:39:56Z,1,85,2,"Hi @bregman-arie, I have updated a few answers to the GCP section.
+Could you please check and accept my PR. Thanks!",2,0
+260,2022-06-29T21:15:50Z,2022-06-30T04:56:48Z,2022-06-30T04:56:48Z,2,16,0,Added some frequently asked questions.,2,0
+264,2022-07-12T09:23:59Z,2022-09-02T11:52:16Z,2022-09-02T11:52:16Z,1,1,1,"Related to #212.
+Thanks to @bolshoytoster.",2,0
+265,2022-07-13T21:33:39Z,,2022-08-25T06:02:31Z,1,5,1,,2,0
+267,2022-07-30T14:17:54Z,2022-07-30T15:22:29Z,2022-07-30T15:22:29Z,1,2,0,Answered Question,2,0
+269,2022-08-01T09:06:01Z,2022-08-01T10:42:16Z,2022-08-01T10:42:16Z,1,21,1,answered questions,2,0
+272,2022-08-10T12:08:21Z,2022-08-10T15:17:51Z,2022-08-10T15:17:51Z,1,1,0,,2,0
+274,2022-08-14T18:31:22Z,2022-08-15T05:32:42Z,2022-08-15T05:32:42Z,1,1,1,Fixed typo in what is private ip answer,2,0
+277,2022-08-18T23:26:41Z,2022-08-25T06:02:08Z,2022-08-25T06:02:08Z,1,6,0,2 solutions,2,0
+283,2022-09-06T19:02:00Z,2022-09-07T01:32:04Z,2022-09-07T01:32:04Z,1,1,1,"Edited summary ""What is continuous integration"". Added ""be"" to sentence.",2,0
+284,2022-09-07T00:13:08Z,2022-09-07T01:32:14Z,2022-09-07T01:32:14Z,1,1,1,Update README.md to fix the minor mistake.,2,0
+302,2022-10-12T04:29:28Z,2022-10-13T06:58:00Z,2022-10-13T06:58:00Z,2,36,0,,2,1
+310,2022-11-07T11:23:46Z,2022-11-08T16:20:16Z,2022-11-08T16:20:16Z,5,42,28,"Working Github page after the changes: https://dlccyes.github.io/devops-exercises/
+
+Escape the curly braces so that Jekyll won't complain (ref)
+Change the internal link in the HTML part of the main README from path/README.md to path, so that the links are accessible on both Github and Github page.",2,0
+314,2022-11-11T12:46:55Z,2023-02-05T18:51:34Z,2023-02-05T18:51:34Z,1,48,52,"I think it would be better if the methods returned more filtered strings,using regular expressions we can filter those questions and answers.",2,3
+317,2022-11-15T09:00:17Z,2022-11-16T15:05:41Z,2022-11-16T15:05:41Z,2,11,10,,3,0
+318,2022-11-16T14:59:24Z,2022-11-23T20:22:55Z,2022-11-23T20:22:55Z,1,4,0,,2,0
+319,2022-11-18T20:33:14Z,2022-11-23T20:23:38Z,2022-11-23T20:23:38Z,1,3,3,"Most of the sources say that Ansible is declarative, even the official doc https://docs.ansible.com/ansible/latest/reference_appendices/glossary.html#term-Declarative",2,0
+321,2022-11-19T06:12:59Z,,2023-02-05T18:46:36Z,1,26,0,Very useful content. Please approve my request,3,1
+322,2022-11-23T08:39:57Z,2022-11-23T20:24:52Z,2022-11-23T20:24:52Z,1,1,1,"Update ACL as ""public-read"" for the public bucket",3,0
+323,2022-11-28T05:53:37Z,2022-12-04T20:20:34Z,2022-12-04T20:20:34Z,1,17,0,Add shell script exercise argument check solution.,2,0
+324,2022-12-03T06:38:09Z,2022-12-04T20:21:25Z,2022-12-04T20:21:25Z,1,0,8,,2,0
+325,2022-12-12T12:03:26Z,2022-12-12T14:01:56Z,2022-12-12T14:01:56Z,2,44,2,"Add questions on SRE KPIs, postmortems, toil and Chaos engineering",2,0
+326,2022-12-20T12:23:28Z,2022-12-23T08:12:19Z,2022-12-23T08:12:19Z,1,12,0,"Adding an answer to How does ""SSL handshake work?"" question.",2,0
+329,2022-12-30T01:08:21Z,2022-12-30T16:26:06Z,2022-12-30T16:26:06Z,1,9,1,,2,0
+331,2023-01-02T15:57:24Z,2023-01-04T12:18:59Z,2023-01-04T12:18:59Z,1,2,2,"Since 1.14, Kubectl also supports the management of Kubernetes objects using a kustomization file. cf. https://kubernetes.io/docs/tasks/manage-kubernetes-objects/kustomization/#bases-and-overlays",3,0
+340,2023-01-29T13:25:34Z,2023-01-29T20:55:59Z,2023-01-29T20:55:59Z,1,8,0,I have answered to some questions of the Puppet topic.,2,0
+342,2023-01-31T12:20:43Z,2023-02-02T11:00:42Z,2023-02-02T11:00:42Z,1,55,10,,2,0
+343,2023-01-31T17:33:03Z,2023-02-02T10:59:41Z,2023-02-02T10:59:41Z,1,13,1,I have answered to some MongoDB questions.,3,0
+344,2023-02-01T00:25:50Z,2023-02-02T11:00:23Z,2023-02-02T11:00:24Z,2,10,3,Signed-off-by: Fabio Kruger 10956489+krufab@users.noreply.github.com,2,0
+346,2023-02-02T13:59:08Z,2023-02-03T09:42:59Z,2023-02-03T09:42:59Z,4,90,0,Adding more python exercise and solution,2,2
+348,2023-02-17T11:42:13Z,2023-02-17T18:35:02Z,2023-02-17T18:35:03Z,1,18,1,,2,0
+354,2023-02-28T11:27:59Z,2023-03-25T11:07:39Z,2023-03-25T11:07:39Z,1,17,10,"Hello, I tried to update some of Elasticsearch's answers.",3,0
+358,2023-03-08T16:14:50Z,,2023-05-27T17:40:06Z,5,72,1,"I've added 2 more exercises and solutions to the shell scripting section, working on more..
+i would love if this pull request is merge thank you, @bregman-arie @spuder",5,4
+360,2023-03-16T12:43:33Z,2023-03-25T11:02:45Z,2023-03-25T11:02:45Z,1,65,5,"Answered:
+Describe the following network devices and the difference between them: • router • switch • hub
+What is TTL? What does it helps to prevent?
+Can you have two DHCP servers in the same network? How it works?
+What is SSL tunneling? How does it works?
+What is a socket? Where can you see the list of sockets in your system?
+What is IPv6? Why should we consider using it if we have IPv4?
+What is VLAN?
+True or False?. Ping is using UDP because it doesn't care about reliable connection.
+What is SDN?
+What is ICMP? What is it used for?
+Which factors affect network performances?
+Removed Duplicate:
+Which factors affect network performances",3,0
+362,2023-03-21T09:14:55Z,2023-03-25T10:59:55Z,2023-03-25T10:59:55Z,1,34,29,,3,0
+365,2023-03-26T07:26:27Z,,2024-02-02T13:17:16Z,1,57,0,,3,2
+366,2023-03-26T15:54:57Z,2023-05-27T17:44:15Z,2023-05-27T17:44:15Z,1,110,12,Insert reply for questions on Prometheus section,2,0
+368,2023-03-31T19:48:58Z,2023-05-27T17:45:16Z,2023-05-27T17:45:16Z,2,32,4,this is my first  contribution that i have answered a question in linux,2,1
+375,2023-04-04T11:49:47Z,2023-05-27T17:45:45Z,2023-05-27T17:45:45Z,1,23,1,,2,0
+379,2023-04-07T07:25:37Z,2023-04-07T20:52:10Z,2023-04-07T20:52:10Z,1,4,0,"Add explanation of network congestion and its causes.
+Provide recommendations for preventing and managing network congestion.",2,0
+385,2023-04-30T13:10:52Z,2023-05-04T05:25:01Z,2023-05-04T05:25:01Z,1,1,1,,2,0
+386,2023-05-04T08:05:44Z,2023-05-27T17:48:00Z,2023-05-27T17:48:00Z,1,275,0,"Answered the following questions:
+
+You are given a pipeline and a pool with 3 workers: virtual machine, baremetal and a container. How will you decide on which one of them to run the pipeline?
+How do you perform plan capacity for your CI/CD resources? (e.g. servers, storage, etc.)
+How would you structure/implement CD for an application which depends on several other applications?
+How do you measure your CI/CD quality? Are there any metrics or KPI’s (Key Performance Indicators) you are using for measuring the quality?
+What are the advantages of Jenkins over its competitors? Can you compare it to one of the following systems? (Travis, Bamboo, Teamcity, CircleCI)
+What plugins have you used in Jenkins?
+Have you used Jenkins for CI or CD processes? Can you describe them?
+What type of jobs are there? Which types have you used?
+How to acquire multiple nodes for one specific build?
+Whenever a build fails, you would like to notify the team owning the job regarding the failure and provide failure reason. How would you do that?
+There are four teams in your organization. How to prioritize the builds of each team? So the jobs of team x will always run before team y for example
+If you are managing a dozen of jobs, you can probably use the Jenkins UI. But how do you manage the creation and deletion of hundreds of jobs every week/month?
+What is the different between a scripted pipeline to declarative pipeline? Which type are you using?
+How would you implement an option of a starting a build from a certain stage and not from the beginning?
+Do you have experience with developing a Jenkins plugin? Can you describe this experience?",2,0
+387,2023-05-07T21:54:17Z,2023-05-15T20:15:02Z,2023-05-15T20:15:02Z,1,162,51,I added answers for around 15 questions and added 6 more questions to the hardware section.,3,1
+389,2023-05-18T15:17:57Z,2023-05-27T17:39:38Z,2023-05-27T17:39:38Z,1,2,2,,3,0
+390,2023-05-20T23:54:40Z,2024-02-02T13:17:34Z,2024-02-02T13:17:34Z,1,8,4,"resolved some issues, I hot it was helpful.",4,1
+391,2023-05-20T23:55:59Z,2023-05-27T17:38:46Z,2023-05-27T17:38:46Z,1,1,1,,3,0
+394,2023-06-09T08:24:58Z,,2024-02-02T13:19:00Z,1,1,0,"Added answer for ""What is GPU?"" which was missing.",2,0
+397,2023-06-16T18:31:21Z,2024-02-02T13:19:52Z,2024-02-02T13:19:52Z,1,1,1,deafult => default,3,0
+398,2023-06-26T18:05:55Z,2024-02-02T13:20:25Z,2024-02-02T13:20:25Z,2,48,0,I have added a solution to the exercise using Terraform,2,0
+401,2023-07-18T13:25:20Z,2024-02-02T13:21:38Z,2024-02-02T13:21:39Z,1,2,1,rectify the spelling of properly,3,0
+404,2023-07-30T19:03:28Z,2024-02-02T13:22:34Z,2024-02-02T13:22:34Z,1,2,2,,4,0
+406,2023-07-31T11:46:22Z,,2023-11-29T17:04:49Z,1,6,0,,2,0
+408,2023-08-01T10:42:25Z,,2024-02-02T13:23:00Z,1,33,0,add new question for CKA,3,1
+411,2023-08-02T02:22:56Z,2023-08-24T20:02:53Z,2023-08-24T20:02:53Z,29,77,77,"Found via codespell -L caf,etcp,alle,aks",4,1
+416,2023-08-03T14:22:24Z,,2023-08-24T19:57:11Z,1,0,0,,4,2
+418,2023-08-03T21:00:26Z,2023-08-24T19:56:22Z,2023-08-24T19:56:22Z,1,2,3,,2,0
+10199,2023-08-09T02:32:38Z,2023-08-24T20:01:01Z,2023-08-24T20:01:01Z,1,24,0,Add questions and answers of Hardware,3,1
+10201,2023-08-10T22:37:43Z,2024-02-02T13:24:43Z,2024-02-02T13:24:43Z,1,2,0,,2,0
+10202,2023-08-12T09:24:30Z,2023-08-24T20:05:15Z,2023-08-24T20:05:15Z,1,132,7,,3,0
+10203,2023-08-14T04:38:36Z,2023-08-24T20:00:25Z,2023-08-24T20:00:25Z,1,3,1,README updated for the AWS section. Corrected ans of a question. Regarding cross-zone Load balancing.,3,0
+10206,2023-08-18T16:30:34Z,,2024-02-02T13:25:12Z,1,3,2,"Updating the definition of the Observability under ""What's observability"" which was missing",2,0
+10208,2023-08-21T18:49:37Z,2023-08-24T19:55:25Z,2023-08-24T19:55:25Z,1,5,0,"Issue #415  Update README.md
+No answer for ""What's Observability?""
+opened 3 weeks ago by bbrewington.",2,0
+10209,2023-08-22T13:02:52Z,2023-08-24T19:54:37Z,2023-08-24T19:54:37Z,1,6,0,Adding some details to the section on Filebeat.,3,0
+10233,2023-10-05T18:58:06Z,,2023-11-30T06:30:04Z,1,1,0,,2,1
+10237,2023-10-25T19:00:08Z,2024-02-02T13:29:34Z,2024-02-02T13:29:34Z,1,4,1,"Molecule is my favorite tool for Ansible role development and ongoing maintenance.  As I was reading through this repo, I saw there was no answer for Molecule, so I thought I'd add one!",2,0
+10238,2023-11-07T09:02:55Z,2024-02-02T13:29:09Z,2024-02-02T13:29:09Z,1,1,15,"Solution of  argument_check.md (shell scripting) was in exercise question also.
+I removed it from exercise as it is already in solution file of it.",4,1
+10241,2023-11-26T23:33:02Z,,2024-02-02T13:16:56Z,1,10,0,"updated the question ""What happens to running pods if if you stop Kubelet on the worker nodes?""",2,0
+10242,2023-12-02T13:19:12Z,2024-02-02T13:16:32Z,2024-02-02T13:16:32Z,1,20,0,Wrote a short note on Apache Kafka ZooKeeper.,2,0
+10243,2023-12-03T23:04:11Z,2024-02-02T13:15:31Z,2024-02-02T13:15:31Z,1,2,3,"Fixes the solution of the copy exercise with regards to step 4. Originally it did not move x and y to the files directory, but instead, it copied them to files.",2,0
+10244,2023-12-03T23:26:25Z,2024-02-02T13:15:14Z,2024-02-02T13:15:14Z,3,6,7,fixes typos for linux create remove exercise.,2,0

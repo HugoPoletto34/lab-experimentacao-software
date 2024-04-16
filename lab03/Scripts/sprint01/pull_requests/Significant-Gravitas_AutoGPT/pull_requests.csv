@@ -1,0 +1,1530 @@
+number,created_at,merged_at,closed_at,files,additions,deletions,body_text,participants,comments
+19,2023-04-02T00:52:56Z,,2023-04-02T10:34:35Z,13,175,118,"added openai model to args, modified args code, updated readme",2,5
+32,2023-04-02T15:34:16Z,2023-04-02T22:52:40Z,2023-04-02T22:52:40Z,1,2,2,specifc -> specific,2,0
+33,2023-04-02T17:06:08Z,2023-04-10T11:07:42Z,2023-04-10T11:07:42Z,16,84,15,"This merge request aims to improve the documentation of the functions in the project. The current documentation for the functions is either incomplete or lacks clarity, making it difficult for users to understand the functionalities of the functions.",7,13
+36,2023-04-02T18:20:26Z,,2023-04-04T23:20:05Z,0,0,0,,6,6
+39,2023-04-02T19:05:24Z,2023-04-02T22:41:08Z,2023-04-02T22:41:08Z,9,40,27,"Removed keys.py.
+Added .env.template.
+Added .env to .gitignore.
+Updated various files that imported keys to use os.getenv instead.
+Updated requirements.txt dependencies and move to root directory.
+Updated README.md with instructions on setting up environment variables.
+
+This change improves security, flexibility, and makes it easier to use Auto-GPT in notebooks. Environment variables are stored in .env and loaded via load_dotenv() in scripts/main.py.",3,4
+41,2023-04-02T19:15:53Z,2023-04-02T22:25:01Z,2023-04-02T22:25:01Z,1,3,2,"The docs say the command to add TTS is speach-mode, while it's speak-mode. Just a small mistake, but still caused some issues.",3,2
+44,2023-04-02T20:54:57Z,2023-04-02T22:21:25Z,2023-04-02T22:21:25Z,2,16,8,"hello, in order to isolate the execution, I added a simple dockerfile using py3.11 (I had to remove the pins to resolve conflicts).
+docker build -t auto-gpt . && docker run --rm -it auto-gpt
+I'm also happy to add a dependency manager as well so the project doest have any dep conflicts;  if thats something that might be interesting for you, let me know and I can push another pr using pip-tools or poetry or pipenv etc.",3,1
+45,2023-04-02T21:42:14Z,2023-04-03T10:43:38Z,2023-04-03T10:43:38Z,21,658,168,"(This is such a neat experiment. Thanks for open-sourcing!)
+Fixes #12
+Fixes #40
+Makes davinci-3.5-turbo the default model (faster and cheaper)
+Allows for model configuration
+I made JSON parsing a lot more forgiving, including using GPT to fix up the JSON if necessary.
+I also improved the prompt to make it follow instructions a bit better.
+I also refactored a bit.
+I also made it save my inputs to a yml file by default when it runs. (This could be a LOT better - very rough, but wanted to get this in)
+P.S. Mind adding an MIT license to this?",12,45
+49,2023-04-02T23:08:23Z,,2023-04-14T21:27:03Z,6,540,16,"Added pip-tools functionality. Instead of adding to requirements.txt, simply add the library to requirements.in and run pip-compile after installing pip-tools
+Cleaned up dockerfile to install requirements first for a quick optimization
+Changed docker image from 3.8 -> 3.10
+Added a proper gitignore",3,1
+50,2023-04-02T23:09:10Z,2023-04-04T09:04:29Z,2023-04-04T09:04:29Z,1,2,2,"This makes the prompt path relative to the data.py path. Otherwise following the README you get:
+cd Auto-GPT
+python scripts/main.py
+...
+Enter nothing to load defaults, enter nothing when finished.
+Goal 1:
+Error: Prompt file not found
+Error: Invalid JSON",4,0
+59,2023-04-03T05:56:28Z,,2023-04-09T13:48:03Z,1,5,0,"fallback to using say local Mac cli when elevenlabs.io is not setup
+tested with python scripts/main.py --speak --gpt3only 👌",4,3
+72,2023-04-03T13:58:45Z,2023-04-15T21:01:39Z,2023-04-15T21:01:39Z,1,1,1,"Fixes an issue where double quotes were not being escaped in JSON strings, causing parse errors.",7,3
+81,2023-04-03T15:48:57Z,2023-04-03T23:27:37Z,2023-04-03T23:27:37Z,1,3,0,"fixes: #55
+@Torantulino",3,0
+85,2023-04-03T16:31:34Z,,2023-07-07T05:18:09Z,4,35,37,"This PR focuses on enhancing the file operations module by implementing the following changes:
+
+Replacing the os and os.path modules with the pathlib module, which simplifies file and directory operations while providing better readability.
+Improving exception handling by using specific exceptions (e.g., FileNotFoundError) instead of generic exceptions where appropriate. This change enables more informative error messages to be returned to the user.
+Updating error message formatting by using f-strings, which enhances readability and consistency.
+
+These updates contribute to a more robust and maintainable file operations module, making it easier to understand and modify in the future.",5,3
+86,2023-04-03T16:34:12Z,,2023-04-04T10:44:54Z,1,4,2,"Install googlesearch-python directly from github, using latest commit of @tomviner
+which fixed the resolution error of requests package.
+Fixes #30",3,2
+87,2023-04-03T16:52:42Z,2023-04-15T21:21:59Z,2023-04-15T21:21:59Z,2,34,6,,5,3
+94,2023-04-03T18:46:04Z,2023-04-04T09:05:36Z,2023-04-04T09:05:36Z,1,1,0,"#Fixes an issue where it hallucinates on ""COMMANDS"" 💭
+##77",2,0
+96,2023-04-03T19:12:41Z,2023-04-15T22:31:45Z,2023-04-15T22:31:45Z,4,115,58,"Switch out the browse feature with Playwright. Many sites do not work with requests. Playwright imitates the browser better.
+This also adds a new requirement for install:
+pip install playwright
+playwright install
+
+This also includes:
+
+Hide auto_gpt_workspace/* in .gitignore
+Mac Python 3.11 support (removed dirtyjson in favor of json)
+Updated requirements.txt",3,2
+98,2023-04-03T19:13:08Z,2023-04-04T10:20:28Z,2023-04-04T10:20:28Z,3,3,18,"Swapped the googlesearch package for the duckduckgo-search one. It uses the ddg instant answer API and works very similarly to the googlesearch one.
+I've been using the duckduckgo-search package extensively and compared it to other search python packages. In my opinion it is the best out there for quick search answers.",5,1
+100,2023-04-03T19:21:00Z,2023-04-06T06:42:19Z,2023-04-06T06:42:19Z,1,1,1,,2,1
+102,2023-04-03T20:02:08Z,2023-04-03T23:38:35Z,2023-04-03T23:38:35Z,1,30,45,"This PR fixes an issue in the print_assistant_thoughts function that caused a UnboundLocalError when assistant_thoughts_reasoning was referenced before assignment.
+To solve this, I have initialized all variables to None before trying to retrieve them from assistant_reply_json. This ensures that all variables are defined even if they are not included in the JSON response.",3,1
+107,2023-04-03T21:10:42Z,,2023-04-05T12:38:51Z,18,256,35,"First ever pull request. Integrates Arxiv search and summarisation as available action for auto-gpt.
+Based on https://github.com/DaltonPayne/arxiv-chatbot, just updated to GPT 3.5",4,3
+108,2023-04-03T21:23:22Z,,2023-04-22T22:40:16Z,1,2,0,This PR adds a 'r' command to retry the last action. Users can now easily try a different approach without exiting the program.,5,8
+111,2023-04-03T21:33:37Z,2023-04-03T23:24:52Z,2023-04-03T23:24:52Z,5,101,12,"Description
+This PR fixes #31
+This PR adds functionality to the project to allow for a choice between the original Google search method and the Google Custom Search API. The google_search method uses the original method of scraping the HTML from the search results page, using googlesearch-python, while the google_official_search method uses the Google Custom Search API to retrieve search results. Note the Google Custom Search API provides 100 search queries per day for free. If you need more, you may sign up for billing in the API Console. Additional requests cost $5 per 1000 queries, up to 10k queries per day.
+How to test:
+To test the functionality, ensure that you have valid API keys and search engine IDs for both the Google search method and the Google Custom Search API. You can set these values in your environment variables as described in the README.md file.
+Additional Notes:
+This pull request only adds functionality and makes improvements to existing code. No new features or major changes have been introduced.",8,8
+112,2023-04-03T21:36:05Z,2023-04-04T01:26:10Z,2023-04-04T01:26:10Z,1,1,1,,4,0
+115,2023-04-03T22:16:41Z,2023-04-10T12:12:26Z,2023-04-10T12:12:26Z,1,11,1,Introduce check to OPENAI_API_KEY environment variable if set.,3,0
+116,2023-04-03T22:34:09Z,,2023-04-20T18:08:42Z,1,4,3,"Explicitly mentioning the use of search when needing new information helps the model consider more the use of search, and the training data information in 5. of resources helps the model iterate trough its training data before realizing a search query, this has been tested in a different system obtaining good results and more useful information.
+
+Using training data consideration as part of the prompt will improve the efficiency in search use.",5,4
+120,2023-04-03T23:21:48Z,,2023-04-11T18:17:57Z,1,20,2,"Since I often don't agree with the direction that autogpt is going, or because I can save some time (and tokens) by giving him advice, I added an input for each iteration where the user can add advice. Autogpt will then take that advice into account for the next iteration.
+I took the opportunity to also test my ""autogpt"" for code: https://github.com/fjrdomingues/autopilot",4,7
+121,2023-04-03T23:25:15Z,,2023-04-15T21:14:29Z,4,95,148,"Allows for browsing dynamic pages (Twitter, Google, .etc).
+It lets the agent read the whole page (paginated view)
+
+
+Resuming can be added back later, but I think this performs better
+
+
+I added ""No images"" to the base prompt, otherwise it tries to fetch images.
+Selenium can later be used to further interact with the page (click buttons, fill forms).",8,8
+122,2023-04-04T00:31:46Z,2023-04-06T10:31:58Z,2023-04-06T10:31:58Z,9,153,29,"What this does:
+
+Updates the readme showing how to get started with pinecone.
+Removes the local memory in favor of pinecone.
+Shows memory usage and prints it if the debug flag is on.
+Saves everything to memory
+Queries the memory on every chat and gets relevant stuff.
+Adds memory until the prompt + memory takes up 2500 tokens
+Removes all memory management",17,24
+124,2023-04-04T00:46:11Z,2023-04-15T21:42:15Z,2023-04-15T21:42:15Z,4,138,11,"Implemented persistent memory with a sqlite3 database instead of list of strings.
+Benefits include:
+-session memories can now be persistent
+-contents searchable between multiple sessions
+-multiple agents could in theory interoperate/cooperate with one centralized memory repository since each would get a new session id",12,22
+126,2023-04-04T01:04:10Z,2023-04-10T11:09:26Z,2023-04-10T11:09:26Z,1,1,1,Just a small tweak with the README,3,3
+129,2023-04-04T01:30:15Z,2023-04-04T09:44:16Z,2023-04-04T09:44:16Z,3,24,43,"Agents browsing the web are usually looking to find answers to questions.
+Currently, the agents blindly summarize the website contents, which is often not useful. For example, if you're wanting to browse Leonardo DiCaprio's wiki to find his birthday, you will see the following:
+
+
+This subpage is dedicated to American actor and film producer Leonardo DiCaprio. It includes information about his early life, acting career, other ventures such as activism and philanthropy, personal life, and filmography and accolades. It details his rise to fame with Titanic and his work as an actor and producer since then. It also highlights his activism, philanthropy, and charitable donations. Additionally, there are pages dedicated to his movies, reviews, awards, personal life, and more.
+
+Whereas with my changes, the agents will cleanly find the answer to the question:
+
+
+Leonardo DiCaprio was born on November 11, 1974, in Los Angeles, California.",4,2
+133,2023-04-04T02:13:23Z,2023-04-04T08:53:55Z,2023-04-04T08:53:55Z,1,15,10,"When in manual mode, you often see the agent get off track but are nonetheless hopeless as you can only say either ""yes"" and it does the wrong thing, or ""no"" and you have to start over. With my changes, you can tell the agent what it's doing wrong and what it should be doing instead.
+
+  
+    
+    
+
+    human.feedback.mov",7,5
+135,2023-04-04T02:31:39Z,,2023-04-15T22:36:38Z,4,36,3,Update prompt to give shell access and add shell execution command,8,8
+139,2023-04-04T03:18:09Z,,2023-04-12T09:25:35Z,1,4,0,added visible discord link in ReadMe,3,0
+141,2023-04-04T03:36:59Z,,2023-04-14T21:10:37Z,1,0,23,I don't think we can safely run black or autopep8 on this repo since there are so many contributions. Best we can do is fix manually with flake8.,3,3
+142,2023-04-04T03:49:14Z,,2023-04-10T15:43:34Z,33,765,137,#137,12,11
+147,2023-04-04T05:22:29Z,2023-04-04T08:43:59Z,2023-04-04T08:43:59Z,1,8,0,"This PR adds some handling on weird assistant_thoughts types:
+Auto-GPT/scripts/main.py"", line 59, in print_assistant_thoughts assistant_thoughts = assistant_reply_json.get(""thoughts"", {}) AttributeError: 'str' object has no attribute 'get'
+
+Warning: Failed to parse AI output, attempting to fix.",2,0
+148,2023-04-04T05:36:30Z,,2023-05-03T17:34:48Z,16,933,164,"Love the project, wondering if you'd like to use vocode's interfaces for speech synthesis!
+
+ports the existing ElevenLabs, gTTS, and StreamElements integrations
+enables Azure voices: https://azure.microsoft.com/en-us/products/cognitive-services/text-to-speech/
+
+pros of using vocode:
+
+no need to save the interim synthesis file, all in memory
+one library for all TTS services; we'll add new synthesizers in new versions of vocode, so they'll be automatically enabled here!",8,24
+149,2023-04-04T05:40:39Z,2023-04-04T09:08:39Z,2023-04-04T09:08:39Z,2,21,3,"Adds the gTTS (Google Text-to-Speech) Python library as a fallback for text-to-speech conversion in the speak.py file. The changes were made to ensure that users can still convert text to speech even if the ElevenLabs API key is not set or if the API encounters an error. Additionally, the requirements.txt file has been updated to include the new gTTS dependency.",2,0
+153,2023-04-04T07:25:05Z,,2023-04-13T06:34:20Z,15,122,126,"Implement a GitHub Actions workflow to automatically run flake8 linting checks on pull requests. The flake8 workflow configuration can be found in the .github/workflows directory under the file named flake8.yml.
+Clean up extraneous whitespace characters from various parts of the codebase for improved code readability and style consistency.
+Delete unnecessary and debug-related print statements from the code to enhance code clarity and reduce clutter.
+
+This is clean up effort with respect to issue #137",4,9
+163,2023-04-04T10:16:39Z,,2023-04-04T11:59:49Z,2,7,0,…le summarizing same website,2,1
+164,2023-04-04T11:07:37Z,,2023-04-19T00:13:23Z,1,18,18,"Sometimes it tries to execute commands like ""Google Search"" instead of ""google"", specifying clearly which one is the command name fixes this.",9,7
+166,2023-04-04T11:24:53Z,,2023-04-27T06:16:02Z,9,166,3,"Adds new flag --db which tells Auto-GPT to try and establish connection with common mysql-like databases and then perform couple of basic functions:
+
+Reading information about specific table
+Based on table data create and execute SQL created a given user request
+
+Beware of little Bobby Tables.",5,9
+167,2023-04-04T11:26:02Z,2023-04-06T06:55:10Z,2023-04-06T06:55:10Z,1,5,6,"Simplify the load_prompt function by eliminating redundancy
+also fixed a typo",2,0
+170,2023-04-04T13:22:30Z,2023-04-06T06:56:44Z,2023-04-06T06:56:44Z,1,6,6,This way it thinks befor it acts,10,5
+171,2023-04-04T13:23:44Z,,2023-09-07T16:10:44Z,2,11,0,What do you think of an option like this to enable language support ?,8,6
+179,2023-04-04T14:31:39Z,2023-04-10T11:10:15Z,2023-04-10T11:10:15Z,1,1,1,"""$"" was annoying when copy/pasting the command. And that was the only line with the character.",4,0
+181,2023-04-04T14:58:19Z,,2023-06-14T22:24:51Z,4,200,10,"Work in progress, but im Trying to give auto gpt a way to build, manage, and run command inside docker containers.
+The goal are :
+
+No need tp set up any dev environnment for Auto-Gpt to work
+A way for Auto-GPT to run any commands in a controlled environnement
+A way for Auto-GPT to develop complete apps using the virtual docker environment.
+
+Im not sure about :
+
+The prompts given to explain the commands
+The goal i gave auto gpt
+
+Here is the reference goal with wich i've tried :
+Any suggestions is welcomed
+ai_goals:
+- set up a dev environnement for a react app using docker
+- 'create a new bare react app '
+- add a component to the react app that shows the current time
+- run the app, access it and print in a file the html
+ai_name: Developer-GPT
+ai_role: Set up working coding a environment and then follow user instructions to
+  create an app",6,5
+184,2023-04-04T15:36:02Z,,2023-04-06T18:29:36Z,1,3,3,explicitly pass the model we want to use to call_ai_function,5,2
+192,2023-04-04T18:18:36Z,,2023-04-17T15:53:36Z,8,202,13,"Related to:
+#9 #122 #124 #125
+Primary discussion here:
+#124 (comment)
+TODO:
+Tests
+Code review
+Improve code quality",3,2
+193,2023-04-04T18:27:27Z,,2023-04-12T16:56:51Z,4,14,8,Fixes the debug flag and makes current debug code use the debug flag from the config.,6,5
+194,2023-04-04T18:33:43Z,,2023-04-06T15:48:21Z,0,0,0,"Choosing the amount of goals. Say the user wants 3 goals, or 10 goals.",4,3
+208,2023-04-04T20:56:58Z,2023-04-06T07:50:11Z,2023-04-06T07:50:11Z,1,35,7,"This pull request introduces improvements to key validation and handling in the overwrite_memory and message_agent functions within the scripts/commands.py file.
+Changes include:
+
+Adding a new helper function is_valid_int to check if a value can be converted to an integer.
+Updating the overwrite_memory function to handle both integer and string keys, and providing more informative error messages.
+Updating the message_agent function to use the is_valid_int helper function for key validation and providing an informative error message for invalid keys.
+
+These changes aim to make the code more robust and user-friendly, allowing for better handling of different key types and more informative error messages when invalid keys are encountered.",4,2
+212,2023-04-05T00:03:11Z,,2023-04-13T22:44:29Z,7,239,69,"Created console_log.py with 2 functions for printing to console
+Removed print_to_console from main.py
+Added better error handling to speak.py
+Fixes issue with speak.py not using different eleven labs voices",2,1
+214,2023-04-05T00:23:51Z,,2023-04-20T19:48:01Z,3,142,0,adding retry/backoff ability by pulling function out,8,11
+215,2023-04-05T00:29:39Z,2023-04-12T16:37:45Z,2023-04-12T16:37:45Z,1,37,8,"This pull request enhances the security and robustness of the browse.py file. The changes include:
+
+Added a function to validate input URLs to mitigate the risk of SSRF attacks
+Added a function to sanitize input URLs
+Added a function to make requests with a timeout and handle exceptions
+Updated the scrape_text function to use the new functions for URL validation, sanitization, and making requests
+
+These improvements help to enhance the security and reliability of the web scraping and link extraction functions in browse.py.
+Changes made in this pull request can be found in the files tab.",4,5
+218,2023-04-05T01:24:10Z,,2023-04-08T23:22:21Z,1,6,6,"Checks for if the requested page is 403, 404, or is less than 25 chars long (most likely a javascript needed website)",3,3
+220,2023-04-05T01:37:02Z,2023-04-06T08:18:58Z,2023-04-06T08:18:58Z,3,54,12,"This pull request introduces the search_files command to the project, allowing users to search for files within the specified directory. The changes include:
+
+Adding the search_files command to the commands.py file.
+Implementing the search_files function in the file_operations.py file, which searches for files in the specified directory.
+Updating the prompt.txt file to include the new search_files command in the list of available commands.
+
+These changes will enhance the functionality of the project by providing users with the ability to search for files within a given directory, making it easier to manage and locate files in auto_gpt_workspace.",3,3
+221,2023-04-05T01:52:33Z,,2023-06-14T22:20:55Z,8,124,140,"Moved all the ai functionality into one place - ai_functions.py.
+To test: Run it for a little while, you will see no errors.",4,5
+224,2023-04-05T02:49:12Z,,2023-04-09T21:00:25Z,28,963,116,"This pull request introduces support for Python 3.8 virtual environments and updates the README with instructions on creating and activating a virtual environment. Additionally, the .gitignore file has been updated to ignore the ""auto_gpt_workspace"" folder.",27,4
+226,2023-04-05T03:38:12Z,2023-04-10T12:15:12Z,2023-04-10T12:15:12Z,1,1,0,"Currently, the Dockerfile doesn't work for running the application. If we copy over requirements.txt, it will allow the Dockerfile to run the app.",4,1
+227,2023-04-05T03:50:37Z,,2023-06-14T22:18:59Z,2,4,4,"AutoGPT was getting confused, and causing errors because it thought the keys for memory_ovr were strings instead of an integer. This better explains that the keys are actually indexes, which helps prevent this error.",5,5
+228,2023-04-05T04:10:31Z,,2023-04-09T08:33:21Z,5,146,64,"The original Dockerfile is based on an older Python image and does not build:
+------                                                                                                                                                                                                                                                               
+ > [4/4] RUN pip install -r requirements.txt:                                                                                                                                                                                                                        
+#0 0.841 ERROR: Could not open requirements file: [Errno 2] No such file or directory: 'requirements.txt'                                                                                                                                                            
+#0 2.018 
+#0 2.018 [notice] A new release of pip available: 22.3.1 -> 23.0.1
+#0 2.018 [notice] To update, run: pip install --upgrade pip
+------
+Dockerfile:6
+
+The updated version is latest Python image, based on alpine3.17:
+% docker build -t test .
+[+] Building 33.1s (9/9)                                                                                                                                                                                                                                             
+[+] Building 33.1s (9/9) FINISHED
+[...]
+
+% docker run --rm -it test /bin/sh
+/app # python main.py
+playsound is relying on another python subprocess. Please use `pip install pygobject` if you want playsound to run more efficiently.
+Welcome to Auto-GPT!  Enter the name of your AI and its role below. Entering nothing will load defaults.
+Name your AI:  For example, 'Entrepreneur-GPT'
+AI Name:",7,13
+229,2023-04-05T04:12:20Z,2023-04-06T11:28:39Z,2023-04-06T11:28:39Z,1,1,1,Added double quotes around name on line 14.,6,1
+233,2023-04-05T05:01:56Z,2023-04-06T11:27:41Z,2023-04-06T11:27:41Z,1,13,3,"Description
+This PR addresses the issue of enabling users to run a custom number of continuous tasks in the interaction loop using the command y -n. By providing a number after the y - command, users can now specify how many continuous tasks they want the program to execute without user interaction.
+How to test:
+To test this feature, follow these steps:
+Run the program as you normally would.
+When prompted for user input, type y -n, replacing n with the number of continuous tasks you want to execute. For example, to run 5 continuous tasks, type y -5.
+Observe the output and verify that the specified number of tasks are executed without user interaction.
+Additional Notes:
+This pull request adds a new feature to the interaction loop by allowing users to specify a custom number of continuous tasks. The implementation has been done in a way that maintains compatibility with the existing continuous mode and other functionalities of the program. The code has been refactored to avoid duplication and make it more maintainable.",6,2
+234,2023-04-05T05:17:07Z,,2023-04-06T11:01:33Z,26,1158,298,#169,25,1
+242,2023-04-05T13:56:01Z,2023-04-11T02:31:04Z,2023-04-11T02:31:04Z,1,29,15,"Previously, playing the speech sound would block the main thread. Resulting in any computation halting until the sound had finishes playing. This is inefficient, as the program could be doing useful work while the sound plays.
+This pull request adds a thread-safe implementation of ""queueing"" the speech, allowing for a more efficient use of time.",3,5
+250,2023-04-05T16:00:41Z,2023-04-06T11:19:47Z,2023-04-06T11:19:48Z,1,55,0,,3,1
+256,2023-04-05T17:11:56Z,2023-04-06T11:06:28Z,2023-04-06T11:06:28Z,1,1,1,"Assistant is often providing invalid JSON (assistant_reply in main), such as:
+{
+""command"": {
+""name"": ""google"",
+""args"": {
+""input"": ""blabla"",
+}
+},
+""thoughts"": {
+""text"": ""Search results indicate that ...""
+}
+}
+As you see, there shouldn't be a comma after ""input"" in ""args"".
+When trying to fix the JSON, the JSON fixer assistant is provided with the prompt:
+You are now the following python function: ```# Fixes the provided JSON string to make it parseable and fully complient with the provided schema.
+ If an object or field specifed in the schema isn't contained within the correct JSON, it is ommited.
+ This function is brilliant at guessing when the format is incorrect.
+def fix_json(json_str: str, schema:str=None) -> str:```
+
+Only respond with your `return` value.
+
+Then the next message, the json and it's schema are provided in this form:
+{
+    ""command"": {
+        ""name"": ""google"",
+        ""args"": {
+            ""input"": ""blabla"",
+        }
+    },
+    ""thoughts"": {
+        ""text"": ""Search results indicate that ...""
+    }
+},
+    {
+     ... the schema...
+    }
+
+gpt-3.5 is used for this request, but is thinking that this is the first argument of the function, and is replying:
+'This is not a valid return value for the fix_json function. The provided code is a JSON object containing two separate JSON objects. Please provide a valid return value for the fix_json function.'
+enclosing each string arguments with a python multi-line string will solve the problem.",2,1
+258,2023-04-05T17:46:53Z,2023-04-06T09:14:44Z,2023-04-06T09:14:44Z,4,31,7,"Functionality is controlled through a switch in the .env configuration:
+USE_AZURE=False
+OPENAI_API_BASE=your-base-url-for-azure
+OPENAI_API_VERSION=api-version-for-azure
+OPENAI_DEPLOYMENT_ID=deployment-id-for-azure
+Set USE_AZURE to True and fill in the appropriate values as detailed here: https://pypi.org/project/openai/ in the Microsoft Azure Endpoints section",3,2
+259,2023-04-05T18:23:53Z,2023-04-06T09:07:59Z,2023-04-06T09:07:59Z,1,2,1,"The fix_json error is expected to return str.
+In case of success, the function does a json.loads() and returns a JSON, which cause a ""TypeError('the JSON object must be str, bytes or bytearray, not dict')"" in the caller",3,0
+260,2023-04-05T18:25:01Z,2023-04-06T09:00:13Z,2023-04-06T09:00:13Z,1,1,0,remove the tab character that can be present in the generated json. The tab character makes the json.loads function throw an Invalid JSON error.,3,4
+271,2023-04-05T21:10:30Z,2023-04-06T08:34:48Z,2023-04-06T08:34:48Z,2,68,0,"I added issue templates to help organize the incoming issues. With these templates when someone creates a new issue they get to choose from these options:
+
+
+The bug report template looks like this:
+
+
+The feature request template looks like this:",2,0
+275,2023-04-05T22:03:44Z,2023-04-06T08:54:00Z,2023-04-06T08:54:00Z,2,7,2,"Greetings,
+I discovered that some sites are inaccessible due to the lack of user-agent headers. For instance, I tried to access 'https://etherscan.io/accounts' using the requests.get() method, but it returned a 403 error. Therefore, I added some fake user-agent headers to the request, which seemed to fix the issue.
+To avoid adding more libraries to the project, I hard-coded the headers. However, I could implement a better solution by using the 'fake-useragent' library (or a similar one) if you prefer. That being said I believe the current solution is fine at least for now.",2,0
+282,2023-04-06T00:49:19Z,,2023-04-06T08:33:39Z,2,16,12,"fix for issue #90
+Using isinstance() function to check if the key argument is an instance of the int class before calling int() function?
+def overwrite_memory(key, string):
+    if isinstance(key, int) and key >= 0 and key < len(mem.permanent_memory):
+        _text = ""Overwriting memory with key "" + \
+            str(key) + "" and string "" + string
+        mem.permanent_memory[key] = string
+        print(_text)
+        return _text
+    else:
+        print(""Invalid key, cannot overwrite memory."")
+        return None",2,1
+285,2023-04-06T01:35:00Z,,2023-06-14T22:18:10Z,11,135,22,"Fixed the json_parser.py error by making chatgpt fix itself
+def fix_and_parse_json(json_str: str, try_to_fix_with_gpt: bool = True):
+json_schema = """"""
+{
+""command"": {
+""name"": ""command name"",
+""args"":{
+""arg name"": ""value""
+}
+},
+""thoughts"":
+{
+""text"": ""thought"",
+""reasoning"": ""reasoning"",
+""plan"": ""- short bulleted\n- list that conveys\n- long-term plan"",
+""criticism"": ""constructive self-criticism"",
+""speak"": ""thoughts summary to say to user""
+}
+}
+""""""
+def clean_input(json_str):
+    brace_index = json_str.index(""{"")
+    json_str = json_str[brace_index:]
+    last_brace_index = json_str.rindex(""}"")
+    json_str = json_str[:last_brace_index+1]
+    return json_str
+
+def attempt_parse(json_str):
+    try:
+        return json.loads(json_str)
+    except Exception as e:
+        return None
+
+cleaned_json_str = clean_input(json_str)
+parsed_json = attempt_parse(cleaned_json_str)
+
+if parsed_json is not None:
+    return parsed_json
+elif try_to_fix_with_gpt:
+    print(""Warning: Failed to parse AI output, attempting to fix."")
+    ai_fixed_json = fix_json(cleaned_json_str, json_schema, False)
+
+    if ai_fixed_json != ""failed"":
+        return json.loads(ai_fixed_json)
+    else:
+        print(""Failed to fix ai output, telling the AI."")
+        return json_str
+
+raise ValueError(""Failed to parse JSON: '{}'"".format(json_str))",7,9
+287,2023-04-06T01:48:00Z,,2023-04-17T22:22:13Z,41,628,3639,,15,4
+289,2023-04-06T03:22:19Z,2023-05-31T02:02:17Z,2023-05-31T02:02:17Z,2,5,0,Addresses #270,9,11
+298,2023-04-06T08:30:59Z,,2023-06-14T23:35:03Z,12,269,76,"So there are a few issues here that going into a larger design discussion so for now I re-worked the prompts, added a bit more option there and created a fallback output if the LLM decides to break format.
+This also removes the LLM cycle where it tries to fix its own output. Def would love to play with that again for sure. The hardcoded ""you are naughty dont break format again"" should do the trick for now.
+Learned something doing this one, you cant give it an ounce of an idea a human is at the console, it just overrides the world. You cant even use words like ""human"", breaks it right out of the box.",7,8
+302,2023-04-06T09:10:41Z,,2023-04-26T16:46:20Z,1,21,0,"This PR uses a Pull Request Summarizer action to automatically summarize PRs with GPT.
+I checked out the repo and ran npx add-gpt-summarizer@latest, committed the results, and created this PR.
+In order for it to function, you need to follow its directions to create a repository secret for your OpenAI API Key.
+
+... To do this, go to your repository's settings and navigate to the ""Secrets"" section. Click on ""Add a new secret"" and enter the secret name OPENAI_API_KEY and the value of your API key.",4,3
+313,2023-04-06T13:17:54Z,2023-04-10T21:35:01Z,2023-04-10T21:35:01Z,1,1,2,Minor improvement in sentence clarity for Pinecone setup instructions.,3,2
+317,2023-04-06T13:35:50Z,2023-04-10T12:15:57Z,2023-04-10T12:15:57Z,1,6,2,Just adding the keys to .env is easier for most users. The current way confuses alot of people which causes lots of repetitive questions on github aswell as on discord.,3,0
+320,2023-04-06T14:59:46Z,,2023-04-14T23:19:44Z,9,321,50,"@Torantulino
+This PR adds common code quality workflows. Goal is to provide a consistent sandbox environment for both local and github environments.
+I based this off of #228 for the Dockerfile fixes it provided.
+Changes
+
+Github workflows that are optimized for build speed
+
+Image is built and cached for re-use on subsequent runs
+Cache key is based on hash of image inputs for re-use across similar branches
+
+
+Adds makefile for local build and testing
+Adds docker-compose file for adding other services to sandbox environment
+Adds pytest, flake8, black, pyright,  isort,
+
+Testing:
+
+
+manual local testing of all tools/commands
+
+
+workflows debugged in my fork. Workflows are running but test runners fail because of errors found by each of them.
+https://github.com/kreneskyp/Auto-GPT/actions/runs/4630090599
+
+
+
+TODO:
+
+need to add mounts for sound device and test that it works on windows, linux, mac
+
+For follow-up
+
+
+I recommend completing this PR and then fixing errors for each test runner in a separate PR.  Turn on branch protection for for each as they reach a passing state.
+
+
+It would be worth optimizing the image to make it a bit smaller.  It will be a bit friendlier to cache limits.",4,1
+321,2023-04-06T15:18:45Z,2023-04-10T07:08:55Z,2023-04-10T07:08:55Z,1,3,1,"The function kwarg model default was storing gpt-4 value at import time, leading to yield a value of gpt-4. Even after setting gpt3only, because that happens later. By that time gpt-4 is already stored in as the default value.
+This PR fixes that for us folks still waiting to unlock gpt-4 usage.",5,2
+322,2023-04-06T15:31:22Z,,2023-04-20T19:02:55Z,82,6621,53,"Summary
+Provide a web UI where you can :
+
+Create an AI at route ""/""
+Use your created Ai at route ""/main/:id""
+You have access to Ai history so you can switch back to older Ai, thanks to data persistency.
+
+Todo
+Done :
+
+ Improve display of the Ai content
+ Add support for written file download
+ Load ai_settings on older Ai click
+ Add scroll for Ai list
+ Add a middleware to add / remove agent to the right panel
+ Debug the slow output bug
+ create a design
+ AI initialization
+ Init a React project
+ Connect server with a python script
+ Connect main.py to server instead of hello world script
+
+Background
+Provide a web Ui so it's easier for user to manipulate Auto-GPT, also people can access ot other functionnality like persistency of old Ai.
+Changes
+
+A front folder with a vite+express+React app.
+Change in print function mainly to return me a JSON so it can communicate with express server
+
+Documentation
+I guess i can add more documentation do not hesitate to ask me to add something !
+Test Plan
+
+fork the branch
+go to /front folder
+install vite
+
+npm install -g vite
+
+install dependencies
+
+yarn install
+
+run server
+
+vite
+
+
+go to localhost:5173 according to console log and you can play with the UI
+Later
+
+
+Add an index db to save old AI
+
+
+PR Quality Checklist
+
+ My pull request is atomic and focuses on a single change.
+ I have thouroughly tested my changes with multiple different prompts.
+ I have considered potential risks and mitigations for my changes.
+ I have documented my changes clearly and comprehensively.
+ I have not snuck in any ""extra"" small tweaks changes",19,58
+327,2023-04-06T16:23:32Z,,2023-04-11T20:14:37Z,6,51,21,"Namespaces allow multiple Auto-GPT agents to use the same subscription to Pinecone. Additionally (and maybe more importantly) it sets the groundwork for future work to make spinoff agents work in their own (temporary) namespaces. Set the PINECONE_NAMESPACE in your .env file, or leave it blank to use the default.
+Persistent memory lets memory entries in Pinecone persist between Auto-GPT sessions. By default this is turned on. If you want to clear the long term memory for your namespace before you begin your next session, use the new --clearLongTermMemory flag on the command line.",3,1
+329,2023-04-06T16:31:54Z,,2023-04-14T19:08:23Z,43,103,86,"Convert to proper python module.
+This also makes creating tests easier.
+I adjusted README.md.
+Bonus: Dockerfile fixed. I've tested it with a simple scenario (using custom search engine, pinecone, no speak, no azure) and it is running fine.",7,30
+334,2023-04-06T17:03:00Z,2023-04-07T02:48:39Z,2023-04-07T02:48:39Z,1,18,0,"Background
+
+Currently we have a mass amount of PRs and it is becoming difficult to look at all of them in an efficient manner. We need a standardized way to see what is going on in a PR to streamline reviewing.
+Changes
+
+This PR adds a new GitHub template to allow the developer to quickly and easily provide the relevant information.
+Test Plan
+
+Raise a PR and verify template works.
+Change Safety
+
+ I have added tests to cover my changes
+ I have considered potential risks and mitigations for my changes",5,3
+335,2023-04-06T17:06:58Z,,2023-06-14T22:16:27Z,3,18,22,,4,5
+338,2023-04-06T17:48:29Z,2023-04-10T12:16:48Z,2023-04-10T12:16:49Z,1,1,0,I updated the Read-ME so users that use continuous mode are recommend to use a VM(Virtual Machine) in-case any potentially dangerous read and write scenarios happen.,3,2
+344,2023-04-06T19:27:55Z,,2023-06-14T22:40:10Z,4,8,1,I've added one other env variable to set tha pinecone index/table name from envs; previously it was a bit unclear how to configure pinecone and where does it get the table name from,6,5
+350,2023-04-06T22:46:41Z,,2023-04-16T20:26:55Z,14,325,73,"This PR implements a command registry enabling custom commands added at runtime.
+Changes:
+
+adds Command and CommandRegistry classes for defining and registering commands
+adds command decorator to support existing functions
+CommandRegistry intialized at startup loading commands from /scripts/
+main loop now loads commands from registry instance
+file operation commands now accept file instead of filename to match prompt args.
+
+TODO:
+
+ The prompt is still hardcoded. Need to turn into a template
+ Need to handle the remaining edgecase commands
+ Does order of plugins matter in prompt?
+ consolidate into scripts/commands.py
+ tie into configuration somehow?
+ unit tests",7,11
+357,2023-04-07T01:18:31Z,,2023-04-12T09:27:37Z,1,4,0,"Super ChatGPT will answer the questions 200 times VARIOUSLY (in the background), then it will combine the different texts in front of the user and generate the best sentences from the 200x different answers to a final perfect text that suits the user's wishes. Super ChatGPT's seimes my answers by running its language model multiple times. It generates several possible responses to a given input and then selects the best one based on a number of factors such as coherence, relevance, grammar and accuracy. This process runs in the background and allows for more sophisticated and nuanced responses to be generated, tailored to the specific needs and preferences of the user. By running its language model multiple times, ChatGPT can draw on a broader range of knowledge and information to provide more insightful and detailed responses.",6,4
+367,2023-04-07T03:22:32Z,,2023-04-14T14:10:40Z,52,2916,367,"Background
+Seemed relatively easy to do, so I migrated requirements.txt to Poetry.
+Changes
+
+Migrate package manager to Poetry
+Update documentation
+
+Test Plan
+I tested the local install by using Poetry, and Docker with docker build . -t test; docker run -it test.",58,24
+372,2023-04-07T05:13:47Z,2023-04-09T04:41:44Z,2023-04-09T04:41:44Z,10,391,24,"Background
+Redis is a free and open source alternative to pinecone.
+We had a dicussion here: https://discord.com/channels/1092243196446249134/1093713674679615638
+Changes
+The memory backend was given an abstract base class.
+PineconeMemory now inherits from this ABC.
+RedisMemory was added.
+Configuration options were added to the Config class.
+Test Plan
+I had SuperMario in Discord verify I did not break pinecone, I tested redis locally.
+Change Safety
+
+ I have added tests to cover my changes
+ I have considered potential risks and mitigations for my changes
+
+I didn't see any existing tests for memory and will attempt to add some at a later point in time.",10,35
+377,2023-04-07T07:28:36Z,,2023-04-10T10:37:56Z,6,46,15,"Background
+
+Changes
+
+Test Plan
+
+Change Safety
+
+ I have added tests to cover my changes
+ I have considered potential risks and mitigations for my changes",3,1
+378,2023-04-07T08:26:02Z,2023-04-10T12:14:12Z,2023-04-10T12:14:12Z,1,1,1,specifed -> specified,4,2
+388,2023-04-07T12:00:31Z,,2023-04-14T21:12:39Z,5,106,15,"Background
+I noticed that there are some minor issues in the repository:
+
+Not all dependencies are tagged to a specific version number -> This can lead to code breaking unexpectedly
+There is no automation of code formatting & validity checks -> This leads to inconsistency in the codebase and contributes/maintainers having to deal with unnecessary categories of bugs (i.e. AST violations)
+The .gitignore is rather short and doesn't include general Python settings outside of project specific exclusions
+
+Changes
+To address the issues I identified, I have made the folloiwng changes:
+
+Added pre-commit hooks to the repository, such that certain classes of checks can be executed automatically
+Tagging packages with the versions downloaded by default as per 2023/04/07
+Introducing dev-requirements.txt for dev packages (only including pre-commit for now)
+Deleting ai_settings.yaml as it is unused and in .gitignore
+
+Test Plan
+As these are not functional changes, I have not tested particular cases other than running the scripts/main.py file.
+The script continues to run as expected.
+Change Safety
+
+ I have added tests to cover my changes
+ I have considered potential risks and mitigations for my changes",3,2
+415,2023-04-07T19:37:41Z,,2023-04-09T10:41:54Z,1,8,0,"Background
+During the development process, it was observed that when opening the Python project in Visual Studio Code, warning squiggles appear under imports located in the scripts directory. This issue affected not only the visual appearance but also the ability to jump to symbol definitions and the functionality of the IntelliSense autocomplete within the IDE. Although the code runs successfully, this IDE issue can be confusing and inconvenient for contributors. The issue was resolved by adding a .vscode/settings.json file to the project, which correctly configures the import paths for the Python extension in Visual Studio Code.
+Changes
+Added a .vscode/settings.json file to the project root.
+Configured the Python extension in the settings.json file to recognize the scripts directory for imports, IntelliSense, and symbol definitions by adding the following settings:
+{
+""python.autoComplete.extraPaths"": [
+""${workspaceFolder}/scripts""
+],
+""python.analysis.extraPaths"": [
+""./scripts""
+]
+}
+Test Plan
+Clone the repository.
+Open the project directory in Visual Studio Code.
+Open any Python file within the scripts directory, such as scripts/main.py.
+Observe that warning squiggles under imports from the scripts directory are no longer present.
+Verify that jumping to symbol definitions and IntelliSense autocomplete are functioning correctly.
+Run the code to ensure that the imports are still functioning properly.
+Change Safety
+
+ I have added tests to cover my changes
+ I have considered potential risks and mitigations for my changes
+
+I have tested this change on my local development environment and verified that the warning squiggles no longer appear and the affected IDE functionalities are restored. The change is low risk as it only affects IDE configuration and does not modify any actual code.",2,0
+416,2023-04-07T19:51:48Z,2023-04-08T11:27:55Z,2023-04-08T11:27:56Z,6,78,1,"Background
+Adds support for DALL-e (default) and Stable Diffusion. Image providers can be switched via the IMAGE_PROVIDER env var.
+Changes
+Adds a command for generate_image and a corresponding handler.
+Adds support for DALL-e and Stable Diffusion (via API).
+Leverages the existing openAI API Key for DALL-e.
+Test Plan
+Tested against multiple prompts, was even able to get it to generate articles and include the generated images into the articles(!!)
+
+Change Safety
+
+ I have added tests to cover my changes
+[ x] I have considered potential risks and mitigations for my changes
+
+I am not sure how to test python code in this project.",2,1
+421,2023-04-07T20:59:14Z,2023-04-10T12:44:33Z,2023-04-10T12:44:33Z,2,87,17,"Background
+I love this project, it will  get more developers interested in contributed. I wanted to add doc strings and type notation to help new persons reading the source code understand the function of each piece of code. Ideally this will make it easier for programmers to contribute.
+Changes
+I added doc strings to the ai_config.py class AIConfig and added type notation.
+I added doc strings to the ai_functions.py
+I ran pep8 linting on the two above files.
+Test Plan
+I ran the program after adding doc strings. I initially added doc tests but after seeing unittests being used I abandoned the doc tests and I will add a seperate branch for unittests.
+Change Safety
+
+[0] I have added tests to cover my changes
+ I have considered potential risks and mitigations for my changes
+
+The doc strings have no effect on execution.",4,1
+424,2023-04-07T21:09:58Z,2023-04-16T07:10:00Z,2023-04-16T07:10:00Z,7,328,22,"Background
+This change allows the use of different vector-based memories for Auto-GPT as long as the Memory interface is implemented. As an example, this change integrates Weaviate as an alternative to Pinecone that can be instantiated locally.
+Changes
+
+We created a providers directory which is meant to hold the various memory implementations.
+The original scripts/memory.py file has been moved into the providers module and it declares Memory as an interface to be implemented.
+A new scripts/factory.py file has been added which declares a factory method for creating the appropriate memory support class. A new environment variable, MEMORY_PROVIDER allows to configure which provider to use.
+The Pinecone implementation has been moved into the providers module.
+An Weaviate implementation of the Memory interface has been added.
+
+Test Plan
+Added factory tests in tests/memory_tests.py
+Change Safety
+
+ I have added tests to cover my changes
+ I have considered potential risks and mitigations for my changes",11,23
+434,2023-04-07T22:33:15Z,,2023-04-12T14:23:58Z,7,258,97,"Background
+Related to discussion #392
+Activity logs will help to analyse agents activity and improve them
+Errors logs will help collecting errors in order to debug faster
+Changes
+
+I moved the main:print_to_console function into a proper file named logger.py. I kept the signature, but put it in a Logger class that encapsulate the default python library for logging.
+The logging library accept different logging levels, and provide extensible formatter and handling options.
+The previous behaviour (typing simulation) kept but rewritten in order to fit with the logging library (as a console handler).
+Two new handlers have been added: one for INFO level (activity.log), and one for ERROR level (error.log).
+If the logs folder doesn't exist, it will be created. This folder has been added to the .gitignore
+removed all 'debug' arguments and used logging.DEBUG level instead
+added debug_mode activation through program argument '--debug'
+
+Test Plan
+I tested standard logging (INFO), error logging (ERROR), debug logging (DEBUG) with and without speak mode. Works great.
+Change Safety
+
+ I have added tests to cover my changes
+ I have considered potential risks and mitigations for my changes
+
+I didn't find necessary to add tests for logging.",3,16
+449,2023-04-08T03:01:46Z,,2023-04-12T22:28:01Z,17,652,195,"Background
+
+This change allows Auto-GPT to be run from a server. It supports multiple users running agents simultaneously. See Server.md for instructions.
+It has a very basic HTTP API with 2 POST endpoints (/start, and /chat).
+This is a prerequisite to building a browser/mobile front-end.
+Changes
+The server:
+
+app.py, app_types.py, and app_utils.py
+these implement the server. It's very similar to the interaction loop in main.py. However, instead of getting user input from stdin, user input comes from http post requests.
+
+Supporting multiple users:
+
+I introduced the concept of a chat_id. This lets the server keep track of which conversation belongs to which user.
+This has implications for pinecone memory. Now all the memory associated with particular chat_id lives in its own namespace.
+This also has implications for the filesystem. The files relevant to a particular chat will be created in ./auto_gpt_workspace/<chat_id>
+Lots of files had to be modified to support this. The changes were mostly very simple, and involved plumbing the chat_id through functions to where it needed to be. See commands.py for an idea of what was needed.
+
+Previous functionality is maintained! You can still run main.py and it will work exactly like it used to.
+Test Plan
+
+I used postman to test the api locally. I also ran main.py to make sure that it still works as expected.
+That said, I haven't tested a huge variety of prompts. Mostly only prompts that write files.
+Here's my exported postman collection:
+{
+	""info"": {
+		""_postman_id"": ""68494d7e-b31d-4de1-8e2d-48b4d13cb465"",
+		""name"": ""auto-gpt"",
+		""schema"": ""https://schema.getpostman.com/json/collection/v2.1.0/collection.json"",
+		""_exporter_id"": ""19337810""
+	},
+	""item"": [
+		{
+			""name"": ""start"",
+			""request"": {
+				""method"": ""POST"",
+				""header"": [],
+				""body"": {
+					""mode"": ""raw"",
+					""raw"": ""{\n    \""ai_name\"": \""HelloBot\"",\n    \""ai_role\"": \""An AI that says 'Hello, World!'\"",\n    \""ai_goals\"": [\n        \""Write your message in a file called 'message.txt'.\"",\n        \""Shut down.\""\n    ]\n}"",
+					""options"": {
+						""raw"": {
+							""language"": ""json""
+						}
+					}
+				},
+				""url"": {
+					""raw"": ""localhost:8000/start"",
+					""host"": [
+						""localhost""
+					],
+					""port"": ""8000"",
+					""path"": [
+						""start""
+					]
+				}
+			},
+			""response"": []
+		},
+		{
+			""name"": ""chat"",
+			""request"": {
+				""method"": ""POST"",
+				""header"": [
+					{
+						""key"": ""chat_id"",
+						""value"": ""33178f06-2c4c-4db4-96b6-f1e1cd6bd6b3"",
+						""type"": ""text""
+					}
+				],
+				""body"": {
+					""mode"": ""raw"",
+					""raw"": ""{\n    \""message\"": \""y\""\n}"",
+					""options"": {
+						""raw"": {
+							""language"": ""json""
+						}
+					}
+				},
+				""url"": {
+					""raw"": ""localhost:8000/chat"",
+					""host"": [
+						""localhost""
+					],
+					""port"": ""8000"",
+					""path"": [
+						""chat""
+					]
+				}
+			},
+			""response"": []
+		}
+	]
+}
+Change Safety
+
+ I have added tests to cover my changes
+
+Ideally we'd have a series of tests for each command in commands.py
+
+
+ I have considered potential risks and mitigations for my changes
+
+This is not ready for production. For at least a few reasons...
+
+No user authentication
+File IO writes to disk. Ideally it should probably mount a network volume, possibly per chat_id.
+Uses python dictionaries as key/value storage for chat context in between requests. Eventually should use a real database.",3,2
+451,2023-04-08T03:17:59Z,2023-04-08T11:15:42Z,2023-04-08T11:15:42Z,1,2,2,"I was calling the script of the directory I cloned Auto-GPT, d:\src\Auto-GPT on my computer, and the settings were being saved on d:\src\ai_settings.yaml, while I expected them to be on d:\src\Auto-GPT\ai_settings.yaml",2,0
+455,2023-04-08T03:51:00Z,,2023-04-17T18:39:53Z,1,1,0,"Background
+
+Changes
+
+Test Plan
+
+Change Safety
+
+ I have added tests to cover my changes
+ I have considered potential risks and mitigations for my changes",5,5
+457,2023-04-08T04:09:30Z,2023-04-10T12:31:07Z,2023-04-10T12:31:07Z,4,22,11,"Background
+Running the program with  --debug option to enable the Debug Mode does not work.
+Changes
+
+Set the debug mode in the config object properly
+Check the debug mode from the config object properly in the if conditions.
+
+Test Plan
+
+Run the program with --debug parameter from the command line
+Verify the correct debug messages in console
+
+Change Safety
+
+ I have added tests to cover my changes
+[*] I have considered potential risks and mitigations for my changes
+
+It's a simple change to make the debug mode work. It does not need a recession test case.",5,4
+470,2023-04-08T09:03:23Z,,2023-04-10T06:52:09Z,1,5,5,"sometimes when i try to delete file using autogpt it stuck for a while, i fixed it by resolving the error",2,1
+482,2023-04-08T12:23:28Z,2023-04-08T22:28:58Z,2023-04-08T22:28:58Z,1,1,0,"Background
+To fix this error:
+ModuleNotFoundError: No module named 'PIL'
+Changes
+Add Pillow to the requirements.txt
+Tests
+Added and tested locally, fixes the issue.",7,1
+485,2023-04-08T12:42:41Z,2023-04-09T07:43:00Z,2023-04-09T07:43:00Z,1,1,1,"Background
+
+Changes
+
+Test Plan
+
+Change Safety
+
+ I have added tests to cover my changes
+ I have considered potential risks and mitigations for my changes",5,0
+491,2023-04-08T13:24:47Z,2023-04-09T07:12:39Z,2023-04-09T07:12:39Z,1,1,1,"Background
+
+Changes
+
+Test Plan
+
+Change Safety
+
+ I have added tests to cover my changes
+ I have considered potential risks and mitigations for my changes",4,0
+500,2023-04-08T16:30:53Z,,2023-05-02T00:57:02Z,3,9,3,"Background
+
+Discussion created here #492
+One topic i would like to raise is the use of optional arguments, as Auto seems to ask for it anyway. Maybe we can add a kind of optional flag in the prompt.
+Changes
+
+I have added an optional argument and fallback to default if not set.
+
+Test Plan
+Use a prompt that will trigger the ""generate_image"" command and specify in natural language an image size.
+
+Change Safety
+Only 3 sizes available at the moment, 256, 512, 1024 and with proper format, else fallback to 256x256.
+
+ I have added tests to cover my changes
+ I have considered potential risks and mitigations for my changes",3,9
+507,2023-04-08T17:50:36Z,,2023-04-15T02:50:59Z,7,177,251,"Background
+This is basically a culmination of a handful of different PRs all rolled into one with some GPT4 and CodeGenie optimization.
+I'll start with the biggest one #121, changing the scraper from BeautifulSoup to Selenium. I also believe this to be the best option going forward as it's much more robust.
+But once we have access to the web we need data from 2023 #185 , then a more robust prompt structure wouldn't hurt.
+Finally, when AutoGPT finds better data it needs to overwrite the memory, and this comment helped a lot. I also had CodeGenie optimize the code for faster processing.
+Changes
+Added the persistent_memory = [] stub back to prevent errors
+Added string_key_memory = {} to handle memory_ovr error no attribute 'string_key_memory'
+Removed space typo in prompt.txt
+Test Plan
+Google searches no longer time out, and if it does return something it's unable to save the data to long-term memory. I've been able to successfully get it to run for 15 - 20 min sessions regularly before hitting any errors.
+⭐️ 26 min 🎥
+https://youtu.be/yM_yxVn4y2I
+Change Safety
+
+ I have added tests to cover my changes
+ I have considered potential risks and mitigations for my changes
+
+I have not added extensive test coverage but did have an uninterrupted session of 35 minutes before hitting another error. Mind you this was all on --gpt3only as I don't have access to GPT4 yet. AutoGPT knew it needed to check the price of a cryptocurrency multiple times so it reasoned it was more efficient to deploy a bot to constantly watch this page for price changes, and if I would have had GPT4 it would have started building python bots for me.",6,1
+519,2023-04-08T20:16:09Z,,2023-04-17T18:49:28Z,1,1,0,"Background
+
+Changes
+
+Test Plan
+
+Change Safety
+
+ I have added tests to cover my changes
+ I have considered potential risks and mitigations for my changes",7,8
+536,2023-04-08T23:34:22Z,,2023-04-09T08:14:48Z,0,0,0,"Background
+""Summarize Steps mode"" creates brief GPT-generated summaries for each step, and then combines them into a final summary for each run.
+Turning it on allows for concise step summaries to be displayed in the console and saved in log files.
+Upon exit, a final summary is generated by creating an agent that takes all the input inside the log and summarizes it. The summary is split into chunks before, so that it doesn't exceed the token limit.
+This feature aids in tracking the assistant's responses and identifying deviations, increasing the potential for improving it's functionality.
+Activate it by running main.py with -ss or --summarize-steps:
+python scripts/main.py --summarize-steps
+
+Changes
+🔀 merge: Merge branch 'feature/summarize-steps-mode' into main
+
+Added support for new summarize steps mode
+Changes made to five files: ai_config.py, config.py, data.py, json_parser.py and main.py
+Toggle on or off with '-ss' or '--summarize-steps' args when running main.py
+Prompt and JSON schema summarized using step_summarizer module when enabled
+Added final summarization, which condenses all summarized steps into an even shorter summary (via a GPT agent) upon exit
+
+🔧 chore(main.py): refactor interaction loop and add support for step summarization
+
+Refactored interaction loop to include step summarization support
+Added get_step_summary function to extract step summary from assistant's response
+Initialized Summary object at beginning of loop if summarize_steps argument is passed
+Step summary printed to console and appended to summary file if summarization is enabled
+Final summary appended to summary file upon program exit
+
+✨ feat(step_summarizer.py): add Summary and SummaryUtils classes, implement text chunk splitting, and add tests
+
+Added Summary and SummaryUtils classes to step_summarizer.py
+Created summary object for printing step summaries to console and appending to file
+SummaryUtils class includes utility methods for splitting sentences into bullet points and updating JSON schema and prompt
+Implemented append_final_summary and split_text_into_chunks methods for handling large text by splitting it into smaller chunks
+
+Test Plan
+
+Run the test suite with python -m unittest step_summarizer_tests.py to ensure all tests pass.
+Manually test the main.py script with the -ss or --summarize-steps argument to verify the proper functioning of Summarize Steps mode.
+Run python scripts/main.py --summarize-steps and observe the output to ensure step summaries are printed to the console
+Check the generated summary file to verify that step summaries and the final summary are correctly appended.
+Test the script without the -ss or --summarize-steps argument to ensure normal functionality is preserved when the new mode is not enabled
+Test various input texts and scenarios to confirm that the summaries are coherent and useful for different use cases.
+
+Change Safety
+
+[✓] I have added tests to cover my changes
+[✓] I have considered potential risks and mitigations for my changes
+
+Potential risks and mitigations:
+Risk: Summaries may not always be coherent or helpful due to GPT's inherent limitations.
+Mitigation: Carefully monitor the output to ensure the feature is working as expected and adjust the prompts and code as needed to improve the quality of summaries.
+Risk: Large texts or numerous steps may cause the script to take a long time to generate summaries or hit API rate limits.
+Mitigation: Implement chunking to handle large texts and limit the number of steps during testing. Additionally, monitor API usage to avoid unexpected costs or throttling.
+Risk: Unexpected bugs or issues may arise when the new mode is enabled or when working with the modified code.
+Mitigation: Thoroughly test the changes and monitor the output during usage. Address any issues as they arise and consider adding more tests to cover edge cases.",4,2
+542,2023-04-09T02:33:17Z,2023-04-12T08:54:05Z,2023-04-12T08:54:05Z,1,1,1,"Background
+fixes #534
+AttributeError: 'NoneType' object has no attribute 'lower'
+Changes
+adds a null check
+Test Plan
+
+Change Safety
+
+ I have added tests to cover my changes
+ I have considered potential risks and mitigations for my changes",4,2
+548,2023-04-09T03:00:28Z,2023-04-09T07:02:53Z,2023-04-09T07:02:53Z,1,5,2,"Background
+The system has no knowledge of the current time and date.
+Changes
+Added a system message in each context.
+Test Plan
+Single line change.
+Change Safety
+
+ I have added tests to cover my changes
+ I have considered potential risks and mitigations for my changes",3,0
+549,2023-04-09T03:24:13Z,,2023-04-26T18:12:29Z,30,484,220,"Background
+Created the scaffolding to get tests setup. Some in the community think for CICD we should use pytest-vcr. I'm passing the work so far on to them to provide recommendations.
+This work is branched from #142 which needs to be merged first in order for this diff to be small.
+Changes
+Changed from unittest to pytest.
+Added a testing.yaml workflow.
+Test Plan
+Literally what this pr is about.
+Change Safety
+
+ I have added tests to cover my changes
+ I have considered potential risks and mitigations for my changes",5,3
+556,2023-04-09T05:17:55Z,,2023-04-29T17:04:39Z,4,14,3,"Background
+
+It's possible for your connection being closed causes AutoGPT to crash.
+Changes
+Wraps the embeddings call with a try statement and returns an empty list when finding nearest or avoids adding to memory.
+Test Plan
+It's not tested, one could disable their internet connection to test.
+Change Safety
+
+ I have added tests to cover my changes
+ I have considered potential risks and mitigations for my changes",4,3
+574,2023-04-09T09:07:48Z,2023-04-10T21:37:53Z,2023-04-10T21:37:53Z,1,12,1,"Uses python logging module to output progress to a text file log.txt
+Background
+
+Changes
+
+Test Plan
+
+Change Safety
+
+ I have added tests to cover my changes
+ I have considered potential risks and mitigations for my changes",3,2
+575,2023-04-09T09:30:18Z,2023-04-10T06:26:53Z,2023-04-10T06:26:53Z,2,4,1,"Background
+I noticed that when the AI doesn't want to input any command, it uses this blank action which outputs a reminder to refer to the commands list since nothing isn't a valid command:
+NEXT ACTION:  COMMAND =  ARGUMENTS = {}
+Enter 'y' to authorise command, 'y -N' to run N continuous commands, 'n' to exit program, or enter feedback for Useless-GPT...
+Input:y
+-=-=-=-=-=-=-= COMMAND AUTHORISED BY USER -=-=-=-=-=-=-= 
+SYSTEM:  Command returned: Unknown command ''. Please refer to the 'COMMANDS' list for availabe commands and only respond in the specified JSON format.
+
+If the AI didn't want to do anything in the first place, it doesn't need a reminder to look at the commands, especially since multiple of such reminders can take up more tokens than adding a do_nothing command to the prompt. So, I mitigated this by letting the AI choose to not run any command by adding an ironic do_nothing command. Now, no reminders show up when the AI wants to do nothing.
+It should also in theory make the reminders more effective when the AI actually does input an unknown command, as now the AI won't risk being desensitized to reminders by constantly seeing them.
+This is also kind of personal preference since I find the constant reminders rather annoying.
+I use this in my personal build of the script with many modifications and it works without error, and I use that build a lot. I think this overall improves the function of the script.
+If not these exact changes, I do still recommend a way for the AI to do nothing to be added.
+
+Changes
+I made simple changes to two files:
+
+commands.py - added two lines adding do_nothing as a valid command.
+prompt.txt - Added a line at the end of the ""COMMANDS"" list informing the AI of the do_nothing command.
+
+
+Test Plan
+I ran the AI under the following prompt:
+Name:  Do_nothing-GPT
+Role:  an AI designed to do nothing in particular.
+Goals: ['Test out the `do_nothing` command.', 'Shut down.']
+
+And it did indeed do nothing:
+$ python scripts/main.py --gpt3only
+GPT3.5 Only Mode:  ENABLED
+Welcome back!  Would you like me to return to being Do_nothing-GPT?
+Continue with the last settings? 
+Name:  Do_nothing-GPT
+Role:  an AI designed to test the `do_nothing` command.
+Goals: ['Test out the `do_nothing` command.', 'Shut down.']  
+Continue (y/n): y
+Using memory of type: RedisMemory
+DO_NOTHING-GPT THOUGHTS: Since the goal is to test the `do_nothing` command, I will use this command.
+REASONING: My primary goal is to test out the `do_nothing` command as instructed. Therefore, using this command will be the most efficient next step for me without involving any other command.
+PLAN: 
+-  Use the 'do_nothing' command
+CRITICISM: There is no self-criticism for this decision.
+NEXT ACTION:  COMMAND = do_nothing ARGUMENTS = {}
+Enter 'y' to authorise command, 'y -N' to run N continuous commands, 'n' to exit program, or enter feedback for Do_nothing-GPT...
+Input:y
+-=-=-=-=-=-=-= COMMAND AUTHORISED BY USER -=-=-=-=-=-=-= 
+SYSTEM:  Command do_nothing returned: No action performed.
+DO_NOTHING-GPT THOUGHTS: Now I will shut down as this is my final step.
+REASONING: Since my only purpose for this session was to test the 'do_nothing' command and demonstrate my ability to independently make decisions without assistance, and since that is done, I will shut down.
+PLAN: 
+-  Use the 'task_complete' command to shut down
+CRITICISM: There is no self-criticism for this decision.
+NEXT ACTION:  COMMAND = task_complete ARGUMENTS = {'reason': ""Testing the 'do_nothing' command is complete. Shutting down.""}
+Enter 'y' to authorise command, 'y -N' to run N continuous commands, 'n' to exit program, or enter feedback for Do_nothing-GPT...
+Input:y
+-=-=-=-=-=-=-= COMMAND AUTHORISED BY USER -=-=-=-=-=-=-= 
+Shutting down...
+
+Reproduce by doing pretty much the same thing I did with the relevant changes to commands.py and prompt.txt. This is obvious, but it also works when the AI isn't specifically told to do nothing.
+
+I mentioned this earlier and I do realize you'll have to take my word for it, but I use this my personal build of the script, which I use a lot, and it works without error.
+Change Safety
+
+
+ I have added tests to cover my changes - I'm not a developer, so I only have a limited grasp on what tests are, but hopefully this change is small enough to not need them.
+
+
+ I have considered potential risks and mitigations for my changes - I don't think there will be much consequence for such a small change.",3,2
+579,2023-04-09T10:06:33Z,2023-04-10T12:17:48Z,2023-04-10T12:17:48Z,1,1,1,"Background
+
+Changes
+
+Test Plan
+
+Change Safety
+
+ I have added tests to cover my changes
+ I have considered potential risks and mitigations for my changes",4,1
+580,2023-04-09T10:13:15Z,,2023-04-12T04:00:01Z,11,64,15,"Background
+
+Since each deployment is created according to one specific model in Azure OpanAI Service, the deployment id should be specific by model.
+Changes
+
+In .env.template, modify OPENAI_DEPLOYMENT_ID to FAST_LLM_MODEL_DEPLOYMENT_ID and SMART_LLM_MODEL_DEPLOYMENT_ID.
+Add a function get_openai_deployment_id in llm_utils.py to specific deployment id by model (fast/smart).
+Also updated README.
+Test Plan
+
+Change Safety
+
+ I have added tests to cover my changes
+ I have considered potential risks and mitigations for my changes
+
+
+It's more like a modification to fit API requirement, does not affect core functionality.",33,2
+583,2023-04-09T10:39:43Z,2023-04-09T12:33:14Z,2023-04-09T12:33:14Z,3,10,2,"Background
+using debug paramaters were hardcoded and needed to be taken from the arguments
+Changes
+store debug argument in cfg
+use cfg.debug when calling chat.chat_with_ai and fix_json",3,0
+589,2023-04-09T12:54:20Z,,2023-05-04T22:47:06Z,1,3,3,"Background
+
+Fork and clone instructions are not clear.
+Changes
+
+After a fork, the ""git clone"" applies to the newly forked repo, not to origin.
+Test Plan
+
+Created a fork/clone for this pull request using the updated instructions.
+Change Safety
+
+ I have added tests to cover my changes
+ I have considered potential risks and mitigations for my changes",6,3
+590,2023-04-09T13:03:03Z,2023-04-10T12:36:15Z,2023-04-10T12:36:15Z,14,104,105,"This happens often in PRs so fixing this everywhere will make many PRs mergeable as they won't include irrelevant whitespace fixes
+Background
+This is a focused change to enable linting and other large-scale PRs in the future.
+Changes
+Whitespace is eliminated everywhere, results confirmed through git grep. I only changed the space, not double lines of tabs (not sure if they are present).
+Some files have a line break added at the end so they are terminated with the line terminator. This is a good practice and it is also enforced by vim, making the repo more vim-friendly.
+Test Plan
+The change is supposed to be safe.
+Change Safety
+
+ I have added tests to cover my changes
+ I have considered potential risks and mitigations for my changes
+
+This is a formatting change so it's untestable.",3,4
+592,2023-04-09T13:24:52Z,,2023-04-10T12:51:45Z,9,457,462,"Replaced all hyphens (-) with underscores (_) in the parameter placeholders that the user needs to set, making it easier to select and paste the correct keys by simply double-clicking them
+Background
+
+Changes
+
+Test Plan
+
+Change Safety
+
+ I have added tests to cover my changes
+ I have considered potential risks and mitigations for my changes",3,5
+596,2023-04-09T14:22:54Z,,2023-04-14T20:58:10Z,14,115,119,"Background
+I was looking there were many libraries needed to run this project. However, there are many imports that actually are not needed at all.
+Changes
+I did change many files and imported just necessary imports.
+Test Plan
+There is no test plan for these changes.",3,5
+602,2023-04-09T15:44:33Z,,2023-04-24T06:23:18Z,21,256,218,"Background
+I found few things that could be rapidly refactored, like the endless elif statements in commands.py and the few blanks lacking in the project.
+Changes
+Many blanks added, few types added in function prototypes to improve debugging, added a dictionary to remove all the elif in commands.py, and added few constants.
+The requirements has been automatically updated by Pycharm. Some verifications may be needed.
+Test Plan
+No tests.
+Change Safety
+
+ I have added tests to cover my changes
+ I have considered potential risks and mitigations for my changes
+
+There is no tests added but there should be no breaking changes.",4,3
+603,2023-04-09T16:03:19Z,,2023-04-10T12:50:24Z,0,0,0,"vector should be added at the end of embeddings
+Created an integration test for localCache
+Background
+Just noticed that the get_relevant method from LocalCache would return not the top k relevant texts but the least k relevant
+Changes
+vector embedding is added at the end of the embeddings list
+Created a simple integration test to check that flow
+Proposed a simple folder structure to handle unit and integration tests
+Test Plan
+Created a simple integration test that:
+
+Config is initialized with current env variables
+examples texts are added to the list of embeddings (plus some noisy ones)
+we query the top 3 relevant texts to the query text.
+
+Change Safety
+
+ I have added tests to cover my changes
+ I have considered potential risks and mitigations for my changes
+
+Most of it done using GPT4 guys, would be very happy if you could review this PR",2,1
+605,2023-04-09T16:36:40Z,,2023-06-07T00:42:23Z,4,48,6,"Background
+
+The aim of this PR is to make the use of Redis Stack beginner friendly and help developers get consistent results.
+Developers and curious people can access RedisInsight at  http://localhost:8001/ to see the interaction between Auto-GPT and Redis caching engine.
+Changes
+
+Made it easier to use Redis by providing the steps in the updated documentation.
+Consistent build, configuration and testing using a docker-compose.yml type of configuration.
+Easy start of the Docker container by using a shell script.
+Easier debugging and tracing by using Redis Stack with built-in RedisInsight for development cycles.
+Better security by enabling an access password for ""Production Ready"".
+
+Updated README.md with a Docker for Linux.
+Added the Docker Compose file as docker_redis.yml
+Added a shell script to make it easy to start the container with start_redis_docker.sh
+
+Test Plan
+
+Configuration validation with docker-compose -f docker_redis.yml config on:
+
+Fedora Linux 37 with Docker version 23.0.3, build 3e7cbfd and Docker Compose version v2.17.2.
+Third party confirmation of correct build on Windows 11 with Docker Desktop 4.18.0 and Docker Compose version v2.17.2.
+Multiple build cycles with docker system prune -a to eliminate any image conflicts potential
+
+Successful configuration and built of a Docker Stack image and confirmed:
+
+.env has the correct Redis configuration
+Running Auto-GPT reports “Using memory of type: RedisMemory”
+Checking http://localhost:8001/redis-stack/browser and confirming the CPU, Total Memory, Total Keys and Connected Clients all report positive non-zero values.
+
+Change Safety
+
+ I have added tests to cover my changes
+ I have considered potential risks and mitigations for my changes",6,8
+611,2023-04-09T17:50:41Z,2023-04-10T12:24:43Z,2023-04-10T12:24:43Z,1,1,0,Just added .vscode to .gitignore,4,1
+613,2023-04-09T18:47:08Z,,2023-04-10T02:28:16Z,1,2,2,"Background
+Small typo in main.py
+Changes
+Two words were corrected
+Test Plan
+Affects print statements to the end user, do not affect logic
+Change Safety
+
+ I have added tests to cover my changes
+ I have considered potential risks and mitigations for my changes
+
+I do not know how to test a typo in a print statement",6,2
+615,2023-04-09T19:42:32Z,2023-04-10T12:25:37Z,2023-04-10T12:25:37Z,1,1,1,"Fix typo to use setx instead of export for setting up pinecone env variable.
+Background
+Just noticed a small typo in the readme.",4,0
+616,2023-04-09T19:54:03Z,2023-04-10T05:45:03Z,2023-04-10T05:45:03Z,1,2,1,"Ignore auto-gpt.json
+Background
+auto-gpt.json should be in .gitignore
+Changes
+auto-gpt.json added to .gitignore
+Test Plan
+Shouldn't need testing
+Change Safety
+
+ I have added tests to cover my changes
+ I have considered potential risks and mitigations for my changes
+
+
+It's just an update to .gitignore to ignore the local memory file.",3,0
+618,2023-04-09T20:24:26Z,2023-04-10T05:42:03Z,2023-04-10T05:42:03Z,2,181,28,"Background
+This fixes most errors I've encountered. This is from debugging the vicuna branch.
+Changes
+Implemented serveral method to correct invalid JSON.
+Test Plan
+Tested locally on vicuna branch.
+Change Safety
+
+ I have added tests to cover my changes
+ I have considered potential risks and mitigations for my changes",7,9
+621,2023-04-09T21:01:15Z,,2023-04-10T15:41:52Z,26,126,100,,4,5
+624,2023-04-09T21:26:34Z,,2023-04-10T19:57:27Z,3,13,5,"Background
+The token limit was hardcoded in the chat_with_ai function which was also identified as a TODO in the code.
+Changes
+The token limit was made configurable according to whether the user passed gpt3only or not.
+No tests were needed for this change since it was more of a chore rather a feat update.",2,1
+625,2023-04-09T21:30:27Z,2023-04-10T06:56:04Z,2023-04-10T06:56:04Z,2,107,1,"Background
+I would like to add unit and component testing so we can all develop fast with confidence having quick regression tests
+Changes
+
+Adding unit-tests to browse::scrape_text()
+Adding try-except to handle requests.get possible RequestException
+
+Test Plan
+Added five unit-test
+Change Safety
+
+[v] I have added tests to cover my changes
+[v] I have considered potential risks and mitigations for my changes",2,0
+633,2023-04-10T01:05:34Z,2023-04-10T21:39:45Z,2023-04-10T21:39:45Z,2,18,9,"Background
+Error messages aren't fun - so I created a simple function clean_input under utils.py that will cleanly exit in the event of a KeyboardInterrupt.
+
+Potentially add a callback argument for cleaner functions.
+
+Changes
+
+Created file: utils.py
+Created function under utils.py --> clean_input
+Replaced instances of input with utils.clean_input
+
+Test Plan
+I feel its fairly standard error handling code. Even in that case, I provided some basic user testing:
+
+Change Safety
+
+ I have added tests to cover my changes
+ I have considered potential risks and mitigations for my changes",5,3
+634,2023-04-10T01:09:48Z,,2023-04-10T14:52:01Z,2,7,2,"Background
+Removed unneeded imports
+Changes
+Removed sys and enum imports.
+Test Plan
+N/A. I just skimmed the codebase
+Change Safety
+
+ I have added tests to cover my changes
+ I have considered potential risks and mitigations for my changes",2,0
+637,2023-04-10T02:23:00Z,2023-04-10T21:42:55Z,2023-04-10T21:42:55Z,3,12,2,"As a Mac OS user, I prefer the builtin TTS of Siri etc.
+I want to be able to configure that the builtin TTS of Mac OS is used instead of Google's tts.
+As I am a lazy dude, here is chatgpt explaining how to change the voice:
+To change the default voice for spoken text in macOS, follow these steps:
+
+Open System Preferences by clicking on the Apple menu in the top-left corner of your screen and selecting ""System Preferences.""
+Click on ""Accessibility.""
+In the left sidebar, click on ""Speech"" (in macOS 10.15 or earlier) or ""Spoken Content"" (in macOS 11 or later).
+Locate the ""System Voice"" dropdown menu (or ""Voice"" dropdown menu in macOS 11 or later) and click on it to reveal the list of available voices.
+Select the voice you want to set as the default. You can click on the ""Play"" button next to the dropdown menu to preview the selected voice.
+Close the ""Accessibility"" window to save your changes. The selected voice is now the default voice for spoken text in macOS.",3,6
+642,2023-04-10T04:26:32Z,2023-04-10T05:42:54Z,2023-04-10T05:42:54Z,1,1,0,"Background
+Users frequently utilise python's venv module to isolate per-project dependencies.
+Changes
+This change adds a .gitignore entry for default venv name 'venv' in the project root.
+PR Quality Checklist
+
+ My pull request is atomic and focuses on a single change.
+[ n/a] I have thouroughly tested my changes with multiple different prompts.
+ I have considered potential risks and mitigations for my changes.
+ I have documented my changes clearly and comprehensively.
+ I have not snuck in any ""extra"" small tweaks changes",3,0
+646,2023-04-10T06:18:50Z,,2023-04-10T08:00:00Z,5,23,28,"Background
+The browser tool was making two get requests in order to scrape websites as seen in browse_website() function, I reduced the multiple calls to one call. This results in the following:
+
+Improved performance
+Reduced chances of bot detection if a website is requested multiple times due to 50% lesser calls
+
+Changes
+Removed duplicate calls involving requests.get() and moved it to a function
+Documentation
+No changes
+Test Plan
+I have tested this using prompts which made the bot visit multiple websites
+PR Quality Checklist
+
+ My pull request is atomic and focuses on a single change.
+ I have thouroughly tested my changes with multiple different prompts.
+ I have considered potential risks and mitigations for my changes.
+ I have documented my changes clearly and comprehensively.
+ I have not snuck in any ""extra"" small tweaks changes",2,1
+647,2023-04-10T06:52:10Z,,2023-04-15T05:23:04Z,0,0,0,"Background
+
+Changes
+
+Documentation
+
+Test Plan
+
+PR Quality Checklist
+
+ My pull request is atomic and focuses on a single change.
+ I have thouroughly tested my changes with multiple different prompts.
+ I have considered potential risks and mitigations for my changes.
+ I have documented my changes clearly and comprehensively.
+ I have not snuck in any ""extra"" small tweaks changes",4,3
+648,2023-04-10T06:53:50Z,2023-04-10T21:46:47Z,2023-04-10T21:46:47Z,3,8,8,"Background
+As stated in issue #323, users are getting the following error
+Error communicating with OpenAI: Invalid URL 'your-base-url-for-azure/embeddings' 
+The cause of this issue is the clashing of the variable name OPENAI_API_BASE between AUTO_GPT's .env.template and OpenAI official python library. So once the environment loads it takes OPENAI_API_BASE from .env of AUTO-GPT which it finds to be your-base-url-for-azure  and starts giving out this error. Please click on the hyperlinks to know more.
+To fix this I have renamed the variable OPENAI_API_BASE to OPENAI_AZURE_API_BASE. More details are in the changes section.
+Changes
+For fixing the issue and for better readability and understanding I have done the following changes,
+
+Renamed env variable OPENAI_API_BASE to OPENAI_AZURE_API_BASE.
+Renamed env variable OPENAI_API_VERSION to OPENAI_AZURE_API_VERSION
+Renamed env variable OPENAI_DEPLOYMENT_ID to OPENAI_AZURE_DEPLOYMENT_ID
+
+The latter two variables did not pose any issue earlier but for better readability and consistency, I have renamed them too.
+Documentation
+I have done changes in README.md file for documenting my changes
+Test Plan
+I have tested this using multiple prompts, and also by making USE_AZURE to True, and in both the cases the PR works fine.
+PR Quality Checklist
+
+ My pull request is atomic and focuses on a single change.
+ I have thouroughly tested my changes with multiple different prompts.
+ I have considered potential risks and mitigations for my changes.
+ I have documented my changes clearly and comprehensively.
+ I have not snuck in any ""extra"" small tweaks changes",6,6
+649,2023-04-10T08:49:06Z,2023-04-10T11:00:49Z,2023-04-10T11:00:49Z,1,1,1,"Background
+#575 (comment)
+Changes
+Makes the do_nothing line in prompt.txt from my last pull request (#575) completely uniform with the rest of the commands list.
+Documentation
+Removed ; command name from said line.
+Test Plan
+Already tested in #575.
+PR Quality Checklist
+
+ My pull request is atomic and focuses on a single change.
+ I have thouroughly tested my changes with multiple different prompts.
+ I have considered potential risks and mitigations for my changes.
+ I have documented my changes clearly and comprehensively.
+ I have not snuck in any ""extra"" small tweaks changes",2,0
+664,2023-04-10T11:42:38Z,2023-04-10T13:09:01Z,2023-04-10T13:09:01Z,1,2,0,"Added remark regarding daily free Google custom search limit and how to increase it
+Background
+Auto-GTP can run into a problem, when the amount of free daily custom searches is reached.
+Changes
+Documentation improved to remark problems and solutions.
+Documentation
+Check
+Test Plan
+No additional tests needed for readme changes.
+PR Quality Checklist
+
+ My pull request is atomic and focuses on a single change.
+ I have thouroughly tested my changes with multiple different prompts.
+ I have considered potential risks and mitigations for my changes.
+ I have documented my changes clearly and comprehensively.
+ I have not snuck in any ""extra"" small tweaks changes.",3,0
+678,2023-04-10T13:04:31Z,2023-04-11T11:34:02Z,2023-04-11T11:34:02Z,3,6,12,"Background
+To resolve the conflict around the debug mode flag after pull merge. cfg.debug and cfg.debug_mode was checked in by different pull requests. They conflicted.
+Changes
+The change is to keep cfg.debug_mode because it's consistent with other modes, so 1. revised the parts using cfg.debug to use cfg.debug_mode, and 2. kept the parts using cfg.debug_mode.
+Documentation
+Part of the codes already have comments. It's a simple commit to resolve conflicts.
+Test Plan
+Tested with running with --debug in command line.
+PR Quality Checklist
+
+[*] My pull request is atomic and focuses on a single change.
+[*] I have thouroughly tested my changes with multiple different prompts.
+[*] I have considered potential risks and mitigations for my changes.
+[*] I have documented my changes clearly and comprehensively.
+[*] I have not snuck in any ""extra"" small tweaks changes",3,1
+685,2023-04-10T13:12:33Z,2023-04-12T17:03:34Z,2023-04-12T17:03:34Z,1,3,2,"Background
+I was receiving an Invalid JSON error on pretty much every prompt. Once it was received, it was very difficult to get out of it.
+Changes
+By not having correct_json(json_str) in the try/except, it was still easily possible to throw Invalid JSON errors.
+When responses were received with no JSON at all, parsing would fail on attempting to locate the braces.
+Test Plan
+Tested by running a bunch of prompts. Sorry it's not more scientific than that. Each time I got a parsing error, I added a fix, and now it seems stable.
+PR Quality Checklist
+
+ My pull request is atomic and focuses on a single change.
+ I have thouroughly tested my changes with multiple different prompts.
+ I have considered potential risks and mitigations for my changes.
+ I have documented my changes clearly and comprehensively.
+ I have not snuck in any ""extra"" small tweaks changes",3,3
+686,2023-04-10T13:12:36Z,2023-04-11T01:09:05Z,2023-04-11T01:09:05Z,3,50,1,"vector should be added at the end of embeddings
+Created an integration test for localCache
+Background
+Just noticed that the get_relevant method from LocalCache would return not the top k relevant texts but the least k relevant
+Changes
+vector embedding is added at the end of the embeddings list
+Created a simple integration test to check that flow
+Proposed a simple folder structure to handle unit and integration tests
+Test Plan
+Created a simple integration test that:
+
+Config is initialized with current env variables
+examples texts are added to the list of embeddings (plus some noisy ones)
+we query the top 3 relevant texts to the query text.
+
+Change Safety
+
+ I have added tests to cover my changes
+ I have considered potential risks and mitigations for my changes
+
+Created PR again because force pushing closes PRs (#603)",4,4
+688,2023-04-10T13:21:06Z,2023-04-10T21:51:09Z,2023-04-10T21:51:09Z,1,2,2,"Remove quotes for model variables that can lead to the model not being recognised and error num_tokens_from_messages() is not implemented for model
+Background
+Leaving the quotes in can, depending on how env variables are used, cause you to end up with a model ""'gpt-3.5-turbo'"" meaning the model is not recognised as valid.
+Changes
+Removed quotes
+Documentation",3,0
+690,2023-04-10T13:24:49Z,2023-04-10T21:57:02Z,2023-04-10T21:57:02Z,1,10,1,"Background
+
+Fix of ⚠️Auto-GPT managed to escape its workplace-boundaries via browser commands #666.
+This pull request aims to address the issue where the AI could read local files on the host system through the browse.py script. To prevent this, I have added a check that restricts the AI from accessing URLs starting with file:// or file://localhost.
+Changes
+
+Modified the scrape_text function in browse.py to include a check for local file URLs, restricting access to local files.
+Documentation
+
+In-code comments have been added to explain the restriction on local file URLs.
+Test Plan
+
+I can't test this right now as I am experiencing issue #644. I will do so as soon as I am able to. In the meantime, it would be appreciated if someone would test this for me.
+PR Quality Checklist
+
+ My pull request is atomic and focuses on a single change.
+ I have thouroughly tested my changes with multiple different prompts.
+ I have considered potential risks and mitigations for my changes.
+ I have documented my changes clearly and comprehensively.
+ I have not snuck in any ""extra"" small tweaks changes",4,1
+691,2023-04-10T13:25:59Z,,2023-06-14T22:36:43Z,1,1,1,"Add additional clarification to error message as this is the first check of the model name.  An alternative approach would be to add a verification of the model before this is called.
+
+Background
+
+Changes
+
+Documentation
+
+Test Plan
+
+PR Quality Checklist
+
+ My pull request is atomic and focuses on a single change.
+ I have thouroughly tested my changes with multiple different prompts.
+ I have considered potential risks and mitigations for my changes.
+ I have documented my changes clearly and comprehensively.
+ I have not snuck in any ""extra"" small tweaks changes",5,4
+696,2023-04-10T13:37:36Z,,2023-04-10T17:11:02Z,1,1,1,"Background
+
+Changes
+
+Documentation
+
+Test Plan
+
+PR Quality Checklist
+
+ My pull request is atomic and focuses on a single change.
+ I have thouroughly tested my changes with multiple different prompts.
+ I have considered potential risks and mitigations for my changes.
+ I have documented my changes clearly and comprehensively.
+ I have not snuck in any ""extra"" small tweaks changes",2,1

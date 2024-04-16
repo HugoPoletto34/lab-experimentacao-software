@@ -1,0 +1,3172 @@
+number,created_at,merged_at,closed_at,files,additions,deletions,body_text,participants,comments
+382,2015-07-22T19:21:49Z,,2019-03-01T15:45:53Z,1,8,2,"Problem:
+context.Stream() listens to the closeNotifier, which gives the impression that context.Stream() will return as soon as a client disconnects.  Unfortunately, it doesn't!
+This example code furthers the impression with the defer closeListener(roomid, listener) which one would expect to be called when a client navigates away, which is not the case.  In fact, it's only called on the next message that's sent to the room after said client exits.
+This is because c.SSEvent(""message"", <-listener) blocks indefinitely until a message comes in, so will not return and yield to c.Stream()'s select that catches the closeNotify.  This means that if a client navigates away, the server never notices and cleans up.
+Fix: Also listen to CloseNotifier inside stream handler.  This causes the step() function to return immediately when the client goes away and allows the cleanup to run.  Updating this example should make it more clear, I think!",5,4
+520,2016-01-27T17:45:07Z,2017-07-08T17:17:14Z,2017-07-08T17:17:14Z,1,2,0,"I want to send it from the test with travis-ci before sending a pull request.
+In the case of gin, it is an error to test the repository that was fork in travis-ci.
+https://travis-ci.org/178inaba/gin/jobs/105072041
+This is I think because there is assumed test the import path ""github.com/gin-gonic/gin"".
+So, we added a setting to fix the import path of golang set of travis-ci.
+When you add test of travis-ci was movement successfully.
+https://travis-ci.org/178inaba/gin/jobs/105225833
+PS Thank you for always maintains a gin.",2,0
+525,2016-02-01T18:22:51Z,,2017-05-01T15:15:10Z,1,7,9,"Motivation: it's not uncommon for API requests to include auth-tokens or other key information signed in the request header. This change makes access more native and accessible.
+Also modified the implementation to use Header's builtin Get() function which does the same thing in one call.",3,1
+570,2016-03-30T01:00:36Z,2016-12-03T00:12:19Z,2016-12-03T00:12:19Z,2,70,5,"For scenarios like this:
+// POST /?[]foo_ids=1&[]foo_ids=3&[]foo_ids=5
+
+c.PostFormArray(""[]foo_ids"") // []string{""1"", ""3"", ""5""}",4,4
+622,2016-05-19T06:22:49Z,,2019-05-20T12:45:38Z,2,20,0,Signed-off-by: tsaikd tsaikd@gmail.com,5,10
+623,2016-05-19T09:46:58Z,2017-01-05T08:29:34Z,2017-01-05T08:29:34Z,1,1,1,,5,3
+627,2016-05-26T08:23:09Z,2016-12-05T09:49:16Z,2016-12-05T09:49:16Z,1,1,1,reset field should be after method in LoggerWithWriter function.,5,2
+631,2016-05-29T20:09:01Z,2016-12-05T09:58:31Z,2016-12-05T09:58:31Z,1,1,1,Details can be found in issue #630,4,2
+637,2016-06-07T22:47:06Z,2016-12-05T09:47:24Z,2016-12-05T09:47:24Z,1,1,1,"Hi!
+This pull request removes the obsolete func (LoadHTMLTemplates) in README.",5,3
+694,2016-08-31T18:02:49Z,2018-08-20T07:15:31Z,2018-08-20T07:15:31Z,8,133,4,Closes #693,9,24
+701,2016-09-09T09:42:00Z,2016-12-06T19:39:01Z,2016-12-06T19:39:02Z,1,1,3,Golang spec says: a nil map is equivalent to an empty map except that no elements may be added.,4,5
+702,2016-09-12T08:55:04Z,,2018-12-06T13:11:18Z,4,29,10,Fix for : fatal error: concurrent map read and map write,10,9
+707,2016-09-21T02:30:51Z,2016-12-05T08:48:30Z,2016-12-05T08:48:30Z,3,88,54,,8,8
+709,2016-09-23T13:27:08Z,2017-02-10T14:44:55Z,2017-02-10T14:44:55Z,1,9,0,"Dear gin committers, thanks for your great and awesome work. Unfortunately i've hit a corner case to which i didn't find a sufficient solution and would like to share my fix with the community.
+We are rewriting a large pile of fu^Wold PHP Code from a project i just was put upon. The problem being that this is highly SEO-crap-stuff that the URLs that have been used in the past, need to work exactly like they are, because they have been pimped, yadda yadda blah.
+Anyway, i could not convince them that using a better URL Scheme with 3xx would be probably better. So technically the problem is that they have URLs with multiple parameters within one /-segment. Imagine /:categoryName-at-:city . Now since i have all the categories and cities in the database, i tried adding them all, but that didnt work out to well as it took a few hours to load all categories for all the cities. Now i hot-fixed it to be /:category/at/:city and rewrite my Request in the NotFoundHandler and stick it back into gin with .HandleContext.
+Hope this either gets merged or helps someone else.",5,2
+717,2016-10-13T05:42:02Z,,2016-10-27T05:21:12Z,1,0,6,"Just throwing this out there..
+But I feel like this step might be causing more confusion that it is helping. In this approach I think it's better to under prescribe than to over prescribe.
+If the user is getting errors about a missing library, that is expected behavior, if a user is getting errors about an unused library, that is noise.
+Just my opinion.. So I figured I would throw the PR out there..",3,2
+724,2016-10-19T14:38:50Z,2016-12-05T09:55:06Z,2016-12-05T09:55:06Z,2,3,3,"The only reason to import ""golang.org/x/net/context"" package is to check that *gin.Context implements context.Context interface. But this implies fetching whole ""golang.org/x/net"" package tree using go get. So moving this check to context_test.go is reasonable.
+This also resolves issues #469 and #684.",6,5
+728,2016-10-28T15:14:42Z,2016-10-28T19:29:00Z,2016-10-28T19:29:00Z,2,2,6,"cc @javierprovecho @tboerger
+Signed-off-by: Bo-Yi Wu appleboy.tw@gmail.com",4,4
+741,2016-11-16T00:05:44Z,,2016-12-11T02:20:32Z,1,6,1,"Gin normally silently swallows errors writing to the client; however in WriteJSON (and thus context.JSON), the ResponseWriter was being passed directly into the JSON encoder, which will return an error if there's an error writing to the stream. For instance, context.JSON would panic with errors like ""write tcp XXX-> YYY: write: connection reset by peer"" if the client disconnected before the response was complete. This change makes JSON.Render() treat write errors the same as IndentedJSON, Data, and other renderers (i.e. it ignores them).",4,4
+754,2016-12-04T01:47:12Z,2016-12-04T10:44:33Z,2016-12-04T10:44:33Z,2,6,9,"Fixed #744
+Fixed #752
+Fixed #753
+cc @javierprovecho @tboerger @aviddiviner @kujenga",8,4
+755,2016-12-05T10:22:55Z,2016-12-06T14:14:12Z,2016-12-06T14:14:12Z,4,30,0,,4,3
+756,2016-12-06T19:26:13Z,2016-12-16T16:02:31Z,2016-12-16T16:02:31Z,3,92,38,"Migrate from godep to govendor
+Update vendor.json
+
+We must search or develop an alternative to github.com/mattn/go-isatty, it pulls golang.org/x/sys/unix which weights about 4 MB only for this file: https://github.com/mattn/go-isatty/blob/master/isatty_solaris.go
+
+
+Update .travis.yml
+
+If we start to use heavily vendor systems, we must test against Go versions that support it, I mean >= 1.6.
+App Engine is actually on 1.6.3, waiting for security patch to be deployed.
+Quicker CI with git: depth 3
+
+
+Packages refs updates here: 44529e4",4,2
+772,2016-12-23T01:13:39Z,2017-01-02T02:50:14Z,2017-01-02T02:50:14Z,1,34,1,"see the #742 (comment)
+cc @tboerger @javierprovecho
+Signed-off-by: Bo-Yi Wu appleboy.tw@gmail.com",2,0
+775,2016-12-24T04:44:12Z,2016-12-27T11:26:55Z,2016-12-27T11:26:55Z,2,49,2,"Fixed #774
+upload single file:
+package main
+
+import (
+	""github.com/gin-gonic/gin""
+	""log""
+	""net/http""
+)
+
+func main() {
+	router := gin.Default()
+	router.POST(""/upload"", func(c *gin.Context) {
+		// single file
+		file, _ := c.FormFile(""file"")
+		log.Println(file.Filename)
+
+		c.String(http.StatusOK, ""Uploaded..."")
+	})
+	router.Run("":8080"")
+}
+curl command:
+curl -X POST http://localhost:8080/upload -F ""file=@/Users/mtk10671/z.sh"" -H ""Content-Type: multipart/form-data""
+upload multiple file:
+package main
+
+import (
+	""github.com/gin-gonic/gin""
+	""log""
+	""net/http""
+)
+
+func main() {
+	router := gin.Default()
+	router.POST(""/upload"", func(c *gin.Context) {
+		// Multipart form
+		form, _ := c.MultipartForm()
+		files := form.File[""upload[]""]
+
+		for _, file := range files {
+			log.Println(file.Filename)
+		}
+		c.String(http.StatusOK, ""Uploaded..."")
+	})
+	router.Run("":8080"")
+}
+curl command:
+curl -X POST http://localhost:8080/upload -F ""upload[]=@/Users/mtk10671/z.sh"" -F ""upload[]=@/Users/mtk10671/z.sh"" -H ""Content-Type: multipart/form-data""
+cc @selvam347 @tboerger @javierprovecho @andreynering
+Signed-off-by: Bo-Yi Wu appleboy.tw@gmail.com",3,1
+777,2016-12-29T14:57:08Z,,2017-02-28T10:30:03Z,3,87,38,"This patch aims to fix issue #722 and PR #640 .
+I'm currently developing an API with URL parameters with, for example :
+GET /user/:username
+By assuming that username can contains special encoded parameters :
+
+Jon%20Doe
+Slash%2FMe
+
+The first one is not decoded by using c.Params(""username"").
+The second one, using '/' is currently not working at all.
+Using the '*' character does not fix the issue as I've got sub routes :
+GET /user/:username/infos
+Feel free to comment. It aims to be a not-breaking change.",5,6
+779,2017-01-02T01:23:22Z,2017-01-02T08:05:30Z,2017-01-02T08:05:30Z,2,32,0,"Hey, here's an addition to gin.Context to allow easy checks of whether the client requested a websocket upgrade, so you can handle things cleanly.
+app.GET(""/"", func(c *gin.Context) {
+  if c.IsWebsocket() {
+    // Websocket request, so we can do something like:
+    melody.HandleRequest(c.Writer, c.Request)
+    return
+  }
+  // No websockets required, serve normally.
+  c.HTML(http.StatusOK, ...)
+}",4,4
+780,2017-01-02T10:02:20Z,2017-01-02T12:54:07Z,2017-01-02T12:54:07Z,1,3,0,"cc @javierprovecho
+Signed-off-by: Bo-Yi Wu appleboy.tw@gmail.com",2,0
+781,2017-01-02T12:45:08Z,2017-01-09T15:24:48Z,2017-01-09T15:24:48Z,12,211,32,"@appleboy @tboerger this is a solution for #198.
+I'm intrigued why http.ResponseWriter is not returning http.ErrBodyNotAllowed.
+I don't have time to look into it right now, hope you can, or we can review it later this weekend.
+There is no breaking changes except to those who import directly the following:
+
+github.com/gin-gonic/gin/render
+github.com/manucorportat/sse
+
+Maybe I'm leaving something behind, so more eyes on this are welcome.",3,7
+783,2017-01-03T02:21:58Z,2017-01-03T15:56:17Z,2017-01-03T15:56:17Z,2,14,12,"Use X-Forwarded-For before X-Real-Ip as Nginx uses X-Real-Ip with the proxy's IP.
+fix #692 testing.
+Signed-off-by: Bo-Yi Wu appleboy.tw@gmail.com",4,1
+784,2017-01-03T03:54:36Z,2017-01-03T16:05:00Z,2017-01-03T16:05:00Z,5,170,32,cc @tboerger @javierprovecho,3,2
+797,2017-02-01T09:27:06Z,2017-02-01T14:47:50Z,2017-02-01T14:47:51Z,1,1,1,Simple english typos in the Copy() method,2,1
+800,2017-02-11T13:27:07Z,2017-02-14T01:11:02Z,2017-02-14T01:11:02Z,2,37,0,chore(errorHandler):new abortWithStatus method with Json body and contentType application/json,4,5
+801,2017-02-12T20:02:59Z,2017-02-17T13:32:37Z,2017-02-17T13:32:37Z,2,42,5,"It's required to inform the format:
+type T struct{
+        Time time.Time `form:""a_time"" time_format:""02/01/2006""`
+}
+The default location is time.Local. If a utc tag is given, localtion is time.UTC:
+type T struct{
+        Time time.Time `form:""a_time"" time_format:""02/01/2006"" utc:""1""`
+}
+If user input is blank (""""), then form.Time.IsZero() will return true.",4,2
+808,2017-02-17T21:12:06Z,2017-02-23T14:08:38Z,2017-02-23T14:08:38Z,7,138,2,,4,4
+810,2017-02-18T09:13:55Z,2017-02-28T10:29:42Z,2017-02-28T10:29:42Z,4,130,12,"Fix for #777, #640, #722.
+Another try to make it faster into master :)
+Almost same as #777 but handles one more case in tree.getValue.
+@appleboy Please review it. With this (plus forcing UseRawPath) the drone became handling escaped params. Thanks!
+Replaces #803",5,5
+819,2017-02-28T03:52:28Z,2017-02-28T07:15:53Z,2017-02-28T07:15:53Z,1,8,1,"when test logger middleware, should reset buffer before perform a request, otherwise may have influence on the rest test.",4,1
+825,2017-03-01T20:51:45Z,2017-03-01T23:03:17Z,2017-03-01T23:03:17Z,1,1,0,,3,1
+834,2017-03-14T08:49:31Z,2017-03-16T01:15:41Z,2017-03-16T01:15:41Z,3,10,8,cc @tboerger @javierprovecho,3,1
+835,2017-03-15T02:21:11Z,2017-03-16T15:38:30Z,2017-03-16T15:38:30Z,7,193,38,,3,1
+839,2017-03-17T01:14:23Z,2017-03-24T12:43:23Z,2017-03-24T12:43:23Z,2,14,0,"fix #838
+fix #830",5,7
+856,2017-03-29T15:35:41Z,2017-06-02T01:00:05Z,2017-06-02T01:00:05Z,2,167,0,"TODO:
+
+ tests
+
+(inspired by https://github.com/spf13/viper/blob/master/viper.go#L645)",4,3
+857,2017-03-30T07:33:58Z,2017-03-31T00:45:56Z,2017-03-31T00:45:56Z,2,17,0,"fix #854
+fix #438
+fix #785",4,2
+860,2017-04-01T17:02:57Z,2017-05-29T08:03:50Z,2017-05-29T08:03:50Z,4,84,10,"add custom delims support, for example:
+...
+r := gin.Default()
+r.Delims(""{[{"", ""}]}"")
+r.LoadHTMLGlob(""/path/to/templates""))
+...
+...",6,11
+863,2017-04-03T13:24:32Z,2017-04-17T07:58:30Z,2017-04-17T07:58:30Z,4,106,2,"Support Let's Encrypt for a Go server application.
+cc @tboerger @javierprovecho",5,23
+868,2017-04-05T19:29:30Z,2017-07-05T14:17:03Z,2017-07-05T14:17:03Z,1,1,1,,4,1
+900,2017-04-25T12:57:46Z,2017-05-04T01:22:48Z,2017-05-04T01:22:48Z,1,7,7,,3,3
+904,2017-04-27T12:51:23Z,2017-05-04T01:22:01Z,2017-05-04T01:22:01Z,1,5,0,"If a empty string is given(""""), them time should be zero.",3,2
+910,2017-05-09T00:13:49Z,2017-07-05T13:26:16Z,2017-07-05T13:26:16Z,2,11,0,A panic here provides a more informative stack trace than the panic which would otherwise occur while errors are being collected.,5,6
+921,2017-05-27T14:04:31Z,2017-05-29T06:28:38Z,2017-05-29T06:28:38Z,1,62,0,Add content negotiation tests code coverage #871,3,4
+944,2017-06-12T10:35:56Z,2017-06-13T02:37:21Z,2017-06-13T02:37:21Z,1,7,0,#871,3,1
+945,2017-06-12T12:31:00Z,2017-06-13T02:36:38Z,2017-06-13T02:36:38Z,1,13,13,,3,1
+951,2017-06-15T06:26:51Z,2017-06-16T01:07:42Z,2017-06-16T01:07:42Z,2,19,0,,3,3
+962,2017-06-30T19:24:06Z,2017-07-02T08:51:52Z,2017-07-02T08:51:52Z,4,75,12,Now templates (function maps for helpers) can be better configured and we can keep the reload on request of the templates.,4,3
+963,2017-07-01T09:16:18Z,2017-07-02T07:29:29Z,2017-07-02T07:29:29Z,1,20,0,#871,3,1
+970,2017-07-04T01:44:06Z,2017-07-04T08:17:55Z,2017-07-04T08:17:55Z,1,6,0,,4,7
+974,2017-07-04T14:08:52Z,2017-07-05T01:55:50Z,2017-07-05T01:55:50Z,1,1,3,,3,2
+975,2017-07-04T16:42:17Z,2017-07-05T07:47:36Z,2017-07-05T07:47:36Z,6,132,140,"I have read some source codes of official go, I not found it use nesting type to define struct or interface, so commit this pr, thanks!
+And it's better to avoid unnecessary indentation.",3,1
+980,2017-07-05T16:22:57Z,2017-07-06T01:30:10Z,2017-07-06T01:30:10Z,1,12,0,ref: https://codecov.io/gh/gin-gonic/gin/src/master/gin.go#L349,3,1
+983,2017-07-06T11:26:41Z,2017-07-06T12:59:27Z,2017-07-06T12:59:27Z,2,28,32,same as #975,3,1
+984,2017-07-06T13:45:26Z,2017-07-06T14:49:55Z,2017-07-06T14:49:55Z,2,2,11,,3,1
+985,2017-07-06T17:14:56Z,2017-07-07T00:43:47Z,2017-07-07T00:43:48Z,1,2,4,,3,1
+987,2017-07-07T17:35:08Z,2017-07-08T08:41:42Z,2017-07-08T08:41:42Z,6,101,9,"Implement #433, SecureJSON default prepends ""while(1),"" to response body if the given struct is array values. Examples are shown below:
+package main
+
+import (
+	""github.com/gin-gonic/gin""
+	""net/http""
+
+)
+func main() {
+	r := gin.Default()
+	// r.SecureJsonPrefix("")]}',\n"")  // Default ""while(1);""
+
+	r.GET(""/someJSON"", func(c *gin.Context) {
+		fruit := []string{""apple"", ""peach"", ""pear""}
+
+		// Will output  :   while(1);[""apple"",""peach"",""pear""]
+		c.SecureJSON(http.StatusOK, fruit)
+	})
+	
+	r.Run("":8080"")
+}
+Please review and advise, thanks.",2,2
+990,2017-07-08T08:50:34Z,2017-07-08T10:31:45Z,2017-07-08T10:31:45Z,6,23,9,"A high-performance 100% compatible drop-in replacement of ""encoding/json""
+https://github.com/json-iterator/go
+cc @javierprovecho @tboerger
+Signed-off-by: Bo-Yi Wu appleboy.tw@gmail.com",3,7
+992,2017-07-08T17:10:20Z,2017-07-10T06:57:09Z,2017-07-10T06:57:09Z,1,3,3,#991,2,1
+994,2017-07-08T18:23:55Z,2017-07-09T09:02:45Z,2017-07-09T09:02:45Z,1,46,0,#129,2,1
+997,2017-07-09T16:23:01Z,2017-07-10T08:33:36Z,2017-07-10T08:33:36Z,3,18,1,"resolve #368
+I added an option EnableJsonDecoderUseNumber, so that you can choose whether or not to enable UseNumber in the JSON decoder.
+Please review.",4,2
+998,2017-07-10T04:36:53Z,2017-07-10T06:45:20Z,2017-07-10T06:45:20Z,1,0,1,,3,1
+1000,2017-07-10T13:43:05Z,2017-07-11T01:03:10Z,2017-07-11T01:03:10Z,5,97,0,,3,8
+1003,2017-07-11T02:30:37Z,2017-07-11T05:59:03Z,2017-07-11T05:59:03Z,2,4,4,"test failed, see json-iterator/go#126
+
+TestRenderIndentedJSON",3,2
+1006,2017-07-11T13:45:28Z,2017-07-11T15:28:09Z,2017-07-11T15:28:09Z,1,32,31,,3,1
+1013,2017-07-12T14:52:04Z,,2017-07-19T03:30:31Z,1,294,294,Right-justified benchmarks data for reading.,3,7
+1015,2017-07-13T14:37:35Z,2019-09-05T13:39:56Z,2019-09-05T13:39:56Z,6,73,42,,19,39
+1020,2017-07-14T19:38:53Z,2019-02-26T07:10:17Z,2019-02-26T07:10:17Z,3,29,0,"This PR aims to point an existing race condition with the gin.Context and propose a solution.
+The gin.Context stores keys in a map[string]interface{}. The function gin.Context.Copy()  (context.go:79) is supposed to give a thread safe copy of the initial gin.Context.
+Instead of making a proper copy of the context.Keys, it copies the references of the map. This creates a race condition whenever the map context.Keys is accessed by concurrent go-routines.
+With the following script you will get the raise condition instantly. The fix in the PR will solve it.
+package main
+
+import (
+        ""github.com/gin-gonic/gin""
+        ""math/rand""
+)
+
+func main() {
+
+        r := gin.Default()
+        r.GET(""/"", func(ctx *gin.Context) {
+                ctx.Set(""1"", 0)
+                ctx.Set(""2"", 0)
+
+                // Sending a copy of the gin.Context to two separate routines
+                go ReadWriteKeys(ctx.Copy())
+                go ReadWriteKeys(ctx.Copy())
+        })
+        r.Run("":8080"")
+}
+
+func ReadWriteKeys(ctx *gin.Context) {
+        for {
+                ctx.Set(""1"", rand.Int())
+                ctx.Set(""2"", ctx.Value(""1""))
+        }
+}",5,7
+1022,2017-07-15T17:16:25Z,2017-07-16T03:42:09Z,2017-07-16T03:42:09Z,5,72,35,ref #674,3,2
+1024,2017-07-16T20:38:33Z,2017-07-17T00:50:45Z,2017-07-17T00:50:45Z,1,2,0,,2,1
+1026,2017-07-17T02:08:08Z,2017-07-18T21:01:29Z,2017-07-18T21:01:29Z,7,47,9,"In order to restore Gin support for app engine (disable jsonite through tags), create new folder to support multiple JSON packages.
+use jsoniter
+$ go build -tags=jsoniter .
+
+use default json
+$ go build .
+
+fix #1023
+cc @javierprovecho @taowen @codedance",5,25
+1027,2017-07-17T09:31:58Z,2017-07-17T10:57:59Z,2017-07-17T10:57:59Z,1,0,4,,3,1
+1028,2017-07-17T15:47:11Z,2017-07-18T00:54:39Z,2017-07-18T00:54:39Z,1,6,4,,2,1
+1029,2017-07-17T16:57:38Z,2017-07-19T07:50:05Z,2017-07-19T07:50:05Z,6,109,1,"see #742 (comment) , only parse/bind the query string params",3,3
+1030,2017-07-17T17:05:19Z,2017-07-18T01:23:11Z,2017-07-18T01:23:11Z,1,3,3,,3,1
+1031,2017-07-17T23:34:18Z,2017-07-18T01:11:54Z,2017-07-18T01:11:54Z,1,8,6,,3,1
+1032,2017-07-18T01:53:18Z,2017-07-18T03:39:40Z,2017-07-18T03:39:40Z,1,1,2,,3,1
+1033,2017-07-18T03:39:03Z,2017-07-18T21:06:15Z,2017-07-18T21:06:15Z,1,3,3,"according to #1026 (comment), update jsoniter vendor version.",2,1
+1035,2017-07-19T03:25:36Z,2017-07-19T07:40:05Z,2017-07-19T07:40:05Z,2,635,330,"fix #1013
+cc @javierprovecho @thinkerou
+New benchmark data with GitHub
+The GitHub API is rather large, consisting of 203 routes. The tasks are basically the same as in the benchmarks before.
+
+
+
+Benchmark name
+(1)
+(2)
+(3)
+(4)
+
+
+
+
+BenchmarkAce_GithubAll
+10000
+134059
+13792
+167
+
+
+BenchmarkBear_GithubAll
+5000
+534445
+86448
+943
+
+
+BenchmarkBeego_GithubAll
+3000
+592444
+74705
+812
+
+
+BenchmarkBone_GithubAll
+200
+6957308
+698784
+8453
+
+
+BenchmarkDenco_GithubAll
+10000
+158819
+20224
+167
+
+
+BenchmarkEcho_GithubAll
+10000
+154700
+6496
+203
+
+
+BenchmarkGin_GithubAll
+30000
+48375
+0
+0
+
+
+BenchmarkGocraftWeb_GithubAll
+3000
+570806
+131656
+1686
+
+
+BenchmarkGoji_GithubAll
+2000
+818034
+56112
+334
+
+
+BenchmarkGojiv2_GithubAll
+2000
+1213973
+274768
+3712
+
+
+BenchmarkGoJsonRest_GithubAll
+2000
+785796
+134371
+2737
+
+
+BenchmarkGoRestful_GithubAll
+300
+5238188
+689672
+4519
+
+
+BenchmarkGorillaMux_GithubAll
+100
+10257726
+211840
+2272
+
+
+BenchmarkHttpRouter_GithubAll
+20000
+105414
+13792
+167
+
+
+BenchmarkHttpTreeMux_GithubAll
+10000
+319934
+65856
+671
+
+
+BenchmarkKocha_GithubAll
+10000
+209442
+23304
+843
+
+
+BenchmarkLARS_GithubAll
+20000
+62565
+0
+0
+
+
+BenchmarkMacaron_GithubAll
+2000
+1161270
+204194
+2000
+
+
+BenchmarkMartini_GithubAll
+200
+9991713
+226549
+2325
+
+
+BenchmarkPat_GithubAll
+200
+5590793
+1499568
+27435
+
+
+BenchmarkPossum_GithubAll
+10000
+319768
+84448
+609
+
+
+BenchmarkR2router_GithubAll
+10000
+305134
+77328
+979
+
+
+BenchmarkRivet_GithubAll
+10000
+132134
+16272
+167
+
+
+BenchmarkTango_GithubAll
+3000
+552754
+63826
+1618
+
+
+BenchmarkTigerTonic_GithubAll
+1000
+1439483
+239104
+5374
+
+
+BenchmarkTraffic_GithubAll
+100
+11383067
+2659329
+21848
+
+
+BenchmarkVulcan_GithubAll
+5000
+394253
+19894
+609
+
+
+
+(1): Total Repetitions
+(2): Single Repetition Duration (ns/op)
+(3): Heap Memory (B/op)
+(4): Average Allocations per Repetition (allocs/op)",3,3
+1036,2017-07-19T09:42:41Z,2017-07-19T12:49:19Z,2017-07-19T12:49:19Z,2,2,3,ref #1031,3,1
+1038,2017-07-20T15:05:51Z,2017-07-21T02:29:24Z,2017-07-21T02:29:24Z,2,65,22,,4,4
+1042,2017-07-27T16:57:35Z,2017-07-28T00:50:58Z,2017-07-28T00:50:58Z,1,1,0,,3,1
+1047,2017-07-31T07:24:16Z,2017-10-23T09:14:10Z,2017-10-23T09:14:10Z,3,138,14,"Issue Description
+Currently, the functions ctx.Bind, ctx.BindJSON, ctx.BindQuery all use ctx.MustBindWith.
+In my opinion, the current implementation of ctx.MustBindWith has the following drawbacks. Note that this has been discussed before and I am including it here to avoid needing to crawl multiple issues, threads:
+
+Lack of control
+
+It sets the HTTP status code as 400 and developer cannot set any other HTTP status code(ex: 422, http.StatusUnprocessableEntity)
+It aborts the handler chain. Developer should be able to decide whether the resulting error is worth aborting or can be reconciled.
+Cannot use repeated Bind as discussed in #811. Developer might want to bind query params and JSON body separately.
+
+
+Possibly incorrect Content-type header
+
+It sets the Content-type as text/plain
+Neither ctx.JSON nor manually trying to set the content type header help. Instead we see this warning:
+[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 400 with 422
+
+
+
+
+
+Proposal
+For backward compatibility, we cannot change the behavior of existing bind methods. So this PR adds ShouldBind counterparts - ctx.ShouldBind, ctx.ShouldBindJSON, ctx.ShouldBindQuery.
+Note that I have not yet updated the readme file and will do so depending on the outcome of the discussion here. I suggest that we switch over all examples on readme to use the Should equivalents.
+All examples on readme have been updated to use ShouldBind methods. Also added section explaining difference between Bind and ShouldBind methods.
+For example, this isn't going to work if there is a bind error:
+func startPage(c *gin.Context) {
+    var person Person
+    if c.BindQuery(&person) == nil {
+        log.Println(""====== Only Bind By Query String ======"")
+        log.Println(person.Name)
+        log.Println(person.Address)
+    }
+    c.String(200, ""Success"") // Can cause `[GIN-debug] [WARNING] Headers were already written.`
+}
+I am new to Go 🙇 . I have pretty much duplicated the existing tests for bind methods with Should equivalents. Please let me know if anything needs to be changed.
+Related issues - #629, #633, #662, #782, #811
+Related PR - #636, #661
+Closes #840",5,16
+1049,2017-07-31T17:07:03Z,2017-08-01T04:49:28Z,2017-08-01T04:49:28Z,1,1,1,ref #1041 (comment) and #633,3,1
+1051,2017-08-01T16:34:04Z,2017-08-02T15:00:11Z,2017-08-02T15:00:11Z,1,2,2,,3,1
+1054,2017-08-04T04:44:34Z,2017-08-04T05:45:59Z,2017-08-04T05:45:59Z,5,57,57,,2,1
+1056,2017-08-07T09:17:11Z,2017-08-17T04:18:50Z,2017-08-17T04:18:51Z,1,4,0,fix #598 (comment),3,1
+1057,2017-08-08T12:40:55Z,2017-08-16T03:55:50Z,2017-08-16T03:55:50Z,13,48,49,"Comments should begin with the name of the thing being described and end in a period, from:
+https://github.com/golang/go/wiki/CodeReviewComments#comment-sentences",3,1
+1059,2017-08-09T15:44:40Z,2017-08-14T04:21:06Z,2017-08-14T04:21:06Z,1,1,1,,3,1
+1060,2017-08-11T02:00:14Z,2017-08-14T06:34:29Z,2017-08-14T06:34:29Z,1,1,1,"the screenshot of updated before:
+
+the screenshot of updated after:",3,3
+1064,2017-08-13T13:48:37Z,2017-08-14T03:02:31Z,2017-08-14T03:02:31Z,1,13,13,#1063 (comment) fix testing failed. Please review it thanks.,4,1
+1067,2017-08-15T11:55:21Z,2017-08-16T01:50:43Z,2017-08-16T01:50:43Z,1,2,2,Should use net/http package since it is imported from the UI perspective.,3,1
+1068,2017-08-16T04:14:30Z,2017-08-27T07:37:40Z,2017-08-27T07:37:40Z,5,175,13,validator allows for registration of custom validation tag - http://godoc.org/gopkg.in/go-playground/validator.v8#Validate.RegisterValidation. This adds a method to the StructValidator interface and implements the same in defaultValidator. I also added an example to the readme.,3,9
+1072,2017-08-21T15:28:47Z,2017-08-22T02:27:29Z,2017-08-22T02:27:29Z,1,4,3,"updated before：
+
+upupdated after：",3,1
+1074,2017-08-23T16:19:47Z,2017-08-24T02:50:31Z,2017-08-24T02:50:31Z,1,6,5,,4,1
+1076,2017-08-24T09:21:18Z,2017-08-25T01:00:49Z,2017-08-25T01:00:49Z,1,2,5,,3,1
+1077,2017-08-24T13:19:58Z,2017-08-25T01:13:54Z,2017-08-25T01:13:54Z,1,4,4,part of #1075,3,1
+1080,2017-08-24T17:11:37Z,2017-08-25T01:06:13Z,2017-08-25T01:06:13Z,1,10,2,,3,1
+1081,2017-08-25T17:23:27Z,2017-08-26T04:53:27Z,2017-08-26T04:53:28Z,1,1,4,"Keys need to be canonicalized via textproto.CanonicalMIMEHeaderKey().
+fix #1079",3,1
+1082,2017-08-26T04:47:02Z,2017-08-26T08:48:56Z,2017-08-26T08:48:56Z,1,1,0,Signed-off-by: Bo-Yi Wu appleboy.tw@gmail.com,2,1
+1088,2017-08-28T08:46:17Z,2017-08-28T19:38:53Z,2017-08-28T19:38:53Z,1,7,0,Ref #1075,2,0
+1092,2017-09-01T11:36:35Z,2017-09-01T14:02:26Z,2017-09-01T14:02:26Z,1,1,1,,3,1
+1094,2017-09-03T16:42:12Z,2017-09-04T01:15:51Z,2017-09-04T01:15:51Z,1,4,2,I think bit operations is not human readable in such usecases (compiler optimaze it anyway),2,1
+1097,2017-09-04T15:41:32Z,2017-09-05T01:17:54Z,2017-09-05T01:17:54Z,1,1,0,#1075,2,1
+1100,2017-09-05T11:06:46Z,2017-09-07T03:45:17Z,2017-09-07T03:45:17Z,5,20,5,"Currently there is no option to set the amount of memory the http.Request is allocating when ParseMultipartForm is called, other than the const value 'defaultMemory'.
+This PR moves that constant value from the Context to the Engine, so that a different value can be set.
+Examples and README.md has been updated accordingly.",2,1
+1101,2017-09-07T03:43:15Z,2017-09-28T16:22:35Z,2017-09-28T16:22:35Z,5,11,12,The mothod is more readable because it's more obvious s is a string and not a slice.,2,1
+1103,2017-09-07T23:41:07Z,2017-09-08T00:56:57Z,2017-09-08T00:56:57Z,1,1,1,,2,1
+1104,2017-09-09T18:10:10Z,2017-09-11T14:17:26Z,2017-09-11T14:17:26Z,3,3,3,,2,4
+1105,2017-09-11T10:38:00Z,2017-09-11T14:33:19Z,2017-09-11T14:33:19Z,1,1,1,1.9.x should be working now.,2,1
+1108,2017-09-14T13:04:55Z,2017-09-28T14:54:38Z,2017-09-28T14:54:38Z,1,27,21,,2,1
+1112,2017-09-17T10:45:48Z,2019-03-01T02:03:15Z,2019-03-01T02:03:15Z,2,38,3,"Support negotiation wildcards, fix #391.",4,2
+1117,2017-09-25T04:08:35Z,2017-09-28T14:23:19Z,2017-09-28T14:23:19Z,2,21,8,"ref #801
+This enables to specify the location to time.Time type in form binding.  It uses time_location tag.
+type T struct{
+        Time time.Time `form:""a_time"" time_format:""02/01/2006"" time_location:""Asia/Tokyo""`
+}",2,1
+1119,2017-09-28T07:10:54Z,2017-09-29T08:48:11Z,2017-09-29T08:48:11Z,2,156,0,fix #346,2,1
+1121,2017-09-28T23:01:42Z,2017-09-29T03:58:58Z,2017-09-29T03:58:58Z,3,25,0,ref: #1115,2,1
+1131,2017-10-17T09:10:12Z,,2019-09-06T08:27:03Z,4,65,1,"Fairly new to this community. Not sure if this counts as a feature.
+
+
+List route handlers at startup,
+Also, number of handlers running.
+
+Would be nice to have this to get better understanding of handlers running.
+Sorry for multiple commit builds, new to travis-ci.",4,10
+1134,2017-10-18T21:27:19Z,2019-02-22T03:45:33Z,2019-02-22T03:45:33Z,1,1,0,Fixes #1133,2,1
+1138,2017-10-24T02:45:06Z,2018-04-25T08:24:04Z,2018-04-25T08:24:04Z,2,68,1,"ref #1052
+
+TODOs:
+
+ test case using this new api
+
+TODO(add cases) have completed, but it need #1168 merged firstly.",4,4
+1144,2017-10-26T15:05:29Z,2017-11-02T13:48:55Z,2017-11-02T13:48:55Z,1,1,1,"The constant is ReleaseMode, as defined in mode.go.",2,3
+1146,2017-10-27T03:02:31Z,2017-10-29T12:12:23Z,2017-10-29T12:12:23Z,4,4,9,,2,2
+1149,2017-10-30T00:51:58Z,2017-10-30T02:38:38Z,2017-10-30T02:38:38Z,1,4,4,diff:,2,1
+1155,2017-11-01T15:23:57Z,2017-11-12T05:56:59Z,2017-11-12T05:57:00Z,1,1,1,,2,1
+1156,2017-11-01T17:26:34Z,2017-11-12T05:37:32Z,2017-11-12T05:37:32Z,3,72,1,"What do you think guys? For newcomers it takes time to figure out how to test gin routes. I personally found questions on stackoverflow and couple blog posts.
+This may save a bit of time.
+waiting for your ideas/proposal.
+Changes:
+
+Modified basic example and added test file
+Added testing doc to readme file",2,5
+1165,2017-11-11T07:26:09Z,2017-11-12T05:24:52Z,2017-11-12T05:24:52Z,4,9,16,,2,1
+1166,2017-11-12T01:37:58Z,2017-11-12T05:11:23Z,2017-11-12T05:11:23Z,4,17,5,,2,7
+1168,2017-11-12T13:05:19Z,2018-01-26T03:46:12Z,2018-01-26T03:46:12Z,5,957,2,"Now travis not run some test cases on binding and render dir.
+Hi, @javierprovecho @appleboy @tboerger should we add these test case?
+Thanks!
+The pull request includes the follow points:
+
+update Makefile for running coverage.sh
+add coverage.sh to run code coverage rate
+add render and binding to coverage.sh
+update binding_test.go which code coverage rate is 99.23%
+update render_test.go which code coverage rate is 100%
+update .gitignore",2,3
+1170,2017-11-13T10:06:26Z,,2018-10-23T02:37:33Z,1,1,1,The browser will cache 301,6,3
+1173,2017-11-16T15:45:04Z,2017-11-21T01:27:57Z,2017-11-21T01:27:58Z,3,155,18,,2,1
+1174,2017-11-18T08:01:25Z,2017-11-21T02:03:57Z,2017-11-21T02:03:57Z,1,2,6,,2,1
+1176,2017-11-21T02:48:37Z,2017-11-29T08:42:52Z,2017-11-29T08:42:52Z,2,56,0,,2,1
+1177,2017-11-21T12:11:00Z,2017-11-21T13:18:45Z,2017-11-21T13:18:45Z,9,271,271,"Hi, @appleboy I recommit the pull request for changing the param position of assert.Equal, thanks!",2,1
+1183,2017-11-26T06:10:12Z,2018-01-24T03:06:43Z,2018-01-24T03:06:43Z,1,1,1,"comments from 1e1e4fc#commitcomment-25844435
+cc @toravir",2,1
+1184,2017-11-26T10:45:15Z,2017-11-29T02:50:15Z,2017-11-29T02:50:15Z,11,27,48,,3,1
+1185,2017-11-28T02:18:05Z,2017-12-17T05:02:33Z,2017-12-17T05:02:33Z,2,12,12,,3,2
+1188,2017-11-30T13:40:15Z,2017-12-17T00:05:30Z,2017-12-17T00:05:30Z,1,1,1,change path from '~/go/...' to '$GOPATH/...',2,1
+1199,2017-12-15T14:12:14Z,2017-12-16T16:52:08Z,2017-12-16T16:52:08Z,1,1,1,,2,1
+1202,2017-12-19T01:21:40Z,2017-12-21T03:00:18Z,2017-12-21T03:00:18Z,1,2,4,part of #1075,2,1
+1204,2017-12-19T16:37:39Z,2017-12-20T01:32:40Z,2017-12-20T01:32:40Z,1,2,2,I came across this while going through the documentation of Bind.,2,2
+1206,2017-12-20T20:50:15Z,2017-12-21T02:48:12Z,2017-12-21T02:48:12Z,1,1,1,,2,1
+1219,2018-01-02T08:15:09Z,2018-01-23T02:36:37Z,2018-01-23T02:36:37Z,1,1,1,folling -> following,2,1
+1238,2018-01-28T14:44:55Z,2019-02-27T11:56:29Z,2019-02-27T11:56:30Z,2,25,6,Very useful when using Gin with some reverse proxies like Traefik,3,2
+1249,2018-02-11T20:47:29Z,2018-02-22T13:28:50Z,2018-02-22T13:28:50Z,1,1,0,"Adds a badge showing the number of people helping this repo on CodeTriage.
+
+What is CodeTriage?
+CodeTriage is an Open Source app that is designed to make contributing to Open Source projects easier. It works by sending subscribers a few open issues in their inbox. If subscribers get busy, there is an algorithm that backs off issue load so they do not get overwhelmed
+Read more about the CodeTriage project.
+Why am I getting this PR?
+Your project was picked by the human, @schneems. They selected it from the projects submitted to https://www.codetriage.com and hand edited the PR. How did your project get added to CodeTriage? Roughly 6 months ago, dinsaw added this project to CodeTriage in order to start contributing. Since then, 5 people have subscribed to help this repo.
+What does adding a badge accomplish?
+Adding a badge invites people to help contribute to your project. It also lets developers know that others are invested in the longterm success and maintainability of the project.
+You can see an example of a CodeTriage badge on these popular OSS READMEs:
+
+ https://github.com/rails/rails
+ https://github.com/crystal-lang/crystal
+
+Have a question or comment?
+While I am a bot, this PR was manually reviewed and monitored by a human - @schneems. My job is writing commit messages and handling PR logistics.
+If you have any questions, you can reply back to this PR and they will be answered by @schneems. If you do not want a badge right now, no worries, close the PR, you will not hear from me again.
+Thanks for making your project Open Source! Any feedback is greatly appreciated.",2,1
+1250,2018-02-11T21:07:42Z,2018-02-23T01:09:34Z,2018-02-23T01:09:34Z,2,7,0,"Not setting mode explicitly sets gin into debug mode, but it does not
+make it possible to retrieve gin mode as Debug since it's set to """".
+Calling gin.Mode() returns """" even though gin is in debug mode.
+The alternative approach is to change SetMode to not accept """" and make init function calling SetMode(DebugMode) explicitly when the mode is not defined. That would definitely change how SetMode reacts to inputs and could break some apps.",2,1
+1252,2018-02-12T19:55:38Z,2019-03-02T15:07:38Z,2019-03-02T15:07:38Z,1,5,4,"As suggested on
+#1251",2,1
+1253,2018-02-16T19:39:48Z,,2020-02-21T08:49:53Z,2,59,0,"Method for getting body request with Content-Type like MIMEJSON, MIMEPOSTForm or MIMEMultipartPOSTForm",3,2
+1256,2018-02-22T09:57:15Z,2018-02-22T13:00:20Z,2018-02-22T13:00:20Z,1,1,0,,2,1
+1259,2018-02-27T03:19:47Z,2018-11-06T05:40:21Z,2018-11-06T05:40:21Z,2,69,5,"This is a proposed fix for #1089 to prevent the case of a broken pipe leading to a noisy panic stack trace.
+The DumpRequest output is still preserved, but the panic is avoided, which is caused by the RecoveryWithWriter handler trying to write headers after the body has already been written.",14,16
+1260,2018-02-27T17:07:07Z,2019-03-01T02:17:47Z,2019-03-01T02:17:48Z,2,21,0,"Extends the context.File method to allow the Content-Disposition header to be automatically set within this scope. This allows downloads of the file as attachments, allowing the server to specify the filename.
+References:
+https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Disposition
+Resolves #1243",3,5
+1264,2018-03-01T14:38:05Z,2019-03-18T02:16:35Z,2019-03-18T02:16:35Z,4,129,3,"update for supporting multipart form and file binding
+example:
+type PhoptUploadForm struct {
+	imgData    *multipart.FileHeader `form:""img_data"" binding:""required""`
+	ProjectID   string `form:""project_id"" binding:""required""`
+	Description string `form:""description binding:""required""`
+}
+
+ref: #1263",4,11
+1270,2018-03-06T02:40:07Z,2018-03-20T06:42:52Z,2018-03-20T06:42:52Z,1,7,1,"I found that gin printed the current stack information in panic, but there was no time to print panic, and it was hard to know when the panic occurred.",2,1
+1272,2018-03-07T08:13:39Z,2018-10-23T02:56:34Z,2018-10-23T02:56:34Z,1,9,6,"I'd like to have access to the HandlerFunc in RouteInfos, to write utilities around gin.
+This resolves #506 for me.",4,4
+1273,2018-03-07T15:26:40Z,2018-06-21T01:53:52Z,2018-06-21T01:53:52Z,9,177,1,"gin already support http2, while previously not support server push.
+Add Pusher() function to extend the ResponseWriter interface.
+// get http.Pusher
+ if pusher := c.Writer.Pusher(); pusher != nil {
+     // use pusher.Push() to do server push
+}",8,15
+1274,2018-03-07T19:38:27Z,,2019-02-23T12:43:49Z,1,9,10,"The Model binding and validation section was outdated, showing the old methods that Gin does not provide anymore.
+I've replaced the old ones with the new ones and changed the explanations of their functionality.",3,2
+1277,2018-03-09T04:09:14Z,2018-03-29T06:33:08Z,2018-03-29T06:33:08Z,8,161,15,"Add func ValidatorEngine for returning the underlying validator engine used
+in the default StructValidator implementation.
+Remove the function RegisterValidation from the StructValidator interface
+which made it immpossible to use a StructValidator implementation without the
+validator.v8 library.
+Update and rename test for registering validation
+Test{RegisterValidation => ValidatorEngine}.
+Update readme and example for registering custom validation.
+Add example for registering struct level validation.
+Add documentation for the following binding funcs/types:
+
+Binding interface
+StructValidator interface
+Validator instance
+Binding implementations
+Default func
+
+
+
+Closes #1147, #1211.",4,14
+1287,2018-03-16T23:08:04Z,2018-03-20T06:05:25Z,2018-03-20T06:05:25Z,2,4,4,"In ""graceful-shutdown"" examples, ListenAndServe errors are checked but just to be logged.
+If port is already used by another program, program will start, fail to bind, but still run, waiting for a sigterm.
+Also handling error ""ErrServerClosed"" which is triggered by Shutdown and should be considered as a legit error.",2,1
+1296,2018-03-22T23:00:54Z,,2020-10-22T12:11:46Z,3,126,1,"Currently, Gin doesn't handle recursive load of template files in a folder.
+This pull request adds a new method called LoadHTMLFilesRecursively to load all files matching a list of extension in a specific folder.",5,8
+1304,2018-04-02T19:45:02Z,2018-05-12T03:00:42Z,2018-05-12T03:00:42Z,6,116,0,This pull request adds a new method called DataFromReader to provides an easy way to serve dynamic files.,3,6
+1324,2018-04-19T02:28:30Z,2018-04-19T04:00:23Z,2018-04-19T04:00:23Z,1,4,3,"The App Engine SDK is superseded by the Cloud SDK, so goapp is now deprecated.
+To avoid confusion, how about changing the instruction?",2,2
+1325,2018-04-19T15:28:33Z,2018-04-20T01:54:01Z,2018-04-20T01:54:01Z,1,41,0,,2,1
+1327,2018-04-19T23:58:05Z,2018-04-20T02:27:45Z,2018-04-20T02:27:45Z,3,110,110,"assert.Equal(t, expected, actual)",2,1
+1328,2018-04-22T02:21:00Z,2018-04-22T07:04:39Z,2018-04-22T07:04:39Z,8,175,1,"ref #1316 (comment)
+
+ Add note for README",2,4
+1333,2018-04-25T06:48:51Z,2018-04-26T03:52:20Z,2018-04-26T03:52:20Z,6,114,0,"Jsonp is common format in json to o request data from servers  in  different domains,
+I added Jsonp's data return format.",2,2
+1336,2018-04-25T17:25:38Z,2018-04-26T14:09:35Z,2018-04-26T14:09:35Z,2,44,0,"Useful in case if you need to bind the form to the following structure:
+type input struct {
+	Field *string `form:""field"" binding:""omitempty,max=128""`
+}",3,5
+1341,2018-04-29T07:09:33Z,2018-05-11T02:33:34Z,2018-05-11T02:33:34Z,9,279,10,"close #216
+Reported problems
+#216 says some formats in requests' body cannot be bound into different structs by calling multiple times.
+type modelA struct {
+  Foo string `form:""foo"" json:""foo"" binding:""required""`
+  Bar int64  `form:""bar"" json:""bar"" binding:""required""`
+}
+
+type modelB struct {
+  Hoge string `form:""hoge"" json:""hoge"" xml:""hoge"" binding:""required""`
+  Fuga int64  `form:""fuga"" json:""fuga"" xml:""fuga"" binding:""required""`
+}
+
+func main() {
+  r := gin.New()
+  r.POST(""/json"", func(c *gin.Context) {
+    fa, fb := modelA{}, modelB{}
+    if aerr := c.ShouldBindWith(&fa, binding.JSON); aerr == nil {
+      c.JSON(http.StatusOK, gin.H{""form"": fa})
+    } else if berr := c.ShouldBindWith(&fb, binding.JSON); berr == nil {
+      c.JSON(http.StatusOK, gin.H{""form"": fb})
+    } else {
+      c.AbortWithStatusJSON(
+        http.StatusBadRequest,
+        gin.H{
+          ""errors"": gin.H{
+            ""modelA"": aerr.Error(),
+            ""modelB"": berr.Error(),
+          },
+        },
+      )
+    }
+  })
+  r.Run(""0:8080"")
+}
+# modelA can be bound successfully
+$ curl -X POST -d '{""foo"":""AAA"",""bar"":123}' 0:8080/json | jq
+{
+  ""form"": {
+    ""foo"": ""AAA"",
+    ""bar"": 123
+  }
+}
+
+# but modelB cannot
+$ curl -X POST -d '{""hoge"":""BBB"",""fuga"":123}' 0:8080/json | jq
+{
+  ""errors"": {
+    ""modelA"": ""Key: 'modelA.Bar' Error:Field validation for 'Bar' failed on the 'req
+ired' tag\nKey: 'modelA.Foo' Error:Field validation for 'Foo' failed on the 'require
+' tag"",
+    ""modelB"": ""EOF""
+  }
+}
+Proposal to solve this
+This PR solves this by adding a new interface binding.BindingBody & a new method c.ShouldBindBodyWith.
+...
+    // use ShouldBindBodyWith
+    if aerr := c.ShouldBindBodyWith(&fa, binding.JSON); aerr == nil {
+      c.JSON(http.StatusOK, gin.H{""form"": fa})
+    } else if berr := c.ShouldBindBodyWith(&fb, binding.JSON); berr == nil {
+      c.JSON(http.StatusOK, gin.H{""form"": fb})
+    } else {
+...
+# successfully modelB bound
+$ curl -X POST -d '{""hoge"":""BBB"",""fuga"":123}' 0:8080/json | jq
+{
+  ""form"": {
+    ""hoge"": ""BBB"",
+    ""fuga"": 123
+  }
+}
+And you can mix different formats.
+...
+    if aerr := c.ShouldBindBodyWith(&fa, binding.JSON); aerr == nil {
+      c.JSON(http.StatusOK, gin.H{""form"": fa})
+    } else if berr := c.ShouldBindBodyWith(&fb, binding.XML); berr == nil {
+      c.JSON(http.StatusOK, gin.H{""form"": fb})
+    } else {
+...
+$ curl -X POST -d '<?xml version=""1.0"" encoding=""UTF-8""?>\n<root>\n<fuga>123</fuga>\n<hoge>BBB</hoge>\n</root>' 0:8080/json | jq
+{
+  ""form"": {
+    ""hoge"": ""BBB"",
+    ""fuga"": 123
+  }
+}
+I added implementations for JSON, XML, msgpack and protobuf.  Other formats, query & forms, are already available to be called multiple times, because they uses parsed req.Form (url.Values) instead of req.Body.
+Question
+
+If you prefer to this feature, I will add unit tests.
+I'm worrying about cool naming for bind.BindingBody, c.ShouldBindBodyWith.  I'm happy if you give better names.",4,9
+1342,2018-04-29T16:38:04Z,2018-05-01T06:24:19Z,2018-05-01T06:24:19Z,3,151,1,"ref #551
+support the follow style:
+type T struct {
+    I int `form:""i""`
+    J int `form:""j""`
+}
+
+type Login struct {
+    Id *T // HERE: have no `form` name
+}",2,3
+1350,2018-05-09T19:56:03Z,2018-05-11T14:40:34Z,2018-05-11T14:40:34Z,2,24,1,"Hello all, I find a bug in gin.
+Reproduce this like below:
+type A struct {
+        INum int64 `form:""numvalue""`
+}
+
+type B struct {
+        IBool bool `form:""boolvalue""`
+}
+
+func handleParaNum(c *gin.Context) {
+        var a A
+        err := c.ShouldBindQuery(&a)
+        if err != nil {
+                c.String(200, ""cause an err=%s"", err.Error())
+        } else {
+                c.String(200, ""bind ok"")
+        }
+        return
+
+}
+
+func handleParaBool(c *gin.Context) {
+        var b B
+        err := c.ShouldBindQuery(&b)
+        if err != nil {
+                c.String(200, ""cause an err=%s"", err.Error())
+        } else {
+                c.String(200, ""bind ok"")
+        }
+        return
+}
+
+func main() {
+        route := gin.Default()
+        route.GET(""/test_error_num"", handleParaNum)
+        route.GET(""/test_error_bool"", handleParaBool)
+        route.Run("":8085"")
+}
+
+And tow cmds,
+[root@localhost ~]# curl localhost:8085/test_error_num?numvalue=3s   
+cause an err=strconv.ParseInt: parsing ""3s"": invalid syntax
+[root@localhost ~]# curl localhost:8085/test_error_bool?boolvalue=fal
+bind ok
+
+But the second reply is not what we expect, then I review the source code.
+Get the point
+form_mapping.go#L164
+func setBoolField(val string, field reflect.Value) error {
+	if val == """" {
+		val = ""false""
+	}
+	boolVal, err := strconv.ParseBool(val)
+	if err == nil {
+		field.SetBool(boolVal)
+	}
+	return nil
+}
+
+The code ignore the error (return nil), which is not right",3,6
+1352,2018-05-10T16:56:08Z,2018-05-11T01:57:22Z,2018-05-11T01:57:22Z,1,2,2,Also fix the same typo in a comment,2,2
+1358,2018-05-16T08:05:57Z,2018-07-03T09:17:08Z,2018-07-03T09:17:08Z,5,101,0,add a json render that rendering json as ASCII string,3,5
+1359,2018-05-17T12:00:23Z,2018-05-31T06:13:40Z,2018-05-31T06:13:41Z,1,4,0,ref #610,2,1
+1360,2018-05-19T08:15:52Z,2018-05-31T03:41:46Z,2018-05-31T03:41:46Z,1,1,1,server a single file -> serve a single file,2,1
+1367,2018-05-24T02:08:28Z,,2018-08-19T16:42:11Z,1,7,1,,3,2
+1370,2018-05-25T14:56:09Z,2018-09-23T07:15:24Z,2018-09-23T07:15:24Z,2,17,3,"Fixes #1331
+HTTP logging leaks sensitive request information.
+This PR removes HTTP request logging during panics.",5,8
+1371,2018-05-26T11:17:31Z,2018-05-30T01:19:05Z,2018-05-30T01:19:05Z,2,15,3,"Reference this issue #1323
+
+There isn't any eg about HandleContext
+The c.Request.Path  of HandleContext Comment  is not right
+
+Based on the above two points, I pull this request.
+If you think it's unnecessary, I will close this.
+Thx.",2,1
+1383,2018-06-06T01:37:41Z,2018-08-06T04:07:12Z,2018-08-06T04:07:12Z,3,121,1,"ref: #1362 #1106
+please @javierprovecho @appleboy review the idea, thanks!
+when use the following curl command:
+curl -X POST 'http://localhost:8888/post?ids\[a\]=1234&ids\[b\]=hello&ids\[c\]=3.14'
+
+and use c.QueryMap(""ids"") will return the following result:
+ids: map[c:3.14 a:1234 b:hello]
+
+
+ Add query map for post form
+ Add unit test
+ Add document
+ Support post form map for go1.6",2,1
+1387,2018-06-10T04:57:37Z,,2019-03-02T01:21:06Z,2,66,12,"Please @javierprovecho @appleboy review the pull request, thanks a lot!
+ref: #1362 #398
+Idea: declare one in map[string]interface{} (MUST), and user inputs -F 'in={""i"":1}'.
+Support map for map form, can use the curl command:
+curl -v http://localhost:8080/loginForm -F 'user={""a"":""hello"",""b"":2, ""c"": 3.14}' -F 'password=123'
+
+and the following golang code:
+package main
+
+import (
+	""github.com/gin-gonic/gin""
+	""net/http""
+)
+
+// Binding from JSON
+type Login struct {
+	User     map[string]interface{} `form:""user""`
+	Password string                 `form:""password""`
+}
+
+func main() {
+	router := gin.Default()
+
+	router.POST(""/loginForm"", func(c *gin.Context) {
+		var form Login
+		// This will infer what binder to use depending on the content-type header.
+		if err := c.ShouldBind(&form); err == nil {
+			if form.User[""a""].(string) == ""hello"" && form.User[""b""].(float64) == 2 && form.User[""c""].(float64) == 3.14 && form.Password == ""123"" {
+				c.JSON(http.StatusOK, gin.H{""status"": ""you are logged in""})
+			} else {
+				c.JSON(http.StatusBadRequest, gin.H{""error"": err.Error()})
+			}
+		}
+	})
+
+	// Listen and serve on 0.0.0.0:8080
+	router.Run("":8080"")
+}
+
+it will output the result:
+*   Trying ::1...
+* TCP_NODELAY set
+* Connected to localhost (::1) port 8080 (#0)
+> POST /loginForm HTTP/1.1
+> Host: localhost:8080
+> User-Agent: curl/7.54.0
+> Accept: */*
+> Content-Length: 269
+> Expect: 100-continue
+> Content-Type: multipart/form-data; boundary=------------------------02819574d8de733f
+>
+< HTTP/1.1 100 Continue
+< HTTP/1.1 200 OK
+< Content-Type: application/json; charset=utf-8
+< Date: Sun, 10 Jun 2018 05:05:13 GMT
+< Content-Length: 30
+<
+* Connection #0 to host localhost left intact
+{""status"":""you are logged in""}",2,3
+1390,2018-06-12T04:51:11Z,,2019-05-26T00:20:48Z,6,78,7,"ref: #748
+Get matched route from context to count the number of calls to the interface or to control user permissions.",12,24
+1391,2018-06-12T11:39:25Z,2020-03-16T16:52:03Z,2020-03-16T16:52:03Z,2,11,1,We get a panic in a loaded project related with use c.Get / c.Set in many middleware routines.,6,11
+1394,2018-06-14T08:21:21Z,2018-06-26T10:56:44Z,2018-06-26T10:56:44Z,3,64,54,ref #1381,3,1
+1398,2018-06-20T00:24:48Z,2022-02-05T13:13:21Z,2022-02-05T13:13:21Z,4,54,4,"Support both http/1.x and h2c over the same plain tcp port.
+It is common to make h2c communication on the server side environment. However,  the standard net/http library does not support this feature in box (more detail). It would be a great convenient for gin to support it.
+This patch is extracted from 	William Chang's work.",14,20
+1400,2018-06-20T13:35:13Z,2018-06-21T01:31:43Z,2018-06-21T01:31:43Z,1,1,4,"And I test them benchmark:
+code:
+# stringsbench.go
+package stringsbench
+
+import ""strings""
+
+func index(part string) string {
+	if index := strings.IndexByte(part, ';'); index >= 0 {
+		if part := strings.TrimSpace(strings.Split(part, "";"")[0]); part != """" {
+			return part[0:index]
+		}
+	}
+	return """"
+}
+
+func split(part string) string {
+	return strings.Split(part, "";"")[0]
+}
+# stringsbench_test.go
+package stringsbench
+
+import (
+	""testing""
+)
+
+func BenchmarkIndex(b *testing.B) {
+	b.RunParallel(func(pb *testing.PB) {
+		for pb.Next() {
+			index(""text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8"")
+		}
+	})
+}
+
+func BenchmarkSplit(b *testing.B) {
+	b.RunParallel(func(pb *testing.PB) {
+		for pb.Next() {
+			split(""text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8"")
+		}
+	})
+}
+And the result:
+➜  strings go test --bench=.
+goos: darwin
+goarch: amd64
+BenchmarkIndex-8   	30000000	        46.1 ns/op
+BenchmarkSplit-8   	50000000	        35.9 ns/op
+PASS
+ok  	_/Users/tianou/strings	3.271s
+➜  strings go test --bench=.
+goos: darwin
+goarch: amd64
+BenchmarkIndex-8   	30000000	        44.2 ns/op
+BenchmarkSplit-8   	50000000	        34.7 ns/op
+PASS
+ok  	_/Users/tianou/strings	3.156s
+➜  strings go test --bench=.
+goos: darwin
+goarch: amd64
+BenchmarkIndex-8   	30000000	        45.6 ns/op
+BenchmarkSplit-8   	50000000	        35.3 ns/op
+PASS
+ok  	_/Users/tianou/strings	3.230s",2,1
+1401,2018-06-21T13:42:15Z,2018-06-22T01:51:06Z,2018-06-22T01:51:06Z,7,290,2,use grpc helloworld example.,2,7
+1402,2018-06-22T02:03:39Z,2018-06-22T16:45:44Z,2018-06-22T16:45:44Z,1,0,61,"updated vendor.json is ok.
+but set ignore test in vendor.json, x/net/context package only use in context_test.go, I don't know why vendor still need it.
+please @appleboy review the pull request, thanks a lot.",2,1
+1405,2018-06-22T04:39:39Z,2018-06-22T15:44:46Z,2018-06-22T15:44:46Z,1,1,1,sorry...fixed #1403,2,1
+1406,2018-06-22T13:16:34Z,2018-06-22T16:08:59Z,2018-06-22T16:08:59Z,1,3,7,,2,1
+1407,2018-06-23T00:10:08Z,2018-06-23T03:06:28Z,2018-06-23T03:06:28Z,2,2,1,from httprouter julienschmidt/httprouter#239,2,1
+1411,2018-06-26T06:17:14Z,2018-06-26T09:21:33Z,2018-06-26T09:21:33Z,6,15,13,,2,1
+1413,2018-06-26T13:51:36Z,2018-06-28T09:08:09Z,2018-06-28T09:08:10Z,1,15,0,"ref #1075
+annotation from go context source.",2,1
+1417,2018-07-01T13:51:08Z,2018-08-12T15:38:32Z,2018-08-12T15:38:32Z,13,23,23,mkdir a test data dir.,2,1
+1419,2018-07-02T07:53:30Z,2019-02-22T04:53:48Z,2019-02-22T04:53:48Z,2,5,5,ENV_GIN_MODE -> EnvGinMode,2,6
+1421,2018-07-02T16:10:31Z,2018-07-03T07:39:18Z,2018-07-03T07:39:18Z,2,10,10,"update assert param(expect, actual) position",2,1
+1431,2018-07-17T11:16:41Z,2018-08-05T05:29:26Z,2018-08-05T05:29:26Z,2,5,6,"Hello!
+Looking through context package and found a little bit complicated switch block. And tried to make it easier.
+Thanks!",2,1
+1433,2018-07-17T12:57:36Z,2018-08-06T22:44:33Z,2018-08-06T22:44:33Z,2,57,0,,2,2
+1438,2018-07-20T10:45:59Z,2018-07-20T16:52:56Z,2018-07-20T16:52:56Z,2,20,1,return json if jsonp has not callback,2,1
+1447,2018-07-28T05:26:22Z,,2019-05-26T00:20:58Z,4,22,7,"then in gin.HandlerFunc ,we can use c.RelativePath to get the relativePath,such as:
+engine.GET(""/p1/:id/p2/:pc/p3/*path"", func(c *gin.Context) {
+        //c.RelativePath value is /p1/:id/p2/:pc/p3/*path
+        fmt.Println(c.RelativePath)
+})",5,10
+1459,2018-08-06T06:47:37Z,2018-08-06T15:08:02Z,2018-08-06T15:08:02Z,1,1,0,interface implement type check,2,1
+1460,2018-08-06T11:26:35Z,2018-08-07T04:41:28Z,2018-08-07T04:41:28Z,2,17,0,The status of responseWriter will be overwrite if flush was called. This is caused by the Flush of http.response.Flush().,4,3
+1461,2018-08-07T04:31:41Z,2018-08-07T05:49:31Z,2018-08-07T05:49:31Z,1,6,5,,2,1
+1463,2018-08-07T15:52:30Z,2018-08-12T02:12:34Z,2018-08-12T02:12:34Z,2,21,24,#1462,2,1
+1467,2018-08-09T05:00:19Z,2018-08-09T09:20:07Z,2018-08-09T09:20:07Z,1,20,0,,2,1
+1469,2018-08-10T09:17:13Z,2018-08-10T12:50:24Z,2018-08-10T12:50:24Z,1,2,2,from httprouter patch: julienschmidt/httprouter#243,2,1
+1470,2018-08-10T11:35:37Z,2018-08-12T13:17:58Z,2018-08-12T13:17:58Z,2,46,33,,2,1
+1473,2018-08-12T04:43:17Z,2018-08-12T13:38:08Z,2018-08-12T13:38:08Z,1,13,0,,2,1
+1474,2018-08-12T05:08:51Z,2018-08-12T14:02:37Z,2018-08-12T14:02:37Z,1,15,0,all code coverage > 99%,2,1
+1478,2018-08-12T12:10:41Z,2018-08-14T08:58:52Z,2018-08-14T08:58:52Z,3,29,3,,4,1
+1479,2018-08-12T15:26:01Z,2018-08-19T02:45:57Z,2018-08-19T02:45:57Z,6,113,2,"Gin now have the protobufBinding function to check the request format, but didn't have a protobuf response function like c.YAML().
+In our company ByteDance, the largest internet company using golang in China, we use gin to transfer Protobuf  instead of Json, we have to write some internal library to make some wrappers to achieve that, and the code is not elegant. So we really want such a feature.",11,10
+1480,2018-08-12T19:45:01Z,2018-08-12T20:54:23Z,2018-08-12T20:54:23Z,1,1,1,"""not match neither"" means that it will match.",2,2
+1481,2018-08-13T13:12:27Z,2018-08-14T03:48:28Z,2018-08-14T03:48:28Z,1,19,18,"Hi @javierprovecho I add pr address link for every reference pr, I commit the pr to gin-gonic:chore/v1.3.0",3,1
+1482,2018-08-13T14:06:39Z,2018-08-14T01:51:57Z,2018-08-14T01:51:57Z,20,209,192,,2,2
+1483,2018-08-14T01:51:40Z,2018-08-14T03:35:14Z,2018-08-14T03:35:14Z,2,20,0,"ref: https://blog.github.com/2016-02-17-issue-and-pull-request-templates/
+Hi, @javierprovecho @appleboy and everyone I commit two files about issue template and pull request template explain, I not setup them template but explain, ant the explain from CONTRIBUTING.md. Thanks!",2,1
+1485,2018-08-14T09:09:09Z,2018-08-17T01:12:15Z,2018-08-17T01:12:15Z,3,94,18,Add BindXML AND ShouldBindXML #1484,3,2
+1487,2018-08-14T14:12:00Z,2018-08-17T01:41:57Z,2018-08-17T01:41:57Z,1,1,1,"To make things working in line with encoding/json decoder, I'd suggest to set default time format as time.RFC3339.
+type input struct {
+	Field time.Time `form:""field"" json:""time""`
+}
+
+This will make values bound in the same way as if you are using structures as above and different bindings depending on the request type.",3,2
+1492,2018-08-16T09:16:39Z,2018-08-17T03:33:24Z,2018-08-17T03:33:24Z,1,1,1,Tiny typo fix in README. Thanks.,3,2
+1496,2018-08-19T06:21:40Z,2018-08-19T09:39:59Z,2018-08-19T09:39:59Z,5,9,9,"ref #1479
+please @salamer @appleboy help review, thanks!",2,1
+1497,2018-08-19T10:12:12Z,2018-08-19T14:52:44Z,2018-08-19T14:52:44Z,2,6,2,,2,1
+1498,2018-08-19T10:18:46Z,2018-08-19T14:14:02Z,2018-08-19T14:14:02Z,1,2,2,please see msgpack usage: https://github.com/ugorji/go/tree/master/codec#usage,2,1
+1503,2018-08-21T03:53:56Z,2018-08-21T05:29:26Z,2018-08-21T05:29:26Z,1,6,3,format readme import code,2,1
+1504,2018-08-22T09:28:53Z,2018-08-30T11:04:03Z,2018-08-30T11:04:03Z,7,5,5,"@appleboy @javierprovecho please review the pull request, otherwise need add one internal package. thanks!
+json package should internal package which should not external use. ref: #1339
+about internal please see https://docs.google.com/document/d/1e8kOo3r51b2BWtTs_1uADIA5djfXhPT36s6eHVRIvaU/edit
+An import of a path containing the element “internal” is disallowed if the importing code is outside the tree rooted at the parent of the “internal” directory.
+so only github.com/gin-gonic/gin/* can call on internal package.",2,1
+1505,2018-08-22T11:52:28Z,2018-08-31T20:38:16Z,2018-08-31T20:38:16Z,1,2,1,"Asked for and got permission to feature this project at https://fnproject.slack.com
+They make heavy use of Gin for their API server https://github.com/fnproject/fn/blob/master/api/server/gin_middlewares.go",3,2
+1509,2018-08-23T07:40:00Z,2018-08-30T06:29:26Z,2018-08-30T06:29:27Z,1,1,1,change  ShouldBindXML to ShouldBindJSON,5,6
+1510,2018-08-24T02:00:00Z,,2018-09-26T22:51:33Z,3,54,4,"@javierprovecho @appleboy please review the pull request which add resetQuery instead of c.Request.URL.Query and resetForm instead of req.Form. Related to go master pull request golang/go@1040626#diff-9667474d33400190658e4758cf28dbf5
+TODO: And I think we should add internal package which reduce duplicated code and avoid circular dependencies. also see #1504
+go master branch error, maybe because url.Values change, go 1.10.x OK, print c.Request.URL.Query() and c.Request.Form log:
+url.Values{""ids[a]"":[]string{""hi""}, ""ids[b]"":[]string{""3.14""}, ""both"":[]string{""GET""}, ""id"":[]string{""main"", ""omit""}, ""array[]"":[]string{""first"", ""second""}}
+go master error, print c.Request.URL.Query() and c.Request.Form log:
+url.Values{""both=GET&id=main&id=omit&array[]=first&array[]=second&ids[a]=hi&ids[b]=3.14"":[]string{""""}}",2,13
+1514,2018-08-27T01:51:37Z,2018-08-30T06:22:51Z,2018-08-30T06:22:51Z,1,1,1,as title.,2,1
+1520,2018-08-30T12:38:05Z,2018-08-30T15:36:53Z,2018-08-30T15:36:54Z,1,2,26,"#1491 adds some lib when upgrade json-iterator but it is not needed, and use v1.1.5 not 1.1.5 version for json-iterator.",2,1
+1521,2018-08-31T09:20:53Z,2018-10-15T05:01:45Z,2018-10-15T05:01:45Z,1,137,0,,3,1
+1524,2018-08-31T09:59:02Z,2018-08-31T16:40:33Z,2018-08-31T16:40:33Z,1,1,1,,2,1
+1526,2018-09-03T00:15:58Z,2019-02-20T02:41:47Z,2019-02-20T02:41:47Z,3,73,0,,3,9
+1529,2018-09-04T13:12:21Z,2018-09-21T02:21:59Z,2018-09-21T02:21:59Z,2,51,2,"sync httprouter patch: julienschmidt/httprouter#182
+updated before:
+panic: path segment '/foo' conflicts with existing wildcard '/*you' in path '/who/are/foo'
+updated after:
+panic: '/foo' in new path '/who/are/foo' conflicts with existing wildcard '/*you' in existing prefix '/who/are/*you'",2,3
+1530,2018-09-04T16:03:28Z,2019-02-20T05:24:30Z,2019-02-20T05:24:30Z,2,10,0,"It's necessary that  catching  ctx.Done()
+if err := srv.Shutdown(ctx); err != nil {
+	log.Fatal(""Server Shutdown:"", err)
+}
+
+// catching ctx.Done(). timeout of 5 seconds.
+select {
+case <-ctx.Done():
+}
+
+log.Println(""Server exiting"")
+
+
+With pull requests:
+
+Open your pull request against master
+Your pull request should have no more than two commits, if not you should squash them.
+It should pass all tests in the available continuous integrations systems such as TravisCI.
+You should add/modify tests to cover your proposed code changes.
+If your pull request contains a new feature, please document it on the README.",4,5
+1533,2018-09-05T11:46:37Z,2018-09-22T03:37:29Z,2018-09-22T03:37:29Z,1,1,0,,2,1
+1539,2018-09-11T16:52:49Z,,2018-10-16T12:36:04Z,13,88,35,add new capability to limit accepted connections,4,8
+1540,2018-09-11T18:14:54Z,2018-09-12T01:13:16Z,2018-09-12T01:13:16Z,1,0,11,Found using https://go-critic.github.io/overview#commentedOutCode-ref,2,1
+1541,2018-09-11T18:20:41Z,2018-09-12T13:21:26Z,2018-09-12T13:21:26Z,3,12,12,Found using https://go-critic.github.io/overview#unslice-ref,2,1
+1544,2018-09-12T13:05:24Z,2018-09-15T02:23:33Z,2018-09-15T02:23:33Z,21,97,16,"ref: #1075
+because I am not a native English, maybe have a bit problem.",2,1
+1546,2018-09-14T06:56:43Z,2019-05-21T23:48:51Z,2019-05-21T23:48:51Z,5,12,15,"func WriteJSON(w http.ResponseWriter, obj interface{}) error {
+	writeContentType(w, jsonContentType)
+	jsonBytes, err := json.Marshal(obj)
+	if err != nil {
+		return err
+	}
+	w.Write(jsonBytes)
+	return nil
+}
+
+func WriteJSON(w http.ResponseWriter, obj interface{}) error {
+	writeContentType(w, jsonContentType)
+	encoder := json.NewEncoder(w)
+	err := encoder.Encode(&obj)
+	if err != nil {
+		return err
+	}
+	return nil
+}",7,8
+1549,2018-09-15T05:32:37Z,2018-09-17T07:08:12Z,2018-09-17T07:08:12Z,2,9,5,version file includes the current version which will publish.,2,0
+1554,2018-09-16T13:03:17Z,2018-09-16T15:22:55Z,2018-09-16T15:22:55Z,2,92,0,"but still no change ci script.
+cmd:
+export GO111MODULE=on: open vgo on go 1.11
+go mod init: initial project to generate go.mod file
+go mod tidy: generate go.sum file",2,0
+1555,2018-09-16T18:09:42Z,2018-09-17T04:09:34Z,2018-09-17T04:09:34Z,2,51,1,Close #1553,3,4
+1559,2018-09-19T03:50:05Z,2018-10-16T00:48:42Z,2018-10-16T00:48:42Z,2,166,114,"Digging into the test code base I've found out that some of the tests for LoadHTML* methods are not reliable and efficient. They use timeouts to be sure that goroutine with the server has started. And even more, in old implementation, the server started only once – all the new instances silently failed due to the occupied network port.
+Here is a short overview of the proposed changes:
+
+it's not necessary to rely on timeouts, the server starts listening synchronously and returns control when it is ready
+once the server is run, it's stopped after a test passes
+dry out http server setup
+magic with empty closure return is eliminated
+preserve router.RunTLS coverage with integration tests",3,6
+1560,2018-09-19T04:36:01Z,2018-09-19T05:57:01Z,2018-09-19T05:57:01Z,3,86,74,"fix #829
+remove log.SetFlags(0)",4,12
+1561,2018-09-19T15:54:02Z,2018-09-20T01:13:04Z,2018-09-20T01:13:04Z,1,5,0,as title. docs: https://docs.travis-ci.com/user/customizing-the-build/#rows-that-are-allowed-to-fail,3,1
+1565,2018-09-23T20:41:29Z,2018-10-01T02:49:40Z,2018-10-01T02:49:40Z,2,24,1,"As per #1230 there is an issue when using HandleContext where the context of the request is returned to the context sync.Pool before the parent request has finished, causing context to be used in a non-thread safe manner.
+I've removed the bug by not entering the context back in the pool and leaving that to ServeHTTP.
+There was no test coverage for this function so I've also added the test to cover it. As the bug only happens when there are concurrent requests, the tests issues hundreds of concurrent requests. Without the bug fixed the tests do consistently recreate the error.",3,1
+1569,2018-09-25T15:05:36Z,2018-10-15T04:52:51Z,2018-10-15T04:52:51Z,5,64,16,"Ensure old version run right and then attempt to support go module.
+please @javierprovecho @appleboy help review, thanks!",4,6
+1570,2018-09-25T22:18:36Z,2018-09-26T02:28:25Z,2018-09-26T02:28:25Z,2,3,3,"Why is this change neccesary?
+White text on a yellow background was illegible with most terminal color schemes
+
+
+How does it address the issue?
+The white text was replaced with a bash compatible dark gray while keeping the
+yellow background colour
+
+
+What side effects does this change have?
+Resolves #1552
+
+
+Before:
+
+After:",3,1
+1571,2018-09-26T01:34:46Z,2018-09-27T00:59:45Z,2018-09-27T00:59:45Z,1,2,1,"fix #1560 changes are breaking in App Engine.
+cc @giulianobr @philippgille",3,2
+1572,2018-09-26T04:38:52Z,2018-09-26T05:49:12Z,2018-09-26T05:49:12Z,2,40,2,ref: #1381,2,1
+1583,2018-10-08T14:06:27Z,2018-10-08T23:14:22Z,2018-10-08T23:14:22Z,1,2,2,"change ""hava"" to ""have""
+
+With pull requests:
+
+Open your pull request against master
+Your pull request should have no more than two commits, if not you should squash them.
+It should pass all tests in the available continuous integrations systems such as TravisCI.
+You should add/modify tests to cover your proposed code changes.
+If your pull request contains a new feature, please document it on the README.",2,2
+1585,2018-10-11T15:36:55Z,2018-10-11T23:31:32Z,2018-10-11T23:31:32Z,5,44,44,This pr contains a replacement of deprecated language feature,2,2
+1588,2018-10-12T16:41:57Z,2018-11-22T15:42:41Z,2018-11-22T15:42:41Z,1,1940,0,add chinese docs for gin,3,2
+1592,2018-10-13T14:56:28Z,2018-10-14T03:05:25Z,2018-10-14T03:05:25Z,1,1,1,as title. Just update the golint to new URL.,2,1
+1598,2018-10-16T17:32:22Z,,2019-02-19T09:37:27Z,1,1,0,"With pull requests:
+
+Open your pull request against master
+Your pull request should have no more than two commits, if not you should squash them.
+It should pass all tests in the available continuous integrations systems such as TravisCI.
+You should add/modify tests to cover your proposed code changes.
+If your pull request contains a new feature, please document it on the README.",2,1
+1599,2018-10-16T17:39:51Z,2018-10-17T07:40:57Z,2018-10-17T07:40:58Z,1,30,0,Add a new example (Set and get a cookie) to README.md.,3,1
+1601,2018-10-18T12:30:27Z,2018-10-19T03:06:23Z,2018-10-19T03:06:23Z,1,1,0,"Asked @lastzero for and got permission to feature this project at https://github.com/photoprism/photoprism
+Them API server: https://github.com/photoprism/photoprism/tree/develop/internal",2,1
+1606,2018-10-24T18:01:23Z,2019-10-17T02:14:45Z,2019-10-17T02:14:45Z,1,1,1,"This PR is an update and fix to #625
+If the Context.Writer has been replaced (with something that wraps it), the status code should be sent through the new writer.",11,19
+1609,2018-10-25T10:45:59Z,2018-11-06T02:28:52Z,2018-11-06T02:28:52Z,2,54,0,"Renewed the pr #526.
+
+I use gin http.Server under circus which is a socket manager.
+I need to run http.Server through a file descriptor, so implemented RunFd method.
+When using other socket managers (e.g. einhorn), maybe work well.
+Usage
+package main
+
+import (
+    ""flag""
+    ""github.com/yyoshiki41/gin""
+)
+
+var (
+    fd = flag.Int(""fd"", -1, """")
+)
+
+func main() {
+    flag.Parse()
+
+    r := gin.Default()
+    // Ping test
+    r.GET(""/ping"", func(c *gin.Context) {
+        c.String(200, ""pong"")
+    })
+    // Method arg is the file descriptor number(int).
+    r.RunFd(*fd)
+}
+and, circus.ini example is below.
+[circus]
+statsd = 1
+
+[watcher:webapp]
+cmd = ./main -fd $(circus.sockets.web)
+numprocesses = 1
+use_sockets = True
+
+[socket:web]
+host = 127.0.0.1
+port = 8080
+Demo
+$ circusd circus.ini
+2016-02-03 11:07:13 circus[46347] [INFO] Starting master on pid 46347
+2016-02-03 11:07:13 circus[46347] [INFO] sockets started
+2016-02-03 11:07:13 circus[46347] [INFO] Arbiter now waiting for commands
+2016-02-03 11:07:13 circus[46347] [INFO] webapp started
+2016-02-03 11:07:13 circus[46347] [INFO] circusd-stats started
+[GIN-debug] [WARNING] Running in ""debug"" mode. Switch to ""release"" mode in production.
+ - using env:   export GIN_MODE=release
+ - using code:  gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] GET    /ping                     --> main.main.func1 (3 handlers)
+[GIN-debug] Listening and serving HTTP on fd@5
+2016-02-03 11:07:13 circus[46354] [INFO] Starting the stats streamer
+# Ping test
+$ curl localhost:8080/ping
+pong
+
+# Other terminal
+[GIN] 2016/02/03 - 11:08:11 | 200 |    2.571629ms | 127.0.0.1 |   GET     /ping
+thx ☀️
+
+
+This change is ",3,1
+1610,2018-10-25T19:30:55Z,,2022-06-13T20:54:41Z,2,50,18,Replaces #644 as requested.,5,2
+1612,2018-10-28T16:21:08Z,2018-11-22T01:29:49Z,2018-11-22T01:29:49Z,8,158,31,"ref #846
+for example:
+type Uri struct {
+  A string `uri:""name"" binding:""required""`
+  B float32 `uri:""total"" binding:""required""`
+  C int `uri:""age"" binding:""required""`
+}
+
+func() {
+  r := gin.Default()
+  r.GET(""/rest/n/:name/:total/:age/*other"", func(c *gin.Context) {
+    var uri Uri
+    if err:= c.ShouldBindUri(&uri); err != nil {
+      c.JSON(400, gin.H{""msg"": err})
+      return
+    }
+    ...
+  }
+}
+Now you could use c.ShouldBindUri instead of c.Param",3,3
+1615,2018-10-29T09:04:05Z,2020-01-20T07:12:45Z,2020-01-20T07:12:45Z,2,6,5,"Read more at:
+https://golang.org/pkg/net/http/#Cookie",6,7
+1616,2018-10-31T03:16:43Z,2018-10-31T12:19:59Z,2018-10-31T12:19:59Z,1,1,1,"FIX r.LoadHTMLGlob(""/path/to/templates"")) to FIX r.LoadHTMLGlob(""/path/to/templates"")",2,1
+1617,2018-10-31T12:40:56Z,2018-11-01T08:05:41Z,2018-11-01T08:05:41Z,3,11,11,"In XHTML, the  tag must be properly closed, like this <input />.  In HTML5 the <input> tag has no ending slash.  https://www.w3schools.com/tags/tag_input.asp",2,1
+1618,2018-10-31T18:38:12Z,2018-11-06T01:49:46Z,2018-11-06T01:49:46Z,7,111,5,"This adds binding support for YAML.
+Sidenote: testBodyBinding uses JSON.Bind instead of the Binding instance passed as a parameter when testing the badBody. Is this intended?",3,5
+1619,2018-10-31T21:24:13Z,2018-11-01T07:30:19Z,2018-11-01T07:30:19Z,2,7,3,"The following comments to vars, conts and method were added to pass  golinter with 100%.",2,1
+1620,2018-11-01T11:53:15Z,2018-11-01T14:44:50Z,2018-11-01T14:44:50Z,1,1,1,"Missing the right colon
+
+With pull requests:
+
+Open your pull request against master
+Your pull request should have no more than two commits, if not you should squash them.
+It should pass all tests in the available continuous integrations systems such as TravisCI.
+You should add/modify tests to cover your proposed code changes.
+If your pull request contains a new feature, please document it on the README.",2,1
+1621,2018-11-01T11:56:00Z,2018-11-01T13:48:26Z,2018-11-01T13:48:26Z,2,2,2,"The <link> element is an empty element, it contains attributes only. In HTML5 the <link> tag has no end tag. In XHTML the <link> tag must be properly closed.
+https://www.w3schools.com/tags/tag_link.asp",2,1
+1623,2018-11-04T05:56:04Z,2018-11-05T01:35:25Z,2018-11-05T01:35:25Z,1,1,1,"…rest of the codebase.
+The <script> tag is used to define a client-side script (JavaScript).  The ""type"" attribute is required in HTML 4, but optional in HTML5.",2,1
+1624,2018-11-04T09:35:49Z,2018-11-05T01:44:00Z,2018-11-05T01:44:00Z,1,1,1,…f the code base.,2,1
+1625,2018-11-04T10:23:02Z,2018-11-05T01:13:17Z,2018-11-05T01:13:17Z,3,9,9,,2,1
+1626,2018-11-05T04:27:06Z,2018-11-05T06:17:05Z,2018-11-05T06:17:05Z,7,8,8,,2,1
+1631,2018-11-07T11:03:17Z,,2019-05-07T03:08:17Z,18,105,167,closing #1381,2,6
+1638,2018-11-11T07:52:28Z,2018-11-22T01:55:52Z,2018-11-22T01:55:52Z,2,11,0,"With pull requests:
+
+Open your pull request against master
+Your pull request should have no more than two commits, if not you should squash them.
+It should pass all tests in the available continuous integrations systems such as TravisCI.
+You should add/modify tests to cover your proposed code changes.
+If your pull request contains a new feature, please document it on the README.
+
+
+
+In the real world, it probably shouldn't matter. It just happened when I forgot to pass body to http.NewRequest and the function Bind panicked under that situation.
+If we always assume body will not be nil, please let me know, I will close this PR. Thank you.",3,2
+1640,2018-11-12T10:08:18Z,2018-11-22T01:17:45Z,2018-11-22T01:17:45Z,2,4,4,"cc @justinfx please help me review, thanks!
+ref: https://github.com/golang/go/blob/master/src/syscall/zerrors_linux_amd64.go",4,6
+1650,2018-11-19T08:06:38Z,2018-11-22T01:07:01Z,2018-11-22T01:07:01Z,1,3,0,"Many debug logs have no line breaks, so fix them here.
+
+With pull requests:
+
+Open your pull request against master
+Your pull request should have no more than two commits, if not you should squash them.
+It should pass all tests in the available continuous integrations systems such as TravisCI.
+You should add/modify tests to cover your proposed code changes.
+If your pull request contains a new feature, please document it on the README.",3,1
+1653,2018-11-20T08:41:48Z,,2019-01-20T10:08:31Z,1,34,0,"we need to check w.Write(jsonBytes)  error.
+there have an case, i have encountered:
+when i  write wrong number of  response Header  Content-Length
+the w.Write(jsonBytes) will throw an err ""http: wrote more than the declared Content-Length""
+w.written += int64(lenData) // ignoring errors, for errorKludge        
+
+if w.contentLength != -1 && w.written > w.contentLength {       
+
+	return 0, ErrContentLength       
+
+}       
+
+but gin did not throw the error, and response body is empty",3,4
+1657,2018-11-23T15:06:25Z,2018-11-24T11:15:20Z,2018-11-24T11:15:20Z,1,46,49,调整描述语句,2,1
+1658,2018-11-23T15:49:20Z,2018-11-24T12:49:27Z,2018-11-24T12:49:27Z,1,1,0,"have agreed with project's author.
+cc @alombarte
+thanks!",2,1
+1659,2018-11-24T15:53:22Z,2018-11-25T13:18:01Z,2018-11-25T13:18:01Z,1,111,55,更新文档描述,3,1
+1661,2018-11-25T07:27:13Z,2018-11-25T12:52:47Z,2018-11-25T12:52:47Z,1,1,0,"agreed with the project's author.
+cc @thoas
+thanks!",2,1
+1663,2018-11-25T15:23:16Z,2018-11-26T15:01:51Z,2018-11-26T15:01:52Z,2,25,2,Closes #1220,3,2
+1667,2018-11-26T11:56:05Z,2018-11-26T13:05:55Z,2018-11-26T13:05:55Z,1,0,1993,"Hi @569616226 @yinbaoqiang @weibaohui @cxjava
+Chinese document have migrated to https://github.com/gin-gonic/website/tree/master/content/cn and remove it from the project, only maintain one. thanks!
+@appleboy please review, thanks!",2,1
+1669,2018-11-26T15:30:04Z,2018-12-04T21:58:36Z,2018-12-04T21:58:36Z,2,4,3,"now ci have the following output:
+[GIN-debug] GET    /recovery                 --> github.com/gin-gonic/gin.TestPanicWithBrokenPipe.func1.1 (2 handlers)
+--- FAIL: TestPanicWithBrokenPipe (0.00s)
+    --- FAIL: TestPanicWithBrokenPipe/Broken_pipe (0.00s)
+        recovery_test.go:111: 
+            	Error Trace:	recovery_test.go:111
+            	Error:      	""
+            	            	
+            	            	2018/11/26 03:31:54 : : broken pipe
+            	            	GET /recovery HTTP/1.1
+            	            	
+            	            	
+            	            	"" does not contain ""Broken pipe""
+            	Test:       	TestPanicWithBrokenPipe/Broken_pipe
+    --- PASS: TestPanicWithBrokenPipe/connection_reset_by_peer (0.00s)
+=== RUN   TestResponseWriterReset
+
+update after output:
+=== RUN   TestPanicWithBrokenPipe
+=== RUN   TestPanicWithBrokenPipe/broken_pipe
+[GIN-debug] [WARNING] Running in ""debug"" mode. Switch to ""release"" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+[GIN-debug] GET    /recovery                 --> github.com/gin-gonic/gin.TestPanicWithBrokenPipe.func1.1 (2 handlers)
+=== RUN   TestPanicWithBrokenPipe/connection_reset_by_peer
+[GIN-debug] [WARNING] Running in ""debug"" mode. Switch to ""release"" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+[GIN-debug] GET    /recovery                 --> github.com/gin-gonic/gin.TestPanicWithBrokenPipe.func1.1 (2 handlers)
+--- PASS: TestPanicWithBrokenPipe (0.00s)
+    --- PASS: TestPanicWithBrokenPipe/broken_pipe (0.00s)
+    --- PASS: TestPanicWithBrokenPipe/connection_reset_by_peer (0.00s)",2,1
+1676,2018-11-29T04:48:34Z,2018-12-04T18:02:04Z,2018-12-04T18:02:04Z,1,0,1,Now the wercker.yml have no longer used.,2,1
+1677,2018-12-01T13:44:05Z,2018-12-12T01:05:17Z,2018-12-12T01:05:17Z,3,324,24,"Problems
+I want to define gin's log format.
+Currently, instead of using the default Logger, I can define the log format by defining my own Logger function.
+However, my own Logger function must include redundant codes similar to the default Logger.
+ref. #1581
+Proposal
+This PR solves the problem by adding new methods, LoggerWithFormatter and LoggerWithConfig.
+example code
+r := gin.New()
+r.Use(Recovery())
+r.Use(LoggerWithFormatter(func(param gin.LogFormatterParams) string {
+	// my own format
+	return fmt.Sprintf(""[GIN] %v | %3d | %13v | %15s | %-7s  %s | %s\n%s"",
+		param.TimeStamp.Format(""2006/01/02 - 15:04:05""),
+		param.StatusCode,
+		param.Latency,
+		param.ClientIP,
+		param.Method,
+		param.Path,
+		SomeMyOwnParam(param.Request), // username or payload information
+		param.ErrorMessage,
+	)
+}))
+
+refs.
+gorilla's LogFormatter
+http://www.gorillatoolkit.org/pkg/handlers#LogFormatter
+echo's LoggerWithConfig
+https://echo.labstack.com/middleware/logger
+At end
+If you prefers to this proposal, I will add unit tests and documents.
+Thanks.",3,6
+1682,2018-12-05T01:31:39Z,2018-12-05T05:36:50Z,2018-12-05T05:36:50Z,1,4,1,"fix:
+=== RUN   TestRouteStaticNoListing
+--- FAIL: TestRouteStaticNoListing (0.00s)
+	assertions.go:256: 
+			Error Trace:	routes_test.go:298
+			Error:      	Not equal: 
+			            	expected: 404
+			            	actual  : 200
+			Test:       	TestRouteStaticNoListing",3,3
+1690,2018-12-10T18:18:28Z,2018-12-13T03:20:18Z,2018-12-13T03:20:18Z,4,118,28,"*gin.Context implements standard context.Context methods, but always
+returns data as context is still valid. Since Go 1.7, http.Request now
+contains a context.Context object, which can be controlled by the
+http.Server to indicates that the context is now closed, and persue of
+request should be canceled.
+This implements the propagation of http.Request context methods inside
+gin.Context to have HTTP context cancelation information at gin.Context
+level.
+This is retro-compatible for Golang 1.6, and have no effect if http.Request have no context (as http.Request always provide context.Background is ctx is nil)",2,2
+1694,2018-12-12T11:01:27Z,2018-12-12T15:40:29Z,2018-12-12T15:40:30Z,2,56,6,closes #846,2,1
+1695,2018-12-12T14:12:24Z,2018-12-25T16:27:46Z,2018-12-25T16:27:46Z,1,4,1,"Like this:
+FAIL	github.com/gin-gonic/gin [build failed]",2,2
+1699,2018-12-15T19:30:31Z,2018-12-17T00:13:07Z,2018-12-17T00:13:07Z,3,10,2,I don't know if an example need a test,2,1
+1707,2018-12-20T13:46:44Z,2018-12-25T15:40:12Z,2018-12-25T15:40:12Z,1,2,2,closing #1700,2,1
+1711,2018-12-21T09:54:32Z,2018-12-25T15:27:24Z,2018-12-25T15:27:24Z,1,17,8,"By #1701, I thought it's necessary.",2,3
+1718,2018-12-27T08:29:16Z,2018-12-28T01:57:10Z,2018-12-28T01:57:10Z,2,24,1,,2,1
+1719,2018-12-27T09:09:21Z,2018-12-28T02:26:30Z,2018-12-28T02:26:30Z,1,2,2,,3,1
+1722,2018-12-29T07:39:26Z,2019-02-22T06:20:24Z,2019-02-22T06:20:25Z,2,4,2,fix #1721,2,1
+1724,2018-12-29T16:08:21Z,2019-02-20T13:14:17Z,2019-02-20T13:14:17Z,3,57,5,"Add a function ForceConsoleColor, like DisableConsoleColor but to force coloring the output.
+It usefull when some IDE's integrated console (like IntelliJ or Goland) are not detected as TTY, but can display colors.
+Also helps if one want to output color in log file (#1590) and as a workaround for #1547.",3,3
+1726,2018-12-30T03:22:44Z,2018-12-31T01:02:53Z,2018-12-31T01:02:53Z,1,2,2,,2,1
+1728,2019-01-02T12:38:37Z,2019-01-20T10:27:04Z,2019-01-20T10:27:04Z,1,1,1,"With pull requests:
+
+Open your pull request against master
+Your pull request should have no more than two commits, if not you should squash them.
+It should pass all tests in the available continuous integrations systems such as TravisCI.
+You should add/modify tests to cover your proposed code changes.
+If your pull request contains a new feature, please document it on the README.",3,2
+1729,2019-01-02T16:59:23Z,2019-02-26T04:15:41Z,2019-02-26T04:15:41Z,2,26,0,This PR adds a HandlerNames method which returns all registered handles for the context in descending order,2,3
+1733,2019-01-05T17:29:25Z,2019-02-22T04:23:53Z,2019-02-22T04:23:53Z,2,28,0,"As discussed in issue #610 when using c.Bind(), sometimes we don't want to bind certain fields from the user request. While this can be done adding json:""-"" to field tag, the same can't be achieved for multipart/formdata requests.
+This PR allows setting in the tag form:""-"", which solves the described issue.",4,4
+1736,2019-01-08T13:39:11Z,2019-01-09T01:32:44Z,2019-01-09T01:32:44Z,4,28,118,"revert #1690
+Here #153 (comment) @manucorporat said gin.Context behave like context.Background + Value, and revert it to fix #1731 first.
+cc @rbeuque74
+@appleboy please help me to review the revert, thanks!",2,1
+1739,2019-01-09T20:49:25Z,2019-01-18T01:32:55Z,2019-01-18T01:32:55Z,19,122,83,"Fix all warnings after run golangci-lint run --disable-all -E errcheck
+Fix #1738 #1247",3,0
+1740,2019-01-10T10:15:47Z,2019-02-19T16:02:38Z,2019-02-19T16:02:38Z,2,10,2,"With pull requests:
+
+Open your pull request against master
+Your pull request should have no more than two commits, if not you should squash them.
+It should pass all tests in the available continuous integrations systems such as TravisCI.
+You should add/modify tests to cover your proposed code changes.
+If your pull request contains a new feature, please document it on the README.
+
+
+
+Add a example
+kill command will default send syscall.SIGTERM, add it in example will friendly to gin user.",2,5
+1745,2019-01-17T08:48:38Z,2019-01-18T01:57:07Z,2019-01-18T01:57:07Z,4,41,1,"If gin sometimes reset Context.index and .handlers then needs to recheck len of handlers every iteration on func Context.Next():
+
+  
+    
+      gin/context.go
+    
+    
+        Lines 103 to 111
+      in
+      29a145c
+    
+  
+  
+    
+
+        
+          
+           // Next should be used only inside middleware. 
+        
+
+        
+          
+           // It executes the pending handlers in the chain inside the calling handler. 
+        
+
+        
+          
+           // See example in GitHub. 
+        
+
+        
+          
+           func (c *Context) Next() { 
+        
+
+        
+          
+           	c.index++ 
+        
+
+        
+          
+           	for s := int8(len(c.handlers)); c.index < s; c.index++ { 
+        
+
+        
+          
+           		c.handlers[c.index](c) 
+        
+
+        
+          
+           	} 
+        
+
+        
+          
+           } 
+        
+    
+  
+
+
+
+Fix #1678, because gin change c.handlers when error on open file.
+
+  
+    
+      gin/routergroup.go
+    
+    
+        Lines 195 to 202
+      in
+      29a145c
+    
+  
+  
+    
+
+        
+          
+           // Check if file exists and/or if we have permission to access it 
+        
+
+        
+          
+           if _, err := fs.Open(file); err != nil { 
+        
+
+        
+          
+           	c.Writer.WriteHeader(http.StatusNotFound) 
+        
+
+        
+          
+           	c.handlers = group.engine.allNoRoute 
+        
+
+        
+          
+           	// Reset index 
+        
+
+        
+          
+           	c.index = -1 
+        
+
+        
+          
+           	return 
+        
+
+        
+          
+           } 
+        
+    
+  
+
+
+
+Fix #1744, because gin reset c.handlers slice on HandleContext() func.
+
+  
+    
+      gin/gin.go
+    
+    
+        Lines 354 to 360
+      in
+      29a145c
+    
+  
+  
+    
+
+        
+          
+           // HandleContext re-enter a context that has been rewritten. 
+        
+
+        
+          
+           // This can be done by setting c.Request.URL.Path to your new target. 
+        
+
+        
+          
+           // Disclaimer: You can loop yourself to death with this, use wisely. 
+        
+
+        
+          
+           func (engine *Engine) HandleContext(c *Context) { 
+        
+
+        
+          
+           	c.reset() 
+        
+
+        
+          
+           	engine.handleHTTPRequest(c) 
+        
+
+        
+          
+           } 
+        
+    
+  
+
+
+
+  
+    
+      gin/context.go
+    
+    
+        Lines 67 to 75
+      in
+      29a145c
+    
+  
+  
+    
+
+        
+          
+           func (c *Context) reset() { 
+        
+
+        
+          
+           	c.Writer = &c.writermem 
+        
+
+        
+          
+           	c.Params = c.Params[0:0] 
+        
+
+        
+          
+           	c.handlers = nil 
+        
+
+        
+          
+           	c.index = -1 
+        
+
+        
+          
+           	c.Keys = nil 
+        
+
+        
+          
+           	c.Errors = c.Errors[0:0] 
+        
+
+        
+          
+           	c.Accepted = nil 
+        
+
+        
+          
+           }",3,2
+1747,2019-01-19T11:31:38Z,2019-01-20T00:39:10Z,2019-01-20T00:39:10Z,1,1,1,"Fix the bug of issue #1746.
+PR #1677 caused it.",2,3
+1749,2019-01-22T18:36:39Z,2019-03-03T06:39:44Z,2019-03-03T06:39:44Z,4,314,123,"fix #1672 correct work with ptr - not create value if field is not set
+avoid allocations on strings.Split() - change to strings.Index()
+fix #610 tag value ""-"" is mean ignoring field
+struct fields mapped like json.Unmarshal
+map fields mapped like json.Unmarshal
+
+Run benchmark:
+go test -run=NONE -benchmem -bench=BenchmarkMapForm ./binding -benchtime=20s > new.bench
+Compare benchcmp old.bench new.bench:
+benchmark                  old ns/op     new ns/op     delta
+BenchmarkMapFormFull-4     2706          2476          -8.50%
+BenchmarkMapFormName-4     271           228           -15.87%
+
+benchmark                  old allocs     new allocs     delta
+BenchmarkMapFormFull-4     22             12             -45.45%
+BenchmarkMapFormName-4     3              1              -66.67%
+
+benchmark                  old bytes     new bytes     delta
+BenchmarkMapFormFull-4     384           200           -47.92%
+BenchmarkMapFormName-4     40            8             -80.00%",3,2
+1751,2019-01-24T10:46:05Z,2019-01-25T18:28:40Z,2019-01-25T18:28:40Z,3,43,85,"#1604 #1566 #1700 #1737
+because some dependencies only are used on example i.e. grpc.
+Or migrate examples to gin-gonic/examples`?",2,1
+1752,2019-01-27T18:40:59Z,2019-02-22T05:12:06Z,2019-02-22T05:12:06Z,1,4,0,Here is a change to make the response body size an available log formatter param.,3,2
+1761,2019-02-03T20:09:30Z,2019-02-04T01:27:01Z,2019-02-04T01:27:01Z,1,12,4,"Sometimes travis-ci tests fails like this https://travis-ci.org/gin-gonic/gin/jobs/488105097
+It happens when TestConcurrentHandleContext freezes - client don't have timeout and request waiting unlimited.
+If test it without net layout (without start server), just by testing of handler - we can avoid this problem.",3,1
+1764,2019-02-06T18:19:37Z,2019-02-18T01:35:09Z,2019-02-18T01:35:09Z,2,42,0,"Fix #1760
+We need to restore c.index value after recursive handle an another path.",3,1
+1765,2019-02-07T10:23:48Z,2019-02-18T02:10:45Z,2019-02-18T02:10:45Z,5,27,19,"There are many tests write debug info to os.Stderr. And after that is hard to inspect failed tests.
+Now I see only logs of failed tests.",2,1
+1771,2019-02-13T10:25:53Z,2019-02-22T08:48:55Z,2019-02-22T08:48:56Z,2,67,37,Fix #1768,3,1
+1774,2019-02-20T04:02:09Z,2019-02-21T12:32:56Z,2019-02-21T12:32:56Z,1,4,1,"before:
+# github.com/gin-gonic/gin
+/tmp/go-build038919107/github.com/gin-gonic/gin/_test/_obj_test/context.go:719:11: unknown field 'SameSite' in struct literal of type http.Cookie
+FAIL	github.com/gin-gonic/gin [build failed]
+The command ""make test"" exited with 0.
+
+And
+# github.com/gin-gonic/gin/render
+package github.com/gin-gonic/gin/render (test)
+	imports github.com/stretchr/testify/assert
+	imports github.com/pmezard/go-difflib/difflib: cannot find package ""github.com/pmezard/go-difflib/difflib"" in any of:
+	/home/travis/gopath/src/github.com/gin-gonic/gin/vendor/github.com/pmezard/go-difflib/difflib (vendor tree)
+	/home/travis/.gimme/versions/go1.8.7.linux.amd64/src/github.com/pmezard/go-difflib/difflib (from $GOROOT)
+	/home/travis/gopath/src/github.com/pmezard/go-difflib/difflib (from $GOPATH)
+FAIL	github.com/gin-gonic/gin/render [setup failed]
+
+when test case failed, it should return 1 not 0.
+For example #1615",2,1
+1776,2019-02-21T09:26:30Z,2019-03-01T15:42:41Z,2019-03-01T15:42:42Z,64,25,2393,"ref: #1775
+
+
+ merge or close all pull request about examples/*
+
+
+ remove embedmd from README.md and .travis.yml
+
+
+ remove examples/*
+
+
+ add README.md at examples dir
+
+
+ add gin-gonic/examples repo and move examples
+
+
+ sync git log",2,4
+1779,2019-02-23T23:14:24Z,2019-03-07T01:47:31Z,2019-03-07T01:47:31Z,2,7,0,This makes the context available in LogFormatterParams and therefore allows access to context variables as part of the log output formatting.,4,7
+1785,2019-02-28T12:27:06Z,2019-02-28T14:43:28Z,2019-02-28T14:43:28Z,1,6,4,Fix test errors on go master branch. #1784,2,1
+1786,2019-02-28T14:48:10Z,2019-02-28T23:11:03Z,2019-02-28T23:11:03Z,1,0,137,the post doc move https://gin-gonic.com/blog/,2,1
+1788,2019-03-02T00:24:02Z,2019-03-02T11:21:10Z,2019-03-02T11:21:10Z,2,3,1,,2,4
+1791,2019-03-03T06:50:27Z,2019-03-04T22:46:19Z,2019-03-04T22:46:19Z,3,6,1,,2,1
+1792,2019-03-03T06:59:33Z,2019-03-03T23:28:04Z,2019-03-03T23:28:04Z,2,25,18,,2,1
+1793,2019-03-03T08:12:42Z,2019-03-14T05:23:36Z,2019-03-14T05:23:36Z,1,35,1972,"We have had gin website and examples repo, so we should update gin README.md.
+
+
+ sync README.md commit log to gin/examples repo (please see https://github.com/gin-gonic/website/graphs/contributors)
+
+
+ update gin website documentation (English version) according new gin README.md (please see gin-gonic/website#49)
+
+
+ update gin website address on gin repo description
+
+
+ update gin website address on gin-gonic org (https://github.com/gin-gonic)
+
+
+ add gin website address on gin-contrib org (https://github.com/gin-contrib)
+
+
+@javierprovecho the last thres TODO need you help, thanks!",3,6
+1794,2019-03-03T12:39:06Z,2019-03-04T03:37:47Z,2019-03-04T03:37:47Z,2,30,0,"var s struct {
+    Timeout time.Duration `form:""timeout""`
+}
+req := formPostRequest("""", ""timeout=5s"")
+Form.Bind(req, &s)",2,1
+1795,2019-03-03T20:51:55Z,2019-03-04T00:06:47Z,2019-03-04T00:06:47Z,1,1,1,This fixes a URL to the starter template in https://github.com/gin-gonic/gin/blob/master/README.md#use-a-vendor-tool-like-govendor,2,1
+1797,2019-03-05T17:26:02Z,2019-03-14T05:34:56Z,2019-03-14T05:34:57Z,2,48,3,"var s struct {
+	Nums [2]int `form:""nums""`
+}
+req := formPostRequest("""", ""nums=3&nums=8"")
+Form.Bind(req, &s)",2,1
+1800,2019-03-08T01:42:22Z,2019-03-08T15:18:53Z,2019-03-08T15:18:53Z,1,7,9,,2,1
+1802,2019-03-08T12:52:59Z,2019-03-18T03:12:31Z,2019-03-18T03:12:31Z,2,75,25,"It is strange behavior that DisableConsoleColor turns the IsTerm flag false.
+This PR contains the following changes.
+
+IsTerm represents whether is the output destination console.
+Default logger distinguishes color by using new method IsOutputColor.
+If ForceConsoleColor and DisableConsoleColor are called together, Later one is valid.
+
+Note
+This change breaks backward compability, but LogFormatterParams and ForceConsoleColor is not released yet. This change affects only the user which is using master branch.",2,11
+1805,2019-03-10T09:10:47Z,2019-03-11T02:52:48Z,2019-03-11T02:52:48Z,2,22,2,"Fix: #1804
+allNoRoute contains middlewares such as gin.Logger, gin.Recovery, so on.  The correct code is to use noRoute.
+cc: @MetalBreaker",3,3
+1817,2019-03-18T23:50:48Z,2019-05-07T11:32:36Z,2019-05-07T11:32:36Z,2,43,10,"This will reduce the number of times we have to do a redirect
+and allow multiple slashes in path to be routed!
+fixes #1644",3,4
+1822,2019-03-21T05:52:09Z,2019-03-21T07:12:07Z,2019-03-21T07:12:07Z,1,15,3,,2,1
+1826,2019-03-26T07:53:30Z,2019-05-26T00:20:22Z,2019-05-26T00:20:22Z,6,117,46,"This is a proposed change to return handler full path from the Context.
+Where it can be useful?
+When using lambda functions as a handler names returned from (*Context).HandlerName become not lean. With this change it becomes easy to analyse which route was called exactly. This can be useful when trying to find out which routes are not being called in the app.
+Alternatives
+It is possible to create a wrapper around route definition:
+func logGET(router *gin.Engine, path string, handler func (*gin.Context)) {
+    router.GET(path, func (c *gin.Context) {
+        // Do something with path
+        handler(c)
+    })
+}
+
+...
+
+logGET(router, ""/user/:id"", func (c *gin.Context) {
+    c.Status(200)
+})
+This approach is doable but considering that Gin already holds full path in its structures I though that it might be better to just expose it.
+P.S. README no longer contains any docs so I am not certain where I should document this feature.",6,12
+1829,2019-03-26T18:15:35Z,2019-04-02T01:01:35Z,2019-04-02T01:01:35Z,2,70,48,"Refactor mapping to interface setter - for supporting a multipart request.
+Benchmarks of a simple form mapping (with many fields and one field respectively):
+⇒  benchcmp old.bch new.bch
+benchmark                  old ns/op     new ns/op     delta
+BenchmarkMapFormFull-4     2332          2358          +1.11%
+BenchmarkMapFormName-4     218           235           +7.80%
+
+benchmark                  old allocs     new allocs     delta
+BenchmarkMapFormFull-4     12             12             +0.00%
+BenchmarkMapFormName-4     1              1              +0.00%
+
+benchmark                  old bytes     new bytes     delta
+BenchmarkMapFormFull-4     200           200           +0.00%
+BenchmarkMapFormName-4     8             8             +0.00%",2,1
+1830,2019-03-27T06:23:38Z,2019-03-28T06:14:00Z,2019-03-28T06:14:01Z,2,28,0,fixes #1823,3,5
+1836,2019-04-01T12:51:33Z,2019-04-18T02:45:38Z,2019-04-18T02:45:38Z,2,40,1,"This PR replaces the contents of that header with a *. This prevents
+credential leak in logs.",4,3
+1841,2019-04-03T18:18:36Z,2019-05-27T06:04:31Z,2019-05-27T06:04:31Z,2,26,0,"Using context.Param(key) on a context.Copy inside a goroutine
+may lead to incorrect value on a high load, where another request
+overwrite a Param
+
+With pull requests:
+
+Open your pull request against master
+Your pull request should have no more than two commits, if not you should squash them.
+It should pass all tests in the available continuous integrations systems such as TravisCI.
+You should add/modify tests to cover your proposed code changes.
+If your pull request contains a new feature, please document it on the README.",4,12
+1842,2019-04-03T19:56:46Z,2019-05-07T11:06:56Z,2019-05-07T11:06:56Z,2,271,406,"Made a 100% coverage of form_mapping.go from the form_mapping_test.go file.
+And rewrote to the more readable test functions.",3,3
+1846,2019-04-05T04:24:24Z,2019-04-06T13:48:34Z,2019-04-06T13:48:34Z,1,1970,36,"#1844 #1838
+Keep the documentation in readme until full available on the new website.",3,2
+1851,2019-04-07T23:05:22Z,2019-05-07T10:32:32Z,2019-05-07T10:32:32Z,21,225,191,"This is a starting point for the v1.4.0 release issue #1732.
+This also merges in #1631 after fixing the conflicts.",3,4
+1852,2019-04-08T23:10:57Z,2020-01-07T03:31:11Z,2020-01-07T03:31:11Z,12,228,69,"This PR add a build tag nomsgpack to exclude heavy deps github.com/ugorji/go/codec that may be not needed for most project. The goal is to reduce the resulting binary size. This could maybe improve some performances but that not the goal so I haven't bench it.
+I go for the no impact by default by using a negate tag so that without change it will not impact project depending on this lib.
+I will try to provide some results of binary size based on https://github.com/gin-gonic/examples. -> see comment
+Should fix (or at least a mitigation to) #1847",7,13
+1861,2019-04-22T12:09:31Z,2019-04-22T15:11:58Z,2019-04-22T15:11:58Z,1,2,2,,2,2
+1868,2019-04-24T08:08:41Z,2019-04-24T12:21:42Z,2019-04-24T12:21:42Z,1,2,2,"With pull requests:
+
+Open your pull request against master
+Your pull request should have no more than two commits, if not you should squash them.
+It should pass all tests in the available continuous integrations systems such as TravisCI.
+You should add/modify tests to cover your proposed code changes.
+If your pull request contains a new feature, please document it on the README.",2,1
+1885,2019-05-07T11:45:10Z,2019-05-08T03:10:35Z,2019-05-08T03:10:35Z,1,1,1,,2,1
+1886,2019-05-08T04:10:40Z,2019-05-12T10:47:28Z,2019-05-12T10:47:28Z,2,1,5,,2,1
+1891,2019-05-09T19:47:13Z,2019-05-10T06:03:26Z,2019-05-10T06:03:26Z,2,10,9,"Aligns behaviour according to documentation.
+Closes #1890.",2,1
+1893,2019-05-10T09:14:12Z,2019-05-13T02:17:31Z,2019-05-13T02:17:31Z,2,49,7,"package main
+
+import (
+	""github.com/gin-gonic/gin""
+)
+
+type appkey struct {
+	Appkey string `json:""appkey"" form:""appkey""`
+}
+
+type Query struct {
+	Page int `json:""page"" form:""page""`
+	Size int `json:""size"" form:""size""`
+	appkey
+}
+
+func main() {
+
+	router := gin.Default()
+	router.POST(""/login"", func(c *gin.Context) {
+
+		var q2 Query
+
+		if c.ShouldBindQuery(&q2) == nil {
+			c.JSON(200, &q2)
+		}
+	})
+	router.Run("":8088"")
+}
+http client:
+old:
+curl -X POST ""127.0.0.1:8088/login?appkey=china&page=1&size=10""
+{""page"":1,""size"":10,""appkey"":""""}
+now:
+curl -X POST ""127.0.0.1:8088/login?appkey=china&page=1&size=10""
+{""page"":1,""size"":10,""appkey"":""china""}",3,1
+1909,2019-05-21T12:34:30Z,2019-05-21T15:08:53Z,2019-05-21T15:08:53Z,3,4,6,"strings.ToLower comparison changed to strings.EqualFold.
+Rewrite switch statement with only one case as if.",3,2
+1920,2019-05-31T01:02:20Z,2019-06-02T09:24:42Z,2019-06-02T09:24:42Z,1,20,8,"benchmark program:
+func BenchmarkGetPostFormArrayNew(b *testing.B) {
+	c, _ := CreateTestContext(httptest.NewRecorder())
+	c.Request = createMultipartRequest()
+
+	var obj struct {
+		Foo          string    `form:""foo""`
+		Bar          string    `form:""bar""`
+		BarAsInt     int       `form:""bar""`
+		Array        []string  `form:""array""`
+		ID           string    `form:""id""`
+		TimeLocal    time.Time `form:""time_local"" time_format:""02/01/2006 15:04""`
+		TimeUTC      time.Time `form:""time_utc"" time_format:""02/01/2006 15:04"" time_utc:""1""`
+		TimeLocation time.Time `form:""time_location"" time_format:""02/01/2006 15:04"" time_location:""Asia/Tokyo""`
+		BlankTime    time.Time `form:""blank_time"" time_format:""02/01/2006 15:04""`
+	}
+	c.Bind(&obj)
+
+	for i := 0; i < b.N; i++ {
+		c.GetPostFormArray(""array"")
+	}
+}
+result:
+$ go test -benchmem -run=^$ github.com/gin-gonic/gin -bench ^BenchmarkGetPostFormArray
+goos: darwin
+goarch: amd64
+pkg: github.com/gin-gonic/gin
+BenchmarkGetPostFormArrayOld-4          50000000                32.4 ns/op             0 B/op          0 allocs/op
+BenchmarkGetPostFormArrayNew-4          50000000                22.3 ns/op             0 B/op          0 allocs/op
+PASS
+ok      github.com/gin-gonic/gin        2.847s",2,1
+1922,2019-06-02T14:56:14Z,2019-06-03T14:52:34Z,2019-06-03T14:52:34Z,2,1,7,,2,1
+1923,2019-06-02T15:20:17Z,2019-06-03T14:42:26Z,2019-06-03T14:42:26Z,3,9,7,,2,1
+1926,2019-06-04T02:22:05Z,2019-08-29T00:32:22Z,2019-08-29T00:32:22Z,2,23,22,"With pull requests:
+
+Open your pull request against master
+Your pull request should have no more than two commits, if not you should squash them.
+It should pass all tests in the available continuous integrations systems such as TravisCI.
+You should add/modify tests to cover your proposed code changes.
+If your pull request contains a new feature, please document it on the README.",3,5
+1931,2019-06-06T01:41:36Z,2019-06-12T13:07:16Z,2019-06-12T13:07:16Z,1,1,0,,5,7
+1933,2019-06-06T03:11:15Z,2019-06-28T15:43:08Z,2019-06-28T15:43:08Z,4,4,6,Here are the updates for fix #1912,4,3
+1937,2019-06-09T05:31:32Z,2019-06-28T16:09:54Z,2019-06-28T16:09:54Z,1,1,0,,2,1
+1939,2019-06-10T02:29:45Z,2019-06-29T12:43:33Z,2019-06-29T12:43:33Z,2,3,4,"Go1.10's strings.Builder structure saves memory
+This is its implementation principle
+// String returns the accumulated string.
+func (b *Builder) String() string {
+    return *(*string)(unsafe.Pointer(&b.buf))
+}",2,3
+1943,2019-06-10T15:30:33Z,2019-11-01T02:47:41Z,2019-11-01T02:47:41Z,2,14,3,"Now the ignore tag form""-"" not allow for the mapping to walk inside that field.
+Fix #1942",2,4
+1949,2019-06-12T19:39:51Z,2019-06-18T11:49:11Z,2019-06-18T11:49:11Z,4,225,43,"Fix #1878
+Add support multi files on bind multipart requests.
+Example:
+type s struct {
+	Files []*multipart.FileHeader `form:""files""`
+}",3,4
+1957,2019-06-18T11:32:52Z,2019-06-27T04:47:46Z,2019-06-27T04:47:46Z,6,152,0,"update #1956
+package main
+
+import (
+	""fmt""
+	""github.com/gin-gonic/gin""
+)
+
+type testHeader struct {
+	Rate   int    `header:""Rate""`
+	Domain string `header:""Domain""`
+}
+
+func main() {
+	r := gin.Default()
+	r.GET(""/"", func(c *gin.Context) {
+		h := testHeader{}
+
+		if err := c.ShouldBindHeader(&h); err != nil {
+			c.JSON(200, err)
+		}
+
+		fmt.Printf(""%#v\n"", h)
+		c.JSON(200, gin.H{""Rate"": h.Rate, ""Domain"": h.Domain})
+	})
+
+	r.Run()
+
+// client
+// curl -H ""rate:300"" -H ""domain:music"" 127.0.0.1:8080/
+// output
+// {""Domain"":""music"",""Rate"":300}
+}",5,4
+1961,2019-06-25T06:35:36Z,2019-06-28T01:34:15Z,2019-06-28T01:34:15Z,1,1,1,"the condition in readme is wrong, use time.After is ok ;)",2,1
+1963,2019-06-25T13:35:53Z,2019-06-28T01:25:19Z,2019-06-28T01:25:20Z,1,7,4,"fix README.md code bug
+
+func main() {
+        r := gin.Default()
+
+        // r.GET(""/JSONP?callback=x"", func(c *gin.Context) { // old
+        r.GET(""/JSONP"", func(c *gin.Context) {    // new
+                data := gin.H{
+                        ""foo"": ""bar"",
+                }
+
+                //callback is x
+                // Will output  :   x({\""foo\"":\""bar\""})
+                c.JSONP(http.StatusOK, data)
+        })
+
+        // Listen and serve on 0.0.0.0:8080
+        r.Run("":8080"")
+}
+
+// client
+// curl http://127.0.0.1:8080/JSONP?callback=x
+
+// old output
+// 404 page not found
+
+// new output
+// x({""foo"":""bar""})
+
+change map[string]interface{} to gin.H
+Most of the sample code in the documentation map[string]interface{} is represented by gin.H.
+gin.H is a very important place for me to like gin, can write a lot less code",2,1
+1966,2019-06-29T17:03:59Z,2019-06-30T00:55:10Z,2019-06-30T00:55:10Z,1,1,1,typo fix,2,0
+1969,2019-07-03T02:40:24Z,2019-07-09T22:20:21Z,2019-07-09T22:20:21Z,3,12,16,ref: #1673,4,5
+1970,2019-07-03T16:19:56Z,2019-11-26T00:19:30Z,2019-11-26T00:19:31Z,2,17,16,Refactor redirecting request in gin.go since its use the same Context,3,1
+1971,2019-07-03T21:35:28Z,2019-07-03T23:57:52Z,2019-07-03T23:57:53Z,1,1,1,,2,1
+1980,2019-07-06T08:36:22Z,2019-07-10T05:02:40Z,2019-07-10T05:02:40Z,3,68,13,"ref:#1979
+package main
+
+import (
+        ""fmt""
+        ""github.com/gin-gonic/gin""
+        ""time""
+)
+
+type shareTime struct {
+        CreateTime time.Time `form:""createTime"" time_format:""unixNano""`
+        UnixTime   time.Time `form:""unixTime"" time_format:""unix""`
+}
+
+func main() {
+        r := gin.Default()
+        unix := r.Group(""/unix"")
+
+        testCT := time.Date(2019, 7, 6, 16, 0, 33, 123, time.Local)
+        fmt.Printf(""%d\n"", testCT.UnixNano())
+
+        testUT := time.Date(2019, 7, 6, 16, 0, 33, 0, time.Local)
+        fmt.Printf(""%d\n"", testUT.Unix())
+
+        unix.GET(""/nano"", func(c *gin.Context) {
+                s := shareTime{}
+
+                c.ShouldBindQuery(&s)
+
+                if !testCT.Equal(s.CreateTime) {
+                        c.String(500, ""want %d got %d"", testCT.UnixNano(), s.CreateTime)
+                        return
+                }
+
+                c.JSON(200, s)
+        })
+
+        unix.GET(""/sec"", func(c *gin.Context) {
+                s := shareTime{}
+
+                c.ShouldBindQuery(&s)
+
+                if !testUT.Equal(s.UnixTime) {
+                        c.String(500, ""want %d got %d"", testCT.Unix(), s.UnixTime)
+                        return
+                }
+
+                c.JSON(200, s)
+
+        })
+
+        r.Run()
+}
+
+// client
+//
+// curl -X GET ""127.0.0.1:8080/unix/sec?unixTime=1562400033""
+//   {""CreateTime"":""0001-01-01T00:00:00Z"",""UnixTime"":""2019-07-06T16:00:33+08:00""}
+
+// curl -X GET ""127.0.0.1:8080/unix/nano?createTime=1562400033000000123""
+//   {""CreateTime"":""2019-07-06T16:00:33.000000123+08:00"",""UnixTime"":""0001-01-01T00:00:00Z""}",3,2
+1981,2019-07-08T10:00:25Z,2019-08-05T01:43:00Z,2019-08-05T01:43:00Z,2,26,1,"You can get an http.Response with ContentLength set to -1 (Chunked encoding), so for DataFromReader to be useful for those we need to support that.",2,1
+2004,2019-07-26T19:21:24Z,2019-07-27T01:06:38Z,2019-07-27T01:06:38Z,2,1,2,"Use buf.String instead of converison
+Remove redundant return",2,0
+2007,2019-08-05T17:42:45Z,2019-09-02T12:18:08Z,2019-09-02T12:18:08Z,3,4,4,"According to wiki, JSONP must have a semicolon at the end of javascript expression.
+callback_func({""foo"": ""bar"", ""baz"": 42}); <-",3,1
+2011,2019-08-08T12:10:08Z,2019-09-05T13:50:54Z,2019-09-05T13:50:54Z,1,6,0,"Made it more clear for Mac users using Go version 1.8 and greater.
+
+With pull requests:
+
+Open your pull request against master
+Your pull request should have no more than two commits, if not you should squash them.
+It should pass all tests in the available continuous integrations systems such as TravisCI.
+You should add/modify tests to cover your proposed code changes.
+If your pull request contains a new feature, please document it on the README.",3,3
+2014,2019-08-12T06:18:20Z,,2019-09-10T08:57:28Z,1,11,1,"Fixed : Adjust the correct test case, the source code is to pinic,  but test case is not correctly captured
+Add : Add the test case of code 201",3,5
+2019,2019-08-15T18:50:36Z,2019-08-16T01:10:45Z,2019-08-16T01:10:45Z,2,5,5,"Signed-off-by: CarlosEDP me@carlosedp.com
+Updating projects using libraries that were recently updated to support Risc-V architecture.
+Go upstream work is tracked on: golang/go#27532
+Risc-V software support tracker on https://github.com/carlosedp/riscv-bringup",2,4
+2023,2019-08-18T14:00:14Z,2019-09-30T01:12:22Z,2019-09-30T01:12:23Z,2,45,0,"We have to use Gin with a special listener in some situations.
+For example, if we want to upgrade Gin server graceful, we may use the third party lib to support this feature such as tableflip
+Here's some example code
+upg, err := tableflip.New(tableflip.Options{})
+if err != nil {
+	panic(err)
+}
+defer upg.Stop()
+
+go func() {
+	sig := make(chan os.Signal, 1)
+	signal.Notify(sig, syscall.SIGHUP)
+	for range sig {
+		err := upg.Upgrade()
+		if err != nil {
+			log.Println(""Upgrade failed:"", err)
+			continue
+		}
+
+		log.Println(""Upgrade succeeded"")
+	}
+}()
+
+ln, err := upg.Fds.Listen(""tcp"", ""localhost:8080"")
+if err != nil {
+	log.Fatalln(""Can't listen:"", err)
+}
+
+go router.RunListener(ln)
+
+if err := upg.Ready(); err != nil {
+	panic(err)
+}
+<-upg.Exit()
+
+time.AfterFunc(30*time.Second, func() {
+	os.Exit(1)
+})
+
+_ = server.Shutdown(context.Background())",3,4
+2025,2019-08-20T07:07:32Z,2019-08-30T02:58:56Z,2019-08-30T02:58:56Z,1,2,2,,2,1
+2028,2019-08-23T09:28:42Z,2019-09-06T05:57:00Z,2019-09-06T05:57:00Z,4,51,1,"This pull requests adds the option to enable DisallowUnknownFields on the JSON decoder, similarly to how enabling UseNumber works.",3,2
+2037,2019-09-03T14:53:12Z,,2024-03-24T05:10:36Z,5,150,0,"package main
+
+import (
+	""github.com/gin-gonic/gin""
+)
+
+func main() {
+	router := gin.Default()
+	router.POST(""/"", func(c *gin.Context) {
+		var s string
+		c.BindPlain(&s)
+		c.String(200, s)
+	})
+
+	router.Run()
+}
+
+// client
+// curl -d ""test string"" 127.0.0.1:8080
+// output
+// test string",3,10
+2038,2019-09-03T23:54:08Z,2019-09-04T04:26:50Z,2019-09-04T04:26:50Z,1,1,0,,2,1
+2051,2019-09-09T13:46:30Z,2019-09-10T06:32:31Z,2019-09-10T06:32:31Z,1,2,7,"delete duplicate code, and keep in line with GetQueryMap",3,1
+2052,2019-09-10T07:25:30Z,2019-09-11T10:10:40Z,2019-09-11T10:10:40Z,1,2,3,"With pull requests:
+
+Open your pull request against master
+Your pull request should have no more than two commits, if not you should squash them.
+It should pass all tests in the available continuous integrations systems such as TravisCI.
+You should add/modify tests to cover your proposed code changes.
+If your pull request contains a new feature, please document it on the README.",2,1
+2056,2019-09-14T01:07:05Z,2019-09-22T07:35:34Z,2019-09-22T07:35:35Z,1,0,1,,2,1
+2063,2019-09-19T12:22:24Z,2019-09-24T02:01:57Z,2019-09-24T02:01:57Z,1,1,2,use simple method call instead of parsing raw query,3,1
+2068,2019-09-23T16:37:41Z,2019-09-24T14:18:42Z,2019-09-24T14:18:42Z,1,1,0,"If you try to use loadTemplate() several times, every time except first will fail.",2,1
+2080,2019-09-30T06:58:51Z,2019-10-02T23:46:41Z,2019-10-02T23:46:41Z,2,4,4,,2,0
+2085,2019-10-06T09:45:01Z,2019-10-15T06:25:55Z,2019-10-15T06:25:56Z,1,41,5,"Indirectly request more details of any problems.
+This will help mentors avoid wasting time to understanding new issues.",3,1
+2086,2019-10-06T18:55:10Z,2019-10-10T08:58:32Z,2019-10-10T08:58:32Z,6,105,72,"Every test file should be related to a tested file.
+Remove useless tests.",2,1
+2093,2019-10-12T16:13:40Z,2019-10-27T05:59:00Z,2019-10-27T05:59:00Z,5,25,8,,3,3
+2094,2019-10-12T16:50:32Z,2019-10-15T03:04:25Z,2019-10-15T03:04:25Z,1,1,0,,3,3
+2106,2019-10-24T16:36:37Z,2019-10-25T02:03:53Z,2019-10-25T02:03:53Z,1,2,2,"c:>curl 0.0.0.0:8080
+""Failed to connect to 0.0.0.0 port 8080: Address not available""
+Connecting to address 0.0.0.0:8080 is not allowed on windows. From http://msdn.microsoft.com/en-us/library/aa923167.aspx
+"" ... If the address member of the structure specified by the name parameter is
+all zeroes, connect will return the error WSAEADDRNOTAVAIL. ...""
+
+With pull requests:
+
+Open your pull request against master
+Your pull request should have no more than two commits, if not you should squash them.
+It should pass all tests in the available continuous integrations systems such as TravisCI.
+You should add/modify tests to cover your proposed code changes.
+If your pull request contains a new feature, please document it on the README.",2,1
+2109,2019-10-27T05:57:05Z,2019-11-24T02:25:22Z,2019-11-24T02:25:22Z,2,38,4,Add break-backward remind log,7,13
+2110,2019-10-27T21:41:06Z,2019-10-31T03:13:40Z,2019-10-31T03:13:40Z,1,1,1,"With pull requests:
+
+Open your pull request against master
+Your pull request should have no more than two commits, if not you should squash them.
+It should pass all tests in the available continuous integrations systems such as TravisCI.
+You should add/modify tests to cover your proposed code changes.
+If your pull request contains a new feature, please document it on the README.",3,1
+2112,2019-10-28T11:24:15Z,2020-03-07T02:23:34Z,2020-03-07T02:23:34Z,3,42,0,"I was missing feature of Serving file from http.FileSystem.
+Use cases:
+
+Serve file by alias without redirection and opening file by hands.
+Return help page on root of /api/ handlers.
+Choose FileSystem dynamically.",6,10
+2114,2019-10-29T05:55:12Z,2019-10-31T15:17:13Z,2019-10-31T15:17:13Z,1,5,1,"#2104
+func (r *Request) FormFile(key string) (multipart.File, *multipart.FileHeader, error)
+File is an interface to access the file part of a multipart message. Its contents may be either stored in memory or on disk. If stored on disk, the File's underlying concrete type will be an *os.File.",3,1
+2118,2019-10-30T14:57:18Z,2019-10-31T14:52:02Z,2019-10-31T14:52:03Z,1,3,1,Fixes #2117,2,1
+2121,2019-11-03T22:16:36Z,2019-11-25T02:45:54Z,2019-11-25T02:45:54Z,3,43,0,"Fixed #2111
+Now is possible to call c.DataFromReader without extra headers.
+c.DataFromReader(http.StatusOK, 5, gin.MIMEHTML, strings.NewReader(""1234\n""), nil)
+
+Thanks: @nikandfor",3,1
+2122,2019-11-03T23:54:01Z,2019-11-25T03:03:36Z,2019-11-25T03:03:37Z,1,1,1,"With pull requests:
+
+Open your pull request against master
+Your pull request should have no more than two commits, if not you should squash them.
+It should pass all tests in the available continuous integrations systems such as TravisCI.
+You should add/modify tests to cover your proposed code changes.
+If your pull request contains a new feature, please document it on the README.",3,1
+2126,2019-11-06T16:14:27Z,,2019-11-08T03:09:20Z,2,39,28,"If I use ShouldBindBodyWith in the middleware it will cause me to not be able to use methods like ShouldBindWith that require the Body
+
+With pull requests:
+
+Open your pull request against master
+Your pull request should have no more than two commits, if not you should squash them.
+It should pass all tests in the available continuous integrations systems such as TravisCI.
+You should add/modify tests to cover your proposed code changes.
+If your pull request contains a new feature, please document it on the README.",2,1
+2129,2019-11-10T03:29:31Z,2019-11-24T08:22:19Z,2019-11-24T08:22:19Z,1,1,1,"EnableJsonDisallowUnknownFields => EnableJsonDecoderDisallowUnknownFields
+
+With pull requests:
+
+Open your pull request against master
+Your pull request should have no more than two commits, if not you should squash them.
+It should pass all tests in the available continuous integrations systems such as TravisCI.
+You should add/modify tests to cover your proposed code changes.
+If your pull request contains a new feature, please document it on the README.",3,1
+2147,2019-11-24T04:29:47Z,2019-11-24T15:07:56Z,2019-11-24T15:07:57Z,4,3,4,,2,1
+2148,2019-11-25T02:04:45Z,2019-11-25T07:42:24Z,2019-11-25T07:42:24Z,4,4,205,closes #1911,2,1
+2149,2019-11-25T02:21:36Z,2019-11-25T06:49:45Z,2019-11-25T06:49:45Z,4,15,17,"fix #2130
+The only difference between v10 and v9 is the package path",3,2
+2150,2019-11-25T08:53:57Z,2023-02-12T02:01:34Z,2023-02-12T02:01:34Z,4,16,19,"When user resets connection to the server, the go's http returns ""broken pipe -> write tcp..."".
+There is no needed to panicking because it's common case.
+Instead of this I suggest to catch any errors, excepting broken pipe (syscall.EPIPE error), in server-side initialised logger.
+This will improve overall performance of gin and will very helpful to log any other render errors to log.",11,15
+2153,2019-11-26T08:03:43Z,2019-11-29T05:07:19Z,2019-11-29T05:07:19Z,1,620,531,"as title. See the result: https://gist.github.com/appleboy/b5f2ecfaf50824ae9c64dcfb9165ae5e
+Note: Gin v1.5 vs Echo v4.1.11
+#GithubAPI Routes: 203
+   Echo: 96120 Bytes
+   Gin: 58512 Bytes
+
+#GPlusAPI Routes: 13
+   Echo: 9480 Bytes
+   Gin: 4384 Bytes
+
+#ParseAPI Routes: 26
+   Echo: 11232 Bytes
+   Gin: 7776 Bytes
+
+#Static Routes: 157
+   Echo: 76584 Bytes
+   Gin: 34936 Bytes
+
+goos: linux
+goarch: amd64
+pkg: github.com/julienschmidt/go-http-routing-benchmark
+BenchmarkEcho_Param              9278648               120 ns/op               0 B/op          0 allocs/op
+BenchmarkGin_Param               8428953               133 ns/op               0 B/op          0 allocs/op
+BenchmarkEcho_Param5             4399473               275 ns/op               0 B/op          0 allocs/op
+BenchmarkGin_Param5              4324972               268 ns/op               0 B/op          0 allocs/op
+BenchmarkEcho_Param20            1397379               856 ns/op               0 B/op          0 allocs/op
+BenchmarkGin_Param20             1538476               758 ns/op               0 B/op          0 allocs/op
+BenchmarkEcho_ParamWrite         4614039               249 ns/op               8 B/op          1 allocs/op
+BenchmarkGin_ParamWrite          4803710               242 ns/op               0 B/op          0 allocs/op
+BenchmarkEcho_GithubStatic       7636855               158 ns/op               0 B/op          0 allocs/op
+BenchmarkGin_GithubStatic        6228295               191 ns/op               0 B/op          0 allocs/op
+BenchmarkEcho_GithubParam        3394911               351 ns/op               0 B/op          0 allocs/op
+BenchmarkGin_GithubParam         2769294               431 ns/op               0 B/op          0 allocs/op
+BenchmarkEcho_GithubAll            16564             71683 ns/op               0 B/op          0 allocs/op
+BenchmarkGin_GithubAll             15772             75950 ns/op               0 B/op          0 allocs/op
+BenchmarkEcho_GPlusStatic       11168800               108 ns/op               0 B/op          0 allocs/op
+BenchmarkGin_GPlusStatic         9502640               126 ns/op               0 B/op          0 allocs/op
+BenchmarkEcho_GPlusParam         7206974               166 ns/op               0 B/op          0 allocs/op
+BenchmarkGin_GPlusParam          5560232               216 ns/op               0 B/op          0 allocs/op
+BenchmarkEcho_GPlus2Params       4614630               263 ns/op               0 B/op          0 allocs/op
+BenchmarkGin_GPlus2Params        3454112               347 ns/op               0 B/op          0 allocs/op
+BenchmarkEcho_GPlusAll            395882              3081 ns/op               0 B/op          0 allocs/op
+BenchmarkGin_GPlusAll             346232              3429 ns/op               0 B/op          0 allocs/op
+BenchmarkEcho_ParseStatic       10582897               114 ns/op               0 B/op          0 allocs/op
+BenchmarkGin_ParseStatic         8852340               135 ns/op               0 B/op          0 allocs/op
+BenchmarkEcho_ParseParam         8430432               140 ns/op               0 B/op          0 allocs/op
+BenchmarkGin_ParseParam          7924248               152 ns/op               0 B/op          0 allocs/op
+BenchmarkEcho_Parse2Params       6224000               192 ns/op               0 B/op          0 allocs/op
+BenchmarkGin_Parse2Params        5547054               216 ns/op               0 B/op          0 allocs/op
+BenchmarkEcho_ParseAll            245606              4918 ns/op               0 B/op          0 allocs/op
+BenchmarkGin_ParseAll             202203              5917 ns/op               0 B/op          0 allocs/op
+BenchmarkEcho_StaticAll            27416             43551 ns/op               0 B/op          0 allocs/op
+BenchmarkGin_StaticAll             25944             46077 ns/op               0 B/op          0 allocs/op
+PASS
+ok      github.com/julienschmidt/go-http-routing-benchmark      48.964s
+
+I found the root cause on this PR: #1817 and issue #1644
+Using master commit and remove the PR #1817
+#GithubAPI Routes: 203
+   Echo: 100088 Bytes
+   Gin: 58512 Bytes
+
+#GPlusAPI Routes: 13
+   Echo: 9688 Bytes
+   Gin: 4384 Bytes
+
+#ParseAPI Routes: 26
+   Echo: 11664 Bytes
+   Gin: 7776 Bytes
+
+#Static Routes: 157
+   Echo: 80328 Bytes
+   Gin: 34936 Bytes
+
+goos: darwin
+goarch: amd64
+pkg: github.com/julienschmidt/go-http-routing-benchmark
+BenchmarkEcho_Param        	13713124	        92.9 ns/op	       0 B/op	       0 allocs/op
+BenchmarkGin_Param         	14935894	        77.6 ns/op	       0 B/op	       0 allocs/op
+BenchmarkEcho_Param5       	 5711541	       211 ns/op	       0 B/op	       0 allocs/op
+BenchmarkGin_Param5        	 9060136	       133 ns/op	       0 B/op	       0 allocs/op
+BenchmarkEcho_Param20      	 2175253	       577 ns/op	       0 B/op	       0 allocs/op
+BenchmarkGin_Param20       	 3861374	       309 ns/op	       0 B/op	       0 allocs/op
+BenchmarkEcho_ParamWrite   	 6411573	       206 ns/op	       8 B/op	       1 allocs/op
+BenchmarkGin_ParamWrite    	 7676670	       148 ns/op	       0 B/op	       0 allocs/op
+BenchmarkEcho_GithubStatic 	10798402	       109 ns/op	       0 B/op	       0 allocs/op
+BenchmarkGin_GithubStatic  	12585895	        95.1 ns/op	       0 B/op	       0 allocs/op
+BenchmarkEcho_GithubParam  	 5745453	       215 ns/op	       0 B/op	       0 allocs/op
+BenchmarkGin_GithubParam   	 7828753	       154 ns/op	       0 B/op	       0 allocs/op
+BenchmarkEcho_GithubAll    	   29811	     41608 ns/op	       0 B/op	       0 allocs/op
+BenchmarkGin_GithubAll     	   37480	     32039 ns/op	       0 B/op	       0 allocs/op
+BenchmarkEcho_GPlusStatic  	14638311	        83.1 ns/op	       0 B/op	       0 allocs/op
+BenchmarkGin_GPlusStatic   	15855790	        74.9 ns/op	       0 B/op	       0 allocs/op
+BenchmarkEcho_GPlusParam   	 9653083	       125 ns/op	       0 B/op	       0 allocs/op
+BenchmarkGin_GPlusParam    	12116191	       101 ns/op	       0 B/op	       0 allocs/op
+BenchmarkEcho_GPlus2Params 	 6289256	       189 ns/op	       0 B/op	       0 allocs/op
+BenchmarkGin_GPlus2Params  	 9207663	       131 ns/op	       0 B/op	       0 allocs/op
+BenchmarkEcho_GPlusAll     	  656268	      1890 ns/op	       0 B/op	       0 allocs/op
+BenchmarkGin_GPlusAll      	  950498	      1394 ns/op	       0 B/op	       0 allocs/op
+BenchmarkEcho_ParseStatic  	14030162	        86.8 ns/op	       0 B/op	       0 allocs/op
+BenchmarkGin_ParseStatic   	13807999	        83.9 ns/op	       0 B/op	       0 allocs/op
+BenchmarkEcho_ParseParam   	11691818	       102 ns/op	       0 B/op	       0 allocs/op
+BenchmarkGin_ParseParam    	13085680	        84.0 ns/op	       0 B/op	       0 allocs/op
+BenchmarkEcho_Parse2Params 	 8457060	       138 ns/op	       0 B/op	       0 allocs/op
+BenchmarkGin_Parse2Params  	12408178	        99.8 ns/op	       0 B/op	       0 allocs/op
+BenchmarkEcho_ParseAll     	  409405	      3041 ns/op	       0 B/op	       0 allocs/op
+BenchmarkGin_ParseAll      	  431499	      2619 ns/op	       0 B/op	       0 allocs/op
+BenchmarkEcho_StaticAll    	   43801	     26745 ns/op	       0 B/op	       0 allocs/op
+BenchmarkGin_StaticAll     	   52173	     22331 ns/op	       0 B/op	       0 allocs/op
+PASS
+ok  	github.com/julienschmidt/go-http-routing-benchmark	47.186s
+
+Using master and merged this PR #1817:
+#GithubAPI Routes: 203
+   Echo: 100088 Bytes
+   Gin: 58512 Bytes
+
+#GPlusAPI Routes: 13
+   Echo: 9688 Bytes
+   Gin: 4384 Bytes
+
+#ParseAPI Routes: 26
+   Echo: 11872 Bytes
+   Gin: 7776 Bytes
+
+#Static Routes: 157
+   Echo: 80328 Bytes
+   Gin: 34936 Bytes
+
+goos: darwin
+goarch: amd64
+pkg: github.com/julienschmidt/go-http-routing-benchmark
+BenchmarkEcho_Param        	13868967	        91.0 ns/op	       0 B/op	       0 allocs/op
+BenchmarkGin_Param         	11227989	       112 ns/op	       0 B/op	       0 allocs/op
+BenchmarkEcho_Param5       	 5590839	       217 ns/op	       0 B/op	       0 allocs/op
+BenchmarkGin_Param5        	 5693301	       208 ns/op	       0 B/op	       0 allocs/op
+BenchmarkEcho_Param20      	 1972708	       576 ns/op	       0 B/op	       0 allocs/op
+BenchmarkGin_Param20       	 2329970	       500 ns/op	       0 B/op	       0 allocs/op
+BenchmarkEcho_ParamWrite   	 6480324	       199 ns/op	       8 B/op	       1 allocs/op
+BenchmarkGin_ParamWrite    	 6192961	       183 ns/op	       0 B/op	       0 allocs/op
+BenchmarkEcho_GithubStatic 	11066961	       110 ns/op	       0 B/op	       0 allocs/op
+BenchmarkGin_GithubStatic  	 9331580	       131 ns/op	       0 B/op	       0 allocs/op
+BenchmarkEcho_GithubParam  	 5655951	       209 ns/op	       0 B/op	       0 allocs/op
+BenchmarkGin_GithubParam   	 4631484	       264 ns/op	       0 B/op	       0 allocs/op
+BenchmarkEcho_GithubAll    	   28891	     40733 ns/op	       0 B/op	       0 allocs/op
+BenchmarkGin_GithubAll     	   23617	     49969 ns/op	       0 B/op	       0 allocs/op
+BenchmarkEcho_GPlusStatic  	14360215	        82.9 ns/op	       0 B/op	       0 allocs/op
+BenchmarkGin_GPlusStatic   	14073127	        90.6 ns/op	       0 B/op	       0 allocs/op
+BenchmarkEcho_GPlusParam   	 9618414	       125 ns/op	       0 B/op	       0 allocs/op
+BenchmarkGin_GPlusParam    	 6743815	       177 ns/op	       0 B/op	       0 allocs/op
+BenchmarkEcho_GPlus2Params 	 6142123	       192 ns/op	       0 B/op	       0 allocs/op
+BenchmarkGin_GPlus2Params  	 4751052	       261 ns/op	       0 B/op	       0 allocs/op
+BenchmarkEcho_GPlusAll     	  588553	      1935 ns/op	       0 B/op	       0 allocs/op
+BenchmarkGin_GPlusAll      	  532138	      2351 ns/op	       0 B/op	       0 allocs/op
+BenchmarkEcho_ParseStatic  	14569162	        82.5 ns/op	       0 B/op	       0 allocs/op
+BenchmarkGin_ParseStatic   	11442459	       103 ns/op	       0 B/op	       0 allocs/op
+BenchmarkEcho_ParseParam   	10626462	       103 ns/op	       0 B/op	       0 allocs/op
+BenchmarkGin_ParseParam    	 9372045	       128 ns/op	       0 B/op	       0 allocs/op
+BenchmarkEcho_Parse2Params 	 7996203	       144 ns/op	       0 B/op	       0 allocs/op
+BenchmarkGin_Parse2Params  	 6957308	       175 ns/op	       0 B/op	       0 allocs/op
+BenchmarkEcho_ParseAll     	  383593	      3289 ns/op	       0 B/op	       0 allocs/op
+BenchmarkGin_ParseAll      	  296257	      4158 ns/op	       0 B/op	       0 allocs/op
+BenchmarkEcho_StaticAll    	   42117	     28272 ns/op	       0 B/op	       0 allocs/op
+BenchmarkGin_StaticAll     	   38401	     31488 ns/op	       0 B/op	       0 allocs/op
+PASS
+ok  	github.com/julienschmidt/go-http-routing-benchmark	46.256s
+
+cc @dmarkham @thinkerou",2,4
+2155,2019-11-26T12:21:36Z,2019-11-28T23:50:50Z,2019-11-28T23:50:50Z,8,369,369,,2,1
+2156,2019-11-27T05:10:09Z,,2020-02-25T15:32:31Z,1,4,4,,3,1
+2159,2019-11-27T13:46:22Z,2019-11-28T16:02:03Z,2019-11-28T16:02:03Z,2,41,9,"See the detailed benchmark: #2153
+before:
+#GithubAPI Routes: 203
+   Gin: 58512 Bytes
+
+#GPlusAPI Routes: 13
+   Gin: 4384 Bytes
+
+#ParseAPI Routes: 26
+   Gin: 7776 Bytes
+
+#Static Routes: 157
+   Gin: 34936 Bytes
+
+goos: darwin
+goarch: amd64
+pkg: github.com/julienschmidt/go-http-routing-benchmark
+BenchmarkGin_Param        	11682692	       107 ns/op	       0 B/op	       0 allocs/op
+BenchmarkGin_Param5       	 5853684	       205 ns/op	       0 B/op	       0 allocs/op
+BenchmarkGin_Param20      	 2497855	       484 ns/op	       0 B/op	       0 allocs/op
+BenchmarkGin_ParamWrite   	 6599636	       180 ns/op	       0 B/op	       0 allocs/op
+BenchmarkGin_GithubStatic 	 9790374	       125 ns/op	       0 B/op	       0 allocs/op
+BenchmarkGin_GithubParam  	 4965781	       244 ns/op	       0 B/op	       0 allocs/op
+BenchmarkGin_GithubAll    	   24424	     49748 ns/op	       0 B/op	       0 allocs/op
+BenchmarkGin_GPlusStatic  	14304789	        86.4 ns/op	       0 B/op	       0 allocs/op
+BenchmarkGin_GPlusParam   	 6814308	       174 ns/op	       0 B/op	       0 allocs/op
+BenchmarkGin_GPlus2Params 	 4847437	       253 ns/op	       0 B/op	       0 allocs/op
+BenchmarkGin_GPlusAll     	  504351	      2302 ns/op	       0 B/op	       0 allocs/op
+BenchmarkGin_ParseStatic  	12430803	        99.0 ns/op	       0 B/op	       0 allocs/op
+BenchmarkGin_ParseParam   	10323856	       119 ns/op	       0 B/op	       0 allocs/op
+BenchmarkGin_Parse2Params 	 7512644	       159 ns/op	       0 B/op	       0 allocs/op
+BenchmarkGin_ParseAll     	  305469	      3961 ns/op	       0 B/op	       0 allocs/op
+BenchmarkGin_StaticAll    	   37492	     30986 ns/op	       0 B/op	       0 allocs/op
+PASS
+ok  	github.com/julienschmidt/go-http-routing-benchmark	23.774s
+
+after:
+#GithubAPI Routes: 203
+   Gin: 58512 Bytes
+
+#GPlusAPI Routes: 13
+   Gin: 4384 Bytes
+
+#ParseAPI Routes: 26
+   Gin: 7776 Bytes
+
+#Static Routes: 157
+   Gin: 34936 Bytes
+
+goos: darwin
+goarch: amd64
+pkg: github.com/julienschmidt/go-http-routing-benchmark
+BenchmarkGin_Param        	15443652	        78.9 ns/op	       0 B/op	       0 allocs/op
+BenchmarkGin_Param5       	 9414763	       127 ns/op	       0 B/op	       0 allocs/op
+BenchmarkGin_Param20      	 4002259	       298 ns/op	       0 B/op	       0 allocs/op
+BenchmarkGin_ParamWrite   	 7826979	       151 ns/op	       0 B/op	       0 allocs/op
+BenchmarkGin_GithubStatic 	11584101	       103 ns/op	       0 B/op	       0 allocs/op
+BenchmarkGin_GithubParam  	 7606005	       158 ns/op	       0 B/op	       0 allocs/op
+BenchmarkGin_GithubAll    	   36332	     34051 ns/op	       0 B/op	       0 allocs/op
+BenchmarkGin_GPlusStatic  	12782667	        79.5 ns/op	       0 B/op	       0 allocs/op
+BenchmarkGin_GPlusParam   	12041554	       103 ns/op	       0 B/op	       0 allocs/op
+BenchmarkGin_GPlus2Params 	 9379024	       128 ns/op	       0 B/op	       0 allocs/op
+BenchmarkGin_GPlusAll     	  813216	      1394 ns/op	       0 B/op	       0 allocs/op
+BenchmarkGin_ParseStatic  	15016789	        77.1 ns/op	       0 B/op	       0 allocs/op
+BenchmarkGin_ParseParam   	15004710	        82.2 ns/op	       0 B/op	       0 allocs/op
+BenchmarkGin_Parse2Params 	11183847	       109 ns/op	       0 B/op	       0 allocs/op
+BenchmarkGin_ParseAll     	  448926	      2553 ns/op	       0 B/op	       0 allocs/op
+BenchmarkGin_StaticAll    	   51507	     23745 ns/op	       0 B/op	       0 allocs/op
+PASS
+ok  	github.com/julienschmidt/go-http-routing-benchmark	22.477s
+
+ref issue: #1817 and #1644
+cc @thinkerou @dmarkham @QianChenglong",2,1
+2163,2019-12-01T10:28:42Z,2019-12-01T11:53:03Z,2019-12-01T11:53:04Z,1,180,174,"the pr includes three parts:
+
+use longestCommonPrefix  from https://github.com/julienschmidt/httprouter/blob/master/tree.go#L20
+remove else statement to reduce indent
+sync the issue fixed julienschmidt/httprouter#172
+
+after:
+➜  go-http-routing-benchmark git:(master) go test -bench=Gin
+#GithubAPI Routes: 203
+   Gin: 58512 Bytes
+
+#GPlusAPI Routes: 13
+   Gin: 4384 Bytes
+
+#ParseAPI Routes: 26
+   Gin: 7776 Bytes
+
+#Static Routes: 157
+   Gin: 34936 Bytes
+
+goos: darwin
+goarch: amd64
+pkg: github.com/julienschmidt/go-http-routing-benchmark
+BenchmarkGin_Param        	12134269	       100 ns/op	       0 B/op	       0 allocs/op
+BenchmarkGin_Param5       	 6822183	       173 ns/op	       0 B/op	       0 allocs/op
+BenchmarkGin_Param20      	 2442889	       479 ns/op	       0 B/op	       0 allocs/op
+BenchmarkGin_ParamWrite   	 6708414	       168 ns/op	       0 B/op	       0 allocs/op
+BenchmarkGin_GithubStatic 	 9077402	       118 ns/op	       0 B/op	       0 allocs/op
+BenchmarkGin_GithubParam  	 5660514	       203 ns/op	       0 B/op	       0 allocs/op
+BenchmarkGin_GithubAll    	   26366	     43260 ns/op	       0 B/op	       0 allocs/op
+BenchmarkGin_GPlusStatic  	13235361	        83.2 ns/op	       0 B/op	       0 allocs/op
+BenchmarkGin_GPlusParam   	 9402622	       127 ns/op	       0 B/op	       0 allocs/op
+BenchmarkGin_GPlus2Params 	 6166275	       183 ns/op	       0 B/op	       0 allocs/op
+BenchmarkGin_GPlusAll     	  577646	      1866 ns/op	       0 B/op	       0 allocs/op
+BenchmarkGin_ParseStatic  	12644926	        86.3 ns/op	       0 B/op	       0 allocs/op
+BenchmarkGin_ParseParam   	11198742	        99.0 ns/op	       0 B/op	       0 allocs/op
+BenchmarkGin_Parse2Params 	 9181192	       127 ns/op	       0 B/op	       0 allocs/op
+BenchmarkGin_ParseAll     	  319550	      3366 ns/op	       0 B/op	       0 allocs/op
+BenchmarkGin_StaticAll    	   40864	     26833 ns/op	       0 B/op	       0 allocs/op
+PASS
+ok  	github.com/julienschmidt/go-http-routing-benchmark	22.169s
+
+before:
+➜  go-http-routing-benchmark git:(master) go test -bench=Gin
+#GithubAPI Routes: 203
+   Gin: 58512 Bytes
+
+#GPlusAPI Routes: 13
+   Gin: 4384 Bytes
+
+#ParseAPI Routes: 26
+   Gin: 7776 Bytes
+
+#Static Routes: 157
+   Gin: 34936 Bytes
+
+goos: darwin
+goarch: amd64
+pkg: github.com/julienschmidt/go-http-routing-benchmark
+BenchmarkGin_Param        	10962327	       104 ns/op	       0 B/op	       0 allocs/op
+BenchmarkGin_Param5       	 6442416	       179 ns/op	       0 B/op	       0 allocs/op
+BenchmarkGin_Param20      	 2381566	       523 ns/op	       0 B/op	       0 allocs/op
+BenchmarkGin_ParamWrite   	 6295077	       173 ns/op	       0 B/op	       0 allocs/op
+BenchmarkGin_GithubStatic 	 9231175	       130 ns/op	       0 B/op	       0 allocs/op
+BenchmarkGin_GithubParam  	 4975027	       219 ns/op	       0 B/op	       0 allocs/op
+BenchmarkGin_GithubAll    	   24982	     47799 ns/op	       0 B/op	       0 allocs/op
+BenchmarkGin_GPlusStatic  	12289202	        96.7 ns/op	       0 B/op	       0 allocs/op
+BenchmarkGin_GPlusParam   	 9156241	       138 ns/op	       0 B/op	       0 allocs/op
+BenchmarkGin_GPlus2Params 	 5860107	       210 ns/op	       0 B/op	       0 allocs/op
+BenchmarkGin_GPlusAll     	  552486	      2111 ns/op	       0 B/op	       0 allocs/op
+BenchmarkGin_ParseStatic  	11597578	       105 ns/op	       0 B/op	       0 allocs/op
+BenchmarkGin_ParseParam   	 9847570	       113 ns/op	       0 B/op	       0 allocs/op
+BenchmarkGin_Parse2Params 	 7823059	       142 ns/op	       0 B/op	       0 allocs/op
+BenchmarkGin_ParseAll     	  290121	      3575 ns/op	       0 B/op	       0 allocs/op
+BenchmarkGin_StaticAll    	   41952	     28302 ns/op	       0 B/op	       0 allocs/op
+PASS
+ok  	github.com/julienschmidt/go-http-routing-benchmark	22.864s",2,1
+2165,2019-12-02T09:39:24Z,2019-12-02T12:59:57Z,2019-12-02T12:59:57Z,1,1,0,Add Dkron as user of Gin in the README,2,1
+2166,2019-12-03T13:25:38Z,2019-12-03T23:56:02Z,2019-12-03T23:56:02Z,2,11,0,"sync httprouter:
+julienschmidt/httprouter#261",2,1
+2171,2019-12-08T08:52:23Z,2019-12-08T10:35:09Z,2019-12-08T10:35:09Z,1,33,28,from: julienschmidt/httprouter@b9a3606#diff-37cf0fd7a164303538a2d22d965646df,2,1
+2172,2019-12-08T09:39:17Z,2019-12-08T11:34:06Z,2019-12-08T11:34:06Z,1,27,20,"from httprouter:
+julienschmidt/httprouter@e746cd6
+julienschmidt/httprouter@6289311",2,3
+2173,2019-12-08T14:31:11Z,2019-12-09T07:04:36Z,2019-12-09T07:04:36Z,1,85,71,from httprouter: julienschmidt/httprouter@bbffb24,2,1
+2177,2019-12-10T13:17:24Z,2019-12-18T08:58:39Z,2019-12-18T08:58:39Z,1,103,104,,2,1
+2179,2019-12-11T13:15:52Z,2020-01-07T09:37:18Z,2020-01-07T09:37:18Z,2,83,15,Signed-off-by: Andy Pan panjf2000@gmail.com,3,14
+2186,2019-12-16T15:07:43Z,2019-12-18T01:44:33Z,2019-12-18T01:44:33Z,1,6,9,"Update fixed code.
+Fix incorrect date for testing & demo.",2,3
+2188,2019-12-18T09:06:19Z,2019-12-18T13:08:58Z,2019-12-18T13:08:58Z,1,1,1,"Excuse me, I forgot change output in #2186",2,1
+2189,2019-12-18T11:58:26Z,2019-12-19T03:21:59Z,2019-12-19T03:21:59Z,1,1,1,Just update the go-validator version in README to v10.,3,1
+2190,2019-12-19T08:02:10Z,2019-12-20T06:01:58Z,2019-12-20T06:01:59Z,1,1,1,"Passed my manual test, output nothing different.",2,1
+2194,2019-12-25T13:24:38Z,,2020-03-26T16:47:14Z,33,837,226,"support usage followed:
+type StructExample struct {
+    A string `json:""a"" form:""a"" binding""required,max=16""`
+}
+
+func exampleHandler(c *gin.Context) {
+    var data []StructExample
+
+    if c.Bind(&data) != nil {
+        return
+    }
+    c.JSON(http.StatusOK, data)
+}",14,1
+2196,2019-12-29T07:41:47Z,2020-01-07T17:48:29Z,2020-01-07T17:48:29Z,1,6,12,"This issue has been discussed here #1452, here #1690, here #1736, here #2029, in my opinion, wether current behavior will be changed or not, current documentation doesn't match with real behavior, so it (documentation) has to be changed.
+This is my view of what it should look like.",3,1
+2202,2020-01-06T16:11:04Z,2020-01-07T01:19:49Z,2020-01-07T01:19:49Z,2,7,7,,2,1
+2206,2020-01-14T06:43:33Z,2020-01-17T16:32:50Z,2020-01-17T16:32:50Z,6,130,10,"Benchmark:
+BenchmarkBytesConvBytesToStrRaw-4   	21003800	        70.9 ns/op	      96 B/op	       1 allocs/op
+BenchmarkBytesConvBytesToStr-4      	1000000000	         0.333 ns/op	       0 B/op	       0 allocs/op
+BenchmarkBytesConvStrToBytesRaw-4   	18478059	        59.3 ns/op	      96 B/op	       1 allocs/op
+BenchmarkBytesConvStrToBytes-4      	1000000000	         0.373 ns/op	       0 B/op	       0 allocs/op",2,2
+2212,2020-01-16T12:51:04Z,2020-01-16T14:41:00Z,2020-01-16T14:41:00Z,1,1,2,"Make the constant stackBufSize local since the go compiler will replace any occurrence with the const value and it only applies to the cleanPath function.
+Also to correct the last wrong sync by me and sync code with httprouter again:
+https://github.com/julienschmidt/httprouter/blob/master/path.go#L22",2,1
+2215,2020-01-21T14:11:17Z,2020-01-21T16:24:25Z,2020-01-21T16:24:25Z,2,8,8,"See:
+https://github.com/mattn/go-isatty/releases/tag/v0.0.11
+https://github.com/json-iterator/go/releases/tag/v1.1.9",2,1
+2216,2020-01-22T09:18:35Z,2020-03-07T01:21:03Z,2020-03-07T01:21:03Z,1,2,2,"Suggest:
+
+Turn off Pop-up prompt of accept incoming network connections on mac os.
+Allow apps to communicate through windows defender firewall as default.",3,2
+2217,2020-01-22T12:50:57Z,2020-01-22T23:54:09Z,2020-01-22T23:54:09Z,1,1,1,fix #2214,2,2
+2220,2020-01-23T11:25:51Z,2020-02-06T06:50:22Z,2020-02-06T06:50:22Z,2,7,2,Implement YAML support for negotiation (see #2157),2,1
+2222,2020-01-27T09:14:14Z,2020-01-28T10:35:48Z,2020-01-28T10:35:48Z,1,0,2,copy from julienschmidt/httprouter@cfa3cb7,2,1
+2223,2020-01-27T10:13:32Z,2020-01-28T03:38:46Z,2020-01-28T03:38:46Z,2,18,8,copy from julienschmidt/httprouter@15782a7,2,1
+2228,2020-02-07T11:41:10Z,2020-02-21T09:15:18Z,2020-02-21T09:15:18Z,5,15,12,Fixes the issue #2209,3,4
+2229,2020-02-08T12:17:09Z,2020-02-09T02:46:23Z,2020-02-09T02:46:23Z,1,3,3,,2,1
+2231,2020-02-11T13:08:16Z,2020-02-13T12:23:30Z,2020-02-13T12:23:30Z,2,15,15,,2,1
+2237,2020-02-19T06:37:26Z,,2020-02-26T15:25:23Z,1,1,1,"Hello, I add a mitigation for log injection. It prevents that malicious user to do a log injection.
+Before
+$ curl --request ""POST"" ""http://127.0.0.1:3000/%0a[GIN]%20..%20blahblah""
+
+-->
+
+[GIN] 2020/02/19 - 15:35:08 | 401 |     712.772µs |       127.0.0.1 | POST     /
+[GIN] .. blahblah
+
+After
+$ curl --request ""POST"" ""http://127.0.0.1:3000/%0a[GIN]%20..%20blahblah""
+
+-->
+
+[GIN] 2020/02/19 - 15:36:56 | 401 |     814.381µs |       127.0.0.1 | POST     ""/\n[GIN] .. blahblah""
+
+Thanks.
+References
+https://www.geeksforgeeks.org/log-injection/
+https://golang.org/pkg/fmt/",3,3
+2262,2020-02-26T01:07:03Z,2020-02-26T02:27:04Z,2020-02-26T02:27:04Z,1,4,0,,3,1
+2277,2020-03-03T14:44:38Z,2020-03-07T13:51:34Z,2020-03-07T13:51:34Z,2,6,6,Copy #2265 and fix the tests,3,2
+2280,2020-03-08T23:27:53Z,2020-03-16T14:36:16Z,2020-03-16T14:36:16Z,1,2,5,"The current handling of Unix sockets is not correct.
+
+The service should not delete the socket before binding to it. If the socket exists, that implies another service is already listening on the socket.
+The socket should instead be cleaned up at shutdown.
+The permissions should NOT be world writable by default.
+
+One of the main reasons to use sockets is for security. Using sockets allows you to lock access down to a specific unix group/user.However, due to the various use cases for unix sockets, it may be a good idea to accept a net.Listener interface, so that the socket can be configured before the server is started.",4,2
+2288,2020-03-21T22:38:23Z,2020-03-22T02:25:35Z,2020-03-22T02:25:36Z,1,17,15,"The initial purpose was to remove the dead code from the example. Still, I hooked up a few improvements as well, such as comments in the code and the text structure separating the usage of third-party libraries from the usage of the built-in packages to handle it manually.
+I also changed the term ""graceful stop"" to graceful shutdown, which seems to be more common in the web, therefore, it would make it easier to find the text.
+Related pull request gin-gonic/examples#33",2,1
+2290,2020-03-22T03:25:31Z,2020-03-22T04:28:47Z,2020-03-22T04:28:48Z,1,63,13,fix #2268,2,1
+2293,2020-03-23T04:39:46Z,2020-03-23T05:52:29Z,2020-03-23T05:52:29Z,1,1,1,"to sync with tag v1.6.0
+
+With pull requests:
+
+Open your pull request against master
+Your pull request should have no more than two commits, if not you should squash them.
+It should pass all tests in the available continuous integrations systems such as TravisCI.
+You should add/modify tests to cover your proposed code changes.
+If your pull request contains a new feature, please document it on the README.",2,2
+2294,2020-03-23T06:09:01Z,2020-03-23T09:48:26Z,2020-03-23T09:48:26Z,1,2,2,Reverts #2216 and fix #2292,3,3
+2295,2020-03-23T07:36:22Z,2020-03-23T10:00:58Z,2020-03-23T10:00:59Z,1,1,1,fix the critical bug #2292,2,1
+2302,2020-03-26T08:47:33Z,2021-01-03T13:43:35Z,2021-01-03T13:43:35Z,4,142,11,"support usage followed:
+type StructExample struct {
+    A string `json:""a"" form:""a"" binding""required,max=16""`
+}
+
+func exampleHandler(c *gin.Context) {
+    var data []StructExample
+
+    if c.Bind(&data) != nil {
+        return
+    }
+    c.JSON(http.StatusOK, data)
+}
+this pull is rewritten for https://github.com/gin-gonic/gin/pull/2194， avoid to change the validator interface",3,7
+2305,2020-03-27T01:15:35Z,2020-03-27T02:57:37Z,2020-03-27T02:57:37Z,3,22,0,fix #2301,4,3
+2306,2020-03-27T01:40:51Z,2020-03-27T02:47:23Z,2020-03-27T02:47:24Z,2,15,4,fixed #2299,3,5
+2307,2020-03-27T12:38:50Z,2020-03-27T13:39:12Z,2020-03-27T13:39:12Z,1,1,1,"sync to tag v1.6.2
+
+With pull requests:
+
+Open your pull request against master
+Your pull request should have no more than two commits, if not you should squash them.
+It should pass all tests in the available continuous integrations systems such as TravisCI.
+You should add/modify tests to cover your proposed code changes.
+If your pull request contains a new feature, please document it on the README.",2,1
+2312,2020-04-05T06:25:15Z,2020-04-08T15:31:32Z,2020-04-08T15:31:32Z,1,1,1,"With pull requests:
+
+Open your pull request against master
+Your pull request should have no more than two commits, if not you should squash them.
+It should pass all tests in the available continuous integrations systems such as TravisCI.
+You should add/modify tests to cover your proposed code changes.
+If your pull request contains a new feature, please document it on the README.",2,2
+2321,2020-04-16T02:34:46Z,2020-04-16T14:31:59Z,2020-04-16T14:31:59Z,1,6,4,"I think this is more elegant。In switch-case，we don't need judge that value is """"。",3,1
+2322,2020-04-16T09:44:06Z,2020-07-09T01:40:01Z,2020-07-09T01:40:01Z,3,161,5,"With pull requests:
+
+Open your pull request against master
+Your pull request should have no more than two commits, if not you should squash them.
+It should pass all tests in the available continuous integration systems such as TravisCI.
+You should add/modify tests to cover your proposed code changes.
+If your pull request contains a new feature, please document it on the README.
+
+
+
+CustomRecovery allows the user to control what happens in the case of a panic without having to re-implement the Recovery middleware",4,3
+2323,2020-04-16T09:47:35Z,2020-04-17T04:26:42Z,2020-04-17T04:26:43Z,2,2,2,,2,3
+2329,2020-04-20T09:54:28Z,2020-04-20T12:07:36Z,2020-04-20T12:07:36Z,1,7,0,,2,1
+2337,2020-04-23T17:32:06Z,2024-03-11T14:41:07Z,2024-03-11T14:41:07Z,1,15,5,"This allows users to use a single logger within their application for all printing, regardless of level.
+
+With pull requests:
+
+Open your pull request against master
+Your pull request should have no more than two commits, if not you should squash them.
+It should pass all tests in the available continuous integration systems such as TravisCI.
+You should add/modify tests to cover your proposed code changes.
+If your pull request contains a new feature, please document it on the README.",2,3
+2341,2020-04-27T17:41:04Z,2020-04-28T01:36:05Z,2020-04-28T01:36:05Z,1,6,2,"TestUnixSocket fails if you run it twice in a row.  This is due to the unix socket file persisting.  Added defer to clean up.
+Whats unclear is the following test TestBadUnixSocket I suspect is just looking for cruft maybe from a prior test or defaults not working, I have not enough background to say.
+
+With pull requests:
+
+Open your pull request against master
+Your pull request should have no more than two commits, if not you should squash them.
+It should pass all tests in the available continuous integration systems such as TravisCI.
+You should add/modify tests to cover your proposed code changes.
+If your pull request contains a new feature, please document it on the README.",3,2
+2351,2020-05-03T04:25:33Z,2020-05-03T12:39:35Z,2020-05-03T12:39:35Z,2,13,16,"fix #2350
+See the report: #2350
+Change *sync.RWMutex to sync.RWMutex. See the commet
+step and result
+Testing in my Macbook Pro
+$ go get github.com/gin-gonic/gin@d5a42fc8ac93cebe42cde9c9b91a138358e4f99a
+go: github.com/gin-gonic/gin d5a42fc8ac93cebe42cde9c9b91a138358e4f99a => v1.6.3-0.20200503042414-d5a42fc8ac93
+go: downloading github.com/gin-gonic/gin v1.6.3-0.20200503042414-d5a42fc8ac93
+$ go get github.com/julienschmidt/httprouter@master
+go: github.com/julienschmidt/httprouter master => v1.3.1-0.20200114094804-8c9f31f047a3
+go: downloading github.com/julienschmidt/httprouter v1.3.1-0.20200114094804-8c9f31f047a3
+
+Benchmark Result:
+BenchmarkEcho_Param              	12894638	        88.9 ns/op	       0 B/op	       0 allocs/op
+BenchmarkGin_Param               	16120810	        75.8 ns/op	       0 B/op	       0 allocs/op
+BenchmarkHttpRouter_Param        	20860491	        59.0 ns/op	       0 B/op	       0 allocs/op
+BenchmarkEcho_Param5             	 5107472	       236 ns/op	       0 B/op	       0 allocs/op
+BenchmarkGin_Param5              	 8665498	       139 ns/op	       0 B/op	       0 allocs/op
+BenchmarkHttpRouter_Param5       	10716376	       111 ns/op	       0 B/op	       0 allocs/op
+BenchmarkEcho_Param20            	 1649486	       736 ns/op	       0 B/op	       0 allocs/op
+BenchmarkGin_Param20             	 3693909	       317 ns/op	       0 B/op	       0 allocs/op
+BenchmarkHttpRouter_Param20      	 4302121	       291 ns/op	       0 B/op	       0 allocs/op
+BenchmarkEcho_ParamWrite         	 6067071	       206 ns/op	       8 B/op	       1 allocs/op
+BenchmarkGin_ParamWrite          	 7927640	       153 ns/op	       0 B/op	       0 allocs/op
+BenchmarkHttpRouter_ParamWrite   	12336866	        97.2 ns/op	       0 B/op	       0 allocs/op
+BenchmarkEcho_GithubStatic       	 9660526	       123 ns/op	       0 B/op	       0 allocs/op
+BenchmarkGin_GithubStatic        	12108596	        99.3 ns/op	       0 B/op	       0 allocs/op
+BenchmarkHttpRouter_GithubStatic 	22733364	        53.9 ns/op	       0 B/op	       0 allocs/op
+BenchmarkEcho_GithubParam        	 4760176	       241 ns/op	       0 B/op	       0 allocs/op
+BenchmarkGin_GithubParam         	 6903195	       175 ns/op	       0 B/op	       0 allocs/op
+BenchmarkHttpRouter_GithubParam  	 8757140	       139 ns/op	       0 B/op	       0 allocs/op
+BenchmarkEcho_GithubAll          	   25303	     47044 ns/op	       0 B/op	       0 allocs/op
+BenchmarkGin_GithubAll           	   35906	     32017 ns/op	       0 B/op	       0 allocs/op
+BenchmarkHttpRouter_GithubAll    	   48505	     24723 ns/op	       0 B/op	       0 allocs/op
+BenchmarkEcho_GPlusStatic        	13986368	        88.1 ns/op	       0 B/op	       0 allocs/op
+BenchmarkGin_GPlusStatic         	15715994	        76.2 ns/op	       0 B/op	       0 allocs/op
+BenchmarkHttpRouter_GPlusStatic  	40313703	        30.6 ns/op	       0 B/op	       0 allocs/op
+BenchmarkEcho_GPlusParam         	 8838810	       132 ns/op	       0 B/op	       0 allocs/op
+BenchmarkGin_GPlusParam          	11063152	       110 ns/op	       0 B/op	       0 allocs/op
+BenchmarkHttpRouter_GPlusParam   	14874406	        83.3 ns/op	       0 B/op	       0 allocs/op
+BenchmarkEcho_GPlus2Params       	 5957268	       197 ns/op	       0 B/op	       0 allocs/op
+BenchmarkGin_GPlus2Params        	 8538530	       138 ns/op	       0 B/op	       0 allocs/op
+BenchmarkHttpRouter_GPlus2Params 	11009853	       109 ns/op	       0 B/op	       0 allocs/op
+BenchmarkEcho_GPlusAll           	  610393	      2072 ns/op	       0 B/op	       0 allocs/op
+BenchmarkGin_GPlusAll            	  845540	      1452 ns/op	       0 B/op	       0 allocs/op
+BenchmarkHttpRouter_GPlusAll     	 1000000	      1022 ns/op	       0 B/op	       0 allocs/op
+BenchmarkEcho_ParseStatic        	13372183	        89.4 ns/op	       0 B/op	       0 allocs/op
+BenchmarkGin_ParseStatic         	15553862	        76.2 ns/op	       0 B/op	       0 allocs/op
+BenchmarkHttpRouter_ParseStatic  	36294546	        32.0 ns/op	       0 B/op	       0 allocs/op
+BenchmarkEcho_ParseParam         	10718779	       108 ns/op	       0 B/op	       0 allocs/op
+BenchmarkGin_ParseParam          	14966005	        82.9 ns/op	       0 B/op	       0 allocs/op
+BenchmarkHttpRouter_ParseParam   	18341719	        65.6 ns/op	       0 B/op	       0 allocs/op
+BenchmarkEcho_Parse2Params       	 8146166	       149 ns/op	       0 B/op	       0 allocs/op
+BenchmarkGin_Parse2Params        	11563095	       105 ns/op	       0 B/op	       0 allocs/op
+BenchmarkHttpRouter_Parse2Params 	14198692	        83.3 ns/op	       0 B/op	       0 allocs/op
+BenchmarkEcho_ParseAll           	  343478	      3427 ns/op	       0 B/op	       0 allocs/op
+BenchmarkGin_ParseAll            	  467335	      2817 ns/op	       0 B/op	       0 allocs/op
+BenchmarkHttpRouter_ParseAll     	  739195	      1768 ns/op	       0 B/op	       0 allocs/op
+BenchmarkEcho_StaticAll          	   39229	     29002 ns/op	       0 B/op	       0 allocs/op
+BenchmarkGin_StaticAll           	   50160	     25493 ns/op	       0 B/op	       0 allocs/op
+BenchmarkHttpRouter_StaticAll    	   90253	     12674 ns/op	       0 B/op	       0 allocs/op
+PASS
+ok  	github.com/julienschmidt/go-http-routing-benchmark	67.399s
+
+Or you can see the benchmark result from Travis: https://travis-ci.org/github/gin-gonic/go-http-routing-benchmark/jobs/682559844",5,10
+2354,2020-05-03T13:44:49Z,2020-05-04T03:40:42Z,2020-05-04T03:40:42Z,6,16,10,,2,1
+2355,2020-05-04T15:30:04Z,2020-05-05T08:37:41Z,2020-05-05T08:37:41Z,2,663,684,As title. Gin v1.6.3 benchmark result.,2,1
+2356,2020-05-05T01:59:50Z,2020-05-05T05:55:58Z,2020-05-05T05:55:58Z,5,11,11,,2,1
+2357,2020-05-05T02:15:32Z,2020-05-05T06:06:43Z,2020-05-05T06:06:43Z,1,1,1,"old: https://godoc.org/github.com/gin-gonic/gin
+new: https://pkg.go.dev/github.com/gin-gonic/gin?tab=doc",2,1
+2358,2020-05-05T13:32:59Z,2020-05-05T15:20:01Z,2020-05-05T15:20:01Z,1,1,1,,2,1
+2359,2020-05-06T02:27:09Z,,2020-05-06T16:17:14Z,2,17,10,"fix bug that tag form:""page_no,default=1"" are not effective in some cases, e.g: http://host/list?page_no=&page_size=
+
+With pull requests:
+
+Open your pull request against master
+Your pull request should have no more than two commits, if not you should squash them.
+It should pass all tests in the available continuous integration systems such as TravisCI.
+You should add/modify tests to cover your proposed code changes.
+If your pull request contains a new feature, please document it on the README.",3,3
+2362,2020-05-07T16:52:49Z,2020-05-08T00:50:27Z,2020-05-08T00:50:27Z,1,4,4,,2,1
+2365,2020-05-09T06:55:48Z,2020-05-09T09:41:01Z,2020-05-09T09:41:01Z,1,1,2,"testing repo: https://github.com/appleboy/web-framework-benchmark
+before
+script:
+$ go get github.com/gin-gonic/gin@v1.6.3
+$ go test -bench=. -benchtime=10s
+result:
+BenchmarkGinStatic-8               23306             50344 ns/op            8283 B/op        157 allocs/op
+BenchmarkGinGitHubAPI-8            16506             71542 ns/op           10801 B/op        203 allocs/op
+BenchmarkGinGplusAPI-8            284379              4061 ns/op             685 B/op         13 allocs/op
+BenchmarkGinParseAPI-8            153843              7657 ns/op            1361 B/op         26 allocs/op
+
+after
+script:
+$ go get github.com/gin-gonic/gin@1bd5a8f
+$ go test -bench=. -benchtime=10s
+result:
+BenchmarkGinStatic-8              246488             46740 ns/op            9915 B/op        314 allocs/op
+BenchmarkGinGitHubAPI-8           176192             65348 ns/op           12940 B/op        406 allocs/op
+BenchmarkGinGplusAPI-8           3298646              3747 ns/op             811 B/op         26 allocs/op
+BenchmarkGinParseAPI-8           1683153              7003 ns/op            1620 B/op         52 allocs/op",2,1
+2366,2020-05-09T07:45:33Z,2020-05-11T05:25:49Z,2020-05-11T05:25:50Z,2,4,0,"Proposed changes
+While using func context.FullPath(), I encountered an issue that it always returns previous registered parent path. It's fine when I change the registration order.
+Example:
+func (s *testSuite) registerTest() {
+	s.router.GET(""/user/:id/status"", s.processWithStatus())
+	s.router.GET(""/user/:id"", s.processWithID())
+}
+
+func (s *testSuite) processWithStatus() gin.HandlerFunc {
+	return func(c *gin.Context) {
+		logger.Infof(""XXX - FullPath /user/:id/status ---> %s"", c.FullPath())
+		return
+	}
+}
+
+func (s *testSuite) processWithID() gin.HandlerFunc {
+	return func(c *gin.Context) {
+		logger.Infof(""XXX - FullPath /user/:id ---> %s"", c.FullPath())
+		return
+	}
+}
+Result:
+XXX - FullPath /user/:id/status ---> /service/api/v1/user/:id/status
+XXX - FullPath /user/:id ---> /service/api/v1/user/:id/status
+
+But, when I register with different the order of router, such as:
+func (s *testSuite) registerTest() {
+	s.router.GET(""/user/:id"", s.processWithID())
+	s.router.GET(""/user/:id/status"", s.processWithStatus())
+}
+It's every thing so ok.
+I have fix this bug and updated the test case.
+Hope you spend your time review and accept my pull request with this issue.
+Types of changes
+
+ Bugfix (non-breaking change which fixes an issue)
+
+Checklist
+
+ Lint and unit tests pass locally with my changes",3,2
+2368,2020-05-10T02:55:09Z,2020-05-10T05:22:25Z,2020-05-10T05:22:25Z,4,393,282,"Add *Params in context.
+move maxParams counts to engine",2,1
+2371,2020-05-12T04:35:38Z,2021-01-03T13:34:11Z,2021-01-03T13:34:11Z,1,127,128,"if !cond {
+}
+// else code
+
+instead of
+if cond {
+} else {
+}",2,2
+2375,2020-05-13T14:51:06Z,2020-05-14T03:35:15Z,2020-05-14T03:35:15Z,2,12,13,,2,1
+2378,2020-05-17T08:03:51Z,2020-05-17T10:11:23Z,2020-05-17T10:11:23Z,1,37,8,"package convert
+
+import (
+	""bytes""
+	""strings""
+	""testing""
+)
+
+var (
+	strColon = []byte("":"")
+	strStar  = []byte(""*"")
+)
+
+func countParamsOld(path string) uint16 {
+	var n uint
+	for i := range []byte(path) {
+		switch path[i] {
+		case ':', '*':
+			n++
+		}
+	}
+	return uint16(n)
+}
+
+func countParamsNew(path string) uint16 {
+	var n uint
+	s := strToBytes(path)
+	n += uint(bytes.Count(s, strColon))
+	n += uint(bytes.Count(s, strStar))
+	return uint16(n)
+}
+
+var foo = strings.Repeat(""/:param"", 256)
+
+func BenchmarkCountParamsOld(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		countParamsOld(foo)
+	}
+}
+
+func BenchmarkCountParamsNew(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		countParamsNew(foo)
+	}
+}
+Performance result
+goos: linux
+goarch: amd64
+BenchmarkCountParamsOld-48    	 3000000	      1751 ns/op	       0 B/op	       0 allocs/op
+BenchmarkCountParamsNew-48    	30000000	       148 ns/op	       0 B/op	       0 allocs/op",2,3
+2387,2020-05-23T02:42:13Z,2020-05-23T14:19:38Z,2020-05-23T14:19:38Z,1,9,33,"With pull requests:
+
+Open your pull request against master
+Your pull request should have no more than two commits, if not you should squash them.
+It should pass all tests in the available continuous integration systems such as TravisCI.
+You should add/modify tests to cover your proposed code changes.
+If your pull request contains a new feature, please document it on the README.
+
+
+
+There are two same functions in github.com/gin-gonic/gin/internal/bytesconv.",3,1
+2388,2020-05-23T10:27:21Z,2020-05-23T14:52:02Z,2020-05-23T14:52:02Z,2,8,0,,2,1
+2389,2020-05-23T14:56:12Z,2020-05-24T03:37:33Z,2020-05-24T03:37:33Z,1,6,0,"Refer to issue #444
+
+With pull requests:
+
+Open your pull request against master
+Your pull request should have no more than two commits, if not you should squash them.
+It should pass all tests in the available continuous integration systems such as TravisCI.
+You should add/modify tests to cover your proposed code changes.
+If your pull request contains a new feature, please document it on the README.",3,1
+2391,2020-05-23T15:52:24Z,2020-05-24T02:58:29Z,2020-05-24T02:58:29Z,1,0,3,"With pull requests:
+
+Open your pull request against master
+Your pull request should have no more than two commits, if not you should squash them.
+It should pass all tests in the available continuous integration systems such as TravisCI.
+You should add/modify tests to cover your proposed code changes.
+If your pull request contains a new feature, please document it on the README.
+
+
+
+remove an unused type SecureJSONPrefix in render/json.go",2,1
+2393,2020-05-25T09:23:53Z,2020-05-25T12:13:10Z,2020-05-25T12:13:10Z,3,14,14,"json ->  jsonData, avoid conflicts with json package names
+onlyfilesFS -> onlyFilesFS,  little camel-case",3,1
+2395,2020-05-25T12:33:49Z,2020-05-25T13:47:07Z,2020-05-25T13:47:07Z,1,13,0,New test case added  for custom format using DebugPrintRouteFunc(),2,1
+2425,2020-07-04T15:35:20Z,,2020-08-31T02:40:35Z,2,28,0,,5,4
+2448,2020-07-30T00:58:42Z,2020-08-01T07:26:30Z,2020-08-01T07:26:30Z,1,7,4,gin-gonic/examples#39,2,1
+2449,2020-08-01T04:52:30Z,2020-08-01T07:03:34Z,2020-08-01T07:03:34Z,1,1,1,"old: 
+new:",2,1
+2450,2020-08-03T08:12:23Z,2020-08-08T09:31:09Z,2020-08-08T09:31:09Z,1,1,1,"Function setTimeField calls strconv.ParseInt with bit size 0 when
+parsing Unix time, which means it is equivalent to specifying 32 on
+32-bit architectures. This causes the function to suffer from the year
+2038 problem. To fix it and keep the behavior the same on both 32-bit
+and 64-bit architectures, explicitly specify bit size 64.
+I am not sure if I should add a test for this pull request. It only affects 32-bit systems, but the CI only tests 64-bit systems.",2,1
+2451,2020-08-03T16:00:07Z,2020-08-03T23:04:06Z,2020-08-03T23:04:06Z,3,5,5,,2,1
+2463,2020-08-12T00:27:15Z,2020-08-12T01:28:51Z,2020-08-12T01:28:51Z,1,4,0,ci support Go 1.15,2,1
+2474,2020-08-20T22:00:47Z,,2021-02-09T20:30:16Z,4,208,15,"Allow specifying which headers to use for deducing client IP.
+Allow specifying which proxies you trust to provide those headers.
+Set defaults to match current behaviour.
+Fixes #2473 and #2232",12,33
+2476,2020-08-22T08:15:42Z,,2024-02-06T02:48:05Z,2,23,3,"6.5.5.  405 Method Not Allowed
+The 405 (Method Not Allowed) status code indicates that the method
+received in the request-line is known by the origin server but not
+supported by the target resource.  The origin server MUST generate an
+Allow header field in a 405 response containing a list of the target
+resource's currently supported methods.
+
+close #2397",6,5
+2484,2020-08-29T01:30:33Z,2020-10-30T23:20:47Z,2020-10-30T23:20:47Z,3,143,0,"It's always been possible to bind using an object of type map[string]string. For example:
+obj := make(map[string]string)
+c.Bind(&obj)
+If the request body was formatted as JSON (or YAML), this worked fine. You'd get a dictionary with key-values. For example, with input:
+{
+    ""foo"": ""bar"",
+    ""hello"": ""world""
+}
+You'd get in the object:
+
+obj[""foo""] = ""bar""
+obj[""hello""] = ""world""
+
+However, this did not work if the request's body was form-encoded (application/x-www-form-urlencoded or multipart/form-data).
+This PR adds support for passing a pointer to map[string]string to Bind that works with: Forms (POST Forms, Multipart forms), JSON, YAML. It also works with query strings. (However, it does NOT work with XML, because the XML parser doesn't allow that).
+Why is this useful? Sometimes, there are situations in which I'm expecting a key-value dictionary, but I do not know what keys I'll receive.
+This PR includes tests.",3,3
+2487,2020-08-31T16:23:06Z,2020-09-01T01:33:55Z,2020-09-01T01:33:55Z,2,28,0,close #2432,2,2
+2489,2020-09-02T14:15:07Z,2020-09-02T15:15:26Z,2020-09-02T15:15:26Z,1,1,1,,2,1
+2498,2020-09-13T15:10:39Z,2020-09-14T02:40:20Z,2020-09-14T02:40:20Z,2,2,2,,2,1
+2500,2020-09-17T11:47:28Z,2020-10-15T05:55:58Z,2020-10-15T05:55:58Z,2,10,1,"benchmark cmp result:
+benchmark                   old ns/op     new ns/op     delta
+BenchmarkParseAccept-12     362           176           -51.38%
+
+benchmark                   old allocs     new allocs     delta
+BenchmarkParseAccept-12     6              2              -66.67%
+
+benchmark                   old bytes     new bytes     delta
+BenchmarkParseAccept-12     224           128           -42.86%",4,1
+2508,2020-09-21T15:43:10Z,2020-10-16T10:32:34Z,2020-10-16T10:32:34Z,1,3,1,"bencmp result
+benchmark                     old ns/op     new ns/op     delta
+BenchmarkReader_Render-12     581           545           -6.20%
+
+benchmark                     old allocs     new allocs     delta
+BenchmarkReader_Render-12     9              8              -11.11%
+
+benchmark                     old bytes     new bytes     delta
+BenchmarkReader_Render-12     1008          992           -1.59%",3,2
+2512,2020-09-24T15:56:38Z,2020-09-25T01:45:17Z,2020-09-25T01:45:17Z,1,1,1,"Content-Disposition in the Context.FileAttachment method is not a MIME style, but a slight performance response that can be avoided.
+benchmark test file: https://github.com/eudore/eudore/blob/master/_example/textprotoHeader_test.go",2,1
+2517,2020-10-01T21:10:12Z,,2023-09-25T10:20:18Z,3,21,14,"This addresses #2505. Since Recovery doesn't provide the same config as Layout, this is a naive approach with unexporting ConsoleColorMode variable.
+If that's not appropriate I can work over the weekend on RecoveryWithLogger which would make Recovery use Logger internally. That would mean however a hard dependency between Recovery and Logger parts.
+If there is any other approach you'd like me to pursue I'm open to feedback. :)",2,1
+2519,2020-10-03T10:31:54Z,2020-10-16T01:32:11Z,2020-10-16T01:32:11Z,1,2,2,"Signed-off-by: Zasda Yusuf Mikail zasdaym@gmail.com
+
+With pull requests:
+
+Open your pull request against master
+Your pull request should have no more than two commits, if not you should squash them.
+It should pass all tests in the available continuous integration systems such as TravisCI.
+You should add/modify tests to cover your proposed code changes.
+If your pull request contains a new feature, please document it on the README.",3,2
+2526,2020-10-09T17:12:28Z,2020-10-17T13:22:38Z,2020-10-17T13:22:38Z,2,38,0,"Implement .Unwrap() error method on type Error, to be compatible with stdlib errors.Is() and erors.As() functions.",3,1
+2528,2020-10-13T18:33:14Z,2020-10-15T14:41:36Z,2020-10-15T14:41:36Z,1,3,2,Closes #2201,4,6
+2531,2020-10-16T06:33:24Z,,2021-04-29T07:51:16Z,1,4,0,"Add a judgment of JSON format. Under normal circumstances, we may not need this function. However, in the process of using middleware or microservices, the data we may get is already in JSON format. At this time, we need to convert JSON to stuct, and then convert it in line by gin. In this process, we not only need to create a new struct, but also The useless JSON—— struct, struct —— JSON, therefore, I added the JSON type judgment",3,4
+2536,2020-10-20T20:53:33Z,2020-10-21T01:36:02Z,2020-10-21T01:36:02Z,2,10,3,"fix #2534
+required_if and required_unless are released in v10.4.0.
+gin uses v10.2.0, so I can't use it.
+https://pkg.go.dev/github.com/go-playground/validator/v10#hdr-Required_If",2,1
+2538,2020-10-21T09:52:22Z,2021-01-03T14:30:22Z,2021-01-03T14:30:22Z,1,28,0,"Hi,
+I had added ppc64le(Linux on Power) architecture support on travis-ci in the PR and looks like its been successfully added. I believe it is ready for the final review and merge. The travis ci build logs can be verified from the link below.
+https://travis-ci.com/github/kishorkunal-raj/gin/builds/191395651
+Reason behind running tests on ppc64le: This package is included in the ppc64le versions of RHEL and Ubuntu - this allows the top of tree to be tested continuously as it is for Intel, making it easier to catch any possible regressions on ppc64le before the distros begin their clones and builds. This reduces the work in integrating this package into future versions of RHEL/Ubuntu.
+Please have a look.",3,4
+2540,2020-10-22T01:29:40Z,2020-10-25T09:08:31Z,2020-10-25T09:08:31Z,2,1,3,,2,1
+2551,2020-11-10T11:57:26Z,2020-11-11T01:41:36Z,2020-11-11T01:41:36Z,1,2,2,Minor fixes on comments. No additional test is needed.,3,1
+2552,2020-11-11T07:37:34Z,2021-01-13T01:06:13Z,2021-01-13T01:06:13Z,1,3,2,"…ce before the if statement on graceful shutdown
+
+With pull requests:
+
+Open your pull request against master
+Your pull request should have no more than two commits, if not you should squash them.
+It should pass all tests in the available continuous integration systems such as TravisCI.
+You should add/modify tests to cover your proposed code changes.
+If your pull request contains a new feature, please document it on the README.",4,7

@@ -1,0 +1,2280 @@
+number,created_at,merged_at,closed_at,files,additions,deletions,body_text,participants,comments
+38,2017-06-29T11:59:45Z,2017-08-05T00:46:06Z,2017-08-05T00:46:06Z,1,18,3,"Implemented the solution I suggested in issue #28.
+The changes I did were to split get_module to two functions: get_module_windows and get_module_posix.
+So now get_module check the OS and directs to the appropriate function.
+(I tested this only on Windows 10).",3,0
+47,2017-09-27T09:50:10Z,2017-09-27T15:55:07Z,2017-09-27T15:55:07Z,2,14,3,"Added get_null function in mobject/tex_mobject.py to obtain the correct ""blackhole directory"". Hopefully tex_to_dvi and dvi_to_svg functions will now work properly on multiple platforms including Windows.
+Replaced os.rename with shutil.move to avoid [WindowsError 183].",3,0
+128,2018-02-16T14:12:21Z,2018-03-31T20:05:03Z,2018-03-31T20:05:03Z,1,2,0,,5,5
+162,2018-03-11T23:54:59Z,,2018-06-02T17:43:18Z,4,29,5,"This PR is a follow-up for #160 and contains of 2 parts:
+
+.travis.yml that's ready to be used for macOS CI, see https://travis-ci.org/vors/manim to get a sense of how it will look like (and also a proof that it works)
+Necessary changes to make the build in CI possible (put some reasonable-ish default value for MEDIA_DIR). I also opened an issue #161 to follow-up it with a better fix eventually.",2,3
+183,2018-04-01T13:08:28Z,,2018-04-04T17:28:28Z,118,2008,2428,"Some minimal, ""safe"" changes to make the code syntax compatible with both Python 2 and Python 3.
+
+Run futurize --stage1 http://python-future.org/futurize_cheatsheet.html
+Adjust adjust some lambda and tuple expressions to be compatible with Python 3.
+
+Fixes #182 and helps with  #128
+Ready for review.  Python 3 syntax compatibility does not mean that the port is complete.",2,0
+189,2018-04-04T17:31:49Z,,2018-06-02T13:03:19Z,113,733,663,"Another shot at #183
+Some minimal, ""safe"" changes to make the code syntax compatible with both Python 2 and Python 3.
+
+Run futurize --stage1 http://python-future.org/futurize_cheatsheet.html
+Adjust adjust some lambda and tuple expressions to be compatible with Python 3.
+
+Fixes #182 and helps with  #128
+Ready for review.  Python 3 syntax compatibility does not mean that the port is complete.",2,4
+241,2018-05-24T19:04:49Z,2018-07-11T18:48:50Z,2018-07-11T18:48:50Z,2,33,12,"This pull request adds an easy way to reconfigure the media directories:
+
+You can have the environment variable MEDIA_DIR set, in which case it will use this and remember it
+You can have already set once the MEDIA_DIR environment variable, in which case it will use the last set
+Otherwise, it will defaults to a default directory.
+In all cases, it will remember the choice and write it in a file (which is used in case you don't have the MEDIA_DIR variable set).",3,0
+242,2018-06-02T13:01:29Z,2018-07-11T18:39:27Z,2018-07-11T18:39:27Z,121,773,698,"Yet another shot at #183 and #189
+Some minimal, ""safe"" changes to make the code syntax compatible with both Python 2 and Python 3.
+
+Run futurize --stage1 -w .  # http://python-future.org/futurize_cheatsheet.html",4,0
+402,2019-01-13T15:43:20Z,2019-01-18T17:06:59Z,2019-01-18T17:06:59Z,2,11,3,"Issue: #401
+I use windows platform and when testing the example, ffmpeg cannot find 0.mp4 and the partial_movie_file_list.txt. Moreover, the partial files and directory are not deleted when finished.
+Testing:
+Before:
+Command: python -m manim example_scenes.py SquareToCircle
+
+After:
+Same Command",2,1
+516,2019-04-28T06:12:27Z,2019-04-29T15:47:58Z,2019-04-29T15:47:58Z,3,45,7,"I want to package manim for my distribution and made changes here so that it's easier for me and others to package it.
+Now the project supports the standard Python packaging method of setuptools and we can install it using just python3 -m pip install . (even without a distribution packaging it). After installing we can use it in any directory - not just the source repository.
+I'm still wondering which are the files that people are supposed to run.
+manim.py is obviously the main one but does it allow access to all the functionality?
+stage_scenes.py looks like it does something useful, but I can't figure out exactly what. See: #515
+manimlib/extract_scene.py has an if __name__ == ""__main__"" but that's broken because it doesn't call main() with all its parameters.
+If you like the idea of it being packaged in distribution's package managers I'd also appreciate if you made a release on GitHub with a version number.",3,4
+529,2019-05-08T05:11:55Z,2019-06-02T19:13:23Z,2019-06-02T19:13:23Z,2,24,2,"I added the option to save as gif, however the mp4 or mov file still needs to be saved as well. I'll be trying to find a workaround, but despite that it works. When using the -i option a .gif file will be saved to the output directory",3,4
+572,2019-06-02T01:21:20Z,2019-06-03T01:21:12Z,2019-06-03T01:21:12Z,2,109,1,,2,1
+580,2019-06-08T05:38:25Z,2019-06-08T23:37:54Z,2019-06-08T23:37:54Z,2,97,92,,3,3
+585,2019-06-10T21:41:20Z,2019-06-15T06:15:02Z,2019-06-15T06:15:02Z,6,179,0,"Update index
+Add 4 assets, one of which is an image
+Image uses width 700
+Videos uses 700x394
+Those dimension are similar to how content is laid out
+in sphinx",2,2
+586,2019-06-11T06:00:40Z,2019-06-19T21:46:34Z,2019-06-19T21:46:34Z,3,17,7,"Env Var used in the compose.yml is INPUT_DIR and OUTPUT_DIR
+Clarify the meaning of both variables and output message.
+Note on -p not working.",2,3
+591,2019-06-14T05:49:07Z,,2021-02-04T00:37:56Z,8,146,2,"New animations
+Creation:
+
+Write
+DrawBorderThenFill
+ShowCreation
+GrowArrow
+
+Indication:
+
+FocusOn
+Indicate",5,1
+680,2019-08-12T01:53:27Z,2019-08-16T07:58:59Z,2019-08-16T07:58:59Z,4,252,7,"Motivation
+Because the TextMobject is the subclass of TexMobject,
+so it requires some latex-style behaviours in order to add some changes.
+(e.g. other languages, font, slant and weight)
+So I create Text mobject but you can still use TextMobject.
+Introduction
+Text is a subclass of SVGMobject.
+It uses cairo to generate text svgs.
+It has a better UTF-8 support, multi-line support, and various options.
+It doesn't support mathematical formula(latex),
+you can use TextMobject or TexMobject.
+You can create a text in manim like:
+from manimlib.imports import *
+
+class Demo(Scene):
+    def construct(self):
+        text = Text('Hello, world!')
+        self.play(Write(text))
+
+
+Features
+Params:
+text
+Unlike TextMobject, Text only receive one str.
+When there is only one line, the space(' ') in front or back will be ignored.
+'\t' is not supported.
+color
+text = Text('Hello', color=BLUE)
+
+color defined in constants.py or a str like '#FFFFFF', default is WHITE
+t2c (text2color)
+text = Text('Hello, world!', t2c={'world':BLUE})
+
+a dict like {'text':color} or Accurate mode
+gradient
+text = Text('Hello', gradient=(BLUE, GREEN))
+
+a tuple like (color1, color2, color3, ...)
+t2g (text2gradient)
+text = Text('Hello, world!', t2g={'world':(BLUE, GREEN)})
+
+a dict like {'text':gradient} or Accurate mode
+font
+text = Text('Hello', font='Source Han Sans')
+
+a str, the name of font like 'Source Han Sans', default is CONFIG['font'], defined in constants.py
+Be sure you have the font installed!
+t2f (text2font)
+text = Text('Hello, world!', t2f={'world':'Forte'})
+
+a dict like {'text':font} or Accurate mode
+Be sure you have the font installed!
+slant
+text = Text('Hello', slant=ITALIC)
+
+NORMAL or ITALIC, default is NORMAL, defined in constants.py(a str actually)
+t2s (text2slant)
+text = Text('Hello, world!', t2s={'world':ITALIC})
+
+a dict like {'text':slant} or Accurate mode
+weight
+text = Text('Hello', weight=BOLD)
+
+NORMAL or BOLD, default is NORMAL, defined in constants.py(a str actually)
+other...
+t2w (text2weight)
+text = Text('Hello, world!', t2w={'world':BOLD})
+
+a dict like {'text':weight} or Accurate mode
+size
+text = Text('Hello', size=5)
+
+a number, better larger than 0.1(due to anti-aliasing), irrelevant with MUnit, default is CONFIG['size']
+lsh (line_spacing_height)
+text = Text('Hello\nWorld', lsh=1.5)
+
+a number, better larger than 0.1(due to anti-aliasing), irrelevant with MUnit, default is equal with size
+Accurate mode
+text = Text(
+    'Google', 
+    t2c={
+        '[:1]':'#3174f0', '[1:2]':'#e53125', 
+        '[2:3]':'#fbb003', '[3:4]':'#3174f0', 
+        '[4:5]':'#269a43', '[5:]':'#e53125',
+    }
+)
+
+
+This will help you to choose a specific text just like slicing
+Mobject params:
+like fill_color, fill_opacity, stroke_color, stroke_width
+Functions
+text = Text('Hello, world!')
+set_color (Mobject function)
+text.set_color(BLUE)
+
+or
+text[7:12].set_color(BLUE)
+
+set_color_by_gradient (Mobject function)
+text.set_color_by_gradient(BLUE, GREEN)
+
+or
+text[7:12].set_color_by_gradient(BLUE, GREEN)
+
+set_color_by_t2c
+text.set_color_by_t2c({'world':BLUE})
+
+set_color_by_t2g
+text.set_color_by_t2g({'world':(BLUE, GREEN)})
+
+UTF-8
+from manimlib.imports import *
+
+script = '''
+Hello
+你好
+こんにちは
+안녕하세요
+'''
+
+class Demo(Scene):
+    def construct(self):
+        text = Text(script, font='Source Han Sans')
+        self.play(Write(text))
+
+
+Be sure you have the font that supports those languages!",12,16
+698,2019-08-20T06:35:49Z,2019-11-07T00:21:59Z,2019-11-07T00:21:59Z,1,1,1,Change way to remove sound_file_path,3,0
+755,2019-10-11T05:26:31Z,,2021-02-04T00:55:27Z,5,7,14,"I just made some small improvements:
+In any and all calls, generators are faster than lists because the loop can break and short cut if the first True (in any) or False (in all) is found.
+Also some cleaner code with comprehensions :)",4,3
+832,2019-12-16T02:15:58Z,,2021-07-18T03:17:30Z,2,74,19,"The motivation for making this change (or link the relevant issues)
+I made this change because I wanted to work with some algebraic curves that have multiple infinite discontinuities and, with the current version of manim, animating them lead to very ugly artifacts appearing on the curve. This fundamentally boils down to the discontinuities array appearing in the ParametricFunction class that we needed to ""be smarter about."" While this isn't a perfect solution (as there are still 'double-tangent' artifacts present in all the examples (without and with the new discontinuities function), this is a little bit smarter.
+How you tested the new behavior (e.g. a minimal working example, before/after
+screenshots, gifs, commands, etc.) This is rather informal at the moment, but
+the goal is to show us how you know the pull request works as intended.
+The image below demonstrates the issue I was attempting to solve.
+
+With the new get_discontinuities function I coded, the image becomes
+
+And, to test both infinite discontinuities and break discontinuities, I just drew a hyperbola with a step function at the tail end, which looked like:
+
+So the issue is solved, and everything should still work.",5,7
+833,2019-12-19T09:47:15Z,,2021-02-10T06:45:27Z,1,9,3,"Motivation
+I'm a new manim user and I've wanted to try it out on one of my math exam questions. The question has a curve and a tangent in which we must find the area bounded by the curve. There is no function for get_graph to do so.
+Feature
+Fairly simple change: Because the y-axis for rectangles in get_riemann_rectangles is fixed to 0, we can change it for the bottom of the rectangles to be placed at another graph. We can pass the other graph with bounded_graph= in the function. If it is defined, the rectangles will only stretch to the second curve and not until y=0. For get_area, we can add bounded= for the second curve.
+Any feedback is welcomed! I'm still a new user so I might do some mistakes.
+Example
+Area bounded by a straight line (x=2), a curve and a tangent.
+
+Area bounded by two curves and two straight line. (x=2,3)
+
+from manimlib.imports import *
+class area(GraphScene):
+    CONFIG = {
+        ""x_min"" : 0,
+        ""x_max"" : 5,
+        ""y_min"" : 0,
+        ""y_max"" : 6,
+        ""y_tick_frequency"" : 1, 
+        ""x_tick_frequency"" : 1, 
+        ""x_labeled_nums"" : [0,2,3]
+    }   
+    def construct(self):
+        self.setup_axes(animate=False)
+        curve1 = self.get_graph(lambda x : 4*x-x**2, x_min=0,x_max=4)
+        curve2 = self.get_graph(lambda x : 0.8*x**2-3*x+4, x_min=0,x_max=4)
+        line1 = self.get_vertical_line_to_graph(2,curve1,DashedLine,color=YELLOW)
+        line2 = self.get_vertical_line_to_graph(3,curve1,DashedLine,color=YELLOW)
+        
+        area = self.get_area(curve2,2,3,bounded=curve1)
+
+        self.play(ShowCreation(curve1), ShowCreation(curve2), 
+            ShowCreation(line1), ShowCreation(line2))
+        self.play(ShowCreation(area))
+        self.wait()",4,3
+836,2019-12-23T16:31:09Z,2020-09-30T14:57:30Z,2020-09-30T14:57:30Z,1,1,1,docs typo mistake mentioned in #806,3,0
+846,2020-01-01T01:16:12Z,,2020-11-23T21:52:40Z,1,10,3,"When working with relatively large images in manim on my Mac, a BrokenPipeError occurs when FFmpeg tries to write to file_writer after stdin is closed.
+The error shows up at seemingly random times, even with the same input. For instance, the output below shows that the error occurs at 3 different locations with the exact same input.
+
+
+
+With my commit, everything works fine, even when a BrokenPipeError is raised. This can be shown by printing the exceptions that occur at the end of the run, and showing that all the animations still play. In the figure below, it printed [Errno 32] Broken pipe once, however, that error now does not damage the video.
+
+Notes:
+
+If this error never occurred on some people's machines, this commit will not change anything, since it is simply catching the exception when an error is caused.
+Using wait(1) is mostly an arbitrary decision and seems to work well.
+If sleep is not called after wait, some animations do not show up on the screen.
+The changes in this commit do not print all the [Errno 32] Broken pipe exceptions that occur, which was done in the final figure.
+
+This error also corresponds to the issue #845.",2,0
+850,2020-01-05T21:43:57Z,,2021-02-04T01:20:03Z,1,1,1,The file containing dependencies is requirements.txt with the missing s inserted.,4,1
+861,2020-01-21T01:23:09Z,,2020-05-04T14:45:26Z,1,1,1,Moved a backtick to the correct place,3,1
+939,2020-03-27T07:21:12Z,,2020-09-30T15:07:25Z,1,4,7,"Removed pycairo section on Directly (Windows), as its included in requirements.txt
+Removed changing pycairo version number in the same section, version number included in requirements.txt is >= 1.18.1",2,0
+949,2020-03-30T18:24:26Z,,2021-02-04T01:22:25Z,28,1089,4,"I added some examples and explanations about the content of the file geometry.py and animation.
+I tried to be exhaustive about the files I have inspected to write these modifications.
+I hosted this branch on readthedocs with links animation, geometry.",3,1
+950,2020-03-30T18:26:53Z,2020-04-16T05:17:08Z,2020-04-16T05:17:08Z,1,2,2,"Some GLSL compilers are more sensitive to types than others. With this fix, my Intel HD Graphics 5500 (Broadwell GT2) gives no error on this script anymore.
+Thanks for contributing to manim!
+Please ensure that your pull request works with the latest version of manim.
+You should also include:
+
+The motivation for making this change (or link the relevant issues)
+How you tested the new behavior (e.g. a minimal working example, before/after
+screenshots, gifs, commands, etc.) This is rather informal at the moment, but
+the goal is to show us how you know the pull request works as intended.",5,2
+974,2020-04-12T08:28:02Z,2020-04-25T04:04:09Z,2020-04-25T04:04:09Z,3,137,15,"tl;dr: this is a significant performance improvement for many scenes. 1.7x - 2.6x improvement in animation it/s.
+This is a small change to some of the hotest paths in rendering objects. The biggest win comes from not using np.allclose() to check if two points are close enough. In general, NumPy is awesome at operating on large arrays, but overkill for very tiny questions like this. Created a small function to determine if two points are close using the same algorithm, and limited it to 2D points since that's all we need in set_cairo_context_path().
+A couple of other minor tweaks to reduce or eliminate other uses of NumPy in this path.
+In general, it is better to avoid wrapping lists in np.array when a real NumPy array isn't actually needed.
+Added a new file for performance test scenes, with a single scene from the end of a video I've been working on.
+Data:
+MacBook Pro (16-inch, 2019)
+macOS Catalina 10.15.4
+2.4 GHz 8-Core Intel Core i9
+64 GB 2667 MHz DDR4
+Python 3.7.3 (default, Mar  6 2020, 22:34:30)
+Profiler: yappi under Pycharm.
+Using the scene Perf1 from the included perf_scenes.py, averaged over 5 runs and rendered with:
+manim.py perf_scenes.py Perf1 -pl --leave_progress_bars
+Before:
+Animation 0: FadeInTextMobject, etc.:               8.93it/s
+Animation 1: ShowCreationParametricFunction, etc.: 84.66it/s
+Profiler shows 48.5% of the run spent under Camera.set_cairo_context_path()
+After
+Animation 0: FadeInTextMobject, etc.:               23.45it/s  -- 2.63x improvement
+Animation 1: ShowCreationParametricFunction, etc.: 149.62it/s  -- 1.77x improvement
+Profiler shows 19.9% of the run spent under Camera.set_cairo_context_path()
+Less improvement with production-quality renders, and percent improvement varies with scene of course. This appears to be a good win for every scene I'm working on though. I hope it will be for others, too.
+NB: there are more perf improvements to be had, of course, but this is the best one I currently have.
+Thanks for contributing to manim!
+Please ensure that your pull request works with the latest version of manim.
+You should also include:
+
+The motivation for making this change (or link the relevant issues)
+How you tested the new behavior (e.g. a minimal working example, before/after
+screenshots, gifs, commands, etc.) This is rather informal at the moment, but
+the goal is to show us how you know the pull request works as intended.",2,1
+980,2020-04-13T23:25:44Z,,2020-09-10T22:56:23Z,1,8,4,"The motivation for making this change (or link the relevant issues)
+
+I use Anaconda on Windows, and I just tried to install manim, leaving open the possibility of hacking the source. The Anaconda installation instructions seemed a little out of date (maybe environment.yml has been updated since they were written?) so I thought I'd update them according to the procedure I needed to follow. I'll explain each change in a self-review.
+
+How you tested the new behavior (e.g. a minimal working example, before/after
+screenshots, gifs, commands, etc.)
+
+Only by installing manim on my computer and confirming that the example runs.
+Feel free to close if the instructions are fine as they are. I won't be hurt : )",1,1
+1018,2020-05-01T05:24:55Z,,2020-05-07T03:51:23Z,6,577,90,"you can use it as follow.
+if you put file into ""assets/codes"" folder then you don't need to specify full file path, just name of file is enough otherwise specify full file path.
+if generate_html_file==True it create a html file with color  highlighted and save it to ""assets/codes/generated_html_files/""
+from manimlib.imports import *
+class codeExample(Scene):
+    def construct(self):
+        heading = TextMobject(""\""Hello, World\"" Program"", stroke_width=0).scale(1.3)
+        heading.to_edge(UP)
+        helloworldc = Code(""helloworldc.c"",
+                           run_time=1,
+                           scale_factor=0.6,
+                           line_spacing=0.2,
+                           tab_spacing=0.6,
+                           insert_line_no=False,
+                           style=code_styles_list[4],
+                           background=""rectangle"",
+                           language=code_languages_list[""c""],
+                           generate_html_file=True
+                           )
+        helloworldcpp = Code(""helloworldcpp.cpp"",
+                             run_time=1,
+                             scale_factor=0.6,
+                             line_spacing=0.2,
+                             tab_spacing=0.6,
+                             margin=0.3,
+                             insert_line_no=True,
+                             line_no_from=8,
+                             line_no_buff=0.4,
+                             style=code_styles_list[9],
+                             background=""window"",
+                             corner_radius=0.2,
+                             language=code_languages_list[""cpp""],
+                             generate_html_file=True
+                             )
+        helloworldc.move_to(np.array([-3.6, 0, 0]))
+        helloworldcpp.move_to(np.array([3.1, 0, 0]))
+        self.play(Write(heading), run_time=0.5)
+        self.play(Write(helloworldc), run_time=1.3)
+        self.draw_code_all_lines_at_a_time(helloworldcpp)
+        self.wait()
+
+    def draw_code_all_lines_at_a_time(self, Code):
+        self.play(Write(Code.background_mobject), run_time=0.3)
+        self.play(Write(Code.line_numbers), run_time=0.3)
+        self.play(*[Write(Code.code[i]) for i in range(Code.code.__len__())],
+                  run_time=Code.run_time)
+Output will be looks like
+
+'''
+coordinate point is LEFT+UP corner
+
+Code is VGroup() with three things
+Code[0] is Code.background_mobject
+    which can be a 
+        Rectangle() if background == ""rectangle"" 
+        VGroup() of Rectangle() and Dot() for three buttons
+Code[1] is Code.line_numbers
+    Which is a VGroup() of Text() objects with line numbers as a text, this mean you can use 
+        Code.line_numbers[0] or Code[1][0] to access first line number 
+Code[2] is Code.code
+    Which is a VGroup() of lines with color highlighted, this mean you can use 
+        Code.code[1] or Code[2][1] 
+            line number 1
+        Code.code[1][0] or Code.code[1][0] 
+            first character of line number 1
+        Code.code[1][0:5] or Code.code[1][0:5] 
+            first five characters of line number 1
+
+'''
+Updated text_mobject() to use Text() as paragraph.
+class Test3(Scene):
+    def construct(self):
+        t = Text('this is a awesome', 'paragraph', 'With \nNewlines', '\tWith Tabs', '  With Spaces', 'With Alignments',
+                 'center', ""left"", ""right"", line_spacing=0.1, alignment=""left"", t2c={""Tabs"": RED})
+        t.set_alignment(""center"", 7)
+        t.set_alignment(""left"", 8)
+        t.set_alignment(""right"", 9)
+        #t.set_all_lines_alignment(""center"")
+        t[0][0].set_color(GREEN)
+        t[1][0:4].set_color(YELLOW)
+        self.add(t)
+        self.wait()
+Output
+
+It solves the following problems
+
+display code with color highlighted
+manage to print single '{' or '}'  because of using Text() instead of TextMobject() from #941 (comment)
+Solved Text( ) transform animation for "" "" space character from #1017",4,39
+1028,2020-05-04T18:36:53Z,,2020-09-30T15:16:12Z,1,3,1,"#Makes it more aesthetically pleasing and the inclusion the gradient coloring lets more people access the feature without having to trudge through the WIP docs.
+Here's a before and after of the command 
+python ./manim.py example_scenes.py WriteStuff -pl
+This is running on Python 3.7.0 and a straight git clone of the Manim repository as of 5/4/2020
+Closes #806",3,2
+1035,2020-05-06T09:37:15Z,2020-05-07T08:16:39Z,2020-05-07T08:16:39Z,2,27,6,"Related issue #1017
+Code to reproduce the problem
+
+character '\n'
+
+from manimlib.imports import *
+
+class Test(Scene):
+    def construct(self):
+        t1 = Text('a\nb').move_to(UP)
+        t2 = Text('123').move_to(DOWN)
+        self.play(Transform(t1, t2))
+        self.wait()
+
+
+character '\t'
+
+from manimlib.imports import *
+
+class Test(Scene):
+    def construct(self):
+        t1 = Text('a\tb').move_to(UP)
+        t2 = Text('123').move_to(DOWN)
+        self.play(Transform(t1, t2))
+        self.wait()
+
+
+character ' '
+
+from manimlib.imports import *
+
+class Test(Scene):
+    def construct(self):
+        t1 = Text('a b').move_to(UP)
+        t2 = Text('123').move_to(DOWN)
+        self.play(Transform(t1, t2))
+        self.wait()",4,17
+1040,2020-05-10T09:23:50Z,2020-05-14T05:41:23Z,2020-05-14T05:41:23Z,9,2111,16,"Manim is in dire need of documentation, as stated in the ReadMe. This is a step in providing full documentation for all of Manim's capabilities.
+DocStrings for all methods in Container, Scene, GraphScene, MovingCameraScene, SceneFileWriter, ThreeDScene, SpecialThreeDScene, ZoomedScene, VectorScene and LinearTransformationScene have been added in their respective files.
+Imports for TextMobject and the Write animation have been removed from scene.py
+The changes have been tested by running the example_scenes in example_scenes.py which has returned the exact same animations with no warnings or errors.",6,1
+1042,2020-05-10T12:59:30Z,,2021-02-04T01:25:39Z,1,1,1,be consistent about the usage,3,1
+1043,2020-05-10T13:01:19Z,2020-09-30T15:21:06Z,2020-09-30T15:21:06Z,1,0,1,"this looks like stray code
+get_merged_array is computed recursively on line 701 and appended to the result
+the value computed on line 704 is discarded",4,0
+1064,2020-05-13T16:20:45Z,2020-09-30T15:21:57Z,2020-09-30T15:21:57Z,1,1,1,"A very simple fix for mobject.number_line.get_number_line()
+Closes #997
+
+In manimlib/mobject/number_line.py the method get_unit_size() is defined thus
+def get_unit_size(self):
+    return (self.x_max - self.x_min) / self.get_length()
+However, the dividend should be flipped with the divisor:
+def get_unit_size(self):
+    return self.get_length() / (self.x_max - self.x_min)",3,1
+1069,2020-05-14T19:43:47Z,2020-05-21T03:21:10Z,2020-05-21T03:21:11Z,1,1,1,"I know this is trivial, but I had to fix it.",2,0
+1071,2020-05-14T21:08:02Z,,2020-07-12T09:56:19Z,4,419,314,"Fixed #1067
+NOTE : SurroundingRectangle() only contains visible text.
+class te(Scene):
+    def construct(self):
+        text1 = Text("" ab "", font=""Consolas"", size=2)
+        rect1 = SurroundingRectangle(text1)
+        text1.chars[1].set_color(GREEN)
+        self.add(text1,rect1)
+Output
+
+class bug1(Scene):
+    def construct(self):
+        text1 = Text(""  ab\ncd"", font=""Consolas"", size=2)
+        text2 = Text(""ab\ngh"", font=""Consolas"", size=2)
+        rect1 = SurroundingRectangle(text1)
+        rect2 = SurroundingRectangle(text2)
+        self.play(Transform(remove_invisible_chars(text1), remove_invisible_chars(text2)), Transform(rect1, rect2))
+        self.wait()
+Output
+
+Added new parameters background_stroke_width and background_stroke_color
+class bug2andbug3(Scene):
+    def construct(self):
+        helloworldc = Code(
+            ""helloworldc.c"",
+            tab_width=4,
+            background_stroke_width=1,
+            background_stroke_color=WHITE,
+            insert_line_no=True,
+            style=Code.styles_list[4],
+            background=""window"",
+            language=""cpp"",
+        )
+        helloworldcpp = Code(
+            ""helloworldcpp.cpp"",
+            tab_width=4,
+            background_stroke_width=1,
+            background_stroke_color=WHITE,
+            insert_line_no=True,
+            style=Code.styles_list[15],
+            background=""window"",
+            language=""cpp"",
+        )
+        helloworldc.move_to(np.array([-3.6, 0, 0]))
+        helloworldcpp.move_to(np.array([3.1, 0, 0]))
+        self.add(helloworldc,helloworldcpp)
+Output
+
+Updated Paragraph() and added new methods set_line_to_initial_position() and set_all_lines_to_initial_positions()
+class para(Scene):
+    def construct(self):
+        t = Paragraph('this is a awesome', 'paragraph', 'With \nNewlines', '\tWith Tabs', '  With Spaces',
+                      'With Alignments',
+                      'center', ""left"", ""right"")
+        t.set_line_alignment(""center"", 7)
+        t.set_line_alignment(""right"", 9)
+        t.shift(2 * RIGHT)
+        rect = SurroundingRectangle(t)
+        self.add(t, rect)
+        self.wait()
+        self.play(t.set_all_lines_alignments, ""right"")
+        self.play(t.set_line_to_initial_position, 4)
+        self.play(t.set_all_lines_to_initial_positions)
+        self.play(t.set_line_alignment, ""center"", 7)
+        self.play(t.set_line_alignment, ""right"", 9)
+        t.chars[0][5:7].set_color(GREEN)
+        t[1][0:4].set_color(YELLOW)
+        self.wait()
+Output",2,27
+1074,2020-05-15T19:43:31Z,,2021-02-04T01:27:04Z,1,1,0,Make sure people cd into the manim directory before installing from requirements.txt.,2,0
+1083,2020-05-18T12:39:32Z,,2022-02-14T04:55:21Z,2,112,0,"Motivation
+Currently,, SVGMobject doesn't support <text> tag in SVG format. The support of this tag is good for plotting diagrams, graphs, and other structures from SVG. I've faced it when trying to plot graphs rendered by graphviz.
+Implementation
+I've added text processing to SVGMobject using Text mobject with the following features:
+
+scaling text using text_scale for better drawing (original font size is incorrectly small;
+support of font-family translated into font parameter of Text mobject;
+additional shifting up to the half of 'o' height to adjust centered placement.
+
+Testing
+Tested by drawing SVG file with a graph built by graphviz. The used file is available here.
+from manimlib.imports import *
+
+class SvgGraphScene(Scene):
+    def construct(self):
+        g = SVGMobject(file_name=r'd:\g.svg', stroke_width=1.0, 
+            fill_opacity=0.0, text_scale=2.0)
+        g.scale(3)
+        self.add(g)
+        self.wait(5)
+The result is shown below: left - before, right - after.
+
+Additional notes
+
+There are parameters in <text> tag which are not supported yet (further work): text-anchor, centering and rotation in font-family etc.
+It will be good to extend the logic of SVGMobject to support different stroke/fill styles for different objects. E.g. to fill the text instead of stroking. Currently, it can be done using submobjects.
+It seems that SVGMobject doesn't support stroke-dasharray in <path>. Could be useful. Again, currently, it seems to be available using submobjects.",4,11
+1147,2020-06-22T11:53:11Z,2020-09-30T15:33:08Z,2020-09-30T15:33:08Z,1,2,1,"After installing manim with Anaconda using the environment.yml file and running any script including the example_scenes.py script, one receives an error of ""no module pygments installed"" (to that effect). This dependency is in the requirements.txt file but not in the environment.yml file, therefore I added it for easier environment installation and setup.",2,1
+1170,2020-07-15T01:20:45Z,,2022-02-14T05:02:54Z,1,2,4,"Fixing problems with the animation of the zeta transformation
+Thanks for contributing to manim!
+Please ensure that your pull request works with the latest version of manim.
+You should also include:
+
+The motivation for making this change (or link the relevant issues)
+How you tested the new behavior (e.g. a minimal working example, before/after
+screenshots, gifs, commands, etc.) This is rather informal at the moment, but
+the goal is to show us how you know the pull request works as intended.",4,5
+1214,2020-08-26T17:21:31Z,,2021-02-04T01:38:50Z,51,99,99,"From a fresh Manim install, attempting to execute
+python3 ./manim.py ./from_3b1b/active/diffyq/all_part1_scenes.py 
+results in an error because the first line of all_part1_scenes.py says from active_projects.diffyq.part1.pendulum import *
+This doesn't work, since the ""active_projects"" directory doesn't exist in the Manim repo. Rather, this directory is named ""active"".
+Simply changing the script to use ""active"" instead fails - I'm not sure why this is, but going up another level to the from_3b1b directory fixes everything. I am now able to execute the diffyq files.",2,1
+1217,2020-08-27T11:05:25Z,2020-09-30T14:28:28Z,2020-09-30T14:28:28Z,1,1,1,"Fixed the following deprecation warning caused by numpy:
+/manim/manimlib/scene/scene_file_writer.py:336: DeprecationWarning: tostring() is deprecated. Use tobytes() instead.
+Tested on: python 3.8.1 ; numpy 1.19.1",3,0
+1268,2020-11-09T15:04:28Z,2020-11-14T02:53:26Z,2020-11-14T02:53:26Z,2,2,2,"This is the second fix to pr #1264.
+The original travis-ci build environment is Ubuntu xenial, which is version 16.04 (see this information on travis-ci document page), and the newest cairo version on it is 1.14, which caused problem with the newset pycairo 1.20.0. See the previous travis-ci error message.
+Ubuntu bionic will not cause the problem, and redundant pycairo version can be removed.",3,1
+1284,2020-11-29T04:00:11Z,2020-11-29T11:23:47Z,2020-11-29T11:23:47Z,1,1,1,"I accidentally found this ""word"", and I'm pretty sure there's no such word 'permananant'. I think @Aathish04 means the word 'permanent'.",3,0
+1326,2021-01-31T10:37:33Z,2021-02-01T17:30:05Z,2021-02-01T17:30:05Z,3,66,51,"Motivation
+As mentioned in #1323 (comment), interactive mobjects were a bit laggy.
+So, to improve interactively mobjects performance, the following changes are made.
+
+Maintain a separate list of mobject listeners instead of filtering mobjects on every frame.
+
+
+This significantly improved the performance on all events except the on_mouse_drag event. So to improve it the 2nd change was made.
+
+
+Changed the way drag events are handled.
+
+
+This improved the performance of on_mouse_drag event.
+
+Files Changed
+
+manimlib/scene/scene.py
+
+
+To store a separate list of mob_listners rather than checking it on every frame and changed the on_mouse_drag event handling.
+
+
+manimlib/mobject/interactive.py
+
+
+To adapt to the changes made in the way event handling works
+
+
+example_scenes.py
+
+
+Commented out ""self.embed()""
+
+Change in how on_mouse_drag works
+If mouse is being draged, following events are triggered
+
+on_mouse_press once
+Then, till the mouse is being dragged, on_mouse_drag is called
+Finally, on_mouse_release once
+
+Previously, on_mouse_drag event of mobject was called on every frame if the point is touching the mobject.
+So, if in between dragging, the mouse point leaves the mobject radius, on_mouse_drag event of mobject is stopped.
+Now, If on_mouse_press is called, all the mobjects near mouse point is stored in array. And when mouse is being dragged,
+on_mouse_drag is called on all the mobjects stored earlier regardless of whether mouse point is touching the mobject or not.
+And, once on_mouse_release is called, that array is cleared
+This has significantly improved the interactivity involving dragging.
+Results
+
+Now, all the interactive mobjects are responding very quickly to events.",4,12
+1327,2021-02-01T02:17:02Z,2021-02-03T20:09:34Z,2021-02-03T20:09:34Z,1,3,1,"Motivation:
+When graphing functions that have sharp corners, the smoothing causes ringing near the corners which is undesired. The goal of the change is to allow turning smoothing off and on as desired.
+A few other people have run into this issue as well.
+My post
+u/mc_pm's post
+The fix was suggested by Reddit user u/FIeabus (Thank you so much!) and I tested it locally.
+Example that was previously broken:
+from manimlib.imports import *
+import math
+
+class Graphing(GraphScene): 
+    CONFIG = {
+        ""x_min"": 0,
+        ""x_max"": 3,
+        ""x_tick_frequency"": 1,
+        ""x_axis_width"": 5,
+        ""y_min"": 0,
+        ""y_max"": 2,
+        ""y_tick_frequency"": 1,
+        ""y_axis_height"": 5,
+        ""graph_origin"": ORIGIN,
+        ""function_color"": WHITE,
+        ""axes_color"": BLUE
+    }
+
+    def construct(self):
+        self.setup_axes(animate=True)
+        func_graph=self.get_graph(self.f1, self.function_color)
+        self.play(ShowCreation(func_graph)) 
+
+    def f1(self, t):
+        if(t < 1):
+            return 0
+        elif(t < 1.1):
+            return 10*(t - 1)
+        elif(t < 1.9):
+            return 1
+        elif(t < 2):
+            return -10*(t-2)
+        else:
+            return 0
+
+
+Fix:
+Added the new smoothing parameter to ParametricCurve. When True, make_smooth is called in the generate_points function. When False, make_smooth is not called. The default is True so the functionality remains identical to how it is now, unless configured otherwise.
+Now in the previous code the get_graph function can be changed to:
+func_graph=self.get_graph(self.f1, self.function_color, smoothing=False)
+This gives the result with smoothing disabled as desired.
+
+Additional Tests:
+Confirm it works with smoothing explicitly set to True:
+func_graph=self.get_graph(self.f1, self.function_color, smoothing=True)
+
+Confirm the default is smoothing to match previous functionality:
+func_graph=self.get_graph(self.f1, self.function_color)",3,0
+1328,2021-02-01T08:32:49Z,2021-02-03T20:10:03Z,2021-02-03T20:10:03Z,1,2,2,"Motivation
+
+Currently the key exclude_zero_from_default_numbers of NumberLine is redundant since its value is not used anywhere else (including coordinate_systems.py) 
+  
+    
+      manim/manimlib/mobject/number_line.py
+    
+    
+         Line 40
+      in
+      fe85d4e
+    
+  
+  
+    
+
+        
+          
+           ""exclude_zero_from_default_numbers"": False, 
+        
+    
+  
+
+ So, passing it as an argument to NumberLine won't produce the desired result. This PR removes the redundancy by replacing the key exclude_zero_from_default_numbers with numbers_to_exclude (defaults to None), which is passed as an argument to the method add_numbers at this line:
+
+  
+    
+      manim/manimlib/mobject/number_line.py
+    
+    
+         Line 73
+      in
+      fe85d4e
+    
+  
+  
+    
+
+        
+          
+           self.add_numbers() 
+        
+    
+  
+
+ So self.add_numbers() becomes self.add_numbers(excluding=self.numbers_to_exclude)
+Proposed changes
+
+Replace the redundant CONFIG key exclude_zero_from_default_numbers with numbers_to_exclude.
+Pass the value of replaced key numbers_to_exclude to the method add_numbers
+
+Testing Status
+
+Before:
+class NumberLineExcludeFail(Scene):
+    def construct(self):
+        self.add(
+            NumberLine(
+                include_numbers = True,
+                exclude_zero_from_default_numbers = True
+                )
+            )
+
+After:
+class NumberLineExcludePass(Scene):
+    def construct(self):
+        self.add(
+            NumberLine(
+                include_numbers = True,
+                numbers_to_exclude = [0]
+                )
+            )",2,0
+1332,2021-02-02T03:47:18Z,,2021-02-02T06:13:46Z,1,9,1,"added installation guide for macOS X
+Thanks for contributing to manim!
+Please ensure that your pull request works with the latest version of manim.
+You should also include:
+
+The motivation for making this change (or link the relevant issues)
+How you tested the new behavior (e.g. a minimal working example, before/after
+screenshots, gifs, commands, etc.) This is rather informal at the moment, but
+the goal is to show us how you know the pull request works as intended.",2,0
+1333,2021-02-02T06:07:13Z,2021-02-03T20:33:59Z,2021-02-03T20:33:59Z,1,13,0,"Thanks for contributing to manim!
+Please ensure that your pull request works with the latest version of manim.
+You should also include:
+
+The motivation for making this change (or link the relevant issues)
+How you tested the new behavior (e.g. a minimal working example, before/after
+screenshots, gifs, commands, etc.) This is rather informal at the moment, but
+the goal is to show us how you know the pull request works as intended.",3,1
+1338,2021-02-02T18:42:29Z,2021-02-03T19:59:09Z,2021-02-03T19:59:09Z,2,5,4,"Motivation
+Just a minor fix!
+I had configured default temporary location storage in custom_defaults.yml.
+After running SurfaceExample from example_scenes.py, the earth textures were downloaded at the default system temp location rather than what was configured.
+Files Changed
+
+manimlib/utils/directories.py
+
+
+Added get_downloads_dir method
+
+
+manimlib/utils/file_ops.py
+
+
+Changed downloads folder from tempfile.gettempdir() to get_downloads_dir
+
+Result
+Now, the SurfaceExample Scene is downloading textures in the folder configured in custom_defaults.yml rather than system default temp dir.",3,0
+1356,2021-02-05T07:58:23Z,2021-02-05T22:49:35Z,2021-02-05T22:49:35Z,1,8,6,"Motivation
+When prompted for Scene Selection,
+
+The comma separator was not working.
+Also, typing out the full scene is an error-prone tedious job.
+Since scene name (class name) can not be a numeric value, we could allow both options.
+
+Files Changed
+manimlib/extract_scene.py
+
+Changed prompt_user_for_choice method.
+
+Result
+Comma-separated scene names or numbers are working properly.",3,0
+1357,2021-02-05T10:12:28Z,2021-02-05T18:12:15Z,2021-02-05T18:12:15Z,3,6,1,"this is a remake of #1204 on the current master
+this way, decorated methods - typically Scene.play - have a decent docstring
+so first-time users can use help()",3,4
+1362,2021-02-06T10:00:14Z,2021-02-06T17:05:22Z,2021-02-06T17:05:22Z,1,2,1,"Motivation
+
+Minor bugs concerning unit_size of NumberLine.
+
+
+The get_unit_size method
+
+  
+    
+      manim/manimlib/mobject/number_line.py
+    
+    
+        Lines 125 to 126
+      in
+      66817c4
+    
+  
+  
+    
+
+        
+          
+           def get_unit_size(self): 
+        
+
+        
+          
+               return (self.x_max - self.x_min) / self.get_length() 
+        
+    
+  
+
+ should return self.get_length() / (self.x_max - self.x_min), not (self.x_max - self.x_min) / self.get_length()
+
+
+If width is passed as an argument, the unit_size attribute (available via CONFIG) still remains 1 when it should be reset to appropriate value.
+
+
+Proposed changes
+
+
+Fix the return value of get_unit_size method.
+Reset the value of unit_size attribute if width is passed.",2,0
+1381,2021-02-11T11:50:32Z,,2021-04-22T03:45:45Z,1,6,0,"Motivation
+
+In the cairo-backend branch, configurations such as background_color of Camera was possible to be set via Scene's CONFIG like so:
+Class MyScene(Scene):
+    CONFIG = {""camera_config"": {""background_color"": <color>}}
+But it is currently not possible in the master branch. The only way to achieve this is to either change the custom_defaults or pass the relevant command line flags (for example -c <color> for background color). The reason is, scene_config built through custom_defaults and the command line flags no where considers MyScene.CONFIG. The digest_config function might seem to take care of this, but since kwargs are given higher priority in digest_config and scene_config is indeed passed as kwargs while instantiating the Scene,
+  
+    
+      manim/manimlib/extract_scene.py
+    
+    
+         Line 76
+      in
+      787b3be
+    
+  
+  
+    
+
+        
+          
+           scene = scene_class(**scene_config) 
+        
+    
+  
+
+
+MyScene.CONFIG gets overridden by the scene_config while the opposite is expected.
+Proposed changes
+
+
+Allow users to set camera_config, window_config, file_writer_config and other configurations of a Scene through CONFIG dict of their scenes.
+
+Test
+
+Code:
+class Test(Scene):
+    CONFIG = {
+        ""camera_config"":{
+            ""background_color"": ""#cc9900"",
+            ""samples"": 4
+        },
+        ""window_config"":{""size"": (1900, 1000)},  # works if preview is True
+        ""preview"": False,
+        ""file_writer_config"": {
+            ""save_last_frame"": True,
+            ""open_file_upon_completion"": True,
+        }
+    }
+
+    def construct(self):
+        motivation = Text(
+            ""Allow setting scene_configs through CONFIG dict"", 
+            font=""Georgia"",
+            t2c={""scene_config"": BLACK, ""CONFIG"": BLACK}
+        ).set_width(FRAME_WIDTH-1)
+        self.add(motivation)
+Result:
+
+command : python -m manim .\test.py Test
+Result on master: (All the configs are ignored, a window at top right corner opens up which is the default behavior)
+
+Result on current branch: (All the configs are respected and the Test.png file opens up as expected from Test.CONFIG)",1,8
+1383,2021-02-12T07:15:25Z,2021-02-12T21:15:40Z,2021-02-12T21:15:40Z,2,87,73,"Motivation
+Pango is a lot better at Text Rendering rather than using a Toy API for Cairo. I had discussed this with @3b1b on Discord.. This will remove the dependency on pycairo.
+It also provides another method to add a font file to Pango search path, whose family name can later be called. This method isn't available for macOS yet.
+I couldn't find Code here, that would require a small change setting disable_ligatures, or else colours would be broken, due to ligatures.
+Proposed changes
+
+requirements.txt - add manimpango
+text_mobject.py - use manimpango
+
+Test
+Running example scenes should work, no breaking API changes. register_font API can be used as
+with register_font('roboto.ttf'):
+    a=Text(""Hello Roboto"",font=""Roboto"")
+A list of fonts visible to Pango can be got from
+>>> import manimpango
+>>> manimpango.list_fonts()
+[ ... ]
+More API at https://manimpango.manim.community/en/latest/",4,10
+1529,2021-06-05T00:19:55Z,2021-06-14T16:42:41Z,2021-06-14T16:42:41Z,1,1,1,#1509 is caused by Camera.pixel_coords_to_space_coords using the default pyglet window size (1280x720) instead of the actual window size. Fixed by passing the window size to the constructor of PygletWindow.,3,0
+1543,2021-06-15T11:15:02Z,2021-06-18T19:28:33Z,2021-06-18T19:28:33Z,2,19,4,"Motivation
+
+In my opinion, Text should be the same size as TexText.
+But after the introduction of manimpango in #1383 , it seems that the size of Text is different on different machines.
+For this problem, there are some issues: ManimCommunity/ManimPango#52, #1399, #1405, #1497, #1533.
+My idea is to compare the height of a Text letter and TexText letter when rendering a scene with Text for the first time to get the scale_factor required by Text.
+I think this idea may not be the best, but it does ensure that the size of Text is consistent with TexText on different machines. And I have come up with no other good solutions.
+In addition, I have doubts about the reason why the system DPI affects the size of the text. I think this may not be a problem within manimgl?
+Closes #1497.
+Closes #1533.
+Proposed changes
+
+
+manimlib/mobject/svg/text_mobject.py: fixed the size of Text on different machines
+docs/: docs has been changed for this change
+
+Test
+
+Code:
+class Test1(Scene):
+    def construct(self):
+        tex = TexText(""TexText"")
+        text = Text(""Text"")
+        VGroup(tex, text).arrange(RIGHT, aligned_edge=DOWN)
+        self.add(tex, text)
+Result:",3,1
+1551,2021-06-17T06:14:30Z,2021-06-20T07:37:06Z,2021-06-20T07:37:06Z,2,2,4,"Motivation
+
+Fixes #1385 issue (ControlsExample Scene)
+Proposed changes
+
+
+Add self.suspend_updating(recurse) line back to Mobject.clear_updaters function
+(This was removed back in d7f3f5a commit which fixed #1378 issue)
+Unrelated to ControlsExample Scene, Remove unused listen_to_events CONFIG of Mobject which I added during Interactive Mobjects development but never used it! (#1323, #1326, #1335)
+
+Comments
+I am not sure of the consequences of the first change. Since it was intentionally removed before to fix the #1378 issue, please check whether it is the right way of solving this issue.",2,7
+1552,2021-06-18T08:20:28Z,2021-06-19T16:53:24Z,2021-06-19T16:53:24Z,2,10,1,"Motivation
+The function earclip_triangulation works incorrectly with polygons with many holes. It is mentioned in #1331, but not fixed completely. The function goes wrong mainly for two reasons:
+
+Simply choose the closest pair of points may fail with characters that contain a ◫-like structure in it. In the following picture, the two blue edges will be added first, and the dot (outside the large square) will connect with either of the small squares (inside the large square). This happens with 疆 in the SimHei font.
+
+Because the first and the last point of a ring is the same, the connected ring might be self-crossed at this point (as the following gif shows). It's usually caused by a 田-like structure. This happens with 画 in the SimHei font.
+
+The red squares are two rings passed to the function (and there are more rings). The white stroke means part of the connected ring. The animation shows the order of the points on the stroke.
+
+Proposed changes
+
+It seems to be hard to write a correct earclip_triangulation function. I come up with several ideas, but they all have high time complexity. So I just used insert_n_curves to avoid the situation in the picture above. It works well most of the time, but still gets few characters wrong such as 🧬(U+1F9EC). It doubles the time taken for rendering the picture below.
+Just moving the first and the last points in the ring slightly solves the second problem.
+
+Test
+Code:
+from manimlib import *
+import time
+
+class FontTest(Scene):
+    def construct(self):
+        start=time.time()
+
+        chinese_text=""疆域 画面 藤蔓 寒颤 回复 困难 \n\n蛐蛐 量取 魓 圖 轟 畾 體 團 垇 儽""
+        text1 = Text(chinese_text, font=""SimSun"").scale(0.7).shift(UP*3)
+        text2 = Text(chinese_text, font=""SimHei"").scale(0.7).next_to(text1,DOWN)
+        text3 = Text(chinese_text, font=""YouYuan"").scale(0.7).next_to(text2,DOWN)
+        emoji = Text(""😀🛒🤯👾🙈🤞🦔🦚🐞💐🚧🧮🏁\n\n🍇🈚🥦🍔🍟🍱🎂🏺🏥🎡🥅🧬📱"").next_to(text4,DOWN)
+        self.add(text1, text2, text3, text4, emoji)
+
+        end=time.time()
+        print(end-start)
+Result:
+Before:
+
+After:",3,2
+1553,2021-06-18T12:35:11Z,2021-06-18T19:14:32Z,2021-06-18T19:14:33Z,1,21,10,"Motivation
+Text wasn't scaled correctly previous with #1383
+Closes #1497.
+Closes #1533.
+Proposed changes
+Change TEXT_MOB_SCALE_FACTOR value
+Also deprecate size parameter
+Also, now text isn't scaled when increasing font size
+instead it is passed to the underlying enging
+for handling. Though always a Text object is scaled
+with a default value so that it fits the screen.
+Test
+Locally I get the following with this scene. It would nice if others test this.
+Code:
+from manimlib import *
+
+ipsum = ""Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.""
+class TextExample(Scene):
+    def fade_out_in(self, m , m1):
+        self.play(FadeOut(m),FadeIn(m1),run_time=3)
+    def construct(self):
+        t = Text(""Hello World"")
+        t1 = Text(""Hello World \n new line"")
+        t2 = Text(""Hello Cursive"", font=""Cursive"")
+        t3 = Text(""Hello Cursive"", font=""Cursive"", t2c = {'Hello':RED})
+        t4 = Text(""Hello Cursive"", font=""Cursive"", t2c = {'Hello':RED,'Cursive':BLUE})
+        t5 = Text(""Hello Cursive"", font=""Cursive"", t2c = {'Hello':RED,'Cursive':BLUE}, font_size=60)        
+        t6 = Text(ipsum, font_size=30).scale(.7)
+        self.add(t)
+        self.fade_out_in(t,t1)
+        self.fade_out_in(t1,t2)
+        self.fade_out_in(t2,t3)
+        self.fade_out_in(t3,t4)
+        self.fade_out_in(t4,t5)
+        self.fade_out_in(t5,t6)
+Result:
+
+  
+    
+    
+
+    TextExample.mp4",2,2
+1557,2021-06-19T20:00:10Z,2021-07-28T14:45:50Z,2021-07-28T14:45:50Z,1,236,2,"Motivation
+Add MarkupText which is previously in Community Edition
+This would use a Pango specific markup that looks like HTML.
+Proposed changes
+There are some specific implementation here about <color>
+and <gradient>
+Pango doesn't support <gradient>  or <color>  instead it works with color attribute and the gradient isn't supported.
+Since SVGMobject doesn't know about parsing colours from SVG image and implementation of <color> and <gradient> is added.
+
+Add a new class MarkupText
+
+Comments
+Most parts of the code were authored by PhilippImhof and copied from Manim Community. I have added him as co-author in that commit
+Test
+
+Code:
+class TextExample(Scene):
+    def construct(self):
+        a1 = MarkupText('<span style=""italic"">italic</span>')
+        a2 = MarkupText('<span weight=""bold"">bold</span>')
+        a3 = MarkupText('<span font=""Roboto"">Roboto Font</span>')
+        a4 = MarkupText('<span font=""Cursive"">Cursive Font</span>')
+        a5 = MarkupText('<color col=""RED""><span font=""Cursive"">Red</span></color>')
+        a6 = MarkupText('<gradient from=""RED"" to=""BLUE"">Gradient</gradient>')
+        v = VGroup(a1, a2, a3, a4, a5, a6).arrange_in_grid()
+        self.play(FadeIn(v))
+Result:
+
+  
+    
+    
+
+    TextExample.mp4",3,1
+1565,2021-06-26T04:36:38Z,2021-07-28T14:47:18Z,2021-07-28T14:47:19Z,5,37,19,"Motivation
+
+Because manim always use pbr for setup, which needs to automatically obtain the version from the .git/ folder. This leads to the issues of #1390 #1403 that cannot be installed from the .zip file.
+So I transitioned to the method of using pyproject.toml and setup.cfg to build, which is also recommended by setuptools.
+Proposed changes
+
+
+D setup.py
+M setup.cfg
+N pyproject.toml
+N MANIFEST.in
+
+Test
+
+https://test.pypi.org/project/manimgl/",3,0
+1566,2021-06-29T15:03:56Z,2021-07-28T14:48:02Z,2021-07-28T14:48:02Z,1,1,1,"If we add an updater to the frame of the camera, and have not added the frame into the scene before, the updater will not work. So, I suggest to add the frame to the objects of the scene at the initilization stage.",3,2
+1579,2021-07-17T05:51:52Z,2021-07-18T02:51:33Z,2021-07-18T02:51:33Z,1,1,1,"Motivation
+We're trying to change the link to our Discord (so that it points to #rules instead of #manim-dev. This PR changes the link to the new, preferred link.",2,0
+1580,2021-07-17T06:12:41Z,2021-07-18T02:58:48Z,2021-07-18T02:58:48Z,1,4,0,"Motivation
+In the Manim discord, we often see people confused about the different versions of Manim, using the community instructions to install manimgl or vice versa. Adding this clarification should help lessen the confusion and potentially save hours for many people.",2,0
+1592,2021-08-04T14:54:10Z,2021-08-06T17:25:47Z,2021-08-06T17:25:47Z,1,5,3,"Proposed changes
+Add another rotation to make it work.
+Test
+Here are some tests.
+
+  
+    
+    
+
+    test_put_start_and_end_on_for_lines.mp4
+    
+  
+
+  
+
+  
+
+
+
+  
+    
+    
+
+    test_put_start_and_end_on_for_arc.mp4",3,0
+1598,2021-08-08T13:34:28Z,2021-08-09T23:19:15Z,2021-08-09T23:19:15Z,1,131,7,"Motivation
+
+Support the elliptical arc command for SVGMobject. Now all the commands of svg path can be implemented.
+Proposed changes
+
+This is reached through approximating elliptical arcs with quadratic bezier curves, which is almost the same way to form a circular arc in Arc class. The key is to figure out the center of the ellipse, requiring us to solve simultaneous equations. I've built a function add_elliptical_arc_to(self, rx, ry, x_axis_rotation, large_arc_flag, sweep_flag, point), inside which a bunch of functions were defined just to do those calculations. I guess it might be better to transfer them into the file utils\space_ops.py, but I daren't make too much changes across files in my first pull request.
+Detailed annotations are left in the code. I deduced all those stuff by hand today .(:з」∠).
+Test
+
+Code:
+class Test(Scene):
+    def construct(self):
+        self.add(SVGMobject(""test""))
+<svg width=""320px"" height=""320px"" version=""1.1"" xmlns=""http://www.w3.org/2000/svg"">
+  <path d=""M10 315
+           L 110 215
+           A 30 50 0 0 1 162.55 162.45
+           L 172.55 152.45
+           A 30 50 -45 0 1 215.1 109.9
+           L 315 10""/>
+</svg>
+Result:",3,0
+1604,2021-08-10T23:00:03Z,,2022-02-14T04:51:47Z,27,46,2413,"Manim Spanish
+I'm now working on a fork of ManimGL named Manim Spanish (at this moment it's not ready). The mission of this fork is to expand the original 3b1b's project to Spanish-speaking people with totally ordered documentation and new features like table mobject, SVG icons of social networks, mobjects about other sciences (different from math), more examples scenes for self-teaching, etc. I love your project and I would like to expand it to many people 😄.
+When I'm ready, I will tell you.",3,1
+1613,2021-08-24T05:30:24Z,2021-08-25T04:27:09Z,2021-08-25T04:27:09Z,1,1,1,"Motivation
+Fixed a documentation typo in updatersExample section under Example Scenes section .
+Proposed changes
+The following change was made in example_scenes.rst file .
+
+In line 338 , I have fixed a trivial typo which may mislead the readers  (thst -> that).
+
+Test
+No explicit testing was done for a typo fix in  documentation as It'll be reflected as expected without any issues.
+Result: The typo is fixed for better.",2,0
+1625,2021-09-15T08:18:21Z,2021-09-15T16:31:34Z,2021-09-15T16:31:34Z,2,125,49,"Motivation
+
+Add Code mobject with syntax highlighting. It's inherited from Text with the help of pygments, which is a python site-package and should be additionally installed.
+Proposed changes
+
+
+Rewrite Text.text2settings() method so that substrings specified in t2f, t2s, t2w can occupy each other.
+Add Code mobject with the code highlighted, which supports different languages and various styles.
+
+Test
+
+Code:
+from manimlib import *
+
+
+EXAMPLE_HELLO_WORLD_CODE_DICT = {
+""python"": """"""
+print(""Hello World!"")
+"""""",
+
+""C++"": """"""
+# include <iostream>
+
+using namespace std;
+
+int main() {
+    cout << ""Hello World!"" << endl;
+    return 0;
+}
+"""""",
+
+""Java"": """"""
+public class HelloWorld {
+    public static void main(String[] args) {
+        System.out.println(""Hello World!"");
+    }
+}
+"""""",
+
+""C"": """"""
+# include <stdio.h>
+
+int main() {
+    printf(""%s\\n"", ""Hello World!"");
+    return 0;
+}
+""""""
+}
+
+
+class CodeExampleScene(Scene):
+    def construct(self):
+        code_mobs = VGroup(*[
+            Code(EXAMPLE_HELLO_WORLD_CODE_DICT[lang], language=lang, code_style=code_style)
+            for lang, code_style in zip(
+                [""python"", ""C++"", ""Java"", ""C""],
+                [""zenburn"", ""monokai"", ""algol"", ""emacs""]
+            )
+        ]).arrange_in_grid(2, 2, h_buff=0.0, v_buff=0.5)
+        self.add(code_mobs)
+Result:",3,0
+1655,2021-10-18T11:20:32Z,2021-10-18T14:01:58Z,2021-10-18T14:01:58Z,1,1,1,"Problem
+
+I'd like to rotate the camera frame in one scene but something was wrong. It turned out to that the value of new_rot_T[2] went beyond [-1,1], which is fatal for the arccos function. The problem was probably caused by loss of precision in float calculation.
+Proposed changes
+
+As a result, clip function is called before Fz is passed into acos.",3,0
+1662,2021-10-24T14:34:28Z,2021-10-24T16:47:54Z,2021-10-24T16:47:54Z,2,54,78,"Motivation
+The code modified in #1598 , where I added support for A command, is a little bit messy, so I go on to refactor some code in svg_mobject.py.",3,1
+1667,2021-10-31T12:04:10Z,2021-11-01T20:17:16Z,2021-11-01T20:17:16Z,2,16,0,"Motivation
+
+To make combining mobjects to a Group of mobjects and adding mobjects to a group more convenient.
+
+Proposed changes
+
+
+In file mobject.py, added add function and mul dunder function for Mobject, returning a Group type accordingly
+In file vectorized_mobject,py, added add dunder function
+
+
+Test
+
+Code:
+class testscene(Scene):
+    def construct(self):
+        cir = Circle()
+        sq = Square()
+        group1 = (cir*6).arrange_in_grid(2, 3)
+        print(type(group1))
+        self.add(group1)
+        group2 = (cir+sq).move_to(DOWN)
+        self.add(group2)
+        print(type(group2))
+Result:
+<class 'manimlib.mobject.types.vectorized_mobject.VGroup'>
+<class 'manimlib.mobject.types.vectorized_mobject.VGroup'>",3,0
+1678,2021-11-12T13:26:37Z,2021-12-14T00:09:55Z,2021-12-14T00:09:56Z,2,522,0,"Updated on 11/28 (GMT+8): Some information in this comment may be outdated. Please see the latest comment.
+Motivation
+As what I've mentioned in #1677 , recently I'm working on the refactoring of Tex mobject. Manim generates all substrings of a Tex, namely the SingleStringTex objects, and calculates their lengths in order to figure out indices of some certain submobjects. This may cause the program to become slow as a Tex is split into tons of components, which is a usual case for complicated math formulas. And, even worse, symbols composed with a mutable number of symbols in different contexts also prevent us from indexing the mobject correctly.
+My little trick is to insert some \color commands into the tex code. For example, Tex(""abc"", isolate=[""a""]) will send ""{\color[RGB]{0, 0, 1} a}bc"" to be compiled. In most cases, the addition of \color won't change the shapes of glyphs, but the svg output will carry information about colors, which marks out the key glyphs. This can help us finish the indexing work, only with compiling just one tex file.
+However, this still doesn't fix all the problems. I'll briefly list pros and cons about this pull request.
+Pros
+
+Every Tex corresponds to exactly 1 compilation, which is the greatest benefit and can speed up rendering.
+Problems concerned with indexing will no longer happen, and the coloring issue is fixed. For example, \frac command is available when the denominator part is expected to be colored.
+The preprocessing part, including balancing brackets, filling in missing parameters, becomes useless and is discarded.
+Using the combination of the full tex_string and substrings_to_isolate to generate hash keys, with which to determine whether a Tex should be compiled again. This fixes the issue that two Tex with the same tex_string but different substrings are only compiled once, and the indexing of the later constructed one crashes.
+
+Cons
+
+Still, in some cases the shapes of glyphs will change when \color is inserted. For instance, when x_{0}^{2} becomes {\color[RGB]{0, 0, 1} x_{0}}^{2}, the exponent 2 is shifted rightward.
+It's uncertain whether all tex_strings of components actually match them or not. This may happen if a tex_substring actually matches no mobjects, but matches the next group of mobjects according to the program.
+The class SingleStringTex is removed, which may cause some old scenes to break. This can be simply fixed by replacing them with Tex.
+Without the brackets balancing process, the tex_string and substrings_to_isolate (including isolate and tex_to_color_map) provided must be balanced in brackets, or a compilation error will occur.
+All Tex with at least one substrings_to_isolate provided will be remade since the files are inserted with \color commands, which is never seen in previous versions.
+mob.get_tex() is preserved in a temporary fashion.
+
+Last but not least, this pull request is newly written, and is far from being tested enough. Any discussion or better strategy to fix this type of thing is welcome!
+Test
+Code:
+from manimlib import *
+
+
+TEST_STR = """"""\\lim_{{n} \\to \\infty} \\left\\lfloor
+\\sqrt{\\frac{1}{{n} !} \\mathrm{e}^{n} {a}_{n} + b_{n}^{p}} \\otimes
+\\sqrt[{n}]{\\sum_{m = 0}^{{n}^{2}} \\tilde{c}_{m \\cdot {n}}^{b_{n}^{p}
+\\cos \\left( \\theta \\right)}} \\right\\rfloor"""""".replace(""\n"", "" "")
+
+
+class TestScene(Scene):
+    def construct(self):
+        tex1 = Tex(
+            TEST_STR,
+            fill_color=TEAL
+        )
+        tex1.shift(2 * UP)
+        tex2 = Tex(
+            TEST_STR,
+            tex_to_color_map={
+                #""\\sum"": BLUE_E,
+                ""b_{n}"": LIGHT_PINK,
+                ""{n}"": YELLOW
+            },
+            fill_color=TEAL
+        )
+        tex2.shift(2 * DOWN)
+        self.add(tex1, tex2)
+
+        # Labels of indices for debugging
+        self.add(
+            #index_labels(tex1[0]),
+            #index_labels(tex2),
+            #*[index_labels(submob) for submob in tex2]
+        )
+Result:",5,14
+1694,2021-12-16T15:15:22Z,2021-12-17T17:30:53Z,2021-12-17T17:30:53Z,1,24,10,"Motivation
+
+It's only a minor change. I found out that BarChart() doesn't have an option to add ticks on x-axis. I know it's because the x-axis is usually for names or labels and not values, but I think it's nice to add an option to add ticks to seperate bars for better visualization.
+Proposed changes
+
+
+I looked up at how manim add ticks on y-axis and created an option for people to also add ticks to the x-axis
+I added a config parameter ""include-x-ticks""
+The number of ticks divided is also the number of values
+
+Test
+
+Code:
+from manimlib import *
+
+class Test(Scene):
+    def construct(self):
+        global chart
+        bar_value = [50]*10
+        chart = BarChart(
+            bar_value,
+            label_y_axis = True,
+            n_ticks = 10,
+            max_value = 100,
+            bar_label_scale_val = 0.5,
+            include_x_ticks = True
+        )
+        self.add(chart)
+Result
+
+:",3,1
+1702,2021-12-31T05:12:21Z,2021-12-31T10:18:50Z,2021-12-31T10:18:50Z,1,1,1,"Motivation
+
+fixed typo in comments
+Proposed changes
+
+
+remove an extra 'all'
+
+
+
+Test
+
+Code:
+Result:",2,0
+1704,2022-01-03T07:06:07Z,2022-01-03T16:53:35Z,2022-01-03T16:53:35Z,1,3,1,"Motivation
+
+-When adding a Brace Label, I can adjust the label scale and the buff between the brace and the mobject adding to. However, I can not adjust the buff between the label and the brace, which would make the distance disproportional.
+-Directly using brace.scale() does not work either, as this will change the length of the brace as well.
+-Meanwhile, directly passing in the argument buff=value as keyword argument will set the buff between the target mobject and the brace only. And since both methods (Brace.CONFIG and Brace.put_at_tip) use the buff keyword argument, therefore, to allow different values can be passed in for ""mobject-brace buff"" and ""brace-label buff"", this parameter is clarified as label_buff.
+brace1 = BraceLabel(dl1, 'r', UP, label_scale=0.35, font_size=30, buff=0.1)
+For example, the code above will result in
+
+Which in this case the small 'r' is clearly too far away from the brace.
+Proposed changes
+
+
+In file manimlib.mobject.svg.brace.py, class BraceLable, added parameter label_buff in the CONFIG
+In Line 108, pass in the parameter buff=self.label_buff for put_at_top method
+Added import copy at the beginning
+
+Test
+
+Code:
+brace1 = BraceLabel(dl1, 'r', UP, label_scale=0.35, font_size=30, buff=0.1, label_buff=0.1)
+Result:
+
+In addition, the previous version was missing an importation
+before
+
+after",3,0
+1709,2022-01-17T13:02:34Z,2022-01-17T16:56:09Z,2022-01-17T16:56:09Z,1,17,2,"Motivation
+
+
+After initializing a NumberPlane object, the code area below will be marked as ""unreachable"" by Pylance
+This grey out the code and disables syntax highlighting
+
+
+(When I was writing the code)
+
+(In the source code)
+
+
+Meanwhile, when clicking ""show definition"" for get_x_axis() or get_y_axis, it will jumps to abstract methods under CoordinateSystem
+
+
+microsoft/pylance-release#248 (Reference)
+This warning was due to
+
+
+def get_axes(self):
+    raise Exception(""Not implemented"")
+however without adding an abstract class decorator
+@absrtactclass
+def get_axes(self):
+    raise Exception(""Not implemented"")
+(Jumping was due to the fact that get_x_axis() and get_y_axis are not overrode again under Axes class)
+This pull request aims to improve the structure and make it convenient especially for Pylance user writing and tracking codes
+Proposed changes
+
+
+added @abstractclass for two abstract methods
+overrides get_axis, get_x_axis, get_y_axis, get_z_axis so that when using these/writing these methods, Pylance and users can track back to re-implemented methods under Axes class instead of CoordinateSystem where they will find nothing but a raise Exception
+
+Test
+
+
+Tested by initializing a Numberline object and no error occurred.",3,0
+1716,2022-01-26T05:30:28Z,2022-01-26T16:56:44Z,2022-01-26T16:56:44Z,6,209,234,"Proposed changes
+
+M manimlib/mobject/svg/mtex_mobject.py: add generate_plain_tex_file config option (default False) to allow users generate another svg without additional \color commands to prevent the shape of svg from being altered by them; some refactors for efficiency improvememt; fix the bug that multi-line tex fails rendering
+M manimlib/utils/simple_functions.py: refactor choose with lru_cache and scipy's func (borrowed from community edition); delete clip_in_place func (unused)
+M manimlib/utils/color.py: delete get_shaded_rgb func (unused)
+D manimlib/utils/string.py: clean up unused functions
+M manimlib/mobject/coordinate_systems.py: remove redundancies
+M manimlib/__init__.py: remove manimlib/utils/string.py import",3,1
+1725,2022-02-02T12:28:35Z,2022-02-07T16:21:53Z,2022-02-07T16:21:54Z,2,535,482,"Motivation
+This is (possibly) the last overall refactoring applied to MTex class. The structure is updated to prevent from polluting namespace, and some algorithms of methods are improved.
+There are some small difference between this version and former pull requests. For example,
+
+Color-related commands, from now on, are not allowed since they are really tricky to hangle in MTex;
+Substrings specified are stripped;
+Whitespaces and ""_"", ""^"" can be skipped when matching tex (you can match ""a b"" if ""a"" and ""b"" are isolated);
+Tex strings of submobjects are formatted so that they can be matched more easily.
+
+Also, the class TransformMatchingMTex is implemented. It tries to match as long and complete strings as possible. Hope this would be helpful :)
+MTex guideline
+Basic usage
+Relative methods
+MTex.__init__(self, tex_string, **kwargs)
+MTexText.__init__(self, tex_string, **kwargs)
+MTex only takes in a complete tex string. The string is stripped at the very beginning to avoid problems.
+mtex = MTex(""\\mathrm{e}^{i \\pi} + 1 = 0"")
+self.add(mtex)
+
+Result
+
+
+questionable_mtex = MTex(""\\mathrm{e}^{i \\pi}"", ""+"", ""1"", ""="", ""0"")  # Not okay
+# TypeError: __init__() takes 2 positional arguments but 6 were given
+The default configuration is listed as follows:
+CONFIG = {
+    ""fill_opacity"": 1.0,
+    ""stroke_width"": 0,
+    ""font_size"": 48,
+    ""alignment"": ""\\centering"",
+    ""tex_environment"": ""align*"",
+    ""isolate"": [],
+    ""tex_to_color_map"": {},
+    ""use_plain_tex"": False,
+}
+Just like Tex, MTex is rendered in math mode by default, as tex_environment is set to ""align*"". Users may use other environments like:
+mtex = MTex(""\\mathrm{e}^{i \\pi} + 1 = 0"", tex_environment=""equation"")
+self.add(mtex)
+
+Result
+
+
+# mtextext = MTex(""text"", tex_environment=None)
+# Equivalent to:
+mtextext = MTexText(""text"")
+self.add(mtextext)
+
+Result
+
+
+If an environment takes in parameters, please include \begin and \end commands in the content.
+table = MTexText(""""""
+    \\begin{table}[htb]
+    \\begin{center}
+    \\label{table:1} 
+    \\begin{tabular}{|c|c|c|}
+    \\hline \\textbf{Algorithms} & \\textbf{Complexity} & \\textbf{Overhead} \\\\
+    \\hline algorithm 1 & high & low \\\\
+    \\hline algorithm 2 & high & low \\\\
+    \\hline algorithm 3 & low & low \\\\
+    \\hline
+    \\end{tabular}
+    \\end{center}
+    \\end{table}
+"""""")
+self.add(table)
+
+Result
+
+
+Specify substrings
+Relative methods
+MTex.__init__(self, tex_string, isolate=isolate, tex_to_color_map=tex_to_color_map, use_plain_tex=use_plain_tex)
+MTex.get_specified_substrings(self)
+Users may specify some substrings for manipulation using one of the following methods:
+
+Enclose a substring by a pair of double braces (the final substring will have braces included);
+Set a substring as a key of tex_to_color_map dict;
+Add a substring to isolate list.
+
+Every substring specified should be a valid tex string itself. Or, more particularly, after inserting a pair of braces enclosing it, the tex string should still be valid.
+""\left( x + y \right)^2""
+""x"": valid
+""x + y"": valid
+""\left( x + y \right)"": valid
+""\left("": invalid
+""2"": valid (but not recommended, since superscripts are already broken up and needn't be specified)
+""^2"": valid (but not recommended)
+""("": invalid
+
+Each two substrings specified shall not partially overlap, but one completely overlapping another is okay:
+""abcd""
+""abc"" and ""d"" can coexist
+""abc"" and ""bc"" can coexist
+""abc"" and ""cd"" cannot coexist
+
+All substrings specified through one of the methods above will be included in specified_substrings list, which is available by calling self.get_specified_substrings().
+mtex = MTex(""{{1}}234"", isolate=[""2""], tex_to_color_map={""3"": BLUE})
+print(mtex.get_specified_substrings())
+# ['{{1}}', '2', '3']
+Specifying substrings may change the shape of svg rendered, since the tex string is modified after all. Users may specify use_plain_tex=True to avoid alteration in shape.
+group = VGroup(
+    MTex(""1 + 1"", isolate=[""+""]),
+    MTex(""1 + 1"", isolate=[""+""], use_plain_tex=True),
+    MTex(""1 {{+}} 1""),
+).arrange(DOWN)
+self.add(group)
+
+Result
+
+
+Selecting mobjects through substrings
+Relative methods
+MTex.get_parts_by_tex(self, tex)
+MTex.get_part_by_tex(self, tex, index=0)
+MTex.set_color_by_tex(self, tex, color)
+MTex.indices_of_part_by_tex(self, tex, index=0)
+MTex.get_isolated_substrings(self)
+MTex.get_submob_tex(self)
+Users may search for submobjects that a substring refers to using get_parts_by_tex() or get_part_by_tex() method. get_parts_by_tex() returns a VGroup with several parts, each of which is a VGroup of submobjects given by a possible match object. Note that in MTex, ""part"" is regarded as a VGroup of submobjects. The string should be part of the original tex string, and should be able to be split into several substrings that are in the list given by get_isolated_substrings(), and a few characters leftover should be whitespaces or ""_"", ""^"".
+MTex tries to assign each submobject with a formatted tex string (which is stripped and braces are matched). You may check out their tex strings via get_submob_tex(). This method can be used together with index_labels(). However, the process cannot ensure 100% correctness, and tex strings are only assigned for reference.
+mtex = MTex(
+    ""\\Vert \\mathbf{x} \\Vert_{p} = \\sqrt[{p}]{x_1^{p} + x_2^{p} + \\cdots + x_n^{p}}"",
+    tex_to_color_map={
+        ""{p}"": GREEN_B,
+        ""x_1"": BLUE_B,
+        ""x_2"": BLUE_C,
+        ""x_n"": BLUE_E,
+    }
+)
+group = VGroup(mtex, mtex.copy()).arrange(DOWN)
+self.add(group, index_labels(group[1]))
+print(mtex.get_specified_substrings())
+# ['x_1', 'x_2', 'x_n', '{p}']
+print(mtex.get_isolated_substrings())
+# ['\\Vert \\mathbf{x} \\Vert_{p} = \\sqrt[{p}]{x_1^{p} + x_2^{p} + \\cdots + x_n^{p}}', '1', '2', 'n', 'x', '{p}']
+print(mtex.get_submob_tex())
+# ['\\Vert \\mathbf{x} \\Vert', 'p', '= \\sqrt[', 'p', ']', 'x', '1', 'p', '+', 'x', '2', 'p', '+ \\cdots +', 'x', 'n', 'p']
+mtex.get_parts_by_tex(""{p}"")  # Specified substring: okay
+mtex.get_parts_by_tex(""x_1^{p}"")  # Can be split into ""x"", ""1"", ""{p}"" with ""_"", ""^"" leftover: okay
+# mtex.get_parts_by_tex(""{x_1^{p} + x_2^{p} + \\cdots + x_n^{p}}"")  # Not okay
+# ValueError: Failed to match mobjects from tex: ""{x_1^{p} + x_2^{p} + \cdots + x_n^{p}}""
+
+Result
+
+
+mtex = MTex(
+    ""{{\\Gamma \\left( {z} \\right)}} = {{\\int_{0}^{\\infty} \\mathrm{e}^{- t} t^{{{z} - 1}} \\mathrm{d} t}}"",
+    isolate=[
+        ""="",
+        ""\\int_{0}^{\\infty} \\mathrm{e}^{- t}"",
+        ""\\mathrm{d} t""
+    ],
+    tex_to_color_map={
+        ""{z}"": YELLOW,
+        ""\\mathrm{e}"": MAROON_A
+    }
+)
+group = VGroup(mtex, mtex.copy()).arrange(DOWN)
+self.add(group, index_labels(group[1]))
+print(mtex.get_specified_substrings())
+# ['{{\\Gamma \\left( {z} \\right)}}', '{{{z} - 1}}', '{{\\int_{0}^{\\infty} \\mathrm{e}^{- t} t^{{{z} - 1}} \\mathrm{d} t}}', '=', '\\int_{0}^{\\infty} \\mathrm{e}^{- t}', '\\mathrm{d} t', '\\mathrm{e}', '{z}']
+print(mtex.get_isolated_substrings())
+# ['{{\\Gamma \\left( {z} \\right)}} = {{\\int_{0}^{\\infty} \\mathrm{e}^{- t} t^{{{z} - 1}} \\mathrm{d} t}}', '{0}', '{\\infty}', '{- t}', '{{{z} - 1}}', '{{\\Gamma \\left( {z} \\right)}}', '{{\\int_{0}^{\\infty} \\mathrm{e}^{- t} t^{{{z} - 1}} \\mathrm{d} t}}', '=', '\\int_{0}^{\\infty} \\mathrm{e}^{- t}', '\\mathrm{d} t', '\\mathrm{e}', '{z}']
+print(mtex.get_submob_tex())
+# ['\\Gamma \\left(', 'z', '\\right)', '=', '\\int', '0', '\\infty', '\\mathrm{e}', '- t', 't', 'z', '- 1', '\\mathrm{d} t']
+mtex.get_parts_by_tex(""{{{z} - 1}}"")  # Specified substring: okay
+mtex.get_parts_by_tex(""_{0}"")  # Subscript that consists of ""{0}"" and ""_"": okay
+mtex.get_parts_by_tex(""{{\\Gamma \\left( {z} \\right)}} ="")  # Can be split into two specified substrings and a whitespace: okay
+# mtex.get_parts_by_tex(""\\int_{0}^{\\infty} \\mathrm{e}^{- t} t^{{{z} - 1}}"")  # Not okay
+# ValueError: Failed to match mobjects from tex: ""\int_{0}^{\infty} \mathrm{e}^{- t} t^{{{z} - 1}}""
+
+Result
+
+
+Coloring
+Relative methods
+MTex.__init__(self, tex_string, color=color, tex_to_color_map=tex_to_color_map)
+MTex.set_color_by_tex(self, tex, color)
+MTex.set_color_by_tex_to_color_map(self, tex_to_color_map)
+Users may specify color attribute to control the base color of MTex, and specify tex_to_color_map attribute to color different parts of MTex. Pay attention that color-related commands in the content of tex string (like \color, \textcolor, etc.) will lead to error in MTex, so please avoid them.
+The set_color_by_tex() method will override the color of target submobjects.
+mtex = MTex(
+    ""R {{G}} B"",
+    tex_to_color_map={""R {{G}}"": RED},
+    color=BLUE
+)
+mtex.set_color_by_tex(""{{G}}"", GREEN)
+self.add(mtex)
+
+Result",3,1
+1727,2022-02-05T08:30:13Z,2022-02-07T16:24:40Z,2022-02-07T16:24:41Z,3,41,0,"Motivation
+Implement ImplicitFunction class using isosurfaces package. This is borrowed from manim community edition.
+Proposed changes
+
+M manimlib/mobject/functions.py: implement ImplicitFunction
+M requirements.txt: add dependency
+M setup.cfg: add dependency
+
+Test
+Code:
+class FuncTest(Scene):
+    def construct(self):
+        graph = ImplicitFunction(
+            lambda x, y: x * y ** 2 - x ** 2 * y - 2,
+            color=YELLOW
+        )
+        self.add(NumberPlane(), graph)
+Result:",3,1
+1731,2022-02-09T16:05:56Z,2022-02-11T15:53:21Z,2022-02-11T15:53:21Z,10,245,627,"Motivation
+Try using external library svgelements to refactor SVGMobject.
+Proposed changes
+
+M manimlib/mobject/svg/svg_mobject.py: use svgelements to parse svg files
+M manimlib/mobject/svg/tex_mobject.py: remove override attribute from init_colors method; cut off global style-applying process from init_colors
+M manimlib/mobject/svg/text_mobject.py: remove init_colors inheritance; add set_fill process since svg files rendered by Text have the black color specified
+M manimlib/mobject/svg/mtex_mobject.py: replace .fill_color with .get_fill_color()
+M manimlib/mobject/mobject.py: remove override attribute from init_colors method
+M manimlib/mobject/geometry.py: add Polyline class; remove override attribute from init_colors method
+M manimlib/mobject/types/surface.py: remove override attribute from init_colors method
+M manimlib/mobject/types/vectorized_mobject.py: remove override attribute from init_colors method
+M requirements.txt: update requirements (add svgelements, remove cssselect2)
+M setup.cfg: update requirements (add svgelements, remove cssselect2)
+
+Notes
+
+For each submobject of SVGMobject, 5 attributes (fill_color, fill_opacity, stroke_width, stroke_color, stroke_opacity) depend on the result of style parsing. If not specified, they will be set as default attributes passed to SVGMobject class. set_fill, set_stroke methods can still apply style globally.
+unpack_groups attribute is removed as the structure may be modified. Now SVGMobject always unpacks submobjects.
+Some changes may also have to be made to MarkupText, just like Text, but I cannot run MarkupText and cannot look into svg files rendered by it.
+<text> tags in svg are still not handled.
+A scaling process with scalar 0.75 is applied so that the size of a mobject remains as before.
+The outer svg tag may also contain style, which is ignored when inserting a group tag in svg content. This may be handled in the future.
+I notice that it's more reasonable to let SingleStringTex and MTex both inherit from SVGMobject, and in community edition they do. This may also be handled later.",3,0
+1736,2022-02-12T15:52:45Z,2022-03-22T18:05:10Z,2022-03-22T18:05:10Z,62,2801,1378,"Add type hints according to PEP 484, PEP 526 and PEP 604
+Motivation
+The motivation for this is to allow the IDE (language server) to better analyze the code and give type hints like:
+
+And this also provides convenience for writing API documentation in the next step
+Changes
+I manually wrote type annotations for almost all class methods and functions following these PEP standards.
+However, due to the dynamic addition of attributes using CONFIG and digest_config, the types of some attribute values ​​cannot be annotated and therefore the whole module cannot be checked with static type checkers such as mypy. So this annotation is exactly like a comment.
+And it's worth mentioning that in this pull request, I upgraded the python version available for ManimGL to python 3.7 and above (i.e. python 3.6 is no longer supported). Because the type annotation system has been relatively complete since 3.7, and numpy no longer supports 3.6 since 1.20 (the numpy.typing submodule has only been added since version 1.20)
+I'm not sure if it's worth giving up on 3.6, but maybe that's a general trend.
+Because the changes in this PR are almost type annotations, except for some additions of import, it will not affect the normal usage (python will not check whether the variable type satisfies the annotation at runtime)
+By the way, in this pull request, I also changed the order of imports according to the PEP 8 (that is, from __future__ import first, then an empty line for built-in modules, an empty line for third-party modules, and an empty line for local modules)
+Progress
+
+ manimlib.utils
+ manimlib.camera
+ manimlib.mobject
+
+  manimlib.mobject.mobject
+  manimlib.mobject.types
+  manimlib.mobject.svg
+
+
+ manimlib.animation
+ manimlib.event_handler
+ manimlib.scene
+ manimlib.shader_wrapper
+ manimlib.window",5,4
+1737,2022-02-12T17:33:56Z,2022-02-13T03:12:41Z,2022-02-13T03:12:42Z,6,1,8,"Motivation
+
+Minor edits
+
+Remove unnecessary imports
+Remove duplicated keys
+Add , for symmetry's sake (unneeded because it's joined anyway but still)
+Remove time_per_edge",2,0
+1744,2022-02-15T02:19:01Z,2022-02-15T17:59:46Z,2022-02-15T17:59:46Z,1,9,8,"Added config passing for text
+
+Motivation
+
+Give users option to change the text config for DecimalNumber
+Proposed changes
+
+
+Added text_config in decimal number config
+Removed extra init_colors() so that t2c can be passed in
+Adjustedstring_to_mob method so key word arguments can be accepted, meanwhile maintain the string_to_mob_map
+
+Test
+
+Code:
+class Test(Scene):
+    def construct(self):
+        a = DecimalNumber(1.02, show_ellipsis=True)
+        b = DecimalNumber(1.02, show_ellipsis=True, 
+                            text_config=dict(font=""仿宋"", slant=ITALIC)).shift(DOWN)
+        c = DecimalNumber(1.02, show_ellipsis=True, 
+                            text_config=dict(font=""Times New Romen"", t2c={'0':RED})).shift(2*DOWN)
+        self.add(a, b, c)
+Result:",3,0
+1745,2022-02-15T12:33:16Z,2022-02-15T18:05:53Z,2022-02-15T18:05:53Z,7,229,221,"Motivation
+Fix some potential bugs left in #1731.
+Proposed changes
+
+M manimlib/mobject/svg/svg_mobject.py: Add svg_default dictionary to allow users to specifically fill in style attributes to elements whose style is not specified in svg scope (and the functionality of init_colors is therefore preserved); use xml.dom.ElementTree package to parse style attributes in the outer svg tag; use SVG_HASH_TO_MOB_MAP to cache svg mobjects
+M manimlib/mobject/svg/drawings.py: Remove unnecessary init_colors override
+M manimlib/mobject/svg/text_mobject.py: Remove unnecessary set_fill process
+M manimlib/mobject/svg/mtex_mobject.py: Reorganize inheriting structure (MTex inherits from SVGMobject)
+M manimlib/mobject/svg/tex_mobject.py: Reorganize inheriting structure (SingleStringTex inherits from SVGMobject)
+M manimlib/utils/tex_file_writing.py: Avoid the message from being too long
+M manimlib/utils/iterables.py: Add hash_obj function to hash objects that may contain dictionaries",4,1
+1751,2022-03-02T11:54:40Z,2022-03-22T16:50:43Z,2022-03-22T16:50:43Z,4,424,514,"Motivation
+The current Text, MarkupText classes are a copied version from community edition, and should run together with old manimpango versions. I heard that the community had a future development plan for manimpango, so I decided to refactor the two classes to fit the code style in manimgl, while using the latest manimpango version as a requirement.
+In my modified code, MarkupText becomes almost an alias of Text. Parameters are rearranged:
+Added
+
+is_markup: A boolean (default False in Text, while True in MarkupText) representing whether the given string uses markup syntax.
+justify: A boolean (default False) to determine whether each line of a paragraph is slightly stretched to align at both edges.
+indent: An integer (default 0) representing the indent of each paragraph.
+alignment: A string (one of LEFT, CENTER, RIGHT, default LEFT) to determine which direction to align if not justified.
+line_width_factor: A float | None (default None) to determine where the text should wrap, e.g. 1.0 means the text is wrapped just to fit the full screen. None stands for disabling automatic wrappings (you can still wrap lines via inserting ""\n"").
+apply_space_chars: A boolean (default True in Text, while False in MarkupText) to determine whether empty mobjects should be inserted as spaces. However, applying spaces may raise IndexError if some characters exceed the canvas in pango, or if ligatures, underlines, background rectangles occur in text. When slicing Text object via get_part(s)_by_text, apply_space_chars should be made sure to set to True, or a warning is raised. (Sidenote, currently the parameter disable_ligatures doesn't affect the output, and ligatures are always applied if there exist some in the font.)
+global_config: A dict (type dict[str, Any], default {}) holding extra global configurations on text. Keys can be any attribute supported by pango. (You may look through all attributes supported by pango in this website: https://docs.gtk.org/Pango/pango_markup.html)
+local_configs: A dict (type dict[str | tuple[int, int], dict[str, Any]], default {}) holding extra local configuration dicts on text. Keys can be either a string (indicating several ranges that match) or a tuple (indicating a single range), and keys of each local configuration dict can be any attribute supported by pango.
+
+Modified
+
+t2c, t2f, t2s, t2w: (type dict[str | tuple[int, int], Any], default {}) Users can now set either a string (indicating several ranges that match) or a tuple (indicating a single range) as a key of any one of those dicts. Strings like [2:5] will no longer be regarded as ranges.
+t2g: Pango cannot handle gradients, so please use set_color_by_gradient instead. A deprecation warning is raised if t2g is set.
+
+Removed
+
+size: This is originally an alias of font_size. The deprecation warning is removed.
+tab_width: Originally tab_width * "" "" is used to replace all tabs, but it's not useful since ""\t"" can be handled in pango.
+
+Behaviors of the rest parameters in CONFIG are preserved for backwards compatibility.
+Proposed changes
+
+M manimlib/mobject/svg/text_mobject.py: Refactor Text, MarkupText, Code.
+M manimlib/mobject/svg/svg_mobject.py: Avoid issue brought by trailing ""Z M"" commands.
+M setup.cfg: Update version requirement for manimpango.
+M requirement.txt: Update version requirement for manimpango.
+
+Test
+Code:
+text = Text(
+    ""Hello Pango"",
+    global_config={""underline"": ""double"", ""underline_color"": MAROON},
+    local_configs={""Pango"": {""bgcolor"": TEAL}}
+)
+self.add(text)
+Result:",3,0
+1757,2022-03-06T05:59:27Z,2022-03-06T17:27:22Z,2022-03-06T17:27:22Z,1,12,6,"Motivation
+
+Sometimes a graph is initialized with get_graph method, which stores the function into self.underlying_function attributes. While for function graphs, they are stored in self.function attribute.
+Reorganizing getters can help to avoid Attribution error, when trying to initialize another graph that shares the same function with an existing graph.",3,0
+1762,2022-03-17T06:16:07Z,2022-03-17T16:06:42Z,2022-03-17T16:06:42Z,1,4,1,"Motivation
+Fix the width of riemann rectangles
+Proposed changes
+Change the width from x1 - x0 to width=self.x_axis.n2p(x1)[0] - self.x_axis.n2p(x0)[0].
+The former means the global coord width while the latter means custom coord width.
+Test",3,0
+1765,2022-03-23T04:27:34Z,2022-03-23T06:17:34Z,2022-03-23T06:17:34Z,6,54,76,"Motivation
+Resolve conflicts of #1736 and #1751, and adjust some typings.
+Proposed changes
+
+M docs/source/documentation/constants.rst: remove START_X, START_Y constants
+M manimlib/constants.py: remove START_X, START_Y constants
+M manimlib/mobject/svg/mtex_mobject.py: adjust typings
+M manimlib/mobject/svg/svg_mobject.py: remove unused method get_mobject_from
+M manimlib/mobject/svg/text_mobject.py: add type hints; remove an unused import",2,0
+1766,2022-03-27T00:43:11Z,2022-03-28T16:30:01Z,2022-03-28T16:30:01Z,1,12,1,"Motivation
+
+Manim does not provide feedback to the user while processing a long-running SVG mobject.
+Since manim typically runs so fast, a long-running SVG catches the user by surprise. Personally it took me a few hours to figure out that manim was not freezing, rather it was just taking a long time on a complicated SVG.
+Proposed changes
+
+This change gives the user some feedback while processing a complicated SVG.
+Specifically:
+If the SVG has over 100 rings to process, we display a counter to log.info once per 100 processed rings.  Thus the user learns manim is working on a long-running operation.
+If the SVG has under 100 rings, this change has no effect. Manim will process it quick enough.
+Test
+
+Code:
+I tested with the Noto emoji - Afghan flag SVG.  Here is the complete scene code, which automatically gets the SVG from the internet so no additional files are needed.
+Paste into a blank _.py file and run manimgl _.py
+Try it without the pull request, and it will seem that manimgl has frozen with a blank screen.
+Try it with the pull request, and rest reassured manim is working.
+from manimlib import *
+
+class Flagtest(Scene):
+    def construct(self):
+        flag_url = ""https://raw.githubusercontent.com/googlefonts/noto-emoji/main/third_party/region-flags/svg/AF.svg""
+        flag_mob = SVGMobject(flag_url, svg_default = { ""stroke_width"": 0 } )
+        flag_mob.scale( min( self.camera.frame.get_width()/flag_mob.get_width(), self.camera.frame.get_height()/flag_mob.get_height() ) )
+        self.add(flag_mob)
+
+Result:
+(manimlib) sunkisser@localhost ~/manimlib $ manimgl flagtest.py
+ManimGL v1.5.0
+[00:30:09] INFO     Using the default configuration file, which you can modify in            config.py:265
+                    `/home/sunkisser/manimlib/manim/manimlib/default_config.yml`                          
+           INFO     If you want to create a local configuration file, you can create a file  config.py:266
+                    named `custom_config.yml`, or run `manimgl --config`                                  
+[00:30:12] INFO     Tips: You are now in the interactive mode. Now you can use the keyboard   scene.py:119
+                    and the mouse to interact with the scene. Just press `q` if you want to               
+                    quit.                                                                                 
+           INFO     SVG triangulation: 0/753                                              space_ops.py:420
+[00:30:19] INFO     SVG triangulation: 100/753                                            space_ops.py:420
+[00:30:33] INFO     SVG triangulation: 200/753                                            space_ops.py:420
+[00:30:53] INFO     SVG triangulation: 300/753                                            space_ops.py:420
+[00:31:17] INFO     SVG triangulation: 400/753                                            space_ops.py:420
+[00:31:47] INFO     SVG triangulation: 500/753                                            space_ops.py:420
+[00:32:20] INFO     SVG triangulation: 600/753                                            space_ops.py:420
+[00:32:57] INFO     SVG triangulation: 700/753                                            space_ops.py:420
+[00:33:13] INFO     SVG triangulation: 752/753                                            space_ops.py:420",3,5
+1772,2022-03-30T15:02:02Z,2022-04-04T17:01:13Z,2022-04-04T17:01:14Z,8,1278,971,"Motivation
+In previous versions, when users want to slice a Text mobject via a substring, the span of it is directly used to slice the mobject. The result could be unexpected due to spaces, ligatures, and fancy mobjects brought by markup tags. So I referred to the idea of MTex and refactored these classes.
+In this PR, MarkupText and MTex both inherit LabelledString class, so they share many similarities. Text is an alias of MarkupText, with the only exception that the attribute is_markup is default to be False. apply_space_chars and disable_ligatures attributes are removed.
+Some noticeable features about LabelledString:
+
+Still maintains the original svg structure (no additional hierarchies);
+Has an isolate attribute to add substrings to break up;
+Has a base_color attribute to specify the default color (default WHITE);
+Supports methods including get_parts_by_string, get_part_by_string, set_color_by_string, set_color_by_string_to_color_map (in MTex, aliases like get_parts_by_tex are supported; in Text and MarkupText, aliases like get_parts_by_text are supported);
+Supports TransformMatchingStrings, AddTextWordByWord animations.
+
+The substring selecting logic is improved so that strings can be matched more easily:
+tex = MTex(""3 \\sqrt{2}"", isolate=[""\\sqrt{2}""])
+tex.set_color_by_tex(""sqrt"", ORANGE)
+self.add(tex)
+
+Result
+
+
+By default, the string passed into Text is chopped into substrings at the following indices:
+
+Boundaries of words (a.k.a. r""\b""),
+Bounderies of continuous spaces (a.k.a. r""\s+""),
+Boundaries of markup commands.
+
+So there'll be no problem if one runs the following:
+text = Text(""Hello text"", base_color=TEAL)
+text.set_color_by_text(""text"", ORANGE)
+self.add(text)
+
+Result
+
+
+But if the second line is replaced with text.set_color_by_text(""tex"", ORANGE), still the entire ""text"" will be colored. If you need to color ""tex"" only, you may specify isolate=[""tex""]:
+text = Text(""Hello text"", isolate=[""tex""], base_color=TEAL)
+text.set_color_by_text(""tex"", ORANGE)
+self.add(text)
+
+Result
+
+
+Other examples:
+text = MarkupText(
+    ""<span face='Consolas'>Hello span</span>"",
+    global_config={""underline"": ""double"", ""underline_color"": MAROON},
+    local_configs={""Hello"": {""bgcolor"": TEAL}}
+)
+text.set_color_by_text(""span"", ORANGE)
+self.add(text)
+
+Result
+
+
+t0 = MarkupText(""here comes <span color='red'>text</span>"")
+t1 = MarkupText(""<span color='yellow'>text</span> is here"")
+self.add(t0)
+self.wait()
+self.play(TransformMatchingStrings(t0, t1), run_time=3)
+self.wait()
+
+Result
+
+  
+    
+    
+
+    StringTest.mp4
+    
+  
+
+  
+
+  
+
+
+
+tex = MTex(""\\sqrt{s}"", isolate=[""{s}""])
+tex.set_color_by_tex(""s"", TEAL)
+self.add(tex)
+
+Result
+
+
+paragraph = Text(""""""
+    Lorem ipsum dolor sit amet, consectetur 
+    adipisicing elit,  sed do eiusmod tempor 
+    incididunt ut labore et dolore magna aliqua. 
+    Ut enim ad minim veniam, quis nostrud 
+    exercitation ullamco laboris nisi ut 
+    aliquip ex ea commodo consequat.
+"""""")
+self.play(AddTextWordByWord(paragraph))
+
+Result
+
+  
+    
+    
+
+    StringTest5.mp4
+    
+  
+
+  
+
+  
+
+
+
+Proposed changes
+
+M manimlib/animation/creation.py: fix AddTextWordByWord
+M manimlib/animation/transform_matching_parts.py: construct TransformMatchingStrings, remove TransformMatchingMTex
+A manimlib/mobject/svg/labelled_string.py: construct LabelledString base class
+M manimlib/mobject/svg/mtex_mobject.py: refactor MTex based on LabelledString
+M manimlib/mobject/svg/svg_mobject.py: remove submobjects of SVGMobject without points
+M manimlib/mobject/svg/text_mobject.py: refactor Text and MarkupText based on LabelledString
+M manimlib/utils/iterables.py: remove some unused functions",4,1
+1779,2022-04-06T14:47:28Z,2022-04-06T15:53:23Z,2022-04-06T15:53:23Z,5,163,170,"Motivation
+Some refactors on LabelledString and relevant classes.
+Proposed changes
+
+M manimlib/mobject/numbers.py: Remove the cache dict, since SVGMobjects are already cached.
+M manimlib/mobject/svg/labelled_string.py: Support passing in svg_default.color and svg_default.fill_color as aliases of base_color; improve algorithm.
+M manimlib/mobject/svg/mtex_mobject.py: Some refactors.
+M manimlib/mobject/svg/text_mobject.py: Some refactors.
+M manimlib/mobject/svg/svg_mobject.py: Add an empty line.",3,0
+1780,2022-04-06T16:52:12Z,2022-04-07T01:58:39Z,2022-04-07T01:58:39Z,3,81,49,"Motivation
+Add support for substring and case_sensitive parameters for LabelledString.get_parts_by_string method, and other relative methods as well.
+Proposed changes
+
+M manimlib/mobject/svg/labelled_string.py
+M manimlib/mobject/svg/mtex_mobject.py
+M manimlib/mobject/svg/text_mobject.py",2,0
+1783,2022-04-08T21:08:39Z,2022-04-11T16:50:33Z,2022-04-11T16:50:33Z,1,12,0,"Motivation
+
+Makes something like Tex(""\overset"", ""{def A}"", ""{=}"") work.
+Proposed changes
+Added ""\\overset"" -> ""\\overset{\\quad}{\\quad}"" and documented why \frac and friends do not work (yet).
+Test
+
+Code:
+  color = {""isolate"": [""{A}"", ""{B}""], ""tex_to_color_map"": {""{A}"": GREEN, ""{B}"": BLUE}}
+  t = Tex(r""a{B}c"", r""\overset"", ""{A}{=} a{B}c"", **color)
+  self.play(Write(t))
+Result:",3,0
+1785,2022-04-10T00:44:42Z,2022-04-11T16:52:52Z,2022-04-11T16:52:52Z,5,263,288,"Motivation
+There's a bug when dealing with multi-line tex. Just fixed.
+Proposed changes
+
+M manimlib/animation/creation.py: use attribute instead of calling a method
+M manimlib/animation/transform_matching_parts.py: clean up logic
+M manimlib/mobject/svg/labelled_string.py: fix bug; add regex parameter for get_parts_by_tex method; remove indices_of_part and indices_lists_of_parts methods
+M manimlib/mobject/svg/mtex_mobject.py: some small refactors
+M manimlib/mobject/svg/text_mobject.py: some small refactors",3,0
+1795,2022-04-23T09:26:12Z,2022-05-17T16:17:53Z,2022-05-17T16:17:53Z,9,919,1231,"Motivation
+Refactor StringMobject (renamed from LabelledString), MarkupText, MTex classes.
+Proposed changes
+
+M manimlib/mobject/svg/labelled_string.py: Unify logic from MarkupText, MTex; remove use_plain_tex attributes; support a much more flexible Selector type; allow passing in substrings whose braces or tags aren't paired; rename some methods.
+M manimlib/mobject/svg/mtex_mobject.py: Allow passing in a 2-tuple to tex_environment, regarded as a prefix and a suffix respectively; remove use_plain_tex attributes.
+M manimlib/mobject/svg/text_mobject.py: Parse entities to prevent from cutting halfway; remove use_plain_tex attributes.
+M manimlib/animation/creation.py
+M manimlib/animation/transform_matching_parts.py
+M manimlib/scene/interactive_scene.py: Add from __future__ import annotations.
+
+The method renaming in StringMobject class includes:
+get_parts_by_string => select_parts
+get_part_by_string => select_part
+set_color_by_string => set_parts_color
+set_color_by_string_to_color_map => set_parts_color_by_dict
+
+The names of aliases remain unchanged (e.g. MTex.get_parts_by_tex)
+The type definition of Selector is given below:
+Selector = Union[
+    str,  # Match all identical strings
+    re.Pattern,  # Match the pattern
+    tuple[Union[int, None], Union[int, None]],  # A normal span
+    Iterable[Union[  # A collection of the above
+        str,
+        re.Pattern,
+        tuple[Union[int, None], Union[int, None]]
+    ]]
+]
+The StringMobject.select_parts method takes in a selector as an input. The isolate parameter, keys of tex_to_color_map, keys of t2c, etc. are also of type selector. StringMobject.select_parts no longer supports case_sensitive, substring and regex parameters --- only substrings inside spans specified by selectors will be selected.
+# Equivalent:
+text_ = Text(""abc"", isolate=""ab"")
+#text_ = Text(""abc"", isolate=[""ab""])
+#text_ = Text(""abc"", isolate=(0, 2))
+#text_ = Text(""abc"", isolate=(None, -1))
+
+# Equivalent:
+text = Text(""abcBC"", isolate=(""a"", ""bc"", ""BC""))
+#text = Text(""abcBC"", isolate=(""a"", re.compile(""bc"", re.I)))
+#text = Text(""abcBC"", isolate=((0, 1), (1, 3), (3, 5)))
+#text = Text(""abcBC"", isolate=((None, 1), (1, 3), (-2, None)))
+
+# Equivalent:
+text.select_part(""bcBC"").set_fill(BLUE)
+#text.select_part((""bc"", ""BC"")).set_fill(BLUE)
+#text.select_part(re.compile(""bc"", re.I)).set_fill(BLUE)
+#text.select_part((1, None)).set_fill(BLUE)
+
+# Equivalent:
+poly = MTex(
+    ""p(x) = a_0 x^0 + a_1 x^1 + \\cdots + a_{n-1} x^{n-1} + a_n x^n"",
+    tex_to_color_map={re.compile(r""a_(.+?) x\^\1""): ORANGE}
+)
+#poly = MTex(
+#    ""p(x) = a_0 x^0 + a_1 x^1 + \\cdots + a_{n-1} x^{n-1} + a_n x^n"",
+#    tex_to_color_map={
+#        s: ORANGE
+#        for s in [""a_0 x^0"", ""a_1 x^1"", ""a_{n-1} x^{n-1}"", ""a_n x^n""]
+#    }
+#)
+
+self.add(VGroup(text_, text, poly).arrange(DOWN))
+
+This PR handles imbalanced strings and entity strings, so the following will work:
+tex = MTex(""\\frac{-b\\pm\\sqrt{b^2-4ac}}{2a}"", tex_to_color_map={""{b^2-4ac"": TEAL})
+text = MarkupText(""<tt>Hello Markup</tt>!"", t2c={re.compile(r""\W+""): RED})
+self.add(VGroup(tex, text).arrange(DOWN))
+
+This PR fixes #1792 by removing line_height from the global attribute dictionary if Pango doesn't support.",3,5
+1804,2022-04-27T12:58:40Z,2022-05-19T14:07:07Z,2022-05-19T14:07:07Z,4,8,2,"Motivation
+Add some missed imports
+Proposed changes
+
+M manimlib/mobject/geometry.py: import DEGREES, Iterable
+M manimlib/mobject/probability.py: import numpy
+M manimlib/mobject/types/point_cloud_mobject.py: import numpy",2,2
+1818,2022-05-22T03:08:47Z,2022-09-13T19:42:15Z,2022-09-13T19:42:15Z,16,1474,709,"Features added
+Supports self-defined tex templates and temporary addition of preambles
+Sometimes users may want to temporarily use tex commands from tex packages not included in tex template files by default. So I add support for it. This is inspired from Manim Community. For classes Tex, MTex, parameters template and additional_preamble are added. Example usages are shown below.
+Demo
+tex = Tex(
+    ""a^2 + b^2 = c^2"",
+    template=""French Cursive""
+)
+self.add(tex)
+
+Result
+
+
+Demo
+chem = TexText(
+    ""\\ce{Zn^2+ <=>[+ 2OH-][+ 2H+] ""
+    ""$\\underset{\\text{amphoteres Hydroxid}}{\\ce{Zn(OH)2 v}}$ ""
+    ""<=>[+ 2OH-][+ 2H+]""
+    ""$\\underset{\\text{Hydroxozikat}}{\\ce{[Zn(OH)4]^2-}}$}"",
+    template=""empty"",
+    additional_preamble=""\\usepackage{mhchem}""
+).scale(0.7)
+self.add(chem)
+
+Result
+
+
+Demo
+textext = MTexText(
+    ""The quick brown fox jumps over the lazy dog."",
+    template=""French Cursive"", isolate=""brown""
+)
+textext.select_part(""brown"").set_fill(LIGHT_BROWN)
+self.add(textext)
+
+Result
+
+
+58 tex templates in total are provided in manimlib/tex_templates.yml. Users may feel free to add whatever template they want to this file for own usage. These templates can simply be accessed by passing their names to template attribute. By default, template is an empty string, in which case manim will use the default template specified at style.tex_template in the configuration file. Currently this key replaces all 4 attributes under tex key. The original template files (tex_template.tex and ctex_template.tex) are now removed, and are now included as default and ctex for backward compatibility.
+Users may add preambles specifically to a Tex or MTex instance via additional_preamble attribute, which is also an empty string by default.
+Frankly speaking, I'm a bit worried if having so much packages imported in a tex file could cause side effects. For instance, the ""\vdots"" command doesn't show up in the final svg (not caused by questionable parsing of svgelements; even the path is not defined). This issue may be caused by the line ""\usepackage[T1]{fontenc}"" (which I'm not sure). The point is, I would suggest using a template with only a few elementary packages imported, and add packages for specific Tex instances. Manim Community is also concerned about such an issue (ManimCommunity/manim#2889). That's why basic, empty templates show up in the tex_templates.yml. I also collected all 52 templates from the Community Edition and sorted them alphabetically.
+New protect attribute for StringMobject
+Users may use protect attribute to specify some substrings that are not expected to be broken up.
+Demo
+protected_tex = MTex(
+    ""\\begin{bmatrix} a & b \\\\ - b & a \\end{bmatrix}"",
+    tex_to_color_map={""a"": GREEN, ""b"": RED},
+    protect=""{bmatrix}""
+)
+self.add(protected_tex)
+
+Result
+
+
+In the demonstration above, without specifying protect=""{bmatrix}"", all of letter bs (including ones in the word bmatrix) will be isolated. In fact, MTex can automatically handle most cases --- it protects all substrings matched by the regex expression \\([a-zA-Z]+|.). The case above is tricky so that we shall tackle it manually. Sidenote, this attribute only prevents from cutting halfway at protected spans, so isolating ""\\begin{bmatrix}"" in the example above is still allowed (but nobody will do so, unless on purpose).
+protect attribute should be of type Selector, the same as isolate.
+Add back disable_ligatures attribute in MarkupText and Text
+For backward compatibility. Default to be True.
+Features removed
+Removes is_markup attribute for MarkupText and Text
+This attribute is not expected to be altered up to the class --- so why not remove it?
+No longer allows passing in a 2-tuple to tex_template attribute in MTex
+This feature was originally added in #1795 in order to escape isolating substrings in, e.g., \begin{table}{ccc}, \end{table} (which cannot be solved by passing tex_environment=""table""). Now we can make use of protect attribute to overcome this problem in an elegant way.
+No longer adjusts spans in StringMobject
+In the previous implementation, I designed an algorithm to handle spans pointing to crazy substrings, like ""a{b"". From now on, such spans will receive warnings and will no longer be adjusted. Similarly, partly overlapping substrings now lead to warnings instead of exceptions.
+Issues fixed
+#1760 After using math font package in tex_template of ManimGL, the TexText cannot displayed correctly
+This issue is caused since svgelements cannot parse use elements whose referred elements are defined afterwards. This is fixed by expanding all use elements in svg before parsing.
+#1792 Cannot show text in Ubuntu20.04
+Text uses the line_height attribute to control the line spacing, which requires pango with version >=1.50. The version of pango is now checked to decide whether to insert this attribute.
+#1848 Fix: can't parse <u>Boolean Operation</u>
+Fixed passingly in the refactory.
+#1850 ValueError: Invalid markup string - when entering characters in Interactive mode
+The font_size attribute in a markup tag can only be integers. This issue is fixed by inserting a round function.
+Other bugs
+MTex.get_part_by_tex and Text.get_part_by_text miss **kwargs when passing attributes.
+manimlib/animation/indication.py file misses imports from manimlib.constants.
+Proposed changes
+
+M manimlib/animation/indication.py: Add missed imports.
+M manimlib/animation/transform_matching_parts.py: Refactor TransformMatchingStrings.
+M manimlib/default_config.yml: Add tex_template attribute; remove tex items.
+M manimlib/mobject/svg/mtex_mobject.py: Add template, additional_preamble attributes; refactor MTex according to StringMobject.
+M manimlib/mobject/svg/string_mobject.py: Refactor StringMobject.
+M manimlib/mobject/svg/svg_mobject.py: Expand use elements beforehand; use hash_string function.
+M manimlib/mobject/svg/tex_mobject.py: Add template, additional_preamble attributes.
+M manimlib/mobject/svg/text_mobject.py: Remove is_markup attribute; refactor Text according to StringMobject.
+A manimlib/tex_templates.yml: Add preambles of tex templates.
+R manimlib/tex_templates/.: Remove tex template files.
+M manimlib/utils/init_config.py: Alter according to default_config.yml.
+M manimlib/utils/simple_functions.py: Add hash_string function.
+M manimlib/utils/tex_file_writing.py: Make manim able to generate tex files based on specific preamble; remove tex_hash function.",3,2
+1820,2022-05-24T14:44:04Z,2022-05-25T06:12:54Z,2022-05-25T06:12:54Z,1,2,0,"Motivation
+Fix a bug in TransformMatchingStrings class.
+Proposed changes
+
+M manimlib/animation/transform_matching_parts.py: Add back mismatched indices.",2,0
+1858,2022-08-27T04:18:34Z,2022-11-03T22:44:32Z,2022-11-03T22:44:32Z,1,12,3,"I've noticed that if no scene names are passed to manimgl explicitly, then the rendering progress bar will not be shown correctly.
+To showcase the bug, suppose we have a file with only one Scene class in it:
+# my_scene.py
+def MyScene(Scene):
+    def construct(self):
+        # some animations
+# end of file
+And I'd like to render it using manimgl. Then both of the following command line should work:
+$ manimgl my_scene.py MyScene -w
+$ manimgl my_scene.py -w
+as there's only one scene in the file and the scene name can be omitted.
+But when I omit the scene name(second case), the progress bar by SceneFileWriter during rendering will disappear/can't show correctly, which is annoying you're rendering long and intricate scenes.
+Motivation
+Fix the bug with rendering progress bar as shown above.
+I believe that this is a bug. But if it's an intended feature, please let me know.
+Proposed changes
+The bug arises from the SceneFileWriter and extract_scene module.
+In SceneFileWriter, if its requested to open movie pipe and, total frames of the Scene is counted to be >0, then it will show progress display.
+(See scene_file_writer.py SceneFileWriter.open_movie_pipe(...) func.)
+However, in extract_scene.get_scenes_to_render(...), if scene to render are passed from command line (selected from the prompt instead, or so), total frames of the scene is NOT counted. This makes SceneFileWriter confused and not display the rendering progress bar.
+To fix this, I change extract_scene.get_scenes_to_render(...) so that all paths of it will count total_frames for the SceneFileWriter. (See codes for details)
+Test
+The test code is oriented on command line for this bug.
+Code:
+First we have some scenes to render:
+# my_scene.py
+def MyScene(Scene):
+    def construct(self):
+        r = Rectangle()
+        self.add(r)
+        # some arbitrary animations to render
+        self.play(r.animate.shift(RIGHT))
+        self.play(r.animate.shift(LEFT*3), run_time=3)
+Then we call manimgl to render it on command line:
+$ manimgl my_scene.py MyScene -w
+$ manimgl my_scene.py -w
+Normal window presenting mode is not broken, which can be shown by:
+$ manimgl my_scene.py [MyScene]
+Result:
+In both case, rendering progress bar like this will appear:
+Rendering MyScene.mp4 (1 MoveToTarget):  26%|##      | 31/120 [00:03<00:15,  5.71it/s]
+
+Before bug fix, ONLY the first command line will have the progress bar.",3,0
+1862,2022-09-11T03:15:17Z,2022-09-13T19:42:36Z,2022-09-13T19:42:36Z,2,33,4,"Motivation
+
+With the pr of manim community, we can easily use .animate method to build Animation, but we cannot change the arguments of Animations. With the set_anim_args method, we can change args of Animation. Since _AnimationBuilder will build it into MoveToTarget, we can also use path_arc or path_func and so on.
+Test
+class TestAnimateArgs(Scene):
+    def construct(self) -> None:
+        a = Circle().to_edge(LEFT)
+        anim_builder = (
+            a
+            .animate
+            .scale(3)
+            .to_edge(RIGHT)
+            .set_anim_args(run_time=3, time_span=(1, 2), rate_func=double_smooth, path_arc=PI/2)
+        )
+        self.play(anim_builder)
+
+  
+    
+    
+
+    TestAnimateArgs.mp4",3,2
+1872,2022-09-30T20:29:41Z,2022-10-01T08:07:09Z,2022-10-01T08:07:09Z,2,2,2,"Motivation
+I fixed a typo in the documentation
+Proposed changes
+I fixed a single typo ""termnial"" in the documentation.
+Test
+It is a documentation change",2,1
+1913,2022-11-21T15:40:04Z,2022-12-13T06:57:23Z,2022-12-13T06:57:23Z,1,1,1,"Proposed changes
+
+
+lenth -> length",2,0
+1927,2022-12-12T14:42:25Z,2022-12-13T06:57:37Z,2022-12-13T06:57:37Z,1,2,2,"In manim cairo-backend, line 127 and 131,
+Fixing typo: ""ipmlemented"" to ""implemented"" ; ""understanable"" to ""understandable""",2,1
+1932,2022-12-17T21:19:56Z,2022-12-18T18:27:15Z,2022-12-18T18:27:15Z,77,3549,7020,"Removing usage of CONFIG dicts, handling that state either in init parameters are class variables, depending on which makes more sense to the user.
+Add clearer type hints throughout
+A few bits of refactoring and cleanup throughout the library
+Removing old or unused constructs which were specific to 3b1b videos, or old practices.",3,3
+1962,2023-01-12T11:05:59Z,2023-01-13T16:09:14Z,2023-01-13T16:09:14Z,3,3,3,"Motivation
+When using tqdm in the context of Jupyter Notebooks, the CLI version does not cut it.
+Proposed changes
+For this reason, the tqdm authors created the tqdm.auto dispatching, which displays an optimal version of tqdm for either CLI or jupyter notebooks depending on the context.
+Test
+Using the package in a CLI or Jupyter Notebook environment will display a different loading bar.",2,0
+1969,2023-01-22T20:32:17Z,2023-01-23T03:36:51Z,2023-01-23T03:36:51Z,1,1,1,"The type union operator wasn't added until Python 3.10. This was added a few days ago, which caused manim to crash with a TypeError for earlier versions of Python. This CL causes the code to do the same thing, but it works for <3.10 versions of Python too.
+Fixes #1968",2,0
+2028,2023-05-26T10:58:06Z,2024-01-01T20:55:18Z,2024-01-01T20:55:18Z,1,26,0,"Hi Team Manim
+Added ffmpeg install in docs
+Hi, I am Rudransh Bharwdaj a developer. When I was making some project I face many problem while installing ffmpeg and I realized that many other developers are also facing this issue so I added how to install ffmpeg for windows, macos, and linux.
+If there is any correction please tell me i will solve it .
+Thank you
+Excited for SoME3",3,8

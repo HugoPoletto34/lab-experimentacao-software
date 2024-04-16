@@ -1,0 +1,1537 @@
+number,created_at,merged_at,closed_at,files,additions,deletions,body_text,participants,comments
+314,2018-02-07T23:33:32Z,2018-02-09T01:50:00Z,2018-02-09T01:50:00Z,1,2,1,"Upterm is a terminal based on electron and black screen and when clubbed with oh my zshell it becomes extremely powerful.
+Added it under Command Line tools",2,3
+333,2018-03-31T06:05:13Z,2018-03-31T09:10:55Z,2018-03-31T09:10:55Z,1,237,239,,2,1
+340,2018-04-02T16:13:51Z,2018-04-02T22:48:56Z,2018-04-02T22:48:56Z,1,1,2,"NOTE: A similar PR may already be submitted! Please search among the Pull request before creating one.
+Types of Changes
+What types of changes does your PR introduce? Put an x in all boxes that apply
+
+ New addition to list
+ Fixing bug in existing item in list
+ Removing item from list
+ Changing structure (organization) of list
+
+Proposed Changes
+Removed duplicate rishiqing entry.
+PR Checklist
+
+ I have read the CONTRIBUTING guide
+ I have explained why this PR is important
+ I have added necessary documentation (if appropriate)
+
+Further Comments
+If this is a relatively large or complex change, kick off the discussion by explaining why you chose the solution you did and what alternatives you considered, etc...",3,2
+343,2018-04-03T15:37:26Z,,2018-04-04T01:07:15Z,2,2,0,,2,0
+351,2018-04-15T12:42:15Z,2018-04-16T16:19:42Z,2018-04-16T16:19:42Z,1,1,0,"Shifty is a menu bar app that adds many of the controls from f.lux, including website shifting and an automatic dark mode.
+Types of Changes
+
+ New addition to list
+ Fixing bug in existing item in list
+ Removing item from list
+ Changing structure (organization) of list
+
+Proposed Changes
+Shifty is a menu bar app that adds many of the controls from f.lux including website shifting and an automatic dark mode.
+PR Checklist
+
+ I have read the CONTRIBUTING guide
+ I have explained why this PR is important
+ I have added necessary documentation (if appropriate)",4,5
+352,2018-04-15T13:47:16Z,2018-04-15T15:18:22Z,2018-04-15T15:18:22Z,1,0,1,"Types of Changes
+What types of changes does your PR introduce? Put an x in all boxes that apply
+
+ New addition to list
+ Fixing bug in existing item in list
+ Removing item from list
+ Changing structure (organization) of list
+
+Proposed Changes
+OpenEmu was entered twice in this list, I deleted the entry in System Related Tools which was misplaced anyway.
+PR Checklist
+
+ I have read the CONTRIBUTING guide
+ I have explained why this PR is important
+ I have added necessary documentation (if appropriate)",2,1
+360,2018-04-19T00:11:59Z,,2018-04-19T02:41:02Z,1,0,4,"Types of Changes
+
+ New addition to list
+ Fixing bug in existing item in list
+ Removing item from list
+ Changing structure (organization) of list
+
+Proposed Changes
+OpenEmu and gaming in general are completely unrelated to what this repo was created for, gathering apps helpful for developers and designers.
+PR Checklist
+Put an x in the boxes once you've completed each step. You can also fill these out after creating the PR. If you're unsure about any of them, don't hesitate to ask. We're here to help! This is simply a reminder of what we are going to look for before merging your code.
+
+ I have read the CONTRIBUTING guide
+ I have explained why this PR is important
+ I have added necessary documentation (if appropriate)",2,1
+379,2018-06-12T16:56:59Z,2018-06-13T01:28:26Z,2018-06-13T01:28:26Z,1,1,0,"Carol is a minimal and beautiful lyrics app for macOS.
+Types of Changes
+What types of changes does your PR introduce? Put an x in all boxes that apply
+
+ New addition to list
+ Fixing bug in existing item in list
+ Removing item from list
+ Changing structure (organization) of list
+
+Proposed Changes
+Describe each of your changes here to communicate to the maintainers why we should accept this pull request.
+
+
+If you're adding something to the list, be sure to explain why it should be added.
+Carol is a light-weight menu bar app for macOS which shows lyrics on demand. It has a minimal and beautiful design. It supports Apple Music and Spotify. It also uses some macOS specific UI elements like Visual Effect View with Blur and Vibrancy.
+
+
+If you're fixing a bug or resolving a feature request, be sure to link to that issue.
+
+
+PR Checklist
+Put an x in the boxes once you've completed each step. You can also fill these out after creating the PR. If you're unsure about any of them, don't hesitate to ask. We're here to help! This is simply a reminder of what we are going to look for before merging your code.
+
+ I have read the CONTRIBUTING guide
+ I have explained why this PR is important
+ I have added necessary documentation (if appropriate)
+
+Further Comments
+If this is a relatively large or complex change, kick off the discussion by explaining why you chose the solution you did and what alternatives you considered, etc...",3,0
+380,2018-06-14T15:13:25Z,2018-06-14T16:29:21Z,2018-06-14T16:29:21Z,1,1,0,"Types of Changes
+What types of changes does your PR introduce? Put an x in all boxes that apply
+
+ New addition to list
+
+Proposed Changes
+Describe each of your changes here to communicate to the maintainers why we should accept this pull request.
+Perhaps the best HTTP client command line tool.
+PR Checklist
+Put an x in the boxes once you've completed each step. You can also fill these out after creating the PR. If you're unsure about any of them, don't hesitate to ask. We're here to help! This is simply a reminder of what we are going to look for before merging your code.
+
+ I have read the CONTRIBUTING guide
+ I have explained why this PR is important
+ I have added necessary documentation (if appropriate)
+
+Further Comments",3,1
+383,2018-06-14T17:46:35Z,,2018-06-14T20:42:15Z,1,3,1,"Types of Changes
+What types of changes does your PR introduce? Put an x in all boxes that apply
+
+ New addition to list
+ Fixing bug in existing item in list
+ Removing item from list
+ Changing structure (organization) of list
+
+Proposed Changes
+A nice app that allows you to check a piece of the phrases, words, and sentences (supports wildcards) against existing text bases like The New York Times, Encyclopedia Britannica ...
+PR Checklist
+Put an x in the boxes once you've completed each step. You can also fill these out after creating the PR. If you're unsure about any of them, don't hesitate to ask. We're here to help! This is simply a reminder of what we are going to look for before merging your code.
+
+ I have read the CONTRIBUTING guide
+ I have explained why this PR is important
+ I have added necessary documentation (if appropriate)
+
+Further Comments",2,1
+400,2018-06-21T22:55:48Z,2018-06-22T02:59:18Z,2018-06-22T02:59:18Z,1,1,0,"NOTE: A similar PR may already be submitted! Please search among the Pull request before creating one.
+Types of Changes
+What types of changes does your PR introduce? Put an x in all boxes that apply
+
+ New addition to list
+ Fixing bug in existing item in list
+ Removing item from list
+ Changing structure (organization) of list
+
+Proposed Changes
+It is a useful tool to prevent people from closing applications by mistake.
+
+If you're adding something to the list, be sure to explain why it should be added.
+If you're fixing a bug or resolving a feature request, be sure to link to that issue.
+
+PR Checklist
+Put an x in the boxes once you've completed each step. You can also fill these out after creating the PR. If you're unsure about any of them, don't hesitate to ask. We're here to help! This is simply a reminder of what we are going to look for before merging your code.
+
+ I have read the CONTRIBUTING guide
+ I have explained why this PR is important
+ I have added necessary documentation (if appropriate)
+
+Further Comments
+If this is a relatively large or complex change, kick off the discussion by explaining why you chose the solution you did and what alternatives you considered, etc...",2,0
+405,2018-06-23T18:56:07Z,2018-06-24T23:57:00Z,2018-06-24T23:57:00Z,2,13,8,"NOTE: A similar PR may already be submitted! Please search among the Pull request before creating one.
+Types of Changes
+What types of changes does your PR introduce? Put an x in all boxes that apply
+
+ New addition to list
+ Fixing bug in existing item in list
+ Removing item from list
+ Changing structure (organization) of list
+
+Proposed Changes
+
+Add Dockstation, it's a Mac Application with beautiful UI.
+Add Portainer, a web UI which supports batch operation for Docker images, containers, volumes, stacks, networks. And it allows remote control for docker machines.
+
+Overall both tools are awesome and active maintained.
+
+Add Chinese version Docker
+Fix style issues (trailing spaces)
+
+Describe each of your changes here to communicate to the maintainers why we should accept this pull request.
+PR Checklist
+Put an x in the boxes once you've completed each step. You can also fill these out after creating the PR. If you're unsure about any of them, don't hesitate to ask. We're here to help! This is simply a reminder of what we are going to look for before merging your code.
+
+ I have read the CONTRIBUTING guide
+ I have explained why this PR is important
+ I have added necessary documentation (if appropriate)
+
+Further Comments
+If this is a relatively large or complex change, kick off the discussion by explaining why you chose the solution you did and what alternatives you considered, etc...",2,0
+407,2018-06-24T13:47:56Z,2018-06-28T00:14:12Z,2018-06-28T00:14:12Z,2,1,2,"Types of Changes
+What types of changes does your PR introduce? Put an x in all boxes that apply
+
+ New addition to list
+ Fixing bug in existing item in list
+ Removing item from list
+ Changing structure (organization) of list
+
+Proposed Changes
+Cloud-based password manager with award-winning design, one of the top players.
+PR Checklist
+Put an x in the boxes once you've completed each step. You can also fill these out after creating the PR. If you're unsure about any of them, don't hesitate to ask. We're here to help! This is simply a reminder of what we are going to look for before merging your code.
+
+ I have read the CONTRIBUTING guide
+ I have explained why this PR is important
+ I have added necessary documentation (if appropriate)
+
+Further Comments",3,7
+408,2018-06-24T14:04:50Z,2018-06-24T23:49:52Z,2018-06-24T23:49:52Z,1,1,0,"Types of Changes
+What types of changes does your PR introduce? Put an x in all boxes that apply
+
+ New addition to list
+ Fixing bug in existing item in list
+ Removing item from list
+ Changing structure (organization) of list
+
+Proposed Changes
+Describe each of your changes here to communicate to the maintainers why we should accept this pull request.
+Cross-platform 2FA token manager that syncs data across your devices (including mobile ones) and backs up to cloud.
+PR Checklist
+Put an x in the boxes once you've completed each step. You can also fill these out after creating the PR. If you're unsure about any of them, don't hesitate to ask. We're here to help! This is simply a reminder of what we are going to look for before merging your code.
+
+ I have read the CONTRIBUTING guide
+ I have explained why this PR is important
+ I have added necessary documentation (if appropriate)
+
+Further Comments",2,0
+409,2018-06-24T15:53:35Z,2018-06-24T23:44:52Z,2018-06-24T23:44:52Z,2,23,96,"NOTE: A similar PR may already be submitted! Please search among the Pull request before creating one.
+Types of Changes
+What types of changes does your PR introduce? Put an x in all boxes that apply
+
+ New addition to list
+ Fixing bug in existing item in list
+ Removing item from list
+ Changing structure (organization) of list
+
+Proposed Changes
+Describe each of your changes here to communicate to the maintainers why we should accept this pull request.
+Resolves #392
+PR Checklist
+Put an x in the boxes once you've completed each step. You can also fill these out after creating the PR. If you're unsure about any of them, don't hesitate to ask. We're here to help! This is simply a reminder of what we are going to look for before merging your code.
+
+ I have read the CONTRIBUTING guide
+ I have explained why this PR is important
+ I have added necessary documentation (if appropriate)
+
+Further Comments
+Remove items with no English docs/UI and locale-specific items. Changes all links to corresponding English versions",2,0
+418,2018-06-30T02:07:02Z,2018-06-30T03:28:16Z,2018-06-30T03:28:16Z,1,5,0,"Types of Changes
+What types of changes does your PR introduce? Put an x in all boxes that apply
+
+ New addition to list
+ Fixing bug in existing item in list
+ Removing item from list
+ Changing structure (organization) of list
+
+Proposed Changes
+Add Podcasts section
+PR Checklist
+Put an x in the boxes once you've completed each step. You can also fill these out after creating the PR. If you're unsure about any of them, don't hesitate to ask. We're here to help! This is simply a reminder of what we are going to look for before merging your code.
+
+ I have read the CONTRIBUTING guide
+ I have explained why this PR is important
+ I have added necessary documentation (if appropriate)
+
+Further Comments
+Some lists include sections for books, podcasts and etc ... (like this one includes links to app stores and discussion sites).
+Would be nice to have a podcasts section here, especially taking into account that many Apple related podcasts are analytical and mainly discuss rumors.
+Mac Power Users is a productivity-oriented one. They discuss applications, MacOS, tips, work and integration with other Apple devices, interview software authors and just well-known in the community people (productivity geeks, artists who use Apple professionally ...).
+There is quite a big community built around the podcast (sometimes the authors organize big events). The authors blog, write books and create video tutorials about Apple apps and OSes.",3,1
+425,2018-07-13T20:16:12Z,2018-07-15T22:32:40Z,2018-07-15T22:32:40Z,1,1,0,"Types of Changes
+What types of changes does your PR introduce? Put an x in all boxes that apply
+
+ New addition to list
+ Fixing bug in existing item in list
+ Removing item from list
+ Changing structure (organization) of list
+
+Proposed Changes
+Describe each of your changes here to communicate to the maintainers why we should accept this pull request.
+Nice app that helps you to keep your battery healthy. It's quite popular and has a lot of good feedback
+PR Checklist
+Put an x in the boxes once you've completed each step. You can also fill these out after creating the PR. If you're unsure about any of them, don't hesitate to ask. We're here to help! This is simply a reminder of what we are going to look for before merging your code.
+
+ I have read the CONTRIBUTING guide
+ I have explained why this PR is important
+ I have added necessary documentation (if appropriate)
+
+Further Comments",2,0
+428,2018-07-16T16:00:05Z,2018-07-20T02:54:22Z,2018-07-20T02:54:22Z,1,11,13,"Types of Changes
+What types of changes does your PR introduce? Put an x in all boxes that apply
+
+ New addition to list
+ Fixing bug in existing item in list
+ Removing item from list
+ Changing structure (organization) of list
+
+Proposed Changes
+Describe each of your changes here to communicate to the maintainers why we should accept this pull request.
+
+Update brackets description.
+Move non IDEs from IDEs section.
+Remove WebStorm plugins - the list wasn't full and if try to make it full the section will be really bloated
+Add Toolbox app and organize all JetBrains IDEs under it
+Add GoLang IDE
+Update Deco IDE link to a new one
+Update IntellJ description - the site suggests that it's an IDE for not only Java.
+
+PR Checklist
+Put an x in the boxes once you've completed each step. You can also fill these out after creating the PR. If you're unsure about any of them, don't hesitate to ask. We're here to help! This is simply a reminder of what we are going to look for before merging your code.
+
+ I have read the CONTRIBUTING guide
+ I have explained why this PR is important
+ I have added necessary documentation (if appropriate)
+
+Further Comments
+The final changeset is kind of bigger than I expected + faced with few issues. I think would be great to discuss them (maybe even in separate GitHub issues) and come up with some conventions:
+
+There are few ""sublists"" in this list (sublime plugins, WebStorm plugins, docker tools ...) for all them there are dedicated awesome lists, which provide more comprehensive and updated information. Would be nice to leverege this opportunity to declutter this list and at the same time provide better info. Perhaphs we can add a new icon with a link to a corresponding list
+It's hard to decide if a product is OSS or free . For example, IntelliJ IDEA is free and open-source. But they have IDEA Ultimate which is not but, basically, it's the same product with additional features. . Would be great to decided if we want to put all ""versions"" of the product, introduce more icons, use the free icon if product provides at least something for free ...
+Some applications are free under some conditions (e.g. for students or OSS projects). Again would be nice to have a convention for that (do we need to specify it all? do we need icons ? do we use standart wording? ...)",3,2
+432,2018-07-23T16:40:33Z,2018-07-23T22:03:04Z,2018-07-23T22:03:05Z,1,1,0,"Types of Changes
+What types of changes does your PR introduce? Put an x in all boxes that apply
+
+ New addition to list
+ Fixing bug in existing item in list
+ Removing item from list
+ Changing structure (organization) of list
+
+Proposed Changes
+Describe each of your changes here to communicate to the maintainers why we should accept this pull request.
+Nice, and probably, the only haskell IDE. Very useful for exploration purposes.
+For some reason the app store name is different, but everywhere else its name is 'Add Haskell for Mac'
+The description is copied from the site.
+PR Checklist
+Put an x in the boxes once you've completed each step. You can also fill these out after creating the PR. If you're unsure about any of them, don't hesitate to ask. We're here to help! This is simply a reminder of what we are going to look for before merging your code.
+
+ I have read the CONTRIBUTING guide
+ I have explained why this PR is important
+ I have added necessary documentation (if appropriate)
+
+Further Comments",2,0
+433,2018-07-26T14:52:09Z,2018-07-27T01:14:24Z,2018-07-27T01:14:25Z,1,1,0,"Types of Changes
+
+ New addition to list
+ Fixing bug in existing item in list
+ Removing item from list
+ Changing structure (organization) of list
+
+PR Checklist
+
+ I have read the CONTRIBUTING guide
+ I have explained why this PR is important
+ I have added necessary documentation (if appropriate)",3,0
+435,2018-07-28T13:21:13Z,2018-07-28T19:44:00Z,2018-07-28T19:44:00Z,1,1,0,"Types of Changes
+
+ New addition to list
+
+Proposed Changes
+Joplin is a nice open source note taking and to-do application with synchronization capabilities. I really like the awesome Markdown support, the encrypted synchronization, the cross platform support and also the design.
+PR Checklist
+
+ I have read the CONTRIBUTING guide
+ I have explained why this PR is important
+ I have added necessary documentation (if appropriate)",2,1
+470,2018-10-04T14:03:35Z,2018-10-05T04:52:49Z,2018-10-05T04:52:49Z,1,1,0,"NOTE: A similar PR may already be submitted! Please search among the Pull request before creating one.
+Types of Changes
+What types of changes does your PR introduce? Put an x in all boxes that apply
+
+ New addition to list
+ Fixing bug in existing item in list
+ Removing item from list
+ Changing structure (organization) of list
+
+Proposed Changes
+Describe each of your changes here to communicate to the maintainers why we should accept this pull request.
+Added Dozer to the list because it unclutters the menubar which gives MacOS a cleaner look. Also it is open source.
+PR Checklist
+Put an x in the boxes once you've completed each step. You can also fill these out after creating the PR. If you're unsure about any of them, don't hesitate to ask. We're here to help! This is simply a reminder of what we are going to look for before merging your code.
+
+ I have read the CONTRIBUTING guide
+ I have explained why this PR is important
+ I have added necessary documentation (if appropriate)
+
+Further Comments
+If this is a relatively large or complex change, kick off the discussion by explaining why you chose the solution you did and what alternatives you considered, etc...",2,0
+475,2018-10-09T00:02:52Z,2018-10-09T01:27:41Z,2018-10-09T01:27:41Z,1,2,0,"NOTE: A similar PR may already be submitted! Please search among the Pull request before creating one.
+Types of Changes
+What types of changes does your PR introduce? Put an x in all boxes that apply
+
+ New addition to list
+ Fixing bug in existing item in list
+ Removing item from list
+ Changing structure (organization) of list
+
+Proposed Changes
+
+I would recommend adding bat as a fantastic command line tool that behaves like a drop in replacement for POSIX cat but also adds a really nice syntax highlighting, git integration, and a general user friendly interface.
+I would also recommend adding the_silver_searcher to the list as a great drop in replacement and alternative for ack, but with a very friendly and usable interface.
+
+PR Checklist
+Put an x in the boxes once you've completed each step. You can also fill these out after creating the PR. If you're unsure about any of them, don't hesitate to ask. We're here to help! This is simply a reminder of what we are going to look for before merging your code.
+
+ I have read the CONTRIBUTING guide
+ I have explained why this PR is important
+ I have added necessary documentation (if appropriate)
+
+Further Comments
+If this is a relatively large or complex change, kick off the discussion by explaining why you chose the solution you did and what alternatives you considered, etc...",2,1
+476,2018-10-09T19:33:51Z,2019-01-12T03:48:25Z,2019-01-12T03:48:25Z,1,1,0,"Treelo is an awesome app which let you create boards, lists, and cards and enable you to organize and prioritize your projects in a fun, flexible and rewarding way.
+I did a little improvement in the Loremify description, that I pushed before, because of the redundancy.
+
+NOTE: A similar PR may already be submitted! Please search among the Pull request before creating one.
+Types of Changes
+What types of changes does your PR introduce? Put an x in all boxes that apply
+
+ New addition to list
+ Fixing bug in existing item in list
+ Removing item from list
+ Changing structure (organization) of list
+
+Proposed Changes
+Describe each of your changes here to communicate to the maintainers why we should accept this pull request.
+
+If you're adding something to the list, be sure to explain why it should be added.
+If you're fixing a bug or resolving a feature request, be sure to link to that issue.
+
+PR Checklist
+Put an x in the boxes once you've completed each step. You can also fill these out after creating the PR. If you're unsure about any of them, don't hesitate to ask. We're here to help! This is simply a reminder of what we are going to look for before merging your code.
+
+ I have read the CONTRIBUTING guide
+ I have explained why this PR is important
+ I have added necessary documentation (if appropriate)
+
+Further Comments
+If this is a relatively large or complex change, kick off the discussion by explaining why you chose the solution you did and what alternatives you considered, etc...",3,1
+477,2018-10-10T10:35:55Z,2018-10-19T17:04:10Z,2018-10-19T17:04:10Z,1,1,0,"Cacher is a code snippet organizer for pro developers and their teams. It is a cross-platform, cloud-based app used to curate a snippet library.
+Features:
+
+Support for editing and viewing 100+ programming languages.
+Flexible color-coded labels to categorize snippets.
+Shareable snippet pages via Cacher's code-sharing community: snippets.cacher.io
+Team and organization features like shared libraries, notifications, role management and code reviews.
+Desktop clients for macOS, Windows and Linux.
+Full-featured web app: app.cacher.io
+
+
+
+NOTE: A similar PR may already be submitted! Please search among the Pull request before creating one.
+Types of Changes
+What types of changes does your PR introduce? Put an x in all boxes that apply
+
+ New addition to list
+ Fixing bug in existing item in list
+ Removing item from list
+ Changing structure (organization) of list
+
+Proposed Changes
+Describe each of your changes here to communicate to the maintainers why we should accept this pull request.
+
+If you're adding something to the list, be sure to explain why it should be added.
+If you're fixing a bug or resolving a feature request, be sure to link to that issue.
+
+PR Checklist
+Put an x in the boxes once you've completed each step. You can also fill these out after creating the PR. If you're unsure about any of them, don't hesitate to ask. We're here to help! This is simply a reminder of what we are going to look for before merging your code.
+
+ I have read the CONTRIBUTING guide
+ I have explained why this PR is important
+ I have added necessary documentation (if appropriate)
+
+Further Comments
+If this is a relatively large or complex change, kick off the discussion by explaining why you chose the solution you did and what alternatives you considered, etc...",4,1
+478,2018-10-11T21:40:28Z,2018-10-12T08:44:10Z,2018-10-12T08:44:10Z,1,1,0,"NOTE: A similar PR may already be submitted! Please search among the Pull request before creating one.
+Types of Changes
+What types of changes does your PR introduce? Put an x in all boxes that apply
+
+ New addition to list
+ Fixing bug in existing item in list
+ Removing item from list
+ Changing structure (organization) of list
+
+Proposed Changes
+Describe each of your changes here to communicate to the maintainers why we should accept this pull request.
+
+If you're adding something to the list, be sure to explain why it should be added.
+If you're fixing a bug or resolving a feature request, be sure to link to that issue.
+
+PR Checklist
+Put an x in the boxes once you've completed each step. You can also fill these out after creating the PR. If you're unsure about any of them, don't hesitate to ask. We're here to help! This is simply a reminder of what we are going to look for before merging your code.
+
+ I have read the CONTRIBUTING guide
+ I have explained why this PR is important
+ I have added necessary documentation (if appropriate)
+
+Further Comments
+If this is a relatively large or complex change, kick off the discussion by explaining why you chose the solution you did and what alternatives you considered, etc...",2,0
+479,2018-10-13T01:17:49Z,2018-10-13T18:18:17Z,2018-10-13T18:18:17Z,1,1,0,"NOTE: A similar PR may already be submitted! Please search among the Pull request before creating one.
+Types of Changes
+What types of changes does your PR introduce? Put an x in all boxes that apply
+
+ New addition to list
+ Fixing bug in existing item in list
+ Removing item from list
+ Changing structure (organization) of list
+
+Proposed Changes
+Describe each of your changes here to communicate to the maintainers why we should accept this pull request.
+
+If you're adding something to the list, be sure to explain why it should be added.
+If you're fixing a bug or resolving a feature request, be sure to link to that issue.
+
+PR Checklist
+Put an x in the boxes once you've completed each step. You can also fill these out after creating the PR. If you're unsure about any of them, don't hesitate to ask. We're here to help! This is simply a reminder of what we are going to look for before merging your code.
+
+ I have read the CONTRIBUTING guide
+ I have explained why this PR is important
+ I have added necessary documentation (if appropriate)
+
+Further Comments
+If this is a relatively large or complex change, kick off the discussion by explaining why you chose the solution you did and what alternatives you considered, etc...",2,2
+481,2018-10-18T06:38:21Z,2018-10-18T07:52:14Z,2018-10-18T07:52:14Z,1,1,0,"LuLu is the free macOS firewall that aims to block unauthorized (outgoing) network traffic
+Resolves: #480
+NOTE: A similar PR may already be submitted! Please search among the Pull request before creating one.
+Types of Changes
+What types of changes does your PR introduce? Put an x in all boxes that apply
+
+ New addition to list
+ Fixing bug in existing item in list
+ Removing item from list
+ Changing structure (organization) of list
+
+Proposed Changes
+Describe each of your changes here to communicate to the maintainers why we should accept this pull request.
+
+If you're adding something to the list, be sure to explain why it should be added.
+If you're fixing a bug or resolving a feature request, be sure to link to that issue.
+
+PR Checklist
+Put an x in the boxes once you've completed each step. You can also fill these out after creating the PR. If you're unsure about any of them, don't hesitate to ask. We're here to help! This is simply a reminder of what we are going to look for before merging your code.
+
+ I have read the CONTRIBUTING guide
+ I have explained why this PR is important
+ I have added necessary documentation (if appropriate)
+
+Further Comments
+If this is a relatively large or complex change, kick off the discussion by explaining why you chose the solution you did and what alternatives you considered, etc...",2,1
+483,2018-10-19T13:08:26Z,2018-10-19T17:00:00Z,2018-10-19T17:00:00Z,1,1,0,"NOTE: A similar PR may already be submitted! Please search among the Pull request before creating one.
+Types of Changes
+What types of changes does your PR introduce? Put an x in all boxes that apply
+
+ New addition to list
+ Fixing bug in existing item in list
+ Removing item from list
+ Changing structure (organization) of list
+
+Proposed Changes
+Describe each of your changes here to communicate to the maintainers why we should accept this pull request.
+
+Nozbe is a really nice app fully based on Getting Things Done methodology. Nozbe is available on all Apple devices. It is used by many ""Productivity Gurus"", like Michael Hyatt.
+
+PR Checklist
+Put an x in the boxes once you've completed each step. You can also fill these out after creating the PR. If you're unsure about any of them, don't hesitate to ask. We're here to help! This is simply a reminder of what we are going to look for before merging your code.
+
+ I have read the CONTRIBUTING guide
+ I have explained why this PR is important
+ I have added necessary documentation (if appropriate)
+
+Further Comments
+If this is a relatively large or complex change, kick off the discussion by explaining why you chose the solution you did and what alternatives you considered, etc...",2,0
+486,2018-10-20T18:11:58Z,2019-01-12T03:54:14Z,2019-01-12T03:54:14Z,1,2,1,,2,0
+488,2018-10-26T21:29:09Z,2018-11-16T03:19:30Z,2018-11-16T03:19:30Z,1,1,0,"Related to issue #323
+NOTE: A similar PR may already be submitted! Please search among the Pull request before creating one.
+Types of Changes
+What types of changes does your PR introduce? Put an x in all boxes that apply
+
+ New addition to list
+ Fixing bug in existing item in list
+ Removing item from list
+ Changing structure (organization) of list
+
+Proposed Changes
+Describe each of your changes here to communicate to the maintainers why we should accept this pull request.
+
+If you're adding something to the list, be sure to explain why it should be added.
+If you're fixing a bug or resolving a feature request, be sure to link to that issue.
+
+PR Checklist
+Put an x in the boxes once you've completed each step. You can also fill these out after creating the PR. If you're unsure about any of them, don't hesitate to ask. We're here to help! This is simply a reminder of what we are going to look for before merging your code.
+
+ I have read the CONTRIBUTING guide
+ I have explained why this PR is important
+ I have added necessary documentation (if appropriate)
+
+Further Comments
+If this is a relatively large or complex change, kick off the discussion by explaining why you chose the solution you did and what alternatives you considered, etc...",2,0
+652,2019-08-28T06:24:53Z,2019-08-29T14:46:04Z,2019-08-29T14:46:04Z,1,1,0,"NOTE: A similar PR may already be submitted! Please search among the Pull request before creating one.
+Types of Changes
+What types of changes does your PR introduce? Put an x in all boxes that apply
+
+ New addition to list
+ Fixing bug in existing item in list
+ Removing item from list
+ Changing structure (organization) of list
+
+Proposed Changes
+Describe each of your changes here to communicate to the maintainers why we should accept this pull request.
+
+If you're adding something to the list, be sure to explain why it should be added.
+
+nushell is modern shell with unique philosophy.
+It is pipe based and it is well implemented with Rust.
+I think it should be on the list. Just take a look if not have seen yet.
+https://github.com/nushell/nushell
+PR Checklist
+Put an x in the boxes once you've completed each step. You can also fill these out after creating the PR. If you're unsure about any of them, don't hesitate to ask. We're here to help! This is simply a reminder of what we are going to look for before merging your code.
+
+ I have read the CONTRIBUTING guide
+ I have explained why this PR is important
+ I have added necessary documentation (if appropriate)
+
+Further Comments
+If this is a relatively large or complex change, kick off the discussion by explaining why you chose the solution you did and what alternatives you considered, etc...",3,4
+657,2019-09-02T02:19:59Z,2019-09-02T04:45:31Z,2019-09-02T04:45:31Z,1,2,0,"Types of Changes
+What types of changes does your PR introduce? Put an x in all boxes that apply
+
+ New addition to list
+ Fixing bug in existing item in list
+ Removing item from list
+ Changing structure (organization) of list
+
+Proposed Changes
+I added both neo4j (graph database to the databases section) and HazeOver (productivity utility) to the productivity section. Both additions are good tools that I think deserve to be part of this great list.
+PR Checklist
+Put an x in the boxes once you've completed each step. You can also fill these out after creating the PR. If you're unsure about any of them, don't hesitate to ask. We're here to help! This is simply a reminder of what we are going to look for before merging your code.
+
+ I have read the CONTRIBUTING guide
+ I have explained why this PR is important
+ I have added necessary documentation (if appropriate)",2,0
+684,2019-10-22T15:33:30Z,2019-10-27T13:36:37Z,2019-10-27T13:36:37Z,2,2,0,"NOTE: A similar PR may already be submitted! Please search among the Pull request before creating one.
+Types of Changes
+What types of changes does your PR introduce? Put an x in all boxes that apply
+
+ New addition to list
+ Fixing bug in existing item in list
+ Removing item from list
+ Changing structure (organization) of list
+
+Proposed Changes
+Describe each of your changes here to communicate to the maintainers why we should accept this pull request.
+Hungrymark is very useful for collection bookmarks of your focus things like files, folders, and webs.  and you can fast access these bookmarks
+PR Checklist
+Put an x in the boxes once you've completed each step. You can also fill these out after creating the PR. If you're unsure about any of them, don't hesitate to ask. We're here to help! This is simply a reminder of what we are going to look for before merging your code.
+
+ I have read the CONTRIBUTING guide
+ I have explained why this PR is important
+ I have added necessary documentation (if appropriate)
+
+Further Comments
+If this is a relatively large or complex change, kick off the discussion by explaining why you chose the solution you did and what alternatives you considered, etc...",2,0
+704,2019-11-20T02:10:09Z,2019-11-20T11:52:52Z,2019-11-20T11:52:52Z,1,1,0,"NOTE: A similar PR may already be submitted! Please search among the Pull request before creating one.
+Types of Changes
+What types of changes does your PR introduce? Put an x in all boxes that apply
+
+ New addition to list
+ Fixing bug in existing item in list
+ Removing item from list
+ Changing structure (organization) of list
+
+Proposed Changes
+Describe each of your changes here to communicate to the maintainers why we should accept this pull request.
+Added Strategr - time management app, with pretty unique workflow.
+It helps you maximize your productivity, giving you the quickest and most effective way to time-box your day. More info on the website.
+PR Checklist
+Put an x in the boxes once you've completed each step. You can also fill these out after creating the PR. If you're unsure about any of them, don't hesitate to ask. We're here to help! This is simply a reminder of what we are going to look for before merging your code.
+
+ I have read the CONTRIBUTING guide
+ I have explained why this PR is important
+ I have added necessary documentation (if appropriate)
+
+Further Comments
+If this is a relatively large or complex change, kick off the discussion by explaining why you chose the solution you did and what alternatives you considered, etc...",2,0
+710,2019-11-30T02:59:54Z,2019-11-30T04:14:23Z,2019-11-30T04:14:23Z,1,1,1,"NOTE: A similar PR may already be submitted! Please search among the Pull request before creating one.
+Types of Changes
+What types of changes does your PR introduce? Put an x in all boxes that apply
+
+ New addition to list
+ Fixing bug in existing item in list
+ Removing item from list
+ Changing structure (organization) of list
+
+Proposed Changes
+Describe each of your changes here to communicate to the maintainers why we should accept this pull request.
+
+Fixed a quick typo I found reading through the list
+
+PR Checklist
+Put an x in the boxes once you've completed each step. You can also fill these out after creating the PR. If you're unsure about any of them, don't hesitate to ask. We're here to help! This is simply a reminder of what we are going to look for before merging your code.
+
+ I have read the CONTRIBUTING guide
+ I have explained why this PR is important
+ I have added necessary documentation (if appropriate)",2,0
+718,2020-01-16T21:53:23Z,2020-01-17T02:40:20Z,2020-01-17T02:40:20Z,1,10,11,"Microsoft released MS Edge today. This is the official release of the new Chromium based browser.
+NOTE: A similar PR may already be submitted! Please search among the Pull request before creating one.
+Types of Changes
+What types of changes does your PR introduce? Put an x in all boxes that apply
+
+ New addition to list
+ Fixing bug in existing item in list
+ Removing item from list
+ Changing structure (organization) of list
+
+Proposed Changes
+
+This is simply a change to the Edge Canary  entry which was a preview of the new Edge based on Chromium.
+Remove Yummy FTP. Yummy FTP's owner passed in 2018. No longer maintained.
+Fixed multiple broken links.
+
+PR Checklist
+Put an x in the boxes once you've completed each step. You can also fill these out after creating the PR. If you're unsure about any of them, don't hesitate to ask. We're here to help! This is simply a reminder of what we are going to look for before merging your code.
+
+ I have read the CONTRIBUTING guide
+ I have explained why this PR is important
+ I have added necessary documentation (if appropriate)
+
+Further Comments
+Main change was to add the Edge link. Ended up removing Yummy(no longer maintained), and fixing dead links.",4,2
+725,2020-01-25T10:35:48Z,,2020-02-11T03:00:28Z,2,2,0,"NOTE: A similar PR may already be submitted! Please search among the Pull request before creating one.
+Types of Changes
+What types of changes does your PR introduce? Put an x in all boxes that apply
+
+ New addition to list
+ Fixing bug in existing item in list
+ Removing item from list
+ Changing structure (organization) of list
+
+Proposed Changes
+I add Bob a translating software in README and README-zh, I have been using it for a while, I find there seems no PR to address that. Also, the developer adds an issue #714.
+
+Bob - A translate software for Mac, support translate the selected text and screenshot translation with a convenient keyboard shortcut.
+
+PR Checklist
+Put an x in the boxes once you've completed each step. You can also fill these out after creating the PR. If you're unsure about any of them, don't hesitate to ask. We're here to help! This is simply a reminder of what we are going to look for before merging your code.
+
+ I have read the CONTRIBUTING guide
+ I have explained why this PR is important
+ I have added necessary documentation (if appropriate)
+
+Further Comments
+If this is a relatively large or complex change, kick off the discussion by explaining why you chose the solution you did and what alternatives you considered, etc...",3,0
+733,2020-02-12T09:36:13Z,2020-02-13T01:34:39Z,2020-02-13T01:34:39Z,1,1,0,"NOTE: A similar PR may already be submitted! Please search among the Pull request before creating one.
+Types of Changes
+What types of changes does your PR introduce? Put an x in all boxes that apply
+
+ New addition to list
+ Fixing bug in existing item in list
+ Removing item from list
+ Changing structure (organization) of list
+
+Proposed Changes
+Describe each of your changes here to communicate to the maintainers why we should accept this pull request.
+
+
+If you're adding something to the list, be sure to explain why it should be added.
+
+
+Dato replaces the system menu bar clock with something much more useful. It gives you a calendar, calendar events, and time zones. It's a popular app that people seem to love.
+It currently has 5/5 stars in the US App Store: https://apps.apple.com/us/app/dato/id1470584107?mt=12
+Disclaimer: I'm the author.
+PR Checklist
+Put an x in the boxes once you've completed each step. You can also fill these out after creating the PR. If you're unsure about any of them, don't hesitate to ask. We're here to help! This is simply a reminder of what we are going to look for before merging your code.
+
+ I have read the CONTRIBUTING guide
+ I have explained why this PR is important
+ I have added necessary documentation (if appropriate)",2,1
+765,2020-04-06T12:52:26Z,,2022-07-29T16:51:00Z,1,2,0,"NOTE: A similar PR may already be submitted! Please search among the Pull request before creating one.
+Types of Changes
+What types of changes does your PR introduce? Put an x in all boxes that apply
+
+ New addition to list
+ Fixing bug in existing item in list
+ Removing item from list
+ Changing structure (organization) of list
+
+Proposed Changes
+Describe each of your changes here to communicate to the maintainers why we should accept this pull request.
+
+If you're adding something to the list, be sure to explain why it should be added.
+If you're fixing a bug or resolving a feature request, be sure to link to that issue.
+
+PR Checklist
+Put an x in the boxes once you've completed each step. You can also fill these out after creating the PR. If you're unsure about any of them, don't hesitate to ask. We're here to help! This is simply a reminder of what we are going to look for before merging your code.
+
+ I have read the CONTRIBUTING guide
+ I have explained why this PR is important
+ I have added necessary documentation (if appropriate)
+
+Further Comments
+If this is a relatively large or complex change, kick off the discussion by explaining why you chose the solution you did and what alternatives you considered, etc...",2,1
+811,2020-07-31T16:46:10Z,,2021-06-03T14:03:36Z,1,1,0,"Add Fluent Reader for RSS section.
+Types of Changes
+What types of changes does your PR introduce? Put an x in all boxes that apply
+
+ New addition to list
+ Fixing bug in existing item in list
+ Removing item from list
+ Changing structure (organization) of list
+
+Proposed Changes
+Describe each of your changes here to communicate to the maintainers why we should accept this pull request.
+Fluent Reader is an open sourced RSS reader that I recently found on github. I personally like it and want to share to others who is looking for a decent RSS reader.
+PR Checklist
+Put an x in the boxes once you've completed each step. You can also fill these out after creating the PR. If you're unsure about any of them, don't hesitate to ask. We're here to help! This is simply a reminder of what we are going to look for before merging your code.
+
+ I have read the CONTRIBUTING guide
+ I have explained why this PR is important
+ I have added necessary documentation (if appropriate)
+
+Further Comments
+N/A",2,0
+812,2020-08-11T14:22:39Z,2020-08-12T01:26:24Z,2020-08-12T01:26:24Z,1,1,0,"Types of Changes
+
+ New addition to list
+ Fixing bug in existing item in list
+ Removing item from list
+ Changing structure (organization) of list
+
+Proposed Changes
+Maccy is simple and clean.
+PR Checklist
+Put an x in the boxes once you've completed each step. You can also fill these out after creating the PR. If you're unsure about any of them, don't hesitate to ask. We're here to help! This is simply a reminder of what we are going to look for before merging your code.
+
+ I have read the CONTRIBUTING guide
+ I have explained why this PR is important
+ I have added necessary documentation (if appropriate)
+
+Further Comments
+If this is a relatively large or complex change, kick off the discussion by explaining why you chose the solution you did and what alternatives you considered, etc...",2,1
+826,2020-10-07T02:13:49Z,2020-10-08T01:07:16Z,2020-10-08T01:07:16Z,2,3,0,"zh-cn:增加hiddenbar、语雀文档
+en:增加语雀文档",2,4
+842,2020-11-25T10:38:40Z,2020-11-25T18:34:45Z,2020-11-25T18:34:45Z,1,1,1,"Hey @jaywcjlove
+just fixing a link.
+Cheers!
+NOTE: A similar PR may already be submitted! Please search among the Pull request before creating one.
+Types of Changes
+What types of changes does your PR introduce? Put an x in all boxes that apply
+
+ New addition to list
+ Fixing bug in existing item in list
+ Removing item from list
+ Changing structure (organization) of list
+
+Proposed Changes
+Describe each of your changes here to communicate to the maintainers why we should accept this pull request.
+Broken link fixed
+PR Checklist
+Put an x in the boxes once you've completed each step. You can also fill these out after creating the PR. If you're unsure about any of them, don't hesitate to ask. We're here to help! This is simply a reminder of what we are going to look for before merging your code.
+
+ I have read the CONTRIBUTING guide
+ I have explained why this PR is important
+ I have added necessary documentation (if appropriate)
+
+Further Comments
+If this is a relatively large or complex change, kick off the discussion by explaining why you chose the solution you did and what alternatives you considered, etc...",2,2
+874,2021-02-20T21:51:33Z,2021-02-21T15:32:57Z,2021-02-21T15:32:57Z,1,1,0,"Types of Changes
+What types of changes does your PR introduce? Put an x in all boxes that apply
+
+ New addition to list
+ Fixing bug in existing item in list
+ Removing item from list
+ Changing structure (organization) of list
+
+Proposed Changes
+Describe each of your changes here to communicate to the maintainers why we should accept this pull request.
+So Mac users considering buying a new Apple SIlicon or Apple M1 Mac can test specific apps from their current mac to confirm compatibility.
+PR Checklist
+Put an x in the boxes once you've completed each step. You can also fill these out after creating the PR. If you're unsure about any of them, don't hesitate to ask. We're here to help! This is simply a reminder of what we are going to look for before merging your code.
+
+ I have read the CONTRIBUTING guide
+ I have explained why this PR is important
+ I have added necessary documentation (if appropriate)
+
+Further Comments
+If this is a relatively large or complex change, kick off the discussion by explaining why you chose the solution you did and what alternatives you considered, etc...",2,0
+884,2021-04-01T05:48:53Z,2021-04-01T16:37:17Z,2021-04-01T16:37:17Z,1,1,0,"Added my open source app, linked. It's a journal/diary app.
+Types of Changes
+What types of changes does your PR introduce? Put an x in all boxes that apply
+
+ New addition to list
+
+PR Checklist
+Put an x in the boxes once you've completed each step. You can also fill these out after creating the PR. If you're unsure about any of them, don't hesitate to ask. We're here to help! This is simply a reminder of what we are going to look for before merging your code.
+
+ I have read the CONTRIBUTING guide
+ I have explained why this PR is important
+ I have added necessary documentation (if appropriate)",2,3
+886,2021-04-05T01:17:24Z,2021-04-05T03:58:46Z,2021-04-05T03:58:46Z,1,1,1,"NOTE: A similar PR may already be submitted! Please search among the Pull request before creating one.
+Types of Changes
+What types of changes does your PR introduce? Put an x in all boxes that apply
+
+ New addition to list
+ Fixing bug in existing item in list
+ Removing item from list
+ Changing structure (organization) of list
+
+Proposed Changes
+Describe each of your changes here to communicate to the maintainers why we should accept this pull request.
+The original link of tomato 2 (https://www.notion.so/967a0a6484c64162a026d1f48cad18dc) directs to a notion site which is not open for users. Instead, the official site of tomato 2 is https://tomato2.app .
+PR Checklist
+Put an x in the boxes once you've completed each step. You can also fill these out after creating the PR. If you're unsure about any of them, don't hesitate to ask. We're here to help! This is simply a reminder of what we are going to look for before merging your code.
+
+ I have read the CONTRIBUTING guide
+ I have explained why this PR is important
+ I have added necessary documentation (if appropriate)
+
+Further Comments
+NA",2,1
+888,2021-04-07T11:34:50Z,2021-04-07T16:29:19Z,2021-04-07T16:29:19Z,2,0,2,"NOTE: A similar PR may already be submitted! Please search among the Pull request before creating one.
+Types of Changes
+What types of changes does your PR introduce? Put an x in all boxes that apply
+
+ New addition to list
+ Fixing bug in existing item in list
+ Removing item from list
+ Changing structure (organization) of list
+
+Proposed Changes
+Describe each of your changes here to communicate to the maintainers why we should accept this pull request.
+
+If you're adding something to the list, be sure to explain why it should be added.
+If you're fixing a bug or resolving a feature request, be sure to link to that issue.
+
+See #885 for more details.
+PR Checklist
+Put an x in the boxes once you've completed each step. You can also fill these out after creating the PR. If you're unsure about any of them, don't hesitate to ask. We're here to help! This is simply a reminder of what we are going to look for before merging your code.
+
+ I have read the CONTRIBUTING guide
+ I have explained why this PR is important
+ I have added necessary documentation (if appropriate)
+
+Further Comments
+If this is a relatively large or complex change, kick off the discussion by explaining why you chose the solution you did and what alternatives you considered, etc...",3,2
+889,2021-04-09T07:48:32Z,2021-04-10T03:06:37Z,2021-04-10T03:06:37Z,1,1,1,"NOTE: A similar PR may already be submitted! Please search among the Pull request before creating one.
+Types of Changes
+What types of changes does your PR introduce? Put an x in all boxes that apply
+
+ New addition to list
+ Fixing bug in existing item in list
+ Removing item from list
+ Changing structure (organization) of list
+
+Proposed Changes
+Describe each of your changes here to communicate to the maintainers why we should accept this pull request.
+
+If you're adding something to the list, be sure to explain why it should be added.
+If you're fixing a bug or resolving a feature request, be sure to link to that issue.
+
+PR Checklist
+Put an x in the boxes once you've completed each step. You can also fill these out after creating the PR. If you're unsure about any of them, don't hesitate to ask. We're here to help! This is simply a reminder of what we are going to look for before merging your code.
+
+ I have read the CONTRIBUTING guide
+ I have explained why this PR is important
+ I have added necessary documentation (if appropriate)
+
+Further Comments
+If this is a relatively large or complex change, kick off the discussion by explaining why you chose the solution you did and what alternatives you considered, etc...",2,1
+891,2021-04-14T08:50:02Z,2021-04-14T16:51:18Z,2021-04-14T16:51:18Z,1,1,0,"SideNotes allows to take notes on the screen side
+Types of Changes
+What types of changes does your PR introduce? Put an x in all boxes that apply
+
+ New addition to list
+ Fixing bug in existing item in list
+ Removing item from list
+ Changing structure (organization) of list
+
+Proposed Changes
+Added SideNotes app which is a great note taking app
+PR Checklist
+Put an x in the boxes once you've completed each step. You can also fill these out after creating the PR. If you're unsure about any of them, don't hesitate to ask. We're here to help! This is simply a reminder of what we are going to look for before merging your code.
+
+ I have read the CONTRIBUTING guide
+ I have explained why this PR is important
+ I have added necessary documentation (if appropriate)",2,1
+907,2021-06-15T02:54:37Z,,2022-10-20T17:42:32Z,2,2,0,"NOTE: A similar PR may already be submitted! Please search among the Pull request before creating one.
+Types of Changes
+What types of changes does your PR introduce? Put an x in all boxes that apply
+
+ New addition to list
+ Fixing bug in existing item in list
+ Removing item from list
+ Changing structure (organization) of list
+
+Proposed Changes
+This PR added Seamless app to the list.
+Seamless is text and files sharing app based on CloudKit. You can save files and text on Mac and share them on iPhone or another Mac. It comes with a browser extension to help save web links, images and files.
+Seamless is one of the top 200 Utilities apps on the Mac App Store.
+PR Checklist
+Put an x in the boxes once you've completed each step. You can also fill these out after creating the PR. If you're unsure about any of them, don't hesitate to ask. We're here to help! This is simply a reminder of what we are going to look for before merging your code.
+
+ I have read the CONTRIBUTING guide
+ I have explained why this PR is important
+ I have added necessary documentation (if appropriate)",2,0
+945,2021-08-03T09:07:33Z,2021-08-04T04:05:14Z,2021-08-04T04:05:14Z,1,1,0,"NOTE: A similar PR may already be submitted! Please search among the Pull request before creating one.
+Types of Changes
+What types of changes does your PR introduce? Put an x in all boxes that apply
+
+ New addition to list
+ Fixing bug in existing item in list
+ Removing item from list
+ Changing structure (organization) of list
+
+Proposed Changes
+Describe each of your changes here to communicate to the maintainers why we should accept this pull request.
+
+If you're adding something to the list, be sure to explain why it should be added.
+If you're fixing a bug or resolving a feature request, be sure to link to that issue.
+
+PR Checklist
+Put an x in the boxes once you've completed each step. You can also fill these out after creating the PR. If you're unsure about any of them, don't hesitate to ask. We're here to help! This is simply a reminder of what we are going to look for before merging your code.
+
+ I have read the CONTRIBUTING guide
+ I have explained why this PR is important
+ I have added necessary documentation (if appropriate)
+
+Further Comments
+If this is a relatively large or complex change, kick off the discussion by explaining why you chose the solution you did and what alternatives you considered, etc...",2,0
+978,2021-10-12T19:17:01Z,2023-01-17T10:33:19Z,2023-01-17T10:33:19Z,1,1,0,"NOTE: A similar PR may already be submitted! Please search among the Pull request before creating one.
+Types of Changes
+What types of changes does your PR introduce? Put an x in all boxes that apply
+
+[ x] New addition to list
+ Fixing bug in existing item in list
+ Removing item from list
+ Changing structure (organization) of list
+
+Proposed Changes
+Describe each of your changes here to communicate to the maintainers why we should accept this pull request.
+
+If you're adding something to the list, be sure to explain why it should be added.
+If you're fixing a bug or resolving a feature request, be sure to link to that issue.
+
+PR Checklist
+Put an x in the boxes once you've completed each step. You can also fill these out after creating the PR. If you're unsure about any of them, don't hesitate to ask. We're here to help! This is simply a reminder of what we are going to look for before merging your code.
+
+[x ] I have read the CONTRIBUTING guide
+[x ] I have explained why this PR is important
+ I have added necessary documentation (if appropriate)
+
+Further Comments
+If this is a relatively large or complex change, kick off the discussion by explaining why you chose the solution you did and what alternatives you considered, etc...",2,0
+993,2021-11-22T19:58:06Z,2021-11-22T21:21:29Z,2021-11-22T21:21:29Z,1,1,0,"NOTE: A similar PR may already be submitted! Please search among the Pull request before creating one.
+Types of Changes
+What types of changes does your PR introduce? Put an x in all boxes that apply
+
+ New addition to list
+ Fixing bug in existing item in list
+ Removing item from list
+ Changing structure (organization) of list
+
+Proposed Changes
+Added the actual Keepass application, keepassxc to the list of password managers.  Its what many of the other password managers advertise as supporting its format, its what I use personally, and its installable via homebrew cask - its crazy that its not already on this list.
+PR Checklist
+Put an x in the boxes once you've completed each step. You can also fill these out after creating the PR. If you're unsure about any of them, don't hesitate to ask. We're here to help! This is simply a reminder of what we are going to look for before merging your code.
+
+ I have read the CONTRIBUTING guide
+ I have explained why this PR is important
+ I have added necessary documentation (if appropriate)
+
+Further Comments
+If this is a relatively large or complex change, kick off the discussion by explaining why you chose the solution you did and what alternatives you considered, etc...",2,0
+994,2021-11-23T10:31:07Z,2021-11-24T15:44:33Z,2021-11-24T15:44:33Z,2,2,0,"NOTE: A similar PR may already be submitted! Please search among the Pull request before creating one.
+Types of Changes
+What types of changes does your PR introduce? Put an x in all boxes that apply
+
+ New addition to list
+ Fixing bug in existing item in list
+ Removing item from list
+ Changing structure (organization) of list
+
+Proposed Changes
+Added the newly launched rcmd app to the Window Management list.
+PR Checklist
+Put an x in the boxes once you've completed each step. You can also fill these out after creating the PR. If you're unsure about any of them, don't hesitate to ask. We're here to help! This is simply a reminder of what we are going to look for before merging your code.
+
+ I have read the CONTRIBUTING guide
+ I have explained why this PR is important
+ I have added necessary documentation (if appropriate)
+
+Further Comments
+If this is a relatively large or complex change, kick off the discussion by explaining why you chose the solution you did and what alternatives you considered, etc...",2,0
+1004,2021-12-27T14:54:42Z,2021-12-28T02:27:38Z,2021-12-28T02:27:38Z,1,1,0,"Small app that tracks working hours, is private, and stores data in local CSV file.
+NOTE: A similar PR may already be submitted! Please search among the Pull request before creating one.
+Types of Changes
+What types of changes does your PR introduce? Put an x in all boxes that apply
+
+ New addition to list
+ Fixing bug in existing item in list
+ Removing item from list
+ Changing structure (organization) of list
+
+Proposed Changes
+Adding a new app
+PR Checklist
+Put an x in the boxes once you've completed each step. You can also fill these out after creating the PR. If you're unsure about any of them, don't hesitate to ask. We're here to help! This is simply a reminder of what we are going to look for before merging your code.
+
+ I have read the CONTRIBUTING guide
+ I have explained why this PR is important
+ I have added necessary documentation (if appropriate)
+
+Further Comments
+If this is a relatively large or complex change, kick off the discussion by explaining why you chose the solution you did and what alternatives you considered, etc...",2,0
+1027,2022-03-18T10:10:18Z,2024-04-02T03:48:39Z,2024-04-02T03:48:39Z,1,1,0,"NOTE: A similar PR may already be submitted! Please search among the Pull request before creating one.
+Types of Changes
+What types of changes does your PR introduce? Put an x in all boxes that apply
+
+ New addition to list
+ Fixing bug in existing item in list
+ Removing item from list
+ Changing structure (organization) of list
+
+Proposed Changes
+Describe each of your changes here to communicate to the maintainers why we should accept this pull request.
+Assignee is a simple, instant app switcher. No more mashing Command-Tab to switch to different apps, just assign a shortcut to an app and switch to it instantly
+PR Checklist
+Put an x in the boxes once you've completed each step. You can also fill these out after creating the PR. If you're unsure about any of them, don't hesitate to ask. We're here to help! This is simply a reminder of what we are going to look for before merging your code.
+
+ I have read the CONTRIBUTING guide
+ I have explained why this PR is important
+ I have added necessary documentation (if appropriate)
+
+Further Comments
+If this is a relatively large or complex change, kick off the discussion by explaining why you chose the solution you did and what alternatives you considered, etc...",3,1
+1041,2022-05-07T06:40:01Z,,2022-05-08T15:32:59Z,1,2,1,"NOTE: A similar PR may already be submitted! Please search among the Pull request before creating one.
+Types of Changes
+What types of changes does your PR introduce? Put an x in all boxes that apply
+
+ New addition to list
+ Fixing bug in existing item in list
+ Removing item from list
+ Changing structure (organization) of list
+
+Proposed Changes
+Describe each of your changes here to communicate to the maintainers why we should accept this pull request.
+
+If you're adding something to the list, be sure to explain why it should be added.
+If you're fixing a bug or resolving a feature request, be sure to link to that issue.
+
+I think the Bear app is more of a note taking/crafting tool rather than just a text editor. That is why it should be moved to the note taking section
+and thank you so much for this awesome list - just so helpful! Well done :)
+PR Checklist
+Put an x in the boxes once you've completed each step. You can also fill these out after creating the PR. If you're unsure about any of them, don't hesitate to ask. We're here to help! This is simply a reminder of what we are going to look for before merging your code.
+
+ I have read the CONTRIBUTING guide
+ I have explained why this PR is important
+ I have added necessary documentation (if appropriate)
+
+Further Comments
+If this is a relatively large or complex change, kick off the discussion by explaining why you chose the solution you did and what alternatives you considered, etc...",2,0
+1063,2022-06-27T07:11:52Z,2022-06-27T10:30:25Z,2022-06-27T10:30:25Z,1,3,1,add deep and lingvanex translation tools,2,0
+1064,2022-06-28T01:38:30Z,2022-07-06T02:43:56Z,2022-07-06T02:43:56Z,1,6,7,"Types of Changes
+
+ New addition to list
+ Fixing bug in existing item in list
+ Removing item from list
+ Changing structure (organization) of list
+
+Proposed Changes
+There are items that belong to clipboard manager category but are classified into other categories.
+PR Checklist
+
+ I have read the CONTRIBUTING guide
+ I have explained why this PR is important
+ I have added necessary documentation (if appropriate)",2,0
+1081,2022-07-18T17:31:59Z,2022-07-19T03:39:40Z,2022-07-19T03:39:40Z,1,2,1,"Types of Changes
+
+ New addition to list
+ Fixing bug in existing item in list
+ Removing item from list
+ Changing structure (organization) of list
+
+Proposed Changes
+
+FreeTube - https://freetubeapp.io/
+
+FreeTube is a YouTube client for Windows, Mac, and Linux built around using YouTube more privately. You can enjoy your favorite content and creators without your habits being tracked. All of your user data is stored locally and never sent or published to the internet. FreeTube grabs data by scraping the information it needs (with either local methods or by optionally utilizing the Invidious API). With many features similar to YouTube, FreeTube has become one of the best methods to watch YouTube privately on desktop.
+PR Checklist
+
+ I have read the CONTRIBUTING guide
+ I have explained why this PR is important
+ I have added necessary documentation (if appropriate)
+
+Screenshot",2,0
+1136,2022-11-15T15:02:41Z,2022-11-18T14:35:30Z,2022-11-18T14:35:30Z,1,1,1,"Types of Changes
+What types of changes does your PR introduce? Put an x in all boxes that apply
+
+ New addition to list
+ Fixing bug in existing item in list
+ Removing item from list
+ Changing structure (organization) of list
+
+Proposed Changes
+Describe each of your changes here to communicate to the maintainers why we should accept this pull request.
+
+Reeder 5 is not freeware, but it's on App Store so I changes the corresponding icon.
+
+PR Checklist
+Put an x in the boxes once you've completed each step. You can also fill these out after creating the PR. If you're unsure about any of them, don't hesitate to ask. We're here to help! This is simply a reminder of what we are going to look for before merging your code.
+
+ I have read the CONTRIBUTING guide
+ I have explained why this PR is important
+ I have added necessary documentation (if appropriate)",2,0
+1144,2022-11-25T04:10:34Z,2022-11-25T05:45:57Z,2022-11-25T05:45:57Z,2,2,0,"Types of Changes
+What types of changes does your PR introduce? Put an x in all boxes that apply
+
+ New addition to list
+ Fixing bug in existing item in list
+ Removing item from list
+ Changing structure (organization) of list
+
+Proposed Changes
+Describe each of your changes here to communicate to the maintainers why we should accept this pull request.
+Elytra is simple & private RSS feed reader with native rendering for
+
+text
+images
+videos
+
+It uses no web views and prevents tracking from tracking scripts and images when reading articles.
+PR Checklist
+Put an x in the boxes once you've completed each step. You can also fill these out after creating the PR. If you're unsure about any of them, don't hesitate to ask. We're here to help! This is simply a reminder of what we are going to look for before merging your code.
+
+ I have read the CONTRIBUTING guide
+ I have explained why this PR is important
+ I have added necessary documentation (if appropriate)
+
+Further Comments
+If this is a relatively large or complex change, kick off the discussion by explaining why you chose the solution you did and what alternatives you considered, etc...",3,0
+1250,2023-05-16T09:55:41Z,,2023-05-16T11:41:43Z,1,3,1,"Add Jellyfin and IconChanger
+Types of Changes
+What types of changes does your PR introduce? Put an x in all boxes that apply
+
+[ x] Add Jellyfin
+[ x] Add IconChanger and reorder the nearby list.
+
+PR Checklist
+Put an x in the boxes once you've completed each step. You can also fill these out after creating the PR. If you're unsure about any of them, don't hesitate to ask. We're here to help! This is simply a reminder of what we are going to look for before merging your code.
+
+[ x] I have read the CONTRIBUTING guide
+[ x] I have explained why this PR is important
+[ x] I have added necessary documentation (if appropriate)
+
+Further Comments
+If this is a relatively large or complex change, kick off the discussion by explaining why you chose the solution you did and what alternatives you considered, etc...",2,0
+1251,2023-05-16T11:47:49Z,2023-05-17T09:39:19Z,2023-05-17T09:39:19Z,1,2,1,"Types of Changes
+What types of changes does your PR introduce? Put an x in all boxes that apply
+
+[x ] New addition to list
+
+Proposed Changes
+Describe each of your changes here to communicate to the maintainers why we should accept this pull request.
+
+Add Jellyfin.
+
+PR Checklist
+Put an x in the boxes once you've completed each step. You can also fill these out after creating the PR. If you're unsure about any of them, don't hesitate to ask. We're here to help! This is simply a reminder of what we are going to look for before merging your code.
+
+[ x] I have read the CONTRIBUTING guide
+[ x] I have explained why this PR is important
+[ x] I have added necessary documentation (if appropriate)",2,0
+1305,2023-09-15T09:02:37Z,2023-09-15T12:57:48Z,2023-09-15T12:57:48Z,1,1,0,"NOTE: A similar PR may already be submitted! Please search among the Pull request before creating one.
+Types of Changes
+What types of changes does your PR introduce? Put an x in all boxes that apply
+
+ New addition to list
+ Fixing bug in existing item in list
+ Removing item from list
+ Changing structure (organization) of list
+
+Proposed Changes
+Describe each of your changes here to communicate to the maintainers why we should accept this pull request.
+
+If you're adding something to the list, be sure to explain why it should be added.
+If you're fixing a bug or resolving a feature request, be sure to link to that issue.
+
+PR Checklist
+Put an x in the boxes once you've completed each step. You can also fill these out after creating the PR. If you're unsure about any of them, don't hesitate to ask. We're here to help! This is simply a reminder of what we are going to look for before merging your code.
+
+ I have read the CONTRIBUTING guide
+ I have explained why this PR is important
+ I have added necessary documentation (if appropriate)
+
+Further Comments
+If this is a relatively large or complex change, kick off the discussion by explaining why you chose the solution you did and what alternatives you considered, etc...",2,0
+1310,2023-09-20T18:05:22Z,2023-09-21T00:16:55Z,2023-09-21T00:16:55Z,1,2,1,"NOTE: A similar PR may already be submitted! Please search among the Pull request before creating one.
+Types of Changes
+What types of changes does your PR introduce? Put an x in all boxes that apply
+
+[ x ] New addition to list
+ Fixing bug in existing item in list
+ Removing item from list
+ Changing structure (organization) of list
+
+Proposed Changes
+Describe each of your changes here to communicate to the maintainers why we should accept this pull request.
+#1309
+
+If you're adding something to the list, be sure to explain why it should be added.
+If you're fixing a bug or resolving a feature request, be sure to link to that issue.
+
+PR Checklist
+Put an x in the boxes once you've completed each step. You can also fill these out after creating the PR. If you're unsure about any of them, don't hesitate to ask. We're here to help! This is simply a reminder of what we are going to look for before merging your code.
+
+[ x] I have read the CONTRIBUTING guide
+[ x] I have explained why this PR is important
+[ x] I have added necessary documentation (if appropriate)
+
+Further Comments
+If this is a relatively large or complex change, kick off the discussion by explaining why you chose the solution you did and what alternatives you considered, etc...",2,0
+1330,2023-11-06T10:44:29Z,2023-11-07T00:50:05Z,2023-11-07T00:50:06Z,1,1,0,"NOTE: A similar PR may already be submitted! Please search among the Pull request before creating one.
+Types of Changes
+What types of changes does your PR introduce? Put an x in all boxes that apply
+
+ New addition to list
+ Fixing bug in existing item in list
+ Removing item from list
+ Changing structure (organization) of list
+
+Proposed Changes
+Describe each of your changes here to communicate to the maintainers why we should accept this pull request.
+Canary Mail is my current and favorite email client and this i the reason i am proposing to add this.
+PR Checklist
+Put an x in the boxes once you've completed each step. You can also fill these out after creating the PR. If you're unsure about any of them, don't hesitate to ask. We're here to help! This is simply a reminder of what we are going to look for before merging your code.
+
+ I have read the CONTRIBUTING guide
+ I have explained why this PR is important
+ I have added necessary documentation (if appropriate)
+
+Further Comments
+If this is a relatively large or complex change, kick off the discussion by explaining why you chose the solution you did and what alternatives you considered, etc...",2,0
+1331,2023-11-06T13:32:48Z,2023-11-10T12:03:29Z,2023-11-10T12:03:29Z,1,1,0,"NOTE: A similar PR may already be submitted! Please search among the Pull request before creating one.
+Types of Changes
+What types of changes does your PR introduce? Put an x in all boxes that apply
+
+ New addition to list
+ Fixing bug in existing item in list
+ Removing item from list
+ Changing structure (organization) of list
+
+Proposed Changes
+Describe each of your changes here to communicate to the maintainers why we should accept this pull request.
+I added Studio 3T. I think it deserves to be in the list since it is one of the most used MongoDB GUI client on Mac. It is an official partner of MongoDB as you can check out here: https://www.mongodb.com/partners/studio-3t
+PR Checklist
+Put an x in the boxes once you've completed each step. You can also fill these out after creating the PR. If you're unsure about any of them, don't hesitate to ask. We're here to help! This is simply a reminder of what we are going to look for before merging your code.
+
+ I have read the CONTRIBUTING guide
+ I have explained why this PR is important
+ I have added necessary documentation (if appropriate)",2,0
+1334,2023-11-09T12:22:53Z,,2023-11-16T03:04:55Z,1,1,0,"NOTE: A similar PR may already be submitted! Please search among the Pull request before creating one.
+Types of Changes
+What types of changes does your PR introduce? Put an x in all boxes that apply
+
+ New addition to list
+ Fixing bug in existing item in list
+ Removing item from list
+ Changing structure (organization) of list
+
+Proposed Changes
+Describe each of your changes here to communicate to the maintainers why we should accept this pull request.
+It's a super awesome command line tool and quite popular one. I am surprised that it's not on the list. It can not only used standalone, but can also be used as a plugin to vim, and itself also supports plugins. You can check out this super awesome tool here at https://github.com/junegunn/fzf
+PR Checklist
+Put an x in the boxes once you've completed each step. You can also fill these out after creating the PR. If you're unsure about any of them, don't hesitate to ask. We're here to help! This is simply a reminder of what we are going to look for before merging your code.
+
+ I have read the CONTRIBUTING guide
+ I have explained why this PR is important
+ I have added necessary documentation (if appropriate)
+
+Further Comments
+If this is a relatively large or complex change, kick off the discussion by explaining why you chose the solution you did and what alternatives you considered, etc...",2,0
+1350,2023-12-29T14:34:58Z,,2023-12-30T00:36:15Z,1,1,0,"NOTE: A similar PR may already be submitted! Please search among the Pull request before creating one.
+Types of Changes
+What types of changes does your PR introduce? Put an x in all boxes that apply
+
+ New addition to list
+ Fixing bug in existing item in list
+ Removing item from list
+ Changing structure (organization) of list
+
+Proposed Changes
+Describe each of your changes here to communicate to the maintainers why we should accept this pull request.
+
+If you're adding something to the list, be sure to explain why it should be added.
+If you're fixing a bug or resolving a feature request, be sure to link to that issue.
+
+PR Checklist
+Put an x in the boxes once you've completed each step. You can also fill these out after creating the PR. If you're unsure about any of them, don't hesitate to ask. We're here to help! This is simply a reminder of what we are going to look for before merging your code.
+
+ I have read the CONTRIBUTING guide
+ I have explained why this PR is important
+ I have added necessary documentation (if appropriate)
+
+Further Comments
+If this is a relatively large or complex change, kick off the discussion by explaining why you chose the solution you did and what alternatives you considered, etc...",3,1
+1357,2023-12-30T14:56:35Z,2023-12-31T14:11:06Z,2023-12-31T14:11:06Z,1,1,0,"NOTE: A similar PR may already be submitted! Please search among the Pull request before creating one.
+Types of Changes
+What types of changes does your PR introduce? Put an x in all boxes that apply
+
+[ x] New addition to list
+ Fixing bug in existing item in list
+ Removing item from list
+ Changing structure (organization) of list
+
+Proposed Changes
+Describe each of your changes here to communicate to the maintainers why we should accept this pull request.
+
+If you're adding something to the list, be sure to explain why it should be added.
+If you're fixing a bug or resolving a feature request, be sure to link to that issue.
+
+PR Checklist
+Put an x in the boxes once you've completed each step. You can also fill these out after creating the PR. If you're unsure about any of them, don't hesitate to ask. We're here to help! This is simply a reminder of what we are going to look for before merging your code.
+
+[x ] I have read the CONTRIBUTING guide
+ I have explained why this PR is important
+ I have added necessary documentation (if appropriate)
+
+Further Comments
+If this is a relatively large or complex change, kick off the discussion by explaining why you chose the solution you did and what alternatives you considered, etc...",2,0
+1364,2024-01-05T15:10:05Z,2024-04-02T03:22:36Z,2024-04-02T03:22:36Z,1,1,0,"NOTE: A similar PR may already be submitted! Please search among the Pull request before creating one.
+Types of Changes
+What types of changes does your PR introduce? Put an x in all boxes that apply
+
+ New addition to list
+ Fixing bug in existing item in list
+ Removing item from list
+ Changing structure (organization) of list
+
+Proposed Changes
+Describe each of your changes here to communicate to the maintainers why we should accept this pull request.
+
+If you're adding something to the list, be sure to explain why it should be added.
+If you're fixing a bug or resolving a feature request, be sure to link to that issue.
+
+PR Checklist
+Put an x in the boxes once you've completed each step. You can also fill these out after creating the PR. If you're unsure about any of them, don't hesitate to ask. We're here to help! This is simply a reminder of what we are going to look for before merging your code.
+
+ I have read the CONTRIBUTING guide
+ I have explained why this PR is important
+ I have added necessary documentation (if appropriate)
+
+Further Comments
+If this is a relatively large or complex change, kick off the discussion by explaining why you chose the solution you did and what alternatives you considered, etc...",3,4
+1367,2024-01-06T17:47:06Z,,2024-04-07T16:57:21Z,1,3,0,"NOTE: A similar PR may already be submitted! Please search among the Pull request before creating one.
+Types of Changes
+What types of changes does your PR introduce? Put an x in all boxes that apply
+
+ New addition to list
+ Fixing bug in existing item in list
+ Removing item from list
+ Changing structure (organization) of list
+
+Proposed Changes
+Describe each of your changes here to communicate to the maintainers why we should accept this pull request.
+
+If you're adding something to the list, be sure to explain why it should be added.
+If you're fixing a bug or resolving a feature request, be sure to link to that issue.
+
+PR Checklist
+Put an x in the boxes once you've completed each step. You can also fill these out after creating the PR. If you're unsure about any of them, don't hesitate to ask. We're here to help! This is simply a reminder of what we are going to look for before merging your code.
+
+ I have read the CONTRIBUTING guide
+ I have explained why this PR is important
+ I have added necessary documentation (if appropriate)
+
+Further Comments
+If this is a relatively large or complex change, kick off the discussion by explaining why you chose the solution you did and what alternatives you considered, etc...",3,0
+1368,2024-01-07T01:21:29Z,,2024-01-20T20:09:40Z,1,4,0,"NOTE: A similar PR may already be submitted! Please search among the Pull request before creating one.
+Types of Changes
+What types of changes does your PR introduce? Put an x in all boxes that apply
+
+ New addition to list
+ Fixing bug in existing item in list
+ Removing item from list
+ Changing structure (organization) of list
+
+Proposed Changes
+Describe each of your changes here to communicate to the maintainers why we should accept this pull request.
+
+If you're adding something to the list, be sure to explain why it should be added.
+If you're fixing a bug or resolving a feature request, be sure to link to that issue.
+
+PR Checklist
+Put an x in the boxes once you've completed each step. You can also fill these out after creating the PR. If you're unsure about any of them, don't hesitate to ask. We're here to help! This is simply a reminder of what we are going to look for before merging your code.
+
+ I have read the CONTRIBUTING guide
+ I have explained why this PR is important
+ I have added necessary documentation (if appropriate)
+
+Further Comments
+If this is a relatively large or complex change, kick off the discussion by explaining why you chose the solution you did and what alternatives you considered, etc...",3,1
+1398,2024-03-18T06:47:17Z,2024-03-18T12:14:42Z,2024-03-18T12:14:42Z,1,1,0,"NOTE: A similar PR may already be submitted! Please search among the Pull request before creating one.
+Types of Changes
+What types of changes does your PR introduce? Put an x in all boxes that apply
+
+ New addition to list
+ Fixing bug in existing item in list
+ Removing item from list
+ Changing structure (organization) of list
+
+Proposed Changes
+Describe each of your changes here to communicate to the maintainers why we should accept this pull request.
+
+If you're adding something to the list, be sure to explain why it should be added.
+If you're fixing a bug or resolving a feature request, be sure to link to that issue.
+
+PR Checklist
+Put an x in the boxes once you've completed each step. You can also fill these out after creating the PR. If you're unsure about any of them, don't hesitate to ask. We're here to help! This is simply a reminder of what we are going to look for before merging your code.
+
+ I have read the CONTRIBUTING guide
+ I have explained why this PR is important
+ I have added necessary documentation (if appropriate)
+
+Further Comments
+If this is a relatively large or complex change, kick off the discussion by explaining why you chose the solution you did and what alternatives you considered, etc...",2,0
+1413,2024-04-10T02:53:07Z,2024-04-10T15:18:10Z,2024-04-10T15:18:10Z,1,2,1,"Added a listing for Ice, a sleek menubar manager.
+Repo  here .
+NOTE: A similar PR may already be submitted! Please search among the Pull request before creating one.
+Types of Changes
+What types of changes does your PR introduce? Put an x in all boxes that apply
+
+ New addition to list
+ Fixing bug in existing item in list
+ Removing item from list
+ Changing structure (organization) of list
+
+Proposed Changes
+Describe each of your changes here to communicate to the maintainers why we should accept this pull request.
+I have added Ice, which is an open source and free alternative to the ever popular Bartender. This allows people to customize their MacOS menubar experience.
+Ice also provides more features including the ability to change the translucency/tint, and remove whole sections of the menu bar.
+PR Checklist
+Put an x in the boxes once you've completed each step. You can also fill these out after creating the PR. If you're unsure about any of them, don't hesitate to ask. We're here to help! This is simply a reminder of what we are going to look for before merging your code.
+
+ I have read the CONTRIBUTING guide
+ I have explained why this PR is important
+ I have added necessary documentation (if appropriate)",2,1

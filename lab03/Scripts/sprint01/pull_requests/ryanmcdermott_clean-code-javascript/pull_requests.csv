@@ -1,0 +1,69 @@
+number,created_at,merged_at,closed_at,files,additions,deletions,body_text,participants,comments
+12,2017-01-04T22:26:03Z,,2017-01-10T03:29:22Z,1,1,1,"I might be wrong, but ideally you would want one argument (Unary function). Zero arguments implies that it isn't receiving the data in a pure way. And a function that isn't honest in its signature should be avoided.
+BTW, thanks for creating this repo, it's very helpful.",5,5
+34,2017-01-06T04:16:49Z,2017-01-11T03:23:09Z,2017-01-11T03:23:09Z,1,7,28,"The original document asserted that ""Short-circuiting is cleaner than conditionals""
+
+
+...only to override this assertion later with ""Use default arguments instead of short circuiting.""
+
+
+This is a poor design-choice for an advisory document.
+
+If you are going to say x > y,
+then later say z > x,
+you should just say z > x > y upfront.
+Otherwise, many people might not see the z > x later on,
+because many people will probably use this as a referential document. They probably won't read the entire work.",2,4
+37,2017-01-06T08:52:10Z,2017-01-11T03:29:28Z,2017-01-11T03:29:28Z,1,6,6,"This use the ES2015 way.
+I removed the match because it's not used and we could also declare a const all to grab the first item of the match if needed.",4,5
+38,2017-01-06T12:02:18Z,,2017-01-08T16:58:10Z,1,70,70,"We should update most of var in let.
+I changed few var to const because i though it was more appropriate",4,1
+43,2017-01-06T16:42:18Z,2017-01-07T03:13:30Z,2017-01-07T03:13:30Z,1,78,4,,2,3
+51,2017-01-06T22:02:49Z,2017-01-08T16:42:27Z,2017-01-08T16:42:27Z,1,109,110,As discussed in #31 here my implementation of const and let.,3,3
+77,2017-01-08T13:28:48Z,,2017-01-11T02:52:59Z,1,2,5,"Changed the mutation of data to be passed-in to the constructor
+Decoupled Dependency best practices is to make sure that inputs are dynamically configured in initializing hook (out of the class scope).
+Particularly in this example where HTTP methods are not commonly get changed it's prefered to configure outside the scope of the class",4,10
+81,2017-01-09T01:19:11Z,2017-01-11T03:17:45Z,2017-01-11T03:17:45Z,1,8,8,(Here comes a bunch of PRs after a code fragments mass test with ESLint checks and Node.js runnings.),2,1
+83,2017-01-09T02:35:01Z,2017-01-13T04:26:54Z,2017-01-13T04:26:54Z,0,0,0,,3,4
+95,2017-01-09T17:56:33Z,2017-01-11T03:16:05Z,2017-01-11T03:16:05Z,1,25,30,"(Here comes a bunch of PRs after a code fragments mass test with ESLint checks and Node.js runnings.)
+
+Add function name if it can't be inferred from the context. See func-names.
+Replace anonymous functions with arrow functions when appropriate. See prefer-arrow-callback.
+Replace anonymous functions with method shorthand notation when appropriate. See object-shorthand.
+Remove a redundant IIFE. Fixes #30 temporarily.",2,3
+101,2017-01-10T09:28:57Z,2017-01-11T03:05:02Z,2017-01-11T03:05:02Z,1,33,0,,3,2
+116,2017-01-11T15:25:02Z,,2017-01-24T03:59:06Z,1,10,7,"A drawback with a class extending the Array global, is that you are required to instantiate it using the 'new' keyword. Also, the 'diff' feature is limited to the subclass only.",4,10
+118,2017-01-11T18:20:11Z,2017-01-13T03:29:40Z,2017-01-13T03:29:40Z,1,5,5,Pretty minor. But destructuring state using the regex was a little bit ambiguous since there is no state in the address (zip code instead).,3,3
+123,2017-01-12T09:51:53Z,2017-01-17T03:48:44Z,2017-01-17T03:48:44Z,1,33,1,Regarding #108. Is the example clear?,3,2
+127,2017-01-12T18:09:24Z,,2021-05-24T15:52:46Z,1,44,0,"Pull request as discussed in issue #49
+
+adds a new subsection ""Avoid Mental Mapping of iterator states""
+preview is available here: https://github.com/cookiengineer/clean-code-javascript/tree/iterator-names#avoid-mental-mapping-of-iterator-states",3,2
+139,2017-01-14T18:59:57Z,,2021-05-24T15:52:40Z,1,101,43,"This PR is regarding a discussion developers had on the issue #40.
+As there was more positive reactions than negative ones I have decided to change the code example and description for the section to be more appropriate for JavaScript language and its features.
+@ryanmcdermott if there is anything I can improve, fire away ;)",7,16
+174,2017-01-24T13:15:39Z,,2017-01-27T04:36:16Z,1,15,16,"Functions returning objects instead of classes may simplify composition, syntax and reuse.
+Also, by using maker functions, the this keyword can be avoided when referencing to varables within the scope (closure).",3,4
+188,2017-02-04T09:30:35Z,2017-02-05T20:35:27Z,2017-02-05T20:35:27Z,1,3,3,Fixes some typo and logic issues,3,1
+193,2017-02-10T09:07:15Z,2017-02-11T01:31:20Z,2017-02-11T01:31:20Z,1,22,22,fixed code style.,3,1
+194,2017-02-13T03:52:02Z,,2017-02-13T16:48:21Z,2,2340,1,translate to chinese.,3,5
+204,2017-04-20T00:27:26Z,,2021-05-24T15:52:20Z,1,25,0,,5,3
+206,2017-04-20T17:14:57Z,2017-05-11T16:23:24Z,2017-05-11T16:23:24Z,1,3,3,updating function name per #200 thanks to @marzelin to clean up some issues,3,5
+209,2017-04-27T22:44:52Z,,2021-05-23T18:53:23Z,1,4,4,"Was reading through the README and spotted the function name in ""Don't add unneeded context"" breaks the rule ""Function names should say what they do"". Want to throw a quick PR up for you!
+Thanks!",3,3
+211,2017-04-28T21:46:55Z,,2021-05-23T18:50:49Z,1,2,2,"I fixed package names in good code sample in ""Use Promises, not callbacks"" section.",4,5
+220,2017-06-02T16:32:15Z,2017-06-09T21:19:42Z,2017-06-09T21:19:42Z,1,12,16,"Capital letters in const, remove default data in class Car",3,1
+223,2017-07-13T19:18:57Z,,2017-07-16T21:14:00Z,1,1,0,My translation,3,1
+224,2017-07-14T20:37:13Z,,2020-10-07T20:18:15Z,1,1,0,,3,6
+238,2018-01-15T11:06:52Z,2018-01-20T17:19:05Z,2018-01-20T17:19:05Z,1,1,1,"…iting or conditionals"".
+Did not adhere to ""Don't add unneeded context"".",3,1
+248,2018-11-09T18:28:09Z,,2019-01-24T02:55:23Z,1,1,1,This is how i remove commas,4,2
+255,2019-01-23T18:15:30Z,,2019-02-02T10:20:54Z,1,16,15,"Added Spanish translations!
+Sorry for the git history hahah I had some issues xD",3,3
+288,2020-01-21T08:29:03Z,2020-07-31T03:09:46Z,2020-07-31T03:09:46Z,1,2,2,,3,1
+326,2020-10-10T16:08:01Z,2021-01-21T03:27:40Z,2021-01-21T03:27:40Z,1,1,0,,3,1
+333,2021-01-06T03:20:09Z,,2021-05-23T18:04:41Z,1,36,0,"Hay there,
+I have just added ""Use let/const instead of var"" under the category ""Variables"". Let me know your thoughts on that.
+Thanks,",3,2
+347,2021-04-28T03:53:59Z,,2021-05-23T18:34:36Z,1,20,43,"replace avoid conditionals with a more explicit & simple example  based on
+https://refactoring.com/catalog/replaceNestedConditionalWithGuardClauses.html",3,1

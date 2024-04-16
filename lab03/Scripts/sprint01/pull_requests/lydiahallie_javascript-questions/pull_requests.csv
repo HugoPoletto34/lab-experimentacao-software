@@ -1,0 +1,629 @@
+number,created_at,merged_at,closed_at,files,additions,deletions,body_text,participants,comments
+13,2019-06-13T13:30:23Z,2019-06-24T05:31:04Z,2019-06-24T05:31:04Z,1,1,1,"Question is ""what's the output"" but console.log is not called",5,3
+28,2019-06-16T03:49:03Z,2019-06-16T15:40:27Z,2019-06-16T15:40:27Z,2,1291,0,"Your repo is awesome!
+I want to translate the repo into Chinese.
+Now, I finish the 1 - 10 question.",5,6
+30,2019-06-16T14:20:04Z,2019-06-17T07:38:46Z,2019-06-17T07:38:46Z,1,1,1,"The output is undefined because it is an assignment, then we have to ask for the value of the sum const.",3,1
+32,2019-06-16T21:02:52Z,2019-06-17T07:38:02Z,2019-06-17T07:38:02Z,1,1,1,,3,0
+39,2019-06-17T07:42:14Z,2019-06-17T11:12:40Z,2019-06-17T11:12:40Z,1,6,6,I modified some translations with problems.,2,0
+43,2019-06-17T09:43:28Z,2019-06-17T11:12:19Z,2019-06-17T11:12:19Z,1,1,1,dynamimcally -> dynamically,2,0
+47,2019-06-17T18:06:44Z,2019-06-23T21:08:15Z,2019-06-23T21:08:15Z,2,1306,7,Work in progress.,3,6
+53,2019-06-18T08:42:40Z,2019-06-19T06:21:57Z,2019-06-19T06:21:57Z,2,1296,1,,3,3
+60,2019-06-18T18:53:32Z,2019-06-19T06:24:07Z,2019-06-19T06:24:07Z,2,1463,0,Final request.,2,0
+62,2019-06-19T02:56:01Z,2019-06-19T15:41:03Z,2019-06-19T15:41:03Z,2,1295,0,,3,1
+63,2019-06-19T11:29:10Z,2019-06-19T14:16:28Z,2019-06-19T14:16:28Z,2,1298,1,I have added a German translation of all the questions as of this morning.,2,2
+64,2019-06-19T12:57:55Z,2019-06-23T21:11:08Z,2019-06-23T21:11:08Z,1,1,1,"c.greeting is ""Hey!"" so it's obvious that B is not an option",3,0
+67,2019-06-19T14:59:47Z,,2019-06-22T10:13:37Z,5,525,159,"Removed errors in code examples due to incorrect prettier formatting.
+Added all active languages to all README files.",2,0
+72,2019-06-19T16:35:17Z,2019-06-20T07:09:26Z,2019-06-20T07:09:26Z,1,1,1,Fixed Western Balkan link,2,0
+76,2019-06-20T02:13:07Z,2019-06-23T21:10:10Z,2019-06-23T21:10:10Z,1,1,1,remove extra symbol.,3,0
+77,2019-06-20T02:25:23Z,2019-06-24T05:32:30Z,2019-06-24T05:32:30Z,1,4,5,"correct typo
+remove remaining english part",4,4
+78,2019-06-20T03:01:49Z,2019-06-23T21:17:55Z,2019-06-23T21:17:55Z,1,1,1,Update question 13.,2,0
+81,2019-06-20T04:32:36Z,2019-06-20T07:11:55Z,2019-06-20T07:11:55Z,1,18,15,"The next edits are added:
+
+ List of languages
+ Sync lines count
+ Fix typos
+ merge #73
+ merge #75
+ merge #80
+
+Cheers!",5,0
+84,2019-06-20T10:11:06Z,2019-06-21T14:24:22Z,2019-06-21T14:24:22Z,6,1308,7,,2,0
+85,2019-06-20T10:13:06Z,2019-06-23T21:32:14Z,2019-06-23T21:32:14Z,1,1,1,"Similarly to the other questions, use a console.log when an output is expected. Otherwise whether the method is static or not, it will never output the other options.",2,0
+86,2019-06-20T13:17:03Z,2019-06-21T14:23:46Z,2019-06-21T14:23:46Z,1,12,12,,2,0
+87,2019-06-20T17:11:37Z,2019-07-30T09:26:57Z,2019-07-30T09:26:57Z,2,1960,0,,4,5
+88,2019-06-20T17:22:02Z,2019-06-21T16:02:17Z,2019-06-21T16:02:17Z,2,1336,1,"Translate to Japanese
+Nice to meet you, I am a front-end engineer panicdragon who works in Japan.
+Your Questions are great.
+I translated Japanese, so please merge it if you like.",3,3
+89,2019-06-20T19:17:02Z,2019-06-24T05:33:03Z,2019-06-24T05:33:03Z,2,1302,2,"Started translating for some friends, but really enjoyed doing to so... Here it is.",8,4
+90,2019-06-21T03:34:17Z,2019-06-21T14:22:13Z,2019-06-21T14:22:13Z,1,16,16,,3,0
+91,2019-06-21T06:25:15Z,2019-06-21T14:21:42Z,2019-06-21T14:21:42Z,6,0,6,,3,0
+93,2019-06-21T19:07:35Z,2019-06-22T10:13:20Z,2019-06-22T10:13:20Z,1,502,143,Links to all new languages added,2,0
+94,2019-06-22T01:01:02Z,2019-06-22T10:14:13Z,2019-06-22T10:14:13Z,1,3,3,,2,0
+95,2019-06-22T11:05:58Z,2019-06-23T21:12:29Z,2019-06-23T21:12:29Z,1,7,7,,2,0
+97,2019-06-22T17:13:21Z,,2020-09-03T10:44:34Z,1,7,7,fixed a few minor typos/errors. i'm not positive about the parens on Q. 54,2,2
+98,2019-06-22T19:05:16Z,2019-06-29T12:05:40Z,2019-06-29T12:05:40Z,2,1662,0,"Happy to meet you,
+I am a full stack engineer sweetmilkys who works in Korea.
+I got to know your Question through my teacher serranoarevalo .
+I think this is so awesome, so I want to introduce my country in Korean.
+I translated Korean, so please merge it if you like.
+Thank you :)",5,11
+99,2019-06-22T19:35:52Z,2019-07-01T17:17:30Z,2019-07-01T17:17:30Z,2,1409,0,"This is the whole repository translated into Egyptian Arabic. Please note that this dialect is not purely 100% Arabic but rather a mixture of both worlds. I chose to use English when appropriate to make searching about specific topics easier and less of a trouble since Arabic sources are quite scarce.
+Any suggestions are welcome!",2,3
+100,2019-06-22T21:59:09Z,2019-06-23T21:12:56Z,2019-06-23T21:12:56Z,1,3,2,,2,0
+103,2019-06-22T23:21:31Z,2019-07-01T17:18:45Z,2019-07-01T17:18:45Z,2,2039,0,Starting from question 4 until the last question.,3,12
+106,2019-06-23T17:22:48Z,2019-06-23T21:23:18Z,2019-06-23T21:23:18Z,1,1,1,"Fix typo question 45
+Promice → Promise
+Isn't it a typo here?",2,0
+107,2019-06-23T22:42:05Z,2019-06-24T05:30:03Z,2019-06-24T05:30:03Z,1,0,2,,2,0
+108,2019-06-24T01:44:09Z,2019-06-24T05:30:36Z,2019-06-24T05:30:36Z,1,0,1,,2,0
+109,2019-06-24T05:49:36Z,2019-06-29T12:11:04Z,2019-06-29T12:11:04Z,1,358,0,,2,1
+110,2019-06-24T07:48:36Z,,2020-09-03T10:45:00Z,9,21,21,,3,1
+111,2019-06-24T08:18:02Z,2019-06-29T13:16:14Z,2019-06-29T13:16:14Z,1,6,6,"Fix _implicit type coercion
+Translate missing",2,2
+113,2019-06-24T15:21:16Z,2019-06-29T12:10:32Z,2019-06-29T12:10:32Z,1,378,0,,2,1
+114,2019-06-24T22:02:50Z,2019-06-29T12:09:05Z,2019-06-29T12:09:05Z,1,1,1,,2,0
+115,2019-06-25T09:55:54Z,2019-06-29T12:09:54Z,2019-06-29T12:09:54Z,2,4,4,Related issue: #112.,2,0
+125,2019-06-29T18:27:22Z,2019-06-30T06:20:06Z,2019-06-30T06:20:07Z,1,1,1,numebers => numbers,2,0
+126,2019-06-29T18:43:54Z,2019-06-30T06:19:33Z,2019-06-30T06:19:33Z,1,346,50,Thank you for your merge!! 👍,2,1
+129,2019-06-30T14:32:03Z,2019-06-30T17:52:00Z,2019-06-30T17:52:00Z,1,4,4,"fixed typos and added link from ""June 29th"" to question 55",2,0
+131,2019-07-01T06:12:35Z,2019-07-01T07:17:58Z,2019-07-01T07:17:58Z,1,94,94,fix typos in README-ko_KR.md,2,0
+133,2019-07-01T15:12:09Z,2019-07-01T17:16:16Z,2019-07-01T17:16:16Z,1,1,1,.tostring -> .toString,2,0
+135,2019-07-02T14:44:34Z,2019-07-07T18:44:27Z,2019-07-07T18:44:27Z,1,8,8,This is a proposal to bring the languages into alphabetical order (by language code) and to standardise their format (all in their own language).,3,0
+136,2019-07-03T17:53:10Z,2019-07-04T11:18:48Z,2019-07-04T11:18:48Z,1,315,8,Russian. Updates & fixes. June,2,0
+140,2019-07-04T11:35:22Z,2019-07-04T14:38:49Z,2019-07-04T14:38:49Z,1,671,2,"Add 63 question to vietnamese
+Translate title question",2,0
+141,2019-07-04T11:46:48Z,2019-07-04T14:38:22Z,2019-07-04T14:38:22Z,1,2,2,,2,0
+142,2019-07-04T12:29:25Z,2019-07-04T14:37:58Z,2019-07-04T14:37:58Z,1,659,0,I translated 44-63 to ZH_CN.,2,0
+144,2019-07-04T15:40:37Z,2019-07-07T18:43:58Z,2019-07-07T18:43:58Z,1,5,5,"On question 35, 38, 40 .",2,0
+145,2019-07-05T10:45:28Z,2019-07-07T18:43:44Z,2019-07-07T18:43:44Z,1,93,94,,2,0
+149,2019-07-08T02:41:47Z,2019-07-14T19:14:09Z,2019-07-14T19:14:09Z,1,2,2,,2,0
+153,2019-07-08T11:03:21Z,2019-07-14T19:09:55Z,2019-07-14T19:09:55Z,1,214,0,,3,0
+154,2019-07-08T23:37:44Z,2019-07-14T19:13:36Z,2019-07-14T19:13:36Z,1,11,11,"Fix typos and missing spaces in questions 39, 47, 55, 62, 64, 66, 67, and duplicate title in question 67",2,0
+156,2019-07-09T11:42:02Z,2019-07-14T19:22:51Z,2019-07-14T19:22:51Z,2,212,3,#157,2,0
+158,2019-07-09T13:56:10Z,2019-07-14T19:20:45Z,2019-07-14T19:20:45Z,1,2,2,Corrected the word glogal for global,2,0
+159,2019-07-10T03:05:57Z,2019-07-14T19:09:30Z,2019-07-14T19:09:30Z,1,1,1,That question doesn't correspond to its answers.,2,0
+160,2019-07-10T09:10:08Z,2019-07-14T19:20:29Z,2019-07-14T19:20:29Z,1,1,1,Adds a missing single quote thus fixing a syntax error.,2,0
+165,2019-07-14T06:51:55Z,2019-07-14T19:08:33Z,2019-07-14T19:08:33Z,2,2163,0,"Hi,
+Ignore #146 and merge this one please.",2,0
+167,2019-07-15T08:18:39Z,2019-07-15T13:32:26Z,2019-07-15T13:32:26Z,1,513,13,Please up!,2,0
+168,2019-07-15T08:35:17Z,2019-07-15T13:32:48Z,2019-07-15T13:32:48Z,1,224,10,,2,0
+169,2019-07-15T08:43:06Z,2019-07-15T13:33:12Z,2019-07-15T13:33:12Z,1,300,0,,2,0
+170,2019-07-15T09:13:13Z,2019-07-15T13:33:30Z,2019-07-15T13:33:30Z,1,293,1,New questions are added and translated to Turkish.,2,0
+171,2019-07-18T11:27:59Z,2019-07-27T15:48:40Z,2019-07-27T15:48:40Z,2,316,17,"The question need to add:
+
+75. What's the output?
+const box = { x: 10, y: 20 };
+
+Object.freeze(box);
+
+const shape = box;
+shape.x = 100;
+
+->
+75. What's the output?
+const box = { x: 10, y: 20 };
+
+Object.freeze(box);
+
+const shape = box;
+shape.x = 100;
+
+console.log(shape);
+
+And, plz consider change question74 to like this:
+
+[""apple"", ""banana""]
+
+-> [""banana"", ""apple""]
+Because, original array is [""banana""], and it will be [""banana"", ""apple""] if we push ""apple"" to it.",2,0
+172,2019-07-19T22:13:11Z,2019-07-27T15:51:42Z,2019-07-27T15:51:43Z,1,1,1,,2,0
+177,2019-07-25T09:36:55Z,2019-07-27T15:43:58Z,2019-07-27T15:43:58Z,1,1,1,typo,2,0
+182,2019-07-27T00:58:55Z,2019-07-27T15:41:36Z,2019-07-27T15:41:36Z,1,12,78,"Remove duplicate questions 81 and 84, update numbering of following questions
+Fix English typos as of 2019-07-26",2,2
+185,2019-07-27T04:55:58Z,2019-07-30T09:28:42Z,2019-07-30T09:28:42Z,1,269,2,"07/26/2019
+Don't merge until #182 is not resoled/pushed.
+Manual changes will be required.",2,2
+186,2019-07-28T09:41:19Z,2019-07-30T09:28:19Z,2019-07-30T09:28:19Z,1,260,0,,2,0
+187,2019-07-28T10:46:45Z,2019-07-30T09:25:52Z,2019-07-30T09:25:52Z,1,274,9,Translates 79-86 and a few forgotten ones.,2,0
+188,2019-07-29T13:10:14Z,2019-07-30T09:25:27Z,2019-07-30T09:25:27Z,1,811,6,,2,0
+189,2019-07-30T09:56:50Z,2019-08-02T15:56:47Z,2019-08-02T15:56:47Z,1,1,0,Signed-off-by: Alexander Ivanov oshli.a.er@gmail.com,2,0
+192,2019-08-01T17:00:58Z,2019-08-02T15:56:33Z,2019-08-02T15:56:33Z,1,557,0,,2,1
+194,2019-08-03T05:30:43Z,2019-09-30T12:43:03Z,2019-09-30T12:43:03Z,1,788,25,,2,4
+197,2019-08-06T04:30:47Z,2019-08-06T08:51:09Z,2019-08-06T08:51:09Z,1,6,40,,2,4
+198,2019-08-06T09:57:41Z,2019-08-17T14:21:53Z,2019-08-17T14:21:53Z,1,256,2,,2,0
+199,2019-08-06T10:05:05Z,2019-08-06T20:27:33Z,2019-08-06T20:27:33Z,1,1694,5,,2,1
+200,2019-08-06T10:47:14Z,2019-08-06T17:57:50Z,2019-08-06T17:57:50Z,1,274,19,,2,0
+201,2019-08-06T10:48:08Z,2019-08-06T17:58:52Z,2019-08-06T17:58:52Z,1,1,1,,2,0
+203,2019-08-08T07:52:07Z,2019-08-17T14:19:47Z,2019-08-17T14:19:47Z,1,259,0,,2,0
+205,2019-08-10T14:17:06Z,,2019-08-12T09:46:38Z,1,2,2,,2,0
+207,2019-08-11T04:02:00Z,2019-08-17T14:20:27Z,2019-08-17T14:20:27Z,2,8,8,There are no quotes in log.,2,0
+208,2019-08-11T04:18:04Z,2019-08-17T14:20:50Z,2019-08-17T14:20:50Z,1,1,1,It seems the files aren't equal.,2,0
+211,2019-08-15T17:52:48Z,2019-08-17T14:17:20Z,2019-08-17T14:17:21Z,1,256,1,Translates 87-94,2,0
+214,2019-08-17T16:17:51Z,2019-08-17T19:26:39Z,2019-08-17T19:26:39Z,2,253,10,,2,0
+215,2019-08-17T16:44:29Z,2019-08-17T19:26:01Z,2019-08-17T19:26:01Z,1,247,0,Translate the question 95 - 101  into Chinese,2,0
+216,2019-08-18T05:00:30Z,,2020-09-03T10:46:17Z,14,2759,2,,2,2
+217,2019-08-18T05:03:46Z,2019-08-18T10:12:28Z,2019-08-18T10:12:29Z,11,279,39,"Rename the lang file
+ Add external fixes
+ Sync w upstream
+ Translation Q95-101
+ Fixes
+ Relink",2,0
+223,2019-08-21T11:41:08Z,2019-08-22T19:57:39Z,2019-08-22T19:57:39Z,2,4,4,,2,0
+225,2019-08-22T07:31:01Z,2019-09-30T12:40:25Z,2019-09-30T12:40:25Z,1,2,2,,2,1
+228,2019-08-26T13:03:00Z,2019-09-30T12:40:04Z,2019-09-30T12:40:04Z,1,1,1,,2,0
+229,2019-08-26T13:56:27Z,2019-09-30T12:36:22Z,2019-09-30T12:36:22Z,1,1,1,translation error,2,2
+230,2019-08-27T16:48:48Z,2019-09-30T12:36:00Z,2019-09-30T12:36:00Z,1,7,7,,2,0
+231,2019-08-28T19:39:26Z,2019-09-30T12:34:23Z,2019-09-30T12:34:23Z,1,1,1,,2,0
+232,2019-08-29T06:48:01Z,2019-09-30T12:34:05Z,2019-09-30T12:34:05Z,1,1271,12,,2,1
+238,2019-09-27T20:29:47Z,2019-09-30T12:33:41Z,2019-09-30T12:33:41Z,1,4,4,,2,0
+239,2019-09-27T20:31:15Z,2019-09-30T22:11:30Z,2019-09-30T22:11:30Z,1,233,0,,2,1
+240,2019-09-30T06:35:05Z,2019-09-30T12:32:07Z,2019-09-30T12:32:07Z,2,10,4,"The current sample doesn't work for me.
+After the PR
+const myPromise = () => Promise.resolve('I have resolved!')
+
+function firstFunction() {
+  myPromise().then(res => console.log(res))
+  console.log('second')
+}
+
+async function secondFunction() {
+  console.log(await myPromise())
+  console.log('second')
+}
+
+firstFunction()
+secondFunction()
+Please check and merge if it's true.",2,1
+241,2019-09-30T08:51:06Z,2019-09-30T12:30:53Z,2019-09-30T12:30:53Z,1,249,16,"102
+ 103
+ 104
+ 105
+ 106
+ 107
+ 108
+ Update the Russian translations list",2,1
+246,2019-10-03T07:20:10Z,2019-10-10T04:38:03Z,2019-10-10T04:38:03Z,2,240,5,"The question has a 2 typo and translate the questions 102-108 to Korean.
+And I heard you will be speaking at London Web Performance.
+Congrats!!!!!",2,0
+248,2019-10-04T15:58:59Z,2019-10-11T20:22:14Z,2019-10-11T20:22:14Z,15,3603,93,Start with introduction and questions,3,5
+250,2019-10-05T06:29:27Z,2019-10-10T02:13:02Z,2019-10-10T02:13:02Z,1,4,1,Sync w latest fixes,2,0
+252,2019-10-07T07:27:58Z,2019-10-10T02:12:36Z,2019-10-10T02:12:36Z,1,9,9,Fixed some grammar and typos on response's details,2,0
+255,2019-10-10T11:02:24Z,2019-10-11T20:20:35Z,2019-10-11T20:20:35Z,2,4,4,Signed-off-by: Alexander Ivanov oshli.a.er@gmail.com,3,0
+256,2019-10-10T12:40:36Z,2019-10-11T20:20:14Z,2019-10-11T20:20:14Z,1,295,2,"Q109-116
+ Sync w master",3,0
+257,2019-10-10T17:13:13Z,2019-10-11T20:19:57Z,2019-10-11T20:19:57Z,1,292,0,,2,0
+259,2019-10-13T06:41:56Z,,2020-09-03T10:46:54Z,2,134,134,,4,1
+260,2019-10-13T08:02:31Z,,2020-10-05T10:48:52Z,16,2761,3,,4,2
+261,2019-10-13T11:50:45Z,2020-09-06T16:15:36Z,2020-09-06T16:15:36Z,1,4,4,"@lydiahallie It seems we cant close #97 as is.
+This PR automatically closes #97 with applies edits.",4,0
+263,2019-10-16T14:33:48Z,,2019-10-17T06:43:00Z,2,3755,0,Question convert into Urdu Language,2,0
+264,2019-10-17T03:11:01Z,2019-11-19T17:41:11Z,2019-11-19T17:41:11Z,2,21,14,"Hello, Lydia Hallie Thank you for sharing these questions. By learning these questions, I have found a good job. Therefore, I hope to contribute to this and help more people!",3,2
+266,2019-10-18T17:34:18Z,2019-11-19T01:55:17Z,2019-11-19T01:55:17Z,14,49,49,,3,0
+268,2019-10-24T08:16:38Z,2019-11-19T01:48:26Z,2019-11-19T01:48:27Z,1,772,1,Includes the latest translations of questions that had not yet been included.,2,0
+269,2019-10-24T14:37:29Z,2019-11-19T01:47:53Z,2019-11-19T01:47:53Z,1,342,0,,2,0
+275,2019-11-19T15:05:27Z,2019-11-19T17:43:34Z,2019-11-19T17:43:34Z,1,8,9,Translation correction.,2,0
+276,2019-11-22T15:26:38Z,,2020-10-05T10:48:30Z,3,4237,1,"Hey @lydiahallie!
+Here you have the questions 1-124 in polish!",3,4
+280,2019-11-27T05:38:17Z,2020-09-07T12:47:43Z,2020-09-07T12:47:43Z,1,454,1,to Q131,3,0
+281,2019-11-27T05:46:52Z,2020-09-07T12:46:20Z,2020-09-07T12:46:20Z,2,18,18,#279,3,0
+282,2019-11-27T06:13:25Z,2020-09-07T12:44:36Z,2020-09-07T12:44:36Z,2,2,2,#278,5,3
+284,2019-11-27T17:46:08Z,2020-09-27T13:45:20Z,2020-09-27T13:45:20Z,1,270,0,,2,0
+287,2019-12-02T12:10:55Z,2020-03-11T16:14:29Z,2020-03-11T16:14:29Z,3,3,3,,3,2
+288,2019-12-23T21:50:07Z,2020-01-22T05:19:01Z,2020-01-22T05:19:01Z,2,7,7,"Some have been fixed previously but reappeared; some were fixed in the
+various translated files but not applied to originals; and some are
+also fixed in other PRs e.g. #287
+numerica l
+whic h
+proprety
+befoer
+Also an unneeded overlooked anchor deleted",3,0
+292,2020-01-04T18:52:32Z,2020-01-22T05:14:44Z,2020-01-22T05:14:44Z,2,2,2,,3,4
+293,2020-01-05T11:06:39Z,2020-01-22T05:13:48Z,2020-01-22T05:13:48Z,1,2,2,,2,0
+295,2020-01-06T07:50:48Z,2020-03-13T05:18:35Z,2020-03-13T05:18:35Z,3,5577,826,,2,3
+297,2020-01-06T14:06:40Z,2020-01-22T05:11:13Z,2020-01-22T05:11:13Z,1,1174,9,"Translate to 145 , the lattest one in English.
+Found a mistake that 137 is same as 138
+Honor to make a contribution to this repository",2,0
+300,2020-01-07T12:49:27Z,2020-01-22T05:09:45Z,2020-01-22T05:09:45Z,1,2,2,"Hi, I noticed broken links in 2 of your README.md files, so fixed them. Please merge if everything looks okay.",3,1
+304,2020-01-08T11:46:51Z,2020-06-16T02:42:14Z,2020-06-16T02:42:14Z,2,928,1,"Hi Lydia,
+This is a draft PR containing two things:
+
+Created a zh-TW version from Taiwan
+Finished questions 1-15 for translation
+
+Thank you.",2,6
+306,2020-01-11T12:35:06Z,2020-03-11T16:10:43Z,2020-03-11T16:10:43Z,1,9,9,Fixed some typos and a question,2,0
+312,2020-01-15T19:54:38Z,2020-03-11T15:50:32Z,2020-03-11T15:50:32Z,16,4748,16,Started with dutch translation.,3,5
+315,2020-01-15T20:16:23Z,,2020-03-11T19:58:11Z,2,346,2,adding pt-br translation for questions 51 to 60 and adjusting explanation of original question 52,3,2
+317,2020-01-16T08:02:11Z,2020-01-22T04:54:15Z,2020-01-22T04:54:15Z,3,21,117,#301,3,1
+318,2020-01-17T04:28:29Z,,2020-01-20T08:35:22Z,1,2,2,fixing a typo.,2,0
+322,2020-01-20T00:23:55Z,2020-01-22T04:52:27Z,2020-01-22T04:52:27Z,1,390,2,,2,0
+327,2020-02-04T18:11:13Z,2020-02-12T04:04:44Z,2020-02-12T04:04:44Z,1,2,2,,2,1
+328,2020-02-05T14:55:46Z,,2020-03-11T15:59:54Z,1,1,1,"I believe using ""weakly typed"" is more appropriate here.
+Dynamic typing and weak typing are strictly speaking two different terms. ""Dynamically typed"" means that type checking only happens at runtime, not compile or design time, while ""weakly typed"" means that there's implicit type coercion.
+To be clear, JS is both. But some languages are like Python: dynamic, but with no implicit type coercion.",4,4
+329,2020-02-06T20:01:41Z,2020-03-11T15:52:29Z,2020-03-11T15:52:29Z,2,2,2,Fixed a small typo in question 101,2,0
+340,2020-02-28T12:43:58Z,2020-03-11T15:52:04Z,2020-03-11T15:52:04Z,1,8,40,,3,1
+341,2020-03-02T01:43:29Z,2020-03-12T16:40:46Z,2020-03-12T16:40:46Z,2,2,2,As title.,3,1
+342,2020-03-04T13:49:56Z,2020-03-11T15:51:05Z,2020-03-11T15:51:05Z,1,1,1,"(line - 1806)
+Faute de frappe dans le code de la question 59.
+eng:
+Naming correction on question 59. ""numberes"" -> numbers",2,1
+346,2020-03-13T11:11:25Z,2020-06-16T02:43:24Z,2020-06-16T02:43:24Z,1,14,19,,4,0
+347,2020-03-17T11:50:26Z,2020-06-16T02:45:32Z,2020-06-16T02:45:33Z,16,18,19,Add lost bigint type. It is important.,4,3
+348,2020-03-21T19:48:42Z,2020-06-16T02:49:11Z,2020-06-16T02:49:11Z,1,2,2,Fix brazilian translation and punctuation.,3,0
+350,2020-03-29T10:51:25Z,2020-06-16T02:45:55Z,2020-06-16T02:45:55Z,1,1,1,,3,0
+358,2020-06-01T03:27:05Z,,2021-01-13T09:03:05Z,3,20,20,"Thanks for these very interesting questions and answers!
+I noticed few small mistakes:
+
+54: the syntax explained in the answer is slightly different than the one used in the question
+63: typo
+95: I think there should be no semicolon after return to match the answer
+106: [1] is the second element of an array
+124: typo
+129: mention alternative perspective (up/down the scope chain)
+133: typo
+135: typo
+142: typo
+
+If you want me to modify or remove a fix, please let me know.",5,1
+361,2020-06-12T20:49:39Z,,2021-01-13T09:01:27Z,1,4996,0,"Hi, I'd like to translate those question into polish. I'll do it in a next few days. Thank you for a great content.",3,2
+364,2020-06-14T06:52:27Z,2020-09-07T12:38:13Z,2020-09-07T12:38:13Z,1,1,1,"Fix a translation error, 'temporary dead zone' in Chinese is called '暂时性死区'",2,0
+367,2020-06-14T18:45:34Z,2020-06-16T02:55:00Z,2020-06-16T02:55:00Z,1,2,2,"randomValue is 23 when we evaluate the if expression. Therefore, typeof randomValue evaluates to the truthy value ""number"", not ""string"".",2,1
+370,2020-06-15T17:56:07Z,2020-06-16T02:56:26Z,2020-06-16T02:56:26Z,2,2,2,Clarifies what 'it' refers to.,2,1
+371,2020-06-15T18:30:04Z,,2020-06-16T02:55:48Z,12,12,12,More fixes for question #220,5,0
+372,2020-06-16T04:28:36Z,2020-09-07T12:37:50Z,2020-09-07T12:37:50Z,1,1,2,pertanyaan instead of pertannyaan,2,0
+374,2020-06-16T20:44:13Z,2020-09-07T12:37:23Z,2020-09-07T12:37:23Z,1,33,26,"I translate TH version reference to the latest Eng versions.
+I will try to translate and pull request every month (base on availability)
+Thank you for the good resources 👍",2,0
+375,2020-06-18T02:26:22Z,,2020-10-02T07:29:25Z,12,32,32,"discovered and modified inconsistent a tags.
+If it was a tag with a reason, I would appreciate it if you let me know.
+thank you for your work.",2,1
+379,2020-06-21T14:17:32Z,2020-09-03T10:36:49Z,2020-09-03T10:36:49Z,1,5,3,"Amended text to include 2 additional falsy values.
+Reference used: https://developer.mozilla.org/en-US/docs/Glossary/Falsy",3,0
+380,2020-06-24T17:43:43Z,2020-09-03T10:34:41Z,2020-09-03T10:34:42Z,1,260,2,Tradução de algumas questões (63 a 70) do repositório para PT-BR,2,0
+381,2020-06-26T02:03:47Z,,2020-09-03T10:41:54Z,1,1,1,"Request to remove the semicolon from the return line of nums(a, b), as this question doesn't make much sense with it in place - it's built around the gotcha of the semicolon being missing. The semicolons were potentially auto-added by a linter due to the exact reason discussed in the answer, but in this case it's important to keep that ambiguity.
+It might be worthwhile to remove the other semicolons in the function, as well (which would match the formatting of some of the translations, such as NL), but this is the minimum required change for this to make sense again.",5,3
+383,2020-07-08T02:59:21Z,2020-09-07T12:32:47Z,2020-09-07T12:32:47Z,1,3,3,"Based on comments by @ArtyomBobrovnik and @rosschapman.
+Hopefully this is accurate now, and phrased a bit clearer 😃.",3,0
+385,2020-07-11T20:34:54Z,2020-09-03T10:20:44Z,2020-09-03T10:20:44Z,1,1,1,I caught this while building an API for your quiz.,2,0
+388,2020-07-17T15:44:16Z,2020-09-03T10:20:23Z,2020-09-03T10:20:23Z,1,1,1,"""donnée"" is feminine and the following verb ""stocké"" agreements with it (stocké -> stockée).",2,0
+389,2020-07-20T11:56:49Z,2020-09-03T10:19:24Z,2020-09-03T10:19:25Z,1,2,2,,2,0
+390,2020-07-20T11:58:57Z,2020-09-03T10:18:52Z,2020-09-03T10:18:52Z,1,1,1,,2,0
+391,2020-07-21T03:25:41Z,2020-09-06T16:42:32Z,2020-09-06T16:42:32Z,1,10,2,"const sum = (a, b) => a + b
+// this is not a pure function, in some case, it could have side effects.
+Link to issue: #369
+Need help: translate to english",4,1
+392,2020-07-21T18:00:20Z,2020-09-03T10:17:38Z,2020-09-03T10:17:39Z,1,7,7,"First of all, I just want to say, great work! I love the questions! I've read them all and I made mistakes more times than I'd like to admit :)
+Hope this small PR is helpful and thanks again for this repo! 😍",3,1
+393,2020-07-30T07:46:43Z,2020-09-03T08:49:53Z,2020-09-03T08:49:53Z,1,9,9,Fix russian translation,2,0
+394,2020-08-04T03:29:10Z,2020-09-03T08:49:31Z,2020-09-03T08:49:31Z,1,1,1,,2,0
+395,2020-08-04T20:38:51Z,,2020-10-05T10:51:48Z,34,48531,0,"Created JSON versions of questions in 10 languages. Included are the JSON files, the parser functions used to create the JSON, and the .txt source files which are slightly modified version of the .md files viewable on the repo.",2,2
+400,2020-08-21T09:13:03Z,2020-09-06T16:28:08Z,2020-09-06T16:28:08Z,1,1,1,The question should say that the primitive is wrapped in an object. Not an object wrapped in an object.,2,1
+405,2020-08-25T17:21:54Z,,2020-10-02T07:30:14Z,1,5,5,just a few typos corrected,4,2
+407,2020-08-27T09:24:46Z,2020-09-03T08:37:44Z,2020-09-03T08:37:44Z,1,2,2,"Error in stringifying object it must be a[""[object Object]""] not a[""object Object""]",2,1
+408,2020-08-27T20:00:32Z,2020-09-03T08:35:07Z,2020-09-03T08:35:07Z,2,2,2,Extra trailing square bracket deleted in explanation.,2,1
+410,2020-09-08T21:45:53Z,2020-09-10T08:37:18Z,2020-09-10T08:37:18Z,1,1,1,In answer of 142 - Changed THe to The,2,0
+411,2020-09-09T10:24:30Z,2020-09-10T08:38:20Z,2020-09-10T08:38:20Z,1,2,0,,2,0
+412,2020-09-10T07:22:57Z,2020-09-17T10:58:43Z,2020-09-17T10:58:43Z,1,1,1,The result should be NaN not undefined.,2,0
+413,2020-09-11T05:26:47Z,2020-09-14T10:18:53Z,2020-09-14T10:18:53Z,1,153,0,,2,0
+414,2020-09-11T05:43:28Z,2020-09-14T10:19:20Z,2020-09-14T10:19:20Z,1,2,1,"Add Traditional Chinese link into menu
+Change Simplified Chinese from 中文 to 简体中文",2,0
+415,2020-09-15T04:47:53Z,2020-09-16T18:31:08Z,2020-09-16T18:31:08Z,1,636,0,Add 36~50,2,0
+416,2020-09-16T13:11:14Z,2020-09-16T18:32:08Z,2020-09-16T18:32:08Z,1,1,1,Remove semi-colon after return on question 95,2,0
+417,2020-09-17T05:46:59Z,2020-09-17T10:57:30Z,2020-09-17T10:57:30Z,1,1,1,,2,0
+420,2020-09-23T06:54:48Z,2020-09-23T17:49:57Z,2020-09-23T17:49:57Z,1,334,0,Add number 56~65,2,0
+421,2020-09-24T15:17:00Z,2020-10-05T07:44:30Z,2020-10-05T07:44:30Z,17,382,5457,,3,3
+423,2020-09-30T15:36:13Z,2020-10-01T07:51:53Z,2020-10-01T07:51:53Z,11,21,21,Fixed the return value of a resolved promise in 104 question,2,0
+424,2020-10-01T07:21:23Z,,2021-01-13T09:00:31Z,1,90,0,,2,2
+426,2020-10-01T08:15:42Z,,2020-10-02T07:30:57Z,1,6,6,,2,1
+427,2020-10-01T09:02:09Z,2020-10-01T11:03:45Z,2020-10-01T11:03:46Z,1,1,1,Fix 143. translate,2,0
+428,2020-10-01T09:36:48Z,2020-10-01T11:04:19Z,2020-10-01T11:04:19Z,1,32,0,,2,0
+429,2020-10-01T09:57:24Z,2020-10-01T11:04:53Z,2020-10-01T11:04:53Z,1,3,3,,2,0
+430,2020-10-01T09:58:10Z,2020-10-01T11:51:01Z,2020-10-01T11:51:02Z,1,11,11,"i saw before, the issue ""Question 145 does not exist on en-EN README.md"" #419 is still open, and i try to fix that",2,1
+442,2020-10-01T13:14:28Z,2020-10-02T07:32:19Z,2020-10-02T07:32:19Z,1,40,0,,2,0
+443,2020-10-01T13:26:37Z,2020-10-02T07:19:18Z,2020-10-02T07:19:18Z,1,8,8,,3,1
+450,2020-10-01T17:18:44Z,2020-10-02T07:18:20Z,2020-10-02T07:18:20Z,1,2,2,number 4,2,0
+451,2020-10-01T23:40:49Z,,2020-10-13T14:36:36Z,1,99,0,add updates to the README.md file in the id-ID folder,2,2
+452,2020-10-01T23:41:42Z,2020-10-05T07:14:27Z,2020-10-05T07:14:28Z,1,13,13,"translating answer no 4,5,6,7",2,2
+455,2020-10-02T01:05:00Z,2020-10-02T07:39:23Z,2020-10-02T07:39:23Z,1,1,1,,2,3
+456,2020-10-02T01:22:53Z,2020-10-02T07:22:52Z,2020-10-02T07:22:52Z,1,66,0,,3,3
+457,2020-10-02T03:27:08Z,2020-10-05T07:13:44Z,2020-10-05T07:13:44Z,1,32,1,translate question and answer no. 154 into Indonesian,2,1
+458,2020-10-02T03:50:38Z,2020-10-05T12:48:26Z,2020-10-05T12:48:26Z,1,40,36,"Enchanment:
+
+Answer no. 2
+
+Adding Translations:
+
+Question no. 71
+Answer and question no. 107
+Answer and question no. 108
+Answer no. 141",2,6
+460,2020-10-02T05:24:25Z,2020-10-02T07:26:24Z,2020-10-02T07:26:24Z,1,3,1,Added one missing line in que 149 and removed an extra unwanted tag from que 153 of en-EN\README.md,2,0
+463,2020-10-02T11:03:03Z,,2020-10-02T12:26:22Z,1,1,1,,2,0
+466,2020-10-02T17:40:59Z,,2020-10-06T08:12:39Z,1,9,12,,2,2
+469,2020-10-03T02:03:54Z,2020-10-05T07:17:05Z,2020-10-05T07:17:05Z,1,7,7,,2,0
+471,2020-10-03T14:07:56Z,2020-10-05T07:55:41Z,2020-10-05T07:55:41Z,1,12,14,"@jakeherp
+Added Translation to id-ID for answers: 5, 7, and 8",2,0
+473,2020-10-04T03:29:15Z,2020-10-05T07:20:00Z,2020-10-05T07:20:00Z,1,11,11,Added translation answer number 96-99 from id-Indonesian,2,0
+475,2020-10-04T07:28:38Z,2020-10-05T07:21:18Z,2020-10-05T07:21:18Z,2,331,38,"removed trailing spaces at the end of lines in the german README.md (this was done by my IDE)
+translated the questions 126, 127, 128, 129, 130, 131, 132 and 133 to german
+fixed a minor typo in question 126 in the main readme",2,0
+479,2020-10-04T12:58:27Z,2020-10-05T07:22:03Z,2020-10-05T07:22:03Z,1,9,9,"changed ""and"" to ""dan""",2,0
+480,2020-10-04T13:13:45Z,2020-10-05T07:22:42Z,2020-10-05T07:22:42Z,1,37,0,,2,1
+483,2020-10-06T13:13:51Z,2020-10-06T14:48:15Z,2020-10-06T14:48:15Z,1,7,7,I  translated question and answer number 22.,2,0
+484,2020-10-06T13:41:20Z,2020-10-06T14:47:41Z,2020-10-06T14:47:41Z,1,4,4,,2,2
+485,2020-10-06T15:08:24Z,2020-10-07T13:13:40Z,2020-10-07T13:13:40Z,1,5,4,"Hi, I have translated answers on numbers 27 and 57 into Indonesian. Thank you.",3,0
+486,2020-10-13T09:31:31Z,2020-10-13T14:35:30Z,2020-10-13T14:35:30Z,1,16,16,"Hi,
+I have added id-ID translations for some questions & answers. Please add label PR hacktoberfest-accepted or add topic hacktoberfest for event hacktoberfest.
+
+Question & answer 13
+Answer 14
+Answer 16
+Answer 17
+Answer 18
+Answer 19
+Answer 20
+
+Thank you.",2,0
+492,2020-10-18T22:56:18Z,,2020-10-26T16:27:48Z,1,8,0,,2,0
+493,2020-10-19T09:11:46Z,2020-10-26T16:25:56Z,2020-10-26T16:25:56Z,1,372,0,I have added simplified Chinese 145~155 translations.Thank you.,2,0
+495,2020-11-04T18:17:52Z,2020-11-12T20:42:49Z,2020-11-12T20:42:49Z,1,1,1,,2,0
+499,2020-11-14T07:19:58Z,2020-11-14T09:04:38Z,2020-11-14T09:04:38Z,1,1,1,Fixes #498,2,0
+502,2020-11-28T03:24:40Z,,2020-11-28T15:57:02Z,1,23,0,"I added a question about strings, numbers and operator precedence",2,0
+508,2020-12-10T00:24:37Z,2020-12-21T18:14:59Z,2020-12-21T18:14:59Z,1,1,1,,2,0
+511,2020-12-16T18:49:29Z,2020-12-21T18:14:19Z,2020-12-21T18:14:19Z,1,2,2,,2,0
+513,2020-12-17T02:15:47Z,2020-12-21T18:13:39Z,2020-12-21T18:13:39Z,1,2,2,,2,0
+515,2020-12-19T19:24:39Z,2020-12-21T18:12:56Z,2020-12-21T18:12:56Z,1,1,1,Added a typo fix for question 141 from bdaking to baking.,2,0
+517,2020-12-21T17:58:31Z,,2023-01-22T17:48:33Z,1,2,4,,5,2
+518,2020-12-21T18:16:31Z,,2021-01-13T08:51:45Z,1,1,1,,2,0
+519,2020-12-21T22:18:04Z,2021-01-13T08:48:25Z,2021-01-13T08:48:25Z,1,1,1,,4,0
+526,2021-01-19T14:56:07Z,2021-09-28T21:07:52Z,2021-09-28T21:07:53Z,1,1,1,"I believe that there is a small mistake in answer explanation of question 119. There is a ReferenceError thrown in the code after trying to get a property of a non declared variable here. While the answer B is alright the explanation seems to forget to mention the fact that the error is thrown.
+119. What's the output?
+const person = {
+  firstName: 'Lydia',
+  lastName: 'Hallie',
+  pet: {
+    name: 'Mara',
+    breed: 'Dutch Tulip Hound',
+  },
+  getFullName() {
+    return `${this.firstName} ${this.lastName}`;
+  },
+};
+
+console.log(person.pet?.name);
+console.log(person.pet?.family?.name);
+console.log(person.getFullName?.());
+console.log(member.getLastName?.());
+
+A: undefined undefined undefined undefined
+B: Mara undefined Lydia Hallie ReferenceError
+C: Mara null Lydia Hallie null
+D: null ReferenceError null ReferenceError
+
+Answer
+
+Answer: B
+With the optional chaining operator ?., we no longer have to explicitly check whether the deeper nested values are valid or not. If we're trying to access a property on an undefined or null value (nullish), the expression short-circuits and returns undefined.
+person.pet?.name: person has a property named pet: person.pet is not nullish. It has a property called name, and returns Mara.
+person.pet?.family?.name: person has a property named pet: person.pet is not nullish. pet does not have a property called family, person.pet.family is nullish. The expression returns undefined.
+person.getFullName?.(): person has a property named getFullName: person.getFullName() is not nullish and can get invoked, which returns Lydia Hallie.
+member.getLastName?.(): member is not defined: member.getLastName() is nullish. The expression returns undefined.  variable member is non existent therefore a ReferenceError gets thrown!",4,2
+528,2021-01-21T10:49:36Z,2021-09-28T21:09:49Z,2021-09-28T21:09:49Z,1,4,4,"Without the parentheses everything between the curly braces is considered a block statement.
+In case we tried to ""return"" an object with just one property - the key would be interpreted as a label, the code would have been valid and indeed undefined would have been returned.
+const getUser = user => { name: user.name } // always returns undefined
+But if we try to ""return"" an object that has more than 1 property, SyntaxError gets thrown.
+const getUser = user => { name: user.name, age: user.age } // SyntaxError",2,0
+530,2021-01-25T17:31:41Z,2021-02-04T22:23:02Z,2021-02-04T22:23:02Z,1,334,2,I have added Traditional Chinese 66~70 translations. Thank you.,3,1
+532,2021-01-27T09:56:47Z,2021-02-04T22:22:36Z,2021-02-04T22:22:36Z,1,65,0,"Hello, I have added translation for questions 145 and 146 to Vietnamese.",2,0
+534,2021-01-29T02:58:04Z,2021-02-04T22:24:50Z,2021-02-04T22:24:50Z,1,6,12,#533,2,1
+535,2021-02-01T10:11:14Z,2021-02-04T22:22:08Z,2021-02-04T22:22:09Z,1,168,0,I have just added RU 133-136 questions translation. <3,2,0
+536,2021-02-01T19:43:59Z,2021-02-04T22:24:12Z,2021-02-04T22:24:12Z,1,3,3,The changes are pretty self explanatory.,2,0
+537,2021-02-07T14:33:12Z,2021-02-08T16:03:19Z,2021-02-08T16:03:19Z,1,5,1,"Clearing an interval, other than reloading the browser/process, is the only way to garbage-collect an already set interval, so it would stop running.",2,0
+540,2021-02-18T08:32:44Z,2021-02-25T14:52:48Z,2021-02-25T14:52:48Z,1,306,1,"Hello,
+I translated questions 147 to 155 to Vietnamese.",2,0
+541,2021-02-18T08:45:11Z,2021-02-25T14:52:03Z,2021-02-25T14:52:03Z,16,15,15,"fix language code
+rename README-ua_UA.md -> README.md",4,0
+547,2021-03-12T14:14:05Z,,2021-04-20T20:58:55Z,1,1,0,,2,0
+551,2021-04-04T17:03:42Z,,2021-04-20T20:58:01Z,4,4776,0,"noatcards is simple spaced repetition learning platform based on telegram(bot). the platform has feature call quiz competition game which you can create quiz game and play with your friend.
+I ported all question of the repo to support noat.cards which will help other web develop can easy to practice JS quiz
+please refer the demo bellow to get what it is
+demo",2,1
+555,2021-04-16T06:50:44Z,2021-04-20T20:54:28Z,2021-04-20T20:54:28Z,1,2,2,"before:
+setTimeout(() => console.log(""Timeout!"", 0)); 
+// log result: Timeout! 0 ❌
+now:
+setTimeout(() => console.log(""Timeout!""), 0);
+// log result: Timeout! ✅",2,0
+558,2021-04-23T06:28:12Z,2021-05-06T08:32:16Z,2021-05-06T08:32:16Z,1,3,3,"There is a typo in the answer to question 12.
+Wrong: 이리고 말했었어요. (그렇지만) 우리는 실제로 한 일은
+Right: 이라고 말했었어요. (그렇지만) 우리가 실제로 한 일은",3,2
+561,2021-04-26T04:34:42Z,,2021-04-28T21:08:28Z,1,311,309,"Spelling mistake of word ""greeting"" in question 9.
+i have solved it",3,0
+562,2021-05-03T08:46:47Z,2021-05-06T08:29:30Z,2021-05-06T08:29:31Z,1,1,1,"misspelling: ""pas""  => ""par""",2,0
+564,2021-05-07T09:47:09Z,2021-05-07T22:05:45Z,2021-05-07T22:05:45Z,1,1,1,Typo,2,0
+565,2021-05-07T12:27:57Z,2021-09-28T21:12:15Z,2021-09-28T21:12:15Z,1,21,17,there was a false assumption that Promise.resolve(Promise.resolve('Promise!')) resolves a Promise that needs to be resolved again while  it just resolves with Promise!,2,0
+566,2021-05-08T09:35:17Z,2021-05-10T12:39:33Z,2021-05-10T12:39:33Z,1,1,1,Typo,2,0
+571,2021-06-05T18:30:51Z,2021-09-22T21:21:42Z,2021-09-22T21:21:42Z,1,1,1,Freddie is an instance of Chameleon and not a child.,2,0
+572,2021-06-11T13:51:01Z,,2021-09-22T21:20:35Z,1,1,1,Corrected the explanation part of the Q34. Reference to MDN page on types. Clarified null is a structural root primitive note a type. Updated to include BigInt as a type.,2,2
+577,2021-07-02T11:20:11Z,2021-07-12T09:45:19Z,2021-07-12T09:45:19Z,1,2731,46,I have added Traditional Chinese 76~155 translations. Thank you.,4,1
+584,2021-07-12T14:16:14Z,2021-09-22T21:11:57Z,2021-09-22T21:11:57Z,1,3,3,"Question 11 about prototypes. Literal translation used in code snippet.
+Fix code snippet.
+Add MDN docs about Object prototype.",2,0
+588,2021-08-03T23:35:27Z,,2021-09-28T21:06:39Z,1,1,1,"This commit changes ""one"" to ""its own"" in ""43. What does this return?"" to increase clarity.",2,1
+590,2021-08-08T23:52:30Z,2021-09-28T21:13:36Z,2021-09-28T21:13:36Z,1,2,2,I just made a few minor edits to https://github.com/lydiahallie/javascript-questions#87-whats-the-output.,2,0
+592,2021-08-11T05:47:57Z,2021-09-22T21:13:10Z,2021-09-22T21:13:10Z,1,4,4,Fix Grammatical Errors in Question 126 of Chinese Version,3,0
+594,2021-08-15T08:54:08Z,2021-09-22T21:14:34Z,2021-09-22T21:14:34Z,4,2092,750,"Hi, Long time no see :)
+Hear are two request.
+One, fixed the wrong variable name.
+Two, updated translation like I said the title.
+Please, check and merge.
+I always wish you all the best ❤️",2,0
+598,2021-09-07T23:33:29Z,,2022-06-18T18:17:11Z,1,1,1,I think it would be useful to readers if we linked to the MDN documentation for Object.seal in 136. Which of the following will modify the person object?.,3,1
+604,2021-09-11T14:34:26Z,,2022-08-29T10:20:45Z,1,1,1,"""You should make sure that your button and link text labels are understandable and distinctive. Don't just use ""Click here"" for your labels, as screen reader users sometimes get up a list of buttons and form controls. The following screenshot shows our controls being listed by VoiceOver on Mac.""",2,1
+606,2021-09-12T14:45:51Z,2021-09-22T21:11:17Z,2021-09-22T21:11:17Z,1,1,1,"This is a very minor change that just removes two unnecessary ""the""s.",2,0
+609,2021-09-22T19:49:46Z,2021-09-22T21:10:10Z,2021-09-22T21:10:11Z,1,1,1,Fix #570,3,0
+621,2021-10-03T03:04:37Z,,2022-08-29T10:20:26Z,1,28,0,add new question for Indonesian(id-ID) dir,2,2
+624,2021-10-21T14:15:50Z,2021-11-26T18:30:55Z,2021-11-26T18:30:55Z,1,1,1,"There was an error in Number 76,
+const { name: myName } = { name: 'Lydia' };
+console.log(name);
+
+the name variable should print undefined, and not Lydia. Using a different variable name - instead of 'name' should also help",2,0
+625,2021-10-28T06:53:59Z,2021-11-26T18:29:43Z,2021-11-26T18:29:43Z,2,10,6,,2,0
+628,2021-11-20T06:35:58Z,,2023-01-22T17:49:32Z,1,4,2,"-Corrected answer of question-76. in Readme.md
+-solves issue #622",3,1
+631,2021-12-16T15:46:08Z,,2022-01-22T23:45:15Z,1,2,1,The previous answer B was not correct as non-enumerable properties won't be shown with console.log.,3,0
+633,2021-12-25T05:59:07Z,2022-01-22T23:44:12Z,2022-01-22T23:44:12Z,1,17,17,"Updated links to different languages (利用可能な言語リスト) by pointing to the correct parent directory - the URLs in the previous version leads to a 404 error as it did not go one level up in the directory (dot slashed is used instead of dot-dot-slash).
+Link problem exists in other languages and needs updating as well.",2,0
+637,2022-01-01T07:49:04Z,2022-01-22T23:43:36Z,2022-01-22T23:43:36Z,1,1,1,,4,0
+638,2022-01-01T20:34:05Z,,2022-01-22T23:42:50Z,1,1,1,it was just a nonsense word in the middle of explaining the question.,2,1
+639,2022-01-02T14:40:54Z,,2022-08-29T10:21:07Z,2,32,32,"Modifications (English): Qn 4, 15, 24
+Modifications (zh_CN): Qn 3, 4, 8, 9, 15, 24, 141",2,1
+641,2022-01-17T13:51:39Z,2022-01-22T23:41:40Z,2022-01-22T23:41:40Z,1,7,7,,2,1
+645,2022-02-02T20:48:36Z,,2023-01-22T17:47:57Z,7,415,281,"I create an index.html file that uses docsify to create a better documentation from same readmes.
+I create main.js and style.css to handle dark/light themes
+_sidebar.md is a docsify way to custom the sidebar. Here I show the available translation for quick access
+I made some changes in spanish translation
+
+Purpose of this PR is to deploy a static site with all javascript questions delivering a better user experience
+Preview site: https://stoic-mirzakhani-54a758.netlify.app/#/",2,1
+648,2022-02-08T15:17:28Z,2022-06-18T18:10:08Z,2022-06-18T18:10:08Z,1,1,1,Update README.md,2,0
+649,2022-03-08T21:23:37Z,,2022-08-29T10:21:27Z,1,1,0,,2,1
+651,2022-03-15T08:43:09Z,,2022-08-29T10:22:49Z,1,4,4,"With the current wording, it is unclear that not every parameter has to lead to a true value. This is explained later in the answer (""If name is truthy, which is what we want to test for"").
+See also #397",3,1
+653,2022-04-21T13:13:13Z,2022-06-18T18:09:13Z,2022-06-18T18:09:13Z,1,2,2,"updated question number 9, greetign changed to greeting",3,5
+654,2022-04-21T14:21:47Z,2022-06-18T18:08:46Z,2022-06-18T18:08:46Z,1,220,220,format zh-CN locale text follow: https://github.com/sparanoid/chinese-copywriting-guidelines,2,0
+656,2022-05-21T12:54:49Z,,2022-06-18T18:12:47Z,1,1,1,,2,0
+659,2022-06-03T09:19:56Z,2022-06-18T18:08:09Z,2022-06-18T18:08:10Z,1,1,1,There seems to be a typo: referencable => referenceable,2,0
+661,2022-06-14T19:57:19Z,,2022-06-18T18:28:45Z,1,1,1,"Description:
+Question 61 was missing a correct answer and this PR change holds adding the correct options.",2,1
+664,2022-06-20T07:52:35Z,2023-01-22T17:47:14Z,2023-01-22T17:47:14Z,1,0,0,changed the name of the readme file from readme-it to readme to make all links work in other languages,2,5
+669,2022-07-01T20:27:42Z,2022-08-29T10:17:48Z,2022-08-29T10:17:48Z,1,347,52,,2,0
+670,2022-07-18T10:33:40Z,,2023-01-22T17:46:27Z,1,5,5,I've changed the answer of Q.76 from C to D. as name is not defined in the scope which leads to ReferenceError,3,2
+673,2022-07-25T22:54:27Z,2022-08-29T10:13:26Z,2022-08-29T10:13:26Z,19,20,20,Issue: #672,2,1
+675,2022-08-06T22:58:59Z,2022-08-29T10:10:58Z,2022-08-29T10:10:59Z,1,3,3,"Hello @lydiahallie,
+Here I have fix the small correction for question no. 37. Please take a look.",2,0
+676,2022-08-14T13:51:58Z,2022-08-29T10:07:27Z,2022-08-29T10:07:28Z,1,48,67,"Hi!
+I corrected a few typos and deleted the parts in english (the translation in italian was already there).",2,0
+677,2022-08-14T17:21:42Z,2022-08-29T10:07:02Z,2022-08-29T10:07:02Z,1,117,11,,3,0
+678,2022-08-16T02:47:41Z,,2023-09-14T21:22:27Z,1,51,0,,5,1
+680,2022-08-21T20:39:46Z,2022-08-29T10:05:25Z,2022-08-29T10:05:25Z,16,272,272,"There is missing an important word on question 39.
+All paths are wrong on github and the pages to other languages were getting 404 errors.",2,0
+681,2022-09-01T14:41:06Z,,2022-12-02T18:07:25Z,1,68,5,"I added question 156 in list of questions, i hope at least added value  in this repo, and if there are wrongs in code or explaining, i hope learn with you.",2,0
+682,2022-09-07T08:47:54Z,2022-11-30T12:49:17Z,2022-11-30T12:49:17Z,1,3,3,"At ""ru"" version was a type",3,0
+683,2022-09-20T14:00:56Z,2022-11-30T12:49:50Z,2022-11-30T12:49:50Z,1,1,1,,2,0
+685,2022-10-03T13:10:50Z,,2023-01-22T17:45:50Z,1,1297,613,,2,1
+690,2022-11-04T17:28:51Z,2022-11-30T12:55:43Z,2022-11-30T12:55:43Z,1,2,2,Perhaps this answer is outdated. I've suggested an answer based on the information from MDN,2,0
+692,2022-11-06T13:57:50Z,2022-11-30T12:56:27Z,2022-11-30T12:56:27Z,1,1,1,,2,0
+695,2022-11-13T22:10:20Z,2022-11-30T12:57:09Z,2022-11-30T12:57:09Z,1,1,1,,2,0
+696,2022-11-17T18:49:05Z,2022-11-30T13:01:30Z,2022-11-30T13:01:31Z,1,1,1,I believe we need to pass name as an argument here,3,0
+697,2022-12-02T08:00:15Z,2023-01-22T17:39:28Z,2023-01-22T17:39:28Z,1,1,1,Add missed sentence in Rus translation of #14.,2,0
+698,2022-12-07T15:52:00Z,2023-01-22T17:40:36Z,2023-01-22T17:40:36Z,1,40,6,"Fixed the question/answer and also covered the old question.
+76. What's the output?
+const { firstName: myName } = { firstName: 'Lydia' };
+
+console.log(firstName);
+
+A: ""Lydia""
+B: ""myName""
+C: undefined
+D: ReferenceError
+
+Answer
+
+Answer: D
+By using destructuring assignment syntax we can unpack values from arrays, or properties from objects, into distinct variables:
+const { firstName } = { firstName: 'Lydia' };
+// ES5 version:
+// var firstName = { firstName: 'Lydia' }.firstName;
+
+console.log(firstName); // ""Lydia""
+Also, a property can be unpacked from an object and assigned to a variable with a different name than the object property:
+const { firstName: myName } = { firstName: 'Lydia' };
+// ES5 version:
+// var myName = { firstName: 'Lydia' }.firstName;
+
+console.log(myName); // ""Lydia""
+console.log(firstName); // Uncaught ReferenceError: firstName is not defined
+Therefore, firstName does not exist as a variable, thus attempting to access its value will raise a ReferenceError.
+Note: Be aware of the global scope properties:
+const { name: myName } = { name: 'Lydia' };
+
+console.log(myName); // ""lydia""
+console.log(name); // """" ---- Browsers e.g. Chrome
+console.log(name); // ReferenceError: name is not defined  ----- NodeJS
+Whenever Javascript is unable to find a variable within the current scope, it climbs up the Scope chain and searches for it and if it reaches the top-level scope, aka Global scope, and still doesn't find it, it will throw a ReferenceError.
+
+
+In Browsers such as Chrome, name is a deprecated global scope property. In this example, the code is running inside global scope and there is no user defined local variable for name, therefore it searches the predefined variables/properties in the global scope which is in case of browsers, it searches through window object and it will extract the window.name value which is equal to an empty string.
+
+
+In NodeJS, there is no such property on the global object, thus attempting to access a non-existent variable will raise a ReferenceError.",3,0
+702,2022-12-30T12:23:30Z,2023-02-04T16:34:43Z,2023-02-04T16:34:43Z,1,802,156,"fix spades
+fix ' & ""
+update to the full translation",3,2
+703,2022-12-31T19:24:08Z,2023-01-22T17:42:22Z,2023-01-22T17:42:22Z,1,1,1,Count translations is 19,3,0
+705,2023-01-09T22:12:57Z,2023-01-22T17:42:54Z,2023-01-22T17:42:54Z,1,8,3,"== :  Equality
+=== : Strict Equality",2,0
+707,2023-01-10T19:51:55Z,,2023-09-14T21:22:37Z,1,34,0,"Hi, I've added a question that uses the concept of block-scope and shadowing in Javascript.",7,5
+708,2023-01-15T06:27:02Z,2023-01-22T17:43:42Z,2023-01-22T17:43:42Z,1,3,2,,2,0
+713,2023-02-05T20:43:52Z,2023-02-17T10:14:47Z,2023-02-17T10:14:48Z,1,45,6,,3,0
+722,2023-05-23T12:32:20Z,2023-06-04T21:42:15Z,2023-06-04T21:42:15Z,1,1,1,"There is a typo in the line below (the answer to question 9).
+
+window.greetign = {}, frames.geetign = {} and self.greetign in browsers.
+
+There is a missing r in frames.geetign.
+It should be frames.greetign
+This PR corrects it.",2,0
+725,2023-06-11T04:27:04Z,2023-06-25T19:30:11Z,2023-06-25T19:30:11Z,1,8,8,"On last 2 commits, my email address was wrong. I'm updating them.
+Translates answers for question 77 (pt-BR), which were in English.
+Appends additional explanation to answer of question 78.",2,0
+727,2023-06-16T07:48:30Z,2023-06-25T19:27:33Z,2023-06-25T19:27:33Z,1,1,1,I have fixed the additional information of Question 10 in Vietnamese refer #726,3,0
+730,2023-06-25T19:19:41Z,2023-06-25T21:02:59Z,2023-06-25T21:02:59Z,18,383,0,"I would like to take on the translation into the Polish language, which is not yet available in the repository. So far, I have managed to translate the introduction, the first 10 questions, and their answers. Additionally, I have added Polish to the list of other translations.",2,1
+731,2023-06-26T04:21:22Z,2023-07-03T10:33:15Z,2023-07-03T10:33:15Z,18,610,18,The change is to replace the underscore with a dash for Polish in all redirects and add another 10 translated questions and answers.,2,0
+732,2023-06-27T07:13:59Z,2023-07-03T10:33:47Z,2023-07-03T10:33:47Z,2,14,14,,2,0
+733,2023-07-05T17:57:26Z,2023-07-12T11:54:52Z,2023-07-12T11:54:52Z,1,589,0,,2,0
+735,2023-07-09T05:28:36Z,2023-07-12T11:57:31Z,2023-07-12T11:57:31Z,1,3,1,,2,0
+736,2023-07-09T07:10:54Z,,2023-09-08T14:51:30Z,1,146,0,"Hello,
+I hope you're doing well. I recently came across your repository. I noticed that your repository doesn't have a Persian translation, and I'm interested in contributing by adding a Persian translation if you're open to it.
+As a Persian-speaking user, I believe adding a Persian translation to your repository can help the Persian-speaking developer community benefit from your project to the fullest extent.
+Are you interested in the idea of adding a Persian translation to your repository? If you're open to it, I would be delighted to collaborate and provide smooth and accurate translations for you.
+I'm looking forward to hearing from you. If you have any questions or requests, please let me know.",2,1
+737,2023-07-24T13:29:35Z,2023-07-24T22:21:43Z,2023-07-24T22:21:43Z,1,1,1,"[Wording] Replace the word ""and"" with ""et""",2,0
+738,2023-07-29T23:48:37Z,2023-08-01T08:51:14Z,2023-08-01T08:51:14Z,19,5170,7,"Hello,
+I hope this message finds you well. I'm excited to contribute to this amazing project. Being a native speaker of Albanian language called (SHQIP - sq), I've noticed that our language wasn't supported in the current version of the project. To make this project more inclusive and accessible to the speakers of Kosova/Albania, I've decided to add localization support for my native language.
+In this pull request, I have:
+
+Added Shqip translation files to the  directory.
+Updated the documentation to reflect this new language addition.
+
+I believe that adding Shqip to the list of supported languages will make this project even more useful to a wider audience. I look forward to your feedback and hope for the successful merger of this contribution. Please feel free to suggest any changes or improvements.
+Thank you for considering this request.",2,1
+739,2023-08-02T13:38:18Z,,2023-09-14T21:22:47Z,2,179,0,,3,2
+740,2023-08-03T11:54:19Z,2023-08-19T09:51:09Z,2023-08-19T09:51:09Z,1,13,13,,3,0
+742,2023-08-11T18:46:47Z,,2023-09-14T21:26:54Z,1,1,1,"23. What's the output?
+The Answer description was not clear as the reason is that the variable declared with let couldn't be redeclared.",3,2
+743,2023-08-20T22:06:38Z,2023-09-08T14:44:08Z,2023-09-08T14:44:08Z,20,5168,1,"Hey,
+While I'm trying to learn new things about JavaScript, I would also love to contribute to this awesome repo, by adding the Romanian language. I will try to add <= 10 translated questions each day, or even more.
+Regards, Alex",2,2
+745,2023-08-27T22:36:58Z,2023-09-08T14:50:13Z,2023-09-08T14:50:13Z,1,3,3,"made little correction in answer of 150.  where property would be  ""[object Object]""  not ""object Object""",2,0
+748,2023-09-10T14:38:52Z,2023-09-11T15:47:46Z,2023-09-11T15:47:46Z,1,13,10,,2,0
+749,2023-09-10T16:50:00Z,2023-09-14T21:24:24Z,2023-09-14T21:24:24Z,2,629,629,Apply community guidelines for English and Chinese typography to format Simplified Chinese documentation --from https://sparanoid.com/note/chinese-copywriting-guidelines/,2,0
+750,2023-09-11T13:20:49Z,,2024-03-10T15:11:13Z,1,80,0,"Hi, I'm translating this repo into Bangla.
+I plan to do one-five question daily, so it'll take a while to complete. (I'll do more if I get more time.)
+This is solving #746",3,1
+751,2023-09-16T13:58:30Z,2023-11-17T10:18:06Z,2023-11-17T10:18:06Z,1,9,9,,2,0
+752,2023-09-21T01:09:01Z,2023-11-17T10:17:40Z,2023-11-17T10:17:40Z,1,1,1,,3,0
+754,2023-09-24T19:36:35Z,2023-09-24T20:55:45Z,2023-09-24T20:55:45Z,1,1,1,,2,1
+757,2023-10-19T10:51:55Z,2023-11-17T10:16:48Z,2023-11-17T10:16:48Z,1,846,4,"Add more translated questions, add note and modify content with current from English version",2,0
+760,2023-11-27T16:39:42Z,2024-03-10T14:54:50Z,2024-03-10T14:54:50Z,1,1,1,"Why open this PR?
+In question 3, I felt the explanation did not make it clear whether this.radius returned NaN directly or it was a result of the multiplication 2 * Math.PI * this.radius.
+Suggestion
+I suggest extending the explanation a little, making it clear the result is undefined and then becomes NaN.",3,0
+762,2023-12-04T12:19:23Z,2024-03-10T14:55:53Z,2024-03-10T14:55:53Z,1,2,2,"For me it was unclear why ""Promise 2"" is printed before ""Promise 1"".",3,0
+767,2024-02-03T18:51:21Z,2024-03-10T15:01:58Z,2024-03-10T15:01:58Z,1,31,31,Fixing the typos and grammar mistakes,2,0
+768,2024-02-16T12:29:01Z,,2024-03-10T15:00:01Z,0,0,0,Merging,2,0

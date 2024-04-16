@@ -1,0 +1,357 @@
+number,created_at,merged_at,closed_at,files,additions,deletions,body_text,participants,comments
+1,2017-09-25T06:25:27Z,2017-09-25T08:03:20Z,2017-09-25T08:03:20Z,1,1,1,,2,0
+3,2017-09-25T21:27:24Z,2017-09-25T23:39:01Z,2017-09-25T23:39:01Z,1,2,2,,2,1
+9,2017-09-28T16:00:37Z,2017-09-30T13:51:37Z,2017-09-30T13:51:37Z,2,14,14,Really just a personal preference. Feel free to reject if you want to keep it as is.,2,5
+17,2017-10-01T15:57:48Z,2017-10-01T17:20:37Z,2017-10-01T17:20:37Z,1,2,2,"Great guide, thanks for assembling all these resources. Just a few edits that clarify some of the language!",2,2
+30,2017-10-03T21:42:09Z,2017-10-04T17:00:29Z,2017-10-04T17:00:29Z,1,17,0,,2,3
+38,2017-10-09T18:01:44Z,2017-10-10T02:48:24Z,2017-10-10T02:48:24Z,1,54,0,,2,2
+96,2018-01-20T06:08:46Z,,2018-01-20T17:31:26Z,2,29,0,This Question is basically on Hashing Technique usually asked in Interview Question,2,1
+99,2018-03-29T06:41:32Z,2018-03-29T07:49:40Z,2018-03-29T07:49:40Z,1,12,12,"Did some cleanup RE the phrasing and grammar of some of the questions, making them more consistent.",2,1
+107,2018-10-12T19:22:26Z,2018-10-13T00:17:37Z,2018-10-13T00:17:37Z,1,1,1,Fixed typo,2,1
+114,2018-10-31T09:53:18Z,2018-10-31T17:25:19Z,2018-10-31T17:25:19Z,2,2,2,"Fixes issue #113
+
+
+Fixed a typo in tech-interview-handbook/blob/master/preparing/README.md on line 70.
+Original word - oppurtunities.
+Changed to - opportunities.
+
+
+Fixed a typo in tech-interview-handbook/blob/master/interviewers/basics.md on line 19.
+Original word - psuedocode.
+Changed to - pseudocode.",2,1
+121,2019-03-27T11:34:56Z,2019-07-14T23:03:19Z,2019-07-14T23:03:19Z,1,1,1,,2,0
+123,2019-06-05T13:36:20Z,2019-07-14T23:05:17Z,2019-07-14T23:05:17Z,1,1,1,There was no link to Longest Common Subsequence and there was no question on leetcode for it. I placed a geeksforgeeks link to this problem which has solutions and explanation.,2,0
+127,2019-08-18T17:17:19Z,2019-08-18T21:00:43Z,2019-08-18T21:00:43Z,1,1,1,"Disclosure: I'm one of the makers of Levels.fyi.
+This is obviously a big red flag that I'm adding a reference to a site I have an interest in. I think the community would find our data useful and more accurate than alternatives. A quick search on Google would bring up that folks regularly consult data on our site over say Glassdoor, etc.",2,1
+131,2019-08-20T14:06:48Z,2019-08-20T16:08:16Z,2019-08-20T16:08:16Z,1,5,6,Just minor raw HTML consistency changes,2,0
+133,2019-08-24T07:27:04Z,2019-08-24T12:53:57Z,2019-08-24T12:53:57Z,1,1,1,Fix broken url for Interview formats on README.md,2,0
+134,2019-08-25T05:49:25Z,2019-08-25T13:37:54Z,2019-08-25T13:37:54Z,1,0,1,,2,1
+137,2019-09-08T05:29:07Z,2019-09-13T18:46:55Z,2019-09-13T18:46:55Z,1,52,8,"The changes I'm planning are as follows:
+
+The current method for traversing graphs (represented as 2D grids) shows a
+recursive implementation. I'm following an iterative implementation that uses
+deque data structure which can function as either a queue (for BFS) and
+stack (for DFS) to provide more effecient insertion and deletion operations.
+Using namedtuple data structure to use x or y to access coordinates in
+place of indices.
+Add a placeholder function is_valid to check for those cells that may be
+invalid (this function will vary as per what the question requires)
+Insert into the deque first and check if the nodes are valid later(as
+opposed to checking boundary conditions and visited/valid seperately)",3,5
+138,2019-09-11T04:01:29Z,2019-09-11T10:21:27Z,2019-09-11T10:21:27Z,1,1,1,"Hello, I was reading the handbook (great job here btw) and notice this typo.",2,0
+142,2019-09-21T17:55:29Z,2019-09-21T20:09:22Z,2019-09-21T20:09:22Z,1,1,1,"I've been reading through this handbook (very helpful and amazing, btw) and noticed a typo in the Phone Interview section. I also changed the tense to make a bit more sense.",2,0
+144,2019-09-21T21:34:26Z,2019-09-21T22:53:00Z,2019-09-21T22:53:01Z,1,1,1,"Fixes #143
+behaioral -> behavioral",2,0
+150,2019-12-26T23:14:47Z,2019-12-31T11:42:57Z,2019-12-31T11:42:57Z,1,1,1,,2,0
+152,2020-01-07T04:04:20Z,2020-03-15T05:23:56Z,2020-03-15T05:23:56Z,2,17,0,"Hi! there 🙂
+This PR simplifies code contributions by adding configuration for gitpod (A Free online VS Code like Ide). With a single click, it will launch a ready to code workspace with all the dependencies being pre-installed & the start & build scripts in process so that anyone interested in contributing can start coding straight away without wasting any time on dev setup.
+You can give it a try on My Fork of the repo:
+https://gitpod.io/#https://github.com/nisarhassan12/tech-interview-handbook",2,1
+156,2020-03-02T11:19:57Z,2020-03-15T05:24:49Z,2020-03-15T05:24:49Z,1,1,0,,2,0
+157,2020-03-05T17:11:43Z,2020-03-06T16:41:49Z,2020-03-06T16:41:49Z,1,1,1,,3,0
+158,2020-03-05T17:24:18Z,2020-03-06T16:40:54Z,2020-03-06T16:40:54Z,1,1,1,,3,0
+162,2020-04-22T01:38:56Z,,2020-04-22T02:57:52Z,1,4,0,Added an article found online that guides a reader on the logic of permutations in programming.,3,0
+163,2020-05-06T03:36:55Z,,2020-06-25T06:26:33Z,2,19,0,"I think it would be helpful. Open for the feedback!
+Source my blog post",2,2
+164,2020-05-11T00:32:24Z,2020-05-11T02:08:32Z,2020-05-11T02:08:32Z,1,5,0,The link from task11 in https://medium.com/free-code-camp/the-ultimate-guide-to-preparing-for-the-coding-interview-183251ee36c9 is broken. Fixing it by providing a reference to the right url,2,1
+168,2020-07-06T20:05:26Z,2020-07-07T02:51:28Z,2020-07-07T02:51:28Z,1,1,1,"There're different numbers mentioned in Alice salary description and bonus calculation.
+
+Alice is an Engineering Manager with 10 years of professional experience. Her base salary is 220,000, is an experienced engineering manager (seniority multiplier: 20%), exceeded expectations for the half (individual performance multiplier: 150%) and her company did pretty awesome (company performance multiplier: 130%). For that half, her bonus will be as follows:
+
+
+Bonus: 200,000 x 50% (half a year) x 20% (seniority) x 200% (individual performance) x 130% (company performance) = 39000
+
+The bonus paragraph should become:
+
+Bonus: 220,000 x 50% (half a year) x 20% (seniority) x 150% (individual performance) x 130% (company performance) = 42900",2,0
+172,2020-08-08T00:08:19Z,2020-08-10T07:40:11Z,2020-08-10T07:40:11Z,1,3,3,"Bumps prismjs from 1.20.0 to 1.21.0.
+
+Release notes
+Sourced from prismjs's releases.
+
+v1.21.0
+Release 1.21.0
+
+
+
+Changelog
+Sourced from prismjs's changelog.
+
+1.21.0 (2020-08-06)
+New components
+
+.ignore & .gitignore & .hgignore & .npmignore (#2481) 3fcce6fe
+Agda (#2430) 3a127c7d
+AL (#2300) de21eb64
+Cypher (#2459) 398e2943
+Dhall (#2473) 649e51e5
+EditorConfig (#2471) ed8fff91
+HLSL (#2318) 87a5c7ae
+JS stack trace (#2418) ae0327b3
+PeopleCode (#2302) bd4d8165
+PureBasic (#2369) d0c1c70d
+Racket (#2315) 053016ef
+Smali (#2419) 22eb5cad
+Structured Text (IEC 61131-3) (#2311) 8704cdfb
+UnrealScript (#2305) 1093ceb3
+WarpScript (#2307) cde5b0fa
+XML doc (.net) (#2340) caec5e30
+YANG (#2467) ed1df1e1
+
+Updated components
+
+Markup & JSON: Added new aliases (#2390) 9782cfe6
+Fixed several cases of exponential backtracking (#2268) 7a554b5f
+APL
+
+Added ⍥ (#2409) 0255cb6a
+
+
+AutoHotkey
+
+Added missing format built-in (#2450) 7c66cfc4
+Improved comments and other improvements (#2412) ddf3cc62
+Added missing definitions (#2400) 4fe03676
+
+
+Bash
+
+Added composer command (#2298) 044dd271
+
+
+Batch
+
+Fix escaped double quote (#2485) f0f8210c
+
+
+C
+
+Improved macros and expressions (#2440) 8a72fa6f
+Improved macros (#2320) fdcf7ed2
+
+
+C#
+
+Improved pattern matching (#2411) 7f341fc1
+Fixed adjacent string interpolations (#2402) 2a2e79ed
+
+
+C++
+
+Added support for default comparison operator (#2426) 8e9d161c
+Improved class name detection (#2348) e3fe9040
+Fixed enum class class names (#2342) 30b4e254
+
+
+Content-Security-Policy
+
+Fixed directives (#2461) 537a9e80
+
+
+CSS
+
+Improved url and added keywords (#2432) 964de5a1
+
+
+
+
+
+
+
+Commits
+
+187c8a6 1.21.0
+bf4f323 Changelog for v1.21.0 (#2507)
+8bba488 Previewers: Fixed XSS (#2506)
+158caf5 JSON: Greedy comments (#2479)
+f0f8210 Batch: Fix escaped double quote (#2485)
+649e51e Added support for Dhall (#2473)
+453079b Line Numbers: Fixed class name on website
+a0efa40 Fixed Treeview page (#2484)
+78161d6 VB: Added VBA alias (#2469)
+ed1df1e Added support for YANG (#2467)
+Additional commits viewable in compare view
+
+
+
+
+Dependabot will resolve any conflicts with this PR as long as you don't alter it yourself. You can also trigger a rebase manually by commenting @dependabot rebase.
+
+
+Dependabot commands and options
+
+You can trigger Dependabot actions by commenting on this PR:
+
+@dependabot rebase will rebase this PR
+@dependabot recreate will recreate this PR, overwriting any edits that have been made to it
+@dependabot merge will merge this PR after your CI passes on it
+@dependabot squash and merge will squash and merge this PR after your CI passes on it
+@dependabot cancel merge will cancel a previously requested merge and block automerging
+@dependabot reopen will reopen this PR if it is closed
+@dependabot close will close this PR and stop Dependabot recreating it. You can achieve the same result by closing it manually
+@dependabot ignore this major version will close this PR and stop Dependabot creating any more for this major version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this minor version will close this PR and stop Dependabot creating any more for this minor version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this dependency will close this PR and stop Dependabot creating any more for this dependency (unless you reopen the PR or upgrade to it yourself)
+@dependabot use these labels will set the current labels as the default for future PRs for this repo and language
+@dependabot use these reviewers will set the current reviewers as the default for future PRs for this repo and language
+@dependabot use these assignees will set the current assignees as the default for future PRs for this repo and language
+@dependabot use this milestone will set the current milestone as the default for future PRs for this repo and language
+
+You can disable automated security fix PRs for this repo from the Security Alerts page.",1,0
+173,2020-08-18T15:59:33Z,,2020-09-25T11:24:44Z,1,1,1,"Link of the ""Tech Interview Handbook"" artist (Yang Heng) Dribbble's is broken - the username has been updated to ""@humongousheng"".
+Edit: Applies to Front End Interview Handbook as well.",3,0
+175,2020-08-30T10:27:40Z,2020-09-25T08:54:54Z,2020-09-25T08:54:54Z,1,1,1,"This was a source of confusion for me because you technically need to search for the linked list node first, which takes O(n) time in the average and worst case scenarios. I think it'll be easier to understand if we clarify that the node is already found as done in this StackOverflow answer. If you think that this distinction is not necessary and confuses things more, then feel free to close the PR.",2,0
+177,2020-09-25T09:55:43Z,2020-09-25T11:24:11Z,2020-09-25T11:24:11Z,1,1,1,,2,0
+182,2020-10-03T13:24:30Z,2020-10-04T08:41:20Z,2020-10-04T08:41:20Z,1,8,0,"Added more general questions
+Added more tricky (uncommon) tech questions asked by interviewers at large companies (Source: Interview Prep Articles) to help users be better prepared. Although these questions are not generic/common, it helps if the interviewee has an intuition of how they can answer these questions, because similar questions are definitely going to be asked.",2,0
+196,2021-02-25T14:31:19Z,2021-03-29T09:58:59Z,2021-03-29T09:58:59Z,1,1,1,"This representation may be easier to understand for some people.
+If a number is power of two then AND operation between the number and 2's complement of the number will result into the same number.",2,0
+207,2021-05-16T23:06:55Z,2021-05-17T02:32:34Z,2021-05-17T02:32:34Z,1,1,0,,2,0
+218,2021-08-17T10:09:52Z,,2021-09-09T21:25:29Z,2,30,67,,2,1
+219,2021-08-23T20:58:31Z,2021-08-24T01:15:08Z,2021-08-24T01:15:08Z,1,6,6,"add punctuation
+correct pronoun agreement",3,0
+227,2021-09-17T09:56:29Z,2021-09-20T18:08:22Z,2021-09-20T18:08:22Z,1,1,0,This is an interesting question because it requires to break the matrix into a smaller matrix,3,0
+229,2021-10-01T20:43:38Z,2021-10-02T09:33:25Z,2021-10-02T09:33:25Z,1,1,0,This swaps the two values in the two variables without needing a third variable.,2,0
+230,2021-10-04T07:21:58Z,,2021-10-04T08:35:46Z,3,14,0,,2,0
+236,2021-10-05T11:26:28Z,,2021-10-05T16:34:15Z,1,1,0,"Adds ""Diameter of Binary Tree""  to Interview Questions",2,1
+239,2021-10-05T21:41:42Z,2021-10-07T17:19:58Z,2021-10-07T17:19:58Z,1,1,1,,2,0
+242,2021-10-29T09:04:53Z,2021-10-30T01:49:42Z,2021-10-30T01:49:42Z,1,1,1,dropbox.com with full stop begin dropbox.com(.) it leads to 404 page from dropbox,2,0
+243,2021-10-29T14:51:07Z,2021-10-30T01:52:07Z,2021-10-30T01:52:07Z,1,20,0,,2,0
+245,2021-10-31T13:33:25Z,2021-10-31T23:39:00Z,2021-10-31T23:39:00Z,1,5,5,There had been multiple grammatical errors in this document which has been corrected now.,2,0
+246,2021-10-31T16:39:53Z,2021-10-31T23:37:59Z,2021-10-31T23:37:59Z,1,1,1,"""Partition Equal Subset Sum"" and ""0/1 Knapsack"".
+Don't think this is very useful, but given that there was an issue 🤷.
+Closes #234",2,0
+250,2021-11-02T17:48:26Z,2022-01-03T08:19:45Z,2022-01-03T08:19:45Z,1,9,9,,2,0
+253,2022-01-02T10:26:15Z,2022-01-03T08:20:33Z,2022-01-03T08:20:33Z,2,2,2,,2,0
+254,2022-01-04T23:24:24Z,2022-01-05T00:53:28Z,2022-01-05T00:53:29Z,1,1,0,Added BaseCS blog post on Dynamic Programming to study links section,2,0
+260,2022-02-01T16:21:44Z,2022-02-01T23:08:09Z,2022-02-01T23:08:09Z,1,1,1,,2,1
+261,2022-02-02T19:49:15Z,2022-02-02T21:39:04Z,2022-02-02T21:39:04Z,1,1,1,Noticed the phrase 'It was a tedious process which I don't ever want to go through again' was being repeated in the introduction page:,2,1
+265,2022-03-31T05:32:36Z,,2022-04-02T03:45:20Z,12,25,25,"Hey! We noticed your repository had a few instances of gendered language. We've attempted to make the changes to gender neutral language. These are not always perfect, but we hope they will assist maintainers in finding and fixing issues :)
+You can learn more about this project and why gender neutral language matters at inclusivecoding.wixsite.com. If you have feedback for this bot, please provide it here.",3,1
+268,2022-04-14T10:47:08Z,2022-04-14T12:14:54Z,2022-04-14T12:14:54Z,1,1,1,Most languages let >>> Most companies let,2,0
+269,2022-04-20T08:17:10Z,2022-04-20T10:27:04Z,2022-04-20T10:27:04Z,1,1,1,"std::map is compare-based, the hash table in the standard library is std::unordered_map
+https://en.cppreference.com/w/cpp/container/map
+https://en.cppreference.com/w/cpp/container/unordered_map",2,0
+272,2022-05-13T11:31:38Z,2022-05-13T23:02:26Z,2022-05-13T23:02:26Z,7,9,9,"Suggestions:
+
+Heap page: Potentially mention that for python heapq you can push the inverse value to find the max
+Tree page: Traversing balanced tree is O(h) space
+
+Please correct me if I am wrong!",2,2
+273,2022-05-13T20:06:07Z,2022-05-13T23:00:43Z,2022-05-13T23:00:43Z,1,1,1,Found a typo in the comments of Python code snippet,2,0
+276,2022-05-18T01:55:32Z,2022-05-18T03:06:29Z,2022-05-18T03:06:29Z,1,1,1,"Found a typo in the math cheat sheet for using epsilon comparisons for floats. I believe this should be 10e-7 rather than 10e7, as we would be interested in precision after the decimal.
+Please let me know if I am wrong as I am not very familiar with this. 😄",2,0
+278,2022-05-27T20:32:47Z,2022-05-28T02:27:02Z,2022-05-28T02:27:02Z,1,1,1,,2,0
+279,2022-06-03T11:29:01Z,2022-06-03T17:22:00Z,2022-06-03T17:22:00Z,1,1,1,hash tables are >>> Hash table is,2,0
+280,2022-06-03T11:41:27Z,2022-06-03T13:48:35Z,2022-06-03T13:48:35Z,1,3,3,"a data structure >>> is a data structure
+techniques in interviews, >>> techniques in interviews:
+Add full stop for open addressing",2,1
+283,2022-06-20T01:05:54Z,,2022-09-11T02:22:41Z,1,1,1,,4,1
+285,2022-07-02T21:24:48Z,2022-07-02T23:35:09Z,2022-07-02T23:35:09Z,1,1,1,"At least as of today 2022/07/02, the Min Stack problem is of Medium difficulty instead of Easy https://leetcode.com/problems/min-stack/",2,0
+286,2022-07-09T13:20:59Z,2022-07-10T04:12:58Z,2022-07-10T04:12:58Z,1,89,0,New blog post about tips for undergraduates to land a full time job in software engineering.,2,1
+291,2022-08-01T22:59:41Z,,2022-09-11T02:18:43Z,1,1,1,,3,1
+293,2022-08-02T17:47:49Z,2022-08-02T23:39:49Z,2022-08-02T23:39:49Z,1,25,0,Success story from Rahul Senguttuvan ( Current Intern at Meta ),2,0
+295,2022-08-22T01:28:41Z,,2023-04-11T10:07:15Z,1,0,31,"Airbnb is a horrible company with shady business practices that are unfavorable to the common traveller.  This pull request is to tweak this otherwise fantastic document to put fewer eyes on the lodging broker.  Anyone with a grain of ethics and integrity wouldn't want to work there, anyway, as it would be huge conflict of interest.",4,4
+299,2022-09-16T16:41:50Z,2022-09-17T12:18:07Z,2022-09-17T12:18:07Z,1,1,1,,2,0
+302,2022-10-02T20:33:18Z,2022-10-02T23:23:08Z,2022-10-02T23:23:08Z,1,1,1,"Small typo I found while going over the content, great stuff thanks for putting it together!",2,0
+305,2022-10-05T09:32:20Z,,2022-10-05T13:57:56Z,4,247,1,,2,1
+306,2022-10-05T13:47:09Z,2022-10-06T12:09:40Z,2022-10-06T12:09:40Z,10,420,4,"Title, details about resume and bookmark button
+PDF viewer
+Comments tabs + submit comments form",4,3
+308,2022-10-05T15:52:09Z,2022-10-06T06:59:15Z,2022-10-06T06:59:15Z,3,141,8,https://lucid.app/lucidchart/bcaf2307-e8df-4eba-b505-9c869e95cffc/edit?invitationId=inv_244e5678-2aad-4510-8701-22c94b320e7d&page=0_0#,3,1
+320,2022-10-07T08:37:30Z,2022-10-07T16:42:27Z,2022-10-07T16:42:27Z,8,197,17,"What's new
+
+Fetch and render comments from database. Owner comments are right-aligned and others are left-aligned
+
+What's next:
+
+Upvote comments
+Edit comments",1,0
+321,2022-10-07T09:49:52Z,2022-10-09T02:40:22Z,2022-10-09T02:40:22Z,10,2198,1878,"File Uploading Flow:
+
+Create FormData with key=resumes and file=resumeFile
+POST request on /api/file-storage
+On API route, parse file information using formidable library
+Upload to supabase file storage via supabase client, with filePath=Date.now()-{file_name} and key=resumes
+Store this filePath in the database
+
+Notes:
+
+By default I am storing the files on public/ storage, since I recalled we discussed that files should be public
+Supabase client is only on server, no db info is exposed to client
+
+File download Flow:
+
+User lands on resumes/[resumeId] page
+GET request /api/file-storage with key=resumes&url=filePath
+API route downloads file from supabase client
+Returns file as bytes buffer, which is then set as a Blob file on client",2,1
+323,2022-10-07T11:13:36Z,2022-10-08T17:36:22Z,2022-10-08T17:36:22Z,7,383,12,"Schema link: https://sp2fcymivn.larksuite.com/docs/docusmlmfDD140gpFXkE9n6xn0c
+Implemented until answer comment vote table for first iteration",3,2
+327,2022-10-08T12:13:56Z,2022-10-09T08:34:17Z,2022-10-09T08:34:17Z,3,280,1,"Schema link: https://sp2fcymivn.larksuite.com/docs/docusmlmfDD140gpFXkE9n6xn0c
+Not updated yet",2,0
+330,2022-10-09T02:50:53Z,2022-10-09T19:12:22Z,2022-10-09T19:12:22Z,3,237,0,,2,0
+331,2022-10-09T02:59:54Z,2022-10-09T19:26:07Z,2022-10-09T19:26:07Z,3,247,1,,2,0
+332,2022-10-09T03:00:15Z,2022-10-09T19:46:51Z,2022-10-09T19:46:51Z,3,237,0,,2,0
+334,2022-10-09T06:09:18Z,2022-10-09T07:24:23Z,2022-10-09T07:24:23Z,6,324,288,"Responsive UI for review page
+Center pdf view in middle of page
+Center spinners
+Uppercase location values (temporary fix for lowercase location values displayed, will switch to enums once they are ready)
+
+
+  
+    
+    
+
+    Screen.Recording.2022-10-09.at.2.08.24.PM.mov",2,0
+335,2022-10-09T06:59:44Z,2022-10-09T09:09:25Z,2022-10-09T09:09:25Z,2,67,18,Add submission guidelines box to submit form.,1,0
+343,2022-10-09T12:58:24Z,2022-10-19T16:32:42Z,2022-10-19T16:32:42Z,2,141,0,,2,0
+365,2022-10-12T02:12:26Z,2022-10-12T05:08:43Z,2022-10-12T05:08:43Z,1,16,2,"Add redirection for navigation items with target: ""_blank""",2,1
+383,2022-10-17T10:11:39Z,2022-10-19T07:12:56Z,2022-10-19T07:12:56Z,4,67,33,,2,0
+384,2022-10-17T10:11:57Z,2022-10-22T06:31:30Z,2022-10-22T06:31:30Z,7,151,38,,2,0
+409,2022-10-22T11:36:33Z,2022-10-26T07:38:29Z,2022-10-26T07:38:29Z,5,135,18,,3,0
+430,2022-10-25T16:26:44Z,2022-10-26T13:17:19Z,2022-10-26T13:17:19Z,6,222,109,,2,0
+487,2022-10-31T13:32:00Z,2022-11-01T03:11:11Z,2022-11-01T03:11:11Z,4,66,31,,3,0
+490,2022-11-02T01:46:26Z,2022-11-02T04:49:58Z,2022-11-02T04:49:58Z,5,303,324,,2,0
+498,2022-11-03T07:06:55Z,2022-11-04T11:07:10Z,2022-11-04T11:07:10Z,1,1,2,,2,0
+505,2022-11-04T09:12:48Z,2022-11-04T11:07:36Z,2022-11-04T11:07:36Z,1,6,1,Added rel and target properties to Button for opening new tabs,2,0
+510,2022-11-05T13:05:02Z,,2022-12-04T09:09:45Z,15,398,9,,2,0
+516,2022-11-06T06:07:38Z,2022-11-06T10:03:08Z,2022-11-06T10:03:08Z,14,188,146,,2,0
+557,2022-11-20T16:51:35Z,2022-11-21T02:19:36Z,2022-11-21T02:19:36Z,1,1,1,Fixes: #552,2,0
+558,2022-11-21T09:35:39Z,2022-11-21T11:20:02Z,2022-11-21T11:20:02Z,1,1,1,Completed a Sentence at resume.md at Line no 336,3,2
+563,2022-12-22T19:34:55Z,2022-12-27T08:06:25Z,2022-12-27T08:06:25Z,2,4,0,"Adds links to online lectures and slides from
+data structures and algorithms course covering
+hash tables, binary search trees, red-black trees
+and b-trees.",2,1
+567,2023-01-28T15:32:11Z,2023-01-28T23:36:08Z,2023-01-28T23:36:08Z,1,7,0,This commit supplements the reading material for sorting algorithms with an additional set of public video lectures and corresponding slides.,2,0
+568,2023-01-30T11:04:07Z,2023-02-05T09:59:06Z,2023-02-05T09:59:06Z,1,116,4,"Added more content to the behavioral interview section.
+I wasn't able to test my changes since I cannot run the project locally (misisng env variables). I checked the formatting in an online markdown viewer and it looked fine - https://codebeautify.org/markdown-viewer/y23a7b915",2,1
+570,2023-02-02T23:05:27Z,2023-02-05T08:46:27Z,2023-02-05T08:46:27Z,1,1,1,"Fixes Issue #569
+Fixed a typo in the Try out mock behavioral interviews section:
+Apply -> Apple.",2,0
+572,2023-02-05T10:28:31Z,2023-02-06T00:36:42Z,2023-02-06T00:36:42Z,4,139,118,cc @Lior539 please review this PR. I extracted most of what you added into a standalone page.,2,0
+574,2023-02-10T06:01:10Z,2023-04-11T10:05:51Z,2023-04-11T10:05:51Z,1,1,1,Great content! Happened to find this grammar issue and sending a fix,2,0
+575,2023-02-23T11:40:09Z,2023-04-11T10:06:48Z,2023-04-11T10:06:48Z,1,1,0,This is yet another easy to grasp and full system design course that is there on youtube.,2,0
+578,2023-04-06T05:35:11Z,2023-04-11T10:09:23Z,2023-04-11T10:09:23Z,1,13,0,,2,0
+579,2023-04-11T16:09:40Z,2023-04-19T12:11:12Z,2023-04-19T12:11:12Z,1,1,1,This PR changes refer to prefer in apps/website/contents/system-design.md,2,0
+582,2023-05-05T21:18:13Z,2023-05-05T23:46:53Z,2023-05-05T23:46:53Z,1,1,1,Added missing :,2,0
+583,2023-05-05T21:20:29Z,2023-05-05T23:47:24Z,2023-05-05T23:47:24Z,1,1,1,Added missing : and missing .,2,0
+585,2023-05-09T00:35:35Z,2023-05-11T10:21:02Z,2023-05-11T10:21:02Z,1,1,1,Added details about which specific sorting algorithms are provided by the Java language/platform.,2,0
+586,2023-05-11T08:52:20Z,2023-05-11T10:21:53Z,2023-05-11T10:21:53Z,1,1,1,,2,0
+587,2023-05-25T15:36:50Z,2023-06-13T23:19:31Z,2023-06-13T23:19:31Z,1,10,2,Breaking this out into bullet points for easier reading of the acronym,2,0
+588,2023-05-25T17:10:25Z,2023-06-13T23:19:58Z,2023-06-13T23:19:58Z,1,5,1,,2,0
+594,2023-07-04T06:08:28Z,2023-07-04T08:20:56Z,2023-07-04T08:20:56Z,1,1,1,"I found a minor typo while going over the content in the algorithm/graph section.
+Thanks for the handbook! It is a gem!",2,0
+596,2023-07-18T18:37:55Z,2023-07-19T11:22:22Z,2023-07-19T11:22:22Z,1,2,2,,2,0
+599,2023-08-02T18:36:55Z,2023-08-03T00:25:53Z,2023-08-03T00:25:53Z,7,22,22,,2,0
+604,2023-09-05T18:32:59Z,2023-09-06T02:53:42Z,2023-09-06T02:53:42Z,1,3,3,I fixed the broken URL for Khan Academy's Binary Search.,2,0
+605,2023-09-12T13:45:13Z,2023-09-30T02:50:45Z,2023-09-30T02:50:45Z,1,2,2,Two first behavioural questions for Palantir were styled as bold.  After the change they have the same styling as any other behavioural questions in this document.,2,0
+609,2023-09-28T15:44:36Z,2023-09-30T02:54:04Z,2023-09-30T02:54:04Z,1,1,1,"Fixed a typo in the ""Things to look out for during interviews"" section. It previously stated that enqueue had a time complexity issue in languages without built-in Queue classes using arrays. It's actually the dequeue operation that's O(n) due to front removal and shifting of elements. Fixing this small typo for clarity.",2,0
+610,2023-09-29T23:50:09Z,2023-09-30T02:35:50Z,2023-09-30T02:35:50Z,1,9,0,"Adding https://www.hellointerview.com to mock interviews. Added similar disclaimer to meetapro (though I'd love to hear any  take you might have!)
+Thanks so much for building TIH, what an invaluable resource for the SWE community.
+Oblig. testing image:",2,1
+622,2023-11-26T15:46:59Z,2023-11-26T23:10:09Z,2023-11-26T23:10:09Z,3,48,2,"Spoke with @yangshun: We can add a ""Career Growth"" page under Misc which points to some of the top resources for engineers to grow in their careers.
+I curated the resources that will be most relevant and I can personally attest to from the Path to Senior Engineer Handbook",2,0
+625,2023-12-03T09:48:34Z,2023-12-04T02:17:33Z,2023-12-04T02:17:33Z,1,2,0,"Thanks for creating this awesome list!
+Adding in my newsletter and LinkedIn content profile, thanks!",2,0
+636,2024-03-02T02:30:18Z,2024-03-04T00:37:01Z,2024-03-04T00:37:01Z,1,6,0,,2,0

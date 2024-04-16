@@ -1,0 +1,537 @@
+number,created_at,merged_at,closed_at,files,additions,deletions,body_text,participants,comments
+241,2016-06-24T00:50:08Z,,2017-04-06T00:24:18Z,1,4,4,,5,4
+350,2016-08-27T05:37:00Z,,2018-02-07T23:59:40Z,6,671,0,"related issue : #323 (comment)
+
+
+it is not easy to re-generate same situation. so, i made 'ud_train' directory
+
+
+how to generate error
+
+remove following lines in UD/context.pbtxt and run ./train.sh
+
+input {
+  name: 'char-map'
+  creator: 'brain_pos/greedy'
+}
+
+error message
+
++ /path/to/models/syntaxnet/bazel-bin/syntaxnet/parser_trainer --task_context=/path/to/models/syntaxnet/ud_train/UD/context.pbtxt --arg_prefix=brain_pos --compute_lexicon --graph_builder=greedy --training_corpus=training-corpus --tuning_corpus=tuning-corpus --output_path=/path/to/models/syntaxnet/ud_train/UD/tmp/syntaxnet-output --batch_size=256 --decay_steps=3600 --hidden_layer_sizes=64 --learning_rate=0.08 --momentum=0.9 --seed=0 --params=64-0.08-3600-0.9-0 --num_epochs=12 --report_every=100 --checkpoint_every=1000 --logtostderr
+INFO:tensorflow:Computing lexicon...
+I syntaxnet/lexicon_builder.cc:134] Term maps collected over 204586 tokens from 12543 documents
+I syntaxnet/term_frequency_map.cc:137] Saved 18731 terms to /path/to/models/syntaxnet/ud_train/UD/tmp/syntaxnet-output/brain_pos/greedy/64-0.08-3600-0.9-0/word-map.
+I syntaxnet/term_frequency_map.cc:137] Saved 15710 terms to /path/to/models/syntaxnet/ud_train/UD/tmp/syntaxnet-output/brain_pos/greedy/64-0.08-3600-0.9-0/lcword-map.
+I syntaxnet/term_frequency_map.cc:137] Saved 50 terms to /path/to/models/syntaxnet/ud_train/UD/tmp/syntaxnet-output/brain_pos/greedy/64-0.08-3600-0.9-0/tag-map.
+I syntaxnet/term_frequency_map.cc:137] Saved 50 terms to /path/to/models/syntaxnet/ud_train/UD/tmp/syntaxnet-output/brain_pos/greedy/64-0.08-3600-0.9-0/category-map.
+I syntaxnet/term_frequency_map.cc:137] Saved 47 terms to /path/to/models/syntaxnet/ud_train/UD/tmp/syntaxnet-output/brain_pos/greedy/64-0.08-3600-0.9-0/label-map.
+F syntaxnet/task_context.cc:140] Check failed: input.part_size() == 1 (0 vs. 1)char-map
+./train.sh: line 107: 24273       (core dumped) ${BINDIR}/parser_trainer --task_context=${CONTEXT} --arg_prefix=brain_pos --compute_lexicon --graph_builder=greedy --training_corpus=training-corpus --tuning_corpus=tuning-corpus --output_path=${TMP_DIR} --batch_size=${BATCH_SIZE} --decay_steps=3600 --hidden_layer_sizes=${POS_HIDDEN_LAYER_SIZES} --learning_rate=0.08 --momentum=0.9 --seed=0 --params=${POS_PARAMS} --num_epochs=12 --report_every=100 --checkpoint_every=1000 --logtostderr",7,13
+408,2016-09-12T16:33:17Z,,2018-02-24T21:21:02Z,11,505,218,"This PR makes it possible to use the download_and_convert_data.py script with python 3.  It also adds support for CIFAR100.
+Regarding python 3, the problems were essentially:
+
+import cPickle => from six.moves import cPickle
+cPickle.load(f) => cPickle.load(f, encoding=""bytes"")
+use strings instead of byte strings in several places
+
+Regarding CIFAR100, it's basically the same format as CIFAR10, so why not add it?",12,23
+493,2016-10-03T08:14:48Z,,2017-06-01T20:29:13Z,1,219,0,tensorflow implementation for recurrent spatial transformer : https://arxiv.org/abs/1509.05329,5,10
+572,2016-10-21T03:00:43Z,2016-10-21T19:13:14Z,2016-10-21T19:13:14Z,1,1,2,reference tensorflow/tensorflow#4759 and #520,3,2
+600,2016-10-31T06:55:35Z,2016-10-31T20:36:02Z,2016-10-31T20:36:02Z,1,1,1,it should be cd $HOME/workspace/models/slim,3,3
+606,2016-11-02T11:02:20Z,,2017-06-01T20:30:07Z,1,301,0,"The defined class provides interface to the LM_1B model through it's methods:
+
+eval model
+sample_text
+dump_embeddings
+encode_text",6,5
+625,2016-11-09T15:51:57Z,2016-11-09T19:43:18Z,2016-11-09T19:43:18Z,1,1,1,@cshallue it seems validation captions are pointing to the training file.  This looks like a quick fix.,3,3
+721,2016-12-07T17:19:29Z,2016-12-27T21:05:02Z,2016-12-27T21:05:02Z,1,2,2,Fixed typos in folders paths,3,3
+731,2016-12-10T02:39:41Z,2016-12-10T08:28:25Z,2016-12-10T08:28:25Z,45,5867,0,Also brought everything up to date with the internal version.,5,0
+772,2016-12-19T16:44:38Z,,2017-06-01T20:37:45Z,1,2,7,Changed the _meshgrid function to use the new tf.meshgrid and tf.linspace available from tensorflow rc.0.10 +,4,3
+778,2016-12-20T17:02:50Z,2017-01-11T19:29:11Z,2017-01-11T19:29:11Z,1,9,7,"When I ran the inception model with num_gpus=2, it gave me the following error:
+ValueError: Variable tower_1/tower_1/CrossEntropyLoss/value/avg/biased does not exist, or was not created with tf.get_variable(). Did you mean to set reuse=None in VarScope?
+
+There is also a similar issue: #767.
+I guess the variables defined in ExponentialMovingAverage could be unshared. This makes the model train but I am not sure whether it changes the result. Please advise.",3,0
+785,2016-12-21T08:05:05Z,2017-01-18T19:14:21Z,2017-01-18T19:14:21Z,5,17,17,according to #784  after upgrading tf version to 0.12 tf.contrib.deprecated has been eliminated. This pull request fixes the code to make it work with tf version 0.12.,7,4
+802,2016-12-23T02:04:19Z,2016-12-28T00:23:20Z,2016-12-28T00:23:20Z,4,9,14,"It doesn't seem possible to get this code to run using bazel unfortunately. I believe this is because when bazel calls load(""//tensorflow:tensorflow.bzl"", ""tf_gen_op_wrapper_py""), it's unable to continue recursively loading within the TensorFlow repo, even after adding the TensorFlow repo into this repo's WORKSPACE file. This prevents us from being able to use tf_gen_op_wrapper_py and import the ops as needed.
+I was finally able to get this model working by following the TensorFlow tutorial for adding a new op and instructing the users to compile the ops on their own before running.
+Unfortunately, this results in the Python code having to load word2vec_ops.so, which is not ideal and not cross-platform friendly. If you have other ideas for how to solve this, definitely let me know.",8,16
+807,2016-12-24T15:47:26Z,2016-12-27T20:59:53Z,2016-12-27T20:59:53Z,1,1,1,,3,0
+818,2016-12-27T00:25:59Z,2016-12-27T20:58:11Z,2016-12-27T20:58:11Z,1,1,1,"""resisual"" => ""residual""",3,3
+823,2016-12-28T00:52:10Z,2016-12-28T23:39:07Z,2016-12-28T23:39:07Z,2,3,3,Fix for #771,3,0
+833,2016-12-29T23:07:34Z,2017-01-16T03:21:25Z,2017-01-16T03:21:25Z,3,7,7,"tf.image.per_image_whitening -> tf.image.per_image_standardization
+Use tf.summary to replace tf.image_summary, tf.scalar_summary, tf.merge_all_summaries.",4,5
+842,2017-01-03T02:11:30Z,2017-01-13T16:05:30Z,2017-01-13T16:05:30Z,1,10,0,"Fix of #839.
+Class Caption is not comparable on Python3, because cmp is deprecated.
+So I added lt and eq.
+By the way, xrangeis renamed to range on Python3, so I had to change them as well.
+How do we make it both 2 and 3 compatible?",4,5
+854,2017-01-06T00:25:26Z,2017-01-06T01:41:38Z,2017-01-06T01:41:38Z,1,3,0,The tutorial models currently have code that is not compatible with the r0.12 release of TensorFlow due to breaking API changes.,3,0
+873,2017-01-09T19:51:56Z,2017-01-09T23:10:17Z,2017-01-09T23:10:17Z,2,3,3,,3,0
+894,2017-01-13T22:46:51Z,2017-01-14T00:05:19Z,2017-01-14T00:05:19Z,1,1,1,Fixes #870,3,0
+898,2017-01-14T04:49:05Z,2017-01-15T08:54:53Z,2017-01-15T08:54:53Z,1,3,3,This will fix #793.,3,0
+904,2017-01-15T22:47:36Z,2017-01-16T02:08:35Z,2017-01-16T02:08:35Z,1,1,1,Fixed #903,3,0
+909,2017-01-16T14:46:43Z,,2017-03-15T01:50:56Z,3,20,15,I have updated the cifar10 example to work with tensorflow 0.12.1,4,4
+911,2017-01-17T03:18:03Z,2017-02-13T23:46:27Z,2017-02-13T23:46:27Z,1,20,19,"Make the cifar10 example (especially, multi_gpu_train) work in the recent master version. This PR includes two updates:
+
+Replace tf.mul (which was removed) with tf.multiply (#901).
+Correct the usage of variable_scope around the part multi-gpu model construction, so that ""reuse"" on the variable scope becomes not leaky (tensorflow/tensorflow#6220).",3,5
+916,2017-01-17T22:46:10Z,2017-01-18T00:55:10Z,2017-01-18T00:55:10Z,1,5,3,"See #914
+Tested this on my Macbook as well. Also changed the wget commands to curl since I think that should work out of the box on both Linux and Mac.",3,0
+935,2017-01-20T19:23:51Z,2017-01-20T21:00:02Z,2017-01-20T21:00:02Z,2,15,10,Fixes changes from c902a86,3,0
+936,2017-01-20T19:37:02Z,2017-01-20T23:47:10Z,2017-01-20T23:47:10Z,7,70,73,replace tf.op_scope with tf.name_scope and tf.variable_op_scope with tf.variable_scope; fix the order of arguments for tf.concat; replace tf.mul with tf.multiply.,4,4
+948,2017-01-24T19:49:11Z,2017-01-30T23:54:16Z,2017-01-30T23:54:16Z,3,14,14,,6,6
+964,2017-01-28T12:30:44Z,,2017-02-06T06:26:53Z,3,13,13,"for the master branch tensorflow, there is no tf.image_summary and will cause a bug,
+so this need to be change to tf.summary.image, since tensorflow 1.0 use this and will be a stable api, update all these kind of api changes (also a tf.mul -> tf.multiply)",3,2
+984,2017-02-05T19:59:17Z,,2017-03-15T01:39:03Z,4,24,25,Make Inception (v3) trainable on Tensorflow 1.0RC1.,3,2
+992,2017-02-07T07:30:17Z,2017-04-11T22:21:08Z,2017-04-11T22:21:08Z,3,17,2,"The arg_scope of the network_fn was being determined when get_network_fn was called. Thus, the network_fn 'escaped' back to the closure (I hope I'm using that term right?) in which it was originally created, ignoring the arg-scope stack created afterwards by the clone. When the first clone called the network_fn, the weights were put on the default device. So for two GPUs (and two clones), the weights would be assigned to first clone / first GPU, and the second clone would have to read the weights from the first clone's memory.
+I simply moved the call to create the model's arg_scope from the outer get_network_fn to the inner network_fn. This way, when network_fn gets called, the model's arg_scope is properly nested within the arg_scopes created by the clones.
+Edit: Related to this issue: #677",5,11
+1010,2017-02-13T21:42:11Z,2017-02-13T22:45:56Z,2017-02-13T22:45:56Z,5,17,20,Settles an issue raised by @JavidPack in #948.,3,0
+1016,2017-02-14T19:12:38Z,,2017-03-15T01:38:27Z,1,1,1,"tf.concat(concat_dim, values, name='concat') is the new API under r0.12",4,1
+1017,2017-02-15T01:29:27Z,2017-02-15T19:04:15Z,2017-02-15T19:04:15Z,2,2,2,,3,0
+1026,2017-02-16T22:04:57Z,,2017-03-15T01:35:56Z,19,101,99,"TF1.0 has breaking changes like tf.concat
+(https://www.tensorflow.org/install/migration)
+I just applied the script in https://github.com/tensorflow/tensorflow/tree/master/tensorflow/tools/compatibility
+to this directory.",5,6
+1031,2017-02-18T01:43:59Z,2017-02-23T02:44:17Z,2017-02-23T02:44:17Z,4,12,7,,3,5
+1051,2017-02-22T00:19:45Z,,2017-03-15T01:34:36Z,119,5138,1117,"The files have been converted to TensorFlow 1.0 format using the ""tf_upgrade.py"" file provided by TensorFlow. Some incompatibilities have been resolved manually because ""tf_upgrade.py"" could not handle all of them.",5,3
+1052,2017-02-22T02:03:26Z,2018-02-26T17:11:58Z,2018-02-26T17:11:58Z,2,48,23,Autoencoder was hardcoded to have only one hidden layer. This PR updates the implementation to be of arbitrary depth based on input parameters. Runner is update accordingly.,6,13
+1053,2017-02-22T02:24:55Z,2017-03-14T02:14:26Z,2017-03-14T02:14:26Z,18,102,100,"Mostly generated with the TF 1.0 conversion script, plus a number of manual fixes that were necessary to get the models running.",4,0
+1063,2017-02-23T22:32:21Z,2017-03-14T02:14:41Z,2017-03-14T02:14:41Z,72,318,323,,6,6
+1067,2017-02-24T16:35:29Z,,2017-03-14T23:46:02Z,3,20,20,,3,4
+1073,2017-02-26T07:51:14Z,2017-03-08T20:37:01Z,2017-03-08T20:37:01Z,2,11,11,"Will now work with Tensorflow 1.0
+Reference Info: 34467734 Update namignizer to work with recent versions of TF",3,4
+1081,2017-02-28T14:47:18Z,2017-03-02T18:14:12Z,2017-03-02T18:14:13Z,1,26,53,"There is no need to build Tensorflow from scratch, fastprep successfully links with the Python wrapper from pip and system protobuf v3. Tested this on Ubuntu.",3,3
+1104,2017-03-02T17:55:54Z,2017-03-03T00:57:25Z,2017-03-03T00:57:25Z,1,10,9,"Related PRs:
+#1081
+#1090",3,1
+1106,2017-03-03T17:22:02Z,2017-03-04T17:06:21Z,2017-03-04T17:06:21Z,1,12,20,As discussed in https://groups.google.com/d/msgid/swivel-embeddings/c254faca-b35c-4e04-a347-095e4b467300%40googlegroups.com,3,1
+1107,2017-03-03T17:24:20Z,2017-03-04T17:05:34Z,2017-03-04T17:05:34Z,1,5,4,,3,1
+1108,2017-03-03T17:30:31Z,,2017-07-11T17:02:23Z,3,1778,82,"This speeds up vocabulary parsing 2x for me.
+I mmap 8x PAGE_SIZE. Some care was required on buffer boundaries and in the file end.",5,16
+1109,2017-03-03T18:50:23Z,2017-03-03T20:55:02Z,2017-03-03T20:55:02Z,1,33,36,TF 1.0 (and even 0.12) support doing embedding ops on GPU.,3,0
+1122,2017-03-07T13:05:17Z,2017-03-08T03:04:44Z,2017-03-08T03:04:44Z,1,166,103,"This speeds up the training accordingly. Here are my changes:
+
+import argparse is redundant and was removed.
+all print calls were replaced with tf.logging.info. This effectively eliminates sys.stdout.flush().
+number of protobuf readers is now configurable via --num_readers.
+by default, per_process_gpu_memory_fraction is 0 now which means allow_growth=True.
+--num_gpus sets the number of GPUs to use. The default value is 0 which means using all available GPUs.
+The computational graph is split into 2 parts: CPU and GPU (actually, one subgraph per each GPU). CPU owns the embeddings and applies the gradients. GPU performs inference and the training. This split will allow us to implement the distributed version in the future.
+The elapsed time is printed in the end.
+The current loss is printed as the part of the status message. It is weighted exponential average with decay 0.8.
+The status reporting was fixed. Due to the concurrent nature, global_step is sometimes never % 100 == 0. Changed to the better approach with comparison with the previous ratio.",3,0
+1152,2017-03-12T12:52:03Z,,2017-03-14T22:49:37Z,4,72,25,"Works fine in python3, cuda8, cudnn5.1, tf1.0. Have been tested, sucessfully get the hoped result.
+Makes all the functions satisfied for tf1.0 version,including concat, split, summary fucntion and some others.",6,20
+1160,2017-03-14T02:42:52Z,2017-03-14T16:23:38Z,2017-03-14T16:23:38Z,1,8,3,See #1009,3,0
+1161,2017-03-14T02:51:10Z,2017-03-14T19:52:45Z,2017-03-14T19:52:45Z,6,8,92,cc @tfboyd,3,0
+1223,2017-03-20T14:48:30Z,2017-03-27T20:48:09Z,2017-03-27T20:48:09Z,1,5,9,"Removed replica_id which was removed from SyncReplicaOptimizer in V1.
+Removed call for get_clean_up_op which was removed from optimizer in V1.",4,5
+1255,2017-03-25T04:03:13Z,2017-03-27T18:48:15Z,2017-03-27T18:48:15Z,4,8,5,,4,4
+1256,2017-03-25T05:37:57Z,2017-03-27T22:09:52Z,2017-03-27T22:09:52Z,8,38,68,,3,0
+1265,2017-03-27T21:06:00Z,2017-03-28T00:56:57Z,2017-03-28T00:56:57Z,1,13,2,"while maintaining backwards compatibility with TF 1.0
+See #1131. cc @tongda",4,2
+1279,2017-03-30T20:44:39Z,2017-03-31T18:33:39Z,2017-03-31T18:33:39Z,1,5,2,We've been getting lots of issues submitted where users can't run function calls in the models because they aren't on TF 1.0. This should alleviate that.,3,0
+1281,2017-03-31T03:42:58Z,,2017-04-20T01:20:00Z,5,178,173,"Hello everyone
+I have used python 2to3 to make changes to the Neural GPU model. After the automated changes were made, there were some issues, which I manually fixed. These issues were mainly centered around the integer division of indices. True division( using / ) would yield a float which would cause run time errors. I have made changes to operations acting on array indices, to ensure that they remain as integers. (i.e. changed / to //)
+Please let me know if any further changes are needed and if any issues are seen. Thanks",3,7
+1289,2017-04-02T14:44:20Z,2017-04-06T00:00:37Z,2017-04-06T00:00:37Z,27,2883,1,,3,4
+1326,2017-04-10T18:18:41Z,2017-04-10T22:55:33Z,2017-04-10T22:55:33Z,2,15,19,"@cbfinn
+In prediction.train.py, explicitly pass in prefix name to Model instance because summary names can no longer take in placeholder strings (at least for now, see tensorflow/models#6603).
+In lstm_ops.py, directly use inferred_batch_size because the initializer cannot take shapes made of tensors.",4,4
+1332,2017-04-11T04:33:37Z,,2017-06-09T21:41:04Z,1,92,0,,3,1
+1346,2017-04-14T03:33:19Z,,2019-06-17T19:51:39Z,3,168,129,"I have been using python 3.5 and had some issues I sorted out.  THought I would add them back so others wouldn't have the same Issues I have.
+For example< I kept getting the TypeError: 'jpg' has type <class 'str'>, but expected one of: ((<class 'bytes'>,),) error.  All I had to do was to prefix the jpg in  slim/datasets/download_and_convert_flowers.py.
+The other change was to change slim/datasets/download_and_convert_cifar10.py where it imports cPickle as this was bombing in python 3.5.
+The rest are just spacing changes for PEP8 compliance.",9,9
+1351,2017-04-15T06:12:19Z,,2017-06-09T21:40:57Z,1,5,11,"Using reg_search=False to use re.match to mirror the 'startswith' logic
+being replaced.
+cc @sguada",3,1
+1368,2017-04-18T22:14:43Z,,2019-06-17T19:51:53Z,1,2,2,"The variable named as tune_corpus indicate that the treebank will be used to tune the params. While the original name dev_corpus suggests to use the development corpus that should not be used for training proper. One suggestion is to take 5% of the train corpus to make a tune corpus, that can be downloaded here.",7,9
+1373,2017-04-20T23:24:27Z,2017-04-25T21:09:31Z,2017-04-25T21:09:31Z,1,14,7,,4,1
+1393,2017-04-24T19:13:16Z,2017-04-27T22:54:43Z,2017-04-27T22:54:44Z,3,1340,4,"Currently the FSNS dataset is distributed as a description how to generate URLs to download files. This change adds a simple script to generate a text file with all URLs which is compatible with aria2c download manager, which can download all files in parallel and supports multiple retries and continue an aborted download modes.",4,1
+1449,2017-05-06T16:31:41Z,,2017-06-15T22:01:59Z,9,80,59,"Hi @rsepassi,
+This is Takeru Miyato, who is author of the paper ""Adversarial Training Methods for Semi-Supervised Text Classification"".
+Thank you very much for your time and effort on making this open-sourced code!
+I found some mistakes on the code:
+
+
+
+  
+    
+      models/adversarial_text/adversarial_losses.py
+    
+    
+         Line 228
+      in
+      f98cd28
+    
+  
+  
+    
+
+        
+          
+           loss = tf.identity(tf.reduce_sum(weights * kl) / num_labels, name='kl') 
+        
+    
+  
+
+ I found that the shape of kl is shape (N, 1) and the shape of weights are shape (N). so weights * kl broadcasted to (N, N) shape. The resulting loss is N times as much as the correct loss.
+
+
+https://github.com/tensorflow/models/compare/master...takerum:reproduction?expand=1#diff-1fbce96d365468a32829d2a35e62435dL137 here the weights is calculated with input.labels , but the weights should be 1.0 on <eos> in input tokens, not label. If using input.labels for calculating weights, the weights are 1.0 on the position previous to the <eos> in inputs.tokens.
+
+
+I fixed the above points, and also changed some lines which are different from my original implementation.
+Now I get 6.1, 6.3 and 7.2 % validation error rate on the committed version, which are the almost same performance as I got before.
+Also I get 5.9% test error rate with full training set (training + validation).
+Please take a look at my commits and merge to master.",9,23
+1461,2017-05-11T19:23:39Z,2017-06-16T19:09:14Z,2017-06-16T19:09:14Z,1,15,5,Hi - this PR updates the reference from the legacy_seq2seq sequence loss by example to the seq2seq sequence loss in the RNN Penn Treebank tutorial.,5,11
+1479,2017-05-17T11:29:42Z,2017-06-29T23:37:29Z,2017-06-29T23:37:29Z,1,1,3,This is more efficient implementation for PerformRightArc().,4,6
+1480,2017-05-17T15:01:08Z,2017-06-14T18:12:55Z,2017-06-14T18:12:55Z,1,2,1,"This patch assigns dequeue node to inputs_device. And nolonger shows
+""Ignoring device specification /device:GPU:X for node
+'clone_X/fifo_queue_Dequeue'"" message.",4,0
+1487,2017-05-18T23:58:45Z,2017-05-23T01:06:30Z,2017-05-23T01:06:30Z,4,20,31,"Note: I found other instances of control_flow_ops but wasn't sure what to do with them. Examples: https://github.com/tensorflow/models/blob/master/slim/preprocessing/inception_preprocessing.py#L40 and https://github.com/tensorflow/models/blob/master/syntaxnet/syntaxnet/structured_graph_builder.py#L57.
+Also, a few of the conversions turned out a bit strange. I ended up having a few lines that assigned a variable to itself (output = output), and I wasn't sure what to do with the calls that used the name argument of control_flow_ops.with_dependencies().",4,0
+1499,2017-05-22T12:09:07Z,2017-05-22T15:43:57Z,2017-05-22T15:43:57Z,37,3477,0,,3,0
+1503,2017-05-24T13:12:46Z,2017-05-24T15:24:52Z,2017-05-24T15:24:52Z,4,12,5,,3,0
+1509,2017-05-26T16:12:42Z,,2019-06-17T19:58:12Z,6,7093,0,"We design a solution, named DeepTrade, including history data representation, neural network construction and trading optimization methods, which could maximizing our profit based on passed experience.",10,26
+1510,2017-05-27T06:13:54Z,2017-05-28T16:39:43Z,2017-05-28T16:39:43Z,3,32,16,Fixes tensorflow/tensorflow#10239,3,0
+1511,2017-05-27T08:06:43Z,,2017-06-01T20:38:40Z,1,2,2,@nealwu,4,3
+1519,2017-06-01T00:05:17Z,2017-06-01T03:09:25Z,2017-06-01T03:09:25Z,2,0,0,"download_and_preprocess_imagenet.sh (lines 78 and 86) tries to run the python scripts preprocess_imagenet_validation_data.py and process_bounding_boxes.py by simply calling them from the script without invoking the python CLI tool. This only works if the python scripts are marked executable, and this makes that change.",3,1
+1527,2017-06-03T00:07:32Z,,2019-10-28T18:28:41Z,3,86,0,,5,11
+1534,2017-06-07T02:24:13Z,2017-06-14T18:11:42Z,2017-06-14T18:11:42Z,3,12,9,"Commands in Preparing the Datasets section of slim/README.md cannot be followed due to Python 3 compatibility issues, mainly cPickle and str/bytes.",3,0
+1538,2017-06-08T17:14:00Z,2017-06-09T07:48:58Z,2017-06-09T07:48:58Z,2,14,5,"I also fixed the multi-GPU example which was creating multiple queues, which was incorrect.  Reading from one queue will also speedup multi-GPU even beyond using CPU:0 but I did not test extensively.",4,3
+1551,2017-06-14T02:13:28Z,2017-06-14T04:57:48Z,2017-06-14T04:57:48Z,8,931,16,Initial MobileNet v1 check in.,4,1
+1554,2017-06-14T11:36:19Z,2017-06-14T18:10:06Z,2017-06-14T18:10:06Z,1,1,1,There was an extra comma so the image didn't show up. Also change to use a relative link for the image instead.,3,0
+1555,2017-06-14T16:43:25Z,2017-06-14T18:11:13Z,2017-06-14T18:11:13Z,3,332,125,"Add inception_resnet_v2_base
+Provide option to use SAME padding for all inception resnet v2
+layers. This is to align feature maps sizes.",4,1
+1557,2017-06-14T18:40:44Z,2017-06-14T20:31:36Z,2017-06-14T20:31:36Z,2,11,14,Tested by running model_deploy_test.,4,0
+1559,2017-06-15T00:05:55Z,2017-06-15T02:33:20Z,2017-06-15T02:33:20Z,5,143,146,,5,2
+1561,2017-06-15T02:38:48Z,2017-06-15T04:06:39Z,2017-06-15T04:06:39Z,224,40616,0,"For details see our paper:
+""Speed/accuracy trade-offs for modern convolutional object detectors.""
+Huang J, Rathod V, Sun C, Zhu M, Korattikara A, Fathi A, Fischer I,
+Wojna Z, Song Y, Guadarrama S, Murphy K, CVPR 2017
+https://arxiv.org/abs/1611.10012",4,0
+1571,2017-06-16T05:00:55Z,2017-06-17T01:14:51Z,2017-06-17T01:14:51Z,1,2,2,iteritems -> items,8,8
+1572,2017-06-16T09:48:57Z,,2017-06-17T01:41:02Z,1,1,1,I found that object_detection_tutorial.ipynb couldn't run on Python3 due to iteritems function. This change will make it run without problem.,5,6
+1593,2017-06-17T13:25:40Z,2017-06-29T16:40:37Z,2017-06-29T16:40:37Z,1,7,4,dictionary having both 'tuple' and 'str' keys cannot be 'sorted',4,5
+1594,2017-06-17T13:29:17Z,,2019-06-17T19:57:38Z,1,3,3,'long' is no longer in py3,4,1
+1596,2017-06-17T19:42:09Z,,2018-04-15T15:24:19Z,2,135,1,"For the OSX compatibility issue listed below:
+issue #52 
+Also accept related path now.",6,3
+1610,2017-06-19T14:08:28Z,2017-06-21T18:35:49Z,2017-06-21T18:35:49Z,5,15,9,"Modify these lines to make object_detection/trainer_test.py pass in Python 3.
+
+items() and iteritems() issue in core/batcher.py and core/post_processing.py
+keys() of dict() behaves different between Python 2 and 3, make it explicitly convert to list.
+Related to #1594. However, I think six is a better choice for checking Python version.
+Division behaves differently in util/ops.py.
+Python3 use from unittest import mock instead of Python2's import mock.",10,12
+1614,2017-06-19T18:32:37Z,2017-06-20T16:44:15Z,2017-06-20T16:44:15Z,2,18,14,,6,0
+1726,2017-06-22T03:19:13Z,2017-06-23T05:56:08Z,2017-06-23T05:56:08Z,1,4,4,"pascal_voc_train.record,
+pascal_voc_val.record,
+pascal_voc_label_map.pbxt
+
+naming is not consistent with:
+
+Default label map filename for VOC (object_detection/data/pascal_label_map.pbtxt), and
+Preparing input documentation markdown file:
+https://github.com/tensorflow/models/blob/master/object_detection/g3doc/preparing_inputs.md",3,2
+1738,2017-06-22T20:33:13Z,2017-06-22T23:04:29Z,2017-06-22T23:04:29Z,1,8,3,,3,3
+1745,2017-06-23T07:23:19Z,,2017-07-14T22:02:17Z,1,3,3,There is a little path ambiguity.,3,3
+1755,2017-06-24T22:21:43Z,2017-06-25T06:54:06Z,2017-06-25T06:54:06Z,1,3,3,,3,3
+1756,2017-06-24T23:50:34Z,2017-06-25T06:52:18Z,2017-06-25T06:52:18Z,1,1,1,,3,1
+1758,2017-06-25T05:20:49Z,2017-06-28T20:57:59Z,2017-06-28T20:57:59Z,4,6,4,"With these changes the new object_detection/eval.py script runs under python 3.
+BTW, the train.py script has python 3 compat issues as well but they seem to be problems in tensorflow itself when I have opened another PR for.",3,2
+1761,2017-06-26T05:18:46Z,,2017-07-14T22:01:59Z,1,1,1,,5,12
+1768,2017-06-26T17:55:19Z,2017-06-27T16:30:08Z,2017-06-27T16:30:08Z,1,3,1,,3,0
+1785,2017-06-27T20:16:57Z,2017-06-27T21:56:18Z,2017-06-27T21:56:18Z,5,13,14,,3,0
+1821,2017-06-29T22:23:51Z,2017-07-06T00:22:41Z,2017-07-06T00:22:41Z,5,849,0,Approved internally. Now a PR to merge into models to pair with incoming new TF performance tutorial.,3,2
+1829,2017-06-30T23:31:55Z,,2019-06-17T19:57:05Z,12,15,25,"This PR fixes issues flagged by lgtm.com code queries. Some are minors and some should fix errors or unintentional code behaviour.
+I think the suggested fixes make sense but someone more familiar with the code base and what was the initial intention may suggest an alternative way. In particular there seem to be many if elif blocks that look like they could throw errors due to non initialised variables.
+The standard lgtm engineering analytics highlights dependencies, vulnerabilities and currently flag 184 alerts but you can investigate further by writing your own custom queries to explore your code base.
+I personally find lgtm alerts most useful when using PR integration as it allows to check and deal with potential issues before they find their way into master - for instance several of the alerts fixed by this PR were introduced in recent commits (notably 5b9d909 and 3a65897).
+Full disclosure: I work on lgtm.com (and play with tensorflow), hence my interest!
+Hope that helps, any question please ask.",10,15
+1848,2017-07-04T02:42:15Z,2017-07-10T14:26:00Z,2017-07-10T14:26:00Z,1,1,2,We do this because we want rules outside of slim to be able to depend on it in order to pull in slim models.,3,0
+1861,2017-07-05T16:46:40Z,2017-07-07T20:19:27Z,2017-07-07T20:19:27Z,5,206,2,"Correct documentation so all commands should be run from the root
+of the git directory.",3,0
+1862,2017-07-05T17:16:12Z,2017-07-10T14:25:28Z,2017-07-10T14:25:28Z,1,27,24,,3,0
+1867,2017-07-06T01:49:06Z,2017-07-06T23:34:24Z,2017-07-06T23:34:24Z,3,7,2,Fixes the reversions that were merged in #1551,4,0
+1889,2017-07-07T15:39:38Z,2017-07-28T22:30:49Z,2017-07-28T22:30:49Z,4,298,76,,5,5
+1903,2017-07-10T05:56:31Z,2017-07-11T02:49:08Z,2017-07-11T02:49:08Z,3,1,10,"…using own data to train object recognition models.
+Six was erroneously removed when it is still used in the file.  Running /object_detection/eval.py will give an error and not run because of this.
+Also, this commit (88a0551) created the function _validate_label_map in object_detection/utils/label_map_util.py which makes sure that label_map ids are greater than zero, but in the two object detection examples (the pets and pascal datasets) still use items with an id of zero.  I haven't run these examples, but this will give an error if you have items of id 0 like in these two instances.",3,5
+1918,2017-07-11T03:19:07Z,2017-07-13T16:38:47Z,2017-07-13T16:38:47Z,2,30,17,"Like #1893, the directories to run from should be the root of the git directory, i.e. tensorflow/models. This PR is fixing preparing_inputs.md for consistency.
+However, now that we run create_pet_tf_record.py from the root directory, this introduces some complication. Now we need to specify the flag --label_map_path=object_detection/data/pet_label_map.pbtxt, because its default value is data/pet_label_map.pbtxt (see here). This makes sense because the file is in the object_detection directory, and if the script is run from there, the default value will work fine.
+But does it make sense to edit the default value to object_detection/data/pet_label_map.pbtxt so that it's cleaner in the tutorials (but then it wouldn't be the relative path from the file itself)?
+@derekjchow Could you please take a look? Thank you!",4,3
+1929,2017-07-11T15:25:42Z,2017-07-12T17:50:58Z,2017-07-12T17:50:58Z,1,33,0,Extracted from first commit for each directory. Should be a reasonably good proxy.,3,1
+1945,2017-07-13T15:33:49Z,2017-07-27T22:06:55Z,2017-07-27T22:06:55Z,1,9,1,"2 CPUs -> 2 GPUs
+is_cpu_ps=True",5,0
+1955,2017-07-14T07:47:06Z,,2017-07-15T14:47:44Z,2,9,9,Make the indentation in python code blocks consistent by changing 4 spaces to 2 spaces. (Some are already correct.),3,2
+1959,2017-07-14T19:19:29Z,2017-07-17T17:41:32Z,2017-07-17T17:41:32Z,7,247,45,"This change adds an op that will take a text vocabulary file, read
+it, and use it to create a pre-computed word embedding vector.",4,1
+1982,2017-07-18T18:36:25Z,2017-07-18T19:41:55Z,2017-07-18T19:41:55Z,1,1,1,,3,3
+2050,2017-07-27T21:00:17Z,2017-07-28T16:31:07Z,2017-07-28T16:31:07Z,2,9,4,"For the /lfads model, this fixes an issue when using the ""stitching"" feature (involving the alignment bias vectors across recording sessions). Attn @sussillo",3,0
+2052,2017-07-27T21:55:34Z,2017-07-28T19:00:24Z,2017-07-28T19:00:24Z,6,17,15,,3,0
+2053,2017-07-27T22:07:21Z,2017-07-28T06:13:34Z,2017-07-28T06:13:34Z,23,1334,831,,4,2
+2056,2017-07-28T00:56:59Z,2017-08-29T21:15:28Z,2017-08-29T21:15:28Z,2,109,128,"Adds MKL support to the script by allowing the users to force the data_format.
+I also formatted and fixed all the pylint issues in these files so in the future merging will be clearning.
+Up next I will remove almost all of the wrapper functions and leverage params for everything as that is what is suggested for estimators, e.g. num_gpus, variable_strategy and such.",4,0
+2057,2017-07-28T01:03:08Z,,2017-08-16T17:01:45Z,1,76,6,"Adds hook that prints examples per second and a loss hook to view loss more often as that aspect of estimator is hard coded to only show loss every 100 steps, which is painful for CPU.",3,0
+2090,2017-08-02T00:27:05Z,2017-08-02T23:33:54Z,2017-08-02T23:33:54Z,2,24,13,,4,1
+2094,2017-08-02T08:18:15Z,,2019-10-28T18:29:25Z,1,10,8,"TensorFlow-Slim use ReLU activations by default for convolution, deconvolution and fully-connected transformations.
+After speaking with @cbfinn, the ReLU were unintentional. They were introduced after open-sourcing the code and using TensorFlow-Slim.",4,4
+2104,2017-08-03T08:53:58Z,,2018-01-22T22:37:06Z,3,7,9,"xrange() was removed in Python 3
+Also use six to define long in Python 3 in a way that works for linters
+
+@derekjchow Your thoughts on these mods?",3,0
+2114,2017-08-03T21:05:55Z,2017-08-10T18:07:39Z,2017-08-10T18:07:39Z,5,131,28,,3,0
+2146,2017-08-07T10:10:57Z,2018-04-20T22:44:40Z,2018-04-20T22:44:40Z,1,21,21,This removes clipping operation in preprocessor.py because models require input to be in fixed-point representation.,13,20
+2152,2017-08-08T00:13:44Z,2017-08-24T17:05:08Z,2017-08-24T17:05:08Z,8,698,512,"Import paths are necessary for this code to work when packaged as a tar with sdist (which is the distribution strategy for CMLE).
+Also explicit relative imports are considered best practices (and required when __future__.absolute_import is used)
+Finally there was a broken property assignment before message initialization in the config options.
+Would it be possible to add an __init__.py to this directory as well? (this would prevent users from having to add their own for CMLE).
+With all these working, I've verified that this works using the following job_config.yaml:
+trainingInput:
+  scaleTier: CUSTOM
+  masterType: complex_model_m_gpu
+  workerType: complex_model_m_gpu
+  parameterServerType: complex_model_m
+
+And the following command:
+gcloud ml-engine jobs submit training cifarmultigpu6 \
+    --runtime-version 1.2 \
+    --staging-bucket gs://cifarmultigpu \
+    --config cifar10_estimator/job_config.yaml \
+    --package-path cifar10_estimator/ \
+    --region us-central1 \
+    --module-name cifar10_estimator.cifar10_main \
+    -- \
+    --data_dir=gs://cifarmultigpu/train_data \
+    --model_dir=gs://cifarmultigpu/modeldirs/6 \
+    --is_cpu_ps=True \
+    --force_gpu_compatible=True \
+    --num_gpus=4 \
+    --train_steps=1000 \
+    --run_experiment=True
+
+Some other recommendations to make this more idiomatic:
+
+use argparse not FLAGS, so that flags will use -
+What's the purpose of run_experiment? It should work fine on single worker so no flag is necessary
+Can GPU number not be detected from the environment? Maybe can be passed as a Tensor using tf.Scaffold?
+
+@mari-linhares",4,22
+2177,2017-08-10T09:54:14Z,2017-08-14T17:41:58Z,2017-08-14T17:41:58Z,2,2,0,,3,2
+2180,2017-08-10T12:33:17Z,,2018-01-22T22:45:12Z,1,1,0,,3,7
+2183,2017-08-10T15:32:51Z,,2017-11-21T05:46:18Z,1,1,1,Python 2.7 no longer needs the trailing L and Python 3 treats it as a Syntax Error.,3,0
+2198,2017-08-11T13:02:13Z,2017-09-07T04:49:51Z,2017-09-07T04:49:51Z,1,1,1,"Fixes broken visualization in Perspective Transformer Nets, bug #2197.",5,7
+2249,2017-08-18T09:01:04Z,2017-08-19T19:25:02Z,2017-08-19T19:25:02Z,4,28,18,Used https://pythonhosted.org/six as discussed in #2105,3,0
+2250,2017-08-18T09:25:39Z,2017-08-22T16:22:13Z,2017-08-22T16:22:13Z,1,6,3,"@yuyuz http://python-future.org/compatible_idioms.html?highlight=file#file
+Also import Queue class in both Python 2 and Python 3  http://python-future.org/compatible_idioms.html?highlight=queue#queue",4,2
+2254,2017-08-18T21:41:19Z,2017-08-27T03:51:43Z,2017-08-27T03:51:43Z,4,58,31,"-Fix styling of print statements
+-Added Python 2 compatibility
+-Fixed code according to PEP 8",4,5
+2268,2017-08-22T13:13:49Z,,2019-10-28T18:29:59Z,1,96,6,"I added one more test where you have two classes on one image so that it is more explicit that the bounding boxes are a list of xmins, ymins, xmaxs, ymaxs etc and also made it python 3 compatible.",4,0
+2276,2017-08-23T20:36:57Z,2017-08-29T22:02:27Z,2017-08-29T22:02:27Z,4,302,67,"Add different rnn implementation modes to ptb tutorial using CudnnLSTM and LSTMBlockCell.
+rnn_mode == CUDNN
+| config | epochs | train | valid  | test   | wps
+| small  | 13     | 40.50 | 116.60 | 112.13 | 49k
+| medium | 39     | 22.58 | 123.83 | 118.69 | 24.2k
+| large  | 55     |  8.03 | 129.78 | 126.03 | 10.5k
+In fact, the params tensor layout for cudnn_lstm is so different from canonical LSTM,
+we need a complete different set of init_scale and learning rate parameters.
+rnn_mode == BLOCK
+| config | epochs | train | valid  | test   | wps
+| small  | 13     | 40.55 | 120.70 | 115.52 | 17.2k
+| medium | 39     | 45.68 |  86.97 |  83.47 | 13.6k
+| large  | 55     | 37.94 |  82.75 |  78.49 | 5.0k
+Wps before this cl for small, medium, large models are
+15.6k, 12.6k, and 5.0k, respectively.
+Benchmarking platform: E5-2690 v4, Titan X.",7,16
+2279,2017-08-23T22:55:40Z,,2018-03-14T21:22:57Z,1,1,1,"download_and_preprocess_imagenet.sh invokes download_imagenet.sh with incorrect WORK_DIR passed as argument. This breaks download_imagenet.sh with a file-not-found error.
+It breaks because WORK_DIR is relative path, but should be fully qualified.",6,7
+2280,2017-08-24T00:34:01Z,2017-08-24T02:02:05Z,2017-08-24T02:02:05Z,5,894,0,,3,0
+2284,2017-08-24T17:39:59Z,2017-08-25T14:18:23Z,2017-08-25T14:18:23Z,3,118,105,Updated to,3,0
+2297,2017-08-28T09:18:10Z,,2019-10-28T18:30:00Z,1,3,3,"Since the export_inference_graph.py was changed in this pull request, the corresponding markdown file also had to be changed",4,1
+2299,2017-08-28T12:17:10Z,2018-03-03T18:45:13Z,2018-03-03T18:45:13Z,2,4,4,"In download_imagenet.sh, the path to the $SYNSETS_FILE resource (imagenet_2012_validation_synset_labels.txt) was not working due to a cd earlier in the script.
+This is fixed by prepending the initial directory path to the path to the resource file ($SYNSETS_FILE) when we try to access it.
+Fixes #682.",6,9
+2307,2017-08-30T01:22:58Z,2017-08-31T23:20:57Z,2017-08-31T23:20:57Z,5,39,33,,3,0
+2308,2017-08-30T10:01:36Z,,2019-10-28T18:30:02Z,5,571,0,"I implemented slim models for DenseNet and FC-DenseNet, based on the original lasagne/theano code made available by the authors of FC-DenseNets. Hope it will be useful.
+
+Densely Connected Convolutional Networks
+The One Hundred Layers Tiramisu: Fully Convolutional
+DenseNets for Semantic Segmentation - code",7,4
+2311,2017-08-30T13:01:27Z,2017-08-30T16:25:49Z,2017-08-30T16:25:49Z,2,5,5,"This change is required for compatibility with Bazel 0.6+
+See also tensorflow/tensorflow#12685",3,1
+2313,2017-08-30T17:15:20Z,2017-08-30T20:09:49Z,2017-08-30T20:09:49Z,5,15,11,Should fix tests that fail due to incompatibility with the old version of tensorflow that uses an old version of rules_closure.,3,0
+2330,2017-09-03T20:31:33Z,2017-09-04T06:19:32Z,2017-09-04T06:19:32Z,1,2,2,"see example usage in https://github.com/tensorflow/models/blob/master/object_detection/export_inference_graph.py#L51
+issue #2329",4,4
+2343,2017-09-06T01:04:41Z,2017-09-15T20:21:52Z,2017-09-15T20:21:52Z,1,20,22,"If I understand correctly, SyncReplicasOptimizer.make_session_run_hooks output is supposed to be run on every worker, with the provided is_chief flag determining whether aggregation is performed.
+This PR fixes that (it also moves other hooks inside the model_fn so that you can refer to logging tensors by reference rather than by name which is fragile).
+@tfboyd @isaprykin",4,2
+2350,2017-09-06T21:59:50Z,2017-09-21T01:13:05Z,2017-09-21T01:13:05Z,1,1,1,"Change this line to say ""The total loss is the user's loss ...""
+The total loss is the uers's loss plus any regularization losses.",3,0
+2371,2017-09-12T08:52:40Z,2017-09-12T15:00:21Z,2017-09-12T15:00:21Z,1,3,1,"In order to help address issue #5987, I'm adding references to the evaluation loop example. I'm also making it more obvious that this is not the main TF-Slim page and adding another reference to that page in the introductory paragraph.",3,3
+2384,2017-09-14T05:28:24Z,2017-09-21T00:56:37Z,2017-09-21T00:56:37Z,20,2487,0,@jhseu @itsmeolivia @shivaniag @av8ramit @puneith,4,1
+2390,2017-09-14T15:34:56Z,,2017-11-15T15:24:16Z,62,260,199,"Make the minimal, safe changes required to convert the repo's code to be syntax compatible with both Python 2 and Python 3. There would definitely be much more work required to complete the port to Python 3 but this is a minimal, safe first step.
+
+Run: futurize --stage1 -w **/*.py
+
+See Stage 1: ""safe"" fixes http://python-future.org/automatic_conversion.html#stage-1-safe-fixes
+$ pip install future
+$ git checkout -b modernize-python2-code
+$ futurize --stage1 -w **/*.py # done in zsh for ** globbing
+$ git commit --all -m ""Modernize Python 2 code to get ready for Python 3""
+$ git push --set-upstream origin modernize-python2-code
+
+Make the changes in #2389 to fix a few Python 3 syntax errors",6,4
+2396,2017-09-16T00:51:08Z,2017-09-19T23:19:32Z,2017-09-19T23:19:32Z,1,7,5,,4,1
+2398,2017-09-16T17:53:16Z,2018-02-28T03:33:24Z,2018-02-28T03:33:24Z,1,1,2,fix #1262,5,4
+2403,2017-09-17T18:38:15Z,2017-10-11T17:57:59Z,2017-10-11T17:57:59Z,1,2,2,"Replace dict.iteritems with dict.items.  In both cases the dict is
+very small, so the optimization that iteritems provides on Python 2
+doesn't matter.
+With this fix, the model works smoothly for me on CPython 3.5.3.",5,6
+2413,2017-09-19T06:19:07Z,2017-11-29T22:15:02Z,2017-11-29T22:15:02Z,1,1,1,Fix #2219 identified by @mees,5,7
+2414,2017-09-19T06:28:47Z,2017-11-29T22:15:29Z,2017-11-29T22:15:29Z,1,1,1,Fix #2240 identified by @mees,5,6
+2422,2017-09-21T01:10:30Z,2017-09-21T18:11:35Z,2017-09-21T18:11:35Z,6,15,6,,3,0
+2430,2017-09-21T18:13:14Z,2017-09-21T19:58:21Z,2017-09-21T19:58:21Z,1283,86,78,"Because the models repository is growing well past what the TensorFlow team can maintain (currently housing 36 top-level folders), we will be making a major restructure of the models repository:
+
+
+First, we will be starting an official, supported collection of models in the repo. These models will be implemented with high-level TensorFlow APIs, fast performance, and other best practices that we think newer TensorFlow users should see. The first few models are already available here.
+
+
+Second, we will be moving all of the current models in the repository to a subfolder called 'research'. This will clean up the repository significantly by cutting down the number of top-level folders.
+
+
+Moving forward, the TensorFlow team will only support issues/PRs on the official models. For the research models we encourage the individual researchers to support them, but we cannot guarantee support.
+Unfortunately, the main pain of this restructure is that all existing links to models within the repo will be broken. For those of you who own models in the repo, we know that it will take some effort to correct all of your links, but we hope you'll help us work to quickly get to a cleaner models repository for our users.",6,8
+2434,2017-09-22T04:45:20Z,2017-09-22T20:08:40Z,2017-09-22T20:08:41Z,8,38,37,,3,1
+2439,2017-09-22T14:04:58Z,2017-09-22T20:10:05Z,2017-09-22T20:10:05Z,8,37,37,"(most things now under research/ for slim links).  Fixes
+docs and breakage in the inception download script.",3,1
+2444,2017-09-22T22:51:35Z,2017-09-25T18:44:14Z,2017-09-25T18:44:14Z,0,0,0,removing unnecessary imports,4,2
+2450,2017-09-24T05:00:47Z,2017-09-26T23:53:53Z,2017-09-26T23:53:53Z,1,2,2,"I have a large number of files where the file-names are autogenerated using a script and they contain the name of the PNG file they were generated from.
+So a filename could look like: ""xxxxxxxxx.png_xxxxxxxxx.jpg""
+This breaks the existing check. So tweaking it a bit to fix this.",3,4
+2453,2017-09-25T13:57:57Z,2017-09-25T19:10:18Z,2017-09-25T19:10:18Z,1,2,2,,3,0
+2456,2017-09-25T19:25:25Z,2017-09-26T23:49:38Z,2017-09-26T23:49:38Z,3,0,3,,3,0
+2466,2017-09-27T01:44:35Z,2017-09-27T19:16:06Z,2017-09-27T19:16:06Z,4,97,44,,4,1
+2486,2017-10-02T21:40:44Z,2017-10-03T00:06:37Z,2017-10-03T00:06:37Z,2,0,335,,3,0
+2488,2017-10-04T02:55:11Z,2017-10-10T18:55:34Z,2017-10-10T18:55:34Z,1,1,1,,4,3
+2499,2017-10-05T18:42:07Z,2017-10-05T19:58:23Z,2017-10-05T19:58:23Z,3,17,7,,3,1
+2512,2017-10-09T21:02:56Z,2017-10-11T23:18:30Z,2017-10-11T23:18:30Z,1,1,1,"Without this change, Bazel will draw an error.",4,1
+2516,2017-10-10T14:58:26Z,2017-10-12T17:40:44Z,2017-10-12T17:40:44Z,1,1,1,The currently used version of Tensorflow contains an outdated version of protobuf which is not compatible with the upcoming Bazel 0.8.,4,1
+2522,2017-10-11T22:30:49Z,2017-10-16T20:52:16Z,2017-10-16T20:52:16Z,1,1,1,,4,2
+2523,2017-10-11T22:50:31Z,,2017-10-12T00:27:22Z,1,3,3,,5,5
+2524,2017-10-11T23:02:27Z,,2019-10-28T18:33:43Z,2,50,47,"@nealwu, @protoget
+
+Utumno@34e9041 addresses #2276 (comment)
+Utumno@cdd82c7 addresses this: #2505 (comment) and also adds argparse",5,1
+2526,2017-10-12T04:38:17Z,2017-10-12T13:31:00Z,2017-10-12T13:31:00Z,2,6,5,"Also added 'sudo' to installation instructions.
+Fixes #2420",4,1
+2536,2017-10-13T13:00:49Z,2017-12-16T00:40:04Z,2017-12-16T00:40:04Z,1,1,1,"CIFAR website is now using https.
+Since urllib does not follow the http to https redirection and thus never retrieves any data, the data URL needs an update.",4,4
+2539,2017-10-15T14:58:01Z,2017-10-16T13:55:09Z,2017-10-16T13:55:09Z,1,1,1,,4,4
+2546,2017-10-17T23:47:06Z,2017-11-01T21:40:33Z,2017-11-01T21:40:33Z,12,2219,0,"This PR pulls files from a few other places, initializing the directory structure Magnus was talking about.
+Into examples/outreach/blogs:
+
+https://github.com/mhyttsten/Misc
+
+Into examples/cookbook/regression:
+
+https://github.com/tensorflow/tensorflow/tree/master/tensorflow/examples/get_started/regression
+
+Into examples/core/get_started:
+
+https://github.com/tensorflow/tensorflow/tree/master/tensorflow/examples/iris.py
+https://github.com/tensorflow/tensorflow/blob/master/tensorflow/examples/learn/iris_custom_model.py
+
+No files were changed (I renamed the iris files).
+I've cleaned-up and added tests for core/get_started examples and cookbook/regression",4,6
+2552,2017-10-18T20:27:36Z,2017-10-19T01:53:42Z,2017-10-19T01:53:42Z,2,66,75,,3,1
+2554,2017-10-19T02:33:39Z,2017-10-19T19:47:44Z,2017-10-19T19:47:44Z,8,487,1,,6,4
+2555,2017-10-19T04:43:36Z,,2019-10-28T18:33:44Z,2,10,10,"Fixes #2545
+This PR corrects the 3x3 convolutions to 5x5 convolutions in Inception v1.
+I have run the tests in inception_v1_test.py and ensured that they pass following these changes.",6,6
+2565,2017-10-20T17:50:12Z,2017-11-11T09:19:24Z,2017-11-11T09:19:24Z,5,7,7,,3,0
+2581,2017-10-24T12:33:07Z,2017-10-24T17:53:54Z,2017-10-24T17:53:54Z,2,25,0,,4,1
+2582,2017-10-24T22:17:14Z,2017-10-25T00:52:09Z,2017-10-25T00:52:09Z,5,31,37,,4,0
+2583,2017-10-25T01:56:45Z,2017-10-25T20:32:22Z,2017-10-25T20:32:22Z,6,47,12,,3,0
+2584,2017-10-25T04:43:22Z,2017-10-29T16:09:09Z,2017-10-29T16:09:09Z,1,1,1,"Example word2vec code was break-ing instead of returning when candidate was found, making the ""unknown"" error message show regardless.",5,6
+2601,2017-10-27T00:50:05Z,2017-10-27T21:53:32Z,2017-10-27T21:53:32Z,7,111,87,This maintains better abstractions and makes it easier to unit test specific functions from our models.,3,0
+2614,2017-10-27T15:58:35Z,2017-10-27T22:15:34Z,2017-10-27T22:15:34Z,1,2,2,,3,0
+2615,2017-10-27T16:15:19Z,2017-10-27T22:27:57Z,2017-10-27T22:27:57Z,2,2734,0,,3,1
+2617,2017-10-27T18:14:44Z,2017-10-27T22:33:51Z,2017-10-27T22:33:51Z,17,2272,132,"Bulk upstream update for object_detection/utils. A list of major changes.
+
+Create a config_utils module to help parse/manipulate config files.
+Add cosine learning rate with warmup
+Introduce new interface for object detection evaluation that will help clean up some of the logic in object_detection/evaluator.py
+introduces a few new visualization methods.",3,0
+2618,2017-10-27T19:21:41Z,2017-10-27T22:25:05Z,2017-10-27T22:25:05Z,14,2135,327,"Bulk update for object_detection/core directory. Here's a list of major changes:
+
+Add new data_parser interface for reading and computing offline metrics.
+make max normalized value configurable in box_list_ops.to_absolute_coordinates.
+allow setting a bias term for class predictions in box_predictor.py
+add new preprocesing ops for keypoints - flip_vertical and rotate 90 deg
+add new preprocesing ops - random flip vertical and random rotate by 90 deg.
+experimental implementation losses.
+Add detection result fields to standard_fields.py",3,0
+2619,2017-10-27T21:07:03Z,2017-10-27T22:30:49Z,2017-10-27T22:30:49Z,15,251,24,Bulk update for object_detection/protos.,3,0
+2622,2017-10-28T00:55:16Z,2017-10-28T02:10:01Z,2017-10-28T02:10:02Z,4,318,356,"Use new eval interface defined in utils/object_detection_evaluation.py which clean up a lot of the clutter in eval.pu
+Update eval.py to use routines from utils/config_utils.py to parse config files.",3,0
+2624,2017-10-28T02:51:20Z,2017-10-28T05:24:05Z,2017-10-28T05:24:05Z,3,196,40,"Fix a bug that prevented model export with moving averages!
+Add a new input_size flag
+Mark some flags as required.
+Options to add additional intermediate nodes to the exported graph.",3,0
+2627,2017-10-28T15:23:01Z,2017-10-28T21:11:12Z,2017-10-28T21:11:12Z,54,3766,226,"Includes new gan nets by Joel Shor @joelshoer
+
+Pix2Pix
+DCGAN
+CycleGAN
+
+Includes new NasNet models by Barret Zoph @BarretZoph
+
+NASNet-A_Mobile_224
+NASNet-A_Large_331
+
+Added global_pool option to nets by Arno Eigenwillig @arnoegw
+PiperOrigin-RevId: 173772097",4,0
+2629,2017-10-28T19:28:46Z,2017-10-29T16:48:44Z,2017-10-29T16:48:44Z,12,1026,265,"add support for keypoints in batch_multi_class_non_max_suppression
+add temperature T in softmax activation and changes to post processing builder.
+minor updates to all meta architectures to use the new batch_multi_class_non_max_suppression signature,",3,0
+2631,2017-10-28T20:37:34Z,2017-10-29T17:02:54Z,2017-10-29T17:02:54Z,23,1920,102,"add ssd_inception_v3, faster_rcnn_inception_v2, embedded_ssd_mobilenet_v1 feature extractors.
+make corresponding updates to model builders.",3,0
+2632,2017-10-28T21:29:03Z,,2017-11-07T23:43:17Z,5,814,0,"config files for ssd_inception_v3, embedded_ssd_mobilenet_v1 and faster_rcnn_nasnet",5,2
+2635,2017-10-29T13:43:24Z,2017-10-30T18:47:24Z,2017-10-30T18:47:24Z,1,2,1,"Also fixes issue #2628
+Fix was done according to https://www.python.org/dev/peps/pep-3113/#transition-plan",4,1
+2636,2017-10-29T16:51:15Z,2017-10-31T19:45:41Z,2017-10-31T19:45:41Z,1,0,2,,3,0
+2637,2017-10-29T17:59:24Z,2017-10-30T01:41:36Z,2017-10-30T01:41:36Z,4,185,20,"Contains config file for Faster RCNN NAS.
+Faster RCNN NAS model
+Release info",3,0
+2639,2017-10-30T02:22:22Z,2017-10-30T05:10:30Z,2017-10-30T05:10:30Z,3,208,50,Update tf example decoder that was forgotten in the previous commits causing failures in input reader builder tests,4,2
+2649,2017-10-30T15:32:38Z,2017-10-30T17:22:00Z,2017-10-30T17:22:01Z,1,0,2,Remove google3 dependency on opensourced NASNet. Fixed #2646.,3,3
+2650,2017-10-30T16:45:44Z,2017-10-30T18:59:17Z,2017-10-30T18:59:17Z,1,1,0,Add init.py file in nasnet directory. Fixed #2638.,4,5
+2680,2017-11-01T15:25:27Z,2017-11-11T23:12:34Z,2017-11-11T23:12:34Z,1,78,62,"There are several py_library(), py_binary() and py_test() claimed deps on ""//tensorflow"" explicitly. This causes the BUILD failed. This is discussed in the issue submitted earlier at tensorflow/models 2571.
+As my understanding, the deps = [ ""//tensorflow"" ] is looking for a directory tensorflow under the slim, which doesn't exist. Remove the deps fixed the issue, as long as the tensorflow is built and available.
+Another approach might define the tensorflow library in workspace, by linking it to outside github repo? However, in this way, it could lead to replicated tensorflow modules?
+Thank you.",4,5
+2687,2017-11-02T07:25:17Z,,2019-10-28T18:33:47Z,3,36,32,,5,7
+2689,2017-11-02T15:11:16Z,2017-11-02T20:29:50Z,2017-11-02T20:29:50Z,1,4,5,,2,0
+2690,2017-11-02T19:14:22Z,2017-11-07T18:01:16Z,2017-11-07T18:01:16Z,5,49,47,,4,5
+2693,2017-11-03T00:35:06Z,2017-11-03T19:57:30Z,2017-11-03T19:57:30Z,1,4,2,cc @k-w-w,4,1
+2698,2017-11-03T15:47:33Z,2017-11-03T17:47:51Z,2017-11-03T17:47:51Z,2,3,3,"Fixes #2652
+Change dict.iteritems() to dict.items()",7,5
+2704,2017-11-03T20:16:23Z,2017-11-06T19:24:38Z,2017-11-06T19:24:38Z,1,9,14,"$> grep imports85 -r samples/cookbook/ | wc -l
+     0
+
+Also:
++Removed try-except on import pandas, pandas is no longer optional here.
++Fixed some inconsistencies.",4,1
+2706,2017-11-03T22:26:07Z,2017-11-06T19:26:07Z,2017-11-06T19:26:07Z,5,44,44,,3,0

@@ -1,0 +1,2135 @@
+number,created_at,merged_at,closed_at,files,additions,deletions,body_text,participants,comments
+1,2023-06-27T19:29:54Z,2023-06-27T20:49:08Z,2023-06-27T20:49:08Z,7,196,216,,2,0
+3,2023-06-27T21:44:37Z,2023-06-28T14:36:35Z,2023-06-28T14:36:35Z,7,1363,22,"requirements.txt updated with poetry export
+install ollama into the poetry virtualenv:
+poetry install && ollama list
+use ollama as a python module script:
+poetry run python -m ollama list
+binary artifacts can be build and archived:
+poetry build && ls -al dist/",3,0
+7,2023-06-27T22:50:30Z,2023-06-28T14:37:03Z,2023-06-28T14:37:03Z,16,196,440,easier to read and maintain since diffs are much more obvious. this also provides future opportunity for users to define their own prompt templates,3,0
+10,2023-06-28T16:26:42Z,,2023-06-30T18:54:22Z,1,4,2,,2,1
+15,2023-06-28T21:34:34Z,2023-06-29T00:10:39Z,2023-06-29T00:10:39Z,2,22,13,add a batch model which is distinct in the way the prompts are displayed to the user. this produces a cleaner output without a trailing >>>,2,0
+16,2023-06-28T21:46:35Z,2023-06-29T00:12:03Z,2023-06-29T00:12:03Z,3,166,356,python 3.8 is the oldest version still maintained,2,1
+17,2023-06-29T00:26:07Z,2023-06-30T18:46:13Z,2023-06-30T18:46:14Z,12,823,74,,3,0
+20,2023-06-29T16:43:57Z,2023-06-30T18:54:07Z,2023-06-30T18:54:07Z,1,3,13,same result with less code,2,0
+32,2023-07-01T00:04:44Z,,2023-07-06T16:30:31Z,5,33,7,,2,0
+37,2023-07-05T18:16:14Z,2023-07-05T19:16:19Z,2023-07-05T19:16:19Z,4,28,31,"fuzzywuzzy was renamed starting 0.19 so use that instead
+use process.extract to produce a list of fuzzy matches instead of process.extractOne",2,1
+49,2023-07-06T23:03:39Z,2023-07-07T00:18:58Z,2023-07-07T00:18:58Z,7,235,187,,2,1
+52,2023-07-07T00:12:59Z,2023-07-07T17:59:11Z,2023-07-07T17:59:11Z,3,151,16,,3,1
+56,2023-07-07T19:28:14Z,2023-07-08T03:18:25Z,2023-07-08T03:18:25Z,3,36,1,allow for offline mode,3,1
+57,2023-07-07T20:16:27Z,2023-07-10T10:05:09Z,2023-07-10T10:05:09Z,2,11,12,"parse all run arguments into one prompt
+do not echo prompt back on one-shot
+example of summarizing a document
+
+$ ollama run nous-hermes ""$(cat input.txt)"", please summarize this story
+The song ""Summertime"" by Will Smith is about the rapper's life before fame and how it changed when he became successful. The lyrics describe his experiences growing up in Philadelphia and then suddenly becoming rich and famous. The song is a coming-of-age story that describes the rapper's journey from poverty to stardom, and the impact of this change on his life.",3,3
+58,2023-07-07T21:27:14Z,2023-07-10T21:03:47Z,2023-07-10T21:03:47Z,4,38,7,,3,1
+62,2023-07-10T02:44:43Z,,2023-07-10T22:51:37Z,10,101,983,Early PR to replace the C++ binding files with direct calls to llama.cpp from Go. It's missing quite a few features the C++ binding.cpp files had although those were almost direct copies of the main example in llama.cpp's repo. We should be able to add them back relatively easily. It's most likely slower as well so we'll have to make sure it's as fast / faster than the bindings or c++ example implementation.,2,2
+64,2023-07-10T11:46:30Z,2023-07-10T15:00:44Z,2023-07-10T15:00:45Z,2,30,14,"This was nicer to fix on the revised b2 branch, so this is a pull request into that simplified change",2,0
+65,2023-07-10T20:36:56Z,2023-07-11T19:01:03Z,2023-07-11T19:01:03Z,29,35552,1292,,3,2
+66,2023-07-11T16:39:48Z,2023-08-10T15:49:55Z,2023-08-10T15:49:55Z,2,85,31,,4,6
+67,2023-07-11T17:42:13Z,2023-07-11T18:45:21Z,2023-07-11T18:45:21Z,3,261,24,,2,0
+69,2023-07-11T20:53:44Z,,2023-07-20T18:04:37Z,7,174,9,"Store previous questions and answers in the client during a chat session. Use embeddings to look-up what is relevant to the current context.
+This is an initial implementation. We will need to iterate to improve this experience through more dynamic prompts and possibly weighting recency in the conversation too.",1,1
+70,2023-07-11T20:57:54Z,2023-07-11T22:50:19Z,2023-07-11T22:50:19Z,6,143,144,"two fixes bundled into one pr
+
+pull should not block generate. this changes the status code when the remote models are inaccessible so as to not block a generate which may already be available in the file system
+use a temporary file during pull operations to separate a partial file from a completed file. this enables a better existence check
+
+this pr also refactors both the server and client to better share code between similar operations. of note is the change to the pull operation where instead of taking a channel, saveModel takes a funcptr to mirror generate and enabling common stream producer code",2,0
+71,2023-07-12T00:09:31Z,2023-07-12T16:20:33Z,2023-07-12T16:20:33Z,1,7,0,check nil to prevent later nil pointer dereferences,2,0
+73,2023-07-12T16:36:33Z,2023-07-12T18:09:23Z,2023-07-12T18:09:23Z,4,16,20,maybe related to #72,1,0
+74,2023-07-13T01:20:54Z,2023-07-13T17:17:14Z,2023-07-13T17:17:14Z,4,117,32,,2,0
+77,2023-07-13T18:30:47Z,2023-07-14T21:57:42Z,2023-07-14T21:57:42Z,11,47,10,feed responses back into the llm,2,0
+78,2023-07-14T00:19:28Z,2023-07-17T00:02:22Z,2023-07-17T00:02:22Z,7,1154,214,"First stab at getting distribution to work. This includes a replacement endpoint for ""pull"", and a new endpoint for ""push"". There is also a new ""create"" command which takes a ""Modelfile"" and parses it to create a new image.
+There are a few things still missing right now:
+
+the ""push"" and ""pull"" commands don't yet exist (only the API endpoints).
+there is status being displayed for both push and pull, but it's not very granular yet (distribution supports the Range header, so we'll need to use that)
+there is currently no way to list each of the models. You'll need to look in ~/.ollama/models/manifests to see a list of images that you have.
+when creating images, the parser is very rudimentary and really only works w/ happy path.",2,0
+80,2023-07-14T17:56:08Z,2023-07-14T23:34:25Z,2023-07-14T23:34:25Z,8,2576,343,,2,0
+82,2023-07-15T00:31:56Z,2023-07-15T03:11:55Z,2023-07-15T03:11:55Z,4,15,15,"make some minor changes so it builds on windows.
+TODO:
+moving the .*.part to the full file isn't working correctly but #78 will change how that works so temporary workaround is to copy the .*.part to the final name",3,0
+83,2023-07-15T01:30:51Z,2023-07-15T03:12:12Z,2023-07-15T03:12:12Z,1,13,6,,2,0
+88,2023-07-17T19:13:45Z,2023-07-17T21:18:57Z,2023-07-17T21:18:57Z,4,88,70,,2,0
+91,2023-07-17T20:41:20Z,2023-07-20T19:22:00Z,2023-07-20T19:22:00Z,3,13,15,"once the stream is created, it's too late to update response headers (i.e. status code). any and all errors must be returned by the stream",3,0
+92,2023-07-17T21:16:15Z,2023-07-18T18:15:45Z,2023-07-18T18:15:45Z,2,59,33,add a spinner to create model outputs,3,0
+93,2023-07-17T23:45:30Z,2023-07-20T06:25:34Z,2023-07-20T06:25:34Z,4,161,127,this also updates the scanner with a multiline split function,2,0
+94,2023-07-18T00:09:42Z,,2023-07-28T15:27:05Z,3,22,10,,4,1
+95,2023-07-18T00:18:18Z,2023-07-18T12:32:39Z,2023-07-18T12:32:39Z,4,44,3,"Added 3 modelfiles as examples. Also update development.doc, but wondering if i should also get rid of dev altogether.",2,0
+96,2023-07-18T00:35:39Z,2023-07-18T05:44:21Z,2023-07-18T05:44:21Z,3,147,80,This change adds ModelPath{} which takes care of figuring out the various URL and file paths to a given model.,2,0
+97,2023-07-18T05:43:08Z,2023-07-18T16:09:45Z,2023-07-18T16:09:45Z,10,450,11,This changes lets you list each of the models which you have pulled locally.,2,0
+102,2023-07-18T19:46:08Z,2023-07-27T23:46:29Z,2023-07-27T23:46:29Z,5,343,212,"an active model is kept in memory until another session is requested or the session has expired, freeing any memory associated with the model.
+This adds a SessionDuration field to the generate request to customize the session window (default 5m) and a SessionExpiresAt field to the generate response informing users of when the session will expire.
+
+A session duration value of -1 disables session expiration.
+A session duration value of 0 disables model caching, i.e. models will be garbage collected as soon as generation is complete
+
+resolves #60
+resolves #108",4,9
+104,2023-07-18T21:32:24Z,2023-07-19T20:36:24Z,2023-07-19T20:36:24Z,3,111,10,,2,0
+125,2023-07-19T14:17:05Z,2023-07-19T15:57:07Z,2023-07-19T15:57:07Z,4,16,5,and attributed midjourneyprompt,2,0
+128,2023-07-19T18:38:21Z,2023-07-19T20:40:39Z,2023-07-19T20:40:39Z,8,128,54,,2,0
+130,2023-07-19T22:54:28Z,2023-07-20T00:24:03Z,2023-07-20T00:24:03Z,8,1325,14,,2,0
+131,2023-07-19T23:50:32Z,2023-07-20T19:14:10Z,2023-07-20T19:14:10Z,13,1769,650,,2,0
+146,2023-07-20T18:54:29Z,2023-07-20T20:41:54Z,2023-07-20T20:41:54Z,2,9,0,"There are two issues preventing pull from working as expected in Windows.
+
+Windows dislikes os.Rename when the file is still open. One approach is to close the file before calling rename. The approach taken in this PR is to call os.Symlink instead
+Windows errors when file paths contain : so replace the : in the digest name with -, e.g. sha256:0123456789abcdef... with sha256-0123456789abcdef.... This is done only for the blob file path. Non-file path instances of this string are unchanged",3,0
+147,2023-07-20T18:55:09Z,2023-07-21T14:10:20Z,2023-07-21T14:10:20Z,3,26,15,"Fixing a couple of error display issues I ran into while running ollama.
+
+Errors returned using gin in the form {""error"": ""some message""} were not being displayed in the CLI. Update the format of the stream error object so that it will parse both these gin errors and custom errors.
+Do not return a 500 error when running ollama list before pulling any images, return an empty set of images instead.",4,0
+157,2023-07-21T06:31:48Z,2023-07-21T22:42:19Z,2023-07-21T22:42:19Z,5,86,39,This change adds the --insecure flag to the push/pull commands so that you can push and pull models from local registries.,2,0
+164,2023-07-21T16:49:58Z,2023-07-22T22:19:22Z,2023-07-22T22:19:22Z,3,15,14,fix for #154,2,0
+167,2023-07-21T22:10:33Z,2023-08-11T00:22:40Z,2023-08-11T00:22:40Z,26,336,69,,4,1
+171,2023-07-22T02:08:46Z,2023-07-22T03:27:25Z,2023-07-22T03:27:25Z,1,1,1,,2,0
+174,2023-07-22T06:05:37Z,2023-07-24T15:22:51Z,2023-07-24T15:22:51Z,1,1,1,cherry picked from #102,3,0
+175,2023-07-22T14:03:26Z,2023-07-22T16:40:38Z,2023-07-22T16:40:38Z,1,1,0,,2,0
+179,2023-07-22T23:16:24Z,2023-07-23T00:31:26Z,2023-07-23T00:31:26Z,2,94,52,,2,0
+189,2023-07-24T12:50:00Z,2023-07-25T18:28:11Z,2023-07-25T18:28:11Z,1,10,7,"This PR enhances the existing parser package. Main improvements include better error handling, optimized string-to-byte conversions, and efficient handling of multiline strings.
+Detailed changes:
+
+Define a multilineString constant for repeated values to avoid duplication.
+Modify the error handling in the Parse function to return an error for unknown commands.
+Replace bytes.ToUpper and bytes.ToLower with strings.ToUpper and strings.ToLower for faster string conversions.
+Optimize removal of """""" from multiline strings by using bytes.Index and bytes.LastIndex instead of bytes.Replace.",3,1
+192,2023-07-24T16:44:41Z,2023-07-24T23:13:22Z,2023-07-24T23:13:22Z,1,2,0,,2,0
+195,2023-07-24T18:37:18Z,2023-07-24T19:58:32Z,2023-07-24T19:58:32Z,1,9,1,"when resuming a download of a model truncate the file size to match the expected trunk size, hopefully this mitigates #170",2,0
+196,2023-07-24T18:45:22Z,2023-07-24T21:10:22Z,2023-07-24T21:10:22Z,1,8,0,Another example for a DevOps engineer,3,3
+197,2023-07-24T18:54:33Z,2023-07-24T19:59:12Z,2023-07-24T19:59:12Z,1,15,2,"ideally this never happens (the download resume should prevent this), but if there is a digest mismatch the specific blob should be removed rather than the user manually removing it
+related to #170",2,0
+202,2023-07-24T21:49:03Z,2023-07-25T14:30:48Z,2023-07-25T14:30:48Z,2,5,2,"ollama run orca-dne
+pulling manifest
+Error: pull model manifest: model not found
+
+resolves #180",3,0
+203,2023-07-24T22:08:01Z,2023-07-25T20:53:01Z,2023-07-25T20:53:01Z,5,73,41,resolves #129,3,0
+205,2023-07-25T00:15:20Z,2023-07-25T03:06:05Z,2023-07-25T03:06:05Z,1,1,1,missed this define,2,1
+209,2023-07-25T15:40:15Z,2023-07-25T18:53:29Z,2023-07-25T18:53:29Z,1,1,1,,2,0
+211,2023-07-25T17:51:16Z,2023-07-27T23:57:03Z,2023-07-27T23:57:03Z,18,2607,1564,update to eb542d39324574a6778fad9ba9e34ba7a14a82a3,2,0
+214,2023-07-25T21:10:24Z,2023-08-09T15:35:24Z,2023-08-09T15:35:24Z,3,229,113,resolves #200,2,0
+221,2023-07-26T18:52:15Z,2023-07-28T00:24:42Z,2023-07-28T00:24:42Z,3,57,1,"go:embed ggml-metal.metal and write it out to the right location on init() so llama.cpp can use it.
+with this change, ollama is serveable using go run . serve or go install . && ~/go/bin/ollama serve
+resolves #48",3,1
+223,2023-07-27T02:07:07Z,2023-07-27T23:58:40Z,2023-07-27T23:58:40Z,1,64,0,,2,0
+225,2023-07-27T18:28:50Z,2023-07-28T00:20:56Z,2023-07-28T00:20:56Z,2,39,13,"resolves #140
+resolves #217",2,0
+230,2023-07-27T19:16:32Z,2023-07-28T14:33:53Z,2023-07-28T14:33:53Z,3,82,19,,2,0
+232,2023-07-27T21:13:37Z,2023-07-28T16:31:08Z,2023-07-28T16:31:08Z,4,31,28,"This is useful for Modelfiles which define a format. Multi-value paramters are set by listing them in quotes.
+Example Modelfile:
+FROM llama2
+PARAMETER temperature 1
+PARAMETER stop ""AI Cat:"" ""Dog:""
+
+TEMPLATE """"""
+{{- if .First }}
+<<SYS>>
+{{ .System }}
+<</SYS>>
+
+Dog: woof woof woof
+
+AI Cat: meow meow meeeeow
+
+Dog: bark woof
+
+AI Cat: mew meow
+{{- end }}
+
+Dog: {{ .Prompt }}
+
+AI Cat:
+""""""
+
+SYSTEM """"""
+AI Cat is a highly advanced robot cat that can only respond with meows. She has a comprehensive understanding of cat psychology, but without the human biases that may interfere with therapy.
+""""""
+
+TODO:
+
+ documentation",2,0
+236,2023-07-28T19:15:46Z,2023-07-28T21:14:21Z,2023-07-28T21:14:21Z,1,4,0,,2,0
+239,2023-07-29T19:31:33Z,2023-07-29T20:35:23Z,2023-07-29T20:35:24Z,1,19,0,"This change will allow you to start a multi-line string using three double quotes. It looks something like:
+>>> """"""What
+... do you think
+... about multi-line
+... strings?
+... """"""
+
+To use a multi-line string, you have to begin the sentence with the three double quotes. To end it, you just have to put the three double quotes at the end of a line (or on a line by itself).",2,0
+244,2023-07-31T15:50:37Z,2023-08-02T21:08:11Z,2023-08-02T21:08:11Z,1,12,1,when possible tell users to check the error logs to get more info on why their command failed,2,0
+245,2023-07-31T19:11:10Z,2023-08-02T21:07:53Z,2023-08-02T21:07:53Z,5,101,25,"Previously specifying a zero value in a Modelfile configuration parameters would cause specified value to be overwritten by the default value.
+Ex:
+FROM llama2
+PARAMETER num_gpu 0
+
+This gets overridden at runtime to 1, since the empty (zero) fields are omitted from the Options struct JSON.
+This change fixes this behavior by setting default parameters at model create time.
+$ ollama create ai-cat -f ./Modelfile
+# defaults are set now and written to file
+
+Backwards compatibility for Modelfiles created previously is supported through loading the specified parameters into a DefaultOptions struct then merging them.",2,0
+246,2023-07-31T20:27:02Z,2023-08-02T14:51:24Z,2023-08-02T14:51:24Z,3,91,25,"Check if the server is running rather than returning confusing ""connection refused"" errors.
+If the mac app is available start it, otherwise tell the user to run ollama serve.
+resolves #47",3,0
+249,2023-07-31T21:01:22Z,2023-08-01T15:07:50Z,2023-08-01T15:07:50Z,1,5,0,"Format and text are up for debate, but here's a description of Continue",2,0
+252,2023-08-01T16:14:59Z,2023-08-01T19:06:33Z,2023-08-01T19:06:33Z,1,1,0,,2,1
+253,2023-08-01T19:17:50Z,2023-08-03T19:11:23Z,2023-08-03T19:11:23Z,1,41,54,switch to a monolithic upload instead of a chunk upload through a pipe to report progress,3,1
+262,2023-08-02T22:05:18Z,2023-08-16T15:03:48Z,2023-08-16T15:03:48Z,2,64,13,"This commit adds support for the OLLAMA_CLIENT_HOST environment variable. This variable can be used to specify the host to which the client should connect. This is useful when the client is running somewhere other than the host where the server is running.
+The new api.FromEnv function is used to configure clients from the environment. Clients wishing to use the environment variable being consistent with the Ollama CLI can use this new function.",4,10
+265,2023-08-03T00:21:46Z,2023-08-03T02:38:32Z,2023-08-03T02:38:32Z,1,1,1,,2,0
+271,2023-08-03T19:56:15Z,,2023-10-24T22:17:14Z,1,23,7,,3,3
+272,2023-08-03T22:48:36Z,2023-08-11T00:22:48Z,2023-08-11T00:22:48Z,3,36,0,,3,1
+273,2023-08-03T23:39:06Z,2023-08-31T23:31:59Z,2023-08-31T23:31:59Z,3,60,0,A simple example for sentiments analysis and a writer of lists of 10 tweets,2,0
+276,2023-08-04T05:34:23Z,2023-08-07T20:39:38Z,2023-08-07T20:39:38Z,2,27,21,,2,2
+284,2023-08-04T15:57:43Z,,2023-08-08T23:04:49Z,2,8,1,"The nous-hermes model will now accept a system prompt from a model that uses nous-hermes.
+also updated the midjourney-prompter to use a better name.
+
+as per Hugging Face (https://huggingface.co/NousResearch/Nous-Hermes-13b#prompt-format), the prompt template is:
+Prompt Format
+The model follows the Alpaca prompt format:
+
+### Instruction:
+
+### Response:
+
+or
+
+### Instruction:
+
+### Input:
+
+### Response:",3,0
+288,2023-08-04T23:01:19Z,2023-08-09T14:26:20Z,2023-08-09T14:26:20Z,10,371,52,"Allow embedding information into Modelfiles. This is an initial version that only supports embedding text files, other file types to follow.
+FROM llama2
+EMBED /path/to/doc.txt
+TEMPLATE """"""
+Context:
+{{ .Embed }}
+User:
+{{ .User }}
+""""""
+
+TODO before merge:
+
+ Test library FROM image (local and pull)
+ Test FROM local bin file
+ Update docs
+
+Resolves #237",3,2
+289,2023-08-04T23:10:03Z,2023-08-07T20:46:22Z,2023-08-07T20:46:22Z,2,381,0,,3,1
+301,2023-08-07T03:41:01Z,2023-08-08T14:41:43Z,2023-08-08T14:41:43Z,3,140,10,"resolves: #300 and #282
+example usage:
+ollama serve --port 9999 --allowed-origins ""http://foo.example.com,http://192.0.0.1""",2,3
+303,2023-08-07T20:47:27Z,2023-08-16T15:04:35Z,2023-08-16T15:04:35Z,4,53,0,"This is a simple example of a model to generate Dockerfiles, along with a Python script to build and run the resulting docker image.",2,0
+304,2023-08-07T20:54:31Z,2023-08-07T22:14:06Z,2023-08-07T22:14:06Z,1,1,1,somehow missed one backtick in near the top,2,0
+306,2023-08-07T23:17:42Z,2023-08-08T16:25:35Z,2023-08-08T16:25:35Z,3,28,14,"num_keep defines how many tokens to keep in the context when truncating inputs. if left to its default value of -1, the server will calculate num_keep to be the left of the system instructions
+resolves #299",2,0
+307,2023-08-07T23:38:20Z,,2023-08-30T15:55:34Z,5,187,2,"if the input model in a modelfile is a ggml f32 or f16 file type, and the FROM line contains the AS keyword, quantize the model to the specified level
+Example Modelfile:
+FROM /path/to/my/f32.bin AS Q4_0",3,1
+311,2023-08-09T10:56:20Z,2023-08-10T15:22:29Z,2023-08-10T15:22:29Z,1,9,0,"Source #169
+I believe this example is useful for first-time users 😃",2,1
+312,2023-08-09T20:15:56Z,2023-08-17T17:37:43Z,2023-08-17T17:37:43Z,1,11,0,I removed the embed instruction from our model documentation since its not in a release. Staging it here for a release.,2,0
+313,2023-08-09T20:37:52Z,2023-08-10T14:17:01Z,2023-08-10T14:17:01Z,2,9,39,"Embeddings were occasionally returning invalid values which meant we needed to reload and retry. This fix removes the cache token count which was causing this issue, and improves results. This also matches the llama.cpp example more closely.
+It also adds theunsafe.Slice parsing that Mike suggested in my previous PR, upon further tests this actually works (and it seems faster).",2,0
+314,2023-08-09T22:17:28Z,2023-08-10T18:34:25Z,2023-08-10T18:34:25Z,3,233,6,"This change implements token authorization for the ollama server.
+The basic steps for using auth are:
+
+make an authenticated call to the registry; if the registry returns a 401 w/ the Www-Authenticate header, then
+look for an SSH ed25519 key pair called ~/.ollama/id_ed25519
+make a call to the token endpoint from the Www-Authenticate header w/ the signed Authorization header (this will be in the form Authorization: <pub key>:<signature>). The other params are given in the original 401 Www-Authenticate header which will include the realm and the scope
+the token endpoint will issue a new signed JWT for the source specified with the correct scope
+the request is made again, this time filling in the header as Authorization: Bearer <jwt>
+success (the model can be pushed or pulled)",4,5
+316,2023-08-10T11:44:23Z,2023-08-10T14:19:53Z,2023-08-10T14:19:53Z,1,1,1,,2,0
+324,2023-08-10T23:24:30Z,2023-08-11T17:58:23Z,2023-08-11T17:58:23Z,2,237,0,This change automatically creates a new OpenSSH compatible ed25519 key pair in your ~/.ollama directory. The public key can be uploaded to Ollama and can be subsequently used to authenticate.,3,0
+325,2023-08-10T23:27:11Z,2023-08-11T00:30:02Z,2023-08-11T00:30:02Z,1,6,6,,2,0
+326,2023-08-10T23:59:01Z,2023-08-11T01:18:38Z,2023-08-11T01:18:38Z,1,2,1,"It is required to be adjusted for some models, see #320 for more context",2,0
+329,2023-08-11T04:30:50Z,2023-08-11T22:19:39Z,2023-08-11T22:19:39Z,4,163,0,,3,1
+334,2023-08-11T18:02:11Z,2023-08-11T22:41:55Z,2023-08-11T22:41:55Z,4,35,21,This change prevents the client from getting into an endless loop when trying to push an image which the user does not have access to push.,2,0
+340,2023-08-14T09:13:37Z,2023-08-14T13:38:42Z,2023-08-14T13:38:42Z,1,1,1,base_url value for Ollama object creation is corrected.,2,0
+341,2023-08-14T13:37:55Z,2023-08-15T19:10:23Z,2023-08-15T19:10:23Z,1,49,9,"re-use previously evaluated embeddings when possible
+change embeddings digest identifier to be based on model name and embedded file path
+
+This change opens previously generated embeddings for the same model/file and re-uses them when possible. This means that running create on the same file will not generate the embeddings again. This also means that only the difference between the current version of the file and the old version of the file will have the embeddings re-generated.
+resolves #331
+resolves #332",2,0
+345,2023-08-14T18:17:38Z,2023-08-16T16:20:28Z,2023-08-16T16:20:28Z,2,25,4,ollama should exit non-zero when operations fail,2,0
+346,2023-08-14T18:23:30Z,2023-08-15T14:43:22Z,2023-08-15T14:43:22Z,2,41,0,,2,0
+348,2023-08-14T22:08:27Z,2023-08-16T16:20:36Z,2023-08-16T16:20:36Z,1,24,8,implement registry's cross repo blob mount,3,1
+351,2023-08-15T14:01:49Z,2023-08-15T19:12:02Z,2023-08-15T19:12:02Z,2,17,25,"use the llm loader when generating embeddings for a modelfile rather than loading a new llm into memory
+resolves #310",2,0
+354,2023-08-15T18:09:21Z,2023-08-17T14:31:45Z,2023-08-17T14:31:45Z,2,51,22,add a retry mechanism to retry download on error,3,0
+360,2023-08-16T18:32:26Z,2023-08-17T16:58:43Z,2023-08-17T16:58:43Z,1,25,37,"makeRequest makes copies of the request body via bytes.Buffer and bytes.Reader in anticipation of a possible retry. While the memory requirements are negligible for most requests, the copies become significant when pushing a model blob. A sufficiently large model will exhaust all memory on the system causing the process to be kill by the host OS.
+This copy also produces inaccurate progress updates. Since the progress is set from the Pipe, with the copy, it's really measuring how quickly the files are being copied into the buffer and not how quickly the request body is sent over the wire
+Instead of retrying on all requests, only retry when starting a new upload. This is the only time, for now, a request should be retried due to authentication.",2,0
+364,2023-08-16T21:45:42Z,2023-08-17T16:58:51Z,2023-08-17T16:58:51Z,1,54,26,,3,0
+372,2023-08-17T18:41:58Z,2023-08-17T22:10:59Z,2023-08-17T22:10:59Z,4,133,48,"instead of representing model and file type as their native int values in manifest config, represent them as user-friendly strings",2,0
+377,2023-08-18T00:40:27Z,2023-08-22T04:56:57Z,2023-08-22T04:56:57Z,5,231,43,"Took a whack at fixing #371 and reorganized the switch logic slightly as well.
+Wasn't sure if it was better to strip all protocols or just https://, so if you'd like the latter I can switch it to just a strings.TrimPrefix. Happy to back out the updated switch code as well, just figured I'd do it while I was in there.
+Thanks for a great tool, loving it so far. Hope this is helpful.",2,5
+378,2023-08-18T04:56:04Z,2023-08-18T20:49:09Z,2023-08-18T20:49:09Z,2,36,2,,2,0
+381,2023-08-18T17:24:22Z,2023-08-18T20:49:25Z,2023-08-18T20:49:25Z,1,24,45,"The token printed for authorized requests has a lifetime of 1h. If an upload exceeds 1h, a chunk push will fail since the token is only created on a ""start upload"" request.
+This replaces the Pipe with SectionReader which is simpler and implements Seek, a requirement for makeRequestWithRetry. This is slightly worse than using a Pipe since the progress update is directly tied to the chunk size instead of controlled separately, i.e. increasing chunk size will decrease how often the client gets an progress update",2,0
+392,2023-08-22T01:26:20Z,2023-08-22T16:50:25Z,2023-08-22T16:50:25Z,7,47,36,,4,1
+393,2023-08-22T01:56:35Z,2023-08-22T22:51:33Z,2023-08-22T22:51:33Z,4,80,55,,2,0
+398,2023-08-22T19:41:43Z,2023-08-22T22:51:41Z,2023-08-22T22:51:41Z,2,125,112,,2,0
+401,2023-08-23T00:26:33Z,2023-08-30T20:35:03Z,2023-08-30T20:35:03Z,37,958,43928,"This is a pretty big change that moves llama.cpp from a library within cgo to an external process that we manage.
+Why?
+
+This makes building for multiple platforms easier (no more windows cgo incompatibilities)
+We can fallback to non-gpu runners when needed
+Approximately ~200ms faster on average in my tests
+Way less code in our repo
+Maybe easier to manage our build matrix
+
+Minor Breaking Changes
+
+Generate response no longer includes sample account or sample duration. These metrics are not included in the response from the llama.cpp server.
+Only one LoRA adapter is supported at a time. The llama.cpp server isn't built for this at the moment. Allowing multiple seems like it would be a pretty simple PR to open with llama.cpp.
+
+Features
+
+Use the existing loading logic to manage a llama.cpp server
+Package in llama.cpp CPU and GPU runtimes in the Go binary
+Removes vendored llama.cpp code
+No more cgo
+
+There's a lot of changes in this PR, here are the files to look at:
+
+llm/llama.go
+llm/llama_generate.go
+llm/llama_generate_darwin.go
+api/types.go
+app/src/index.ts
+server/routes.go",4,0
+407,2023-08-24T22:13:18Z,,2023-09-12T19:26:53Z,1,73,0,"Working on moving our builds to a github runner on release. This is a CPU amd64 build.
+No arm64 in this PR because github doesn't have an arm64 runner, but we need to build the llama.cpp exe on an arm64 machine for the arm64 release. We can use an external build runner to accomplish this.",3,2
+411,2023-08-25T17:07:10Z,2023-08-25T18:59:05Z,2023-08-25T18:59:05Z,1,3,0,,2,0
+412,2023-08-25T18:45:01Z,2023-08-27T04:26:34Z,2023-08-27T04:26:34Z,2,2,17,,3,0
+415,2023-08-26T04:39:03Z,2023-08-26T07:47:56Z,2023-08-26T07:47:56Z,1,6,4,"Previously, ollama rm model1 model2 modelN would only delete model1. The other model command-line arguments would be silently ignored. Now, all models mentioned are deleted.",2,0
+416,2023-08-26T04:59:56Z,,2023-11-14T16:30:04Z,1,13,15,"Previously, ollama run treated a non-terminal stdin (such as ollama run model < file) as containing one prompt per line. To run inference on a multi-line prompt, the only non-API workaround was to run ollama run interactively and wrap the prompt in """"""..."""""".
+Now, ollama run treats a non-terminal stdin as containing a single prompt. For example, if myprompt.txt is a multi-line file, then ollama run model < myprompt.txt would treat myprompt.txt's entire contents as the prompt.
+This breaks backcompat, but I believe this behavior is better than the old behavior. It is strictly more powerful than the prior behavior because callers can split a file by lines outside of Ollama and then invoke ollama run once per line on their own.
+This is related to #357, but that refers to interactive usage.
+Fixes #568",4,5
+420,2023-08-26T15:29:38Z,2023-08-26T21:15:52Z,2023-08-26T21:15:52Z,1,1,1,,2,0
+421,2023-08-26T15:39:14Z,2023-08-29T13:32:59Z,2023-08-29T13:32:59Z,1,14,6,warning F16 uses significantly more memory than quantized model so the standard requires don't apply.,2,0
+426,2023-08-26T19:21:52Z,2023-08-26T21:15:38Z,2023-08-26T21:15:38Z,1,3,2,fixes #413,2,0
+428,2023-08-27T04:59:06Z,2023-08-30T14:47:17Z,2023-08-30T14:47:17Z,5,91,51,"This PR increases the upload chunk size which will improve throughput. In order to prove more responsive progress bar, this PR changes the file reader back to a pipe. It keeps the main reader as a SectionReader for simplicity.
+Minor change to HTTP status code checks: errors states has been loosened to < 400 (http.StatusBadRequest) for success and >= 400 for failures.",2,0
+440,2023-08-29T13:38:50Z,,2023-11-29T21:22:40Z,2,54,0,"Add Docker Compose file for running Ollama with Docker
+Create a new file docker-compose.yaml
+Define the ollama service in the Docker Compose file
+Build the image and set the image name to jmorganca/ollama
+Mount the runtime/ollama directory to /home/ollama in the container",2,3
+441,2023-08-29T22:02:08Z,2023-09-07T17:55:37Z,2023-09-07T17:55:37Z,10,541,137,"This change adds support for running GGUF models which are currently in beta with llama.cpp. We will continue to run GGML models and this transition will be seamless to users.
+
+Adds a llama.cpp mainline submodule which runs GGUF models
+Dynamically select the right runner for the model type
+Moved a some code to different files
+
+./ollama run gguf-codellama hello world
+
+This is your first interaction with me. I am a bot, and I am created by you. Please ask me any questions you would like answered.
+
+As mentioned in #423",5,2
+442,2023-08-30T05:19:09Z,2023-08-30T15:53:42Z,2023-08-30T15:53:42Z,4,109,17,"The stop option to the generate API is a list of sequences that should cause generation to stop. Although these are commonly called ""stop tokens"", they do not necessarily correspond to LLM tokens (per the LLM's tokenizer). For example, if the caller sends a generate request with ""stop"":[""\n""], then generation should stop on any token containing \n (and trim \n from the output), not just if the token exactly matches \n. If stop were interpreted strictly as LLM tokens, then it would require callers of the generate API to know the LLM's tokenizer and enumerate many tokens in the stop list.
+Fixes #295.
+Example output (note that generation ends on a token  not that is truncated to  n because the stop sequence is ot):
+% curl -d '{""prompt"":""const primes=[1,2,3,"",""model"":""codellama:7b"",""options"":{""seed"":1337,""temperature"":0,""num_ctx"":100,""stop"":[""ot""]}}' http://localhost:11434/api/generate
+{""model"":""codellama:7b"",""created_at"":""2023-08-30T05:17:54.435096Z"",""response"":"" The"",""done"":false}
+{""model"":""codellama:7b"",""created_at"":""2023-08-30T05:17:54.486337Z"",""response"":"" code"",""done"":false}
+{""model"":""codellama:7b"",""created_at"":""2023-08-30T05:17:54.53943Z"",""response"":"" you"",""done"":false}
+{""model"":""codellama:7b"",""created_at"":""2023-08-30T05:17:54.593747Z"",""response"":"" provided"",""done"":false}
+{""model"":""codellama:7b"",""created_at"":""2023-08-30T05:17:54.648514Z"",""response"":"" is"",""done"":false}
+{""model"":""codellama:7b"",""created_at"":""2023-08-30T05:17:54.702975Z"",""response"":"" n"",""done"":false}
+{""model"":""codellama:7b"",""created_at"":""2023-08-30T05:17:54.702999Z"",""done"":true, ...}",2,1
+443,2023-08-30T18:16:07Z,2023-08-31T21:19:10Z,2023-08-31T21:19:10Z,4,49,73,"List and Delete has the same issue where the path was constructed using Linux/macOS path separators which does not work in Windows. This PR fixes and simplifies the code.
+Fix filenameWithPath which also assumes a Linux/macOS path separator when looking for ~.
+Use filenameWithPath to resolve adapter filepath",2,0
+451,2023-09-01T15:26:45Z,2023-09-01T20:44:14Z,2023-09-01T20:44:15Z,1,34,2,,2,0
+454,2023-09-01T20:39:21Z,2023-09-12T15:04:35Z,2023-09-12T15:04:35Z,9,158,22,"This is the basic implementation of enabling a linux build with GPU support.
+Building for Linux with CPU support is unchanged (generate and build as normal).
+Building for Linux with GPU requires generating with the gpu tag. This is to allow non-GPU linux builds to continue to be built locally without issue.
+How to build/run:
+
+generate the required dependencies: go generate ./...
+build the binary go build .
+and run as normal:
+./ollama serve &
+./ollama run llama2
+
+Follow up:
+
+Packaging nvidia drivers or downloading them automatically
+Better heuristics for determining the number of layers to load into GPU
+
+Part of #259",8,20
+455,2023-09-01T20:50:01Z,,2023-09-05T14:45:05Z,1,5,2,Add llama.cpp exe generation to the build script. Still need to figure out a way to pack both amd64 and arm64 to make this binary truly universal.,3,1
+457,2023-09-01T22:17:50Z,2023-09-02T00:41:53Z,2023-09-02T00:41:54Z,2,24,1,"The html/template package automatically HTML-escapes interpolated strings in templates. This behavior is undesirable because it causes prompts like <h1>hello to be escaped to &lt;h1&gt;hello before being passed to the LLM.
+The included test case passes, but before the code change, it failed:
+--- FAIL: TestModelPrompt
+    images_test.go:21: got ""a&lt;h1&gt;b"", want ""a<h1>b""",3,1
+459,2023-09-02T21:54:52Z,2023-09-05T16:53:58Z,2023-09-05T16:53:58Z,4,16,6,"This will allow building a universal binary (or cross compiling for amd64) on arm64 Macs:
+% GOARCH=amd64 go generate ./...
+% GOARCH=amd64 go build .
+% file ./ollama
+./ollama: Mach-O 64-bit executable x86_64",3,1
+461,2023-09-03T18:12:32Z,2023-09-05T19:30:23Z,2023-09-05T19:30:23Z,3,33,8,"params from inherited models are not merged into the new model
+test cases:
+
+add parameters to model with no parameters:
+input:
+
+FROM orca-mini:3b
+PARAMETER temperature 0
+
+output:
+{
+  ""temperature"": 0
+}
+
+no parameters with model with parameters:
+input:
+
+FROM codellama:7b-code
+
+output:
+{
+  ""rope_frequency_base"": 1000000
+}
+
+add parameters to model with parameters:
+input:
+
+FROM codellama:7b-code
+PARAMETER temperature 0
+
+output:
+{
+  ""rope_frequency_base"": 1000000,
+  ""temperature"": 0
+}",3,0
+463,2023-09-03T21:48:36Z,2023-09-05T16:01:32Z,2023-09-05T16:01:32Z,1,23,45,"llama.cpp server serves the last token along with stop: true
+also remove unused fields",3,0
+464,2023-09-03T21:49:19Z,2023-09-05T18:30:45Z,2023-09-05T18:30:45Z,1,2,1,num_keep calculation is erroneously adding a token which causes the llm to output \u001c after truncating,2,0
+469,2023-09-05T20:08:44Z,2023-09-05T23:37:13Z,2023-09-05T23:37:13Z,6,111,2,"port
+ggerganov/llama.cpp#2699
+to fix null response on generate",3,0
+470,2023-09-05T21:37:32Z,2023-09-05T23:27:25Z,2023-09-05T23:27:25Z,5,77,3,,3,0
+474,2023-09-06T01:13:42Z,2023-09-06T18:04:17Z,2023-09-06T18:04:17Z,5,299,50,This change adds the ability to inspect various parts of a given model. It adds functionality from both the CLI (via the ollama show command) and through the REPL (through the various /show ... commands).,2,0
+482,2023-09-07T07:27:13Z,2023-09-07T10:43:26Z,2023-09-07T10:43:26Z,1,2,1,Go is required and not installed by default.,2,1
+486,2023-09-07T19:04:36Z,2023-09-07T20:58:34Z,2023-09-07T20:58:34Z,3,32,23,"There's two bug that need to be fixed:
+
+makeRequest to the redirectURL should not supply regOpts since it's not the registry. This erroneously overrides the Authorization Header making the request invalid.
+The upload chunk was not resetting the section correctly. It also should to interrupt the goroutine writing into the pipe",2,0
+488,2023-09-07T21:54:50Z,2023-09-08T14:38:20Z,2023-09-08T14:38:20Z,6,62,38,"Dockerfile.cuda requires nvidia-container-toolkit to run successfully:
+$ docker build -t ollama:cuda -f Dockerfile.cuda .
+$ docker run -d --gpus=all -p 11434:11434 -v $HOME/.ollama:/home/ollama/.ollama ollama:cuda",2,0
+491,2023-09-07T23:06:48Z,2023-09-11T18:46:35Z,2023-09-11T18:46:35Z,3,136,19,"This change will remove any unused layers for models. It runs at server startup, and will also clean up on pull or create commands which can orphan older layers.",3,0
+497,2023-09-08T16:12:31Z,2023-09-09T21:53:44Z,2023-09-09T21:53:44Z,1,3,0,,2,1
+500,2023-09-09T00:36:39Z,,2023-09-11T16:39:37Z,10,45,26,,3,2
+509,2023-09-11T23:38:14Z,2023-09-14T19:08:13Z,2023-09-14T19:08:13Z,5,95,37,,2,0
+518,2023-09-12T19:26:16Z,,2023-09-21T13:48:18Z,6,206,36,"Add automation that automatically creates a single ollama binary for amd64 linux builds.
+Limitations:
+
+Requires glibc 2.29 (the glibc version ubuntu 20.04 has packed in), ideally we build on an ubuntu 16.04 or 18.04 runner instead to maximize glibc compatibility, but that will require a custom runner. glibc is used by linux to access kernal functionality so it cant really be updated by an end-user without updating their OS.
+
+Future work:
+
+Ideally I'd rather just install both version of nvcc on one runner and swap between them. I tried this and I hit some issues with the wrong cuda version being referenced during builds.",2,0
+522,2023-09-13T00:38:52Z,2023-09-14T23:37:38Z,2023-09-14T23:37:38Z,1,225,0,"These are some simple python bindings for interacting with the local Ollama server. Most of the functions should be pretty straight forward, and each of the streaming endpoints has a default way of handling the output but can be passed in a ""callback"" function to override the default.
+The callback functions can be as simple as:
+def my_callback(chunk):
+        """"""
+        Callback function to handle individual chunks of the streaming response.
+   
+        Parameters:
+        - chunk (dict): The individual chunk of JSON data from the streaming response.
+        """"""
+   
+        # Here, we are simply printing the entire chunk as a JSON string with indentation
+        # for readability. In a real application, you would likely want to do something
+        # more specific with the data in each chunk.
+        print(json.dumps(chunk, indent=4))
+   
+        # If you want to specifically print the 'response' field, you can do so like this:
+        # response_piece = chunk.get('response')
+        # if response_piece:
+        #     print(response_piece)
+
+It's been a little while since I put together a python library, so I'm not sure if I hit all of the correct idioms here. To test it out, you can do something like:
+>>> import sys
+>>> sys.path.append(""<path to git/ollama/api>"")
+>>> import client
+
+To run something like generate:
+>>> response, history = client.generate(""llama2"", ""Is friendship like magic?"")
+
+This will return a string for the output and the context history which you can feed back in with:
+>>> client.generate(""llama2"", ""Friendship sure feels like magic"", context=history)
+
+To hook in the above callback, use:
+>>> client.generate(""llama2"", ""Is the universe a giant black hole?"", callback=my_callback)",4,0
+524,2023-09-13T19:42:08Z,2023-09-18T19:16:33Z,2023-09-18T19:16:33Z,4,120,105,"increase start-up timeout
+when runner fails to start fail rather than timing out
+try runners in order rather than choosing 1 runner
+embed metal runner in metal dir rather than gpu
+refactor logging and error messages
+
+resolves #485",2,0
+526,2023-09-13T21:48:55Z,2023-09-14T20:10:59Z,2023-09-14T20:10:59Z,3,3,3,,2,0
+527,2023-09-14T00:00:30Z,2023-09-14T15:51:26Z,2023-09-14T15:51:26Z,1,113,25,"cleanup docs, add show and push.",3,0
+530,2023-09-14T18:10:05Z,2023-09-15T19:43:46Z,2023-09-15T19:43:46Z,1,90,80,"Simplify writing progress by implementing a ProgressWriter. Using io.TeeReader, the ProgressWriter will be responsible for updating user on the progress of the upload (and eventually down) without manually defining copy chunks.",3,0
+531,2023-09-14T18:11:06Z,2023-09-14T20:33:11Z,2023-09-14T20:33:11Z,1,9,0,This informs the HTTP client the content length is known and disables chunked Transfer-Encoding,2,0
+532,2023-09-15T05:12:25Z,,2024-01-09T18:58:37Z,5,2,11,This change removes the need for .First,3,1
+534,2023-09-15T16:42:29Z,2023-09-22T16:01:03Z,2023-09-22T16:01:03Z,1,142,0,"Add an install script to the website which downloads the appropriate linux package, unpackages it, adds it to the /usr/local/bin directory, and adds ollama as start-up service.
+Before our next release we will:
+
+Do linux amd64 and aarch64 builds with CUDA enabled.
+Add them to the pre-release of the jmorgan/ollama repo with the names ollama-linux-arm64.tar.gz and ollama-linux-amd64.tar.gz
+This install script will automatically download the latest version of these files from github releases which are not pre-release.",4,0
+535,2023-09-15T20:59:14Z,2023-09-18T20:47:46Z,2023-09-18T20:47:46Z,1,9,5,This is a simple change which checks the layer size before adding it to the overall model. Registry balks if you try to send it an empty layer on an ollama push.,3,0
+536,2023-09-15T21:58:10Z,2023-09-20T18:27:03Z,2023-09-20T18:27:03Z,2,49,19,,3,0
+537,2023-09-15T22:59:52Z,2023-09-16T00:48:40Z,2023-09-16T00:48:40Z,1,2,0,,2,0
+552,2023-09-18T21:36:52Z,,2023-10-24T23:13:27Z,2,17,2,"Adding ability have cuda work on docker with the ubuntu image provided, along with a docker.md for commands that can be added documenting around docker usage",3,2
+553,2023-09-19T05:15:36Z,2023-09-22T20:36:08Z,2023-09-22T20:36:08Z,2,65,25,"This change makes it so the REPL will properly wrap a line on a word boundary. The way it works is that it walks through each character of each token returned by the server, and then keeps a buffer of the last word. If the maximum boundary length is exceeded, it will backtrack using ANSI escape codes to the length of the current word buffer, erase to the end of the line, give a line feed, and then add the word fragment to the new line. This requires that the terminal allow ANSI graphics which should be OK for any modern terminal. If you run this headless, it will default to not wrapping any lines.
+Right now I've set the width to 5 characters less than the terminal width, but we can potentially make this a setting in the future.
+This fixes issue #150",3,0
+556,2023-09-20T16:42:58Z,2023-09-20T22:02:37Z,2023-09-20T22:02:37Z,14,52,115,"This change packs CUDA libs into the llama runner and tells the runner to use those libs.
+Here is the example generate in my case.
+go generate ./...",3,0
+559,2023-09-20T20:13:11Z,2023-09-21T19:38:49Z,2023-09-21T19:38:49Z,6,56,60,"with packing in cuda libs these start to get pretty big, clean temp ollama- dirs up before creating new ones.",3,0
+562,2023-09-21T00:59:40Z,2023-09-21T02:54:47Z,2023-09-21T02:54:47Z,1,8,17,"Fix the environment parsing for OLLAMA_HOST so it can recognize ipv6 addresses, e.g. ipv6 loopback [::1]:11434
+Some examples:
+Default
+$ OLLAMA_HOST='' ollama serve
+2023/09/20 17:55:23 routes.go:540: Listening on 127.0.0.1:11434
+
+IPv6 loopback
+$ OLLAMA_HOST='[::1]:11434' ollama serve
+2023/09/20 17:58:08 routes.go:540: Listening on [::1]:11434
+
+Random port (any IPv4 & IPv6 address)
+$ OLLAMA_HOST=':0' ollama serve
+2023/09/20 17:58:26 routes.go:540: Listening on [::]:63574
+
+Only IPv4
+$ OLLAMA_HOST='127.0.0.1:12345' ollama serve
+2023/09/20 17:58:37 routes.go:540: Listening on 127.0.0.1:12345
+
+Only IPv6
+$ OLLAMA_HOST='[::1]:12345' ollama serve
+2023/09/20 17:59:23 routes.go:540: Listening on [::1]:12345
+
+Only setting the address
+$ OLLAMA_HOST='0.0.0.0' ollama serve
+2023/09/20 18:54:18 routes.go:540: Listening on [::]:11434
+
+It also removes OLLAMA_PORT
+Resolves #560",2,1
+569,2023-09-21T21:54:44Z,2023-09-21T23:52:43Z,2023-09-21T23:52:43Z,6,30,0,,2,0
+571,2023-09-22T00:59:12Z,2023-09-22T19:34:42Z,2023-09-22T19:34:42Z,2,14,34,,3,0
+574,2023-09-22T17:17:40Z,2023-09-25T14:40:59Z,2023-09-25T14:40:59Z,1,1,0,,2,1
+575,2023-09-22T17:42:18Z,2023-09-22T18:47:11Z,2023-09-22T18:47:11Z,1,1,1,net.ParseIP for IPv6 doesn't expect [] so trim it,2,0
+579,2023-09-22T20:59:34Z,2023-09-23T13:46:48Z,2023-09-23T13:46:48Z,1,158,122,"normalize os name to lowercase
+check needed commands are available
+dont check sudo when root user
+share common install commands
+support debian cuda install
+skip aarm cuda install
+system user shared home dir",3,0
+580,2023-09-22T23:16:38Z,2023-09-23T13:42:41Z,2023-09-23T13:42:41Z,1,155,202,,2,0
+585,2023-09-24T22:59:46Z,2023-10-09T20:58:14Z,2023-10-09T20:58:14Z,5,115,0,this is an example that will be used in a blog post about talking to mentors,2,0
+589,2023-09-25T17:05:11Z,2023-09-25T18:08:25Z,2023-09-25T18:08:25Z,1,21,11,minor changes to warnings/errors,2,0
+591,2023-09-25T18:59:44Z,2023-09-25T22:36:46Z,2023-09-25T22:36:46Z,4,36,29,Load as many layers into VRAM as possible using model file size as a rough heuristic for the amount of memory required for a layer.,2,0
+596,2023-09-25T23:12:52Z,2023-09-26T00:59:14Z,2023-09-26T00:59:14Z,1,12,1,"This prevents the service from restarting too early and not detecting GPU before drivers are installed.
+Fix PATH for WSL user. WSL preinstalls CUDA toolkit but it's in a non-standard path (/usr/lib/wsl/lib). While this is set for a normal WSL user, it's not set for the ollama user. This change sets PATH of the ollama service to the PATH of the caller",2,0
+597,2023-09-25T23:15:46Z,,2024-04-14T22:46:54Z,4,47,9,"build a cpu-only docker image which is significantly smaller than the gpu image
+ollama          cuda              dfdbcb88bc3d   4 minutes ago   754MB
+ollama          slim              fb2e67c26718   7 minutes ago   148MB
+
+Related #516",4,2
+598,2023-09-25T23:31:15Z,2023-09-26T22:17:40Z,2023-09-26T22:17:40Z,1,1,1,"tell the user how to exit. other options are available (/exit, ctrl+c) but don't want to be too verbose",2,0
+604,2023-09-26T16:06:02Z,,2023-09-29T02:10:46Z,1,1,0,This was already added but since the new release i think it didn't came through the merge i suppose.,3,1
+606,2023-09-26T16:39:12Z,2023-09-29T18:30:46Z,2023-09-29T18:30:46Z,1,8,4,"select install dir based what's in the PATH. if /usr/local/bin is in the path, install into there, otherwise /usr/bin or /bin, in order",3,0
+608,2023-09-26T19:03:59Z,2023-09-29T18:30:26Z,2023-09-29T18:30:26Z,6,67,23,"update target arch so VERSION and GOFLAGS are consistently set. In particular Dockerfile.build's ARGs are out of scope when using in go build so it's not being set correctly
+Resolves #607",3,0
+609,2023-09-26T21:34:51Z,2023-09-27T15:43:48Z,2023-09-27T15:43:48Z,1,3,2,"Do not install kernel-headers which is not available or needed in Fedora
+Update CUDA version check to pick-up nvidia package
+Remove ollama bin from temporary directory after install, since I was seeing ""no space left"" errors upon running models.",3,0
+611,2023-09-27T00:33:10Z,2023-09-28T21:19:46Z,2023-09-28T21:19:46Z,1,3,1,,2,0
+612,2023-09-27T00:40:27Z,2023-09-29T18:23:40Z,2023-09-29T18:23:40Z,3,54,0,Resolves #270,2,0
+614,2023-09-27T01:47:10Z,2023-09-27T14:26:09Z,2023-09-27T14:26:09Z,1,6,0,Upstreaming learning from #581 to docs,2,0
+616,2023-09-27T02:50:15Z,2023-09-27T03:54:19Z,2023-09-27T03:54:19Z,1,2,6,,2,0
+621,2023-09-27T10:49:31Z,2023-09-28T21:25:23Z,2023-09-28T21:25:23Z,1,1,0,Closes #619,2,1
+626,2023-09-27T23:32:50Z,2023-10-06T20:01:29Z,2023-10-06T20:01:29Z,5,258,175,"this change chunks the download into smaller parts that can be downloaded at the same time. this should result in a bump in download speeds
+TODO:
+
+ handle concurrent requests for the same blobs
+ handle resuming interrupted downloads",3,2
+629,2023-09-28T04:09:38Z,2023-09-28T14:21:21Z,2023-09-28T14:21:21Z,1,1,1,"The current docs for the parameter num_gpu are inaccurate for linux.
+Ref: #618",2,0
+632,2023-09-28T13:24:16Z,2023-09-30T04:45:52Z,2023-09-30T04:45:52Z,2,5,0,Discussion on discord at https://discord.com/channels/1128867683291627614/1128867684130508875/1156838261919076352,2,5
+633,2023-09-28T14:20:30Z,2023-09-28T19:29:18Z,2023-09-28T19:29:18Z,2,19,40,"We've hit a bug in the Electron auto-updater that prevents the toolbar app from restarting after update when autoUpdater.checkForUpdates() is called more than once. The root cause of this is not clear, it may be related to this Electron issue. In any case we shouldnt be downloading the update multiple times, so prevent checking for updates once we know one is available.
+Also log Electron app errors to our server.log file so we can actually diagnose these issues in the wild.
+resolves #587",2,0
+634,2023-09-28T18:07:46Z,2023-09-28T21:17:47Z,2023-09-28T21:17:47Z,7,59,59,this reduces type conversion,2,0
+635,2023-09-28T18:51:14Z,,2023-10-18T18:11:15Z,4,123,57,"Say I have 2 models, both are based on llama2, but they have different prompts.
+FROM llama2
+TEMPLATE """"""
+you are a dog
+""""""
+
+and
+FROM llama2
+TEMPLATE """"""
+you are a cat
+""""""
+
+If I am building something that swaps requests between these models a lot our current logic will re-load the models every time, even though the only thing changing is the prompt template.
+This change adds a runner digest which uses only fields relevant to running the model to determine if a running model should be swapped out.
+As a side-effect, this also fixes the /show modelfile to actually show the library model name, rather than the file name when using a base model.
+ollama run mistral
+>>> /show modelfile
+# Modelfile generated by ""ollama show""
+# To build a new Modelfile based on this one, replace the FROM line with:
+# FROM mistral:latest
+
+FROM registry.ollama.ai/library/mistral:latest
+TEMPLATE """"""[INST] {{ .Prompt }} [/INST]
+""""""
+SYSTEM """"""""""""
+
+
+Also remove calculation on system prompt from template that makes sure the first system command is kept via num_keep. This isn't needed with our new prompt templates.
+
+Resolves #337",4,3
+637,2023-09-28T20:13:13Z,2023-09-29T15:47:55Z,2023-09-29T15:47:55Z,1,7,4,"use filepath for runner files
+get embedded files with unix filepath
+runner is only available is embedded directories have files",2,0
+639,2023-09-28T21:02:35Z,2023-10-11T16:54:27Z,2023-10-11T16:54:27Z,4,94,18,"Add an optional stream parameter to the generate endpoint (and other endpoints that stream a response) to return the full response in one JSON body, rather than streaming:
+curl -X POST -H ""Content-Type: application/json"" -d '{
+    ""model"": ""llama2"",
+    ""prompt"": ""why is the sky blue?"",
+    ""stream"": false
+}' 'localhost:11434/api/generate'
+
+When stream is not specified it defaults to true.
+resolves #281",4,3
+641,2023-09-28T21:56:55Z,2023-09-29T00:13:01Z,2023-09-29T00:13:01Z,1,24,3,"The change allows the user to cancel generating using Ctrl-C in the REPL. It handles both the cases where the request is canceled before the stream starts back, as well as when the request is streaming.
+It also changes the REPL so that you can't accidentally hit Ctrl-C and exit the REPL. Instead it will prompt the user to use Ctrl-D or /bye instead.",2,0
+642,2023-09-29T00:30:59Z,,2023-10-01T17:33:09Z,3,107,18,"This PR changes the way CMake generation works for the cuda binary, and adds support for querying AMD VRAM. ROCm or CUDA (or OpenCL if neither are available) support are enabled dynamically for gguf, and CUDA or OpenCL support are enabled dynamically for ggml. This is performed by running a CMake managing go script in go generate to query via heuristics the presence of various accelerator SDKs, and enable them in the following order: CUDA, ROCm, OpenCL.
+The VRAM detection change uses rocm-info. Note that devices with both an AMD and nVidia GPU will use CUDA and report CUDA VRAM by default, so the binary name default of cuda is still appropriate, but it might make sense to call it gpu or accelerated or something in the future.
+Second try since GitHub automatically closed #628 when I cleared my commits and reapplied the changes in the UI 😢 . I compressed some commits and rebased on head. Comments welcome, it's easier to see what is going on from the files changed view.",3,5
+653,2023-09-30T03:43:51Z,,2024-01-11T23:52:54Z,1,206,277,"new features:
+
+chat
+
+client.chat('name', messages=[
+  {
+    'role': 'system',
+    'content': 'you are a good bot',
+  },
+])
+
+create with a string input instead of a file
+
+client.create('name', modelfile='''
+FROM llama2
+PARAMETER stop </s>
+''')
+key differences:
+
+errors are not caught since they should be handled by the caller, e.g. for authorization
+responses are either returned in full if stream=False or return as a generator if stream=True
+stream errors are raised
+no callbacks
+no prints
+use PEP257 doc strings
+
+example usage:
+non-streaming:
+$ PYTHONPATH=/path/to/ollama/repo python -c 'import api.client; print(api.client.generate(""llama2"", ""hello""))'
+{'model': 'llama2', 'created_at': '2023-09-30T03:42:23.93685Z', 'done': True, 'context': [29961, 25580, 29962, 22172, 518, 29914, 25580, 29962, 29871, 15043, 29991, 739, 29915, 29879, 7575, 304, 5870, 366, 29889, 26077, 29991, 1128, 508, 306, 1371, 366, 9826, 29973], 'total_duration': 2113510125, 'load_duration': 1169916, 'prompt_eval_count': 1, 'eval_count': 20, 'eval_duration': 2071018000, 'response': "" Hello! It's nice to meet you. everybody! How can I help you today?""}
+import api.client
+print(api.client.generate('llama2', 'hello'))
+streaming:
+$ PYTHONPATH=/path/to/ollama/repo python -c 'import api.client; [print(x) for x in api.client.generate(""llama2"", ""hello"", stream=True)]'
+{'model': 'llama2', 'created_at': '2023-09-30T04:05:23.293429Z', 'response': ' Hello', 'done': False}
+{'model': 'llama2', 'created_at': '2023-09-30T04:05:23.37183Z', 'response': '!', 'done': False}
+{'model': 'llama2', 'created_at': '2023-09-30T04:05:23.447804Z', 'response': ' It', 'done': False}
+{'model': 'llama2', 'created_at': '2023-09-30T04:05:23.524626Z', 'response': ""'"", 'done': False}
+{'model': 'llama2', 'created_at': '2023-09-30T04:05:23.599881Z', 'response': 's', 'done': False}
+{'model': 'llama2', 'created_at': '2023-09-30T04:05:23.675419Z', 'response': ' nice', 'done': False}
+{'model': 'llama2', 'created_at': '2023-09-30T04:05:23.751513Z', 'response': ' to', 'done': False}
+{'model': 'llama2', 'created_at': '2023-09-30T04:05:23.828406Z', 'response': ' meet', 'done': False}
+{'model': 'llama2', 'created_at': '2023-09-30T04:05:23.903462Z', 'response': ' you', 'done': False}
+{'model': 'llama2', 'created_at': '2023-09-30T04:05:23.980436Z', 'response': '.', 'done': False}
+{'model': 'llama2', 'created_at': '2023-09-30T04:05:24.056455Z', 'response': ' nobody', 'done': False}
+{'model': 'llama2', 'created_at': '2023-09-30T04:05:24.133128Z', 'response': '.', 'done': False}
+{'model': 'llama2', 'created_at': '2023-09-30T04:05:24.209594Z', 'response': ' How', 'done': False}
+{'model': 'llama2', 'created_at': '2023-09-30T04:05:24.295103Z', 'response': ' can', 'done': False}
+{'model': 'llama2', 'created_at': '2023-09-30T04:05:24.374437Z', 'response': ' I', 'done': False}
+{'model': 'llama2', 'created_at': '2023-09-30T04:05:24.449904Z', 'response': ' help', 'done': False}
+{'model': 'llama2', 'created_at': '2023-09-30T04:05:24.525837Z', 'response': ' you', 'done': False}
+{'model': 'llama2', 'created_at': '2023-09-30T04:05:24.602418Z', 'response': ' today', 'done': False}
+{'model': 'llama2', 'created_at': '2023-09-30T04:05:24.681443Z', 'response': '?', 'done': False}
+{'model': 'llama2', 'created_at': '2023-09-30T04:05:24.762006Z', 'done': True, 'context': [29961, 25580, 29962, 22172, 518, 29914, 25580, 29962, 29871, 15043, 29991, 739, 29915, 29879, 7575, 304, 5870, 366, 29889, 23196, 29889, 1128, 508, 306, 1371, 366, 9826, 29973], 'total_duration': 2571336583, 'load_duration': 1762500, 'prompt_eval_count': 1, 'eval_count': 20, 'eval_duration': 2495695000}
+import api.client
+for chunk in api.client.generate('llama2', 'hello', stream=True):
+  print(chunk)
+streaming just the response text:
+$ PYTHONPATH=/path/to/ollama/repo python -c 'import api.client; [print(x.get(""response"", """"), end="""", flush=True) for x in api.client.generate(""llama2"", ""hello"", stream=True)]; print()'
+ Hello! It's nice to meet you. surely. How can I assist you today? Is there something on your mind that you would like to talk about or ask?
+import api.client
+for chunk in api.client.generate('llama2', 'hello', stream=True):
+  print(chunk.get('response', ''), end='', flush=True)
+print()
+Here's an example of llava in a xkcd explainer:
+import requests
+import api.client as client
+
+r = requests.get('https://imgs.xkcd.com/comics/standards.png')
+r.raise_for_status()
+
+for r in client.generate('mike/llava:13b', 'explain this comic', images=[r.content], stream=True):
+  print(r.get('response'), end='', flush=True)",3,2
+662,2023-09-30T23:27:30Z,2023-10-02T18:50:55Z,2023-10-02T18:50:55Z,1,37,24,"This turns off wordwrap when stdout is being redirected like ollama run llama2 ""tell me a story"" > file.txt.
+Addresses #656",2,0
+663,2023-10-01T11:12:37Z,,2023-10-02T18:54:02Z,1,3,1,"Fix for #586. Seed was omitted in the params to the llama.cpp server and temperature had an omitempty filter specified, breaking support for 0 temperature.",4,5
+664,2023-10-01T13:24:48Z,2023-10-01T18:51:01Z,2023-10-01T18:51:01Z,4,24,25,mostly just adding bash to shell scripts,2,1
+672,2023-10-02T17:32:53Z,2023-10-02T18:53:16Z,2023-10-02T18:53:16Z,2,43,44,"Thanks to @hallh for #663. This change cherry-picks that PR, relays all our defaults, and does some re-organizing of the code to make it easier to read.",3,3
+678,2023-10-02T20:55:36Z,2023-10-05T18:58:04Z,2023-10-05T18:58:04Z,2,7,7,This is an attempt to prevent #648 and make it easier to diagnose problems in this area in the future. I couldnt reproduce the exact problem but this could be the issue.,2,0
+679,2023-10-02T20:56:26Z,2023-10-06T19:59:45Z,2023-10-06T19:59:45Z,1,11,11,"Pertains to #649:
+
+Highlighted Modelfile in modelfile.md
+Made it clear the name can be lowercase",2,1
+686,2023-10-03T02:52:46Z,2023-10-03T05:47:19Z,2023-10-03T05:47:19Z,5,32,7,,2,0
+692,2023-10-03T20:28:42Z,2023-10-04T18:09:00Z,2023-10-04T18:09:00Z,2,11,3,"In the case of a large input the response from /generate would be very long due to the encoded context length. Increase the buffer size to prevent this error.
+resolves #687",2,0
+699,2023-10-04T19:13:54Z,2023-10-05T16:53:47Z,2023-10-05T16:53:47Z,1,17,14,"The bug effecting running these quantizations on Metal does not effect nvidia GPUs, so only turn off GPU support for these model types when Ollama is running on MacOS.
+Tested and verified.
+Resolves #671",4,0
+700,2023-10-04T19:53:55Z,2023-10-06T14:15:42Z,2023-10-06T14:15:42Z,5,16,6,rename llama.cpp server.exe to ollama-runner. This makes it easier to see that the subprocess is associated with ollama.,3,0
+705,2023-10-04T22:02:22Z,2023-10-05T15:11:05Z,2023-10-05T15:11:05Z,1,4,4,"go test ./... currently fails with:
+# github.com/jmorganca/ollama/cmd
+cmd/cmd.go:690:7: fmt.Println arg list ends with redundant newline
+cmd/cmd.go:698:7: fmt.Println arg list ends with redundant newline
+cmd/cmd.go:704:7: fmt.Println arg list ends with redundant newline
+cmd/cmd.go:710:7: fmt.Println arg list ends with redundant newline
+?       github.com/jmorganca/ollama     [no test files]
+?       github.com/jmorganca/ollama/api [no test files]
+?       github.com/jmorganca/ollama/llm [no test files]
+?       github.com/jmorganca/ollama/llm/llama.cpp       [no test files]
+?       github.com/jmorganca/ollama/parser      [no test files]
+?       github.com/jmorganca/ollama/progressbar [no test files]
+ok      github.com/jmorganca/ollama/format      0.003s
+?       github.com/jmorganca/ollama/vector      [no test files]
+?       github.com/jmorganca/ollama/version     [no test files]
+ok      github.com/jmorganca/ollama/server      0.005s
+FAIL
+
+This commit changes fmt.Println to just fmt.Print so that go test ./... passes:
+?       github.com/jmorganca/ollama     [no test files]
+?       github.com/jmorganca/ollama/api [no test files]
+?       github.com/jmorganca/ollama/cmd [no test files]
+?       github.com/jmorganca/ollama/llm [no test files]
+?       github.com/jmorganca/ollama/llm/llama.cpp       [no test files]
+?       github.com/jmorganca/ollama/parser      [no test files]
+?       github.com/jmorganca/ollama/progressbar [no test files]
+ok      github.com/jmorganca/ollama/format      (cached)
+?       github.com/jmorganca/ollama/vector      [no test files]
+?       github.com/jmorganca/ollama/version     [no test files]
+ok      github.com/jmorganca/ollama/server      (cached)
+
+I'm on Arch Linux using Go 1.21.1 linux/amd64.",2,0
+706,2023-10-05T00:39:02Z,2023-10-05T18:36:08Z,2023-10-05T18:36:08Z,1,42,5,Fix up the help text to be more usable.,2,0
+710,2023-10-05T16:22:46Z,2023-10-17T20:55:17Z,2023-10-17T20:55:17Z,2,10,10,"Update 0001-remove-warm-up-logging.patch
+
+There have been some bug fixes and improvements, updating the llama.cpp gguf runner to latest to get these in our next release.",2,2
+711,2023-10-05T18:57:33Z,2023-10-12T15:18:11Z,2023-10-12T15:18:11Z,2,14,1,"We use a map to set options from the API so that we can see which option fields were specified, otherwise we override default options with zero values. The issue here is that there was no validation that the input option fields were valid, so using an incorrect field by mistake did not return an error.
+New response:
+curl -X 'POST' -d '{""prompt"":""hello"", ""model"": ""mistral"", ""options"": {""seed"": 1234, ""temperature"": 0, ""test"": 1234}}' 'http://127.0.0.1:11434/api/generate'
+{""error"":""invalid options: test""}
+
+from #694",3,2
+718,2023-10-06T15:17:05Z,2023-10-06T20:06:20Z,2023-10-06T20:06:20Z,1,7,0,"When attempting to run a model through the API before pulling it a cryptic ""no such file or directory"" error was returned with the error path.
+Improve this error to suggest pulling the model first, like the CLI does automatically.
+curl -X 'POST' -d '{""prompt"":""hello"", ""model"": ""mistral""}' 'http://127.0.0.1:11434/api/generate'
+{""error"":""model 'mistral' not found, try pulling it first""}%  
+
+resolves #715",2,0
+720,2023-10-06T16:52:04Z,2023-10-12T15:16:37Z,2023-10-12T15:16:37Z,2,42,15,"This got missed in the migration to subprocesses.
+Old error displayed in CLI:
+failed to start llama runner
+
+New error (will relay the actual error from the model runner):
+Error: llama runner failed: out of memory
+
+resolves #630",2,0
+722,2023-10-06T18:22:24Z,2023-10-06T20:05:33Z,2023-10-06T20:05:33Z,1,1,0,"When creating a model from a large base layer (ex: 70B) reading model metadata is slow since the weights file is large.
+Without feedback here the creation is in the ""looking for model"" stage for a long time, which makes it look like something has gone wrong.
+New behavior:
+parsing modelfile
+looking for model
+⠋ reading model metadata",2,0
+723,2023-10-06T20:27:54Z,2023-11-20T20:24:29Z,2023-11-20T20:24:29Z,1,33,0,"Upstreaming info from #685:
+
+Documented tags page in https://ollama.ai/library
+Documented ollama show --modelfile",5,6
+724,2023-10-06T20:39:38Z,2023-10-10T20:16:09Z,2023-10-10T20:16:09Z,1,13,7,"In testing how much VRAM should be allocated we typically used a model which could be entirely loaded into VRAM. This masked an issue when a model is larger than the available VRAM it is possible to consume all available VRAM and fail with an error:
+Error: llama runner failed: out of memory
+
+This change leaves a 10% buffer on available VRAM to prevent running out of memory.
+Tested on a T4:
+
+llama2:7b: easily offloads all layers to GPU
+llama2:13b: easily offloads all layers to GPU
+llama2:70b: offloaded 29 layers to GPU, was slow but did not run out of memory on load (as it did before)
+
+Resolves #725",5,4
+741,2023-10-09T15:09:18Z,2023-10-09T20:01:47Z,2023-10-09T20:01:47Z,1,2,1,Avoid triple ticks in visual editor and also copied in clipboard.,2,1
+743,2023-10-09T18:51:18Z,2023-10-10T16:59:06Z,2023-10-10T16:59:06Z,3,58,45,"http.ProxyFromEnvironment returns the appropriate *_PROXY for the request. e.g. HTTP_PROXY for http:// requests, HTTPS_PROXY for https:// requests.
+Resolves #729",3,0
+747,2023-10-10T03:18:35Z,2023-10-10T17:12:29Z,2023-10-10T17:12:29Z,1,1,0,Discards download progress if cancelled (e.g. by ctrl+c) while preparing to download,3,2
+750,2023-10-10T20:48:46Z,2023-11-01T22:00:01Z,2023-11-01T22:00:01Z,4,287,189,"follow a similar pattern as downloads with some key differences:
+
+uploads parts are serialized based on a nextURL channel which informs the next part where to upload to
+redirects send to nextURL before following the redirect which allows parts to be uploaded concurrently
+progress is tracked with blobUploadWriter which tracks how many bytes per part is written. this is necessary for redirect which partially reads the initial request before following the redirect; it needs to rewind the overall progress
+
+TODO:
+
+ verify calculated md5 with etag and retry the part if it differs",4,0
+751,2023-10-10T21:15:24Z,,2024-02-20T01:49:21Z,4,78,1,"This proposal allows the Ollama service to be made discoverable via zero configuration networking across the user's local network via Bonjour/Zeroconf/Avahi aka Multicast DNS (mDNS) using the zeroconf Go libraryso that other clients can connect to and use it without needing to know the host's IP address.
+This opens up many different applications for consuming Ollama models served by other network devices.
+My particular use case is to add support for Network Discoverable Ollama models to an Obsidian Plugin that I maintain so that users won't have to configure IP addresses in Obsidian or update them if/when IP addresses on their local network change (and also won't have to get into configuring a static IP for the device that is serving their local models).
+Note: Network discovery is entirely opt-in via the OLLAMA_DISCOVERY environment variable flag being set to ENABLED and will automatically update the OLLAMA_HOST to 0.0.0.0 (the demo GIF was recorded with an earlier iteration of this PR that also required the user to manually set the host IP).
+Demo
+
+Note: To test this functionality, I created a simple Node.js script on another machine on my network and had it use the bonjour package to search for a service with the name OllamaProvider. It gets the IP address and port associated with that service and then makes requests to it. I only showed the IP address at the beginning of the GIF to emphasize that the requests are coming from a different machine.
+It also adds a menu entry with the service name if Network Discovery has been enabled.
+
+Instructions for Testing
+
+Checkout this PR: gh pr checkout https://github.com/jmorganca/ollama/pull/751
+Generate: go generate ./...
+Build: go build .
+Build and run the App:
+
+cd ./app
+npm install
+OLLAMA_DISCOVERY=ENABLED npm start
+
+
+Search for and connect to your Network Service (I've provided an example discovery script below)
+
+Network Discovery Script
+// you'll need to `npm install bonjour` first
+// it's recommended to put this in a subdirectory
+// and run `npm init` before installing packages
+const bonjour = require(""bonjour"")();
+
+// this demo script can be run via node to find
+// and connect to a Network Service with the name
+//defined in OLLAMA_SERVICE_NAME
+const OLLAMA_SERVICE_NAME = 'OllamaProvider'
+
+// iterate through services
+bonjour.find({}, (service) => {
+  if (service.name === OLLAMA_SERVICE_NAME) {
+    const address = service.addresses[0];
+    const port = service.port;
+
+    const baseUrl = new URL(address);
+
+    baseUrl.port = port;
+
+    const modelsUrl = new URL(""/api/tags"", baseUrl);
+
+    // get available models
+    fetch(modelsUrl)
+      .then(async (response) => await response.json())
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((error) => {
+        console.error(error);
+      })
+  }
+});",3,6
+752,2023-10-10T22:03:14Z,2023-10-11T16:32:14Z,2023-10-11T16:32:14Z,1,37,27,this fixes the issue in main from #724 that causes the server to wait on a subprocess which has already exited,2,0
+753,2023-10-11T00:40:54Z,2023-10-12T18:24:12Z,2023-10-12T18:24:12Z,51,1347,23,also add a few readmes.,3,1
+759,2023-10-11T19:53:25Z,2023-10-16T15:07:37Z,2023-10-16T15:07:37Z,9,19,301,"Embeddings in Modelfiles are a convenient idea, allowing the model to be packaged with embeddings created for it specifically, but the user-experience of this implementation isn't up to par.
+This change leaves the /embed endpoint, but deprecates EMBED in the modelfile.
+
+Ollama doesn't have any models designed for embedding generation
+Generating embeddings from modelfile is slow, error prone, and only supports single line text inputs
+Retrieving embeddings was too slow to be useful, and there was no mechanism to connect an external vector database
+
+Instead of using the Modelfile the right way to do this is with an external tool such as PrivateGPT or LlamaIndex that uses Ollama as the runner.
+New behavior:
+On create a modelfile with the embed command:
+$ ollama create embed-test -f /Users/bruce/modelfiles/embedded/Modelfile
+⠋ parsing modelfile  Error: deprecated command: EMBED
+
+On running a modelfile with the embed command:
+2023/10/11 15:46:52 images.go:190: WARNING: model contains embeddings, but embeddings in modelfiles have been deprecated and will be ignored.
+
+On running a modelfile with the embed in the template:
+$ ollama run embed-test
+⠦   Error: template: :5:7: executing """" at <.Embed>: can't evaluate field Embed in type struct { First bool; System string; Prompt string; Context []int }",6,4
+768,2023-10-12T16:34:57Z,2023-10-16T19:42:41Z,2023-10-16T19:42:41Z,4,50,50,"only do a system memory check on macos which has unified memory. on other platforms, rely on the vram offloading",3,0
+772,2023-10-12T21:22:16Z,2023-10-23T21:06:31Z,2023-10-23T21:06:31Z,1,3,0,"Run the ollama system service as the current user
+
+resolves #613",3,2
+773,2023-10-12T22:35:56Z,2023-10-14T15:29:39Z,2023-10-14T15:29:39Z,2,98,1,,3,0
+774,2023-10-12T23:54:56Z,2023-12-06T21:22:56Z,2023-12-06T21:22:56Z,3,71,30,"some minor refactor of the cmd package
+Example: server and client are the same version
+$ ollama --version
+Your ollama version 0.0.0
+
+Example: server and client have different versions
+$ ollama --version
+Your ollama version 99.99.99999
+Warning: Your client version is 0.0.0
+
+Example: server is not accessible
+$ ollama --version
+Warning: Your server is not accessible
+Your client version is 0.0.0",4,1
+778,2023-10-13T15:14:41Z,2023-10-16T21:27:25Z,2023-10-16T21:27:25Z,1,6,1,"The show command should send a request to the server, rather than making a direct call to the function locally.
+resolces #776",4,0
+781,2023-10-13T17:54:56Z,2023-10-13T20:57:10Z,2023-10-13T20:57:10Z,2,9,16,"remove new lines from llama.cpp error messages relayed to client
+check api option types and return error on wrong type
+change num layers from 95% VRAM to 92% VRAM",2,0
+782,2023-10-13T18:06:34Z,,2023-10-21T16:00:36Z,1,2,1,"It seems that the link to the API docs doesn't work for some reason. After some investigation, I think the GitHub markdown fails to match the relative path for docs/api.md because of the quote block.
+I submitted this PR in case you want a quick fix until you find out what exactly is wrong.
+Thanks!",3,1
+783,2023-10-13T20:08:46Z,2023-10-13T21:36:44Z,2023-10-13T21:36:44Z,1,33,15,"Fixes two issues when using low end GPUs:
+GPUs with low VRAM are disproportionately affected by overhead when offloading so any device that has less than 2GB VRAM will be exclusively CPU unless overwritten by num_gpu.
+A CUDA-enabled runner will still offload to GPU even if num_gpu is 0. This is problematic when the GPU doesn't support a compatible version of CUDA. In this case, select the CPU runner instead.
+Caveat: for MacOS (darwin) go generate only builds Metal on ARM so it shouldn't be marked as Accelerated since there's no fallback",3,0
+787,2023-10-13T23:11:39Z,2023-10-16T16:59:30Z,2023-10-16T16:59:30Z,1,2,1,,3,0
+794,2023-10-15T21:23:55Z,2023-10-16T22:51:55Z,2023-10-16T22:51:55Z,1,2,1,"Hey there!
+I just published  oterm a text-based terminal client for Ollama.
+It features:
+
+intuitive and simple terminal UI, no need to run servers, frontends, just type oterm in your terminal.
+multiple persistent chat sessions, stored together with the context embeddings in sqlite.
+can use any of the models you have pulled in Ollama, or your own custom models.
+
+This PR adds it to the community integrations",3,0
+799,2023-10-16T09:27:58Z,2023-10-17T15:46:02Z,2023-10-17T15:46:02Z,1,8,4,Fixed the json.Marshal() behavior in llama.go to prevent automatic escaping of special characters like < and >. This ensures templates with these characters are correctly represented in the JSON output. Addresses issue #798,3,1
+800,2023-10-16T09:28:16Z,,2023-10-21T16:00:21Z,1,1,1,"For some reason, the relative API docs link is broken (api is a particular path in Github).
+Replaced the API docs link in README.md with the absolute path.
+Fixes issue #802.",3,3
+801,2023-10-16T09:44:09Z,2023-10-16T22:51:25Z,2023-10-16T22:51:25Z,1,1,0,"Hi.
+Thank you for this cool project.
+In this PR new emacs package added to community integrations. ellama supports streaming output and can be installed from MELPA",3,0
+809,2023-10-16T21:40:27Z,2023-10-17T15:40:40Z,2023-10-17T15:40:40Z,1,1,4,omitting --n-gpu-layers means use metal on macos which isn't correct since ollama uses num_gpu=0 to explicitly disable gpu for file types that are not implemented in metal,2,0
+810,2023-10-16T21:44:08Z,2023-10-16T22:50:57Z,2023-10-16T22:50:57Z,1,2,1,"otherwise, the ARCH variable is unbound in *)",2,1
+811,2023-10-16T21:48:38Z,2023-10-17T15:31:48Z,2023-10-17T15:31:48Z,1,2,1,"Thank you so much for your efforts to build such an amazing piece of software.
+I love Ollama and use it every day and I also plan to integrate it into further .NET applications. That's why I published OllamaSharp as nuget package so everyone in .NET land can talk to the Ollama API easily.
+Thanks again and keep up the great work.",2,1
+812,2023-10-16T23:14:51Z,2023-10-17T15:40:49Z,2023-10-17T15:40:49Z,1,1,1,,2,0
+813,2023-10-16T23:41:07Z,2023-10-17T21:05:58Z,2023-10-17T21:05:58Z,1,38,90,"remove unused struct GenerationSettings
+remove a layer of indirection for prediction request. it's only used in one place so it's nicer to have a map[string]any instead of a struct
+nest Timings for similar reasons
+use CutPrefix to both check for data: and trimming",2,0
+814,2023-10-17T00:51:27Z,,2023-12-24T02:18:17Z,10,264,59,"#667 got closed during a bad rebase attempt. This should be just about the minimum I can come up with to use build tags to switch between ROCm and CUDA, as well as docs for how to build it. The existing dockerfiles are updated so they do not break.
+Please let me know @jmorganca @mxyng @BruceMacD if you'd like this in a different approach or something, or if you don't want to do this. Closes #738. Will post test results for GGML and GGUF files.",20,73
+822,2023-10-17T17:20:38Z,2023-10-18T16:34:01Z,2023-10-18T16:34:01Z,1,1,1,"When the .ollama folder is broken, or no models exist, /api/tags returns {models: null} instead of the expected {models: []}.
+Please review the change as minor as it is, as my experience with Go is close to nil.",2,1
+825,2023-10-17T20:13:05Z,2023-10-18T19:36:57Z,2023-10-18T19:36:57Z,1,35,12,"When the llama.cpp runner failed with CUDA error the error message was not relayed to the client. Instead the client would only see an EOF error. Update the llama.cpp subprocess log monitor to capture CUDA errors and relay them to the client.
+Before:
+Error: error reading llm response: unexpected EOF
+
+After:
+Error: llama runner exited, you may not have enough available memory to run this model
+
+or the actual error is available",2,0
+826,2023-10-17T22:26:55Z,2023-10-18T20:11:10Z,2023-10-18T20:11:10Z,1,3,0,"This prevents show outputs like this:
+ollama run mistral
+>>> /show modelfile
+# Modelfile generated by ""ollama show""
+# To build a new Modelfile based on this one, replace the FROM line with:
+# FROM mistral:latest
+
+FROM registry.ollama.ai/library/mistral:latest
+TEMPLATE """"""[INST] {{ .Prompt }} [/INST]
+""""""
+SYSTEM """"""""""""",2,0
+827,2023-10-17T22:29:11Z,2023-10-18T20:11:25Z,2023-10-18T20:11:25Z,1,4,3,Use gotemplate range instead of string concatenation,2,0
+828,2023-10-17T22:45:17Z,2023-10-19T16:31:31Z,2023-10-19T16:31:31Z,1,19,39,map options back into an any slice so the template can do the work of stringify the values,2,0
+829,2023-10-17T23:42:28Z,2023-10-21T04:03:16Z,2023-10-21T04:03:16Z,4,225,0,,2,0
+833,2023-10-18T06:41:47Z,2023-10-18T20:52:48Z,2023-10-18T20:52:48Z,1,3,3,"This Pull Request addresses a bug in the Decode function where leading whitespaces are not properly removed from the decoded context.
+I have tested the behavior both before and after making this change:
+
+Before: The leading whitespaces were present when using the context.
+After: The leading whitespaces were properly removed.",2,0
+840,2023-10-18T18:10:23Z,2023-10-19T14:39:59Z,2023-10-19T14:39:59Z,3,66,86,"only reload the running llm if the model has changed, or the options for loading the running model have changed
+rename loaded llm to runner to differentiate from loaded model image
+remove logic which keeps the first system prompt in the generation context
+
+Say I have 2 models, both are based on llama2, but they have different prompts and runtime parameters.
+FROM llama2
+TEMPLATE """"""
+you are a dog
+""""""
+PARAMETER stop ""human:""
+
+and
+FROM llama2
+TEMPLATE """"""
+you are a cat
+""""""
+PARAMETER stop ""bob:""
+
+If I am building something that swaps requests between these models a lot our current logic will re-load the models every time, even though the only thing changing is the prompt template or runtime option is changing.
+This change compares only model fields which require the model to be re-loaded before swapping the loaded model.
+Resolves #337",2,0
+841,2023-10-18T19:05:33Z,2023-10-19T18:22:40Z,2023-10-19T18:22:40Z,1,8,7,"A number of subcommands incorrectly set MinimumNArgs instead of ExactArgs which leads to confusion.
+Related #803",3,0
+842,2023-10-18T19:18:44Z,,2023-11-29T21:30:02Z,2,60,1,"As promised, an updated README that explains how to force lower memory usage.",3,3
+843,2023-10-18T23:13:14Z,2023-10-19T16:30:45Z,2023-10-19T16:30:45Z,4,109,30,"API returns {""error"": ""EOF""} when request is empty
+Most handlers pass request fields without checking if they're empty produces bad errors
+created_at on an empty generate request isn't set so it incorrectly shows 0001-01-01T00:00:00Z
+Create's workDir isn't used after #759
+
+Note: there's an inconsistency in naming the key for model names. Some requests (Generate, Embedding) use model while others (Pull, Push, Create) use name",2,0
+847,2023-10-19T21:09:43Z,2023-10-25T23:41:18Z,2023-10-25T23:41:19Z,11,972,86,"This is simplified version of the readline library which cuts out a lot of the complexity of the version that we were using. There's still a few things to add like ""history"" and getting the multi-line prompts working correctly, but most (many?) things should be more or less working, including:
+
+Each of the Ctrl-? chars (Ctrl-d, Ctrl-k, Ctrl-c, Ctrl-u, Ctrl-a, Ctrl-e, Ctrl-l, etc.)
+Line wrap with backspace/arrow keys
+Entering/exiting raw mode
+
+Would love some feedback if people could try it out.",5,2
+855,2023-10-20T16:32:34Z,2023-10-25T23:17:25Z,2023-10-25T23:17:25Z,2,15,15,"update golang.org/x/net fixes CVE-2023-3978,CVE-2023-39325,CVE-2023-44487",2,2
+870,2023-10-21T10:50:25Z,2023-10-23T14:44:39Z,2023-10-23T14:44:39Z,1,1,0,"I discussed it a few times in the discord, and a few people seem to be using it, so it would be good to add.
+Demo video:
+https://github.com/jmorganca/ollama/assets/35015261/d50f7036-cdf2-44ed-9bb0-fdbed6a4ec66
+I'll be maintaining/improving it a lot over the coming weeks, and some contributors reached out to get involved.
+It can now handle markdown, etc. And continues to improve beyond the initial demo.",3,4
+871,2023-10-21T17:47:40Z,,2023-10-27T19:31:19Z,2,27,0,"Fixes the illegal instruction error when running with CPU without AVX2 or FMA, by building another set of ollama runner with -DLLAMA_AVX2=off -DLLAMA_FMA=off.
+By default, upon running the cmake for ggml/gguf, it will have these arguments set to ON. Setting it to OFF, allows older CPU that don't have these instruction to be able to run the llama.cpp.
+fixes #644
+Some sources for the AVX2 and FMA compatibility:
+
+CPUs_with_AVX2
+CPUs_with_FMA3",5,4
+872,2023-10-21T19:32:37Z,,2023-10-26T17:47:43Z,1,10,0,"If user is installing Ollama for the first time/fresh install then Ollama server is started automatically. So when you try
+ollama serve
+
+then it throws error - 127.0.0.1:11434: bind: address already in use
+So instead of running this command user can skip to running model
+This PR patches the corresponding fixes in documentation for linux
+Fixes: #707",2,1
+881,2023-10-23T16:39:33Z,2023-10-23T17:50:45Z,2023-10-23T17:50:45Z,2,36,34,"ggufv3 adds support for big endianness, mainly for s390x architecture. while that's not currently supported for ollama, the change is simple.
+loosen version check to be more forward compatible. unless specified, gguf versions other v1 will be decoded into v2.",4,1
+886,2023-10-23T21:23:35Z,,2023-10-24T17:52:05Z,1,2,1,,2,0
+890,2023-10-24T16:03:12Z,2023-10-25T14:58:17Z,2023-10-25T14:58:17Z,1,56,3,Shell scripts are dense and hard to read. Document explicitly what the installation script is doing so that enquiring users can see exactly what changes are being made to their system.,2,0
+893,2023-10-24T17:54:52Z,2023-10-24T23:02:35Z,2023-10-24T23:02:35Z,1,30,2,Resolves #885,3,0
+897,2023-10-24T21:53:27Z,2023-10-27T14:19:59Z,2023-10-27T14:19:59Z,4,37,21,"set OLLAMA_MODELS in the environment that ollama is running in to change where models are stored
+update docs
+
+$ OLLAMA_MODELS=/Users/bruce/ollama_models ollama serve
+# store models in /Users/bruce/ollama_models
+Resolves #228 #153
+I'll hold off on merging this until #847 is in to avoid causing that PR pain.",19,25
+898,2023-10-24T22:48:51Z,2023-11-16T00:41:13Z,2023-11-16T00:41:13Z,6,371,194,"This PR changes the way /api/create works and addresses some of the current deficiencies:
+
+The API now takes the Modelfile contents. If the field is empty, it'll be populated by reading the file set in the path field
+Add two new APIs to facilitate checking the existence of layers. This is required for detecting which layers the server already has in its blob store
+Update the create command to use these server changes. If the CLI finds a layer isn't known to the server using GET /api/layer/:digest/path, it'll create it with POST /api/layer/:digest. It'll then update it to the location relative to the server before sending the commands over to the server
+
+Resolves #891
+Resolves #892
+Resolves #613
+Resolves #1066
+Resolves #1113
+Resolves #315
+Resolves #1143",4,3
+900,2023-10-25T00:13:11Z,2023-10-27T19:13:44Z,2023-10-27T19:13:44Z,2,3,3,Fixes #899,4,2
+906,2023-10-25T20:18:41Z,2023-10-27T07:10:23Z,2023-10-27T07:10:23Z,1,7,6,"Modernization of #661
+
+Closes #538
+Upstreams more knowledge from #546
+Simplifies brew install to one line",2,2
+916,2023-10-26T17:51:36Z,2023-10-26T19:24:12Z,2023-10-26T19:24:12Z,2,55,2,"Also sets different default ports when scheme is in OLLAMA_HOST and is either http or https.
+e.g. OLLAMA_HOST=https://example.com will now use port 443 instead of 11434.
+Resolves #910",3,0
+921,2023-10-26T22:24:24Z,2023-10-27T00:49:55Z,2023-10-27T00:49:55Z,1,7,4,"Reducing the amount of layers off-loaded to vram to prevent out of memory errors on larger models. In my tests 7B and 13B models with 4-bit quantization still maxed out the number of layers and ran fast. Meanwhile, 70B models can now run on a T4 when they would previously crash with out-of-memory errors, but its still slow in this case.
+Our heuristic of memory required per layer being roughly the file size divided by the number of layers seems somewhat reliable after additional testing. The calculation for the amount of memory needed for weights looks something like this:
+size of weights = number of parameters * number of bytes per parameter
+
+This roughly equates to file size.
+I also added some clarity in the comment around storing the kv cache in vram.
+resolves #790",3,0
+937,2023-10-27T20:40:04Z,2023-10-30T15:10:19Z,2023-10-30T15:10:19Z,2,28,27,"We have had trouble with cross-account file permission when the Ollama client and server are running as different users. This change is a small clean up to remove all calls to server package code from the client (except for server.Run()), from now on we should not call anymore server package functions from cmd to prevent bugs.",2,0
+943,2023-10-28T21:04:26Z,2023-11-06T19:35:39Z,2023-11-06T19:35:39Z,1,22,13,"Just found out there was a community integrations section in the README.md file.
+I categorised the integrations into separate groups for better legibility and also added the ollama-webui project to the GUI list.
+Thanks!",3,0
+944,2023-10-28T23:52:57Z,,2024-02-22T19:11:55Z,1,9,0,"This PR is purely for another install option in the readme. It will be available shortly
+I've been getting ollama added to Webi because I use that to install cli tools for as much as I can these days (I like simple portable ways and Webi works well as a flow for our CI/CD jobs which often have to run cross platform as well).
+The PR for that at the time of this writing is webinstall/webi-installers#712
+Happy to make adjustments to the wording or placement or whatever would be helpful.",4,3
+948,2023-10-30T15:52:56Z,2023-10-30T18:34:29Z,2023-10-30T18:34:29Z,1,1,1,,2,0
+949,2023-10-30T17:58:00Z,2023-10-31T00:17:01Z,2023-10-31T00:17:01Z,4,19,2005,"This resolves #928
+Chroma updated its api and thus langchain updated and everything broke.",3,0
+950,2023-10-30T18:33:27Z,2023-10-30T20:18:12Z,2023-10-30T20:18:12Z,3,68,3,"update the readline package to have basic support on windows, this is not full feature parity with the unix cli yet
+
+This change adds a readline implementation that works on Windows. I dont expect this will work for all features (keyboard short-cuts probably need work). This change also fixes go build . on windows.",2,0
+954,2023-10-31T14:05:20Z,2023-11-01T15:28:26Z,2023-11-01T15:28:26Z,1,5,1,"Inform the user that the Ollama API is available locally after install.
+>>> Downloading ollama...
+>>> Installing ollama to /usr/local/bin...
+>>> NVIDIA CUDA drivers installed.
+>>> The Ollama API is now available at 127.0.0.1:11434.
+>>> Install complete. Run ""ollama"" from the command line.",2,0
+955,2023-10-31T16:14:16Z,2023-11-10T14:59:32Z,2023-11-10T14:59:32Z,3,81,0,"This includes two bash scripts. the first will run a bunch of questions in sourcequestions against llama2. The second lets you pick 4 models on your system and run the same questions against all of them, making it easier to compare.",4,1
+956,2023-10-31T20:12:17Z,2023-11-01T04:43:11Z,2023-11-01T04:43:11Z,1,82,8,,2,0
+958,2023-10-31T22:55:25Z,2023-11-01T15:30:38Z,2023-11-01T15:30:38Z,1,9,1,"only append LD_LIBRARY_PATH in case it's already set
+Related #758",3,0
+959,2023-10-31T22:57:09Z,2023-11-07T16:43:22Z,2023-11-07T16:43:22Z,3,134,0,,3,0
+960,2023-11-01T03:50:18Z,2023-11-01T15:30:50Z,2023-11-01T15:30:50Z,1,6,8,,2,0
+968,2023-11-02T06:13:35Z,2023-11-02T15:41:30Z,2023-11-02T15:41:30Z,2,12,3,,3,0
+972,2023-11-02T15:27:40Z,2023-11-03T14:57:00Z,2023-11-03T14:57:00Z,1,51,21,"I'd like to add an example for raw requests in #952 to the docs, but that requires formatting them in way that is more friendly to multiple request/responses. This change moves request/response under an ""examples"" header.",2,0
+974,2023-11-02T20:02:47Z,2023-11-03T00:52:56Z,2023-11-03T00:52:56Z,1,0,4,"This modelfile variable was deprecated in ollama v0.0.7, which was a very early stage of the project. It was also not documented anywhere, and no longer used in our library images. It should be ok to remove this now.",3,0
+975,2023-11-02T20:28:21Z,2023-11-02T23:12:48Z,2023-11-02T23:12:48Z,5,24,39,,3,0
+984,2023-11-03T01:50:32Z,2023-11-03T07:45:14Z,2023-11-03T07:45:14Z,1,1,1,"Just realised another grammar mistake in the exact same error I just ""fixed"" 😸",2,0
+992,2023-11-03T23:47:11Z,2023-11-09T13:08:31Z,2023-11-09T13:08:31Z,1,6,2,"Updates docs/tutorials/langchainjs.md from issue #539
+adds missing await in line 36 and adds instructions to install cheerio",2,0
+993,2023-11-04T00:03:11Z,2023-11-06T19:32:12Z,2023-11-06T19:32:12Z,2,34,31,,2,0
+994,2023-11-04T03:11:00Z,2023-11-29T21:25:39Z,2023-11-29T21:25:40Z,1,4,3,"The current docs use GPT4AllEmbeddings(). Here we simply swap that out for OllamaEmbeddings, which was recently added to LangChain.",2,1
+995,2023-11-04T08:51:06Z,2023-11-04T21:51:29Z,2023-11-04T21:51:29Z,1,1,0,"Hey, I made Rust bindings for Ollama https://github.com/pepperoni21/ollama-rs",2,0
+996,2023-11-04T10:08:26Z,2023-11-06T18:51:41Z,2023-11-06T18:51:41Z,1,1,0,"Hi,
+gen.nvim is a Neovim extension from which you can invoke Ollama.
+Best regards,
+David",3,1
+999,2023-11-04T13:01:46Z,2023-11-06T18:50:35Z,2023-11-06T18:50:35Z,1,1,0,Add custom home assistant integration hass-ollama-conversation,2,0
+1000,2023-11-04T14:05:13Z,,2023-11-09T00:49:18Z,1,3,0,"Added clear command for ease of use
+Closes #989",3,1
+1001,2023-11-04T14:43:21Z,,2023-11-06T17:53:00Z,0,0,0,,2,1
+1009,2023-11-06T00:00:25Z,,2024-02-20T03:31:42Z,8,2193,0,Self querying retrieval is a method to filter a vector database to show the most relevant documents for a query,3,3
+1015,2023-11-06T10:24:18Z,,2023-11-29T21:21:58Z,1,1,1,"Fixed documentation, responds one token for streamed results",2,3
+1022,2023-11-06T22:05:55Z,2023-11-09T01:55:46Z,2023-11-09T01:55:47Z,2,72,18,,4,0
+1023,2023-11-06T22:40:07Z,2023-11-08T01:59:55Z,2023-11-08T01:59:55Z,1,19,0,Where are the models is a common enough question in the Discord. This clarifies it a bit further helping the user understand the structure.,2,0
+1026,2023-11-07T06:59:18Z,2023-11-07T17:55:47Z,2023-11-07T17:55:47Z,1,2,2,recieve -> receive,2,0
+1029,2023-11-07T10:49:05Z,2023-11-07T17:58:13Z,2023-11-07T17:58:13Z,1,2,1,Adds a plugin I made to integrate ollama with logseq,2,0
+1034,2023-11-07T16:42:52Z,2023-11-07T17:59:57Z,2023-11-07T17:59:57Z,1,1,1,It was forgotten to replace sudo at one place with the variable for sudo.,2,0
+1035,2023-11-07T19:01:44Z,2023-11-09T00:44:37Z,2023-11-09T00:44:37Z,2,111,43,"Add an example to the api docs that shows how all generate runtime options can be specified
+Move the GenerateRequest options closed to the struct declaration so its easier for readers to find
+
+resolves #1027",2,0
+1042,2023-11-08T11:50:36Z,2023-11-09T00:42:40Z,2023-11-09T00:42:40Z,1,1,1,This just makes the bars limiting the progressbar width hug the progressbar because it looks nicer.,2,1
+1043,2023-11-08T13:10:08Z,2023-11-08T19:01:09Z,2023-11-08T19:01:09Z,1,1,0,"Hi @jmorganca, I appreciate the time and effort you've put into developing Ollama—it's a fantastic tool! I noticed there isn't a native macOS application listed under community integrations, so I went ahead and created one called Ollamac. I'm looking forward to hearing your thoughts on it! 😃",2,0
+1044,2023-11-08T16:18:12Z,2023-11-08T19:04:32Z,2023-11-08T19:04:33Z,1,1,0,"Hi @jmorganca, thank you so much for your efforts in building and constantly updating such a cool piece of software.
+I really like Ollama and have been experimenting with it regularly. I also plan to integrate it into many more Java applications.
+I noticed there isn't a Java library listed under community integrations, that's why I felt the need to create a Java library for interacting with Ollama's REST APIs, and as a result, I've published Ollama4j as a package and I plan to constantly improve it. This way, others who work with Java can easily interact with the Ollama API.
+Thanks again, and keep up the great work!",2,0
+1051,2023-11-09T01:58:51Z,2023-11-10T00:44:02Z,2023-11-10T00:44:02Z,5,97,9,,3,1
+1055,2023-11-09T12:28:31Z,2023-11-13T16:42:55Z,2023-11-13T16:42:55Z,1,1,1,"Added tag version to 'GetNamespaceRepository' method in order to set the correct model used model tag version.
+(This PR fixes bug/issue: #946 )",3,2
+1059,2023-11-09T18:46:17Z,2023-11-09T21:16:16Z,2023-11-09T21:16:16Z,1,8,5,"This check for available VRAM that triggered a fallback to CPU if less than 2GB of VRAM was available wasn't handled correctly in the current ollama version. This resulted in a very low amount of layers being offloaded to GPU in the case that a GPU was available with a low amount of available VRAM, and this results in worse performance than just falling back to CPU.",2,0
+1061,2023-11-09T19:51:13Z,2023-11-09T21:16:26Z,2023-11-09T21:16:26Z,1,2,2,resolves #572,2,0
+1067,2023-11-10T01:45:17Z,,2023-11-21T20:14:50Z,8,34871,103,"update llama.cpp examples with custom ollama-runner
+update llama.cpp gguf version to latest
+
+This change adds a custom inference server to llama.cpp based on the server we use in the current version, but with excess features removed. This allows us to have a more stable interface to build on when llama.cpp updates.
+To review this please pull down the changes run go generate ./... and review the contents of the llm/llama.cpp/gguf/examples/ollama-runner
+This change may be superseded by packaging in llama.cpp directly in the near future.",1,1
+1074,2023-11-10T14:57:55Z,2023-11-17T00:33:07Z,2023-11-17T00:33:07Z,5,131,0,"At kubecon and other events and on discord, we have been asked how to analyse logs using ollama. This is a simple example of one approach to this.",2,1
+1078,2023-11-10T20:26:09Z,2023-11-13T21:59:00Z,2023-11-13T21:59:00Z,1,1,0,"Hi @jmorganca, we added Ollama support to big-AGI, which makes it easy to fetch, list models, generate text, chat, compare models, and even voice call, etc.
+
+I've linked the configuration document directly.",2,1
+1079,2023-11-10T22:42:19Z,2023-11-16T17:13:35Z,2023-11-16T17:13:35Z,4,97,0,,4,1
+1082,2023-11-11T02:57:28Z,,2023-11-22T00:22:46Z,12,278,144,"Interactive cli usage:
+/set image add <image id int> <path to image file>
+Please tell me what text is in this photo [img-<image id int>]
+For the API I added support for the image_data prop  with the type of []{id: int, data: string(base64)}for the generate endpoint.
+To support this, modelfile now has a MMPROJ key that points to the mmproj file path.
+Tested with the following modelfile:
+FROM ./ggml-model-q4_k.gguf
+
+TEMPLATE """"""
+USER:{{ .Prompt }}
+ASSISTANT:
+""""""
+
+MMPROJ ./mmproj-model-f16.gguf
+
+And using the following pre-quantatized model - https://huggingface.co/mys/ggml_llava-v1.5-13b.",4,12
+1085,2023-11-11T11:34:33Z,2023-11-11T22:41:42Z,2023-11-11T22:41:42Z,1,1,0,"Hello folks, I'm excited to share that I've been working on OllamaKit. Originally created for Ollamac, I've realized its potential extends to assisting anyone looking to integrate the Ollama API with Swift. 😃",2,1
+1086,2023-11-11T15:54:25Z,,2024-01-03T02:06:16Z,1,3,0,"Small, but welcome addition in my opinion. Works using the ANSI method from the bottom.
+case ""/clear"":
+    fmt.Printf(""\x1bc"")",2,1
+1095,2023-11-12T03:29:21Z,2023-11-14T02:54:02Z,2023-11-14T02:54:02Z,1,25,6,"Allow using JSON mode from the ollama run command line
+
+--format json: a new command line flag
+/set format json: in the interactive ollama run terminal",2,0
+1098,2023-11-12T11:02:14Z,2023-11-15T17:32:37Z,2023-11-15T17:32:37Z,2,40,1,"This pull request provides guidance for people interested in enabling NVIDIA's AI edge computing devices to run Ollama at full power (i.e. on the integrated GPU). Several people (myself included) have expressed interest in this capability (please see issue #1071).
+@BruceMacD mentioned via Discord that the CLI will soon support passing num_gpu as a parameter when running ollama serve. I will update the tutorial when that becomes available.
+Thanks!",4,2
+1104,2023-11-12T21:37:13Z,2023-11-17T22:46:26Z,2023-11-17T22:46:26Z,2,107,0,,2,1
+1106,2023-11-13T04:25:49Z,2023-11-13T19:50:42Z,2023-11-13T19:50:42Z,1,1,0,"Good afternoon!
+I have completed the first version of the Ollama library for Dart, making it possible to integrate Ollama into Flutter applications. I thought it would be nice to mention it in the readme file.",2,1
+1115,2023-11-13T20:46:12Z,2023-11-13T22:00:18Z,2023-11-13T22:00:18Z,1,1,0,"ollama.nvim is a good plugin, uses the ollama API directly!",2,0
+1120,2023-11-14T06:08:24Z,2023-11-16T16:27:53Z,2023-11-16T16:27:53Z,1,4,0,"Maid is a cross-platform Flutter app for interfacing with GGUF / Llama models locally via Llama.cpp and interfacing remotely via Ollama. Currently Android, Windows and Linux are supported with plans to support Mac and IOS in the future.
+Maid is working great with Ollama now and once #991 goes through it will work even better.",2,0
+1124,2023-11-14T12:45:21Z,2023-11-16T16:30:55Z,2023-11-16T16:30:55Z,1,1,0,We have an Ollama adapter (subclassing langchain to make it both sync and async) and also created a setup tutorial,3,3
+1125,2023-11-14T16:04:33Z,2023-11-14T21:09:09Z,2023-11-14T21:09:10Z,1,1,1,,2,0
+1126,2023-11-14T16:29:15Z,2023-11-14T21:42:21Z,2023-11-14T21:42:21Z,1,29,53,"Originally opened by @sqs  in #416
+Previously, ollama run treated a non-terminal stdin (such as ollama run model < file) as containing one prompt per line. To run inference on a multi-line prompt, the only non-API workaround was to run ollama run interactively and wrap the prompt in """"""..."""""".
+Now, ollama run treats a non-terminal stdin as containing a single prompt. For example, if myprompt.txt is a multi-line file, then ollama run model < myprompt.txt would treat myprompt.txt's entire contents as the prompt.
+Examples:
+cat mycode.py | ollama run codellama ""what does this code do?""
+cat essay.txt | ollama run llama2 ""Summarize this story in 5 points. Respond in json."" --format json | jq
+
+Replacement for the current behavior is to create a bash script that reads in each line from stdin and calls ollama run:
+#!/bin/bash
+while IFS= read -r line; do
+    echo ""$line"" | ollama run $1
+done",3,0
+1127,2023-11-14T18:44:30Z,2023-11-14T21:12:30Z,2023-11-14T21:12:30Z,1,1,1,This field is optional and should be under the Advanced parameters header,2,0
+1128,2023-11-14T19:43:51Z,2023-11-15T23:05:13Z,2023-11-15T23:05:13Z,1,13,2,,2,0
+1131,2023-11-14T20:28:49Z,2023-11-16T21:44:18Z,2023-11-16T21:44:18Z,1,8,3,"Previous behavior:
+Pushing to the default namespace or a namespace you don't have access to results in a vague error.
+$ ollama push mario
+retrieving manifest
+Error: max retries exceeded
+
+New behavior:
+Pushing to the default namespace or a namespace you don't have access to results the reason for the error.
+$ ollama push mario
+retrieving manifest
+Error: unable to push library/mario, make sure this namespace exists and you are authorized to push to it
+
+$ ollama push bruxe/mario
+retrieving manifest
+Error: unable to push bruxe/mario, make sure this namespace exists and you are authorized to push to it
+
+Resolves #1140",3,0
+1132,2023-11-14T22:58:03Z,2023-11-15T17:46:22Z,2023-11-15T17:46:22Z,4,4,8,,2,0
+1134,2023-11-15T01:06:58Z,2023-11-17T22:03:35Z,2023-11-17T22:03:35Z,12,423,1445,"Example:
+$ ollama pull mistral
+pulling manifest                                                                                                                                                                                                  (1s)
+downloading 6ae280299950 100.0% [=========================================================================================================================================================] (4.1 GB/4.1 GB, 0 B/s, 0s)
+downloading 22e1b2e8dc2f 100.0% [=============================================================================================================================================================] (43 B/43 B, 0 B/s, 0s)
+downloading e35ab70a78c7 100.0% [=============================================================================================================================================================] (90 B/90 B, 0 B/s, 0s)
+downloading 1cb90d66f4d4 100.0% [===========================================================================================================================================================] (381 B/381 B, 0 B/s, 0s)
+verifying sha256 digest                                                                                                                                                                                           (2s)
+writing manifest                                                                                                                                                                                                  (0s)
+removing any unused layers                                                                                                                                                                                        (0s)
+success                                                                                                                                                                                                           (0s)",3,9
+1146,2023-11-16T00:18:06Z,2023-12-22T16:16:31Z,2023-12-22T16:16:31Z,55,3205,1179,"This change revamps the way ollama wires up llama.cpp for gguf to link directly via cgo instead
+of running a subprocess.  Within llama.cpp, a thin facade has been added to server.cpp (via included patch)
+to enable extern ""C"" access to the main logic to minimize changes to the existing LLM interface.
+Mac, Linux, and Windows are supported and manually tested.
+Carries #1268 and #814",6,18
+1147,2023-11-16T01:16:03Z,2023-11-16T16:43:37Z,2023-11-16T16:43:37Z,1,31,0,,4,1
+1151,2023-11-16T08:23:44Z,2023-11-16T20:53:07Z,2023-11-16T20:53:07Z,1,3,0,"On debian 12, sources definitions have moved from
+/etc/apt/sources.list to /etc/apt/sources.list.d/debian.sources",2,1
+1156,2023-11-16T19:52:56Z,2023-11-16T21:33:30Z,2023-11-16T21:33:30Z,1,10,2,"fix auth scope: side effect of #1055 which changed the value of the scope parameter in the auth challenge
+fix cross repo mounts
+
+resolves #1154",3,0
+1159,2023-11-17T00:32:33Z,2023-11-21T18:06:55Z,2023-11-21T18:06:55Z,7,912,0,Two examples here. One to list the characters in the first few pages of War and Peace. The other parses emails for events and addresses.,2,1
+1161,2023-11-17T00:55:55Z,2023-11-17T22:45:39Z,2023-11-17T22:45:39Z,1,10,0,,3,1
+1175,2023-11-17T16:16:06Z,2023-11-17T19:22:35Z,2023-11-17T19:22:35Z,1,27,28,"The request retry logic is mostly in download.go and upload.go. This function is only meant to retry on authentication failure, so doing that multiple times is not needed.
+
+do not log upload failure on error, this function is called on download also
+do not log on request cancellation, this causes a cancelled download to log 10+ times due to the chunked downloads
+only retry on auth failure explicitly, and one time",2,0
+1177,2023-11-17T17:05:09Z,2023-11-17T18:05:21Z,2023-11-17T18:05:21Z,1,2,2,,2,0
+1178,2023-11-17T17:45:26Z,2023-11-21T14:33:22Z,2023-11-21T14:33:22Z,1,1,0,"Pacman is the recommended installation method. And the package is in the official repository, so makes sense to mention it in the README.",2,4
+1183,2023-11-17T22:09:04Z,2023-11-20T15:36:47Z,2023-11-20T15:36:47Z,1,1,0,Adds the Ollama plugin for Rivet to the community integrations list (Extensions & Plugins section),2,0
+1185,2023-11-17T23:07:37Z,2023-11-19T02:25:07Z,2023-11-19T02:25:07Z,2,2,2,In the case of not enough VRAM being available this log made it seem as though there was an issue with cuda libraries. Move the error details to only be returned if nvidia-smi is not available specifically.,2,0
+1186,2023-11-17T23:22:38Z,2023-11-18T05:54:54Z,2023-11-18T05:54:54Z,1,7,7,"os.Rename is only intended for files on the same filesystem. Instead of messing around with that, store the temporary file in the blobs directory
+resolves #1181",2,0
+1190,2023-11-18T13:00:58Z,2023-11-20T15:39:14Z,2023-11-20T15:39:14Z,1,1,0,ChatGPT.nvim is a well built plugin. ogpt.nvim is a fork that supports Ollama,2,0
+1192,2023-11-18T23:06:12Z,2023-11-20T15:52:52Z,2023-11-20T15:52:52Z,1,2,0,"In a multi-GPU platform I observed I cannot set the main GPU to be used to llamacpp though llamacpp itself support this through main_gpu argument.
+This PR fixes just that.",3,0
+1195,2023-11-19T02:37:58Z,2023-11-28T19:55:23Z,2023-11-28T19:55:23Z,3,126,82,"implement rate as a rolling average over the last n updates.
+the current issue is rate is calculated as an average rate over the lifetime of the progress bar. this reflects the actual progress well if the progress is smooth and flat but that's rarely the case.
+the rolling average is a better way to represent changing rates. if more progress is made in the window than before, the rate will go up. if less progress is made, the rate will go down",3,3
+1206,2023-11-20T14:33:01Z,2023-11-20T15:35:07Z,2023-11-20T15:35:07Z,1,1,0,,2,0
+1211,2023-11-20T20:24:21Z,2023-11-20T21:43:48Z,2023-11-20T21:43:48Z,1,4,0,"Small regression here from remote models. Previously you could specify files relative to a modelfile without their path, this is my normal workflow. This change restores this behaviour to match v0.1.9.
+Example modelfile:
+FROM nous-capybara-34b.Q4_0.gguf
+TEMPLATE ""USER: { .Prompt } ASSISTANT: """,2,0
+1215,2023-11-21T01:28:55Z,,2023-11-30T21:35:14Z,3,26,13,,3,1
+1216,2023-11-21T02:55:55Z,2023-12-11T21:56:22Z,2023-12-11T21:56:22Z,6,235,28,"This PR builds off of @mattapperson's work, but with a more ollama-like UX + API.",8,8
+1218,2023-11-21T10:03:47Z,2023-11-21T14:30:34Z,2023-11-21T14:30:34Z,1,4,0,Sorry for the extra PR but i noticed i accidently linked my personal repo instead of the main repo,2,0
+1219,2023-11-21T11:51:01Z,2023-11-21T14:28:13Z,2023-11-21T14:28:13Z,1,1,0,"Overview
+I love Ollama (amazing work on it!), it's what really got me in to trying LLMs. What was missing for my workflow was both a terminal application and Neovim plugin that actually felt like a chat app. Oatmeal looks to deliver that with it's Ollama integration.
+Here's a fast demo to show it off using the Neovim editor integration. I hope it's something your users would find interesting as well.",2,1
+1221,2023-11-21T14:41:55Z,2023-11-21T20:12:23Z,2023-11-21T20:12:23Z,1,4,1,Moved the arch package and someone has added a pr for brew. that needs to get updated to be a link.,2,0
+1222,2023-11-21T17:06:12Z,2023-11-21T20:43:18Z,2023-11-21T20:43:18Z,2,18,13,"This fixes a regression in the API. Previously calling the API directly with a modelfile that has a relative file would work.
+Ex:
+FROM nous-capybara-34b.Q4_0.gguf
+TEMPLATE ""USER: { .Prompt } ASSISTANT: ""
+
+curl -X POST http://localhost:11434/api/create -d '{
+    ""name"": ""bruce/nous-capybara"",
+    ""path"": ""/Users/bruce/models/nous-capybara/Modelfile""
+}'
+
+part of #1217",2,0
+1223,2023-11-21T17:29:44Z,2023-11-21T20:26:47Z,2023-11-21T20:26:47Z,1,2,0,In GNU Readline you can press alt+backspace to delete word. I'm used to this behavior and so it's jarring not to be able to do it. This commit adds the feature.,2,0
+1224,2023-11-21T17:50:16Z,2023-11-21T20:21:59Z,2023-11-21T20:21:59Z,4,1,94,,3,1
+1229,2023-11-21T20:12:48Z,2023-11-30T18:54:38Z,2023-11-30T18:54:38Z,1,37,33,calculating the checksum as it's being transferred is faster overall since the file doesn't need to be reread,2,1
+1239,2023-11-22T12:42:36Z,2023-11-22T19:32:30Z,2023-11-22T19:32:30Z,1,1,0,"The simplicity and speed of Ollama is amazing!
+I would like to add Obsidian's ""BMO Chatbot"" plugin to the 'Community Integrations' section :)",2,0
+1244,2023-11-22T18:11:04Z,2023-12-06T21:23:04Z,2023-12-06T21:23:04Z,1,8,5,"do not fail on unsupported parameters in model template
+
+resolves #1242",4,1
+1250,2023-11-22T22:56:02Z,2023-12-05T22:32:52Z,2023-12-05T22:32:52Z,7,197,223,"refactor layer creation
+previous layer creation was not ideal because:
+
+it required reading the input file multiple times, once to calculate the sha256 checksum, another to write it to disk, and potentially one more to decode the underlying gguf
+used io.ReadSeeker which is prone to user error. if the file isn't reset correctly or in the right place, it could end up reading an empty file
+
+there are also some brittleness when reading existing layers else
+writing the inherited layers will error reading an already closed file
+this commit aims to fix these issues by restructuring layer creation.
+
+it will now write the layer to a temporary file as well as the hash function and move it to the final location on Commit
+layers are read once when copied to the destination. exception is raw model files which still requires a second read to decode the model metadata",4,1
+1258,2023-11-23T23:29:53Z,,2023-11-24T19:02:47Z,4,72,10,"If the model a user is running will the use ggml runtime log a warning that prompts them to check for update to try and pull the gguf version of the model.
+ollama run orca-mini
+This model requires an update to work in future versions of Ollama. Check for update now? (y/n) y
+pulling manifest
+pulling 4de14feaabf8... 100% ▕██████▏(903 MB/903 MB)
+pulling 8971eb8e89ce... 100% ▕██████▏(107 B/107 B)
+pulling e7731c6d6962... 100% ▕██████▏(34 B/34 B)
+pulling 905da7e7adc2... 100% ▕██████▏(76 B/76 B)
+pulling 1bb164b05eb4... 100% ▕██████▏(460 B/460 B)
+verifying sha256 digest
+writing manifest
+removing any unused layers
+success
+>>>",2,1
+1261,2023-11-24T06:20:51Z,2023-11-24T19:05:57Z,2023-11-24T19:05:57Z,1,1,1,"When CUDA peer access is enabled, multi-gpu inference will produce garbage output. This is a known bug of llama.cpp (or nvidia). Until the upstream bug ggerganov/llama.cpp#3772 is fixed, we can disable CUDA peer access temporarily to ensure correct output.
+See #961.",4,7
+1262,2023-11-24T06:26:31Z,2023-11-24T22:16:36Z,2023-11-24T22:16:36Z,3,11,1,"Fix #403
+
+Support cuda build in Windows
+Import ""containerd/console"" lib to support colorful output in Windows terminal",2,0
+1280,2023-11-26T21:14:26Z,2023-11-29T18:33:45Z,2023-11-29T18:33:45Z,1,5,0,Resolves #1247,2,0
+1281,2023-11-27T02:41:48Z,2023-11-27T15:44:37Z,2023-11-27T15:44:37Z,1,1,0,"Hi!
+This adds Amica (https://github.com/semperai/amica) to community integrations.
+Using ollama is very simple with Amica:
+settings -> chatbot -> chatbot backend -> select ollama
+Thanks for ollama it is a great project!",2,0
+1287,2023-11-27T18:18:07Z,2023-11-27T20:57:45Z,2023-11-27T20:57:45Z,1,1,0,ignore jetbrain ides,2,0
+1294,2023-11-28T00:02:40Z,2023-11-29T17:56:42Z,2023-11-29T17:56:42Z,3,153,86,"This change adds a new /set parameter command inside the repl so that you can change parameters without having to recreate a modelfile.
+I have changed the /show parameters command to also reflect any parameters that have been set, however I haven't yet changed /show modelfile which should spit out a new modelfile which reflects the changes. That can come in a followup PR. Also not included in this PR are /set template and /set system which will come in a different PR.",3,0
+1299,2023-11-28T11:03:48Z,2023-11-28T14:54:42Z,2023-11-28T14:54:42Z,1,1,1,Fix a typo in the CA update command,2,0
+1301,2023-11-28T12:11:17Z,2023-11-29T16:44:04Z,2023-11-29T16:44:04Z,1,1,1,"For some reason, the port for MacOS in this how-to was different then the one mentioned before and the one used after in the linux example. Skimming over this and copy pasting this as a Mac user, would result in the ollama program running on a different port and making it unreachable unless the port is changed in all other settings of all things using ollama.
+If this was meant to show that you can use other ports, and wasnt just a typo, this would be a very bad way to do it. One single digit being different is nothing a normal person catches and then understands as ""You can do this as well""",2,0
+1320,2023-11-29T18:54:10Z,,2024-02-20T03:27:22Z,1,6,2,"Currently during upgrade systemd file is lost, this fix avoid overwriting a file",6,4
+1334,2023-11-30T18:51:22Z,2023-12-05T22:40:53Z,2023-12-05T22:40:53Z,5,62,27,"continuation of #1250 and #1308 to load additional models
+This adds model configurations to generate response:
+$ curl -s localhost:11434/api/generate -d '{""model"":""llava:7b-v1.5-q4_0""}' | jq .
+{
+  ""model"": ""llava:7b-v1.5-q4_0"",
+  ""created_at"": ""2023-12-01T19:41:43.684471Z"",
+  ""response"": """",
+  ""model_configuration"": {
+    ""model_format"": ""gguf"",
+    ""model_family"": ""llama"",
+    ""model_families"": [
+      ""llama"",
+      ""clip""
+    ],
+    ""model_type"": ""7B"",
+    ""file_type"": ""Q4_0""
+  },
+  ""done"": true
+}",3,0
+1335,2023-11-30T21:34:44Z,2023-12-01T17:28:36Z,2023-12-01T17:28:36Z,1,87,21,"This change allows setting the system prompt and the prompt template in the repl. It works with both single lines, and with multiline input.",3,0
+1336,2023-12-01T00:32:32Z,2023-12-01T05:16:56Z,2023-12-01T05:16:56Z,2,10,2,,3,0
+1350,2023-12-02T00:18:40Z,2023-12-04T22:14:56Z,2023-12-04T22:14:56Z,1,13,2,,2,0
+1364,2023-12-03T17:16:56Z,2023-12-03T19:19:55Z,2023-12-03T19:19:55Z,1,1,0,"This pull request adds telegram-ollama to Extensions & Plugins section
+I created a bot for telegram, it uses aiogram and can stream API requests in one message, without ratelimit.
+Soon it will get Docker support and other features.
+Thanks!",2,1
+1376,2023-12-04T19:20:27Z,2023-12-04T22:23:43Z,2023-12-04T22:23:43Z,1,3,2,package names for rocky-linux are slightly different,2,0
+1409,2023-12-06T22:36:33Z,2023-12-06T23:49:46Z,2023-12-06T23:49:46Z,2,70,0,Simple example using Bruce's chat endpoint,2,0
+1412,2023-12-07T02:24:20Z,2023-12-11T23:05:10Z,2023-12-11T23:05:10Z,1,4,0,Adding integration to databases section,2,0
+1419,2023-12-07T19:49:25Z,2023-12-07T22:42:24Z,2023-12-07T22:42:24Z,3,117,0,A simple example of the chat endpoint,2,1
+1420,2023-12-07T20:03:08Z,2023-12-11T15:48:15Z,2023-12-11T15:48:15Z,3,25,8,"Add OS specific readline functions. Windows does not support these suspend system calls, so make ctrl-z a no-op on windows. This fixes development windows native builds.
+resolves #1414",4,3
+1424,2023-12-08T00:15:16Z,2023-12-08T21:53:52Z,2023-12-08T21:53:52Z,1,1,1,"I believe this is a bug from the chat API changes, only the most recent request/response was added to the context history. It should be the full prompt after rebuilding the history. This shouldn't be in any released version.",2,0
+1425,2023-12-08T00:28:05Z,2023-12-08T19:20:19Z,2023-12-08T19:20:19Z,1,5,0,In #1244 this line which sets the modelfile system variable in the template got removed. It must still be there to apply the system template from the modelfile.,2,0
+1426,2023-12-08T00:51:04Z,2023-12-08T21:44:24Z,2023-12-08T21:44:24Z,2,92,15,"There was a bug in the /chat endpoint here during templating that resulted in the prompt template being written incorrectly.
+If a user was encountered when the system was already set the template would be written before the user content was set. This was not correct. The template should only be written when the exact role has been encountered before.",2,0
+1427,2023-12-08T00:56:14Z,2023-12-22T22:07:05Z,2023-12-22T22:07:05Z,3,333,15,"add post-response templating to /generate
+add post-response templating to /chat
+add templating tests
+
+A common format for LLM templating may include post-response templating. Our current template format kind of supported this by checking {{ if not .First }} but it is confusing to read. This change allows post-response templating to be applied.
+Here is an example of a format that is now supported:
+<|im_start|>user
+{{ .Prompt }}<|im_end|>
+<|im_start|>assistant
+{{ .Response }}<|im_end|>
+
+Current templates are not effected.
+Follow-up: docs
+Resolves: #1423",2,0
+1428,2023-12-08T01:02:21Z,2024-01-08T19:38:51Z,2024-01-08T19:38:51Z,1,6,5,"Document #1427, to be merged on next release",2,0
+1444,2023-12-09T01:38:51Z,,2023-12-12T01:15:00Z,1,4,0,"OLLAMA_NOPRUNE will prevent the pruning process from running, but it isn't mentioned anywhere outside of the code and a merged PR.",2,0
+1445,2023-12-09T01:58:05Z,2023-12-09T19:14:02Z,2023-12-09T19:14:02Z,1,30,26,"As of the most recent llama.cpp update concurrent requests had a race condition that would result in an empty response.
+This was not easy to observe since the response from the llm runner subprocess was a 200 with the error {""content"":""slot unavailable""} in the response stream, which just silently closed the channel.
+This change resolves this by allowing multiple slots in the llm runner subprocess. We manage the queueing ourselves so this should be ok. @dhiltgen this may be a case we need to account for in the cgo changes.",2,1
+1452,2023-12-10T06:34:15Z,2023-12-22T17:10:41Z,2023-12-22T17:10:41Z,26,345,100,"Most of the examples needed updates of Readmes to show how to run them. Some of the requirements.txt files had extra content that wasn't needed, or missing altogether. Apparently some folks like to run npm start to run typescript, so a script was added to all typescript examples which hadn't been done before.
+Basically just a lot of cleanup.",2,0
+1463,2023-12-11T08:01:18Z,2023-12-15T19:33:04Z,2023-12-15T19:33:04Z,1,1,1,,2,0
+1469,2023-12-11T17:40:49Z,2023-12-12T20:27:03Z,2023-12-12T20:27:03Z,3,0,64,mostly replaced by decoding tensors except ggml models which only support llama,2,0
+1479,2023-12-12T10:20:25Z,2023-12-12T15:26:13Z,2023-12-12T15:26:13Z,1,1,1,"This pull request fixes markdown (""MindsDB"" link in Readme)",2,0
+1488,2023-12-12T20:34:01Z,2023-12-13T16:21:23Z,2023-12-13T16:21:23Z,1,4,0,,2,0
+1506,2023-12-13T17:49:24Z,2023-12-22T17:10:01Z,2023-12-22T17:10:01Z,7,367,236,"Will probably need to update with PRs for new release.
+This accomplishes a few things.
+
+First it looks at the api docs, makes them a bit more consistent, and fixes the requests and responses to reflect how they actually work today.
+It creates a better README for the docs folder
+Creates a DeepDive for understanding the files and layers using the api (inspired by the gdev doc Jeff shared)
+Creates a troubleshooting guide that starts to share the common solutions to some error messages that pop up.
+Moves some of the FAQ questions into more appropriate places in the docs.
+
+I think that’s it.",3,1
+1527,2023-12-14T17:47:56Z,2023-12-14T22:49:01Z,2023-12-14T22:49:01Z,1,0,12,this info has not been returned from these endpoints in some time,2,0
+1528,2023-12-14T22:35:10Z,2023-12-15T00:47:40Z,2023-12-15T00:47:40Z,4,122,30,"This change modifies the base server to allow it to be more easily unit tested. It also adds in a simple unit test to ""/api/version"" to demonstrate how to add unit tests in the future.",3,0
+1529,2023-12-14T22:35:25Z,2023-12-15T19:37:29Z,2023-12-15T19:37:29Z,1,2,1,I have just released iOS mobile App for Ollama and wanted to share with the community. A lot of improvements are coming up soon.,2,0
+1530,2023-12-14T22:44:19Z,2023-12-18T19:23:38Z,2023-12-18T19:23:38Z,2,6,10,"Send an empty message on the last chat response rather than omitting it. This makes the chat API match the generate API.
+As of this change...
+/generate
+curl http://localhost:11434/api/generate -d '{
+    ""model"": ""mistral""
+}'
+
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+Date: Thu, 14 Dec 2023 22:42:13 GMT
+Content-Length: 88
+Connection: close
+
+{
+  ""model"": ""mistral"",
+  ""created_at"": ""2023-12-14T22:42:13.365069Z"",
+  ""response"": """",
+  ""done"": true
+}
+
+curl http://localhost:11434/api/generate -d '{
+    ""model"": ""mistral"",
+    ""prompt"": ""reply with a single word""
+}'
+
+HTTP/1.1 200 OK
+Content-Type: application/x-ndjson
+Date: Thu, 14 Dec 2023 22:43:05 GMT
+Connection: close
+Transfer-Encoding: chunked
+
+{""model"":""mistral"",""created_at"":""2023-12-14T22:43:05.60168Z"",""response"":"" Okay"",""done"":false}
+{""model"":""mistral"",""created_at"":""2023-12-14T22:43:05.616406Z"",""response"":""."",""done"":false}
+{""model"":""mistral"",""created_at"":""2023-12-14T22:43:05.631163Z"",""response"":"""",""done"":true,""context"":[733,16289,28793,28705,10071,395,264,2692,1707,733,28748,16289,28793,19811,28723],""total_duration"":414743625,""load_duration"":760500,""prompt_eval_count"":14,""prompt_eval_duration"":393924000,""eval_count"":2,""eval_duration"":14727000}
+
+/chat
+curl http://localhost:11434/api/chat -d '{
+    ""model"": ""mistral""
+}'
+
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+Date: Thu, 14 Dec 2023 22:41:56 GMT
+Content-Length: 132
+Connection: close
+
+{
+  ""model"": ""mistral"",
+  ""created_at"": ""2023-12-14T22:41:56.540246Z"",
+  ""message"": {
+    ""role"": ""assistant"",
+    ""content"": """",
+    ""images"": null
+  },
+  ""done"": true
+}
+
+curl http://localhost:11434/api/chat -d '{
+    ""model"": ""mistral"",
+    ""messages"": [
+        {
+            ""role"": ""user"",
+            ""content"": ""reply with one word""
+        }
+    ]
+}'
+HTTP/1.1 200 OK
+Content-Type: application/x-ndjson
+Date: Thu, 14 Dec 2023 22:38:36 GMT
+Connection: close
+Transfer-Encoding: chunked
+
+{""model"":""mistral"",""created_at"":""2023-12-14T22:38:36.625168Z"",""message"":{""role"":""assistant"",""content"":"" Okay"",""images"":null},""done"":false}
+{""model"":""mistral"",""created_at"":""2023-12-14T22:38:36.639622Z"",""message"":{""role"":""assistant"",""content"":""."",""images"":null},""done"":false}
+{""model"":""mistral"",""created_at"":""2023-12-14T22:38:36.654161Z"",""message"":{""role"":""assistant"",""content"":"""",""images"":null},""done"":true,""total_duration"":417861167,""load_duration"":927584,""prompt_eval_count"":13,""prompt_eval_duration"":396099000,""eval_count"":2,""eval_duration"":14502000}",3,0
+1541,2023-12-15T06:20:11Z,2023-12-15T19:59:18Z,2023-12-15T19:59:18Z,1,75,12,This change adds a test for calling POST /api/create which creates a new model.,2,0
+1544,2023-12-15T16:38:44Z,2023-12-15T19:15:57Z,2023-12-15T19:15:57Z,1,1,1,"go 1.21 is required to build ollama, update the go.mod to reflect this
+resolves #1515",2,2
+1552,2023-12-15T19:34:07Z,2024-01-11T17:37:46Z,2024-01-11T17:37:46Z,17,141,82,"fixes a bug with generate where get_flags errors on ubuntu (and likely windows) when building cuda on a cuda-less system
+fixes a bug in windows where /api/list does not return models correctly
+both lint and test requires go generate results so do it once then propagate the artifacts to the rest of the pipeline
+this enables linting with golangci-lint but doesn't go overboard with linters. it enables the default linters and only a few extra linters to catch the most egregious bugs
+linting can run locally with golangci-lint
+go install github.com/golangci/golangci-lint/cmd/golangci-lint@v1.55.2
+golangci-lint run -v
+
+docker run --rm -v $(pwd):/app -w /app golangci/golangci-lint:v1.55.2 golangci-lint run -v
+
+resolves #1539",6,0
+1558,2023-12-16T02:01:01Z,2023-12-18T18:41:02Z,2023-12-18T18:41:02Z,1,21,11,This change adds in the magic GGUF header for the temporary model image layer.,3,0
+1564,2023-12-16T11:04:46Z,2023-12-19T19:04:53Z,2023-12-19T19:04:53Z,1,1,0,,2,0
+1592,2023-12-19T01:48:00Z,2023-12-19T04:29:49Z,2023-12-19T04:29:49Z,11,0,186,,2,0
+1595,2023-12-19T03:09:13Z,2023-12-19T04:55:18Z,2023-12-19T04:55:18Z,1,1,0,"Added a link to my terminal application cmdh, which lets you request linux commands using an LLM (https://github.com/pgibler/cmdh). I just added ollama support today. The tl;dr is it sends your command request to the LLM which outputs a terminal command that matches the request. You can then use a hotkey to run the command. It's saved me hours of looking through documentation and can push out pretty complex results.
+Thank you for creating & maintaining ollama!",2,3
+1596,2023-12-19T04:46:48Z,,2024-02-20T01:55:35Z,1,41,0,"we need a community page in the docs for blogs, videos, and tutorials. Tools that use Ollama will still go on the front readme.",3,1
+1598,2023-12-19T05:48:59Z,,2024-03-07T22:03:27Z,2,74,80,"Updating the development docs with:
+
+organization based on OS
+adding helpful links for linux based installs",3,2
+1614,2023-12-19T19:37:53Z,2024-01-09T17:36:25Z,2024-01-09T17:36:25Z,1,67,55,"this changes updates /set to better handle multiline strings. /set now correctly sets template or system without using triple quotes
+>>> /set template {{ .Prompt }}
+Set prompt template.
+
+additionally, use a strings.Builder instead of concatenating string values for prompt building
+>>> """"""hello
+... world""""""
+
+>>> """"""
+... hello
+... world
+... """"""
+
+>>> /set system """"""
+... you are a llama
+... """"""
+
+>>> /set template """"""
+... {{.System}}
+... User: {{.Prompt}}
+... Assistant: {{.Response}}
+... """"""
+
+resolves #1609
+resolves #1607",3,1
+1623,2023-12-20T08:14:18Z,2024-03-25T19:08:33Z,2024-03-25T19:08:33Z,1,1,0,"Adds a link to a terminal command (https://github.com/npahlfer/ooo) that lets you pipe in outputs from other terminal commands ""into"" Ollama and parse them through your prompt.
+This way you can parse command outputs in an easy way!
+You can also just prompt Ollama like you normally would eg. $ ooo how long is a rope.
+Thanks, I love your work!",2,0
+1642,2023-12-20T20:24:14Z,2023-12-22T22:16:20Z,2023-12-22T22:16:20Z,3,6,2,"This PR, adds the API option ""cache"", that allows the llama.cpp server to cache our prompt Eval and the response.
+This speed-up follow-up calls immensely for some models, if you use it over the API, with the same prompt (or even partial ones), it will speed up subsequent calls, since it skips the evaluation of the prompt.
+Also, this PR includes commands /set cache and /set nocache to give users the ability to enable prompt caching in the official CLI.
+
+Add a new entry ""cache"" to the options object that is passed to the worker
+Add commands /set cache and /set nocache to allow this in the repl cli
+Update docs
+
+This is a partial fix for, Enable prompt cache #1573, we might need to patch llama.cpp at some point to allow us full flexibility.",4,8
+1646,2023-12-20T23:03:32Z,2023-12-21T00:27:24Z,2023-12-21T00:27:24Z,2,9,1,,2,0
+1661,2023-12-21T18:12:50Z,2024-01-03T16:00:59Z,2024-01-03T16:00:59Z,1,2,2,"The API docs specify that template overrides the prompt which isn't the case (verified back to v0.1.13), this is the functionality that raw mode enables. This change fixes the description.",2,0
+1662,2023-12-21T19:13:07Z,,2024-01-22T17:04:04Z,0,0,0,"Local GPT plugin for Obsidian mainly relies on Ollama provider
+
+
+But it's also possible to use OpenAI-like local server.
+I'd say that Local GPT plugin is enhanced version of Obsidian Ollama plugin in every way.",2,0
+1679,2023-12-22T20:22:28Z,2024-01-26T00:38:14Z,2024-01-26T00:38:14Z,1,64,16,,2,0
+1680,2023-12-22T21:05:13Z,2024-01-03T16:10:17Z,2024-01-03T16:10:17Z,22,816,717,"This changes the model for llama.cpp inclusion so we're not applying a patch, but instead have the C++ code directly in the ollama tree, which should make it easier to refine and update over time.
+This also includes a change to refactor the dynamic loading logic to support variants that are purely dynamic, and leverages this on Windows.  In the windows build now, the base executable has only standard system dependencies, which means no special PATH setup is required.  That binary caries 2 payloads - one for CPU build and one for CUDA, and will load the appropriate one at runtime.  The dependencies for those are extracted into a temporary directory, and the PATH is updated automatically to ensure the deps are loaded.  We should be able to follow this same model to add ROCm support for windows as well in a follow up.
+As a potential follow up, we could drop the sed of main and switch to a pure dynamic load strategy so the symbol isn't a conflict.",4,1
+1683,2023-12-23T00:05:02Z,2024-01-03T17:00:39Z,2024-01-03T17:00:40Z,8,68,20,This refines the gpu package error handling and fixes a bug with the system memory lookup on windows.,4,0
+1697,2023-12-24T17:05:29Z,2024-01-06T03:34:21Z,2024-01-06T03:34:21Z,1,39,5,"Fixes #1694
+Note: the resulting native windows binary isn't particularly user friendly right now as it requires setting your PATH deep into the source tree to pick up the dependent DLLs.  I'm working on another change that will address this.  I'll keep this PR as a draft until that's ready.",2,0
+1700,2023-12-24T19:09:04Z,,2024-01-03T00:57:13Z,2,47,32,"Reorganize the x86/arm components to be more DRY, and remove the cuda driver
+Note: to build locally on arm mac, I need to remove the --cache-from and --cache-to flags in the script to be able to build without a builder defined.  It seems with a builder, qemu is being used instead of rosetta, and the rocm post-install packaging scripts have some binaries that wont run with qemu resulting in
+...
+#10 864.1 Error while loading /var/lib/dpkg/info/rocrand.postinst: Exec format error
+#10 864.1 dpkg: error processing package rocrand (--configure):
+#10 864.1  installed rocrand package post-installation script subprocess returned error exit status 1
+
+If I omit creating a buildx builder, the default Docker Desktop build with rosetta works.",2,4
+1706,2023-12-25T09:46:38Z,2024-02-23T12:17:28Z,2024-02-23T12:17:28Z,1,1,0,"Thank you so much for developing Ollama; it has made running llama2 on my Mac incredibly simple. I've completely forgotten how I used to handle all the dependencies myself.
+Recently, I've added support for Ollama's locally deployed models to my project Chatbox (in the latest release), and now Chatbox + Ollama is just fantastic.🍻",3,3
+1747,2023-12-30T18:42:25Z,2024-01-02T14:47:50Z,2024-01-02T14:47:50Z,1,2,0,,2,1
+1757,2024-01-01T23:00:44Z,2024-01-02T14:47:08Z,2024-01-02T14:47:08Z,1,1,1,,2,0
+1761,2024-01-02T15:35:08Z,2024-01-03T17:01:42Z,2024-01-03T17:01:42Z,5,103,68,"options from the loaded llm were being used regardless of the requested options
+
+Only the options set from the request that initially loaded the model were being used as of the most recent llama.cpp update. Fix this by relaying the resolved options when options are checked during load time.",3,2
+1767,2024-01-03T17:51:14Z,2024-02-20T03:18:05Z,2024-02-20T03:18:05Z,1,1,0,ShellOracle is a new ZSH Line Editor widget that uses Ollama for intelligent shell command generation! Ollama rocks!,3,2
+1774,2024-01-03T20:48:36Z,2024-01-04T06:34:38Z,2024-01-04T06:34:38Z,1,8,2,"I created a bug here when accounting for the ""pull parent model"" case when pull gguf models on deprecated ggml models. In the case of a Modelfile like this:
+FROM orca-mini
+SYSTEM ""you are mario""
+
+where orca-mini is a ggml library model there is no ParentModel and the model itself should be pulled.
+This handles both:
+FROM orca-mini
+SYSTEM ""you are mario""
+
+and a child:
+FROM mario
+PARAMETER temperature 0
+
+correctly and will pull the root model for both cases.",2,0
+1775,2024-01-03T20:53:26Z,2024-02-20T19:03:33Z,2024-02-20T19:03:33Z,1,1,0,msty.mp4,2,3
+1778,2024-01-03T23:16:12Z,2024-01-04T00:18:41Z,2024-01-04T00:18:41Z,1,8,0,"This prevents users from accidentally installing on WSL1 with instructions guiding how to upgrade their WSL instance to version 2.  Once running WSL2 if you have an NVIDIA card, you can follow their instructions to set up GPU passthrough and run models on the GPU.  This is not possible on WSL1.
+Example output.
+WSL1
+daniel@DESKTOP-PUNI632:/mnt/c/Users/Daniel$ ./install.sh
+ERROR WSL1 is not currently supported - please upgrade to WSL2 with 'wsl --set-version <distro> 2'
+daniel@DESKTOP-PUNI632:/mnt/c/Users/Daniel$ uname -r
+4.4.0-19041-Microsoft
+
+WSL2
+root@DESKTOP-PUNI632:/mnt/c/Users/Daniel# ./install.sh
+>>> Downloading ollama...
+################################################################################################################# 100.0% 
+...
+root@DESKTOP-PUNI632:/mnt/c/Users/Daniel# uname -r
+5.15.133.1-microsoft-standard-WSL2",3,0
+1779,2024-01-03T23:18:04Z,2024-01-04T00:18:57Z,2024-01-04T00:18:57Z,1,23,1,This moves the list of AMD GPUs to an easier to maintain list which should make it easier to update over time.,2,0
+1786,2024-01-04T17:46:13Z,,2024-02-20T03:17:13Z,1,23,0,This adds a short faq to describe quantization and context.,2,1
+1787,2024-01-04T18:12:04Z,,2024-02-20T04:16:09Z,1,6,0,,2,1
+1791,2024-01-04T21:55:46Z,2024-01-05T03:13:44Z,2024-01-05T03:13:44Z,2,94,67,,3,0
+1793,2024-01-05T01:31:19Z,2024-01-05T20:20:05Z,2024-01-05T20:20:06Z,4,572,515,"This change splits up the interactive generation part of the CLI into its own file, and also fixes some issues with the way the show command works.
+There is a new /show info command in the REPL which can show details about the model, and also /show modelfile will combine any parameters set in the REPL so that it creates the correct modelfile.",3,0
+1797,2024-01-05T02:03:54Z,2024-01-06T01:20:09Z,2024-01-06T01:20:09Z,1,1,0,,3,11
+1802,2024-01-05T05:14:35Z,2024-01-05T16:25:58Z,2024-01-05T16:25:58Z,2,29,13,,3,0
+1814,2024-01-05T19:14:26Z,2024-01-05T20:22:32Z,2024-01-05T20:22:32Z,1,18,24,"allow cancelling gguf model update pull
+additional information is now available in show response, use this to pull gguf before running",2,0
+1818,2024-01-05T23:58:04Z,2024-01-08T21:48:35Z,2024-01-08T21:48:35Z,2,28,26,using up/down arrows (for history) messes up multiline string inputs by replacing the alt prefix ... with the default prefix >>>,3,0
+1819,2024-01-06T03:52:13Z,2024-01-11T22:00:48Z,2024-01-11T22:00:48Z,33,821,625,"In some cases we may want multiple variants for a given GPU type or CPU. This adds logic to have an optional Variant which we can use to select an optimal library, but also allows us to try multiple variants in case some fail to load.
+This change includes updates to the Dockerfile.build to compile 2 variants for ROCm so we can support v5 and v6.
+I've also added multiple CPU variants and runtime detection logic so we can support both lowest-common-denominator for really old CPUs (and rosetta emulation on macos) as well as more modern CPUs.  At present, llama.cpp does not verify CPU features, so loading the wrong cpu variant will panic the whole process with illegal instruction.  Ollama should autodetect the optimal llm library variant for the given system, but I've also added a fail-safe mechanism for users to be able to force a specific library to workaround problems should they arise.
+This also converges the LLM library model to use dynamic loading for all scenarios instead of having a built-in static link for macos and linux.  Windows was always fully dynamic, and now linux and macos follow the same pattern, so I was able to clean up the implementation and reduce some unnecessary complexity.
+Fixes #1868
+Fixes #1821",3,1
+1828,2024-01-06T18:52:31Z,2024-01-07T17:05:46Z,2024-01-07T17:05:46Z,2,54,2,"This enhances our regex to support windows style paths.  The regex will match invalid path specifications, but we'll still validate file existence and filter out mismatches
+Fixes #1794",2,1
+1830,2024-01-06T21:26:22Z,2024-01-07T03:31:39Z,2024-01-07T03:31:39Z,1,1,0,"Hi!
+Adding a new library for the Ruby language:
+
+Ollama for Ruby
+
+Ruby Gem",2,0
+1833,2024-01-07T05:47:53Z,2024-01-07T15:39:19Z,2024-01-07T15:39:19Z,1,2,2,"Fixes this warning:
+% go build .
+# github.com/jmorganca/ollama/llm
+cgo-gcc-prolog:153:33: warning: unused variable '_cgo_a' [-Wunused-variable]
+cgo-gcc-prolog:165:33: warning: unused variable '_cgo_a' [-Wunused-variable]",2,0
+1834,2024-01-07T05:56:34Z,2024-01-07T18:39:49Z,2024-01-07T18:39:49Z,3,74,2,"If we try to load the CUDA library on an old GPU, it panics and crashes the server.  This checks the compute capability before we load the library so we can gracefully fall back to CPU mode.
+Prior to version 0.1.18, the fallback behavior resulted from the subprocess runner crashing.  Example from an old GPU:
+ggml_init_cublas: found 1 CUDA devices:
+  Device 0: NVIDIA GeForce GTX 765M, compute capability 3.0
+
+cuBLAS error 3 at /go/src/github.com/jmorganca/ollama/llm/llama.cpp/gguf/ggml-cuda.cu:5552
+current device: 0
+2024/01/06 21:48:54 llama.go:320: llama runner exited with error: exit status 1
+
+In 0.1.18 without this fix, the server crashes with a panic due to the assert in llama.cpp.
+With this fix on the same system we now detect and fallback to CPU mode:
+2024/01/06 21:52:17 shim_ext_server.go:142: Dynamic LLM variants [cuda rocm]
+2024/01/06 21:52:17 gpu.go:37: Detecting GPU type
+2024/01/06 21:52:17 gpu.go:56: Nvidia GPU detected
+2024/01/06 21:52:17 gpu.go:89: CUDA GPU is too old. Falling back to CPU mode. Compute Capability detected: 3.0
+2024/01/06 21:52:17 routes.go:953: no GPU detected
+...
+
+Example output on a newer supported GPU which correctly runs on the GPU:
+2024/01/06 21:55:11 shim_ext_server.go:142: Dynamic LLM variants [cuda rocm]
+2024/01/06 21:55:11 gpu.go:37: Detecting GPU type
+2024/01/06 21:55:11 gpu.go:56: Nvidia GPU detected
+2024/01/06 21:55:11 gpu.go:86: CUDA Compute Capability detected: 7.5",2,0
+1849,2024-01-08T00:24:45Z,2024-02-06T00:01:17Z,2024-02-06T00:01:17Z,1,7,0,Makes it a little easier to compile when cuda lib dir is split up as in nixos.,2,9
+1850,2024-01-08T04:52:49Z,2024-01-08T21:42:00Z,2024-01-08T21:42:00Z,10,161,154,"This PR fixes a large number of crashes and ""out of memory"" errors related to VRAM allocation, by using a more accurate estimation of how much memory is required to run a model with a given context size.
+Models such as mixtral will now run on lower end hardware that would previously before, even if defaulting to the CPU is required. Also, more layers are loaded to Nvidia GPUs which should result in a speedup on Linux.
+Details:
+
+VRAM estimation now accounts for the kv cache and tensor graph (which can grow to GiBs for large context sizes)
+On macOS, Ollama will now run in CPU mode, even on Apple Silicon (arm64) if the GPU doesn't have enough VRAM. Models such as mixtral, llama2:70b, etc will now work (perhaps slowly) instead of crashing
+On Linux, the number of layers to be offloaded to the GPU now accounts for the kv cache which is also partially offloaded
+
+Todo in a follow up:
+
+Handle smaller batch sizes as mention in #1812
+Still seeing some errors with very large context sizes (64k, 128k)
+Limit num_ctx to what the model is trained on
+
+Fixes #1838
+Fixes #1812
+Fixes #1516
+Fixes #1674
+Fixes #1374
+Fixes #1534
+Fixes #1303
+Fixes #1413
+Fixes #1636
+Fixes #1837
+Fixes #1627
+Fixes #1566
+Fixes #1576
+Fixes #1703",5,2
+1856,2024-01-08T17:09:55Z,2024-01-08T19:41:01Z,2024-01-08T19:41:01Z,2,1,41,"Remove ggml automatic re-pull now that ggml removal has been rolled out. This prevents a possible future bug where non-ggml models always get pulled on run.
+When an unsupported model format is run the error message is displayed to the user:
+$ ollama run orca-mini
+Error: unsupported model format: this model may be incompatible with your version of Ollama. If you previously pulled this model, try updating it by running `ollama pull orca-mini:latest`
+
+$ ollama create mario -f ~/models/mario/Modelfile
+transferring model data
+reading model metadata
+Error: orca-mini is not in gguf format, this base model is not compatible with this version of ollama",3,0
+1873,2024-01-09T19:17:55Z,2024-03-25T19:07:19Z,2024-03-25T19:07:19Z,1,1,0,🤗,3,1
+1885,2024-01-10T06:19:01Z,2024-01-10T21:48:38Z,2024-01-10T21:48:38Z,2,5,1,,2,0
+1886,2024-01-10T06:46:40Z,,2024-01-22T21:52:24Z,4,43,0,"More generic than #1846
+Slots in simply with the existing environment variable configuration
+
+Can be used to set environment variables on MacOS for e.g. OLLAMA_ORIGINS without needing to fiddle around with plist/SIP",2,4
+1896,2024-01-10T13:55:02Z,2024-01-11T00:08:51Z,2024-01-11T00:08:51Z,2,19,12,Fixes #1887,2,1
+1899,2024-01-10T14:36:10Z,,2024-01-11T01:16:38Z,1,8,1,"Fixes #1898, although more as a stop gap and we may want to search through paths like the author's gist",3,2
+1915,2024-01-11T00:48:36Z,2024-01-16T21:36:49Z,2024-01-16T21:36:49Z,2,2,1,"Upstream llama.cpp has added a new dependency with the NVIDIA CUDA Driver Libraries (libcuda.so) which is part of the driver distribution, not the general cuda libraries, and is not available as an archive, so we can not statically link it.  This may introduce some additional compatibility challenges which we'll need to keep an eye on.
+Marking draft until we can test on more driver/cuda version combinations to ensure this doesn't cause compatibility problems.",3,4
+1916,2024-01-11T00:55:08Z,2024-01-26T18:56:01Z,2024-01-26T18:56:01Z,1,74,43,"If a download part is inactive for some time, restart it. From profiling, it's possible for one or more of the download parts to stall and receive no content from the storage backend for many consecutive seconds.
+This generally causes the download to slow to a rate of near zero at the end as other, faster parts complete their download.
+This change adds a monitor for each part. If the part doesn't receive data (0 bytes) for a given window (5 seconds), the monitor will trigger a stall error and the request is interrupted and retried. This retry does not increment the retry counter.
+Related to #1736",3,0
+1921,2024-01-11T08:41:45Z,2024-01-11T13:22:23Z,2024-01-11T13:22:23Z,1,1,1,"When running the test suite on linux with a cuda build I get the following error without this commit:
+--- FAIL: TestBasicGetGPUInfo (0.06s)
+    gpu_test.go:21: 
+                Error Trace:    /build/ollama-cuda/src/ollama/gpu/gpu_test.go:21
+                Error:          Elements should be the same type
+                Test:           TestBasicGetGPUInfo
+FAIL
+FAIL    github.com/jmorganca/ollama/gpu 0.078s
+
+This was due to a type mismatch between GetGPUInfo() and the corresponding TestBasicGetGPUInfo() test. This simple commit fixes it on the test side and now I get the following test output:
+ok      github.com/jmorganca/ollama/gpu 0.090s
+
+(my first line of go btw.)",2,0
+1924,2024-01-11T10:24:57Z,2024-01-12T05:07:00Z,2024-01-12T05:07:00Z,1,2,1,"After executing the userdel ollama command, I saw this message:
+$ sudo userdel ollama
+userdel: group ollama not removed because it has other members.
+Which reminded me that I had to remove the dangling group too. For completeness, the uninstall instructions should do this too.
+Thanks!",2,1
+1936,2024-01-11T23:15:31Z,2024-01-12T20:05:52Z,2024-01-12T20:05:52Z,2,155,72,This change switches the REPL to use /api/chat when running in interactive mode. It will still use /api/generate for non-interactive sessions. I've also attempted to DRY out the display response for calls to either end point to be able to properly do word wrapping.,2,0
+1937,2024-01-11T23:52:08Z,2024-01-16T19:01:41Z,2024-01-16T19:01:41Z,2,4,284,See ollama-python,4,2
+1961,2024-01-12T19:57:46Z,2024-01-12T23:18:19Z,2024-01-12T23:18:19Z,1,6,6,"also change fmt.Print(""\(.*\)\n"") to fmt.Println(""\1"")
+Before
+>>> /set parameter temperature 0
+Set parameter 'temperature' to '0'
+
+>>> Send a message (/? for help)
+
+Now
+>>> /set parameter temperature 0
+Set parameter 'temperature' to '0'
+>>>",2,0
+1966,2024-01-12T21:12:54Z,2024-01-15T02:00:11Z,2024-01-15T02:00:11Z,1,14,5,This pull request supersedes #1880,2,0
+1968,2024-01-12T21:34:32Z,2024-01-16T18:33:50Z,2024-01-16T18:33:50Z,1,31,34,"This fixes a subtle bug with makeRequestWithRetry where an HTTP status error on a retried request will potentially not return the right error.
+When a request is retried on Unauthorized, the second request does not go through the same error handling as the first request. For example, if the second request returns with status 404, it returns the request and a nil error while if the first request returns with the same status, it will return a nil request and os.ErrNotExist",2,0
+1982,2024-01-13T22:48:06Z,2024-01-14T16:26:47Z,2024-01-14T16:26:47Z,2,4,1,"Make sure we're building an x86 ext_server lib when cross-compiling
+Prior to this fix, running the cross-compiled binary on an intel mac produced the following error:
+2024/01/13 14:38:47 llm.go:66: not enough vram available, falling back to CPU only
+2024/01/13 14:38:47 cpu_common.go:15: CPU has AVX
+2024/01/13 14:38:47 dyn_ext_server.go:384: Updating LD_LIBRARY_PATH to /var/folders/z8/jy4xc40953n1tfs96m6gnzkr0000gn/T/ollama2093980092/metal:
+loading /var/folders/z8/jy4xc40953n1tfs96m6gnzkr0000gn/T/ollama2093980092/metal/libext_server.so library
+2024/01/13 14:38:47 llm.go:151: Failed to load dynamic library /var/folders/z8/jy4xc40953n1tfs96m6gnzkr0000gn/T/ollama2093980092/metal/libext_server.so  Unable to load dynamic library: Unable to load dynamic server library: dlopen(/var/folders/z8/jy4xc40953n1tfs96m6gnzkr0000gn/T/ollama2093980092/metal/libext_server.so, 2): no suitable image found.  Did find:
+	/var/folders/z8/jy4xc40953n1tfs96m6gnzkr0000gn/T/ollama2093980092/metal/libext_server.so: mach-o, but wrong architecture
+	/var/folders/z8/jy4xc40953n1tfs96m6gnzkr0000gn/T/ollama2093980092/metal/libext_server.so: stat() failed with errno=4
+[GIN] 2024/01/13 - 14:38:47 | 500 |  416.860287ms |       127.0.0.1 | POST     ""/api/chat""",2,1
+1987,2024-01-14T13:13:16Z,2024-01-18T21:32:10Z,2024-01-18T21:32:10Z,2,8,2,"Let gpu.go and gen_linux.sh find CUDA on Arch Linux.
+These changes were needed to let the ollama-cuda package on Arch Linux find CUDA when building.
+Also, use find instead of ls in gen_linux.sh.",2,0
+1990,2024-01-14T18:16:28Z,2024-01-16T20:31:37Z,2024-01-16T20:31:37Z,1,28,3,"Linux and Windows are not yet set up for cross-compilation like MacOS, so I've excluded those from the CI matrix.",4,0
+1999,2024-01-15T10:13:07Z,2024-01-19T01:16:54Z,2024-01-19T01:16:54Z,1,1,1,"Update gpu.go initGPUHandles() to declare gpuHandles variable before reading it. This resolves an ""invalid memory address or nil pointer dereference"" error.
+Update dyn_ext_server.c to avoid setting the RTLD_DEEPBIND flag under TERMUX (Android).",3,1
+2007,2024-01-15T20:38:20Z,2024-01-18T19:32:29Z,2024-01-18T19:32:29Z,18,321,186,"This also refines the build process for the ext_server build.
+I had initially aimed to get rid of the gcc/g++ library generation step and rely on cmake to build a shared library, but due to toolchain quirks, this model didn't work reliably. (e.g. linux worked since it's a consistent toolchain, and arm mac worked, but intel mac segfaults when calling the init function pointer). This may still be achievable in a follow up incremental PR, but for now I'll stick with g++ to create the main library we dlopen on all platforms except windows.
+Another potential follow up is to consider splitting out the cuda shared libraries as a discrete download and handle it in the installer script if we don't detect cuda present on the host.  That would further reduce the footprint and resolve the slow initial startup due to decompressing large payloads.
+Marking draft until I have a chance to more fully test, but so far happy path testing on mac (intel/arm), windows(cuda), and linux (rocm/cuda) looks good.
+Extracting the now compressed payloads takes some time - ~15s on my older laptop
+2024/01/15 11:12:42 payload_common.go:106: Extracting dynamic libraries...
+2024/01/15 11:12:57 payload_common.go:145: Dynamic LLM libraries [rocm_v6 cpu cpu_avx2 cpu_avx cuda_v11 rocm_v5]
+
+Uncompressed sizes once on disk:
+% du -sh /tmp/ollama3226276348/*
+36M	/tmp/ollama3226276348/cpu
+36M	/tmp/ollama3226276348/cpu_avx
+36M	/tmp/ollama3226276348/cpu_avx2
+410M	/tmp/ollama3226276348/cuda_v11
+30M	/tmp/ollama3226276348/rocm_v5
+31M	/tmp/ollama3226276348/rocm_v6
+
+The actual linux binary:
+% ls -lh ollama-linux-amd64
+-rwxrwxr-x 1 daniel daniel 294M Jan 15 11:12 ollama-linux-amd64",2,2
+2016,2024-01-16T15:30:38Z,2024-01-18T21:59:39Z,2024-01-18T21:59:39Z,1,1,0,Adding Open Interpreter to the list of Extensions & Plugins. Includes link to OI documentation explaining how to use Ollama to power OI,2,0
+2017,2024-01-16T17:20:24Z,2024-01-16T18:34:44Z,2024-01-16T18:34:44Z,2,41,20,The ShowParameters call was converting some floats into ints. This simplifies the code and adds a unit test.,2,0
+2020,2024-01-16T19:46:46Z,2024-01-18T22:23:42Z,2024-01-18T22:23:42Z,1,2,2,"repos for fedora 38 and newer do not exist as of this commit
+$ dnf config-manager --add-repo https://developer.download.nvidia.com/compute/cuda/repos/fedora37/x86_64/cuda-fedora37.repo
+Adding repo from: https://developer.download.nvidia.com/compute/cuda/repos/fedora37/x86_64/cuda-fedora37.repo
+
+$ dnf config-manager --add-repo https://developer.download.nvidia.com/compute/cuda/repos/fedora38/x86_64/cuda-fedora38.repo
+Adding repo from: https://developer.download.nvidia.com/compute/cuda/repos/fedora38/x86_64/cuda-fedora38.repo
+Status code: 404 for https://developer.download.nvidia.com/compute/cuda/repos/fedora38/x86_64/cuda-fedora38.repo (IP: 152.195.19.142)
+Error: Configuration of repo failed
+
+resolves #1993
+resolves #1326",2,0
+2021,2024-01-16T19:57:08Z,2024-01-18T21:38:32Z,2024-01-18T21:38:32Z,1,2,0,Updated readme with the web link for haystack ollama integration,2,0
+2030,2024-01-17T10:31:27Z,2024-04-15T22:37:30Z,2024-04-15T22:37:30Z,1,1,1,Changed ollama.call() for ollama.invoke() as per deprecated documentation from langchain,2,0
+2055,2024-01-18T17:52:23Z,2024-01-18T20:07:31Z,2024-01-18T20:07:31Z,1,15,3,"With the recent improvements in the gen_linux.sh script and these doc updates, this should fix #1704",2,0
+2056,2024-01-18T19:45:25Z,2024-01-18T22:27:24Z,2024-01-18T22:27:24Z,14,96,87,"A few obvious levels were adjusted, but generally everything mapped to ""info"" level.",4,4
+2063,2024-01-19T01:54:02Z,2024-01-25T20:12:36Z,2024-01-25T20:12:36Z,8,312,39,"This change allows users to interactively save a session from the REPL, and then load it back up again later.
+It also adds a new MESSAGE command for Modelfiles so that users can build their own session which can be created with ollama create.",4,1
+2067,2024-01-19T04:55:36Z,2024-01-19T18:23:04Z,2024-01-19T18:23:04Z,4,18,13,,2,0
+2101,2024-01-19T22:15:03Z,2024-01-20T00:24:11Z,2024-01-20T00:24:11Z,3,13,2,Also fixes gzip from erroring if .gz files already exist,2,0
+2102,2024-01-19T23:00:15Z,2024-01-22T17:37:49Z,2024-01-22T17:37:49Z,1,7,2,"if create overrides a manifest, first add the older manifest's layers to the delete map so they can be cleaned up
+resolves #2097",2,0
+2115,2024-01-20T22:19:52Z,2024-01-22T19:56:40Z,2024-01-22T19:56:40Z,1,1,1,,2,0
+2116,2024-01-20T22:28:09Z,2024-01-27T18:28:38Z,2024-01-27T18:28:38Z,5,15,6,"Building on #2112, this expands back to 5.0 cards, and also adds a few newer targets which theoretically should help performance on the more modern cards.  The resulting binary grows a little in size but not significantly
+
+0.1.21 => 263M
+#2112 => 264M
+This PR: => 266M
+
+Fixes #1865
+I'll keep this draft until we can run more performance testing on modern cards to ensure no significant regression",6,6
+2130,2024-01-21T22:44:27Z,2024-01-22T00:14:12Z,2024-01-22T00:14:12Z,4,68,44,The linux build now support parallel CPU builds to speed things up. This also exposes AMD GPU targets as an optional setting for advaced users who want to alter our default set.,2,1
+2134,2024-01-22T09:29:41Z,2024-01-22T16:15:08Z,2024-01-22T16:15:08Z,1,0,7,"Since Go1.21 (go.mod), Go adds min builtin function.",2,1
+2138,2024-01-22T17:11:44Z,2024-02-22T15:52:36Z,2024-02-22T15:52:36Z,1,1,0,"Local GPT plugin for Obsidian mainly relies on Ollama provider
+
+Also works with images
+
+
+I'd say that Local GPT plugin is enhanced version of Obsidian Ollama plugin in every way.
+Tried to resolve merge conflicts in #1662 but accidentally closed it.",2,0
+2144,2024-01-22T20:31:42Z,2024-01-22T21:46:57Z,2024-01-22T21:46:57Z,1,31,28,,2,0
+2162,2024-01-23T19:43:51Z,2024-01-24T01:45:40Z,2024-01-24T01:45:40Z,6,171,30,"This adds additional calls to both CUDA and ROCm management libraries to discover additional attributes about the GPU(s) detected in the system, and wires up runtime verbosity selection.  When users hit problems with GPUs we can ask them to run with OLLAMA_DEBUG=1 ollama serve and share the server log.
+Example output on a CUDA laptop:
+% OLLAMA_DEBUG=1 ./ollama-linux-amd64 serve
+...
+time=2024-01-23T11:31:22.828-08:00 level=INFO source=/go/src/github.com/jmorganca/ollama/gpu/gpu.go:256 msg=""Discovered GPU libraries: [/usr/lib/x86_64-linux-gnu/libnvidia-ml.so.545.23.08]""
+CUDA driver version: 545.23.08
+time=2024-01-23T11:31:22.859-08:00 level=INFO source=/go/src/github.com/jmorganca/ollama/gpu/gpu.go:96 msg=""Nvidia GPU detected""
+[0] CUDA device name: NVIDIA GeForce GTX 1650 with Max-Q Design
+[0] CUDA part number:
+nvmlDeviceGetSerial failed: 3
+[0] CUDA vbios version: 90.17.31.00.26
+[0] CUDA brand: 5
+[0] CUDA totalMem 4294967296
+[0] CUDA usedMem 3789357056
+time=2024-01-23T11:31:22.865-08:00 level=INFO source=/go/src/github.com/jmorganca/ollama/gpu/gpu.go:137 msg=""CUDA Compute Capability detected: 7.5""
+
+Example output on a ROCM GPU system
+% OLLAMA_DEBUG=1 ./ollama-linux-amd64 serve
+...
+time=2024-01-23T19:24:55.162Z level=INFO source=/go/src/github.com/jmorganca/ollama/gpu/gpu.go:256 msg=""Discovered GPU libraries: [/opt/rocm/lib/librocm_smi64.so.6.0.60000 /opt/rocm-6.0.0/lib/librocm_smi64.so.6.0.60000]""
+time=2024-01-23T19:24:55.163Z level=INFO source=/go/src/github.com/jmorganca/ollama/gpu/gpu.go:106 msg=""Radeon GPU detected""
+discovered 1 ROCm GPU Devices
+[0] ROCm device name: Navi 31 [Radeon RX 7900 XT/7900 XTX]
+[0] ROCm GPU brand: Navi 31 [Radeon RX 7900 XT/7900 XTX]
+[0] ROCm GPU vendor: Advanced Micro Devices, Inc. [AMD/ATI]
+[0] ROCm GPU VRAM vendor: samsung
+[0] ROCm GPU S/N: 43cfeecf3446fbf7
+[0] ROCm GPU subsystem name: NITRO+ RX 7900 XTX Vapor-X
+[0] ROCm GPU vbios version: 113-4E4710U-T4Y
+[0] ROCm totalMem 25753026560
+[0] ROCm usedMem 27852800
+
+This also implements the TODO on ROCm to handle multiple GPUs reported by the management library.",2,1
+2175,2024-01-24T19:10:03Z,2024-01-25T17:22:42Z,2024-01-25T17:22:42Z,1,61,54,,2,0
+2181,2024-01-25T01:30:09Z,2024-01-25T19:55:16Z,2024-01-25T19:55:16Z,1,13,5,,3,0
+2186,2024-01-25T10:03:41Z,2024-01-25T21:46:21Z,2024-01-25T21:46:21Z,4,65,0,"This is a (draft) fix for #1573, as it seems that the kv cache isn't cleared properly when the exact same prompt is provided repetitively.",4,0
+2195,2024-01-26T00:02:11Z,2024-01-26T17:30:24Z,2024-01-26T17:30:24Z,3,35,3,"Fixes #2054
+Integrated GPUs (APUs) from AMD may be reported by ROCm, but we can't run on them with our current llama.cpp configuration.  These iGPUs report 512M of memory, so I've coded the check to ignore any ROCm reported GPU that has less than 1G of memory.  If we detect only an integrated GPU, this will fallback to CPU mode.  If we detect multiple ROCm GPUs, meaning one or more are discrete, and one is integrated, we'll now set ROCR_VISIBLE_DEVICES so we ignore the iGPU.  If the user has explicitly set ROCR_VISIBLE_DEVICES we'll respect their setting.",4,5
+2197,2024-01-26T00:58:57Z,2024-01-26T17:34:23Z,2024-01-26T17:34:24Z,2,21,1,This adds ROCm support back as a discrete image.,2,0
+2221,2024-01-26T23:15:44Z,2024-03-07T17:27:33Z,2024-03-07T17:27:33Z,2,106,17,"use basic heuristics to determine concurrency.
+
+start with 2 concurrency
+watch the rate
+if the rate is increasing, add more concurrency
+stop adding concurrency if the rate plateaus
+
+this only scales concurrency up, never down",2,0
+2224,2024-01-27T06:10:58Z,2024-01-27T15:29:33Z,2024-01-27T15:29:33Z,1,2,2,,2,1
+2241,2024-01-28T20:53:47Z,2024-01-28T22:15:57Z,2024-01-28T22:15:57Z,2,5,4,"Before:
+<|im_start|>system
+You are a happy dog<|im_end|>
+<|im_start|>assistant
+hi im a friendly assistant<|im_end|>
+<|im_start|>system
+You are a happy dog<|im_end|>
+<|im_start|>user
+who are you?<|im_end|>
+
+After:
+<|im_start|>system
+You are a happy dog<|im_end|>
+<|im_start|>assistant
+hi im a friendly assistant<|im_end|>
+<|im_start|>user
+who are you?<|im_end|>",2,1
+2251,2024-01-29T06:53:55Z,,2024-02-07T20:08:13Z,2,6,6,,2,0
+2256,2024-01-29T16:53:54Z,2024-01-30T16:12:48Z,2024-01-30T16:12:48Z,1,7,0,Some users are new to containers and unsure where the server logs go,2,0
+2263,2024-01-30T00:57:33Z,2024-01-31T16:39:41Z,2024-01-31T16:39:41Z,4,130,27,"This requires an upstream change to support graceful termination, carried as a patch.
+Tracking branches for the 2 patches:
+
+01-cache.diff - https://github.com/dhiltgen/llama.cpp/tree/kv_cache
+02-shutdown.diff - https://github.com/dhiltgen/llama.cpp/tree/server_shutdown
+
+I'm going to mark it draft until I can run more testing (so far happy path on windows, mac and linux looks good)",2,1
+2279,2024-01-30T16:50:18Z,2024-03-25T19:46:28Z,2024-03-25T19:46:28Z,8,438,83,"Added libcudart.so support to gpu.go for CUDA devices that are missing libnvidia-ml.so. CUDA libraries split into nvml (libnvidia-ml.so) and cudart (libcudart.so), can work with either. Tested on Jetson device and on Windows 11 in WSL2.
+Devices used to test:
+Jetson Orin Nano 8Gb
+Jetpack 5.1.2, L4T 35.4.1
+CUDA 11-8
+CUDA Capability Supported 8.7
+Go version 1.26.1
+Cmake 3.28.1
+nvcc 11.8.89
+AMD Ryzen 3950x
+NVidia RTX 3090ti
+WSL2 running Ubuntu 22.04
+WSL CUDA Toolkit v12.3 installed
+Edited for updates",6,42
+2284,2024-01-31T01:02:05Z,2024-01-31T17:40:48Z,2024-01-31T17:40:48Z,1,1,6,There's no point parsing the raw private key when all it's doing is creating a ssh key,2,0
+2289,2024-01-31T17:22:03Z,2024-02-01T02:45:01Z,2024-02-01T02:45:01Z,2,66,17,"When truncating messages to fit in the context window if the system message from the modelfile was used it was not carried over, this preserves the modelfile system message in the case of truncation.",2,0
+2296,2024-02-01T00:31:48Z,2024-02-01T21:16:59Z,2024-02-01T21:17:00Z,6,89,36,"summary of changes:
+
+add [img-x] to prompt content when there are images. x corresponds to the image's id. for generate, this is just the image's index in the Images list. for chat, this is the image's index of among all images in the messages list
+account for image embedding when trimming the context. image projections produce 768 tokens for clip models. check and add this number to the total tokens count
+if the image tokens exceed the max token count, do not add images to the final images list and strip the image tag from the prompt content",2,0
+2298,2024-02-01T00:47:59Z,2024-02-01T21:16:49Z,2024-02-01T21:16:49Z,1,2,2,,2,0
+2300,2024-02-01T03:01:01Z,2024-02-02T01:09:52Z,2024-02-02T01:09:52Z,1,11,21,"Depends on #2296
+This PR makes two changes to how ollama run works:
+
+Images are sent for all messages
+Messages without images can now be sent to multimodal models (they are language models too!), and instead a better prompt placeholder is provided. This is important for messages that don't include images but are relevant to a multimodal conversation (e.g. I will provide you a list of messages, provide me the captions for each or tell me more about the image I provided earlier)
+Only send the system prompt once",2,0
+2316,2024-02-02T02:11:43Z,2024-02-02T05:30:26Z,2024-02-02T05:30:26Z,1,8,0,,2,1
+2317,2024-02-02T02:39:22Z,2024-02-02T05:33:06Z,2024-02-02T05:33:06Z,2,56,49,"Fixes #2295
+% ollama run llava Describe this image: /Users/jmorgan/Desktop/old-tower.jpg 
+Added image '/Users/jmorgan/Desktop/old-tower.jpg'
+ The image depicts a vibrant cityscape. In the foreground, there's an iconic skyscraper, which is the CN Tower, a landmark of Toronto, Canada. The tower stands prominently against a clear blue sky. In the background, you can see a variety 
+of buildings, including what appears to be condominiums and commercial structures, all under a bright sunlight. There's a body of water visible in the lower right corner of the image, suggesting that this photo is taken from a vantage 
+point overlooking the city. The overall impression is of a bustling urban environment with a mix of architectural styles.",2,0
+2318,2024-02-02T03:35:38Z,2024-02-02T04:41:29Z,2024-02-02T04:41:29Z,1,18,8,"Only apply patches if we have any, and make sure to cleanup every file we patched at the end to leave the tree clean",2,0
+2341,2024-02-04T01:00:37Z,2024-02-04T18:45:02Z,2024-02-04T18:45:02Z,24,1200,165,"To get more control over our windows app this pulls the win32 logic into our Go code instead of using an upstream library.
+Still gobs of debug logging that I'll clean up soon, but it's now functional.  The upgrade flow doesn't work yet of course.",2,1
+2354,2024-02-04T20:54:11Z,2024-02-25T23:16:45Z,2024-02-25T23:16:45Z,3,21,16,,3,4
+2357,2024-02-05T04:51:02Z,2024-02-05T16:55:20Z,2024-02-05T16:55:20Z,3,32,2,Tested inside a Win 10 home hyperV VM with nothing extra added.  This gets all the deps right and loads the CPU runner.,2,0
+2376,2024-02-06T20:08:06Z,2024-02-07T22:24:29Z,2024-02-07T22:24:30Z,3,466,0,"This adds experimental compatibility with the OpenAI Chat Completions (i.e. /v1/chat/completions) API. Details on compatibility and supported fields are indocs/openai.md
+Fixes #305",7,6
+2381,2024-02-07T06:03:15Z,2024-02-20T02:56:49Z,2024-02-20T02:56:49Z,1,1,1,"instead of being treated as entire lines which doesn't align with the way the rest of the commands are treated
+it was a little annoying typing ""/bye "" and not having it work as expected",2,1
+2399,2024-02-07T23:17:05Z,2024-02-08T00:30:33Z,2024-02-08T00:30:33Z,2,24,21,"This fixes an issue where the prompt would be templated as an empty string """".
+Fixes #2397
+# loads model
+% curl http://localhost:11434/api/chat -d '{
+  ""model"": ""llama2"",
+  ""messages"": [],
+  ""stream"": false           
+}'
+{""model"":""llama2"",""created_at"":""2024-02-07T23:21:14.816749Z"",""message"":{""role"":""assistant"",""content"":""""},""done"":true}
+# loads model
+% curl http://localhost:11434/api/chat -d '{
+  ""model"": ""llama2"",
+  ""messages"": [{ ""role"": ""user"", ""content"": """"}],
+  ""stream"": false
+}'
+{""model"":""llama2"",""created_at"":""2024-02-07T23:20:28.175454Z"",""message"": {""role"":""assistant"",""content"":""""},""done"":true}
+# still works
+% curl http://localhost:11434/api/chat -d '{
+  ""model"": ""llama2"",
+  ""messages"": [{ ""role"": ""system"", ""content"": ""sing me a song!""}],
+  ""stream"": false
+}'
+{""model"":""llama2"",""created_at"":""2024-02-07T23:19:01.582144Z"",""message"":{""role"":""assistant"",""content"":""Of course, I'd be happy to sing you a song! *clears throat* Here we go:\n\n\""Oh, the stars are shining bright and bold,\nA celestial show, so fine and cold.\nThe moon is smiling, its light so pure,\nA gentle melody, for you I endure.\n\nIn the night's embrace, I find my peace,\nThe world outside, a distant release.\nI lose myself in the music of the night,\nAnd let my spirit take flight.\n\nSo come and join me, in this song so bright,\nTogether we'll dance, under the stars' delight.\nWith every note, our hearts will be as one,\nIn this magical moment, we'll have fun.\""\n\nHow was that? Did you enjoy it?""},""done"":true,""total_duration"":5454697000,""load_duration"":1188958,""prompt_eval_duration"":177470000,""eval_count"":182,""eval_duration"":5275568000}",2,0
+2422,2024-02-09T06:29:27Z,2024-02-12T22:05:06Z,2024-02-12T22:05:06Z,2,44,1,"Make sure that when a shutdown signal comes, we shutdown quickly instead of waiting for a potentially long exchange to wrap up.
+My initial strategy was going to be multiple signals to trigger a more aggressive shutdown, but that turned into a much more invasive change to try to recover once shutting down had already started, so I aborted that approach.  This now takes a simpler approach to simply stop new requests from coming in, canceling whatever is in flight at the next completion, and then shutting down once no requests are actively being processed.  If we want to refine this in the future to have the double-signal strategy, we can add that incrementally by just blocking new requests from coming in on the first signal, and on a second signal, cancel tasks that are still iterating in completion.",2,0
+2423,2024-02-09T06:37:12Z,,2024-02-12T00:50:17Z,1,15,12,"A little annoying if you have a custom config of any kind, like an OLLAMA_HOST variable; but perhaps also you've set it up custom in other ways, like a custom user account.
+(I've used this locally and it works great)",2,1
+2437,2024-02-10T00:54:52Z,2024-02-21T00:07:50Z,2024-02-21T00:07:50Z,1,3,6,the buffered value is going into the hasher eventually so write directly to the hasher instead,4,2
+2440,2024-02-10T07:41:15Z,2024-03-06T19:57:49Z,2024-03-06T19:57:49Z,1,1,0,"Description:
+Hello,
+I've added Odin Runes to the README under the ""Community Integrations"" section. Odin Runes is a Java-based GPT client that facilitates seamless interaction with GPT models, enhancing productivity in prompt engineering and text generation tasks. This addition highlights the integration between Odin Runes and Ollama, offering users the flexibility to leverage large language models locally within their development workflow.
+Changes:
+
+Added Odin Runes to the ""Community Integrations"" section of the README.
+
+Demo:
+
+Caption: This GIF demonstrates the integration between Odin Runes and Ollama in action.
+Context:
+This pull request addresses the need to document the integration between Odin Runes and Ollama, providing visibility to users who may benefit from the integration and fostering collaboration between our projects.
+Closing Note:
+I believe this addition will be beneficial to users and contributors alike. I'm open to any feedback or suggestions regarding the integration or the proposed README addition.
+Thank you for considering my pull request.",3,3
+2459,2024-02-12T03:29:38Z,2024-02-12T16:10:16Z,2024-02-12T16:10:16Z,1,16,25,"The diff is a bit hard to read, but this is the actual fix for our 01 patch that fixes due to the kv cache being full
+I believe this fixes #2339 and #1458",2,0
+2460,2024-02-12T07:03:05Z,2024-02-12T23:06:57Z,2024-02-12T23:06:57Z,7,535,1010,"This refactors the chat prompt processing to be a little easier to follow. It also fully deprecates .First in favor of the chat endpoint
+Fixes #2443
+Fixes #2438",2,0
+2465,2024-02-12T16:10:40Z,2024-02-12T20:41:43Z,2024-02-12T20:41:43Z,5,151,34,"This wires up some new logic to start using sysfs to discover AMD GPU information and detects old cards we can't yet support so we can fallback to CPU mode.
+This also serves as an initial foundation where I believe we'll be able to move away from the AMD management library and query the sysfs files to discover the details we need with less complexity.
+This will mitigate some cases of  #2165
+Tested on a Radeon RX 580 and it correctly falls back to CPU.
+time=2024-02-12T16:02:58.657Z level=INFO source=gpu.go:157 msg=""AMD Driver: 6.2.4""
+time=2024-02-12T16:02:58.657Z level=INFO source=gpu.go:162 msg=""AMD GPU too old, falling back to CPU gfx803""
+time=2024-02-12T16:02:58.657Z level=INFO source=cpu_common.go:11 msg=""CPU has AVX2""",2,0
+2467,2024-02-12T17:17:19Z,2024-02-12T19:16:20Z,2024-02-12T19:16:20Z,2,24,1,Fixes: #2456,4,0
+2468,2024-02-12T20:35:40Z,2024-02-12T22:01:16Z,2024-02-12T22:01:16Z,1,1,1,,2,0
+2480,2024-02-13T22:00:15Z,2024-02-13T23:40:32Z,2024-02-13T23:40:32Z,1,2,4,"Using a negative keep_alive did not work as expected, models would unload instantly. Some logging of the duration which was unmarshalled showed that the math.MaxFloat64 was resulting in a very large negative duration rather than the desired very large positive duration.
+I just changed these codepaths to use math.MaxInt64, which is what I understand time.Duration to expect.",3,0
+2481,2024-02-13T22:22:36Z,,2024-02-15T17:25:43Z,87,2756,219,Fixes #403,4,1
+2499,2024-02-14T18:40:19Z,2024-02-16T00:06:32Z,2024-02-16T00:06:33Z,89,2873,340,,4,0
+2511,2024-02-15T07:46:38Z,2024-02-20T19:02:35Z,2024-02-20T19:02:35Z,1,0,1,It's not used but clutters code.,2,0
+2516,2024-02-15T16:41:42Z,2024-02-15T23:52:43Z,2024-02-15T23:52:43Z,6,11,9,"Prevent the installer running multiple times concurrently
+Detect multiple apps running and exit with a message",2,0
+2530,2024-02-16T00:18:55Z,2024-02-20T23:34:47Z,2024-02-20T23:34:47Z,3,9,52,default client already handles proxy: https://pkg.go.dev/net/http#RoundTripper,4,2
+2532,2024-02-16T02:12:04Z,2024-02-21T00:06:29Z,2024-02-21T00:06:29Z,2,23,0,,3,0
+2541,2024-02-16T15:05:05Z,,2024-02-16T19:02:13Z,1,3,3,"As reported in scenario 1 of #2492
+When a request was made to a model than inherits from the currently loaded model the system and template were not updated in the /chat endpoint. The fix is to use the requested model rather than the loaded one.
+Steps to reproduce:
+
+Create a model that overrides the system prompt of another model:
+
+FROM phi
+SYSTEM """"""I want you to speak French only.""""""
+
+ollama create phi-french -f ~/models/phi-french/Modelfile
+2. Run the base model
+ollama run phi
+3. Quit the repl and run the custom model
+ollama run phi-french
+
+The system message from the base model was not changed, as the loaded model did not change.",2,1
+2542,2024-02-16T16:44:11Z,2024-02-16T19:42:43Z,2024-02-16T19:42:43Z,4,24,41,"This change fixes two more system message related issues with the CLI and message templates.
+
+When /set system ... is run multiple times in the CLI, use only the most recent system message rather than adding multiple system messages to the history.
+Do not add the model's default message as a first message when a new system message is specified.
+When a request was made to a model than inherits from the currently loaded model the system and template were not updated in the /chat endpoint. The fix is to use the requested model rather than the loaded one.
+
+Previous behavior, when running a model and setting a new system message:
+ollama run phi
+>>> /set system you are mario
+Set system message.
+>>> hi
+
+level=DEBUG source=routes.go:1205 msg=""chat handler"" prompt=""System: A chat between a curious user and an artificial intelligence assistant. The assistant gives helpful answers to the user's questions.\nUser: \nAssistant:System: you are mario\nUser: hi\nAssistant:""
+
+New behavior:
+level=DEBUG source=routes.go:1205 msg=""chat handler"" prompt=""System: you are mario\nUser: hi\nAssistant:""
+
+resolves #2492
+Follow up: This keep the ""system message history"" further testing on model behavior of this is needed, it could be better to just override the system message, and not keep the old system message in the history.",3,1
+2552,2024-02-16T23:35:09Z,2024-02-17T01:23:37Z,2024-02-17T01:23:37Z,7,53,37,"Also fixes a few fit-and-finish items for better developer experience
+Fixes #2521
+Fixes #2522",2,0
+2553,2024-02-17T00:22:52Z,2024-02-17T01:23:12Z,2024-02-17T01:23:12Z,2,16,3,"It looks like the version file doesn't exist on older(?) drivers
+Fixes #2502",2,0
+2563,2024-02-17T16:07:29Z,2024-02-18T04:05:20Z,2024-02-18T04:05:20Z,1,1,1,"Ollama WebUI is now known as Open WebUI:
+https://openwebui.com
+https://github.com/open-webui/open-webui",2,0
+2582,2024-02-18T20:17:50Z,2024-03-04T08:40:36Z,2024-03-04T08:40:36Z,1,1,0,,3,2
+2585,2024-02-19T02:37:52Z,2024-02-19T20:48:00Z,2024-02-19T20:48:00Z,2,136,9,"This should resolve the problem where we don't fully unload from the GPU when we go idle.
+Fixes #1848
+This carries the upstream PR ggerganov/llama.cpp#5576 as a patch until that's reviewed/merged.
+This also updates the shutdown patch to match what was merged upstream since we haven't yet bumped llama.cpp to pick that up.",2,0
+2604,2024-02-20T04:46:07Z,2024-02-21T02:37:29Z,2024-02-21T02:37:29Z,2,14,0,"Fixes #327
+This adds initial support for embedding models using the /api/embeddings endpoint.",2,0
+2618,2024-02-20T19:35:40Z,2024-02-20T22:42:31Z,2024-02-20T22:42:31Z,6,39,130,"This update's the llama.cpp commit to one that supports the newer embedding models. A few updates:
+
+The previous patch 02 was merged 🎉
+Numa is now an enum",3,0
+2744,2024-02-25T15:21:39Z,2024-02-25T18:41:25Z,2024-02-25T18:41:25Z,1,1,1,specfied -> specified,2,0
+2759,2024-02-26T07:03:20Z,2024-03-07T15:11:53Z,2024-03-07T15:11:53Z,1,1,0,Adding yet another web project to the list in the readme!,3,1
+2771,2024-02-27T00:51:50Z,2024-02-27T19:29:53Z,2024-02-27T19:29:53Z,1,1,1,Fixes #2758,2,0
+2772,2024-02-27T01:26:58Z,2024-02-27T19:29:08Z,2024-02-27T19:29:08Z,1,12,3,"Allow overriding the platform, image name, and tag latest for standard and rocm images.
+Fixes #2721",2,0
+2780,2024-02-27T13:24:14Z,2024-02-29T20:12:13Z,2024-02-29T20:12:13Z,1,1,0,"NextChat just drop support for Ollama, Adding NextChat reference in README.md
+Doc: https://docs.nextchat.dev/models/ollama
+Release: https://github.com/ChatGPTNextWeb/ChatGPT-Next-Web/releases/tag/v2.11.2",2,0
+2785,2024-02-27T17:17:53Z,2024-02-27T18:43:14Z,2024-02-27T18:43:15Z,1,5,0,"This should unmask some failure modes that likely
+show up in app logs as unmarshal errors",2,0
+2789,2024-02-27T22:25:53Z,2024-02-29T19:30:14Z,2024-02-29T19:30:14Z,3,21,18,"instead of appending image tags, prepend them which produces better results in general
+resolves #2769
+resolves #2788",3,3
+2824,2024-02-29T03:06:54Z,2024-03-07T05:01:52Z,2024-03-07T05:01:52Z,9,3083,153,"This (admittedly very large) change converts a safetensors file in the FROM line of a Modelfile into a 16 bit non-quantized Ollama model without having to use llamacpp's convert.py script. This initial version works with Mistral v0.2 (and presumably v0.1 although I haven't yet tested this), and with some tweaks should probably also work with Gemma as well.
+Some things to note:
+
+Currently it only works with SentencePiece tokenization. We can add BPE and other Tokenizers in the future to support more model types
+Quantization is not yet supported, but this will be supported in a future change to easily allow different quantization levels
+LORA adapters don't currently work, but it would be nice to support his in the future
+llamacpp requires repacking the q and k attention layers to swap some of the axes. This required pulling in the gorgonia.org/tensors package which is somewhat abandoned. I forked that library and it's hosted at github.com/pdevine/tensors but ideally we wouldn't have to fork it.
+A lot of processing is around converting brainfloat16 numbers into float16. Neither of those formats are supported by golang which kind of sucks.
+I mapped all of the params that Mistral required to build the GGUF file, but there are probably some that are missing. Those should be added as we support more models.
+I haven't yet added unit tests here, which would be really nice, but there's so much to test!",4,4
+2827,2024-02-29T06:02:07Z,2024-02-29T19:11:04Z,2024-02-29T19:11:05Z,1,1,1,,2,1
+2836,2024-02-29T16:32:43Z,2024-02-29T23:46:46Z,2024-02-29T23:46:46Z,1,1,1,"See https://reproducible-builds.org/ for why this is good.
+This patch was done while working on reproducible builds for openSUSE.",3,0
+2837,2024-02-29T16:43:41Z,2024-02-29T23:47:37Z,2024-02-29T23:47:37Z,1,1,0,"Without this env var, podman's GPU logic doesn't map the GPU through
+Fixes #2716",2,0
+2838,2024-02-29T16:50:39Z,2024-02-29T23:47:57Z,2024-02-29T23:47:57Z,1,4,0,"On OpenSUSE, ollama needs to be a member of the video group to access the GPU
+Fixes #2587",2,0
+2868,2024-03-01T22:14:27Z,2024-03-01T23:26:04Z,2024-03-01T23:26:04Z,4,24,25,,2,0
+2878,2024-03-02T14:08:51Z,2024-04-10T17:31:55Z,2024-04-10T17:31:55Z,2,74,10,"Updates #2840
+This is an initial PR just to double check that I'm heading in the right direction. If it looks good, I can update it (or send separate ones) to fill up the whole documentation for the api package.",2,1
+2879,2024-03-02T14:38:39Z,2024-04-10T17:26:45Z,2024-04-10T17:26:45Z,4,77,0,"We can have the same examples as e.g. https://github.com/ollama/ollama-python/tree/main/examples here. Using consistent naming and renaming the existing example to have -http- since it uses direct HTTP requests rather than api/
+Updates #2840",2,0
+2881,2024-03-02T15:39:54Z,2024-03-25T19:00:19Z,2024-03-25T19:00:19Z,1,1,0,"Created a simple web UI for Ollama, so it would be nice to add a link to the repo to access it from your README's link list.  😊",2,1
+2885,2024-03-03T00:16:23Z,2024-03-07T18:51:00Z,2024-03-07T18:51:00Z,27,1091,588,"This refines where we extract the LLM libraries to by adding a new OLLAMA_HOME env var, that defaults to ~/.ollama The logic was already idempotenent, so this should speed up startups after the first time a new release is deployed.  It also cleans up after itself.
+We now build only a single ROCm version (latest major) on both windows and linux.  Given the large size of ROCms tensor files, we split the dependency out.  It's bundled into the installer on windows, and a separate download on windows.  The linux install script is now smart and detects the presence of AMD GPUs and looks to see if rocm v6 is already present, and if not, then downloads our dependency tar file.
+For Linux discovery, we now use sysfs and check each GPU against what ROCm supports so we can degrade to CPU gracefully instead of having llama.cpp+rocm assert/crash on us.  For Windows, we now use go's windows dynamic library loading logic to access the amdhip64.dll APIs to query the GPU information.
+Fixes #2598
+Fixes #738",4,2
+2910,2024-03-04T10:01:47Z,,2024-04-07T06:09:01Z,1,11,1,"This changes the underlying llama server to run in a subprocess, bringing back code from https://github.com/ollama/ollama/blob/v0.1.17/llm/llama.go while keeping the multi-variant support. This is helpful to make sure resources are freed when a model is unloaded and will help allow concurrent models to be loaded.
+Note this should probably go in after #2885
+Remaining
+
+ Handle crash/exit scenario (api will hang)
+ Surface stderr message as an api error
+ CI",3,2
+2918,2024-03-04T16:51:11Z,2024-03-25T18:59:18Z,2024-03-25T18:59:18Z,1,1,0,"LibreChat is the leading ChatGPT-style Web UI that supports virtually every OpenAI-API-compatible endpoint, which now includes Ollama.
+Relevant docs: https://docs.librechat.ai/install/configuration/ollama.html
+Screenshot",2,1
+2926,2024-03-04T22:12:49Z,2024-04-01T20:58:13Z,2024-04-01T20:58:13Z,5,131,197,refactor metadata,3,0
+2927,2024-03-05T04:21:38Z,2024-03-25T18:58:29Z,2024-03-25T18:58:29Z,1,1,0,"👋 I have added new integrations for macos!
+
+  
+    
+    
+
+    2024-03-05.1.19.59.mov
+    
+  
+
+  
+
+  
+
+
+link: https://github.com/enoch1118/ollamaGUI",2,0
+2946,2024-03-06T02:52:01Z,2024-03-25T18:57:40Z,2024-03-25T18:57:40Z,1,1,0,"OpenAOE is a LLM Group Chat Framework: chat with multiple LLMs at the same time.
+Now the mistral-7b and gemma-7b models are added into OpenAOE under Ollama inference.",2,0
+2959,2024-03-06T19:48:35Z,,2024-03-06T21:04:14Z,1,9,3,,3,0

@@ -1,0 +1,1070 @@
+number,created_at,merged_at,closed_at,files,additions,deletions,body_text,participants,comments
+94,2016-07-22T19:17:34Z,2016-07-24T23:07:33Z,2016-07-24T23:07:33Z,3,34,8,"Require package.json in webpack.config.prod.js and use homepage if set; otherwise use '/'
+
+Fixes #21",6,20
+172,2016-07-25T13:41:06Z,,2016-07-25T19:50:28Z,16,295,71,"This is just a throwaway code not meant to be ever merged
+This PR is just a proof of concept how server side render could be implemented. I am aware that it's quite opinionated and introduces new dependency on express.
+I am open to any discussion how much sane this would (or would not) be, I'll gladly re-implement it in production quality if we decided to go this way.",8,17
+368,2016-08-05T01:24:22Z,2016-08-08T04:05:58Z,2016-08-08T04:05:58Z,4,43,7,This fixes #334,12,31
+520,2016-08-31T04:13:46Z,,2016-09-17T22:09:20Z,2,12,12,"This pull request fixes #501
+The pull request adds instructions to the template readme and also adds a sequence of commands to the npm run build output.
+
+I am happy to hear suggestions for making this better. I am wondering if the output after running npm run build is getting a little too long after adding this option. Maybe it would be good to settle on one option that we support for GH Pages?",4,9
+589,2016-09-05T19:00:26Z,,2016-09-21T14:52:48Z,1,2,0,References #585,3,4
+591,2016-09-05T20:11:00Z,,2016-09-27T14:21:52Z,1,1,1,"Fixes #590.
+@gaearon this is a simple solution - and thanks to the comments in this file I don't think I'm missing anything? :)",8,20
+596,2016-09-07T01:35:07Z,,2016-09-30T12:49:09Z,1,12,11,,7,7
+628,2016-09-11T15:41:22Z,2016-09-11T22:53:56Z,2016-09-11T22:53:57Z,1,27,1,Fixes #616.,4,11
+632,2016-09-12T11:18:43Z,2016-09-18T08:03:05Z,2016-09-18T08:03:05Z,1,17,5,Attempt to fix #631.,3,10
+653,2016-09-15T15:49:30Z,,2016-09-18T08:27:31Z,4,23,4,"Hi,
+I saw that issue(#96) needed help, it had previously a PR that have been closed few weeks back. I don't know if someone is still working this. So I tried to solve the issue
+How can I improve my PR ?
+Thanks !",2,3
+657,2016-09-15T21:27:56Z,,2016-09-30T12:28:45Z,1,6,1,,2,3
+665,2016-09-17T13:51:15Z,2016-09-17T19:20:49Z,2016-09-17T19:20:49Z,4,4,4,,2,4
+677,2016-09-18T21:10:21Z,2016-09-23T11:00:46Z,2016-09-23T11:00:46Z,1,22,2,"As promised in #365 , adding notes on enabling Travis CI for a generated app.
+Demo
+
+Demo Repo
+Travis Build
+
+Effects of Change
+In the generated app, users will see the note under the Continuous Integration section.
+Local verification
+In a development branch, run npm run create-react-app my-app and check the README.md in the generated app (my-app).
+Note
+Build 3 encounters the following error on the Node 4 test.  As the Node 6 build succeeds, the failure shall not be related to CRA.
+> CRA-Travis-Demo@0.1.0 test /home/travis/build/Jiansen/CRA-Travis-Demo
+> react-scripts test --env=jsdom
+module.js:327
+    throw err;
+    ^
+Error: Cannot find module 'lru-cache'
+    at Function.Module._resolveFilename (module.js:325:15)
+    at Function.Module._load (module.js:276:25)
+    at Module.require (module.js:353:17)
+    at require (internal/module.js:12:17)
+    at Object.<anonymous> (/home/travis/build/Jiansen/CRA-Travis-Demo/node_modules/react-scripts/node_modules/cross-spawn/lib/parse.js:4:11)
+    at Module._compile (module.js:409:26)
+    at Object.Module._extensions..js (module.js:416:10)
+    at Module.load (module.js:343:32)
+    at Function.Module._load (module.js:300:12)
+    at Module.require (module.js:353:17)
+npm ERR! Test failed.  See above for more details.",4,2
+681,2016-09-19T05:44:11Z,2016-09-19T07:51:25Z,2016-09-19T07:51:25Z,1,41,1,I published a react-scripts-fork package to npm for testing.,2,1
+689,2016-09-20T21:26:51Z,2016-09-21T14:08:02Z,2016-09-21T14:08:02Z,12,67,19,"Move the ESLint configuration to a separate package eslint-config-react-app. This allows using the same configuration in projects not using CRA. It also makes the amount of configuration in an ejected project smaller: the starter ESLint config of an ejected the project will be just {""extends"": ""react-app""}.
+Test plan:
+[x] Check that linting errors are shown correctly when running npm start.
+[x] Check that it also works end to end. (Tested with a local npm server.)
+(NB: the e2e test will break at the moment because the package hasn't been published yet, and it tries to install it from npm. However, I tested by publishing it to a local npm registry with sinopia, and it worked. I think we might want to come up with a way to end-to-end test all the packages together without having to manually pack all of them in the test script. But for now pulling the linter config from npm is probably good enough?)",2,1
+693,2016-09-21T14:29:45Z,,2016-11-20T19:11:38Z,1,28,0,"Following the suggestion of @gaearon (#476 (comment)).
+This documents an existing work-around for people who want to use absolute paths. In the future, we may develop a feature that supports absolute paths in a better way. The purpose of this PR is just to document the existing stop-gap measure so that others do not have to go on an odyssey to figure it out. :-)",4,5
+694,2016-09-21T16:05:10Z,,2016-09-30T12:58:15Z,2,23,10,"closes #647
+Previously we only allowed settings the pathname via the ""homepage"" key
+in package.json
+Allows user to configure the full base URL via a $CDN_URL env
+variable
+Development has the same behaviour.",5,5
+695,2016-09-21T20:24:36Z,2016-09-23T10:59:38Z,2016-09-23T10:59:38Z,6,60,21,"Adds support to load environment variables via a .env file for development using the very stable and battle tested ⚔ npm package dotenv. For more context see #687.
+I've tested this out by doing the following:
+npm run create-react-app my-app
+cd my-app
+echo ""NODE_PATH=."" >> .env
+npm start
+In my-app/src/index.js I changed import App from './App'; to import App from 'src/App'; and verified all still works (including tests)",8,27
+716,2016-09-23T13:31:20Z,2016-09-23T15:53:22Z,2016-09-23T15:53:22Z,2,38,14,"Fixes #700.
+Read about it here: https://twitter.com/dan_abramov/status/779308833399332864.
+Test plan:
+A. It shows up with npm start:
+
+B. npm run build output doesn’t include __source.
+C. It shows up with npm test:",2,0
+723,2016-09-23T17:20:41Z,2016-09-23T19:53:09Z,2016-09-23T19:53:09Z,21,452,192,This makes projects cleaner after ejecting!,3,2
+735,2016-09-24T11:44:46Z,,2016-11-20T19:18:23Z,2,15,0,"@vjeux @lacker
+Plz review.
+Related to #642 (comment).
+I think it’s not super obvious why those files are split and we have a chance to gently nudge people towards writing more component-oriented CSS if we explain what we mean.",5,1
+738,2016-09-24T13:46:39Z,2016-11-20T19:15:59Z,2016-11-20T19:16:00Z,1,41,0,"Add instructions on how to add Storybook to the User Guide.
+I also mentioned a bit of information about benefits of using Storybook.
+Related to: #297 (comment)",10,19
+744,2016-09-25T00:28:42Z,2016-09-25T10:31:11Z,2016-09-25T10:31:11Z,6,371,53,"Fixes #89.
+Fixes #569.
+Fully fixes #263 (we don’t log anything now, and don’t try to reconnect).
+Some screenshots:",7,12
+754,2016-09-25T18:50:51Z,2016-09-25T22:31:53Z,2016-09-25T22:31:54Z,2,5,8,Fixes #753,2,4
+769,2016-09-26T18:59:00Z,2016-09-30T17:39:24Z,2016-09-30T17:39:24Z,1,30,14,"Solution for issue ##750
+Since in build.js we already use chalk library, i decided to reuse it in eject.js file. Operations are marked with green, file names and path's are marked with yellow and are underlined. Screenshots are attached .",5,26
+779,2016-09-27T11:10:02Z,,2018-01-08T14:17:15Z,1,48,0,"I follow @shubheksha instruction and rewrite it as a section in User Guide. I hope it can help.
+Because I didn't see anyone claim to work on this yet, so I want to start a PR and we can discuss more. In case @zperrault or anyone have worked on this already, I am totally ok to close my PR.
+To be honest, I know I don't have much experience writing docs but I am very active and have much time to update my PR to be better/more useful in case anyone have any suggestion.
+Related issue: #682
+
+UPDATE:
+A summary of current things that need to do:
+
+Fork CRA
+Change react-scripts package name (in its package.json) (prefer scoped)
+Mark other packages as private
+Run npm run publish from root
+Use it with CRA",15,37
+802,2016-09-30T12:37:32Z,,2016-10-23T13:49:58Z,1,1,1,"otherwise one might assume it uses webpack hot reloading modules as explained here: https://gist.github.com/gaearon/06bd9e2223556cb0d841#file-naive-js
+BTW why doesn't CRA feature this kind of reloading? It is sooo much faster and 100% reliable.",4,7
+807,2016-09-30T15:40:25Z,2016-09-30T17:06:26Z,2016-09-30T17:06:26Z,2,6,5,Issue: #795,4,6
+809,2016-10-01T03:06:54Z,2016-10-01T09:13:43Z,2016-10-01T09:13:43Z,7,34,34,Follow up to #777,4,2
+816,2016-10-01T18:31:46Z,2016-11-22T20:44:22Z,2016-11-22T20:44:22Z,4,83,2,"Hello awesome contributors,
+In #441, there are was a request to guess the name of the existing process running on the default port when starting CRA. So, building on the incomplete yet solid work done in #454, this PR aims to complete that feature.
+with a CRA app process found
+
+It shows the app's name and directory.
+Note: my-test-app is the name of a CRA app in ~/dev/test2
+with a non-CRA process found
+
+It shows the command name and directory.
+without a process found
+
+It shows the original, generic message.",5,31
+822,2016-10-02T18:07:51Z,2016-10-03T11:37:35Z,2016-10-03T11:37:35Z,1,1,1,"I think this is better to surface early because it’s a common mistake and will lead to broken code in 100% cases.
+Test plan:
+
+Remove React from imports in App.js
+See the overlay:
+
+
+The error is googleable and leads here.",3,1
+826,2016-10-03T03:25:23Z,2016-10-11T11:38:45Z,2016-10-11T11:38:45Z,1,4,3,"create-react-app myApp --scripts-version=@myscope/react-scripts fails since getPackageName currently assumes a match of ""@"" at any index denotes version and strips it from the str.
+Minor change to fix.",3,3
+841,2016-10-04T11:26:35Z,2016-10-04T12:34:41Z,2016-10-04T12:34:41Z,2,32,16,fixes #501 #654,4,14
+845,2016-10-04T20:51:18Z,2016-10-04T21:54:35Z,2016-10-04T21:54:35Z,1,1,1,,4,5
+856,2016-10-05T19:47:05Z,2016-10-11T11:44:58Z,2016-10-11T11:44:58Z,1,15,0,Remove error overlay when linting errors have been corrected and the next webpack linting is successful / contains only warnings.,4,3
+859,2016-10-06T01:34:19Z,2016-10-07T14:12:53Z,2016-10-07T14:12:53Z,1,16,2,"Until webpack/webpack#2390 is addressed and all errors trigger the --bail switch, would be helpful to manually surface them from the production build stats passed in the callback.
+Sample output
+> react-scripts build
+
+Creating an optimized production build...
+Error(s) occurred during the production build:
+static/js/main.9a6b731a.js from UglifyJs
+SyntaxError: Unexpected token: name .....",3,1
+876,2016-10-09T02:05:47Z,2016-10-12T12:46:14Z,2016-10-12T12:46:14Z,1,3,1,"For example, react-scripts version0.2.0-alpha.1 with tarball url didn't works:
+$ create-react-app --scripts-version=https://registry.npmjs.org/react-scripts/-/react-scripts-0.2.0-alpha.1.tgz test-app-tarball-url
+Creating a new React app in /Users/archie/Repos/test-app-tarball-url.
+
+Installing packages. This might take a couple minutes.
+Installing react-scripts from npm...
+
+
+> fsevents@1.0.14 install /Users/archie/Repos/test-app-tarball-url/node_modules/fsevents
+> node-pre-gyp install --fallback-to-build
+
+...
+
+module.js:457
+    throw err;
+    ^
+
+Error: Cannot find module '/Users/archie/Repos/test-app-tarball-url/node_modules/react-scripts-0.2.0/package.json'
+    at Function.Module._resolveFilename (module.js:455:15)
+    at Function.Module._load (module.js:403:25)
+    at Module.require (module.js:483:17)
+    at require (internal/module.js:20:19)
+    at checkNodeVersion (/Users/archie/.nvm/versions/node/v6.7.0/lib/node_modules/create-react-app/index.js:170:21)
+    at ChildProcess.<anonymous> (/Users/archie/.nvm/versions/node/v6.7.0/lib/node_modules/create-react-app/index.js:127:5)
+    at emitTwo (events.js:106:13)
+    at ChildProcess.emit (events.js:191:7)
+    at maybeClose (internal/child_process.js:877:16)
+    at Process.ChildProcess._handle.onexit (internal/child_process.js:226:5)
+
+create-react-app version: 0.5.0",3,3
+878,2016-10-09T11:54:22Z,2016-10-11T11:25:43Z,2016-10-11T11:25:43Z,2,42,21,Fixes #863,4,5
+887,2016-10-11T00:37:44Z,,2017-04-23T19:23:24Z,2,14,0,Addresses issue #641 by adding React Router recipe to the README files as appropriate.,6,4
+891,2016-10-11T13:18:54Z,2016-10-11T14:19:52Z,2016-10-11T14:19:52Z,2,9,1,"To resolve #600
+I use webpack-manifest-plugin on Webpack production configuration to create a file named asset-manifest.json which contain a mapping of all asset filenames to their corresponding output file. asset-manifest.json will be located at the root of output folder.
+Here's the example from a newly created project.
+{
+  ""main.css"": ""static/css/main.9a0fe4f1.css"",
+  ""main.css.map"": ""static/css/main.9a0fe4f1.css.map"",
+  ""main.js"": ""static/js/main.c9af8c27.js"",
+  ""main.js.map"": ""static/js/main.c9af8c27.js.map"",
+  ""static/media/logo.svg"": ""static/media/logo.5d5d9eef.svg""
+}
+You can see that it doesn't map those files from public/. What do you think?",3,3
+902,2016-10-13T22:54:59Z,2016-11-21T22:08:58Z,2016-11-21T22:08:58Z,3,12,1,Addresses #899,5,11
+918,2016-10-17T14:12:28Z,,2017-01-23T19:04:23Z,43,1645,441,From issue #838,60,5
+921,2016-10-17T22:27:46Z,,2017-02-24T19:55:18Z,1,27,2,"Since I have checked PR #738 about React-Storybook integration and left some comment about that, I continued my search and have found another option: React-styleguidist.
+This tool uses a bit different approach, but it fits better in the Create React App convention-based way.
+
+All your components will be picked up by some glob expression, like this './src/components/**/!(*.test).js'
+Components definitions will be analyzed to create API documentation based on PropTypes. (Powered by react-docgen)
+You can add Readme.md for every folder with component, where you can write some documentation about it. And (I really like that part) all code snippets will be compiled and executed. So your documentation is still usable as typical Markdown files, but then you can run styleguide builder to see them in action.
+
+
+I tried to create an integration between Create React App and React Styleguidist as easy as possible, so it worth trying, any feedback will be appreciated.
+Also, there is one more similar tool – Carte-Blanche, but it is provided as Webpack plugin, but as far as Webpack config is not available here for direct changes, it was not possible to test it.",5,11
+928,2016-10-18T21:33:34Z,,2017-02-11T23:01:45Z,2,3,1,"This must solve #909
+at least it worked while I tried to publish scoped eslint-config-react-app.",3,3
+933,2016-10-19T22:18:15Z,2016-12-05T21:57:54Z,2016-12-05T21:57:54Z,1,48,1,"The User Guide does not actually document what npm run build does. The docs also don't describe how exactly to ""deploy"" the resulting build directory.
+This PR describes what npm run build does and what it means to deploy the build in the Users Guide.
+Additionally, it describes the pushState gotcha which was previously only described in reference to specific servers (eg github pages).",3,3
+937,2016-10-20T15:39:55Z,,2017-02-10T04:16:44Z,13,127,55,"Solves #936, introducing the possibility to specify the PUBLIC_URL env variable while running npm run build.
+With this PR the %PUBLIC_URL% in static assets and the output.publicPath variable set in webpack configs follow the following behavior:
+
+""homepage"" specified in package.json, PUBLIC_URL not set: only the pathname is used from ""homepage"" (as it is right now);
+PUBLIC_URL set, ""homepage"" might be set: the full url specified in the env variable is used",14,30
+944,2016-10-22T14:26:10Z,2016-12-03T12:39:30Z,2016-12-03T12:39:30Z,2,23,3,"Fixes issue #906.
+Whenever someone runs the build script with the environmental variable CI set to true then it will crash when any linter warnings are encountered.
+CI=true npm run build
+I have tested this locally by generating an app using create-react-app and the updated react-scripts. Is this enough or should there be an automated way of testing this functionality? If so, can anyone give some advice on how to go about testing this?
+I am also struggling to find the best location to document this feature. I considered updating the   npm run build section of the README with this information however, I am afraid that explaining this feature in that location will only detract from the clarity to the reader. Perhaps I should create a new section in the user guide where this is explained, any thoughts?",8,17
+959,2016-10-25T11:23:14Z,2016-10-28T12:51:06Z,2016-10-28T12:51:06Z,1,6,2,"Pretty simple docs change:
+Recommendations for package.json scripts for deploying to Github Pages:
++""deploy"": ""npm run build && gh-pages -d build""
+-""deploy"": ""gh-pages -d build""
+It seems very unlikely the user would want to deploy without rebuilding and can be confusing since the dev server automatically rebuilds.
+This also adds a line to these deploy docs instructing where to put the CNAME file:
++You can configure a custom domain with GitHub pages, by adding a `CNAME` file to the `public/` folder.
+This fixes #654",5,5
+976,2016-10-28T13:00:54Z,2016-11-20T19:29:45Z,2016-11-20T19:29:45Z,1,17,0,See issue #972.,5,5
+992,2016-10-30T16:48:53Z,2016-11-17T12:54:12Z,2016-11-17T12:54:12Z,1,6,1,"Hi,
+This clears the usage of why we have added two plugins separately, rather than not using it via options in babel-preset-react.",5,3
+1008,2016-11-04T11:27:22Z,2017-02-12T00:38:59Z,2017-02-12T00:38:59Z,1,47,0,"As pointed out in #1007, adding a specific section about SASS in documentation could help users avoid ejecting in order to use sass-loader.
+This is simpler in my opinion and more aligned to this project's way of thinking.",12,16
+1011,2016-11-05T01:44:49Z,,2018-01-09T12:58:16Z,3,42,1,Reincarnation of #950. Please see it for details.,3,12
+1030,2016-11-09T23:48:02Z,,2017-02-24T18:56:00Z,6,110,60,"I found this code useful for our project configuration solution.
+I didn't want to duplicate it so thought it could be wrapped in a handy webpack plugin.",5,7
+1032,2016-11-10T11:34:20Z,2016-11-23T21:36:01Z,2016-11-23T21:36:01Z,1,39,16,This should fix #869,4,5
+1059,2016-11-18T09:46:53Z,2016-11-20T22:00:10Z,2016-11-20T22:00:10Z,3,52,42,"Loads all files in appSrc not already handled by other loaders.
+Also, switch image loading from file loader to url-loader.
+Fixes #667.",5,8
+1067,2016-11-20T20:25:29Z,,2016-12-13T16:02:27Z,1,34,0,,3,4
+1068,2016-11-20T22:18:09Z,2016-11-21T11:26:07Z,2016-11-21T11:26:07Z,6,26,77,"Remove bundledDependencies
+Change the e2e scripts to use local file dependencies instead of bundledDependencies to test the packages",4,1
+1075,2016-11-21T10:18:35Z,2016-11-21T11:57:21Z,2016-11-21T11:57:21Z,2,2,0,#1074,3,1
+1077,2016-11-21T11:33:41Z,2016-11-21T22:03:40Z,2016-11-21T22:03:40Z,4,8,11,Addresses #667.,3,2
+1080,2016-11-21T20:38:27Z,2016-11-23T13:17:03Z,2016-11-23T13:17:03Z,1,27,0,Minor additional information on how to solve watchman problems reported in #713 and #1767,4,4
+1081,2016-11-21T20:46:43Z,,2018-01-08T23:14:44Z,2,5,1,"[HOLD] not particularly useful without changes in Jest
+Partially fixes #607
+These are the necessary changes in react-scripts to allow code to live in src/node_modules and allow Jest to run tests in that directory.
+However, Jest cannot find these tests on its own -- all files in any node_modules are filtered out even before the file matching patterns are applied. See issue jestjs/jest#2145.
+Without changes in Jest, there are a few workarounds:
+Import the package tests into a file that jest can find
+// src/node_modules/Foo/Foo.test.js
+it(""does a thing"", ()=> {
+  expect(true).toBe(true)
+})
+// src/index.js
+import ""Foo/Foo.test.js""
+Whitelist the directories you want to test with the haste.providesModuleNodeModules option
+This is not the intended use for this option, but its used as a whitelist for the haste module  resolution, and therefore Jest can find tests in these directories.
+TODO
+
+ get related issue in facebook/jest resolved
+ figure out how to test this
+ rebase, clean up etc",9,22
+1088,2016-11-22T20:20:02Z,,2017-02-24T17:41:12Z,4,66,37,"Linked to #1069
+Work is in progress, since the discussion is getting bigger and bigger in the issue I'll wait the go from maintainers to continue and finish 👍
+
+ isUsingLodash option into babel-preset-react-app
+ automatically set isUsingLodash if lodash is found in app package.json
+ correctly set isUsingLodash option after eject",4,6
+1101,2016-11-26T06:08:31Z,2017-03-07T02:59:58Z,2017-03-07T02:59:58Z,5,946,22,"If you would like to help, please see #1129.
+
+This PR is a prototype implementation for #783 which hopefully gets the ball rolling.
+This is by no means a complete or even polished proposal, but simply a WIP to track the ongoing discussion in #783 as it unfolds.
+There is much to be done for DX and message clarity when the Error object is unavailable or unparsable.
+Errors
+Errors are captured using window.onerror.
+window.onerror provides the Error object in most all modern browsers: Chrome 46(?), Firefox 31, IE 11, and Safari 10(ref). Notably, support is missing from Microsoft Edge (unverified, see here -- can someone test this please?).
+Unhandled Rejections
+Unfortunately, there seems to be no standard/proper way to capture unhandled rejection -- Chrome seems to be the only browser doing this, exposed via the unhandledrejection event.
+Does anyone have any ideas on how to accomplish this / should it be a Chrome only feature?",29,262
+1121,2016-11-30T14:04:13Z,2017-02-24T17:48:17Z,2017-02-24T17:48:17Z,1,13,1,As requested via https://twitter.com/dan_abramov/status/803712995280830466,4,4
+1122,2016-11-30T23:22:56Z,,2017-02-23T04:03:36Z,1,29,17,"When using npm link to depend on a forked version of react-scripts, the paths are set up incorrectly such that the source files in the react-scripts template get used instead of the actual source files from the app.
+Repro steps:
+
+Create a package using the public version of create-react-app.
+Clone create-react-app from GitHub and convert packages/react-scripts to a scoped package. For example, change this:
+
+  ""name"": ""react-scripts"",
+  ""version"": ""0.7.0"",
+
+to this:
+  ""name"": ""@tabrezm/react-scripts"",
+  ""version"": ""0.0.0"",
+
+
+Run npm link from packages/react-scripts.
+Run npm link @tabrezm/react-scripts from the folder for the package created in step 1. Also, change the following lines in package.json from this:
+
+  ""devDependencies"": {
+    ""react-scripts"": ""0.7.0""
+  },
+
+to this
+  ""devDependencies"": {
+    ""@tabrezm/react-scripts"": ""0.0.0""
+  },
+
+
+Change something in App.js and run npm start.
+
+Expected: see new content
+Actual: see content from  template in react-scripts instead
+Full discussion: #682 (comment)",6,9
+1126,2016-12-01T13:22:26Z,2016-12-01T16:09:43Z,2016-12-01T16:09:43Z,1,7,0,"Adds a note about VS Code Jest, didn't try to pitch too hard, given that at this stage of the doc you don't know too much about Jest other than the watcher.
+@cpojer your call on the ""Similar support for Nuclide is in the works"" otherwise I'm happy to remove it.
+Screenshot looks like:",5,5
+1131,2016-12-01T21:26:59Z,,2016-12-07T17:10:39Z,2,12,0,"This still needs (a lot) more work before it could be merged, but seems like a promising solution to #1023.",5,40
+1151,2016-12-04T18:25:33Z,,2017-02-12T01:10:43Z,3,35,36,I changed the webpackHotDevClient.js to ES6 syntax.,3,3
+1152,2016-12-04T18:26:46Z,,2018-01-09T12:07:35Z,8,263,10,"This will only run if a @flow annotation is seen in an user's file:
+
+ At the first @flow file found:
+
+ Write a .flowconfig if none exists
+ Run flow-typed install
+ Add some custom flow-typed installs (implicit jest behind react-scripts for instance)
+
+
+ When a file with an @flow comment changes during a compilation:
+
+ Run a flow check
+ If there are some type errors in flow: show warnings
+ If flow itself crashes: show error
+
+
+ Refactor
+
+Followup goals:
+
+ Return-code-based success of the command (instead of looking for ""No Errors!""
+ Detect if a global flow installation exists, if yes, check its version, if not equal to CRA's version, show a warning that compilation may be slowed down
+
+
+
+ Ensure the first flow status run was done after complete init (especially flow-typed)
+ Add flow-typed dir to .gitignore during the first run
+ Add to end-to-end testing
+
+Followup of a discussion in #72",16,67
+1162,2016-12-05T18:14:20Z,,2016-12-06T21:06:41Z,2,5,8,"( Related to previous pull request #944 and issue #1150 that followed. )
+This pull request reverts behaviour in build script and moves the responsibility to eslint-loader.
+As a bonus, this change makes the build fail almost immediately compared to previous solution.
+cc @excitement-engineer",3,6
+1187,2016-12-07T11:32:06Z,2017-01-23T19:43:17Z,2017-01-23T19:43:17Z,78,1653,74,"This continues #875 and fixes #706.
+
+Tested features
+es6 syntax
+
+ JSX
+ Flow
+ Promises
+ arrow functions
+ generators
+ async/await
+ class properties
+ property shorthand
+ computed properties
+ template string interpolation
+ custom string interpolation
+ param default
+ destructuring
+ spread operator
+ rest parameters
+ rest + default (@see babel/babel#4851)
+ destructuring + await (@see #1160)
+
+env variables
+
+ NODE_PATH
+ custom env variables via shell
+ .env file
+
+webpack plugins
+
+ svg inclusion
+ image inclusion
+ json inclusion
+ css inclusion
+ no-ext inclusion
+ unknown-ext inclusion
+
+Test suites
+
+ test env
+ development env
+ production env
+flow integration (@see #1152)",8,26
+1193,2016-12-07T15:38:02Z,2017-02-24T20:25:19Z,2017-02-24T20:25:19Z,2,26,1,Implemented a version check of npm to give a soft tip during the install procedure,4,12
+1195,2016-12-07T15:50:46Z,2016-12-11T09:01:20Z,2016-12-11T09:01:20Z,4,48,29,"commander is more easily configurable than the previous tool, and gives some output out-of-the-box.
+Also I've bumped the comment on the minimal node version as per #575.",3,9
+1197,2016-12-07T16:52:43Z,2016-12-07T20:28:03Z,2016-12-07T20:28:03Z,5,39,20,"In 0.8.x, we switched to treat all non-JS/CSS extensions as files by default (#1059, #1077).
+However when we tried to do the same in Jest, we made a mistake which introduced false positives (#1145, #1147).
+We temporarily reverted this change in #1149 and reopened #667 (comment). @cpojer suggested to use transform instead of moduleNameMapper so that we can match against the full paths.
+This PR implements that. I verified that the following cases work:
+
+Importing CSS both inside project directory and in node_modules (gives you `{})
+Importing arbitrary files both inside project directory and in node_modules (gives you the filename)
+Importing JS modules like ../something or lodash.assign (covers #1145, #1147).
+
+Fixes #667.",4,3
+1216,2016-12-09T17:11:43Z,,2018-11-01T16:13:57Z,51,474,516,"Hi there! First of all, thanks to all the contributors for this awesome project. Having all the tools, configuration and setup in one place helps tons.
+create-react-app doesn't have any CSS linting yet. I noticed that there was tentative agreement for further consideration in #636 (comment), so I decided to open a PR for this, since I need it for a project anyway.
+I've included the standard config because I don't have a full opinionated stylelint config yet, but this can of course be changed.
+Note: This depends on my fork of @vieron's stylelint webpack plugin, because the errors were not displaying correctly using watch mode in CRA. I've opened a pull request on the plugin here: webpack-contrib/stylelint-webpack-plugin#43
+Edit: Pull request has been merged!",14,50
+1225,2016-12-10T01:52:12Z,2016-12-10T14:01:50Z,2016-12-10T14:01:50Z,1,5,2,,3,0
+1226,2016-12-10T08:24:44Z,2016-12-10T14:48:27Z,2016-12-10T14:48:27Z,1,6,6,"fixes #1218
+Since I can't reproduce it by myself, I use https://github.com/dtinth/pixelpaint to reproduce and verify.
+Result
+Compiled with warnings.
+
+Warning in ./src/App.js
+
+/Users/n3tr/Code/js/pixelpaint/src/App.js
+  45:49  warning  Unexpected mix of '&&' and '||'  no-mixed-operators
+  46:44  warning  Unexpected mix of '&&' and '||'  no-mixed-operators
+
+✖ 2 problems (0 errors, 2 warnings)
+
+
+Warning in ./src/ReduxCanvasV3.js
+
+/Users/n3tr/Code/js/pixelpaint/src/ReduxCanvasV3.js
+  25:5  warning  Expected a default case  default-case
+
+✖ 1 problem (0 errors, 1 warning)
+
+
+You may use special comments to disable some warnings.
+Use // eslint-disable-next-line to ignore the next line.
+Use /* eslint-disable */ to ignore all warnings in a file.",3,1
+1249,2016-12-12T01:33:59Z,,2018-09-21T12:13:01Z,6,109,57,"Proof of concept for #892.
+Doesn't work with ejecting yet.
+Both autoprefixer and Babel are driven by a config like this in package.json:
+  ""browsers"": {
+    ""development"": [
+      ""last 1 chrome version""
+    ],
+    ""production"": [
+      "">1%"",
+      ""last 4 versions"",
+      ""Firefox ESR"",
+      ""not ie < 9""
+    ]
+  }
+Currently I throw if it doesn't exist since I could generate a reasonable config by default (e.g. ""last two versions"" for development) in new projects and ask old projects to include it during migration. In a way this would be ""configuration"" but actually sensible one. I don't have a strong opinion here though.",10,18
+1253,2016-12-12T10:48:50Z,2017-02-23T03:55:41Z,2017-02-23T03:55:41Z,2,97,54,"to fixes #1239
+Current Scenario
+
+create-react-app my-app will invokes create-react-app/index to create app folder, package.json and install react-scripts as devDependencies (--save-dev).
+(Use latest version if not specific).
+Use react-scripts to init project and install react and react-dom as dependencies (--save)
+
+New
+
+create-react-app/index create app folder, package.json, and install react, react-dom, and react-scripts as a dependencies (--save) at the same time.
+Since react-scripts should be in devDependencies, we modify the package.json to move it to devDependencies.
+Use react-scripts to init project and check if there're react and react-dom have been installed yet. If no react and react-dom inside node_modules, install them. (this would happen when user use old CRA to create project and receive the latest version of react-scripts)
+
+This should backward compatible with old version of CRA, in case user use previous version of CRA which won't install react and react-dom along with react-scripts.
+Test plans
+Both new version
+
+Test Scenario: Use new create-react-app with react-scripts
+Expected result:
+
+Install react, react-dom, and react-scripts at the same time (by CRA)
+
+
+
+Old CRA + new react-scripts
+
+Test Scenario: Use old create-react-app with new react-scripts
+Expected result:
+
+Install react-scripts by CRA then install react and react-dom by react-scripts
+
+
+
+New CRA + old version of react-scripts
+
+Test Scenario: Use new create-react-app with old react-scripts
+Expected result:
+
+Install react, react-dom, and react-scripts by CRA.
+And install react and react-dom again by react-scripts.",6,10
+1270,2016-12-14T12:17:31Z,2016-12-18T17:51:05Z,2016-12-18T17:51:05Z,3,30,7,This fixes #1269,4,5
+1272,2016-12-14T16:39:22Z,,2017-06-26T15:17:50Z,1,4,0,Fixes #1271.,4,3
+1288,2016-12-18T16:59:13Z,2018-01-19T13:12:34Z,2018-01-19T13:12:34Z,3,55,0,"Fixes #1244
+The intended test plan was:
+
+Create a new React application on a machine with no Git installed. The application should be created with no additional artifacts just like before.
+Create a new React application in a folder that is not part of a git repository. The application should be created with an additional new git repository. The initial application source files should be committed to the git repository as the initial commit.
+Create a new React application in a folder that is already part of an existing git repository. The application should be created with no additional artifacts just like before.
+
+However because I am running Windows natively I was unable to test this the way I wanted because the cra.sh doesn't run. Trying to do so in a Docker based Linux container was also less than successful.",6,17
+1291,2016-12-18T20:22:42Z,2017-02-11T19:11:01Z,2017-02-11T19:11:01Z,8,144,119,"webpack has had its first v2 release! 🎉
+There are a few changes we're waiting on:
+
+ babel-loader@6.2.10
+ webpack-dev-server@2.2.0-rc.0
+ jantimon/html-webpack-plugin#526
+ extract-text-webpack-plugin#309
+ remove LoaderOptionsPlugin for prod postcss
+
+ webpack-contrib/extract-text-webpack-plugin#265
+ webpack-contrib/extract-text-webpack-plugin#281
+
+
+
+would be nice:
+
+ Check up on https://twitter.com/simplesthing/status/823674445843734528 – is this affecting us?
+ webpack-contrib/extract-text-webpack-plugin#294
+ webpack-contrib/extract-text-webpack-plugin#366
+
+/cc #183",20,44
+1305,2016-12-21T12:51:41Z,2017-03-07T06:24:56Z,2017-03-07T06:24:56Z,7,56,35,"Change the current catch-all loader to use file-loader instead of url-loader, and exclude common image file extensions. Add another url-loader for images, configured identically to the original catch-all loader.
+Part of issue #1293.
+Testing
+
+Create a demo app with ./tasks/cra.sh my-app-test
+cd my-app-test
+Add a 1K PNG, a 50K PNG and a PDF to ./src
+Import each resource into App.js and include them in the page
+
+import smallPicture from './small.png';
+import largePicture from './large.png';
+import someDoc from './someDoc.pdf';
+
+// ...
+<p><img src={smallPicture} alt=""small"" /></p>
+<p><img src={largePicture} alt=""large"" /></p>
+<p><a href={someDoc}>Here's a PDF</a></p>
+
+
+Start dev mode and check that:
+
+The small image is embedded
+The large image is referenced
+The PDF is referenced
+
+
+
+yarn start
+
+
+Build a production bundle:
+
+yarn run build
+
+
+Check that the production build works as expected by serving it and browsing http://localhost/
+
+docker run -it --rm -v $PWD/build:/usr/share/nginx/html -p 80:80 nginx:alpine",5,35
+1313,2016-12-22T17:45:36Z,2017-02-12T01:57:42Z,2017-02-12T01:57:42Z,1,22,0,,6,5
+1344,2017-01-03T11:24:03Z,2017-05-12T10:30:59Z,2017-05-12T10:30:59Z,13,103,22,#1343,8,25
+1360,2017-01-07T01:11:26Z,,2017-04-28T08:47:58Z,10,105,29,"problem statement
+
+react-scripts does not offer ready-to-roll jest debugging.
+
+solution
+
+add it!
+
+i selected a natural model where --debug-brk and debug are working flags passed to npm test.  that is npm test -- --debug-brk works.  i think this is a nice entry point into the system.
+auto-handle other flags that need to be massaged to make debugging work.  that is, disable watch and enable runInBand
+
+
+
+
+closes #594",11,24
+1412,2017-01-19T07:34:20Z,,2017-03-14T03:02:37Z,1,47,0,"Explains adding Roboto, react-tap-event-plugin, and the theme provider.",5,7
+1423,2017-01-21T01:30:52Z,2017-02-28T15:27:54Z,2017-02-28T15:27:54Z,1,83,40,"This pull request enables offline support from the next version of yarn. With the 0.19 version there are some issues. The related issue is #1235!
+Right now we prefer offline over online with --prefer-offline flag. Maybe in the future yarn wil have a --prefer-online flag and we can change it with that ;)
+Let me know if it's ok!
+cheers,
+Simon",6,33
+1433,2017-01-23T23:38:40Z,2017-03-04T03:05:07Z,2017-03-04T03:05:07Z,9,304,275,"Following the discussion and for reasons mentioned in #1431, this PR aims to refactor the webpack abstractions found in the start script out into their own utility modules.
+I've aimed to maintain the general narrative of the script by keeping the running of methods in the script and using callback to eliminate interweaving.
+Summary of changes
+/config
+  + webpackDevServer.config.js
+/scripts
+  /utils
+     + addWebpackMiddleware.js
+     ~ createJestConfig.js
+     + createWebpackCompiler.js
+  ~ eject.js
+  ~ start.js 
+
+
+All files found in specified folders get copied to the app directory on eject
+Except files flagged with a // @remove-file-on-eject comment, which will be skipped i.e. scripts/eject.js & scripts/utils/createJestConfig.js",5,14
+1440,2017-01-24T15:22:44Z,2017-02-10T03:41:04Z,2017-02-10T03:41:04Z,3,24,18,"This PR try to fixed #1438.
+Expose all vars from getClientEnvironment and put it into InterpolateHtmlPlugin.",7,13
+1443,2017-01-24T21:23:03Z,,2018-01-08T16:10:30Z,4,12,0,"#1381
+
+Add EXAMPLES.md file
+Update README.md to link to examples doc
+Add link in App.js template file to examples doc",3,3
+1458,2017-01-27T11:46:41Z,2017-01-27T16:26:36Z,2017-01-27T16:26:36Z,1,8,2,"ATM if react-scripts is (erroneously) declared in dependencies instead of devDependencies or isn't declared at all, the eject script will fail half-way. This change makes it more robust, react-scripts will be removed from either, if present.",3,4
+1470,2017-01-30T13:42:48Z,2017-01-30T19:24:13Z,2017-01-30T19:24:13Z,20,124,72,"@Timer @tuchk4
+The trick was probably to add the event listener earlier, and to gain control on when to close document.
+Now we don't have event differences between E2E_FILE and E2E_URL in this regard, and don't have to wait/poll for when the feature is fully loaded.
+
+@gaearon any insight on why calling
+this.setState({ users }, () => this.done())
+works, but
+this.setState({ users }, this.done)
+doesn't (@here)?",4,1
+1472,2017-01-30T17:52:45Z,,2017-10-03T20:36:50Z,0,0,0,"This is a purely aesthetic suggestion that may be entirely dismissed (no offense taken!) if people deem it extraneous. I'm not precious about the design or implementation.. just an idea really, trying to change as little as possible.
+Actions taken:
+
+Flattens App-header and App-intro content (img, h2 and a p) into App
+Adds min-height, flex-direction, padding and centered contents of App container
+Adds box-sizing border-box to * selector
+Adds responsive font-size, line-height and color to body
+
+Before:
+
+After:",5,2
+1484,2017-02-04T18:28:33Z,,2017-02-08T04:07:54Z,37,269,185,This PR removes some of the magic happening in e2e-kitchensink so that it is easier to understand what is going on.,5,10
+1489,2017-02-06T15:44:31Z,2017-02-10T05:44:01Z,2017-02-10T05:44:01Z,2,32,2,"The goal is to be able to set homepage in the package.json to ./ (or just .) to be able to deploy the app anywhere. This topic has already been mentioned in #1094, #931 and #165.
+This PR will obviously not make this homepage ""trick"" works with client-side routing without hash but not everybody needs this feature anyway.
+The only problem I saw when setting the homepage to ./ is #1480. This issue is caused by ExtractTextPlugin not supporting non-flat build output by default. To fix it, we can use the publicPath option of this plugin and go back to the build folder when needed.",5,15
+1496,2017-02-07T15:29:52Z,2017-02-11T00:12:37Z,2017-02-11T00:12:37Z,1,16,0,"This addresses issue #1493
+Current behavior is that npm run build exits code 0 without creating a bundle when interrupted. This change makes the build script catch catchable interruptions and exit with the appropriate error code.",4,18
+1500,2017-02-08T14:22:49Z,2017-02-08T22:25:03Z,2017-02-08T22:25:03Z,2,20,26,"As per issue #1208 this PR updates the comments explaining that after ejecting and trying to add new loaders, the user must also add add the extension that loader is handling to the exclude list for the url loader.
+I have made the original comment stand out more, and given a more practical example and have added a new comment to the edit of the loaders array where a person would usually add a new loader to warn them to update the exclude list.
+Happy to hear feedback if this is over the top / not obvious enough.",4,14
+1504,2017-02-08T22:54:14Z,2017-02-10T04:15:16Z,2017-02-10T04:15:16Z,11,109,47,"Add support for PUBLIC_URL env variable
+Remove unnecessary duplications
+Simplify served path choice logic
+Honor PUBLIC_URL in development
+Add e2e tests
+
+Enables serving static assets from specified host.",7,18
+1512,2017-02-09T15:24:18Z,2017-02-25T16:48:53Z,2017-02-25T16:48:53Z,2,50,1,"As per #1505
+
+Currently, when npm fails for the first time, you end up with an empty project that doesn't work.
+
+
+We should delete the broken files we added (or the whole folder if we created it), and print a message explaining the problem is with npm, as well as the underlying message.
+
+
+Print out message when problem occurs
+Delete project folder on errors",4,20
+1515,2017-02-10T06:49:50Z,2017-02-10T21:20:54Z,2017-02-10T21:20:54Z,2,15,0,"This may be missing some options, but I included the most obvious ones to start.",4,7
+1527,2017-02-11T18:52:14Z,,2017-03-07T14:50:40Z,58,1036,724,"I'd like to eventually start recommending it by default, but we need to dogfood it first. It's currently not stable yet, and has numerous known issues, but I'd like to use this as an opportunity to report any issues we find ourselves on our codebase.
+If you see something weird (not just stylistically debatable, but wrong) in this PR, leave a comment. We can then cross-reference the list with open Prettier issues, and maybe file some new ones.",7,3
+1532,2017-02-12T00:19:55Z,2017-02-24T19:29:05Z,2017-02-24T19:29:05Z,1,1,0,Fixes #1530,3,3
+1536,2017-02-12T11:29:00Z,2017-02-24T17:29:45Z,2017-02-24T17:29:45Z,1,9,0,"Fixes #1524
+Also, disallow System.import as it has been deprecated in webpack 2.",4,15
+1537,2017-02-12T18:36:32Z,,2017-03-05T15:44:33Z,2,47,7,Should fix #1414,3,1
+1538,2017-02-12T19:19:22Z,2017-02-15T01:51:23Z,2017-02-15T01:51:23Z,6,40,33,"This PR enables babel syntax support for import() and disables require.ensure support within webpack.
+It also updates the required internal files.",5,9
+1546,2017-02-13T10:20:50Z,2017-02-15T02:41:31Z,2017-02-15T02:41:31Z,2,6,0,"This makes files in the public/ folder reload the page when they change.
+Test plan:
+
+create a project;
+start the project with npm start;
+modify something in public/index.html, for example the <title>;
+hit save;
+verify that the page has reloaded and the title has changed.
+
+Fixes #656, fixes #1508",4,4
+1569,2017-02-15T20:22:36Z,,2017-02-20T15:07:34Z,1,16,21,Noticed this while debugging something 😭,3,0
+1577,2017-02-16T23:31:53Z,2017-02-24T19:44:48Z,2017-02-24T19:44:48Z,2,14,2,"Added a short description and link to a tutorial on zero-configuration snapshotting / pre-rendering with react-snapshot, and a link to it in the section on changing the page <title>.",4,7
+1578,2017-02-17T06:40:31Z,2017-02-24T20:29:26Z,2017-02-24T20:29:26Z,2,6,5,"POC for #740. Haven't found any problem, build times improved about 1s on my project and machine.",5,7
+1588,2017-02-18T10:06:20Z,,2019-10-21T12:04:30Z,2,12,9,"Adds HOST and PORT env variables to react app so websocket can use them instead of window.location.
+This addresses the issue listed here: #853
+This can be tested by adding a .env file to an app with the following content:
+HOST=127.0.0.1
+PORT=3000
+
+Then run the app by visiting http://localhost:3000. If you look at the network requests, you will see the websocket is using 127.0.0.1 and not localhost.",22,42
+1590,2017-02-20T02:56:26Z,2017-05-15T23:25:05Z,2017-05-15T23:25:05Z,3,65,7,"Modify OpenBrowser.js to run node scripts specified with the BROWSER environment
+variable as discussed in #1533 . If the value of the BROWSER environment variable ends with '.js' a
+child process is spawned to execute the script with node.js. The command
+executed in the child process is 'node PATH_SCRIPT'.
+Some observations I'd like to discuss:
+
+Since BROWSER now does more than just opening your browser, maybe we should
+consider renaming a few things.
+The string argument of the script to run with node is not sanitized in any
+way. Nothing is checked, the string is passed to the child process as is. I
+don't know what is the worst thing that could happen. Scripts ending in '.JS'
+are not executed.
+The openBrowser() function returns a boolean. I decided to stick with this behavior,
+but I noticed that the result is not used in react-scripts/scripts/start.js.
+
+How to test this:
+create any 'script.js' file. You can use this one that writes a file to the
+current working directory:
+const fs = require('fs')
+
+fs.writeFileSync('message.txt', 'script says hello!');
+Now in the same directory execute:
+BROWSER=script.js npm start
+
+The file should be created in that directory and no browser should be opened.
+And of course, the other use cases of BROWSER still work
+BROWSER=none npm start
+BROWSER=firefox npm start
+
+Any feedback is appreciated.",6,13
+1615,2017-02-22T18:20:24Z,2017-02-25T05:03:12Z,2017-02-25T05:03:12Z,3,12,7,,5,23
+1616,2017-02-22T18:57:06Z,,2018-11-02T23:27:44Z,5,261,2,"POC for #1070
+
+Watching build mode by running npm run watch
+Add react-scripts/scripts/watch.js and react-scripts/config/webpack.config.watch.js
+Add prefix to the generated build files so we know that it's a development build. example: development.main.hash321.js
+Cleans the build folder every compile, if the asset hash changed. So we don't end up with stale files in there. using packages/react-dev-utils/cleanBuildFolder.js
+Prompts if the use case for using this mode is fulfilled at the start of the script, so the user won't accidentally using this mode if what they building doesn't need it.",8,26
+1618,2017-02-22T21:26:42Z,2017-02-24T16:32:30Z,2017-02-24T16:32:30Z,1,3,1,Resolves #1611,4,2
+1629,2017-02-24T01:41:21Z,,2017-04-08T22:16:29Z,2,113,46,"For #1551: Tried wrapping my head around this, and I'm stuck on how exactly we can generate a true lockfile since we're not testing a ""released"" version of react-scripts.
+If anyone has a better grip on this than me, I'd love for you to set me straight!",4,9
+1635,2017-02-24T18:39:04Z,2017-02-24T22:06:55Z,2017-02-24T22:06:55Z,2,2,2,Aims to resolve #1417 and #1498.,3,10
+1636,2017-02-24T19:10:52Z,,2018-01-09T14:34:33Z,1,7,4,...which is how I found it using one scaffolding tool.,4,3
+1641,2017-02-25T15:31:47Z,2017-06-27T21:40:34Z,2017-06-27T21:40:34Z,2,33,0,"#798
+Add steps in the README to add source-map-explorer to a create react app project
+Changes discussed in #1464",11,20
+1648,2017-02-26T15:09:08Z,2017-02-27T23:41:50Z,2017-02-27T23:41:50Z,3,63,5,This leverages the fact that appveyor uses cygwin. It might be worthwhile to investigate switching our e2e to a node script instead of bash.,4,2
+1662,2017-02-27T11:55:51Z,2017-02-28T13:58:16Z,2017-02-28T13:58:16Z,2,19,2,"Could be a potential fix for #1649
+The main idea is to validate the project name to meet the npm specification. If the validation fails detailed error information is provided to resolve the issue.
+$ node ./create-react-app/packages/create-react-app/index.js ""   asdf:asdf asdfasdf asdföjk asdlöfj alösdfjk aölsdfkjalö sdfjkalösdkfj öalsdkfjalös dfdklö jasdlöfj asödlfjasl
+ö dfkjaslödfkj asdlöfjkaslöd fkjasdlöfjaslö dfjasöldfjasöldfjk aösdlfj aölsdfjasdf asdf SAD asdfasdfasdf asdfasdfa sdfasdäfk äasdfjklö asdfjlö aksdjfölasjd fölaksdfjölasj dfö
+laksdfj  DSD~""
+The project name    asdf:asdf asdfasdf asdföjk asdlöfj alösdfjk aölsdfkjalö sdfjkalösdkfj öalsdkfjalös dfdklö jasdlöfj asödlfjaslö dfkjaslödfkj asdlöfjkaslöd fkjasdlöfjaslö dfjasöldfjasöldfjk aösdlfj aölsdfjasdf asdf SAD asdfasdfasdf asdfasdfa sdfasdäfk äasdfjklö asdfjlö aksdjfölasjd fölaksdfjölasj dfölaksdfj  DSD~ is not valid:
+  name cannot contain leading or trailing spaces
+  name can only contain URL-friendly characters
+  name can no longer contain more than 214 characters
+  name can no longer contain capital letters
+  name can no longer contain special characters (""~'!()*"")",5,11
+1669,2017-02-27T20:16:58Z,2017-02-28T13:45:42Z,2017-02-28T13:45:42Z,1,29,3,"Possible fix for #1663
+This change will patch the package.json dependencies for react and react-dom after the successfull installation. A caret will be prepanded and afterwards validated if a valid semver version range is the result.",3,1
+1696,2017-03-02T01:56:58Z,2017-03-03T18:03:07Z,2017-03-03T18:03:07Z,1,1,1,closes #1694,5,6
+1705,2017-03-03T00:43:49Z,2017-03-05T14:54:33Z,2017-03-05T14:54:34Z,5,6,5,closes #1704,4,12
+1707,2017-03-03T03:59:01Z,2017-03-05T15:42:11Z,2017-03-05T15:42:11Z,5,49,49,"Plans to fix #1652
+This happens when you clone create-react-app to a path where it has spaces in any of the parent foldes.
+To test it, just rename your parent folder to something with spaces and run npm run e2e",5,12
+1712,2017-03-04T05:54:46Z,,2018-01-09T14:37:12Z,1,29,0,"Guide to add absolute path configuration, according to the last comment from #741",7,3
+1718,2017-03-05T07:21:26Z,,2018-01-09T01:49:46Z,1,78,0,As seen here https://twitter.com/poksme/timelines/838005727440470016,14,16
+1726,2017-03-05T20:45:45Z,2017-03-06T01:49:54Z,2017-03-06T01:49:54Z,5,145,82,as per @gaearon comment in #1616,3,4
+1728,2017-03-05T22:01:28Z,2017-05-17T18:28:28Z,2017-05-17T18:28:28Z,8,198,1,"This PR adds:
+
+Service worker generation via SWPrecacheWebpackPlugin.
+Helper code to conditionally register the service worker if the browser supports it, and if NODE_ENV === 'production'.
+A web app manifest and a few additional <meta> tags to supply metadata, which some mobile browsers use during the Add to Homescreen flow.
+
+Using a server worker with a cache-first strategy offers performance advantages, since the network is no longer a bottleneck for fulfilling navigation requests. It does mean, however, that developers (and users) will only see deployed updates are only visible on the ""N+1"" visit to a page, since previously cached resources are updated in the background. A good portion of this PR involves updating the documentation to try to explain this model to developers, and make sure that it doesn't catch folks by surprise.
+Fixes #192 & fixes #1086
+CC: @addyosmani @goldhand @ianschmitz @ryansully who provided comments on a provisional version of this PR.",11,31
+1736,2017-03-06T10:39:46Z,2017-03-06T17:44:18Z,2017-03-06T17:44:18Z,2,13,9,#1732,3,5
+1738,2017-03-06T11:51:33Z,2017-03-07T19:46:10Z,2017-03-07T19:46:10Z,66,2021,1647,#1731,4,25
+1742,2017-03-06T15:51:38Z,2017-03-07T01:21:29Z,2017-03-07T01:21:29Z,3,19,14,Disables webpack modules (enables babel modules) to resolve #1638,5,10
+1747,2017-03-07T03:36:36Z,2017-03-07T14:29:40Z,2017-03-07T14:29:40Z,1,8,5,Fixes #1745 by using yarnpkg when installing internally and displaying yarn commands to the user as was suggested in #1365,4,4
+1754,2017-03-07T20:15:41Z,,2018-01-09T14:42:22Z,2,22,0,"What has been done
+
+When process.stdin fires an end event, the process exits with a 0 exit code
+
+How has this been tested
+
+Started the app normally ✅
+Started the app when another app was already running (chose a new port) ✅
+Started the app via phoenix ✅",4,10
+1760,2017-03-08T07:49:29Z,2017-03-08T22:34:32Z,2017-03-08T22:34:32Z,2,29,13,"This PR introduces serve as the new suggested way of handling create-react-app projects in production.
+However, it also ensures that the docs clearly state that this is only a good idea inside Node.js environments. For all other platforms (or servers that aren't static-only), we still provide the user with a clear explanation of what to do in theses cases.
+This closes #1757.
+How it looks:",4,26
+1771,2017-03-09T01:28:34Z,2017-05-16T00:02:38Z,2017-05-16T00:02:38Z,3,5,0,"This PR adds the postcss-flexbugs-fixes plugin to fix all flexbug's issues.
+It also adds flexbox: 'no-2009' to Autoprefixer which adds prefixes only for final and IE versions of specification. Currently this PR only partially avoids old CSS flexbox. In order to fully pass the Lighthouse 'Avoids old CSS flexbox' audit test as well as being able to match the targeted browser versions of a CSS framework (i.e. when compiling Bootstrap 4 SASS as per this comment we need to provide browserslist from package.json to Autoprefixer (this particular issue appears to be related to #892)
+This PR partially fixes #1658 until #892 is fixed.",3,5
+1790,2017-03-11T03:31:11Z,2017-05-15T01:12:55Z,2017-05-15T01:12:55Z,5,274,261,"This is an attempt to resolve #1780 by using the proxy handling of Webpack dev server to allow multiple proxies to be added to package.json.
+Supported config options can be found here: https://webpack.github.io/docs/webpack-dev-server.html#proxy
+The changes are compatible with the previous method and behaviour of providing a simple proxy string
+{
+    ""proxy"": ""http://localhost:4000""
+}
+
+I've tested the following proxy scenarios:
+Proxy as a string
+Expected behaviour is maintained. Requests that accept text/html always fallback to /index.html
+Proxy as an object in the form:
+{
+    ""proxy"": { ""<context>"": { ""target"": ""<url>"" } }
+}
+
+All matching requests are proxied to the target. This includes requests with a 'text/html' Accept Header. It is up to the user to bypass those requests manually in the config.
+No proxy specified in package.json
+All requests fallback to /index.html
+This change relies on Webpack dev server being updated to handle the external websocket upgrade as CRA no longer adds the proxy middleware.
+This is a step towards #671
+#1702 Should be solved by adding a custom oauth callback proxy
+EDIT:
+Webpack dev server v2.4.2 handles the external websocket upgrade for all proxies.
+webpack/webpack-dev-server#843
+Please provide any feedback.",10,22
+1800,2017-03-12T03:12:10Z,2017-03-12T15:13:41Z,2017-03-12T15:13:41Z,1,6,2,"Fixes #1798
+
+Changed packages/react-scripts/scripts/init.js to suggest yarn build instead of yarn run build.
+As a bonus, I also changed yarn run eject to be yarn eject, in order to be consistent. I can change back if this is not desired.
+Trial run of the npm run create-react-app script screenshot: 
+Test results from npm test: 
+I'll also note that the commit message for 9d080d3 is incorrect; it should read ""remove 'run' from 'yarn eject' command as well"".",3,5
+1805,2017-03-12T15:39:52Z,,2017-08-02T01:34:41Z,1,1,1,Passing the --single flag to ensure HTML5 history api support (for things like react router).,5,5
+1819,2017-03-14T14:25:51Z,2017-03-14T19:32:48Z,2017-03-14T19:32:48Z,5,35,0,"This makes sure that end-to-end-testing crash when scripts/*.js run into an unhandled promise rejection as explained here #1806 (comment).
+This code has been added at the beginning of each script:
+process.on('unhandledRejection', err => {
+  throw err;
+});
+Before
+Faulty eject.js fails silently.
+
+
+After
+Faulty eject.js makes end-to-end testing crash.
+
+Note that the bug outlined above should be fixed by #1810.",4,9
+1830,2017-03-15T13:42:36Z,2017-05-16T04:13:19Z,2017-05-16T04:13:19Z,2,48,6,"Solves #1455.
+These options are now configurable:
+
+collectCoverageFrom
+coverageReporters
+coverageThreshold
+snapshotSerializers
+
+Verified by creating a new project using this code and testing with example package.json configuration:
+""jest"": {
+  ""collectCoverageFrom"": [
+    ""src/**/*.{js,jsx}"",
+    ""!<rootDir>/node_modules/"",
+    ""!<rootDir>/path/to/dir/""
+  ]
+}",7,7
+1840,2017-03-17T10:41:53Z,2017-05-05T22:59:50Z,2017-05-05T22:59:50Z,4,11,5,"All the properties of window object such as name, self, and status are considered to be global variables because of having browser env in eslint config.
+As a result this variables are ignored by eslint for errors such as no-unused-vars when someone uses this variables in their code without the intent of using them as a global variable.
+To solve this we'd have to remove browser env  from eslint config and add a list of global variables that are more commonly used. Other window properties are not considered global and requires window. qualifier.
+I have added a list of all variables that I think are commonly used as globals in browser env.
+Please guide if I have missed something.
+How did I test this?
+I created a new app with
+npm run create-react-app test-app
+npm start
+Added console.log(status) to index.js file
+And it showed error in terminal that status is not defined. (As expected)
+But text-editors (Atom)  won't show this as it requires eslint-config-react-app to be installed globally and hence it becomes necessary to update that package globally for this to work.
+closes #1834",9,30
+1887,2017-03-23T14:24:09Z,,2018-03-15T15:26:36Z,14,82,24,"Verified by adding homepage to package.json, and confirming that it would display the subpath in the terminal, and open the browser with the sub path in the url.
+tested by editing both js and css to verify hot loading works the same as before.
+Then verified that if I take homepage back out of package.json, it works as intended.",16,126
+1897,2017-03-27T04:34:37Z,2017-05-09T10:11:32Z,2017-05-09T10:11:32Z,9,26,30,This PR includes a bump of the minimal node version to 4.7.0 as per #1637.,4,8
+1931,2017-04-04T11:28:51Z,2017-06-27T17:21:17Z,2017-06-27T17:21:17Z,1,18,18,"Updated README.md to note nvm support on windows and link to nvm docs on alternatives.
+
+
+Added tree structure for better visual representation of the initial project output.",5,3
+1987,2017-04-17T03:21:30Z,2017-04-22T19:33:50Z,2017-04-22T19:33:50Z,1,20,0,"Updates Readme --> CSS Preprocessor to include information on node-sass-chokidar alternative to node-sass.
+I originally brought this up in this #1986
+Screenshots of package differences
+16GB RAM
+2.7 GHz i7
+
+node-sass --watch in docker for mac
+
+
+node-sass-chokidar --watch in docker for mac",3,3
+1988,2017-04-17T17:03:02Z,2017-04-19T01:38:07Z,2017-04-19T01:38:07Z,1,4,4,"It’s safer to use the absolute path of the directory that you want to serve, in case you run the express app from another directory.",3,2
+2006,2017-04-21T08:36:03Z,2017-06-27T16:51:59Z,2017-06-27T16:51:59Z,2,55,0,,4,5
+2011,2017-04-21T21:08:12Z,,2018-11-01T16:13:58Z,4,12,1,"Add duplicate-package-checker-webpack-plugin as proposed here: #1844 .
+Display compilation warnings on build.
+
+This feature can be quickly tested by creating an app, installing an old version of fbjs (yarn add fbjs@0.6.0) and importing fbjs from App.js. This will result in having duplicate fbjs packages since React already requires the most recent version of fbjs.",6,11
+2022,2017-04-24T12:51:41Z,,2018-12-08T15:34:37Z,1,8,12,It is bad practice to use a hard-coded URL for configurable values. It's also not optimal to use DNS to verify if a host is available through HTTP. (Sitting behind a corporate proxy will render you offline by that definition -- always.),4,9
+2027,2017-04-24T20:07:54Z,,2018-01-09T01:46:28Z,1,8,1,"As discussed in #2007, documentation could include information how ejecting affects on otherwise automatic features. This allows to utilize the documentation better after ejecting.
+This pull request is sketchy because I don't know how ejecting affects other features than src/setupTests.js. It would be great if you could provide more details.
+@anilreddykatta ^",4,3
+2041,2017-04-28T08:46:52Z,,2017-09-29T01:17:45Z,6,109,7,"continuation of #1360. re-implemented per code review remarks, and conflicts resolved.  needs 👀 re-review :).
+problem statement
+
+react-scripts does not offer ready-to-roll jest debugging.
+
+solution
+
+add it!
+
+
+closes #594
+test
+
+checkout this feature branch
+/path/to/this/branch/create-react-app/bin/create-react-app dummy-app
+cd dummy-app
+modify npm test to add a debug flag ^^
+tell your editor to honor source maps
+npm test
+connect the remote debugger
+go.",11,29
+2044,2017-04-28T18:12:46Z,2017-06-27T20:52:31Z,2017-06-27T20:52:31Z,2,43,4,"This is a second try to add React Styleguidist to CRA docs after #921, where we’ve decided that CRA integration in Styleguidist wasn’t good enough. Since then we’ve greatly improved first time experience and out-of-the-box CRA support.",3,12
+2062,2017-05-01T21:54:28Z,,2018-11-08T00:18:56Z,2,114,0,"What does this PR do?
+
+Adds simple instructions on how to deploy to heroku with SSL & nginx",4,9
+2063,2017-05-01T23:26:26Z,2017-05-08T14:05:50Z,2017-05-08T14:05:50Z,1,12,1,"Fixes #2043
+Test Plan:
+❯ create-react-app cra-test
+❯ cd cra-test
+// simulate a failing test in a yarn cache
+❯ mkdir -p .cache/yarn/v1
+❯ echo ""it('fails', () => throw new Error());"" > .cache/yarn/v1/Foo.test.js
+
+Then test that it fails:
+
+Then link the updated version of react-scripts and re-run the test:",4,7
+2090,2017-05-05T20:02:44Z,,2017-07-02T19:39:21Z,2,25,8,#2082,7,4
+2101,2017-05-08T18:53:27Z,2017-05-09T10:09:14Z,2017-05-09T10:09:14Z,1,2,7,"Remove some junk code
+Remove iframe border (which is unnecessary and a bit confusing)",3,2
+2111,2017-05-10T16:14:15Z,2017-05-10T23:56:30Z,2017-05-10T23:56:30Z,42,1987,1168,,3,9
+2114,2017-05-10T18:59:39Z,2017-05-12T04:00:46Z,2017-05-12T04:00:46Z,1,13,22,"updating readme with comment from #1939 . works with latest node-sass@4.5.2
+🎉",10,20
+2115,2017-05-10T19:46:30Z,2017-05-10T23:24:52Z,2017-05-10T23:24:52Z,1,1,0,"While playing with #2113 I noticed ESLint only works for a scaffolded application, and not in our monorepo.
+It's because our .eslintignore says to ignore these files.
+Just like .eslintrc, we should not respect .eslintignore files since webpack is managing the globbing (and only linting src/**/*.js files).",3,0
+2116,2017-05-10T21:19:25Z,,2018-09-21T12:17:12Z,1,11,0,,4,8
+2118,2017-05-11T00:39:24Z,2017-05-11T13:00:20Z,2017-05-11T13:00:20Z,32,84445,1,"Here's a bulk of tests to make sure the overlay is working correctly.
+Statements   : 98.73% ( 156/158 )
+Branches     : 93.2% ( 96/103 )
+Functions    : 100% ( 33/33 )
+Lines        : 99.34% ( 151/152 )
+
+Doesn't test the overlay itself, only all of its sub-components (parsing, resolving source code, etc).",3,7
+2128,2017-05-11T18:05:10Z,2017-05-13T13:39:33Z,2017-05-13T13:39:33Z,8,145,32,"Turns out browser sorting isn't guaranteed to be stable. Doh!
+Also adds limited React warning support (via console) and ignores errors which are solely within node_modules.",3,3
+2138,2017-05-12T16:56:06Z,2017-05-14T23:42:13Z,2017-05-14T23:42:13Z,7,120,71,"Replaces hacky code to format eslint errors by using custom loader.
+I built this formatter on top of the default stylish formatter.
+It omits warnings if there are any eslint errors as required in #2120 and errors and warnings looks the same as earlier.
+Closes #2121",3,3
+2147,2017-05-14T18:49:21Z,2017-05-14T22:10:44Z,2017-05-14T22:10:44Z,3,10,11,,3,2
+2151,2017-05-14T23:05:55Z,2017-05-15T00:59:21Z,2017-05-15T00:59:21Z,5,15,5,,3,0
+2163,2017-05-15T19:32:05Z,2017-05-15T22:25:41Z,2017-05-15T22:25:41Z,5,58,8,"As discussed in #1708
+After this PR the included rules from eslint-plugin-jsx-a11y will be:
+ 'jsx-a11y/accessible-emoji': 'warn',
+    'jsx-a11y/alt-text': 'warn',
+    'jsx-a11y/anchor-has-content': 'warn',
+    'jsx-a11y/aria-activedescendant-has-tabindex': 'warn',
+    'jsx-a11y/aria-props': 'warn',
+    'jsx-a11y/aria-proptypes': 'warn',
+    'jsx-a11y/aria-role': 'warn',
+    'jsx-a11y/aria-unsupported-elements': 'warn',
+    'jsx-a11y/heading-has-content': 'warn',
+    'jsx-a11y/href-no-hash': 'warn',
+    'jsx-a11y/iframe-has-title': 'warn',
+    'jsx-a11y/img-redundant-alt': 'warn',
+    'jsx-a11y/no-access-key': 'warn',
+    'jsx-a11y/no-distracting-elements': 'warn',
+    'jsx-a11y/no-redundant-roles': 'warn',
+    'jsx-a11y/role-has-required-aria-props': 'warn',
+    'jsx-a11y/role-supports-aria-props': 'warn',
+    'jsx-a11y/scope': 'warn',
+
+I have upgraded the package itself to v5.01.
+I have set the dev and peer dependency to be ^5.0.0, where appropriate. This version contains new rules, some of which have been used in the config above, therefore it will error out with earlier versions of the plugin.
+In the docs of eslint-config-react-app I changed the version of the plugin when installing globally:
+
+Finally, I added a section to the documentation of eslint-config-react-app indicating the rules that have been activated and how you can override them to run the full set.
+
+I have done a clean install of packages, and also started the React application with clean slate as well as error situations and all function as I would expect.
+I hope I have not missed anything.",5,5
+2189,2017-05-17T03:26:39Z,2017-05-17T11:19:52Z,2017-05-17T11:19:52Z,5,107,0,"Sorry, short on time. Should be self explanatory.",7,9
+2220,2017-05-19T00:25:53Z,2017-05-19T03:58:38Z,2017-05-19T03:58:38Z,2,81,33,Also will need to merge #1801.,3,4
+2221,2017-05-19T04:06:01Z,2017-05-20T17:55:16Z,2017-05-20T17:55:16Z,1,25,0,"#2090
+sorry about last PR, I had accidentally pushed commit to build.js and couldn't solve merge conflict.
+so I made another branch.",6,1
+2238,2017-05-19T11:01:33Z,2017-05-19T12:04:10Z,2017-05-19T12:04:10Z,1,4,0,"In regard to #2231, I tried to write a quick fix for the error, by not handling shortcuts if the error list is empty.
+Tested by rebuilding react-error-overlay, and testing shortcuts.
+If you think they're is a better way to do this, i'm completely open for suggestions, as I am new to create-react-app codebase !
+Thanks 😄",3,4
+2269,2017-05-19T20:43:31Z,2017-05-19T21:57:12Z,2017-05-19T21:57:12Z,1,2,1,"On npm 2.15.11 I'm getting an ""Error: Cannot find module 'text-table'"", from react-dev-utils/eslintFormatter.js:4:15). This fixes that error.",3,3
+2276,2017-05-20T00:36:43Z,2017-05-20T18:07:43Z,2017-05-20T18:07:43Z,4,52,0,"R: @gaearon @Timer
+This adds in a ""no-op"" service-worker.js at the root of the dev environment's web server.
+It works around the issue of someone serving their dev and prod environments from the same port and ending up with a production service worker that controls their dev environment.
+If a user finds themselves in that situation, then the next time the browser checks for an updated service worker, the ""no-op"" version will be installed instead, and immediately force any open pages to reload, so that they're once again talking directly to the dev server.
+(The caveat here is that, as with all things service worker-y, this assumes that build/service-worker.js was served using reasonable cache headers. I took a look at how the recommended serve module responds to requests for the build/service-worker.js, and it does appear to use a very short cache lifetime, so that's good!)
+Fixes #2272",4,5
+2283,2017-05-20T09:44:55Z,2017-05-20T18:08:58Z,2017-05-20T18:08:58Z,4,16,2,"I removed inquirer dependency from react-scripts and created helper function in react-dev-utils.
+As you can see there is a bloated diff in packages/react-scripts/scripts/eject.js, because of auto-formating after commit.
+I tested eject command (e2e), works same as master.",3,10
+2285,2017-05-20T10:29:59Z,2018-01-17T15:20:58Z,2018-01-17T15:20:58Z,10,186,19,"This adds support for CSS Modules using the explicit file naming convention [name].module.css
+When using css modules, class names follow a deterministic convention rather than the standard random hash with the covention [directory]__[filename]___[classname].
+Given src/components/Button/Button.module.css with a class .primary {}, the generated classname will be src-components-Button__Button-module___primary.
+This is done to allow targeting off elements via classname, causes minimal overhead with gzip-enabled, and allows a developer to find component location in the devtools.
+See issue #2278 for more details.
+Update - 6th Oct 2017
+We are currently waiting on version 2 of Create-React-App to add css module support as it is a breaking change. The current release timeframe is unknown.
+You may use react-scripts-cssmodules to add cssmodules in the meantime.
+This is kept up to date with react-scripts and uses similar version numbers e.g. 1.0.140 equals 1.0.14.
+You can use it by running npm uninstall react-scripts and npm install react-scripts-cssmodules. Or in new projects create-react-app my-app --scripts-version react-scripts-cssmodules`
+Specific questions or feedback.
+
+
+I have moved PostCSS options into a variable but repeated the rest of the style-loader code. This meaning repeated code but in my opinion is easier to follow. However, it could be changed to use less repeated code?
+
+
+My regex is amateur is there anyway that the incorrect file could be captured by /\.modules.css$/ or the incorrect file excluded by /[^\.modules]\.css$/
+
+
+I have been using this configuration in production for a couple months with no issues.
+Images of working project
+React
+
+Rendered component. Using both CSS Module stylesheet, and regular stylesheet for animation
+
+Rendered HTML
+
+Applied styles
+
+Todo before merge
+
+ Adding CSS Modules agreed and approved in #2278
+ Update readme
+ Confirm regex
+ Fix build
+ Add end2end test for .modules.css
+ Up to date with master",36,89
+2286,2017-05-20T11:44:35Z,2018-01-14T02:02:33Z,2018-01-14T02:02:33Z,7,169,62,Add restricted globals in a separate package.,3,0
+2288,2017-05-20T16:24:43Z,2017-05-20T17:34:16Z,2017-05-20T17:34:16Z,2,45,0,"The newly added host check (webpack/webpack-dev-server#887, explanation) is significantly disruptive to people’s workflows (#2271, #2233), especially in legit use cases like cloud editors (#2271 (comment)).
+I think only enabling the host check for proxy users is a reasonable compromise because unlike WDS, we only serve files in public folder by default which the user has consented to... being public. Of course, with proxy enabled this is still dangerous, so we enable the host check in this case.
+For people who use proxy with a non-localhost development server, we recommend specifying the HOST in .env.development file. It gets passed as the public option to WDS. This solves the problem nicely for most remaining cases.
+Finally, this adds a way to completely opt out of the host checks by adding DANGEROUSLY_DISABLE_HOST_CHECK=true to .env.development.local in case you are not worried about attacks (which could be the case if you’re using a cloud editor and don’t have sensitive data) and just can’t get it to work otherwise.",4,3
+2297,2017-05-20T20:10:25Z,2017-05-21T19:44:28Z,2017-05-21T19:44:29Z,1,14,1,Resolves #2296,3,0
+2304,2017-05-21T01:15:36Z,,2019-07-24T17:40:13Z,10,428,25,"Couldn't resist. Integrated with our error handling. (So errors cause refresh on next save.)
+
+
+ This would need a Babel transform, for now I just hardcoded what it would do
+ Only works if you have DevTools installed/enabled
+ This is annoying #1880
+ Editing after initial error should refresh
+ Editing after compile error should still be hot
+ Chrome sourcemaps don't update #2407
+ TESTS
+ ""Click to source"" breaks in overlay because after first edit, path looks like  ./packages/react-scripts/template/src/Logo.js?989a:5. Need to figure out where that ?989a comes from, it doesn't make sense (all edits after the first one get that name in Sources pane). Even changing devtoolFallbackModuleFilenameTemplate to repeat devtoolModuleFilenameTemplate didn't help: webpack still tries to give different source names to the same file on first reload.
+
+I only want to enable this for files that export a single functional component defined with JSX.
+The goal is not to be comprehensive but to always work well, and create trust.",16,19
+2310,2017-05-21T15:33:23Z,,2018-01-20T18:44:16Z,3,62,2,"PR for #2206
+steps to create vendor bundle file
+
+Create a file vendor.js in src folder.
+import vendor libs in the vendor file.
+run build",10,9
+2316,2017-05-22T01:29:54Z,,2018-09-21T12:19:41Z,5,52,56,"Converting mocha tests to jest
+Fix for #2294",4,12
+2326,2017-05-22T15:03:13Z,2017-05-22T16:04:17Z,2017-05-22T16:04:18Z,3,12,12,"This should fix #2324.
+It seems like regex is not necessary now that we go through WDS so I deleted it.",3,0
+2341,2017-05-23T14:42:11Z,,2017-05-24T05:06:32Z,7,171,29,This is a copy of #2285. We correct the css modules test for webpack.,4,1
+2358,2017-05-25T04:25:53Z,,2018-01-14T02:06:35Z,5,28,20,"Autoprefixer's browsers option is currently hardcoded. This PR adds the browserslist key in package.json which allows developers to set different browsers for both production and development.
+Autoprefixer which relies on Browserslist will find its config automatically.
+This PR fixes #2248 and #892",5,14
+2379,2017-05-27T03:04:54Z,2017-05-27T11:36:42Z,2017-05-27T11:36:42Z,1,5,0,"Testing: I created an equivalent repo to the repo described in #2376 but using this version of create-react-app, and its production build doesn't exhibit the bug mentioned in that bug.",3,0
+2395,2017-05-28T08:46:22Z,,2017-06-27T16:16:22Z,1,5,4,"Fixes #2393
+This PR fixes an ongoing issue with large node_modules folders and create-react-app tests.
+The underlining issue is with Jest and how it watches files, and the current method that is used for testMatches means that files in node_modules are watched and crashes jest.
+@thisconnect created issue #2393 that shows how to reproduce the error and included an example repo.
+This PR uses modulePathIgnorePatterns to decide what to watch/not-watch instead of testMatches and correctly ignores node_modules. As seen in Jest issue jestjs/jest/issues/1767",7,30

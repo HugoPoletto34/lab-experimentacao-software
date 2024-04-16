@@ -1,0 +1,481 @@
+number,created_at,merged_at,closed_at,files,additions,deletions,body_text,participants,comments
+36,2016-09-15T22:55:49Z,2016-09-27T21:55:04Z,2016-09-27T21:55:04Z,13,576,64,,5,7
+44,2016-09-21T01:26:33Z,2016-09-30T20:23:43Z,2016-09-30T20:23:43Z,5,246,108,RFC: here's what the dataloader looks like to support multiprocess the way we discussed. It's a tad ugly. There might be a better way to deal with the multiprocess coordination and cleanup on exit.,5,0
+52,2016-09-25T19:39:12Z,2016-09-26T00:21:14Z,2016-09-26T00:21:14Z,8,77,81,"Prior to this change, there was a circular reference between Leaf and
+Variable. This means that the objects (and referenced Tensors) are not
+collected as soon as they go out of scope, which lead to higher memory
+usage and out-of-memory errors.
+This is basically what @apaszke and I discussed on Friday, but now Variable no longer extends Function. This makes more sense to me, since it a Variable isn't a Function, and shouldn't have all the methods Function provides. Instead they both provide a few common functions/field (_do_backward, previous_functions)",3,0
+58,2016-09-27T00:04:06Z,2016-09-28T01:12:02Z,2016-09-28T01:12:02Z,0,0,0,Do not merge. This PR is only for review and test purposes.,4,0
+61,2016-09-28T04:14:03Z,2016-09-28T15:58:00Z,2016-09-28T15:58:00Z,7,39,24,fixes #60,2,0
+62,2016-09-28T17:42:33Z,,2016-09-29T16:36:16Z,13,279,7,"Do not merge. This PR is only for review and test purposes.
+This change depends on the upcoming changes to torch.cuda (right now tests and ffi utils always import and use this module).
+Example:
+# build_ext.py
+import glob
+from torch.utils.ffi import compile_extension
+compile_extension('ext.my_lib', 'src/exported_api.h', glob('src/*.c'))
+# main.py
+import torch
+from ext import my_lib
+my_lib.my_fn(torch.randn(5, 5))",3,2
+64,2016-09-28T20:49:56Z,2016-09-28T23:29:53Z,2016-09-28T23:29:53Z,20,170,157,"The torch.cuda package can now be loaded even if the pytorch installation isn't build with CUDA support. This is particularly useful for packages that work with CUDA and non-CUDA, because you can do proper Python type checking (isinstance(tensor, torch.cuda.FloatTensor)).",2,3
+71,2016-09-29T20:34:10Z,2016-09-30T18:04:53Z,2016-09-30T18:04:53Z,7,62,56,,2,0
+78,2016-09-30T23:42:09Z,2016-10-14T21:44:11Z,2016-10-14T21:44:11Z,6,376,3,,2,0
+79,2016-10-01T19:13:38Z,2016-10-01T23:32:55Z,2016-10-01T23:32:55Z,4,44,70,"Adds the optional ""device"" keyword argument to Tensor and Storage
+constructors and .new methods.",3,1
+90,2016-10-01T22:41:17Z,2016-10-02T01:18:53Z,2016-10-02T01:18:53Z,4,56,21,"modules(): returns an iterator over all modules in the network
+children(): returns an iterator over immediate children
+Also fix getitem in Sequential",3,0
+99,2016-10-04T18:56:18Z,2016-10-05T01:11:42Z,2016-10-05T01:11:42Z,12,479,17,"save all data in little endian order
+allow to remap storage locations at load time
+add parameter_dict() method that returns all model parameters in a dict (using dot notation as keys)
+
+Do not merge. This PR is only for review and test purposes.",3,0
+105,2016-10-05T17:47:43Z,2016-10-06T21:12:58Z,2016-10-06T21:12:58Z,7,137,48,Do not merge. This PR is only for review and test purposes.,3,1
+106,2016-10-05T21:07:47Z,2016-10-06T19:59:12Z,2016-10-06T19:59:12Z,6,43,27,,2,1
+110,2016-10-07T19:17:21Z,2016-10-07T21:56:22Z,2016-10-07T21:56:22Z,1,7,8,Fixes #109,2,0
+115,2016-10-11T18:51:20Z,2016-10-14T00:19:26Z,2016-10-14T00:19:26Z,28,1513,233,This is a huge modification to autograd. All core functions and types are moved to C (however they can still be used in python using the same interface - see BasicEngine). This improves RNN training speed on Penn Treebank more than 2x (and can actually saturate a GPU with a small RNN during backward).,3,0
+116,2016-10-11T21:40:59Z,,2016-12-20T10:55:26Z,33,2073,20,"TODOs:
+
+ spmm
+ sspmm
+ spadd
+ Transpose
+ Concat?
+ Narrow and other reshaping ops?",4,4
+129,2016-10-17T04:29:14Z,2016-10-24T19:00:02Z,2016-10-24T19:00:03Z,15,1422,17,,3,8
+133,2016-10-17T19:33:46Z,2016-10-18T16:15:57Z,2016-10-18T16:15:57Z,9,347,1,,3,2
+135,2016-10-17T22:02:52Z,2016-10-22T03:54:16Z,2016-10-22T03:54:16Z,4,222,182,"The multi-process data loader now preserves the order of the sampler. So if the sampler and dataset are deterministic, the loader is deterministic too.
+cc @adamlerer, @apaszke",3,3
+136,2016-10-18T03:39:24Z,2016-10-18T21:34:20Z,2016-10-18T21:34:20Z,3,51,18,"For example:
+  self.linear = nn.Linear(10, 20)
+  self.weight = torch.autograd.Variable(torch.Tensor(10, 20))
+I did not add logic for assigning Tensors to _buffers -- not sure if it's worth it.
+Fixes #89",2,2
+137,2016-10-18T16:13:18Z,2016-10-18T21:27:11Z,2016-10-18T21:27:11Z,2,6,5,,2,0
+161,2016-10-24T08:45:25Z,2016-10-24T21:16:46Z,2016-10-24T21:16:46Z,19,205,90,"python2.7 compatibility and cffi version checks in torch.utils.ffi (#156, #157)
+platform checks in torch.cuda (failed on macOS)
+don't build nccl on macOS
+bugs in torch.legacy.nn
+.train() and .evaluate() for modules and containers
+0-based random (#123)
+stateless functions no longer print ""type type doesn't implement stateless methods"" when a method resolution fails
+added torch.from_numpy (#159)
+fixed clang warnings
+tests are now deterministic (#125)
+added tensor values buffering when constructing CUDA tensors from sequences (#158)
+show exponent when printing vectors (#147)",5,3
+167,2016-10-25T16:17:52Z,2016-10-26T23:51:48Z,2016-10-26T23:51:48Z,24,1112,160,"The Python ctypes bindings overhead was high enough that it slowed down
+multi-gpu training when using 4+ Maxwell GPUs.",4,5
+169,2016-10-25T20:28:02Z,2016-10-25T22:19:33Z,2016-10-25T22:19:33Z,1,7,4,,2,0
+170,2016-10-26T13:31:50Z,2016-10-27T20:31:36Z,2016-10-27T20:31:36Z,7,59,15,"After this change assigning Variables as attributes doesn't add them as parameters. To do so, one needs to create them as torch.nn.Parameter instances.",3,0
+177,2016-10-28T18:49:02Z,2016-10-31T21:47:10Z,2016-10-31T21:47:10Z,19,273,119,"Also, implement variable.no_grad() that returns a new variable with the same data, but with requires_grad == False (#166).",4,3
+179,2016-10-28T22:25:45Z,2016-10-31T16:12:22Z,2016-10-31T16:12:22Z,10,207,232,"I changed the semantics of THPTensor_(New)(THTensor *ptr) slightly to simplify error handling in calling code. Previously, the function ""stole"" the reference to ptr on success but left the refcount unchanged on error. Now the refcount is decremented when NULL is returned.",2,0
+180,2016-10-28T22:32:25Z,2016-10-31T16:12:29Z,2016-10-31T16:12:29Z,3,31,14,,2,0
+185,2016-10-31T13:51:18Z,,2016-11-01T19:55:12Z,2,19,14,"@soumith, here are the changes I made to get ccache working with nvcc:
+
+Install ccache 3.3
+Create a nvcc ccache symlink (/usr/local/lib64/ccache/nvcc -> ../../bin/ccache)
+Set the environment variables CUDA_TOOLKIT_ROOT_DIR=/usr/local/cuda/ and CUDA_NVCC_EXECUTABLE=/usr/local/lib64/ccache/nvcc",3,1
+192,2016-11-01T12:25:27Z,2016-11-01T18:31:53Z,2016-11-01T18:31:53Z,5,60,28,"Fix segfaults when deserializing variables (#188)
+Improve Parameter's __repr__ (#182)
+Accept file paths in torch.save and torch.load (#190)
+Fix a bug in criterion's backward (#184).",3,0
+194,2016-11-01T22:20:49Z,2016-11-02T14:25:58Z,2016-11-02T14:25:58Z,2,71,70,"adds CUDA multiple types for almost all torch.* functions.
+Only things missing now are LAPACK and Random.
+Progress being tracked here: torch/cutorch#529
+Fixes #186",2,0
+195,2016-11-02T08:25:29Z,2016-11-02T23:36:10Z,2016-11-02T23:36:10Z,4,56,19,Fixes #153.,3,1
+196,2016-11-02T15:19:00Z,2016-11-07T21:50:56Z,2016-11-07T21:50:56Z,14,614,23,The tests check convergence on the Rosenbrock function and compare steps with legacy implementations. (#175),4,2
+197,2016-11-02T19:28:18Z,2016-11-02T22:50:56Z,2016-11-02T22:50:56Z,9,3744,3727,"This should make TensorMethods.cwrap more readable.
+Syntax is inspired from https://github.com/claylo/yaml-include",3,4
+198,2016-11-02T20:37:46Z,2016-11-02T21:44:36Z,2016-11-02T21:44:36Z,4,30,11,"You can test this by adding the following at the top of
+test_multiprocessing.py:
+  if __name__ == '__main__':
+     import multiprocessing
+     multiprocessing.set_start_method('spawn')",2,3
+200,2016-11-03T15:34:15Z,2016-11-03T20:29:14Z,2016-11-03T20:29:14Z,5,110,58,"The __getstate__ and __setstate__ functions are called from copy.copy as
+well as pickling. The source code inspection currently slows down the
+data parallel code because it makes a copy of the object every
+iteration.",3,0
+203,2016-11-04T18:40:43Z,2016-12-20T01:42:53Z,2016-12-20T01:42:53Z,13,673,358,"CUDA IPC only works with Python 3 using the ""spawn"" start method. You can select the start method using the get_context method:
+ import torch.multiprocessing as mp
+ ctx = mp.get_context('spawn')
+ queue = ctx.Queue()
+ event = ctx.Event()
+To work better with multiprocessing contexts (which were introduced in Python 3), I've changed the way you switch the ""sharing strategy"". To use a non-default sharing strategy you get a new context:
+import torch.multiprocessing as mp
+ctx = mp.get_context(sharing_strategy=""file_system"")
+(This works in both Python 2 and Python 3)",3,1
+205,2016-11-07T01:11:41Z,,2016-11-07T21:18:51Z,10,230,3,"also fixes a bug in ConvTranspose2d
+also adds .apply(func) with the same-ish semantics as in torch
+
+printing a net will now look more informative, like this:
+>>> print(netG) # a sequential network
+Sequential {
+  (0): ConvTranspose2d (100 -> 512, size: (4, 4), stride: (2, 2), padding: (1, 1))
+  (1): BatchNorm2d (nChannels: 512    eps: 1e-05 momentum: 0.1 affine: True)
+  (2): ReLU (inplace)
+  (3): ConvTranspose2d (512 -> 256, size: (4, 4), stride: (2, 2), padding: (1, 1))
+  (4): BatchNorm2d (nChannels: 256    eps: 1e-05 momentum: 0.1 affine: True)
+  (5): ReLU (inplace)
+  (6): ConvTranspose2d (256 -> 128, size: (4, 4), stride: (4, 4), padding: (2, 2))
+  (7): BatchNorm2d (nChannels: 128    eps: 1e-05 momentum: 0.1 affine: True)
+  (8): ReLU (inplace)
+  (9): ConvTranspose2d (128 -> 64, size: (4, 4), stride: (4, 4), padding: (2, 2))
+  (10): BatchNorm2d (nChannels: 64    eps: 1e-05 momentum: 0.1 affine: True)
+  (11): ReLU (inplace)
+  (12): ConvTranspose2d (64 -> 3, size: (4, 4), stride: (4, 4), padding: (4, 4))
+  (13): Tanh ()
+}
+
+>>> print(netD) # a container with a sequential module called ""main""
+
+_netD {
+  (main): Sequential {
+  (0): Conv2d (3 -> 64, size: (4, 4), stride: (2, 2), padding: (1, 1))
+  (1): LeakyReLU (negative slope: 0.2, inplace)
+  (2): Conv2d (64 -> 128, size: (4, 4), stride: (2, 2), padding: (1, 1))
+  (3): BatchNorm2d (nChannels: 128    eps: 1e-05 momentum: 0.1 affine: True)
+  (4): LeakyReLU (negative slope: 0.2, inplace)
+  (5): Conv2d (128 -> 256, size: (4, 4), stride: (2, 2), padding: (1, 1))
+  (6): BatchNorm2d (nChannels: 256    eps: 1e-05 momentum: 0.1 affine: True)
+  (7): LeakyReLU (negative slope: 0.2, inplace)
+  (8): Conv2d (256 -> 512, size: (4, 4), stride: (2, 2), padding: (1, 1))
+  (9): BatchNorm2d (nChannels: 512    eps: 1e-05 momentum: 0.1 affine: True)
+  (10): LeakyReLU (negative slope: 0.2, inplace)
+  (11): Conv2d (512 -> 1, size: (4, 4), stride: (1, 1))
+  (12): Sigmoid ()
+}
+}",3,5
+207,2016-11-08T12:39:32Z,2016-11-08T17:12:56Z,2016-11-08T17:12:56Z,21,96,54,"Fixes CPU tests in Python 3.3 and 3.4, and resolves #144.",4,0
+210,2016-11-08T20:05:08Z,2016-11-08T21:13:25Z,2016-11-08T21:13:25Z,6,114,22,fixes #206,3,0
+225,2016-11-17T07:08:43Z,2016-11-17T20:12:02Z,2016-11-17T20:12:02Z,5,798,12,"adding docs for
+
+loss functions
+
+some of them have examples and some dont, for now.
+
+
+nn.Module
+nn.Container
+
+fix typos",2,1
+226,2016-11-17T19:21:19Z,2016-11-17T22:34:40Z,2016-11-17T22:34:41Z,8,326,78,Fixes #219,4,0
+227,2016-11-17T21:19:03Z,2016-11-17T22:34:33Z,2016-11-17T22:34:33Z,4,77,6,Fixes #222,3,0
+231,2016-11-18T16:59:57Z,2016-11-18T19:06:35Z,2016-11-18T19:06:35Z,3,23,5,"Without the PyObject_GC_UnTrack call, the tp_dealloc handler could get
+called twice if a referred to object triggers a garbage collection from
+its destructor.
+See http://bugs.python.org/issue28737",3,3
+232,2016-11-18T17:27:14Z,2016-11-18T18:58:09Z,2016-11-18T18:58:09Z,2,24,16,,2,0
+239,2016-11-19T22:03:23Z,2016-11-21T18:39:55Z,2016-11-21T18:39:55Z,6,115,38,"Adds torch.multinomial for CUDA tensors (#236)
+Fixes reference cycles in autograd (if outputs are saved for backward) (#235)
+save_for_backward now accepts None arguments, and backward can now return too many grad_inputs, as long as the excessive values are None (#221)",3,0
+243,2016-11-21T22:34:05Z,2016-11-23T17:48:41Z,2016-11-23T17:48:41Z,7,168,73,"Fix errors when data_parallel was used with a single GPU (#234)
+Fix errors when data_parallel was used with multiple outputs (or inputs) (#242)
+Improve data_parallel tests
+Forbid constructing tensors from numpy arrays with negative strides. This will be fixed in the future, but it will require pushing some changes to TH. For now a readable error message is printed. (#230)",6,3
+246,2016-11-22T21:26:52Z,2016-11-22T22:38:35Z,2016-11-22T22:38:35Z,26,1394,956,fixes #245,5,0
+248,2016-11-23T19:47:07Z,2016-11-24T23:41:55Z,2016-11-24T23:41:55Z,16,696,19,"torch.utils.serialization.load_lua can now open files saved with Lua Torch. It loads all modules available in torch.legacy.nn (except for SpatialContrastiveNormalization, that has some weird bug and gives different results).",4,0
+250,2016-11-24T12:21:27Z,2016-11-24T23:40:37Z,2016-11-24T23:40:37Z,6,64,26,"torch.max(var, 0) did a max over the last dimension instead of the first (reported by Alex Conneau)
+var.expand now accepts torch.Size as argument (#249)
+Implemented in-place operators for variables
+Fixed bug when the Variable constructor wasn't setting the error flags properly.
+Return accreal as correct python type (previously it was always float). (#251)
+Modified the signature of .max(), .median() and other selection functions to always return a tuple of values and indices. This is a breaking change.",4,0
+252,2016-11-25T15:23:12Z,2016-11-26T05:26:40Z,2016-11-26T05:26:40Z,3,32,12,"pip install coverage # or conda install coverage
+./run_test.sh coverage
+coverage html",2,1
+257,2016-11-26T06:49:37Z,2016-11-26T17:10:56Z,2016-11-26T17:10:56Z,2,27,1,"a break was missing.
+Fixes #256",2,4
+265,2016-11-29T01:48:10Z,2016-11-29T17:35:03Z,2016-11-29T17:35:03Z,2,64,3,"DataLoader now supports the constructor argument 'pin_memory'. When set
+to true, tensors in the sample are copied to pinned memory. This happens
+in a background thread when num_workers > 1.",2,1
+268,2016-11-29T19:12:44Z,2016-11-29T21:36:01Z,2016-11-29T21:36:01Z,5,125,55,"Adds a container version of the data_parallel function. This is a
+drop-in replacement for the DataParallel class in the ImageNet example.",2,1
+269,2016-11-29T19:49:55Z,2016-11-30T01:35:40Z,2016-11-30T01:35:40Z,3,39,14,,2,0
+275,2016-12-01T02:54:57Z,2016-12-02T06:33:56Z,2016-12-02T06:33:57Z,5,61,6,"Adds a caching allocator for CUDA pinned (page-locked) memory. This avoid synchronization due to cudaFreeHost or cudaHostUnregister calls.
+To ensure read-after-write and write-after-read consistency, a CUDA event is recorded after every cudaMemcpyAsync between host and device involving pinned memory created by this allocator. Memory allocations are only re-used after they're freed and all associated CUDA events have completed.
+Unlike the caching device allocator, allocations are never split. This means that requests for small allocations may be filled by much larger cached buffers. I think this should be OK in practice.
+Also, CUDA events are processed in the order in which they're recorded, even though events may occur out-of-order between devices or streams. This does not affect correctness, but means that cached allocations may not be considered ""ready"" for re-use until a little later. In practice, I don't think this should matter.
+I'll send a PR to cutorch soon, but I want to make sure the continuous builds pass.
+I'm interested if @ngimel or @thatguymike have any comments.
+See #265",2,1
+276,2016-12-01T05:18:43Z,2016-12-01T19:12:15Z,2016-12-01T19:12:15Z,3,15,15,Also include the full path to the key which triggers the TypeError,2,0
+277,2016-12-01T05:19:32Z,2016-12-02T06:21:36Z,2016-12-02T06:21:36Z,2,14,2,,2,0
+282,2016-12-01T19:28:26Z,2016-12-01T22:14:41Z,2016-12-01T22:14:42Z,86,547,253,"Remove adam, sgd, etc. as attributes of torch.optim package
+Add torch.cuda.set_device (#260)
+Implement __len__ for tensors (#270)
+Implement .type() for torch.nn modules (#272)
+Make torch.randperm always return a torch.LongTensor (#267)
+Improve cuDNN detection at build time (#280)
+Raise IndexError in tensors' __getitem__. (needed in #277)
+Allow saving dynamically defined modules (#278)
+Import most common packages (cuda, autograd, nn, optim) by default (#283)",4,1
+286,2016-12-02T06:33:39Z,2016-12-11T20:54:58Z,2016-12-11T20:54:58Z,28,233,581,"The GIL is now released during copies. This is important for the data loader because it optionally copies to pinned memory in a background thread.
+I also refactored the copy code. I removed a bunch of the nested macros as the cost of some template magic.
+The only other semantic change is that async=True is now ignored for CPU <-> CPU copies. Previously it was an error (""Copy function from FloatTensor to FloatTensor isn't implemented!""). I think this makes sense because we treat async=True as just a hint: it's ignored for GPU <-> GPU copies and for GPU <-> CPU copies it only has an effect if the CPU memory is ""pinned"".",2,1
+287,2016-12-02T11:23:38Z,2016-12-11T19:13:48Z,2016-12-11T19:13:48Z,2,10,3,"fb.resnet.torch ResNets can be loaded, printed and fwd/bwd propagated (almost, in certain conditions)",2,0
+290,2016-12-02T15:23:25Z,2016-12-14T23:47:55Z,2016-12-14T23:47:55Z,16,723,371,"Allow returning changed gradients from the hooks (#262)
+Fix bmm for variables (#299)
+Adds dimension checks for t() and t_() (#301)
+Fixes #306.
+Fixes an issue with narrow docs (#291)
+Adds support for loading tds objects (#300)
+train() and eval() no longer change requires_grad flags of parameters.",4,1
+294,2016-12-08T21:40:39Z,2016-12-16T12:14:37Z,2016-12-16T12:14:37Z,13,411,16,See #279 for the API design.,4,2
+298,2016-12-11T22:41:07Z,2016-12-12T09:56:57Z,2016-12-12T09:56:57Z,2,5,0,Some tests fail on a machine without GPU,3,0
+322,2016-12-16T23:22:33Z,2016-12-19T14:27:47Z,2016-12-19T14:27:47Z,3,12,4,Fixes #311,3,0
+325,2016-12-17T10:59:48Z,2016-12-17T20:40:13Z,2016-12-17T20:40:13Z,5,38,28,"Fixes #323 and #320. Also, fixed one more bug in expand_as",3,0
+328,2016-12-19T00:43:55Z,2016-12-29T23:14:56Z,2016-12-29T23:14:56Z,4,84,18,,3,2
+332,2016-12-19T22:18:39Z,2016-12-20T01:35:08Z,2016-12-20T01:35:08Z,8,29,18,,3,0
+333,2016-12-20T10:54:39Z,2017-01-04T23:43:42Z,2017-01-04T23:43:42Z,64,3362,100,"I redid this PR, since the last one was old and I did not want to rebase everything just to change up the module format. For reference: #116
+Having sparse modules in csrc/Modules.cpp allows us unify calling functions that require sparse and non-sparse arguments. In the previous PR, sparse.addmm is now just torch.addmm and torch will call the correct functions.
+This is added as a ""Sparse=True"" flag to the Embedding Module. The modifications for the training loop is given in ebetica/examples@3c41e57
+The list of implemented functions are in torch/csrc/generic/methods/SparseTensor.cwrap",4,2
+338,2016-12-21T13:56:08Z,2016-12-22T20:43:40Z,2016-12-22T20:43:40Z,4,108,0,"Added the PixelShuffle layer which rearranges elements in a tensor of shape [B, C*r, H, W] to a tensor of shape [B, C, H*r, W*r].
+This is useful for implementing efficient sub-pixel convolution with a stride of 1/r, which can be used for tasks such as super-resolution (see ""Real-Time Single Image and Video Super-Resolution Using an Efficient Sub-Pixel Convolutional Neural Network"" - Shi et al.).",5,5
+341,2016-12-21T20:59:05Z,2016-12-27T00:10:36Z,2016-12-27T00:10:36Z,4,102,27,"autograd.backward([var1, var2], [grad_var1, grad_var2])
+does a single backward pass through a full graph preceding var1 and var2. Implements #335.",3,0
+343,2016-12-22T11:10:52Z,2016-12-25T15:28:11Z,2016-12-25T15:28:11Z,2,140,56,"unifies MaxPool[1,2,3]d functions interfaces and internal modules calls
+removes *args and *additional args code from functions",4,1
+344,2016-12-22T15:48:27Z,2016-12-29T01:34:24Z,2016-12-29T01:34:24Z,17,538,782,"This hooks into the (internal) ForkingPickler class in multiprocessing
+to reduce tensors, storages, and CUDA events instead of our queue from
+joblib. This makes it easier to use the standard multiprocessing classes
+in later versions of Python.
+This also exposes:
+
+Tensor/Storage.share_memory_()
+Module.share_memory()
+
+These methods move the CPU tensors and storages to shared memory. If
+you're using the ""fork"" method of multiprocessing, these objects can be
+directly inherited instead of serialized through a queue.",2,3
+346,2016-12-23T00:32:20Z,,2016-12-23T01:37:04Z,4,21,22,Fixes #247 and #326,3,1
+350,2016-12-24T19:15:16Z,2016-12-27T23:03:40Z,2016-12-27T23:03:40Z,62,1242,39,"I've started adding sphix docs. You can build the documentation with:
+cd docs
+pip install -r requirements.txt
+make clean html
+There's still a bunch of work to do, including porting over much of the existing documentation, but if you want to get started on documenting the C torch.xxx functions they're listed in torch/docs.py.
+We're using Google style Python docstrings because they tend to be nicer to read then pure reStructuredText:
+http://sphinxcontrib-napoleon.readthedocs.io/en/latest/example_google.html
+Also worth reading is the Python docstring convention:
+https://www.python.org/dev/peps/pep-0257/
+
+For C-implemented functions put the type signature as the first line. (Don't do this for python implemented functions)
+Use triple quotes
+
+Last, a tidbits from Documenting Python:
+
+7.2.5. Economy of Expression
+More documentation is not necessarily better documentation. Err on the side of being succinct.
+It is an unfortunate fact that making documentation longer can be an impediment to understanding and can result in even more ways to misread or misinterpret the text. Long descriptions full of corner cases and caveats can create the impression that a function is more complex or harder to use than it actually is.",2,3
+351,2016-12-24T19:37:07Z,2016-12-25T06:55:01Z,2016-12-25T06:55:01Z,2,30,28,"also:
+
+rename pad to padding for consistency
+ConvTranspose2d used to take kw and kh which it didn't need",2,0
+354,2016-12-25T22:20:10Z,2016-12-29T21:53:57Z,2016-12-29T21:53:57Z,12,542,171,"Basic version of #292 :
+
+short lowercase functions, naming similar to tensorflow: https://www.tensorflow.org/api_docs/python/nn/
+adds AvgPool2d and AvgPool3d functions
+modules and functions.rnn (cc @adamlerer) now use functional where possible
+
+@apaszke @soumith @colesbury please take a look before I proceed further and add docs",3,1
+357,2016-12-27T14:24:54Z,,2017-01-21T05:54:22Z,1,20,2,"A couple of dirty hacks to support cudnn. Main problems:
+
+there's no torch.cuda.FloatStorage.from_buffer so reading fails on CudaStorages https://github.com/pytorch/pytorch/blob/master/torch/utils/serialization/read_lua_file.py#L163
+there's no torch.CudaTensor backend, I added a fallback to torch.FloatTensor",5,1
+359,2016-12-27T21:49:27Z,2016-12-28T21:14:48Z,2016-12-28T21:14:48Z,15,331,322,"I've also updated test_nn.py to run marked tests twice: once with cuDNN
+enabled and once with it disabled.",3,12
+360,2016-12-27T22:21:48Z,2016-12-28T17:15:18Z,2016-12-28T17:15:18Z,11,65,14,"Variables are now picklable using protocols < 2 (#336)
+TypeError is raised instead of ValueError for invalid arguments
+Added support for negative dimensions in a few functions (we should support this everywhere at some point, but this will require some changes in cwrap) (#349, #355)
+__len__, half for Variables (#348, #356)
+Type checking in cwrap is now more strict - booleans will no longer be accepted as integer arguments (#330)",3,0
+364,2016-12-28T16:51:19Z,2016-12-29T11:26:00Z,2016-12-29T11:26:00Z,41,491,435,"torch.add(output, input1, input2)
+torch.max(values, indices, tensor, 1)
+becomes
+torch.add(input1, input2, out=output)
+torch.max(tensor, 1, out=(values, indices))
+a.add(b, out=c) # this was not possible before
+out is a keyword only argument.",3,0
+368,2016-12-29T17:10:51Z,2016-12-30T05:15:07Z,2016-12-30T05:15:07Z,12,516,273,"Fixed all warnings from nn docs
+Fixed all warnings from optim docs
+Added autograd docs",3,1
+372,2016-12-29T19:39:42Z,2016-12-29T23:20:32Z,2016-12-29T23:20:32Z,7,411,398,"I've also refactored the Function implementation of convolutions in an attempt to simplify it.
+Fixes #367",2,0
+374,2016-12-29T23:21:38Z,2016-12-30T01:01:40Z,2016-12-30T01:01:40Z,4,109,42,,3,0
+377,2016-12-30T02:44:52Z,2016-12-30T06:21:34Z,2016-12-30T06:21:34Z,5,333,10,"Started adding some overview documentation for Tensor and also listed all the member functions.
+The styling of the multiple constructors for torch.Tensor isn't great right now, but I think we can change the stylesheet to make it more compact (like how the multiple dict() constructors are listed:  https://docs.python.org/2/library/stdtypes.html#dict)",2,1
+380,2016-12-30T18:22:17Z,2016-12-30T22:02:59Z,2016-12-30T22:02:59Z,33,100,65,"Also two small fixes:
+
+Normalize weights to probabilities in gradient formula of multinomial Function
+Moved PixelShuffle implementation to functional package",3,0
+386,2016-12-31T05:25:22Z,2016-12-31T15:30:36Z,2016-12-31T15:30:36Z,3,42,12,"Fixes #121
+This along with #385 introduces and uses the necessary cmake and setup.py changes to explicitly link against libTH.so.1 / libTH.1.dylib (and THC, THNN, THCUNN equivalents).
+There isn't really a cleaner way to do this, unfortunately.",2,1
+387,2016-12-31T11:52:00Z,2016-12-31T15:32:01Z,2016-12-31T15:32:01Z,3,94,0,"Desktop:
+
+
+
+Mobile:",3,0
+388,2016-12-31T16:12:48Z,2016-12-31T21:25:40Z,2016-12-31T21:25:40Z,10,229,33,"Fixed broken tests on macOS.
+Variable's grad will never be shared across processes now.
+Added an additional check for Variable flags in __init__.
+Added is_shared() that returns True iff the tensor/storage data is in shared memory.
+Implemented missing cases of __matmul__ (#384)
+Fixed issues with chunk (#369)",3,0
+391,2017-01-02T00:27:07Z,2017-01-02T18:43:00Z,2017-01-02T18:43:00Z,5,202,27,TODO: add docs about in-place ops on variables and their consequences,4,0
+392,2017-01-02T08:16:29Z,2017-01-03T23:29:51Z,2017-01-03T23:29:51Z,5,2566,100,"also, removing all, any stateless methods
+Still left:
+
+ ones
+ zeros
+ rand
+ randn
+ index_select
+ masked_select
+ t
+ transpose
+ reshape
+ cat
+ squeeze
+ scatter
+ multinomial
+ normal
+ sort
+ topk
+ kthvalue
+ renorm
+ trace
+ unfold
+ symeig
+ geqrf
+ ger
+ gesv
+ inverse
+ orgqr
+ ormqr
+ potrf
+ potri
+ potrs
+ pstrf
+ qr
+ svd
+ trtrs",3,0
+397,2017-01-03T17:21:26Z,2017-01-05T00:49:12Z,2017-01-05T00:49:12Z,11,353,105,"invalidArguments now understands type-annotation like syntax, and checks the type of tuple elements (can be different) and sequence elements (have to be uniform).
+I'm only wondering if we should show the out with its type in all options. Any other suggestions welcome.
+Fixes #365.
+Demos:
+
+invalid keyword arg
+
+
+
+valid keyword arg, invalid type
+
+
+
+invalid out type
+
+
+
+valid out type, invalid arguments
+
+
+
+invalid out tuple (wrong order)
+
+
+
+valid out tuple, invalid arguments
+
+
+
+invalid cat sequence
+
+
+
+valid cat sequence, invalid dim",4,0
+400,2017-01-03T22:01:47Z,2017-01-03T23:31:09Z,2017-01-03T23:31:09Z,7,220,33,,4,1
+429,2017-01-10T19:49:21Z,2017-01-18T00:24:02Z,2017-01-18T00:24:02Z,1,147,2,"Does a few things:
+
+adds max_unpool2d and max_unpool3d with docs, modules now use these
+kl_div with docs
+more docs for losses",3,1
+430,2017-01-11T03:59:37Z,,2017-01-11T16:20:04Z,2,407,5,"now only the following are left:
+
+ones, zeros, rand, randn
+scatter
+multinomial, normal
+unfold
+symeig
+geqrf
+ger
+gesv
+inverse
+orgqr
+ormqr
+potrf
+potri
+potrs
+pstrf
+qr
+svd
+trtrs",3,1
+439,2017-01-12T19:05:01Z,2017-01-12T20:07:11Z,2017-01-12T20:07:11Z,6,202,67,,2,0
+445,2017-01-13T17:18:51Z,2017-01-13T18:40:28Z,2017-01-13T18:40:28Z,2,31,25,"Fix for #441 with added batch_first tests, @adamlerer",4,0
+451,2017-01-13T22:27:01Z,2017-01-16T18:06:01Z,2017-01-16T18:06:01Z,3,45,63,"The load_state_dict() function now raises an error if the argument
+state_dict has extra keys or is missing keys.
+Previously, load_state_dict() ignored extra and missing keys, which made
+it hard to notice when you load an invalid state_dict. This could
+happen, for example, if you save the state_dict for a DataParallel, but
+load it into a single model.
+The state_dict() function now only includes the Tensor data from the
+paramters, which reduces checkpoint size by not saving gradients.",3,4
+453,2017-01-14T02:20:39Z,2017-01-14T09:09:49Z,2017-01-14T09:09:49Z,2,14,6,,3,0
+455,2017-01-16T20:06:43Z,2017-01-17T00:07:39Z,2017-01-17T00:07:39Z,27,401,521,"Removed cmin, cmax and cinv (functionality of cmin, cmax split between max/min and clamp; cinv renamed to reciprocal)
+Merged nn.Container code into nn.Module (nn.Container will now start showing deprecation warnings)",4,0
+457,2017-01-16T22:39:41Z,2017-01-17T01:38:15Z,2017-01-17T01:38:15Z,13,602,61,,3,0
+471,2017-01-18T05:27:29Z,2017-01-18T06:53:30Z,2017-01-18T06:53:30Z,2,4,3,,3,2
+522,2017-01-20T10:49:40Z,,2017-02-17T18:09:16Z,4,321,200,"Here we use reStructuredText rather than markdown because it renders as HTML on PyPI.
+Similar to pytorch/vision#31",4,5
+539,2017-01-21T20:58:17Z,2017-01-22T23:02:41Z,2017-01-22T23:02:42Z,14,578,5113,fixes #483,3,0
+548,2017-01-23T00:03:42Z,2017-01-24T14:09:31Z,2017-01-24T14:09:32Z,5,44,2,Add checks where cuDNN assumes that the tensors are contiguous. All other unsupported configurations should give CUDNN_STATUS_BAD_PARAM.,3,0
+552,2017-01-23T06:15:42Z,,2017-01-23T19:56:10Z,2,11,1,,7,9
+558,2017-01-23T19:18:33Z,2017-01-24T14:10:40Z,2017-01-24T14:10:40Z,3,165,100,"If we can't allocate the workspace for the desired algorithm, we fall
+back to a default algorithm which does not require a workspace.",4,1
+564,2017-01-23T21:05:35Z,2017-01-24T22:24:26Z,2017-01-24T22:24:26Z,1,6,0,See #551,4,12
+577,2017-01-24T20:43:21Z,2017-01-24T22:30:51Z,2017-01-24T22:30:51Z,22,354,33,"Fixes segfault when torch.Size is constructed with invalid arguments (#555).
+Improve optimizer serialization and add load_state_dict (#549).
+Make Variables non-comparable (#538).
+Add upsampling modules and functions to nn (#550)",5,0
+593,2017-01-25T23:01:33Z,2017-01-26T03:21:50Z,2017-01-26T03:21:50Z,17,116,57,"Fixed bug in ELU backward when inplace=True (#582)
+Tests can now be run with --seed flag that overrides the default seed.
+Added test for BatchNorm in evaluation mode (#590)
+Minor fix in autograd docs
+Support cc-like flags in cuDNN build tools (#573)
+Fixed index_select backward (failed when indices contained duplicate entries).",3,0
+605,2017-01-27T02:33:50Z,2017-01-29T11:38:57Z,2017-01-29T11:38:57Z,2,23,1,"Setting a default initial hidden state of zeros if the hidden state is not provided by the user. Doing this in the RNNBase class, so it works for all three - RNN, GRU and LSTM.",4,3
+615,2017-01-27T21:55:39Z,2017-01-27T23:15:56Z,2017-01-27T23:15:56Z,19,1113,6,,3,0
+617,2017-01-28T00:23:48Z,2017-01-29T23:38:48Z,2017-01-29T23:38:48Z,11,183,19,,2,0
+628,2017-01-28T22:35:58Z,2017-01-29T04:37:40Z,2017-01-29T04:37:40Z,5,81,49,"Fixes #596, #623, #607",3,2
+645,2017-01-30T21:29:00Z,2017-01-31T18:23:03Z,2017-01-31T18:23:03Z,7,343,3,"Adds bindings using thpp::Tensor to THNN and THCUNN. This allows calling
+into those APIs without knowing the concrete types of the tensor
+arguments.
+This is used in the upcoming autograd refactor.",2,1
+648,2017-01-30T22:32:23Z,2017-01-31T02:16:29Z,2017-01-31T02:16:29Z,4,67,22,"Moves THPObjectPtr into a separate header, so that it can be included
+independently. Currently, utils.h requries all of THP.h. Also adds RAII
+structs for acquiring and releasing the GIL.",2,0
+652,2017-01-31T02:15:47Z,2017-01-31T16:55:40Z,2017-01-31T16:55:40Z,2,3,3,,4,6
+658,2017-01-31T17:48:21Z,,2017-03-01T22:59:29Z,279,9443,4762,"Refer to #633, Do not merge just yet! The modified RNN tests are failing and just trying to solve that now. Let me know of any issues/feedback
+P.S there was also an issue here that this PR fixes, thought I'd throw it in here as well...",5,37
+660,2017-01-31T19:14:29Z,2017-02-09T17:06:27Z,2017-02-09T17:06:27Z,2,41,16,Fixes for #651 @adamlerer @apaszke,4,4
+661,2017-01-31T21:05:29Z,2017-02-01T20:48:12Z,2017-02-01T20:48:12Z,15,165,59,"Added support for indexing tensors with LongTensors (#363)
+Added torch.unbind - splits tensor into a tuple, removing a given dimension (#427)
+Renamed set_index to _set_index (#469)
+Improved CUDA detection in THPP (it's not possible to force no cuda) (#638)",4,1
+667,2017-02-01T19:49:46Z,2017-02-01T22:34:51Z,2017-02-01T22:34:51Z,13,673,9,"The only op currently supported is dense tensor + sparse tensor addition, which is all we need for autograd.
+I've made tensor_type tensor public. The alternative is to add a getter, but getters always seemed verbose and lame in C++.",3,1
+684,2017-02-03T06:30:28Z,2017-02-03T20:31:04Z,2017-02-03T20:31:04Z,1,2,1,,2,0

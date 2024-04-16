@@ -1,0 +1,1285 @@
+number,created_at,merged_at,closed_at,files,additions,deletions,body_text,participants,comments
+20,2019-02-01T21:49:54Z,,2019-03-20T18:02:18Z,5,374,13,"Locally I run docker run --name fastapi-postgres -e POSTGRES_PASSWORD=bar -e POSTGRES_USER=foo -e POSTGRES_DB=fastapi -p 5432:5432 -d postgres to get the db up, mimics in travis with the postgresql service
+There are 2 test classes, TestStarletteStyle and TestFastAPIStyle:
+
+
+TestStarletteStyle is in fact a way to get the very same tests performed in starlette with either a FastApi object or a Starlette one. The name StarletteStyle just refers to the fact it uses the app.route decorator provided by starlette
+
+
+TestFastAPIStyle is just an attempt at using the get / post decorators provided by FastAPI with the very same tests
+
+
+Hope it gives some clues at using the DatabaseMiddleware
+Fixes my questions on #14 🤣",3,5
+100,2019-03-24T10:13:56Z,2019-03-24T19:18:20Z,2019-03-24T19:18:20Z,2,57,0,fix for #98,2,2
+112,2019-03-26T14:41:21Z,2019-05-20T07:26:55Z,2019-05-20T07:26:55Z,2,97,44,"About #110
+it adds an optional static_directory to FastAPI, if it's None (which it is by default) the generated html uses the cdn existing at present and the icon also.
+If it's set to a path, path is added as a starlette StaticFile, and in that case, FastAPI needs an extra dictionary with js, css and favicon
+I'd rather discuss if you're ok with that implementation before doing /redoc 🙈 , some stuff might be moved in setup()
+and I'm struggling with those mypy errors, would love some help !",4,11
+118,2019-03-28T10:00:29Z,,2019-08-04T13:32:10Z,1,135,0,"related to #60
+might help in seeing what pydantic types are ""failing""
+I used 2 models, Working and Failing:
+
+Working contains all types that are in pydantic documentation, types which fail are commented out
+Failing contains all failing types commented above
+
+the test_openapi doesn't test anything, it's more to print the json schema to paste like you said on https://editor.swagger.io
+I guess most errors come from upstream in pydantic schema generation, just hope this branch helps in figuring out what types may cause issues, pydantic schema is a rather impressive topic to jump in 💥 🙀 , not sure I would not where to look at ! 🐙",2,4
+160,2019-04-15T12:37:58Z,2019-04-16T18:42:01Z,2019-04-16T18:42:01Z,3,37,21,fix #47 request that should have opened a new issue imho 😃,3,3
+222,2019-05-14T08:21:42Z,2019-05-15T10:43:31Z,2019-05-15T10:43:31Z,1,3,1,"Root logger shouldn't be used
+https://docs.python.org/3/howto/logging.html#configuring-logging-for-a-library",2,2
+241,2019-05-20T09:39:22Z,2019-05-20T14:34:33Z,2019-05-20T14:34:34Z,1,21,22,close #238,2,3
+262,2019-05-27T08:26:54Z,,2019-07-29T11:23:17Z,1,8,3,This enables mypy (and IDEs) to infer the type coming from Depends,2,3
+313,2019-06-14T03:35:09Z,2019-06-18T07:46:58Z,2019-06-18T07:46:58Z,2,6,2,,3,2
+333,2019-06-25T08:27:21Z,,2019-07-13T00:16:24Z,2,25,3,"Remove definitions update
+Addresses #332",2,4
+377,2019-07-08T14:08:58Z,,2019-10-20T08:39:45Z,2,73,20,"This is tiny performance optimization.
+refs #360  (gists)
+original code (before)
+============================= test session starts ==============================
+platform linux -- Python 3.7.3, pytest-5.0.1, py-1.8.0, pluggy-0.12.0
+rootdir: ~/venvs/my/individual-sandbox/daily/20190708/example_fastapi
+plugins: cov-2.7.1
+collected 1 item
+
+test_serial_speed.py::test_routes 
+-------------------------------- live log call ---------------------------------
+INFO     test_serial_speed:test_serial_speed.py:48 route1: 0.031059980392456055
+INFO     test_serial_speed:test_serial_speed.py:19 app.test_serial_speed.route1, 3.0471584796905518, ['http_status:200', 'http_method:GET', 'time:wall']
+INFO     test_serial_speed:test_serial_speed.py:19 app.test_serial_speed.route1, 3.04316, ['http_status:200', 'http_method:GET', 'time:cpu']
+INFO     test_serial_speed:test_serial_speed.py:68 route1: 0.029019832611083984
+INFO     test_serial_speed:test_serial_speed.py:19 app.test_serial_speed.route2, 3.367730140686035, ['http_status:200', 'http_method:GET', 'time:wall']
+INFO     test_serial_speed:test_serial_speed.py:19 app.test_serial_speed.route2, 3.364335, ['http_status:200', 'http_method:GET', 'time:cpu']
+INFO     test_serial_speed:test_serial_speed.py:84 route1: 0.0014355182647705078
+INFO     test_serial_speed:test_serial_speed.py:19 app.test_serial_speed.route4, 2.1561036109924316, ['http_status:200', 'http_method:GET', 'time:wall']
+INFO     test_serial_speed:test_serial_speed.py:19 app.test_serial_speed.route4, 2.1537700000000006, ['http_status:200', 'http_method:GET', 'time:cpu']
+PASSED
+
+=========================== 1 passed in 8.81 seconds ===========================
+after
+============================= test session starts ==============================
+platform linux -- Python 3.7.3, pytest-5.0.1, py-1.8.0, pluggy-0.12.0
+rootdir: ~/venvs/my/individual-sandbox/daily/20190708/example_fastapi
+plugins: cov-2.7.1
+collected 1 item
+
+test_serial_speed.py::test_routes 
+-------------------------------- live log call ---------------------------------
+INFO     test_serial_speed:test_serial_speed.py:48 route1: 0.02889871597290039
+INFO     test_serial_speed:test_serial_speed.py:19 app.test_serial_speed.route1, 2.2630717754364014, ['http_status:200', 'http_method:GET', 'time:wall']
+INFO     test_serial_speed:test_serial_speed.py:19 app.test_serial_speed.route1, 2.260655, ['http_status:200', 'http_method:GET', 'time:cpu']
+INFO     test_serial_speed:test_serial_speed.py:68 route1: 0.028612375259399414
+INFO     test_serial_speed:test_serial_speed.py:19 app.test_serial_speed.route2, 2.529733896255493, ['http_status:200', 'http_method:GET', 'time:wall']
+INFO     test_serial_speed:test_serial_speed.py:19 app.test_serial_speed.route2, 2.527283, ['http_status:200', 'http_method:GET', 'time:cpu']
+INFO     test_serial_speed:test_serial_speed.py:84 route1: 0.0014500617980957031
+INFO     test_serial_speed:test_serial_speed.py:19 app.test_serial_speed.route4, 1.5969781875610352, ['http_status:200', 'http_method:GET', 'time:wall']
+INFO     test_serial_speed:test_serial_speed.py:19 app.test_serial_speed.route4, 1.595663, ['http_status:200', 'http_method:GET', 'time:cpu']
+PASSED
+
+=========================== 1 passed in 6.63 seconds ===========================",3,8
+417,2019-08-01T18:57:31Z,2019-08-25T02:55:25Z,2019-08-25T02:55:26Z,3,120,4,"Dependencies that resolve to the same cache key are not re-used while building the openapi schema.
+Addresses #416",3,6
+422,2019-08-06T08:29:45Z,2019-08-26T13:24:58Z,2019-08-26T13:24:58Z,2,31,0,"Addresses #421
+Currently, if you return a BaseModel instance in a route with a BaseModel response_type, the skip_defaults value does not influence the result. This PR fixes this.
+
+Details
+The source of the problem is that calling field.validate on a model results in a new model with the fields set. I dug in on the pydantic side and it looks like this is due to the recent change to re-parse the model with a non-subclass type when response_model is set. If you look in BaseModel.validate (which is ultimately called if you follow it deep enough), you can see the precise spot where defaults aren't being skipped:
+@classmethod
+    def validate(cls: Type['Model'], value: Any) -> 'Model':
+        if isinstance(value, dict):
+            return cls.parse_obj(value)
+        elif isinstance(value, cls):
+            return value.copy()
+        elif cls.__config__.orm_mode:
+            return cls.from_orm(value)
+        else:
+            with change_exception(DictError, TypeError, ValueError):
+                return cls.parse_obj(value)
+It calls into parse_obj on the last line, which subsequently calls dict on the object and then parses the dict. Unfortunately, this means defaults don't get skipped.
+I don't think it makes sense to change this on the pydantic side because otherwise you'd run into problems parsing models with default values into non-subclass models with required values. So, if we want to stick with this approach of creating a new class to force a reparse, we probably need to handle the
+
+That said, I would also be in favor of a larger refactor if we could come up with a way to get the desired field safely without another round of parsing/dumping 😬. But that does seem hard.",2,2
+423,2019-08-06T19:11:26Z,,2019-08-23T07:02:00Z,8,69,59,"Among other things, pydantic 0.32 brings some substantial debugging improvements which I would really appreciate! (Namely, fixes the recursion issue in debuggers, and includes model name in validation error tracebacks.)
+If merged, #398 Update pydantic & starlette to include recent bug fixes could be closed (as both pydantic and starlette would be on more recent versions).",7,10
+435,2019-08-13T07:07:42Z,2019-08-30T16:17:43Z,2019-08-30T16:17:43Z,3,70,5,"Catching exception when generating OpenAPI specification. Added status groups and ""default"" as possible key for the additional responses.
+If merged, this issue fixes #428",3,4
+451,2019-08-21T11:10:57Z,2019-09-29T21:19:10Z,2019-09-29T21:19:10Z,4,42,11,"This pull request adds support for forward references, string annotations, and from __future__ import annotations in decorated endpoint signatures.",2,6
+464,2019-08-25T13:06:54Z,2019-09-29T22:03:16Z,2019-09-29T22:03:17Z,2,143,4,"This change allows endpoint functions to be defined with parameters with defaults, but for those defaults to be ignored if the function parameter subsequently appears as a path parameter. The default value is only operative if the parameter is a query parameter.
+This change includes a new set of tests for this functionality.",3,14
+467,2019-08-26T15:35:39Z,2019-09-29T21:47:35Z,2019-09-29T21:47:35Z,7,469,39,"now you can do app = FastAPI(default_response_class=UJSONResponse)
+and all routes will use UJSONResponse by default.
+You can still override response_class in routes as before.
+the default is still kept as JSONResponse, just specified in much fewer places (two)",3,7
+493,2019-08-31T18:33:37Z,2019-09-01T12:51:43Z,2019-09-01T12:51:43Z,1,1,1,Fixes #492,3,2
+537,2019-09-16T16:26:42Z,2019-10-04T00:35:44Z,2019-10-04T00:35:45Z,1,2,2,"deepLinking in swagger-ui should work now
+fix: #536",2,2
+556,2019-09-22T18:04:47Z,2019-10-04T20:02:40Z,2019-10-04T20:02:41Z,4,157,0,"This is essentually the same Click does:
+https://click.palletsprojects.com/en/7.x/documentation/#truncating-help-texts
+It allows splitting the documenting text so that the lower part may be
+used to describe the function further, e.g. extracting information using
+Sphinx.",3,7
+568,2019-09-25T12:38:25Z,,2019-10-04T00:27:34Z,1,111,60,"This pull request refactors the APIRoute class for two main purposes:
+
+It makes it easier to override individual pieces in subclasses (e.g., get_app), and
+It makes it so that APIRouter.include_router does not require re-instantiating APIRoutes, so that subclasses can be preserved.
+
+This pull request would eliminate the need for #538 and would help address #521 and #558.",1,4
+570,2019-09-26T02:58:08Z,,2019-10-07T06:40:59Z,6,240,1,"This pull request adds support for contextmanager style dependencies.
+In particular, dependencies of the following form would be supported:
+def get_dependency():
+    value = do_setup()
+    yield value  # the value received by the endpoint
+    do_cleanup()  # handled in a background task after returning the response
+Async contextmanager dependencies are also supported. (See the tests for examples of each, along with a demonstration of error handling.)
+I've opened the pull request as a draft because I still need to add tutorial examples and/or other docs, but I am not currently aware of any remaining issues in the implementation.
+(Please let me know if you see any.)",4,8
+589,2019-10-04T04:46:49Z,2019-10-05T00:23:35Z,2019-10-05T00:23:35Z,10,304,14,"This pull request introduces a small change to APIRoute to make it easier to construct a custom app attribute in a custom subclass.
+There is a lot of custom functionality that this change would simplify, but there are two especially important capabilities it adds:
+
+A way to get handle exceptions with access to the request body
+A way to modify the request body prior to its parsing/handling by FastAPI
+
+I've added two sections to the ""Using the Request Directly"" docs showing how to use the changes in this PR to implement both of the above kinds of feature.
+
+There have been many recent github issues that could be better-addressed with this capability.
+Related to accessing the body in middleware/exception handlers:
+
+#180 accessing request body in middleware
+#375 accessing request body in exception handlers
+#394 accessing request body in middleware
+#575 accessing request body in exception handlers
+encode/starlette#493 accessing request body in exception handlers (using fastapi)
+encode/starlette#495  a variety of use cases involving accessing request body in middleware (some using fastapi)
+
+Related to modifying the request prior to handling by FastAPI:
+
+#521 support for msgpack-encoded requests
+encode/starlette#644 support for gzip-encoded requests (using fastapi)
+
+
+Quoting Tom Christie from encode/starlette#495:
+
+""Consume request body in middleware is problematic""
+Indeed. Consuming request data in middleware is problematic.
+Not just to Starlette, but generally, everywhere.
+On the whole you should avoid doing so if at all possible.
+
+I think using middleware to consume the request body is the obvious (or, perhaps, ""naive"") way to handle these issues. But that approach is explicitly discouraged, and not supported. So I think the approach described in / supported by this PR is especially valuable.
+
+(This pull request is in lieu of #568, and includes what I think is both the smallest and most important change to APIRoute from that pull request.)",2,2
+595,2019-10-06T01:37:48Z,2019-10-09T18:01:59Z,2019-10-09T18:01:59Z,19,1238,88,"Add support for context manager dependencies using functions with yield. Sync or async.
+With inspiration from @dmontagu 's #570.
+This handles dependencies that yield by converting them into a sync or async context manager,  depending on the function. And runs them in a ""context manager stack"".
+This way, the order of dependencies is preserved and cleanup/closing happens in the correct order (the first dependency called is cleaned last).
+This also means that dependencies that require other dependencies will still have them on scope during cleanup. So, contextmanager-style dependencies that require other contextmanager dependencies will have access to them during cleanup.
+When a dependency function is a normal function (not async), the context manager is called in a threadpool (__enter__), so, the same as with normal dependencies, it's safe to do non-async blocking IO in contextmanager style dependencies. E.g. start a DB connection, probably the main use-case for this. And the same for cleaning it up (__exit__).
+This works by default in Python 3.7.
+And works in Python 3.6 if the backports are installed:
+
+async-exit-stack
+async-generator
+
+pip install async-exit-stack async-generator
+But they are not forced/required dependencies. If an app doesn't use context managers and still runs in Python 3.6, it will still work without the backports.
+...Although I suspect most of the apps will use this for DB connections.
+These backport dependencies are checked on app initialization, so, if a contextmanager-style dependency function (with yields) is found, the environment is not Python 3.7+, and the backports are not installed, it will raise a RuntimeError right away on app initialization (so, no risk for the error lurking into a prod environment).
+
+TODO:
+
+ Fix mypy types.
+ Extend tests to check for correct order of contextmanager dependencies with subdependencies.
+ Extend tests to verify that background tasks can still access the dependencies from context managers (e.g. DB connections).
+ Add docs.",2,4
+605,2019-10-08T17:44:22Z,,2019-11-23T22:04:24Z,13,21,21,"Heya,
+If I understood #531 correctly this PR should take care of replacing every occurence of pip with python3 -m pip.
+Let me know if you have any feedback.
+Thanks!",3,5
+606,2019-10-08T18:45:58Z,,2019-10-27T22:48:58Z,1,2,1,"Heya 👋,
+After reading #497 I thought I'd give it a try. This PR will prevent HTTP 422 responses from being added to the operation when it only has optional arguments. It should fix the bug that occurs in the code of #497 :
+from fastapi.applications import FastAPI
+from fastapi import APIRouter
+app = FastAPI(docs_url=""/"")
+router = APIRouter()
+
+
+@router.get('/router')
+async def handler(code: str = ''):
+    print(code)
+    return ""hello world""
+
+
+app.include_router(router)
+
+if __name__ == '__main__':
+    import uvicorn
+    uvicorn.run(app, port=8001, reload=True)
+
+How to test:
+
+Setup environment with the example code above
+Acknowledge that the swagger ui shows a HTTP 422 as possible response code
+Checkout PR
+Acknowledge that the swagger ui no longer shows HTTP 422 as a possible response code.
+Change your route params to have a required route
+Acknowledge that the HTTP 422 is now back 🎉",2,4
+637,2019-10-21T23:06:37Z,2019-11-24T13:23:34Z,2019-11-24T13:23:34Z,1,2,3,"A quick PR that fixes #630. The cloned field was adding existing field validators before the fields themselves.
+This caused Python's default ""ordered dict"" behaviour to incorrectly output dictionary key/value pairs with all 'validated' fields first.",3,5
+646,2019-10-23T20:25:56Z,2019-11-27T19:32:02Z,2019-11-27T19:32:02Z,66,802,425,"Still needs docs updates, but tests pass and raise no deprecation warnings.",6,18
+722,2019-11-20T12:44:17Z,2019-12-11T16:58:01Z,2019-12-11T16:58:01Z,16,503,38,"Added support for automatic generation and validation (via pydantic) of OpenAPI callback objects.
+This is currently done by providing a list of APIRoute objects to a new keyword argument in the path decorators (post, get, put, etc.).
+This is convenient, as that list can easily be compiled by creating an APIRouter object, and defining the expected (callback) routes. This has the added benefit that all Request and Response Schemas are added to the documentation, and the router used for defining the callbacks makes a solid base for mocking/testing the callback endpoints that a client would implement.
+Please let me know if you have any comments/concerns.
+Right now, the tests are failing because the coverage decreased a little. I'll try to see if this can be fixed. I can also squash and rebase my changes if needed.",3,9
+756,2019-11-30T09:57:26Z,2020-01-08T20:50:21Z,2020-01-08T20:50:22Z,2,108,13,"This should resolve #755
+I have used a generator and the next keyword to write this. I think it works nicely but if you think it's not super readable I can also unroll it into a for loop or something.",6,22
+761,2019-12-01T19:28:39Z,,2019-12-09T18:03:19Z,1,3,3,Changed 'he' to the singular 'they' in handling exceptions section of tutorial,4,2
+797,2019-12-18T03:29:15Z,2020-01-08T21:47:20Z,2020-01-08T21:47:20Z,3,115,0,"FastAPI currently implements the password flow grant. While this is sufficient for building applications that self-host identity, it is not the recommended OAuth2 implementation. It is also not preferred when attempting to use external identity providers. This PR would allow three-legged OAuth to be utilized by FastAPI with the OpenAPI integration.
+This is a working implementation: https://github.com/kuwv/python-microservices
+https://tools.ietf.org/html/draft-ietf-oauth-security-topics-13#section-3.4
+(edit: grammar, references)",11,35
+807,2019-12-19T21:40:59Z,2020-01-12T19:38:40Z,2020-01-12T19:38:40Z,2,73,3,Using this security best-practice in the example will encourage users to do the same in their code.,5,5
+856,2020-01-14T03:48:12Z,2020-01-17T11:45:56Z,2020-01-17T11:45:56Z,2,49,3,Closes #842,3,2
+865,2020-01-15T10:24:54Z,2020-01-17T11:49:55Z,2020-01-17T11:49:55Z,1,1,1,"Right not the condition is checking that username is not correct and password is correct, this fixes is to be as it was probably intended",3,2
+899,2020-01-21T13:21:11Z,2020-02-04T03:03:52Z,2020-02-04T03:03:52Z,2,72,13,"… decorators
+- create_model() is now called using a __base__ parameter vs. a __config__ parameter
+- isinstance comparisons now work as expected
+- unit test created for #889 still passes as before
+- apply black formatting",3,2
+908,2020-01-22T18:46:22Z,,2020-02-04T03:52:31Z,1,13,1,See #884 for details.,3,2
+916,2020-01-24T17:07:26Z,2020-02-04T03:57:19Z,2020-02-04T03:57:19Z,1,1,1,,3,3
+918,2020-01-25T06:59:01Z,2020-02-04T04:01:59Z,2020-02-04T04:01:59Z,2,40,13,"Closes #914
+I believe this is the ""correct"" way to fix this issue, as the provided body could be invalid in a number of ways, and this should handle anything that json could get parsed into. (The error message also seems appropriate to me even for malformed bodies.)
+There was actually already a test for this, but it only checked for a (malformed) body of None, not [], so it was easy to add a test case as another parametric case.",2,2
+941,2020-02-02T18:05:11Z,2020-02-16T19:51:19Z,2020-02-16T19:51:19Z,2,4,4,,3,2
+987,2020-02-16T22:18:43Z,2020-02-27T20:03:04Z,2020-02-27T20:03:04Z,2,2,1,"Remove unused # type: ignores
+Make mypy complain about unused # type: ignores
+Move all mypy configuration to configuration file (a command line flag was used in scripts/lint.sh)",3,4
+1017,2020-02-22T00:41:16Z,2020-02-29T13:04:36Z,2020-02-29T13:04:36Z,6,299,139,"This PR addresses #628.
+Fixing the immediate problem only required removing a brittle runtime type check of each model field in a responses arg (passed to APIRoute.__init__). Putting in a more robust version seemed to lead inexorably to making changes in a few other places.
+The same type checking effectively happens in parts of the code that accept a type and returns a pydantic.ModelField. As it turns out, that logic is repeated in a number of places:
+
+Processing any model fields in the responses arg to APIRoute.__init__
+Doing the same for the response_model arg to APIRoute.__init__
+At various places in fastapi.dependencies.utils: here, here, here
+
+Given that, it seemed best to factor out that logic into a standalone function, for the sake of DRYness. That also makes it easier to raise fastapi-specific exceptions, with clearer error messages, when invalid types are passed. And it means that the model args in responses and model_field undergo the same type checking.",2,2
+1060,2020-03-01T04:54:20Z,,2020-03-03T11:54:11Z,1,177,220,FastAPI文档index部分中文翻译,4,2
+1068,2020-03-02T02:10:15Z,,2020-03-21T00:38:46Z,1,1,1,Fixes #1067,4,4
+1074,2020-03-03T04:19:57Z,2020-03-27T15:19:18Z,2020-03-27T15:19:18Z,2,179,7,"Should fix both #1043 and #1063, but might come with some performance penalty since unnecessary serialization is being done. Better solutions that pass the given tests are more than welcome, but I don't see a much better way other than recursion in cases where there are models inside basic data structures like lists and dicts.",2,2
+1191,2020-03-31T02:19:31Z,2020-05-16T09:58:11Z,2020-05-16T09:58:11Z,1,162,165,We (a small team) are working to complete the doc translation of Chinese version in the next two months.,6,9
+1192,2020-03-31T05:10:19Z,2020-05-16T10:18:05Z,2020-05-16T10:18:05Z,2,207,0,"We have a small team doing that translation en docs to Chinese.
+If you are interested on this thing. Can join us,and speed the translate.:smile:",4,3
+1197,2020-03-31T14:00:53Z,2020-05-24T05:43:26Z,2020-05-24T05:43:26Z,2,287,0,,4,3
+1201,2020-03-31T20:26:41Z,2020-04-02T05:00:51Z,2020-04-02T05:00:51Z,1,144,145,"Translated the index.md page to Spanish. Hopefully, the first of many to come!",2,1
+1202,2020-04-01T13:46:05Z,2020-05-16T10:32:32Z,2020-05-16T10:32:32Z,2,82,0,,4,2
+1203,2020-04-01T16:11:35Z,2020-05-16T10:45:05Z,2020-05-16T10:45:05Z,2,391,0,Add Chinese translation for the doc: deployment.md.,7,2
+1220,2020-04-07T17:37:52Z,2020-04-11T16:46:47Z,2020-04-11T16:46:47Z,2,203,0,This is the Spanish translation for the features page. 🎉 🚀,3,1
+1223,2020-04-07T18:07:09Z,2023-06-22T11:20:12Z,2023-06-22T11:20:12Z,2,6,3,"Useful for me, maybe it is better as just a note?",9,9
+1231,2020-04-09T19:20:44Z,,2021-05-10T09:18:49Z,2,15,4,"Fixed bug which ignored by_alias flag for a response model set on the route. This made openapi schemas appear incorrectly because Pydantic defaults by_alias to True.
+Fixes #771",5,4
+1244,2020-04-12T03:55:27Z,2020-05-16T11:02:21Z,2020-05-16T11:02:21Z,3,84,2,This is the Spanish translation for the tutorial-user-guide index page. 🚀,4,6
+1248,2020-04-12T21:44:11Z,2020-05-16T12:37:17Z,2020-05-16T12:37:17Z,2,203,0,This PR translates the features.md and add this page to the mkdocs.yml file.,4,2
+1249,2020-04-12T22:50:24Z,2020-05-16T12:46:49Z,2020-05-16T12:46:50Z,2,80,0,This PR translates the history-design-future.md and add this page to the mkdocs.yml file.,4,2
+1250,2020-04-13T03:09:05Z,2020-05-16T12:58:00Z,2020-05-16T12:58:00Z,2,20,0,,4,3
+1251,2020-04-13T03:14:49Z,2021-07-04T12:49:31Z,2021-07-04T12:49:31Z,1,52,0,,3,4
+1252,2020-04-13T03:18:04Z,2021-07-04T14:14:29Z,2021-07-04T14:14:29Z,1,37,0,,4,3
+1253,2020-04-13T03:21:04Z,2021-07-04T17:06:18Z,2021-07-04T17:06:18Z,1,63,0,,3,3
+1259,2020-04-14T02:57:10Z,2020-05-16T13:28:26Z,2020-05-16T13:28:26Z,2,82,0,This PR translates the tutoria/index.md and add this page to the mkdocs.yml file.,4,3
+1260,2020-04-14T07:35:01Z,,2020-05-16T15:48:36Z,2,99,37,add a switch to disable output docs in the production environment. They can use the system environment variable or use  disable_all_output_docs variable  to disable output docs in an explicit way,6,16
+1267,2020-04-15T00:51:04Z,2021-05-05T18:20:56Z,2021-05-05T18:20:56Z,9,1220,24,"This PR enables multiple examples in a pick-list style dropdown in the OpenApi Docs a la the 'Request Body Examples' here
+For more information and discussion see the issue this PR related to #822
+Note, this still needs tests to cover the 3 new lines. Docs and full coverage tests added Sept 4 with 8138ff6
+
+Edit by @tiangolo 🤓 👇
+Added support for arguments example and examples in Body(), Path(), Query(), Cookie(), Header(), handling compatibility (and incompatibilities) between OpenAPI, JSON Schema, and OpenAPI's 3.0.x custom version of JSON Schema 🤪 💫
+More details about the standards dizzy mix in a comment below, near the end.",8,22
+1274,2020-04-16T00:35:14Z,2020-05-16T13:37:58Z,2020-05-16T13:37:58Z,2,35,0,benchmark.md translated to Brazilian Portuguese,5,4
+1286,2020-04-18T14:02:51Z,,2020-06-12T20:18:37Z,3,26,2,"create for #1284
+I can't make sure this is a bug.
+I'm not be familiar with openapi.
+If this is not a bug, I will close this pr.
+@tiangolo",3,2
+1299,2020-04-22T00:35:00Z,2020-05-17T10:37:16Z,2020-05-17T10:37:16Z,1,1,1,"Removed duplicate examples word in body documentation
+resolves #1296",3,2
+1300,2020-04-22T00:35:09Z,2020-05-17T10:46:23Z,2020-05-17T10:46:23Z,1,161,166,,4,3
+1323,2020-04-24T15:01:30Z,2020-06-12T20:39:27Z,2020-06-12T20:39:27Z,2,336,0,@Dustyposa @RunningIkkyu Please take a look.,5,2
+1324,2020-04-25T00:33:06Z,2020-05-17T10:56:58Z,2020-05-17T10:56:58Z,2,2,2,Found some minor typos when translating the docs.,4,2
+1325,2020-04-25T13:52:05Z,2020-05-17T11:32:45Z,2020-05-17T11:32:45Z,2,414,0,,3,3
+1330,2020-04-27T16:45:28Z,2021-08-18T13:24:21Z,2021-08-18T13:24:21Z,1,394,0,,4,6
+1346,2020-04-28T22:11:24Z,,2023-06-26T16:41:44Z,5,1759,0,traduccion de alternatives.md,3,5
+1353,2020-04-29T20:19:41Z,,2024-02-07T12:51:26Z,3,521,2,"update the missing translation list.
+@mariacamilagl perdona la demora y no tengas reparo en corregir. De pronto me di cuenta de que esta página representa la voz del jefe y presumo que @tiangolo querrá cambiarla a su gusto.",7,4
+1363,2020-05-02T12:08:09Z,,2021-07-03T15:09:37Z,6,517,0,"@tiangolo I created a translated index.md. The translation works perfectly on the live server, but to run in production, you need to test and review someone from the Russian-speaking community. Or Google Translate ;-(
+Issue #1362",5,2
+1364,2020-05-02T16:13:21Z,2021-07-02T13:42:29Z,2021-07-02T13:42:29Z,1,511,0,,4,2
+1368,2020-05-03T18:27:31Z,,2022-07-07T13:53:59Z,1,3,3,"Hi , Iam collaborating to improve the spanish version. I've seen many lines in spanish so I translated some of them.",4,1
+1374,2020-05-04T14:35:58Z,2020-10-11T10:46:21Z,2020-10-11T10:46:21Z,1,394,0,,4,2
+1393,2020-05-08T19:13:33Z,,2023-06-26T22:54:05Z,1,106,0,,6,5
+1436,2020-05-20T10:12:06Z,2023-01-07T13:45:48Z,2023-01-07T13:45:48Z,18,1368,58,"I love the idea of OpenAPI auto-generated schema and the FastAPI at all 😄
+This is a feature request.
+When I was working with FastAPI I thought that it will be a great idea to use function return type annotation as default response_model for an endpoint.
+For instance, we have a simple application:
+from pydantic import BaseModel
+
+from fastapi import FastAPI
+
+
+class Model(BaseModel):
+    name: str
+
+
+app = FastAPI()
+
+
+@app.get(""/"", response_model=Model)
+def endpoint():
+    return Model(name=""Yurii"")
+So with this PR, it can be rewritten to:
+from pydantic import BaseModel
+
+from fastapi import FastAPI
+
+
+class Model(BaseModel):
+    name: str
+
+
+app = FastAPI()
+
+
+@app.get(""/"")
+def endpoint() -> Model:
+    return Model(name=""Yurii"")
+In case when response_model argument set and return type annotation present, then response_model will be used.",8,19
+1443,2020-05-20T23:28:37Z,2020-10-18T07:04:47Z,2020-10-18T07:04:47Z,2,83,0,,5,3
+1445,2020-05-21T03:29:01Z,2020-11-25T17:07:18Z,2020-11-25T17:07:18Z,2,20,0,Add Chinese translations for advance/index.md,4,4
+1447,2020-05-21T06:49:00Z,2020-11-25T17:12:00Z,2020-11-25T17:12:00Z,2,54,0,Add Chinese docs for advanced/path-operation-advanced-configuration.md. Could you help review plz. @waynerv  @Dustyposa,4,4
+1451,2020-05-22T03:08:49Z,2020-11-25T17:16:21Z,2020-11-25T17:16:21Z,2,38,0,Add Chinese docs for advanced/additional-status-codes,4,3
+1452,2020-05-22T09:16:53Z,2020-11-25T17:22:34Z,2020-11-25T17:22:34Z,2,66,0,Add Chinese docs for advanced/response-directly,4,3
+1453,2020-05-22T09:30:38Z,2020-06-12T22:14:59Z,2020-06-12T22:14:59Z,2,235,0,@Dustyposa @RunningIkkyu  Please take a look.,4,2
+1454,2020-05-22T09:31:48Z,2020-06-12T22:26:41Z,2020-06-12T22:26:41Z,2,227,0,@Dustyposa @RunningIkkyu  Please take a look.,4,2
+1459,2020-05-23T09:52:08Z,2020-11-25T17:27:35Z,2020-11-25T17:27:35Z,2,213,0,"Add Chinese docs for advance/custom-response.md
+Please help review. @waynerv  @Dustyposa",4,3
+1460,2020-05-23T11:29:57Z,2020-06-12T22:18:58Z,2020-06-12T22:18:58Z,2,511,0,@Dustyposa @RunningIkkyu Please take a look.,4,3
+1465,2020-05-24T02:36:04Z,2020-06-12T22:40:06Z,2020-06-12T22:40:06Z,2,112,0,@Dustyposa @RunningIkkyu @phy25 Please take a look.,4,2
+1492,2020-05-28T07:15:06Z,2020-06-12T22:47:51Z,2020-06-12T22:47:51Z,2,148,0,@Dustyposa @RunningIkkyu @phy26 Please take a look.,4,2
+1500,2020-06-02T03:05:57Z,2020-06-12T22:53:01Z,2020-06-12T22:53:01Z,2,282,0,@Dustyposa @RunningIkkyu @phy25 Please take a look.,4,2
+1506,2020-06-03T07:02:55Z,2020-06-27T18:10:33Z,2020-06-27T18:10:33Z,2,123,0,@Dustyposa @RunningIkkyu @phy25 @yanever @Laineyzhang55 Please take a look.,5,2
+1510,2020-06-04T00:30:23Z,2020-06-13T07:45:49Z,2020-06-13T07:45:49Z,1,0,6,"Since the content of the 2 Chinese articles in External Links and Articles is very simple, just a brief summary of 1 or 2 document chapters, as we now have some more detailed Chinese translation of docs, I suggest temporarily removing these 2 duplicate articles.",3,3
+1512,2020-06-04T06:36:42Z,2020-06-12T23:13:00Z,2020-06-12T23:13:00Z,1,1,1,Adds a link to the Advanced User Guide in the Response Status Code page for the tutorial.,3,2
+1521,2020-06-05T15:30:59Z,2020-06-13T17:14:23Z,2020-06-13T17:14:23Z,2,17,6,"Added example response for enum section.
+Added URL's for
+Redoc in localhost
+Starlett
+Added line breaks in tutorial005 for readability.",3,2
+1526,2020-06-07T03:02:59Z,2020-06-12T22:56:01Z,2020-06-12T22:56:01Z,2,2,2,,3,2
+1532,2020-06-08T04:54:27Z,2020-06-27T18:18:10Z,2020-06-27T18:18:10Z,2,171,0,@Dustyposa @RunningIkkyu @phy25 @yanever @Laineyzhang55 Please take a look.,5,2
+1537,2020-06-08T18:47:58Z,,2020-08-18T08:01:13Z,4,67,0,"Added all constraints to the main fastapi init.py file, to:
+
+Fixes #1309
+Enable implicit_reexport = False configuration value to be set in mypy configuration.
+Limit what gets imported with form fastapi import *",3,13
+1541,2020-06-09T19:41:41Z,,2020-06-13T20:59:11Z,2,59,0,"Fixes/related to #1398
+@rkbeatss and I split the classes between us.",4,8
+1542,2020-06-09T19:57:17Z,,2020-06-11T14:15:11Z,2,59,0,Added dunder methods to classes in order to enhance readability,4,4
+1560,2020-06-12T19:49:35Z,2020-06-12T23:22:31Z,2020-06-12T23:22:31Z,2,57,0,Changes based on suggestions on this PR  implemented and more test coverage added,3,1
+1564,2020-06-13T03:21:26Z,2020-06-27T18:24:10Z,2020-06-27T18:24:11Z,1,47,42,"keep up-to-date with main version，add opinion about Dispatch.
+improve some former translation.",4,2
+1565,2020-06-13T04:31:25Z,2020-06-13T21:07:12Z,2020-06-13T21:07:12Z,1,0,2,Fixes/ related to #1265 .,3,2
+1569,2020-06-14T00:51:58Z,2020-06-27T18:29:42Z,2020-06-27T18:29:42Z,2,50,1,"@yanever , @Laineyzhang55 , @phy25, @Dustyposa , @RunningIkkyu Please take a look.",5,4
+1571,2020-06-14T06:56:42Z,2020-08-29T13:34:08Z,2020-08-29T13:34:08Z,6,513,0,"As I mentioned the issue #1503 ,I translated index.md to Japanese.",4,7
+1574,2020-06-14T23:08:39Z,,2020-06-28T18:19:01Z,106,420,260,Closes issue #1561.,5,4
+1576,2020-06-15T10:34:42Z,,2022-02-01T09:23:42Z,3,458,148,This PR translates the index.md to Italian. This page was already present in the mkdocs.yml file.,5,3
+1578,2020-06-15T11:24:27Z,2020-06-28T21:26:35Z,2020-06-28T21:26:36Z,1,1,1,Great framework btw!,3,2
+1580,2020-06-15T14:45:53Z,,2022-02-01T09:25:53Z,2,315,0,Translated python-types.md to Italian and added file name to mkdocs.yml.,4,3
+1590,2020-06-18T11:35:38Z,2020-06-28T21:28:36Z,2020-06-28T21:28:36Z,1,5,0,,3,2
+1591,2020-06-18T14:51:08Z,2020-07-10T09:16:47Z,2020-07-10T09:16:47Z,1,3,0,Added a small note to the docs to address the confusion around the order of types in a Union. This should address #1318.,3,2
+1602,2020-06-20T02:52:50Z,2020-10-17T05:50:32Z,2020-10-17T05:50:32Z,1,84,0,,5,1
+1603,2020-06-20T04:06:54Z,2020-06-28T21:34:28Z,2020-06-28T21:34:28Z,1,1,1,"Fix a bad link, which return 404 previously.",3,2
+1609,2020-06-22T05:21:21Z,2020-11-25T17:34:50Z,2020-11-25T17:34:50Z,2,245,0,"@yanever , @Laineyzhang55 , @phy25, @Dustyposa , @RunningIkkyu Please take a look.",6,5
+1610,2020-06-22T09:08:51Z,2020-07-10T18:24:38Z,2020-07-10T18:24:39Z,5,32,25,addressing #1598: suggesting support for python-jose as opposed to the initial PyJWT,3,2
+1619,2020-06-24T15:07:32Z,2020-08-08T18:01:19Z,2020-08-08T18:01:19Z,9,134,0,"Addressing #1273 and encode/starlette#652, I added a section about asynchronous testing via pytest-asyncio and httpx to the documentation. I also made a small note (+ link) in the beginner tutorial about it.",4,3
+1625,2020-06-25T16:52:50Z,2020-10-16T20:08:19Z,2020-10-16T20:08:19Z,2,205,0,"This PR translates the features.md to Japanese.
+Please review features.md.
+Issue #1571 generates a new directory to support Japanese.
+I will fix dependency after #1571 is merged.",4,8
+1626,2020-06-25T17:35:52Z,2020-07-19T10:17:51Z,2020-07-19T10:17:51Z,4,116,4,Related to #713 .,3,4
+1627,2020-06-25T20:16:56Z,,2020-08-08T07:23:49Z,2,56,0,"Addresses #1599.
+We'll be leveraging the [import].__package__ field as a way to determine if the CORRECT multipart import was used or not.
+Oddly enough, the incorrect multipart import will have a .__package__ field value of """" (empty string). The correct import, python-multipart, will have a .__package__ field value of ""multipart"".
+We'll check to see if the user will be using forms or not with is_form_data(BodyFieldInfo). If this evaluates to true, then we can check to see there is a multipart import at all by using importlib.util.find_spec(""multipart""). If that again evaluates to true, we can check the .__package__ value to see if it is an empty string or not.
+Alternative solution:
+Instead of testing the imports' .__package__ field, we could try to wrap a try / catch with a method exclusive to python-multipart that is not in multipart instead. If an exception was caught we know it's also the wrong import.
+parser = multipart.QuerystringParser() might be a good method to try out.",5,2
+1641,2020-06-28T08:10:44Z,,2022-08-30T14:16:48Z,2,510,0,,5,4
+1651,2020-06-30T09:47:32Z,,2020-11-30T05:06:15Z,1,3,1,"Proof of Concept for issue #1650.
+You can pass include_in_schema=False to APIRouter to exclude all routes in schema from this router.",3,1
+1656,2020-06-30T14:06:55Z,2020-10-17T06:02:57Z,2020-10-17T06:02:57Z,2,82,0,"This PR translates the tutorial/index.md to Japanese.
+Please review tutorial/index.md.
+Issue #1571 generates a new directory to support Japanese.
+I will fix dependency after #1571 is merged.",4,7
+1658,2020-06-30T17:38:57Z,2020-10-17T06:09:01Z,2020-10-17T06:09:02Z,2,332,0,"This PR translates the tutorial/first-steps.md to Japanese.
+Please review tutorial/first-steps.md.
+Issue #1571 generates a new directory to support Japanese.
+I will fix dependency after #1571 is merged.",4,7
+1659,2020-06-30T18:14:51Z,2020-08-03T06:43:05Z,2020-08-03T06:43:05Z,1,1,1,"**kwargs annotation is based on the value.
+ATM extra is annotated like Dict[str, Dict[str, Any]] which causes issues with type-checkers.",3,7
+1670,2020-07-05T03:10:16Z,2020-07-09T18:06:13Z,2020-07-09T18:06:13Z,97,111,109,"Apparently, isort latest release isort v5.0.2 is missing the --recursive or -rc flag and since the project uses the flag in it's script, it causes the tests to fail. An alternative to this is a dot, as in isort ..
+Missing flags
+--apply
+--recursive
+
+Replacement
+isort .
+
+For more information on these changes see:
+https://github.com/timothycrosley/isort/blob/develop/CHANGELOG.md#500-penny---july-4-2020
+With this change, the build should be okay.",3,4
+1671,2020-07-05T06:48:53Z,2020-10-17T06:15:05Z,2020-10-17T06:15:05Z,2,245,0,"This PR translates the tutorial/path-params.md to Japanese.
+Please review tutorial/path-params.md
+Issue #1571 generates a new directory to support Japanese.
+I will fix dependency after #1571 is merged.",4,6
+1674,2020-07-05T13:15:41Z,2020-10-17T06:23:52Z,2020-10-17T06:23:52Z,2,200,0,"This PR translates the tutorial/query-params.md to Japanese.
+Please review tutorial/query-params.md
+Issue #1571 generates a new directory to support Japanese.
+I will fix dependency after #1571 is merged.",4,7
+1675,2020-07-05T14:32:17Z,2020-08-03T07:12:08Z,2020-08-03T07:12:08Z,4,12,13,,4,9
+1682,2020-07-07T09:30:08Z,,2022-02-01T09:26:09Z,2,123,0,Parent thread is #1556.,3,1
+1683,2020-07-07T14:25:59Z,2020-10-17T06:31:56Z,2020-10-17T06:31:56Z,2,166,0,"This PR translates the tutorial/body.md to Japanese.
+Please review tutorial/body.md
+Issue #1571 generates a new directory to support Japanese.
+I will fix dependency after #1571 is merged.",4,7
+1692,2020-07-08T16:31:42Z,2020-10-17T06:38:38Z,2020-10-17T06:38:38Z,2,121,0,"This PR translates the help-fastapi.md to Japanese.
+Please review help-fastapi.md
+Issue #1571 generates a new directory to support Japanese.
+I will fix dependency after #1571 is merged.",5,9
+1717,2020-07-15T14:44:30Z,2020-08-03T08:45:23Z,2020-08-03T08:45:23Z,1,3,0,,3,2
+1723,2020-07-17T07:39:34Z,,2020-08-03T15:17:03Z,1,1,5,Compatible with pydantic exporting model's method,4,2
+1730,2020-07-17T21:02:02Z,,2020-08-03T12:09:02Z,3,31,29,"As noticed by @Kludex here there set and dict in defaults. Current logic for exclude already covers case with None, and custom_encoder got checks if custom_encoder: which cover None case but I can add additional check for dict which is unnecessary imo
+Also I added Optional TypeHint for keyword arguments with None as default",3,5
+1753,2020-07-21T10:07:37Z,2020-08-03T13:16:51Z,2020-08-03T13:16:52Z,5,9,11,"Hi guys,
+I enjoy to work with FastAPI, it's really great 👍
+What was done in scope of this PR:
+
+Use comprehension instead of loops.
+Use __init__ method of a base class where it possible.
+Replace usage of dict.setdefault  method with collections.defaultdict.",7,3
+1755,2020-07-21T11:52:58Z,,2020-07-22T20:00:30Z,3,5,12,,5,6
+1757,2020-07-21T12:28:12Z,2021-07-29T10:30:48Z,2021-07-29T10:30:48Z,15,1062,16,"My suggestion is to add a description parameter to the __init__ methods of APIKeyQuery(SecurityBase):, APIKeyHeader(SecurityBase): and APIKeyCookie(SecurityBase): and use it to initialize the APIKey object. This allows for a description in the securitySchemes objects of the openapi.json and therefore in the Swagger and Redoc documentation.
+class SecurityBase(BaseModel): already has an attribute description: Optional[str] = None.
+class APIKey(SecurityBase): inherits from SecurityBase.
+The classes APIKeyQuery(SecurityBase):, APIKeyHeader(SecurityBase): and APIKeyCookie(SecurityBase): initialize an APIKey object in their __init__ method. They initialize it with some kwargs and the name parameter, but currently without a description parameter.
+Example: using APIKeyQuery(name=""X-Auth-Key"", auto_error=False, description=""My description"") would look likt this in Redoc:",3,4
+1759,2020-07-21T19:46:51Z,2020-07-22T06:25:33Z,2020-07-22T06:25:33Z,1,1,1,"The project has Starlett dependency of version 0.13.4 which has a directory traversal vulnerability for windows machines. I was made aware of this through: https://snyk.io/vuln/SNYK-PYTHON-STARLETTE-573266
+This upgrade would mostly be for the fix to this vulnerability that was introduced in Starlette 0.13.5. This upgrade would be to version 0.13.6 because version 0.13.6 fixes a breaking change related to how 0.13.5 was initially implemented.
+Here is a link to the Starlett issue that was fixed for more details: encode/starlette#981",3,2
+1760,2020-07-21T20:29:13Z,2020-07-22T06:30:13Z,2020-07-22T06:30:13Z,6,6,0,"Related to #725
+MkDocs implemented a feature to set the theme based on the user's OS preference.
+This is what the website will look like if the user's preferred theme is dark:
+
+For the light theme users:
+
+I placed my cursor on Languages so that you can see that the accent is still there.",3,2
+1771,2020-07-22T16:32:57Z,,2020-08-03T15:34:13Z,1,9,0,"Hi,
+there is some changes to be able to fix swagger-ui's url on FastApi class creation
+That might help to avoid issues like swagger-api/swagger-ui#6254 and hacks like dadd665 in the future from the developers perspective
+This might also be helpful if someone don`t want to use jsdelivr's cdn",3,5
+1789,2020-07-25T11:25:50Z,2020-08-03T06:33:44Z,2020-08-03T06:33:44Z,1,1,1,"Following #1760, highlighted code color in the dark theme was nearly impossible to read, as @anglid stated in #725.
+Later in that issue, @squidfunk stated that by bumping mkdocs-material to 5.5.0, the colors will be better.
+
+
+Light theme before:
+
+
+
+Light theme now:
+
+
+
+Dark theme before:
+
+
+
+Dark theme now:",4,3
+1791,2020-07-25T19:05:52Z,,2024-01-10T18:42:05Z,2,356,155,"The pull request creates Ukrainian translation for online documentation of FastAPI.
+Can be part of the Pull Request #1790 (We can combine the best parts of translations to one perfect).
+Relates to issue #1748",8,13
+1795,2020-07-27T00:58:55Z,2020-08-03T16:12:30Z,2020-08-03T16:12:30Z,1,1,1,,3,3
+1796,2020-07-27T02:03:04Z,2020-10-17T06:40:32Z,2020-10-17T06:40:32Z,1,316,0,,5,5
+1807,2020-07-29T05:09:07Z,2020-08-03T16:25:02Z,2020-08-03T16:25:02Z,1,1,1,,4,3
+1812,2020-07-30T12:58:05Z,2021-07-29T15:10:22Z,2021-07-29T15:10:22Z,6,79,19,"As described in #843 that I needed and stumbled upon. This PR adds extra metadata parameters to the code and docs. So now you can specify contact and license information as well as terms of service.
+I tried to keep the naming of the parameters in line with the specification, but unfortunately license is a Python built-in, so I went with license_info instead.",3,7
+1815,2020-07-30T15:06:36Z,2020-08-09T11:10:33Z,2020-08-09T11:10:33Z,1,1,1,Fix for issue in documentation example code #1814,3,4
+1822,2020-07-31T19:37:44Z,2020-08-09T13:52:19Z,2020-08-09T13:52:20Z,4,133,1,PR for #1799 : Adding documentation for multiple clients and what happens when a client closes WebSocket,4,5
+1824,2020-08-02T11:11:29Z,2020-08-09T14:35:45Z,2020-08-09T14:35:45Z,5,13,13,,4,5
+1846,2020-08-07T08:12:34Z,,2022-09-01T09:40:13Z,2,56,2,"Add orjson response factory, so that it will be possible to pass option property into ORJSONResponse.
+Related to #1137 and #1165",5,17
+1855,2020-08-08T22:54:20Z,,2021-05-06T15:13:26Z,1,6,4,"For better performance, I've removed cascading and replaced it with creating a set manually.
+I've tested it for safety and found my idea has better performance ESPECIALLY when the input methods is None. It creates a set in about half the previously required time for cascading.",3,3
+1861,2020-08-09T18:06:57Z,2020-10-17T10:41:45Z,2020-10-17T10:41:45Z,2,334,0,This PR translates the tutorial/first-steps.md and add this page to the mkdocs.yml file.,5,6
+1863,2020-08-09T20:23:03Z,2020-08-29T14:02:58Z,2020-08-29T14:02:58Z,79,232,232,"Addresses issue #1859.
+All changes fall into two categories:
+
+Update all ranges to new compressed format as specified in the original issue.
+Standardize on two spaces between individual ranges.  This was already incorporated in some places and felt easier to read.",4,5
+1872,2020-08-10T14:16:13Z,2021-07-29T15:30:18Z,2021-07-29T15:30:18Z,1,5,0,Closes #1871,4,9
+1875,2020-08-11T10:50:42Z,,2021-10-03T18:48:55Z,2,33,37,"Updated starlette from 0.13.6 to 0.13.7
+Cause version 0.13.7 fixes high memory usage when using BaseHTTPMiddleware middleware classes and streaming responses",4,11
+1880,2020-08-12T12:15:22Z,2021-10-05T08:58:00Z,2021-10-05T08:58:00Z,1,4,4,Signed-off-by: Filipe Laíns lains@archlinux.org,3,5
+1887,2020-08-12T19:02:09Z,,2020-11-05T21:28:30Z,2,70,4,Closes #1886,3,3
+1895,2020-08-14T23:12:31Z,2020-11-05T21:03:45Z,2020-11-05T21:03:45Z,1,1,1,"Couldn't get credentials working with allow_origins set to ['*']. Thought this might help others.
+I was lucky to find this after a while: https://stackoverflow.com/questions/46288437/set-cookies-for-cross-origin-requests
+which explains: ""Also, make sure the HTTP header Access-Control-Allow-Origin is set and not with a wildcard *.""
+Specifying some origins, allows my axios request with { withCredentials: true } set to work.",3,3
+1899,2020-08-15T19:59:13Z,2024-01-15T15:45:27Z,2024-01-15T15:45:27Z,1,315,0,"This PR translates the python-types.md to Japanese.
+Please review python-types.md
+Issue #1571 generates a new directory to support Japanese.
+I will fix dependency after #1571 is merged.",5,10
+1901,2020-08-16T08:51:26Z,2020-11-01T21:54:06Z,2020-11-01T21:54:06Z,2,303,0,"This PR translates the tutorial/query-params-str-validations.md to Japanese.
+Please review tutorial/query-params-str-validations.md
+Issue #1571 generates a new directory to support Japanese.
+PR #1656 generates a new directory for tutorial.
+I will fix dependency after #1571 & #1656  are merged.",5,12
+1902,2020-08-16T10:01:38Z,2024-01-15T15:46:32Z,2024-01-15T15:46:32Z,1,122,0,"This PR translates the tutorial/query-params-numeric-validations.md to Japanese.
+Please review tutorial/query-params-numeric-validations.md
+Issue #1571 generates a new directory to support Japanese.
+PR #1656 generates a new directory for tutorial.
+I will fix dependency after #1571 & #1656 are merged.",5,8
+1903,2020-08-16T10:46:35Z,2024-01-15T15:48:41Z,2024-01-15T15:48:41Z,1,169,0,"This PR translates the tutorial/body-multiple-params.md to Japanese.
+Please review tutorial/body-multiple-params.md
+Issue #1571 generates a new directory to support Japanese.
+PR #1656 generates a new directory for tutorial.
+I will fix dependency after #1571 & #1656 are merged.",5,10
+1904,2020-08-16T19:45:27Z,2021-07-29T09:26:07Z,2021-07-29T09:26:07Z,10,60,18,"I've just spotted a typo in the test script:
+pytest --cov=fastapi --cov=tests --cov=docs/src --cov-report=term-missing --cov-report=xml tests ${@}
+docs/src is a typo, we want to cover docs_src.
+If you don't trust me  you can check at the end of the test:
+Coverage.py warning: Module docs/src was never imported. (module-not-imported)
+I'll be increasing the coverage for those tests on this PR.
+Report on the missing coverage:
+
+Changes:
+
+Add :skip-covered in the terminal Pytest report. It makes it easy to read missing coverage.
+Fix test script.
+
+Remove --cov=tests from test script
+Fix typo docs/src -> docs_src
+
+
+Fix double test call.
+
+If a function that starts with test is imported in the tests, there's no need for wrapping it. If you do so, it calls the test function twice.
+
+
+Add missing tests to be covered.
+
+After the fixes:
+
+EDIT:
+November 4, 2020: This PR is still useful. And I've added the coverage on the tests once again.
+November 10, 2020: Rebase it, everything is fine!",2,9
+1905,2020-08-17T02:40:15Z,2020-08-29T09:43:30Z,2020-08-29T09:43:30Z,9,534,0,"I built docs for starting Turkish translations.
+Issue: #1892",4,6
+1908,2020-08-17T11:36:08Z,2021-10-05T12:46:11Z,2021-10-05T12:46:11Z,1,160,152,"I created the setup for Turkish docs in #1905
+Then i translated index.md to Turkish.
+But also as far as i know, pushes and pulls operate at a commit level they won't split them apart so this pull request includes the same commits from #1905.  But when #1905 is merged this pull request will only include my latest commit jfyk.
+Main issue: #1892",4,6
+1916,2020-08-18T16:10:06Z,,2020-11-24T07:14:00Z,16,43,43,Enhanced hl_lines with range format,3,3
+1917,2020-08-18T17:44:55Z,,2021-05-11T09:21:25Z,3,145,1,"I'm not sure if this PR will be accepted. 😢
+Because I've implemented without waiting @tiangolo 's answer about ""if it's a good feature"". 👀
+If you're reading this, and you think is a nice feature, please leave a 👍
+Changes:
+
+APIRoute setup now withstand custom attributes. It makes possible the following code:
+
+@router.get(""/"", permissions=[""Potato"", ""Tomato""])
+def home(request: Request):
+    return request.state.permissions
+Issue: #1879
+Notes:
+
+If needed, I can add docs about it. 📖
+If needed, I can add more tests. ✅
+
+Edit (Aug 19):
+
+Commit 7533303 changes slightly the idea, as you don't need to override the http method methods anymore.
+MyPy ignores were added due to known MyPy issue: python/mypy#1969",8,16
+1922,2020-08-19T13:59:21Z,2021-07-29T20:01:14Z,2021-07-29T20:01:14Z,13,487,1,"Description
+This PR adds support for specifying extra info for the JSON schema of path operations. This is so that OpenAPI extensions can be used when declaring routes.
+Use case
+We need this because we rely on open api extensions to configure our service mesh (linkerd) for retries and timeouts, but there are probably many use cases for this.
+Implementation
+
+There is a lot of boilerplate to add support for extra arguments, but it does not look like there is a way around it. Suggestions welcome.
+The pydantic model of Operation accepts any extra info, which matches the behavior of Path, Field, Query, etc. There might be an argument to restrict it to x- prefixed fields, but this will be more complex. I'm not sure it is worth it.",6,10
+1930,2020-08-20T14:15:50Z,2024-01-15T15:34:58Z,2024-01-15T15:34:58Z,1,244,0,"This PR translates the tutorial/body-nested-models.md  to Japanese.
+Please review tutorial/body-nested-models.md
+Issue #1571 generates a new directory to support Japanese.
+PR #1656 generates a new directory for tutorial.
+I will fix dependency after #1571 & #1656 are merged.",4,10
+1932,2020-08-20T15:36:31Z,2024-01-22T20:01:50Z,2024-01-22T20:01:50Z,1,66,0,"This PR translates the tutorial/extra-data-types.md to Japanese.
+Please review tutorial/extra-data-types.md.
+Issue #1571 generates a new directory to support Japanese.
+PR #1656 generates a new directory for tutorial.
+I will fix dependency after #1571 & #1656 are merged.",7,10
+1933,2020-08-20T17:09:36Z,2021-01-09T18:19:27Z,2021-01-09T18:19:27Z,2,34,0,"This PR translates the tutorial/cookie-params.md to Japanese.
+Please review tutorial/cookie-params.md.
+Issue #1571 generates a new directory to support Japanese.
+PR #1656 generates a new directory for tutorial.
+I will fix dependency after #1571 & #1656 are merged.",5,7
+1935,2020-08-20T17:44:18Z,2020-10-17T13:55:40Z,2020-10-17T13:55:40Z,2,92,0,"This PR translates the tutorial/header-params.md to Japanese.
+Please review tutorial/header-params.md.
+Issue #1571 generates a new directory to support Japanese.
+PR #1656 generates a new directory for tutorial.
+I will fix dependency after #1571 & #1656 are merged.",5,6
+1938,2020-08-20T18:43:31Z,2024-01-15T16:01:55Z,2024-01-15T16:01:55Z,1,208,0,"This PR translates the tutorial/response-model.md to Japanese.
+Please review tutorial/response-model.md.
+Issue #1571 generates a new directory to support Japanese.
+PR #1656 generates a new directory for tutorial.
+I will fix dependency after #1571 & #1656 are merged.",7,8
+1942,2020-08-21T16:07:16Z,2024-01-15T15:42:08Z,2024-01-15T15:42:08Z,1,89,0,"This PR translates the tutorial/response-status-code.md to Japanese.
+Please review tutorial/response-status-code.md.
+Issue #1571 generates a new directory to support Japanese.
+PR #1656 generates a new directory for tutorial.
+I will fix dependency after #1571 & #1656 are merged.",6,7
+1943,2020-08-21T16:37:20Z,2021-01-09T18:28:16Z,2021-01-09T18:28:16Z,2,59,0,"This PR translates the tutorial/request-forms.md to Japanese.
+Please review tutorial/request-forms.md.
+Issue #1571 generates a new directory to support Japanese.
+PR #1656 generates a new directory for tutorial.
+I will fix dependency after #1571 & #1656 are merged.",5,5
+1946,2020-08-21T18:08:44Z,2024-04-02T04:31:22Z,2024-04-02T04:31:22Z,1,35,0,"This PR translates the tutorial/request-forms-and-files.md to Japanese.
+Please review tutorial/request-forms-and-files.md.
+Issue #1571 generates a new directory to support Japanese.
+PR #1656 generates a new directory for tutorial.
+I will fix dependency after #1571 & #1656 are merged.",4,7
+1948,2020-08-22T03:25:44Z,,2020-11-06T03:20:00Z,2,398,0,"This PR translates the deployment.md to Japanese.
+Please review deployment.md
+Issue #1571 generates a new directory to support Japanese.
+I will fix dependency after #1571 is merged.",5,9
+1950,2020-08-22T13:48:43Z,2021-10-05T13:01:50Z,2021-10-05T13:01:50Z,2,210,0,"This PR translates features.md to Turkish, and adds a line to docs/tr/mkdocs.yml features.md
+afaik pushes and pulls operate at a commit level they won't split them apart so this pull request includes the same commits from #1905 and #1908, but when they get merged this will only merge two commits.
+I created the setup for Turkish docs in #1905
+I translated index.md to Turkish in #1908
+Main issue: #1892",4,4
+1953,2020-08-23T08:37:35Z,2024-01-15T15:43:46Z,2024-01-15T15:43:46Z,1,265,0,"This PR translates the tutorial/handling-errors.md to Japanese.
+Please review tutorial/handling-errors.md.
+Issue #1571 generates a new directory to support Japanese.
+PR #1656 generates a new directory for tutorial.
+I will fix dependency after #1571 & #1656 are merged.",5,7
+1954,2020-08-23T09:29:53Z,2024-04-02T04:38:26Z,2024-04-02T04:38:26Z,1,97,0,"This PR translates the tutorial/path-operation-configuration.md to Japanese.
+Please review tutorial/path-operation-configuration.md.
+Issue #1571 generates a new directory to support Japanese.
+PR #1656 generates a new directory for tutorial.
+I will fix dependency after #1571 & #1656 are merged.",4,9
+1955,2020-08-23T09:45:54Z,2024-01-22T20:09:03Z,2024-01-22T20:09:03Z,1,34,0,"This PR translates the tutorial/encoder.md to Japanese.
+Please review tutorial/encoder.md.
+Issue #1571 generates a new directory to support Japanese.
+PR #1656 generates a new directory for tutorial.
+I will fix dependency after #1571 & #1656 are merged.",6,7
+1956,2020-08-23T10:35:46Z,2021-01-09T18:33:08Z,2021-01-09T18:33:08Z,2,100,0,"This PR translates the tutorial/body-updates.md to Japanese.
+Please review tutorial/body-updates.md.
+Issue #1571 generates a new directory to support Japanese.
+PR #1656 generates a new directory for tutorial.
+I will fix dependency after #1571 & #1656 are merged.",5,5
+1957,2020-08-23T12:45:34Z,,2024-01-15T16:22:27Z,1,209,0,"This PR translates the tutorial/dependencies/index.md to Japanese.
+Please review tutorial/dependencies/index.md.
+Issue #1571 generates a new directory to support Japanese.
+PR #1656 generates a new directory for tutorial.
+I will fix dependency after #1571 & #1656 are merged.",5,6
+1958,2020-08-23T13:28:58Z,2024-01-15T16:08:16Z,2024-01-15T16:08:17Z,2,400,0,"This PR translates the tutorial/dependencies/classes-as-dependencies.md to Japanese.
+Please review tutorial/dependencies/classes-as-dependencies.md.
+Issue #1571 generates a new directory to support Japanese.
+PR #1656 generates a new directory for tutorial.
+PR #1957 generates a new directoru for dependencies in tutorial.
+I will fix dependency after #1571,  #1656 and #1957 are merged.",5,6
+1959,2020-08-23T14:28:56Z,2024-01-15T16:43:41Z,2024-01-15T16:43:41Z,1,86,0,"This PR translates the tutorial/dependencies/sub-dependencies.md to Japanese.
+Please review tutorial/dependencies/sub-dependencies.md.
+Issue #1571 generates a new directory to support Japanese.
+PR #1656 generates a new directory for tutorial.
+PR #1957 generates a new directoru for dependencies in tutorial.
+I will fix dependency after #1571, #1656 and #1957 are merged.",4,6
+1960,2020-08-23T14:48:07Z,2024-01-15T16:44:28Z,2024-01-15T16:44:28Z,1,62,0,"This PR translates the tutorial/dependencies/dependencies-in-path-operation-decorators.md to Japanese.
+Please review tutorial/dependencies/dependencies-in-path-operation-decorators.md.
+Issue #1571 generates a new directory to support Japanese.
+PR #1656 generates a new directory for tutorial.
+PR #1957 generates a new directory for dependencies in tutorial.
+I will fix dependency after #1571, #1656 and #1957 are merged.",4,5
+1961,2020-08-23T15:42:13Z,2024-01-15T16:45:09Z,2024-01-15T16:45:09Z,1,225,0,"This PR translates the tutorial/dependencies/dependencies-with-yield.md to Japanese.
+Please review tutorial/dependencies/dependencies-with-yield.md.
+Issue #1571 generates a new directory to support Japanese.
+PR #1656 generates a new directory for tutorial.
+PR #1957 generates a new directory for dependencies in tutorial.
+I will fix dependency after #1571, #1656 and #1957 are merged.",5,6
+1962,2020-08-23T16:14:10Z,,2024-01-23T14:13:00Z,1,101,0,"This PR translates the tutorial/security/index.md to Japanese.
+Please review tutorial/security/index.md.
+Issue #1571 generates a new directory to support Japanese.
+PR #1656 generates a new directory for tutorial.
+I will fix dependency after #1571 and  #1656 are merged.",4,6
+1963,2020-08-23T19:03:30Z,,2024-02-07T12:54:00Z,2,35,0,First try to contribute to FastaAPI with translations,6,7
+1973,2020-08-26T07:24:30Z,,2023-06-26T22:00:25Z,1,148,152,"Hello 👋
+This is a PR to translate docs/index.md to french 🇫🇷
+According to the issue: #1972
+Saving you some clicks:
+
+the formatted document: here
+the diff from English: here
+
+Thanks 👽",6,14
+1980,2020-08-27T15:07:12Z,2020-08-29T12:30:24Z,2020-08-29T12:30:24Z,1,1,1,Just a tiny typo I found reading the docs,3,3
+1991,2020-08-31T12:39:35Z,,2024-04-02T03:30:37Z,1,23,6,if you get a connect or disconnect during broadcast,4,10
+1992,2020-08-31T13:32:37Z,2020-10-17T18:43:43Z,2020-10-17T18:43:44Z,2,35,0,"This PR translates the benchmarks.md to Japanese.
+According to the issue: #1572
+Thanks!!",4,8
+1993,2020-08-31T17:14:41Z,2022-03-17T20:24:34Z,2022-03-17T20:24:34Z,1,1,3,"Changed the sentence for better understanding.
+https://mega.nz/file/St5RjCQA#QKW-9n5w0kHYYZfKSWUV_dZBWG0mRL7XrDP2C2bYm8U",3,3
+1995,2020-09-01T03:24:58Z,2020-11-05T21:31:39Z,2020-11-05T21:31:39Z,1,1,1,Fixed grammatical error in the benchmarks documentation.,4,4
+2002,2020-09-02T08:50:42Z,2020-10-18T05:26:15Z,2020-10-18T05:26:15Z,2,81,0,"This PR translates the  history-design-future.md to Japanese.
+According to the issue: #1572
+Thanks!!",5,11
+2016,2020-09-05T17:40:28Z,2021-07-04T18:53:40Z,2021-07-04T18:53:40Z,2,176,2,Related to #2007,3,4
+2020,2020-09-06T18:30:57Z,2020-10-18T05:28:45Z,2020-10-18T05:28:45Z,1,1,1,Hi. I fix a little mistake on the index tutorial page for spanish docs.,6,3
+2028,2020-09-09T14:49:49Z,,2021-07-29T20:06:13Z,3,53,0,"This will populate the OpenAPI info with termsOfService.
+Related to #843.",3,4
+2036,2020-09-11T08:23:54Z,2022-08-25T21:44:40Z,2022-08-25T21:44:40Z,2,97,0,When trying to build a custom middleware that checks content size any exceptions raised by the middleware don't get propagated back up. By allowing any HTTPExceptions to be raised as they are we can raise custom exception information into the response,3,12
+2043,2020-09-13T06:18:45Z,2020-10-18T05:38:10Z,2020-10-18T05:38:10Z,2,416,0,"This PR translates the alternatives.md to Japanese.
+Please review alternatives.md.",4,10
+2050,2020-09-14T16:48:53Z,2020-10-18T05:47:45Z,2020-10-18T05:47:45Z,2,85,0,"This PR translates the project-generation.md to Japanese.
+@ryuckel @SwftAlpc @komtaki @Attsun1031 and others
+Feel free to comment your advise or approve.",4,10
+2056,2020-09-15T08:03:03Z,,2020-11-05T21:49:30Z,5,436,2,"this is the feature that supports pagination,
+with the param with_page_split as True, the method will calculate the length of result, split the result by page_num and page_size params and finally return previous url and next_url
+pyandtic.BaseModel, sqlalchemy object and normal type are supported",6,13
+2058,2020-09-15T18:00:53Z,2021-02-07T17:20:43Z,2021-02-07T17:20:44Z,2,394,0,"This PR translates the async.md to Japanese.
+This section is technical, descriptive and long. I translated loosely to make it easier to read for Japanese.
+Feel free to comment your advise or approve.",4,11
+2061,2020-09-16T04:49:08Z,2022-01-23T16:34:19Z,2022-01-23T16:34:19Z,2,24,9,"In encoders.py/jsonable_encoder, default encoders for each type are specified first & are used in preference to custom encoders.
+This affects custom encoders specified for certain types like enums such that the default encoder is always executed and any custom encoders specified are ignored. See - #1986 - for a description of this issue and example code as well that illustrates the problem.
+This PR adds a change to prefer custom encoders if specified in preference to default encoders.
+Disclaimer - I am completely new to this code base :-)",16,38
+2067,2020-09-17T10:09:30Z,2020-10-18T05:57:06Z,2020-10-18T05:57:06Z,2,504,0,"This PR translates the contributing.md to Japanese.
+According to the issue: #1572
+Thanks!!",4,7
+2070,2020-09-17T15:53:19Z,2021-01-09T18:38:21Z,2021-01-09T18:38:21Z,2,83,0,This PR translates the external-links.md to Japanese.,5,5
+2080,2020-09-21T10:27:12Z,,2022-07-14T11:42:50Z,1,24,0,"This PR translates the  index.md  to Japanese.
+According to the issue: #1572
+Thanks!!",4,10
+2085,2020-09-23T09:05:21Z,2020-11-05T21:53:44Z,2020-11-05T21:53:44Z,1,2,2,"Function annotation syntax was proposed in pep 3107 in 2006 and was a feature of Python 3.0. Type annotations were already a proposed usecase at this time. Mypy supports Python 3.2 and newer. A standard vocabulary for type hints (and the typing module itself) based on conventions used in Mypy and other sources was added in 3.5 with pep 484.
+The only thing new for type hints in 3.6 is variable annotations, which allows types to be specified outside of function signatures. pep 526",5,7
+2100,2020-09-26T13:01:39Z,2020-11-05T22:02:08Z,2020-11-05T22:02:08Z,2,5,5,The existing celery links are invalid. I updated to the current one.,4,3
+2102,2020-09-26T22:36:34Z,2020-11-05T22:14:18Z,2020-11-05T22:14:18Z,2,2,2,"Fixing some typos on async.md, unzip-docs.sh and test_multipart_installation.py that I encountered while checking the source code.",3,7
+2114,2020-09-30T20:03:33Z,,2020-11-05T22:20:00Z,1,18,0,"The configuration is basically the same like the example config of https://probot.github.io/apps/stale/.
+Differences:
+
+90 instead of 60 days: for the start of the bot we should allow issues to be stale a little bit longer. This can be decrease in the future.
+exemptLabels:
+
+pinned and security: are not part of the project, but could be useful in the future.
+help-wanted: is probably something which the authors are willing to work on.
+
+
+markComment: make it more clear what ""recent"" means
+
+Fixes #2049.
+Additionally stale bot has to be installed into the repository. This can only be done by the maintainers.
+Sorry if stale bot is not something which is wanted for this project. I probably should've checked with the maintainers before.",3,3
+2118,2020-10-02T03:21:00Z,2021-06-07T10:46:18Z,2021-06-07T10:46:19Z,3,92,12,"🐛 Check Content-Type request header before assuming JSON
+Related to #1018.
+
+Edit by @tiangolo: Updated tests to include extra corner cases, and updated implementation to parse content-type headers using Python's standard library email module to cover more corner cases.",8,21
+2119,2020-10-02T07:33:45Z,2020-11-25T17:35:39Z,2020-11-25T17:35:39Z,2,35,0,"This PR translates the benchmarks.md to Chinese.
+Please help review. @waynerv @Dustyposa @RunningIkkyu @Choyeon",4,4
+2122,2020-10-03T02:05:06Z,2020-11-05T22:20:56Z,2020-11-05T22:20:56Z,2,2,2,"Fixed very minor typos in the ""Tutorial - User Guide"" section.",3,3
+2124,2020-10-03T07:27:32Z,2021-01-09T18:40:28Z,2021-01-09T18:40:28Z,2,53,0,"This PR translates the advanced/path-operation-advanced-configuration.md to Japanese.
+Please review advanced/path-operation-advanced-configuration.md and ja/mkdocs.yml.",4,10
+2125,2020-10-03T13:57:13Z,2020-10-18T06:02:20Z,2020-10-18T06:02:20Z,2,85,0,This PR translates the tutorial/cors.md to Japanese.,4,7
+2126,2020-10-03T21:02:43Z,2022-08-18T20:12:34Z,2022-08-18T20:12:34Z,4,39,0,"Overview
+Just some small (potential) improvements to the tutorial, adding required dependency installations that are otherwise not mentioned in their corresponding tutorial sections.
+Reasoning:
+Although:
+
+They are mentioned (with the exception of SQLAlchemy) in the documentation home page (docs/index.md) under the section ""Optional Dependencies""
+The tutorial home page (docs/tutorial/index.md) recommends installing FastAPI with all the optional dependencies and features (i.e., pip install fastapi[all])
+Corresponding error messages make it fairly obvious as to what dependencies are missing and need to be installed
+
+These additions may still be helpful for beginners and seem to be in keeping with the style of the documentation as a whole (i.e., standalone sections).",6,7
+2132,2020-10-05T09:45:09Z,2023-07-27T18:51:07Z,2023-07-27T18:51:07Z,1,501,0,"Hi ✌️
+This is a PR to translate docs/contributing.md to french 🇫🇷
+Thanks 🦩",5,7
+2145,2020-10-07T15:53:54Z,2020-12-03T17:00:55Z,2020-12-03T17:00:55Z,2,39,1,"This PR translates the advanced/additional-status-codes.md to Japanese.
+Please review advanced/additional-status-codes.md and ja/mkdocs.yml.",4,9
+2153,2020-10-10T13:04:16Z,2020-11-05T22:24:05Z,2020-11-05T22:24:05Z,2,184,0,"This PR translates the tutorial/security/first-steps.md to Japanese.
+According to the issue: #1572
+I merged the PR for dependency: #1656
+So, please check the commit : 18f28de
+Thanks!!",4,9
+2155,2020-10-10T17:45:10Z,2023-07-27T18:49:57Z,2023-07-27T18:49:57Z,1,34,0,"Hello 👋,
+This is a PR to translate docs/benchmarks.md to French, as told in the issue #1972.
+Sorry for the typo in the commit message.
+See the formatted document here
+Thanks for those who take the time to validate it.",7,11
+2157,2020-10-10T19:29:24Z,2021-05-04T08:19:25Z,2021-05-04T08:19:25Z,2,202,0,"Hi everyone,
+This PR contains the french translation for docs/features.md (issue #1972).
+Here is a link to the formatted document.
+Thanks 🦝",4,8
+2159,2020-10-10T22:50:55Z,2020-11-05T22:33:07Z,2020-11-05T22:33:07Z,3,3,3,"Fix typos in docs.
+target
+
+""Tutorial - User Guide""
+
+""Request Body""
+""Query Parameters and String Validations""
+""Path Parameters and Numeric Validations""",3,4
+2165,2020-10-12T09:21:10Z,2020-11-05T22:39:10Z,2020-11-05T22:39:10Z,28,91,91,"The pattern of the first two commit. Replace files inside docs but exclude *.svg by
+http://(?!127|local|0\.0|examp|192|flask|docs\.python|callbackhell|jinja|www\.celeryproject)
+
+with
+https://
+
+The third commit:
+http://flask.pocoo.org/ -> https://flask.palletsprojects.com
+http://docs.python-requests.org -> https://requests.readthedocs.io
+http://jinja.pocoo.org -> https://jinja.palletsprojects.com
+http://www.celeryproject.org/ -> https://docs.celeryproject.org",3,5
+2169,2020-10-12T22:19:02Z,,2023-01-23T14:56:25Z,1,84,0,,4,3
+2186,2020-10-16T21:49:46Z,,2021-02-06T12:20:56Z,27,61,61,URLs updated to use HTTPS protocol where appropriate to improve security and privacy.,6,4
+2191,2020-10-18T05:34:01Z,2020-11-05T22:50:38Z,2020-11-05T22:50:38Z,2,65,0,This PR translates the advanced/response-directly.md to Japanese.,4,9
+2192,2020-10-18T06:25:49Z,2020-12-03T17:05:20Z,2020-12-03T17:05:20Z,1,162,166,"This is the first translation for Korean Language page(see #2017), index.md.
+I hope lots of developers who are Korean participate in this community.😁
+And.. please review the translation, thanks.",4,5
+2193,2020-10-18T08:02:11Z,2020-11-25T17:47:45Z,2020-11-25T17:47:45Z,2,224,0,This PR translates the advanced/custom-response.md to Japanese.,4,8
+2203,2020-10-19T01:46:17Z,,2022-07-13T22:00:29Z,1,48,0,,3,3
+2204,2020-10-19T05:22:58Z,2020-11-05T22:44:57Z,2020-11-05T22:44:57Z,1,1,1,,5,3
+2206,2020-10-20T14:00:04Z,2020-11-05T22:52:18Z,2020-11-05T22:52:18Z,1,1,1,,5,3
+2208,2020-10-20T19:31:44Z,2021-07-03T14:13:28Z,2021-07-03T14:13:28Z,2,334,0,Add the Spanish translation of Tutorial - First Steps,4,3
+2214,2020-10-21T11:53:50Z,,2020-12-19T20:10:15Z,2,4,4,,3,3
+2219,2020-10-21T18:36:40Z,2021-07-03T14:46:49Z,2021-07-03T14:46:49Z,2,245,0,Add the Spanish translation of Tutorial - Path Parameters,5,3
+2231,2020-10-23T16:03:31Z,2020-11-05T22:53:11Z,2020-11-05T22:53:11Z,1,1,1,"This is a super simple PR that adds backticks to a mention of ints (line 64) in the Tutorial - Path Parameters page. 😃
+Not really a typo, more like a consistency check.",4,3
+2232,2020-10-23T17:41:22Z,2021-05-04T08:27:49Z,2021-05-04T08:27:49Z,2,136,0,"Dear fellow translators 👋
+This is a small PR to translate docs/fastapi-people.md to french 🇫🇷
+Thanks 🌵",4,5
+2233,2020-10-23T18:41:49Z,2022-10-31T17:34:10Z,2022-10-31T17:34:10Z,2,123,0,"Dear fellow translators 👋
+This is a small PR to translate docs/help-fastapi.md to french 🇫🇷
+Thanks 🍦",4,5
+2239,2020-10-25T00:13:12Z,,2022-07-13T22:00:30Z,1,136,0,,4,7
+2254,2020-10-27T16:45:29Z,2021-01-09T18:42:25Z,2021-01-09T18:42:25Z,2,139,0,This PR translates the fastapi-people.md to Japanese.,4,7
+2255,2020-10-27T17:35:25Z,2021-02-07T17:23:55Z,2021-02-07T17:23:55Z,2,62,0,This PR translates tutorial/middleware.md with Japanese.,4,7
+2256,2020-10-27T18:08:19Z,2021-02-07T17:25:32Z,2021-02-07T17:25:32Z,2,113,0,This PR translates tutorial/debugging.md in Japanese.,4,5
+2259,2020-10-28T13:45:39Z,2021-02-07T17:31:31Z,2021-02-07T17:31:31Z,2,145,0,This PR translates tutorial/testing.md in Japanese.,4,8
+2260,2020-10-28T14:13:47Z,2021-02-07T17:38:11Z,2021-02-07T17:38:11Z,2,54,0,This PR translates tutorial/static-files.md in Japanese.,4,8
+2261,2020-10-28T14:51:04Z,2021-02-07T17:42:35Z,2021-02-07T17:42:35Z,2,35,0,This PR translates tutorial/cookie-params.md in Chinese.,5,6
+2267,2020-10-30T08:44:59Z,2024-01-22T19:34:48Z,2024-01-22T19:34:48Z,1,315,0,Korean translated 'python-types.md' #2017,5,6
+2273,2020-10-31T11:36:38Z,,2024-02-06T19:57:53Z,2,44,1,,3,4
+2274,2020-10-31T12:56:01Z,,2024-01-15T15:17:47Z,2,89,1,,3,4
+2275,2020-10-31T15:03:03Z,,2023-10-06T05:52:03Z,8,141,0,"It's been months since issue #804 was created and since that date I've seen a lot of people interested on it. On there I also saw  @tiangolo 's wishes about someday using mkautodoc, but the framework is not maintained anymore. On the other hand, mkdocstrings is being under develop since that issue and now has achieved a much more mature state. Due to that fact, I'm opening this PR that has the following changes:
+
+Add API Documentation section on our documentation.
+Add mkdocstrings plugin on mkdocs.
+Add initial docstrings following Google style.
+
+Images:
+
+
+Notes:
+
+Recommendations about how to document Starlette code are accepted.
+Copy/paste of Starlette code and FastAPI documentation itself will be used when possible.
+Darglint will be used with -z full or -z long flag. Accept suggestions.
+I haven't talked to @tiangolo about this, and I do not know his wishes about it. Please do not expect this to be merged, but if you like the idea, please add a 👍 here.",12,27
+2276,2020-10-31T20:38:40Z,2024-02-07T12:51:12Z,2024-02-07T12:51:12Z,1,44,0,Is this the traduction to spanish to the advanced/response-headers.md file.,4,4
+2277,2020-10-31T20:54:24Z,,2024-01-29T15:18:35Z,2,60,1,Is this the traduction to spanish to the advanced/response-cookies.md file for the advanced tutorial,4,3
+2278,2020-10-31T21:59:51Z,2024-02-07T13:02:32Z,2024-02-07T13:02:32Z,1,16,0,This is the translated version of the advanced/security/index.md file,5,4
+2280,2020-11-01T10:35:14Z,2021-02-07T17:40:42Z,2021-02-07T17:40:42Z,1,4,0,I have added a link to my article FastAPI for Flask Users in the external links section of documentation.,5,9
+2307,2020-11-06T08:26:22Z,,2021-09-04T15:32:04Z,1,8,6,"When I read this code of the is_scalar_field function, the logic here is a little difficult to read, here take not + not, I think here can reorganize the code to make it more clear and understandable",2,2
+2309,2020-11-06T10:48:05Z,2021-01-09T18:47:09Z,2021-01-09T18:47:09Z,2,9,0,"This PR translates deployment/index.md in Japanese.
+To all reviewers. This section is only separated from #1948 (with few changes), but please review it.",4,3
+2310,2020-11-06T11:08:07Z,2021-02-07T17:44:28Z,2021-02-07T17:44:28Z,2,88,0,"This PR translates deployment/index.md in Japanese.
+To all reviewers. This section is only separated from #1948 (with few changes), but please review it.",4,8
+2311,2020-11-06T11:16:22Z,,2024-01-15T16:16:53Z,1,48,0,"This PR translates deployment/https.md in Japanese.
+To all reviewers. This section is only separated from #1948 (with few changes), but please review it.",3,8
+2312,2020-11-06T11:26:21Z,2021-02-07T17:46:22Z,2021-02-07T17:46:22Z,2,180,0,"This PR translates deployment/docker.md in Japanese.
+To all reviewers. This section is only separated from #1948 (with few changes), but please review it.",4,7
+2313,2020-11-06T11:35:37Z,2021-01-09T18:51:43Z,2021-01-09T18:51:43Z,2,75,0,"This PR translates deployment/manually.md in Japanese.
+To all reviewers. This section is only separated from #1948 (with few changes), but please review it.",4,5
+2314,2020-11-06T13:07:53Z,2021-01-09T18:58:52Z,2021-01-09T18:58:52Z,2,241,0,This PR translates deployment/deta.md in Japanese.,5,7
+2316,2020-11-07T02:08:47Z,,2021-03-12T01:25:32Z,7,8,8,,3,3
+2317,2020-11-07T10:04:29Z,2021-03-27T17:22:50Z,2021-03-27T17:22:50Z,2,82,0,"This PR translates the ko/docs/tutorial/index.md.
+related: #2017",4,6
+2323,2020-11-08T08:48:15Z,2021-03-27T17:29:45Z,2021-03-27T17:29:45Z,2,334,0,"This PR translates tutorial/first-steps.md in Korean.
+related: #2017",4,6
+2324,2020-11-08T10:11:02Z,2020-11-08T17:26:35Z,2020-11-08T17:26:35Z,1,4,0,#1828 (comment),4,3
+2334,2020-11-10T06:41:08Z,2021-03-27T17:25:21Z,2021-03-27T17:25:21Z,2,62,0,,5,10
+2335,2020-11-10T15:09:15Z,2021-05-10T14:09:05Z,2021-05-10T14:09:05Z,3,51,3,"starlette 0.14.1 includes a fix for users that want to use the @requires decorator from the AuthenticationMiddleware on FastAPI routes.
+Breaking in starlette changes as far as I can see are:
+
+UJSONResponse was removed from the core as per this issue, they added documentation on how to implement custom JSON serialization. UJSONResponse is explicitly exported in FastAPI and should either be removed to follow starlette or added back in as done with ORJSONResponse. For this PR I chose to add a custom UJSONResponse and add test cases.
+
+Is there any reason it was hard locked to 13.6 I am not aware of or is it as straightforward as updating the requirement?",14,25
+2341,2020-11-10T20:20:56Z,,2021-07-21T11:21:54Z,1,5,0,Added a basic tutorial for FastAPI in spanish.,3,3
+2352,2020-11-14T14:33:14Z,,2023-06-26T22:56:02Z,2,247,0,This PR translates the tutorial/path-params.md and add this page to the mkdocs.yml file.,6,6
+2355,2020-11-15T09:54:09Z,2021-05-04T08:24:58Z,2021-05-04T08:24:58Z,2,245,0,"This PR translates tutorial/path-params.md in Korean.
+related: #2017",5,7
+2360,2020-11-17T06:17:11Z,,2024-01-12T14:45:09Z,1,33,4,"Add Generic types with type parameters and Generic types, Fix the code file name of Optional and subsequent chapters.",3,5
+2384,2020-11-20T12:13:21Z,,2021-07-02T13:56:22Z,1,0,32,"The last chapter ""Optional 类型声明"" not exists any more in English tutorial, and tutorial007.py not exists too.",4,3
+2385,2020-11-20T13:32:29Z,,2024-01-12T14:45:26Z,1,23,6,Fix code highlight lines and add two tips.,3,4
+2390,2020-11-21T07:15:10Z,2021-05-04T08:38:02Z,2021-05-04T08:38:02Z,2,199,0,"This PR translates tutorial/query-params.md in Korean.
+related: #2017",4,6
+2392,2020-11-22T06:53:35Z,,2024-02-09T12:51:28Z,1,165,0,"This PR translates tutorial/body.md in Korean.
+related: #2017",4,8
+2393,2020-11-22T09:51:45Z,2021-02-07T18:06:09Z,2021-02-07T18:06:09Z,1,1,1,"By way of code example, I think this is a typo. btw, the tutorial is very well written.",3,3
+2395,2020-11-23T01:20:06Z,2022-07-20T12:25:23Z,2022-07-20T12:25:24Z,5,195,174,"Hi
+This is a PR to start the Persian documentation translation (lang=fa).
+It includes only files generated by running python ./scripts/docs.py new-lang fa according to the Development - Contributing > Docs > Translations > New Language
+You can track Persian translations on this issue: #2041
+Thanks a lot.",6,6
+2407,2020-11-24T20:35:36Z,2021-02-07T18:13:41Z,2021-02-07T18:13:41Z,1,1,1,,6,3
+2408,2020-11-25T02:23:55Z,,2023-06-26T17:34:03Z,2,689,0,Chinese translation add tutorial/sql-databases,4,3
+2410,2020-11-25T02:32:05Z,2021-02-07T17:52:09Z,2021-02-07T17:52:09Z,2,67,0,Chinese translation add tutorial/extra-data-types,4,4
+2411,2020-11-25T02:36:18Z,2020-12-03T17:08:12Z,2020-12-03T17:08:12Z,2,59,0,Chinese translation add tutorial/schema-extra-example,4,8
+2412,2020-11-25T02:48:05Z,2021-02-07T17:59:13Z,2021-02-07T17:59:13Z,2,92,0,Chinese translation add tutorial/header-params,4,4
+2414,2020-11-25T08:40:22Z,2020-12-03T17:27:58Z,2020-12-03T17:27:58Z,2,210,0,@RunningIkkyu @Dustyposa Please take a look.,5,4
+2415,2020-11-25T10:44:47Z,2024-01-22T19:37:02Z,2024-01-22T19:37:02Z,1,303,0,"This PR translates tutorial/query-params-str-validations.md in Korean.
+related: #2017",5,9
+2416,2020-11-25T11:02:58Z,2020-12-03T17:36:47Z,2020-12-03T17:36:47Z,2,200,0,@maoyibo @Dustyposa @RunningIkkyu Please take a look.,5,5
+2421,2020-11-26T07:02:19Z,,2023-06-26T17:07:33Z,2,145,0,@waynerv and many other friends Please take a look.,3,3
+2422,2020-11-26T07:18:52Z,,2023-06-26T17:32:14Z,2,36,0,@waynerv and many other friends Please take a look.,4,3
+2424,2020-11-26T08:26:30Z,2021-02-07T18:15:44Z,2021-02-07T18:15:44Z,1,1,3,"pydantic/pydantic#1739
+This bug is fixed.",5,3
+2428,2020-11-27T02:58:40Z,,2023-06-26T18:30:26Z,2,35,0,🌐 Add Chinese translation for Tutorial - JSON Compatible Encoder,3,3
+2429,2020-11-27T03:47:06Z,,2023-06-26T17:31:27Z,2,100,0,🌐 Add Chinese translation for Tutorial - Body - Updates,3,3
+2432,2020-11-28T07:19:01Z,2021-12-08T15:41:27Z,2021-12-08T15:41:27Z,2,123,0,"This PR translates tutorial/path-params-numeric-validations.md in Korean.
+related: #2017",4,4
+2437,2020-11-30T03:38:06Z,,2023-06-26T18:31:18Z,2,193,0,🌐 Add Chinese translation for Tutorial - Classes as Dependencies,3,3
+2440,2020-11-30T06:00:56Z,,2023-06-26T22:05:59Z,2,19,0,🌐 Add Chinese translation for Tutorial - Global Dependencies,3,5
+2441,2020-11-30T06:04:48Z,,2024-01-29T16:17:29Z,1,228,0,🌐 Add Chinese translation for Tutorial - Dependencies with yield,3,4
+2442,2020-11-30T06:56:46Z,2020-12-19T18:16:38Z,2020-12-19T18:16:38Z,2,90,0,@RunningIkkyu @maoyibo @yanever Please take a look.,5,3
+2443,2020-11-30T08:03:15Z,2021-02-07T18:00:14Z,2021-02-07T18:00:14Z,2,102,0,@maoyibo @RunningIkkyu @yanever Please take a look.,5,6
+2446,2020-11-30T14:17:35Z,,2023-06-26T17:26:58Z,2,186,0,🌐 Add Chinese translation for Tutorial - Security - First Steps,3,3
+2453,2020-12-01T09:58:19Z,2021-02-07T18:02:00Z,2021-02-07T18:02:00Z,2,489,0,@RunningIkkyu @maoyibo @yanever Please take a look.,5,5
+2459,2020-12-02T18:30:06Z,,2021-10-07T16:17:38Z,1,1,1,,4,6
+2461,2020-12-03T00:52:54Z,2024-01-22T19:37:52Z,2024-01-22T19:37:52Z,1,170,0,"This PR translates tutorial/body-multiple-params.md in Korean
+related: #2017",4,6
+2464,2020-12-03T08:05:09Z,,2024-01-29T15:25:22Z,1,94,0,🌐 Add Chinese translation for Tutorial - Background Tasks,4,4
+2465,2020-12-03T08:24:26Z,,2023-06-26T17:13:41Z,2,54,0,🌐 Add Chinese translation for Tutorial - Static Files,3,3
+2474,2020-12-06T04:38:36Z,2021-01-09T18:53:06Z,2021-01-09T18:53:06Z,2,116,0,@RunningIkkyu @maoyibo @yanever Please take a look.,4,6
+2486,2020-12-07T21:31:44Z,2021-02-07T18:18:38Z,2021-02-07T18:18:38Z,1,1,1,,5,3
+2489,2020-12-08T09:11:47Z,,2024-01-15T15:48:48Z,1,48,0,"This PR translates tutorial/body-fields.md in Korean.
+related: #2017",4,5
+2498,2020-12-10T12:49:24Z,,2023-06-26T17:25:36Z,1,35,35,Co-authored-by: Sebastián Ramírez tiangolo@gmail.com,3,6
+2506,2020-12-12T07:43:28Z,2024-01-22T19:31:27Z,2024-01-22T19:31:27Z,1,243,0,"This PR translates tutorial/body-nested-models.md in Korean.
+related: #2017",4,5
+2514,2020-12-15T02:48:05Z,2021-01-09T18:59:57Z,2021-01-09T18:59:57Z,2,277,1,@RunningIkkyu @maoyibo @yanever Please take a look.,4,4
+2515,2020-12-15T09:28:11Z,2021-02-07T18:25:27Z,2021-02-07T18:25:27Z,1,4,0,Added FastAPI related article to the external links section,4,4
+2520,2020-12-16T08:54:31Z,,2021-01-19T07:20:13Z,2,7,5,"Fix the behavior of prefixes for websockets, which was added for api routers in version 0.62.0",2,0
+2526,2020-12-17T08:25:36Z,,2023-06-26T22:20:42Z,1,9,0,"@tiangolo Since last commit #2509 , all existing translations need to add overrides directory manually, otherwise there will be an error when previewing the translation:
+$ python ./scripts/docs.py live zh
+ERROR   -  Config value: 'theme'. Error: The path set in theme.custom_dir ('/Users/waynerv/Repos/fastapi/docs/zh/overrides') does not exist.
+Error: Aborted with 1 Configuration Errors!",3,4
+2528,2020-12-17T13:59:58Z,,2024-01-15T15:53:24Z,1,65,0,"This PR translates tutorial/extra-data-types.md in Korean.
+related: #2017",3,2
+2530,2020-12-17T15:53:53Z,,2020-12-19T15:08:47Z,3,94,0,"CORS (Cross-Origin Resource Sharing) 章节的中文翻译。
+@waynerv @maoyibo and  any other friends who feels free to help review this chapter. Thx you so much!",3,2
+2540,2020-12-19T18:01:31Z,2021-03-27T17:28:07Z,2021-03-27T17:28:07Z,2,85,0,"as checked failed last time, try again!",4,9
+2545,2020-12-20T08:01:32Z,,2024-01-15T15:49:03Z,1,33,0,"This PR translates tutorial/cookie-params.md in Korean.
+related: #2017",4,4
+2557,2020-12-21T23:59:10Z,2021-02-07T18:26:45Z,2021-02-07T18:26:45Z,1,1,1,"Sorry, I moved the article (I am the author)",5,4
+2559,2020-12-22T12:00:01Z,2021-03-27T17:31:11Z,2021-03-27T17:31:11Z,2,106,0,🌐 Add Chinese translation for Tutorial - Metadata and Docs URLs #1228,4,4
+2564,2020-12-23T11:53:47Z,2021-05-06T15:47:50Z,2021-05-06T15:47:50Z,1,4,0,"Hi there! 👋
+Hope it would be considered as useful addition!
+In my article in Russian I covered how to:
+
+get familiar with FastAPI framework
+set up tests
+connect to async Tortoise ORM
+make async test for the previous feature
+
+Sorry in advance for the ugly link :( Gatsby generates it based on Russian headline and I still hadn't fix this.",3,9
+2568,2020-12-24T05:26:11Z,2022-01-16T19:26:25Z,2022-01-16T19:26:25Z,12,251,6,"At present there are a number of Swagger UI parameters that are not configurable when using FastAPI. Under normal circumstances most of these wouldn't need to be used at all, however there are some cases where you might need to override some of these. For example, Swagger UI's syntax highlighting is known to be slow, and being able to easily disable this would be very useful in certain situations.",15,32
+2571,2020-12-26T08:02:14Z,,2021-01-01T16:55:15Z,1,1,0,For disabling,3,4
+2573,2020-12-27T16:47:54Z,2021-07-02T14:02:46Z,2021-07-02T14:02:46Z,1,2,2,"By the way, it seems that the Optional part for python types is missing in the translation.",4,3
+2577,2020-12-29T19:16:50Z,,2021-01-02T21:02:16Z,2,143,0,"The source branch of this pull request was incorrect, so a new pull request was crated with the same request but with the correct branch as source.
+This pull request will be closed.
+Following with the Spanish translations in,  I made the translation of help-fastapi.md.
+This pull request includes:
+
+help-fastapi.md translation
+Update of docs/es/mkdocs.yml
+
+@mariacamilagl , I will wait for revision",1,3
+2589,2021-01-01T11:09:05Z,2021-03-27T17:36:09Z,2021-03-27T17:36:09Z,2,91,0,"Hello, there.
+I've referred to the previous translation Pull Requests.
+Please let me know if any problems.
+This PR translates tutorial/header-params.md in Korean.
+related: #2017",4,4
+2593,2021-01-02T21:01:36Z,,2024-01-15T15:25:07Z,2,143,0,"Following with the Spanish translations in #1218 , I made the translation of help-fastapi.md
+This pull request includes:
+help-fastapi.md translation
+Update of docs/es/mkdocs.yml
+@mariacamilagl , I will wait for revision",3,4
+2613,2021-01-07T09:33:11Z,,2021-05-27T10:53:25Z,1,4,4,,6,5
+2615,2021-01-07T18:44:07Z,2022-09-01T09:59:06Z,2022-09-01T09:59:06Z,2,7,1,"Update docs to mention to explicitly return a Response when thinking about performance. Currently the docs say to use orjson for speed, but then demonstrate returning a dictionary, which in my experience can be very slow. The main speed improvement I have found is in returning Responses directly, which avoids the call to jsonable_encoder.
+Below are results from some tests I did with 7MB+ json data. These are real world and include round trips to the database so to see such a huge effect is rather amazing to me.
+To be clear, the difference here is just returning an explicit ORJSONResponse object, vs. JSONResponse object vs. a dict and letting fastapi inspect it. The data returned are exactly the same in all cases.
+
+For more examples w/ code demonstrating the differences see here:
+https://github.com/falkben/fastapi_experiments/blob/master/experiments/orjson_response.py
+and some tests here:
+https://github.com/falkben/fastapi_experiments/blob/master/experiments/test_orjson_response.py
+In those tests I observed a 6x slowdown when returning a dictionary vs. returning a Response directly
+This was also discussed in the following issue: #360
+At some point it would be good to try to optimize jsonable_encoder but for now I think it would be good to at least tell people about the performance impact of returning large dictionaries.",5,4
+2631,2021-01-11T17:00:49Z,2022-05-09T23:54:00Z,2022-05-09T23:54:00Z,2,59,0,"This PR translates advanced/conditional-openapi.md in Japanese.
+This is my first PR to FastAPI docs by referring to https://fastapi.tiangolo.com/contributing/#existing-language . If I do any mistake, please let me know!
+Also, I found this comment in an issue. Let me try to review the open PRs for Japanese translation since a lot of parts are already done but not reviewed in progress.",4,9
+2640,2021-01-12T19:00:56Z,2022-04-17T17:21:53Z,2022-04-17T17:21:53Z,2,17,1,Related to #2639,13,10
+2642,2021-01-13T08:40:37Z,2021-03-27T17:38:34Z,2021-03-27T17:38:34Z,2,267,0,@maoyibo @yanever @RunningIkkyu Please take a look.,4,5
+2646,2021-01-13T20:48:58Z,,2022-08-22T19:21:39Z,1,1,1,Fixed incorrect default value for the tags of type Set from the list [] to the actual set set() according to initial type.,5,4
+2656,2021-01-14T21:49:08Z,,2021-05-09T00:24:11Z,1,2,2,"Temporary fix for #2632, where on every request you send you get a
+INFO:     127.0.0.1:59513 - ""GET /%5Bobject%20Module%5D HTTP/1.1"" 404 Not Found
+
+This was tested using a patch workaround described here: #1762 (comment)",6,8
+2668,2021-01-18T09:00:46Z,2024-01-15T16:12:39Z,2024-01-15T16:12:39Z,1,94,0,This PR translates tutorial/background-tasks.md in Japanese.,4,4
+2680,2021-01-20T15:41:29Z,,2024-01-15T15:28:21Z,1,7,0,"Hello 👋!,
+This Pull Request includes Spanish translation of deployment/index.md
+This pull request continues with the Spanish translation of #1218",3,4
+2692,2021-01-22T20:28:02Z,,2024-01-15T15:25:18Z,1,48,0,"Hello 👋!,
+This Pull Request includes the Spanish translation of deployment/https.md
+This pull request continues with the Spanish translation of #1218",3,4
+2697,2021-01-25T16:03:54Z,,2022-06-12T17:12:42Z,18,800,45,"This adds a possibility for dependencies with yield to execute any code done after yielding, but before returning response.
+Now it is possible to handle and raise exceptions in exit code of dependencies yield.
+Still, there is no option to change response but we don't want that.
+Example
+from fastapi import Depends
+
+async def dependency(value):
+    print(""1 - Before yield"")
+    yield value
+    print(""2 - After yield"")
+
+@app.get(""/dependency"")
+async def endpoint(value=Depends(dependency, exit_before_response=True)):
+    return JSONResponse(status_code=200, content={""response"": ""3 - This is my response""})
+
+
+test_client = TestClient(app)
+
+response = test_client.get(""/dependency"")
+print(response.json().get(""response""))
+
+Output:
+1 - Before yield
+2 - After yield
+3 - This is my response
+
+There is further information about exception handling in combination with rest of the framework in documentation under /tutorial/dependencies/dependencies-with-yield/",3,7
+2699,2021-01-25T17:43:25Z,,2024-01-31T13:45:48Z,2,242,0,"Hello 👋!,
+This Pull Request includes the Spanish translation of deployment/deta.md
+This pull request continues with the Spanish translation of #1218",4,4
+2714,2021-01-28T13:10:28Z,,2024-01-15T10:02:01Z,1,47,12,"This fixes section tree in a navigation bar of translated documentations.
+Ideally, if a part of sections is translated, they and missing translations (EN docs) must be listed on same section tree.
+The current document creates an additional section tree for translation, but the original section tree may remain (""Advanced User Guide"" is translated into ""高度なユーザーガイド"" on the just bottom of ""Advanced User Guide"").
+
+This happens where missing ""index.md"" but other subsections is translated.
+Here improves logic for collecting ""nav"" section name.
+(Sorry for inconvenience that my example is Japanese translation because I can read only that 😢 .",3,6
+2716,2021-01-28T18:32:42Z,,2024-02-07T12:59:51Z,2,181,0,"Hello 👋!,
+This Pull Request includes the Spanish translation of deployment/docker.md
+This pull request continues with the Spanish translation of #1218",4,7
+2729,2021-01-30T12:51:16Z,2021-10-05T12:50:38Z,2021-10-05T12:50:38Z,1,34,0,"This pr translates benchmarks.md file to Turkish.
+Main issue: #1892",5,3
+2737,2021-02-01T11:17:20Z,2021-03-27T17:51:51Z,2021-03-27T17:51:51Z,2,109,0,🌐 Add Chinese translation for Tutorial - Debugging,4,6
+2744,2021-02-02T15:16:33Z,,2024-02-07T13:01:16Z,1,74,0,"Hello 👋!,
+In this Pull Request I made the Spanish translation of deployment/manually.md
+This pull request continues with the Spanish translation of #1218",5,8
+2762,2021-02-05T23:47:31Z,,2024-03-02T09:36:20Z,3,12,7,"First approach towards closing #1773.
+Considerations:
+
+This approach has the problem of ""order matters"" between get() and head() methods, meaning that if the get() is implemented first, the head() is ignored.
+It does not make it optional adding the HEAD to OpenAPI, it just doesn't include it. If we want to make it optional we can add a include_head_schema on the HTTP method methods.
+
+TO DO:
+
+ Implement logic around APIRouter methods.
+ Implement logic around FastAPI methods.
+ Add tests.",2,2
+2763,2021-02-06T00:18:01Z,,2024-03-02T09:38:02Z,2,13,0,"This is the second approach towards closing #1773.
+Slower performance compared to #2762 at startup.
+TO DO:
+
+ Support HEAD on GET methods by default.
+ Modularize the core logic of this PR.
+ Add tests.",4,3
+2766,2021-02-07T08:07:25Z,2024-01-22T19:41:09Z,2024-01-22T19:41:09Z,1,210,0,"This PR translates tutorial/response-model.md in Korean.
+related: #2017",5,7
+2790,2021-02-10T23:20:35Z,2021-07-19T19:14:58Z,2021-07-19T19:14:58Z,9,147,129,currently upstream is having to override pytest options to ignore these warnings pydantic/pydantic#2337 (comment),2,11
+2803,2021-02-12T22:41:23Z,2021-10-07T12:55:51Z,2021-10-07T12:55:51Z,1,0,7,It appears to me that this note is no longer needed because Swagger UI now does support multiple file uploads.,3,4
+2816,2021-02-15T17:45:56Z,,2022-08-22T19:18:46Z,7,7,7,Replace default [] with set() for set field. Same as https://github.com/tiangolo/fastapi/pull/2646/files but for a different file.,3,6
+2829,2021-02-18T05:19:20Z,2024-01-31T14:35:27Z,2024-01-31T14:35:27Z,1,61,0,"related issue -> #2017
+I'm Happy to contribute to this repository by translate eng to ko.
+if have any error or suggestion in my pr, please comment to in this pr :)
+thanks for reviewer
+This PR translates tutorial/middleware.md in Korean.
+related: #2017 @",5,17
+2833,2021-02-18T13:00:39Z,,2022-09-14T00:18:14Z,2,29,2,"… response class
+related to #1458
+related to #2832
+related to: encode/httpx#1474",8,13
+2841,2021-02-19T08:54:17Z,,2022-08-24T21:24:56Z,6,280,147,"Due to https://pydantic-docs.helpmanual.io/usage/exporting_models/#advanced-include-and-exclude it is possible to pass dicts into Pydantic model dict() method for include and exclude params.
+Types in jsonable_encoder were already correct, but the cast inside function supported only sets.
+PR includes:
+
+The fix itself
+Docs for passing dicts into jsonable_encoder with new part of tutorial
+Tests",5,7
+2850,2021-02-20T07:38:47Z,,2021-07-14T05:28:12Z,1,1,1,fix wrong spelling in Chinese translation benchmarks.md,3,5
+2853,2021-02-21T03:23:31Z,,2021-10-07T14:11:50Z,1,2,2,Fix paths for relative imports,3,3
+2857,2021-02-21T16:20:45Z,,2021-10-07T13:29:04Z,1,1,1,Fixed minor typo,5,3
+2887,2021-03-02T22:05:26Z,2021-07-21T12:14:34Z,2021-07-21T12:14:35Z,1,2,2,😅,5,3
+2888,2021-03-02T22:26:07Z,,2022-11-14T19:56:59Z,2,32,0,"Summary
+More like a prototype of /liveness and /readiness endpoints supported natively.
+Proposed Solution 😎
+This solution proposes storing the probes_state. In that state, we define two attributes: alive and ready. Based on those two attributes, we're able to change the response of the liveness and readiness probes.
+Those two attributes can be changed at any moment using the request.app.probes_state.<alive|ready> for now. This is obviously a solution that @tiangolo will not accept, neither I think is a good one. 😅 I think we should have a duck typed solution here. That being said, some ideas:
+
+Global variable imported instead of storing the state inside the FastAPI class (which doesn't look that good and it will be exceptional way to do something in FastAPI), for instance:
+
+from fastapi import probes_state
+
+Provide a new object the same way BackgroundTasks and Request is inserted, for instance:
+
+from fastapi import FastAPI, LivenessState, ReadinessState
+
+app = FastAPI()
+
+@app.get(""/"")
+async def potato(liveness_state: LivenessState, readiness_state: ReadinessState):
+    liveness_state.broken() # Turn alive to False
+    liveness_state.correct() # Turn alive to True
+    readiness_state.accepting_traffic() # Turn ready to True
+    readiness_state.refusing_traffic() # Turn ready to False  
+Pros ✔️
+
+Looks like people want this feature (check related issue thumbs up).
+
+Cons ❌
+
+Easy to implement i.e. doesn't need to be on FastAPI natively.
+
+Related issues 🤓
+
+#1907
+
+References
+
+https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/
+https://spring.io/blog/2020/03/25/liveness-and-readiness-probes-with-spring-boot
+https://www.baeldung.com/spring-liveness-readiness-probes
+
+Personal note for curious readers
+Let your like here if you want this feature, but don't assume this will be merged, please.",12,17
+2899,2021-03-05T03:38:36Z,2021-10-05T09:17:14Z,2021-10-05T09:17:15Z,1,2,2,"With Python 3.8 the usage of this @asyncio.coroutine in aiofiles 0.5.0 raises warnings since the @asyncio.coroutine has been deprecated since Python 3.8. This PR suppresses those warnings by increasing the aiofiles version to 0.7.0.
+The lines (aiofiles/os.py) of aiofiles in version 0.5.0 (Notice the @asyncio.coroutine):
+def wrap(func):
+    @asyncio.coroutine
+    @wraps(func)
+    def run(*args, loop=None, executor=None, **kwargs):
+The lines (aiofiles/os.py) of aiofiles in version 0.7.0 (Notice the async def):
+def wrap(func):
+    @wraps(func)
+    async def run(*args, loop=None, executor=None, **kwargs):",10,12
+2902,2021-03-05T17:20:15Z,,2021-03-05T19:04:17Z,1,4,4,"Backport libraries should not be required where they are not useful. Require them only on Python 3.6 and older.
+No code changes should be required; the library already imports these only when they are needed.",4,5
+2908,2021-03-07T09:50:23Z,,2024-01-15T15:53:07Z,1,60,0,add translate about tutorial/request-forms,4,7
+2938,2021-03-12T15:28:31Z,2022-08-25T21:52:53Z,2022-08-25T21:52:53Z,4,44,1,It was not possible to use frozenset in query params typing. This PR fixes/related to #2932,5,5
+2944,2021-03-13T05:08:38Z,2023-03-07T15:46:00Z,2023-03-07T15:46:00Z,6,298,44,"This adds support for the lifespan argument to the application and router, which was added in starlette.
+I tidied up some of the event tests as well to promote reuse.
+Fixes #2943",9,13
+2950,2021-03-14T01:54:44Z,,2021-06-08T17:37:33Z,1,2,0,"In some cases one want to set a global prefix, which easily is just passed to the internal router. This pull request allows code like the following:
+app = FastAPI(prefix='/api')
+
+
+router = APIRouter(prefix='/users')
+
+
+@app.get('/')  # /api/users/
+def get_users():
+    return ['Jake', 'Dave', 'Aly']
+
+
+app.include_router(router)
+The parameter name is up for discussion, I think something like router_prefix may get the wrong point across (like a default prefix for routers). So an ambigious prefix correctly gets the point of a global prefix for all routes correctly across.
+One downside with this change is how it does what Nginx or Apache usually handles, and we probably want users to use those in many cases. But I think that this is easy enough of a change and should be available to the user.
+You can currently use the following work-around until it this merged ( or rejected :/ ):
+class MyApp(FastAPI):
+    if not typing.TYPE_CHECKING:  # For auto-complete
+        def __init__(self, *args, **kwargs):
+            super().__init__(*args, **kwargs)
+            self.router.prefix = ""/api""",2,2
+2957,2021-03-16T15:22:30Z,2024-01-22T19:42:37Z,2024-01-22T19:42:38Z,1,40,0,"This is my first PR translates tutorial/static-files.md in Korean.
+Frankly, I'm not used to it yet, so I chose the part that I know well and don't feel pressured.
+Please review the translation, thanks.
+안녕하세요, 이렇게 번역 기여에 참여하게 되어 기쁩니다.
+비록 많이 부족하고 양도 적지만, 조금이라도 도움이 되고 싶어 PR 올립니다.
+어색하거나 이견이 있으시면 피드백 부탁드립니다. 감사합니다.
+related: #2017",7,10
+2969,2021-03-21T06:05:48Z,2022-11-13T13:57:52Z,2022-11-13T13:57:52Z,1,4,4,"Fix #2966
+Example: fix https://fastapi.tiangolo.com/ja/tutorial/query-params/#_3
+
+P.S.
+I found another mismatches of highlight lines, so open another issues and pull requests.",4,3
+2974,2021-03-21T18:15:11Z,2021-07-21T12:20:53Z,2021-07-21T12:20:53Z,1,4,0,"This pull requests adds the article ""Serve a machine learning model using Sklearn, FastAPI and Docker"" to the english external links documentation.
+The article itself includes an explanation and tutorial to use:
+
+FastAPI app with a machine learning model for online predictions
+Use of FastAPI with the Docker Image: tiangolo/uvicorn-gunicorn:python3.8-slim
+Load test using locust
+Use of auto generated docs (OpenAPI)",3,3
+2985,2021-03-23T23:25:03Z,,2022-07-09T16:01:15Z,1,148,149,"@tiangolo Hello! Started translating documentation into Russian.
+Issue #1362",6,5
+3006,2021-03-28T14:12:35Z,2023-07-27T19:01:58Z,2023-07-27T19:01:58Z,3,674,0,,4,14
+3020,2021-03-31T08:16:00Z,2021-07-02T14:06:10Z,2021-07-02T14:06:10Z,2,447,0,"Hello :wave,
+this PR adds 🇫🇷  French translation for docs/alternatives.md (issue #1972).
+Thank you!",5,5
+3030,2021-04-01T10:44:37Z,2022-05-11T17:29:02Z,2022-05-11T17:29:02Z,3,3,3,,3,5
+3035,2021-04-03T17:40:47Z,,2023-06-26T17:36:14Z,1,35,0,#1362,5,5
+3036,2021-04-03T18:22:15Z,2021-07-29T20:21:06Z,2021-07-29T20:21:06Z,1,82,0,#1362,4,4
+3038,2021-04-03T19:41:30Z,,2023-01-25T06:00:27Z,141,208,191,"Following this document.
+Changes
+
+Bump version (and check if the links are valid on the docs)
+Support examples
+
+Observations
+Nothing to do on exclusiveMinimum and exclusiveMaximum, as we were already compliant based on the JSON Schema version that Pydantic uses.
+Update: I got blocked by swagger-api/swagger-ui#5891. The latest swagger doesn't support OpenAPI 3.1.0 yet.",6,10
+3048,2021-04-06T18:10:44Z,,2024-01-11T16:14:35Z,3,638,157,"Hello,
+I have started to translate the documentation into german (to be honest, I was a bit surprised that nothing existed here yet).
+Currently I have translated the following chapters.
+
+index
+features
+fastapi-people
+python-types
+
+I thought to translate them piece by piece just following the order of the mkdocs nav.
+Since I have never worked with MkDocs, I hope the ""setup"" for the german section is correct.
+P.S.: Please don't be surprised about the short time intervals of the commits. No, I am not so fast in translating - It took me a while. I only had a bad setup near the end and had to reset everything. .",4,7
+3062,2021-04-09T09:14:47Z,2022-05-09T23:48:07Z,2022-05-09T23:48:07Z,1,1,1,"Body is a keyword of FastAPI, so it should not be translated.",4,4
+3068,2021-04-10T01:11:14Z,,2022-09-02T13:24:32Z,13,2228,122,"Given your message at #1555 (comment):
+
+On the other hand, I'm thinking of migrating from Flit to Poetry, that way I could set up Dependabot to make it send PRs for each new version.
+
+You said ""thinking"", but I went ahead, and prepared this PR in order to enable you to add dependabot or renovate.
+I didn't get your confirmation, so I'll understand if this is closed. 😗 👍
+P.S.: This PR has 2.2k lines, but 2.1k are from poetry.lock 😅
+Plus
+In case you want to enable renovate, you'll need to go to GitHub Apps and configure the bot for FastAPI. Besides, I've also prepared a basic renovate config compatible with gitemoji: Kludex#1 . But in case you want to check more configuration possibilities, just click here.
+Oh, and that PR already shows you the real scenario on what PRs will be opened in case you configure this bot. But as a preview:",2,4
+3073,2021-04-12T08:28:34Z,2021-10-07T12:44:40Z,2021-10-07T12:44:40Z,1,0,2,"like #932
+falcon since version 3 is now ASGI",3,3
+3080,2021-04-13T01:02:00Z,,2022-11-03T20:23:55Z,5,172,4,"This allows developers to to provide custom router subclasses to their FastAPI applications for further customization.
+Documentation for this feature added here.
+Closes #3079.",4,12

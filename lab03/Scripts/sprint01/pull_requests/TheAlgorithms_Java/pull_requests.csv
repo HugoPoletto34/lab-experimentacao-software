@@ -1,0 +1,385 @@
+number,created_at,merged_at,closed_at,files,additions,deletions,body_text,participants,comments
+13,2017-03-17T13:57:34Z,2017-04-07T16:39:14Z,2017-04-07T16:39:14Z,2,85,0,,2,0
+14,2017-03-17T21:00:57Z,2017-03-28T14:28:00Z,2017-03-28T14:28:00Z,1,192,0,,2,0
+17,2017-03-28T19:05:50Z,,2017-09-06T18:29:38Z,5,81,31,,6,11
+19,2017-04-01T18:14:44Z,2017-04-07T16:39:35Z,2017-04-07T16:39:36Z,1,6,6,This would decrease the number of comparisons in the loop used for sorting.,2,0
+25,2017-04-18T15:02:06Z,2017-04-19T02:28:27Z,2017-04-19T02:28:27Z,30,1113,460,"In this commit I have:
+
+Added Javadoc to every file except for the java files in the ""heap"" package
+I took the files with spaces and renamed them so they don't have spaces
+
+Let me know what you think and my work so far.",2,0
+26,2017-04-18T16:21:21Z,2017-04-19T02:29:00Z,2017-04-19T02:29:00Z,1,42,0,"Uses a dummy node and generics…. this implementation of a singly linked
+list eliminates need to use tail reference",2,0
+27,2017-04-20T19:01:32Z,2017-04-21T14:38:02Z,2017-04-21T14:38:02Z,22,221,24,"Closed all of the Scanners and BufferedReaders
+Added some Javadoc
+ReverseString - took space out of between each letter so ""Zachary"" to ""yrahcaZ"" instead of ""y r a h c aZ""
+bfs - Trying to repair this class but need to research bfs more
+dfs - Trying to repair this class but need to research dfs more
+Added the data structure Graphs (Unfinished)
+Added new classes
+
+
+OctalToBinary - Not Done
+BinaryToOctal - Not Done
+OctalToDecimal - Not Done
+Graphs - Not Done",2,1
+28,2017-04-22T13:50:39Z,2017-04-25T16:58:57Z,2017-04-25T16:58:57Z,1,67,0,,2,0
+29,2017-04-23T17:45:50Z,2017-04-24T03:21:34Z,2017-04-24T03:21:34Z,1,212,0,,2,0
+30,2017-04-24T14:01:28Z,2017-04-25T16:58:41Z,2017-04-25T16:58:41Z,1,56,0,Dijkshtra's Shortest Path Implementation,2,0
+48,2017-04-27T14:46:02Z,2017-05-14T17:57:02Z,2017-05-14T17:57:02Z,1,1,1,…yTree.java,2,1
+53,2017-06-01T00:00:46Z,2017-06-01T05:54:41Z,2017-06-01T05:54:41Z,1,17,24,"Easier to read. Also, takes into account null and empty string possibilities",2,2
+55,2017-06-01T12:09:44Z,2017-06-02T05:37:25Z,2017-06-02T05:37:25Z,1,12,14,"Using recursion for reversing a String serves us no benifit. It places extra load on the stack, and it is less efficient than doing so iteratively. I understand now that we can not use built in reverse function, but using recursion is still the worst way we could do the task of String reversal. Everytime we call the reverse method we are placing an extra frame on our stack. This uses space. We also create another string that we are appending our result to with the recursive solution, which is slow because under the hood, Java will create a new empty String and then append each character to the new String, one char at a time. If we do this for each character, then asymtotically we now have time complexity of O(n^2).  Recursion in this case also does not make our solution ""simpler"" or ""more elegant"". We want to use recursion when it is advantageous to do so....like traversing trees",2,0
+56,2017-06-09T22:53:20Z,2017-06-10T06:10:39Z,2017-06-10T06:10:39Z,3,67,5,"Finished some unfinished conversions in Octal system.
+Added Decimal to HexaDecimal conversion.",2,1
+59,2017-06-21T05:13:53Z,2017-06-21T07:08:56Z,2017-06-21T07:08:56Z,1,18,4,"Added an if statement to:
+
+The push method to make sure the stack wasn't full.
+The pop method to make sure the stack wasn't empty.
+The peek method to make sure the stack wasn't empty.",2,0
+80,2017-08-13T19:04:00Z,2017-08-14T07:11:51Z,2017-08-14T07:11:51Z,2,139,59,Converted integer linear search to a generic linear search and added faster input method,3,2
+81,2017-08-15T17:47:50Z,2017-09-08T03:33:57Z,2017-09-08T03:33:57Z,1,30,0,"Added a function to insert a node at a specified position in linked list. This is my first pull request, will continue to contribute more to this repository. There's a mistake in the function the field would be 'value' ,not 'data'. I will surely correct it in my next commit.",2,0
+82,2017-08-17T13:57:20Z,2017-08-19T04:12:53Z,2017-08-19T04:12:53Z,1,63,60,Converted integer binary search to generic binary search,2,0
+86,2017-08-21T17:58:00Z,2017-09-13T14:54:18Z,2017-09-13T14:54:18Z,2,96,0,"Added a Node class and Binary Tree Sorting algorithm, can sort strings, floating point numbers, and integers.",2,0
+87,2017-08-21T18:20:49Z,2017-08-27T05:08:02Z,2017-08-27T05:08:02Z,3,166,184,"Updated quicksort to its generic version and changed the filename according to convention
+#65",2,1
+90,2017-09-04T21:12:30Z,2017-09-10T09:38:08Z,2017-09-10T09:38:08Z,1,75,0,Created Dynamic Programming directory and added Fibonacci using memoization technique,2,3
+93,2017-09-08T02:12:02Z,2017-09-10T16:21:17Z,2017-09-10T16:21:17Z,1,68,48,"Updated SelectionSort.java to its generic version
+#65",2,0
+103,2017-09-28T22:27:46Z,2017-10-18T17:14:14Z,2017-10-18T17:14:14Z,1,40,32,"Added level order traversal.
+Added more nodes to example tree, to have a complete BST of height 2.
+#103",2,1
+111,2017-09-29T09:34:44Z,2017-10-02T18:30:21Z,2017-10-02T18:30:21Z,1,117,0,,2,0
+126,2017-10-02T07:24:46Z,2017-10-03T09:18:36Z,2017-10-03T09:18:36Z,1,24,0,print all fibonacci till N in O(n) complexity,2,1
+127,2017-10-02T07:33:13Z,2017-10-03T09:18:57Z,2017-10-03T09:18:57Z,1,33,0,calculate root upto any precision p,2,1
+128,2017-10-02T09:58:36Z,,2017-10-10T18:17:48Z,1,34,0,,3,1
+156,2017-10-05T13:56:55Z,2017-10-27T09:30:35Z,2017-10-27T09:30:35Z,1,53,0,Dynamic Programming solution for the popular Egg Dropping Puzzle,2,0
+179,2017-10-10T12:58:57Z,,2018-04-09T17:10:33Z,1,49,0,Add ShakerSort algorithm,3,0
+188,2017-10-12T22:27:24Z,2017-10-13T13:51:06Z,2017-10-13T13:51:06Z,1,66,0,Added Longest Common Subsequence (LCS) algorithm under Dynamic Programming in Java,3,0
+195,2017-10-13T08:23:22Z,2017-10-13T14:12:04Z,2017-10-13T14:12:04Z,4,307,0,"Added Level order traversal using two methods.
+Added a program to print the top view of a tree.",2,0
+218,2017-10-17T18:27:40Z,2018-03-31T14:57:45Z,2018-03-31T14:57:45Z,3,148,0,adding 2 more short programs in reference to issue #96,3,3
+226,2017-10-19T07:30:45Z,2018-03-31T14:54:58Z,2018-03-31T14:54:58Z,1,89,0,"@varunu28
+I have implemented the Edit Distance in Java. Please Review and comment and I will make the necessary changes.",4,1
+228,2017-10-19T18:54:27Z,,2017-10-21T07:42:48Z,1,49,0,https://en.wikipedia.org/wiki/Extended_Euclidean_algorithm,2,0
+229,2017-10-19T21:25:35Z,2017-10-20T03:01:20Z,2017-10-20T03:01:20Z,1,123,0,QueueUsingTwoStacks.java implements the Queue data structure using two Stacks. Implementation and runtime explained in the comments.,2,2
+234,2017-10-20T15:33:40Z,,2018-03-31T14:52:17Z,1,117,0,,3,0
+235,2017-10-20T19:14:52Z,,2018-03-31T14:51:34Z,1,47,0,,3,1
+240,2017-10-21T13:11:33Z,2017-10-25T16:08:13Z,2017-10-25T16:08:13Z,1,47,0,fixes #96,2,3
+246,2017-10-21T19:04:20Z,,2018-03-31T14:50:13Z,2,123,0,,3,0
+247,2017-10-21T19:10:10Z,,2018-03-31T14:49:32Z,2,141,0,Added jump search implementation,3,0
+254,2017-10-22T19:19:36Z,,2018-03-31T14:47:41Z,1,83,0,Topological Sort in Java,3,0
+258,2017-10-23T21:39:36Z,2017-10-23T23:06:26Z,2017-10-23T23:06:26Z,1,86,0,I will start contributing to this repository with my version of cocktail shaker sort...,2,3
+260,2017-10-24T06:09:14Z,,2018-04-09T16:53:26Z,2,153,0,,2,0
+267,2017-10-25T17:43:32Z,,2018-03-31T14:43:06Z,1,159,0,Fixes #96,3,4
+268,2017-10-25T18:47:48Z,,2018-03-31T14:42:15Z,1,2,2,,3,0
+269,2017-10-25T20:17:42Z,,2018-04-09T16:53:02Z,1,32,0,This algorithm provides a function by which we can evaluate the value of any polynomial at a given X via Horner's method.,2,0
+271,2017-10-26T00:36:14Z,,2018-04-08T17:53:54Z,1,73,0,Issue #96,2,0
+272,2017-10-26T02:44:50Z,,2018-03-31T14:41:16Z,1,28,0,,3,0
+273,2017-10-26T03:18:44Z,,2018-04-09T16:52:41Z,1,41,0,,3,0
+283,2017-10-27T18:20:06Z,2017-11-02T23:16:30Z,2017-11-02T23:16:30Z,1,22,7,,2,0
+285,2017-10-28T10:13:14Z,,2018-04-08T17:53:26Z,1,63,0,"Like Binary Search, Jump Search is a searching algorithm for sorted arrays. The basic idea is to check fewer elements (than linear search) by jumping ahead by fixed steps or skipping some elements in place of searching all elements.",2,2
+286,2017-10-28T10:24:51Z,,2018-03-31T14:38:55Z,1,33,0,"Exponential Search involves two steps, Finding a range where the element may be present & To do a binary search on the found range. The idea is to start with subarray size 1 compare its last element with x, then try size 2, then 4 and so on until last element of a sub array is not greater. Once we find an index i (after repeated doubling of i), we know that the element must be present between i/2 and i (Why i/2? because we could not find a greater value in previous iteration)
+Time Complexity is 0(Logn)
+Applications; used during unbound searches, where size of array is infinite. It works better than Binary Search, where the to be searched element is closer to the first element.",2,0
+287,2017-10-28T10:33:48Z,2018-04-08T17:53:08Z,2018-04-08T17:53:08Z,1,62,0,"Comb Sort is mainly an improvement over Bubble Sort. Bubble sort always compares adjacent values. So all inversions are removed one by one. Comb Sort improves on Bubble Sort by using gap of size more than 1. The gap starts with a large value and shrinks by a factor of 1.3 in every iteration until it reaches the value 1. Thus Comb Sort removes more than one inversion counts with one swap and performs better than Bubble Sort.
+The shrink factor has been empirically found to be 1.3 (by testing CombSort on over 200,000 random lists) [Source: Wiki]
+Although, it works better than Bubble Sort on average, worst case remains O(n2).",2,1
+289,2017-10-28T18:56:30Z,,2018-04-08T17:52:07Z,1,22,7,To use multiple numbers to find GCD,2,0
+290,2017-10-28T21:11:26Z,2018-03-31T14:38:25Z,2018-03-31T14:38:25Z,1,22,8,"Created two ""peek"" functions rather than one since it makes it easier to understand on how this queue actually functions.",3,0
+292,2017-10-29T15:07:24Z,2018-03-31T14:37:13Z,2018-03-31T14:37:13Z,1,83,0,,3,0
+293,2017-10-31T02:58:13Z,,2018-04-08T17:51:51Z,1,49,0,,2,0
+294,2017-10-31T03:29:15Z,,2018-04-08T17:51:22Z,1,88,0,,2,0
+295,2017-10-31T04:37:03Z,,2018-04-08T17:50:57Z,1,52,0,,2,0
+297,2017-10-31T06:20:57Z,,2018-04-08T17:50:36Z,1,18,0,,2,1
+298,2017-10-31T19:10:38Z,,2017-11-15T06:54:26Z,1,57,0,,2,1
+303,2017-11-07T10:02:49Z,,2018-04-08T17:50:07Z,1,18,0,Added the popular FizzBuzz interview question solution,2,0
+305,2017-11-12T12:30:02Z,,2017-11-20T06:07:05Z,1,138,0,"My pull request is an extended Knapsack. Existing knapsack shows only the maximum value. My implementation of knapsack receives input from the user.
+
+Enter the number of items and weight of knapsack.
+Enter the item's value and weight in the order of the number of items entered.
+Returns the index of the item that makes up the knapsack table and its maximum value.
+
+Please take a look at my code and answer it.",3,2
+306,2017-11-12T12:57:19Z,,2017-11-15T00:53:11Z,1,212,0,,2,0
+307,2017-11-13T02:21:13Z,,2018-04-01T13:55:50Z,2,154,0,"this is merge sort
+Good performance",3,2
+312,2017-11-13T14:49:54Z,2017-11-13T18:20:57Z,2017-11-13T18:20:57Z,1,145,0,I create Adjacency Matrix Graph using Integer Array.,2,0
+313,2017-11-15T01:12:09Z,,2018-04-08T17:49:46Z,1,215,0,,2,0
+316,2017-11-17T12:33:21Z,2017-12-06T15:09:22Z,2017-12-06T15:09:22Z,1,74,0,Program that converts Hexadecimal numbers to Octal.,2,3
+318,2017-11-18T21:15:10Z,2017-11-21T17:37:24Z,2017-11-21T17:37:24Z,1,84,0,#96 efficient algorithm to perform search in a sorted 2D array,2,0
+322,2017-11-20T07:03:22Z,,2018-04-08T17:49:24Z,1,94,0,"circular queue or ring queue is a data structure that uses a single, fixed-size buffer as if it were connected end-to-end.
+When you show a queue with an array using the Ring Queue, it shows that when you call remove (), there is no need to move a lot because of its free space.",2,0
+325,2017-11-20T14:18:13Z,,2018-04-08T17:49:04Z,1,55,0,"Implement a program that contains the number of gigabytes that you want to locate in alignment with the lologrant, which uses Loop Invariant, to locate the program in the Run n program.",2,0
+327,2017-11-26T13:07:00Z,,2018-03-29T21:57:18Z,1,214,194,,3,1
+333,2017-11-28T14:34:40Z,2018-03-31T12:42:54Z,2018-03-31T12:42:54Z,1,63,0,Add Octal To Hexadecimal,2,1
+337,2017-12-05T10:14:21Z,,2018-04-08T17:48:47Z,1,40,0,,2,0
+341,2017-12-06T02:46:43Z,,2018-04-08T17:48:28Z,1,213,0,"A double-ended priority queue (DEPQ) or double-ended heap is a data structure similar to a priority queue or heap, but allows for efficient removal of both the maximum and minimum, according to some ordering on the keys (items) stored in the structure. Every element in a DEPQ has a priority or value. In a DEPQ, it is possible to remove the elements in both ascending as well as descending order.",2,0
+353,2017-12-11T05:18:57Z,,2018-04-08T17:48:03Z,2,263,0,,2,0
+361,2017-12-16T16:16:15Z,2017-12-16T17:28:54Z,2017-12-16T17:28:54Z,1,1,1,Matched the .java file in the Dynamic Programming folder with the class name.,4,0
+362,2017-12-16T16:21:54Z,2017-12-16T17:29:21Z,2017-12-16T17:29:21Z,2,3,3,Matched the .java file in the Misc folder with the class name.,4,0
+367,2017-12-29T20:45:33Z,2017-12-31T14:48:16Z,2017-12-31T14:48:16Z,1,55,0,,2,0
+372,2018-01-27T12:54:59Z,,2018-03-31T14:08:11Z,1,68,0,,3,1
+380,2018-02-17T12:36:23Z,2018-02-19T01:07:27Z,2018-02-19T01:07:27Z,1,48,23,"This adds a (not pure) bitwise approach, which is more efficient than a conventional approach (it does not need any division operation), to convert from decimal to binary. It also creates an interface to ease the choose between conventional and bitwise methods.
+I have a pure bitwise approach in another branch but it is less efficient (because the loops and method calls).",2,2
+383,2018-02-21T10:00:03Z,,2018-04-08T17:47:19Z,1,147,0,"Hey, I added a SuffixTree implementation inside DataStructures/Trees",2,0
+384,2018-02-21T16:43:17Z,,2018-04-08T17:47:02Z,1,75,0,Algorithm is deterministic for Long number,2,0
+386,2018-03-03T14:54:57Z,,2018-04-06T18:59:30Z,1,48,0,"Added bucket sort for int
+Will add for float as well",2,1
+387,2018-03-10T08:05:37Z,,2018-04-04T22:04:20Z,1,99,0,,2,0
+389,2018-03-18T15:23:13Z,,2018-04-08T17:46:36Z,1,173,0,"Floyd-Warshall algorithm is a procedure, which is used to find the shorthest (longest) paths among all pairs of nodes in a graph, which does not contain any cycles of negative lenght. The main advantage of Floyd-Warshall algorithm is its simplicity.",2,0
+398,2018-03-31T23:42:04Z,,2018-04-06T18:58:58Z,1,47,0,is it possible to pull?,2,1
+401,2018-04-03T12:50:50Z,,2018-04-05T05:14:51Z,124,805,561,lots of files but few changes yet,2,2
+403,2018-04-03T18:02:51Z,,2018-04-08T17:46:15Z,13,540,2,I add the algorithm of combSort.java in the Sort directory,3,0
+406,2018-04-04T21:50:36Z,2018-04-11T15:35:32Z,2018-04-11T15:35:33Z,2,85,1,,2,4
+408,2018-04-05T22:57:58Z,2018-04-09T13:20:36Z,2018-04-09T13:20:37Z,1,59,0,"Hi,
+I added an iterative version of binary search algorithm in the Search directory.",2,1
+409,2018-04-06T08:38:24Z,2018-04-09T13:20:02Z,2018-04-09T13:20:02Z,1,75,59,"Added the counting sort method which uses stream API
+Changed the original sorting method: creating and throwing an exception it costs much more then using getOrDefault for a map",2,1
+411,2018-04-09T13:54:00Z,2018-04-11T15:36:12Z,2018-04-11T15:36:12Z,27,1021,935,"There was too many differences in code between sort classes, so I decided to generalize it.
+I've created utility class which removes some boilerplate and the general interface for the most algorithms
+Also, I replaced all algorithms in a new directory, like others java projects
+Fixed some bugs in the algorithms and did some perfomance improvments",2,2
+412,2018-04-09T19:00:25Z,2018-04-12T22:34:54Z,2018-04-12T22:34:54Z,1,127,113,"changes :-
+*fix documentation
+*methods (encode,decode) can take any number of shifts now and better performed.",2,0
+417,2018-04-13T06:43:35Z,2018-04-19T14:23:51Z,2018-04-19T14:23:51Z,2,88,1,Added a iterative version of ternary search algorithm and some minor changes in documentation,2,0
+418,2018-04-13T23:44:55Z,2018-04-15T14:20:01Z,2018-04-15T14:20:01Z,1,67,0,Proposition of Vigenere cipher implementation,2,1
+419,2018-04-14T03:51:14Z,2018-04-15T14:21:11Z,2018-04-15T14:21:11Z,44,30817,156,"changes :-
+
+Remove space from Data Structures package name
+adding docs for RSA.java
+format ColumnarTranspositionCipher.java and fix English errors
+fix BalancedBrackets.java",3,0
+423,2018-04-20T13:27:55Z,2018-06-07T20:26:09Z,2018-06-07T20:26:10Z,4,155,0,,2,3
+424,2018-04-20T16:26:02Z,2018-05-20T20:30:43Z,2018-05-20T20:30:43Z,1,42,0,"added HexaDecimalToDecimal.java on conversions.
+it converts Hexadecimal input to decimal.",2,1
+433,2018-05-02T08:17:28Z,,2018-06-07T20:26:28Z,2,152,0,I have added 2 files for Roman to Int and Int to Roman conversion.,2,1
+434,2018-05-06T11:48:01Z,2018-07-16T21:56:25Z,2018-07-16T21:56:25Z,1,78,0,,2,0
+448,2018-05-28T03:55:43Z,,2018-12-27T12:17:07Z,1,60,0,"At README Quicksort, ThreewayQuickSort is mentioned briefly but not implemented.",4,2
+453,2018-06-08T14:39:22Z,,2021-06-20T12:49:56Z,2,266,0,"Thanks for merging my first PR. I would like to keep contributing, if that's okay? :)
+Please tel me about any mistakes though.",5,8
+461,2018-07-14T16:11:21Z,,2021-06-18T23:16:34Z,1,101,0,,4,4
+476,2018-07-29T20:08:29Z,,2020-10-02T16:45:59Z,2,93,0,Added implementation of bucket sort algorithm,3,0
+485,2018-08-15T08:38:46Z,,2021-06-16T02:09:54Z,3,187,0,"Maximum size square sub matrix with all 1's in it.
+Maximum sum sub array by removing at most 1 element.
+Minimum number of edits required to convert string1 to string2.
+Minimum difference between sum of two partitions.",3,5
+500,2018-08-29T17:36:12Z,2018-08-30T00:46:25Z,2018-08-30T00:46:25Z,7,54,30,,2,2
+501,2018-08-30T08:52:43Z,2018-08-30T21:11:01Z,2018-08-30T21:11:01Z,1,191,0,"Added MatrixFastPower.java
+Other Matrix basic operator is based on @khalil2535",2,5
+502,2018-08-30T17:42:57Z,2018-09-09T16:37:30Z,2018-09-09T16:37:30Z,1,348,0,"Refactorized ClosestPair.java: adding commets, eliminating unuseful parameters, reorganizing code lines to be less than 80 characteres, each variable declaration in one line.
+I've deleted txt file to provide input data.
+I've created a unit test class. To complete the tests I've created a auxiliary type Location.",2,4
+503,2018-08-31T19:01:12Z,,2019-03-02T18:55:02Z,3,304,0,"create Stack interface.
+ create ArrayStack class.
+ create ArrayStackTest test class.",2,8
+505,2018-09-01T10:53:27Z,,2018-09-02T06:27:09Z,1,132,0,Added Prim's Algorithm for Minimum Spanning Tree,2,1
+506,2018-09-01T11:14:36Z,,2018-09-02T06:27:36Z,1,178,0,Added Kruskal's Algorithm for Minimum Spanning Tree,2,1
+507,2018-09-01T11:37:46Z,,2021-06-18T22:16:33Z,1,115,0,Added N Queens problem,2,3
+511,2018-09-03T08:44:40Z,2018-12-27T12:15:35Z,2018-12-27T12:15:35Z,4,574,0,More specifically: height map generation using Simplex Noise,3,1
+523,2018-10-01T14:33:57Z,,2021-02-26T19:01:03Z,2,52,0,Due to the conversation with @varunu28 I now made a fibonacci algorithm that (hopefully) is dynamic programming,3,1
+548,2018-10-04T18:55:23Z,2018-10-10T10:27:26Z,2018-10-10T10:27:26Z,1,131,0,,2,0
+552,2018-10-06T15:46:27Z,,2020-08-26T00:19:18Z,12,1033,1,"default constructor was missing.
+so it is now created at line 143.
+error: use data instead of value.
+that change is also updated now.",4,3
+556,2018-10-07T23:57:24Z,2018-10-08T05:37:25Z,2018-10-08T05:37:25Z,2,22,12,,2,0
+557,2018-10-08T13:14:56Z,2018-10-09T04:34:21Z,2018-10-09T04:34:21Z,1,69,47,Tested and should be working the same way although a lot easier to read,2,0
+558,2018-10-08T14:37:07Z,2018-10-09T06:43:37Z,2018-10-09T06:43:37Z,2,177,0,"There was no explanation for the SkylineProblem  algorithm, which caused the user to have to google. Now there user gets a quick overview of what the algorithm does.",2,0
+561,2018-10-09T05:54:23Z,2020-11-22T18:06:44Z,2020-11-22T18:06:44Z,7,239,0,Implemented Restricted tower of hanoi problem where auxiliary peg is to be utilized in every move.,3,0
+580,2018-10-11T05:32:20Z,,2019-04-02T10:29:19Z,4,23,2,,3,0
+581,2018-10-11T05:56:27Z,2018-10-11T08:08:40Z,2018-10-11T08:08:40Z,1,50,0,,2,0
+586,2018-10-15T06:23:17Z,2018-10-15T11:59:03Z,2018-10-15T11:59:03Z,2,31,33,"Fixed several compiler warnings.
+""Scanner in"" was never closed. Now it is closed properly.
+Fixed a few typos such as ""frequncy"" --> ""frequency""",2,0
+593,2018-10-22T19:35:33Z,2018-10-26T10:01:58Z,2018-10-26T10:01:58Z,1,13,11,Cleans the implementation of the binary search to be more consistent with styles and to avoid unnecessary boxing of int types,2,0
+598,2018-10-26T08:28:07Z,,2018-10-29T15:26:54Z,1,3,2,,2,0
+599,2018-10-26T12:07:50Z,2018-10-27T07:31:38Z,2018-10-27T07:31:38Z,1,179,0,Scheduling Algorithm - Priority and Shortest job first which solves the starvation,2,3
+600,2018-10-26T18:56:21Z,,2021-06-20T12:49:53Z,1,501,0,Add quadratic program,2,2
+606,2018-10-27T11:43:56Z,,2018-10-29T13:23:06Z,1,1,0,,2,0
+608,2018-10-28T00:31:16Z,2018-10-28T03:02:53Z,2018-10-28T03:02:53Z,1,1,1,Update average case of quicksort: n log n #607,2,0
+614,2018-10-30T11:09:35Z,,2021-06-18T22:16:34Z,1,47,0,,3,3
+622,2018-10-31T09:04:55Z,,2018-12-04T12:14:32Z,1,67,0,,2,0
+634,2018-11-04T15:59:01Z,,2018-11-04T19:12:58Z,10,172,0,I have added a recursive StoogeSort algorithm with a JUnit test. I have also added an ArrayList version of the InsertionSort with a JUnit test.,2,0
+636,2018-11-05T12:51:04Z,,2018-11-17T22:43:43Z,2,97,0,Added interpolation search and JUnit test.,2,0
+637,2018-11-06T19:40:50Z,,2018-11-13T17:43:41Z,1,55,0,Added BucketSort to list of sorts.,2,2
+655,2018-12-10T07:26:04Z,,2018-12-21T15:04:35Z,1,2,1,Update Stacks.java to fix bug in resize() method,2,1
+656,2018-12-12T08:33:58Z,,2021-06-16T22:13:17Z,1,193,0,,2,2
+660,2018-12-16T10:24:26Z,,2019-04-02T03:24:01Z,1,87,0,,4,3
+669,2019-01-02T07:04:07Z,2019-01-02T14:35:54Z,2019-01-02T14:35:54Z,4,202,0,"Added algorithm class CountingSort and its corresponding test class CountingSortTest
+Added algorithm class CycleSort and its corresponding test class CycleSortTest",2,0
+670,2019-01-04T07:01:17Z,2019-01-04T12:39:26Z,2019-01-04T12:39:26Z,2,86,0,,2,0
+672,2019-01-04T22:45:59Z,2019-01-06T01:03:14Z,2019-01-06T01:03:14Z,5,250,242,"Resolves issue #667
+Separated the code in Stacks.java and moved it into two new files. The Array implementation is now in StacksArray.java and the ArrayList implementation is now in StacksArrayList.java.
+Removed the Stacks.java file.
+Updated README links to Stacks.",2,0
+678,2019-01-11T12:35:14Z,2019-01-12T06:12:16Z,2019-01-12T06:12:16Z,1,1,1,fix,2,0
+681,2019-01-12T21:20:24Z,2019-01-13T08:42:52Z,2019-01-13T08:42:52Z,1,4,11,More concise,2,0
+685,2019-01-16T18:05:41Z,2019-02-12T12:56:21Z,2019-02-12T12:56:21Z,2,280,0,,1,0
+686,2019-01-16T19:30:56Z,2019-01-17T04:34:00Z,2019-01-17T04:34:00Z,1,10,10,,1,0
+687,2019-01-17T01:13:41Z,2019-01-17T04:40:01Z,2019-01-17T04:40:01Z,6,0,0,moved some of the sorts and their test into the proper folders so that they can to match others.,2,0
+688,2019-01-17T15:55:41Z,2019-01-18T02:17:56Z,2019-01-18T02:17:56Z,1,2,1,"For more than one command, must have curly brackets.",2,0
+691,2019-01-18T19:33:00Z,2019-01-19T04:48:08Z,2019-01-19T04:48:08Z,2,228,0,"Let me know if there's anything I can do to ease the reviewing process!
+The definition of a stable matching and the Gale Shapley algorithm are described here: Stable marriage problem (Wikipedia).",1,0
+694,2019-01-27T22:20:28Z,2019-01-30T09:09:14Z,2019-01-30T09:09:14Z,2,68,0,conversion binary to hexadecimal,2,0
+696,2019-01-30T10:09:53Z,2019-02-01T07:48:01Z,2019-02-01T07:48:02Z,1,1,0,added Cursor Linked List to the table,2,0
+697,2019-01-30T14:24:59Z,2019-01-31T13:09:19Z,2019-01-31T13:09:19Z,2,43,0,convert decimal number to hexadecimal,2,0
+701,2019-02-03T05:51:57Z,2019-02-03T08:53:25Z,2019-02-03T08:53:25Z,1,21,18,"Method prime(num) uses only odd numbers from 3 to square root of num as divisors.
+In method functioning(y) we iterate over odd numbers as all even numbers (except of 2) are not prime.
+In method functioning(y) we check at first if the number is palindrome and then if it's prime, so we don't have to call the heavy prime() method for every number.
+The speed of searching palindromic primes is significantly increased.",3,0
+702,2019-02-03T14:52:08Z,2019-02-04T03:27:57Z,2019-02-04T03:27:57Z,1,21,0,"I have added Euler's Totient Function. This function f(n) returns us number of x that (x < n) and gcd(x,n)==1
+more at https://en.wikipedia.org/wiki/Euler%27s_totient_function",2,0
+703,2019-02-03T20:43:03Z,2019-02-04T00:05:08Z,2019-02-04T00:05:08Z,2,42,0,,2,0
+706,2019-02-12T20:48:19Z,2019-02-13T01:53:34Z,2019-02-13T01:53:34Z,1,10,10,,2,0
+707,2019-02-16T14:57:03Z,2019-02-17T01:19:27Z,2019-02-17T01:19:27Z,1,104,99,Include condition to check if the queue is full when inserting values into the queue,2,0
+709,2019-02-26T22:11:04Z,2019-02-27T01:30:46Z,2019-02-27T01:30:46Z,1,8,8,"o fixed function ""fibMemo"" according to acceptance criteria in #708
+o fixed function ""fibBotUp"" according to acceptance criteria in #708",2,0
+710,2019-02-28T11:29:40Z,2019-03-03T01:31:37Z,2019-03-03T01:31:37Z,2,12,1,,2,1
+712,2019-03-05T10:30:13Z,2019-03-06T01:00:05Z,2019-03-06T01:00:05Z,4,283,0,"Adding Linked List based General queue implementation
+This could further be used to create more queue implementations",2,0
+713,2019-03-06T10:06:41Z,2019-03-09T14:12:46Z,2019-03-09T14:12:46Z,1,54,21,"The count variable made the code more prone to errors, so I removed and replaced it with another getSize() function.
+The value of next was initialized to null.
+Major improvements of code were given to insertNth() and deleteHead() functions for efficiency.
+A new function deleteNth() was defined, increasing the usefulness of the program.",2,0
+716,2019-03-15T02:09:27Z,2019-03-15T06:52:47Z,2019-03-15T06:52:47Z,2,170,0,"Disjoint-set operations:
+
+quickly unites two sets into a new set, requiring O(1) time.
+quickly query two elements whether contained in the same set, requiring about O(1) time.",2,0
+720,2019-03-18T15:54:59Z,2019-03-19T00:40:45Z,2019-03-19T00:40:45Z,1,56,0,Add new program  which converts  Roman number int Integer,2,0
+722,2019-03-21T21:20:31Z,2019-03-22T02:43:48Z,2019-03-22T02:43:48Z,1,9,1,Solution to the issue #719,3,0
+723,2019-03-24T02:04:11Z,2019-03-31T10:23:57Z,2019-03-31T10:23:57Z,1,2,2,corrected code to remove trailing spaces,2,0
+725,2019-03-24T19:47:02Z,2019-03-25T06:43:43Z,2019-03-25T06:43:43Z,2,185,0,Binary tree implemented for general type of comparable data,3,7
+726,2019-03-25T18:17:36Z,,2019-04-02T03:27:23Z,8,167,20,can't accept int[] .,2,2
+730,2019-04-07T04:45:43Z,,2021-09-24T06:11:52Z,1,19,1,New Method for reversing Linked List if required.,2,2
+731,2019-04-08T01:02:36Z,2019-05-10T07:34:12Z,2019-05-10T07:34:12Z,2,69,0,"Added FastPower
+We may calculate power with loops, but what if the index is too large ?
+FastPower aims to calculate quickly in this circumstances with time complexity O(log k), where k is the index.",3,1
+732,2019-04-11T10:21:06Z,2019-05-10T07:20:13Z,2019-05-10T07:20:13Z,1,6,6,Just two small things that in case the number was very big could be helpful.,3,2
+734,2019-04-14T16:40:12Z,2019-05-10T07:12:15Z,2019-05-10T07:12:15Z,2,46,0,Conversion from binary to gray code,3,0
+737,2019-04-15T10:41:44Z,2019-05-11T01:42:33Z,2019-05-11T01:42:33Z,2,159,0,Implemented the DepthFirstSearch in Java by creating a Binary Tree class and adding appropriate 'add' and 'get' methods. Also added a JUnit test :),2,2
+738,2019-04-17T00:24:40Z,,2019-05-06T15:33:52Z,2,103,0,The hash table structure for unique values and it's tests,2,1
+739,2019-04-19T18:14:24Z,2019-04-21T02:16:01Z,2019-04-21T02:16:01Z,1,5,1,,2,0
+740,2019-04-20T19:01:21Z,2019-04-21T02:09:16Z,2019-04-21T02:09:16Z,1,1,1,Found a typo in one of the functions (that causes an infinite loop),2,0
+750,2019-05-08T08:24:06Z,2019-05-09T12:32:46Z,2019-05-09T12:32:46Z,2,70,0,Exponential search (also called doubling search or galloping search or Struzik search) is an algorithm which finds the position of a target value within an array. It works by determining a range that the search key resides in and performing a binary search within that range.,2,0
+753,2019-05-13T11:09:16Z,2019-05-13T13:30:18Z,2019-05-13T13:30:18Z,2,99,0,"Fibonacci search is a method of searching a sorted array using a divide and conquer algorithm that narrows down possible locations with the aid of Fibonacci numbers. Compared to binary search where the sorted array is divided into two equal-sized parts, one of which is examined further, Fibonacci search divides the array into two parts that have sizes that are consecutive Fibonacci numbers.",2,0
+754,2019-05-14T10:27:24Z,2019-05-15T08:03:24Z,2019-05-15T08:03:24Z,2,88,0,"The singleton pattern is a design pattern that restricts the instantiation of a class to one ""single"" instance.
+This is useful when exactly one object is needed to coordinate actions across the system. The term comes from the mathematical concept of a singleton.",2,0
+756,2019-05-15T11:49:36Z,2019-05-16T07:42:51Z,2019-05-16T07:42:51Z,6,137,0,"In class-based programming, the factory method pattern is a creational pattern that uses factory methods to deal with the problem of creating objects without having to specify the exact class of the object that will be created. This is done by creating objects by calling a factory method—either specified in an interface and implemented by child classes, or implemented in a base class and optionally overridden by derived classes—rather than by calling a constructor.",2,0
+757,2019-05-16T10:38:03Z,2019-05-17T10:14:51Z,2019-05-17T10:14:51Z,2,114,0,The Builder is a design pattern designed to provide a flexible solution to various object creation problems in object-oriented programming. The intent of the Builder design pattern is to separate the construction of a complex object from its representation.,2,0
+760,2019-05-20T05:10:19Z,,2021-02-26T19:01:09Z,2,161,0,Added Depth-first search to the Searches repository and applied the suggestions from code review by @yanglbme,3,6
+763,2019-05-21T08:49:17Z,2019-05-22T00:52:23Z,2019-05-22T00:52:23Z,7,123,5,"The prototype pattern is used when the type of objects to create is determined by a prototypical instance, which is cloned to produce new objects.",2,1
+764,2019-05-21T12:47:09Z,2019-05-22T00:48:59Z,2019-05-22T00:48:59Z,1,1,1,,3,1
+766,2019-05-22T07:27:15Z,2019-05-23T06:47:32Z,2019-05-23T06:47:33Z,2,3,3,"SonarQube showed these calls as probable minor bugs. Since Math.pow() accepts double type operands, the second operand should be type-casted explicitly for safety.",2,1
+769,2019-05-27T06:43:03Z,2019-05-29T01:46:46Z,2019-05-29T01:46:46Z,8,69,3,An Adapter pattern acts as a connector between two incompatible interfaces that otherwise cannot be connected directly. An Adapter wraps an existing class with a new interface so that it becomes compatible with the client’s interface.,3,2
+770,2019-05-27T10:41:09Z,2019-05-29T01:47:17Z,2019-05-29T01:47:17Z,1,39,0,Documentations added,2,0
+772,2019-05-29T11:30:22Z,2019-05-29T14:26:25Z,2019-05-29T14:26:25Z,1,1,1,"Fixed Issue #771. If the user enters a position which equals the size of the list, a NullPointerException is thrown instead of a Runtime exception. The edge case was not included and condition should check for position >= getSize(). This should be the expected behavior assuming the indexing starts from 0 and not from 1. So for deleting the 3rd element, I will have to enter 2 and not 3 as this seems to be the convention followed here.
+@Seandba",2,0
+774,2019-05-30T07:35:28Z,2019-05-30T11:27:52Z,2019-05-30T11:27:52Z,1,7,2,,3,0
+777,2019-06-09T09:33:34Z,,2021-06-18T23:16:35Z,1,156,0,BFS Algorithm for adjacency list implementation of the graph. Issue #733,2,2
+781,2019-06-26T08:24:02Z,,2019-06-30T07:10:33Z,1,111,0,Add bucket sort and its time complexity,2,1
+787,2019-07-07T08:55:15Z,,2020-11-22T18:07:32Z,1,11,9,"So, not only the integer less than 1000 can be checked, all positive integer can be checked.",3,0
+791,2019-07-09T17:37:59Z,2019-07-10T05:56:06Z,2019-07-10T05:56:06Z,1,7,7,"Updated some of the variable names for the ease of understanding the process.
+https://github.com/TheAlgorithms/Java/commits?author=Priyansh-Kedia",2,0
+794,2019-07-17T20:31:12Z,2020-11-22T18:08:36Z,2020-11-22T18:08:36Z,2,53,0,Self-explanatory...,2,0
+797,2019-07-25T09:05:52Z,,2020-11-22T18:09:59Z,1,99,0,Add a new classical algorithm.,4,1
+798,2019-07-25T19:04:06Z,2019-07-26T00:54:33Z,2019-07-26T00:54:33Z,1,8,8,Links in the dynamic programming column were not pointing to the right files so I fixed it in the Readme.md file.,2,0
+804,2019-08-01T14:45:31Z,,2021-06-11T00:54:48Z,263,5267,38715,,21,2
+818,2019-08-28T02:05:45Z,2019-08-28T06:09:28Z,2019-08-28T06:09:28Z,2,47,0,"added a new method that counts words in a string. As per issue #816, the method ignores all non-alphanumeric characters when counting words",2,1
+823,2019-09-09T10:43:37Z,,2021-02-26T19:12:53Z,316,8238,38713,Adding a section for P.R.N.G algorithm and adding Linear_Congruential_Generator.java to it.,43,1
+825,2019-09-14T22:43:54Z,,2021-02-26T19:01:16Z,2,138,0,"copied over CombSort.java from master branch to Development branch.
+Added CombSortTest.java to Development branch",3,1
+826,2019-09-16T16:05:58Z,2021-09-20T18:58:07Z,2021-09-20T18:58:07Z,1,30,0,,2,1
+861,2019-09-24T12:24:46Z,2019-09-24T13:26:15Z,2019-09-24T13:26:15Z,1,2,0,,3,0
+863,2019-09-25T01:01:55Z,2019-09-25T11:49:02Z,2019-09-25T11:49:02Z,1,4,8,,2,0
+864,2019-09-25T12:31:18Z,2019-09-26T01:01:48Z,2019-09-26T01:01:48Z,1,3,7,"Remove at front of queue
+
+front = (front + 1) % maxSize;
+
+Insert at rear of queue
+
+rear = (rear + 1) % maxSize;",2,0
+865,2019-09-25T21:23:09Z,2019-09-26T01:01:05Z,2019-09-26T01:01:05Z,1,3,1,Added check if the arrays are null,2,0
+867,2019-09-26T08:16:44Z,2019-09-28T01:58:41Z,2019-09-28T01:58:41Z,1,6,9,,2,1
+898,2019-09-28T03:47:12Z,2019-09-28T08:11:41Z,2019-09-28T08:11:41Z,6,156,0,,2,0
+902,2019-09-28T05:37:16Z,2019-09-28T06:43:55Z,2019-09-28T06:43:56Z,11,293,69,"I converted the project to use Gradle instead of Maven. Gradle is the standard build tool for Java projects nowadays.
+To run all the tests and build the project.
+On Linux/Mac
+./gradlew clean build
+On Windows
+./gradlew.bat clean build",2,0
+903,2019-09-28T08:32:58Z,2019-09-28T10:49:39Z,2019-09-28T10:49:39Z,2,64,0,Get max or min value using divide and conquer algorithm,2,1
+924,2019-09-28T14:30:47Z,2019-09-29T01:32:54Z,2019-09-29T01:32:54Z,2,24,0,,2,1
+932,2019-10-01T04:42:26Z,,2021-09-24T07:05:38Z,2,93,0,Issue #784,2,2
+933,2019-10-01T04:50:54Z,,2021-09-24T07:05:37Z,3,142,189,As of errors stated in #560 . The issue related solved with code optimization,3,2
+939,2019-10-01T22:38:37Z,2019-10-02T08:40:43Z,2019-10-02T08:40:43Z,1,6,0,,2,0
+943,2019-10-02T09:38:15Z,,2020-07-19T07:50:18Z,1,1,1,,3,1
+950,2019-10-03T16:55:42Z,2019-10-06T03:16:51Z,2019-10-06T03:16:51Z,1,1,1,,2,1
+954,2019-10-03T22:14:20Z,2019-10-04T08:42:41Z,2019-10-04T08:42:41Z,1,4,18,Now it is simplified without sacrificing accuracy.,2,0
+964,2019-10-04T12:41:33Z,,2021-09-24T06:28:12Z,1,12,13,removed uneccessary conditions.,2,3
+975,2019-10-06T07:51:26Z,,2021-09-24T06:28:03Z,1,1,5,decreased line of code by 3,3,3
+978,2019-10-06T09:22:41Z,2019-10-06T11:06:14Z,2019-10-06T11:06:14Z,1,4,4,,2,0
+979,2019-10-06T12:43:53Z,2019-10-07T07:27:17Z,2019-10-07T07:27:17Z,1,46,33,"previous version can't delete first element when only one element exists (bug)
+this version is more readable and convenient(such as delete insert)
+
+Thanks ^_^",2,1
+980,2019-10-06T19:16:51Z,,2020-11-18T02:08:00Z,1,163,0,#638 Implementation of double-ended queue,3,1
+982,2019-10-07T08:31:09Z,2019-10-07T09:41:01Z,2019-10-07T09:41:01Z,1,60,0,merge two sorted list,2,1
+984,2019-10-07T11:51:15Z,2019-10-08T01:05:49Z,2019-10-08T01:05:49Z,2,64,0,,2,0
+993,2019-10-08T04:43:42Z,2019-10-08T13:40:39Z,2019-10-08T13:40:39Z,2,61,10,,2,0
+995,2019-10-08T14:44:08Z,2019-10-10T06:06:59Z,2019-10-10T06:06:59Z,1,16,1,traverse queue using toString() method,2,1
+997,2019-10-09T03:27:20Z,2019-10-09T14:09:08Z,2019-10-09T14:09:08Z,1,5,7,,2,0
+998,2019-10-09T06:52:15Z,,2021-09-24T06:27:42Z,1,32,0,,2,2
+1016,2019-10-11T08:45:04Z,2019-10-11T10:03:40Z,2019-10-11T10:03:40Z,1,33,0,,2,0
+1026,2019-10-11T17:38:31Z,,2021-09-24T06:08:14Z,2,151,0,created a new data structure that uses open addressing for hashing. uses a quadratic hashing technique to generate the hash key,2,2
+1027,2019-10-12T04:46:03Z,2019-10-12T06:06:15Z,2019-10-12T06:06:15Z,2,5,4,The result has vbeen stored in tha different variable and then printed,2,0
+1029,2019-10-12T12:51:18Z,2019-10-13T01:41:44Z,2019-10-13T01:41:44Z,1,46,50,"code reuse!
+case ')':
+case ']':
+case '}':
+    if (!(!bracketsStack.isEmpty() && isPaired(bracketsStack.pop(), bracket))) {
+         return false;
+    }",2,1
+1039,2019-10-13T08:33:00Z,,2020-10-01T22:24:34Z,1,119,0,Sieves Of Eratothenes is a O(N log N) complexity algorithm and one of the most efficient as well - in finding or dealing with prime numbers that are of very large range - 1 to 10^18 and above...,2,0
+1054,2019-10-15T14:24:14Z,2019-10-16T00:50:01Z,2019-10-16T00:50:01Z,1,19,0,"add clear() function to clear all nodes in list
+Please review! @yanglbme",2,0
+1065,2019-10-16T09:57:57Z,,2021-09-24T06:07:47Z,1,1,8,,2,2
+1069,2019-10-16T14:31:14Z,2019-10-17T09:29:47Z,2019-10-17T09:29:47Z,1,53,41,"update reason
+
+code reuse
+add toString() function to print nodes
+
+Please review. Thanks in advance. @yanglbme",2,0
+1079,2019-10-17T18:19:57Z,,2019-10-18T11:08:15Z,1,20,0,,3,2
+1081,2019-10-18T09:43:49Z,2019-10-18T11:10:46Z,2019-10-18T11:10:46Z,1,74,44,"update reason
+
+add size property for faster
+add javadoc support
+add toString()
+
+Please review! @yanglbme",2,0
+1089,2019-10-19T15:06:42Z,2019-10-20T01:02:40Z,2019-10-20T01:02:40Z,1,44,0,"Decimal convert to another radius using stack is important algorithm
+Please review @yanglbme",2,0
+1099,2019-10-20T17:50:57Z,,2021-09-24T06:11:19Z,1,23,0,"Output:
+Enter a, b and c respectively: 1
+2
+3
+Value before swapping:
+a = 1
+b = 2
+c = 3
+Value after swapping:
+a = 3
+b = 1
+c = 2",2,2
+1102,2019-10-21T13:58:24Z,2019-10-22T11:26:16Z,2019-10-22T11:26:16Z,1,33,0,Please review! @yanglbme,2,0
+1107,2019-10-22T02:24:59Z,,2020-01-05T10:09:28Z,29,72,70,replace c-style array declaration with java style,2,0
+1109,2019-10-22T13:55:40Z,2019-10-25T02:07:14Z,2019-10-25T02:07:14Z,1,169,0,"add LinkedQueue.java
+Please review! @yanglbme",2,1
+1117,2019-10-23T13:47:03Z,2019-10-24T06:19:37Z,2019-10-24T06:19:37Z,2,52,0,"add pow(a, b) function to caculate ab
+Please review @yanglbme",2,1
+1122,2019-10-23T20:22:31Z,2019-10-24T06:27:24Z,2019-10-24T06:27:24Z,1,1,1,Re-word the comments,3,0
+1123,2019-10-23T20:30:40Z,2019-10-24T06:26:38Z,2019-10-24T06:26:38Z,1,0,2,Cleaning the code,2,0
+1128,2019-10-25T04:03:22Z,2019-10-27T02:53:43Z,2019-10-27T02:53:43Z,1,88,12,"Add merge two sorted LinkedList algorithm
+@yanglbme Please review. Thanks in advance.",2,0

@@ -1,0 +1,533 @@
+number,created_at,merged_at,closed_at,files,additions,deletions,body_text,participants,comments
+33,2012-11-19T15:51:10Z,2012-11-22T22:12:06Z,2012-11-22T22:12:06Z,1,33,5,Please check grammar after me 🎱,3,1
+255,2015-03-24T01:54:52Z,2018-03-23T22:29:21Z,2018-03-23T22:29:21Z,1,38,0,"Constants, globals and nested object namespacing, by convention, use all UPPERCASE for those variable names.
+also removed an extra line space from line 142.",14,33
+480,2015-08-19T22:51:25Z,,2017-10-05T15:53:55Z,49,5092,13,"WORK IN PROGRESS
+
+get all the code blocks from the styleguide README.md
+split out examples based on // bad, // good, // best comments
+prepend common setup code that occurs before each delimiters to each
+example
+test each example:
+
+all examples must be valid Javascript code according to ESLint using
+our config.
+good examples must lint without errors or warnings
+best examples must lint without errors or warnings
+bad examples must fail linting
+
+
+
+In the next commits, I plan to edit README.md to reduce the number of examples with irregular delimiters  like // good - bla bla bla bla bla",5,9
+1044,2016-08-29T15:16:38Z,2016-11-18T19:21:24Z,2016-11-18T19:21:24Z,1,1,1,"The example showed a template string being used with no interpolation as ""good"". While it met the rule being described, it violated another rule for no reason.",2,2
+1070,2016-09-12T23:12:44Z,2016-11-06T18:47:40Z,2016-11-06T18:47:40Z,1,30,0,This was previously ambiguous. Let's reduce decision fatigue and just pick one.,4,1
+1079,2016-09-15T17:45:03Z,2016-09-15T20:01:45Z,2016-09-15T20:01:45Z,1,1,1,Fix issue #1077,2,0
+1090,2016-09-25T08:58:40Z,2016-09-25T18:05:42Z,2016-09-25T18:05:42Z,1,6,1,As discussed in #1089 (comment),2,0
+1101,2016-10-02T06:54:10Z,2016-10-13T06:51:38Z,2016-10-13T06:51:38Z,2,22,4,"Breaking changes seems to just involve changing defaults, which is already defined in this project, so no difference.
+Still a breaking change for this module because of the changed peer I suppose, but rules wise, it's not.",3,6
+1102,2016-10-02T21:51:54Z,2016-12-14T08:24:34Z,2016-12-14T08:24:34Z,5,17,0,"It silences IntelliJ a least 😄
+I think this should match the style in the repo.",3,21
+1105,2016-10-04T17:57:22Z,2016-10-08T20:13:48Z,2016-10-08T20:13:48Z,1,10,10,Renumber items where numbers were skipped,2,0
+1110,2016-10-06T09:26:05Z,2016-10-07T07:19:12Z,2016-10-07T07:19:12Z,1,19,0,,2,1
+1113,2016-10-08T20:44:51Z,2016-10-09T01:03:49Z,2016-10-09T01:03:49Z,1,14,4,"Resolves #888
+
+Use shortcuts for boolean comparisons
+Use explicit comparisons for strings and numbers",2,0
+1132,2016-10-16T08:04:44Z,2016-10-17T05:57:27Z,2016-10-17T05:57:27Z,4,16,6,"New rule called func-name-matching added
+Based on https://github.com/airbnb/javascript#functions, where you have
+// good
+const foo = function bar() {
+};
+off seems correct here.
+I also added a missing link",2,4
+1133,2016-10-16T15:00:04Z,2016-10-16T16:42:00Z,2016-10-16T16:42:00Z,1,1,1,"Don't recommend the use of require
+(See 10.1)",2,0
+1140,2016-10-25T21:50:37Z,2016-11-06T17:18:35Z,2016-11-06T17:18:35Z,1,1,1,"The link to a discussion around anonymous expressions and whether they're easy to find in ES6 (diff) was lost in the PR #1008 , and introduced a slight inconsistency in the ""good"" example where the function expression is different from the named function, which I'm guessing was not intentional.",2,0
+1143,2016-10-26T20:07:34Z,2016-11-07T07:17:29Z,2016-11-07T07:17:29Z,1,1,1,"import/imports-first is renamed to import/first.
+Also old link has been deleted, got 404 when navigate.
+
+
+This change is",2,1
+1149,2016-10-31T19:25:40Z,2016-10-31T21:50:58Z,2016-10-31T21:50:58Z,1,1,1,,2,0
+1150,2016-10-31T23:52:03Z,2016-11-01T04:43:22Z,2016-11-01T04:43:22Z,2,50,5,#998 Add topic about spaces in comments,2,1
+1152,2016-11-01T10:31:21Z,2016-11-06T17:15:58Z,2016-11-06T17:15:58Z,1,21,0,,2,0
+1153,2016-11-01T19:06:45Z,2016-11-02T08:15:55Z,2016-11-02T08:15:55Z,2,59,3,,2,5
+1154,2016-11-01T20:54:54Z,2016-11-02T01:10:26Z,2016-11-02T01:10:26Z,1,1,2,"Based on #629 (comment).
+Let‘s spread the use of curly quotes and make the web a more readable place.",2,0
+1156,2016-11-02T15:02:45Z,2016-11-06T17:13:28Z,2016-11-06T17:13:28Z,1,3,3,"I've never seen anyone do num ++, people don't do that. So I changed it to num++ so it is more realistic and reflects actual common practices.",2,5
+1157,2016-11-02T19:41:15Z,2016-11-03T03:14:50Z,2016-11-03T03:14:50Z,1,3,3,Updated case to read the same in multiple spots. Added single quote example,2,5
+1159,2016-11-06T13:22:36Z,2016-11-06T17:11:50Z,2016-11-06T17:11:50Z,1,3,1,"Section 19.2 had a huge code block with both a git diff and javascript code. This change splits the code block into two parts, one with diff highlighting and one with javascript highlighting.",2,0
+1160,2016-11-06T23:43:17Z,2016-11-07T06:53:18Z,2016-11-07T06:53:18Z,1,9,9,"Hi All 👋
+The syntax used in the examples for the eol-last rule was bugging me a little and I thought I'd suggest something more es6y!
+Out with the old, in with the new!",2,0
+1166,2016-11-08T16:40:06Z,2016-11-15T01:52:39Z,2016-11-15T01:52:39Z,2,6,6,Breaking change: bradbirdsallCHANGED/eslint-plugin-jsx-a11y@c8a3da9,5,10
+1175,2016-11-12T11:34:51Z,2016-11-15T01:58:33Z,2016-11-15T01:58:34Z,1,3,0,Fix #1174,3,2
+1196,2016-12-07T18:22:24Z,2016-12-08T09:17:48Z,2016-12-08T09:17:48Z,1,1,0,,4,1
+1197,2016-12-08T14:30:47Z,2016-12-08T18:44:44Z,2016-12-08T18:44:44Z,1,1,0,Hello Airbnb!,2,0
+1201,2016-12-10T02:59:18Z,2016-12-10T20:16:30Z,2016-12-10T20:16:30Z,1,13,1,closes issue #1068,3,4
+1202,2016-12-11T07:20:53Z,2016-12-11T18:22:34Z,2016-12-11T18:22:34Z,1,3,3,issue #1068,2,1
+1203,2016-12-11T16:48:09Z,2016-12-11T18:23:39Z,2016-12-11T18:23:39Z,1,1,0,,3,0
+1204,2016-12-12T16:53:57Z,2016-12-14T01:53:48Z,2016-12-14T01:53:48Z,1,1,0,Otherwise gulp configs that are using babel or other preprocessors with filenames like gulpfile.babel.js won't be matched by the ignore list for importing extraneous dependencies.,2,0
+1214,2016-12-19T15:25:16Z,2016-12-21T02:01:41Z,2016-12-21T02:01:41Z,2,22,3,,2,0
+1219,2016-12-21T19:07:56Z,2016-12-21T21:56:38Z,2016-12-21T21:56:38Z,1,2,2,Fixes #1218.,2,0
+1220,2016-12-23T11:42:23Z,2016-12-23T19:18:50Z,2016-12-23T19:18:50Z,1,1,1,I transfer ownership to another username.,1,2
+1221,2016-12-25T03:28:11Z,2016-12-25T05:39:54Z,2016-12-25T05:39:54Z,1,2,2,,2,0
+1222,2016-12-28T19:57:20Z,2016-12-28T22:00:47Z,2016-12-28T22:00:47Z,2,6,6,"Updates peerDependencies for eslint-config-airbnb.
+Also since the last NPM release has a severely outdated peerDependency for eslint-plugin-jsx-a11y, can we please get a new NPM release with this update?
+Thanks!",2,5
+1223,2016-12-28T20:56:05Z,2016-12-29T08:58:22Z,2016-12-29T08:58:22Z,1,1,0,BashPros uses Airbnb's style guide and would love to be added to your In The Wild list. Thank you Airbnb!,2,0
+1227,2016-12-29T01:25:55Z,2016-12-29T08:47:07Z,2016-12-29T08:47:07Z,1,1,1,Fixes #1226,2,0
+1234,2017-01-06T22:06:13Z,2017-01-07T05:46:03Z,2017-01-07T05:46:03Z,2,26,0,"discussed in #1233, windows users can use install-peerdeps to automatically install peerdeps for the config",4,6
+1236,2017-01-08T13:20:12Z,2017-01-08T18:34:24Z,2017-01-08T18:34:24Z,1,2,2,Array 'modified' is undefined 🗡,2,1
+1241,2017-01-09T09:48:38Z,2017-01-09T17:13:30Z,2017-01-09T17:13:30Z,1,1,0,Added link to the Ukrainian style guide translation (#1239),2,0
+1242,2017-01-09T12:13:25Z,,2017-01-09T16:27:26Z,1,1,1,,2,0
+1244,2017-01-10T11:34:07Z,2017-01-10T17:25:47Z,2017-01-10T17:25:47Z,1,1,1,"http://eslint.org/docs/rules/eqeqeq#allow-null
+eslint/eslint@3e879fc
+allow-null option is deprecated.",2,0
+1246,2017-01-10T21:03:30Z,,2017-01-11T04:26:46Z,1,1,0,Thank you AirBnb! Amazing document.,2,0
+1250,2017-01-11T04:29:15Z,2017-01-11T06:49:18Z,2017-01-11T06:49:18Z,1,1,0,"Take 2!
+cc @ljharb",2,1
+1251,2017-01-11T23:22:25Z,,2017-01-12T01:37:55Z,1,9,9,"This commit reorganizes the bad and good examples to
+match the flow with the rest of the documentation.
+The general flow is that a bad example is provided
+followed by a good or best example.
+To match the same convention, the good examples
+are funneled to the bottom of the block so that
+users can understand the wrong approach first",2,0
+1252,2017-01-11T23:39:59Z,2017-01-17T07:05:49Z,2017-01-17T07:05:49Z,1,51,22,"This commit provides a canonical way of describing
+that the function body contains code of some sort.
+The convention chosen was // ....
+This change is persisted throughout the readme file
+where appropriate
+
+If there is another suggestion for that common way to describe a function body, I'm totally open to updating this PR.  I could see // ...stuff... being used frequently enough as well, so if thats a choice please let me know.
+Thanks!",2,0
+1255,2017-01-12T06:50:29Z,2019-08-10T05:18:57Z,2019-08-10T05:18:57Z,1,2,2,"This Pull request is to fix #1240. This will enable no padding for switch statements and class declarations along with blocks.
+Reference : http://eslint.org/docs/rules/padded-blocks",2,2
+1258,2017-01-15T11:39:42Z,2017-01-17T07:13:34Z,2017-01-17T07:13:34Z,1,2,2,"Some JavaScript versions interpret numbers as octal if they are written with a leading zero.
+Babel interpreter throws with an Invalid number message.",2,0
+1260,2017-01-17T09:29:55Z,2017-01-20T18:46:33Z,2017-01-20T18:46:33Z,1,1,0,,2,0
+1262,2017-01-17T14:28:09Z,,2017-01-17T16:46:51Z,1,1,1,"According to the eslint-plugin-react docs allowMultiline has a default value to be true.
+By default, braces spanning multiple lines are allowed with either setting. If you want to disallow them you can specify an additional allowMultiline property with the value false.",2,0
+1263,2017-01-17T23:06:16Z,,2017-01-18T07:20:31Z,1,2,3,"Currently, the bad example in the 8.2 is just a wrong example:
+[1, 2, 3].map(number => {
+  const nextNumber = number + 1;
+  `A string containing the ${nextNumber}.`;
+});
+
+// returns [ undefined, undefined, undefined ]
+Maybe this is a copy-paste artifact. I dare to assume and restore what it should be initially.
+Also, a trailing comma is added in the object literal.",2,0
+1267,2017-01-18T05:55:17Z,2017-01-20T21:19:52Z,2017-01-20T21:19:52Z,1,101,101,"Run airbnb-base ESLint rules set against code examples (only accidental non-educational errors are fixed).
+
+'''js -> '''javascript for consistency.
+Fix indentation for consistency.
+Comment out ellipses.
+const -> let.
+Add / remove semicolons.
+Add spaces.
+Add trailing commas.
+Remove  trailing or leading underscores.
+Fix arrow IIFE call (currently, it throws).",2,5
+1269,2017-01-18T19:18:22Z,2017-01-21T05:28:42Z,2017-01-21T05:28:42Z,1,1,1,"👋
+I've made new Russian translation for ES6. I would like to add a link to it. The old one is for ES5 and shouldn’t be used.",3,1
+1273,2017-01-22T16:18:14Z,2017-02-12T08:25:10Z,2017-02-12T08:25:10Z,1,1,1,"Created pull request after receiving permission from this created issue: #1272
+Just letting people know up front that the JSCS style guides are deprecated and to use the eslint style guides from now on.",2,0
+1288,2017-02-02T12:33:53Z,2017-02-05T18:15:19Z,2017-02-05T18:15:19Z,1,2,2,"According to the section 2.2 of the guide, const is preferred.
+This change contributes to the internal consistency.",2,0
+1289,2017-02-03T00:13:29Z,2017-02-05T18:22:42Z,2017-02-05T18:22:42Z,1,1,1,"Added explanation for using parentheses with explicit returns and alternatives with the eslint ""always"" option.",2,0
+1291,2017-02-05T16:33:15Z,,2017-02-05T21:52:36Z,2,4,4,Closes #1290,2,0
+1294,2017-02-09T09:23:30Z,2017-02-09T17:44:23Z,2017-02-09T17:44:23Z,1,1,0,CaseNine is now using Airbnb's style guide and would like to be added to the In The Wild list.,2,0
+1295,2017-02-12T03:15:11Z,2017-02-12T18:38:19Z,2017-02-12T18:38:19Z,1,0,4,"I fixed not found links with dkhamsing/awesome_bot. I think it might be not critical so If you think it is not good, please close this PR.",2,1
+1299,2017-02-14T00:45:05Z,2017-02-14T06:09:26Z,2017-02-14T06:09:26Z,1,1,1,"A quick Google search shows that the name ""soft tab"" causes some confusion. Added a brief clarification.",2,0
+1309,2017-02-23T03:13:45Z,2017-02-23T06:52:50Z,2017-02-23T06:52:50Z,1,1,0,Ref #1131,2,0
+1312,2017-02-23T16:36:34Z,2017-02-23T19:46:05Z,2017-02-23T19:46:05Z,1,1,1,"react/wrap-multilines has been renamed to react/jsx-wrap-multilines
+Broken Link: https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/wrap-multilines.md
+New Link: https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-wrap-multilines.md",4,0
+1314,2017-02-25T22:18:17Z,2017-02-26T06:59:32Z,2017-02-26T06:59:32Z,1,1,0,"Neutrino is a cool new project from Mozilla for creating and building modern JS apps with zero configuration.
+What is the added value versus all the boilerplate projects out there like create-react-app? is worth a read.
+Neutrino already has an Airbnb base preset here: https://neutrino.js.org/presets/neutrino-preset-airbnb-base/ and supports customization as outlined in this ""turning off semis required"" example: https://neutrino.js.org/presets/neutrino-preset-airbnb-base/#simple-customization",3,6
+1317,2017-02-28T22:33:54Z,2017-03-03T21:14:39Z,2017-03-03T21:14:39Z,1,1,0,,3,5
+1319,2017-03-01T19:35:49Z,2017-03-02T18:12:35Z,2017-03-02T18:12:36Z,1,1,0,,2,0
+1323,2017-03-03T19:36:18Z,2017-03-03T21:11:05Z,2017-03-03T21:11:05Z,1,1,0,,2,0
+1324,2017-03-03T19:47:19Z,2017-03-03T21:12:02Z,2017-03-03T21:12:02Z,1,2,2,,2,0
+1325,2017-03-03T23:10:23Z,2017-03-16T01:04:19Z,2017-03-16T01:04:19Z,1,14,2,"This adds exceptions to no-param-reassign to resolve #1217. There's probably some discussion to be done around which variables should be ignored, but currently I've added req, request, and $scope from this comment.
+Please let me know if you have any questions, or if there are any changes you'd like for me to make. Thanks!
+Closes #1217",4,11
+1339,2017-03-16T08:15:03Z,2017-03-19T06:48:00Z,2017-03-19T06:48:00Z,1,39,0,"As discussed in #1338 I created a pull request. The naming, description and examples tend to the eslint rule array-bracket-newline, which hopefully comes soon (eslint/eslint#6073):
+/*eslint array-bracket-newline: [""error"", { ""multiline"": true }]*/",2,3
+1345,2017-03-23T01:00:31Z,2017-03-23T05:45:57Z,2017-03-23T05:45:57Z,2,15,15,"This is required to make sure all code blocks have proper syntax highlighting.
+cc/ @ljharb",3,0
+1357,2017-04-04T14:06:45Z,2017-04-04T17:50:27Z,2017-04-04T17:50:27Z,1,1,0,Sorry for opening/closing the other one,2,0
+1368,2017-04-11T19:09:34Z,2017-04-11T21:26:04Z,2017-04-11T21:26:04Z,2,7,4,,2,3
+1370,2017-04-12T08:43:32Z,2017-04-12T14:17:10Z,2017-04-12T14:17:10Z,1,2,2,"This example makes me confused. I guess it missed the use of ""children"" of good code.
+Is the example to explain that you should specify default values for non-required props?
+Thanks",3,0
+1375,2017-04-18T15:05:36Z,,2017-04-18T16:36:27Z,1,1,1,Don´t need parenthesis in an arrow function when receive only one argument,2,0
+1376,2017-04-19T16:51:10Z,,2017-04-19T18:26:39Z,1,2,2,"Seemed inconsistent to say ""use dangling commas"" but then not include dangling commas in the example diff.",3,1
+1378,2017-04-20T20:51:59Z,2017-04-21T06:22:25Z,2017-04-21T06:22:25Z,1,1,1,"Otherwise, there is no way to write pure components that don't use state, refs, or lifecycle methods.
+Stateless functions are not treated internally as pure components, and are rerendered every time.",2,0
+1381,2017-04-21T19:18:06Z,2017-04-22T18:16:47Z,2017-04-22T18:16:47Z,1,3,3,"Added missing semicolons
+Simplified ref callback example by removing parentheses and curly braces
+Removed wrapping parentheses from render return element",2,3
+1385,2017-04-24T14:37:00Z,2017-04-24T15:45:57Z,2017-04-24T15:45:57Z,1,1,0,"As other tools, it's fairly common to have multiple Rollup configuration files. This pattern seems to be used by Rollup in their own configuration.",2,0
+1391,2017-04-27T03:07:03Z,2017-04-28T06:52:01Z,2017-04-28T06:52:01Z,1,1,0,"At InterCity Group we're now using Airbnb's style guide and would like to be added to the 'In The Wild' list.
+Thanks!",2,0
+1395,2017-04-29T11:27:26Z,2017-05-01T18:37:55Z,2017-05-01T18:37:55Z,1,110,51,"This introduces a ""Control statements"" section to show how to format really long statements like if and while and what is the preferred way to split them up across multiple lines. Resolves #1380.",2,1
+1396,2017-04-29T15:22:05Z,2017-05-01T04:18:33Z,2017-05-01T04:18:33Z,1,1,0,"Dear,
+Thank you for awesome project.
+We would happy to share that we use it.",2,1
+1398,2017-05-01T07:58:14Z,2017-05-01T18:39:27Z,2017-05-01T18:39:27Z,1,1,1,,3,1
+1400,2017-05-03T18:17:43Z,2017-05-04T03:10:52Z,2017-05-04T03:10:52Z,1,1,0,At Generation Tux  use the airbnb style guid for our javascript.  You can see our style guide here,2,0
+1403,2017-05-05T10:42:58Z,2017-09-02T05:50:00Z,2017-09-02T05:50:00Z,2,11,3,,2,3
+1411,2017-05-11T19:49:00Z,2017-05-14T23:55:19Z,2017-05-14T23:55:19Z,1,1,1,"The current configuration allows unused global variables for unknown reason as stated here
+As stated here the current config allows this behaviour because it was default in eslint.
+But since eslint has changed the defaults to warn on any unused variable local/global, we should update this config to use new defaults.",2,1
+1415,2017-05-15T16:40:25Z,2017-05-15T20:23:07Z,2017-05-15T20:23:07Z,1,1,1,Fixes #1414.,2,0
+1419,2017-05-19T12:05:06Z,2017-05-19T19:56:24Z,2017-05-19T19:56:24Z,1,1,1,,2,1
+1420,2017-05-20T10:20:47Z,2017-05-20T23:37:54Z,2017-05-20T23:37:54Z,2,6,1,Blacklist confusing global variables set by browser env as discussed here.,2,2
+1424,2017-05-24T01:05:59Z,2017-05-24T04:06:35Z,2017-05-24T04:06:35Z,1,1,1,"Add reference to the eslint no-eval rule to the README.
+This rule is already set to error in best-practices.js in eslint-airbnb-config-base.",2,1
+1426,2017-05-24T13:58:32Z,,2017-05-25T13:13:34Z,1,4,0,,2,2
+1427,2017-05-24T19:45:26Z,2017-05-25T23:48:32Z,2017-05-25T23:48:32Z,1,3,4,I did some searching and didn't see any discussion about this. I'd like to have *.test.jsx files in my project so that I can have tests with JSX that don't interfere with react/jsx-filename-extension.,2,2
+1431,2017-05-26T17:21:53Z,,2017-06-13T08:09:29Z,1,1,1,"If you're gonna make a styleguide, you should really lint your own guide.",2,0
+1436,2017-06-02T18:32:27Z,2017-06-04T06:43:16Z,2017-06-04T06:43:16Z,4,190,58,"I hear you like linting! Why not enforce consistent style for your Markdown prose too?
+Like JavaScript linting, Markdown linting can help identify errors or constructs that not all Markdown renderers handle correctly. The linter caught a few bugs in the README.
+If you disagree with any of how I've gone about this, please let me know, and I'm happy to change things.
+If you disagree with the intent of this completely, then oh well, it was a fun exercise. 😄
+Lint Rules
+My intent is to codify the existing style being used, rather than to try to change how Markdown is written in this repo.
+
+I've set a catchall to enable all of the Markdownlint Rules and subsequently disabled ones that don't apply. If you'd instead like an explicit list of rules that do apply (to avoid updates to markdownlint silently adding new rules), I can do that instead.
+I disabled a rule when it appeared that one of the documents deliberately did not conform to it. (Even if this nonconformance only happened once, I disabled the rule globally rather than for that one occurrence in the document).
+I changed document content to fix rule nonconformance when it appeared that:
+
+There was a legitimate bug in the document (meaning either GitHub or another Markdown renderer would not render something correctly)
+A rule was followed consistently, except for a few isolated cases
+
+
+
+Implementation
+A new lint npm script has been added to the top-level package.json, and set as a pretest script, to match how lint scripts in subpackages are handled. The top-level travis script now also explicitly invokes lint.
+There is now a devDependency on markdownlint-cli but not markdownlint. The JavaScript implementation of Markdownlint is a library only, and unfortunately the CLI wrapper markdownlint-cli has a dependency, rather than a peerDependency, on markdownlint.
+Thanks!",4,5
+1437,2017-06-02T19:05:59Z,2017-06-02T21:39:28Z,2017-06-02T21:39:28Z,1,1,1,Welcome to the new year! 🎊,5,7
+1438,2017-06-04T08:05:12Z,,2017-06-04T16:12:58Z,1,1,1,I guess a return was missing in the examples of the arrow functions.,2,0
+1440,2017-06-07T10:27:05Z,2017-06-11T18:59:55Z,2017-06-11T18:59:55Z,1,1,1,Based on issue #1425 and this comment.,2,0
+1449,2017-06-12T22:48:21Z,2017-06-14T02:27:52Z,2017-06-14T02:27:52Z,1,26,4,Resolves #1441,2,3
+1452,2017-06-13T21:07:17Z,2017-06-13T23:56:08Z,2017-06-13T23:56:08Z,1,0,1,"Fixes #1451
+From eslint v3.9.0 this option is deprecated, so removing TODO comment questioning enablement.",2,0
+1455,2017-06-14T13:14:03Z,2017-06-14T19:11:05Z,2017-06-14T19:11:05Z,1,1,1,"The first ""good"" example was missing a closing bracket (line 1377).",2,1
+1456,2017-06-15T16:00:27Z,2017-06-17T17:58:52Z,2017-06-17T17:58:52Z,1,1,0,Protractor is used to run E2E tests and therefore is considered to be a dev dependency. We should be able to import dev dependencies inside Protractor config files (protractor.conf.*.js).,2,0
+1458,2017-06-17T12:55:41Z,2017-06-17T16:42:53Z,2017-06-17T16:42:53Z,1,4,4,"Accessing the variable outside the function would throw an Uncaught ReferenceError.
+Fixes #1457",2,0
+1460,2017-06-20T14:38:01Z,2017-06-20T20:56:49Z,2017-06-20T20:56:49Z,1,1,1,,2,0
+1463,2017-06-22T16:22:12Z,2017-06-24T04:55:34Z,2017-06-24T04:55:35Z,2,8,4,,3,0
+1464,2017-06-22T16:22:19Z,2017-06-24T04:55:35Z,2017-06-24T04:55:35Z,2,8,4,,2,0
+1469,2017-06-26T15:36:35Z,2017-07-24T06:55:40Z,2017-07-24T06:55:40Z,1,12,1,"Summary
+
+Add documentation for ES7's new exponentiation operator.
+Also changed es6 to es6+ in few places.
+
+
+Related discussion: https://github.com/airbnb/javascript/issues",2,0
+1470,2017-06-28T13:42:01Z,,2017-06-28T18:52:35Z,1,1,1,,2,0
+1472,2017-06-29T10:18:24Z,,2017-06-30T00:29:42Z,1,1,1,Missing eslint-config-airbnb will result in an error: cannot find module.,2,1
+1477,2017-07-04T02:45:31Z,2017-09-02T05:40:37Z,2017-09-02T05:40:37Z,3,68,4,Fixes #1347.,3,3
+1482,2017-07-05T22:53:04Z,2017-09-02T18:24:42Z,2017-09-02T18:24:42Z,2,6,13,"Upgrades eslint-plugin-jsx-a11y from 5 to 6, and enables more a11y related rules",7,14
+1484,2017-07-06T14:28:25Z,,2017-07-09T06:00:26Z,1,1,1,,2,0
+1490,2017-07-12T16:15:14Z,2017-07-13T23:48:37Z,2017-07-13T23:48:37Z,1,1,0,,2,0
+1491,2017-07-12T17:44:22Z,2017-07-14T00:20:07Z,2017-07-14T00:20:07Z,1,1,1,,2,1
+1494,2017-07-16T13:39:43Z,,2017-07-16T15:38:23Z,1,1,1,,2,0
+1498,2017-07-21T16:21:04Z,,2017-07-25T18:43:34Z,1,3,0,"Added the missing @params which confuses the developers that it is bad to use these tags
+Fixes #1497",3,9
+1500,2017-07-23T13:31:29Z,2017-07-23T16:57:15Z,2017-07-23T16:57:15Z,1,1,0,"Sainsbury's uses this style guide for a large number of internal projects, with only minor adjustments (most notably, removing semi colons).",3,4
+1503,2017-07-25T09:41:50Z,2017-07-26T17:52:26Z,2017-07-26T17:52:26Z,1,1,1,To cover Gruntfile and Gruntfile.js instead of just Gruntfile.,2,0
+1505,2017-07-25T19:52:15Z,2017-07-26T06:35:25Z,2017-07-26T06:35:25Z,1,3,9,"There were links to eslint rules in a style that didn't match the style of the rest of the document. Specifically, most links in the document use the following style: ""eslint: ['no-unneeded-ternary']"", but there were badly styled links that looks like this: ""eslint rule: ['no-unneeded-ternary']."" Additionally, the badly styled links were on their own line, whereas all the other links are not placed on their own line.",1,0
+1511,2017-07-31T18:21:04Z,2017-08-01T08:45:43Z,2017-08-01T08:45:43Z,2,2,2,"Context
+Attempts to clarify and address issue #1508 (comment) to assist yarn users.
+What
+New instructions recommend yarn users to list peer dependencies and then install each peer dependency with specified version.
+Why
+Previous yarn instructions led users to install the latest version of each peer dependency which, in some cases, led to errors if the latest version of a peer dependency did not have rules that this package uses.",2,1
+1514,2017-08-03T16:01:41Z,2017-09-02T05:35:05Z,2017-09-02T05:35:05Z,2,9,9,Hello. comma-dangle is in Stylistic Issues. (see http://eslint.org/docs/rules/ ),2,0
+1516,2017-08-07T10:49:05Z,2017-08-07T17:51:16Z,2017-08-07T17:51:16Z,1,0,1,"Remove link to polish translation as it's outdated ( last commit from 2-3 years ago ).
+For example in polish translation you can read that you should use one ""var"" keyword to declare your vars.
+example:
+// źle ( bad )
+var items = getItems();
+var goSportsTeam = true;
+var dragonball = 'z';
+
+// dobrze ( good )
+var items = getItems(),
+    goSportsTeam = true,
+    dragonball = 'z';",3,3
+1518,2017-08-07T20:38:36Z,2017-08-08T06:40:20Z,2017-08-08T06:40:20Z,1,1,0,"See #1365 (comment)
+Fixes #1365",2,1
+1522,2017-08-15T02:52:58Z,2017-08-15T06:51:21Z,2017-08-15T06:51:21Z,1,1,0,"Similar to #1168
+This PR adds jest.config.js to the array of files that looks at devDependencies for its dependencies instead",2,0
+1525,2017-08-17T09:09:09Z,,2017-08-17T16:08:15Z,1,1,1,"Example 8.2 is failed by ""no-unused-expressions"" rule. It must be failed only by ""arrow-parens"" rule.",2,1
+1526,2017-08-17T10:02:02Z,2017-08-22T07:04:27Z,2017-08-22T07:04:27Z,1,6,1,"This chapter on naming conventions tells that we should capitalize an acronym, like HTTPRequests, or drop the acronym part from the variable name. However, in the latter case it should actually be requests, not Requests, since it's a name for an array, not a constructor. Sorry if I get this wrong.",2,1
+1528,2017-08-17T17:25:52Z,2017-08-22T07:08:07Z,2017-08-22T07:08:07Z,1,3,0,Added an alternate good example.,2,0
+1530,2017-08-20T13:26:03Z,2017-08-22T07:06:18Z,2017-08-22T07:06:18Z,1,1,0,"adding kaplan komputing to ""into the wild"" section in README",2,0
+1533,2017-08-22T22:40:45Z,2017-08-23T00:09:38Z,2017-08-23T00:09:38Z,2,3,4,"I noticed a todo here, and it seems straightforward enough to do.",2,0
+1538,2017-08-26T06:49:52Z,2018-01-10T06:32:16Z,2018-01-10T06:32:16Z,1,1,1,"Currently the Simplified Chinese translation is for ES5, it's out of date, use another one instead of it.",2,2
+1543,2017-08-29T14:30:48Z,2017-09-02T05:53:25Z,2017-09-02T05:53:25Z,1,1,0,"This completes #1456 and allows for matching protractor.conf.js file (the basic one not the extended ones, i.e protractor.conf.*.js.",2,0
+1547,2017-09-03T21:02:16Z,2018-01-29T07:53:19Z,2018-01-29T07:53:19Z,1,1,0,"I translated react style guide into Turkish and added it's link.
+Here is the translated document.",3,1
+1549,2017-09-06T13:32:03Z,2017-09-20T21:24:32Z,2017-09-20T21:24:32Z,1,21,5,,3,0
+1551,2017-09-07T14:26:43Z,2017-09-07T17:27:57Z,2017-09-07T17:27:57Z,1,1,1,Typo: prefer-restructuring => prefer-destructuring,2,0
+1558,2017-09-14T21:14:23Z,2017-09-20T21:08:00Z,2017-09-20T21:08:00Z,1,1,0,,2,0
+1563,2017-09-20T21:07:51Z,2017-09-20T23:15:25Z,2017-09-20T23:15:25Z,1,2,3,"In ternaries block present same code example: const maybeNull = value1 > value2 ? 'baz' : null; as better and best.
+I've deleted this example from better example.",2,7
+1565,2017-09-21T14:41:01Z,,2017-09-21T22:07:48Z,1,10,0,"// bad 
+if (foo === 123 || foo === 124 || foo === 125 || foo === 126) {
+  thing1();
+}
+
+// good 
+if ([123, 124, 125, 126].includes(foo)) {
+  thing1();
+}",5,1
+1573,2017-10-01T03:41:00Z,,2017-10-01T05:07:12Z,1,44,30,"Since JavaScript is already interpreting newlines as the ends of developers' statements, and since developers shouldn't write more than one statement per line, semicolons are fundamentally unnecessary to a working JavaScript program. Much like the cape on a superhero's back, they are a holdover from a bygone era that serve only as a means for modern developers to trip over themselves.
+If anyone has an example of any instance when the lack of a semicolon has caused unintended behavior in a modern browser, I might reconsider my stance, if Babel ever ceases to insert its own semicolons into its transpiled code",5,10
+1574,2017-10-01T14:36:53Z,2017-10-01T16:00:12Z,2017-10-01T16:00:12Z,1,1,0,,2,0
+1576,2017-10-02T13:42:36Z,,2017-10-03T12:52:52Z,1,4,4,Code corrected according to the comment of example.,2,0
+1578,2017-10-04T20:48:25Z,2017-11-15T06:29:35Z,2017-11-15T06:29:35Z,1,34,13,"Also update code samples to highlight ways in which ES6
+currently mishandles code when relying on Automatic Semicolon
+Insertion",3,0
+1583,2017-10-10T15:22:01Z,2019-08-10T05:25:46Z,2019-08-10T05:25:46Z,1,1,1,"let param = 'default value';
+
+if (object)
+  param = object.param; // <= prefer-destructuring
+}
+
+// ...
+I think that param = object.param; is better than ({ param } = object); because it is easier to read and tedious to write brackets by hand.
+MDN: Destructuring assignment",4,3
+1587,2017-10-12T04:18:43Z,2018-06-21T20:33:43Z,2018-06-21T20:33:43Z,3,13,2,,3,0
+1588,2017-10-12T11:31:24Z,2017-10-12T15:06:09Z,2017-10-12T15:06:09Z,1,1,0,"Awesome style guide you got there.
+Maybe check out my changes to the Method section in React and tell me what you think. 😄",2,0
+1595,2017-10-16T10:21:05Z,2017-10-18T21:17:26Z,2017-10-18T21:17:26Z,1,1,2,,2,4
+1596,2017-10-16T14:22:55Z,2017-10-16T18:56:41Z,2017-10-16T18:56:41Z,1,2,2,airbnb-base has included this rule since version 12.0.0,2,0
+1600,2017-10-18T19:38:12Z,2017-10-18T21:26:53Z,2017-10-18T21:26:53Z,1,1,1,"Enables operator-linebreak rule with the ""before"" option in base eslint style config. This requires that operators be placed at the start of the line in a mulitline statement.
+/* 
+* Permitted Statements
+*/
+
+answer = everything ? 42  : foo;
+
+if   (foo === 123 || bar === ""abc"") {
+  thing1();
+}
+
+if (
+  (foo === 123 || bar === ""abc"")
+  && doesItLookGoodWhenItBecomesThatLong()
+  && isThisReallyHappening()
+) {
+  thing1();
+}
+
+answer = everything
+  ? 42
+  : foo;
+/* 
+* Invalid Statements
+*/
+
+if (
+  (foo === 123 || bar === ""abc"") &&
+  doesItLookGoodWhenItBecomesThatLong() &&
+  isThisReallyHappening()
+) {
+  thing1();
+}
+
+answer = everything ?
+  42 :
+  foo;",4,1
+1606,2017-10-20T00:04:44Z,2017-10-20T17:46:23Z,2017-10-20T17:46:23Z,1,2,2,"Clarify and correct explanation — to be consistent with section 7.1 (use
+named function expressions).",2,0
+1607,2017-10-20T00:54:35Z,2017-10-20T17:47:05Z,2017-10-20T17:47:05Z,1,3,2,"For convenience, added brief explanations that are given in the linked
+discussion — #794 — mostly eliminating the need to scroll through the comments.",2,1
+1608,2017-10-21T14:13:23Z,2017-10-22T05:21:13Z,2017-10-22T05:21:13Z,1,1,1,"As ""foo"" is still meaningless, but with ""short"", we can see that, we are intend to use a short alias name to make our coding happily.
+refer to #794",2,2
+1612,2017-10-23T19:35:16Z,2017-10-23T23:56:17Z,2017-10-23T23:56:17Z,1,3,0,,2,4
+1616,2017-10-24T11:35:01Z,2017-10-24T20:27:04Z,2017-10-24T20:27:04Z,1,0,2,,2,1
+1620,2017-10-25T19:00:20Z,2017-10-25T20:33:53Z,2017-10-25T20:33:53Z,1,7,4,"Added anti-pattern example for Props Naming rule with using className 
+To be consistent with Props Naming rule changed className to variant props in others examples",2,0
+1621,2017-10-25T19:23:18Z,2017-10-25T20:31:31Z,2017-10-25T20:31:31Z,1,1,1,,2,0
+1625,2017-10-28T00:42:01Z,2017-10-28T04:50:10Z,2017-10-28T04:50:10Z,1,2,1,,2,0
+1628,2017-10-30T13:20:13Z,2017-10-30T20:46:03Z,2017-10-30T20:46:03Z,13,216,216,"The result of a s_http://eslint\.org_https://eslint\.org_g.
+Avoids the HTTP 301s of the non-HTTPS URLs.",2,0
+1629,2017-10-31T01:19:23Z,2017-11-04T06:05:03Z,2017-11-04T06:05:03Z,1,52,0,Fixes #1443,2,4
+1631,2017-11-02T08:54:38Z,,2017-11-04T17:47:36Z,1,6,6,"Why? The method in the current example is called pop() but it actually implements an Array.prototype.shift() method which is confusing for no good reason. It just does it on the wrong side of an array.
+I understand the change clutters the example code a bit, but at least it's less confusing.
+Another approach--probably a better one--would be to change the name of the method from pop to dequeue leaving the implementation as is. The peek name and implementation could be left as is too then.",2,2
+1635,2017-11-05T16:27:49Z,2018-01-03T06:52:02Z,2018-01-03T06:52:02Z,1,3,1,"Fixes #1634 following what I think was @ljharb's intent, as per his comment here.
+
+ Add .mjs to the list of supported extensions
+ Forbid .mjs extension from being specified",3,0
+1641,2017-11-20T16:18:08Z,,2017-11-20T18:07:50Z,1,1,2,"Enable the rule ""import/order""
+This is a breaking change and if accepted will have to wait for a major",2,2
+1648,2017-11-28T18:47:11Z,2017-11-30T08:00:16Z,2017-11-30T08:00:16Z,1,1,1,"Support React Router's <Link to=""...""> attribute out of the box.
+Fixes #1647.",5,9
+1651,2017-12-04T02:52:51Z,,2017-12-04T05:23:36Z,1,4,2,"Added the website I made in the ""The JavaScript Style Guide"" section on line 3581 and deleted repeated word ""Guide"" in the section title on line 3578.  See issue #1650 for more information on the website.",2,0
+1652,2017-12-04T09:11:45Z,2018-03-20T10:20:21Z,2018-03-20T10:20:21Z,1,1,1,"This allows to import non-JavaScript files through the main export of a dependency's package.json.
+The following would trigger an error before, but is fine with the new configuration:
+import 'roboto-fontface';",3,2
+1662,2017-12-16T01:31:13Z,2017-12-16T17:56:11Z,2017-12-16T17:56:11Z,1,3,3,PR created using https://github.com/tbroadley/github-spellcheck-cli.,2,2
+1664,2017-12-19T03:18:30Z,,2017-12-19T06:03:07Z,1,0,1,I think forty_two repeat with inside_directory example.,2,0
+1668,2017-12-24T03:11:26Z,2017-12-24T05:20:42Z,2017-12-24T05:20:42Z,1,1,1,"This allows return undefined implicitly.
+array.map((item) => {
+  return;
+});",2,1
+1685,2017-12-31T23:51:07Z,2018-01-01T19:35:53Z,2018-01-01T19:35:53Z,2,2,2,"TO DO:
+
+ Wait to the next year (100% done, depends on timezone)
+ Merge!",2,1
+1690,2018-01-05T09:45:33Z,,2018-11-22T03:06:02Z,1,1,1,"when an Object is created by Object.create(null), it's prototype object should be null, not itself.",2,0
+1693,2018-01-10T08:09:59Z,2018-01-29T07:52:07Z,2018-01-29T07:52:07Z,1,1,1,,2,0
+1694,2018-01-10T14:37:58Z,2018-01-12T22:45:15Z,2018-01-12T22:45:15Z,2,17,5,"As node v8 is in LTS, many people have upgraded it to. With node8, there comes an awesome utility npx which allows us to run cli tools without installing them.",3,5
+1697,2018-01-15T09:33:55Z,,2018-01-15T14:53:38Z,1,2,1,,2,1
+1698,2018-01-16T08:22:03Z,2018-01-22T07:57:20Z,2018-01-22T07:57:20Z,1,31,31,"have not change any code, only add a tab.",2,4
+1699,2018-01-16T14:58:45Z,2018-01-16T21:39:38Z,2018-01-16T21:39:38Z,1,4,4,"fixed code example to meet the standard. listingId changed to listingID
+See - Naming Conventions: Acronyms and initialisms should always be all capitalized, or all lowercased.",2,1
+1704,2018-01-22T10:47:58Z,2018-01-23T19:53:10Z,2018-01-23T19:53:10Z,1,2,1,"Updating the class-methods-use-this rule's exceptMethods property to include componentDidCatch, also bumped the react pragma version property to 16.0. See #1703 for original issue.",2,0
+1708,2018-01-26T18:17:53Z,2018-01-27T00:49:43Z,2018-01-27T00:49:43Z,1,7,7,"In this part of the no-param-reassign configuration, acc is allowed to be mutated (rule 7.12, but memo is not.
+This causes the rule 4.6 example in the README to actually be invalid.
+Alternative proposal: Add memo to the whitelist along with acc, as it is a very common accumulator variable name for reduce.",2,5
+1710,2018-01-26T19:35:25Z,2018-01-26T23:19:37Z,2018-01-26T23:19:37Z,2,23,1,"I'm wasn't too sure where to place this addition in our guide, so I added it to the variables section. Let me know if you think it belongs elsewhere.
+
+Guide update:
+
+13.7 Avoid linebreaks before or after = in an assignment. If your assignment violates max-len, surround the value in parens. eslint operator-linebreak.
+
+
+Why? Linebreaks surrounding = can obfuscate the value of an assignment.
+
+    // bad
+    const foo =
+      superLongLongLongLongLongLongLongLongFunctionName();
+
+    // bad
+    const foo
+      = 'superLongLongLongLongLongLongLongLongString';
+
+    // good
+    const foo = (
+      superLongLongLongLongLongLongLongLongFunctionName()
+    );
+
+    // good
+    const foo = 'superLongLongLongLongLongLongLongLongString';",3,0
+1712,2018-01-28T07:40:46Z,2018-01-30T00:35:55Z,2018-01-30T00:35:55Z,1,1,0,,2,0
+1714,2018-01-30T02:53:24Z,2018-01-31T07:35:17Z,2018-01-31T07:35:17Z,1,1,1,"I have changed Korean translation doc link tipjs/javascript-style-guide to ParkSB/javascript-style-guide.
+Issue: #1713",2,0
+1721,2018-02-04T13:29:10Z,2018-02-07T08:55:34Z,2018-02-07T08:55:34Z,1,2,0,Fixing the request Can you put the translation section at the beginning? #1720,2,0
+1722,2018-02-04T22:12:22Z,2018-02-07T08:35:22Z,2018-02-07T08:35:22Z,1,5,0,"This updates the ""trailing or leading underscores"" guideline to suggest an better way to make properties hidden, as an alternative to just removing the underscore and making the property public.
+This is motivated by a discussion with @ljharb today in the eslint/eslint Gitter channel.",3,3
+1727,2018-02-08T19:30:08Z,2018-02-09T04:29:52Z,2018-02-09T04:29:52Z,1,2,2,This is to be consistent with the rules mentioned earlier.,2,0
+1732,2018-02-15T19:58:23Z,2018-04-27T06:16:24Z,2018-04-27T06:16:25Z,1,1,1,Some projects name test files like foo_spec.js instead of foo.spec.js.,3,0
+1736,2018-02-19T12:58:30Z,2018-02-19T23:31:56Z,2018-02-19T23:31:56Z,1,1,1,"The other examples in the same section already use single quotes, so let's have the last culprit adhere to the standards.",2,0
+1737,2018-02-19T15:20:03Z,2018-02-20T08:09:09Z,2018-02-20T08:09:09Z,2,95,18,,2,0
+1740,2018-02-20T17:29:31Z,2018-02-22T21:40:36Z,2018-02-22T21:40:36Z,1,2,0,"Seen a few pull requests for the React style guide that try to introduce features that aren't yet in stage >= 3 (static class fields for i.e), so I've decided to add a comment to the beginning of the guide. Not sure if this is the right place to put it, but here it is.
+This disclaimer might help:
+
+give the community an idea what standards this guide is based on
+prevent redundant pull requests",3,0
+1746,2018-02-22T14:51:43Z,2018-02-22T21:39:06Z,2018-02-22T21:39:06Z,2,42,0,"Fix #1744. Not sure how to trigger patch release, couldn't find any contributing docs. Please advise.
+Replaces #1745",2,6
+1749,2018-02-27T22:10:55Z,2018-03-01T03:01:56Z,2018-03-01T03:01:56Z,6,172,2,"Adds a change to pull in the eslint config from the project root, turn off all rules except the whitespace rules explicitly listed in the array.
+This list is hardcoded for now, if there are any that I'm missing please let me know:
+[
+  'array-bracket-newline',
+  'array-bracket-spacing',
+  'array-element-newline',
+  'arrow-spacing',
+  'block-spacing',
+  'comma-spacing',
+  'computed-property-spacing',
+  'dot-location',
+  'eol-last',
+  'func-call-spacing',
+  'function-paren-newline',
+  'generator-star-spacing',
+  'implicit-arrow-linebreak',
+  'indent',
+  'key-spacing',
+  'keyword-spacing',
+  'line-comment-position',
+  'linebreak-style',
+  'multiline-ternary',
+  'newline-per-chained-call',
+  'no-irregular-whitespace',
+  'no-mixed-spaces-and-tabs',
+  'no-multi-spaces',
+  'no-regex-spaces',
+  'no-spaced-func',
+  'no-trailing-spaces',
+  'no-whitespace-before-property',
+  'nonblock-statement-body-position',
+  'object-curly-newline',
+  'object-curly-spacing',
+  'object-property-newline',
+  'one-var-declaration-per-line',
+  'operator-linebreak',
+  'padded-blocks',
+  'padding-line-between-statements',
+  'rest-spread-spacing',
+  'semi-spacing',
+  'semi-style',
+  'space-before-blocks',
+  'space-before-function-paren',
+  'space-in-parens',
+  'space-infix-ops',
+  'space-unary-ops',
+  'spaced-comment',
+  'switch-colon-spacing',
+  'template-tag-spacing',
+  'import/newline-after-import',
+]",3,1
+1751,2018-03-01T05:22:39Z,2018-03-01T07:14:01Z,2018-03-01T07:14:01Z,8,70,21,From #1749 (comment),2,1
+1757,2018-03-07T17:50:50Z,,2018-04-08T19:52:18Z,53,790,5874,I started to translate javascript style guide to turkish language.,2,1
+1760,2018-03-11T01:33:33Z,2018-03-12T22:44:16Z,2018-03-12T22:44:16Z,1,1,1,"It's my understanding that Airbnb replaced Mocha with Jest, according to this article: https://medium.com/airbnb-engineering/unlocking-test-performance-migrating-from-mocha-to-jest-2796c508ec50
+This PR reflects that change with a one-sentence edit.",2,0
+1761,2018-03-13T14:13:11Z,2018-03-14T21:56:19Z,2018-03-14T21:56:19Z,1,3,1,"In ESLint 4.18.0 separate settings are introduced for imports and exports for the object-curly-newline rule.
+Without this change, there is different behaviour when updating ESLint to this version.",2,0
+1768,2018-03-20T18:41:51Z,2018-03-23T22:24:08Z,2018-03-23T22:24:08Z,1,1,0,See #1767 for explanation.,2,0
+1770,2018-03-23T15:42:51Z,2018-03-23T21:03:15Z,2018-03-23T21:03:15Z,1,1,2,"We recently had an incident where this rule would have prevented
+infinite loops in Hypernova and in the browser.",3,2
+1772,2018-03-28T05:06:22Z,2018-04-05T07:18:33Z,2018-04-05T07:18:33Z,1,1,0,They should be considered as dev scripts.,2,0
+1774,2018-03-28T14:39:23Z,2018-03-28T21:16:11Z,2018-03-28T21:16:11Z,1,2,2,,2,0
+1775,2018-03-29T07:06:44Z,,2018-03-29T08:13:09Z,1,289,133,,2,0
+1776,2018-03-30T07:09:12Z,,2022-03-16T06:08:16Z,1,0,1,removed reddit from organizations that are using this style guide. The link is broken. Fixes issue #1769,2,0
+1777,2018-03-31T08:08:01Z,,2018-07-05T05:47:32Z,1,24,10,update examples,3,0
+1778,2018-04-04T17:16:36Z,2018-04-05T07:11:50Z,2018-04-05T07:11:50Z,1,2,2,,3,1
+1779,2018-04-04T23:18:08Z,2018-04-05T07:10:32Z,2018-04-05T07:10:32Z,3,14,10,Adds import/no-cycle rule to airbnb-config-base,3,3
+1781,2018-04-08T19:51:53Z,2018-04-11T05:00:56Z,2018-04-11T05:00:49Z,0,0,0,"@ljharb
+Translation is ready in turkish language.
+Cheers.
+Closes #1757",2,0
+1782,2018-04-11T12:52:53Z,2018-06-21T20:36:40Z,2018-06-21T20:36:40Z,1,4,7,Fixes #1773,2,0
+1785,2018-04-16T15:22:42Z,,2018-04-16T17:54:45Z,68,390,8094,,6,0
+1787,2018-04-18T18:28:14Z,2018-04-18T20:15:40Z,2018-04-18T20:15:40Z,1,15,15,"We can use emoji for most of these flags, which should make
+them look better on higher resolution displays and improve the
+loading performance of the style guide a little.
+The only flag we have here that does not have a good emoji yet
+is the flag of Catalonia, which I left as-is for now.
+https://emojipedia.org/flag-for-catalonia-esct/",2,2
+1790,2018-04-21T06:52:27Z,2018-04-22T22:00:37Z,2018-04-22T22:00:37Z,1,1,0,,2,0
+1793,2018-04-26T03:29:03Z,2018-04-26T07:36:57Z,2018-04-26T07:36:58Z,1,1,0,"StandardJS is one of the top style guides, though like the Google and jQuery styles it's less popular than the airbnb style. 😀",2,0
+1794,2018-04-30T08:31:03Z,2018-05-02T04:37:18Z,2018-05-02T04:37:18Z,1,1,1,it seems 'no-multiple-empty-lines'.maxEOF is out by one,2,3
+1798,2018-05-02T05:05:31Z,2018-05-04T06:12:16Z,2018-05-04T06:12:16Z,1,102,0,"This commit adds brief descriptions and examples of rules enforced by the guide that were not previously mentioned in the README.
+This is related to #1797, although this is not exhaustive and there are still a number of rules not covered in the README nor in this PR.
+On a side note, I noticed that some of the HTML <a> anchor links have numbering that's offset by 1, for example the whitespace rules are numbered starting 19 but the anchor links are numbered starting 18. I just continued this pattern in this PR even though it seems incorrect, but I'd be happy to fix these links in a separate PR. It may be possible to just get rid of them too, I'm not sure if they're necessary.",3,7
+1799,2018-05-04T08:16:10Z,2018-05-04T15:55:25Z,2018-05-04T15:55:25Z,1,9,1,"This PR corrects some nits slipped in edf942e
+
+Add missing anchors for section references.
+Correct a rule description.",2,0
+1801,2018-05-04T18:08:41Z,2018-05-07T05:44:59Z,2018-05-07T05:44:59Z,1,6,6,,2,0
+1802,2018-05-06T02:35:39Z,2018-05-07T05:41:37Z,2018-05-07T05:41:37Z,1,7,1,Also make the rule configuration more explicit.,2,0

@@ -1,0 +1,1412 @@
+number,created_at,merged_at,closed_at,files,additions,deletions,body_text,participants,comments
+61,2017-06-17T05:22:19Z,2017-06-18T14:12:20Z,2017-06-18T14:12:20Z,1,14,14,,2,0
+67,2018-02-20T02:43:53Z,2018-02-20T15:32:32Z,2018-02-20T15:32:32Z,1,1,1,,2,0
+73,2018-03-06T15:33:00Z,2018-05-22T18:50:56Z,2018-05-22T18:50:56Z,4,21,26,"I’m not 100% sure on the wording for errorsn.rs but it kind of sounds understandable? Feel free to apply your native speaker super powers. :)
+I also took the liberty to update the links to the second edition of the book.
+Fixes #64",1,0
+93,2018-10-11T08:56:19Z,2018-10-11T12:04:08Z,2018-10-11T12:04:08Z,1,5,2,,1,2
+102,2018-11-26T15:50:30Z,2018-11-26T21:35:55Z,2018-11-26T21:35:55Z,13,26,4,"Sub READMEs contain the relevant resources from the main
+README of the web version. All second edition Rust Book links
+were updated to the 2018 edition.
+Fixed to typos in main README.md.",1,0
+106,2019-01-10T00:26:09Z,2019-01-23T21:04:02Z,2019-01-23T21:04:02Z,75,541,586,"this replaces old rustlings with a cli-based version that runs on the same exercises
+
+ finish up readme
+ improve exercise structure (add little ""test exercises"" after a couple of chapters)
+ go over every book link and update it
+ refactor that one us-centric exercise",4,0
+112,2019-01-29T20:20:10Z,2019-01-29T22:49:41Z,2019-01-29T22:49:41Z,2,0,0,Two readme files where badly spelled.,2,1
+115,2019-02-17T05:05:29Z,2019-02-17T11:38:40Z,2019-02-17T11:38:40Z,1,1,0,Add missing entrypoint.,2,0
+119,2019-03-13T14:29:18Z,2019-03-17T12:27:48Z,2019-03-17T12:27:49Z,1,15,1,,2,0
+120,2019-03-13T20:54:50Z,2019-03-16T11:54:10Z,2019-03-16T11:54:10Z,2,19,6,"When in watch mode, it's a pain to have to wait for all previous exercises to compile before the one you just saved compiles...so now it skips compiling any files up and to the one most recently saved.",3,0
+123,2019-03-17T02:18:07Z,2019-03-17T21:28:04Z,2019-03-17T21:28:04Z,1,9,0,"Before, rustlings would panic if it wasn't in the right directory. It
+took me a minute to figure out why, and this wasn't my first intro to
+Rust. It would probably help new users if they saw a helpful message
+instead of a stack trace.",2,2
+124,2019-03-17T02:23:21Z,2019-03-17T12:19:58Z,2019-03-17T12:19:58Z,1,1,1,,2,0
+131,2019-03-20T11:20:18Z,2019-03-20T20:22:05Z,2019-03-20T20:22:05Z,1,52,0,"This addresses issue #128.
+I would have liked to write some tests for the vercomp function I
+introduce, but there doesn't seem to be any CI setup yet?",2,1
+133,2019-03-23T20:20:53Z,2019-03-24T14:44:35Z,2019-03-24T14:44:35Z,43,0,0,Many of the source files under /exercises were executable.,2,1
+143,2019-04-11T23:12:09Z,2019-04-13T16:39:07Z,2019-04-13T16:39:07Z,6,161,128,"This PR should fix #126. The main solution to the issue was using canonicalize() on the paths we create for the exercises from info.toml and any user-specified paths, so that path ends_with matching will work correctly.
+As adding calls to the canonicalize function everywhere requires unwrapping, I also decided to extract a struct representing an exercise and use serde to deserialize the paths from the info.toml file up front. I also tried to move the path handling out into the exercise.rs file and down into main.rs so that it doesn't create as much clutter. There was already a lot of unwrapping and path handling in the other files and I felt like it was getting a bit too repetitive.
+If the approach is going too far (too many changes etc.) I'm happy to try to produce a smaller PR that fixes the bug without any refactoring.",3,5
+144,2019-04-21T22:15:47Z,2019-04-22T01:57:15Z,2019-04-22T01:57:15Z,2,8,2,"Hi !
+I played a bit with rustlings, and I felt that some exercises were incorrect because they passed the tests without me needing to edit the files!
+This gave me the feeling that the exercise was skiped! Especially when I use rustlings watch, it is easy to miss an exercise because the compilation error that is displayed is the one of the next exercise ...
+It is easy to identify ""broken"" exercises with:
+% find exercises -name ""*.rs"" | xargs -n 1 rustlings run
+...
+✅ Successfully ran exercises/move_semantics/move_semantics4.rs
+✅ Successfully tested exercises/test2.rs
+My suggestion is to make sure that these files trigger a compilation error by adding a simple syntax error (e.g. with ??? in the code that must change) so that our Rustacean can then play with it!",3,4
+154,2019-05-09T17:19:17Z,2019-05-22T08:53:47Z,2019-05-22T08:53:47Z,2,14,0,A previous version didn't run tests inside exercises. This pull request introduces one more test to cover such situation,2,0
+157,2019-05-12T12:59:18Z,2019-05-22T08:53:19Z,2019-05-22T08:53:19Z,1,1,1,"Add Result type signature as it is difficult for new comers to understand Generics and Error all at once.
+At first, I tried Result<String, Error> and got this.
+error[E0412]: cannot find type `Error` in this scope
+ --> exercises/error_handling/errors1.rs:9:62
+  |
+9 | pub fn generate_nametag_text(name: String) -> Result<String, Error> {
+  |                                                              ^^^^^ not found in this scope
+help: possible candidates are found in other modules, you can import them into scope
+  |
+1 | use std::error::Error;
+  |
+1 | use std::fmt::Error;
+  |
+1 | use std::io::Error;
+  |
+In the book, it talks about std::io::Error with Result which is a bit confusing. See https://doc.rust-lang.org/book/ch09-02-recoverable-errors-with-result.html
+It took me a long time to understand that Result can take whatever type as a second argument.
+Let me know your thoughts on how to improve this.",2,0
+163,2019-05-25T11:41:17Z,2019-05-25T14:00:14Z,2019-05-25T14:00:14Z,3,59,0,Thanks for rustlings! Here's a small contribution in return.,6,24
+164,2019-05-26T12:47:21Z,2019-05-26T14:16:18Z,2019-05-26T14:16:18Z,1,1,1,,3,4
+165,2019-05-26T13:00:10Z,2019-05-26T14:07:16Z,2019-05-26T14:07:16Z,2,3,3,The links had the 2018 book in them and they were outdated.,3,4
+170,2019-06-07T02:13:29Z,2019-06-11T13:02:18Z,2019-06-11T13:02:18Z,2,2,2,fixes #155,3,7
+177,2019-06-14T04:12:55Z,,2022-07-15T12:23:29Z,2,65,0,"Every good programming exercise book should include the fibonacci numbers!
+One possible solution:
+(0..i).fold((0, 1), |(a, b), _| (b, a + b)).1",8,8
+191,2019-07-11T22:20:31Z,2019-07-12T08:27:10Z,2019-07-12T08:27:10Z,1,1,1,Prevent a panic if the file triggering the watch event is gone.,3,4
+198,2019-07-26T23:58:55Z,2019-07-27T10:43:47Z,2019-07-27T10:43:47Z,2,11,2,"Fixes the bug referenced in #160, but does not address the larger feature work referenced by the issue.",3,4
+206,2019-08-03T06:42:32Z,2019-08-13T10:07:09Z,2019-08-13T10:07:09Z,1,8,3,"I'm pretty new to Rust. I tried installing rustlings for the first time and got this error:
+$> cargo install --force --path .
+error: `/Users/ajax/projects/rust/rustlings` is not a crate root; specify a crate to install from crates.io, or use --path or --git to specify an alternate source
+
+Caused by:
+  failed to parse manifest at `/Users/ajax/projects/rust/rustlings/Cargo.toml`
+
+Caused by:
+  editions are unstable
+
+Caused by:
+  feature `edition` is required
+
+this Cargo does not support nightly features, but if you
+switch to nightly channel you can add
+`cargo-features = [""edition""]` to enable this feature
+
+I'm not sure if the answer was to run rustup update but I noticed that I was running Rust 1.29.0, so updated to 1.36.0 and got it working. If there's a way to specify a minimum required version, pls let me know.
+Lastly, the whitespace changes were automatic from my editor. What's the convention here for making such updates? Thanks!",3,4
+208,2019-08-12T09:55:30Z,2019-08-12T15:26:41Z,2019-08-12T15:26:41Z,1,1,1,,3,4
+209,2019-08-18T00:26:57Z,2019-08-18T08:27:24Z,2019-08-18T08:27:24Z,3,26,6,"I noticed this issue and it seems like a similar one was raised/fixed in #160 this way. This is my first contribution to this repo (or any Rust project) so let me know if I messed up or need to fix anything!
+
+This commit converts primitive_types4 to a test and asserts that the
+slice given is equal to the expected slice.
+The intent of the primitive_types4 exercise appears to be to ensure the
+user understands inclusive and exclusive bounds as well as slice syntax.
+rustlings commands using compile do not verify that a specific
+println is reached and, in the case of watch and verify (but not
+run), they do not output the printlns at all.
+This fix is semantically similar to #198. It does not take a stance on
+the correct way to handle this for all exercises; see #127. There are
+likely other exercises whose intent are masked by this issue.",3,5
+212,2019-08-20T21:54:43Z,2019-08-21T11:03:40Z,2019-08-21T11:03:40Z,1,4,4,"fix(errorsn.rs) Update the deprecated syntax by adding dyn to trait objects.
+closes #211
+Related issue: #211",4,5
+213,2019-08-25T15:35:35Z,,2019-11-09T09:55:06Z,5,174,0,"Added 3 new exercises for enums, enums{1-3}.rs. Enums were used in some of the exercises but never taught. These 3 exercises cover putting elements into an enum, referencing elements in an enum, and a few of the types of elements you can have in an enum. All exercises closely follow the book and as such should be a good intro before the later lessons that use them.",4,3
+217,2019-09-07T16:19:31Z,2019-09-25T14:12:46Z,2019-09-25T14:12:46Z,1,1,1,Don't see why run should be past tense.  At least in my native General American dialect it shouldn't be.,3,4
+219,2019-10-21T12:38:54Z,2019-10-28T23:03:05Z,2019-10-28T23:03:05Z,3,50,5,Added one exercise for struct update syntax struct2.rs,3,5
+221,2019-10-24T12:56:36Z,2019-10-24T23:54:11Z,2019-10-24T23:54:11Z,1,1,1,,2,0
+224,2019-10-28T18:30:35Z,2019-11-09T09:46:11Z,2019-11-09T09:46:11Z,5,187,0,"Creates an exhaustive list of enum exercises. This goes through the basics of different ways to derive enums with mixed data type variants, as well as the use of the all important match operator.",3,8
+225,2019-10-29T03:13:53Z,2019-10-29T13:41:26Z,2019-10-29T13:41:26Z,1,1,1,"closes #194
+The author of issue #194 suggests that the wording of the comment is at
+least ambiguous about the desired results. I believe this change more
+clearly describes the expectation of the exercise.",5,8
+230,2019-11-11T14:24:35Z,2019-11-11T16:04:15Z,2019-11-11T16:04:16Z,60,309,12,"We've observed that learners can get confused when they do get everything right, but they still get errors... which come from the next exercise, no the one they just edited.
+This PR changes it so they have to confirm they want to move forward by removing the I AM NOT DONE comment.
+
+
+ The particular string is of course subject to bikeshed.
+
+Alternatives/doubts
+
+The coolest solution I could imagine would involve a proc-macro attribute #![ready(false)] that they could edit once they're done, but it's a bit complicated to set up.
+For now I've put I AM NOT DONE everywhere, I think it's what make more sense.",3,4
+231,2019-11-11T15:54:27Z,2019-11-11T16:56:09Z,2019-11-11T16:56:09Z,48,484,1704,"Breaking change. This removes hints from the end of files, and puts them into info.toml. You can now access hints using:
+rustlings hint <exerciseName>
+
+ALSO this changes the exercise system to index by name for run and hint, so:
+rustlings run exercises/if/if1.rs
+
+becomes
+rustlings run if1",3,12
+233,2019-11-11T17:05:48Z,2019-11-11T18:24:11Z,2019-11-11T18:24:12Z,1,18,0,"Addresses #190. From the backtraces shown there, it seems like we're not able to launch rustc (which is odd, given that they probably compiled and installed rustlings 🤷‍♀️)",3,4
+241,2019-11-18T17:19:44Z,2019-11-18T22:29:46Z,2019-11-18T22:29:47Z,2,36,8,"rustlings hint ... command is not convenient when doing exercises with rustlings watch.
+This PR makes it possible for user to type hint while running watch  and get hint text for exercise which is currently failing.
+e.g.
+...
+  --> exercises/variables/variables1.rs:13:36
+   |
+13 |     println!(""x has the value {}"", x);
+   |                                    ^ not found in this scope
+
+error: aborting due to 2 previous errors
+
+For more information about this error, try `rustc --explain E0425`.
+
+type 'hint' to get help:
+hint
+Hint: The declaration on line 12 is missing a keyword that is needed in Rust
+to create a new variable binding.",3,4
+242,2019-11-24T08:29:13Z,2019-11-25T12:16:52Z,2019-11-25T12:16:52Z,1,1,0,"After being stuck on exercise enums3.rs for about an hour or two, having read the entire chapter on enums 2-3 times, and still being unable to complete the exercise, i started broadening my reading. I finally found the answer in the rust docs via google.",2,0
+245,2019-12-08T07:25:37Z,2019-12-16T11:51:03Z,2019-12-16T11:51:03Z,1,1,1,,2,0
+249,2019-12-16T13:41:07Z,2019-12-16T16:47:28Z,2019-12-16T16:47:28Z,7,308,0,"This pull request adds exercises for converting values into specific types. The exercises uses string to struct type conversions, but most of the traits in the exercises can handle more than just string parsing and conversions.
+The following traits are covered:
+
+From and Into
+TryFrom and TryInto
+AsRef
+FromStr
+
+The as operator is also covered.",3,10
+253,2019-12-22T20:33:01Z,2019-12-28T20:08:38Z,2019-12-28T20:08:38Z,1,27,6,"The completion message is shown only once all exercises succeed and are
+not annotated with ""I AM NOT DONE."" The watch command will also exit
+closes #251
+Let me know if there are any tests I could add or if the completion message should be tweaked!",4,8
+256,2019-12-24T02:37:40Z,2019-12-24T23:59:35Z,2019-12-24T23:59:35Z,1,4,2,,2,0
+258,2019-12-30T00:23:54Z,2019-12-30T15:48:05Z,2019-12-30T15:48:05Z,2,2,2,,2,0
+263,2020-01-11T08:48:25Z,2020-01-11T11:23:24Z,2020-01-11T11:23:24Z,1,3,3,Some of the versions of dependencies pulled in the older winapi / kernel32 libraries. Kernel32 is no longer needed as it's all in the new version of winapi. This did not work on windows aarch64 and thus prevent rustlings from working natively on devices like the Surface Pro X.,2,0
+266,2020-01-25T08:28:59Z,2020-01-25T12:27:53Z,2020-01-25T12:27:53Z,1,3,1,I jumped in to fix a broken sentence; if there needs to be an associated GH issue please let me know. Thanks.,2,0
+271,2020-02-20T19:17:41Z,2020-02-26T11:57:24Z,2020-02-26T11:57:24Z,5,167,93,"After working a bit on #270, I realized that it'd be useful to first perform a minor refactor of exercise evaluation.
+
+Now we have standard methods to compile + execute that return Results.
+Success/failure messages are standardized.",3,5
+272,2020-02-21T17:58:40Z,2020-02-21T21:05:32Z,2020-02-21T21:05:32Z,1,4,4,"I initially ran the installation script without rust installed. The fact that the error message was labeled with WARNING made me unsure whether installation was successful or I needed to re-run after installing rust. There's an error code returned on fatal errors, but this change will make things clearer.",3,4
+273,2020-02-22T13:09:46Z,2020-02-22T14:34:52Z,2020-02-22T14:34:52Z,1,1,1,,2,0
+274,2020-02-25T09:55:14Z,2020-02-25T21:36:23Z,2020-02-25T21:36:23Z,3,101,0,I hope this doesn't step on any toes but I wanted to try the traits exercises from #216 so I updated them to match the new structure with hints included in info.toml,3,4
+278,2020-02-26T20:55:29Z,2020-04-07T09:26:49Z,2020-04-07T09:26:49Z,3,65,34,"New: mode = ""output.
+If output = ""foobar"" is specified for an ""output"" exercise, it runs a ""test"" against the expected output.
+An ""output"" exercise prints its output in the 🎉 Move on when you're ready screen.
+
+
+ Screenshots 
+
+
+
+After playing a while with this, I'm not entirely sold on the idea 😅 I think having expected output could be useful in a very exploratory exercise like ""Get main to print Hello world! to the screen"". But, in general, I feel like ""test"" exercises guide you better toward the answer. Take structs1.rs for instance and its hypothetical alternative:
+
+ structs1.rs 
+struct ColorClassicStruct {
+    // TODO: Something goes here
+}
+
+struct ColorTupleStruct(/* TODO: Something goes here */);
+
+#[derive(Debug)]
+struct UnitStruct;
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn classic_c_structs() {
+        // TODO: Instantiate a classic c struct!
+        // let green =
+
+        assert_eq!(green.name, ""green"");
+        assert_eq!(green.hex, ""#00FF00"");
+    }
+
+    #[test]
+    fn tuple_structs() {
+        // TODO: Instantiate a tuple struct!
+        // let green =
+
+        assert_eq!(green.0, ""green"");
+        assert_eq!(green.1, ""#00FF00"");
+    }
+
+    #[test]
+    fn unit_structs() {
+        // TODO: Instantiate a unit struct!
+        // let unit_struct =
+        let message = format!(""{:?}s are fun!"", unit_struct);
+
+        assert_eq!(message, ""UnitStructs are fun!"");
+    }
+}
+
+
+ structs1.rs with ""output"" 
+struct ColorClassicStruct {
+    // TODO: Something goes here
+}
+
+struct ColorTupleStruct(/* TODO: Something goes here */);
+
+#[derive(Debug)]
+struct UnitStruct;
+
+fn main() {
+    // TODO: Instantiate a classic c struct!
+    // let green =
+    println!(""green.name = {}"", green.name);
+    println!(""green.hex = {}"", green.hex);
+
+    // etc.
+}
+
+I don't think it works quite as well, since the learner has no clue what the value of green.name should be until they get the program to compile and see the Expected/Actual error message. And it'll be way harder to reach that point without the clue on what the fields of ColorClassicStruct should be. I suspect we could blame the exercise itself. Others, like if1.rs, might work better.
+What I do think it works great is non-expected output exercises. Most of the ""compile"" exercises felt a bit anti-climatic. Once you get the program to compile, you can still play with it thanks to I AM NOT DONE, but you don't see the results of your tweaks. Even if we don't adopt mode=""output"", I think the default behavior of ""compile"" should be this.
+So, summary of options:
+
+Scrub this, make ""compile"" always print output.
+Keep this PR as it is. It might be useful in future exercises, or maybe you have a strong opinion that some mode = ""test"" exercises should be converted.
+
+If we keep it, we could still make ""compile"" always print as in (1) and
+reserve mode = ""output"" for mandatory expected output (i.e. change Mode::Output(Option<String>) to Mode::Output(String)).",2,4
+280,2020-02-28T00:30:21Z,2020-04-05T12:40:34Z,2020-04-05T12:40:34Z,5,125,0,I've added a few exercises on generics since I was looking for some while I was going through rustlings alongside the book. I hope they can be of use (and that generics wasn't a deliberate omission 😄)!,4,1
+282,2020-03-05T20:55:16Z,2020-04-05T13:58:09Z,2020-04-05T13:58:10Z,4,47,1,I have added a basic Option exercise. I plan to add more exercises if this gets accepted. Let me know what to fix / change. I copied some formatting stuff from other exercises.,2,5
+284,2020-03-10T22:23:27Z,2020-03-11T15:16:52Z,2020-03-11T15:16:52Z,1,7,0,This PR adds an additional test to meet this exercise rule.,3,4
+288,2020-03-26T14:23:58Z,2020-03-26T20:16:53Z,2020-03-26T20:16:53Z,1,1,1,,2,0
+290,2020-04-06T22:51:26Z,2020-04-07T18:16:10Z,2020-04-07T18:16:10Z,2,40,0,"I added another exercise for Option, as promised.
+Let me know if there are any problems with this.
+This one is specifically about if let / while let",2,4
+292,2020-04-07T15:00:59Z,2020-04-08T09:23:49Z,2020-04-08T09:23:50Z,1,0,1,"As indicated in #259 , I found it confusing to have 2 comments as the code wouldn't compile unless I solved both issues (I used the script from #281 to remove a comment and use :wn to go to next exercise, hence this tripped me).",3,4
+295,2020-04-08T04:52:00Z,2020-04-11T06:58:25Z,2020-04-11T06:58:25Z,1,9,0,"Additionally to running clippy, also compile the exercise file so that
+rustling run clippy1 works after a successful completion of the
+exercise.",3,7
+351,2020-04-12T15:37:49Z,2020-04-12T17:35:21Z,2020-04-12T17:35:21Z,2,3,2,chore: update variables5.rs book link,3,2
+352,2020-04-14T07:03:25Z,2020-04-14T08:13:20Z,2020-04-14T08:13:21Z,2,24,0,"The 'Variables and Mutability' section of The Book introduces the const keyword. However, that seemed to not be covered by the variables exercises.",2,4
+365,2020-04-21T12:39:05Z,2020-05-19T15:49:56Z,2020-05-19T15:49:56Z,1,3,5,update genercis to exercise to address the point made in #362,2,0
+372,2020-04-27T18:28:59Z,2020-05-03T17:44:26Z,2020-05-03T17:44:26Z,2,80,0,"Added a new exercise related to structs, focused around methods implementations.",3,3
+373,2020-04-28T01:43:03Z,2020-06-10T08:51:03Z,2020-06-10T08:51:03Z,1,1,1,"To run Invoke-WebRequest you have to have the Internet Explorer Feature enabled, and you must have opened Internet Explorer at least once, which some people may not have (me for example).
+If you don't you will receive an error and the install will fail.
+This also simplifies the download command (imo).
+Start-BitsTransfer is a drop in replacement which doesn't need you to have internet explorer enabled.
+apologies if the commit naming is wrong, i wasn't sure what commit type this would fall under.",4,4
+376,2020-04-29T19:15:05Z,2020-04-30T07:21:17Z,2020-04-30T07:21:18Z,1,17,1,"The bashinstallation script is edited to make sure that we're checking that there is an installation of python available on the machine.
+We start by checking for python3, then falling back to python. If neither is available, we check one last time for python2. If none of these is successful, we exit the script with a return code of 1.
+closes #374
+Thank you,
+Abdou",2,0
+377,2020-04-30T02:18:32Z,2020-04-30T07:21:43Z,2020-04-30T07:21:43Z,4,14,12,"/macros/README.md: Typo ""modules"" => ""macros""
+iterators2.py: Reduce line length to <90-char width.
+iterators4.py: Update 'fun' => 'challenge' as per PR#177
+rustlings hint iterators4: improve clarity",2,0
+383,2020-05-02T23:43:17Z,2020-05-03T17:44:09Z,2020-05-03T17:44:09Z,3,46,1,"This PR implements two things:
+
+A new if2 exercise that shows the type of compiler message you get if your conditional branches don't return the same type as well as the usage of else if
+A small change to the option1 exercise that I think makes it very confusing (no problem dropping this one if there's disagreement here).",3,3
+385,2020-05-04T23:01:01Z,2020-05-05T17:50:29Z,2020-05-05T17:50:29Z,1,1,1,,4,2
+388,2020-05-06T03:38:49Z,2020-05-06T19:12:15Z,2020-05-06T19:12:16Z,1,8,2,"I went way off into the weeds on this. Trying harder to stop others.
+#387",2,2
+389,2020-05-09T19:12:48Z,2020-05-10T11:21:30Z,2020-05-10T11:21:30Z,1,3,1,"Array initialization / default variables is unrelated to Options and not overtly mentioned beforehand.
+As the question is about Options, it is easy for someone new to Rust to misunderstand and look elsewhere for a solution.",2,2
+400,2020-05-16T12:17:52Z,2020-05-16T20:48:19Z,2020-05-16T20:48:19Z,1,2,2,"I think a simple add of ""TODO"" will make this exercise look more in line with the other exercises.
+Other exercises included a ""TODO"" before when the programmer was expected to enter a solution.",2,2
+402,2020-05-16T22:12:25Z,2020-05-19T16:47:44Z,2020-05-19T16:47:44Z,6,20,20,"title, refer to
+#244",4,3
+409,2020-05-26T20:51:55Z,2020-05-30T15:58:16Z,2020-05-30T15:58:17Z,4,74,0,"Having completed all of the existing exercises, I noticed there wasn't one with the Box type.
+Although this exercise alone might not completely solve #403, I think it's a start 🦀 .",5,8
+410,2020-05-27T08:57:02Z,2020-05-28T22:33:01Z,2020-05-28T22:33:01Z,1,1,1,"If you decide to print the elements in numbers, it will display only zeros, which can be confusing.
+This change makes the numbers a little bit bigger.
+printing: 0
+printing: 0
+printing: 0
+printing: 0
+printing: 0
+
+vs
+
+printing: 0
+printing: 19
+printing: 38
+printing: 57
+printing: 77",3,1
+413,2020-05-28T06:41:23Z,2020-05-28T08:15:55Z,2020-05-28T08:15:55Z,1,8,6,Makes the line length consistent with the other exercises.,2,0
+416,2020-05-29T03:27:32Z,2020-05-30T15:58:31Z,2020-05-30T15:58:32Z,1,20,0,Noticed that the traits directory is missing a README.,3,0
+420,2020-06-03T17:02:56Z,2020-06-03T18:07:07Z,2020-06-03T18:07:07Z,1,1,1,rustlings run tests1 wasn't working,2,0
+422,2020-06-04T15:44:14Z,2020-06-12T21:04:52Z,2020-06-12T21:04:52Z,8,164,42,"This new feature can be accessed by invoking rustlings with --nocapture.
+closes #262
+MINOR CHANGES:
+* Documentation added to source code under src
+* Both unit and integration tests for --nocapture have been added.
+BREAKING CHANGES:
+The following function take a new boolean argument:
+* run
+* verify
+* test
+* compile_and_test
+compile_and_test is the function that uses this new boolean argument to determine whether or not to display the output from the test harnesses.
+Please feel free to reach out with any questions.
+Thank you,
+Abdou",4,4
+428,2020-06-08T11:52:48Z,2020-06-13T20:15:57Z,2020-06-13T20:15:57Z,1,12,0,,3,2
+429,2020-06-08T13:27:33Z,2020-06-14T10:15:36Z,2020-06-14T10:15:36Z,1,1,0,"Ensure that std::sync::Arc is actually used, as this exercise can be compiled using things already learnt in previous exercises.",3,1
+433,2020-06-11T16:50:57Z,2020-06-21T22:09:09Z,2020-06-21T22:09:09Z,1,19,19,"rename confusing ""from"" and ""to"" to sender_country and recipient_country as suggested",4,1
+448,2020-06-21T18:15:33Z,,2022-02-04T13:54:44Z,11,447,347,"This enables analyzers to work correctly as if the exercises folder were a true Cargo project.
+
+It is an ""orphan"" Cargo.toml, completely unrelated to the root Cargo.toml. This has pros and cons.
+
+It could be potentially confusing to learners, since they have to open the exercises folder for the analyzer to work.
+OTOH it does not ""infect"" the main project build with tons of targets, many of them in a non-compilable state.
+
+
+The folder structure is unchanged! 🎉",6,10
+457,2020-06-30T14:59:10Z,2020-07-08T09:56:44Z,2020-07-08T09:56:44Z,1,1,1,Follow #385 did.,2,0
+458,2020-07-01T07:07:26Z,2020-07-01T08:19:46Z,2020-07-01T08:19:46Z,1,1,1,"Fixes typo in hint. Makes more grammatical sense changing then to than.
+Resolves #455.",2,0
+464,2020-07-09T04:17:58Z,2020-07-09T07:25:51Z,2020-07-09T07:25:51Z,1,1,1,"It should either be keeps it or keep them, but keep it is grammatically wrong :)",2,1
+467,2020-07-11T02:24:57Z,2020-07-12T07:44:11Z,2020-07-12T07:44:12Z,1,11,0,"Resolves #459.
+Encourages the reader in terms of what to do after completing Rustlings, and then provides clear uninstallation instructions, if they'd like to do so.",3,1
+468,2020-07-11T03:28:48Z,2020-07-11T21:12:59Z,2020-07-11T21:12:59Z,10,34,29,"Add newline after ""I AM DONE"" in exercises for consistency
+Remove trailing whitespace from exercises",3,2
+469,2020-07-13T01:41:02Z,2020-07-13T09:39:06Z,2020-07-13T09:39:06Z,1,6,0,"It seems to me like if we're already testing for an overly long slice, we might as well check for one that is too short as well.",2,0
+471,2020-07-16T18:48:32Z,2020-07-23T17:21:16Z,2020-07-23T17:21:16Z,1,2,0,How cool is this? One click and go.,2,0
+473,2020-07-20T22:33:30Z,2020-07-23T17:20:22Z,2020-07-23T17:20:22Z,2,13,0,We could also add a link to the browser section if the repl.it version gets merged.,2,2
+474,2020-07-21T22:04:50Z,2020-07-23T18:23:28Z,2020-07-23T18:23:28Z,1,5,2,feat(cli): Added 'cls' command to 'watch' mode,2,4
+476,2020-07-24T08:08:40Z,2020-07-24T11:23:02Z,2020-07-24T11:23:02Z,1,1,0,When one use vscode as Rust dev IDE，it's useful to add .vscode to .gitignore,2,0
+484,2020-07-31T16:33:25Z,2022-04-21T09:36:39Z,2022-04-21T09:36:39Z,2,23,12,"closes #360
+BREAKING CHANGE: verify() has a new function signature so it can
+know the current completion progress",2,4
+486,2020-08-02T15:02:53Z,2022-02-04T14:00:25Z,2022-02-04T14:00:25Z,1,1,0,Signed-off-by: zydxhs johnsmithcry@163.com,2,0
+487,2020-08-03T20:19:00Z,2020-08-03T23:57:04Z,2020-08-03T23:57:04Z,1,1,1,I've noticed this in my changed files while going through the exercises.,2,0
+488,2020-08-04T03:04:28Z,,2023-09-05T08:45:05Z,1,90,141,"Run ""install.sh"" through shellcheck and implement the suggested changes, bar one regarding the use of ls.
+Ensure the git clone ... operation is successful before continuing.
+Add more descriptive comments.
+Refactor and simplify code.",2,3
+489,2020-08-04T12:00:33Z,2020-09-18T13:23:29Z,2020-09-18T13:23:29Z,3,45,2,"Hi all, hopefully this exercise would be a gentle but informative intro into iterators.",3,0
+498,2020-08-17T00:58:51Z,2020-08-17T10:48:42Z,2020-08-17T10:48:42Z,1,1,1,fixes a small math error where some indices will get double counted,3,3
+502,2020-08-24T21:38:15Z,2020-08-25T08:45:13Z,2020-08-25T08:45:13Z,1,5,2,"I actually struggled because I overlooked the fact that I needed to change the 2.1 to ""A+"".
+So I wanted to make things clearer for future rustlings.",2,0
+504,2020-08-25T14:40:46Z,2020-08-25T19:05:17Z,2020-08-25T19:05:17Z,1,10,10,"Adding question marks for consistency.
+Would it be easier to understand quiz2 ?
+Closes#496",3,1
+506,2020-08-27T02:22:03Z,2020-08-27T09:21:10Z,2020-08-27T09:21:10Z,1,2,2,"Did you mean this? I'm new to rust and this test passed right away, so unsure what the intention was.",2,1
+509,2020-08-27T22:24:30Z,2020-09-19T19:22:56Z,2020-09-19T19:22:56Z,1,4,4,"A small follow-up to PR #432, where the price of kg was changed to price per gram to avoid usage of floats. The variable identifier should therefore also be changed, because cents_per_kg would indicate 3/1000 and not 3.",3,1
+518,2020-09-14T16:01:59Z,2020-09-25T11:39:52Z,2020-09-25T11:39:52Z,1,1,1,"A typo in the fn test_bad_age() hint message had a point rather than comma
+Prev:
+// Test that ""Mark.twenty""
+Current:
+// Test that ""Mark,twenty""",4,4
+521,2020-09-21T19:48:38Z,,2021-05-13T18:36:41Z,3,36,1,"#482
+This adds an example for reading in a file from the filesystem! Please let me know if I can do anything else here!",3,1
+522,2020-09-21T20:24:33Z,2020-09-27T15:05:43Z,2020-09-27T15:05:43Z,2,6,0,#434,4,0
+541,2020-09-27T05:57:07Z,2020-12-07T14:37:20Z,2020-12-07T14:37:20Z,2,279,328,"Exercises are not organized in order for rustlings watch and it was hard to follow the exercises because we always had to jump back and forth between chapters.
+
+Updated exercise order to match that of book chapters
+Added exercise to book chapter mapping table to exercise README.md",4,11
+545,2020-10-01T03:08:37Z,2020-10-01T10:17:06Z,2020-10-01T10:17:06Z,1,3,3,"fix(variables5) : make shadowing solution more prominent
+closes #375",2,0
+546,2020-10-02T02:13:05Z,2020-10-02T10:52:34Z,2020-10-02T10:52:35Z,1,2,2,,2,0
+548,2020-10-04T14:45:55Z,2020-10-10T14:04:19Z,2020-10-10T14:04:19Z,1,8,3,"To keep constancy with primitive_types4.rs I suggest to add a test in primitive_types6.rs this suggestion comes from my students because some students were just typing any numbers.
+Also added a little indication in order to avoid passing solution with just typing the number. Also it's possible to type out numbers.??? to avoid this possible unexpected outcome I got it in class this week.
+If it's not an issue or if this not merge-able in this state I am open to discussion! :)",3,9
+553,2020-10-09T15:36:31Z,2020-10-10T11:11:57Z,2020-10-10T11:11:57Z,1,1,1,"The second test is meant to test passing an odd result, so let's make the name reflect that.",2,0
+561,2020-10-14T06:27:21Z,2020-10-14T15:22:50Z,2020-10-14T15:22:50Z,1,2,2,"It appears that #548 (thanks for the new test!) introduced a parse error and warning when the actual exercise is completed correctly.  These commits correct the parse error (missing comma) and remove the potentially distracting unused doc comment warning.
+Output when the let second = ???; is corrected:
+⚠️  Compiling of exercises/primitive_types/primitive_types6.rs failed! Please try again. Here's the output:
+error: no rules expected the token `""This is not the 2nd number in the tuple!""`
+  --> exercises/primitive_types/primitive_types6.rs:15:9
+   |
+14 |     assert_eq!(2, second
+   |                         - help: missing comma here
+15 |         ""This is not the 2nd number in the tuple!"")
+   |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ no rules expected this token in macro call
+
+warning: unused doc comment
+  --> exercises/primitive_types/primitive_types6.rs:11:5
+   |
+11 |     /// Replace below ??? with the tuple indexing syntax.
+   |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+12 |     let second = numbers.1;
+   |     ----------------------- rustdoc does not generate documentation for statements
+   |
+   = note: `#[warn(unused_doc_comments)]` on by default
+
+error: aborting due to previous error; 1 warning emitted",3,2
+571,2020-10-26T09:58:55Z,2020-11-07T13:01:40Z,2020-11-07T13:01:40Z,1,56,37,"Hello everyone 😄. I was trying to resolve the try_from_into exercise and found out that I passed all the tests if I sum up for example all elements in array and test if it is <= 765 or >= 0. But if we sum up (255 + 255 + (-1)) it gives us a good result but the third value is negative, so we should not pass it.
+I added 3 tests for each type to prevent users pass this type of errors.
+Example for array:
+// Array implementation
+impl TryFrom<[i16; 3]> for Color {
+    type Error = String;
+    fn try_from(arr: [i16; 3]) -> Result<Self, Self::Error> {
+        if arr[0] + arr[1] + arr[2] <= 765 && arr[0] + arr[1] + arr[2] >= 0 {
+            let c = [arr[0] as u8, arr[1] as u8, arr[2] as u8];
+            Ok(Color {
+                red: c[0],
+                green: c[1],
+                blue: c[2],
+            })
+        } else {
+            Err(""NOP"".to_string())
+        }
+    }
+}
+This code passes all the tests, but if we add test with [-1, 255, 255] it does not pass 👍.
+I'm open for discussion if it is not merge-able to correct ! 😃",4,7
+572,2020-10-26T13:47:05Z,2020-10-30T19:28:47Z,2020-10-30T19:28:47Z,6,264,0,"Since Vec and HashMap are two fundamental data structures that are used often in every programming languages, I added 4 new exercises for them.
+
+The ""collections"" exercises has been added after the ""modules"" and before the ""macros"" exercises.
+vec1.rs and vec2.rs for exercises related to Vectors. First exercise focuses on declaration of vectors and second exercise focuses on iteration and mutability.
+hashmap1.rs and hashmap2.rs exercises for HashMaps. First exercise focuses on declaration and insertion. Second exercise focuses on entry() API.
+
+Open to any improvements or suggestions!",3,6
+573,2020-10-28T21:57:08Z,2020-11-08T09:31:46Z,2020-11-08T09:31:46Z,1,6,5,"The hint for structs1 improperly stated that there are 2 types of structs. Updated to clarify there are 3.
+I changed the link to the page related to the exercise directly, though the one previous link is not necessarily wrong as it is one page before the link I prefer.",3,1
+574,2020-10-30T13:42:15Z,2020-10-31T11:57:34Z,2020-10-31T11:57:34Z,1,7,2,Fixes #542,2,0
+578,2020-11-04T22:06:41Z,2020-11-07T12:54:15Z,2020-11-07T12:54:15Z,1,1,1,grammar fix in the description,2,0
+581,2020-11-05T23:58:33Z,2020-11-10T17:36:19Z,2020-11-10T17:36:20Z,1,8,0,"closes #576
+I wasn't sure if I wanted to open a PR for this, since I wasn't sure if this was a feature we'd want to add to the project. Opening it up to gain visibility and get more feedback.",3,0
+582,2020-11-06T00:31:38Z,2020-11-07T12:53:36Z,2020-11-07T12:53:36Z,1,6,1,closes #472,2,0
+584,2020-11-08T14:12:21Z,2020-11-08T18:30:40Z,2020-11-08T18:30:40Z,1,5,5,Description update,2,0
+586,2020-11-11T04:57:39Z,2020-11-11T22:06:15Z,2020-11-11T22:06:15Z,1,20,0,Crab?,4,2
+587,2020-11-12T05:03:50Z,2020-11-12T15:36:50Z,2020-11-12T15:36:50Z,1,3,3,,3,1
+591,2020-11-28T16:06:54Z,2020-12-08T09:08:26Z,2020-12-08T09:08:26Z,1,2,1,"I also ran into difficulty with this exercise. While looking for a hint, I saw this thread issue comment: #287 (comment)
+Since 6 is just the appropriate number and has nothing to do with the solution, and since when we're frustrated we have a tendency to grasp at straws, I think it would help a tiny bit to eliminate that possible source of uncertainty.",3,2
+592,2020-11-29T01:36:58Z,2020-12-06T14:09:46Z,2020-12-06T14:09:46Z,1,1,1,The previous test would stop comparing elements in array a and vec v upon reaching the last element of either. This resulted in the test passing even if v did not contain all the elements in a. This change to the test fixes that bug and should only pass if all the elements in a and v are present and equal.,4,1
+598,2020-12-12T18:38:29Z,2020-12-13T01:30:57Z,2020-12-13T01:30:58Z,2,64,0,Fix to this PR #541,4,0
+599,2020-12-13T02:44:50Z,2021-01-17T11:37:59Z,2021-01-17T11:37:59Z,4,207,20,"The PR is two-fold:
+
+rustlings list should now display more than just the exercise names. Information such as file paths and exercises statuses should be displayed. The --paths option limits the displayed fields to only the path names; while the --names option limits the displayed fields to only exercise names. You can also control which exercises are displayed, by using the --filter option, or the --solved or --unsolved flags.
+
+Sample invocations:
+# Display exercises that deal with traits, or enums, or structs.
+rustlings list --filter ""trait,enum,struct""
+
+# Sample output:
+# Name             	Path                                          	Status
+# structs1         	exercises/structs/structs1.rs                 	Pending
+# structs2         	exercises/structs/structs2.rs                 	Pending
+# structs3         	exercises/structs/structs3.rs                 	Pending
+# enums1           	exercises/enums/enums1.rs                     	Pending
+# enums2           	exercises/enums/enums2.rs                     	Pending
+# enums3           	exercises/enums/enums3.rs                     	Pending
+# traits1          	exercises/traits/traits1.rs                   	Pending
+# traits2          	exercises/traits/traits2.rs                   	Pending
+
+# Display only exercises pending to be solved
+rustlings list --unsolved
+
+# Sample output:
+# Name             	Path                                          	Status
+# structs2         	exercises/structs/structs2.rs                 	Pending
+# structs3         	exercises/structs/structs3.rs                 	Pending
+# enums1           	exercises/enums/enums1.rs                     	Pending
+# enums2           	exercises/enums/enums2.rs                     	Pending
+# enums3           	exercises/enums/enums3.rs                     	Pending
+# modules1         	exercises/modules/modules1.rs                 	Pending
+# modules2         	exercises/modules/modules2.rs                 	Pending
+# collections1     	exercises/collections/vec1.rs                 	Pending
+# collections2     	exercises/collections/vec2.rs                 	Pending
+# collections3     	exercises/collections/hashmap1.rs             	Pending
+# collections4     	exercises/collections/hashmap2.rs             	Pending
+This portion should also close #281.
+Some shell utility use cases:
+
+Fetching pending exercise file paths with the keyword ""conversion"" to pass to my editor:
+
+vim $(rustlings list --filter ""conversion"" --paths --unsolved)
+
+Fetching exercise names with keyword ""conversion"" to pass to rustlings run:
+
+for exercise in $(rustlings list --filter ""conversion"" --names)
+do
+    rustlings run ${exercise}
+done
+
+The PR should also fix #465, and will likely fix #585, as well. The bug mentioned in those issues has to do with the way the watch command handler fetches the pending exercises.
+Going forward, the least recently updated exercises along with all the other exercises in a pending state are fetched.
+
+@fmoko @jrvidal if you've got some time, I'd love an eye on this. If there is anyone else with some experience on (or interest in) the CLI component, please feel free to let me know what you think.
+Thanks,
+Abdou",3,0
+605,2020-12-26T19:48:19Z,2020-12-27T11:36:39Z,2020-12-27T11:36:39Z,1,1,1,"Now trigger this error:
+error: expected type, found `)`
+  --> exercises/functions/functions2.rs:10:16
+   |
+10 | fn call_me(num:) {
+   |                ^ expected type",3,0
+606,2020-12-27T09:52:25Z,,2020-12-31T17:27:51Z,1,2,0,I added a sentence to the Windows section how to solve a permission error caused by a virusscanner.,2,15
+608,2020-12-30T03:26:00Z,2022-02-04T14:12:02Z,2022-02-04T14:12:02Z,1,1,1,"as a totally newbie to Rust, I don't know panic statement from https://doc.rust-lang.org/book/ and rustlings in the beginning. After a hard searching of [should_panic], then I figure out panic statement.
+So it's helpful to tell the learner that write a panic statement here.",4,4
+609,2020-12-30T21:56:42Z,2020-12-31T15:12:15Z,2020-12-31T15:12:15Z,1,1,1,,2,0
+615,2021-01-03T11:48:50Z,2021-01-04T13:12:11Z,2021-01-04T13:12:11Z,1,1,2,"Option::flatten is so useful, I thought I would mention it as an alternative to ""stacking Options"".
+Thanks for considering this, I've been having fun with rustlings and hope to make more substantial contributions in the future. 😄",2,2
+617,2021-01-06T01:53:05Z,2021-01-06T09:12:34Z,2021-01-06T09:12:34Z,1,1,1,,2,0
+618,2021-01-06T12:47:50Z,2021-01-06T15:54:16Z,2021-01-06T15:54:16Z,1,1,1,,2,2
+622,2021-01-08T15:15:43Z,2021-01-08T18:18:25Z,2021-01-08T18:18:25Z,2,26,0,"🦀 Suggested and resolves #621, add unit test checking trailing comma and some string.",2,0
+626,2021-01-20T23:15:43Z,2021-01-21T13:10:26Z,2021-01-21T13:10:26Z,1,15,21,"The steps currently tell the user to return an error but the tests check for panic.
+This updates the instructions to make it clearer that if the extraction/parsing fails, a panic should be raised",3,3
+635,2021-01-30T04:02:41Z,2021-01-30T16:12:07Z,2021-01-30T16:12:07Z,1,1,1,,3,2
+640,2021-02-06T22:02:13Z,2021-02-07T11:22:14Z,2021-02-07T11:22:14Z,1,1,1,"Removed redundant use of ""instead""",2,2
+642,2021-02-09T23:26:14Z,2021-02-10T09:36:04Z,2021-02-10T09:36:05Z,1,3,3,Modified Adding an exercise section to improve clarity.,2,2
+644,2021-02-09T23:42:17Z,2021-02-10T09:37:14Z,2021-02-10T09:37:14Z,2,2,2,"Updated main.rs to conform to lint clippy::len_zero.
+Updated integration_tests.rs to conform to lint clippy::expect_fun_call.",2,0
+646,2021-02-10T23:06:22Z,2021-04-21T08:10:50Z,2021-04-21T08:10:50Z,2,141,1,"Added an iterator exercise that counts values in a hash map that equal a given value.
+Incorporates more iterator methods into the exercises. Provides a use case for the fold method.",3,4
+648,2021-02-12T02:37:16Z,2021-04-20T09:24:10Z,2021-04-20T09:24:10Z,2,33,24,"Moved all errors out of tests and into the base module.
+The exercise compiles after step 1 allowing the user to test capitalize_first. The remaining steps fix the other two failing tests.
+The exercise still showcases the power of collect without requiring the user to complete the entire exercise before checking their work.
+The hint to solve the capitalize_first function was moved to the hint in info.toml.
+Closes #359",2,0
+649,2021-02-12T20:50:43Z,2021-04-20T09:22:39Z,2021-04-20T09:22:39Z,2,34,25,"Adapted all but one compiler error into logic errors. The exercise can be tested after completing step one, without the need for the tests to be commented out.
+The assertions against debug output are kept to allow the code to compile before result_with_list and list_of_results are completed. They also prevent the compiler from revealing the answer too eagerly.
+﻿",2,0
+652,2021-02-15T14:49:31Z,2021-04-20T09:19:24Z,2021-04-20T09:19:24Z,1,1,0,"I was unable to do structs3 exercise until I read chapter 5.3 of the book. Hence, 5.3 should be in the structs README :)",2,2
+653,2021-02-17T02:42:37Z,,2021-07-09T10:25:07Z,1,4,4,,3,1
+654,2021-02-17T17:07:24Z,2021-02-21T20:50:17Z,2021-02-21T20:50:17Z,1,4,4,typos in the comments,3,0
+656,2021-02-24T21:04:18Z,2021-02-25T10:20:40Z,2021-02-25T10:20:40Z,1,1,1,There R spelling errors that need fixing. 😄,2,2
+660,2021-02-27T20:21:10Z,2021-04-20T09:15:50Z,2021-04-20T09:15:50Z,1,1,1,"The test at_least_five_types_of_fruits implies that there should be at least five types of fruit in the basket, but the test is actually checking for exactly five types of fruit, which was a bit misleading for newcomers like me :)
+A simple change from == to >= should do the trick and properly check for the at least 5 condition.",3,2
+661,2021-03-05T22:39:50Z,2021-03-12T17:36:35Z,2021-03-12T17:36:35Z,1,10,0,"Current version of structs3 exercise allows naive implementation of is_international. Tests pass if we merely return true. I added a test that creates a domestic package (i.e. sender and receiver country are the same)
+More importantly, as someone new to Rust I wasn't sure if Strings get compared ""by reference"" or ""by value"", so I wondered if
+    fn is_international(&self) -> bool {
+        self.sender_country != self.recipient_country
+    }
+would just always return true (because they're objects on two different parts of the heap). Adding my test for a local package means my above implementation would be wrong if Strings weren't compared by value.",2,2
+663,2021-03-08T23:53:02Z,2021-03-13T11:14:44Z,2021-03-13T11:14:44Z,1,1,1,,2,0
+664,2021-03-09T00:14:51Z,2021-03-13T11:14:03Z,2021-03-13T11:14:03Z,1,4,3,,2,0
+668,2021-03-13T11:46:05Z,2021-07-05T16:56:34Z,2021-07-05T16:56:34Z,1,1,1,ExecutionPolicy to RemoteSigned command must be fixed because the old command was getting denied access to change the Execution Policy property,2,2
+672,2021-03-15T09:29:17Z,2021-03-16T09:14:26Z,2021-03-16T09:14:26Z,1,2,1,Adds by the way an example of unimplemented!() macro.,2,0
+674,2021-03-18T17:56:12Z,2021-04-13T14:39:18Z,2021-04-13T14:39:18Z,5,11,20,"Hello,
+Issue
+Apparently, the collections exercises are not following the standard naming.
+Inside collections/ directory we have files named vecX.rs and hashmapX.rs but the rustlings CLI expect them to be named collectionsX.rs
+Proposal
+As mention in #651, we could rename files inside collections/ but in my opinions the possibility to have different names inside a directory is good for clarity.
+Furthermore, the same pattern (ie. Exercises name different from directory name) is also present in error_handling/, standard_directory_types/ and conversions/ directories.
+Obviously, if you think that the solution in #651 is better, i'll change it :)",4,2
+675,2021-03-18T22:20:56Z,2021-04-20T09:18:05Z,2021-04-20T09:18:05Z,1,8,8,"Renaming uninformative names like optional_value, value, optional_values_vec and value helps users distinguish between the two parts of the task.",2,2
+676,2021-03-19T09:30:16Z,2021-03-22T12:36:26Z,2021-03-22T12:36:26Z,3,50,13,"When the NO_EMOJI environment variable is set, replace/eliminate emojis in output.
+For instance, without NO_EMOJI set (normal behaviour):
+
+With NO_EMOJI set:
+
+Addresses #364.",2,4
+687,2021-03-31T02:21:06Z,2021-04-04T07:43:26Z,2021-04-04T07:43:26Z,1,1,1,"Hi!
+Going through the exercise functions3.rs, it feels like using u32 instead of i32  could be an improvement. Even though passing a negative number won't make the compiler complaint and the loop will exit immediately, it feels that it lacks of intention (to the eyes of someone who's learning like me). I hope this small change makes sense.",2,2
+693,2021-04-04T17:45:34Z,2021-04-05T11:26:19Z,2021-04-05T11:26:20Z,3,25,20,"Use Box<dyn error::Error> to allow solutions to use ? to propagate
+errors.  In the tests, explicitly check is_ok() instead of trying to
+force the error type to String (or other PartialEq type) using
+assert_eq!().",5,7
+697,2021-04-09T21:10:40Z,2021-04-13T14:40:07Z,2021-04-13T14:40:08Z,1,5,5,"Since the other fruits appear to use (American) English, I'm updating Lychee to do the same. The alternative to this would be to use the other name, which is ""Litchi"".
+chore: Rename 'Lichi' to 'Lychee'",3,0
+702,2021-04-13T17:11:55Z,,2021-04-20T09:13:46Z,14,37,28,,3,0
+707,2021-04-18T13:41:13Z,2021-04-20T09:09:14Z,2021-04-20T09:09:14Z,4,22,18,"Added a progress info at the bottom of the list for command: rustlings list
+
+closes #705",2,2
+708,2021-04-18T14:07:50Z,2021-04-20T09:10:38Z,2021-04-20T09:10:38Z,1,5,0,"Added hint for rustlings list to the ""Doing exercises"" section.",2,0
+710,2021-04-20T02:51:23Z,2021-04-21T12:50:03Z,2021-04-21T12:50:03Z,2,23,3,Adds an explanation to exercises/standard_library_types/arc1.rs to hopefully alleviate some confusion around this exercise.  Hopefully sufficient to close #250.,3,2
+715,2021-04-20T10:47:59Z,2021-04-21T14:33:07Z,2021-04-21T14:33:07Z,5,416,607,"I’ve been wanting to do this for a while, but always procrastinated on it. We’ve been using Clap since the 2.0 rewrite, but Clap is known to be a fairly heavy library. Since Rustlings is usually peoples’ first contact with a Rust compilation, I think it’s in our best interests that this complation is as fast as possible. In effect, replacing Clap with the smaller, structopt-style argh reduces the amount of crates needing to be compiled from 82 to 60.
+I also think this makes the code way easier to read, we don’t need to use Clap’s methods anymore, but can switch over to using pure Rust methods, e.g., switches are booleans, options are Options or the like, and subcommands are just structs.
+I'll leave this up for a couple of days for people to review and test, and this'll also be the capstone for the next version release, I think.",4,3
+718,2021-04-22T19:35:01Z,2021-04-23T13:04:47Z,2021-04-23T13:04:47Z,1,6,0,"add additional help information provided by the rust by example book, since the previous help pages didn't cover the whole section, especially error_handling/errorsn.rs was a bit difficult for me.
+Those 2 added help pages will explain Result and Boxing errors very easily without much text to read.",2,0
+721,2021-04-22T20:12:40Z,2021-04-23T13:05:00Z,2021-04-23T13:05:01Z,1,2,1,add help for bounds provided by the rust by example book since the previous help doesn't explain bounds / generic constraints which is needed to solve generics3.rs.,2,0
+723,2021-04-23T17:59:50Z,2021-04-24T09:45:37Z,2021-04-24T09:45:37Z,20,85,54,"all exercises readme files now have a consistent structure and a (meaningful) description. For those without a description I picked some lines from The Book or Rust by Example.
+All README.md files start with a heading 1 which includes the name of the exercises section, followed by some description and / or direct help and ends with a heading 2 further information which often points to The Book or Rust by Example.
+Rendered examples:
+
+Clippy
+Generics
+Threads
+Option",2,0
+724,2021-04-23T18:08:04Z,2021-04-24T09:45:57Z,2021-04-24T09:45:57Z,1,6,6,,2,0
+725,2021-04-23T18:29:34Z,2021-04-24T09:46:25Z,2021-04-24T09:46:25Z,1,1,1,"rustlings watch will now show an additional hint for the corresponding README.me
+This will make it easier for learners to find the corresponding README.md file if they are stuck.",2,0
+728,2021-04-24T10:15:30Z,2022-02-04T14:22:23Z,2022-02-04T14:22:23Z,2,3,1,Added further information for option/option2.rs since if let and while let were not covered by the links.,2,0
+732,2021-04-24T16:47:50Z,2021-07-09T10:24:42Z,2021-07-09T10:24:42Z,1,1,3,Minor formatting improvements in iterators5.rs.,3,0
+733,2021-04-24T17:29:59Z,2022-02-04T14:26:15Z,2022-02-04T14:26:15Z,5,58,6,"Proposal to add introductory section
+The first exercise in the section successfully compiles to acclimate new users to Rustlings and introduce the I AM NOT DONE comment.
+The second exercise simply asks the user to complete a Hello World! program.
+The intro section is more to introduce Rustlings than to teach Rust.",4,15
+736,2021-04-25T15:53:21Z,2021-04-27T08:20:51Z,2021-04-27T08:20:51Z,1,4,2,"Hi,
+I was doing these great exercises, but when I did the quiz1.rs exercise I actually made a mistake.
+I wrote in my if statement amount >= 40 but in the exercise, it says more than 40, so I thought to myself, maybe it would be great to add an extra test to that file that explicitly checks on this.
+Another solution could also to change 35 to 40 in the existing test.",2,0
+737,2021-04-27T18:28:33Z,2021-07-08T09:07:21Z,2021-07-08T09:07:21Z,1,1,1,The 2nd step 5 of the instruction should be step 6.,2,0
+738,2021-04-27T21:18:35Z,2022-04-04T15:09:49Z,2022-04-04T15:09:49Z,2,78,102,"Moved DEFAULT_OUT text from a separate file into a constant. Moved FENISH_LINE and WELCOME text from println! statements into constants.
+The constants are defined at the end of the file because they are so long.",2,3
+739,2021-04-29T21:33:43Z,2021-05-01T10:12:29Z,2021-05-01T10:12:29Z,1,1,2,,2,2
+741,2021-05-01T20:12:32Z,2022-02-04T14:38:55Z,2022-02-04T14:38:55Z,2,13,0,"Just tried installing Rustlings using the install.sh script on a fresh Ubuntu install and I forgot to install build-essential so it failed once cargo started trying to compile. This commit adds a check to the script for cc as well as a note to README.md.
+I'm not on an OSX system right now, but iirc cc is what the Xcode CLI tools uses, as well so it should work across both platforms. Not sure about Windows.
+If you would prefer that I make a PR with only the README.md change, I'm happy to do that.",2,2
+742,2021-05-04T07:06:44Z,,2021-06-24T12:17:40Z,1,1,1,"Sorry in advance if this is just me being ignorant.  I'm pretty new to rust, and I'm still sorting out the ownership model.
+I personally found it really unintuitive to not call count_iterator as a part of my count_collection_iterator implementation.
+Rather than writing the problem solution here, I'll give an example with count_for and count_collection_for:
+fn count_for(map: &HashMap<String, Progress>, value: Progress) -> usize {
+    let mut count = 0;
+    for val in map.values() {
+        if val == &value {
+            count += 1;
+        }
+    }
+    count
+}
+
+fn count_collection_for(collection: &[HashMap<String, Progress>], value: Progress) -> usize {
+    let mut count = 0;
+    for map in collection {
+        count = count + count_for(map, value);
+    }
+    count
+}
+
+It feels very natural to implement the iterators more similar to this, but this results in the following error:
+! Compiling of exercises/standard_library_types/iterators5.rs failed! Please try again. Here's the output:
+error[E0382]: use of moved value: `value`
+  --> exercises/standard_library_types/iterators5.rs:45:40
+   |
+42 | fn count_collection_for(collection: &[HashMap<String, Progress>], value: Progress) -> usize {
+   |                                                                   ----- move occurs because `value` has type `Progress`, which does not implement the `Copy` trait
+...
+45 |         count = count + count_for(map, value);
+   |                                        ^^^^^ value moved here, in previous iteration of loop
+
+error: aborting due to previous error
+
+For more information about this error, try `rustc --explain E0382`.
+
+I spent some time trying to find a way to not move value also without duplicating code, and it led me to either implementing the Copy / Clone traits, or using Arc to pass a shared atomic value.
+Both of these require changes outside of the functions, which is counter to the suggestions in the top level comment:
+
+Only the two iterator methods (count_iterator and count_collection_iterator) need to be modified.
+
+If there is some other solution that I did not find that calls count_iterator from count_collection_iterator I would love to know it.  Otherwise I would like to suggest adding these traits to Progress to allow this solution.
+Thanks.",4,6
+743,2021-05-05T01:24:29Z,,2022-07-15T12:26:01Z,1,13,13,"Changes
+
+Switch from a single additional thread (receiving/holding a single Arc::clone reference) running a loop modeling 10 sequential jobs, to a loop generating 10 threads each modeling 1 job (each getting their own Arc::clone reference)
+use the previously ignored for loop var to keep the execution timing approx the same
+Print a more descriptive waiting message (taking an opportunity to use comment to disambiguate the count)
+
+Rationale
+It takes a (reasonable) misunderstanding I had that caused me much confusion & frustration, as explained in detail below (""Motivation""), and makes the program work closer to how I thought it did.
+Ultimately the difference between the two versions is possibly just a matter of taste— but my intention is to save people from going through my frustration and confusion (if perhaps also my exploration of edge cases), and I think this achieves that.
+Pros
+
+
+Arc::clone(&status) seems generally recommended style over status.clone()
+
+
+With the Arc::clone between the for header and thread::spawn it is much harder to mentally transpose the two lines as I initially (repeatedly) did (though of course, this PR does actually swap them).
+
+
+Whereas in computing we talk about cardinality in the trichotomy of ""zero, one or many"", I assert that It serves a purpose of diminishing potential for confusion while learning to disambiguate that there is ""one"" main thread and ""many"" other threads.
+While the 2 threads of threads1 (as in main) account technically as ""many"", there is a (potentially) confusing ""one"" explicit clone of the Arc after ""one"" initialization.
+
+
+Having the counter count more better illustrates the concept of the counter in action.
+
+
+The added call to Arc::strong_count(&status) obviates that there is an underlying count*. The use of strong_count may also inspire a question of ""why strong?"" and create a path to exploring weak references and their uses (and Arc::downgrade).
+
+
+IMO, it is just a more realistic model of contemporary async task execution to fan out to full parallelization (of sleeps) vs giving all to one worker thread
+
+
+*[ If people are working from code examples by rote pattern, as I expect will only increase as Rust becomes more widely learned with various degrees of rigorous approach, they may not have a clear understanding (that Rc exists, that Arc is an acronym, or) of what A.R.C. stands for. I can imagine various ways someone could take the name as simply metaphorical for how values move between threads:
+
+someone with an EE background might read ""arc"" and think of an electrical arc over a spark gap
+someone with a background in astronomy, rocketry, or basketball (to name a few) might think of it as invoking something moving in an elliptical path from one place to another (perhaps because it was ""thrown"" ... yeeted even 😄 )
+confusing it with Ark in the archaic sense of ""a chest or box."" (c.f. ""Ark of the Covenant"") - one might think of if as ""like Box, but special"".
+confusing it with Ark in the sense ""Something affording protection; safety, shelter, refuge"" (c.f. Noah's ark, but also (invoking) uses in Sci-Fi especially)
+
+I am not shocked if some of these ~puns were known when the name was decided, but I digress]
+Cons
+More compute resources are used, both CPU and memory I expect. Overall execution time of the program (verifying the exercise) is likely slower (though probably not appreciably?)
+Invariants
+
+
+The initial state of the exercise is near identical in terms of compiler output, varying only in line numbers:
+error[E0594]: cannot assign to data in an `Arc`
+  --> exercises/threads/threads1.rs:[25/22]:13
+   |
+[25/22] |             status_shared.jobs_completed += 1;
+   |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ cannot assign
+   |
+   = help: trait `DerefMut` is required to modify through a dereference, but it is not implemented for `Arc<JobStatus>`
+
+
+
+
+
+The overall approach to the solution
+
+
+Motivation
+My initial (mis)understanding
+I (blasphemously) was/am using rustlings as a learning tool before having done a proper read through of The Book (through Chapter 16 anyway).
+Nonetheless, through knowledge-osmosis (from e.g. conference talks) I understood, going into this exercise, that Arc is an atomic reference counted binding: doing ~ersatz refcount GC by effectively incrementing a count on clone(&self) and decrementing on drop(&mut self) (then performing the dealloc if the count hit 0 (or perhaps < 0)).
+Armed with this knowledge, I (incorrectly) mentally mapped what was happening in this file to something like ""(once ""all"" the threads are spawned) the Arc holds the count of the running jobs/threads and statusholds the count of completed jobs/threads"".
+This is to say (perhaps owing also to recent time spent over in Elixir/Erlang land), I immediately assumed we were looking at 1 thread for (modeling) each of 10 monitored jobs, vs correctly reading the code to see that in reality, we were looking at only 1 (additional) thread for (modeling) all 10 jobs.
+I think this misunderstanding was further enabled by a comment apostrophe typo and line break placement  (both in the sentences removed herein)  wherein I had seen // spawned threads' sleep time instead of the… spawned thread's sleep time
+How attempting the exercise played out for me
+Based on the initial state of compilation failure, I didn't have a ton of trouble getting the point of the exercise vis-a-vis a need for synchronization for the mutation (the idea that the Arc, as written, was insufficient).
+The problem was that I was intermediately confused by what was happening with the current usage! And got more confused as I tried to engage with it.
+""Does Arc implement Copy?""
+Based on my misunderstanding of the number of threads involved, my eyes/brain easily (and repeatedly) transposed lines 22 and 23 (pre-my-changes) and I (consistently until I finally didn't) saw a loop calling thread::spawn(move || …) 10 times.
+Above that was line 21: let status_shared = status.clone(); ... 1 time.
+I promptly noticed the (apparent) mismatch:
+
+that the reference count wouldn't match the (apparent) number of uses,
+and that the compiler (/ borrow checker) was (apparently) allowing a repeated move, which it seems like it shouldn't.
+
+But it also seemed that (perhaps) this was intended.
+The name of the variable — status_shared— read to me (in light of this) as ""status that is (actively) shared (between all threads)"" [vs (I now presume) the intention: ""status that is (about to be) shared with (i.e. given/moved to) the other thread""].
+
+I briefly reasoned that ""huh. I guess `Arc` implements `Copy`?""
+I was/am skeptical that even if that were the case that one could use the move keyword to repeatedly capture a variable into a closure in a loop; but ... it looked that way.
+Still, I'd heard passing discussion about Arc::clone(&foo) vs foo.clone() style – and it seemed weird that that would be so prevalent if one can just pass the whole Arcby reference
+
+I checked the documentation: nope.
+Trying to do it with just Arc while confused
+So it seemed like a weird misdirect, a lot of changes to require vs most of the exercises, but I figured ... maybe line 21 is just a hint that one want to use clone generally
+I tried what seemed mostly right to me (still missing the fact of the loop vs spawn order):
+ fn main() {
+-    let status = Arc::new(JobStatus { jobs_completed: 0 });
+-    let status_shared = status.clone();
++    let mut status = JobStatus { jobs_completed: 0 };
++    let status_shared = Arc::new(&mut status);
+     thread::spawn(move || {
+         for _ in 0..10 {
+             thread::sleep(Duration::from_millis(250));
+-            status_shared.jobs_completed += 1;
++            Arc::clone(&status_shared).jobs_completed += 1;
+         }
+Alas this both only moved me from:
+
+error[E0594]: cannot assign to data in an Arc
+…
+help: trait DerefMut is required to modify through a dereference, but it is not implemented for Arc<JobStatus>
+to:
+error[E0594]: cannot assign to data in an Arc
+…
+help: trait DerefMut is required to modify through a dereference, but it is not implemented for Arc<&mut JobStatus>
+
+besides which it raised the dual specters of (non-Arc-wrapped) status's lifetime vs the Arc's borrow, and the inability to take a read borrow from status cause its already borrowed, and status_shared cause its moved! (cause move is still casting to a FnOnce, even though usage is just as a read borrow for clone.)
+I swallowed my feelings needing to specify mut at Arc construction time to get a mut binding out and tried just doing:
+ fn main() {
+     let status = Arc::new(JobStatus { jobs_completed: 0 });
+-    let status_shared = status.clone();
+-    thread::spawn(move || {
++    thread::spawn(|| {
+         for _ in 0..10 {
+             thread::sleep(Duration::from_millis(250));
+-            status_shared.jobs_completed += 1;
++            Arc::clone(&status).jobs_completed += 1;
+(as well as some stuff with Arc::downgrade and trying to stick mut in places it can't go)
+But thus E0594 persisted and E0373 appeared:
+
+error[E0373]: closure may outlive the current function, but it borrows status, which is owned by the current function
+…
+note: function requires argument type to outlive 'static
+…
+help: to force the closure to take ownership of status (and any other referenced variables), use the move keyword
+
+Going further afield
+I was frustrated and went off into the weeds to two solutions that worked, but seemed obviously not what had been the intended answer here.
+Because I happened to know that x86 and aarch64 have atomic register increment ops and thought it might exist / found it, I successfully tried deleting the struct and making status a core::sync::atomic::AtomicU8. I had to make it static but got that solution working.
+I also made status an Arc<()> had ""each thread"" (actually each iteration of the loop, I hadn't realized my confusion yet though) take a clone of that before sleeping and changed the while condition to Arc::strong_count(&status) > 1.
+Coming back
+Satisfied that I had found a solution by myself, I finally looked at hints, and saw that the answer was actually just ""add a Mutex"" (or, I opted, RwLock).
+I took a while to understand why I needed/wanted an Arc when I had another synchronization (lifetimes again), and I got it working much as intended...
+but STILL thinking there were 10 threads, I couldn't for the life of me figure out why there was only one clone and how it was solving the problem.
+I considered that … like… an initialized Arc had a count of 0 ? and that doing a clone in main was needed to increase it to 1 before spawning the threads (nope. Arc::strong_count() indicated that the first binding on initialization was definitely counted the same as any other).
+I thought that maybe double binding in main was needed to trick the checker into ~imagining a deadlock that made the var effectively 'static? (which ... no. and like both would still Drop before the known lifetime of the closure)
+... and like ... Arc still didn't implement Copy so ... wtf?
+After ... too long... I realized my mistake about the order of thread::spawn and for.",2,1
+746,2021-05-06T17:50:17Z,2021-05-17T12:10:41Z,2021-05-17T12:10:41Z,3,54,0,"Added an exercise for move_semantics which helps in improving the understanding of mutable references.
+Added an exercise for option which helps in understanding of usage of keyword ref",4,5
+755,2021-05-15T19:03:10Z,2021-05-17T12:09:45Z,2021-05-17T12:09:45Z,1,17,2,"Add hints about how to return the correct type for functions that
+return Result<_, Box<dyn Error>. Some feedback from Discord suggests
+that people run into trouble with that.",2,1
+762,2021-05-23T03:14:55Z,2021-05-23T13:41:56Z,2021-05-23T13:41:56Z,2,9,4,Improve hints and comments for move_semantics5 based on repeated instances of people expressing confusion about this exercise on Discord.,3,3
+772,2021-06-07T04:12:36Z,2021-06-24T12:12:34Z,2021-06-24T12:12:35Z,5,196,155,"Move result1 to errors4 and put it in the error handling section. Fixes #719.
+Add new exercises errors5 and errors6, to introduce boxed errors and
+custom error enums more gently. Delete errorsn, because it tried to do
+too much too soon. Fixes #756.",3,6
+773,2021-06-07T10:23:11Z,2021-06-24T12:10:02Z,2021-06-24T12:10:02Z,1,1,1,"let mut number = 3; can lead to a correct answer, so the comment helps to direct the users to the intended answer.",2,2
+781,2021-06-25T22:01:13Z,2021-09-25T09:18:56Z,2021-09-25T09:18:56Z,5,475,51,"Based on #780.
+Add new exercises to demonstrate traits that are useful to help other code consume our custom error types.
+For advanced_errs2, I'm somewhat concerned that the source method usage in the ignored test might be lead to confusing error messages about that method, so I'm OK with taking out that test (and the related challenge), possibly deferring it to another exercise.",2,0
+785,2021-06-28T00:20:33Z,2021-06-30T10:05:50Z,2021-06-30T10:05:50Z,2,30,7,"Based on #783
+This PR should allow users to use the following command to run the next unsolved exercise in the exercises vector.
+rustlings run next
+When there are no more unsolved exercises, it will print the following messages and exit with 1.
+🎉 Congratulations! You have done all the exercises!
+🔚 There are no more exercises to do next!",2,3
+786,2021-06-28T15:16:42Z,2021-06-29T10:46:28Z,2021-06-29T10:46:28Z,1,3,3,Clone only release tag without history,2,2
+787,2021-06-29T10:08:47Z,2021-06-29T11:49:18Z,2021-06-29T11:49:18Z,1,4,1,collect() needs some hint for standard_library_types/iterators3 exercise with doc link for understanding different return types via FromIterator.,2,0
+789,2021-06-29T18:51:08Z,2021-06-30T10:10:02Z,2021-06-30T10:10:03Z,1,9,1,Added some explanation and links about floating point representation and to use the clippy suggestion. (fixes #390),2,0
+794,2021-07-05T23:43:14Z,2021-07-07T20:18:33Z,2021-07-07T20:18:33Z,1,1,1,"The original text order amount appears to be confusing as it seems to imply that the function accepts an amount/price. However, the function is instead returning a price while the argument accepted into the function is the quantity of apples bought.",2,2
+795,2021-07-06T06:10:58Z,2021-07-07T20:16:45Z,2021-07-07T20:16:45Z,2,2,1,,2,2
+807,2021-07-21T07:18:54Z,,2021-08-16T19:46:35Z,1,1,1,,4,0
+814,2021-08-05T04:48:18Z,2021-09-25T08:52:18Z,2021-09-25T08:52:18Z,1,1,1,"Instead of having to explain why
+let mut x = 100; 
+let y = &mut x;
+let mut z_owned = *y;
+let z = &mut z_owned;
+*y += 100;
+*z += 1000;
+and
+let mut x = 100; 
+let y = &mut x;
+let z = &mut *y;
+*y += 100;
+*z += 1000;
+are different, you still get the point across about having only one mutable reference.
+As it stands, this exercise does too much (dereferencing and having only one mutable reference), and by doing so confuses people.
+Example of someone being confused by this:
+https://discord.com/channels/273534239310479360/273541522815713281/872689531428692040
+(this is in the rust community discord https://discord.com/invite/rust-lang-community)",2,2
+818,2021-08-09T01:29:25Z,,2022-07-15T12:27:15Z,1,7,2,"Proposal to improve UX at try_from_into.
+Fixes #816
+Up for discussion:
+
+Is the hint too explicit?",3,1
+822,2021-08-13T11:21:11Z,2021-09-03T08:41:13Z,2021-09-03T08:41:13Z,6,45,9,"I updated the module exercises a little bit and changed the book dependency to be all chapter 7 and not only 7.2.
+I'm new to rust and I'm learning by reading the book and exercise with rustlings. Yesterday I reached the modules exercise and it was very shallow compared to what they show in the book and 7.2 just isn't enough to answer the exercise (and chapter 7 of the book is very good by the way). Improving the module exercise could be very nice to future learners because it's important part of rust.",2,3
+826,2021-08-22T04:45:07Z,2021-08-24T08:48:51Z,2021-08-24T08:48:51Z,1,1,1,"The second test expects the function to return 80 when there is an order of 40 apples, but the current wording implies returning 40 will pass as well",3,6
+829,2021-08-24T10:00:27Z,2021-08-24T12:06:31Z,2021-08-24T12:06:31Z,4,68,66,Title self explanatory,2,2
+835,2021-09-06T12:42:25Z,2021-09-06T14:32:39Z,2021-09-06T14:32:39Z,1,2,2,"Hi, all.
+I found and fixed typos in exercises/modules/modules2.rs",2,2
+838,2021-09-07T01:49:00Z,2021-09-21T08:43:44Z,2021-09-21T08:43:44Z,1,1,1,#837,2,2
+843,2021-09-14T11:20:41Z,2021-09-25T08:47:36Z,2021-09-25T08:47:36Z,1,72,50,"closes: #842
+Took a crack at adding a ""quit"" command to the rustlings watch prompt, as at the moment the only way to exit that shell is to finish all the exercises in one go.
+The implementation is a bit clunky... Ideally I would have another channel to signal the intention to quit from the thread spawned by spawn_watch_shell(), and the watch function would select on both receivers, but I don't think there's a way to do that with std channels. We can't move to crossbeam channels either as the notify crate has a hard dependency on std channels :( (this is fixed in the upcoming version 5, but it hasn't been released yet...).
+I probably should have waited for some discussion on the issue, but it seemed easy enough to give it a shot anyway... Hope this can be useful.",2,5
+846,2021-09-21T08:36:29Z,2021-09-24T11:05:04Z,2021-09-24T11:05:05Z,1,13,1,"Includes:
+
+quit, to quit the shell instead of having to press Cmd/Ctrl-C or Cmd/Ctrl-D
+help, to display an overview of all the commands available in watch mode.
+
+Closes #842.",2,0
+852,2021-09-27T03:02:32Z,2021-09-27T08:03:28Z,2021-09-27T08:03:28Z,1,2,2,,2,2
+854,2021-09-29T06:12:16Z,2021-10-18T11:57:12Z,2021-10-18T11:57:12Z,2,2,3,"This exercise does not follow the snake_case specification, cargo test has the following warning:
+warning: function is_FooBar should have a snake case name.
+To ensure the meaning is correct, try to add allow non_snake_case.",3,9
+857,2021-09-29T17:41:29Z,2021-09-30T08:18:36Z,2021-09-30T08:18:37Z,1,1,1,,3,2
+860,2021-10-02T14:01:14Z,2021-10-02T21:09:52Z,2021-10-02T21:09:52Z,1,1,1,"statemants -> statements
+Thanks for this amazing resource! :)",2,0
+871,2021-10-30T23:15:30Z,2021-10-31T16:25:18Z,2021-10-31T16:25:18Z,1,1,1,"Intended to simplify the lesson by removing the need to figure out what the value is meant to be based on the test.
+Previous commits (9ca08b8 and 114b54c#diff-ce1c232ff0ddaff909351bb84cb5bff423b5b9e04f21fd4db7ffe443e598e174) removed the mathematical complexity, and I feel this addition is a needed change to further streamline the exercise.",3,5
+885,2021-12-03T22:15:03Z,2021-12-15T09:44:21Z,2021-12-15T09:44:21Z,1,1,2,,2,3
+890,2021-12-15T16:56:23Z,2021-12-16T13:10:58Z,2021-12-16T13:10:58Z,2,19,13,"This PR fixes clippy1 for newer versions of Rust. When ran on rustc v1.57.0, clippy1 would pass without any changes. This was because the lint rule that clippy1 relies on (float_cmp) was recently downgraded.
+This PR changes clippy1 and its hint to use a different lint rule: approx_constant. See approx_constant lint rule.
+To satisfy clippy for this exercise, users must change line 14:
+let pi = 3.14f32;
+to
+let pi = f32::consts::PI;
+closes #888",2,2
+894,2021-12-24T06:50:39Z,2021-12-24T12:27:52Z,2021-12-24T12:27:52Z,1,1,2,,2,2
+899,2021-12-29T07:01:09Z,2021-12-30T11:58:50Z,2021-12-30T11:58:50Z,1,1,0,"The correct order for doing this quiz should be after ""Variables"", ""Functions"", and ""If"", the last of which is not mentioned in the comments.",2,2
+907,2022-01-06T20:34:49Z,2022-02-04T13:39:09Z,2022-02-04T13:39:09Z,1,1,1,Quick fix for #906,2,0
+908,2022-01-08T00:35:55Z,2022-03-29T13:02:35Z,2022-03-29T13:02:35Z,2,40,0,Could help to learn the difference between ownership and borrowed value in arguments of function and why use one or the other depending of the situation.,2,2
+911,2022-01-11T15:31:17Z,,2022-03-29T09:44:30Z,8,149,9,"Fix rustlings exercises to work with rust-analyzer if it's installed.
+It generates a rust-project.json and links to the default rustup toolchain if it exists.
+If there are any errors e.g. rustup or rust-analyzer don't exist, the fix is skipped with a message saying so.
+When there is a success it will generate the file and will no longer run.
+New argument --skipfix (-x for short) so that the file isn't generated e.g. when developing the main binary you don't want this file in the project root or rust-analyzer won't work.
+Added tests for the functionality.",5,7
+922,2022-01-25T11:41:32Z,2022-11-12T15:44:11Z,2022-11-12T15:44:11Z,4,132,0,This pull request is an attempt to close #683 by adding flake.nix and adding a separate section in the README.,4,22
+937,2022-02-25T02:43:20Z,,2022-07-11T11:54:25Z,1,3,3,"What
+
+chore: Update variables6.rs hint book link, wording
+chore: Tweak punctuation in variables6.rs hint
+
+Why
+
+While the included link for variables6.rs does navigate to the correct page, the header in the link itself does not actually exist so it only loads the top of the page. There is, however, some text about the difference between variables and constants in the ""Constants"" section, so reword the hint some and update the link.
+While the meaning is still obvious as is, it makes a little more sense to use a colon here =)
+
+A note on why there are two commits
+These two could and should be squashed together, but if we wanted to leave the semicolon in, we could easily revert that commit.",2,1
+946,2022-03-21T06:47:46Z,2022-03-30T11:27:52Z,2022-03-30T11:27:53Z,1,2,2,Update the TODO steps in the iterators1 exercise.,2,0
+947,2022-03-28T01:10:54Z,2022-03-29T12:53:56Z,2022-03-29T12:53:56Z,1,2,2,SSIA.,2,4
+953,2022-04-03T22:15:09Z,2022-04-04T15:22:22Z,2022-04-04T15:22:22Z,1,5,4,"When installing rustlings in a directory that contains whitespaces (not common, but possible), install.sh fails improperly.
+The script tries to continue the process even if a command has failed.
+My proposal is:
+
+to protect variables that come from ""outside""
+to add set -euo pipefail to stop at the first error (error, undefined variable or pipe failure)",2,0
+954,2022-04-03T22:16:35Z,2022-04-04T15:10:23Z,2022-04-04T15:10:23Z,1,1,0,Recent exercise move_semantics6 was not referenced in its mod.rs.,2,0
+957,2022-04-05T18:57:52Z,2022-04-06T07:29:27Z,2022-04-06T07:29:27Z,1,1,1,"In move_semantics2 you can get it to compile and pass by simply moving vec1 below the first println! function, so this is to tell people to avoid doing that.",2,2
+958,2022-04-06T07:16:41Z,2022-04-14T08:25:44Z,2022-04-14T08:25:44Z,1,1,1,Fix for #951,2,3
+961,2022-04-08T16:24:32Z,2022-04-14T08:44:22Z,2022-04-14T08:44:23Z,1,0,3,"Although marked as 'TODO', three tests pass without any implementation because the correct answer code already exists.",3,3
+968,2022-04-19T15:30:21Z,2022-04-20T07:14:08Z,2022-04-20T07:14:08Z,1,1,6,"Functional style is neat and shorter, I think it's good practice to promote it over imperative style.",3,6
+969,2022-04-19T15:47:39Z,2022-04-20T07:15:22Z,2022-04-20T07:15:22Z,1,1,1,fold() works fine here but sum() is much easier to understand for a beginner.,2,0
+975,2022-04-22T13:29:00Z,2022-04-25T09:38:05Z,2022-04-25T09:38:05Z,1,1,1,"The hint for move_semantics5 refers to ""the range in which each
+mutable reference is in vogue"". Unless this is a deliberate
+introduction of ""vogue"" (an admittedly-useful term because ""scope""
+isn't purely lexical, as in many other languages), it may be in error:
+I have been unable to find the term used with reference to Rust
+references.
+Thus, I'm suggesting the replacement, in case it's been overlooked.",2,2
+976,2022-04-23T13:02:02Z,2022-04-25T09:36:13Z,2022-04-25T09:36:13Z,1,1,1,,3,3
+981,2022-04-26T16:54:11Z,2022-04-27T10:21:13Z,2022-04-27T10:21:13Z,1,3,3,"Motivation
+Git.io deprecation
+
+Effective Friday, April 29, 2022 all links on git.io will stop redirecting. Please update any existing links that make use of the git.io URL service immediately.
+
+Change
+
+Replace git.io with original URL",2,2
+987,2022-05-03T17:04:12Z,2022-05-06T14:42:09Z,2022-05-06T14:42:09Z,1,15,0,"What problem does this PR solve?
+Issue Number: close #985
+Problem Summary: Our install.sh has MinRustVersion such as 1.56.And bash will have a version check,it will split to array and to check one by one.But there is a cornor case,when user use the same version but has z version (x.y.z).The short will out of bound(version=x.y).So i add a pad right to ensure the length of them is the same.
+
+  
+    
+      rustlings/install.sh
+    
+    
+        Lines 73 to 99
+      in
+      102a4b9
+    
+  
+  
+    
+
+        
+          
+           max_len=$len1 
+        
+
+        
+          
+           if [[ $max_len -lt $len2 ]] 
+        
+
+        
+          
+           then 
+        
+
+        
+          
+               max_len=$len2 
+        
+
+        
+          
+           fi 
+        
+
+        
+          
+           for i in `seq 0 $max_len` 
+        
+
+        
+          
+           do 
+        
+
+        
+          
+               # Fill empty fields with zeros in v1 
+        
+
+        
+          
+               if [ -z ""${v1[$i]}"" ] 
+        
+
+        
+          
+               then 
+        
+
+        
+          
+                   v1[$i]=0 
+        
+
+        
+          
+               fi 
+        
+
+        
+          
+               # And in v2 
+        
+
+        
+          
+               if [ -z ""${v2[$i]}"" ] 
+        
+
+        
+          
+               then 
+        
+
+        
+          
+                   v2[$i]=0 
+        
+
+        
+          
+               fi 
+        
+
+        
+          
+               if [ ${v1[$i]} -gt ${v2[$i]} ] 
+        
+
+        
+          
+               then 
+        
+
+        
+          
+                   return 1 
+        
+
+        
+          
+               fi 
+        
+
+        
+          
+               if [ ${v1[$i]} -lt ${v2[$i]} ] 
+        
+
+        
+          
+               then 
+        
+
+        
+          
+                   return 2 
+        
+
+        
+          
+               fi 
+        
+
+        
+          
+           done 
+        
+
+        
+          
+           return 0 
+        
+    
+  
+
+
+What is changed and how it works?
+Add a pad right to ensure the length of them is the same to avoid out of bound of array.
+#pad right in short arr
+    if [[ len1 -gt len2 ]];
+    then
+        for ((i = len2; i < len1; i++));
+        do
+            v2[$i]=0
+        done
+    else
+        for ((i = len1; i < len2; i++));
+        do
+            v1[$i]=0
+        done
+    fi",2,1
+989,2022-05-09T19:48:51Z,2022-05-10T10:44:51Z,2022-05-10T10:44:51Z,2,2,2,"Currently, when we open the ruslings codebase on gitpod vscode, the following error is warning is being thrown and the rust-lang vscode extension is not installed:
+
+This PR enables the installation of the official rust-lang vscode extension. Furthermore, this PR also updates the Open in Gitpod link to have the official button.",2,2
+1000,2022-05-17T09:25:37Z,2022-05-17T11:21:18Z,2022-05-17T11:21:18Z,1,11,2,As per #999 .,2,2
+1002,2022-05-20T23:26:50Z,2022-05-21T14:29:51Z,2022-05-21T14:29:51Z,1,1,1,,2,3
+1006,2022-05-22T16:57:12Z,2022-05-23T13:56:42Z,2022-05-23T13:56:42Z,1,1,1,Found a small grammar issue in the hint message,2,2
+1024,2022-06-13T19:30:53Z,2022-07-11T09:51:13Z,2022-07-11T09:51:13Z,1,1,1,,2,2
+1026,2022-06-16T04:02:26Z,2022-06-17T11:00:44Z,2022-06-17T11:00:44Z,6,141,22,"This is continuing from #911, as requested I've moved functionality into a subcommand that can be run like rustings lsp and added documentation plus added it to the initial welcome message.
+This will ensure a good developer experience for newcomers to the Rust ecosystem.",2,3
+1034,2022-06-26T02:39:02Z,2022-07-11T09:53:20Z,2022-07-11T09:53:20Z,1,22,22,Added missing chapters in the table.,3,2
+1044,2022-07-09T22:52:59Z,2022-07-11T09:59:13Z,2022-07-11T09:59:13Z,1,1,1,,2,2
+1069,2022-07-16T21:41:25Z,2022-08-16T07:37:39Z,2022-08-16T07:37:40Z,2,112,0,"Adds another smart pointer exercise, since that was requested in the latest release notes.
+It's a fun exercise, very straightforward, to introduce the Rc concept and the API to users who may have not seen it before.",2,0
+1076,2022-07-17T22:36:05Z,2022-07-18T08:47:35Z,2022-07-18T08:47:35Z,1,2,1,,2,2
+1079,2022-07-18T12:13:41Z,2022-07-18T14:06:17Z,2022-07-18T14:06:17Z,1,4,1,fixes #1071,3,0
+1085,2022-07-19T00:01:03Z,2022-09-06T10:13:10Z,2022-09-06T10:13:10Z,1,1,1,Minor grammatical edit in README.md,3,2
+1092,2022-07-20T22:24:53Z,2022-07-23T15:36:43Z,2022-07-23T15:36:43Z,1,1,1,,2,2
+1094,2022-07-21T22:17:35Z,2022-07-23T15:38:27Z,2022-07-23T15:38:27Z,1,2,2,"run_single_test_success_with_output and run_single_test_success_without_output check the stdout from this test:
+
+  
+    
+      rustlings/tests/fixture/success/testSuccess.rs
+    
+    
+         Line 3
+      in
+      a02b279
+    
+  
+  
+    
+
+        
+          
+           println!(""THIS TEST TOO SHALL PASS""); 
+        
+    
+  
+
+
+but are missing the final ""S"" in ""PASS"".",2,0
+1099,2022-07-23T10:25:44Z,2022-07-23T15:40:43Z,2022-07-23T15:40:43Z,1,1,1,,2,2
+1102,2022-07-23T16:43:20Z,2022-07-24T21:25:58Z,2022-07-24T21:25:58Z,1,3,3,"fixes #1062 -- I merely changed variables3 -> variables4, let me know if you want to future-proof it using the suggestion mentioned in the issue.
+In functions4.rs, there's a reference made to the error being on line 14, but it is actually line 17 (presumably because of the // I am not done comment block.)",2,2
+1103,2022-07-23T22:00:14Z,2022-08-16T07:35:53Z,2022-08-16T07:35:53Z,2,59,0,Adds an exercise for the Cow type based off of the official documentation at https://doc.rust-lang.org/std/borrow/enum.Cow.html,2,0
+1110,2022-07-26T00:56:17Z,2022-08-03T15:35:51Z,2022-08-03T15:35:51Z,1,1,1,"When I run rustlings watch, main.rs panics when trying to read info.toml which is caused by the extra "" character on line 748 in the info.toml file.
+edit - realized we would want to keep ""use std::fmt::Display;"" so open to a better fix that the parser will be happy with",3,3
+1112,2022-07-26T19:06:14Z,2022-08-03T15:34:44Z,2022-08-03T15:34:44Z,1,4,2,"Expected result is updated to better showcase the difference between
+
+a valid result with no ice-creams Some(0), and
+an invalid result None.",2,2
+1113,2022-07-26T20:13:12Z,2023-06-12T10:36:06Z,2023-06-12T10:36:06Z,1,1,1,"The hint for as_ref_mut was written before the function num_sq was added and is currently incorrect. I'm pretty sure you can improve this hint, but at least it's correct",7,5
+1131,2022-08-07T18:57:57Z,2022-08-11T10:30:12Z,2022-08-11T10:30:12Z,1,8,4,"closes #1088
+By adding usages of some_func to main, as well as having a second Struct which implements the traits, the solution for this exercise is to use traits. Without the usages, the exercise can be solved by substituting SomeStruct for ??.",2,2
+1132,2022-08-08T19:40:25Z,2022-08-11T10:29:16Z,2022-08-11T10:29:16Z,1,1,1,Change to to do so that it reads smoothly without error.,2,6
+1140,2022-08-11T20:56:40Z,2022-08-12T08:24:58Z,2022-08-12T08:24:58Z,1,0,5,Since rewriting the exercise in commit 06e4fd3 the print_number function goes unused. Remove it.,2,2
+1144,2022-08-15T08:06:26Z,2022-08-16T07:32:18Z,2022-08-16T07:32:18Z,1,3,2,"Added extra test for before 10PM and updated the test for at 10PM (when it's 10PM there should already not be any ice cream left, as per the description). Also fixed the raw_value test, as it is later than 10PM, so there should be no more ice cream left.",3,5
+1150,2022-08-17T10:52:11Z,2022-08-18T09:53:16Z,2022-08-18T09:53:16Z,2,27,16,"Closes: #1109
+Note
+The author of #1109 has elaborated on what the exercise lacks, and is comfortable with how the exercise currently is laid out.
+Changelog
+
+Remove main function
+Make options2 test, not compile",2,4
+1151,2022-08-17T14:34:24Z,2022-08-18T12:07:15Z,2022-08-18T12:07:15Z,3,93,20,"Closes: #1031
+Changelog
+
+Add reset command
+
+How to test
+
+cargo build
+Do some changes to a file, for instance intro2.rs
+cargo run reset intro2
+Observe that only exercises/intro/intro2.rs was stashed",3,1
+1161,2022-08-23T03:48:02Z,2022-08-24T09:15:52Z,2022-08-24T09:15:52Z,1,1,1,,2,2
+1168,2022-08-25T22:23:52Z,,2022-08-27T18:40:57Z,1,6,4,"I can't believe this... 40 or more
+How?",4,2
+1170,2022-08-28T01:01:37Z,,2022-09-06T10:12:40Z,1,1,1,closes #1169,4,1
+1171,2022-08-28T13:14:08Z,2022-09-06T10:16:54Z,2022-09-06T10:16:54Z,2,2,2,"Adding quotes to make it easier to see what part comes from which string.
+Before
+The longest string is long string is long
+After
+The longest string is 'long string is long'",2,2
+1186,2022-09-05T15:19:03Z,2022-09-06T10:13:51Z,2022-09-06T10:13:51Z,1,1,1,,2,2
+1192,2022-09-09T00:42:07Z,2022-10-18T09:39:36Z,2022-10-18T09:39:36Z,1,1,1,"This change makes it possible to finish the last exercise without touching the test code, seems like an overlook when code was added since there's nothing in the hints about this extension neither.
+It's virtually impossible to write a the num_sq function to take the Box since it doesn't implement MulAssign.",5,10
+1196,2022-09-12T13:54:20Z,2022-09-13T08:10:55Z,2022-09-13T08:10:55Z,1,1,1,"Change the comment on quiz2.rs, since there are no hints.",2,2
+1199,2022-09-13T19:20:07Z,2022-09-15T09:28:59Z,2022-09-15T09:28:59Z,1,1,1,"Seems like it's the first place, where std is introduced in Rustlings, and it's a good place to facilitate docs discovery for user. As the book seems to have no Rustlings-sized solutions for this exercise.",2,2
+1202,2022-09-16T18:55:15Z,,2023-02-12T16:13:29Z,1,14,14,rc should totally be introduced before arc,2,1
+1203,2022-09-16T21:26:28Z,2022-09-29T08:47:56Z,2022-09-29T08:47:56Z,1,1,1,It didn't work without last character,2,0
+1210,2022-09-25T20:23:39Z,2022-09-29T08:44:57Z,2022-09-29T08:44:57Z,1,2,2,"step 2.1 was renamed to step 3, and step 3 was renamed to step 4 in iterators1.rs (0bd7a06), but the hint was not updated accordingly.",2,2
+1212,2022-09-28T21:43:33Z,2022-09-29T08:44:20Z,2022-09-29T08:44:20Z,1,1,1,fixes #1205,2,0
+1216,2022-09-30T14:03:29Z,2022-10-10T09:39:21Z,2022-10-10T09:39:21Z,2,7,1,"VSCode supports recommending extensions through a file : https://code.visualstudio.com/docs/editor/extension-marketplace#_workspace-recommended-extensions
+This is what the prompt looks like:
+
+I think this allows us to help newcomers set-up their tooling easily, and that the recommended extension (rust-analyzer) is pretty consensual.
+Usually I am in favour of leaving IDE config files out of repositories, but I think this is a good fit for rustlings.
+Let me know your thoughts!",4,2
+1220,2022-10-03T13:23:23Z,2022-10-14T09:30:32Z,2022-10-14T09:30:32Z,2,4,2,,2,2
+1222,2022-10-04T09:39:18Z,2022-10-10T09:29:10Z,2022-10-10T09:29:10Z,1,1,0,"There is only one condition to test get_fees.
+Returning 4500 would get a green test.
+A additional Test with double price per gram would make things harder.",2,2
+1228,2022-10-11T08:45:52Z,2023-02-12T15:54:43Z,2023-02-12T15:54:43Z,1,0,2,,2,2
+1229,2022-10-11T17:23:25Z,2022-10-12T14:51:06Z,2022-10-12T14:51:06Z,1,2,2,"This PR fixes a corner case in the instructions for the options1 exercise which conflicts with the ordinary understanding of 24-hour time. The corner case was not checked for by any of the asserts in the exercise, so I was unable to find a current issue. The problem is that 24 is not a valid hour for 24-hour time, so None should be returned when time_of_day > 23, not when time_of_day > 24 as in the main branch. Additionally, I added an extra (and redundant) explanation that “12 AM is a value of 0” in order to hopefully hint that the 24 hours in “24-hour time” are 0-23.
+I considered and abandoned (for this commit) adding additional assert_eq! invocations for when time_of_day is 0 or 24.",2,2
+1231,2022-10-12T20:43:57Z,2022-10-14T09:26:35Z,2022-10-14T09:26:35Z,4,21,21,"This lint should also be applied to the excersies, but I am not certain how to run it for all non-crate individual files.
+To re-run:
+rustup run nightly cargo clippy --fix -- -A clippy::all -W clippy::uninlined_format_args",2,2
+1236,2022-10-16T12:22:28Z,2022-10-18T09:37:44Z,2022-10-18T09:37:44Z,2,3,3,The Rust book recommends Arc::clone over just .clone() to highlight the fact that this doesn't perform a deep copy the way other types' implementations do.,2,2
+1244,2022-10-23T18:29:37Z,2023-02-15T13:16:22Z,2023-02-15T13:16:22Z,2,49,23,"Following the discussion in #1195 this is the best I could come up with. The issue for me (and apparently a few other learners) was that the code needed to complete the exercise was not missing, but was rather there but wrong.
+In the end, what made the difference between this exercise and others (for me) was that in this exercise I was supposed to learn what to expect of an output. So I think it makes sense here to let the learner modify the tests and not the code itself.
+Side note: once assert_match! becomes stable I'd like to integrate it here just to expose the learner to it and because it makes the tests much clearer to read. This is how I had written it before realizing that probably most people don't use nightly to play through rustlings. 😆
+#[test]
+fn reference_no_mutation() {
+    // No clone occurs because `input` doesn't need to be mutated.
+    let slice = [0, 1, 2];
+    let mut input = Cow::from(&slice[..]);
+    assert_match!(
+        abs_all(&mut input),
+        Cow::Borrowed(_),
+        ""Expected borrowed value""
+    );
+}",2,6
+1246,2022-10-24T02:59:35Z,2022-10-26T08:49:39Z,2022-10-26T08:49:39Z,1,4,0,"I recently created a series of exercises focused on writing fully featured Macros; since rustlings doesn't have an extensive course
+on this. I considered merging them into rustlings (and I'd be happy to look at doing so); but since they focus heavily on using cargo-expand to show what the macros are; I didn't want to force rustlings to have a dependency on nightly.
+Hopefully this resource can help your users out too!",2,2
+1259,2022-11-06T19:33:37Z,2022-11-07T14:14:06Z,2022-11-07T14:14:06Z,2,6,9,Quick formatting fix using rustfmt on errors5.rs and errors6.rs.,2,2
+1273,2022-11-18T12:42:48Z,2022-11-18T23:35:08Z,2022-11-18T23:35:08Z,1,1,3,"Removed reference to panic! since this exercise has been updated so that this step is no longer required #685
+Updated hint for get_fees to use the name of the function to be implemented rather than the name of the test, and to make the hint a bit more helpful",2,4
+1279,2022-11-24T19:42:40Z,2022-12-23T15:44:02Z,2022-12-23T15:44:02Z,6,14,13,,2,2
+1293,2022-12-09T20:54:39Z,2022-12-23T15:22:51Z,2022-12-23T15:22:51Z,1,1,1,"Remove unneeded level or indirection when calling println!. Since the method parameter is of type &self, it's already a borrow.",2,0
+1294,2022-12-10T12:23:30Z,2023-01-03T09:20:47Z,2023-01-03T09:20:47Z,2,19,1,In addition to the issue described in #1292 it also sets correctly RUST_SRC_PATH and patches rustlings lsp to make use of it if available. Otherwise the path for sysroot_src is computed wrongly making rust-analyzer fail.,4,7
+1301,2022-12-21T03:21:40Z,2022-12-23T15:17:00Z,2022-12-23T15:17:00Z,1,1,1,Small typo fix in exercises/hashmaps/hashmaps3.rs.,2,0
+1304,2022-12-25T17:06:03Z,2022-12-28T09:59:02Z,2022-12-28T09:59:02Z,1,2,2,It's a bit disturbing to see rust in text when referring to the Rust language.,2,0
+1305,2022-12-26T08:50:14Z,2023-02-12T15:50:03Z,2023-02-12T15:50:03Z,2,17,10,"Attempts to close #1298
+
+program verifies that threads have been joined by checking if results vector has been filled
+solution now involves recognizing that JoinHandle::join returns a Result, unpacking it, and adding the value to a vector",2,2
+1310,2022-12-30T14:18:41Z,2022-12-30T15:52:29Z,2022-12-30T15:52:29Z,1,2,1,"The circumstances surrounding tuples and additional parentheses are in regard to passing an argument to a function. Otherwise, I could not find any reference stating that extra parentheses indicate a tuple.
+If I create a tuple such as let tup = (('a',)) I receive the following warning:
+unnecessary parentheses around assigned value '#[warn(unused_parens)] on by default'
+Furthermore, if I made an attempt to indicate a tuple with a single element by doing double parentheses
+let tup = (('a'))
+the rustfmt will automatically remove the extra parentheses and assume I meant to indicate a char type. Similar to Python, the comma after the lone element is what will indicate the value being a tuple. ('a',)",3,3
+1313,2023-01-01T01:42:52Z,2023-01-02T09:51:51Z,2023-01-02T09:51:51Z,14,91,79,"Hi, I noticed the same issues as the creator of issue #813.
+It's more of an annoyance than a proper challenge for new Rust learners using Rustlings that the next exercise they come across in sequence has unintroduced concepts that go completely unexplained, along with the ones being introduced intentionally in the very same exercise. Also, ""standard library types"" is a bit clumsy, and I think we should try to be roughly in line with the book where it's possible and easy to do so.
+So, I reordered these exercises, separated the smart pointer exercises from the iterator exercises, and made other updates accordingly.
+Closes #813.",2,2
+1319,2023-01-03T14:54:14Z,2023-01-11T11:25:09Z,2023-01-11T11:25:09Z,1,5,2,"Noticed that the percent of exercises completed did not update in the progress bar when the sub-commands verify or watch were run. The percentage would update when working through the exercises - when the loop section section of the watch routine in src/main.rs had been entered.
+Fixed the verify function in src/verify.rs so that the percentage would update by counting the number of exercises verified. A cleaner solution would be to use the percent key in the progress bar template (https://docs.rs/indicatif/latest/indicatif/index.html#templates) to implicitly change the progress percentage instead of explicitly manipulating the message to display the progress percentage. The percent key, however, does not show any digits after the decimal point (maybe another feature to implement there).
+PS. First time contributing to a public project. Please point out if there are any deficiencies in the PR.
+Thank you",2,2
+1320,2023-01-04T09:56:03Z,2023-01-05T14:27:36Z,2023-01-05T14:27:36Z,1,1,1,"closes #1215
+Small QOL change",2,2
+1322,2023-01-04T20:02:27Z,2023-01-05T14:21:28Z,2023-01-05T14:21:28Z,1,1,1,update the gitpod extension to use rust-analyzer latest release.,2,2
+1336,2023-01-10T18:54:58Z,2023-01-11T11:22:52Z,2023-01-11T11:22:53Z,1,1,1,"changed https://doc.rust-lang.org/std/vec/struct.Vec.html.
+to https://doc.rust-lang.org/std/vec/struct.Vec.html",2,2
+1347,2023-01-23T04:17:57Z,2023-01-26T19:54:54Z,2023-01-26T19:54:54Z,1,1,0,"Thanks for this awesome project!
+I found a minor issue that missed a blank line, which causes the prompt incorrect like below:
+You can keep working on this exercise,
+or jump into the next one by removing the `I AM NOT DONE` comment:
+
+ 6 |  // Make this code compile by using the proper Rc primitives to express that the sun has multiple owners.
+ 7 |  
+ 8 |  // I AM NOT DONE
+ 9 |  use std::rc::Rc;",2,2
+1355,2023-02-05T06:20:15Z,2023-02-05T10:51:35Z,2023-02-05T10:51:35Z,1,5,1,The edition args of rustc is set to 2018 by default. While rustling generate rust-project.json with edition setting to 2021. It may cause some problems.,2,2
+1364,2023-02-11T23:48:51Z,2023-02-12T14:42:49Z,2023-02-12T14:42:49Z,1,2,2,"Hello!
+I've made two changes to the install script:
+
+change the implementation of vercomp to stop it looping beyond the end of the version numbers
+increased MinRustVersion from 1.56 to 1.58, as this was the lowest version of rustc that compiled rustlings without errors
+
+When I first tried to use the install script, I got this error:
+bash: line 105: v1[$i]: unbound variable
+
+This was because my current version of rustc was 1.56.0, the same as MinRustVersion. I think this was causing the loop at 
+  
+    
+      rustlings/install.sh
+    
+    
+         Line 102
+      in
+      0ea42f6
+    
+  
+  
+    
+
+        
+          
+           for i in `seq 0 $max_len` 
+        
+    
+  
+
+ to reach max_len (3 in this case), which was outside the range of array indices (0..2). Please note that I suck at bash so I could be wrong.
+Then I got errors while building rustlings, such as
+error: there is no argument named `thread_id`
+  --> src/exercise.rs:23:24
+   |
+23 |     format!(""./temp_{}_{thread_id}"", process::id())
+   |                        ^^^^^^^^^^^
+
+I increased my version of rustc until it compiled without errors using version 1.58.0.
+Now I'm looking forward to learning Rust!
+▶ rustc --version
+rustc 1.56.0 (09c42c458 2021-10-18)
+
+▶ uname -a
+Darwin AlexandersMBP3 22.2.0 Darwin Kernel Version 22.2.0: Fri Nov 11 02:08:47 PST 2022; root:xnu-8792.61.2~4/RELEASE_X86_64 x86_64",2,2
+1370,2023-02-12T17:26:52Z,2023-02-13T10:01:48Z,2023-02-13T10:01:48Z,1,2,0,Closes: #1345,2,0
+1384,2023-02-18T17:48:19Z,2023-04-05T13:10:57Z,2023-04-05T13:10:57Z,1,4,0,"You can easily get this to compile with the following code
+fn main() {
+    let vec0 = Vec::new();
+
+-    let mut vec1 = fill_vec(vec0);
++    let mut vec1 = fill_vec(vec0.clone());
+
+    // Do not change the following line!
+    println!(""{} has length {} content `{:?}`"", ""vec0"", vec0.len(), vec0);
+
+    vec1.push(88);
+
+    println!(""{} has length {} content `{:?}`"", ""vec1"", vec1.len(), vec1);
+}
+
+fn fill_vec(vec: Vec<i32>) -> Vec<i32> {
+    let mut vec = vec;
+
+    vec.push(22);
+    vec.push(44);
+    vec.push(66);
+
+    vec
+}
+which will make it compile and output
+vec0 has length 0 content `[]`
+vec1 has length 4 content `[22, 44, 66, 88]`
+
+Adding the comment of expected output at least lets people know what they should be aiming for.",2,2
+1385,2023-02-18T19:27:58Z,2023-04-05T13:09:20Z,2023-04-05T13:09:20Z,1,1,2,"after #144, the signature doesn't need changing anymore",2,2
+1391,2023-02-21T14:46:55Z,2023-04-05T13:06:44Z,2023-04-05T13:06:44Z,1,4,6,"Tiny tweak: I changed the sentence that referenced the imperative implementation in iterators5.rs.
+The imperative implementation was already removed and replaced with todo!(), so the reference could be confusing.",2,2
+1396,2023-02-24T00:44:05Z,2023-02-26T12:10:24Z,2023-02-26T12:10:24Z,1,1,0,"The macros4.rs challenge can automatically be solved by rustfmt without the user noticing.
+Adding #[rustfmt::skip] above the macro_rules! line fixes this issue.",2,0
+1397,2023-02-24T13:51:45Z,2023-02-26T12:10:05Z,2023-02-26T12:10:05Z,1,1,1,"rustfmt converts ""main ()"" -> ""main()"" so let's do that here in the exercise to begin with",2,0
+1399,2023-02-25T18:00:53Z,2023-02-26T12:05:05Z,2023-02-26T12:05:05Z,3,26,0,"This pull request is here to implement a Codespaces template allowing Rustlings users to start or resume their Rust tutorial in a breeze. 🦀
+A Codespaces button has been added to the README.md file to get started in one click.
+Previous discussion about this new feature was done in #1284.
+Merge this PR will also take care of similar items such as:
+
+ #442
+ #1194",2,3
+1404,2023-02-27T20:49:34Z,2023-03-10T10:51:09Z,2023-03-10T10:51:09Z,1,4,4,"The issue
+I noticed that the progress bar in watch mode is not showing the actual progress percentage when the compilation is failed (Showing 0.0%). This is because the progress percentage is only set when the exercise compilation is successful in verify.rs file.
+The fix
+Setting the progress percentage before looping over the exercises and updating it when the exercise compilation is successful
+Capture of the issue",4,6
+1418,2023-03-10T19:18:00Z,2023-03-14T10:15:07Z,2023-03-14T10:15:07Z,1,2,2,Resolves #1417,2,2
+1432,2023-03-20T11:13:33Z,2023-03-28T10:25:32Z,2023-03-28T10:25:32Z,1,12,9,"I found hashmaps2.rs quite confusing and did not find it clear what I was supposed to do.
+I have seen a few different implementations online and I think they too were not clear on what was required.
+I think it would be clearer if we changed it to something like this.",2,4
+1437,2023-03-25T04:56:26Z,2023-03-26T12:49:59Z,2023-03-26T12:49:59Z,1,1,1,trivial text correction - description of the total_cost function is wrong: it calculates total cost but instructions say it calculates token count.,2,2
+1442,2023-03-26T21:38:51Z,2023-03-27T11:30:42Z,2023-03-27T11:30:42Z,1,1,1,,2,2
+1445,2023-03-28T06:30:11Z,2023-03-28T10:26:32Z,2023-03-28T10:26:32Z,1,1,1,,2,2
+1450,2023-03-29T17:44:30Z,2023-03-30T09:19:20Z,2023-03-30T09:19:20Z,1,2,1,,2,0
+1452,2023-03-30T16:24:10Z,2023-04-05T13:06:17Z,2023-04-05T13:06:17Z,9,36,11,,2,0
+1453,2023-03-30T20:57:54Z,2023-03-31T13:29:17Z,2023-03-31T13:29:17Z,1,4,1,"Hello! a quick QOL change to the README
+Having the two quick installation commands in two separate code blocks makes it easy to copy them through the github's copy to clipboard button",2,2
+1454,2023-03-31T09:22:51Z,2023-03-31T13:31:17Z,2023-03-31T13:31:17Z,6,12,12,Just a little cleanup of some parts where unnecessary trailing spaces remains.,2,2
+1460,2023-04-02T06:58:05Z,2023-04-02T10:45:29Z,2023-04-02T10:45:29Z,1,27,27,"This order is better if one's working through the exercises in the sequence of ""The Book"" where lifetimes is covered in Ch. 10.3 whereas tests are covered in Ch. 11.",2,2
+1463,2023-04-05T06:21:51Z,2023-04-05T13:05:14Z,2023-04-05T13:05:14Z,2,56,0,"Added task which teach how to test function that panics
+issue #1409",2,2
+1471,2023-04-07T05:56:47Z,2023-05-02T11:15:33Z,2023-05-02T11:15:33Z,1,1,1,,4,2
+1477,2023-04-14T01:40:56Z,2023-09-04T12:35:15Z,2023-09-04T12:35:15Z,2,3,2,Very simple README changes. The changeset and commit messages speaks for themselves.,2,4
+1478,2023-04-15T16:39:12Z,2023-05-17T14:14:29Z,2023-05-17T14:14:29Z,1,40,9,"Firstly, I want to say that I've been really impressed with rustlings. This is my first foray into Rust programming and I've really enjoyed running through the exercises over the last few days so I wanted to contribute something in return.
+Based on this issue, I've added some more detailed tests to the iterators5 exercise as I think the author has raised a valid point.
+I've added new tests to validate that the output is correct for all progress types and I've also updated the tests that compare against the equivalent functions (that use for loops) to ensure that the output is the same for each type.
+Please let me know if there are any edits you would like me to make. Thanks!",2,2
+1480,2023-04-17T01:49:05Z,2023-04-18T15:51:07Z,2023-04-18T15:51:07Z,1,12,4,"As the example added to help implies, this makes it easy to do things like explain a compiler warning without having to open a new terminal.",2,2
+1484,2023-04-20T16:17:37Z,2023-04-22T13:48:23Z,2023-04-22T13:48:23Z,1,1,1,"Commit fef8314 added three lines of comments, which left the line numbers expected to stay unchanged mentioned on line 2 out of date.",2,3
+1487,2023-04-21T05:07:51Z,2023-05-17T13:56:56Z,2023-05-17T13:56:56Z,1,11,6,"The existing test can be solved with the following:
+while let Some(integer) = optional_integers.pop() {
+    assert_eq!(integer.unwrap(), range);
+Similarly with expect(...), unwrap_or(0), unwrap_or_default(), etc. However, none of these solutions use the learning point of stacking Option<T>s.
+The updated test can only be solved by stacking Option<T>s:
+while let Some(Some(integer)) = optional_integers.pop() {
+    assert_eq!(integer, cursor);
+With the updated test, using unwrap or expect will panic when it hits the None value, and using unwrap_or or unwrap_or_default will cause the final assert_eq!(cursor, 0)  to panic.",2,2
+1490,2023-04-21T15:57:14Z,2023-05-17T13:55:13Z,2023-05-17T13:55:13Z,1,2,1,"Add link to get more information
+https://doc.rust-lang.org/book/ch07-04-bringing-paths-into-scope-with-the-use-keyword.html#re-exporting-names-with-pub-use",2,2

@@ -1,0 +1,1656 @@
+number,created_at,merged_at,closed_at,files,additions,deletions,body_text,participants,comments
+366,2016-07-05T11:47:40Z,2016-08-24T16:05:26Z,2016-08-24T16:05:26Z,3,108,6,"Update documentation is specify proxy config
+Support for process.env.http_proxy  / https_proxy / HTTP_PROXY / HTTPS_PROXY",4,18
+452,2016-09-18T21:21:27Z,2016-10-10T16:31:44Z,2016-10-10T16:31:44Z,18,454,13,See the issue #333. The API is based on the cancelable promises proposal.,5,10
+461,2016-09-29T16:15:07Z,2017-03-27T04:06:25Z,2017-03-27T04:06:25Z,3,5,1,Axios is missing OPTIONS-method as a shortcut. This PR will implement it,4,9
+477,2016-10-11T01:40:09Z,,2017-04-08T11:31:54Z,2,14,2,"Instead of being joined with a comma.
+Fixes
+#465",3,3
+483,2016-10-14T13:04:29Z,2016-10-19T09:02:42Z,2016-10-19T09:02:42Z,3,148,3,"Fixes #476.
+Let me know if it sounds right to you.",4,4
+547,2016-11-21T21:30:11Z,2017-04-08T11:29:38Z,2017-04-08T11:29:38Z,1,5,3,,4,2
+558,2016-11-28T04:35:06Z,,2017-08-12T12:56:40Z,1,17,1,"Node ignores duplicate entries for certain HTTP headers.
+It also always converts the set-cookie header into an array.
+See https://nodejs.org/api/http.html#http_message_headers",4,6
+565,2016-12-01T21:35:53Z,,2018-08-30T18:21:44Z,5,298,24,"As suggested by #434 the interpretation of no_proxy is implemented here.
+I would be happy if axios supports no_proxy, as i would be able to use it in my company.",16,29
+581,2016-12-07T01:29:51Z,2016-12-08T05:23:45Z,2016-12-08T05:23:45Z,2,11,1,"Ending slashes were always being appended to the baseURL, regardless of if the relative URL had length.
+By making sure that we're supporting empty relative urls, and not appending extraneous slashes to the base url, support for absolute API endpoints becomes possible.
+Added a single test spec. 📈
+Closes #574",4,7
+656,2017-01-18T09:04:08Z,,2020-05-22T14:00:10Z,1,10,1,"This commit should fix #265 by parsing the responseText if no response is given.
+I hope it does not trigger other new issues.",4,3
+680,2017-02-02T21:30:07Z,,2017-04-08T12:00:41Z,3,4,2,"Hi there,
+I ran into encoding problems with binary request string data (gzipped payloads) being transformed via Buffer.toString('utf8') in transformRequest.
+This PR will enable passing in node buffers directly instead of needing to create a stream or copy to an ArrayBuffer just for the sake of sending compressed data.",4,7
+691,2017-02-07T23:55:41Z,2017-08-14T11:38:44Z,2017-08-14T11:38:44Z,3,19,1,"When the proxy field in configuration is === false all proxy processing is disabled. This specifically disable the 'http_proxy' environment variable handling.
+It should fix #635 and possibly #434 too (That issue suggest 2 different solutions, the other being already in PR #565).
+PR #565 is complementary to this one as it add handling of the no_proxy environment variable.
+I created this PR to fix ionide/ionide-vscode-fsharp#272",6,8
+742,2017-03-07T09:35:43Z,,2018-03-08T16:18:12Z,1,1,1,"Fixed a bug that used Axios' request method to use only ""get"" method unconditionally.",5,6
+786,2017-03-24T02:19:32Z,,2017-03-29T17:31:46Z,6,4429,18,This should fix an issue with file uploads in node.js mentioned in #623 and #680,3,4
+828,2017-04-08T11:02:13Z,2017-04-08T18:26:05Z,2017-04-08T18:26:05Z,3,11,2,"This PR modifies the request included in axios responses to use the last one made by the follow-redirects modules.
+Example:
+// example.com/foo redirects to example.com/bar
+axios.get('http://example.com/foo').then((response) => {
+  response.request.path === '/bar';
+});
+
+It also documents the feature in the README.md.",3,2
+830,2017-04-08T19:45:14Z,2017-04-15T16:18:44Z,2017-04-15T16:18:44Z,10,45,19,The modification in the README explains this feature.,3,1
+831,2017-04-08T20:12:00Z,,2020-06-25T16:45:27Z,4,50,11,This PR transforms the httpAgent and httpsAgent options into a single agents option with http and https properties. It also passes them to the follow-redirects module so they can be used in case of redirections to different protocols.,6,2
+842,2017-04-14T08:30:53Z,,2020-05-22T14:05:56Z,10,74,74,"Hi! I saw in the PR template that it suggests making an issue. I'm happy to make one - just wasn't sure if that's preferred to the PR or if it was more ""to save me the time of developing"" - which in this case was minimal.
+I'm not sure how much of a breaking change this would be. Is transformData public API? If so an alternative, but less elegant, solution would be to make status the last argument.
+Add the ability to transformRequest and transformResponse based on status. For example, on 401 do [x] thing. On 422 do [y] thing.
+I've added status to transformData/transformRequest/transformResponse because I would love to be able to do different things based on the status of the response. It does make transformRequest a little awkward since status should always be null for requests.",4,8
+874,2017-04-29T04:00:10Z,2017-08-12T12:58:10Z,2017-08-12T12:58:10Z,2,44,2,"Better handling of duplicate headers:
+
+Ignore when name is in this list
+Use an array for Set-Cookie
+Otherwise join with , 
+
+Fixes: #465
+Just finishing up (added tests) kovensky's work (#558)... thanks @kovensky!",4,6
+878,2017-05-02T03:47:13Z,2020-05-22T14:09:10Z,2020-05-22T14:09:10Z,1,1,0,This badge will show the version on CDNJS!,8,5
+887,2017-05-04T22:00:30Z,2017-05-31T02:31:43Z,2017-05-31T02:31:43Z,3,4,13,This PR fixes #846 by using Feross' is-buffer module instead Buffer.isBuffer().,6,13
+912,2017-05-23T07:37:11Z,,2017-05-31T14:49:04Z,0,0,0,"In some cases, passing Request Method in uppercase causes some errors.
+Example:
+axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
+
+return axios({
+  method: 'POST',
+  url: url
+});",3,7
+959,2017-06-15T12:14:04Z,2018-07-05T06:51:11Z,2018-07-05T06:51:11Z,2,9,5,"Summary
+We are using axios at Contentful for both our JS SDKs contentful.js and contentful-management.js.
+Axios was assuming always that the proxy protocol is the same as the URL it is requesting. This a problem when you use a http proxy when requesting data from https endpoint.
+see more at #925 and #753
+Purpose of the PR
+This PR make httpAdapter to allow https connections via http by introducing a new config param to the proxy object called isHttps which defaults to false
+TODO
+
+ Add Integration test ?
+ Add documentation",27,54
+965,2017-06-20T04:12:13Z,,2017-07-10T07:56:58Z,1,6,0,Add documentation about how to implement promise.prototype.finally in ES6,3,2
+1040,2017-08-12T13:52:57Z,2018-03-08T17:35:59Z,2018-03-08T17:35:59Z,1,11,7,"Changing from manually placed calls to clear the timeout timer, to decorating the resolve/reject promise functions instead.
+Fixes #1004, #459
+Replaces #487",7,10
+1053,2017-08-21T01:54:18Z,,2018-01-09T01:02:23Z,1,1,1,"#### Instructions
+Please read and follow this instructions before creating and submitting a pull request:
+
+Create an issue explaining the feature. It could save you some effort in case we don't consider it should be included in axios.
+If you're fixing a bug, try to commit the failing test/s and the code fixing it in different commits.
+Ensure you're following our contributing guide.
+
+^^^ Delete the instructions before submitting the pull request ^^^
+Describe your pull request here.",3,1
+1065,2017-09-01T21:50:56Z,,2020-05-22T14:14:58Z,1,4,2,"Currently the HTTP adapter to check that the content length doesn't exceed the maxContentLenght, whenever a new chunk is received it performs a Buffer.concat on all the received chunks to calculate their total length.
+The problem with this approach is that every Buffer.concat involves the creation of a new Buffer of that total length and also involves copying the content of each chunk into the newly created buffer
+(see the docs and the actual implementation).
+All this can be avoided at the cost of a local variable, and that's basically what this PR is all about!",5,2
+1070,2017-09-04T15:10:09Z,2018-02-17T00:05:49Z,2018-02-17T00:05:49Z,2,11,2,"Adds support for sending requests to a server running on a UNIX Socket (.sock files).
+This will only work in Node.js with the http adapter.
+Closes #975",7,11
+1075,2017-09-07T05:17:07Z,,2019-12-25T00:31:06Z,10,1390,1646,"It is an update for tools.
+Webpack is great in managing a whole project, but rollup seems better for a library.
+Bundle sizes are reduced:
+axios.js:     42.6 kb -> 37.5 kb
+axios.min.js: 12.9 kb -> 10.8 kb
+
+I ran the tests and it seems fine, but some weird faults came up no matter which bundler I use:
+Using tsc v2.5.2
+07 09 2017 12:53:43.712:WARN [Safari 10.1.2 (Mac OS X 10.12.6)]: Disconnected (1 times)
+Safari 10.1.2 (Mac OS X 10.12.6) ERROR
+  Disconnectedundefined
+Safari 10.1.2 (Mac OS X 10.12.6): Executed 8 of 179 DISCONNECTED (13.245 secs / 0.68 secs)
+07 09 2017 12:53:43.713:ERROR [reporter.sauce]: ✖ Test Disconnected
+07 09 2017 12:53:43.714:INFO [karma]: Restarting Safari 10.1.2 (Mac OS X 10.12.6) (1 of 1 attempts)
+07 09 2017 12:53:43.718:WARN [Safari 10.1.2 (Mac OS X 10.12.6)]: Disconnected (1 times)
+Safari 10.1.2 (Mac OS X 10.12.6) ERROR
+  Disconnectedundefined
+Safari 10.1.2 (Mac OS X 10.12.6): Executed 0 of 0 DISCONNECTED (15.954 secs / 0 secs)
+07 09 2017 12:53:43.718:ERROR [reporter.sauce]: ✖ Test Disconnected
+07 09 2017 12:53:43.718:INFO [karma]: Restarting Safari 10.1.2 (Mac OS X 10.12.6) (1 of 1 attempts)
+
+But it should make no side effects to the bundles, I guess.
+And I also ran example and it works just fine.
+Let me know if you need more information or support.",6,9
+1091,2017-09-19T09:52:21Z,2018-04-07T03:52:06Z,2018-04-07T03:52:06Z,1,14,0,"The alternative way I added is more common and requested, as seen from issues
+#362 , #350. Should be helpful for the beginners ( I was personally stuck for a bit too )",4,1
+1095,2017-09-21T20:29:50Z,,2020-05-22T14:19:03Z,2,39,0,"Fixes #1094
+This PR passes both httpAgent and httpsAgent (when available) down to follow-redirects. This way, follow-redirects is able to choose the right agent when subsequent redirections use different protocols (e.g.: an http request redirects to an https url)
+When a request is made using http and allowing redirects, if the redirect points to a url with a different protocol (https) AND both custom httpAgent and httpsAgent are defined in axios configuration, follow-redirects will be called in subsequent redirections using the agent corresponding to the protocol of the first request (say httpAgent), even if subsequent requests use a different protocol (https).
+follow-redirects detects that there is a mismatch between the protocol the agent can handle, and the protocol requested in the redirection and fails.
+This seems to be happenning only when both custom httpAgent and httpsAgent are defined, since when they are not, follow-redirects will choose a suitable default agent for each protocol.
+Please notice that I added a failing test that makes a request to an internet site (https://example.com) since creating a test https server (as far as I know) would require signing certificates which would eventually expire. I'm very much willing to refactor this test if there is a better way to do it.
+I found a topic branch that seems to be similar in spirit to this one:
+https://github.com/mzabriskie/axios/tree/feature/pass-agents-to-follow-redirects",8,15
+1107,2017-09-27T00:09:46Z,2020-05-22T14:44:18Z,2020-05-22T14:44:18Z,1,1,2,Moving where the Cookies Helper file is loaded to ensure compatibility with Vue.js Async Components that use Axios,5,1
+1110,2017-09-30T19:35:35Z,2020-02-15T12:48:17Z,2020-02-15T12:48:17Z,1,7,1,"I added a jsDelivr CDN link to your readme as an alternative to unpkg. jsDelivr is the fastest opensource CDN available and built specifically for production usage. It can serve any project from npm with zero config just like unpkg, but offers a larger network and better reliability. We also have detailed usage stats for project maintainers.",8,7
+1122,2017-10-10T19:49:29Z,2018-02-20T06:39:06Z,2018-02-20T06:39:07Z,2,2,1,"Fixing #1121
+Description
+In ./lib/core/Axios.js
+config = utils.merge(defaults, this.defaults, { method: 'get' }, config);
+The method is always overwritten with the  { method: 'get' }, so you are forced to pass the method in each request, like the following:
+const myAlwaysPostAPI = axios.create({
+  baseURL: 'http://localhost'
+  url    : '/myResource',
+});
+
+myAlwaysPostAPI({
+  method: 'post', //always forced to pass this in each API call
+  data      : {key: 'value'}
+});
+this also affects
+myAPI.defaults.method = 'post'; //does NOT work
+
+Expected Behavier
+const myAlwaysPostAPI = axios.create({
+  baseURL: 'http://localhost'
+  url    : '/myResource',
+  method: 'post'
+});
+
+myAlwaysPostAPI({
+  data: {key: 'value'}
+});",4,3
+1129,2017-10-13T11:51:56Z,2019-05-15T19:35:10Z,2019-05-15T19:35:10Z,1,1,1,"Bugfix
+When request has Content-Encoding: gzip|deflate|compress header and response has 204 No Content status code the following error is thrown: HttpClientError: unexpected end of file.
+This pull request fixes the issue by calling stream = stream.pipe(zip.createUnzip()) for all status codes but 204.",5,3
+1148,2017-10-24T17:50:59Z,2018-04-08T07:19:47Z,2018-04-08T07:19:47Z,1,2,2,"… string literal union type of possible values
+The possible values for responseType?: string and method?: string are fixed, so using union type of string literals of the possible values improves the type safety for users of these properties.
+I took the possible values from the docs.",5,1
+1203,2017-11-26T23:25:32Z,,2020-02-24T11:22:44Z,1,2,1,"The utility function isStandardBrowserEnv tries to check if this is a normal browser environment by checking for the existence of window and document.
+However in one of the places it is used (isURLSameOrigin.js), support for the navigator object is also assumed. In a react/preact node testing environment window and document may exist, but navigator may not.
+If you're not happy with this solution, I would propose checking if the environment is node instead e.g:
+  if (typeof module !== 'undefined' && module.exports) {
+    return false;
+  }",2,3
+1232,2017-12-11T10:30:34Z,,2020-05-22T19:15:21Z,3,67,11,"This was a known problem as #925.
+I found that https://github.com/request/request does not have this problem. So I debugged both of tow libs, and post this fix.
+The key is that, http and https request should not be handled the same way. The https request should use tunnel instead.
+See https://github.com/request/request#proxies.",8,8
+1234,2017-12-13T05:01:38Z,,2020-02-15T12:41:05Z,1,3,9,Upgraded to use native promises and destructuring on the arguments. The syntax is supported natively in the same situations as for the Promises. Follows the discussion in #1042,5,4
+1258,2017-12-29T15:47:55Z,2020-05-22T19:26:11Z,2020-05-22T19:26:11Z,2,16,1,"This PR fixes bug #1252 where HTTP headers whose keys match some HTTP verb are deleted from the headers object.
+The fix changes the cleanHeaderConfig function to only delete the key if it's value is a non-string.",5,5
+1264,2017-12-31T23:57:46Z,2018-01-05T16:30:16Z,2018-01-05T16:30:16Z,1,1,1,,2,1
+1270,2018-01-06T23:49:35Z,,2018-03-31T12:26:28Z,14,1505,1459,"This PR updates all dependencies to the latest version and includes a build which highlights the changes from moving from Webpack 1 to 3.
+Only essential changes have been made to configuration to support upgrading the dependencies.
+To test all npm scripts have been run.
+Lint fixes and disabling package lock file changes also included.",4,2
+1272,2018-01-07T06:40:18Z,2018-01-08T16:29:53Z,2018-01-08T16:29:53Z,2,10,10,"I noticed that for some reason Markdown was not rendered correctly in the issue and pull request templates, probably, because of some weird invisible character. This patch fixes the headings and some grammar.",3,1
+1273,2018-01-07T07:09:39Z,2018-02-08T03:23:29Z,2018-02-08T03:23:29Z,1,1,0,"Hopefully this will spur a little more involvement - I have not used it much myself.
+next up maybe https://opencollective.com/? @zcei you were saying that your company contentful is interested in sponsorship",5,3
+1274,2018-01-07T16:45:29Z,,2018-01-11T05:48:14Z,1,1,1,"This is a temp solution till follow-redirect will solve the issue with nock, more details are available here: #1271",3,3
+1276,2018-01-08T12:16:08Z,2018-02-23T03:03:47Z,2018-02-23T03:03:47Z,1,13,0,"Since async/await is not widely used, and I have seen quite a few questions on how to actually use async/await with Axios, I figured it would be nice to have it in the readme, front and center.",3,3
+1287,2018-01-11T14:03:04Z,2018-02-11T19:25:56Z,2018-02-11T19:25:56Z,1,4,0,"Set the maxBodyLength on the options sent to follow-redirects to match the AxiosOptions property maxContentLength, so axios can support content lengths greater than 10mb.
+Addresses #1286",4,9
+1314,2018-01-22T13:02:09Z,2018-01-22T16:41:10Z,2018-01-22T16:41:10Z,1,6,0,it seems when cancelling a post request we need to specify cancellation token as an axios parameter and not as a data item.,3,2
+1334,2018-02-05T11:58:34Z,2018-02-05T15:59:41Z,2018-02-05T15:59:41Z,7,83,49,"Umbrella: #1333
+
+Gets Babel into play, so that ESM is working
+Upgrades Webpack to v3 and uses an abstraction layer that simplifies config creation.",5,6
+1335,2018-02-05T16:29:26Z,2018-02-05T20:58:21Z,2018-02-05T20:58:21Z,68,2344,2488,"Umbrella issue: #1333
+Use a unified ESLint config instead of maintaining our own set of rules.
+no-var & prefer-const has been added, so we get ESLint autofixes for free 🙂
+Only the first commit needs to be reviewed, as the rest can be considered safe, as the transforms for autofixes are tested by ESLint & the community.",4,2
+1336,2018-02-05T17:00:26Z,2018-02-09T10:56:02Z,2018-02-09T10:56:02Z,3,404,419,"To sync the test tools we have, this PR migrates from nodeunit to jasmine for the http adapter to have the jasmine framework as only test framework.
+Requires #1335 to be merged first, probably also needs upgrading the Karma tests too
+Part of #1333",5,6
+1339,2018-02-06T08:00:21Z,2018-02-09T12:07:10Z,2018-02-09T12:07:10Z,10,43,238,"Umbrella: #1333
+This PR adjust the Karma spec runner to use the same Webpack config that is used for production builds.
+There is no need to have the webpack dev server running - when it was still included the bundle was emitted multiple times, without we get a single bundle that the test suite is run against.",4,5
+1342,2018-02-07T05:49:55Z,2018-02-17T02:58:49Z,2018-02-17T02:58:49Z,1,1,1,Fix issue #723,2,0
+1352,2018-02-09T13:20:57Z,2018-02-09T15:08:13Z,2018-02-09T15:08:13Z,6,47,231,"Umbrella: #1333
+Please note that the tests are failing because the semantics of the merge, extend & forEach lodash methods are different to the custom ones.
+Those will be fixed when the consumers are touched to use lodash directly instead of through utils.",6,2
+1363,2018-02-14T17:04:16Z,2018-02-17T01:42:34Z,2018-02-17T01:42:34Z,1,1,0,Add reference to a Fetch implementation based on an Axios client,2,1
+1364,2018-02-15T01:50:04Z,2018-02-17T16:28:47Z,2018-02-17T16:28:47Z,2,5,1,,3,3
+1377,2018-02-21T17:01:07Z,,2018-02-22T18:57:28Z,1,1,1,,2,2
+1391,2018-02-28T22:39:01Z,,2018-03-09T17:18:44Z,3,49,1,"Addresses #385, #812, #1170, #1117, #1387, and more...
+Problem
+
+Setting defaults.headers.common['YOUR HEADER HERE'] on a child instance of axios also sets the global instance's property.
+The same is true for any other object containing nested data, such as auth and proxy.
+
+Fix
+
+Create a perfect clone of the defaults object when creating a child instance of axios. [1]
+
+Justification
+
+Minimal invasiveness to existing code.
+Passes existing tests and new tests provided by @emilyemorehouse and myself.
+
+Caveats
+
+This bug fix could break implementations that rely on changes to defaults applying to all existing axios instances.
+
+PR source: getethos/haxios",6,15
+1395,2018-03-02T10:31:42Z,2018-04-10T22:28:13Z,2018-04-10T22:28:13Z,9,252,10,"Alternative solution to some other PR's addressing this issue, such as #1391, addressing the same issues (#385, #812, #1170, #1117, #1387, ...).
+Issue
+When creating Axios instances, some references are kept to global defaults object.
+Proposed solution
+I propose that Axios gets rid of the legacy requirement (existing test) of changes to axios.defaults propagating to instance defaults even when that instance was created before the change to axios.defaults. I think that when creating a new Axios instance, it should freeze its own defaults in time and not be affected by changes to global defaults.
+I don't know why that behaviour has been intended originally, but IMO it doesn't make sense.
+Not to mention that it is a security hazard in server-side environments. Someone might be setting authentication keys in the defaults and that would affect requests made by different end users because other instances would possibly/probably share those keys.
+Implementation
+I implemented a specific utils.mergeConfig(defaults, instanceConfig) function which very explicitly creates the configuration-object for a new Axios instance. This function is used when a new instance is created, and it leaves no reference to any objects in the base defaults.
+At the time of writing this implementation is quite messy because I just focused on getting the tests to pass. I will try to clean it up a bit, suggestions also welcome.
+
+As this changes behaviour, I assume it would be a breaking change.
+I hope for comments on this proposal/implementation. Also thanks to everyone who's been working on this issue in various threads already.
+cc @nickuraltsev @heisian @emilyemorehouse",7,30
+1399,2018-03-05T16:23:09Z,2018-03-07T19:50:17Z,2018-03-07T19:50:17Z,2,37,0,"Replacement for #689 and fix to #537 .
+Handling browser abort with test.",3,1
+1407,2018-03-11T03:45:15Z,2018-03-26T08:59:51Z,2018-03-26T08:59:51Z,21,88,64,"@Khaledgarbaya following up with the 1.0 release #1333. i saw quite a lot of unit test failed. so just made this PR to fix them.
+btw may i know who is the leading the 1.0 release?
+i currently encountered a issue with http adapter, and wanted to change on master branch. but i saw it was using nodeunit + http.createServer for test cases. Sadly my test case will be pretty tedious to implement if i did not have nock module. Thus i wanted to push this 1.0 progress so i could bring more improvements to this project.",4,3
+1410,2018-03-12T20:47:56Z,,2020-06-04T18:50:58Z,2,16,13,"This issue talks about the fact that the frequent use of interceptors.use and interceptors.reject can cause the creation of very big arrays as none of the handlers are deleted, but are simply replaced by null.
+It looks like it could potentially cause memory problem.
+In this fix, I replace the handlers array by a simple object. The API stays exactly the same but the interceptors handlers are now completely deleted.",3,2
+1419,2018-03-15T14:46:39Z,2018-08-20T09:02:24Z,2018-08-20T09:02:24Z,4,7,1,"Adding a isAxiosError flag in errors thrown by axios.
+This PR aims to resolve the issue posed by #1415 while preventing breaking changes.",6,6
+1479,2018-04-13T09:27:51Z,,2020-05-25T17:09:43Z,1,15,0,"maxcontentlength was only respected by adapters/http.js.
+I added an implementation in adapters/xhr.js for the browser.",3,1
+1484,2018-04-14T16:58:21Z,2018-07-05T15:02:42Z,2018-07-05T15:02:42Z,1,2,0,"adding in the necessary require statement (in nodejs).
+
+Instructions
+Please read and follow the instructions before creating and submitting a pull request:
+
+Create an issue explaining the feature. It could save you some effort in case we don't consider it should be included in axios.
+If you're fixing a bug, try to commit the failing test/s and the code fixing it in different commits.
+Ensure you're following our contributing guide.
+
+⚠️👆 Delete the instructions before submitting the pull request 👆⚠️
+Describe your pull request here.",3,0
+1485,2018-04-15T14:59:31Z,2019-05-07T19:20:35Z,2019-05-07T19:20:35Z,1,1,0,"Currently, axios won't destroy download stream on exceeding maxContentLength, which in some cases can lead to high cpu usage and subsequent denial of service.
+Here is how it looks (200 MB file, limit is 20 MB):
+   ticks parent  name
+  61777   81.0%  /lib/x86_64-linux-gnu/libc-2.23.so
+  61542   99.6%    LazyCompile: *Buffer.concat buffer.js:423:25
+  61437   99.8%      Function: ~handleStreamData /home/resure/something/node_modules/axios/lib/adapters/http.js:165:52
+  61437  100.0%        Function: ~emitOne events.js:114:17
+  61437  100.0%          Function: ~emit events.js:156:44
+  61437  100.0%            Function: ~addChunk _stream_readable.js:261:18
+
+It almost hangs nodejs process for ~30 seconds, spending all that ticks on handling already rejected download.
+This PR adds stream.destroy() (suggested in #1098), which is being called right before throwing an error about size limit.",32,54
+1487,2018-04-16T08:02:30Z,2020-05-23T17:06:11Z,2020-05-23T17:06:11Z,1,1,1,There is a bug in react native Android platform when using get method.  It will trigger a 'Network Error' when passing the requestData which is an empty string to request.send function. So if the  requestData is an empty string we can set it to null as well to fix the bug.,3,0
+1492,2018-04-18T07:21:15Z,2020-05-26T16:32:04Z,2020-05-26T16:32:04Z,2,19,2,Fixing #1446 (Basic auth fails with non latin characters in username or password) by encoding password before passing it into btoa(),4,1
+1493,2018-04-18T23:00:31Z,,2020-06-25T16:48:03Z,2,44,1,Fixing #1491 (maxContentLength config not working for exceeded content-length response) by checking Content-Length of the response header before downloading the full content.,7,6
+1511,2018-04-30T21:30:13Z,2020-05-27T12:42:42Z,2020-05-27T12:42:42Z,2,7,1,"A buffer pool is a large ArrayBuffer of a preset size used with a TypedArray such as Uint8Array. This can speed up performance when constructing a new TypedArray of  an unknown size, and is a technique used by Node with their Buffer, and by libraries like dcodeIO/protobuf.js.
+Currently the default transformRequest function will take a TypedArray and return its .buffer directly. This is a problem when that buffer is much larger than the array itself, such as protobuf.js's 8kB buffers discussed here. As a result, using axios with protobuf messages encoded by protobuf.js will result in POSTing massive request bodies of mostly empty bytes.
+You can generate such an array yourself like this:
+const unbuffered = new Uint8Array(16);
+const buffered = new Uint8Array(8192).subarray(10, 26);
+
+console.log(unbuffered.byteLength)  // 16
+console.log(buffered.byteLength)  // 16
+
+console.log(unbuffered.buffer.byteLength)  // 16
+console.log(buffered.buffer.byteLength)  // 8192
+Fortunately there is a fairly straightforward fix, call .slice() on the TypedArray before grabbing its buffer. This will make a copy of the TypedArray with an ArrayBuffer of the same length.
+console.log(buffered.slice().buffer.byteLength)  // 16
+This PR implements that fix and adds a new test to cover this edge case.",2,0
+1521,2018-05-06T19:50:42Z,,2019-12-03T11:49:22Z,1,1,1,fix the invalid return value from Interceptors in readme file,2,0
+1532,2018-05-11T13:52:05Z,2018-05-11T15:05:44Z,2018-05-11T15:05:44Z,28,277,335,"Umbrella: #1333
+Finally found some time pushing the refactoring further.
+This PR aims to update the core, defaults & adapters to the ESM syntax.
+It also removes some API surface (all & spread), which we'll have to deprecate properly in a v0.x release as discussed in the umbrella issue.
+Last tests have been changed to read from lib/axios (except for when asserting that something is available in the browser axios distribution).",2,1
+1551,2018-05-18T21:43:31Z,2018-07-05T06:48:08Z,2018-07-05T06:48:08Z,1,19,2,"Addressing this issue:
+#1550",3,2
+1592,2018-06-07T20:59:40Z,,2020-04-04T20:44:43Z,1,3,0,,3,0
+1605,2018-06-14T09:59:57Z,2018-06-18T08:48:30Z,2018-06-18T08:48:30Z,2,57,10,"As discussed in #1510, you can change the return type in a response interceptor.
+Currently this cannot be accounted for in the TypeScript typings.
+With this change we allow telling the compiler that we expect a specific return type. You still need to make sure that this type of data is returned by your last interceptor, as this cannot be reliably inferred.",2,0
+1611,2018-06-17T15:03:40Z,2018-06-19T12:59:59Z,2018-06-19T12:59:59Z,1,5,1,"Currently we don't disable browser env for Nativescript like what we have for ReactNative, we want to support axios for Nativescript",2,1
+1622,2018-06-21T19:39:03Z,2018-07-05T06:47:18Z,2018-07-05T06:47:18Z,2,9,9,,2,0
+1623,2018-06-22T08:51:56Z,2018-07-02T03:10:05Z,2018-07-02T03:10:05Z,1,9,1,"Inspired by this issue : #792 (comment)
+Adding this kind of example in the readme :
+axios.post('/api/foo', {
+    foo: 'bar'
+}).then((response) => {
+    // success
+}).catch((error) => {
+    // error
+}).then(() => {
+    // always executed
+});",2,0
+1689,2018-07-21T17:39:47Z,2018-08-06T07:56:52Z,2018-08-06T07:56:52Z,10,6,173,"Fixes #1656. Brings the bundle size from 14 KB to 13.2 KB.
+Have I gotten everything related to IE 9 out? Should I commit the changes to dist while I'm here?",3,3
+1693,2018-07-24T01:41:14Z,2018-08-07T17:52:05Z,2018-08-07T17:52:05Z,3,120,11,"This commit adds support for the no_proxy env variable (Issue #434 and on umbrella issue for 1.0.0). It looks like there's an open PR #565, however it has conflicts, adds an unnecessary dependency, and was created in 2016 and hasn't been merged yet. At the company where I work, we are behind a proxy and are having to work around this lack of functionality, and it seems like several people are in a similar situation, so it'd be nice to have this feature. 🙂",4,3
+1712,2018-08-06T12:57:15Z,2018-08-07T17:52:31Z,2018-08-07T17:52:31Z,2,7,0,"This is a new feature to get the built URI of an axios instance. It's been added in regards to this issue #1624 , I thought the use-case was interesting and I didn't think it was a good idea to include this feature in a third-party module.
+This code
+const axios = require('axios');
+const fakeConfig = {
+  method: 'post',
+  url: '/user/12345',
+  data: {
+    firstName: 'Fred',
+    lastName: 'Flintstone'
+  },
+  params: {
+    idClient: 1,
+    idTest: 2,
+    testString: 'thisIsATest'
+  }
+}
+console.log(axios.getUri(fakeConfig));
+Outputs
+/user/12345?idClient=1&idTest=2&testString=thisIsATest",4,7
+1715,2018-08-08T16:12:25Z,,2018-12-30T09:50:04Z,1,6,0,"Fixes #1231
+Context
+Axios is a cross-runtime request library, it works out of the box in both Node.js and Browsers. Therefore consumers of the library don't add any extra checks around the runtime themselves, hoping axios would handle the differences for them.
+Among the consumers of axios is the Google official API client googleapis. It uses axios for it's http requests but also sets user-agent header. While the request works in Node.js, it fails in browsers because they disallow setting a custom User-Agent header.
+The Solution
+This PR is a backward compatible way of fixing above scenario. Backward compatible as-in, the above mentioned scenario would've failed in browsers and wouldn't have worked so there's no way anybody could be depending on user-agent behavior of this library in browsers. Furthermore user-agent is a non-important header, in my testing requests behave the same on googleapis regardless of user agent payload.",4,6
+1736,2018-08-17T12:53:21Z,2018-08-21T14:24:54Z,2018-08-21T14:24:54Z,1,1,0,This is in support of #1624.  It adds a definition for the getUri feature added by @delirius325 to the base axios type.,2,2
+1738,2018-08-17T21:18:07Z,2019-05-07T19:14:58Z,2019-05-07T19:14:58Z,1,2,2,"Regarding #1730
+Adjusts index.d.ts so that it takes type argument which is passed on to AxiosResponse.
+export interface AxiosError<T = any> extends Error {
+  config: AxiosRequestConfig;
+  code?: string;
+  request?: any;
+  response?: AxiosResponse<T>;
+}",5,2
+1745,2018-08-20T15:42:12Z,2020-02-15T13:49:27Z,2020-02-15T13:49:27Z,1,1,1,"responseEncoding has been implemented via #869, but the property hasn't been added in mergeConfig and thus isn't recognized.
+This pull request fixes this issue by adding responseEncoding as a valid property in mergeConfig.
+Fixes #1561
+Related to #869",3,0
+1752,2018-08-23T02:00:06Z,2019-09-16T08:58:59Z,2019-09-16T08:58:59Z,1,7,5,"Sometime, the response will be very slow, and does not respond, the connect event will be block by event loop system.
+
+And timer callback will be fired, and abort() will be invoked before connection, then get ""socket hang up"" and code ECONNRESET.
+
+At this time, if we have a large number of request, nodejs will hang up some socket on background. and the number will up and up.
+
+And then these socket which be hang up will devoring CPU little by little.ClientRequest.setTimeout will be fired on the specify milliseconds, and can make sure that abort() will be fired after connect.
+
+So I change the code to use the timeout event for connect timeout on nodejs side.
+
+My issue
+I think this issue is the same reason",14,22
+1758,2018-08-26T20:23:24Z,2018-08-27T15:26:39Z,2018-08-27T15:26:39Z,2,27,1,"Resolves #1158
+This modifies http.js to uppercase the HTTP method, similar to xhr.js, before passing the request off to the transport. This causes follow-redirects to preserve the HTTP method when automatically making a request to the next URL.
+@axe312ger",3,0
+1771,2018-08-31T12:34:56Z,2018-09-04T07:53:57Z,2018-09-04T07:53:57Z,2,11,0,"This commit fix building url with hash map (fragment identifier) when parameters are present: they must not be added after #, because client cut everything after #",3,1
+1773,2018-09-01T03:44:30Z,2020-05-28T19:28:41Z,2020-05-28T19:28:41Z,1,7,0,Fix #1643,6,0
+1781,2018-09-07T13:10:02Z,2018-09-17T16:25:07Z,2018-09-17T16:25:07Z,1,8,8,The current typings shipping with Axios type method as a string accepting both upper and lowercase method names. This change ensures that when the new typings ship they will be backwards compatible.,2,0
+1787,2018-09-12T12:19:49Z,2018-09-17T14:19:35Z,2018-09-17T14:19:35Z,1,4,4,Super minor change to README that encourages consistent function ( declarations. My two cents. 🙏,2,1
+1789,2018-09-13T12:12:25Z,2018-09-17T14:24:47Z,2018-09-17T14:24:47Z,1,1,1,"Summary
+.eslintrc without extension is deprecated (https://eslint.org/docs/user-guide/configuring#configuration-file-formats).
+Fix #1788
+Changes
+
+Change the content of .eslintrc to be a js module (module.exports)
+Add .js extension to .eslintrc",2,0
+1798,2018-09-20T14:19:49Z,,2020-08-27T19:11:05Z,5,533,78,"Hello,
+I would like to use Axios in my TypeScript projects, but I found the type definitions to be insufficient in some places, and inaccurate in others.
+I took this opportunity to refine the type definitions so that they more closely match TypeScript conventions, describe the more accurate semantics of Axios, and include the full API provided by this library.
+In doing so, I introduced some breaking changes to the type definitions, so this will likely require a major version bump (I see you are already working on a beta for a major version bump, so this may be well-aligned already). I tried to minimize this as much as possible, but it should now more accurately reflect the way that TypeScript developers are likely to use this library.
+There are several ways to implement type definitions for a non-TypeScript library, so if something feels wrong, there is certainly room for discussion.
+Here is a summary of the changes (Effectively all of these are breaking changes):
+
+Documentation comments have been added for all exported members. Let me know if these are too wordy, or if the content is inaccurate. If you'd like the comments to more closely resemble the docs in the README or the JS code, I can certainly do that as well.
+Function types are now exported as regular function types (type Func = (arg: ArgType) => returnType) instead of callable interfaces (interface Callable { (arg: ArgType): returnType; }). I find that the semantics are easier to understand when doing things this way. (This is technically a breaking change because users can now no longer use these types as interfaces, but I find that I very rarely need to use callable interfaces in this way, so the impact should be very low.)
+Usage of the any type is reduced as much as possible. This is a breaking change because some types are now more specific. However, because the types are more accurate, this will actually reveal bugs when it causes errors for users, as opposed to other kinds of refactoring.
+The params config property is now required by default to be an object or a URLSearchParams instance. This can be overridden using a type parameter on the AxiosRequestConfig interface, for usage by the paramsSerializer property. For users that this breaks, they will have to either correct the type they use or override the type parameter.
+The AxiosPromise type has been removed. It wasn't being used everywhere anymore, so I removed it for consistency.
+There were a few methods of AxiosInstance that were missing or incomplete, so those should now be good.
+
+The largest change (which was the main reason for this PR) was a refactoring the export structure of the library. Previously, the library exported all types as named exports, and then exported a constant of type AxiosStatic as the default export, containing the API. The problem with this is that it is effectively incapable of supporting the Axios class, which is exported by the library but not included in the type definitions because it cannot be properly attached to the AxiosStatic interface. There are ways to make it work, but I found it prudent to restructure this so that the types make sense to users and follow a more conventional approach. The AxiosStatic interface has now been removed in favor of exporting each of its members as named exports, followed by the default AxiosInstance as the default export. What this means is that the functions and classes that were previously accessible on the default export now have to be accessed via named exports, and cannot be accessed via the default export.
+In addition, I made a change to the main entry point to no longer set the default export. CommonJS libraries should never have to do that, and in an earlier version of TypeScript, they introduced a recommended configuration specifically for handling this. If a library is implemented as a regular CommonJS library (such as Axios), the TypeScript module interop will detect this and expose the full module.exports as the default export, as well as allowing the named properties of module.exports to be imported as named exports. This is exactly how Axios is meant to be used, so it makes sense to let TypeScript handle that.
+Alternatively, we can just ignore the concept of a ""default instance"" and just expose the instance members of the default instance as named exports as well, making the default export just the request function.
+Let me know if you don't agree with any of this. I want to let the library maintainers have final say; I'm just offering my professional opinion.",4,2
+1799,2018-09-20T14:24:06Z,,2020-04-05T09:58:20Z,1,14,9,"Instructions
+Please read and follow the instructions before creating and submitting a pull request:
+
+Create an issue explaining the feature. It could save you some effort in case we don't consider it should be included in axios.
+If you're fixing a bug, try to commit the failing test/s and the code fixing it in different commits.
+Ensure you're following our contributing guide.
+
+⚠️👆 Delete the instructions before submitting the pull request 👆⚠️
+Describe your pull request here.",3,2
+1814,2018-10-01T07:34:13Z,,2020-02-15T14:01:38Z,1,1,1,"I see maxContentLength option is passed to maxBodyLength option in follow-redirects, which describes itself as
+
+sets the maximum size of the request body
+
+The explanation for maxContentLength in this document should also be request instead of response.",4,1
+1816,2018-10-01T19:17:56Z,2019-11-18T06:53:28Z,2019-11-18T06:53:28Z,3,18,3,"The dependency on is-buffer can be easily inlined with a function that has the same functionality, reducing download size and increasing maintainability for the package. This PR adds a function in lib/util.js with said inline function and removes the dependency on is-buffer from package.json.",6,6
+1831,2018-10-15T15:46:09Z,,2019-11-23T23:48:00Z,4,35,2,Fixes #1718,5,2
+1845,2018-10-21T15:58:05Z,2020-06-04T18:57:55Z,2020-06-04T18:57:56Z,4,33,6,"Fixes #382.
+First of all, deepMerge was always returning an object even if the latter value being merged was not an object. This was making it impossible to later detect that initially a null was passed in the request config.
+Changing deepMerge propagated the behaviour to mergeConfig. No changes needed in mergeConfig.
+Then, eventually in dispatchRequest I had to remove the null-valued headers. I imagine there would be need to do the same for also auth and proxy objects, as maybe similar behaviour (ability to unset a property by passing null) would be preferred?",7,7
+1852,2018-10-26T07:54:13Z,,2019-12-07T10:31:34Z,1,3,4,"Explicit  to set a true or false setting.
+if (typeof config.withCredentials !== 'undefined') {
+request.withCredentials = !!config.withCredentials;
+}",10,7
+1864,2018-11-02T13:36:26Z,,2020-04-26T21:14:27Z,1,1,0,Adding the axios-authorized library that I've made!,3,1
+1867,2018-11-03T13:46:25Z,,2020-06-25T16:50:01Z,1,3,1,"There are some cases where sites wrongly pass a responseType but not a responseText.
+In those cases I found the response in request.response.
+I did not create an issue because it's an edge case that I think it is quite rare, and in code it translates in an reinforcement of a check in a ternary operator.
+Thank you for your time and effort, this library is great!",3,1
+1870,2018-11-04T18:46:19Z,,2020-03-07T07:03:29Z,1,1,0,"Fixes #1866
+
+Adding responseEncoding option to the AxiosRequestConfig interface in the Typescript definitions.",5,2
+1880,2018-11-15T18:30:50Z,,2019-09-28T23:52:26Z,1,1,2,"Currently, the behaviour for parsing the no_proxy env variable is to check that that hostname ends with the no_proxy listed element, and that the element contains the same number of .s as the hostname.
+This is kind of cumbersome because it forces you to list every possible subdomain of a domain you want not to go through a proxy. For example, if you want any requests to *.foo.com not to go through a proxy, you would have to have something like this:
+set NO_PROXY=bar.foo.com, baz.qux.foo.com, quuz.foo.com
+I think it would make more sense for
+set NO_PROXY=.foo.com
+to also cover all subdomains of foo.com as well.
+Let me know what you guys think!
+P.S I found this impossible to work this into the existing tests as they spawn servers on localhost, and I can't create subdomains on localhost without changing /etc/hosts. Open to suggestions of this",8,6
+1884,2018-11-21T13:26:47Z,,2019-05-07T19:16:32Z,1,2,2,"Summary:
+Turn AxiosError into a generic, this allows typing of the returned response.",4,2
+1886,2018-11-22T13:22:36Z,,2020-06-25T16:56:43Z,3,9,2,"const instance = axios.create({
+    baseURL: 'https://some-domain.com/api/',
+    timeout: 1000,
+    headers: {'X-Custom-Header': 'foobar'},
+  });
+
+instance.getUri({params: {name: 'asd'}}) // throws TypeError
+
+With this PR, It addresses the null/undefined url to the getUri method by simply returning serialized/unserialized params.
+Also ,
+.replace(/^\?/, ''); 
+
+is moved inside the buildURL method so that it does not operate on undefined/null url which could be the case if params config.params evaluates to false and config.url is not set to string.
+Thank you.",3,1
+1889,2018-11-23T09:00:34Z,,2020-05-29T04:48:55Z,1,1,7,"According to issue #362 - which is open for more than two years - I'm now creating this simple PR to fix this really annoying behaviour that the Content-Type gets removed if no requestData is set...
+I think this fix will make a lot people really happy ;)",4,1
+1896,2018-11-27T10:33:05Z,2019-02-04T04:16:38Z,2019-02-04T04:16:38Z,1,3,0,#1894,4,1
+1899,2018-11-27T16:22:19Z,2019-01-17T17:34:06Z,2019-01-17T17:34:06Z,1,5,3,Improve readme file.,4,0
+1900,2018-11-27T19:39:40Z,2020-06-25T17:06:00Z,2020-06-25T17:06:01Z,1,8,0,"Adding support for URLSearchParams from node url module, as requested #1891",3,0
+1901,2018-11-29T06:06:14Z,2020-02-26T11:03:20Z,2020-02-26T11:03:21Z,1,3,2,"Added Response header access instructions to the docs.
+This should fix #1606 and maybe others.
+I suspect the confusion comes from the fact that (most of) everything else offers dot notation access but headers come along with dashes and it breaks.",2,1
+1904,2018-11-30T23:14:03Z,2019-12-25T20:55:37Z,2019-12-25T20:55:37Z,1,1,4,"Fixes #768
+Axios determines isHttpsRequest based on the protocol in the url. So for urls beginning with http://, it will try to use an httpAgent. Then, if the url internally redirects to https, it throws the ""Protocol https not supported"" error in the issue above. This only happens when a custom httpAgent is supplied to axios.
+To fix, we just need to pass both agents to follow-redirects and let that package choose based on what protocol it encounters https://github.com/follow-redirects/follow-redirects/blob/v1.4.1/index.js#L121",8,2
+1912,2018-12-06T11:25:22Z,,2019-06-07T16:13:08Z,1,12,1,"rfc7231 does not forbit sending payload with GET-Requests. In several cases this is needed because of the size-restriction on GET-Parameters.
+fixes #787",3,4
+1925,2018-12-13T07:47:26Z,2019-02-04T03:54:50Z,2019-02-04T03:54:50Z,1,1,0,"Hi, it's a custom React Hooks for axios, I think it's useful in some cases.",2,0
+1929,2018-12-14T05:26:27Z,2020-05-29T04:57:03Z,2020-05-29T04:57:04Z,4,11,8,Code cleanups,6,3
+1958,2019-01-14T09:26:51Z,2020-05-29T05:02:31Z,2020-05-29T05:02:31Z,1,4,0,"Added a button that allows opening the example project in Gitpod, a free online dev environment for GitHub. On start the dev environment will automatically run:
+
+npm install
+grunt build
+npm run examples
+
+A notification will pop up and ask you to open the examples website either in the preview or a new browser tab.
+You can find the configuration here:
+https://github.com/gitpod-io/definitely-gp/blob/master/axios/.gitpod.yml",4,1
+1964,2019-01-17T15:00:07Z,2020-07-01T16:48:18Z,2020-07-01T16:48:18Z,1,16,15,This fixes #1963 and allows typesafe extension of the AxiosConfig,18,18
+1985,2019-01-30T13:59:06Z,,2020-05-29T05:10:04Z,1,39,0,"This is fixed conflicts for #1280 by @omegaphoenix
+
+Allow put requests to specify a config with maxBodyLength to override
+the default (10 MB) limit on PUT requests to follow-request.
+Corresponding commit and Issue in follow-request library:
+follow-redirects/follow-redirects@847a47f
+follow-redirects/follow-redirects#68",5,4
+1987,2019-02-01T07:48:19Z,2020-07-01T17:35:25Z,2020-07-01T17:35:25Z,2,10,1,"Adds support for params without value when set to null. (test included)
+undefined can still be used to exclude the param.
+Example:
+This params object: { foo: null, bar: ""baz"", qux: undefined }
+Becomes this query string: ?foo&bar=baz
+This resolves #1139.",6,3
+1993,2019-02-09T00:49:10Z,2019-02-09T04:27:36Z,2019-02-09T04:27:37Z,1,1,1,"TLDR: Fixes #1953
+Versions 1.6.0 and 1.6.1 of follow-redirects break Mocha test should support max redirects. The PR updates dependency version to the last compatible one.",5,5
+1996,2019-02-11T18:35:15Z,2020-03-07T06:10:35Z,2020-03-07T06:10:35Z,1,16,0,"Adds missing TS type definition for AxiosInstance#options and closes #1990
+Relates to #461",5,3
+2000,2019-02-14T09:29:35Z,,2020-06-25T18:00:25Z,7,46,9,"Fixing memory leak in v8 based enviroments (browsers and node) caused by issue 8841 #1997
+The fix is implemented by adding additional checking to default transformResponse function.
+Now it only tries to parse response data if responseType is default or explicitly specified as 'json'",4,2
+2003,2019-02-18T00:07:32Z,2020-02-26T12:13:37Z,2020-02-26T12:13:38Z,1,1,0,Added link to axios-hooks github page.,2,1
+2020,2019-02-28T00:16:33Z,2019-03-04T19:16:11Z,2019-03-04T19:16:11Z,1,1,0,Adds axios-api-versioning to the ECOSYSTEM list,2,1
+2036,2019-03-08T00:21:02Z,2019-05-07T20:17:17Z,2019-05-07T20:17:17Z,1,6,0,"Small update in readme, adding yarn add to install axios.",3,0
+2040,2019-03-11T00:10:31Z,,2020-05-29T14:53:41Z,3,38,6,"Fixes #1170.
+Before this change, calling axios.create().create() would result with the error:
+TypeError: axios.create(...).create is not a function
+
+After this change, all is well.  Axios instances now can be sub-instanced indefinitely.",9,9
+2062,2019-03-26T14:41:25Z,,2020-03-28T09:52:25Z,1,2,2,"https://github.com/Microsoft/TypeScript/blob/master/lib/lib.dom.d.ts#L11477
+OnUploadProgress and onDownloadProgress have an event — a progressEvent, which is of type ProgressEvent, but in the library it is any that is wrong.",3,1
+2066,2019-03-28T03:48:14Z,2019-05-07T20:16:15Z,2019-05-07T20:16:15Z,1,3,3,Fixing spacing for READ.me file to be consistent with coding standards.,2,0
+2071,2019-03-31T05:19:16Z,,2020-03-24T14:09:44Z,4,63,0,"#1635
+Native support
+Node Documentation",4,2
+2080,2019-04-04T17:47:08Z,2020-05-29T17:06:21Z,2020-05-29T17:06:21Z,1,1,0,Added entry for axios-data-unpacker as one of axios interceptors,4,0
+2088,2019-04-09T04:07:47Z,2020-05-29T17:08:28Z,2020-05-29T17:08:28Z,1,2,2,Detailed config options environment.,3,0
+2090,2019-04-10T01:35:35Z,2019-05-07T20:01:44Z,2019-05-07T20:01:44Z,1,1,1,69 line methods use error.,3,0
+2121,2019-04-30T22:28:00Z,2019-05-07T19:26:33Z,2019-05-07T19:26:34Z,1,2,1,"It seems that responseType: 'blob' doesn't actually work in Node (when I tried using it, response.data was a string, not a Blob, since Node doesn't have Blobs), so this clarifies that this option should only be used in the browser",2,0
+2128,2019-05-03T18:55:44Z,,2020-05-29T17:37:07Z,2,29,0,"The original implementation of Axios.prototype.getUri did not take into consideration the baseURL of the instance configuration. Therefore, it would always return a relative URL instead of the URL that would be used if you actually made a request with the provided config.
+I also added a test that validates this requirement.",5,5
+2135,2019-05-07T21:35:43Z,,2020-01-24T07:01:46Z,1,7,7,"Minor improvement to the TypeScript type definition of AxiosError.isAxiosError from boolean to true.
+The value is always exactly true, so a type of true is more appropriate.",2,1
+2138,2019-05-09T03:45:33Z,,2019-05-30T16:33:26Z,1,1,1,"Temporarily downgrades NodeJS because a nested dependency (bundlesize@0.17.1 > brotli-size@0.0.1 > iltorb@1.3.10) does not support Node 12. This can probably be reverted once siddharthkp/bundlesize#299 is merged. Alternatively, a package-lock.json or npm-shrinkwrap.json can be used to upgrade brotli-size to 0.1.0.",8,8
+2141,2019-05-09T14:03:28Z,2019-05-15T19:40:24Z,2019-05-15T19:40:24Z,1,1,0,I have developed a simple cURL command extraction library. This library is likely to benefit a lot of people. So I added content to ECOSYSTEM.,2,0
+2162,2019-05-21T15:25:38Z,2020-05-27T17:12:49Z,2020-05-27T17:12:49Z,1,2,1,"Hi, I added a package for generating typescript / js code from Swagger v2 spec, highly based on axios.
+Full docs in the readme:
+
+https://github.com/michalzaq12/swagger-taxos-codegen
+
+Cheers!",3,0
+2166,2019-05-22T18:58:52Z,2019-05-28T16:58:00Z,2019-05-28T16:58:00Z,1,2,0,"Fixes #2158
+This pull request adds additional information to the README.md.
+I took the liberty to points users who want to use Bearer tokens towards custom authorization headers.",2,0
+2169,2019-05-23T14:09:16Z,2019-05-28T16:57:10Z,2019-05-28T16:57:10Z,1,1,1,"This PR just changes the README file (docs).
+It is also possible to have data in DELETE method.
+It is possible to have:
+  return axios.delete(
+    `/api/todos/${id}`,
+    {
+      ...config,
+      data: {
+        reason
+      }
+    });",2,0
+2176,2019-05-28T03:55:43Z,2019-05-28T16:55:34Z,2019-05-28T16:55:34Z,1,1,0,Adding axios endpoints to ecosystem,2,0
+2189,2019-05-30T18:19:09Z,2019-09-13T13:19:44Z,2019-09-13T13:19:44Z,1,1,1,"Description:
+
+🐛Fix request finally documentation in README",4,1
+2191,2019-05-31T01:16:11Z,2020-03-07T06:45:25Z,2020-03-07T06:45:25Z,1,1,0,I wanna call PURGE method to invalidate Varnish caches.,5,3
+2193,2019-05-31T05:32:06Z,2019-05-31T15:20:36Z,2019-05-31T15:20:36Z,1,1,1,"issue link is not found.
+typo: issue => issues",3,0
+2196,2019-05-31T15:56:02Z,,2020-02-15T14:12:33Z,1,2,2,"Fixes bug introduced in 0.19.0 where request params are not being merged correctly with default instance params. See bug #2190 for more information
+According to the documentation:
+
+The available instance methods are listed below. The specified config will be merged with the instance config.
+
+Tests were failing because of the change to merge params, so hopefully my update to the tests is correct … and passes",13,14
+2198,2019-06-02T20:09:44Z,2019-09-07T12:05:26Z,2019-09-07T12:05:26Z,12,44,27,"Reword the intro to COOKBOOK to get to the point faster
+Create buckets in ECOSYSTEM for a little bit of organization
+try to clarify docs around validateStatus and eject for the interceptor
+
+Minor: update to bootstrap 4 build in examples files",2,2
+2201,2019-06-03T18:06:14Z,2019-09-13T12:36:00Z,2019-09-13T12:36:00Z,1,4,5,"Fixes #2195
+The order of the if/else blocks matters when running tests mocking XHR. Changing the order allows this to continue working in node and browsers, but also allows for unit tests to properly connect over the correct protocol.",7,7
+2207,2019-06-07T16:03:39Z,2019-09-07T00:40:05Z,2019-09-07T00:40:05Z,2,36,9,"This PR is a conflict fix of #2006 with some code style fix as well. The main work was done by @oleduc.
+
+fixes #2203",33,66
+2209,2019-06-08T13:01:01Z,,2020-05-29T16:36:33Z,1,17,2,"Instructions
+Please read and follow the instructions before creating and submitting a pull request:
+
+Create an issue explaining the feature. It could save you some effort in case we don't consider it should be included in axios.
+If you're fixing a bug, try to commit the failing test/s and the code fixing it in different commits.
+Ensure you're following our contributing guide.
+
+⚠️👆 Delete the instructions before submitting the pull request 👆⚠️
+Describe your pull request here.",4,1
+2210,2019-06-08T20:08:37Z,2020-05-29T17:49:56Z,2020-05-29T17:49:56Z,1,11,3,"Hello,
+This is my first PR. When running npm start, I noticed there was no indication that command worked or which localhost to view the connection. Added console log for clarity.",5,0
+2212,2019-06-08T20:23:30Z,2019-09-13T12:31:50Z,2019-09-13T12:31:50Z,1,1,1,"Corrected spelling mistake and added a link to the general docs from the 'contributing' readme.
+old:
+
+corrected:",3,0
+2227,2019-06-13T09:09:24Z,,2019-11-09T20:46:26Z,1,1,1,"Hi,
+In index.d.ts, AxiosRequestConfig interface, the type 'proxy?: AxiosProxyConfig | false;' is incorrect.
+false is a value not a type. The type is boolean.
+Best Regards",7,4
+2233,2019-06-15T20:04:35Z,,2020-03-07T11:32:17Z,3,9,0,,7,7
+2243,2019-06-23T03:53:22Z,,2020-06-04T18:18:19Z,5,19,1,"I have added validation to ensure that header being objects, and at the same time I tested this validation and I fixed a problem with one tests",6,3
+2255,2019-06-28T19:08:27Z,,2020-06-04T18:27:50Z,7,73,102,"Description
+Modernizes typecheck functions in utils in order to reduce dependency count and reduce bundled dist sizes.
+
+Removes is-buffer from package dependencies (#1941), or as also implemented in (#1816 )
+Replaces manual validation of Array in favor of the built-inArray.isArray method - ES2015
+Removes UPGRADE_GUIDE.md from npm bundle to reduce size
+
+Results
+Dist
+before:
+4740B
+after:
+4595B
+total:
+145B (~3.1%)
+NPM
+before:
+83.6 kB
+after:
+82.1 kB
+total:
+1.5kB (~1.2%)
+Notes
+I tried a number of things on the side, this addresses some low-hanging fruits, but I think that the size of the bundle can be cut down significantly more. Let me know if that something that would be interesting.",3,1
+2259,2019-06-30T16:22:30Z,2019-10-16T01:32:20Z,2019-10-16T01:32:20Z,1,1,1,See title,4,0
+2271,2019-07-08T07:46:07Z,2019-09-06T15:42:10Z,2019-09-06T15:42:10Z,1,1,1,"Text is unclear. On line 503, it should be ""You may need to remove..."" or ""If you need to remove..."", but not both. Change to the latter.",3,1
+2285,2019-07-15T07:32:31Z,,2020-02-26T12:40:19Z,7,42,7,"Description
+I implement useGlobalInterceptors option for axios instance can be use interceptors of global axios.
+import axios from 'axios';
+
+// axiosInstance must have this interceptors
+axios.interceptors.request.use((config) => {
+  console.log(config);
+  return config;
+}, (error) => {
+  console.log(error);
+  return Promise.reject(error);
+});
+
+const axiosInstance = axios.create({ useGlobalInterceptors: true });
+axiosInstance.get(URL)
+  .then(() => { /* ... */ })
+  .catch(() => { /* ... */ })",4,1
+2305,2019-07-24T04:01:00Z,,2019-08-26T05:47:31Z,1,1,1,"Updated .then() to .finally() at the end of Promise.
+Instead of .finally() at the end of Promise, .then() was written.",4,4
+2314,2019-07-27T21:29:46Z,,2019-08-13T12:32:02Z,1,1,1,Clarify what's actually being checked,2,1
+2317,2019-07-28T17:50:14Z,2019-09-13T12:19:17Z,2019-09-13T12:19:17Z,1,5,0,This pull request adds a method to send data through the body.,2,0
+2333,2019-08-02T21:09:50Z,,2020-02-29T10:21:03Z,1,1,1,"Addresses #2270 where a PROPFIND |(for CalDAV / WebDAV) request would be stripped of its data prior to making the request.
+Example request:
+    const options = {
+        method: 'PROPFIND',
+        url: 'https://caldav.icloud.com/',
+        auth: {
+            username: 'XXX',
+            password: 'ZZZ'
+        },
+        responseType: 'document',
+        data: ""<propfind xmlns='DAV:'><prop><current-user-principal/></prop></propfind>""
+    }
+    return axios(options as any).then((response) => {
+        ...
+    }).catch(error => {
+        ...
+    })",4,3
+2341,2019-08-06T19:35:55Z,2019-11-04T05:17:28Z,2019-11-04T05:17:28Z,1,1,0,The current typings shipping with Axios is missing the options request.,3,0
+2383,2019-08-30T04:14:47Z,2019-09-06T17:23:56Z,2019-09-06T17:23:56Z,1,9,1,"Inside Axios.prototype.request function
+It's forced to set config.method to  GET after mergeConfig if config.method exists
+which makes the defaults.method not effective.
+// Set default options
+const instance = axios.create({ method: 'post', /* options */ })
+
+// use instance.request() or instance()
+instance({ url })            
+instance.request({ url })     
+HTTP method should be POST above.",2,2
+2384,2019-08-30T11:43:29Z,2019-09-06T12:55:07Z,2019-09-06T12:55:07Z,1,1,1,,2,1
+2410,2019-09-14T17:22:16Z,2019-10-21T18:56:29Z,2019-10-21T18:56:29Z,13,47,113,"Ready for review. General maintenance work:
+
+handles webpack 1 -> 4 migration
+
+under the hood, minification has has been replaced with terser (from uglify.js)
+
+
+remove custom utils for Array.isArray and String.prototype.trim, which are both covered, even in IE9. Per the README, IE11 is the target supported browser, so we should be ok here.
+
+developer changes
+
+remove es6 promise polyfill from manual test html files
+
+
+Motivation: the main motivation is to get on to a modern version of Webpack to enable use of modern JavaScript syntax (es6+) and multiple export formats (mjs, etc). In the future we may want to test the performance of other bundlers, but the assumptions around webpack are still tight:
+$ grep webpack package.json 
+46:    ""grunt-webpack"": ""^3.1.3"",
+60:    ""karma-webpack"": ""^4.0.2"",
+67:    ""webpack"": ""^4.40.2""",2,7
+2423,2019-09-23T11:20:56Z,,2020-06-17T17:35:42Z,1,2,1,Add axios-mocker tool. Thanks.,4,1
+2426,2019-09-24T09:28:04Z,2019-09-26T12:33:49Z,2019-09-26T12:33:49Z,1,4,0,"When calling an HTTP resource redirecting to a HTTPS one with a keepAlive agent. We get the following error:
+TypeError [ERR_INVALID_PROTOCOL]: Protocol ""https:"" not supported. Expected ""http:""
+    at new ClientRequest (_http_client.js:119:11)
+    at Object.request (https.js:281:10)
+    at RedirectableRequest._performRequest (/Users/jthomassey/projects/ecom-shop-web/node_modules/follow-redirects/index.js:169:24)
+    at RedirectableRequest._processResponse (/Users/jthomassey/projects/ecom-shop-web/node_modules/follow-redirects/index.js:260:10)
+    at ClientRequest.RedirectableRequest._onNativeResponse (/Users/jthomassey/projects/ecom-shop-web/node_modules/follow-redirects/index.js:50:10)
+    at Object.onceWrapper (events.js:277:13)
+    at ClientRequest.emit (events.js:189:13)
+    at HTTPParser.parserOnIncomingClient [as onIncoming] (_http_client.js:556:21)
+    at HTTPParser.parserOnHeadersComplete (_http_common.js:109:17)
+    at Socket.socketOnData (_http_client.js:442:20)
+
+This can be tested here :
+const http = require('http');
+const https = require('https');
+const axios = require('axios');
+
+axios.get('http://www.photobox.fr', { httpAgent: http.Agent({ keepAlive:true }), httpsAgent: https.Agent({ keepAlive:true }) })
+  .then(response => {
+    console.log(response);
+    console.log(response.headers);
+  })
+  .catch(error => {
+    console.log(error);
+  });
+
+Axios delegate the redirection to the follow-redirect package which accept an option agents for both http and https agent see : https://github.com/follow-redirects/follow-redirects#per-request-options",4,1
+2443,2019-09-30T04:14:54Z,2020-01-31T18:20:13Z,2020-01-31T18:20:13Z,3,2,2,As title,3,14
+2444,2019-09-30T21:03:02Z,2019-11-04T03:29:52Z,2019-11-04T03:29:52Z,1,2,0,Fixes Add LINK and UNLINK methods to axios,3,0
+2446,2019-10-02T09:28:42Z,2019-10-04T13:47:49Z,2019-10-04T13:47:49Z,1,1,0,MIT License badge added in README.md file.,3,0
+2458,2019-10-10T14:31:37Z,2019-12-25T21:00:16Z,2019-12-25T21:00:16Z,1,1,1,"If this place is false, it will report an error, so you should delete the useless code.",3,1
+2464,2019-10-14T07:56:44Z,2019-10-16T10:53:10Z,2019-10-16T10:53:10Z,4,33,6,"Changes
+
+Addresses #2463
+Also related to #2447
+Throw an error when the URL contains an XSS script",6,6
+2470,2019-10-17T03:09:19Z,2020-03-23T13:49:39Z,2020-03-23T13:49:39Z,2,21,1,fixing issue #2416 and #2396,3,3
+2475,2019-10-18T02:19:06Z,,2020-02-15T05:42:56Z,1,1,0,fixing eslint warn.,3,2
+2487,2019-10-24T01:58:18Z,,2019-10-25T08:27:01Z,2,15,2,see #2482,2,1
+2495,2019-10-25T10:33:01Z,,2020-08-25T08:15:26Z,11,73,3,"Related Issue
+Issue: #2494
+PR Description
+Added the isTimeout function to the static API",4,4
+2498,2019-10-25T21:30:11Z,2020-07-01T18:04:33Z,2020-07-01T18:04:33Z,9,178,3,"In order to achieve SSL certificate pinning such a shown here on the NodeJS doc, I added checkServerIdentity to the request option for the nodejs http adapter 🙂",8,6
+2504,2019-10-30T06:15:37Z,2019-11-04T02:30:50Z,2019-11-04T02:30:50Z,1,0,1,"Describe your pull request here.
+Remove License badge in README.md as GitHub repository already shows on its bar.",2,2
+2508,2019-11-01T07:30:36Z,2020-07-02T17:29:38Z,2020-07-02T17:29:38Z,3,21,1,"Instructions
+Fixes #2507.
+Change the host environment in which js is run",6,5
+2521,2019-11-06T08:49:24Z,,2020-08-27T19:22:11Z,2,59,0,"Experimental HTTP2 Adapter
+
+This is exploratory, hopefully we can build a real adapter from this, I'll keep adding bits and pieces but I was able to test an http2 request using axios with this, it's very barebones and needs clean up  and plenty of more functionality before being ready for an alpha
+Related to #1175
+To test HTTP2 requests you'll need to:
+
+Run openssl req -x509 -newkey rsa:2048 -nodes -sha256 -subj '/CN=localhost' \ -keyout localhost-privkey.pem -out localhost-cert.pem which will generate the two files needed to run http2_test.js
+After running that command you should see localhost-privkey.pem and localhost-cert.pem in your folder
+In a terminal tab run server.js and in another tab run http2_test.js which will immediately send a request to the server
+
+
+
+Feel free to comment on this PR, feedback is welcome",6,14
+2533,2019-11-09T13:20:16Z,,2021-02-08T16:21:13Z,1,24,24,Use unknown  instead of any because its safer.,4,3
+2536,2019-11-09T22:21:55Z,,2020-08-04T16:40:28Z,12,52,110,"Continuation of PR #2410. That PR was accepted, and reverted in #2479 only because there was an IE test that broke on master branch. The IE builds, for some reason, don't run on PR builds, so nobody caught the issue during PR review.
+Added a Cloudflare CDN polyfill for promise, which should fix the IE build breaking in continuous integration in master  builds.",4,5
+2538,2019-11-11T04:04:31Z,2019-11-16T03:32:38Z,2019-11-16T03:32:38Z,1,1,1,"Changes
+
+Fix branch on badge's TravisCI build",2,0
+2540,2019-11-11T12:06:28Z,2019-12-09T01:14:52Z,2019-12-09T01:14:53Z,1,1,1,"Link https://travis-ci.org/mzabriskie/axios does not exist now, change to the right link.",3,0
+2545,2019-11-12T07:05:58Z,,2020-05-28T03:51:55Z,4,35,8,"PR Description
+
+
+As required,  validateStatus should be config to be null or  function ,
+
+
+If validateStatus returns true (or is set to null ), the promise will be resolved; otherwise, the promise will be rejected
+
+
+fixes #2239",3,4
+2547,2019-11-13T04:48:16Z,,2019-11-14T15:47:41Z,1,2,2,This fixes #2546,3,4
+2553,2019-11-15T00:03:34Z,,2020-01-24T06:46:11Z,1,1,1,Any is not really a good type for error handling. I believe they should be Request / Response objects.,4,9
+2555,2019-11-16T07:47:19Z,,2021-02-16T18:24:24Z,3,34,1,"Changes:
+
+According to the content provided in the configuration, the method will return as much information as possible, including protocol, domain, port, path, query, etc
+Fiix for #2468
+
+note:
+The hash mark will lost because it only guides the browser and has no effect on the server at all",7,5
+2563,2019-11-21T15:31:05Z,,2020-05-27T12:41:58Z,2,7,7,"Fixes #678 #1111 #1644 #1727.
+I see some people having the same problem and having to use a custom paramsSerializer to handle it. Maybe I'm wrong, but I believe the reason for the encode() function (which I'm renaming here to encodeKey()) to ""unescape"" certain characters after the call to encodeURIComponent is so that things like ?foo[0]=bar&foo[1]=baz work properly, but this should only happen on the keys, not the values.",7,5
+2568,2019-11-25T07:16:15Z,,2020-06-15T08:33:20Z,3,56,19,"Changes：
+
+
+Rewrite the 'utils.deepMerge()' method, this method should not change the data type.
+
+
+Fixes #2567",3,1
+2570,2019-11-25T12:01:01Z,2019-11-26T19:09:43Z,2019-11-26T19:09:43Z,1,1,1,"Changes
+
+
+Error message: ""Should support max redirects.""
+
+
+Reason:  follow-redirects installed version-1.9.0.
+
+
+https://github.com/axios/axios/blob/master/package.json#L76
+
+
+Related PR #1816",2,0
+2574,2019-11-27T06:42:28Z,2019-12-09T02:28:38Z,2019-12-09T02:28:38Z,1,11,11,"Changes:
+
+
+Error message: ""Object doesn't support property or method 'includes' to equal.""
+
+
+Reason: 'includes' belongs to the API of ES7, ie11 does not support it.
+https://github.com/axios/axios/blob/master/lib/utils.js#L29
+
+
+Related PR #1816",3,1
+2582,2019-12-02T11:12:19Z,2019-12-09T07:52:46Z,2019-12-09T07:52:46Z,1,2,2,"Same issue as #1837
+When i  use React-native, which sets the default value of withCredentials as true.
+I try to set withCredentials: false , and axios will ignore the withCredentials config",3,0
+2588,2019-12-04T20:43:42Z,,2020-02-29T11:45:45Z,2,21,15,"This adds support for the form-data package.
+It was already possible to submit form-data using this package, as it inherits a stream. This commit extends this support by setting the correct header automatically, without adding dependencies.
+Closes #789",3,1
+2589,2019-12-04T20:47:00Z,,2020-02-15T10:54:29Z,2,10,3,"Fixes #2587.
+Custom properties are copied over for each request, but default custom properties are not.  This PR simply copies the merge code for merging custom properties from the request, and does the same for default custom properties.",6,4
+2601,2019-12-12T02:23:14Z,2020-02-15T11:03:35Z,2020-02-15T11:03:35Z,1,5,2,"Fixes #2594.
+Root cause description:
+Test case 'should pass errors for a failed stream' failed because of the difference between OS systems. In Windows, path does use '/' as delimiter.
+Code change description:
+Use ""__dirname"" which is the absolute path of the directory containing the currently executing file to construct the 'do not exist' folder to keep consistency between different OS systems.",2,0
+2619,2019-12-24T04:05:13Z,,2021-02-05T05:56:33Z,1,18,2,For better type define.,4,1
+2631,2019-12-30T22:04:00Z,,2021-03-16T15:51:03Z,1,25,2,"Closed #2618. I made the following changes:
+
+enumerated the order of precedence description for a little more clarity
+added text describing the expected behavior (found this in the source code, let me know if I got something wrong)
+added an example illustrating the expected behavior",4,1
+2634,2020-01-02T19:15:34Z,,2020-04-25T17:35:37Z,4,14,2,"Hi!
+I'll keep this as short as possible.
+I'd like to propose incrementing the current version of Axios to 1.0.0, with no other significant changes.
+
+According to the SemVer spec:
+
+Major version zero (0.y.z) is for initial development. Anything MAY change at any time. The public API SHOULD NOT be considered stable.
+
+Accordingly, package managers treat 0.x releases with great suspicion.  NPM's carat operator is  less generous for 0.x releases.  ""^0.17.0"" does not match v0.18.0 or any subsequent releases.
+For 0.x releases, ^ is equivalent to ~, which leaves Axios with few good options for shipping non-breaking ""new feature"" releases.  Axios users currently must edit their package.json files to receive such an upgrade (or any subsequent bugfixes).  This makes it particularly difficult to distribute security patches, particularly when Axios is included as a transitive dependency.
+
+At this point, I think it is safe to say that Axios is well past the ""initial development"" phase.  The last breaking changes were released on October 2017, and given its popularity, it seems unlikely that we will release any additional breaking changes in the 0.x series.
+Axios is currently the 15th most depended-upon package in the NPM registry.  It's download approximately as often as React, and is the only actively-maintained 0.x package in the top-50.
+
+While I appreciate that the current maintainers and others in the community have big plans for a major release, these plans have seen little movement in recent months.  There is no reason to put these plans on hold, and these changes can always be released as v2.0.0 when they are ready.
+In the meantime, we should cut a 1.0.0 release to acknowledge that the current API is stable (and has been for quite some time).
+Fixes #2265.
+See also: #1333",5,2
+2637,2020-01-03T13:40:59Z,2021-02-17T06:28:00Z,2021-02-17T06:28:00Z,2,9,5,"Hi! there 🙂
+This PR simplifies code contributions by fully automating the dev setup with Gitpod (a free online VS Code-like IDE) for contributing. With a single click, it'll launch a workspace and automatically:
+
+clone the axios repo.
+install the dependencies.
+run npm start.
+
+So that anyone interested in contributing can start straight away.
+You can give it a try on My Fork of the repo:
+https://gitpod.io/#https://github.com/nisarhassan12/axios/",3,6
+2639,2020-01-04T17:19:35Z,2020-01-07T16:31:55Z,2020-01-07T16:31:55Z,1,1,1,"Fixed a typo in the CHANGELOG.md file.
+I do this very minor pull request in order to get used to the process of contributing to open source projects, because I never did a pull request to a public project before. Consider this a small test to prepare for future contributions to the project.
+Thanks for your understanding.",2,1
+2647,2020-01-09T14:33:32Z,,2020-10-07T06:13:03Z,2,110,3,"Issue
+There are no suggestions in TypeScript for HTTP Headers.
+Solved
+Added separate headers.ts file in root and imported the AxiosHeaders type into the declaration file.
+Removed all Headers prefixed with X- from autosuggestions, as it is deprecated according to RFC 6648.",5,3
+2656,2020-01-12T22:15:45Z,2020-02-15T05:36:52Z,2020-02-15T05:36:53Z,3,19,17,"Move 'params' to the mergeDeepPropertiesKeys array, so that the specific parameters for the request get merged with the defaults, rather than overwriting them. This allows e.g. setting authentication params for a specific API in a central location, and matches the description in the README that ""The specified config will be merged with the instance config.""
+Also the existing merging tests repeated the same case twice and didn't actually cover the described behaviour, so I've fixed that.
+Fixes #2190 and various linked issues, supersedes #2196.",9,17
+2661,2020-01-13T18:01:59Z,2020-03-06T14:01:59Z,2020-03-06T14:01:59Z,4,44,11,"Issue
+Sometimes you do not want the response body of an http request automatically decompressed. For example if you are immediately storing response body or are passing response body on to to another service. Closed #2153.
+Solution
+Add a parameter to config to allow developer to disable automatic decompression
+Change summary
+
+Add check to see if automatic decompression is disabled in config
+Add decompress to config typing
+Update README
+Fix lint error in unit tests (reverted)
+Add unit test for new decompress parameter
+
+It has been pointed out that this feature may not be accepted since it only applies to Node.js, but this is an extremely useful feature, so I think it should be included in the official axios package
+Please let me know if there is anything that I should change",4,2
+2666,2020-01-15T09:09:23Z,2020-02-15T10:10:59Z,2020-02-15T10:10:59Z,1,4,4,This pull should fix #2665 and very similar to #1129,2,6
+2669,2020-01-15T19:29:30Z,,2021-02-12T11:16:52Z,3,30,3,"Allow baseURL to contain query parameters (ie don't add / in this case)
+#2668",5,5
+2671,2020-01-16T15:56:14Z,,2020-01-22T02:31:20Z,2,9,2,"Fix for #2670
+following XSS Cheatsheet
+also fixed JavaScript string problem in #2646 #2663 only preventing ""javascript:""
+It's impossible for current simple regex to prevent all kind of XSS attacks. But I tried to prevent most frequent & famous events for attacking, without saying no to ""only=true""'.
+My opinion is, although it is good to prevent XSS by checking URL, normal users should not suffer from this function. Current regex is still too loose.",4,8
+2679,2020-01-20T14:08:04Z,2020-01-20T16:20:34Z,2020-01-20T16:20:34Z,4,0,43,"Fixed #2646 and lots of similar issues.
+I shared the same opnion with @snoopysecurity. See #2464 (comment). We did overreaction for it and did an overkill.",4,5
+2689,2020-01-25T07:13:23Z,2020-02-15T05:41:09Z,2020-02-15T05:41:09Z,2,2,2,"Preparation for #1804. Closed #2691.
+follow-redirects was locked to 1.5.10 in #1993 and was reverted unintentionally in #1816. And #2570 locked it again.
+The reason is that from follow-redirects@1.6.0, the request will be aborted when redirecting. See follow-redirects/follow-redirects@7a0a683. Then axios can't emit the error, which results in test case ""should support max redirects"" failed.",3,5
+2695,2020-01-27T15:17:33Z,2020-02-29T11:54:42Z,2020-02-29T11:54:42Z,1,35,0,Added a test case for #1362.,3,0
+2702,2020-01-30T15:35:25Z,2021-03-01T09:11:36Z,2021-03-01T09:11:36Z,5,337,22,"axios requests are not delayed by pre-emptive promise creation by default
+add options to interceptors api (""synchronous"" and ""runWhen""
+add documentation and unit tests",7,20
+2724,2020-02-09T09:42:35Z,,2020-10-24T11:50:58Z,2,31,2,"Add testCode for Http Method 'OPTIONS'
+
+thanks.",3,2
+2727,2020-02-09T14:38:42Z,2020-05-27T17:43:09Z,2020-05-27T17:43:09Z,1,9,7,"remove axios.all(), axios.spread()
+this is related issue #2260
+
+thanks :)",4,3
+2729,2020-02-10T16:02:09Z,,2021-09-16T18:45:28Z,1,1,1,That PR is an improved solution for #2553.,6,6
+2749,2020-02-15T10:51:41Z,,2020-06-15T08:30:55Z,2,27,3,Fixes #2587 and most codes are from #2589.,5,1
+2763,2020-02-18T08:57:59Z,2020-02-26T02:28:50Z,2020-02-26T02:28:50Z,1,2,0,Saw in #928 and #1966 that onUploadProgress and onDownloadProgress only work in the browser and was missing that from the README.,3,0
+2773,2020-02-24T13:45:49Z,2020-05-27T17:18:29Z,2020-05-27T17:18:29Z,1,1,1,"I'm using typescript 3.8.2.
+
+// validateStatus defines whether to resolve or reject the promise for a given
+// HTTP response status code. If validateStatus returns true (or is set to null
+// or undefined), the promise will be resolved; otherwise, the promise will be
+// rejected.
+
+According to the readme, It's possible to assign (status: number) => boolean function, undefined, and null types on AxiosRequestConfig.validateStatus.
+But current index.d.ts, it's doesn't care about null types.
+So I added null type on AxiosRequestConfig.validateStatus definition.",4,5
+2778,2020-02-25T09:03:22Z,2020-02-25T15:05:52Z,2020-02-25T15:05:52Z,1,1,1,Closed #2777.,3,0
+2781,2020-02-26T04:21:56Z,2020-03-06T13:55:19Z,2020-03-06T13:55:20Z,7,46,9,This PR is intended to solve the confusion described on #2696 by adding a separate option in the request config to forward the maxBodyLength to the follow-redirects library.,4,1
+2787,2020-02-28T20:44:45Z,,2020-05-27T17:18:11Z,1,17,17,"Copy edited and expanded (e.g. ref. https://en.wikipedia.org/wiki/Node.js, https://bower.io/, and https://en.wikipedia.org/wiki/ECMAScript#6th_Edition_-_ECMAScript_2015).",3,1
+2797,2020-03-04T09:11:01Z,2020-10-27T12:36:33Z,2020-10-27T12:36:33Z,1,2,2,"All examples use the lower case variable axios. However, when auto importing
+in a TypeScript based editor, the import was named Axios, because this is how
+it was defined in the typings.
+Closes #3017",5,20
+2805,2020-03-06T10:18:53Z,2020-04-05T10:01:39Z,2020-04-05T10:01:39Z,1,28,0,"Axios can play nice with form-data, but it was undocumented.
+Closes #2049",3,0
+2812,2020-03-10T17:53:32Z,,2021-09-05T10:25:58Z,1,3,1,"ERR_FR_REDIRECTION_FAILURE error coming from follow-redirects is silently dropped as described here #2811
+This will make sure that error is propagated to the caller.",4,1
+2844,2020-03-24T15:16:08Z,2020-06-08T18:52:45Z,2020-06-08T18:52:47Z,10,412,153,"This pull request includes lots of fixes. Normally, it should be divided into several ones. But the current review process is slow and each fix may affect each other.
+1
+utils.deepMerge was introduced by #1395, which was designed to merge properties without references to the source object. But it merged arrays improperly. Fixes #1345, #2567.
+Inspired by got's merge, we should only merge properties between plain objects, clone the source object or array, and use the value directly for other types. Fixes #1077.
+All of above should be applied to utils.merge, and there is no need to keep utils.deepMerge.
+2
+Merged #2749 to fix #2587 about custom config fields. The main idea is merging other fields if they are not undefined, as well as most keys of axios config.
+3
+mergeConfig should cover use cases that are merging configs, which is based on utils.merge. So in lib/core/Axios.js, we should use mergeConfig, instead of utils.merge. Fixes #1584.
+4
+Refactor mergeConfig to fix #382, as well as #2819. Comparisons between different versions of axios merge algorithms can be seen in Gist.
+Special merge strategy for validateStatus, which means always trust the later config to fix #2239.",5,1
+2849,2020-03-25T22:33:33Z,,2021-09-06T12:12:49Z,6,91,17,"This PR is a fix for this. In summary, it ensures to throw error when response's content-type is json but the response data isn't a valid JSON.
+This PR might cause a little backward compatibility issue, but IMO it's still worth it.",7,5
+2851,2020-03-26T12:11:17Z,2020-03-28T09:51:43Z,2020-03-28T09:51:43Z,2,4,4,I added the type of ProgressEvent so TypeScript users know what to expect.,3,0
+2856,2020-03-28T13:27:54Z,,2021-09-16T18:45:43Z,6,62,10,"Similar PRs before,
+
+#2424, parse JSON in adapters
+#2849, throw errors for invalid JSONs if content-type is application/json
+
+Not sure this is the best solution, because it changes transformers with a new parameter and will break codes depending on silent parsing. So I will not fix tests until we have determined to do.
+
+
+Now the default transformResponse will not parse the string as JSON if responseType is text. Fixes #2791 and several issues in #811 (comment).
+
+
+But once tried, invalid JSON string will cause axios rejects. Fixes #61.",5,1
+2874,2020-04-04T22:34:10Z,,2021-09-16T18:45:59Z,2,101,10,"Background
+Please see #2710 (comment) for details.
+Currently, timeout behavior is different between Browser (XHR) and Node.js environment.
+It was caused by PR #1752, Affected axios versions are v0.19.1 and v0.19.2 (latest).
+What's changed
+It reverts changes of #1752, and adds additional tests for various timeout scenarios.",6,10
+2887,2020-04-11T12:20:27Z,2020-05-27T17:26:14Z,2020-05-27T17:26:14Z,1,1,1,"Small change to the data attribute doc of the config. A request body can also be set for DELETE methods but this wasn't mentioned in the documentation (it only mentioned POST, PUT and PATCH). Took my some 10-20 minutes until I realized that I don't need to manipulate the request body with transformRequest in the case of DELETE.
+Didn't create an issue for this as it's just a text change. Hope that's acceptable. Otherwise let me know if I should do that first.",3,0
+2892,2020-04-13T04:28:42Z,,2021-09-07T18:30:49Z,1,1,7,The 2 removed functions were duplicates from the ones in the promise parameters.,4,4
+2893,2020-04-14T04:16:32Z,,2020-04-20T00:47:31Z,1,1,1,fixed the logical operator so the comment next to it would make sense,2,0
+2912,2020-04-20T00:48:36Z,2020-04-22T13:59:26Z,2020-04-22T13:59:26Z,1,1,1,"Rewrote the comment from ""Reject only if the status code is greater than or equal to 500"" to ""Resolve only if the status code is less than 500""",2,0
+2926,2020-04-24T10:41:20Z,,2020-04-24T13:20:08Z,1,3,0,"Issue
+Sometimes you want to check the 'content-encoding' in response header.
+But the data is decompressed automatically and hence the header is removed.
+I think we should add some mark before removing the header.
+Closed #2925.
+it('transfer with gzip encoding', async () => {
+        const res = await axios.get('https://....');
+        expect(res).to.have.status(200);
+        expect(res).have.header('Content-Encoding', 'gzip');
+        expect(res.data.results).exist;
+    });
+Solution
+I can think of two possible solutions:
+
+Copy 'content-encoding' to 'axios-content-encoding' before removing it.
+So later the test code can check this header.
+Add a Response.actualContentEncoding field. Maybe this approach can be documented easier?
+
+I can't decide. Any suggestions?",2,0
+2928,2020-04-24T14:59:44Z,2020-05-05T11:44:08Z,2020-05-05T11:44:08Z,1,1,1,"Made an adjustment to the documentation to clear up any ambiguity around the use of ""fs"". This should help clear up that the code examples with ""fs"" cannot be used on the client side.
+Reference issue #2910",3,2
+2942,2020-05-01T19:12:42Z,,2020-05-03T11:27:56Z,0,0,0,fix whitespace,2,0
+2956,2020-05-08T13:23:00Z,2021-09-05T11:45:24Z,2021-09-05T11:45:24Z,4,23,3,"Issue Summary
+Previously it was reported in #2947 that the Axios error.toJSON() was not outputting the HTTP status code.
+For example;
+const axios = require('axios');
+
+axios.get('/404')
+  .catch(function (error) {
+    console.log(error.toJSON());
+  })
+
+would result in the following error message that did not have the HTTP status code of 404 instead only containing the code in the nested in the error message string (such as ""Request failed with status code 404"").
+The Fix
+With the following addition to the toJSON function's return object in enhanceError.js:
+status: this.response && this.response.status ? this.response.status : null
+
+the response HTTP status code will be added when a response is available. If no response is available (i.e. we can't derive a HTTP status code), we will use null as the value to imply it is intentionally unavailable.
+Failing Test without addition
+createError.spec.js (existing test-class) (test-amendment)
+
+npx jasmine **/*/createError.spec.js
+npx: installed 13 in 1.863s
+Randomized with seed 49409
+Started
+F.
+
+Failures:
+1) core::createError should create an Error that can be serialized to JSON
+  Message:
+    Expected undefined to be 200.
+  Stack:
+    Error: Expected undefined to be 200.
+        at <Jasmine>
+        at UserContext.<anonymous> (/Users/gregbyrne/Personal_Storage/Personal/axios-fork/test/specs/core/createError.spec.js:26:25)
+        at <Jasmine>
+
+enhanceError.spec.js (existing test-class) (new test)
+
+npx jasmine **/*/enhanceError.spec.js
+npx: installed 13 in 1.481s
+Randomized with seed 46485
+Started
+..F
+
+Failures:
+1) core::enhanceError should serialize to JSON with a status of null when there is no response
+  Message:
+    Expected undefined to equal null.
+  Stack:
+    Error: Expected undefined to equal null.
+        at <Jasmine>
+        at UserContext.<anonymous> (/Users/gregbyrne/Personal_Storage/Personal/axios-fork/test/specs/core/enhanceError.spec.js:24:32)
+        at <Jasmine>
+
+3 specs, 1 failure
+Finished in 0.01 seconds
+
+Passing Test with addition
+Execution specifically on the *Error.spec.js tests
+npx jasmine **/*/*Error.spec.js 
+npx: installed 13 in 1.883s
+Randomized with seed 07705
+Started
+.....
+5 specs, 0 failures
+Finished in 0.012 seconds
+
+Execution with npm test
+Chrome 81.0.4044 (Mac OS X 10.15.4): Executed 211 of 211 SUCCESS (3.457 secs / 3.403 secs)
+....................................................
+Firefox 75.0.0 (Mac OS X 10.15.0): Executed 211 of 211 SUCCESS (2.179 secs / 2.146 secs)
+
+Side Note: Cannot seem to run these in Safari. When it launches the karma runner, it opens the Safari browser with a Choose file modal already focused to a redirect.html. Also it hangs running on Opera which I don't believe I have installed. When I sigkill, testing moves on to the the bundlesize test
+Internal client.html addition
+Additionally, I've added a display to the internal client.html which is started using npm start.
+This now displays the result of an error in the main display (under an Error div) that uses toJSON() as well as displaying the error object in the console.
+No Error
+On startup
+
+Successful response / no error
+
+Error
+With a 404 error",5,5
+3021,2020-06-13T08:35:00Z,2021-09-05T12:14:13Z,2021-09-05T12:14:13Z,1,3,3,This correctly reflects the type in a more type safe manner.,4,1
+3022,2020-06-13T13:12:40Z,2020-06-17T16:54:10Z,2020-06-17T16:54:10Z,7,89,45,"In this PR,
+
+Add GitHub actions auto-close-issues, which will close issues those without required markdown titles
+Update our issues templates,
+
+rename --feature-request.md with the same format of file name
+to use markdown titles so that the action can work
+with right labels because we changed them recently
+with clear environment information template, especially for adapters (they can reduce 50% of work to resolve the issue)
+with special comments to remind the logic of the close bot
+
+
+
+I have tested it in my fork and it works as expected. See chinesedfan#4 and others issues in the repository.",2,2
+3029,2020-06-17T14:29:03Z,2020-06-17T17:25:12Z,2020-06-17T17:25:12Z,1,20,0,"@jasonsaayman Don't worry about issues with label status:more info needed will be closed immediately. Please review and approve first. And after checked those issues again, we can merge it.
+I have tested this actions in my fork. See chinesedfan#2.",2,5
+3050,2020-06-22T17:36:03Z,2020-06-25T16:41:11Z,2020-06-25T16:41:11Z,1,31,0,I guess this table of content could work. if there's any suggestion I'd be happy to know.,3,1
+3070,2020-06-27T00:08:39Z,2020-12-03T07:36:51Z,2020-12-03T07:36:51Z,5,151,3,"This PR resolves the issue when setting proxy config from env vars, the proxy config protocol is not set based on the env var URL. This causes all proxy server connections to use HTTP and results in invalid request errors.
+If you set HTTPS_PROXY to an HTTPS URL...
+export HTTPS_PROXY=https://localhost:8080
+then the proxy config will be set without protocol, which is used later on to initiate the proxy connection.
+proxy: {
+  host: 'localhost'
+  port: 8080
+}
+The proxy config should include protocol when parsing from env vars.
+proxy: {
+  host: 'localhost'
+  port: 8080,
+  protocol: 'https'
+}
+To reproduce this issue, create a local HTTPS proxy with mitmproxy and set HTTPS_PROXY to https://localhost:8080. mitmproxy will respond with a 400 and the error message HTTP protocol error in client request: Invalid request scheme: https.",5,7
+3107,2020-07-07T17:11:35Z,,2021-03-16T15:54:38Z,1,8,0,"Describe your pull request here.
+Issue
+#3104
+I feel there is a lack of explanation for Global axios defaults and Config order of precedence.
+In the Issue, We didn't know Global axios defaults don't support normalizeHeaderName.
+Also I didn't know why it didn't work properly while trying to change the Content-Type.
+I needed this explanation like below README.md.
+If you have any questions or have other opinions, Please let me know :)",3,1
+3111,2020-07-09T00:08:19Z,,2021-09-07T18:53:41Z,1,3,0,"Issue: #3110
+Throws a friendly error when url doesn't exist",5,2
+3138,2020-07-22T09:39:09Z,,2021-09-16T19:01:14Z,3,42,5,"By default, Node.js uses dns.lookup internally for http(s).request function, which is synchronous and will block the thread pool that can potentially cause long-time wait and timeout error if the DNS server took too long to respond while there are many requests fired at the same time.
+This issue is addressed in https://nodejs.org/dist/latest-v14.x/docs/api/dns.html#dns_dns_lookup, also there is a discussion about it in https://github.com/nodejs/node/issues/8436.
+
+With dns.lookup it can only run 4 requests in parallel, so 1000 calls means 1000 calls / 4 in parallel * 5 seconds per batch === 20 minutes of complete thread pool lock-out.  (by @owenallenaz)
+
+To prevent this behavior, Node.js added a new option lookup for http(s).request, allowing the user to specify a custom function for DNS lookup. A simple example will look like this:
+const http = require(""http"");
+const dns = require(""dns"");
+
+var req = http.request({
+    url: ""http://example.com"",
+    lookup: (host, options, cb) => {
+        dns.resolve(host, (err, addr) => {
+            cb(err, addr[0], options.family || 4);
+        });
+    }
+});
+For more reliability, I've found a package named dns-lookup-cache on NPM, along with this PR, now Axios can use the custom lookup option in the following way.
+const Axios = require(""axios"").default;
+const { lookup } = require(""dns-lookup-cache"");
+
+(async () => {
+     var res = await Axios.get(""http://example.com"", { lookup });
+})();
+For now, I'm just using this new Axios from the Github repo, but having been suffering from this problem for quite a long time, I sincerely hope that this PR can be merged as soon as possible and published to NPM.",9,10
+3153,2020-07-27T06:55:26Z,2021-12-22T18:30:51Z,2021-12-22T18:30:51Z,1,1,1,"Cancel'message could be undefined, this PR reflects that on the types.",4,0
+3159,2020-07-31T14:28:24Z,,2021-09-16T19:02:45Z,1,3,3,"fix a bug
+If the environment variable https_proxy’s protocol is HTTP
+Then I make a request with URL that starts with HTTPS
+The request will use the wrong transport
+Transport should be nothing to do with proxy
+
+  
+    
+      axios/lib/adapters/http.js
+    
+    
+         Line 162
+      in
+      ffea034
+    
+  
+  
+    
+
+        
+          
+           var isHttpsProxy = isHttpsRequest && (proxy ? isHttps.test(proxy.protocol) : true); 
+        
+    
+  
+
+
+proxy.protocol should always be undefined",4,1
+3200,2020-08-14T14:11:25Z,2020-10-20T06:04:45Z,2020-10-20T06:04:45Z,2,9,1,"In previous my PR(#2773), I had missed about two things.
+
+Assign function type (one status number parameter, return boolean or null type) instead of function type(one status number parameter, return boolean type), null and undefined type
+Doesn't care about undefined type
+
+So I fix above things in this PR.",3,2
+3228,2020-08-25T15:13:50Z,,2020-10-07T06:04:08Z,1,18,2,"As noted in #3219, Axios 0.20.0 introduced an implicit dependency on lib dom, which prevents transpilation of pure Node.js  projects using Axios (such as Serenity/JS REST).
+Instead of making the dependency semi-explicit, as per the suggestion in #3221, I'd like to propose to avoid the dependency altogether by replacing ProgeressEvent type with its structural equivalent:
+{ lengthComputable?: boolean; loaded?: number; total?: number }
+This change will allow Axios (and any other project using, for that matter) to avoid having to depend on lib dom while still providing type information better than using any.",4,1
+3237,2020-08-30T14:08:17Z,2020-10-01T07:42:10Z,2020-10-01T07:42:10Z,1,2,2,"The ProgressEvent type comes from the DOM lib. This is typically unwanted when using axios in a NodeJS environment.
+Fixes #3219",6,8
+3252,2020-09-02T20:18:23Z,2020-09-12T04:29:35Z,2020-09-12T04:29:36Z,1,1,1,"There is a small typo in test/specs/requests.spec.js.
+Should read existent rather than existant.",2,0
+3282,2020-09-12T08:42:25Z,2020-10-01T07:46:33Z,2020-10-01T07:46:33Z,2,13,1,Fixes #3220. As explained in #3220 (comment).,9,10
+3287,2020-09-13T20:31:29Z,2020-09-20T02:19:49Z,2020-09-20T02:19:49Z,2,16,2,"Correction of the requestHeaders.Authorization parameter concatenation.
+Close #3286.
+Correction of the compatibility of the requestHeaders.Authorization parameter for situations in which the ""password"" parameter is not passed.",2,0
+3289,2020-09-16T03:23:31Z,2020-10-13T08:19:38Z,2020-10-13T08:19:38Z,1,0,7,"Reverts #1773
+Closes #3232",3,0
+3305,2020-09-28T20:22:36Z,2021-09-16T18:56:55Z,2021-09-16T18:56:55Z,9,179,24,"This PR fixes cancelToken and adds an alternative way to cancel Axios request with AbortController.
+
+Reworked cancelToken to fix memory leakage in case of using a persistent token for several requests. This can happen because requests cannot unsubscribe from the token after it completed since cancelToken doesn't provide any methods to do this. Possible this is a fix for #3001 issue, but I'm not sure.
+Added AbortController support. I believe that using the existing API makes it easier to use the library.
+CancelToken and AbortController can be used simultaneously (to facilitate the transition to the new API)
+No breaking changes.
+
+const controller = new AbortController();
+
+axios.get('http://localhost/', {
+    signal: controller.signal
+}).then(
+    response=> console.log('Done:', response.data), 
+    err=> console.log('Failed:', err)
+);
+
+setTimeout(()=>{
+    controller.abort();
+}, 1000)
+Recently published as axios-lab npm fork
+Live demo",12,11
+3342,2020-10-16T09:28:08Z,2021-12-22T18:37:27Z,2021-12-22T18:37:27Z,1,3,3,"update isFormdata,isArrayBuffer and isURLSearchParams, because value and Formdata(ArrayBuffer or URLSearchParams) are not in the same Window sometimes, such as iframe.",4,1
+3360,2020-10-21T21:17:49Z,,2021-03-16T15:55:14Z,2,14,14,"Hi folks,
+So, I had seen several bugs in some projects caused by a wrong sequence of catch..then. On Axios README the examples induce to put a then immediately after the request followed by a catch. That anti-pattern ALWAYS will catch everything you put on the then, including react rendering, DOM manipulation and everything, it'll simply disappear with any error on an entire application!
+This way, I strongly recommend to teach ALWAYS put the catch immediately after the request, at least the first one.",5,5
+3362,2020-10-23T12:17:45Z,,2021-12-22T18:45:17Z,1,1,1,Just shorten some words in file lib/default.js.,3,1
+3364,2020-10-25T17:56:27Z,2020-10-30T06:54:42Z,2020-10-30T06:54:43Z,1,1,1,"This PR re-enables the 'should support sockets' test. After review, the test is effective and passes an npm test run.
+If a reason exists that this test is not effective or otherwise should not be included in the test run please explain in a comment so I can take additional steps to correct the test or remove it.
+Thanks!
+This pull request is the result of an in-depth code review I did on this package. You can read the complete review on my blog, http://ctrl-c.club/~timemachine/2020/10/24/code-review-axios/",3,6
+3377,2020-11-01T04:45:47Z,2021-03-24T06:22:03Z,2021-03-24T06:22:03Z,2,34,4,"Fixes #3374, including my own cleanup.
+
+Tests for transformResponse
+Remove eslint error by renaming the var
+Test the data a length to avoid JSON.parse headache
+Use util.isString() over typeof",2,0
+3401,2020-11-12T04:45:44Z,2020-12-16T08:25:07Z,2020-12-16T08:25:07Z,4,36,70,"Everything still works as expected.
+Remove bundlesize
+
+It still uses libtorb which is deprecated and broken on Win and
+requires a full suite of build tools on Mac. Keeping it in the
+package makes it difficult for anyone filing issues to run tests.
+See: #3396
+
+
+Update grunt and it's plugins
+Update karma to v4...so much faster!
+
+Changed the karma config. Better changes: #3394
+
+
+Update Webpack
+
+Uses terser over uglify
+
+
+Update eslint
+
+Caused an error in util.js from the global directive so the
+directive is removed (it was not needed).
+
+
+Update typescript
+
+The old version of tsc didn't know about new features in
+@types/node (like asserts value).",3,0
+3410,2020-11-13T01:48:56Z,2020-11-24T06:44:01Z,2020-11-24T06:44:01Z,2,87,10,"Fixes vulnerability described in:
+
+https://snyk.io/vuln/SNYK-JS-AXIOS-1038255
+Closes: #3407
+Closes: #3369
+
+Uses a hook in follow-redirects to continue using the proxy if a redirect is encountered.",15,23
+3470,2020-12-10T16:47:11Z,2021-12-22T18:58:12Z,2021-12-22T18:58:13Z,1,5,5,"Currently, the main axios.request method/axios function relies on JavaScript's Strict Mode's behaviour of arguments. Here's the relevant MDN section
+This should be fine, since the file is, in fact, in strict mode.
+However, we've discovered that for some reason in our application this behaviour isn't maintained by Node v14.15.1.
+
+In the screenshot above, you can see how config being reassigned to (effectively) {} changes the value of arguments[0], which is exactly the behaviour that strict mode changes.
+Subsequently, the config.url = arguments[0]; statement effectively does config.url = config; making a circular data structure, leading to stack overflows down the line.
+I don't know why this is happening, and I can't make a test since the test environment correctly follows the strict mode behaviour. But, of course, if we don't rely on this particular behaviour, the problem goes away altogether.
+Please consider merging this PR since this bug effectively injected a stack overflow bomb into our production environment, and I wouldn't want to see that happen to anyone else 😄",3,2
+3523,2021-01-05T06:52:19Z,2021-02-06T15:09:47Z,2021-02-06T15:09:47Z,1,0,1,There are 2 duplicate functionality item about #2444 in changelog 0.19.1.,3,0
+3538,2021-01-11T09:29:05Z,2021-01-29T06:34:50Z,2021-01-29T06:34:50Z,1,1,0,"Fixes the failed CI caused by #3401.
+Note that this branch is not created in my forked repository, which will export SAUCE_USERNAME/SAUCE_ACCESS_KEY by travis secure envs, as well as the master branch. @timemachine3030 @jasonsaayman",2,0
+3539,2021-01-11T10:35:57Z,2021-01-12T14:52:43Z,2021-01-12T14:52:43Z,1,4,0,"If axios is used with multiple domains, the AUTH_TOKEN will be sent to all of them when using the example code:
+axios.defaults.headers.common['Authorization'] = AUTH_TOKEN
+This PR adds a comment above the example to that effect and points below for an example using Custom instance defaults instead.
+The PR also adds an example setting User-Agent, which is another common case for setting axios.defaults.headers.common.
+This is a continuation of #3471 which was previously closed.",3,1
+3544,2021-01-13T16:49:29Z,2022-03-07T17:53:58Z,2022-03-07T17:53:58Z,5,170,2,"Fix the irrelevant error returned when requesting uncommon URL - Open Issue #3509
+When axios request to an illegal URL like ""tel:484-695-3408"", the error message is irrelevant.
+TypeError: Cannot read property 'replace' of null
+    at dispatchHttpRequest (node_modules/axios/lib/adapters/http.js:109:74)
+    at new Promise (<anonymous>)
+    at httpAdapter (node_modules/axios/lib/adapters/http.js:46:10)
+    at dispatchRequest (node_modules/axios/lib/core/dispatchRequest.js:52:10)
+
+So, I fixed this, validating the ""path"" property from ""parsed"" object, cheking if it is null, throwing an error message: ""Malformed URL"". And I checked too, if the URL protocol is supported (HTTP or HTTPS) throwing a message: ""Unsupported protocol "".",4,4
+3546,2021-01-14T02:32:48Z,2021-12-22T19:09:33Z,2021-12-22T19:09:33Z,2,8,1,add the judgment of null,5,4
+3567,2021-01-18T07:24:12Z,2021-02-15T13:47:28Z,2021-02-15T13:47:28Z,1,1,1,Fixed typo Asyc to Async .,3,1
+3581,2021-01-22T17:37:14Z,2022-01-18T16:40:18Z,2022-01-18T16:40:19Z,2,37,1,"This PR fixes #3580, the issue is that when send axios request in Node.js contains timeout, timeoutErrorMessage properties in config then fired timeout, the error message is not the customized timeoutErrorMessage but ""timeout of *ms exceeded"". This PR fixes that problem.",3,7
+3613,2021-01-31T08:44:42Z,,2021-12-22T19:22:46Z,1,1,1,"AxiosError type guard can cause runtime error if payload is a null, since null also passes the check typeof payload === 'object'. Then the code cannot access .isAxiosError of a null.
+TypeError: Cannot read property 'isAxiosError' of null",5,4
+3617,2021-02-01T18:27:03Z,,2021-09-05T10:53:40Z,1,1,0,"adding type support for following use case
+import axios from ""axios""; 
+class Request extends axios.Axios { // Property 'Axios' does not exist on type 'AxiosStatic'
+
+}
+
+const request = new Request(axios.defaults);
+request.get('<url>');",4,5
+3645,2021-02-13T20:18:01Z,2022-03-10T19:26:56Z,2022-03-10T19:26:56Z,29,332,221,"This PR refactors error subsystem of the Axios to the class (constructors) paradigm. It has some breaking changes, since some error codes were changed. Details:
+
+ECONNABORTED and ETIMEDOUT kept theirs old values.
+now you can use instanceof operator to check whether object is an AxiosError subclass:
+
+ err instanceof AxiosError;
+
+
+added static error codes to the AxiosError class to ensure they are the same for client&server builds;
+
+AxiosError.ERR_NETWORK ; // 'ERR_NETWORK'
+err.code === AxiosError.ERR_NETWORK ; // true
+
+
+refactored old error codes and introduced some new codes instead of generic null code:
+
+'ERR_BAD_OPTION_VALUE'
+'ERR_BAD_OPTION'
+'ERR_NETWORK'
+'ERR_FR_TOO_MANY_REDIRECTS'
+'ERR_DEPRECATED'
+'ERR_BAD_RESPONSE'
+'ERR_BAD_REQUEST'
+'ERR_CANCELED'
+'ECONNABORTED'
+'ETIMEDOUT'
+
+
+Refactored Cancel (error) to be CanceledError constructor, subclassed from AxiosError:
+
+err instanceof CanceledError;
+
+
+isAxiosError is still supported
+axios.Cancel is just an alias for axios.CanceledError
+isCancel(err) is still there",5,4
+3688,2021-03-19T17:22:55Z,2021-04-19T16:55:35Z,2021-04-19T16:55:35Z,14,403,38,"Added
+
+support for primitive types to be converted to JSON if the request Content-Type is application/json (under nodejs we get an error) (#2613);
+transitional options object;
+options validator to assert transitional options;
+transitional option silentJSONParsing - throws SyntaxError if JSON parsing failed while responseType is json and transitional.silentJSONParsing is false; (#61). Default: true - keep current behavior.
+transitional option forcedJSONParsing  to control automatic JSON parsing from the response string. Default true - keep current behavior (#2791, #907)
+request transformers now calling in the context of the config object.
+automated deprecation warning message depending on the package version
+Example:
+[Axios v0.21.1] Transitional option 'silentJSONParsing' has been deprecated since v0.19.3 and will be removed in the near future
+Update
+Added transitional.clarifyTimeoutError to throw ETIMEDOUT error instead of generic ECONNABORTED on request timeout (#1543);
+Added support of onloadend handler if available instead of onreadystatechange;
+Added xhr timeout test;
+Fixed potential bug of xhr adapter with proper handling timeouts&errors (FakeXMLHTTPRequest failed to handle timeouts);
+
+The API behavior is the same as before, but now we can set the transitional.silentJSONParsing to false for verbose JSON parsing.
+Since transient parameters are introduced by the PR, we can support multiple API behaviors at the same time, allowing users to choose the one they want and making it easier to transition between package versions.
+When silentJSONParsing is false & responseType is 'json':
+await axios.get(""https://run.mocky.io/v3/95e6ffc7-ac0c-46c2-aded-7149eeb2ef2d"", {
+  responseType: ""json"", 
+  transitional: {
+    silentJSONParsing: false
+  }
+});
+SyntaxError: Unexpected token b in JSON at position 1
+    at JSON.parse (<anonymous>)
+    at Object.transformResponse (axios2.js:1023)
+    at transform (axios2.js:493)
+    at Object.forEach (axios2.js:257)
+    at Object.transformData (axios2.js:492)
+    at onAdapterResolution (axios2.js:1120)
+
+When silentJSONParsing is true (default value & current behaviour):
+await axios.get(""https://run.mocky.io/v3/95e6ffc7-ac0c-46c2-aded-7149eeb2ef2d"", {
+  responseType: ""json"", 
+  transitional: {
+    silentJSONParsing: true
+  }
+});
+response= {
+  config: {url: ""https://run.mocky.io/v3/95e6ffc7-ac0c-46c2-aded-7149eeb2ef2d"", method: ""get"", headers: {…}, transformRequest: Array(1), transformResponse: Array(1), …}
+  data: ""{badJSON"": ""123""}""
+  headers: {...}
+    status: 200
+    statusText: ""OK""
+  }
+  ...
+}
+
+Recently published as axios-lab npm fork
+CodeSandbox demo",11,7
+3703,2021-03-23T20:15:29Z,2021-03-29T14:47:29Z,2021-03-29T14:47:30Z,2,40,2,"Fixes #3702.
+Old behavior:
+
+If headers[""User-Agent""] (or ""user-agent"", not repeated hereafter) is falsy or absent, override with the Axios User-Agent string
+If headers[""User-Agent""] is present and truthy, use it
+
+New behavior:
+
+If headers[""User-Agent""] is absent, override with the Axios User-Agent string
+If headers[""User-Agent""] is present and truthy, use it
+If headers[""User-Agent""] is present and falsy, omit the header
+
+This maintains the existing behavior for any reasonable usage, but enables explicit action to omit the UA header when desired.",2,1
+3727,2021-04-05T20:44:26Z,,2021-05-04T18:11:15Z,5,27,5,"Adding body serializer for AxiosConfig and in request method in Axios.js. If config have bodySerializer param that axios will convert request body before make request.
+Also the documentation on README.md file was updated.
+The problem was describe in follow issue: Easier way to work with FormData.
+I confirm with this issue end I have same problem: in some project I use only FormData (this is specific of Backend project) and I want oportunity for serialize all body in one moment.
+Also somebody want to use the method for another target maybe.",4,2
+3734,2021-04-07T14:37:06Z,,2022-03-07T18:26:35Z,1,5,1,Add the third parameter to AxiosInterceptorManager.use to the type declarations. Addresses #3733,5,1
+3737,2021-04-08T20:00:38Z,2022-03-07T18:09:23Z,2022-03-07T18:09:23Z,3,44,1,"Copy of #2555 with an additional test.
+Changes:
+
+According to the content provided in the configuration, the method will return as much information as possible, including protocol, domain, port, path, query, etc
+Fix for #2468
+
+Note:
+The hash mark will lost because it only guides the browser and has no effect on the server at all",6,3
+3738,2021-04-10T02:55:35Z,2021-05-04T17:48:21Z,2021-05-04T17:48:21Z,1,3,1,"Previously checking whether a response has exceeded maxContentLength was quadratic with respect to the number of chunks in the response stream and also caused unnecessary additional memory usage.
+I tested the performance on my system with this basic script:
+const {createServer} = require('http');
+const axios = require('axios').default;
+
+const srv = createServer(function(_req, res) {
+  res.end(Buffer.alloc(30 * 1024 * 1024));
+});
+
+srv.listen(5000, async function() {
+  console.time('axios get');
+  await axios.get('http://localhost:5000', {
+    responseType: 'arraybuffer',
+    maxContentLength: Infinity, // comment this out to see the expected perf
+  });
+  console.timeEnd('axios get');
+
+  srv.close();
+});
+
+Without this change the sample takes about 1400ms to run, and with the change it takes about 40ms. Max memory usage also went down quite a bit when checking with tools like /usr/bin/time -v node or process.memoryUsage().external",4,1
+3748,2021-04-14T09:13:12Z,,2021-04-28T03:28:02Z,2,105,1,Describe your pull request here.,2,0
+3767,2021-04-25T23:49:45Z,2021-05-04T18:05:05Z,2021-05-04T18:05:06Z,1,14,3,"Instructions
+
+Adding documentation for the type guard isAxiosError as requested in issue #3732
+
+Both mentioning the type guard and show a short example of how it can be used. The example uses async/await as I felt it was the most natural way.
+I recommend merging this at the same time (or after) merging PR #3546 since it fixes the bug isAxiosError(null) // true.
+This (#3645) is also a nice PR that would increase confidence in the type guard.
+Closes #3732",2,0
+3772,2021-04-29T23:35:13Z,2021-04-30T07:08:50Z,2021-04-30T07:08:50Z,1,1,0,"Hi :)
+I read code, and supplemented the document.",2,0
+3781,2021-05-04T19:17:33Z,2021-05-06T13:54:22Z,2021-05-06T13:54:22Z,2,74,2,Issue: #3778,2,0
+3807,2021-05-21T03:00:21Z,2021-05-21T05:51:31Z,2021-05-21T05:51:32Z,3,6,6,"Fixes the failing tests in #2603
+
+Closes: #2154",3,0
+3818,2021-05-30T06:20:40Z,2021-08-13T12:57:35Z,2021-08-13T12:57:35Z,0,0,0,"In config code, fixed missing comma and using incorrectly semicolon instead of a comma.",4,1
+3825,2021-06-05T01:27:33Z,2021-08-13T12:55:01Z,2021-08-13T12:55:01Z,1,2,2,"Under the Request Config section, the key 'responseType' was misspelled as 'resposeType'",3,0
+3836,2021-06-12T19:51:12Z,2021-12-23T16:45:44Z,2021-12-23T16:45:44Z,1,1,1,This should be future-proofed against future changes to the ECMAScript spec (as well as offer performance benefits and be more legible generally).,3,0
+3837,2021-06-13T19:56:32Z,,2021-12-23T16:51:00Z,2,32,0,"Describe your pull request here.
+The data property of the object being passed into axios.create(config) is not being assigned to the request config. This results in the request config.data to be undefined.
+This pull request fixes the issue by checking whether  config.data is undefined in request, and also checks whether the defaults object has any data. If so, it assigns defaults.data to config.data
+closes #3828
+I have also included two test cases to reflect on this change.
+should make an http request with instance data
+should make an http request with data instead of instance data
+My first PR 😄
+Please let me know if there are any issues with this PR.
+Thanks",3,1
+3852,2021-06-24T00:32:56Z,2022-03-07T17:46:09Z,2022-03-07T17:46:09Z,5,38,3,"Axios for long time supports following of the redirects using the follow-redirects package, but it didn't implemented support for beforeRedirect function which is useful to easily control the redirects.
+This adds support for providing the beforeRedirect function in options.
+Also updated the maxRedirects default value in readme, it is 21 for around 5 years.",4,4
+3906,2021-07-20T21:50:44Z,,2021-12-23T17:02:43Z,1,19,4,This pull request adds the responseEnconding prop missing on AxiosRequestConfig typescript definitions,4,3
+3907,2021-07-21T14:00:23Z,,2021-11-03T02:21:24Z,4,279,209,#706,2,1
+3911,2021-07-23T07:05:10Z,,2021-11-17T03:41:15Z,2,8,3,"bugfix:
+when request width proxy and the url is start with HTTPS, the options.agent will use HTTPS.
+but proxy is using proxy protocol with http",2,0
+3912,2021-07-25T06:21:16Z,,2021-12-23T17:03:58Z,1,1,1,"The default value of the Accept header was: 'application/json, text/plain, /'. This was changed to '/'.",3,1
+3918,2021-07-28T17:30:10Z,2021-12-23T17:07:47Z,2021-12-23T17:07:47Z,1,15,0,"Hello,
+This pull request adds the responseEncoding property (present in the documentation) in the TypeScript AxiosRequestConfig interface, thus correcting the problems when building TypeScript. I put some of the most used encodings to make it easier for those who want to use this property and also leaving the possibility to choose any other type of encoding if necessary, accepting the encodings in string type.",3,1
+3936,2021-08-05T13:18:22Z,2021-08-13T12:45:47Z,2021-08-13T12:45:47Z,1,4,4,Fixing the example JSON of Request Config,2,0
+3952,2021-08-13T10:31:11Z,,2021-11-29T11:47:19Z,1,1,1,Chain doesn't include the response interceptors,3,3
+3957,2021-08-16T20:52:34Z,,2021-11-29T11:46:06Z,1,1,1,,2,1
+3961,2021-08-17T18:05:22Z,2022-01-18T16:50:33Z,2022-01-18T16:50:34Z,2,25,0,"This PR fixes #3606, the issue is that when there is an error in the query parsing process which happens before request is sent, the error that is displayed is the standard error which doesn't contain much information about the request, so its harder to debug. This PR fixes that problem.",3,2
+4055,2021-09-14T08:53:12Z,,2022-05-04T18:11:18Z,11,412,6,"The only way I could find to implement this feature was by listening to the 'unhandledRejection' event.
+I've added an _instanceId property to axios instances, that is incremented every time a new instance is created; this way, when the unhandledRejection event happens, only the defaultReject of the same instance that sent the request is executed.
+However, I was unable to come up with a way to test this, as Jasmine does not accept unhandled promise rejections ...",3,7
+4066,2021-09-15T20:52:44Z,2021-10-12T07:43:32Z,2021-10-12T07:43:32Z,1,2,1,Added insecureHTTPParser type to AxiosRequestConfig,3,0
+4072,2021-09-17T11:57:49Z,2022-05-04T18:25:24Z,2022-05-04T18:25:24Z,1,1,1,"According to the document of String.prototype.trim() on mdn, trim() not only deals with \s but also \s\uFEFF\xA0. This is the better polyfill of trim().
+Notice on the newest page of String.prototype.trim(), the polyfill part is removed because it was so outdated. The last browser that needs polyfill was WebView Android 37, which was released 7 years ago. See mdn/content#7602
+Also I know axios why keeps a polyfill version of trim()(See this) and also know about #3980 , but it can be done better.",3,1
+4075,2021-09-18T13:01:57Z,,2022-05-04T18:28:50Z,1,11,4,"Don't write long judgments in if
+Reference: Use descriptive conditions",4,1
+4110,2021-10-01T08:58:05Z,,2021-10-11T17:51:14Z,4,17,3,resolves #4098,2,1
+4111,2021-10-01T12:46:48Z,,2021-10-04T14:22:36Z,2,20,24,"This reverts commit 4eeb3b1.
+The reverted commit assumed the request and response body have to be of the same type. This makes axios 0.22.0 unusable with TypeScript.
+Refs #2995
+Closes #4109",4,11
+4114,2021-10-01T13:21:48Z,2021-10-12T08:06:12Z,2021-10-12T08:06:12Z,1,1,1,"As we all know, Angular and AngularJS are separate, and now we often say Angular refers to Angular2+.",3,2
+4116,2021-10-01T14:22:50Z,2021-10-06T18:10:01Z,2021-10-06T18:10:01Z,1,15,15,"Fixes #4109 by introducing a separate type parameter for the Request data, in contrast to the Response type.",6,4
+4117,2021-10-01T14:53:49Z,,2021-10-12T07:53:10Z,1,20,6,"Commit 90205f8 introduced more correct headers types.
+However this introduced type issues as request headers are not the same for default request headers (they are distinguished by request method + ""common"" https://github.com/axios/axios/blob/master/lib/defaults.js#L119), which is causing type issues when working with defaults (#4108). Following change provides proper types for defaults.
+edit: added correct type for instance creation as well.",3,1
+4133,2021-10-04T09:18:55Z,,2021-10-05T07:37:14Z,1,15,15,Fixes #4131 and #4130,6,5
+4136,2021-10-04T14:05:42Z,2021-10-07T17:23:29Z,2021-10-07T17:23:29Z,1,16,6,some keys like 'set-cookie' are arrays https://github.com/axios/axios/blob/master/lib/helpers/parseHeaders.js#L45,6,8
+4140,2021-10-05T11:20:47Z,2021-10-12T07:53:10Z,2021-10-12T07:53:11Z,6,58,31,"This asserts the type definitions work as expected for TypeScript 3.0 and above. This is the initial setup. I want to keep this minimal and add proper type assertions and some type fixes later. This is why the referenced issue isn’t closed yet.
+This also fixes the axios defaults headers type.
+I believe it’s a good idea to get this merged fast, so other TypeScript related issues and pull requests can be resolved more confidently.
+Refs #4134
+Closes #4108
+Closes #4117
+Closes #4132
+Closes #4153
+Closes #4157",4,10
+4144,2021-10-05T19:18:06Z,2021-11-16T15:06:22Z,2021-11-16T15:06:22Z,1,1,1,"Update headers type for a request to allow boolean and number types in addition to strings.
+Export RequestHeaders and ResponseHeaders type aliases",5,21
+4147,2021-10-06T13:58:56Z,2021-10-12T07:46:16Z,2021-10-12T07:46:16Z,1,3,3,"Just fixed the type definition for the TransitionalOptions interface to mark its properties as optional.
+Adding: Refs #3688",4,3
+4164,2021-10-08T18:17:15Z,,2022-05-09T18:09:31Z,1,11,11,"This is breaking change.
+current implementation
+post<T = never, R = AxiosResponse<T>, D = any>(url: string, data?: D, config?: AxiosRequestConfig<D>): Promise<R>;
+user who want to type its request data need to fill second generic
+axios.post<ResponseData, AxiosResponse<ResponseData>, RequestData>(...)
+it should be
+axios.post<ResponseData, RequestData>(...)
+or if they change response object
+axios.post<ResponseData, RequestData, CustomResponse>(...)
+people rarely changing response object (from interceptor),  so R = AxiosResponse should placed on last.
+Follow up #4116",7,8
+4186,2021-10-13T17:12:01Z,2021-10-22T08:14:23Z,2021-10-22T08:14:24Z,2,13,13,This pull request fixes #4141 by reverting the change implemented in #3002 (changed the type of AxiosResponse to any).,5,7
+4191,2021-10-15T06:04:18Z,,2022-05-09T18:08:35Z,1,5,1,"Fixes #4184
+Allows to pass different type of axios config (modified AxiosRequestConfig) for axios.create. So code example below does not throw typescript error.
+axios.create({ ..., headers: { get: { 'common-header-for-get': 'value' }, 'some-header-for-all-methods': 'value' }, });
+which works fine if using javascript lib version w/o typescript.",3,1
+4205,2021-10-20T09:12:47Z,,2022-05-09T18:12:49Z,2,26,14,This pull request is a feature proposition for the issue #4200,3,1
+4212,2021-10-22T15:21:32Z,,2022-05-05T19:34:30Z,2,81,1,Fixing issue #4192 NO_PROXY does not support *.com + adding tests,3,2
+4241,2021-11-03T01:35:31Z,,2022-05-05T19:27:29Z,96,37407,2507,"Add native cookie jar support, would be similar to other http clients and just be a .jar similar to .status or .headers, would be very helpful",115,1
+4248,2021-11-04T21:44:39Z,2022-05-05T19:31:06Z,2022-05-05T19:31:06Z,3,46,0,Adds a clear() function to the request and response interceptors object so a user can ensure that all interceptors have been removed from an axios instance.,5,4
+4322,2021-12-10T12:08:48Z,2022-05-16T07:21:56Z,2022-05-16T07:21:56Z,1,1,1,"Regarding #4272, as it say that there is a mismatch between node headers type (node type) and axios request header type within the index signature.
+Example of error from next js getServerSideProps request headers:
+Argument of type 'IncomingHttpHeaders' is not assignable to parameter of type 'AxiosRequestHeaders'.
+  'string' index signatures are incompatible.
+    Type 'string | string[]' is not assignable to type 'string'.
+      Type 'string[]' is not assignable to type 'string'.
+
+and as mentioned in #4144 anything that toString can apply on will be no harm if added as type.",3,3
+4344,2021-12-21T18:44:54Z,2022-05-12T07:19:07Z,2022-05-12T07:19:07Z,1,1,1,"isAxiosError returns AxiosError<any>
+This change allows to pass type for AxiosError
+// Old behavior #1
+if (axios.isAxiosError(error)) {
+   error.response?.data.message // any
+}
+// Old behavior #2
+if (axios.isAxiosError(error)) {
+   (error as AxiosError<MyErrorInterface>).response?.data.message // string | undefined
+}
+
+// Behavior after this change #1 (Non-breaking change)
+if (axios.isAxiosError(error)) {
+   error.response?.data.message // any
+}
+// Behavior after this change #2 (Desired behavior)
+if (axios.isAxiosError<MyErrorInterface>(error)) {
+   error.response?.data.message // string | undefined
+}",6,3
+4363,2021-12-30T08:23:03Z,,2022-05-09T16:45:18Z,2,3,4,"Instructions
+Please read and follow the instructions before creating and submitting a pull request:
+
+Create an issue explaining the feature. It could save you some effort in case we don't consider it should be included in axios.
+If you're fixing a bug, try to commit the failing test/s and the code fixing it in different commits.
+Ensure you're following our contributing guide.
+
+⚠️👆 Delete the instructions before submitting the pull request 👆⚠️
+Describe your pull request here.
+When I put the axios interceptor option, put it in flattening.
+If another option is added later, it needs to be added continuously, so it is changed.",3,1
+4368,2022-01-03T09:19:36Z,,2022-05-04T17:29:44Z,9,21,8,"Instructions
+Please read and follow the instructions before creating and submitting a pull request:
+
+Create an issue explaining the feature. It could save you some effort in case we don't consider it should be included in axios.
+If you're fixing a bug, try to commit the failing test/s and the code fixing it in different commits.
+Ensure you're following our contributing guide.
+
+⚠️👆 Delete the instructions before submitting the pull request 👆⚠️
+Describe your pull request here.",3,1
+4435,2022-01-31T19:25:29Z,2022-05-04T15:54:14Z,2022-05-04T15:54:14Z,1,39,60,"The Mocha tests for the http adapter are asynchronous and rely on Mocha's done callback to be invoked on success - or failure. When it's not called, the tests hang. I identified various places where done was not being called, or was called incorrectly (ie never actually being reachable).
+Here are two examples of handling that wasn't correct:
+      axios.get('http://localhost:4444/').then(function (res) {
+        assert.deepEqual(res.data, data);
+        done(); // <-- this is never called if the `axios.get` promise is rejected. 
+                // It's also not called if `assert.deepEqual` fails, because it 
+                // throws. When `done` is used, Mocha treats the test function 
+                // as asynchronous and does not handle exceptions
+                // as the end of the test.
+      })
+
+        .catch(function (error) { 
+          assert.ifError(error); // <-- !? rejected promises should have something passed to them, normally
+          done(); // <-- this is never called, unless the promise was rejected with `undefined` or `null`
+        });
+
+This PR does not fix all occurrences, but all those from cases similar to the above. A future pass should be done on tests that are event-based to make sure done(error) is called in the proper places.
+Ref: mentioned in issue #4318.",2,1
+4436,2022-01-31T20:28:01Z,2022-05-11T17:24:14Z,2022-05-11T17:24:14Z,3,97,78,"The current http adapter implementation evaluates the proxy environment variables only once, when the request is initiated. When redirects are followed, the proxy is not re-resolved, which can be problematic in some cases. For instance:
+
+With http_proxy and https_proxy pointing to two different server hosts/ports, an http: request redirecting to an https: endpoint (or vice versa... go figure why) would result in the wrong proxy configuration used. (curl properly re-evaluates the environment variables on redirect and supports this use case.)
+With no_proxy set to one or more hosts, a request from one of the excluded hosts redirecting to an endpoint served by a non-excluded host would not use a proxy (when it should); likewise, a request from a non-excluded host redirecting to an endpoint served by an excluded host would use a proxy (when it shouldn't)
+
+This PR implements a change in the setProxy code to always re-evaluate the proxy from environment, but only when the original request configuration did not include a proxy (ie. not changing the rules where ""resolve from environment"" kicks in).
+Also as part of this PR is a minor fix to allow using e.g. http_proxy=https://proxyhost:proxyport, so this PR should fix #3903. Basic HTTP proxying should be do-able over an encrypted (TLS) connection to the proxy, for instance when proxy credentials are used. Arguably, that's a strange use case, but there's no reason to not support it, especially when it's trivial to do so (curl does support using http endpoints over an https proxy.)
+Ref: proposed contribution 1) mentioned in my comment on issue #4318.",5,14
+4448,2022-02-06T14:11:49Z,2022-03-14T18:22:10Z,2022-03-14T18:22:10Z,22,713,239,"CODE
+
+Fixed isFormData predicate;
+Added form-data as a dependency for node.js build only. It is used by default to handle the FormData payload;
+Added shortcut methods postForm, putForm, patchForm
+Reworked toFormData serializer;
+
+ArrayBuffer and/or TypedArray will be converted to a Blob|Buffer instance
+Added support for special field endings:
+
+[] - unwrap the array like object as separate fields with the same key
+{} - serialize the value with JSON.stringify
+
+
+
+
+
+axios.postForm('https://httpbin.org/post', {
+  'myObj{}': {x: 1, s: ""foo""},
+  'files[]': document.querySelector('#fileInput').files 
+};
+
+You can pass the FileList object directly as the payload:
+
+await axios.postForm('https://httpbin.org/post', document.querySelector('#fileInput').files)
+
+Exposed toFormData helper as a static method;
+Added kindOf, kindOfTest, endsWith, isTypedArray util;
+
+TESTS
+
+Added test for #4413;
+Added test for automatic data object serialization to a FormData payload when the request Content-Type is multipart/form-data;
+Added backend test for passing FormData  as a payload;
+
+README
+
+Added FormData automatic serialization section to Readme.md;
+Updated cancellation section;
+
+DEV
+
+Added cross-env package to run the build scripts on Windows systems;
+Added formidable to test FormData payload;",4,2
+4532,2022-03-17T09:23:52Z,2022-05-03T18:35:59Z,2022-05-03T18:35:59Z,1,1,1,fix url to defaults.js,2,0
+4557,2022-03-29T18:44:04Z,2022-05-09T17:12:53Z,2022-05-09T17:12:53Z,2,8,0,"When creating an Axios instance with Axios.create() the headers config (as described in the README) is merged into the root of instance.default.headers. These values are not accessible because the types for instance.defaults.headers do not include an index type to represent the arbitrary properties which are merged there.
+This PR includes this index type in the instance.defaults.headers object and includes validation that this works in the test/typescript/axios.ts file. Without the change in index.d.ts this test shows the following error:",2,1

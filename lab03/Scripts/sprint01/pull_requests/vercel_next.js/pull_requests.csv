@@ -1,0 +1,1559 @@
+number,created_at,merged_at,closed_at,files,additions,deletions,body_text,participants,comments
+8,2016-10-15T17:04:39Z,2016-10-17T01:49:33Z,2016-10-17T01:49:33Z,1,12,1,,3,2
+9,2016-10-15T17:49:48Z,2016-10-16T04:32:58Z,2016-10-16T04:32:58Z,2,24,1,,2,0
+12,2016-10-16T04:56:23Z,2016-10-16T22:44:26Z,2016-10-16T22:44:26Z,3,15,16,,2,0
+14,2016-10-16T05:50:18Z,2016-10-17T01:04:35Z,2016-10-17T01:04:35Z,1,11,2,"Added warning when pages dir is not present and a special one if it exists as a sibling of the project root.
+Please review the copy :)",2,0
+15,2016-10-16T06:34:49Z,2016-10-16T23:55:30Z,2016-10-16T23:55:30Z,2,57,0,The proposed command bootstraps a sample project for starters adding the pages and static directories plus a index.js page,2,0
+34,2016-10-17T08:36:50Z,2016-10-25T05:50:33Z,2016-10-25T05:50:33Z,1,27,1,Fixes #17,2,1
+38,2016-10-20T02:12:40Z,2016-10-21T16:39:20Z,2016-10-21T16:39:20Z,16,87,109,Please review carefully!,2,0
+39,2016-10-22T07:46:33Z,2016-10-25T06:57:44Z,2016-10-25T06:57:44Z,1,20,1,allowing different ways to import the css helpers,3,0
+68,2016-10-25T20:37:42Z,,2016-12-17T03:37:00Z,6,55,7,"Based on create-react-app and specifically
+facebook/create-react-app#101.
+$ ./dist/bin/next-start
+Something is already running at port 3000.
+Would you like to run the app on port 3001 instead? [Y/n] y
+
+Ready on http://localhost:3001
+^C⏎",9,15
+93,2016-10-26T16:27:15Z,2016-10-29T10:56:46Z,2016-10-29T10:56:46Z,1,21,0,,5,1
+97,2016-10-26T18:10:16Z,2016-10-26T23:49:05Z,2016-10-26T23:49:05Z,1,3,0,"This pull request fixes #85
+
+You are currently using minified code outside of NODE_ENV === 'production'. This means that you are running a slower development build of Redux. You can use loose-envify (https://github.com/zertosh/loose-envify) for browserify or DefinePlugin for webpack (http://stackoverflow.com/questions/30030031) to ensure you have the correct code for your production build.
+
+By setting NODE_ENV to production for production bundling process.",3,1
+101,2016-10-26T19:48:39Z,,2017-01-05T17:30:31Z,1,56,38,"This addresses some things I was first confused by and some common confusions like the .next directory.
+It also adds a Contributing and Background & Design Philosophy section.",5,9
+129,2016-10-28T07:54:38Z,2016-10-28T14:39:20Z,2016-10-28T14:39:20Z,3,15,24,"Fixes #95
+This PR change to update head contents using requestAnimationFrame.",1,0
+136,2016-10-28T11:23:59Z,2016-11-03T10:07:15Z,2016-11-03T10:07:15Z,2,7,1,"Currently, when running next init some-directory, if some-directory does not yet exist the command will exit with a nasty looking error (see below).
+This PR creates the supplied directory if it does not exist, preventing the error.
+next init some-directory
+{ Error: ENOENT: no such file or directory, open '/Users/timoxley/Projects/tests/some-directory/package.json'
+    at Error (native)
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/timoxley/Projects/tests/some-directory/package.json' }",3,5
+163,2016-10-30T21:44:22Z,,2016-12-01T23:03:15Z,4,19,7,Response to #161 in case we want to support .jsx files.,6,10
+165,2016-10-30T23:21:41Z,2016-10-31T07:32:51Z,2016-10-31T07:32:51Z,1,7,2,"This adds information I had to search for and experiment with, being new to Glamor.
+I think adding the insertRule import is useful to show you can access all of Glamor's API from 'next/css'. It also answers the common question we've been getting of ""How do I add global styles?""",2,1
+174,2016-11-01T10:37:55Z,,2016-11-10T15:40:33Z,1,10,2,"My attempt to implement #40. I think it's the simplest possible solution.
+To customize config user have to create webpack.js in project root and export function that adjusts config as needed.
+module.exports = (config, hotReload) => {
+  if (hotReload) {
+    const babelLoader = config.module.loaders.find(({loader}) => loader === 'babel')
+    babelLoader.query.plugins.push(require.resolve('babel-plugin-styled-components-named'))
+  }
+  // Style loader not works for some reason, but it should be configured similar to this:
+  config.resolveLoader.root.push(require('path').join(__dirname, 'node_modules'))
+  config.module.preLoaders.push({ test: /\.css$/, loader: ""style!css"" })
+}",4,7
+182,2016-11-02T20:46:46Z,2016-11-04T11:38:55Z,2016-11-04T11:38:55Z,1,2,0,"This behaviour was surprising, I'd assumed getInitialProps would execute in both environments, though I assume the intention is that this prevents double-handling.
+Related #183",4,5
+222,2016-11-07T14:53:28Z,2016-12-17T18:38:11Z,2016-12-17T18:38:11Z,4,107,26,"We currently use package.json for our configuration. I think we should move away from using package.json and use something like next.config.js since it gives us more power than JSON.
+An example is the issue for custom Webpack support: #40.
+With a config like this you could do this for example:
+// next.config.js
+
+export default {
+  webpack: (webpackConfig) => {
+    const newConfig = { ...webpackConfig };
+    newConfig.module.preloaders.push({ test: /\.js$/, loader: 'eslint-loader' });
+    return newConfig;
+  },
+  cdn: false
+}
+Which is in my opinion better than creating a new file for webpack since this is more centralised. This does however still give users the option to use different files, for the webpack example:
+// next.config.js
+
+export default {
+  webpack: require('./webpack').default,
+  cdn: false
+}
+These are just my thoughts, I found out that I needed a sort of config file in .js when starting a PR for this project. Very curious what others think of this 😄.",12,56
+233,2016-11-09T10:13:00Z,2016-11-14T04:43:31Z,2016-11-14T04:43:31Z,1,4,1,"support:
+$ NODE_PATH=/my_node_modules next
+
+# need to set NODE_PATH on both `build` and `start`
+$ NODE_PATH=/my_node_modules next build
+$ NODE_PATH=/my_node_modules next start",3,2
+235,2016-11-09T19:33:48Z,2016-11-17T16:03:04Z,2016-11-17T16:03:04Z,1,4,0,Helpful pointer in the README about /static directory,5,3
+250,2016-11-14T01:58:53Z,,2016-12-25T03:00:42Z,8,178,3,"Check this:
+
+
+In order to do this, I have to introduce two new events to the ``. They are:
+
+onStart - when the page navigation starts
+onComplete - when the page navigation completes
+
+Why not using onClick instead of onStart?
+onClick gets called even any clicks including external navigations. That's why we need this event.",5,13
+259,2016-11-15T08:35:46Z,2016-12-02T01:37:22Z,2016-12-02T01:37:22Z,11,128,46,"Adds test coverage using nyc and babel-plugin-istanbul, see #244
+
+a few notes about this pull request
+
+I've switched to using babel-core/register, which is easier to wire up with babel-plugin-istanbul.
+I've moved babel settings into .babelrc, and in turn load these in gulpfile.js; both babel-register, and the build process need these same settings, and it seemed worthwhile to consolidate them.
+I've introduced a few more dependencies:
+
+coveralls: used to pipe lcov report to coveralls.io.
+read-pkg-up: used to load the parent package.json (this is necessary because in test files are under lib/, but after building they are located in dist/lib.
+babel-plugin-istanbul: istanbul plugin for instrumenting test coverage (only run when env is test).
+nyc: command line tool for instrumenting tests, outputting reports, etc.
+cross-env: pass environment to a script in a way that works on Windows.
+
+
+I added a couple more tests, mainly to ensure that coverage was being computed accurately.
+
+enabling coverage badge
+To get the coverage bade working, someone with admin access to this repo will need to enable this project on https://coveralls.io/",4,9
+264,2016-11-16T02:48:57Z,2016-12-02T01:22:15Z,2016-12-02T01:22:15Z,3,7,19,Following discussion #214,6,5
+268,2016-11-17T17:39:42Z,2016-11-24T14:03:16Z,2016-11-24T14:03:16Z,9,171,85,"Fixes #214, #199
+This PR introduces error rendering on client when runtime errors occurred on evaluating components or getInitialProps call.
+(We don't display error page even if there is an error on React's lifecycle methods. I'm wondering if we should)
+This will fixes parts of #230.
+Some problems are  not solved yet mainly because of facebook/react#2461",3,6
+270,2016-11-17T21:13:13Z,2016-11-17T23:06:54Z,2016-11-17T23:06:54Z,4,10,2,"Closes #237.
+Sets UTF-8 as the default charset for pages without a <Head> or with a <Head> but no <meta charSet>.
+If  <Head> has a <meta charSet> tag, that value will override the default.
+Thanks for next! 😄",4,7
+276,2016-11-18T23:06:00Z,2016-11-23T18:32:49Z,2016-11-23T18:32:49Z,9,72,234,"Fixes #236, #102
+By using webpack-hot-middleware, we can use HMR from our server instead of running a dedicated server (webpack-dev-server).",4,8
+279,2016-11-19T20:12:43Z,2016-12-02T01:43:38Z,2016-12-02T01:43:38Z,5,21,7,"Fixes #137, #225
+This PR adds missing source-map support on both server and client.
+But it makes the webpack compilation really slow like about +1~2 seconds on HMR.
+I doubt if we should make this default yet or can make it faster somehow.",4,3
+280,2016-11-20T13:45:54Z,,2016-12-02T06:35:59Z,1,1,3,,6,7
+283,2016-11-21T08:24:40Z,2016-11-21T11:46:49Z,2016-11-21T11:46:49Z,2,22,22,,2,1
+286,2016-11-22T12:50:21Z,2016-11-27T00:02:12Z,2016-11-27T00:02:12Z,13,162,31,"Fixed #253 and a bunch of related issues.
+Here now common modules loads once using the webpack's CommonsChunkPlugin. Still, we use Next.js module loading system and SSR features.
+As a result of this, we don't need to worry about loading the next-bundle and even creating it.",4,1
+301,2016-11-27T23:12:58Z,2016-11-28T00:15:56Z,2016-11-28T00:15:56Z,13,143,23,"Fixes #253
+Similar to #286 (We didn't take #286 in)
+Here now common modules loads once using the webpack's CommonsChunkPlugin. Still, we use Next.js module loading system and SSR features.
+As a result of this, we don't need to worry about loading the next-bundle and even creating it.",5,6
+302,2016-11-28T05:36:22Z,2016-11-28T14:04:59Z,2016-11-28T14:04:59Z,2,12,1,"Per an official source, reading the /proc/version file and searching for 'Microsoft' is currently the best way to detect if a user is running Bash on Windows. I wrote a small package that checks to see if the user is on Linux and Bash, and if they are will read that file to check if it's a Windows environment. If it is, I add polling to the webpack dev server.
+First time doing something like this, so if I've gone about this the wrong way completely a course adjustment would be much appreciated 😄
+Fixes #166",3,1
+310,2016-11-30T04:07:14Z,2016-12-16T20:33:08Z,2016-12-16T20:33:08Z,28,440,183,"Fixes #291
+
+support hot-code reloading even on custom routes
+enable to use high and low level APIs depends on your needs
+
+Ideas are basically the same with #291, but some APIs are a bit different.
+API
+next({ dir = '.', dev = false } = {})
+const next from 'next'
+const app = next()
+
+app.render(req, res, pathname, query) - renders pathname and automatically handle response. renders /_error and set status code to res.statusCode if an error occurred.
+app.renderToHTML(req, res, pathname, query) - similar to app.render but doesn't automatically handle response and returns a Promise of html string.
+app.renderError(err, req, res, pathname, query) - similar to app.render but renders /_error (or the error page for debug if dev is true).
+app.renderErrorToHTML(err, req, res, pathname, query) - similar to app.renderError but doesn't automatically handle response and returns a Promise of html string.
+app.prepare() - wait to be prepared for serving.
+
+
+Link
+It takes a new prop as which is url value and href represents the path for the page component if as exists.
+For example, it fetches the /foo component and url transitions to /bar if you click the following link.
+<Link href=""/foo"" as=""/bar"">here</Link>",11,10
+322,2016-12-02T04:10:35Z,,2016-12-03T20:45:18Z,1,4,3,"Repeated path.join calls with the same base.
+... I had to fix it. I had no choice in the matter. 😜 #ocd",4,2
+352,2016-12-06T14:17:55Z,2016-12-13T03:53:04Z,2016-12-13T03:53:04Z,5,62,0,"I think the custom server example is fine, but it still took me a several minutes to setup express.
+Adding this should help clarify a common use case and more importantly, demonstrate that migrating to next isn't too tough.",7,8
+361,2016-12-08T00:47:42Z,,2016-12-28T19:05:29Z,3,37,16,"This fixes #360.
+Essentially, we remove any form of aliasing so the imports are no longer transformed from next/css etc. to /Users/...a long path.../css. So now it'll just resolve to whatever's in your local, relative node_modules.
+However, because (obviously) you can't make a reference to next/css from within next itself, I've made it so that running local tests creates the necessary files in node_modules/next, pointing back to the repo itself, and removing them after tests are run.
+I've sure learnt a hell of a lot about webpack. ;)",4,17
+363,2016-12-08T12:19:05Z,2016-12-15T22:29:59Z,2016-12-15T22:29:59Z,2,1,2,,4,8
+375,2016-12-10T11:01:08Z,2016-12-15T19:13:40Z,2016-12-15T19:13:40Z,17,431,2,"This will add support for prefetching pages using service workers.
+
+This PR is based on the master, but porting it to support #310 is pretty simple.
+
+Declarative API
+You can simply ask to prefetch pages by using the <Link> provided by next/prefetch. See:
+import Link from 'next/prefetch'
+
+// This is the header component
+export default () => (
+  <div>
+    <Link href='/'>Home</Link>
+    <Link href='/about'>Home</Link>
+    <Link href='/contact'>Home</Link>
+  </div>
+) 
+Now we'll prefetch all the pages. So, when you click on any of the link it won't need to do a network hit.
+If you need you could stop prefetching like this:
+<Link href='/' prefetch={false}>Home</Link>
+Imperative API
+You can get started with <Link> prefetching pretty quickly and it's a pretty decent way to prefetch. But you may want to prefetch based on your own logic.
+Then you can do it like this:
+import { prefetch } from 'next/prefetch'
+
+prefetch('/')
+prefetch('/features')
+Browser Support
+Service Workers are available only in Chrome, Firefox and Opera. For other browsers prefetching won't work. But <Link> from next/prefetch will be work like <Link> from next/link",9,20
+385,2016-12-13T13:12:52Z,2016-12-15T19:07:08Z,2016-12-15T19:07:08Z,5,9,35,"Now user doesn't need to handle accept headers anymore. So the code looks like this:
+const express = require('express')
+const next = require('next')
+
+const app = next({ dir: '.', dev: true })
+const handle = app.getRequestHandler()
+
+app.prepare()
+  .then(() => {
+    const server = express()
+
+    server.get('/a', (req, res) => {
+      return app.render(req, res, '/b', req.query)
+    })
+
+    server.get('/b', (req, res) => {
+      return app.render(req, res, '/a', req.query)
+    })
+
+    server.get('*', (req, res) => {
+      return handle(req, res)
+    })
+
+    server.listen(3000, (err) => {
+      if (err) throw err
+      console.log('> Ready on http://localhost:3000')
+    })
+  })
+So now users doesn't need to know anything about accept headers and routing looks so simple.",4,8
+399,2016-12-15T21:43:42Z,,2016-12-28T21:30:34Z,1,12,2,"This addresses #159 – only inserts environment variables that are being used, so it doesn't overexpose anything. Production (next build) will provide a default NODE_ENV=production, but that can be overridden if you want.",5,10
+414,2016-12-17T06:22:48Z,2016-12-17T08:49:10Z,2016-12-17T08:49:10Z,12,20,160,Fixes #406,4,7
+416,2016-12-17T11:39:38Z,2016-12-19T15:27:47Z,2016-12-19T15:27:47Z,3,43,1,"See:
+sh-3.2$ curl -v http://localhost:3000
+* Rebuilt URL to: http://localhost:3000/
+*   Trying ::1...
+* Connected to localhost (::1) port 3000 (#0)
+> GET / HTTP/1.1
+> Host: localhost:3000
+> User-Agent: curl/7.49.0
+> Accept: */*
+>
+< HTTP/1.1 200 OK
+< Content-Type: text/html
+< Content-Length: 3172
+-------------------------------
+< X-Powered-By: Next.js 1.2.3
+-------------------------------
+< Date: Sat, 17 Dec 2016 11:38:52 GMT
+< Connection: keep-alive",6,11
+429,2016-12-19T11:46:14Z,2016-12-19T14:40:26Z,2016-12-19T14:40:26Z,14,217,55,"With this we could easily access the Router via next/router and work with it directly.
+Here's a basic example:
+pages/index.js
+import Router from 'next/router'
+
+const routeTo(href) {
+  return (e) => {
+    e.preventDefault()
+    Router.push(href)
+  }
+}
+
+export default () => (
+  <div>Click <a href='#' onClick={routeTo('/about')}>here</a> to read more</div>
+)
+pages/about.js
+export default () => (
+  <p>Welcome to About!</p>
+)
+Above Router object as an API like this:
+
+route - String of the current route
+pathname - String of the current path excluding the query string
+query - Object with the parsed query string. Defaults to {}
+push(url, pathname=url) - performs a pushState call associated with the current component
+replace(url, pathname=url) - performs a replaceState call associated with the current component
+
+
+Usually, route is the same as pathname.
+But when used with programmatic API, route and pathname can be different.
+""route"" is your actual page's path while ""pathname"" is the path of the url mapped to it.
+Likewise, url and path is the same usually.
+But when used with programmatic API, ""url"" is the route with the query string.
+""pathname"" is the path of the url mapped to it.
+
+Example app is located at the examples/using-router",4,1
+434,2016-12-19T19:00:41Z,2016-12-19T21:04:38Z,2016-12-19T21:04:38Z,3,10,5,"In order to warn the user, now we are using a warn function
+which is located in the lib/utils module.",3,2
+443,2016-12-20T12:23:45Z,2016-12-20T17:27:43Z,2016-12-20T17:27:43Z,4,42,23,"Using next/router inside the server makes API unpredictable and we cannot support it anywhere.
+So, with this PR now we are making this as a client side API.",3,5
+449,2016-12-21T05:02:24Z,2016-12-28T18:16:53Z,2016-12-28T18:16:53Z,4,111,46,"This PR upgrades webpack to v2.
+btw It looks our blocker (webpack/watchpack#33) is going to be published soon.
+https://github.com/webpack/watchpack/releases/tag/v1.1.2 (not released to npm yet)
+It seems the tag was removed. I don't know the current status of it.",4,4
+456,2016-12-21T09:24:37Z,,2016-12-22T02:24:12Z,2,8,3,"This passes a refernce to the webpack module into a custom webpack() function defined in next.config.js.
+A user wanting to add something like a custom DefinePlugin entry might have a next.config.js file that looks like this:
+module.exports = {
+  webpack: (cfg) => {
+    cfg.plugins.push(
+      new webpack.DefinePlugin({
+        'process.env.CUSTOM_VALUE': JSON.stringify(process.env.CUSTOM_VALUE),
+      })
+    );
+
+    return cfg;
+  },
+};
+The problem is they need access to the webpack module. They might think to require('webpack') in their next.config.js, but then they might feel obligated to add webpack to their package.json. Instead, it might be simpler to just pass a reference to the webpack to their config like this:
+module.exports = {
+  webpack: (cfg, {webpack}) => {
+    // ...
+  },
+};
+Curious what folks think about this. Maybe someone is worried that the user would try to call the webpack() module ref and kick off the build?",6,12
+466,2016-12-21T22:21:01Z,2016-12-22T01:36:01Z,2016-12-22T01:36:01Z,7,155,15,This works for both for all of the app pages including the custom document component.,5,5
+470,2016-12-22T03:33:32Z,2016-12-22T05:10:55Z,2016-12-22T05:10:55Z,25,627,43,"Moved examples to the folder
+Added readme with install + explanation
+Added examples from wiki",4,1
+486,2016-12-22T22:50:50Z,2016-12-23T13:01:24Z,2016-12-23T13:01:24Z,8,130,0,,5,4
+493,2016-12-23T07:58:42Z,2016-12-26T18:13:45Z,2016-12-26T18:13:45Z,6,32,48,"Reverts #466
+And allows to configure babel via the .babelrc file.
+If there's no such file, we'll add our preset next/babel by default. If not we'll use the .babelrc file.
+Most of the time, user need to add next/babel as a preset.
+If we are taking this in, we could support ES2015 in the config.next.js as well.",2,5
+497,2016-12-23T11:09:50Z,2016-12-23T17:13:53Z,2016-12-23T17:13:53Z,5,125,0,This is pretty interesting :),5,6
+500,2016-12-23T17:55:05Z,2016-12-23T19:18:26Z,2016-12-23T19:18:26Z,6,83,1,,2,1
+505,2016-12-24T03:13:31Z,2016-12-24T04:23:09Z,2016-12-24T04:23:09Z,1,23,0,"Issue #252
+This is adding a warning to the readme on using default module.exports to the readme, which Babel6 no longer supports.",2,2
+511,2016-12-25T02:59:42Z,2016-12-31T01:15:23Z,2016-12-31T01:15:23Z,10,373,80,"Fixes #238
+With these events, we could easily show a loading indicator when switching between pages.
+Basically, here's how to use these events:
+import NProgress from 'nprogress'
+import Router from 'next/router'
+
+Router.onRouteChangeStart = () => NProgress.start()
+Router.onRouteChangeComplete = () => NProgress.done()
+Router.onRouteChangeError = () => NProgress.done()",4,13
+527,2016-12-26T14:19:48Z,,2016-12-27T12:31:06Z,1,1,1,Addresses #468.,3,2
+533,2016-12-27T03:56:33Z,,2016-12-27T06:30:55Z,1,4,2,"Then we can write like this
+<Link href=""/about"" className=""about"" style={{color: 'red'}}>About</Link>",3,5
+558,2016-12-29T07:27:22Z,2016-12-29T12:53:21Z,2016-12-29T12:53:21Z,1,8,1,Fixes '#550',3,0
+560,2016-12-29T09:44:28Z,2017-01-05T21:03:37Z,2017-01-05T21:03:37Z,8,94,1,"This is a very common need, especially when thinking about traditional websites. Maybe this can grow into a feature of next at some point?
+NOTE: I had to add .babelrc in the folder because building the example is failing (same for all examples) because of the plugins defined in the global .babelrc.",4,17
+565,2016-12-29T17:56:16Z,2016-12-29T22:38:19Z,2016-12-29T22:38:20Z,4,583,241,"Related to #555
+Currently, we only do this for main.js and commons.js only.
+We can do this for individual .json pages as well.
+For that, we may need to change a bit of how we save pages and so on.
+I think we could handle it in a different PR.",2,3
+571,2016-12-30T10:02:36Z,2016-12-31T12:46:23Z,2016-12-31T12:46:24Z,10,333,271,"Related to #555
+Fixes #568
+Now we are serving JSON pages directly from the file system for most of the time. We do that with a custom webpack plugin.
+So, now we could add gzip support for pages pretty quickly.
+Since now we serve JSON pages directly from the filesystem, ETags are sent automatically and it fixes #568",3,2
+595,2017-01-01T07:27:17Z,2017-01-01T19:36:38Z,2017-01-01T19:36:38Z,3,46,17,"Fix 404 is not working client side
+Possibly fix hot code reload has issues that break SSR",3,0
+601,2017-01-01T16:26:50Z,,2017-01-02T04:08:46Z,2,9,5,…eading js files. Related to #597,4,2
+617,2017-01-02T07:36:36Z,2017-01-02T11:18:14Z,2017-01-02T11:18:14Z,2,35,14,"Fixes #616
+If there's a HMR reload event, we'll prefetch again if the route is registered for prefetching.",2,0
+620,2017-01-02T11:37:34Z,,2017-01-05T21:02:52Z,5,197,159,"With this, we are only looking for .babelrc upto the closest directory with a package.json.
+This will fix the .babelrc issue discussed in #560",3,3
+640,2017-01-03T14:01:49Z,2017-01-12T04:14:50Z,2017-01-12T04:14:50Z,41,895,309,"Implements #635
+This PR comes with a bunch of improvements for the test setup. This will allow us to write test faster and better. Here are the things comes with this PR.
+
+Move testing into standard jest-cli and remove it from gulp.
+Add some isolated tests for the server/resolve
+Allow current integration tests to get html content via HTTP
+Use cheerio for parsing HTML in above tests
+Add a set of utils, which can be imported from anywhere with import from 'next-test-utils'
+Build a production app and check for the gzip usage
+Use webdriver to test client side navigations
+
+Earlier, I thought about writing integration tests in the example directory. (Inside examples). But those test apps might be optimized for tests. So, they are not exactly example apps.
+We've almost everything needed for a better test suite. After we take this PR, we can write more tests including tests for HMR.",5,16
+646,2017-01-03T19:51:11Z,,2017-02-16T14:23:56Z,217,4760,1820,This example show how to add authentication to a next app using passwordless + email,9,6
+652,2017-01-04T06:49:10Z,2017-01-05T17:29:10Z,2017-01-05T17:29:10Z,1,2,2,Fixes #647,3,0
+657,2017-01-04T18:10:28Z,,2017-02-09T13:30:49Z,14,432,244,"Related: #555
+By default we only do if for gzip.
+For an example, here how to add support for bothbr and gzip compress encodings.
+var zlib = require('zlib')
+var iltorb = require('iltorb')
+
+module.exports = {
+  // Returns a map of compression streams for the types of encodings you want to support
+  // Here's a list of common encoding types: https://goo.gl/ke7zOK
+
+  // The first listed encoding has the higher priority over others.
+  //  In this case, first it'll try to serve the `br` version if the browser supports it.
+  //  Otherwise, it'll serve the gzipped version.
+  compress: {
+    br: function () {
+      return iltorb.compressStream()
+    },
+    gzip: function () {
+      // You can also return a promise which resolve a compression stream
+      return new Promise(function (resolve) {
+        resolve(zlib.createGzip())
+      })
+    }
+  }
+}",6,11
+661,2017-01-05T04:30:26Z,2017-01-05T17:27:40Z,2017-01-05T17:27:40Z,4,114,6,"Fixes #648
+btw, I found props is discarded when errors occurred on HMR. I will fix it in another PR.",4,4
+668,2017-01-05T21:43:13Z,,2017-04-01T01:17:49Z,2,27,0,"This fixes #21.
+Note:
+Due to this reverse() https://github.com/zeit/next.js/blob/master/lib/head.js#L24 the last key is used instead of the first. I don't know if this is an issue.
+Usage:
+<Head>
+  <link rel=""stylesheet"" href=""/abc.css"" key=""test"" />
+  <link rel=""stylesheet"" href=""/def.css"" key=""test"" />
+</Head>
+
+Will only render <link rel=""stylesheet"" href=""/def.css"" key=""test"" />. When rendering new pages it checks if the key was already set. If so it will not remove the current key=""test"" and discard the new key=""test"". key is used by React for the same kind of functionality. So it seems the best possible prop to use. Though I'm open to changing it to id",8,12
+673,2017-01-06T06:10:46Z,,2017-01-09T02:14:11Z,29,2209,0,This example demonstrates how Next can be used in combination with Feathers JS.,3,1
+676,2017-01-06T08:49:14Z,2017-01-06T11:38:52Z,2017-01-06T11:38:52Z,9,3285,0,Following on issue #644,2,5
+678,2017-01-06T09:52:30Z,,2017-01-11T07:23:49Z,1,1,0,fixed #677,4,4
+691,2017-01-07T12:23:25Z,2017-01-08T15:04:35Z,2017-01-08T15:04:35Z,6,56,10,"#686
+Adding a some basic routing to the Redux example
+As @arunoda suggested I've tried to keep it similar to the mobx example.",2,2
+697,2017-01-08T09:46:14Z,2017-01-09T02:12:29Z,2017-01-09T02:12:29Z,4,183,148,"Fixes #696
+Need to test this on:
+
+ Mac
+ Linux (tests passed on Travis CI)
+ Windows",2,0
+704,2017-01-09T01:14:06Z,2017-01-09T03:01:25Z,2017-01-09T03:01:25Z,1,17,6,"We couldn't depend on the previous check and it cause errors randomly.
+This also fixes issues like #677",2,2
+712,2017-01-09T23:09:20Z,2017-01-10T02:35:11Z,2017-01-10T02:35:11Z,7,129,0,,2,2
+731,2017-01-11T00:07:21Z,2017-01-12T01:57:34Z,2017-01-12T01:57:34Z,2,9,15,"Fixes: #715
+This will fix the issue when the user ignore node_modules
+via our .babelrc option.",3,0
+734,2017-01-11T07:22:49Z,,2017-01-12T02:40:34Z,3,4,5,"Previously #560 , it arose the necessity of having a .babelrc in the examples folder, but that presents failures obvious. error when trying to clone and run only the example
+While a better solution is found, the simplest thing is to have ""babel"": {}, in the package.json
+https://hello-world-zfhmvrypyd.now.sh/_src/?f=package.json",2,0
+735,2017-01-11T08:00:43Z,2017-02-09T11:47:20Z,2017-02-09T11:47:20Z,1,36,1,"Can be periodically updated by:
+npm i -g doctoc
+doctoc README.md",2,2
+736,2017-01-11T08:06:25Z,2017-01-11T14:11:37Z,2017-01-11T14:11:37Z,1,8,0,"We assume if no .next dir exists, the project has not yet been builded.",3,4
+741,2017-01-11T14:04:27Z,2017-01-12T01:58:21Z,2017-01-12T01:58:21Z,11,205,220,"Fixes #679
+This PR change the error screen to be displayed as an overlay, so original components and their states remain under it.",2,1
+749,2017-01-12T10:20:43Z,,2017-06-26T19:29:41Z,11,3196,1,"Fixes #706
+Instructions
+Add a field called transpileModules with an array of regexp patterns like this:
+module.exports = {
+ transpileModules : [
+    /react-button/
+  ]
+}
+Here Next.js checks every imported module with above patterns and transpile them if matched. By default it uses next/babel preset, but you can use a .babelrc file to customize it as you want.
+In the above example, Next.js will transpile any module inside the node_modules directory which has ""react-button"" in it's pathname.
+
+Note: Currently, Next.js only supports modules installed into node_modules. So, transpiling modules installed with npm link <my-comp-name> doesn't work well.",14,12
+753,2017-01-12T19:40:02Z,2017-02-09T13:40:09Z,2017-02-09T13:40:09Z,5,324,326,Use http module's server.listen() to bind to a random available port.,6,21
+768,2017-01-14T17:19:17Z,2017-01-16T03:58:46Z,2017-01-16T03:58:46Z,3,6,1,Ref: #764 (comment),3,0
+769,2017-01-14T17:41:28Z,2017-01-15T12:15:07Z,2017-01-15T12:15:07Z,3,34,30,"Previously, usage of exists checks are not correct.
+There's a chance where, the original function might get executed even with exisits checks.",2,0
+776,2017-01-15T13:35:13Z,2017-01-15T16:17:30Z,2017-01-15T16:17:30Z,1,11,2,"Fixes #756
+So, in the end it turns out that stack in chrome has name and message included in the stack. Safari doesn't have this, which is why you'd only see the trace and not the error message. I added a heading (same styling as the other heading) which displays the name + message either way, so we don't have to do browser sniffing.",4,3
+778,2017-01-15T17:20:04Z,2017-01-16T05:40:15Z,2017-01-16T05:40:15Z,1,9,7,"Related to: #699
+If we do support this, we could easily fix #699 by setting a NODE_PATH.",3,1
+780,2017-01-15T19:38:48Z,2017-01-22T12:27:07Z,2017-01-22T12:27:07Z,15,507,0,"This is a minimalist Apollo example; wrap pages with a higher-order component called withData and voilà.
+
+
+I put files related to this HOC inside a directory called lib. Side note - @sedubois had some food for thought; he pointed out that withData could be made into an npm lib. For example,
+  import withData from 'next-apollo'
+  export default withData((props) => ...)
+
+
+
+Demo can be found here",7,13
+789,2017-01-16T14:46:19Z,2017-01-16T21:23:25Z,2017-01-16T21:23:25Z,27,30,30,,4,5
+793,2017-01-16T16:30:44Z,2017-01-24T13:20:57Z,2017-01-24T13:20:57Z,9,118,0,Related to #744,6,6
+797,2017-01-16T19:46:12Z,2017-01-16T21:02:12Z,2017-01-16T21:02:12Z,2,14,0,Fixes #796,2,6
+800,2017-01-16T22:33:05Z,2017-01-17T07:23:07Z,2017-01-17T07:23:07Z,7,91,0,,2,0
+812,2017-01-17T20:26:57Z,,2017-05-27T11:47:51Z,3,259,28,Fixes #293,6,5
+818,2017-01-18T13:54:29Z,,2017-01-28T13:43:19Z,1,21,2,This PR adds a check whether the targeted prototype's render is writable before patching it.,6,8
+823,2017-01-18T23:28:25Z,,2017-05-10T08:19:29Z,3,22,4,Fixes #757 #96,10,15
+826,2017-01-19T16:27:42Z,2017-01-22T02:04:41Z,2017-01-22T02:04:41Z,1,3,3,"Add ""consolas"" for windows, and fix too small font size in non-retina displays.
+Before
+
+After",3,2
+829,2017-01-19T17:31:56Z,2017-01-20T19:33:47Z,2017-01-20T19:33:47Z,11,62,19,Fixes #827,4,6
+841,2017-01-20T03:22:16Z,2017-01-21T21:24:18Z,2017-01-21T21:24:18Z,2,6,1,"Made it more clear in the docs that to extend Document you must create a file ./Pages/_document.js, which will be automatically consumed by next.
+
+
+Added a note to the styled-components example about an existing issue when SSR without rendering any styled components. I have submitted a PR to them to fix.
+
+
+Side note: this is my second PR ever, after the first one to styled-components 10 mins ago... please let me know if I'm doing something wrong!",3,3
+845,2017-01-20T12:40:19Z,2017-02-09T11:36:59Z,2017-02-09T11:36:59Z,6,58,0,"Added a very basic example using TypeScript.
+Livereload seems to work.
+To test it just run
+npm install  
+npm run dev  
+
+Using concurrently to run both next and TypeScript compiler with one command.
+Fixes #96",9,30
+850,2017-01-21T08:24:59Z,,2017-01-22T11:44:30Z,1,12,1,"Fixes #828
+With this, we are wrapping the render method added using ES2016+ class properties.
+It doesn't add the render method to class's prototype. So, that's why we need to do this.",2,1
+852,2017-01-21T16:46:44Z,2017-01-21T18:46:18Z,2017-01-21T18:46:18Z,2,4,4,"react-hot-loader renders redbox as default when an error occurs, but we'd like to use our ErrorDebug component for this purpose.
+https://github.com/gaearon/react-hot-loader/blob/next/docs/TipsAndTricks.md",3,0
+856,2017-01-22T11:41:18Z,2017-01-22T18:11:56Z,2017-01-22T18:11:56Z,1,49,16,Fixes #828,4,1
+863,2017-01-23T13:41:06Z,2017-01-23T23:29:15Z,2017-01-23T23:29:15Z,6,115,0,,2,2
+870,2017-01-24T12:08:25Z,2017-01-25T16:58:27Z,2017-01-25T16:58:27Z,1,9,1,"Fixes #868
+This happens because the older safari (< 10) and chrome (< 34) tend to emit a popstate event on the page load.
+The issue comes when there's a custom route. With this change it'll try to set the href as the current URL and fetch the JSON page.
+But there's no such page and server will emit a 404.",5,2
+889,2017-01-26T08:49:05Z,2017-01-26T11:06:50Z,2017-01-26T11:06:50Z,2,3,1,"allows to not return props if response is already finished on getInititlProps
+check res.finished on getInitialProps of Document",3,0
+898,2017-01-27T09:39:58Z,2017-01-28T13:50:47Z,2017-01-28T13:50:47Z,1,42,4,"Fixes #880
+We could expect to have React components with their render method defined only as a getter.
+In that case, we can't override it.
+In those cases, we need to do it at runtime. This PR does that.",4,1
+900,2017-01-27T14:46:07Z,2017-01-27T16:06:17Z,2017-01-27T16:06:17Z,2,2,4,"This fix addresses issue #896.
+The issue was due to the assignment of a read-only property in the posts array which was occurring while sorting. Removing the sort (it was unnecessary) fixed the issue.",5,2
+907,2017-01-27T21:35:16Z,,2017-04-12T10:18:23Z,12,109,17,"This patch introduces an assetPrefix string to the global Next.js config. This will allow using a CDN to serve assets rather than Next.js itself.
+A contrived example of using assetPrefix has been added as well.
+Closes #737.",6,14
+909,2017-01-28T09:08:56Z,2017-01-28T16:22:33Z,2017-01-28T16:22:33Z,3,3179,9,"As suggested in #908
+cc @ads1018",4,1
+911,2017-01-28T13:56:12Z,2017-01-31T03:26:18Z,2017-01-31T03:26:18Z,2,45,6,"Fixes #865
+This accounts for the cases where the error is not in render().",5,7
+912,2017-01-28T16:24:40Z,2017-01-29T00:18:54Z,2017-01-29T00:18:54Z,3,1,6232,#909 (comment),5,3
+913,2017-01-28T18:31:25Z,,2017-10-22T10:05:44Z,6,92,0,"Howdy! I was looking through the examples for a custom server.js, and they all worked well enough on the server-side. I did notice that they stop working on the client-side unless you use the href and as attributes in conjunction on your Link components, effectively duplicating your routing logic wherever you have a Link.
+I can't find it at the moment, but in another issue @rauchg (or perhaps another of the maintainers) +1'd the concept of making a custom component to handle the route matching, referencing some shared configuration, which works like a charm for us. I didn't see a complete example of universal route matching in ./examples, so I thought I'd add one.
+Hopefully this isn't duplicative from another example! Thanks so much to the team — this project has been an amazing leg up for us! Hoping to get some of our production code moved over to Next soon!",5,8
+914,2017-01-28T18:48:58Z,2017-05-27T15:40:15Z,2017-05-27T15:40:15Z,2,6,3,"Related to #913, and making a custom routing setup more generally:
+If you're using a custom server per the README and examples, you may not want to keep the file-system based routes. This commit simply puts that behind a configuration setting, so that you could turn those routes off by the following config.next.js:
+module.exports = {
+    useFileSystemPageRoutes: false,
+}
+
+If this is an acceptable solution I can expand the tests to cover it — let me know if that's worth doing. Thanks again for all the hard work!",6,14
+921,2017-01-29T22:14:45Z,2017-02-03T20:27:13Z,2017-02-03T20:27:13Z,1,25,21,"Fixes #920
+Note: the element should implement the onClick property, native React elements have that included. For custom elements they have to call it themselves.",5,4
+924,2017-01-30T03:49:39Z,2017-01-30T10:42:50Z,2017-01-30T10:42:50Z,1,2,6,"We simply don't need to proxy other requests through service workers.
+That's might cause some latency issues.",2,1
+926,2017-01-30T07:23:16Z,2017-01-31T06:31:28Z,2017-01-31T06:31:28Z,3,28,4,"With this PR we'll let webpack2 to handle ES2015 module system. Then only it can do tree shaking.
+Since Node.js can't do that, we need to transpile
+ES2015 module system in the emit-file-loader.",2,2
+931,2017-01-30T13:57:52Z,,2017-02-09T13:44:15Z,1,67,0,Fixes the server-side error: TypeError: Cannot read property 'cssRules' of undefined on the error page of the styled-component example.,4,8
+932,2017-01-30T14:30:01Z,2017-02-01T20:36:24Z,2017-02-01T20:36:24Z,3,18,7,Fixes #927,7,6
+936,2017-01-30T17:47:44Z,,2017-08-13T10:18:33Z,17,135,40,"Being able to customize the name of the pages directory was brought up in #914, and this PR makes that possible by adding configuration in next.config.js.
+It does bring up the possible need of a refactor for how configuration is disseminated to the server code, as it's becoming very repetitive to have to call getConfig(dir) every place we need access to the settings (and this commit seems to be propagating that convention more than ever).
+So, open for consideration! Happy to continue to work on this, but as @nkzawa mentioned it needs discussion.
+cc/ @arunoda @rauchg @timneutkens from the relevant conversation in #914 🤝",26,52
+939,2017-01-31T13:03:41Z,2017-01-31T14:18:11Z,2017-01-31T14:18:11Z,1,2,1,Thanks @matheuss for catching this.,5,1
+940,2017-01-31T15:57:45Z,2017-02-02T12:11:00Z,2017-02-02T12:11:00Z,4,144,0,"It is an example of using React-MD with Next.js, which I mentioned in #917.",4,6
+941,2017-01-31T19:00:54Z,,2017-03-25T17:26:08Z,8,204,1,"This is a performance specific configuration which gives us two major performance benefits:
+1. Reduce webpack's dev re-build time by 2x (or more)
+Webpack's rebuild time usually depend on the amount of code it needs to handle. Basically, most of those code is from NPM modules but not from your app's source code. With static modules, we are moving those NPM modules out of the webpack builder and serves directly.
+With that change, webpack only handles your app's code. So, that's where we could gain the re-build performance.
+2. Explicitly define common modules
+Our code splitting logic moves any common modules into a common bundle. But in order to do that, that module needs to be used in every page in our app. Practically, that's something hard to do.
+Because of that, some of the most used modules won't move into the common bundle and keep a copy of that module in each and every page in your app. That increases the overall size of the app.
+In that case, we could mark that module as a ""static module"" and then it'll move into the static bundle.
+Usage
+Add following content into your next.config.js.
+module.exports = {
+  staticModules: function(options) {
+    // use options.dev flag to add modules to the bundle based on the env.
+    return [
+      'material-ui',
+      'material-ui/svg-icons'
+    ]
+  }
+}
+You could use this app to benchmark this PR.
+(Thanks @tgoldenberg for the sample repo)",5,10
+949,2017-02-01T20:42:36Z,2017-02-02T02:05:21Z,2017-02-02T02:05:22Z,1,1,1,"Caused an error:
+ERROR  Failed to compile with 5 errors
+
+ error  in ./pages/b.js?entry
+
+Module build failed: Error: Couldn't find preset ""es2015"" relative to directory ""examples/custom-server""",3,1
+950,2017-02-01T21:22:46Z,2017-02-02T06:51:09Z,2017-02-02T06:51:09Z,4,22,17,Fixes #947,4,3
+952,2017-02-01T22:50:55Z,,2017-02-02T05:49:19Z,2,25,23,"Fixes #951
+When importing server side next / styled-jsx modules were not loaded.",3,2
+953,2017-02-02T02:36:27Z,2017-02-02T05:56:21Z,2017-02-02T05:56:21Z,2,16,2,Fixes: #951,3,1
+957,2017-02-02T11:56:28Z,2017-02-15T08:52:23Z,2017-02-15T08:52:23Z,13,267,395,"Basically this is a universal solution which works everywhere.
+We simply invoke a XHR for all the prefetching URLs.
+But we don't parse JSON until the it's being used.
+Fixes #956",8,16
+965,2017-02-03T01:38:18Z,2017-02-09T19:33:08Z,2017-02-09T19:33:09Z,4,336,937,"Fly has finally reached 2.0, which is super lightweight and brings speed(!) and efficient memory usage. Not too long ago, it was mentioned (#435 (comment)) that Next.js may want to migrate towards Fly because of these reasons.
+The current master is failing during Jest testing. Since I've dealt purely with Gulp → Fly, it will still fail.
+To Do
+
+ Add fly-esnext
+ The bench task is currently broken. Once it's been fixed & I see how it's meant to be, I will port that task, too.
+ Cleanup the build-prefetcher webpack-based task. I am working on a PR for fly-webpack
+
+Thoughts
+
+
+Extract the lint command into a lint task; NPM script would then contain: fly lint
+
+
+Possibly change some task names? Using non-hyphenated names would allow for a more consistent & cleaner-looking flyfile:
+exports.build = function * (fly) {}
+exports.watch = function * (fly) {}
+// or
+module.exports = {
+  * build(fly) {},
+  * watch(fly) {}
+}
+
+
+Does Next.js use the root .babelrc to run everything?
+If not, move it to config/babel.js & webpack.config.js to config/webpack.js.
+
+
+Improvements
+
+
+
+
+Gulp
+Fly
+
+
+
+
+Total Dependencies
+797
+718
+
+
+Time: prepublish
+13s
+8.5s
+
+
+Time: release
+5.8s
+4.8s
+
+
+Memory: release
+145MB
+133MB
+
+
+
+If merged, closes #884.",8,40
+969,2017-02-03T03:56:14Z,2017-02-03T05:33:36Z,2017-02-03T05:33:36Z,4,31,4,"Earlier we simply check for the .bablerc file in the dir.
+But the actual logic is much complex.
+Now we are using the babel's actual logic to find the custom config location.",3,2
+982,2017-02-03T22:42:03Z,2017-03-15T14:26:09Z,2017-03-15T14:26:09Z,5,79,0,I saw #544 (comment) and figured I'd push a contrived example of how I handled this in another project.,4,0
+991,2017-02-04T20:26:29Z,2017-02-04T23:13:23Z,2017-02-04T23:13:24Z,5,63,0,Fixes #983,3,1
+996,2017-02-05T07:11:35Z,2017-02-05T08:58:45Z,2017-02-05T08:58:45Z,1,13,5,"This handle handle two special popstate events.
+In those events,  We get state as undefined for two reasons.
+
+With older safari (< 8) and older chrome (< 34)
+When the URL changed with #
+
+In the both cases, we don't need to proceed and change the route.
+(as it's already changed)
+But we can simply replace the state with the new changes.
+Actually, for (1) we don't need to nothing. But it's hard to detect that event.
+So, doing the following for (1) does no harm.",2,0
+1001,2017-02-05T14:29:40Z,2017-03-15T14:24:55Z,2017-03-15T14:24:55Z,6,130,0,"Hi, here is (yet another) POC to handle route customisation.
+It can also handle reverse routing (feature I needed).
+To see more details: https://github.com/BDav24/next-url-prettifier",3,2
+1009,2017-02-05T21:41:40Z,2017-02-06T13:19:35Z,2017-02-06T13:19:35Z,2,14,0,Fixes #120. Implements ideas from @arunoda here: #101 (comment),3,1
+1015,2017-02-06T14:57:42Z,2017-02-09T03:22:48Z,2017-02-09T03:22:48Z,1,5,1,Fixes #990,3,6
+1016,2017-02-06T18:46:19Z,2017-02-11T23:22:35Z,2017-02-11T23:22:35Z,8,125,0,"I know ""global"" styles are not a priority for 2.0 release but i think this example really solves it for many users in the mean time.
+Fixes #544",4,4
+1017,2017-02-06T18:57:03Z,2017-02-12T11:26:10Z,2017-02-12T11:26:10Z,2,11,7,,5,5
+1021,2017-02-07T05:21:32Z,2017-02-07T11:02:28Z,2017-02-07T11:02:28Z,2,3,3,"Now uses reduxRootKey #980
+Removes headers from ApolloClient (graph.cool doesn't require them)
+Adds .babelrc file with next/babel preset",3,4
+1024,2017-02-07T10:59:22Z,2017-02-08T04:41:39Z,2017-02-08T04:41:39Z,38,114,43,"fixes #997
+
+add ./idea to gitignore for webstorm users
+update all the examples
+
+I added react and react dom to all the examples(even preact) to avoid bugs with shrinkwrap in npm v3 npm/npm#12909",4,6
+1027,2017-02-07T18:03:13Z,2017-02-08T12:05:26Z,2017-02-08T12:05:26Z,3,31,12,"Fixes #1026
+This adds the support for Exponentiation operator (**)",4,7
+1034,2017-02-08T13:20:09Z,2017-02-09T16:32:01Z,2017-02-09T16:32:01Z,2,32,29,This example wasn't functioning 😢,4,2
+1038,2017-02-08T18:28:44Z,,2017-05-07T12:24:44Z,3,16,2,,6,8
+1050,2017-02-09T11:28:31Z,,2017-02-12T17:22:14Z,16,545,0,After talking to @luisrudge I decided to update the example to reflect changes in 2.0 and move it into the next.js repo so it can be easily found.,4,9
+1055,2017-02-09T16:29:38Z,2017-02-24T21:45:19Z,2017-02-24T21:45:19Z,14,359,0,Fixes #1022,5,10
+1063,2017-02-10T03:01:08Z,,2017-02-12T19:32:41Z,3,50,22,"Addresses #1062
+hapiReply must be called after app.run so that Hapi knows the request has completed.
+Logging was added as this is how I noticed the problem and verified the fix.  Can be removed if it overcomplicates the example.",3,2
+1064,2017-02-10T05:52:51Z,2017-02-10T09:05:23Z,2017-02-10T09:05:23Z,1,1,1,This PR fixes that the red debug error screen can be shown when you run next start without NODE_ENV=production.,2,0
+1090,2017-02-12T11:39:49Z,2017-02-12T16:23:43Z,2017-02-12T16:23:43Z,2,8,7,Fix for #1017,3,3
+1094,2017-02-12T19:06:18Z,2017-02-12T21:18:23Z,2017-02-12T21:18:23Z,3,17,9,"Also fixes #1089
+It's possible to disable babelrc via a .babelrc config. In that case, we need to add our default preset.
+With this PR we handle that case.
+This also helps us with the examples. So, we can have a .babelrc file in the examples directory with this:
+{
+  ""babelrc"": false
+}",3,0
+1095,2017-02-12T20:00:14Z,,2017-06-26T19:11:02Z,3,19,14,"Fixes #1042
+Usually next/babel is used outside of Next.js. That's why basically we exposed it.
+But it cause a lot of issues lately because, we don't transform ES2015 modules.
+This causes issues when used with Jest and with cases like #1042
+So, with this PR we changed our preset to transform ES2015 everywhere except inside Next.js.",5,3
+1096,2017-02-13T00:22:59Z,,2017-02-13T08:44:46Z,1,3,4,"I tried tackling #899 and came up with this solution which fixes the with-mobx example app.
+Probably this is not the appropriate fix as i don't fully understand how this react patching works yet, but eventually it will help someone to figure out the problem
+I think #1003 and eventually even #1061 (as it's a dev only problem too, not sure though) are also related here",3,1
+1101,2017-02-13T08:43:43Z,2017-02-15T03:00:39Z,2017-02-15T03:00:39Z,1,5,5,Fixes #899,4,4
+1106,2017-02-13T13:50:15Z,2017-02-13T15:09:12Z,2017-02-13T15:09:12Z,1,2,0,"As @matheuss pointed out in the #now Slack channel, NODE_ENV should probably be set explicitly for deploying on Now.
+This example code uses next build which implicitly doesn't create a dev server (AFAIK), so it works as it is, but it gives the impression that you could just switch ""build"": ""next build"" with ""build"": ""node server.js"" when going for a custom server. But probably (based on the example in same README), you'll declare the server as const app = next({ dev: process.env.NODE_ENV !== 'production' });, meaning that unless NODE_ENV is explicitly set, the deployment will fail (because dev will be true, and thus will try to write to the .next directory which isn't writable on Now (EACCES: permission denied, rmdir '/home/nowuser/src/.next').
+So I thought it'd be better to educate people that they should set NODE_ENV somehow.",2,2
+1110,2017-02-13T19:32:49Z,2017-02-14T02:24:50Z,2017-02-14T02:24:51Z,5,69,0,Fixes #1080,4,0
+1111,2017-02-13T21:05:17Z,2017-02-26T19:45:17Z,2017-02-26T19:45:17Z,17,1155,793,"Related #608
+This is a dev only optimization
+This is new concept to reduce the dev-rebuild time dramatically if you have a lot of pages in your app.
+With this, we don't add pages to webpack when building the dev server. But when we are accessing the page, we'll build the page and add it webpack.
+With this, we were able to cut down ""15 secs"" dev re-build time to ""1-2"" secs.
+
+In order to use this productively, we have to disable prefetching pages when we are in development.
+
+TODO:
+
+ Remove older pages from webpack
+
+ Get the currently active page from the client side.
+
+
+ Add some integration tests",9,16
+1141,2017-02-15T01:20:24Z,,2017-11-23T12:49:58Z,17,1099,0,"Fixes #153
+Implements the auth parts of https://github.com/iaincollins/nextjs-starter with a few differences in the client side code. In the original nextjs-starter all pages extended from a page component. I changed this to a higher order component. Added another higher order component to restrict pages, cleaned up the docs, cleaned up the code to fit standard and finally removed all unnecessary code.",14,23
+1147,2017-02-15T09:51:15Z,2017-02-15T10:57:15Z,2017-02-15T10:57:15Z,3,14,4,Fixes Fixes #964,2,3
+1149,2017-02-15T11:29:44Z,2017-02-15T12:42:49Z,2017-02-15T12:42:49Z,3,10,7,Fixes #1143,4,1
+1155,2017-02-15T13:40:31Z,2017-02-15T14:49:45Z,2017-02-15T14:49:46Z,7,229,387,Fixes #984,3,1
+1159,2017-02-15T17:14:38Z,2017-02-15T18:27:42Z,2017-02-15T18:27:42Z,4,72,10,"Fixes #1137
+
+This is not location.reload(), but reload the internal Next.js state.",4,3
+1161,2017-02-15T18:10:55Z,2017-02-15T19:29:43Z,2017-02-15T19:29:43Z,4,117,116,"reuse prefetching requests if it's already started on normal component fetch
+don't prefetch if normal component fetch occurred already on same route
+refactor using p-promise",2,0
+1164,2017-02-15T19:24:26Z,2017-02-16T02:07:30Z,2017-02-16T02:07:30Z,3,46,21,"Without this, modules built with Babel or Webpack would have hard-coded absolute paths
+all the way back to the root of the filesystem. This prevented compilation and running
+on different machines or even from different directories on the same machine.
+With this change, paths are hard-coded to the top-most node_modules directory found,
+which should make them portable relative to the app.
+Fixes #1160",7,10
+1174,2017-02-16T03:31:52Z,2017-02-16T14:16:02Z,2017-02-16T14:16:02Z,2,9,3,"It looks like this error was introduced in PR #1150. I'm currently developing on Windows from a D:\ drive, while my temp directory is on C:\.  It turns out that Node cannot do cross-device renames so a module, called mv, was created for that very purpose. I swapped in this module in place of rename from mz/fs and I'm now able to build.
+Here are some references I came across while debugging this:
+facebookarchive/nuclide#94
+http://stackoverflow.com/q/37153666
+http://stackoverflow.com/q/12196163",4,2
+1187,2017-02-17T12:02:49Z,2017-02-23T16:00:38Z,2017-02-23T16:00:38Z,1,11,0,Fixes #1180,6,1
+1196,2017-02-18T01:10:11Z,2017-02-18T04:10:28Z,2017-02-18T04:10:28Z,5,24,42,"First of all, thank for great software!
+I have made it a bit easier for developers to integrate Redux with Next.js, basically, I reworked your example and made a package https://github.com/kirill-konshin/next-redux-wrapper that hides all the underlying complexity from end users.
+I thought it would be a bad idea to drag redux-related dependencies to main next package, that's why it's a separate package.
+The purpose of this PR: I have simplified the example using this component.",4,6
+1208,2017-02-19T17:54:09Z,2017-02-19T20:35:48Z,2017-02-19T20:35:48Z,1,3,2,Fixes #1061,4,2
+1211,2017-02-19T21:04:54Z,,2017-02-20T15:48:31Z,2,2,3,"Fixes #139. I like the idea of only having lower cased routes, even if the file has a different casing. Also, we might want to do a 301 redirect from the url with uppercasing to the lowercase version.
+cc @sedubois",6,7
+1237,2017-02-21T22:01:48Z,,2017-02-26T17:46:25Z,5,73,0,,6,7
+1249,2017-02-22T19:09:02Z,2017-02-23T23:19:35Z,2017-02-23T23:19:35Z,1,3,1,Fixed #1164 to also work on Windows.,2,1
+1250,2017-02-22T20:31:10Z,2017-02-28T17:31:18Z,2017-02-28T17:31:18Z,7,162,53,"This PR comes with following enhancements related to hash url changes.
+
+Add scrolling to given id related to hash
+Hash changes won't trigger getInitialProps",4,1
+1256,2017-02-23T14:18:05Z,,2017-06-30T20:18:55Z,97,2861,1632,"I tried to improve the docs under the following premises:
+
+Strong introduction
+Detailed Getting Started guide (especially for beginners)
+Improved consistency and clarity in language and appearance (layout, typography)
+Add missing docs, especially: #1069, #1134
+Link to resources in and outside the document as much as possible
+
+What's missing:
+
+CLI docs (e.g. next init)
+...?
+
+Honestly, once started, I got carried away and might have gone a bit overboard with the changes.
+But what's done is done and I might as well share what I've got.
+As always, these are suggestions: Keep what you like, discard the rest. ❤️
+ℹ️ View the updated readme.md here.
+Fixes #1134
+Fixes #1069",7,15
+1264,2017-02-24T06:12:41Z,2017-03-15T14:23:43Z,2017-03-15T14:23:43Z,5,98,0,,7,10
+1281,2017-02-25T16:53:55Z,2017-02-25T18:35:10Z,2017-02-25T18:35:10Z,1,2,0,"The goal here is to fix #1279.
+As I mentioned in the issue thread, I think the error is pretty confusing, and we need some way of making it clearer.
+If anyone has a different solution to the problem, I'm all ears. But the comment I added would have saved me a good amount of time when trying to diagnose this issue.",3,2
+1282,2017-02-25T19:03:23Z,2017-03-01T23:30:08Z,2017-03-01T23:30:08Z,1,8,5,"This is a bit more descriptive when this mistake is made by the user.
+#1281",4,8
+1290,2017-02-26T13:12:09Z,2017-03-01T17:42:48Z,2017-03-01T17:42:48Z,7,101,0,This example shows how you can use next-routes,4,3
+1312,2017-02-28T06:31:31Z,2017-02-28T08:48:41Z,2017-02-28T08:48:41Z,1,5,7,"Fixes #1310
+Earlier it wait until the JSON page is fetched.
+But that's wrong and it affects when using libs like NProgress.",2,0
+1317,2017-02-28T19:44:03Z,2017-02-28T20:49:58Z,2017-02-28T20:49:58Z,2,14,16,Fixes #1314,2,3
+1333,2017-03-02T22:08:45Z,2017-03-03T00:17:41Z,2017-03-03T00:17:41Z,3,854,832,Thanks to @aranajhonny for pointing out there was an error in the build,3,3
+1336,2017-03-03T06:55:52Z,2017-03-07T18:43:57Z,2017-03-07T18:43:57Z,6,62,36,"Fixes #1227
+We do this by removing the BUILD_ID from those files.",2,1
+1340,2017-03-03T20:17:21Z,2017-03-15T14:21:49Z,2017-03-15T14:21:49Z,8,100,0,"Create structure
+ Write a nice README.md",4,6
+1345,2017-03-04T04:43:38Z,2017-03-12T03:57:51Z,2017-03-12T03:57:51Z,12,243,13,"This allow the usage of URL objects in the Link component, Router#push and Router#replace. See #1341. It use Node.js url module so you can use every URL objects property.
+I think this is really useful, especially if you have urls with many query params or dynamic ones from props and states.
+Example usage:
+// pages/index.js with Link
+import Link from 'next/link'
+
+export default () => (
+  <Link href={{ pathname: '/about', query: { name: 'Zeit' }}}>
+    <a>Go to <code>/about?name=Zeit</code></a>
+  </Link>
+)
+// pages/about.js with Router
+import Router from 'next/router'
+
+const handleClick = () => Router.push({ pathname: '/' })
+
+export default (props) => (
+  <div>
+    <h1>Hello {props.url.query.name}</h1>
+    <button onClick={handleClick}>Go home</button>
+  </div>
+)",5,8
+1346,2017-03-04T12:02:06Z,2017-03-05T01:47:56Z,2017-03-05T01:47:56Z,6,89,6,Last night @rauchg had the idea to use the module-alias module used here: #767 and implement it with the programmatic api. This PR does that 😄.,4,1
+1357,2017-03-06T11:39:14Z,2017-03-06T16:48:36Z,2017-03-06T16:48:36Z,11,300,57,"This is a way to change the URL without running getInitialProps.
+Docs: https://github.com/arunoda/next.js/tree/shallow-routing#shallow-routing",2,0
+1369,2017-03-07T14:46:05Z,,2017-03-15T19:29:03Z,6,24,7,"Fix problem with babel cache problem, ability to switch versions with command line args",4,4
+1370,2017-03-07T17:25:17Z,,2017-04-12T12:13:26Z,4,16,4,"Fixes #1335
+The goal of this PR is to reduce the bundle size and the re-build time.
+But we can't see those benefits right away.
+Why?
+
+Due to the use of env preset,  we have to do two(2) babel transformation for both webpack and node (SSR).
+Size of the bundle (main.js) won't decrease because source-maps is the main reason for the big bundle.",4,2
+1372,2017-03-08T06:01:52Z,2017-03-08T07:53:06Z,2017-03-08T07:53:06Z,5,71,34,Experimenting ways to reduce random test failures.,3,3
+1378,2017-03-09T10:48:41Z,,2017-07-01T22:29:23Z,1,69,119,"add missing documentation (e.g as is undocumented in declarative )
+remove documentation redundancies
+hide away the inline examples in ""details"" snippet
+
+The improvements are not perfect, but if they are good enough, suggest to merge and refine in later PR.
+
+ update TOC (how?)",3,2
+1380,2017-03-10T03:35:01Z,2017-03-10T08:10:45Z,2017-03-10T08:10:45Z,1,1,1,port 300 -> 3000,2,0
+1382,2017-03-10T04:12:07Z,2017-03-10T08:07:29Z,2017-03-10T08:07:29Z,1,3,1,"This fix the issue I reported here #1381.
+To use the styles prop in the getInitialProps of pages/_document.js you need to return a React element instead of a string.",2,0
+1383,2017-03-10T09:16:48Z,2017-03-10T12:37:24Z,2017-03-10T12:37:24Z,1,1,1,"Version 4.0.0 of write-file-webpack-plugin just got published.
+
+  
+    
+      Dependency
+    
+    
+      write-file-webpack-plugin
+    
+  
+  
+    
+      Current Version
+    
+    
+      3.4.2
+    
+  
+  
+    
+      Type
+    
+    
+      dependency
+    
+  
+
+The version 4.0.0 is not covered by your current version range.
+Without accepting this pull request your project will work just like it did before. There might be a bunch of new features, fixes and perf improvements that the maintainers worked on for you though.
+I recommend you look into these changes and try to get onto the latest version of write-file-webpack-plugin.
+Given that you have a decent test suite, a passing build is a strong indicator that you can take advantage of these changes by merging the proposed change into your project. Otherwise this branch is a great starting point for you to work on the update.
+
+
+Commits
+The new version differs by 2 commits .
+
+8f90a7d 4.0.0
+2b9c0b3 feat: add webpack 2 support (fixes #30) (#37)
+
+See the full diff.
+
+
+Not sure how things should work exactly?
+There is a collection of frequently asked questions and of course you may always ask my humans.
+
+
+Your Greenkeeper Bot 🌴",1,0
+1394,2017-03-12T21:39:54Z,2017-03-14T22:41:56Z,2017-03-14T22:41:56Z,2,59,59,"Removes use of deprecated 'reduxRootKey' option. (I noticed after we upgraded to the Apollo Client release candidate Apollo was throwing an error complaining that the initialState was undefined. Sure enough reduxRootKey has been deprecated).
+Adds loading indicator inside pagination button",2,0
+1408,2017-03-14T04:18:34Z,2017-03-14T07:02:05Z,2017-03-14T07:02:05Z,1,1,1,"Version 2.0.1 of fly-esnext just got published.
+
+  
+    
+      Dependency
+    
+    
+      fly-esnext
+    
+  
+  
+    
+      Current Version
+    
+    
+      2.0.0
+    
+  
+  
+    
+      Type
+    
+    
+      devDependency
+    
+  
+
+The version 2.0.1 is not covered by your current version range.
+Without accepting this pull request your project will work just like it did before. There might be a bunch of new features, fixes and perf improvements that the maintainers worked on for you though.
+I recommend you look into these changes and try to get onto the latest version of fly-esnext.
+Given that you have a decent test suite, a passing build is a strong indicator that you can take advantage of these changes by merging the proposed change into your project. Otherwise this branch is a great starting point for you to work on the update.
+
+
+Not sure how things should work exactly?
+There is a collection of frequently asked questions and of course you may always ask my humans.
+
+
+Your Greenkeeper Bot 🌴",2,1
+1419,2017-03-14T18:10:04Z,2017-03-14T23:06:35Z,2017-03-14T23:06:35Z,4,50,1,Adds a replace prop to the <Link> component. Fixes #1418,3,3
+1430,2017-03-15T18:00:48Z,2017-08-09T05:56:23Z,2017-08-09T05:56:23Z,5,163,0,"This example show how you can use Next.js inside an Electron application to avoid a lot of configuration, have routes and use server-render to speed up the initial render of the application.",10,51
+1456,2017-03-18T09:07:20Z,2017-03-18T10:45:48Z,2017-03-18T10:45:48Z,1,3,0,Resolves #1451.,2,1
+1468,2017-03-20T23:58:14Z,2017-03-23T19:43:28Z,2017-03-23T19:43:28Z,1,1,1,"Version 7.2.0 of babel-eslint just got published.
+
+  
+    
+      Dependency
+    
+    
+      babel-eslint
+    
+  
+  
+    
+      Current Version
+    
+    
+      7.1.1
+    
+  
+  
+    
+      Type
+    
+    
+      devDependency
+    
+  
+
+The version 7.2.0 is not covered by your current version range.
+Without accepting this pull request your project will work just like it did before. There might be a bunch of new features, fixes and perf improvements that the maintainers worked on for you though.
+I recommend you look into these changes and try to get onto the latest version of babel-eslint.
+Given that you have a decent test suite, a passing build is a strong indicator that you can take advantage of these changes by merging the proposed change into your project. Otherwise this branch is a great starting point for you to work on the update.
+
+
+Release Notes
+v7.2.0
+New Feature
+
+Add option to disable code frame. (#446) (Luís Couto)
+
+Main change is just an option to disable the codeframe (added in v7.1.1) for html output and more (thanks to @Couto).
+{
+  ""parser"": ""babel-eslint"",
+  ""parserOptions"": {
+    ""codeFrame"": false
+  },
+  ""extends"": ""eslint:recommended""
+}
+Bug Fix
+
+[flow] Process polymorphic type bounds on functions (#444) (Alex Rattray)
+
+Internal/Docs
+
+Use lodash instead of lodash.pickby. (#435) (wtgtybhertgeghgtwtg)
+Updates ESLint version/remove unnecessary config (Kai Cataldo)
+Remove broken ESLint tests (Kai Cataldo)
+Upgrade outdated dependencies (Kai Cataldo)
+remove deprecated rule examples [skip ci] (Henry Zhu)
+update readme [skip ci] (Henry Zhu)
+chore(package): update eslint-config-babel to version 6.0.0 (#433) (Henry Zhu)
+Update to use Node 4 features (#425) (Nazim Hajidin)
+chore(package): update eslint-config-babel to version 4.0.0 (#430) (greenkeeper[bot])
+add badges [skip ci] (Henry Zhu)
+Revert ""use *"" (#426) (Henry Zhu)
+use * (#421) (Henry Zhu)
+chore(package): update eslint-config-babel to version 3.0.0 (#423) (greenkeeper[bot])
+
+
+
+Commits
+The new version differs by 17 commits .
+
+4db4db5 7.2.0
+4499412 Use lodash instead of lodash.pickby. (#435)
+a2c3b30 [flow] Process polymorphic type bounds on functions (#444)
+515adef Add option to disable code frame. (#446)
+ce66e73 Merge pull request #447 from kaicataldo/clean-up-eslint
+b49ab20 Updates ESLint version/remove unnecessary config
+702d6b8 Remove broken ESLint tests
+6b4c4ca Upgrade outdated dependencies
+bdeb86f remove deprecated rule examples [skip ci]
+52b4a13 update readme [skip ci]
+0e5aca3 chore(package): update eslint-config-babel to version 6.0.0 (#433)
+781dc77 Update to use Node 4 features (#425)
+265d219 chore(package): update eslint-config-babel to version 4.0.0 (#430)
+e6af5c5 add badges [skip ci]
+a91a9d0 Revert ""use *"" (#426)
+
+There are 17 commits in total. See the full diff.
+
+
+Not sure how things should work exactly?
+There is a collection of frequently asked questions and of course you may always ask my humans.
+
+
+Your Greenkeeper Bot 🌴",1,1
+1483,2017-03-22T20:56:53Z,2017-03-30T18:21:14Z,2017-03-30T18:21:14Z,19,485,17,"I've heard from some members in the community that they'd like to see an Apollo example without the Redux integration since not everyone integrates their own Redux store with Apollo, so I've split the Apollo example in two: with-apollo and with-apollo-and-redux.
+The with-apollo example becomes less complex without the redux integration which will make it easier for people to understand what's going on inside ./lib. If you want to integrate your own Redux store you can still look inside with-apollo-and-redux to see how it's done.
+As part of this pull request I also fixed an issue with the pagination not working (I think this originally broke when we updated apollo-client to the release candidate).",4,5
+1485,2017-03-23T05:40:24Z,2017-03-24T07:51:34Z,2017-03-24T07:51:34Z,7,166,68,"Fixes #1436
+With this, we don't need to wait for the JS bundle and page can render directly.
+This will lead to better page load performance.",5,6
+1496,2017-03-24T19:07:17Z,2017-04-30T14:35:08Z,2017-04-30T14:35:08Z,7,108,0,this example shows (what I believe to be) the simplest configuration to use i18next with NextJS,3,0
+1502,2017-03-25T01:00:47Z,2017-03-31T22:51:15Z,2017-03-31T22:51:15Z,1,1,1,"Version 2.3.2 of webpack just got published.
+
+  
+    
+      Dependency
+    
+    
+      webpack
+    
+  
+  
+    
+      Current Version
+    
+    
+      2.3.1
+    
+  
+  
+    
+      Type
+    
+    
+      dependency
+    
+  
+
+The version 2.3.2 is not covered by your current version range.
+Without accepting this pull request your project will work just like it did before. There might be a bunch of new features, fixes and perf improvements that the maintainers worked on for you though.
+I recommend you look into these changes and try to get onto the latest version of webpack.
+Given that you have a decent test suite, a passing build is a strong indicator that you can take advantage of these changes by merging the proposed change into your project. Otherwise this branch is a great starting point for you to work on the update.
+
+
+Release Notes
+v2.3.2
+Bugfixes:
+
+Fix performance issue with cheap-source-maps
+Fix a line offset issue with cheap-source-maps
+Allow lowercased drive letters as absolute paths (not recommended)
+Improve some error reporting
+
+
+
+Commits
+The new version differs by 9 commits .
+
+6b209b1 2.3.2
+88f2833 Merge pull request #4567 from webpack/bugfix/cheap-source-map
+3fca75e Merge pull request #4565 from webpack/dx/error-description-output-path
+c226077 update webpack-sources dependency to fix a bug
+2fe82af Suggest course of action
+56d09ab Merge pull request #4533 from michael-ciniawsky/schema
+b5451ef Merge pull request #4564 from webpack/bugfix/cheap-source-map
+22c771f update webpack-sources dependency to avoid performance issue
+c390700 fix(schema/absolutePaths): make absolute paths case insensitive
+
+See the full diff.
+
+
+Not sure how things should work exactly?
+There is a collection of frequently asked questions and of course you may always ask my humans.
+
+
+Your Greenkeeper Bot 🌴",1,1
+1519,2017-03-27T14:16:50Z,2017-03-29T23:21:12Z,2017-03-29T23:21:12Z,2,213,8,"With the current setup all project files will be linted on each commit which might take quite some time but more importantly, it will display results irrelevant to the commit.
+lint-staged on the other hand only runs linter against staged files (i.e. files that were selected for the commit but git add) which is faster and will get relevant results.
+This PR also implements autofixing of some rules. The only gotcha with this approach is that it doesn't work with partially staged files yet (i.e. git add -p). See lint-staged/lint-staged#62. If you think this is a blocker, I can remove the autofixing option from this PR.
+Another note is that files in /bin still can have .js extensions without introducing any breaking changes. I can rename them to make the config even simpler and remove some duplication.",2,1
+1539,2017-03-28T16:36:14Z,,2017-03-30T16:24:15Z,1,1,0,"Allow for json to be imported without extension.
+ref #1508",2,9
+1541,2017-03-28T18:14:02Z,,2017-03-28T20:26:58Z,1,1,1,,2,0
+1558,2017-03-29T14:54:26Z,2017-03-29T22:11:19Z,2017-03-29T22:11:19Z,1,14,0,Fixes #1498,3,1
+1576,2017-03-31T10:31:25Z,,2017-05-15T19:13:43Z,13,331,6,"This PR adds support for a next export -o <out> <dir> command and closes #604. This PR is a non-breaking change and intentionally makes very few changes to the existing codebase.
+The way it works is it first performs a next build and then takes that output and turns it into a self-executing static bundle. The lifecycle hooks in a static build are a bit different than a dynamic build:
+
+During the export, next will call each page's getStaticInitialProps() static method if they have one. This will enable things like pulling in and compiling markdown files at build time. Any errors that happen here will halt the build. The reason to go with getStaticInitialProps() as opposed to getInitialProps({ build: true }) is that getStaticInitialProps() won't break any existing next.js plugins (ex. https://github.com/matthewmueller/next-cookies/blob/master/index.js#L20-L28) and can be treated as a progressive enhancement.
+The client will always call getInitialProps() on page load. This is a bit different because in the dynamic build, the server will call getInitialProps(), but since we don't have control over the server in static builds, we'll call it here. This is where you'll load user data.
+
+I made 4 changes to the existing codebase:
+
+__NEXT_DATA__ will now receive { exported: true } so it can adjust the way the router fetches new pages.
+Document now knows about { exported: true } to adjust the location of the app.js common bundle.
+Using the { exported: true } from __NEXT_DATA__, we also trigger getInitialProps on page load before rehydrating (as mentioned above).
+Add an export command in bin/next
+
+There was a lot of discussion in #604 about custom routing. I decided not to include custom routing in this PR because most static file servers support redirects and by using the as parameter in <Link as={as} /> and Router.push(url, as), you can support dynamic routes like /blog/:slug.
+Wasn't sure how to setup the test environment for this project, but happy to add tests once the implementation is settled on.
+Note that there's a couple TODOs in server/export.js. Please have a look as I wasn't sure if those pieces are relevant for production or if they're just used in development.
+Let me know what you think and if there's anything I can do to improve this PR!",18,49
+1593,2017-04-01T22:37:20Z,2017-04-02T07:28:40Z,2017-04-02T07:28:40Z,1,1,1,,2,0
+1598,2017-04-02T18:31:04Z,2017-04-03T04:21:26Z,2017-04-03T04:21:26Z,1,3,2,,3,1
+1599,2017-04-02T19:36:12Z,2017-04-06T10:09:26Z,2017-04-06T10:09:26Z,15,128,34,"Fixes #1513
+This allows the user to setup a custom dist folder, instructions on how to do it is added in the README.md (not sure i've used the best wording, so open to that)
+Let me know if I've missed anything but it seems to work with all the commands, runs fine and has a default config.
+Let me know! 👍",3,6
+1610,2017-04-03T21:03:13Z,,2017-07-01T22:24:31Z,5,48,18,"I added props and state to the example the way Typescript recommends
+https://www.typescriptlang.org/docs/handbook/react-&-webpack.html
+I updated tsconfig so the compiled code becomes what Zeit suggest at (e.g. async await)
+https://zeit.co/blog/next
+This way Typescript does it thing (intellisense, warnings at compiletime and removes declarations) and Zeit does the rest. (in the old example Typescript compiled to js and not jsx)
+Advantages:
+
+Removable - Typescript is just a layer.
+Stackoverflow - you can post the JS code (which now looks good)
+Issues - if you have an issue you need to post here on GH you would either have to post Typescript code or ugly JS code (compiled) Helpers could (rightly) say perhaps it is the Typescript to JS compilation that goes wrong.
+Better use of Zeit servers capabilites. If they support async await why would we want Typescript to polyfill them. Therefore the goal should be to compile to es2017 and let Zeit do their thing.
+
+The updates to the tsconfig are all necessary to achieve this.",8,21
+1611,2017-04-04T03:51:08Z,,2017-04-18T13:39:10Z,22,478,377,"Fixes #1301
+Got a lot of ideas (almost all actually) from @bringking #1608
+The difference is, I wanted to make this minimal as possible and incrementally integrate into Next.js",4,8
+1620,2017-04-05T02:55:52Z,2017-04-06T00:54:42Z,2017-04-06T00:54:42Z,4,147,0,"I created a quick example using glamorous. It's very similar to glamor (it depends on it), but why not. 🤷‍♂️",5,6
+1624,2017-04-05T06:12:25Z,2017-04-05T07:22:32Z,2017-04-05T07:22:32Z,2,16,47,Fix #1618,2,0
+1628,2017-04-05T14:48:55Z,2017-04-06T00:54:00Z,2017-04-06T00:54:00Z,1,2,2,,3,0
+1640,2017-04-06T14:14:32Z,2017-05-27T12:18:51Z,2017-05-27T12:18:51Z,4,11,2,,4,2
+1648,2017-04-06T22:12:05Z,2017-04-07T17:00:43Z,2017-04-07T17:00:43Z,1,1,1,"Version 2.29.0 of chromedriver just got published.
+
+  
+    
+      Dependency
+    
+    
+      chromedriver
+    
+  
+  
+    
+      Current Version
+    
+    
+      2.28.0
+    
+  
+  
+    
+      Type
+    
+    
+      devDependency
+    
+  
+
+The version 2.29.0 is not covered by your current version range.
+Without accepting this pull request your project will work just like it did before. There might be a bunch of new features, fixes and perf improvements that the maintainers worked on for you though.
+I recommend you look into these changes and try to get onto the latest version of chromedriver.
+Given that you have a decent test suite, a passing build is a strong indicator that you can take advantage of these changes by merging the proposed change into your project. Otherwise this branch is a great starting point for you to work on the update.
+
+
+Commits
+The new version differs by 4 commits .
+
+b4cbf91 Updating version to 2.29, release Apr 4 2017
+8eb4b0c Add libstdc++6 to travis
+c916c0c Add required packages to build and docker
+ec79c6a Use trusty on travis
+
+See the full diff.
+
+
+Not sure how things should work exactly?
+There is a collection of frequently asked questions and of course you may always ask my humans.
+
+
+Your Greenkeeper Bot 🌴",2,0
+1663,2017-04-07T22:16:42Z,2017-04-22T13:09:36Z,2017-04-22T13:09:36Z,2,5,1,"Styles must be set via the innerHTML. Otherwise, a fontFamily ""Segoe
+UI” will have encoded quotes.",2,0
+1668,2017-04-08T11:41:17Z,2017-04-22T13:09:07Z,2017-04-22T13:09:07Z,1,1,1,"Version 6.24.1 of babel-plugin-transform-es2015-modules-commonjs just got published.
+
+  
+    
+      Dependency
+    
+    
+      babel-plugin-transform-es2015-modules-commonjs
+    
+  
+  
+    
+      Current Version
+    
+    
+      6.24.0
+    
+  
+  
+    
+      Type
+    
+    
+      dependency
+    
+  
+
+The version 6.24.1 is not covered by your current version range.
+Without accepting this pull request your project will work just like it did before. There might be a bunch of new features, fixes and perf improvements that the maintainers worked on for you though.
+I recommend you look into these changes and try to get onto the latest version of babel-plugin-transform-es2015-modules-commonjs.
+Given that you have a decent test suite, a passing build is a strong indicator that you can take advantage of these changes by merging the proposed change into your project. Otherwise this branch is a great starting point for you to work on the update.
+
+
+Not sure how things should work exactly?
+There is a collection of frequently asked questions and of course you may always ask my humans.
+
+
+Your Greenkeeper Bot 🌴",1,0
+1684,2017-04-10T07:00:08Z,2017-04-10T18:35:27Z,2017-04-10T18:35:27Z,8,34,19,"Use react-codemod to transform the prop-types
+close #1672, close #1675, close #1676, close #1680",4,7
+1693,2017-04-11T19:57:05Z,2017-04-18T15:45:42Z,2017-04-18T15:45:42Z,6,40,18,"Fixes #716
+Here we use strong etags. That's because, there's no big perf. difference between strong and weak etag generation.
+See: https://github.com/jshttp/etag#benchmark",2,1
+1700,2017-04-12T10:16:53Z,2017-04-18T04:18:43Z,2017-04-18T04:18:43Z,24,504,381,"Fixes #737
+We should take this after #1611
+(Then we need to do a rebase with master)
+Sometimes, it's a pretty good idea to serve Next.js static assets via a CDN. You can easily do that by exposing the following option via next.config.js.
+const isProd = process.NODE_ENV === 'production'
+module.exports = {
+  // You may only need to add assetPrefix in the production.
+  assetPrefix: isProd? 'https://cdn.mydomain.com' : ''
+}
+Then inside your CDN configuration, set the origin URL as your app's domain name. That's all you've to.
+
+With this setup, you can't add CDN support for static assets in the 'static' directory. This is only for core Next.js assets.",5,4
+1701,2017-04-12T12:14:50Z,2017-04-18T13:58:34Z,2017-04-18T13:58:34Z,4,66,38,"Fixes #1647
+Here we don't use the full capabilities of babel-preset-env.
+But it's recommended to use it without browser configs as a substitute for babel-preset-latest.
+That's why we did this.",2,0
+1724,2017-04-14T22:52:40Z,,2017-04-22T19:26:07Z,1,2,0,The error in #1596 was being caused by calling .json() on a 404 response. This fixes the issue by checking the status of the response and throwing an error if appropriate.,2,2
+1737,2017-04-15T18:11:14Z,2017-04-22T13:07:36Z,2017-04-22T13:07:36Z,1,2,2,,2,0
+1740,2017-04-16T21:22:47Z,,2017-04-18T07:19:32Z,2,2,26,"Save some keystrokes by returning an instance of ApolloClient, since its ""kinda"" what we were already doing.",2,1
+1744,2017-04-18T02:33:29Z,,2017-04-18T04:55:07Z,1,1,1,There is a missing semi-colon in npm start,3,1
+1747,2017-04-18T09:04:33Z,2017-04-22T12:57:10Z,2017-04-22T12:57:10Z,1,2,1,,2,0
+1750,2017-04-18T16:20:25Z,,2017-05-15T19:11:24Z,52,2066,411,"With this we are adding TC39 dynamic import support to Next.js
+TODO
+
+ Add Unit tests for SameLoopPromise
+ Add support for async-renderer
+ Add some integration tests
+ Add docs
+
+Basically you could any module asynchronously and do anything you want.
+You can use utilities like https://github.com/xtuc/async-reactor without any issues
+We've also included some utilities to make your life easier.
+
+You can also try this example app.
+
+1. Create Dynamic Component (Also does SSR)
+import dynamic from 'next/dynamic'
+const DynamicComponent = dynamic(import('../components/hello'))
+
+export default () => (
+  <div>
+    <Header />
+    <DynamicComponent />
+    <p>HOME PAGE is here!</p>
+  </div>
+)
+2. With Custom Loading Component
+import dynamic from 'next/dynamic'
+const DynamicComponentWithCustomLoading = dynamic(
+  import('../components/hello2'),
+  {
+    loading: () => (<p>...</p>)
+  }
+)
+
+export default () => (
+  <div>
+    <Header />
+    <DynamicComponentWithCustomLoading />
+    <p>HOME PAGE is here!</p>
+  </div>
+)
+3. No SSR Support
+import dynamic from 'next/dynamic'
+const DynamicComponentWithNoSSR = dynamic(
+  import('../components/hello3'),
+  { ssr: false }
+)
+
+export default () => (
+  <div>
+    <Header />
+    <DynamicComponentWithNoSSR />
+    <p>HOME PAGE is here!</p>
+  </div>
+)
+4. With async-reactor
+
+SSR support is not available here
+
+import { asyncReactor } from 'async-reactor'
+const DynamicComponentWithAsyncReactor = asyncReactor(async () => {
+  const Hello4 = await import('../components/hello4')
+  return (<Hello4 />)
+})
+
+export default () => (
+  <div>
+    <Header />
+    <DynamicComponentWithAsyncReactor />
+    <p>HOME PAGE is here!</p>
+  </div>
+)",4,8
+1753,2017-04-19T00:30:25Z,2017-04-22T12:54:36Z,2017-04-22T12:54:36Z,3,84,0,Fixes #1752,5,5
+1755,2017-04-19T00:54:47Z,2017-04-19T09:59:05Z,2017-04-19T09:59:05Z,1,7,4,Fixes #1595,2,0
+1756,2017-04-19T04:49:29Z,2017-04-22T12:56:28Z,2017-04-22T12:56:28Z,5,238,0,"Using firebase on the client and server to authenticate users and save their auth token in sessions. Logged in users can post messages.
+
+Ref #820",3,3
+1764,2017-04-19T22:43:31Z,2017-04-22T12:48:09Z,2017-04-22T12:48:09Z,1,1,1,,2,0
+1766,2017-04-20T05:24:10Z,2017-04-22T12:53:49Z,2017-04-22T12:53:49Z,4,163,0,This example show how to use socket.io inside a Next.js application. It uses getInitialProps to fetch the old messages from a HTTP endpoint as if it was a Rest API.,2,0
+1771,2017-04-20T18:42:39Z,2017-04-22T12:52:50Z,2017-04-22T12:52:50Z,3,138,0,This example features how you use Material-UI with Next.js.,4,3
+1784,2017-04-23T17:08:19Z,2017-04-26T11:24:46Z,2017-04-26T11:24:46Z,1,1,1,"Under Shallow Routing, the line Since that's a new page, it'll unload the current page, load the new one and call getInitialProps even though we asked to do shallow routing. is missing the word though.
+This PR just adds this word in 😊",2,0
+1797,2017-04-25T00:12:30Z,2017-04-26T11:27:38Z,2017-04-26T11:27:38Z,1,1,0,,2,0
+1808,2017-04-26T07:38:29Z,,2017-08-10T02:22:56Z,5,74,3,"I'm not sure if this is desired, but I made the next/babel preset configurable to allow changing the babel-preset-env targets. This can allow us to only target the last browsers and Node.js versions in development, and still works as usual if you don't configure anything. I also included a really simple example using const and only transforming it to var in production (next build).
+
+This can improve the development build time.
+
+With this change you can set the preset as usual or this way:
+[""next/babel"", {
+  ""targets"": {
+    ""browsers"": ""last 1 Chrome version"",
+    ""node"": true
+  }
+}]",6,5
+1813,2017-04-27T02:52:27Z,2017-04-30T20:44:24Z,2017-04-30T20:44:24Z,6,98,16,"Hello Next.js,
+I’ve added an additional example to “With-Redux” and updated some of
+the original code to help illustrate to less experienced developers
+how to implement Redux with Next.js.
+The added example is a simple counter to help reinforce how the client and
+server renderings work together. In addition, I've also updated some of the
+redux boilerplate code to help fully demonstrate how redux can be
+implemented when using it with Next.js
+Cheers,
+Spencer",3,2
+1817,2017-04-27T09:38:03Z,2017-05-27T12:21:02Z,2017-05-27T12:21:02Z,4,131,0,"Ant Design of React is a set of great React UI components.
+
+
+https://github.com/ant-design/ant-design/
+https://ant.design/
+https://ant.design/docs/react/introduce",5,8
+1832,2017-04-30T02:15:43Z,2017-04-30T14:31:04Z,2017-04-30T14:31:04Z,1,2,2,Just fixed the curl in the readme to properly curl with-flow and not with-styled-components,2,0
+1835,2017-04-30T08:49:50Z,2017-04-30T14:30:29Z,2017-04-30T14:30:29Z,7,86,0,I've constructed an example for #751,2,0
+1844,2017-05-01T21:20:20Z,2017-05-01T23:26:19Z,2017-05-01T23:26:19Z,6,55,2,Fixes the core issue mentioned here: #1837,2,0
+1851,2017-05-02T11:46:11Z,2017-05-02T16:12:25Z,2017-05-02T16:12:25Z,1,1,1,Correct name of wrapper is next-redux-wrapper,2,0
+1860,2017-05-03T11:15:10Z,2017-05-06T18:37:47Z,2017-05-06T18:37:47Z,2,11,3,"Before.
+
+After.",4,3
+1862,2017-05-03T16:39:31Z,2017-05-03T20:59:21Z,2017-05-03T20:59:21Z,1,3,2,"Ref: #1855
+That's simply because it has no effect since we don't run webpack on the server.
+And for the server, file size difference doesn't matter a lot.",3,2
+1887,2017-05-05T10:29:30Z,2017-05-06T18:31:43Z,2017-05-06T18:31:43Z,1,1,1,,2,0
+1901,2017-05-06T18:57:01Z,2017-05-06T19:59:03Z,2017-05-06T19:59:03Z,1,1,1,In the with-refnux eample.,2,1
+1905,2017-05-07T07:09:53Z,2017-05-10T22:23:12Z,2017-05-10T22:23:12Z,13,223,148,"I've made many improvements to the Apollo examples including:
+
+Made the code simpler and easier to follow.
+Added a bunch of inline comments to explain what everything does.
+Removed redundant code.
+Made it clear what code needs to run on the server and what does not.
+Removed sending all of the HTTP headers to the client for no reason.
+Fixed the url prop methods being removed on the client-side.
+Updated the code to match the recommendations from the Apollo and Redux documentation.",8,9
+1906,2017-05-07T08:32:26Z,2017-05-07T13:51:13Z,2017-05-07T13:51:13Z,3,31,19,"I fixed the broken production builds for the Material-UI example and:
+
+Removed the redundant getMuiTheme() calls.
+Improved the execution of injectTapEventPlugin() so that React doesn't print warnings on the server and it only ever gets executed once (even during hot reloading).
+Removed window and req checks in favor of process.browser.
+Removed unused isServer.",2,1
+1983,2017-05-16T15:51:52Z,2017-05-17T17:41:55Z,2017-05-17T17:41:55Z,5,13,5,improve example fallback translation and add new locale for lang id,2,1
+1994,2017-05-17T13:29:54Z,2017-05-25T16:37:11Z,2017-05-25T16:37:11Z,2,3,1,,2,0
+2010,2017-05-18T19:39:17Z,2017-08-21T21:15:15Z,2017-08-21T21:15:15Z,1,2,2,There has been some discussion at #1751 and #1776 about changing the renderPage() signature to better support SSR and allow wrapping of all pages in the application. My suggestion is to simply allow an HOC to be passed into renderPage().,8,31
+2012,2017-05-18T23:11:19Z,2017-05-21T02:54:59Z,2017-05-21T02:54:59Z,1,4,2,Fixes #2011,3,2
+2013,2017-05-19T00:38:35Z,2017-05-19T22:02:01Z,2017-05-19T22:02:01Z,1,1,0,"Fixes #1996
+Throws an error if _document.js is not returning a react element",4,2
+2018,2017-05-19T09:38:41Z,2017-05-19T12:02:12Z,2017-05-19T12:02:12Z,1,1,1,,2,0
+2036,2017-05-21T19:48:39Z,2017-05-25T16:36:21Z,2017-05-25T16:36:21Z,7,248,3,"Material-UI is beeing rewriting from scratch on the next branch.
+@jcheroske That's following our discussion here mui/material-ui#6821. I have been using a singleton to bypass the renderPage limitation. Any better idea?",2,2
+2045,2017-05-23T05:20:30Z,2017-05-25T16:28:09Z,2017-05-25T16:28:09Z,5,32,20,Fixes #2014,2,0
+2047,2017-05-23T07:21:56Z,2017-05-25T16:32:18Z,2017-05-25T16:32:18Z,5,80,0,Simple example of how to use next.js with react-toolbox.,2,0
+2049,2017-05-23T08:34:23Z,2017-05-23T16:42:26Z,2017-05-23T16:42:26Z,1,1,1,"Version 1.7.0 of node-fetch just got published.
+
+  
+    
+      Dependency
+    
+    
+      node-fetch
+    
+  
+  
+    
+      Current Version
+    
+    
+      1.6.3
+    
+  
+  
+    
+      Type
+    
+    
+      devDependency
+    
+  
+
+The version 1.7.0 is not covered by your current version range.
+Without accepting this pull request your project will work just like it did before. There might be a bunch of new features, fixes and perf improvements that the maintainers worked on for you though.
+I recommend you look into these changes and try to get onto the latest version of node-fetch.
+Given that you have a decent test suite, a passing build is a strong indicator that you can take advantage of these changes by merging the proposed change into your project. Otherwise this branch is a great starting point for you to work on the update.
+
+
+Release Notes
+v1.7.0
+This is a backport maintenance release, see changelog for details
+
+
+Commits
+The new version differs by 8 commits.
+
+cf71a1b 1.7.0
+0f09608 try to fix travis build config again
+93d5eb6 update travis to only install old npm for older node release
+8e11298 pin npm at an older version for node 0.10 support
+f43c6a6 update readme badge
+2fca3e9 switch 1.x branch to codecov as well
+3043012 revert error handling for no-content json response
+325f13d commit to allow some feature backport in 1.x
+
+See the full diff
+
+
+  Not sure how things should work exactly?
+There is a collection of frequently asked questions and of course you may always ask my humans.
+
+
+Your Greenkeeper Bot 🌴",1,0
+2056,2017-05-24T13:06:54Z,,2017-06-28T17:51:58Z,8,94,29,"@arunoda #2032
+Here ya go. Hope this works!",8,9
+2058,2017-05-24T19:04:07Z,2017-05-31T08:06:08Z,2017-05-31T08:06:08Z,5,22,11,"Instead of having a next.config.js file, we can dynamically add configuration from the custom server.
+The use case would be to support many different webpack configuration with a minimist flag.
+I can add an example if wanted.",2,3
+2063,2017-05-25T12:26:31Z,2017-05-25T16:29:04Z,2017-05-25T16:29:04Z,1,10,1,"Just after a 404 page, if we created a page with
+no default exports. It'll throw an error.
+And it'll crash internal webpack state.
+So, once we have it we need to do a hard reload to recover it.",2,0
+2066,2017-05-25T16:17:55Z,2017-07-02T05:52:40Z,2017-07-02T05:52:40Z,1,1,1,"Fixes the issues with router.get('*', handle) in Express brought up by @wesbos",3,5
+2078,2017-05-27T04:17:25Z,2017-05-27T11:14:21Z,2017-05-27T11:14:21Z,1,1,1,,2,0
+2081,2017-05-27T10:02:42Z,,2017-06-30T21:23:31Z,2,1,3,v2 is no longer in beta.,2,3
+2085,2017-05-27T16:41:07Z,2017-05-27T17:46:58Z,2017-05-27T17:46:58Z,1,1,1,"As we add new features and update README.md in zeit/styled-jsx people ask questions, typically why doesn't x works.
+Master shouldn't be the source of truth, better link to the npm package's landing page.",2,1
+2099,2017-05-29T14:32:34Z,2017-05-29T17:36:58Z,2017-05-29T17:36:58Z,1,1,1,Using actionType instead of plain string,2,1
+2104,2017-05-29T20:27:49Z,2017-06-01T12:51:55Z,2017-06-01T12:51:55Z,1,5,0,Added Examples link under the Customizing webpack config section linking to the example on custom webpack bundle analyzer.,3,2
+2105,2017-05-29T20:56:14Z,,2017-06-05T09:21:01Z,1,1,1,"#2087
+Not sure if I did this 100% correct so I'm open to suggestions, but this seems to work in throwing a more verbose error message to the console if 'react' or 'react-dom' is not in the dependencies list.",3,2
+2110,2017-05-30T10:43:26Z,2017-07-01T22:36:37Z,2017-07-01T22:36:37Z,1,6,1,"Hi @thomaslindstrom. require(fileName) is once load file when run next. after that when i change my css, a content <style> on header is change but css-modules that
+import {classNames} from './styles.css'
+is not update to a new css on hot reload (it will update when i close and run next again).
+i think we can use ""fs.readFileSync"" instead ""require(fileName)"". 
+const classNames = fs.readFileSync(fileName, ""utf8"")",3,4
+2113,2017-05-30T14:32:01Z,2017-05-30T18:50:20Z,2017-05-30T18:50:21Z,1,1,1,typo.  Hope this fix matches the author's intended meaning.,2,1
+2115,2017-05-30T15:39:10Z,2017-05-30T18:51:53Z,2017-05-30T18:51:53Z,1,1,5,"For instance:
+.MuiGrid-gutter-xs-8-1393152966 &gt; .MuiGrid-typeItem-3088349198 {
+  font-family: &quot;Roboto&quot;, &quot;Helvetica&quot;, &quot;Arial&quot;, sans-serif;
+}",2,0
+2117,2017-05-30T21:47:50Z,2017-05-31T05:56:50Z,2017-05-31T05:56:50Z,1,1,1,Fixed all unsupported style properties,2,0
+2145,2017-06-02T13:24:01Z,,2017-06-09T18:27:36Z,1,5,0,"Github project pages for example, by default, have the root of the
+page on a subdirectory. It is needed to be able to specify the static
+asset prefix without changing the way next.js handles next dev/start",2,1
+2148,2017-06-02T14:03:12Z,2017-06-03T07:03:57Z,2017-06-03T07:03:57Z,1,0,4,,2,0
+2161,2017-06-04T05:52:05Z,2017-06-30T20:18:11Z,2017-06-30T20:18:11Z,13,671,0,"Who should be in charge of setting up the demo site? https://next-with-apollo-auth.now.sh
+This is an extention of the with Apollo example:
+
+Apollo is a GraphQL client that allows you to easily query the exact data you need from a GraphQL server. In addition to fetching and mutating data, Apollo analyzes your queries and their results to construct a client-side cache of your data, which is kept up to date as further queries and mutations are run, fetching more results from the server.
+In this simple example, we integrate Apollo seamlessly with Next by wrapping our pages inside a higher-order component (HOC). Using the HOC pattern we're able to pass down a central store of query result data created by Apollo into our React component hierarchy defined inside each page of our Next application.
+On initial page load, while on the server and inside getInitialProps, we invoke the Apollo method,  getDataFromTree. This method returns a promise; at the point in which the promise resolves, our Apollo Client store is completely initialized.
+This example relies on graph.cool for its GraphQL backend.
+Note: Apollo uses Redux internally; if you're interested in integrating the client with your existing Redux store check out the with-apollo-and-redux example.
+
+graph.cool can be setup with many different
+authentication providers, the most basic of which is email-password authentication. Once email-password authentication is enabled for your graph.cool project, you are provided with 2 useful mutations: createUser and signinUser.
+On loading each route, we perform a user query to see if the current visitor is logged in (based on a cookie, more on that in a moment). Depending on the query result, and the route, the user may be redirected to a different page.
+When creating an account, both the createUser and signinUser mutations are executed on graph.cool, which returns a token that can be used to authenticate the user for future requests. The token is stored in a cookie for easy access (note: This may have security implications. Please understand XSS and JWT before deploying this to production).
+A similar process is followed when signing in, except signinUser is the only mutation executed.
+It is important to note the use of Apollo's resetStore() method after signing in and signing out to ensure that no user data is kept in the browser's memory.
+To get this example running locally, you will need to create a graph.cool
+account, and provide the project.graphcool schema.",9,10
+2182,2017-06-07T06:23:31Z,2017-06-09T18:50:59Z,2017-06-09T18:50:59Z,1,20,17,"Replaces the current error-debug bright fuschia colors with darker, more readable colors. #2100",4,9
+2189,2017-06-07T16:09:46Z,2017-06-08T17:27:54Z,2017-06-08T17:27:54Z,2,2,2,"This PR allows to add static attributes to the document/head
+Example:
+pages/_document.js
+import Document, { Head, Main, NextScript } from 'next/document'
+import flush from 'styled-jsx/server'
+
+export default class MyDocument extends Document {
+  static getInitialProps ({ renderPage }) {
+    const {html, head, errorHtml, chunks} = renderPage()
+    const styles = flush()
+    return { html, head, errorHtml, chunks, styles }
+  }
+
+  render () {
+    return (
+      <html>
+        <Head data-answer='42' />
+        <body>
+          <Main />
+          <NextScript />
+        </body>
+      </html>
+    )
+  }
+}
+Closes
+
+#2183",2,0
+2190,2017-06-07T21:03:23Z,2017-06-08T17:26:40Z,2017-06-08T17:26:40Z,2,6,0,"This pull request removes a react-apollo warning when upvoting a post. It also fixes an issue where upvoting a post before the first vote comes back from the server (e.g. double click the upvote button) would throw an error.
+This issue seems to have been caused by a breaking change to react-apollo's optimistic ui API.",2,1
+2196,2017-06-08T06:51:23Z,2017-06-08T17:41:23Z,2017-06-08T17:41:23Z,18,208,20,"Fixes #2073
+Sometimes, it's possible to have dynamically imported module without an actual physical file (chunk).
+This is because the same module imported normally and exists in the app's main JS bundle.
+So, we need to make sure to ignore such modules when the page loads with SSR.",2,0
+2224,2017-06-09T19:31:07Z,2017-06-09T21:45:37Z,2017-06-09T21:45:38Z,1,7,5,Fixes #2193,2,0
+2225,2017-06-09T20:28:57Z,2017-06-09T21:44:27Z,2017-06-09T21:44:27Z,6,102,0,"Based on some suggestions from #160
+This example shows the most basic way to use react-ga with NextJs.",4,8
+2227,2017-06-10T06:55:03Z,2017-07-01T21:56:13Z,2017-07-01T21:56:13Z,6,66,25,"Currently, an Apollo Client GraphQL error in any component will crash SSR. Errors are not handled or displayed in any of the components.
+Now these errors are caught and silenced on the server, so that the client can be responsible for handling them via the data.error prop.
+Error messages are displayed inline using a new ErrorMessage component, and look like this:
+
+I also tidied a few comments in the vicinity of the changes.",2,1
+2234,2017-06-12T02:17:09Z,2017-07-01T19:44:59Z,2017-07-01T19:44:59Z,8,172,0,Add example of how to use static export. I used an async exportPathMap to show that you can fetch data from an API and dynamically generate the exported pages.,5,3

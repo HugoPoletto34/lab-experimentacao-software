@@ -1,0 +1,387 @@
+number,created_at,merged_at,closed_at,files,additions,deletions,body_text,participants,comments
+17,2017-12-22T14:47:34Z,,2017-12-22T23:44:22Z,1,63,49,"I changed the train.py script to be able to change the source image folder. So now it is not hardcoded you can use python train.py-a imgA/ -b imgB/ or python train.py--image-a=imgA/ --image-b=imgB/
+I don't know if you accept this kind of PR but I find it useful.",3,5
+22,2017-12-24T13:53:14Z,2017-12-25T01:17:02Z,2017-12-25T01:17:02Z,9,73,45,"I created a single script that calls the other ones so we have a single command.
+It's used like that : ./faceswap.py train or ./faceswap.py extract or ./faceswap.py convert with of course the same options as before.
+I'm discovering argparse while doing it so feel free to fix my beginner mistakes.",3,4
+46,2018-01-01T13:03:38Z,,2018-01-03T13:02:06Z,20,496,433,"WARNING: This is NOT to be merged, it is a draft!
+Hi guys, I have a bit more time now, but I'm still not in good conditions to work on the project. I just wanted to submit you a Work In Progress for a more pluggable approach for the project.
+As you know, we have a couple variants to the script that is not easy to maintain or try when we have new proposals. A plugin approach would let us have at the same time old legacy code with current official code and with new proposals without having to mess with branches and patches.
+The PR here contains just 2 basic plugins, one for extract, and one for convert. I want to have one for models also, but it is much more complicated for now. They are just simple classes, and adding new plugin will just be adding new classes with the same interface. What's not decided yet is how we switch between ""plugin"", it can be done dynamically with parameterized file load but it also can be done statically if prefered.
+Note that I did some changes that lead, IMHO, to a cleaner code:
+
+TrainingProcessor has been moved to scripts/train.py along with extract.py and convert.py
+I moved image_augmentation.py and 2 methods of utils.py in training_data.py
+I removed the loop over images in DirectoryProcessor as the code is override in convert.py and the original code used only in extract.py. I think it is better to let a single responsibilty to the DirectoryProcessor and not use it to crop faces (At some point the crop faces may be also pluggable)
+I renamed pixel_shuffler.py into PixelShuffler.py as it is a one class file
+
+Other consideration, but not done in this PR, is:
+
+The cli.py maybe is no more useful in lib/ maybe the scripts/ folder should be named cli/ and the DirectoryProcessor could go there
+
+Feel free to integrate part of these changes in the next commits (it will be less modifications in my own commit), and also feel free to give me your feedback on all this.",5,21
+47,2018-01-01T16:16:41Z,,2018-01-05T10:10:05Z,3,50,21,Fixes #43,3,1
+50,2018-01-03T13:11:56Z,2018-01-07T19:24:17Z,2018-01-07T19:24:17Z,20,496,433,"Hi guys,
+Here is a new PR for the plugin approach. It is still rough, but should already be as good as the previous version.
+It features:
+
+A plugin folder where we can put different versions of algorithm
+New plugins with the align extraction and the masked merge (which are the latest AFAIK)
+
+There is still room for improvments:
+
+General syntax may be improved, but please provide me specific feedback if you see something (or even do a PR on my own repo if you prefer)
+We can add easily the plugin choice through arguments, but its out of my scope for now
+We should add arguments parsing for plugins, but this part is not clear for me
+I want to add a specific support for Model plugins as well as a cleaner model loading, but I'm not sure of the consequences yet, so I let that for later",6,7
+60,2018-01-08T10:50:58Z,,2018-02-02T14:59:42Z,9,508,29,This PR is specific to the GAN plugin that you can test and play with. Note that this is a Work in Progress and that latest features from the GAN repo are not totally integrated,6,70
+61,2018-01-09T09:33:26Z,2018-01-31T17:56:44Z,2018-01-31T17:56:44Z,23,504,33581,"This is a new Pull request that is without the GAN plugin that is still a work in progress
+This PR features a couple of refactorings and bug corrections + the models as plugins
+The main new feature is the face filtering that will only extract and convert recognized faces. For that, you have to add a filter.jpg with a face of the person you want to retain in the current working dir. (An argument should be created later to specify the name of the file)",4,14
+111,2018-02-04T00:44:46Z,2018-02-04T08:57:01Z,2018-02-04T08:57:01Z,1,16,4,"Updated information so that users can quickly see the available parameters for the various scripts.
+Also made the section headers correspond with the actual scripts - e.g. extract, train, convert
+See: #110",2,0
+151,2018-02-08T11:35:05Z,,2018-03-10T09:37:22Z,4,69,69,"This creates a plugin from the GAN 128 version from @shaoanlu
+This is a draft to get your feedback and no convert is possible at the moment",7,16
+160,2018-02-08T20:53:04Z,,2018-02-12T22:50:09Z,12,104,19,"add configurable loss functions including SSIM (Structural Image Similarity)
+written filenames now include trainer name",4,3
+167,2018-02-09T22:18:44Z,2018-02-11T16:27:17Z,2018-02-11T16:27:17Z,3,34,53,Changed the documentation slightly with less mistakes and better links.,3,0
+178,2018-02-11T10:08:36Z,2018-02-12T14:44:18Z,2018-02-12T14:44:18Z,1,6,3,"INSTALL.md now aligns with requirements specified in the script.
+It should hopefully prevent some confusion among less adept users and simplyfy installation process.",2,1
+214,2018-02-20T23:41:43Z,2018-03-05T15:57:56Z,2018-03-05T15:57:57Z,3,54,9,"Added a function to verify if extracted faces already exists prior to generating the input list. This ensures no images get reprocessed, and reduces the size of the input for processing.",3,8
+217,2018-02-22T22:13:01Z,2018-03-10T00:43:25Z,2018-03-10T00:43:25Z,25,1622,721,"Based from Clorr's fork after the GAN128 draft.
+The GAN64 model is still mostly based off shaoanlu's v1.
+The mask results I was getting were unusable; I'd have masks that were basically all transparent. I updated GAN64 to shaoanlu's v2.
+With these changes, my mask results are better. It could be that only I was having this problem so please test yourself!",10,156
+228,2018-02-28T06:46:40Z,2018-03-01T10:32:12Z,2018-03-01T10:32:12Z,6,179,30,"It works x2 faster, but initialization takes 20secs.
+2DFAN-4.h5 and mmod_human_face_detector.dat included in lib\FaceLandmarksExtractor
+fixed dlib vs tensorflow conflict: dlib must do op first, then load keras model, otherwise CUDA OOM error
+if face location not found by CNN, its try to find by HOG.
+removed this:
+
+
+   if face.landmarks == None:
+
+
+
+       print(""Warning! landmarks not found. Switching to crop!"")
+
+
+
+       return cv2.resize(face.image, (size, size))
+
+
+
+because DetectedFace always has landmarks",5,27
+231,2018-03-01T18:14:38Z,,2018-03-04T05:49:14Z,1,72,67,"This is my first pull, so I hope I did this right. The only change should be the Model_original.py file which has worked great for adding multi GPU support. The only problem I have had is with allow growth option. Not really a programmer and new to Github, but trying to learn this stuff.",5,3
+238,2018-03-03T03:43:39Z,2018-03-03T11:01:08Z,2018-03-03T11:01:08Z,2,12,5,"…it turns it into a dilation kernel, which allows facehullandrect to cover more space. Can help to cover double eyebrows. Also could be useful with Masked converter for GAN in @oatssss PR.",4,6
+253,2018-03-08T16:37:07Z,2018-03-10T12:34:19Z,2018-03-10T12:34:19Z,5,67,17,"This change allows for the detection of more faces, and often a more satisfactory swap. Dlib has problems recognizing faces tilted over more than 90 degrees from center, so this helps to mitigate that with an optional flag at the extract stage (-r --rotate_images).
+If activated, then at extract stage, if a face is not detected the image is rotated 90 degrees and another attempt is made. This pattern is repeated, so in total an image will be scanned at: normal, 90 degrees, 180 degrees, 270 degrees.
+If an image is found, then the rotation stops, and the process continues. Obviously, with lots of frames without faces or with faces at awkward angles, this WILL slow down the process, hence why it is an optional flag.
+In order to support this, a new item is entered into alignments.json that stores the rotation of the image. At convert stage, this is read back from the file and the correct rotation is done on the output frame to apply the faceswap, before rotating the frame back to the correct orientation.
+I needed to amend 5 files for this, but the changes are fairly cosmetic, and shouldn't break anything else.
+Please let me know thoughts, and merge if possible!
+Any questions, let me know.
+Cheers",6,33
+256,2018-03-08T23:36:26Z,,2018-03-10T01:23:03Z,6,42,6,"Added multi-GPU support through -g --gpu flag.
+This has been tested on all 3 models (lowmem, original and GAN).  It works with the default GPUs being 1.  Currently does not use multi GPUs for convert, as that was untested and may cause other issues.  However, models can change the number of GPUs in use without issue.
+Save in faceswap is already multi-GPU friendly and does not require any further changes.  One restriction will be against using the built in Keras checkpointing function as it is currently not Multi-GPU safe.  However, other checkpoint modules exist which are supported.",3,6
+259,2018-03-09T04:03:37Z,2018-03-11T10:36:51Z,2018-03-11T10:36:51Z,4,30,31,"…most recent modifications to extract: 1st FaceLandmarkExtractor would try to use cnn first, then try hog. The problem was that this reduced the speed by 4 for images where cnn didn't find anything, and most of the times hog wouldn't find anything either or it would be a bad extract. For me it wasn't worth it. With this you can specify on input -D if you want to use hog, cnn, or all. 'all' will try cnn, then hog like FaceLandmarkExtractor was doing. cnn or hog will just use 1 detection method. 2nd change is a rehaul of the verbose parameter. Now warnings when a face is not detected will just be shown if indicated by -v or --verbose. This restores the verbose function to what it once was. With this change I was able to process 1,000 per each 4 minutes regardless if faces were detected or not. Performance improvement just applies to not detected images but I normally will have lots of images without clear faces in my set, so I figured it would impact others. Also the introduction of 'all' would allow trying other models together more easily in the future.",5,9
+271,2018-03-10T19:59:59Z,,2019-01-02T16:14:05Z,13,839,38,"Note: This is not working!
+I'm in the process of adding DFaker model as plugin. It behaves quite differently on some parts so it is still work in progress. Note that the image load is not plugged in, so this PR won't even launch. But if you are interested, have a look and propose some solution.
+I should be able to finish this in a couple of days if everything goes fine (extract and convert may be harder than i expect so I'm still not sure)",16,100
+281,2018-03-12T07:21:08Z,2018-03-26T09:46:50Z,2018-03-26T09:46:51Z,1,7,7,"Splitting PR into two to order to simplify discussion...
+Current Code Status:
+The FaceLandmarksExtractor.py code will issue multiple call to the dlib face detector by first sending an image in BGR format ( referring to the order of the color channels in an image .. blue, green, red ) and then making a second call in RGB format. The BGR image first sent is called ( input_image ) and the RGB image sent second is called ( input_image_bgr ...which is confusing ? )This issue was primarily caused by the non-standard way cv2.imread loads images ( in BGR format unlike all other toolchains )
+Background:
+The code used to send only the BGR image to dlib detector. This had subpar performance. See #236  This was fixed by sending the RGB image in addition in a second detector call by inverting the channel order.
+Proposed Change:
+Dlib documentation states that the face detection model was explicitly trained on RGB images and should only provide satisfactory results with that format. In a first pass of a speed optimization of the toolchain, I want to propose eliminating the first call to the detector with the BGR image and only send the RGB image
+Most landmark models and 1adrianb's face_alignment code also only use RGB
+Initial Testing:
+My limited first testing shows no difference at all in face detection ability or performance in detection. There is a speed-up. I welcome additional testing by the community. I will post additional results on varied test videos shortly.",7,36
+288,2018-03-13T01:17:54Z,2018-03-14T10:53:34Z,2018-03-14T10:53:34Z,1,10,3,"This is a fix to GAN128 to patch out the multi gpu until Keras updates their upstream issue (as mentioned in #287 )
+In addition, while I was debugging, I fixed the exception handling in train.py so that it properly passes errors that it doesn't catch..",2,3
+298,2018-03-15T14:48:41Z,2018-03-21T10:12:12Z,2018-03-21T10:12:12Z,3,739,86,"Add tools.py command and control script for use as the main interface for various tools. The structure and approach is the same as faceswap.py
+Add many new features to tools/sort.py: various new sorting methods, grouping by folders, logging file renaming/movemeng, keeping original files in the input directory and improved cli options documentation. Argument parsing has been re-written to inteface with tools.py
+Add init.py empty file in tools directory for python to register it as a module so that sort.py and future tools can be easily imported.",6,29
+307,2018-03-22T10:29:40Z,,2018-03-24T15:21:25Z,10,219,177,"Sort tool:
+fixed 'No faces were detected'
+speed of face sorting much increased, because 256x256 face already ""detected"", so no need to detect it via dlib again
+removed 'face' as face_recognition , and changed 'face-cnn' to 'face', because face-cnn better and faster and works with 3GB vram.
+added --sort-by face-yaw
+result:
+
+
+Improving TrainingDataGenerator:
+now we can properly train model with tens of thousands of unevenly distributed by rotation faces
+idea:
+
+training_data.py automatically generates alignments_yaw.json in aligned\..\ folder
+by launching yaw_sorter.py as fully separated python process but with same stdout, so no additional VRAM of main process consumed",5,25
+318,2018-03-26T20:18:24Z,2018-03-27T01:37:38Z,2018-03-27T01:37:38Z,1,1,1,Just a minor fix that arose due to the recent renaming.,3,0
+332,2018-04-05T00:16:12Z,,2018-04-05T03:53:46Z,2,5,2,"I am not sure if it is just me but with the DLIB import changes, I had multiple errors when using the CNN detector -- such as not extracting faces unless on HOG and sorting OOM'ing out on face-cnn sorts.
+I've made the following changes that seem to resolve it for me.
+@torzdf Please take a look and see if this is alright.",2,5
+353,2018-04-16T01:06:34Z,,2018-04-17T00:19:01Z,1,1,1,IAE has a swap bug detailed in #305 where the models aren't swapped.  Fixed here.,2,5
+367,2018-04-22T10:38:27Z,2018-04-23T13:57:09Z,2018-04-23T13:57:09Z,8,1257,983,"I have separated out the argparse functions from the actual processes. This means that lib.cli is now actually command line related, and only command line related.
+It also means that modules are only imported for the command that is being run, which means that the hacky fixes for preventing GPU modules from being loaded have been removed.
+This does not impact the way the code is executed at all.
+I'm not sure that the name or the location for inout.py is correct, so suggestions welcome. This script holds classes for: Faces, Alignments and Images that can be referenced in both Extract and Convert (I have tentatively called these FSMedia objects, so may rename accordingly).
+Other reasons for this:
+
+conform more closely with PEP8
+remove unused imports that are still hanging around
+Separate out the monster classes and functions into smaller, more manageable objects.
+clean-up the help text a little.
+
+I came across a few bugs along the way that I squashed:
+
+Suppress warnings from tensorflow/system modules when not in verbose mode (I haven't suppressed them all, but console out is a lot less messy now). I am looking to implement proper logging at some point
+Extract - Fix skip existing. Turns out this has been broken since the naming convention of output faces changed. It is not broken any more
+Train - Fix the -w flag bug. Using the -w flag would not write out the image if preview mode was enabled. Now it does
+Train - Enable the process to exit when target iterations have been reached. This only works when preview mode is enabled. As @bryanlyon correctly points out input() is blocking, so another method will be required to terminate without preview... but it's something
+Convert - Remove backwards compatibility for skip frames. I figure enough time has passed now
+Convert - Change what happens when there is no alignments.json. Since the move to face_alignments for face detection, not having an alignments file has been problematic, with OOM errors. The check for alignments file is now done at the beginning, and if a file does not exist, it is generated prior to moving on to conversion.",2,0
+370,2018-04-22T16:29:52Z,2018-05-10T18:39:12Z,2018-05-10T18:39:12Z,12,505,161,"So,
+In the past two days, what I did basically is sorting out the dependencies, and trying to get them look clean.
+1
+Now installation is a lot clearer.
+There will be only one requirements file. The only factor that differs the requirements file is the tensorflow package version. What affecting that tf version is the installed CUDA version.
+CUDA 8.0 => tf<=1.4.0
+CUDA 9.0 => tf:latest
+CUDA 9.1 => tf:recompile
+CUDA else => tf:properversion
+So I deleted duplicated req.txts and make them a script to decide what dependencies will be installed.
+Tho the tool only works on Linux cos it's detecting environment only on Linux system. Im gonna leave it that way.
+2
+Dockerfile.cpu for pure CPU machine is given and tested working.
+No dep issues found while running thro the three process.",2,24
+396,2018-05-13T02:03:37Z,,2018-05-13T13:23:16Z,2,10,2,"As mentioned in the to-do-list here:
+https://github.com/torzdf/faceswap/projects/1
+Adds sort and effmpeg to the menu",3,4
+468,2018-08-05T07:33:20Z,2018-08-18T07:14:42Z,2018-08-18T07:14:42Z,3,44,5,added saving of current epoch number during save_weights,3,0
+477,2018-08-20T19:24:42Z,2018-08-21T09:27:36Z,2018-08-21T09:27:36Z,2,26,2,"Added an optional parameter -si or --save-interval which will save the alignments.json after the set amount of frames.
+So python faceswap.py extract ... -si 5 will save the file after 5 frames.
+It will also skip the already extracted files when it's restarted.",2,1
+483,2018-08-26T12:03:32Z,,2018-08-29T08:38:50Z,1,2,3,,2,5
+505,2018-09-20T09:15:39Z,2018-10-08T10:47:26Z,2018-10-08T10:47:26Z,1,2,0,,3,4
+552,2018-12-15T03:13:30Z,2018-12-17T22:35:40Z,2018-12-17T22:35:40Z,1,3,1,"When trying to run under Manjaro i get:
+Traceback (most recent call last):
+  File ""faceswap.py"", line 5, in <module>
+    import lib.cli as cli
+  File ""/run/media/nope/data/home/nope/workspace/fswap/faceswap/lib/cli.py"", line 11, in <module>
+    from lib.logger import crash_log, log_setup
+  File ""/run/media/nope/data/home/nope/workspace/fswap/faceswap/lib/logger.py"", line 15, in <module>
+    from lib.sysinfo import sysinfo
+  File ""/run/media/nope/data/home/nope/workspace/fswap/faceswap/lib/sysinfo.py"", line 283, in <module>
+    sysinfo = SysInfo()  # pylint: disable=invalid-name
+  File ""/run/media/nope/data/home/nope/workspace/fswap/faceswap/lib/sysinfo.py"", line 19, in __init__
+    gpu_stats = GPUStats(log=False)
+  File ""/run/media/nope/data/home/nope/workspace/fswap/faceswap/lib/gpu_stats.py"", line 32, in __init__
+    self.initialize()
+  File ""/run/media/nope/data/home/nope/workspace/fswap/faceswap/lib/gpu_stats.py"", line 60, in initialize
+    pynvml.nvmlInit()
+  File ""/usr/lib/python3.7/site-packages/pynvml.py"", line 615, in nvmlInit
+    _nvmlCheckReturn(ret)
+  File ""/usr/lib/python3.7/site-packages/pynvml.py"", line 310, in _nvmlCheckReturn
+    raise NVMLError(ret)
+pynvml.NVMLError_DriverNotLoaded: Driver Not Loaded
+
+
+Under Debian a non existent Nvidia card raised NVMLError_LibraryNotFound which is caught in GPU_stats.initialize and switched to CPU mode (A printed warning at that point would probably nice for misconfigured systems.)
+On Manjaro this seem to raise a pynvml.NVMLError_DriverNotLoaded exception which this mini PR now also catches.",2,4
+584,2019-01-10T21:07:58Z,2019-01-18T00:45:49Z,2019-01-18T00:45:49Z,2,14,9,"fixed several bugs that prevented sort algorithms from beeing working in staging branch.
+face-cnn, face-cnn-dissim and face-yaw now working again
+blur, face, hist, hist-dissim already worked before
+face-dissim still has an error",2,0
+605,2019-02-13T01:59:13Z,2019-02-13T20:16:10Z,2019-02-13T20:16:10Z,1,8,6,"Existing -dt crashes out without success.  This PR puts the 4 channel alpha in before patching.  To my knowledge, none of the patches are 4 channel aware so we can fake a flat alpha for their purposes.",2,0
+610,2019-02-17T17:40:16Z,2019-02-18T14:57:51Z,2019-02-18T14:57:51Z,1,2,2,"Yes, I’m a grammar nazi.
+http://www.its-not-its.info/",3,0
+624,2019-02-25T21:02:52Z,2019-02-28T10:16:57Z,2019-02-28T10:16:57Z,1,19,3,"As mentioned in #623 the current version doesn't work out of the box with PlaidML as backend.
+This PR handles that case.
+fixes #623",2,0
+637,2019-03-01T03:56:04Z,2019-03-21T11:31:32Z,2019-03-21T11:31:32Z,3,22,22,"Hello, The Developers of this great project!
+I found some typos in the documents and fixed them.
+Please check it!",2,0
+663,2019-03-14T21:56:30Z,,2019-11-13T23:26:34Z,1,70,19,"Not functioning yet - but wanted some help with an error
+Looks like when I wrote this 'patch_face' was written as 'convert_one_face', and I'm running into some issue - I think it has to do with loading multiple models. Anyway, another pair of eyes on this would be fantastic.
+Logs are attached, modified file structure looks like: '_path_to_models/[model1 folder, model2 folder, etc]', each model should also contain a .png with the targets face, running it is the same except you specify the folder (i.e. python faceswap.py convert -i src/ -o out_test/ -m models/) (there's no checking that faces/models are different, so for testing feel free to just copy/paste something you already have)
+crash_report.2019.03.14.175431537621.log
+faceswap.log",4,3
+673,2019-03-19T03:52:04Z,2019-03-21T15:58:25Z,2019-03-21T15:58:25Z,2,56,38,"Remove repetitive np.array() of items that are already np.arrays
+Remove repetitive reshaping
+Perform dilation on single channel only
+Clarify dfl_full mask parts
+Simplify with for loop
+Add more complex mask based on facial components
+Prep for convert masks",2,0
+685,2019-03-27T04:14:03Z,2019-04-09T17:08:25Z,2019-04-09T17:08:25Z,1,5,3,"Fix Dockerfile.gpu build failed issue
+Collecting dlib
+  Downloading https://files.pythonhosted.org/packages/05/57/e8a8caa3c89a27f80bc78da39c423e2553f482a3705adc619176a3a24b36/dlib-19.17.0.tar.gz (3.4MB)
+Skipping bdist_wheel for dlib, due to binaries being disabled for it.
+Installing collected packages: dlib
+  Running setup.py install for dlib: started
+    Running setup.py install for dlib: finished with status 'error'
+    Complete output from command /usr/bin/python3 -u -c ""import setuptools, tokenize;__file__='/tmp/pip-install-nudyvp1a/dlib/setup.py';f=getattr(tokenize, 'open', open)(__file__);code=f.read().replace('\r\n', '\n');f.close();exec(compile(code, __file__, 'exec'))"" install --record /tmp/pip-record-biridfye/install-record.txt --single-version-externally-managed --compile --yes USE_AVX_INSTRUCTIONS:
+    The --yes options to dlib's setup.py don't do anything since all these options
+    are on by default.  So --yes has been removed.  Do not give it to setup.py.
+    
+    ----------------------------------------
+/usr/local/lib/python3.5/dist-packages/pip/_internal/commands/install.py:207: UserWarning: Disabling all use of wheels due to the use of --build-options / --global-options / --install-options.
+  cmdoptions.check_install_build_global(options)
+Command ""/usr/bin/python3 -u -c ""import setuptools, tokenize;__file__='/tmp/pip-install-nudyvp1a/dlib/setup.py';f=getattr(tokenize, 'open', open)(__file__);code=f.read().replace('\r\n', '\n');f.close();exec(compile(code, __file__, 'exec'))"" install --record /tmp/pip-record-biridfye/install-record.txt --single-version-externally-managed --compile --yes USE_AVX_INSTRUCTIONS"" failed with error code 1 in /tmp/pip-install-nudyvp1a/dlib/",2,3
+690,2019-04-02T22:27:29Z,2019-04-12T13:35:59Z,2019-04-12T13:35:59Z,1,14,7,"This PR adds caching to increase the training data preparation speed for the ""Warp to landmarks"" feature.
+Currently the 10 nearest landmarks are calculated for each image over and over again.
+This speed up might or might not be noticeable as it depends on how long the data preparation process takes vs. how fast the GPU can finish working on a batch.
+It should decrease CPU usage tho for all cases and doesn't really cost much RAM as only the nearest 10 hashes are saved.",2,0
+701,2019-04-08T08:22:23Z,2019-04-14T19:28:57Z,2019-04-14T19:28:57Z,2,248,5,"added new RealFace training model (codenamed: Pegasus)
+Input size: 64-128
+Output image size: 64x64 to 256x256",6,11
+706,2019-04-13T13:06:51Z,,2019-09-17T18:52:52Z,3,28,14,"Additional flexibility for Tensorflow-GPU by allowing a "" force training on CPU option""
+Simply set GPUs = 0 in training cli/GUI before training start or re-load. Can dynamically switch back and forth between GPU and CPU based on the flag in different training sessions.
+Benefits
+
+easier debugging for CPU users
+Absolute last option to train very big models ( assuming RAM is bigger than VRAM )",4,8
+791,2019-07-11T00:59:32Z,2019-07-21T11:37:42Z,2019-07-21T11:37:42Z,4,144,6,"Changes the cv2 run vggface model to vggface2_resnet50 using keras.
+Since i don't have a Nvidia GPU please test carefully before merging ;)",3,3
+810,2019-07-26T00:01:22Z,,2019-07-28T13:03:31Z,1,2,2,RealFace output size rounding is now set to 32 to reflect actual model's specs,2,0
+812,2019-07-27T06:48:06Z,2019-08-03T11:38:44Z,2019-08-03T11:38:44Z,18,507,519,"Breaking up of a multi part PR into chunks. This first section is mostly cosmetic, style changes, documentation adds, and some minor edits
+Cli
+
+group all A inputs together, group all B inputs together,
+move outputs from inputs and move down in the GUI list
+
+Layers
+
+PEP8 cleanup
+addition of 3 custom layers for ease of use
+
+Losses
+
+Clarification and simplification of variable names and code logic
+
+Multithreading
+
+explicit hard coding of variables
+
+Training Data
+
+line width within PEP8 for clarity
+
+Mask_base
+
+use of round to int rather than int
+
+Train_config
+
+documentation of new losses
+consolidation of some model specifics configs to universal configs
+expose losses in config --- however, model/_base does not yet expose them for training
+
+Model_base
+
+Default parameter for gpus
+
+convert
+
+declare array with proper shape/type rather than conversion after creation
+
+train
+
+Default parameter for gpus
+
+Switch of Train Option Orderings",4,7
+813,2019-07-27T18:39:50Z,,2019-08-30T06:22:14Z,30,945,829,"Only to be merged following the previous Prep for Segmentation PR on clarity, docs
+Masks as an Input to Models
+
+
+The toolchain is significantly complicated by the fact models can either have a mask or not have a mask. Logic is needed through the code base to determine the structure of the model, the length of the inputs, and whether a mask needs to be applied or not.
+
+
+This can be simplified by always applying a mask to training and conversion or allowing it still as an option / flag
+
+
+If the user strictly wants to avoid using a mask still, a dummy mask of all 1s can be used in place to arrive at the exact same outcome, while streamlining application in code
+
+
+This creates a backward compatibility issue however for identifying and modifying previous models without a mask input
+
+
+The solution is to flag such models, modify their graphs to use two inputs, and resave legacy models in the updated format
+
+
+Use of Masks in Training Models
+
+
+Masks should not be used in the decoder when the model is designed to learn its own mask. Peeking it the ground truth will degrade performance in out of sample application
+
+
+Masks can and should be used in the encoder to inform the encoder on which pieces of the input image are important to compress into the latent space and which pieces of the input image ( background ) should be ignored. This information is not present currently and likely causes the encoder to encode useless background data in the space limited latent space",4,2
+818,2019-07-29T13:57:41Z,2019-07-31T15:35:20Z,2019-07-31T15:35:20Z,2,36,0,Added brightness and contrast adjustment to manual color plugin,4,1
+831,2019-08-09T01:59:19Z,2019-10-07T15:16:19Z,2019-10-07T15:16:19Z,49,1536,390,"Extraction and Training with Smart Masks
+Rather than selecting a mask during training, a mask is selected at extraction time and the mask is saved as a 4-channel .png image. Training will use this image dataset directly and avoid the need for additional mask models during train time.  This necessarily changes the workflow and selection of options in extract & train & convert.
+For the time being, convert has retained the usage of older masks in order to speed code review. Convert will transition to new mask style in phase 2
+Sample Mask Results",6,7
+837,2019-08-13T16:38:36Z,2019-08-15T19:04:48Z,2019-08-15T19:04:49Z,6,609,27,"S3FD-amd part of #823
+Additionally contains:
+
+Added multiprocessing_queue parameter to queue_manager.get_queue to make getting a non multiprocessing queue more convenient
+Minor bugfix to extract reload_images where -een did lead to warnings being generated for each skipped frame when using -sp.
+Workaround for convert with amd cards to use bs=1 when the batch is != requested batch_size to prevent plaidml from compiling new kernels with frames where multiple or none faces are found in the frame (Sorry for smuggling this in ;))",2,0
+838,2019-08-15T02:27:34Z,2019-08-25T11:14:52Z,2019-08-25T11:14:52Z,2,45,41,"This PR optimized the conversion speed.
+This is done mainly by choosing more performant variants for the numpy processing in the Converter class.
+The Converter now also gets whole batches from the Predict.queue_out_frames method. This was mainly done to enable batch processing and potential replacing numpy functions with keras ones later on, but it also increased my speed by about 3it/s.
+Optimizing the worker Plugins remains to be done. They did not take enough time in my setup to be really relevant. This may be different with other settings.
+Benchmarks:
+
+Current staging: 16.45 it/s
+This PR WITHOUT providing whole batches to the converter: 21.40 it/s
+This PR as is: 24.69 it/s
+
+Tested on 10k frames with a resolution of 1280x720.
+The tested model on my system can do raw prediction (without anything else) with about 37.2 it/s",3,1
+844,2019-08-26T05:00:53Z,,2020-08-10T10:30:17Z,2,38,0,Added the ability to Enable/Disable of training Encoder and Decoders to global config file,6,6
+851,2019-08-30T04:32:03Z,2019-09-24T10:16:03Z,2019-09-24T10:16:04Z,12,129,243,"Over the last year, the amount of options and toggles has been slowly increasing in FS. In order to manage this growth, I wanted to re-evaluate align_eyes. The face detection and face alignment models have been greatly improved with the additional of superior models and the retirement of older inaccurate ones. This largely removes the primary case for align_eyes which is to vertically align the pupils of the face due to inaccuracies in the alignment model and/or umeyama fitting routine.
+In addition, this feature has also been rendered less useful by the fact that the training input face images are randomly rotated anyways prior to training. This rotation augmentation directly makes the align_eyes feature useless.  For this reason and in order to limit the option creep in the ui, I'd like to deprecate align_eyes.
+I'm open to hearing any reasons or use cases that I have overlooked that call for this toggle's continuing inclusion. Thank you.",4,9
+858,2019-09-03T04:21:38Z,2019-09-03T22:42:52Z,2019-09-03T22:42:52Z,4,65,363,"This is little bit faster but, more important, removes a lot of complexity.
+Need to be tested on windows and macOs if possible.",3,2
+932,2019-11-14T23:43:15Z,,2019-11-15T02:37:56Z,1,1,1,,2,0
+937,2019-11-19T18:47:16Z,2019-11-21T02:28:27Z,2019-11-21T02:28:27Z,2,70,22,"Currently the mask tool outputs a combination of face, mask and masked face.
+This PR add options to output only the mask or the masked face too.
+Additionally it adds an option to output the whole frame.
+This allows using the extraction and masking part of faceswap in an after effects workflow.
+I am aware that this is not the goal of faceswap but since it became a pretty nice face extraction / clean and masking tool it would be nice to have.
+This will become even more interesting as soon as better obstruction mask models are implemented.",3,1
+989,2020-03-15T14:09:54Z,,2020-03-17T02:53:36Z,2,45,1,I think create update for tpu and with testing vgg2dataset.,4,2
+1053,2020-08-24T18:35:43Z,,2021-03-20T14:10:53Z,2,7,0,"Addressing issue #1047
+I added the option to change the font color of the help text.",2,1
+1081,2020-10-24T06:43:47Z,2020-10-24T10:42:05Z,2020-10-24T10:42:05Z,2,8,2,"Changes required to make the cpu image build:
+
+Install missing package required for add-apt-repository to work
+Disable interactive input to stop tzdata from stopping the image build.
+There is no image tagged 2.2.0-py3. 2.2.1-py3
+
+Related ticket for gpu: #1078",3,1
+1127,2021-02-19T18:23:50Z,2021-02-21T16:21:52Z,2021-02-21T16:21:52Z,20,1036,4,"Ok. Those are my translations into spanish of the already supplied .pot files. I've tried them to be useful for spanish users, while maintaining most of the original names in english for the options, to keep consistency between different languages.",3,2
+1134,2021-03-16T18:43:06Z,2021-03-22T18:26:40Z,2021-03-22T18:26:40Z,6,316,45,Translations for strings related to the GUI tooltips.,2,1
+1147,2021-04-18T20:28:50Z,2021-04-19T09:48:47Z,2021-04-19T09:48:47Z,2,92,2,Blur detection using the mean value of the magnitude spectrum of and inverted FFT.,3,1
+1169,2021-07-11T22:04:33Z,2021-08-07T11:24:42Z,2021-08-07T11:24:42Z,2,71,11,"Context:
+
+Faces are quite often moving and can get near borders of the image.
+Because of that, the face image has the out of bound part replaced by black pixels.
+Some are still good for training but others not. Also, one might want to keep an alignment file with the near borders faces but excluded (some of) them for training.
+Having to manually move/delete those images in a dataset of thousands of them is painful and prone to mistakes.
+Thus, having a way to sort and group those images would be helpful. At least, it is for me :-)
+
+Added features:
+
+A new option in Tools/Sort for both Sort and Group By called Black-Pixels.
+Sort feature: calculates the percentage of black pixels in each images and sort them from 0 to 100%.
+Group By feature: Uses the Bins slider number selected and creates 100/Bins folders with the images percentage of black pixels. ie. a Bins of 5 will create 20 folders with the first one containing images with 0-5% of black pixels, the second one with 6-10%, etc. A static method as been added for the rounding error.",3,2
+1189,2021-11-18T10:37:11Z,2021-12-05T14:35:18Z,2021-12-05T14:35:18Z,1,61,9,Add support for rectangular masking cursor.,3,2
+1193,2021-11-26T22:57:52Z,2022-05-04T22:07:31Z,2022-05-04T22:07:31Z,2,8,7,"Add support for training in non-interactive shell environment such as Sun Grid Engine, Univa Grid Engine and others.
+Tested on Univa Grid Engine.
+Reference: https://stackoverflow.com/questions/967369/python-find-out-if-running-in-shell-or-not-e-g-sun-grid-engine-queue.",3,0

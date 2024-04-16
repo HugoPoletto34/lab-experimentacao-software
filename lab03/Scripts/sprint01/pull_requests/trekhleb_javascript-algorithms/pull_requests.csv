@@ -1,0 +1,110 @@
+number,created_at,merged_at,closed_at,files,additions,deletions,body_text,participants,comments
+15,2018-05-24T11:13:23Z,2018-08-20T12:57:02Z,2018-08-20T12:57:02Z,3,68,0,,5,5
+28,2018-05-28T18:29:39Z,2018-05-29T05:38:20Z,2018-05-29T05:38:20Z,5,150,0,"Let me know if you want me to stop with these, but thought I'd add another sorting algorithm that I find very interesting.",3,2
+59,2018-06-09T08:25:57Z,2018-06-12T14:46:40Z,2018-06-12T14:46:40Z,8,19,19,Miscellaneous typos fixed.,4,1
+67,2018-06-13T20:22:41Z,,2018-06-14T15:45:28Z,5,1605,1386,"This is a Bidirectional Conditional Sort.
+Note on stability with custom compare function.
+let comp = new Comparator(function (a, b) {
+    let x = a;
+    let y = b;
+    if (typeof a === ""string"") {
+        x = a.length;
+    }
+    if (typeof b === ""string"") {
+        y = b.length;
+    }
+    if (x === y) {
+        return 0;
+    }
+    return x < y ? -1 : 1;
+})
+
+i.e.
+Without
+a, cc, bbb --> a, bbb, cc
+With
+a, cc, bbb --> a, cc, bbb
+Even with the custom compare, you are not always guaranteed a stable sort
+Example: Given: [aa, q, a, bbbb, ccc]
+The algorithm will start with a SWAP from the right most index and the middle of the array.
+
+START SWAP ""ccc"", ""a""
+END SWAP (New Array: aa,q,ccc,bbbb,a)
+""aa"" is greater than ""a""
+START SWAP ""aa"", ""a""
+END SWAP a,q,ccc,bbbb,aa
+""ccc"" is greater than ""aa""
+START INSRIGHT  (Given: a,q,bbbb,bbbb,aa)
+END INSRIGHT (New Array: a,q,bbbb,aa,ccc)
+""bbbb""is greater than ""aa""
+START INSRIGHT (Given: a,q,bbbb,aa,ccc)
+END INSRIGHT  (New Array: a,q,aa,ccc,bbbb)
+
+Finished:
+[ 'a', 'q', 'aa', 'ccc', 'bbbb' ]",2,2
+86,2018-07-01T12:57:01Z,2018-07-03T08:56:35Z,2018-07-03T08:56:35Z,1,1,1,"Hi, this is fixing the situation when we have an unsorted array with negative numbers and zeroes.",6,2
+88,2018-07-03T14:38:54Z,,2018-07-24T10:07:47Z,8,910,137,,3,3
+101,2018-07-20T23:44:03Z,2018-07-24T09:26:23Z,2018-07-24T09:26:23Z,2,6,2,"While running property based tests - based on fast-check - on the implementation of knuthMorrisPratt I discovered what seems to be an inconsistency:
+knuthMorrisPratt("""", """") === -1
+knuthMorrisPratt(""a"", ""a"") === 0
+The tests that discovered the issue are available in the commit: dubzzz@87329dd
+If you are interested in this test method, I can issue another pull request for those property based tests.",3,3
+110,2018-07-24T19:02:53Z,2018-07-30T09:20:41Z,2018-07-30T09:20:41Z,4,139,88,"Created Rabin hash function module.
+Transitioned Rabin-Karp string matching function to Rabin hash function family.",4,17
+113,2018-07-25T19:37:37Z,,2018-07-26T14:33:41Z,7,82,449,"Refactored disjoint set data structure
+Updated dependencies (Kruskal, Detect Cycles) for new interface.",3,3
+136,2018-08-03T03:11:31Z,,2018-10-29T22:09:22Z,3,58,4,"This implements the fib(n) function that completes in log(n) number of iterations.
+Found in SICP https://mitpress.mit.edu/sites/default/files/sicp/full-text/book/book-Z-H-11.html#%_thm_1.19",4,1
+159,2018-08-11T17:38:42Z,,2019-10-14T13:01:34Z,3,55,0,This adds implementation of Karatsuba multiplication.,3,2
+194,2018-08-31T15:42:52Z,2018-09-08T08:55:52Z,2018-09-08T08:55:52Z,3,104,5,"Changes:
+
+Add LinkedList traverse implementation
+Add LinkedList reverse implementations (reverseTraversal and reverse)
+Update their pseudocode",3,5
+224,2018-10-13T09:23:18Z,2018-10-17T03:19:14Z,2018-10-17T03:19:14Z,1,2,6,,4,6
+301,2019-02-10T12:12:34Z,2019-03-08T11:01:07Z,2019-03-08T11:01:08Z,1,1,1,fix typo.,3,1
+517,2020-07-29T00:07:17Z,2020-08-08T09:51:23Z,2020-08-08T09:51:23Z,3,72,0,"Hi @trekhleb. I just added the ceaserCipher algorithm to your javascript-algorithms repository and it is well tested and documented, I would like you to merge it with the existing repository. Thanks in advance",3,2
+520,2020-08-01T02:36:32Z,2020-08-09T12:10:16Z,2020-08-09T12:10:16Z,10,135,0,"Translated Queue (""File"") and Priority Queue (""File de priorité"") chapters into french.
+Added french language to lang redirection in their respective default readmes.",2,2
+524,2020-08-04T03:55:58Z,2020-08-08T09:45:16Z,2020-08-08T09:45:16Z,2,2,2,"sam should be sum as a type of range query, which is correctly spelled in the test file.",4,1
+532,2020-08-27T21:03:06Z,2020-12-10T16:54:12Z,2020-12-10T16:54:12Z,4,119,0,An algorithm to compute total distinct count of prime factors for a given natural number using the approximate Hardy-Ramanujan algorithm and its comparison with the original accurate algorithm.,3,1
+540,2020-09-15T07:26:16Z,2020-12-09T07:13:06Z,2020-12-09T07:13:06Z,1,1,1,"Simple change to fix the typo in a comment in RedBlackTree.js
+This is to address issue #528",3,1
+547,2020-09-25T03:04:34Z,2020-12-09T07:09:30Z,2020-12-09T07:09:30Z,1,1,1,adjusted for better reading of javascript-algorithms.,3,1
+548,2020-09-27T13:29:32Z,,2020-12-04T10:27:15Z,4,52,0,Added Mini-max sum,2,1
+552,2020-10-01T09:57:46Z,,2020-12-08T17:12:32Z,1,288,0,,3,2
+553,2020-10-01T11:01:10Z,,2020-12-08T17:10:53Z,1,1,1,,4,3
+571,2020-10-19T04:20:03Z,,2020-12-08T17:04:36Z,1,106,0,,3,1
+575,2020-11-17T00:51:16Z,2020-12-08T07:59:32Z,2020-12-08T07:59:32Z,3,52,0,"Added Horner's Method into algorithms/math. Horner's method is a clever solution named after William George Horner, to evaluate polynomial functions given a certain point. I think it would be an interesting addition since it can be used in many hardware/software applications.",3,1
+577,2020-11-18T21:21:02Z,,2020-12-03T15:01:54Z,0,0,0,"Changes 'a lower' (bound) to 'an upper' (bound)
+to reflect presumed meaning.",2,1
+637,2021-02-05T04:07:06Z,2022-01-27T20:02:10Z,2022-01-27T20:02:10Z,1,1,1,,3,0
+646,2021-02-16T16:16:03Z,,2021-02-18T07:03:30Z,1,1,0,,2,1
+704,2021-04-29T23:10:23Z,2021-05-06T04:43:28Z,2021-05-06T04:43:28Z,1,20,21,Just some better Spanish for linked-list README.,3,0
+717,2021-06-07T21:02:44Z,2022-01-26T19:38:56Z,2022-01-26T19:38:56Z,1,9,9,,3,0
+726,2021-06-20T06:07:56Z,2022-01-27T08:50:47Z,2022-01-27T08:50:47Z,1,2,2,,3,0
+735,2021-07-14T14:59:11Z,2022-01-27T08:49:11Z,2022-01-27T08:49:11Z,2,36,1,"This PR:
+
+Created Quicksort documentation in pt-BR and also
+Updated original Quicksort README and put a link referencing the Portuguese documentation",3,0
+740,2021-07-17T20:13:20Z,2022-01-26T19:35:45Z,2022-01-26T19:35:45Z,2,39,1,Added Turkish readme for Factorial.,3,0
+752,2021-08-16T06:43:42Z,2022-01-25T16:54:01Z,2022-01-25T16:54:01Z,2,22,1,"translating Queue doc in Korean
+Adding link to queue doc in Korean in Queue README
+src\data-structures\queue\README.ko-KR.md
+src\data-structures\queue\README.md",4,0
+782,2021-10-09T09:52:48Z,,2022-01-23T20:37:03Z,1,1,0,,3,0
+787,2021-10-14T13:24:20Z,2022-01-23T20:34:09Z,2022-01-23T20:34:09Z,1,54,54,General formatting and translation fixes,3,0
+888,2022-05-26T08:06:58Z,,2022-09-08T05:46:42Z,1,1,1,,4,0
+901,2022-06-16T20:44:23Z,,2024-04-09T12:41:20Z,1,2,2,Translate one sentence to Portuguese and fix understanding from an already translated sentence,2,0
+919,2022-08-08T13:19:48Z,,2022-08-30T12:46:24Z,3,36,1,Create a factors.js to find the factor of a number which is input by the user.,2,0
+930,2022-08-27T10:31:27Z,,2022-10-10T13:23:18Z,1,50,0,,3,1
+1009,2023-03-17T00:34:32Z,,2023-04-08T05:22:32Z,0,0,0,added a clear check for the factorial eveluation of negative numbers to avoid wrong answer at runtime.,3,5
+1011,2023-04-02T14:56:42Z,,2023-07-16T18:57:46Z,4,12,0,"Issue: Factorial of a negative number does not exist #1008
+Added condition to throw an error for negative numbers in factorial. Also added test cases to validate the results.",2,0
+1065,2023-08-27T05:09:48Z,,2024-01-23T07:05:49Z,1,1,1,"I have corrected the typo in binary search file. here function name should be lessThan() not lessThen()
+#1064  Resolved",3,1
+1066,2023-08-30T05:25:28Z,,2024-03-09T16:13:28Z,1,0,1,nothing much lol,3,0
+1097,2024-01-11T10:25:08Z,,2024-03-09T16:00:40Z,1,1,0,"qwdfsb
+sfajfsa
+bjs",3,0
+1100,2024-01-27T17:34:20Z,,2024-03-24T09:01:23Z,1,4,0,updated the factorial program to work with Negative Numbers also.,2,1

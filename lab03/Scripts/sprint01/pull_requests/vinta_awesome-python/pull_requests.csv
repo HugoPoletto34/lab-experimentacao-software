@@ -1,0 +1,285 @@
+number,created_at,merged_at,closed_at,files,additions,deletions,body_text,participants,comments
+542,2016-01-07T18:34:14Z,,2019-11-06T17:36:53Z,1,1,0,I use petl every day for ETL.  I have no affiliation with the project other than being a very happy user.,3,3
+725,2016-09-16T11:33:44Z,2016-11-18T06:36:50Z,2016-11-18T06:36:50Z,1,1,0,"What is this Python project?
+PyPattyrn is a python package aiming to make it easier and faster to implement design patterns into your own projects. Containing over 15 of the most common design patterns, you no longer have to write the same boilerplate code between all your projects when you wish to use a design pattern. This package captures that boilerplate code and makes it easy to use.
+Example:
+from pypattyrn.creational.singleton import Singleton
+
+class DummyClass(object, metaclass=Singleton):
+    ... 
+DummyClass is now a Singleton.
+What's the difference between this Python project and similar ones?
+Every other design pattern repo I've found simply provides examples for how to implement design patterns in python. PyPattyrn is something you would actually import into your project to speed up development process because the boilerplate code necessary for the design pattern is already written and provided for you by the package. I have not found another package that does the same thing.
+
+Anyone who agrees with this pull request could vote for it by adding a 👍 to it, and usually, the maintainer will merge it when votes reach 20.",3,0
+758,2016-10-26T19:48:42Z,,2019-11-06T14:36:33Z,1,21,0,"What is this Python project?
+Describe features.
+What's the difference between this Python project and similar ones?
+Enumerate comparisons.
+
+Anyone who agrees with this pull request could vote for it by adding a 👍 to it, and usually, the maintainer will merge it when votes reach 20.",2,1
+759,2016-10-27T10:29:15Z,,2019-11-06T15:36:59Z,1,1,0,"What is this Python project?
+An easy-to-use Python library for displaying Windows 10 Toast Notifications which is useful for windows GUI development.
+
+
+Anyone who agrees with this pull request could vote for it by adding a 👍 to it, and usually, the maintainer will merge it when votes reach 20.",2,2
+787,2016-12-05T21:23:08Z,2017-02-02T07:47:23Z,2017-02-02T07:47:23Z,1,3,0,"What is this Python project?
+Web2py: Free open source full-stack framework for rapid development of fast, scalable, secure and portable database-driven web-based applications.
+What's the difference between this Python project and similar ones?
+http://www.web2py.com/examples/static/web2py_vs_others.pdf
+Anyone who agrees with this pull request could vote for it by adding a 👍 to it, and usually, the maintainer will merge it when votes reach 20.",3,3
+792,2016-12-14T00:32:44Z,,2017-01-11T18:34:43Z,1,1,0,"What is this Python project?
+The most popular 3D creation package - and it comes with Python3 as Scripting language.
+It supports the entirety of the 3D pipeline—modeling, rigging, animation, simulation, rendering, compositing and motion tracking, even video editing and game creation.
+
+blender docs
+python docs
+
+What's the difference between this Python project and similar ones?
+Blender covers all aspects of image/video/game creation and
+is the most complete open source package available in this area.
+--
+Anyone who agrees with this pull request could vote for it by adding a 👍 to it, and usually, the maintainer will merge it when votes reach 20.",2,0
+825,2017-01-30T10:15:35Z,2017-01-31T09:02:17Z,2017-01-31T09:02:17Z,1,1,0,"Disclaimer: I'm the author of surprise ;)
+What is this Python project?
+Surprise is a Python scikit building and analysing recommender systems.
+Main features:
+
+Give the user perfect control over his experiments. To this end, a strong  emphasis is laid on   documentation, which we  have tried to make as clear and precise as possible by pointing out every  details of the algorithms.
+Alleviate the pain of Dataset  handling.   Users can use both built-in datasets
+(Movielens,  Jester), and their own custom  datasets.
+Provide various ready-to-use prediction  algorithms  such as baseline  algorithms,  neighborhood  methods, matrix  factorization-based (  SVD,  PMF,  SVD++,  NMF),  and many  others.  Also, various similarity
+measures  (cosine, MSD, pearson...) are built-in.
+Make it easy to implement new algorithm  ideas.
+Provide tools to evaluate,  analyse  and  compare  the algorithms performance. Cross-validation procedures can be run very  easily, as well as exhaustive search over a set of  parameters.
+
+What's the difference between this Python project and similar ones?
+
+According to any google search, crab is the go-to package for RS. But it actually only has one prediction algorithm (k-NN), no evaluation tools, no doc, and has been dead for three years.
+The second most popular package I think is Recsys. Provides with two prediction algorithms (k-NN and SVD) but is also unmaintained. Evaluation tools are very minimal.
+There's GraphLab, which is not free and needs license registration. I've heard good feedback about it, but never used it.
+LightFM. This package is focused on a specific set of algorithms (all Boolean-valued) and does not provide with other classical approaches.
+
+I think what makes Surprise is it's doc, the variety of prediction algorithms and the ability to evaluate the performances of algorithms easily (cross-validation, GridSearch, etc.). This makes it a useful tool to get your hands dirty quickly with recommender systems.
+--
+Anyone who agrees with this pull request could vote for it by adding a 👍 to it, and usually, the maintainer will merge it when votes reach 20.",2,0
+836,2017-02-21T14:08:01Z,,2019-11-29T11:24:51Z,1,1,0,"What is this Python project?
+It's a framework for scraping HTML sites, and aggregating data from multiple sites from a same category (e.g. banking sites, news sites, video sites, etc.).
+There are ready-made modules for popular websites and ready-apps to interact with them.
+Think youtube-dl applied to other domains than video!
+What's the difference between this Python project and similar ones?
+
+It's possible to scrape new websites with declarative-style extraction rules
+It provides a standardized API for categories of sites for dedicated tasks (e.g. banking, web forums, video sites, news sites, music lyrics sites, etc.)
+
+Scraped websites are grouped in those categories
+
+
+Scraped websites are grouped in categories for a dedicated task:
+The project comes with many existing backends for real-life websites
+It has an internal upgrade system",2,7
+853,2017-03-12T18:06:27Z,2017-03-15T03:03:24Z,2017-03-15T03:03:24Z,1,1,0,"What is this Python project?
+https://github.com/google/python-fire
+
+Python Fire is a simple way to create a CLI in Python.
+Python Fire is a helpful tool for developing and debugging Python code.
+Python Fire helps with exploring existing code or turning other people's code
+into a CLI.
+Python Fire makes transitioning between Bash and Python easier.
+Python Fire makes using a Python REPL easier by setting up the REPL with the
+modules and variables you'll need already imported and created.
+
+What's the difference between this Python project and similar ones?
+Fire is not as flexible as click, yet it provides an easier way to start a simple CLI program.
+--
+Anyone who agrees with this pull request could vote for it by adding a 👍 to it, and usually, the maintainer will merge it when votes reach 20.",2,0
+854,2017-03-12T18:23:43Z,,2018-04-26T15:01:25Z,1,1,1,This project has been moved to an org account.,1,0
+891,2017-05-24T16:56:27Z,,2019-11-06T13:36:48Z,1,1,1,"The link to pysonar2 404'd, here is a link to a repository that I think hosts the same code.",3,1
+896,2017-06-27T09:03:24Z,,2019-11-29T13:24:51Z,1,1,0,"What is this Python project?
+Slash is a testing framework intended to test complex project, with emphasis on extensibility.
+What's the difference between this Python project and similar ones?
+
+Slash puts a lot more emphasis on extending the framework -- developers can add plugins, custom configuration, command-line options and more through a simple, documented interface
+Slash has a powerful fixture mechanism (inspired by pytest) with many advanced features and more yet to come
+Slash supports an easy-to-use plugin and hook mechanism (powered by the gossip library)
+Slash has a built-in exception handling mechanism allowing tests and infrastructure to catch errors early, preserving the test subject state or taking actions when it is needed the most. This is also supported in conjunction with expected exceptions or possible ones
+Slash has a flexible, multi-scoped cleanup mechanism, supporting retroactive test failures and session-scoped cleanups
+Slash supports multiple parametrization schemes, with more features being added each release
+Slash supports customizable logging setups and schemes, allowing finer control over log files and verbosity
+Slash supports test artifacts, details and metadata to be controlled by both tests and plugins
+Slash integrates with the Backslash test reporting service, allowing test results to be examined an analyzed with ease
+--
+
+Anyone who agrees with this pull request could vote for it by adding a 👍 to it, and usually, the maintainer will merge it when votes reach 20.",3,7
+915,2017-08-15T12:29:07Z,,2019-11-29T18:24:48Z,1,1,0,"What is this Python project?
+PyPika is a programmatic interface that uses a natural, pythonic syntax for creating SQL queries without assumptions. It is intended for querying analytical data and supports analytic queries but is designed as a light-weight wrapper that is extensible to any SQL syntax.
+What's the difference between this Python project and similar ones?
+
+Light-weight wrapper using pythonic syntax
+Uses the builder pattern with immutability for dynamic construction of queries and re-use of query parts
+Supports complex queries with arithmetic, functions, and nested expressions
+Supports analytic queries
+No assumptions made, extensible to any SQL syntax and database
+
+--
+Anyone who agrees with this pull request could vote for it by adding a 👍 to it, and usually, the maintainer will merge it when votes reach 20.",5,4
+943,2017-09-30T19:57:16Z,,2019-11-06T12:36:45Z,1,1,0,"What is this Python project?
+An advanced task flow management on top of famous Celery project (a distributed task queue). It allows one to create advanced task flows by creating YAML configuration files which state dependencies between tasks, fallback tasks (run on task failures) or run whole flows (transitively or even recursively). Dependencies between tasks or flows are graphs (without any limitation to DAG). It also enables one to use different storage or database adapters or running only certain tasks in a flow definition - system will automatically compute dependencies between tasks (which tasks needs to be run in order to run desired tasks). Selinon comes with a set of prepared storage/database adapters and support for tracing system actions (easy to integrate with Sentry or other monitoring systems) or logging ELK (Elasticsearch, logstash, Kibana) stack to provide ready-to-be-used system in clusters (using Kubernetes, OpenShift or others). A built in simutor can run your flows by executing CLI.
+More info can be found in docs and repo.
+What's the difference between this Python project and similar ones?
+Celery is limited when it comes to modelling more advanced task flows (dependencies between tasks). Selinon offers fine-granted control on how your task flow will work, how it will perform and how it will be traced in distributed environment.
+--
+Anyone who agrees with this pull request could vote for it by adding a 👍 to it, and usually, the maintainer will merge it when votes reach 20.",2,4
+971,2017-11-03T18:46:29Z,,2019-11-29T14:24:50Z,1,1,0,"What is this Python project?
+Dependency Injector - Dependency injection microframework for Python.
+Dependency Injector key features are:
+
+Easy, smart, pythonic style.
+Obvious, clear structure.
+Extensibility and flexibility.
+High performance.
+Memory efficiency.
+Thread safety.
+Documentation.
+Semantic versioning.
+
+Other resources:
+
+Documentation - http://python-dependency-injector.ets-labs.org/
+PyPi - https://pypi.python.org/pypi/dependency_injector
+
+What's the difference between this Python project and similar ones?
+
+No decorators like @inject that enforce polluting of application code.
+No monkey-patching, just clean overriding.
+Implemented using Cython.
+Extensive documentation with diagrams and ready-to-copy-paste examples.
+Well-tested and supported.
+
+--
+Anyone who agrees with this pull request could vote for it by adding a 👍 to it, and usually, the maintainer will merge it when votes reach 20.",2,1
+1043,2018-04-05T14:36:31Z,2018-04-05T17:49:57Z,2018-04-05T17:49:57Z,1,1,0,"What is this Python project?
+awesome-jupyter is a curated list of awesome Jupyter projects, libraries and resources. It currently has 55 stars, 43 commits and 73 items on the list. I added it to the category description for ""Interactive Interpreter"" as is the case for other awesome lists that are dedicated to a particular category.
+What's the difference between this Python project and similar ones?
+This is the most comprehensive one in terms of stars/commits and arguably most complete/highest quality (caveat: I'm the author, I'm naturally biased).
+--
+Anyone who agrees with this pull request could vote for it by adding a 👍 to it, and usually, the maintainer will merge it when votes reach 20.",2,1
+1051,2018-04-10T12:45:14Z,,2019-11-06T17:36:41Z,1,1,0,"What is this Python project?
+Describe features.
+What's the difference between this Python project and similar ones?
+Enumerate comparisons.
+--
+Anyone who agrees with this pull request could vote for it by adding a 👍 to it, and usually, the maintainer will merge it when votes reach 20.",3,3
+1101,2018-08-04T11:48:38Z,,2019-11-07T10:59:53Z,1,1,0,"pyvips is a binding for the libvips image processing library. It's fast and only needs a little memory.
+For example, on this benchmark:
+https://github.com/libvips/libvips/wiki/Speed-and-memory-use
+It's 5x faster than ImageMagick and needs 10x less memory.
+pyvips works on all python versions on all platforms, is LGPL, can be simply installed with pip, has complete documentation, has a large test suite, and has no known memory leaks.",3,5
+1107,2018-08-15T18:42:24Z,,2019-11-07T10:59:54Z,1,1,0,"What is this Python project?
+Pyecharts is a python interface to Echarts.js visualization library. It supports 28+ charts ranging from 2D, 3D and geo mapping. It supports data scientists using Jupyter, nteract and supports web developers with django and flask integration.
+What's the difference between this Python project and similar ones?
+It is similar to plotly.py and bokeh.
+Comparing with plotly.py, pyecharts offers free exports of svg, pdf and html format whereas plotly.py offer them under a premium version. And pyecharts does not really care about the number of exports to other file formats whereas ploly.py allows up to100 exports per 24h.
+Comparing with bokeh, user group are different. Bokeh serves primarily scientific community whereas pyecharts serves both web developers and data analysts. Bokeh's api emulates matplotlib whereas pyecharts api emulates pygal.
+When it comes to geomapping, pyecharts has strong support for Chinese regions.
+--
+Anyone who agrees with this pull request could vote for it by adding a 👍 to it, and usually, the maintainer will merge it when votes reach 20.",8,7
+1108,2018-08-15T18:58:13Z,,2019-11-06T10:36:45Z,1,2,0,"Adding a couple of plugins for python in vim.
+What is this Python project?
+Vim plugin for python.
+What's the difference between this Python project and similar ones?
+Options for those that don't like pymode's opinionated all-in-one package
+--
+Anyone who agrees with this pull request could vote for it by adding a 👍 to it, and usually, the maintainer will merge it when votes reach 20.",2,1
+1110,2018-08-17T14:54:58Z,,2019-11-06T10:36:48Z,1,1,0,"What is this Python project?
+CxFreeze allows you to build python executable for every desktop platform (such as Linux, Windows or Mac).
+This project is like pyinstaller or nuitka but it updates faster than first and builds in python (other than second).
+--
+Anyone who agrees with this pull request could vote for it by adding a 👍 to it, and usually, the maintainer will merge it when votes reach 20.",2,1
+1111,2018-08-17T16:44:42Z,,2019-11-06T10:36:47Z,1,1,0,"What is this Python project?
+Snips NLU is a natural language understanding library dedicated to Intent Parsing and Entity Extraction. It is based on machine learning and makes use of Logistic Regression and Conditional Random Fields.
+Consider the following sentence:
+    ""What will be the weather in paris at 9pm?""
+
+After proper training, the Snips NLU library allows to extract structured data such as:
+    {
+       ""intent"": {
+          ""intentName"": ""searchWeatherForecast"",
+          ""probability"": 0.95
+       },
+       ""slots"": [
+          {
+             ""value"": ""paris"",
+             ""entity"": ""locality"",
+             ""slotName"": ""forecast_locality""
+          },
+          {
+             ""value"": {
+                ""kind"": ""InstantTime"",
+                ""value"": ""2018-02-08 20:00:00 +00:00""
+             },
+             ""entity"": ""snips/datetime"",
+             ""slotName"": ""forecast_start_datetime""
+          }
+       ]
+    }
+
+What's the difference between this Python project and similar ones?
+
+The purpose of Snips NLU is more high-level than libraries such as spaCy or NLTK and can be directly used to build chatbots for instance.
+Snips NLU has been designed to run very fast, with a very low memory footprint, while achieving very good prediction accuracy (cf this blogpost).
+This library offers an interface with snips-nlu-rs, its Rust equivalent for inference only. It allows to persist the NLU pipeline trained with the python code, and load it with the rust code to perform inference. This offers a great portability.
+
+
+Anyone who agrees with this pull request could vote for it by adding a 👍 to it, and usually, the maintainer will merge it when votes reach 20.",2,1
+1112,2018-08-18T11:44:48Z,,2019-11-29T11:24:53Z,1,4,3,"Added PyXLL to Office section.
+What is this Python project?
+PyXLL.
+A tool for creating Excel add-ins for Excel in Python.
+Features include:
+
+Write Excel user defined functions and macros in Python
+Extend the Excel UI with menu functions and custom ribbons
+Stream real time data to Excel from Python
+Asynchronous and thread safe functions
+Customizable type system for handling Excel <-> Python type conversion
+Reload Python code without restarting Excel
+
+What's the difference between this Python project and similar ones?
+No other projects embed the Python interpreter into Excel to enable writing full Excel add-ins in Python with the same level of performance that's possible with PyXLL.
+--
+Anyone who agrees with this pull request could vote for it by adding a 👍 to it, and usually, the maintainer will merge it when votes reach 20.",3,4
+1113,2018-08-21T21:40:02Z,,2019-11-06T10:36:46Z,1,1,0,"What is this Python project?
+Run commands and manipulate files locally or over SSH using the same interface
+What's the difference between this Python project and similar ones?
+It is built on top of paramiko, but has a much simpler and more straight-forward interface.
+--
+Anyone who agrees with this pull request could vote for it by adding a 👍  to it, and usually, the maintainer will merge it when votes reach 20.",2,1
+1114,2018-08-21T21:48:18Z,,2019-11-06T10:36:49Z,1,1,0,"What is this Python project?
+Manages the remote machines via SSH including a rich set of file operations such as sync and mkdtemp. Built on top of paramiko and spur.
+What's the difference between this Python project and similar ones?
+Please see the github page for details on differences to Spur; the most important ones are:
+
+type annotations
+pathlib.Path support
+many helper functions to abstract away the tedious work with SFTP client
+sync function to sync a local to a remote directory (similar to rsync)
+computation of MD5 checksums
+a wrapper around paramiko's SFTP client to automatically reconnect on failures
+
+--
+Anyone who agrees with this pull request could vote for it by adding a 👍  to it, and usually, the maintainer will merge it when votes reach 20.",2,1
+1115,2018-08-24T12:30:07Z,,2019-11-06T10:36:51Z,1,1,0,"safrs - Quickly deploy JSON:API services based on SQLAlchemy models with an OpenApi (fka Swagger) UI
+What is this Python project?
+The purpose of this framework is to help python developers create a self-documenting JSON API for sqlalchemy models
+
+What's the difference between this Python project and similar ones?
+
+Automatically generate OpenApi-Spec (swagger) documentation
+JSON:API compliant
+
+--
+Anyone who agrees with this pull request could vote for it by adding a 👍 to it, and usually, the maintainer will merge it when votes reach 20.",2,1
+1116,2018-08-25T21:17:36Z,,2019-11-06T10:36:50Z,1,1,0,"CCtbx is a comprehensive tool eligible for the most crystallography related projects
+I do not know any other similar project
+--",2,1

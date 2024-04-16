@@ -1,0 +1,1902 @@
+number,created_at,merged_at,closed_at,files,additions,deletions,body_text,participants,comments
+622,2016-08-05T13:13:08Z,,2017-12-04T22:49:56Z,3,559,142,"Animate.css Builder Web Version
+
+The Animate.css Builder updates automatically, just update form > select.
+
+The Root Code ( not test ), is updated with the new animations.
+Preview 1
+
+Preview 2",6,20
+631,2016-08-31T13:00:08Z,2017-04-27T12:23:25Z,2017-04-27T12:23:25Z,5,84,1819,"Demo: http://codepen.io/RPem/pen/JRPaEq
+My first ever pull request so just let me know if there's anything I've missed.",4,6
+637,2016-09-22T15:44:35Z,2016-09-27T13:45:38Z,2016-09-27T13:45:38Z,2,9,1,"Add this project on Travis CI!
+Also update the README with Github Badges!",5,9
+695,2017-05-01T06:29:26Z,2017-11-10T00:33:55Z,2017-11-10T00:33:55Z,2,110,108,"First of all congratulations for this simple and easy to use CSS library ㊗️
+The documentation spoke about custom builds to reduce size and showed a way to customize them:
+""attention_seekers"": { ""bounce"": true, ""flash"": false, ""pulse"": false, ""shake"": true, ""headShake"": true, ""swing"": true, ""tada"": true, ""wobble"": true, ""jello"":true }
+However that never worked for me if I wanted to add only one animation, the whole group of animations was always gone independently of the boolean value, that's how I found out it was a bug.
+I corrected the gulpfile to iterate objects instead of the for loop for arrays, and corrected animate-config.json to fit the way is expected to work by the documentation.
+With the current fix I am finally able to use just the ""shake"" animation with only 624B instead of the 17Kb of the original file 😄",2,3
+740,2017-09-15T13:47:51Z,2017-10-02T20:43:47Z,2017-10-02T20:43:47Z,1,4,0,"for more see this issue.
+hope I helped 👐 👐
+ready for any discussions..💖💖",4,1
+743,2017-10-04T00:33:52Z,,2020-04-21T10:25:58Z,12,509,2,https://codepen.io/ardagedikk/pen/Ewbjyx,4,21
+762,2017-11-15T23:10:11Z,2018-01-25T16:46:46Z,2018-01-25T16:46:46Z,35,367,236,"What do you think about prettifying some stuff with https://github.com/prettier/prettier?
+Formatting all the support files in this project: js, json, md, css.
+I also including the pre-commit hooks, so it will format stuff before making it to the repo.",3,12
+790,2018-02-20T19:05:25Z,2018-07-19T01:24:17Z,2018-07-19T01:24:17Z,7,79,26,"What's New?
+I add css class to define delays, so you can now add delay class directly in the html element. For example:
+<div class=""animated bounce delay-2s"">Example</div>
+I add only from 1 to 5 seconds delay.  I also update the build version of the css library. I saw that it is labeled as 3.6.1 but the build is 3.6.0 so I build latest animate.css file.
+Changelogs:
+
+Add delay feature in the code.
+Update the version from 3.6.1 into 3.6.2
+Add delays up to 5 seconds
+Update the files from 3.6.1 into 3.6.2
+Modify the documentation and add delay option
+Update devDependencies to the stable version.
+Update the .gitignore file.
+Fix travis build errors.",2,5
+830,2018-07-14T06:44:35Z,2018-07-21T15:55:44Z,2018-07-21T15:55:44Z,7,6985,3,"This is in reference to the issue #829 which deals about adding a Heart-Beat animation.
+
+Check out the demo here
+
+
+ Modified animate-config.json to include the heartBeat animation.
+ Add heartBeat.css to the source directory within attention-seekers.
+ Update Readme to include heartBeat class within the list of classes provided.",5,16
+862,2018-09-04T21:33:08Z,2018-10-13T15:04:46Z,2018-10-13T15:04:46Z,1,1,1,,4,2
+872,2018-10-13T17:09:51Z,2018-10-17T20:01:51Z,2018-10-17T20:01:51Z,1,28,70,"The readme.md was a bit clutched, with some repeated instructions, messy writing, dated info and useless examples. I've cleaned it up a bit and hopefully improved the copy.",2,0
+901,2019-01-17T00:28:39Z,2020-04-20T14:46:02Z,2020-04-20T14:46:02Z,15,315,270,"Following the old #331, on this PR I improved some animations adding some squash and stretch to make them smoother.
+A demo can be found here:
+https://codepen.io/eltonmesquita/full/ZYBLqL
+This is a proposal as if we follow this path there will be some more animations to be tweaked.",4,4
+923,2019-04-03T10:25:55Z,,2019-12-07T15:06:47Z,1,13,6,I made changes to the animateCSS function to accept multiple classes like 'tada faster'.,3,3
+931,2019-05-08T09:32:39Z,2019-05-29T01:59:30Z,2019-05-29T01:59:30Z,1,4,3,This way motion is still reduced and functionality that depends on animations/transitions doesn't break.,6,14
+939,2019-05-30T17:27:40Z,2019-06-04T22:38:41Z,2019-06-04T22:38:41Z,2,2,6885,"Suggesting to remove the npm-shrinkwrap.json file for these reasons:
+
+The npm docs recommend it only for CLI tools. They discourage publishing the file for library authors. Also here:
+
+
+It shares a format with npm-shrinkwrap.json, which is essentially the same file, but allows publication. This is not recommended unless deploying a CLI tool or otherwise using the publication process for producing production packages.
+
+
+Fixes #938, install issue with Node v12",4,20
+972,2019-09-02T08:00:47Z,2019-12-07T14:53:22Z,2019-12-07T14:53:22Z,1,3,3,prevents HTTP redirects,3,5
+980,2019-10-01T04:55:41Z,,2020-04-21T10:43:02Z,21,217,144,"Add new animation Press and shakeY
+Refactory shake name for shakeX
+
+press.css
+shakeX.css
+shakeY.css
+
+Refactory styles in transform-origin
+
+rotateIn.css
+rotateInDownLeft.css
+rotateInDownRight.css
+rotateInUpLeft.css
+rotateInUpRight.css
+rotateOut.css
+rotateOutDownLeft.css
+rotateOutDownRight.css
+rotateOutUpLeft.css
+rotateOutUpRight.css
+hinge.css
+zoomOutDown.css
+zoomOutLeft.css
+zoomOutRight.css
+zoomOutUp.css
+
+Update animate-config and files of project
+Preview Codepen 👍",3,8
+981,2019-10-01T05:02:29Z,,2020-04-20T15:12:56Z,2,9,7,"Updating gh-pages with shakeX, shakeY and press new compiled file
+About this Pull resquest 980
+Preview Codepen",3,2
+982,2019-10-01T07:59:20Z,2019-12-07T14:42:08Z,2019-12-07T14:42:08Z,1,1,0,The .delay-1s is missing from the readme,3,1
+1005,2020-01-08T16:39:47Z,,2020-03-20T20:13:07Z,2,33,23,"Hi! 🙂
+This PR simplifies code contributions by fully automating the setup with Gitpod( A free VS Code like
+IDE ). With a single click, it will launch a Ready-To-Code workspace with all the dependencies being pre-installed & the build script in process so that anyone interested in contributing can start straight away.
+It seems to work well. You can give it a try on my fork of the repo via the link below:
+https://gitpod.io/#https://github.com/nisarhassan12/animate.css",3,4
+1018,2020-02-01T20:35:59Z,,2020-03-24T18:50:55Z,1,10,12,"so that one can use options while invoking eg: animateCSS(node,'fadeIn slower')",3,5
+1029,2020-03-02T20:24:10Z,2020-04-20T10:30:58Z,2020-04-20T10:30:58Z,11,295,35,"Here are my updates...
+
+Update the package to v4
+Solve issue #998 [new feature: new utility class called animate loop]
+Solve issue #1004 [revise lightspeed animations]
+Solve issue #1000
+Update README.md
+Update builds
+
+more updates coming soon...",2,2
+1033,2020-03-18T14:50:32Z,2020-04-10T14:21:00Z,2020-04-10T14:21:00Z,1,14,0,"In order to guide contributors to better outcomes, I wanted to add contribution guidelines that highlight some of the reasons new animations are rejected.
+@eltonmesquita @warengonzaga, I’m open to any suggestions on what else to add to these guidelines.
+
+ Add contribution section currently in Readme
+ Add guidance around third-party libraries and dev tools",3,0
+1038,2020-03-28T17:36:07Z,,2020-03-29T12:21:54Z,4,37,1,Add Rotation Animate Class,3,2
+1043,2020-04-20T18:43:45Z,2020-04-21T13:54:35Z,2020-04-21T13:54:35Z,7,71,3692,"Kindly review @eltonmesquita thank you!
+Fixes #914",4,17
+1046,2020-04-25T19:35:58Z,2020-05-05T19:29:13Z,2020-05-05T19:29:13Z,35,2816,280,"This PR restructure and implements a new layout for the demo website. You can see it live here.
+
+ New layout  by @daneden 🎉🎉🎉
+ Merges the gh-pages branch with the current branch (dev), so everything can be automated
+ Animation list is automatically generated directly from the animate.css file
+ The Readme file was split for easy updates and gets compiled and injected in the template file (I've written a very simple static generator)
+ The demo website now holds the whole library documentation
+ The structure is easy to understand and maintain and there's just 1 dependency to make the maintenance easier
+ The docs still need to be rewritten and I'll make a PR soon defining a few things I think are important
+ Cross-browser testing
+
+Solves #837 .",10,27
+1050,2020-05-07T13:34:07Z,2020-05-07T15:42:34Z,2020-05-07T15:42:34Z,93,4720,1372,"This PR updates Animate.css with the following:
+
+New animations:
+
+ShakeY
+fadeInTopLeft
+fadeInTopRight
+fadeInBottomLeft
+fadeInBottomRight
+fadeOutTopLeft
+fadeOutTopRight
+fadeOutBottomRight
+fadeOutBottomLeft
+lightSpeedInRight
+lightSpeedInLeft
+lightSpeedOutRight
+lightSpeedOutLeft
+backOutDown
+backOutLeft
+backOutRight
+backOutUp
+Bouncing entrances
+bounceIn
+bounceInDown
+bounceInLeft
+bounceInRight
+bounceInUp
+
+
+Improved animations
+Adds prefix animate__ to all classes, avoiding CSS class clashes
+Adds new utility classes
+Adds CSS custom properties support
+Leaner and up-to-date dependencies build system
+Updates demo-website layout
+Add and improve documentation and build system to the demo-website",7,8
+1051,2020-05-07T17:01:13Z,2020-05-08T11:22:32Z,2020-05-08T11:22:33Z,1,1,1,,4,8
+1064,2020-05-22T21:11:32Z,2020-05-29T11:44:31Z,2020-05-29T11:44:31Z,1,3,3,The classes names in some code examples are wrong.,2,1
+1074,2020-06-15T12:53:40Z,2020-06-15T15:21:40Z,2020-06-15T15:21:40Z,1,10,0,"👋 Dependabot is moving natively into GitHub! This pull request migrates your configuration from Dependabot.com to a config file, using the new syntax. When you merge this pull request, we'll swap out dependabot-preview (me) for a new dependabot app, and you'll be all set!
+With this change, you'll now use the Dependabot page in GitHub, rather than the Dependabot dashboard, to monitor your version updates. Dependabot is now configured exclusively using config files.
+If you've got any questions or feedback for us, please let us know by creating an issue in the dependabot/feedback repository.
+Learn more about the relaunch of Dependabot
+Please note that regular @dependabot commands do not work on this pull request.
+🤖💛",2,2
+1082,2020-07-11T18:43:21Z,2020-07-13T08:43:20Z,2020-07-13T08:43:20Z,3,23,15,,2,0
+1089,2020-08-07T06:38:52Z,2020-08-13T15:39:37Z,2020-08-13T15:39:38Z,1,15,0,Signed-off-by: Anthony Veaudry anthony@veaudry.pro,3,1
+1096,2020-08-28T01:39:49Z,2020-09-17T18:16:13Z,2020-09-17T18:16:13Z,1,2,4,Adding {once : true} to node.addEventListener causes the event trigger to be removed after first use. This built-in method cleans up the requirement to remove event within event handler.,3,3
+1106,2020-09-06T17:52:00Z,2020-09-07T11:12:06Z,2020-09-07T11:12:06Z,8,48,21,"Hi @eltonmesquita I'm referencing #1066 this task... done with it.
+Also for the issue #1102 is now fixed.
+Kindly review this PR... thank you! Let me know if there is any changes...",3,5
+1107,2020-09-06T18:47:55Z,2020-09-07T08:46:54Z,2020-09-07T08:46:55Z,2,2,2,,2,0
+1111,2020-09-14T05:25:58Z,2020-09-14T09:43:42Z,2020-09-14T09:43:42Z,2,5,5,"Bumps eslint from 7.8.1 to 7.9.0.
+
+Release notes
+Sourced from eslint's releases.
+
+v7.9.0
+
+3ca2700 Fix: Corrected notice for invalid (:) plugin names (#13473) (Josh Goldberg)
+fc5783d Docs: Fix leaky anchors in v4 migration page (#13635) (Timo Tijhof)
+f1d07f1 Docs: Provide install commands for Yarn (#13661) (Nikita Baksalyar)
+29d1cdc Fix: prefer-destructuring removes comments (refs #13678) (#13682) (Milos Djermanovic)
+b4da0a7 Docs: fix typo in working with plugins docs (#13683) (啸生)
+6f87db7 Update: fix id-length false negatives on Object.prototype property names (#13670) (Milos Djermanovic)
+361ac4d Fix: NonOctalDecimalIntegerLiteral is decimal integer (fixes #13588) (#13664) (Milos Djermanovic)
+f260716 Docs: update outdated link (#13677) (klkhan)
+5138c91 Docs: add missing eslint directive comments in no-await-in-loop (#13673) (Milos Djermanovic)
+17b58b5 Docs: clarify correct example in no-return-await (fixes #13656) (#13657) (Milos Djermanovic)
+9171f0a Chore: fix typo (#13660) (Nitin Kumar)
+6d9f8fb Sponsors: Sync README with website (ESLint Jenkins)
+97b0dd9 Sponsors: Sync README with website (ESLint Jenkins)
+deab125 Sponsors: Sync README with website (ESLint Jenkins)
+bf2e367 Sponsors: Sync README with website (ESLint Jenkins)
+8929208 Sponsors: Sync README with website (ESLint Jenkins)
+
+
+
+
+Changelog
+Sourced from eslint's changelog.
+
+v7.9.0 - September 12, 2020
+
+3ca2700 Fix: Corrected notice for invalid (:) plugin names (#13473) (Josh Goldberg)
+fc5783d Docs: Fix leaky anchors in v4 migration page (#13635) (Timo Tijhof)
+f1d07f1 Docs: Provide install commands for Yarn (#13661) (Nikita Baksalyar)
+29d1cdc Fix: prefer-destructuring removes comments (refs #13678) (#13682) (Milos Djermanovic)
+b4da0a7 Docs: fix typo in working with plugins docs (#13683) (啸生)
+6f87db7 Update: fix id-length false negatives on Object.prototype property names (#13670) (Milos Djermanovic)
+361ac4d Fix: NonOctalDecimalIntegerLiteral is decimal integer (fixes #13588) (#13664) (Milos Djermanovic)
+f260716 Docs: update outdated link (#13677) (klkhan)
+5138c91 Docs: add missing eslint directive comments in no-await-in-loop (#13673) (Milos Djermanovic)
+17b58b5 Docs: clarify correct example in no-return-await (fixes #13656) (#13657) (Milos Djermanovic)
+9171f0a Chore: fix typo (#13660) (Nitin Kumar)
+6d9f8fb Sponsors: Sync README with website (ESLint Jenkins)
+97b0dd9 Sponsors: Sync README with website (ESLint Jenkins)
+deab125 Sponsors: Sync README with website (ESLint Jenkins)
+bf2e367 Sponsors: Sync README with website (ESLint Jenkins)
+8929208 Sponsors: Sync README with website (ESLint Jenkins)
+
+
+
+
+Commits
+
+022257a 7.9.0
+1f0a4ac Build: changelog update for 7.9.0
+3ca2700 Fix: Corrected notice for invalid (:) plugin names (#13473)
+fc5783d Docs: Fix leaky anchors in v4 migration page (#13635)
+f1d07f1 Docs: Provide install commands for Yarn (#13661)
+29d1cdc Fix: prefer-destructuring removes comments (refs #13678) (#13682)
+b4da0a7 Docs: fix typo in working with plugins docs (#13683)
+6f87db7 Update: fix id-length false negatives on Object.prototype property names (#13...
+361ac4d Fix: NonOctalDecimalIntegerLiteral is decimal integer (fixes #13588) (#13664)
+f260716 Docs: update outdated link (#13677)
+Additional commits viewable in compare view
+
+
+
+
+Dependabot will resolve any conflicts with this PR as long as you don't alter it yourself. You can also trigger a rebase manually by commenting @dependabot rebase.
+
+
+Dependabot commands and options
+
+You can trigger Dependabot actions by commenting on this PR:
+
+@dependabot rebase will rebase this PR
+@dependabot recreate will recreate this PR, overwriting any edits that have been made to it
+@dependabot merge will merge this PR after your CI passes on it
+@dependabot squash and merge will squash and merge this PR after your CI passes on it
+@dependabot cancel merge will cancel a previously requested merge and block automerging
+@dependabot reopen will reopen this PR if it is closed
+@dependabot close will close this PR and stop Dependabot recreating it. You can achieve the same result by closing it manually
+@dependabot ignore this major version will close this PR and stop Dependabot creating any more for this major version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this minor version will close this PR and stop Dependabot creating any more for this minor version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this dependency will close this PR and stop Dependabot creating any more for this dependency (unless you reopen the PR or upgrade to it yourself)",1,0
+1120,2020-09-20T17:53:14Z,2020-09-21T08:28:52Z,2020-09-21T08:28:52Z,1,3,3,"While working on our new project under Animate.css I saw these problems with Markdown so I fix it.
+Also improve the contributors section with capitalize title approach.",2,0
+1122,2020-09-22T20:01:51Z,2020-09-23T13:17:03Z,2020-09-23T13:17:03Z,3,4,4,"There is a small typo in docsSource/sections/01-usage.md, docsSource/sections/02-utilities.md.
+Should read globally rather than globaly.",2,3
+1130,2020-09-29T05:27:38Z,2020-10-01T10:19:26Z,2020-10-01T10:19:26Z,2,5,5,"Bumps postcss from 7.0.34 to 7.0.35.
+
+Release notes
+Sourced from postcss's releases.
+
+7.0.35
+
+Add migration guide link to PostCSS 8 error text.
+
+
+
+
+Changelog
+Sourced from postcss's changelog.
+
+7.0.35
+
+Add migration guide link to PostCSS 8 error text.
+
+
+
+
+Commits
+
+12832f3 Release 7.0.35 version
+4455ef6 Use OpenCollective in funding
+e867c79 Add migration guide to PostCSS 8 error
+See full diff in compare view
+
+
+
+
+Dependabot will resolve any conflicts with this PR as long as you don't alter it yourself. You can also trigger a rebase manually by commenting @dependabot rebase.
+
+
+Dependabot commands and options
+
+You can trigger Dependabot actions by commenting on this PR:
+
+@dependabot rebase will rebase this PR
+@dependabot recreate will recreate this PR, overwriting any edits that have been made to it
+@dependabot merge will merge this PR after your CI passes on it
+@dependabot squash and merge will squash and merge this PR after your CI passes on it
+@dependabot cancel merge will cancel a previously requested merge and block automerging
+@dependabot reopen will reopen this PR if it is closed
+@dependabot close will close this PR and stop Dependabot recreating it. You can achieve the same result by closing it manually
+@dependabot ignore this major version will close this PR and stop Dependabot creating any more for this major version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this minor version will close this PR and stop Dependabot creating any more for this minor version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this dependency will close this PR and stop Dependabot creating any more for this dependency (unless you reopen the PR or upgrade to it yourself)",1,0
+1174,2020-11-24T05:34:48Z,2020-11-25T17:38:15Z,2020-11-25T17:38:15Z,2,33,310,"Bumps postcss and postcss-header. These dependencies needed to be updated together.
+Updates postcss from 7.0.35 to 8.1.10
+
+Release notes
+Sourced from postcss's releases.
+
+8.1.10
+
+Fixed LazyResult type export (by @yyx990803).
+Fixed LazyResult type compatibility with Promise (by @antonk52).
+
+8.1.9
+
+Reduced dependencies number (by @TrySound).
+
+8.1.8
+
+Fixed LazyResult type compatibility with Promise (by @ludofischer).
+Fixed HTTPS links in documentation.
+
+8.1.7
+
+Fix import support in TypeScript (by @remcohaszing).
+
+8.1.6
+
+Reverted package.exports Node.js 15 fix.
+
+8.1.5
+
+Fixed Node.js 15 warning (by @ShenHongFei).
+
+8.1.4
+
+Fixed TypeScript definition (by @Arthie).
+
+8.1.3
+
+Added package.types.
+
+8.1.2
+
+Fix API docs (by @Arthie).
+Improve plugin guide (by @yunusga).
+Prepare code base for Deno support (by @oscarotero).
+
+8.1.1
+
+Update funding link.
+
+8.1 “Duke Gemory”
+
+PostCSS 8.1 fixed new visitor API from the 8.0 release.
+We fixed Root and RootExit re-calling on children's changes. And now visitors will visit the parent again if nested children were changed.
+We added Once and OnceExit events, which will not be called again on node changes. You can use them to lint files or collect statistics:
+module.exports = {
+  postcssPlugin: 'postcss-linter',
+  OnceExit (root) {
+    lint(root)
+  }
+}
+</tr></table> 
+
+... (truncated)
+
+
+Changelog
+Sourced from postcss's changelog.
+
+8.1.10
+
+Fixed LazyResult type export (by Evan You).
+Fixed LazyResult type compatibility with Promise (by Anton Kastritskiy).
+
+8.1.9
+
+Reduced dependencies number (by Bogdan Chadkin).
+
+8.1.8
+
+Fixed LazyResult type compatibility with Promise (by Ludovico Fischer).
+Fixed HTTPS links in documentation.
+
+8.1.7
+
+Fixed import support in TypeScript (by Remco Haszing).
+
+8.1.6
+
+Reverted package.exports Node.js 15 fix.
+
+8.1.5
+
+Fixed Node.js 15 warning (by 沈鸿飞).
+
+8.1.4
+
+Fixed TypeScript definition (by Arthur Petrie).
+
+8.1.3
+
+Added package.types.
+
+8.1.2
+
+Fixed API docs (by Arthur Petrie).
+Improved plugin guide (by Yunus Gaziev).
+Prepared code base for Deno support (by Oscar Otero).
+
+8.1.1
+
+Updated funding link.
+
+8.1 “Duke Gemory”
+
+Added Once and OnceExit events.
+Fixed Root and RootExit events re-visiting.
+Fixed node re-visiting on deep children changes.
+Added docs for visitor API events.
+
+8.0.9
+
+Replace prototype in PostCSS 7 nodes instead of recreating them.
+Added missed Transformer to exported types (by Pierre-Marie Dartus).
+
+8.0.8
+
+Fix 8.0.7 regression on PostCSS 7 nodes converting (by Adam Wathan).
+
+8.0.7
+
+Fixed compatibility issue with mixin AST with PostCSS 7 and 8 nodes.
+Added migration guide translation to Chinese to the warning.
+
+
+
+... (truncated)
+
+
+Commits
+
+390256b Release 8.1.10 version
+3184186 Update dependencies
+d2ac1ac Merge pull request #1471 from yyx990803/patch-1
+c28b950 Merge pull request #1472 from antonk52/patch-1
+9f9236d Improve LazyResult type
+2fce3f9 Expose LazyResult type
+14e34f9 Merge pull request #1468 from AndrejGajdos/add-postcss-plugins
+b84f3c3 add postcss-grid-reset and postcss-flexbox-reset
+276efdc Update dependencies
+215e925 Release 8.1.9 version
+Additional commits viewable in compare view
+
+
+
+Updates postcss-header from 2.0.0 to 3.0.1
+
+Release notes
+Sourced from postcss-header's releases.
+
+v3.0.1
+
+Add missing entry file (index.mjs) for ES Module when publish to NPM.
+
+v3.0.0
+
+Support ES Module.
+Upgrade to PostCSS 8.
+
+
+
+
+Changelog
+Sourced from postcss-header's changelog.
+
+3.0.1 (Sep 26, 2020)
+
+Add missing entry file for ES Module.
+
+3.0.0 (Sep 26, 2020)
+
+Support ES Module.
+Upgrade to PostCSS 8.
+
+
+
+
+Commits
+
+8d4eca5 build: release 3.0.1
+925af40 fix: include entry files
+2288db7 build: release 3.0.0
+9980b2a feat: add ESM support
+9d0b982 refactor: drop Babel
+bac7484 build(deps): bump lodash from 4.17.15 to 4.17.19 (#3)
+9bfac9e build: update dependencies
+56abc9b build(deps): bump acorn from 7.1.0 to 7.1.1 (#2)
+See full diff in compare view
+
+
+
+Dependabot will resolve any conflicts with this PR as long as you don't alter it yourself. You can also trigger a rebase manually by commenting @dependabot rebase.
+
+
+Dependabot commands and options
+
+You can trigger Dependabot actions by commenting on this PR:
+
+@dependabot rebase will rebase this PR
+@dependabot recreate will recreate this PR, overwriting any edits that have been made to it
+@dependabot merge will merge this PR after your CI passes on it
+@dependabot squash and merge will squash and merge this PR after your CI passes on it
+@dependabot cancel merge will cancel a previously requested merge and block automerging
+@dependabot reopen will reopen this PR if it is closed
+@dependabot close will close this PR and stop Dependabot recreating it. You can achieve the same result by closing it manually
+@dependabot ignore this major version will close this PR and stop Dependabot creating any more for this major version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this minor version will close this PR and stop Dependabot creating any more for this minor version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this dependency will close this PR and stop Dependabot creating any more for this dependency (unless you reopen the PR or upgrade to it yourself)",1,0
+1197,2020-12-20T08:20:38Z,2020-12-29T10:29:02Z,2020-12-29T10:29:02Z,2,4,2,"If you use this event in a chain, an unobvious error will occur, which will take a lot of time while searching for it. The animation event goes through the parents and about such a piece of code can reproduce the problem, why it is done this way.
+animateCSS('.modals > .modal', 'fadeOutLeft').then(() => {
+    $('.modals > .modal').removeClass('shown');
+    return animateCSS('.modals', 'fadeOut');
+}).then(() => {
+    $('.modals').removeClass('shown');
+});",3,3
+1202,2020-12-29T14:47:37Z,,2020-12-31T17:04:44Z,6,30,12,"Hi @eltonmesquita I add some cool updates.
+
+up to date copy
+add fork corner to homepage
+capitalize contributor section labels
+update builds
+
+
+Closes #1165",2,5
+1205,2020-12-31T17:40:02Z,2021-01-04T09:56:35Z,2021-01-04T09:56:35Z,7,14,14,"Hi @eltonmesquita here's the update...
+
+Update URLs
+Capital the contributor label / title
+Update builds",2,0
+1206,2020-12-31T17:41:48Z,2021-02-06T11:59:08Z,2021-02-06T11:59:09Z,7,40,14,"This is the separate PR for the Fork Corner update for the homepage.
+This branch is based on PR #1205 (#1202 old/closed issue).",2,1
+1209,2021-01-07T00:09:15Z,2021-01-22T09:27:59Z,2021-01-22T09:27:59Z,2,2,2,this arrow function uses implicit return. an explicit return throws an error.,3,2
+1212,2021-01-07T21:17:21Z,2021-01-08T12:59:10Z,2021-01-08T12:59:11Z,2,36,11,"I edited the text in the tip after the copying process was complete.
+I've edited the length of the span tag that must be clicked for the animation to work.
+The image inside the copy button has been removed. Instead I created a new design with codes.",2,2
+1217,2021-01-09T14:04:00Z,2021-07-06T10:12:50Z,2021-07-06T10:12:50Z,6,170,8,"I was wondering how the Animate.style website would look in dark mode and I tried it. I liked it and wanted to share it with you. You can view the renewed website here.
+
+animate.style
+Additionally, I added a back to top button.",3,11
+1218,2021-01-11T05:44:02Z,2021-01-11T14:42:38Z,2021-01-11T14:42:38Z,2,5,5,"Bumps postcss from 8.2.3 to 8.2.4.
+
+Release notes
+Sourced from postcss's releases.
+
+8.2.4
+
+Added plugin name to postcss.plugin() warning (by @Alphy11).
+Fixed docs (by @billcolumbia).
+
+
+
+
+Changelog
+Sourced from postcss's changelog.
+
+8.2.4
+
+Added plugin name to postcss.plugin() warning (by Tom Williams).
+Fixed docs (by Bill Columbia).
+
+
+
+
+Commits
+
+d43308c Release 8.2.4 version
+c5796a5 Clean up warning text
+7d1736e Merge pull request #1507 from Alphy11/main
+4670a39 fix: add plugin name to deprecation message
+d2845ed Remove dead code
+49a95f7 Merge pull request #1505 from billcolumbia/patch/readme
+ab1246e add .toString on writeFile for JS API example
+802d665 Typo
+See full diff in compare view
+
+
+
+
+Dependabot will resolve any conflicts with this PR as long as you don't alter it yourself. You can also trigger a rebase manually by commenting @dependabot rebase.
+
+
+Dependabot commands and options
+
+You can trigger Dependabot actions by commenting on this PR:
+
+@dependabot rebase will rebase this PR
+@dependabot recreate will recreate this PR, overwriting any edits that have been made to it
+@dependabot merge will merge this PR after your CI passes on it
+@dependabot squash and merge will squash and merge this PR after your CI passes on it
+@dependabot cancel merge will cancel a previously requested merge and block automerging
+@dependabot reopen will reopen this PR if it is closed
+@dependabot close will close this PR and stop Dependabot recreating it. You can achieve the same result by closing it manually
+@dependabot ignore this major version will close this PR and stop Dependabot creating any more for this major version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this minor version will close this PR and stop Dependabot creating any more for this minor version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this dependency will close this PR and stop Dependabot creating any more for this dependency (unless you reopen the PR or upgrade to it yourself)",1,0
+1219,2021-01-18T05:54:04Z,2021-01-18T09:55:38Z,2021-01-18T09:55:38Z,2,13,13,"Bumps eslint from 7.17.0 to 7.18.0.
+
+Release notes
+Sourced from eslint's releases.
+
+v7.18.0
+
+e3264b2 Upgrade: @eslint/eslintrc to improve error message for invalid extends (#14009) (Milos Djermanovic)
+f17c3c3 Update: check logical assignment operators in the complexity rule (#13979) (Milos Djermanovic)
+672deb0 Docs: fix no-invalid-regexp docs regarding ecmaVersion (#13991) (Milos Djermanovic)
+179a910 Fix: --init crash on question to upgrade/downgrade ESLint (fixes #13978) (#13995) (Milos Djermanovic)
+292b1c0 Fix: no-extra-parens false positive with let identifier in for-loop (#13981) (Milos Djermanovic)
+de61f94 Sponsors: Sync README with website (ESLint Jenkins)
+9250d16 Upgrade: Bump lodash to fix security issue (#13993) (Frederik Prijck)
+75fea9b Sponsors: Sync README with website (ESLint Jenkins)
+f2687e7 Docs: update space-in-parens related rules (#13985) (Chris Brody)
+4a38bbe Docs: space-in-parens examples with no arguments etc. (#13987) (Chris Brody)
+3e49169 Sponsors: Sync README with website (ESLint Jenkins)
+c5bf1f2 Sponsors: Sync README with website (ESLint Jenkins)
+98a729c Sponsors: Sync README with website (ESLint Jenkins)
+e83a696 Sponsors: Sync README with website (ESLint Jenkins)
+78cb483 Chore: test foo( ) with space-in-parens option ""always"" (#13986) (Chris Brody)
+f6948f6 Docs: Update semantic versioning policy (#13970) (Nicholas C. Zakas)
+0688212 Sponsors: Sync README with website (ESLint Jenkins)
+aeba5e5 Chore: fix typo (#13975) (Nitin Kumar)
+4ee1134 Sponsors: Sync README with website (ESLint Jenkins)
+
+
+
+
+Changelog
+Sourced from eslint's changelog.
+
+v7.18.0 - January 15, 2021
+
+e3264b2 Upgrade: @eslint/eslintrc to improve error message for invalid extends (#14009) (Milos Djermanovic)
+f17c3c3 Update: check logical assignment operators in the complexity rule (#13979) (Milos Djermanovic)
+672deb0 Docs: fix no-invalid-regexp docs regarding ecmaVersion (#13991) (Milos Djermanovic)
+179a910 Fix: --init crash on question to upgrade/downgrade ESLint (fixes #13978) (#13995) (Milos Djermanovic)
+292b1c0 Fix: no-extra-parens false positive with let identifier in for-loop (#13981) (Milos Djermanovic)
+de61f94 Sponsors: Sync README with website (ESLint Jenkins)
+9250d16 Upgrade: Bump lodash to fix security issue (#13993) (Frederik Prijck)
+75fea9b Sponsors: Sync README with website (ESLint Jenkins)
+f2687e7 Docs: update space-in-parens related rules (#13985) (Chris Brody)
+4a38bbe Docs: space-in-parens examples with no arguments etc. (#13987) (Chris Brody)
+3e49169 Sponsors: Sync README with website (ESLint Jenkins)
+c5bf1f2 Sponsors: Sync README with website (ESLint Jenkins)
+98a729c Sponsors: Sync README with website (ESLint Jenkins)
+e83a696 Sponsors: Sync README with website (ESLint Jenkins)
+78cb483 Chore: test foo( ) with space-in-parens option ""always"" (#13986) (Chris Brody)
+f6948f6 Docs: Update semantic versioning policy (#13970) (Nicholas C. Zakas)
+0688212 Sponsors: Sync README with website (ESLint Jenkins)
+aeba5e5 Chore: fix typo (#13975) (Nitin Kumar)
+4ee1134 Sponsors: Sync README with website (ESLint Jenkins)
+
+
+
+
+Commits
+
+6509705 7.18.0
+ad923cb Build: changelog update for 7.18.0
+e3264b2 Upgrade: @eslint/eslintrc to improve error message for invalid extends (#14009)
+f17c3c3 Update: check logical assignment operators in the complexity rule (#13979)
+672deb0 Docs: fix no-invalid-regexp docs regarding ecmaVersion (#13991)
+179a910 Fix: --init crash on question to upgrade/downgrade ESLint (fixes #13978) (#13...
+292b1c0 Fix: no-extra-parens false positive with let identifier in for-loop (#13981)
+de61f94 Sponsors: Sync README with website
+9250d16 Upgrade: Bump lodash to fix security issue (#13993)
+75fea9b Sponsors: Sync README with website
+Additional commits viewable in compare view
+
+
+
+
+Dependabot will resolve any conflicts with this PR as long as you don't alter it yourself. You can also trigger a rebase manually by commenting @dependabot rebase.
+
+
+Dependabot commands and options
+
+You can trigger Dependabot actions by commenting on this PR:
+
+@dependabot rebase will rebase this PR
+@dependabot recreate will recreate this PR, overwriting any edits that have been made to it
+@dependabot merge will merge this PR after your CI passes on it
+@dependabot squash and merge will squash and merge this PR after your CI passes on it
+@dependabot cancel merge will cancel a previously requested merge and block automerging
+@dependabot reopen will reopen this PR if it is closed
+@dependabot close will close this PR and stop Dependabot recreating it. You can achieve the same result by closing it manually
+@dependabot ignore this major version will close this PR and stop Dependabot creating any more for this major version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this minor version will close this PR and stop Dependabot creating any more for this minor version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this dependency will close this PR and stop Dependabot creating any more for this dependency (unless you reopen the PR or upgrade to it yourself)",1,0
+1220,2021-01-18T05:54:17Z,2021-01-18T09:40:33Z,2021-01-18T09:40:34Z,2,5,5,"Bumps husky from 4.3.7 to 4.3.8.
+
+Release notes
+Sourced from husky's releases.
+
+v4.3.8
+
+Fix Cannot read property 'toString' of null
+Improve error messages
+
+
+
+
+Commits
+
+37b6925 4.3.8
+674f833 fix 'toString' error and improve messages
+70442ad Update LICENSE (#736)
+See full diff in compare view
+
+
+
+
+Dependabot will resolve any conflicts with this PR as long as you don't alter it yourself. You can also trigger a rebase manually by commenting @dependabot rebase.
+
+
+Dependabot commands and options
+
+You can trigger Dependabot actions by commenting on this PR:
+
+@dependabot rebase will rebase this PR
+@dependabot recreate will recreate this PR, overwriting any edits that have been made to it
+@dependabot merge will merge this PR after your CI passes on it
+@dependabot squash and merge will squash and merge this PR after your CI passes on it
+@dependabot cancel merge will cancel a previously requested merge and block automerging
+@dependabot reopen will reopen this PR if it is closed
+@dependabot close will close this PR and stop Dependabot recreating it. You can achieve the same result by closing it manually
+@dependabot ignore this major version will close this PR and stop Dependabot creating any more for this major version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this minor version will close this PR and stop Dependabot creating any more for this minor version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this dependency will close this PR and stop Dependabot creating any more for this dependency (unless you reopen the PR or upgrade to it yourself)",1,0
+1225,2021-02-01T05:55:00Z,2021-02-01T11:56:56Z,2021-02-01T11:56:56Z,2,5,5,"Bumps eslint from 7.18.0 to 7.19.0.
+
+Release notes
+Sourced from eslint's releases.
+
+v7.19.0
+
+ce7f061 Update: add shadowed variable loc to message in no-shadow (fixes #13646) (#13841) (t-mangoe)
+c60e23f Update: fix let logic in for-in and for-of loops in no-extra-parens (#14011) (Milos Djermanovic)
+d76e8f6 Fix: no-useless-rename invalid autofix with parenthesized identifiers (#14032) (Milos Djermanovic)
+5800d92 Docs: Clarify stylistic rule update policy (#14052) (Brandon Mills)
+0ccf6d2 Docs: remove configuring.md (#14036) (Milos Djermanovic)
+65bb0ab Chore: Clean up new issue workflow (#14040) (Nicholas C. Zakas)
+e1da90f Fix: nested indenting for offsetTernaryExpressions: true (fixes #13971) (#13972) (Chris Brody)
+1a078b9 Update: check ternary : even if ? was reported in space-infix-ops (#13963) (Milos Djermanovic)
+fb27422 Fix: extend prefer-const fixer range to whole declaration (fixes #13899) (#14033) (Nitin Kumar)
+e0b05c7 Docs: add a correct example to no-unsafe-optional-chaining (refs #14029) (#14050) (armin yahya)
+46e836d Sponsors: Sync README with website (ESLint Jenkins)
+3fc4fa4 Docs: update configuring links (#14038) (Milos Djermanovic)
+8561c21 Docs: fix broken links in configuring/README.md (#14046) (Milos Djermanovic)
+1c309eb Update: fix no-invalid-regexp false negatives with no flags specified (#14018) (Milos Djermanovic)
+f6602d5 Docs: Reorganize Configuration Documentation (#13837) (klkhan)
+c753b44 Sponsors: Sync README with website (ESLint Jenkins)
+a4fdb70 Docs: Fixed Typo (#14007) (Yash Singh)
+f7ca481 Docs: Explain why we disable lock files (refs eslint/tsc-meetings#234) (#14006) (Brandon Mills)
+
+
+
+
+Changelog
+Sourced from eslint's changelog.
+
+v7.19.0 - January 30, 2021
+
+ce7f061 Update: add shadowed variable loc to message in no-shadow (fixes #13646) (#13841) (t-mangoe)
+c60e23f Update: fix let logic in for-in and for-of loops in no-extra-parens (#14011) (Milos Djermanovic)
+d76e8f6 Fix: no-useless-rename invalid autofix with parenthesized identifiers (#14032) (Milos Djermanovic)
+5800d92 Docs: Clarify stylistic rule update policy (#14052) (Brandon Mills)
+0ccf6d2 Docs: remove configuring.md (#14036) (Milos Djermanovic)
+65bb0ab Chore: Clean up new issue workflow (#14040) (Nicholas C. Zakas)
+e1da90f Fix: nested indenting for offsetTernaryExpressions: true (fixes #13971) (#13972) (Chris Brody)
+1a078b9 Update: check ternary : even if ? was reported in space-infix-ops (#13963) (Milos Djermanovic)
+fb27422 Fix: extend prefer-const fixer range to whole declaration (fixes #13899) (#14033) (Nitin Kumar)
+e0b05c7 Docs: add a correct example to no-unsafe-optional-chaining (refs #14029) (#14050) (armin yahya)
+46e836d Sponsors: Sync README with website (ESLint Jenkins)
+3fc4fa4 Docs: update configuring links (#14038) (Milos Djermanovic)
+8561c21 Docs: fix broken links in configuring/README.md (#14046) (Milos Djermanovic)
+1c309eb Update: fix no-invalid-regexp false negatives with no flags specified (#14018) (Milos Djermanovic)
+f6602d5 Docs: Reorganize Configuration Documentation (#13837) (klkhan)
+c753b44 Sponsors: Sync README with website (ESLint Jenkins)
+a4fdb70 Docs: Fixed Typo (#14007) (Yash Singh)
+f7ca481 Docs: Explain why we disable lock files (refs eslint/tsc-meetings#234) (#14006) (Brandon Mills)
+
+
+
+
+Commits
+
+414c2c8 7.19.0
+4571b4c Build: changelog update for 7.19.0
+ce7f061 Update: add shadowed variable loc to message in no-shadow (fixes #13646) (#13...
+c60e23f Update: fix let logic in for-in and for-of loops in no-extra-parens (#14011)
+d76e8f6 Fix: no-useless-rename invalid autofix with parenthesized identifiers (#14032)
+5800d92 Docs: Clarify stylistic rule update policy (#14052)
+0ccf6d2 Docs: remove configuring.md (#14036)
+65bb0ab Chore: Clean up new issue workflow (#14040)
+e1da90f Fix: nested indenting for offsetTernaryExpressions: true (fixes #13971) (#13972)
+1a078b9 Update: check ternary : even if ? was reported in space-infix-ops (#13963)
+Additional commits viewable in compare view
+
+
+
+
+Dependabot will resolve any conflicts with this PR as long as you don't alter it yourself. You can also trigger a rebase manually by commenting @dependabot rebase.
+
+
+Dependabot commands and options
+
+You can trigger Dependabot actions by commenting on this PR:
+
+@dependabot rebase will rebase this PR
+@dependabot recreate will recreate this PR, overwriting any edits that have been made to it
+@dependabot merge will merge this PR after your CI passes on it
+@dependabot squash and merge will squash and merge this PR after your CI passes on it
+@dependabot cancel merge will cancel a previously requested merge and block automerging
+@dependabot reopen will reopen this PR if it is closed
+@dependabot close will close this PR and stop Dependabot recreating it. You can achieve the same result by closing it manually
+@dependabot ignore this major version will close this PR and stop Dependabot creating any more for this major version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this minor version will close this PR and stop Dependabot creating any more for this minor version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this dependency will close this PR and stop Dependabot creating any more for this dependency (unless you reopen the PR or upgrade to it yourself)",1,0
+1226,2021-02-01T05:55:09Z,2021-02-01T11:56:18Z,2021-02-01T11:56:18Z,2,10,10,"Bumps autoprefixer from 10.2.3 to 10.2.4.
+
+Release notes
+Sourced from autoprefixer's releases.
+
+10.2.4
+
+Fixed browser names in npx autoprefixer --info.
+
+
+
+
+Changelog
+Sourced from autoprefixer's changelog.
+
+10.2.4
+
+Fixed browser names in npx autoprefixer --info.
+
+
+
+
+Commits
+
+61f71e9 Release 10.2.4 version
+92747e3 Update dependencies
+76d8cdb Add more browser names in --info
+7276fd2 Fix test coverage
+See full diff in compare view
+
+
+
+
+Dependabot will resolve any conflicts with this PR as long as you don't alter it yourself. You can also trigger a rebase manually by commenting @dependabot rebase.
+
+
+Dependabot commands and options
+
+You can trigger Dependabot actions by commenting on this PR:
+
+@dependabot rebase will rebase this PR
+@dependabot recreate will recreate this PR, overwriting any edits that have been made to it
+@dependabot merge will merge this PR after your CI passes on it
+@dependabot squash and merge will squash and merge this PR after your CI passes on it
+@dependabot cancel merge will cancel a previously requested merge and block automerging
+@dependabot reopen will reopen this PR if it is closed
+@dependabot close will close this PR and stop Dependabot recreating it. You can achieve the same result by closing it manually
+@dependabot ignore this major version will close this PR and stop Dependabot creating any more for this major version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this minor version will close this PR and stop Dependabot creating any more for this minor version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this dependency will close this PR and stop Dependabot creating any more for this dependency (unless you reopen the PR or upgrade to it yourself)",1,0
+1229,2021-02-08T05:30:00Z,2021-02-08T09:34:15Z,2021-02-08T09:34:15Z,2,5,5,"Bumps postcss from 8.2.4 to 8.2.5.
+
+Release notes
+Sourced from postcss's releases.
+
+8.2.5
+
+Fixed escaped characters handling in list.split (by @nex3).
+
+
+
+
+Changelog
+Sourced from postcss's changelog.
+
+8.2.5
+
+Fixed escaped characters handling in list.split (by Natalie Weizenbaum).
+
+
+
+
+Commits
+
+52a80ae Release 8.2.5 version
+bca83e3 Update dependencies
+7cba504 Clean up code
+7234b1a Use latest version of action to install Node.js
+73c074c Merge pull request #1523 from nex3/list-split
+a93c685 Don't split on escaped characters in list.split()
+af8311a Update dependencies
+11cd227 Reduce GC calls on source map generation
+7ee0c8a Merge pull request #1510 from joe223/main
+8bf7c96 Add post-custom-css-units
+See full diff in compare view
+
+
+
+
+Dependabot will resolve any conflicts with this PR as long as you don't alter it yourself. You can also trigger a rebase manually by commenting @dependabot rebase.
+
+
+Dependabot commands and options
+
+You can trigger Dependabot actions by commenting on this PR:
+
+@dependabot rebase will rebase this PR
+@dependabot recreate will recreate this PR, overwriting any edits that have been made to it
+@dependabot merge will merge this PR after your CI passes on it
+@dependabot squash and merge will squash and merge this PR after your CI passes on it
+@dependabot cancel merge will cancel a previously requested merge and block automerging
+@dependabot reopen will reopen this PR if it is closed
+@dependabot close will close this PR and stop Dependabot recreating it. You can achieve the same result by closing it manually
+@dependabot ignore this major version will close this PR and stop Dependabot creating any more for this major version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this minor version will close this PR and stop Dependabot creating any more for this minor version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this dependency will close this PR and stop Dependabot creating any more for this dependency (unless you reopen the PR or upgrade to it yourself)",1,0
+1230,2021-02-08T05:30:11Z,2021-02-08T09:40:52Z,2021-02-08T09:40:52Z,2,5,5,"Bumps lint-staged from 10.5.3 to 10.5.4.
+
+Release notes
+Sourced from lint-staged's releases.
+
+v10.5.4
+10.5.4 (2021-02-05)
+Bug Fixes
+
+concurrent option is not working correctly (#950) (4383815)
+
+
+
+
+Commits
+
+4383815 fix: concurrent option is not working correctly (#950)
+29a0b68 docs: add snippet to readme to run prettier for all supported files (#942)
+19d59fc docs: Add link to CSharp / lint-staged integration blog (#940)
+2eb6f9f docs: add instructions for async ESLint isPathIgnored (#937)
+See full diff in compare view
+
+
+
+
+Dependabot will resolve any conflicts with this PR as long as you don't alter it yourself. You can also trigger a rebase manually by commenting @dependabot rebase.
+Dependabot will merge this PR once it's up-to-date and CI passes on it, as requested by @eltonmesquita.
+
+
+Dependabot commands and options
+
+You can trigger Dependabot actions by commenting on this PR:
+
+@dependabot rebase will rebase this PR
+@dependabot recreate will recreate this PR, overwriting any edits that have been made to it
+@dependabot merge will merge this PR after your CI passes on it
+@dependabot squash and merge will squash and merge this PR after your CI passes on it
+@dependabot cancel merge will cancel a previously requested merge and block automerging
+@dependabot reopen will reopen this PR if it is closed
+@dependabot close will close this PR and stop Dependabot recreating it. You can achieve the same result by closing it manually
+@dependabot ignore this major version will close this PR and stop Dependabot creating any more for this major version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this minor version will close this PR and stop Dependabot creating any more for this minor version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this dependency will close this PR and stop Dependabot creating any more for this dependency (unless you reopen the PR or upgrade to it yourself)",1,1
+1233,2021-02-11T05:21:41Z,2021-02-11T09:20:01Z,2021-02-11T09:20:01Z,2,5,5,"Bumps postcss from 8.2.5 to 8.2.6.
+
+Release notes
+Sourced from postcss's releases.
+
+8.2.6
+
+Fixed Maximum call stack size exceeded in Node#toJSON.
+Fixed docs (by @inokawa).
+
+
+
+
+Changelog
+Sourced from postcss's changelog.
+
+8.2.6
+
+Fixed Maximum call stack size exceeded in Node#toJSON.
+Fixed docs (by inokawa).
+
+
+
+
+Commits
+
+9fe29cc Release 8.2.6 version
+d00b35d Update dependebcies
+5797a43 Fix Node#toJSON and proxyCache
+faac7d0 Merge pull request #1525 from inokawa/patch-1
+35865b8 Fix typo in doc
+416b3b9 Fix changelog note
+See full diff in compare view
+
+
+
+
+Dependabot will resolve any conflicts with this PR as long as you don't alter it yourself. You can also trigger a rebase manually by commenting @dependabot rebase.
+
+
+Dependabot commands and options
+
+You can trigger Dependabot actions by commenting on this PR:
+
+@dependabot rebase will rebase this PR
+@dependabot recreate will recreate this PR, overwriting any edits that have been made to it
+@dependabot merge will merge this PR after your CI passes on it
+@dependabot squash and merge will squash and merge this PR after your CI passes on it
+@dependabot cancel merge will cancel a previously requested merge and block automerging
+@dependabot reopen will reopen this PR if it is closed
+@dependabot close will close this PR and stop Dependabot recreating it. You can achieve the same result by closing it manually
+@dependabot ignore this major version will close this PR and stop Dependabot creating any more for this major version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this minor version will close this PR and stop Dependabot creating any more for this minor version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this dependency will close this PR and stop Dependabot creating any more for this dependency (unless you reopen the PR or upgrade to it yourself)",1,0
+1236,2021-02-13T22:21:45Z,2021-06-19T20:39:33Z,2021-06-19T20:39:33Z,1,1,1,just fixed simple typo in docs (01-usage.md),3,3
+1237,2021-02-15T05:31:22Z,2021-02-15T09:39:12Z,2021-02-15T09:39:12Z,2,15,15,"Bumps eslint from 7.19.0 to 7.20.0.
+
+Release notes
+Sourced from eslint's releases.
+
+v7.20.0
+
+f4ac3b0 Docs: fix sibling selector descriptions (#14099) (Milos Djermanovic)
+9d6063a Fix: Crash with esquery when using JSX (fixes #13639) (#14072) (Yosuke Ota)
+a0871f1 Docs: Triage process (#14014) (Nicholas C. Zakas)
+ad90761 Update: add enforceForJSX option to no-unused-expressions rule (#14012) (Duncan Beevers)
+d6c84af Fix: --init autoconfig shouldn't add deprecated rules (fixes #14017) (#14060) (Milos Djermanovic)
+9b277a1 Fix: Support ENOTDIR error code in the folder existence checking utility (#13973) (Constantine Genchevsky)
+7aeb127 Upgrade: pin @babel/code-frame@7.12.11 (#14067) (Milos Djermanovic)
+b4e2af5 Docs: Add more fields to bug report template (#14039) (Nicholas C. Zakas)
+96f1d49 Sponsors: Sync README with website (ESLint Jenkins)
+cb27b0a Build: package.json update for eslint-config-eslint release (ESLint Jenkins)
+4cab165 Sponsors: Sync README with website (ESLint Jenkins)
+
+
+
+
+Changelog
+Sourced from eslint's changelog.
+
+v7.20.0 - February 12, 2021
+
+f4ac3b0 Docs: fix sibling selector descriptions (#14099) (Milos Djermanovic)
+9d6063a Fix: Crash with esquery when using JSX (fixes #13639) (#14072) (Yosuke Ota)
+a0871f1 Docs: Triage process (#14014) (Nicholas C. Zakas)
+ad90761 Update: add enforceForJSX option to no-unused-expressions rule (#14012) (Duncan Beevers)
+d6c84af Fix: --init autoconfig shouldn't add deprecated rules (fixes #14017) (#14060) (Milos Djermanovic)
+9b277a1 Fix: Support ENOTDIR error code in the folder existence checking utility (#13973) (Constantine Genchevsky)
+7aeb127 Upgrade: pin @babel/code-frame@7.12.11 (#14067) (Milos Djermanovic)
+b4e2af5 Docs: Add more fields to bug report template (#14039) (Nicholas C. Zakas)
+96f1d49 Sponsors: Sync README with website (ESLint Jenkins)
+cb27b0a Build: package.json update for eslint-config-eslint release (ESLint Jenkins)
+4cab165 Sponsors: Sync README with website (ESLint Jenkins)
+
+
+
+
+Commits
+
+a665b69 7.20.0
+38293d5 Build: changelog update for 7.20.0
+f4ac3b0 Docs: fix sibling selector descriptions (#14099)
+9d6063a Fix: Crash with esquery when using JSX (fixes #13639) (#14072)
+a0871f1 Docs: Triage process (#14014)
+ad90761 Update: add enforceForJSX option to no-unused-expressions rule (#14012)
+d6c84af Fix: --init autoconfig shouldn't add deprecated rules (fixes #14017) (#14060)
+9b277a1 Fix: Support ENOTDIR error code in the folder existence checking utility (#13...
+7aeb127 Upgrade: pin @babel/code-frame@7.12.11 (#14067)
+b4e2af5 Docs: Add more fields to bug report template (#14039)
+Additional commits viewable in compare view
+
+
+
+
+Dependabot will resolve any conflicts with this PR as long as you don't alter it yourself. You can also trigger a rebase manually by commenting @dependabot rebase.
+
+
+Dependabot commands and options
+
+You can trigger Dependabot actions by commenting on this PR:
+
+@dependabot rebase will rebase this PR
+@dependabot recreate will recreate this PR, overwriting any edits that have been made to it
+@dependabot merge will merge this PR after your CI passes on it
+@dependabot squash and merge will squash and merge this PR after your CI passes on it
+@dependabot cancel merge will cancel a previously requested merge and block automerging
+@dependabot reopen will reopen this PR if it is closed
+@dependabot close will close this PR and stop Dependabot recreating it. You can achieve the same result by closing it manually
+@dependabot ignore this major version will close this PR and stop Dependabot creating any more for this major version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this minor version will close this PR and stop Dependabot creating any more for this minor version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this dependency will close this PR and stop Dependabot creating any more for this dependency (unless you reopen the PR or upgrade to it yourself)",1,0
+1248,2021-03-13T13:14:19Z,2021-03-15T08:14:56Z,2021-03-15T08:14:56Z,1,1,1,Hi @eltonmesquita! I did a breaking changes to my fork-corner project and I want to fix it as soon as possible. Please review and merge this commit. Thanks!,2,0
+1249,2021-03-15T05:29:31Z,2021-03-15T08:13:08Z,2021-03-15T08:13:08Z,2,23,11,"Bumps eslint from 7.21.0 to 7.22.0.
+
+Release notes
+Sourced from eslint's releases.
+
+v7.22.0
+
+3a432d8 Docs: Improve documentation for indent rule (#14168) (Serkan Özel)
+f62ec8d Update: throw error when fix range is invalid (#14142) (Jacob Bandes-Storch)
+0eecad2 Upgrade: Update lodash in package.json to V 4.17.21 (#14159) (Basem Al-Nabulsi)
+5ad91aa Update: report es2021 globals in no-extend-native (refs #13602) (#14177) (Milos Djermanovic)
+c295581 Chore: remove leftover JSDoc from lint-result-cache (#14176) (Milos Djermanovic)
+0d541f9 Chore: Reduce lodash usage (#14178) (Stephen Wade)
+27a67d7 Sponsors: Sync README with website (ESLint Jenkins)
+459d821 Chore: upgrade dependencies of browser test (#14127) (Pig Fang)
+ebfb63a Sponsors: Sync README with website (ESLint Jenkins)
+3ba029f Docs: Remove Extraneous Dash (#14164) (Danny Hurlburt)
+6f4540e Sponsors: Sync README with website (ESLint Jenkins)
+ddf361c Docs: Fix Formatting (#14154) (Danny Hurlburt)
+c0d2ac1 Sponsors: Sync README with website (ESLint Jenkins)
+a8df03e Docs: Clarify triage process (#14117) (Nicholas C. Zakas)
+
+
+
+
+Changelog
+Sourced from eslint's changelog.
+
+v7.22.0 - March 12, 2021
+
+3a432d8 Docs: Improve documentation for indent rule (#14168) (Serkan Özel)
+f62ec8d Update: throw error when fix range is invalid (#14142) (Jacob Bandes-Storch)
+0eecad2 Upgrade: Update lodash in package.json to V 4.17.21 (#14159) (Basem Al-Nabulsi)
+5ad91aa Update: report es2021 globals in no-extend-native (refs #13602) (#14177) (Milos Djermanovic)
+c295581 Chore: remove leftover JSDoc from lint-result-cache (#14176) (Milos Djermanovic)
+0d541f9 Chore: Reduce lodash usage (#14178) (Stephen Wade)
+27a67d7 Sponsors: Sync README with website (ESLint Jenkins)
+459d821 Chore: upgrade dependencies of browser test (#14127) (Pig Fang)
+ebfb63a Sponsors: Sync README with website (ESLint Jenkins)
+3ba029f Docs: Remove Extraneous Dash (#14164) (Danny Hurlburt)
+6f4540e Sponsors: Sync README with website (ESLint Jenkins)
+ddf361c Docs: Fix Formatting (#14154) (Danny Hurlburt)
+c0d2ac1 Sponsors: Sync README with website (ESLint Jenkins)
+a8df03e Docs: Clarify triage process (#14117) (Nicholas C. Zakas)
+
+
+
+
+Commits
+
+6ee8037 7.22.0
+a55e8a1 Build: changelog update for 7.22.0
+3a432d8 Docs: Improve documentation for indent rule (#14168)
+f62ec8d Update: throw error when fix range is invalid (#14142)
+0eecad2 Upgrade: Update lodash in package.json to V 4.17.21 (#14159)
+5ad91aa Update: report es2021 globals in no-extend-native (refs #13602) (#14177)
+c295581 Chore: remove leftover JSDoc from lint-result-cache (#14176)
+0d541f9 Chore: Reduce lodash usage (#14178)
+27a67d7 Sponsors: Sync README with website
+459d821 Chore: upgrade dependencies of browser test (#14127)
+Additional commits viewable in compare view
+
+
+
+
+Dependabot will resolve any conflicts with this PR as long as you don't alter it yourself. You can also trigger a rebase manually by commenting @dependabot rebase.
+
+
+Dependabot commands and options
+
+You can trigger Dependabot actions by commenting on this PR:
+
+@dependabot rebase will rebase this PR
+@dependabot recreate will recreate this PR, overwriting any edits that have been made to it
+@dependabot merge will merge this PR after your CI passes on it
+@dependabot squash and merge will squash and merge this PR after your CI passes on it
+@dependabot cancel merge will cancel a previously requested merge and block automerging
+@dependabot reopen will reopen this PR if it is closed
+@dependabot close will close this PR and stop Dependabot recreating it. You can achieve the same result by closing it manually
+@dependabot ignore this major version will close this PR and stop Dependabot creating any more for this major version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this minor version will close this PR and stop Dependabot creating any more for this minor version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this dependency will close this PR and stop Dependabot creating any more for this dependency (unless you reopen the PR or upgrade to it yourself)",1,0
+1263,2021-04-12T05:29:00Z,2021-04-20T16:53:57Z,2021-04-20T16:53:57Z,2,5,5,"Bumps postcss from 8.2.9 to 8.2.10.
+
+Release notes
+Sourced from postcss's releases.
+
+8.2.10
+
+Fixed ReDoS vulnerabilities in source map parsing.
+Fixed webpack 5 support (by @​barak007).
+Fixed docs (by @​roelandmoors).
+
+
+
+
+Changelog
+Sourced from postcss's changelog.
+
+8.2.10
+
+Fixed ReDoS vulnerabilities in source map parsing.
+Fixed webpack 5 support (by Barak Igal).
+Fixed docs (by Roeland Moors).
+
+
+
+
+Commits
+
+8395d9f Release 8.2.10 version
+f2baaa7 Update ESLint config
+b6f3e4d Fix unsafe regexp in getAnnotationURL() too
+4bcd727 Merge pull request #1553 from barak007/patch-2
+7c2e97a Add covrage ignore on error paths
+8c58434 Apply suggestions from code review
+ff2fd57 add error for sourcePath
+8f02bdc disable url based features
+a54d020 Fix browser bundling with webpack 5
+8682b1e Fix unsafe regexp
+Additional commits viewable in compare view
+
+
+
+
+Dependabot will resolve any conflicts with this PR as long as you don't alter it yourself. You can also trigger a rebase manually by commenting @dependabot rebase.
+Dependabot will merge this PR once it's up-to-date and CI passes on it, as requested by @eltonmesquita.
+
+
+Dependabot commands and options
+
+You can trigger Dependabot actions by commenting on this PR:
+
+@dependabot rebase will rebase this PR
+@dependabot recreate will recreate this PR, overwriting any edits that have been made to it
+@dependabot merge will merge this PR after your CI passes on it
+@dependabot squash and merge will squash and merge this PR after your CI passes on it
+@dependabot cancel merge will cancel a previously requested merge and block automerging
+@dependabot reopen will reopen this PR if it is closed
+@dependabot close will close this PR and stop Dependabot recreating it. You can achieve the same result by closing it manually
+@dependabot ignore this major version will close this PR and stop Dependabot creating any more for this major version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this minor version will close this PR and stop Dependabot creating any more for this minor version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this dependency will close this PR and stop Dependabot creating any more for this dependency (unless you reopen the PR or upgrade to it yourself)",1,1
+1268,2021-04-19T05:33:27Z,2021-04-20T16:45:50Z,2021-04-20T16:45:50Z,2,5,5,"Bumps markdown-it from 12.0.4 to 12.0.6.
+
+Changelog
+Sourced from markdown-it's changelog.
+
+[12.0.6] - 2021-04-16
+Fixed
+
+Newline in alt should be rendered, #775.
+
+[12.0.5] - 2021-04-15
+Fixed
+
+HTML block tags with === inside are no longer incorrectly interpreted as headers, #772.
+Fix table/list parsing ambiguity, #767.
+
+
+
+
+Commits
+
+df4607f 12.0.6 released
+e5b0eb3 dist rebuild
+28d9ad8 Merge pull request #775 from hukkinj1/fix-image-newline
+272a470 Fix newline not rendered in image alt attribute
+3740146 12.0.5 released
+0a84be4 dist rebuild
+309c03a Lower priority for ATX headers to resolve conflict with HTML blocks
+cd5296f Fix table/list parsing ambiguity (#767)
+041b7c7 Merge pull request #766 from hukkinj1/info-comment
+32564ba Clarify Token.info comment
+See full diff in compare view
+
+
+
+
+Dependabot will resolve any conflicts with this PR as long as you don't alter it yourself. You can also trigger a rebase manually by commenting @dependabot rebase.
+
+
+Dependabot commands and options
+
+You can trigger Dependabot actions by commenting on this PR:
+
+@dependabot rebase will rebase this PR
+@dependabot recreate will recreate this PR, overwriting any edits that have been made to it
+@dependabot merge will merge this PR after your CI passes on it
+@dependabot squash and merge will squash and merge this PR after your CI passes on it
+@dependabot cancel merge will cancel a previously requested merge and block automerging
+@dependabot reopen will reopen this PR if it is closed
+@dependabot close will close this PR and stop Dependabot recreating it. You can achieve the same result by closing it manually
+@dependabot ignore this major version will close this PR and stop Dependabot creating any more for this major version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this minor version will close this PR and stop Dependabot creating any more for this minor version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this dependency will close this PR and stop Dependabot creating any more for this dependency (unless you reopen the PR or upgrade to it yourself)",1,0
+1271,2021-04-24T03:20:40Z,2021-08-13T15:54:26Z,2021-08-13T15:54:26Z,2,13,4,,2,3
+1272,2021-04-26T05:28:25Z,2021-04-26T09:18:12Z,2021-04-26T09:18:12Z,2,5,5,"Bumps eslint from 7.22.0 to 7.25.0.
+
+Release notes
+Sourced from eslint's releases.
+
+v7.25.0
+
+5df5e4a Update: highlight last write reference for no-unused-vars (fixes #14324) (#14335) (Nitin Kumar)
+0023872 Docs: Add deprecated note to working-with-rules-deprecated page (#14344) (Michael Novotny)
+36fca70 Chore: Upgrade eslump to 3.0.0 (#14350) (Stephen Wade)
+59b689a Chore: add node v16 (#14355) (薛定谔的猫)
+35a1f5e Sponsors: Sync README with website (ESLint Jenkins)
+fb0a92b Chore: rename misspelled identifier in test (#14346) (Tobias Nießen)
+f2babb1 Docs: update pull request template (#14336) (Nitin Kumar)
+02dde29 Docs: Fix anchor in 'docs/developer-guide/working-with-rules.md' (#14332) (Nate-Wilkins)
+07d14c3 Chore: remove extraneous command from lint-staged config (#14314) (James George)
+41b3570 Update: lint code block with same extension but different content (#14227) (JounQin)
+eb29996 Docs: add more examples with arrow functions for no-sequences rule (#14313) (Nitin Kumar)
+
+v7.24.0
+
+0c346c8 Chore: ignore pnpm-lock.yaml (#14303) (Nitin Kumar)
+f06ecdf Update: Add disallowTemplateShorthand option in no-implicit-coercion (#13579) (Remco Haszing)
+71a80e3 Docs: fix broken links in Node.js API docs toc (#14296) (u-sho (Shouhei Uechi))
+bd46dc4 Docs: Fix incorrect reference to ""braces"" in arrow-parens (#14300) (emclain)
+0d6235e Docs: update header in max-lines (#14273) (Shinigami)
+70c9216 Docs: Update issue triage to include blocked column (#14275) (Nicholas C. Zakas)
+abca186 Docs: Fix typo in suggestions section (#14293) (Kevin Partington)
+c4d8b0d Fix: no-unused-vars ignoreRestSiblings check assignments (fixes #14163) (#14264) (YeonJuan)
+b51d077 Update: add ignoreNonDeclaration to no-multi-assign rule (fixes #12545) (#14185) (t-mangoe)
+c981fb1 Chore: Upgrade mocha to 8.3.2 (#14278) (Stephen Wade)
+147fc04 Docs: Fix repro:needed label in bug report template (#14285) (Milos Djermanovic)
+e1cfde9 Docs: Update bug report template (#14276) (Nicholas C. Zakas)
+c85c2f1 Docs: Add fatal to Node.js API LintMessage type (#14251) (Brandon Mills)
+
+v7.23.0
+
+687ccae Update: add option ""allowInParentheses"" to no-sequences (fixes #14197) (#14199) (Daniel Rentz)
+dbf2529 Sponsors: Sync README with website (ESLint Jenkins)
+4bdf2c1 Sponsors: Sync README with website (ESLint Jenkins)
+49d1697 Chore: Upgrade eslint-plugin-jsdoc to v25 and remove --legacy-peer-deps (#14244) (Brandon Mills)
+43f1685 Update: --quiet should not supress --max-warnings (fixes #14202) (#14242) (Milos Djermanovic)
+909c727 Docs: Add valid example that shows vars in a block scope (#14230) (Ed S)
+28583eb Fix: no-mixed-operators false positives with ? : (fixes #14223) (#14226) (Milos Djermanovic)
+a99eb2d Fix: Clarify line breaks in object-curly-newline (fixes #14024) (#14063) (armin yahya)
+8984c91 Update: eslint --env-info output os info (#14059) (薛定谔的猫)
+2a79306 Sponsors: Sync README with website (ESLint Jenkins)
+ebd7026 Docs: Fix typo (#14225) (Greg Finley)
+a2013fc Sponsors: Sync README with website (ESLint Jenkins)
+
+
+
+
+Changelog
+Sourced from eslint's changelog.
+
+v7.25.0 - April 23, 2021
+
+5df5e4a Update: highlight last write reference for no-unused-vars (fixes #14324) (#14335) (Nitin Kumar)
+0023872 Docs: Add deprecated note to working-with-rules-deprecated page (#14344) (Michael Novotny)
+36fca70 Chore: Upgrade eslump to 3.0.0 (#14350) (Stephen Wade)
+59b689a Chore: add node v16 (#14355) (薛定谔的猫)
+35a1f5e Sponsors: Sync README with website (ESLint Jenkins)
+fb0a92b Chore: rename misspelled identifier in test (#14346) (Tobias Nießen)
+f2babb1 Docs: update pull request template (#14336) (Nitin Kumar)
+02dde29 Docs: Fix anchor in 'docs/developer-guide/working-with-rules.md' (#14332) (Nate-Wilkins)
+07d14c3 Chore: remove extraneous command from lint-staged config (#14314) (James George)
+41b3570 Update: lint code block with same extension but different content (#14227) (JounQin)
+eb29996 Docs: add more examples with arrow functions for no-sequences rule (#14313) (Nitin Kumar)
+
+v7.24.0 - April 9, 2021
+
+0c346c8 Chore: ignore pnpm-lock.yaml (#14303) (Nitin Kumar)
+f06ecdf Update: Add disallowTemplateShorthand option in no-implicit-coercion (#13579) (Remco Haszing)
+71a80e3 Docs: fix broken links in Node.js API docs toc (#14296) (u-sho (Shouhei Uechi))
+bd46dc4 Docs: Fix incorrect reference to ""braces"" in arrow-parens (#14300) (emclain)
+0d6235e Docs: update header in max-lines (#14273) (Shinigami)
+70c9216 Docs: Update issue triage to include blocked column (#14275) (Nicholas C. Zakas)
+abca186 Docs: Fix typo in suggestions section (#14293) (Kevin Partington)
+c4d8b0d Fix: no-unused-vars ignoreRestSiblings check assignments (fixes #14163) (#14264) (YeonJuan)
+b51d077 Update: add ignoreNonDeclaration to no-multi-assign rule (fixes #12545) (#14185) (t-mangoe)
+c981fb1 Chore: Upgrade mocha to 8.3.2 (#14278) (Stephen Wade)
+147fc04 Docs: Fix repro:needed label in bug report template (#14285) (Milos Djermanovic)
+e1cfde9 Docs: Update bug report template (#14276) (Nicholas C. Zakas)
+c85c2f1 Docs: Add fatal to Node.js API LintMessage type (#14251) (Brandon Mills)
+
+v7.23.0 - March 26, 2021
+
+687ccae Update: add option ""allowInParentheses"" to no-sequences (fixes #14197) (#14199) (Daniel Rentz)
+dbf2529 Sponsors: Sync README with website (ESLint Jenkins)
+4bdf2c1 Sponsors: Sync README with website (ESLint Jenkins)
+49d1697 Chore: Upgrade eslint-plugin-jsdoc to v25 and remove --legacy-peer-deps (#14244) (Brandon Mills)
+43f1685 Update: --quiet should not supress --max-warnings (fixes #14202) (#14242) (Milos Djermanovic)
+909c727 Docs: Add valid example that shows vars in a block scope (#14230) (Ed S)
+28583eb Fix: no-mixed-operators false positives with ? : (fixes #14223) (#14226) (Milos Djermanovic)
+a99eb2d Fix: Clarify line breaks in object-curly-newline (fixes #14024) (#14063) (armin yahya)
+8984c91 Update: eslint --env-info output os info (#14059) (薛定谔的猫)
+2a79306 Sponsors: Sync README with website (ESLint Jenkins)
+ebd7026 Docs: Fix typo (#14225) (Greg Finley)
+a2013fc Sponsors: Sync README with website (ESLint Jenkins)
+
+
+
+
+Commits
+
+8a77b66 7.25.0
+2c7c558 Build: changelog update for 7.25.0
+5df5e4a Update: highlight last write reference for no-unused-vars (fixes #14324) (#14...
+0023872 Docs: Add deprecated note to working-with-rules-deprecated page (#14344)
+36fca70 Chore: Upgrade eslump to 3.0.0 (#14350)
+59b689a Chore: add node v16 (#14355)
+35a1f5e Sponsors: Sync README with website
+fb0a92b Chore: rename misspelled identifier in test (#14346)
+f2babb1 Docs: update pull request template (#14336)
+02dde29 Docs: Fix anchor in 'docs/developer-guide/working-with-rules.md' (#14332)
+Additional commits viewable in compare view
+
+
+
+
+Dependabot will resolve any conflicts with this PR as long as you don't alter it yourself. You can also trigger a rebase manually by commenting @dependabot rebase.
+
+
+Dependabot commands and options
+
+You can trigger Dependabot actions by commenting on this PR:
+
+@dependabot rebase will rebase this PR
+@dependabot recreate will recreate this PR, overwriting any edits that have been made to it
+@dependabot merge will merge this PR after your CI passes on it
+@dependabot squash and merge will squash and merge this PR after your CI passes on it
+@dependabot cancel merge will cancel a previously requested merge and block automerging
+@dependabot reopen will reopen this PR if it is closed
+@dependabot close will close this PR and stop Dependabot recreating it. You can achieve the same result by closing it manually
+@dependabot ignore this major version will close this PR and stop Dependabot creating any more for this major version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this minor version will close this PR and stop Dependabot creating any more for this minor version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this dependency will close this PR and stop Dependabot creating any more for this dependency (unless you reopen the PR or upgrade to it yourself)",1,0
+1273,2021-04-26T07:49:31Z,,2022-04-19T11:36:01Z,4,119,6,"Migrate from Travis CI to GitHub Action
+
+node.yaml - Action for javascript
+css.yaml - Action for css
+lint.yaml - Action for lints
+
+Deleted  Travis.yml workflow
+Fix #1221",3,5
+1276,2021-05-01T11:02:32Z,,2021-06-19T20:42:24Z,1,55,0,,2,3
+1286,2021-05-20T19:35:48Z,,2024-03-02T11:17:29Z,6,85,31,"Currently I was looking for this type of animation on this site, but it didn't exist. Here is the demo:
+https://codepen.io/mELTingAwaY__/pen/bGqdpGx?editors=1111
+As you can see my animation works on codepen however, will not work locally on the site animate.css. When I click on the list item ""dizzy"" the animation isn't working. The 2 classes are being applied as you can see in the attached screenshot. Also to note the 2 classes aren't being removed like the other animations. Is there another file that is required to change or are there issues with my animation?",4,3
+1296,2021-06-06T23:06:42Z,,2021-06-24T21:03:05Z,1,2,2,"correct spelling
+correct grammar
+use active voice instead of passive",2,1
+1297,2021-06-06T23:12:06Z,2021-06-19T20:53:22Z,2021-06-19T20:53:22Z,1,2,2,"fix punctuation
+reduce verbiage",2,0
+1298,2021-06-06T23:15:32Z,2021-06-19T20:54:02Z,2021-06-19T20:54:02Z,1,1,1,add comma,2,0
+1299,2021-06-06T23:20:20Z,2021-06-19T20:55:15Z,2021-06-19T20:55:15Z,1,3,3,reduce verbiage,2,0
+1300,2021-06-06T23:23:35Z,2021-06-19T20:56:04Z,2021-06-19T20:56:04Z,1,1,1,"fix spelling
+add punctuation",2,0
+1301,2021-06-06T23:26:24Z,2021-06-19T20:57:53Z,2021-06-19T20:57:53Z,1,2,2,"add punctuation
+fix agreement",2,0
+1315,2021-06-24T21:03:01Z,2021-07-06T10:08:44Z,2021-07-06T10:08:44Z,1,4,4,"correct spelling
+correct grammar
+use active voice instead of passive",2,0
+1317,2021-06-25T18:17:32Z,2021-07-06T10:26:57Z,2021-07-06T10:26:57Z,2,7,2,Update the CSSNano dev-Dependency. 😎,2,2
+1318,2021-06-25T18:26:00Z,,2021-07-06T10:24:50Z,2,7,2,I just add a file for security policy. What do you think @eltonmesquita? Let me know!,2,3
+1322,2021-07-01T19:51:07Z,,2024-03-02T11:15:37Z,1,14,0,"This is the pin: https://codepen.io/cedricfortuin-the-animator/pen/JjNdywr.
+I missed this one in the docs and its quite a nice one for stuff like in the pin.",6,5
+1328,2021-07-12T19:02:26Z,2021-07-15T15:54:28Z,2021-07-15T15:54:28Z,2,81,9,"Bumps postcss-prefixer from 2.1.2 to 2.1.3.
+
+Commits
+
+See full diff in compare view
+
+
+
+
+Dependabot will resolve any conflicts with this PR as long as you don't alter it yourself. You can also trigger a rebase manually by commenting @dependabot rebase.
+Dependabot will merge this PR once it's up-to-date and CI passes on it, as requested by @eltonmesquita.
+
+
+Dependabot commands and options
+
+You can trigger Dependabot actions by commenting on this PR:
+
+@dependabot rebase will rebase this PR
+@dependabot recreate will recreate this PR, overwriting any edits that have been made to it
+@dependabot merge will merge this PR after your CI passes on it
+@dependabot squash and merge will squash and merge this PR after your CI passes on it
+@dependabot cancel merge will cancel a previously requested merge and block automerging
+@dependabot reopen will reopen this PR if it is closed
+@dependabot close will close this PR and stop Dependabot recreating it. You can achieve the same result by closing it manually
+@dependabot ignore this major version will close this PR and stop Dependabot creating any more for this major version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this minor version will close this PR and stop Dependabot creating any more for this minor version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this dependency will close this PR and stop Dependabot creating any more for this dependency (unless you reopen the PR or upgrade to it yourself)",1,1
+1355,2021-09-13T10:11:04Z,2021-09-19T15:40:59Z,2021-09-19T15:40:59Z,2,34,22,"It was recently brought to my attention that Animate.css was used on a website soliciting tips for abortion bounties in Texas, where recent legislation outlawed safe access to abortion.
+Abortion is a form of healthcare, and as such is a fundamental human right. By introducing this legislation, lawmakers in Texas are removing the bodily autonomy of women and endangering their well-being by forcing them to seek potentially unsafe alternatives.
+Amnesty International states:
+
+Access to safe abortion services is a human right. Under international human rights law, everyone has a right to life, a right to health, and a right to be free from violence, discrimination, and torture or cruel, inhuman and degrading treatment.
+
+Removal of access to abortion is one thing, but rewarding bounties for disclosure of information about women seeking abortions puts them in immense physical danger and is itself a violation of their human rights.
+Not only this, but these legal changes are unconstitutional and the changes themselves violate international UN Human Rights laws.
+The Universal Declaration of Human Rights (UDHR) Article 21, Section 3 states:
+
+The will of the people shall be the basis of the authority of government
+
+More than 60% of Americans believe people should be able to obtain abortions in the first trimester of pregnancy (source), and the current presidential administration have themselves stated that abortion rights are “non-negotiable”.
+I want to make it clear to the Animate.css community and the people who use Animate.css for their work and projects that we take a firm stance in support of women’s bodily autonomy and other forms of human rights, and do not permit the use of Animate.css on any project that impedes on these rights. To this end, I plan to update Animate.css’s license to the Hippocratic License, a variation of the currently-used MIT licence which also bans the use of licensed software in projects that violate human rights.",5,3
+1374,2021-10-04T20:04:21Z,2021-10-08T10:58:59Z,2021-10-08T10:58:59Z,10,23,19,I just update the license of animate.css as mentioned here: #1355,3,2
+1463,2022-01-30T15:52:23Z,2022-02-01T10:41:11Z,2022-02-01T10:41:11Z,1,1,1,"I'm seeing a warning for not using a valid license. So I updated the valid identifier which is Hippocratic-2.1 in the package.json file. Check some references below.
+
+
+SPDX License ID
+Hippocratic license incorrectly identified as invalid SPDX expression",2,0
+1473,2022-02-09T18:25:24Z,,2022-04-19T11:32:50Z,1,1,1,,3,0
+1485,2022-02-26T17:31:00Z,2022-03-01T14:28:40Z,2022-03-01T14:28:40Z,2,2,2,Our license footer on the website is not aligned with our current license.,2,0
+1486,2022-02-26T17:38:00Z,2022-03-01T14:28:06Z,2022-03-01T14:28:06Z,6,12,12,"Hey @eltonmesquita, did some updates to the docs page.
+Making section titles capitalize for consistency.
+Let me know if you have any feedback about this.",2,0
+1508,2022-03-18T16:18:23Z,2022-04-21T08:51:18Z,2022-04-21T08:51:18Z,8,823,709,"Closing #1507 replace the delay expression from s to x
+Update also the documentation regarding this change.",2,2
+1509,2022-03-18T17:45:34Z,2022-04-19T11:17:09Z,2022-04-19T11:17:09Z,4,110,50,I just upgraded our issue formatting to issue forms. Kindly visit the actual file to see how it looks like when submitting an issue. 😉,2,0
+1538,2022-05-18T19:02:32Z,2022-07-29T14:42:47Z,2022-07-29T14:42:48Z,2,12,12,"Bumps postcss from 8.4.5 to 8.4.14.
+
+Release notes
+Sourced from postcss's releases.
+
+8.4.14
+
+Print “old plugin API” warning only if plugin was used (by @​zardoy).
+
+8.4.13
+
+Fixed append() error after using .parent (by @​thecrypticace).
+
+8.4.12
+
+Fixed package.funding to have same value between all PostCSS packages.
+
+8.4.11
+
+Fixed Declaration#raws.value type.
+
+8.4.10
+
+Fixed package.funding URL format.
+
+8.4.9
+
+Fixed package.funding (by @​mondeja).
+
+8.4.8
+
+Fixed end position in empty Custom Properties.
+
+8.4.7
+
+Fixed Node#warn() type (by @​ybiquitous).
+Fixed comment removal in values after ,.
+
+8.4.6
+
+Prevented comment removing when it change meaning of CSS.
+Fixed parsing space in last semicolon-less CSS Custom Properties.
+Fixed comment cleaning in CSS Custom Properties with space.
+Fixed throwing an error on .root access for plugin-less case.
+
+
+
+
+Changelog
+Sourced from postcss's changelog.
+
+8.4.14
+
+Print “old plugin API” warning only if plugin was used (by @​zardoy).
+
+8.4.13
+
+Fixed append() error after using .parent (by Jordan Pittman).
+
+8.4.12
+
+Fixed package.funding to have same value between all PostCSS packages.
+
+8.4.11
+
+Fixed Declaration#raws.value type.
+
+8.4.10
+
+Fixed package.funding URL format.
+
+8.4.9
+
+Fixed package.funding (by Álvaro Mondéjar).
+
+8.4.8
+
+Fixed end position in empty Custom Properties.
+
+8.4.7
+
+Fixed Node#warn() type (by Masafumi Koba).
+Fixed comment removal in values after ,.
+
+8.4.6
+
+Prevented comment removing when it change meaning of CSS.
+Fixed parsing space in last semicolon-less CSS Custom Properties.
+Fixed comment cleaning in CSS Custom Properties with space.
+Fixed throwing an error on .root access for plugin-less case.
+
+
+
+
+Commits
+
+b7d1836 Release 8.4.14 version
+57006b4 Update dependencies
+2a97ab8 Merge pull request #1744 from zardoy/patch-1
+6447b55 Merge pull request #1747 from ben-lau/main
+e36ed17 Update plugins.md
+24f2efc Update depedencies
+9bda624 Try to fix CI
+7cd8e27 improve warnings count testing
+2295e28 fix tests
+fc19f1b fix: print deprecation warning only when plugin is used
+Additional commits viewable in compare view
+
+
+
+
+Dependabot will resolve any conflicts with this PR as long as you don't alter it yourself. You can also trigger a rebase manually by commenting @dependabot rebase.
+
+
+Dependabot commands and options
+
+You can trigger Dependabot actions by commenting on this PR:
+
+@dependabot rebase will rebase this PR
+@dependabot recreate will recreate this PR, overwriting any edits that have been made to it
+@dependabot merge will merge this PR after your CI passes on it
+@dependabot squash and merge will squash and merge this PR after your CI passes on it
+@dependabot cancel merge will cancel a previously requested merge and block automerging
+@dependabot reopen will reopen this PR if it is closed
+@dependabot close will close this PR and stop Dependabot recreating it. You can achieve the same result by closing it manually
+@dependabot ignore this major version will close this PR and stop Dependabot creating any more for this major version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this minor version will close this PR and stop Dependabot creating any more for this minor version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this dependency will close this PR and stop Dependabot creating any more for this dependency (unless you reopen the PR or upgrade to it yourself)",1,0
+1558,2022-06-16T19:02:10Z,2022-07-29T14:39:54Z,2022-07-29T14:39:54Z,2,5,5,"Bumps prettier from 2.5.1 to 2.7.1.
+
+Release notes
+Sourced from prettier's releases.
+
+2.7.1
+🔗 Changelog
+2.7.0
+diff
+🔗 Release note
+2.6.2
+🔗 Changelog
+2.6.1
+🔗 Changelog
+2.6.0
+🔗 Release note
+
+
+
+Changelog
+Sourced from prettier's changelog.
+
+2.7.1
+diff
+Keep useful empty lines in description (#13013 by @​chimurai)
+
+# Input
+""""""
+First line
+Second Line
+""""""
+type Person {
+name: String
+}
+Prettier 2.7.0
+""""""
+First line
+Second Line
+""""""
+type Person {
+name: String
+}
+Prettier 2.7.1
+""""""
+First line
+Second Line
+""""""
+type Person {
+name: String
+}
+2.7.0
+diff
+🔗 Release Notes
+2.6.2
+diff
+Fix LESS/SCSS format error (#12536 by @​fisker)
+
+
+... (truncated)
+
+
+Commits
+
+eeed611 Release 2.7.1
+794d9d1 bugfix(graphql): Keep useful empty lines in description (#13013)
+dd2af6f Fix --skip-dependencies-install
+b21772b Allow skip depencies install & set repo
+5530ad2 Merge branch 'main' of github.com:prettier/prettier
+c7c9930 Clean changelog
+448786f Revert changes in release script
+6b388fa Add truncate
+109333a Git blame ignore 2.7.0
+59ec4f2 Bump Prettier dependency to 2.7.0
+Additional commits viewable in compare view
+
+
+
+Maintainer changes
+This version was pushed to npm by prettier-bot, a new releaser for prettier since your current version.
+
+
+
+Dependabot will resolve any conflicts with this PR as long as you don't alter it yourself. You can also trigger a rebase manually by commenting @dependabot rebase.
+
+
+Dependabot commands and options
+
+You can trigger Dependabot actions by commenting on this PR:
+
+@dependabot rebase will rebase this PR
+@dependabot recreate will recreate this PR, overwriting any edits that have been made to it
+@dependabot merge will merge this PR after your CI passes on it
+@dependabot squash and merge will squash and merge this PR after your CI passes on it
+@dependabot cancel merge will cancel a previously requested merge and block automerging
+@dependabot reopen will reopen this PR if it is closed
+@dependabot close will close this PR and stop Dependabot recreating it. You can achieve the same result by closing it manually
+@dependabot ignore this major version will close this PR and stop Dependabot creating any more for this major version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this minor version will close this PR and stop Dependabot creating any more for this minor version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this dependency will close this PR and stop Dependabot creating any more for this dependency (unless you reopen the PR or upgrade to it yourself)",1,0
+1562,2022-06-23T04:51:01Z,2022-07-29T08:33:29Z,2022-07-29T08:33:29Z,1,3,3,"Bumps shell-quote from 1.7.2 to 1.7.3.
+
+Changelog
+Sourced from shell-quote's changelog.
+
+1.7.3
+
+Fix a security issue where the regex for windows drive letters allowed some shell meta-characters
+to escape the quoting rules. (CVE-2021-42740)
+
+
+
+
+Commits
+
+6a8a899 1.7.3
+5799416 fix for security issue with windows drive letter regex
+c7de931 Add security.md
+414853f Update readme.markdown (#43)
+0fc4a97 use Github Actions (#42)
+See full diff in compare view
+
+
+
+
+Dependabot will resolve any conflicts with this PR as long as you don't alter it yourself. You can also trigger a rebase manually by commenting @dependabot rebase.
+
+
+Dependabot commands and options
+
+You can trigger Dependabot actions by commenting on this PR:
+
+@dependabot rebase will rebase this PR
+@dependabot recreate will recreate this PR, overwriting any edits that have been made to it
+@dependabot merge will merge this PR after your CI passes on it
+@dependabot squash and merge will squash and merge this PR after your CI passes on it
+@dependabot cancel merge will cancel a previously requested merge and block automerging
+@dependabot reopen will reopen this PR if it is closed
+@dependabot close will close this PR and stop Dependabot recreating it. You can achieve the same result by closing it manually
+@dependabot ignore this major version will close this PR and stop Dependabot creating any more for this major version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this minor version will close this PR and stop Dependabot creating any more for this minor version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this dependency will close this PR and stop Dependabot creating any more for this dependency (unless you reopen the PR or upgrade to it yourself)
+You can disable automated security fix PRs for this repo from the Security Alerts page.",1,0
+1573,2022-07-29T08:34:29Z,2022-07-29T14:39:12Z,2022-07-29T14:39:12Z,1,3,3,"Bumps nanoid from 3.1.30 to 3.3.4.
+
+Changelog
+Sourced from nanoid's changelog.
+
+3.3.4
+
+Fixed --help in CLI (by @​Lete114).
+
+3.3.3
+
+Reduced size (by Anton Khlynovskiy).
+
+3.3.2
+
+Fixed enhanced-resolve support.
+
+3.3.1
+
+Reduced package size.
+
+3.3
+
+Added size argument to function from customAlphabet (by Stefan Sundin).
+
+3.2
+
+Added --size and --alphabet arguments to binary (by Vitaly Baev).
+
+3.1.32
+
+Reduced async exports size (by Artyom Arutyunyan).
+Moved from Jest to uvu (by Vitaly Baev).
+
+3.1.31
+
+Fixed collision vulnerability on object in size (by Artyom Arutyunyan).
+
+
+
+
+Commits
+
+fc5bd0d Release 3.3.4 version
+5ae2628 Update dependencies
+2f48e9c Try to fix CI
+85991e3 fix: CLI help examples (#361)
+89d994c Update dependencies
+00547e7 Fix benchmark order
+a8f4099 bench: add back @​napi-rs/uuid (#360)
+acd897f Added postgres extension to various README files (#359)
+772a613 Update CI and dependencies
+e7aeb0f Added zig-nanoid to readme. (#357)
+Additional commits viewable in compare view
+
+
+
+
+Dependabot will resolve any conflicts with this PR as long as you don't alter it yourself. You can also trigger a rebase manually by commenting @dependabot rebase.
+
+
+Dependabot commands and options
+
+You can trigger Dependabot actions by commenting on this PR:
+
+@dependabot rebase will rebase this PR
+@dependabot recreate will recreate this PR, overwriting any edits that have been made to it
+@dependabot merge will merge this PR after your CI passes on it
+@dependabot squash and merge will squash and merge this PR after your CI passes on it
+@dependabot cancel merge will cancel a previously requested merge and block automerging
+@dependabot reopen will reopen this PR if it is closed
+@dependabot close will close this PR and stop Dependabot recreating it. You can achieve the same result by closing it manually
+@dependabot ignore this major version will close this PR and stop Dependabot creating any more for this major version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this minor version will close this PR and stop Dependabot creating any more for this minor version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this dependency will close this PR and stop Dependabot creating any more for this dependency (unless you reopen the PR or upgrade to it yourself)
+You can disable automated security fix PRs for this repo from the Security Alerts page.",1,0
+1623,2022-11-19T08:50:19Z,,2022-11-22T11:49:24Z,1,2,0,,3,0
+1680,2023-06-28T20:03:28Z,,2024-03-13T11:05:41Z,1,2,2,"Fixed an error in the documentation. We will get an error in the code, in the case when the class for the element is set dynamically, for example in the dependency from state to react",3,0
+1681,2023-06-29T09:04:55Z,2024-03-02T10:57:25Z,2024-03-02T10:57:25Z,1,1,1,,3,0
+1697,2023-10-18T17:50:06Z,,2024-03-02T10:48:07Z,1,3006,1145,The code works just fine but if new css/html is added then the code has to be copied and modified properly. The function name of each CSS in index.html has to be different in order to work.,3,0
+1699,2023-10-30T19:15:11Z,2024-03-02T10:53:02Z,2024-03-02T10:53:02Z,1,1,1,typo fixed,2,0

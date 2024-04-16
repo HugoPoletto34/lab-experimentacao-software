@@ -1,0 +1,2041 @@
+number,created_at,merged_at,closed_at,files,additions,deletions,body_text,participants,comments
+60,2017-05-12T18:27:51Z,,2017-05-13T09:52:13Z,1,1,1,,4,2
+111,2017-07-12T17:57:23Z,,2017-09-12T11:18:22Z,1,2,2,…ts-node up to ~3.2.0 from ^2.0.0,4,4
+120,2017-07-23T09:37:31Z,2017-09-12T11:12:53Z,2017-09-12T11:12:53Z,285,19530,1010,"async components & providers & factories & middlewares,
+guards feature,
+pipes & filters for microservices & websockets,
+e2e testing utilities, better unit test utils",8,16
+123,2017-07-26T15:12:28Z,,2017-09-12T11:16:54Z,1,2,2,From '...could not resolves...' to '...could not resolve...',4,3
+137,2017-08-20T12:51:22Z,,2017-09-12T11:16:11Z,1,2,0,Add some starters,4,6
+202,2017-10-23T03:56:58Z,,2017-10-31T12:06:53Z,16,11872,23,"This PR will use lerna for managing the monorepo. This addresses #68. I have mapped the npm publish command to lerna publish, so there should not be much difference.
+Important note: I have mapped lerna to src. I don't have a valid build command on the current repo, so change the property in lerna.json to whatever the build directory is.",5,10
+207,2017-10-25T18:26:15Z,2017-10-30T19:54:20Z,2017-10-30T19:54:20Z,1,1,1,Small fix. This typo occurs on https://docs.nestjs.com as well.,4,3
+225,2017-11-02T19:11:25Z,2017-11-03T14:33:06Z,2017-11-03T14:33:06Z,48,203,221,,3,4
+240,2017-11-11T19:28:11Z,2017-11-22T19:19:19Z,2017-11-22T19:19:19Z,0,0,0,"This PR allows creating and using custom decorators in controller's routes (methods).
+No breaking changes. Test coverage.
+Usage:
+create your decorator somewhere in your project
+// decorators/user-param.decorator.ts
+
+import { createRouteParamDecorator } from '@nestjs/common';
+
+export const User = createRouteParamDecorator((data, req) => req['user']);
+in your controller
+// controller.ts
+
+import { Controller, Get } from '@nestjs/common';
+import { User } from './decorators/user-param.decorator'; // import decorator
+
+@Controller()
+export class UserController {
+  @Get()
+  async getUser(@User() user) { // use your decorator
+    return user;
+  }
+}",4,5
+246,2017-11-14T22:29:36Z,2017-11-19T19:01:26Z,2017-11-19T19:01:26Z,1,46,0,,4,5
+250,2017-11-17T01:52:01Z,2017-12-15T21:55:35Z,2017-12-15T21:55:35Z,3,274,1,This is the first attempt at writing contribution guidelines for Nest.,4,12
+251,2017-11-17T02:04:19Z,,2017-12-21T19:15:47Z,897,19621,27274,"this commit will ensure that every commit i…s properly formatted. I've included a command, gulp format, that will take care of this for you. This functionality is taken directly from Angular's repository.
+I've also extended CI functionality, to test against more node versions, and to check that everything is properly formatted.
+Looking for a reviewer!",4,7
+278,2017-11-30T05:56:38Z,2017-12-15T13:30:56Z,2017-12-15T13:30:56Z,1,2,2,Update application context to support retrieving a module using a symbol. The injector already supports the use of symbols when declaring modules for DI.,4,5
+291,2017-12-07T16:03:11Z,2017-12-10T20:04:19Z,2017-12-10T20:04:19Z,1,2,3,Remove unused imports like WsException and HttpStatus,5,3
+301,2017-12-11T02:35:58Z,,2017-12-15T21:41:00Z,1,1,1,"Connecting to a microservice which is not up via TCP caused an ECONNREFUSED error bying thrown, which bubbled up and killed the nodejs process. see: #288
+I suggest the following fix: attaching the listener for ERROR_EVENT earlier.
+Is the suggested fix ok or should the listener be attached inside the promise's executor?",4,7
+328,2017-12-23T19:41:42Z,2018-02-16T00:13:12Z,2018-02-16T00:13:12Z,3,8,11153,This PR will warn if someone tries to use the modules property in a decorator. This should go into v5 when the property is officially deprecated.,3,3
+334,2018-01-02T21:07:28Z,2018-01-04T14:43:59Z,2018-01-04T14:44:00Z,2,2,2,It is related to #330,4,3
+374,2018-01-23T14:37:19Z,2018-02-04T08:39:33Z,2018-02-04T08:39:33Z,1,1,1,,4,3
+375,2018-01-24T00:33:49Z,2018-02-04T08:38:53Z,2018-02-04T08:38:53Z,1,0,2,,4,3
+383,2018-01-29T14:09:07Z,2018-02-11T11:27:18Z,2018-02-11T11:27:18Z,4,1311,175,"TLDR; This PR adds some options to the ValidationPipe.
+Motivation
+Take the following code base:
+// pagination.dto.ts
+import { IsInt, IsOptional, IsPositive } from ""class-validator"";
+import { Type } from ""class-transformer"";
+export class PaginationOptionsDto {
+  @IsInt()
+  @IsPositive()
+  @IsOptional()
+  @Type(() => Number)
+  readonly offset?: number;
+
+  @IsInt()
+  @IsPositive()
+  @IsOptional()
+  @Type(() => Number)
+  readonly limit?: number;
+}
+// users.controller.ts
+// ...
+/**
+ * A `GET` request against the `/users?name=James&offset=20&limit=10` endpoint
+ * should return a paginated list of the users named James.
+ */
+@Get('users')
+async getUsers(
+  @Query(new ValidationPipe()) pagination?: PaginationOptionsDto,
+  @Query('name') nameFilter?: string
+) {
+  console.log(pagination instanceof PaginationOptionsDto);
+  console.log(pagination);
+  return this.usersService.getUsers({name: nameFilter}, pagination);
+}
+// ...
+Now if you take a look at the console output, you will see that:
+
+pagination is not an instance of PaginationOptionsDto which can cause issues if you want to define some methods in this class.
+pagination is an object (any) equal to {name: 'James', offset: 20, limit: 10}.
+
+Weird, uh? I know that ""since it's a validation pipe it should only perform validation"", but still... weird.
+Proposal
+This PR adds the support of the following options to the ValidationPipe:
+
+transform: The pipe will return an instance of the expected type.
+strip: The pipe will return an instance of the expected type without the extra properties (ie: the name property on the example above). This option implicitly sets transform to true.
+reject: The pipe will throw an error if it finds any unexpected property. This option implicitly sets transform and strip to true.
+
+This is what it looks like:
+@Get('/users')
+async getUsers(
+  @Query(new TransformationPipe({strip: true})) pagination?: PaginationOptionsDto,
+  @Query('name') nameFilter?: string
+) {
+  console.log(pagination instanceof PaginationOptionsDto); // true
+  console.log(pagination); // {limit: 10, offset: 20}
+  return this.usersService.getUsers(pagination, {name: nameFilter});
+}
+This makes use of the class-validator latest release which provides the whitelisting feature.",7,19
+385,2018-01-30T08:36:48Z,2018-02-05T15:16:15Z,2018-02-05T15:16:15Z,2,12,11,"TLDR; This PR improves the ParseIntPipe validation.
+Motivation
+Take the following code base:
+// sample.controller.ts
+//...
+  @Get(':id')
+  async getById(
+    @Param('id', new ParseIntPipe()) id: number,
+  ) {
+      console.log(id);
+  }
+//...
+If a user sends the following HTTP request GET http://localhost:3000/users/1abc, the current parseIntPipe will validate the parameter. I think it's not the expected behaviour.
+Proposal
+This PR will improve the parseIntPipe by using the rxjs function isNumeric to be sure that the input string is only composed of numbers.
+rxjs being already a dependency of nestjs, this PR doesn't add a new dependency.",5,7
+427,2018-02-16T15:08:58Z,,2018-02-18T21:59:00Z,1,1,1,see #278,5,3
+467,2018-03-03T23:09:17Z,,2018-03-08T10:42:13Z,1,1,0,Exporting the HTTP module and service in common so it is available in the main import.,4,6
+642,2018-05-06T14:32:38Z,2018-07-25T17:54:43Z,2018-07-25T17:54:43Z,1,3,0,Testing different caching strategy (instead of yarn).,4,3
+644,2018-05-06T14:33:48Z,2018-07-25T17:57:10Z,2018-07-25T17:57:10Z,3,14,16,Node.js 10 is the current stable version and we should test against it too.,4,4
+716,2018-05-21T07:23:12Z,,2018-05-25T11:38:20Z,3,18,4,"PR Checklist
+Please check if your PR fulfills the following requirements:
+
+ The commit message follows our guidelines: https://github.com/nestjs/nest/blob/master/CONTRIBUTING.md
+ Tests for the changes have been added (for bug fixes / features)
+ Docs have been added / updated (for bug fixes / features)
+
+PR Type
+What kind of change does this PR introduce?
+
+[ ] Bugfix
+[*] Feature
+[ ] Code style update (formatting, local variables)
+[ ] Refactoring (no functional changes, no api changes)
+[ ] Build related changes
+[ ] CI related changes
+[ ] Other... Please describe:
+
+What is the current behavior?
+
+Issue Number: #709
+What is the new behavior?
+Does this PR introduce a breaking change?
+[ ] Yes
+[*] No
+
+
+Other information",4,6
+754,2018-05-31T20:32:24Z,,2020-01-24T12:54:53Z,16,1690,0,"PR Checklist
+Please check if your PR fulfills the following requirements:
+
+ The commit message follows our guidelines: https://github.com/nestjs/nest/blob/master/CONTRIBUTING.md
+ Tests for the changes have been added (for bug fixes / features)
+ Docs have been added / updated (for bug fixes / features)
+
+PR Type
+What kind of change does this PR introduce?
+
+[ ] Bugfix
+[x] Feature
+[ ] Code style update (formatting, local variables)
+[ ] Refactoring (no functional changes, no api changes)
+[ ] Build related changes
+[ ] CI related changes
+[ ] Other... Please describe:
+
+What is the current behavior?
+There is no dynamoDB example, but there is one for mongoDB
+What is the new behavior?
+This PR has a dynamoDB example.
+Does this PR introduce a breaking change?
+
+ Yes
+ No
+
+
+Other information
+The @aws/data-mapper-annotations package is built on top of the AWS SDK. The introductory blog post with examples can be found here and the source code for the relevant packages can be found here.",7,10
+774,2018-06-08T14:15:51Z,2018-06-21T19:53:55Z,2018-06-21T19:53:55Z,5,125,10,"PR Checklist
+Please check if your PR fulfills the following requirements:
+
+ The commit message follows our guidelines: https://github.com/nestjs/nest/blob/master/CONTRIBUTING.md
+ Tests for the changes have been added (for bug fixes / features)
+ Docs have been added / updated (for bug fixes / features)
+
+PR Type
+What kind of change does this PR introduce?
+
+[ ] Bugfix
+[x] Feature
+[ ] Code style update (formatting, local variables)
+[ ] Refactoring (no functional changes, no api changes)
+[ ] Build related changes
+[ ] CI related changes
+[ ] Other... Please describe:
+
+What is the current behavior?
+When a connected ClientGrpcProxy unsubscribes the Observable  returned for an stream gRPC method the upstream connection stays untouched and the server continuous to send updates, even if no-one's listening.
+Likewise the Observables complete is not getting called.
+Issue Number: #773
+What is the new behavior?
+When the client cancels the ServerGrpc stops consuming it's Observable and the client's complete gets called.
+Also:
+
+all eventListener on call get cleaned up
+Argument type of getService<T> got tighten, as it can only be a keyof T - get more help from the comiler
+
+Does this PR introduce a breaking change?
+[ ] Yes
+[x] No
+
+
+Other information",5,7
+814,2018-06-26T08:03:29Z,2018-07-25T17:43:22Z,2018-07-25T17:43:22Z,9,121,45,"PR Checklist
+Please check if your PR fulfills the following requirements:
+
+ The commit message follows our guidelines: https://github.com/nestjs/nest/blob/master/CONTRIBUTING.md
+ Tests for the changes have been added (for bug fixes / features)
+
+PR Type
+This feature displays the found dependency names when any unknown
+dependency is getting injected. Before this feature the error message
+gets displayed like (?, +). After this implementation, like this e.g.
+(?, CatsService).
+
+[ ] Bugfix
+[x] Feature
+[ ] Code style update (formatting, local variables)
+[ ] Refactoring (no functional changes, no api changes)
+[ ] Build related changes
+[ ] CI related changes
+[ ] Other... Please describe:
+
+What is the current behavior?
+
+Issue Number: #223
+Does this PR introduce a breaking change?
+[ ] Yes
+[x] No",4,13
+821,2018-06-28T02:37:07Z,,2018-08-31T12:38:22Z,4,11,8,"add a second arg of handleConnection to support  (client, req) => {} callback of the connection event
+PR Checklist
+Please check if your PR fulfills the following requirements:
+
+ The commit message follows our guidelines: https://github.com/nestjs/nest/blob/master/CONTRIBUTING.md
+ Tests for the changes have been added (for bug fixes / features)
+ Docs have been added / updated (for bug fixes / features)
+
+PR Type
+What kind of change does this PR introduce?
+[ ] Bugfix
+[ ] Feature
+[ ] Code style update (formatting, local variables)
+[x] Refactoring (no functional changes, no api changes)
+[ ] Build related changes
+[ ] CI related changes
+[ ] Other... Please describe:
+
+What is the current behavior?
+Current handleConnection of the websocket gateway just apply 1 arg client, which depends on different websocket implements. For socket.io there is only client, but for ws, there're 2 args of the connection event: client, req.
+Issue Number: 813
+What is the new behavior?
+handleConnection now accept 2 args.
+Does this PR introduce a breaking change?
+[ ] Yes
+[x] No
+
+Other information",3,6
+877,2018-07-15T16:35:22Z,2018-07-25T17:49:51Z,2018-07-25T17:49:51Z,1,2,10,"PR Checklist
+Please check if your PR fulfills the following requirements:
+
+ The commit message follows our guidelines: https://github.com/nestjs/nest/blob/master/CONTRIBUTING.md
+ Tests for the changes have been added (for bug fixes / features)
+ Docs have been added / updated (for bug fixes / features)
+
+PR Type
+What kind of change does this PR introduce?
+
+[ ] Bugfix
+[ ] Feature
+[ ] Code style update (formatting, local variables)
+[X] Refactoring (no functional changes, no api changes)
+[ ] Build related changes
+[ ] CI related changes
+[ ] Other... Please describe:
+
+What is the current behavior?
+
+This PR just updates the NestFactory.create method signature, decreasing the number of signatures from six to four.
+Issue Number: #876
+What is the new behavior?
+No change in behavior or API, just more maintainable.
+Does this PR introduce a breaking change?
+[ ] Yes
+[X] No
+
+
+Other information",4,3
+887,2018-07-17T16:27:48Z,,2018-10-05T20:49:06Z,20,4085,3356,"PR Checklist
+Please check if your PR fulfills the following requirements:
+
+ The commit message follows our guidelines: https://github.com/nestjs/nest/blob/master/CONTRIBUTING.md
+ Tests for the changes have been added (for bug fixes / features)
+ Docs have been added / updated (for bug fixes / features)
+
+PR Type
+What kind of change does this PR introduce?
+[ ] Bugfix
+[x] Feature
+[ ] Code style update (formatting, local variables)
+[ ] Refactoring (no functional changes, no api changes)
+[ ] Build related changes
+[ ] CI related changes
+[ ] Other... Please describe:
+
+What is the current behavior?
+No RabbitMQ transport.
+What is the new behavior?
+Added RabbitMQ transport.
+Does this PR introduce a breaking change?
+[ ] Yes
+[x] No
+
+Other information
+I ❤️ NestJS and use it in our company in production. But we use RabbitMQ. It is one of popular message queue engine. It would be great if RQM transport  will become part of NestJS. It uses RPC pattern, in which we have one main queue which server (one or more instance) listens. When client sends message to main queue, it creates temporary queue in which it listens for an answer. This allow many clients communicate with server at ones.
+
+You had old RQM example in your docs (as custom Strategy) that uses two queue, but we will run into issues if we have two different clients with different messages.
+I covered code with test. Next step I'll write docs if pull request is useful for NestJS project.",10,35
+909,2018-07-25T18:21:40Z,2018-08-22T13:47:54Z,2018-08-22T13:47:54Z,228,7629,4828,"PR Checklist
+Please check if your PR fulfills the following requirements:
+
+ The commit message follows our guidelines: https://github.com/nestjs/nest/blob/master/CONTRIBUTING.md
+ Tests for the changes have been added (for bug fixes / features)
+ Docs have been added / updated (for bug fixes / features)
+
+PR Type
+What kind of change does this PR introduce?
+
+[ ] Bugfix
+[ ] Feature
+[ ] Code style update (formatting, local variables)
+[ ] Refactoring (no functional changes, no api changes)
+[ ] Build related changes
+[ ] CI related changes
+[ ] Other... Please describe:
+
+What is the current behavior?
+
+Issue Number: N/A
+What is the new behavior?
+Does this PR introduce a breaking change?
+[ ] Yes
+[ ] No
+
+
+Other information",7,2
+954,2018-08-08T17:46:58Z,,2018-09-06T10:35:18Z,48,1056,21077,"PR Checklist
+Please check if your PR fulfills the following requirements:
+
+ The commit message follows our guidelines: https://github.com/nestjs/nest/blob/master/CONTRIBUTING.md
+ Tests for the changes have been added (for bug fixes / features)
+ Docs have been added / updated (for bug fixes / features)
+
+PR Type
+What kind of change does this PR introduce?
+
+[ ] Bugfix
+[x] Feature
+[ ] Code style update (formatting, local variables)
+[ ] Refactoring (no functional changes, no api changes)
+[ ] Build related changes
+[ ] CI related changes
+[ ] Other... Please describe:
+
+What is the current behavior?
+
+Issue Number: 952
+What is the new behavior?
+use workspace to build packages, decrease node_modules size and makes debug much easier
+Does this PR introduce a breaking change?
+[x] Yes
+[ ] No
+
+
+I upgraded typescript version and @types/node version, which I think is breaking change
+Other information",4,9
+955,2018-08-09T06:28:57Z,2018-08-16T12:08:36Z,2018-08-16T12:08:36Z,5,6,6,"PR Checklist
+Please check if your PR fulfills the following requirements:
+
+ The commit message follows our guidelines: https://github.com/nestjs/nest/blob/master/CONTRIBUTING.md
+ Tests for the changes have been added (for bug fixes / features)
+ Docs have been added / updated (for bug fixes / features)
+
+PR Type
+What kind of change does this PR introduce?
+
+[ ] Bugfix
+[ ] Feature
+[ ] Code style update (formatting, local variables)
+[x] Refactoring (no functional changes, no api changes)
+[ ] Build related changes
+[ ] CI related changes
+[ ] Other... Please describe:
+
+What is the current behavior?
+
+Issue Number: N/A
+What is the new behavior?
+Does this PR introduce a breaking change?
+[ ] Yes
+[x] No
+
+
+Other information",5,3
+1161,2018-10-03T20:16:23Z,2018-12-10T21:38:50Z,2018-12-10T21:38:50Z,61,504,168,"PR Checklist
+Please check if your PR fulfills the following requirements:
+
+ The commit message follows our guidelines: https://github.com/nestjs/nest/blob/master/CONTRIBUTING.md
+ Tests for the changes have been added (for bug fixes / features)
+ Docs have been added / updated (for bug fixes / features)
+
+PR Type
+What kind of change does this PR introduce?
+
+[ ] Bugfix
+[ ] Feature
+[x] Code style update (formatting, local variables)
+[x] Refactoring (no functional changes, no api changes)
+[ ] Build related changes
+[ ] CI related changes
+[ ] Other... Please describe:
+
+What is the current behavior?
+
+Issue Number: N/A
+What is the new behavior?
+Does this PR introduce a breaking change?
+[x] Yes
+[ ] No
+
+
+Other information
+Breaking change due to the different API of custom transport strategies (microservices)",6,2
+1172,2018-10-06T10:47:02Z,2018-10-19T11:54:18Z,2018-10-19T11:54:18Z,24,456,100,"PR Checklist
+Please check if your PR fulfills the following requirements:
+
+ The commit message follows our guidelines: https://github.com/nestjs/nest/blob/master/CONTRIBUTING.md
+ Tests for the changes have been added (for bug fixes / features)
+ Docs have been added / updated (for bug fixes / features)
+
+PR Type
+What kind of change does this PR introduce?
+
+[ ] Bugfix
+[x] Feature
+[ ] Code style update (formatting, local variables)
+[ ] Refactoring (no functional changes, no api changes)
+[ ] Build related changes
+[ ] CI related changes
+[ ] Other... Please describe:
+
+What is the current behavior?
+
+Issue Number: #1014
+What is the new behavior?
+Does this PR introduce a breaking change?
+[ ] Yes
+[x] No
+
+
+Other information",3,4
+1176,2018-10-06T14:19:19Z,2018-10-17T19:31:32Z,2018-10-17T19:31:32Z,826,331,14832,"PR Checklist
+Please check if your PR fulfills the following requirements:
+
+ The commit message follows our guidelines: https://github.com/nestjs/nest/blob/master/CONTRIBUTING.md
+ Tests for the changes have been added (for bug fixes / features)
+ Docs have been added / updated (for bug fixes / features)
+
+PR Type
+What kind of change does this PR introduce?
+
+[ ] Bugfix
+[ ] Feature
+[ ] Code style update (formatting, local variables)
+[ ] Refactoring (no functional changes, no api changes)
+[x] Build related changes
+[ ] CI related changes
+[ ] Other... Please describe:
+
+What is the new behavior?
+An alternative proposal to #1060
+
+public API remains the same
+no breaking changes, 3rd-party packages aren't broken
+bundle directory no longer exists
+npm run build builds all packages and puts output files near to ts files
+npm run prepare fixed
+npm run build:lib builds all packages and put them into node_modules/sample/integration dirs
+no errors with npm run build
+npm run clean removes all d.ts and .js files from packages
+NPM ignores source code when publishing (.ts)
+GIT ignores bundle files (.d.ts and .js)
+
+Does this PR introduce a breaking change?
+[ ] Yes
+[x] No
+
+
+Other information",4,6
+1179,2018-10-08T09:09:45Z,2018-10-09T07:57:47Z,2018-10-09T07:57:47Z,1,2,0,"PR Checklist
+Please check if your PR fulfills the following requirements:
+
+ The commit message follows our guidelines: https://github.com/nestjs/nest/blob/master/CONTRIBUTING.md
+ Tests for the changes have been added (for bug fixes / features)
+ Docs have been added / updated (for bug fixes / features)
+
+PR Type
+What kind of change does this PR introduce?
+
+[ ] Bugfix
+[ ] Feature
+[ ] Code style update (formatting, local variables)
+[ ] Refactoring (no functional changes, no api changes)
+[x] Build related changes
+[ ] CI related changes
+[ ] Other... Please describe:
+
+What is the current behavior?
+
+Issue Number: N/A
+What is the new behavior?
+Does this PR introduce a breaking change?
+[ ] Yes
+[x] No
+
+
+Other information
+https://medium.com/@clarkbw/managing-generated-files-in-github-1f1989c09dfd",4,3
+1183,2018-10-10T13:31:06Z,2018-10-17T19:43:03Z,2018-10-17T19:43:03Z,1,12,1,"sending messages to ws client only if it in open state
+no breaking changes
+PR Checklist
+Please check if your PR fulfills the following requirements:
+
+ The commit message follows our guidelines: https://github.com/nestjs/nest/blob/master/CONTRIBUTING.md
+ Tests for the changes have been added (for bug fixes / features)
+ Docs have been added / updated (for bug fixes / features)
+
+PR Type
+What kind of change does this PR introduce?
+
+[x] Bugfix
+[ ] Feature
+[ ] Code style update (formatting, local variables)
+[ ] Refactoring (no functional changes, no api changes)
+[ ] Build related changes
+[ ] CI related changes
+[ ] Other... Please describe:
+
+What is the current behavior?
+
+Issue Number: N/A
+What is the new behavior?
+Does this PR introduce a breaking change?
+[ ] Yes
+[x] No
+
+
+Other information",4,5
+1216,2018-10-19T18:59:35Z,,2018-11-05T17:23:05Z,1,9,10,"PR Checklist
+Please check if your PR fulfills the following requirements:
+
+ The commit message follows our guidelines: https://github.com/nestjs/nest/blob/master/CONTRIBUTING.md
+ Tests for the changes have been added (for bug fixes / features)
+ Docs have been added / updated (for bug fixes / features)
+
+PR Type
+What kind of change does this PR introduce?
+
+[ ] Bugfix
+[ ] Feature
+[x] Code style update (formatting, local variables)
+[x] Refactoring (no functional changes, no api changes)
+[ ] Build related changes
+[ ] CI related changes
+[ ] Other... Please describe:
+
+What is the current behavior?
+
+Issue Number: N/A
+What is the new behavior?
+Does this PR introduce a breaking change?
+[ ] Yes
+[x] No
+
+
+Other information",4,3
+1312,2018-11-24T16:29:18Z,2018-11-30T12:43:52Z,2018-11-30T12:43:52Z,170,1297,1035,"PR Checklist
+Please check if your PR fulfills the following requirements:
+
+ The commit message follows our guidelines: https://github.com/nestjs/nest/blob/master/CONTRIBUTING.md
+ Tests for the changes have been added (for bug fixes / features)
+ Docs have been added / updated (for bug fixes / features)
+
+PR Type
+What kind of change does this PR introduce?
+
+[ ] Bugfix
+[ ] Feature
+[x] Code style update (formatting, local variables)
+[x] Refactoring (no functional changes, no api changes)
+[ ] Build related changes
+[ ] CI related changes
+[ ] Other... Please describe:
+
+What is the current behavior?
+
+Issue Number: N/A
+What is the new behavior?
+Does this PR introduce a breaking change?
+[ ] Yes
+[x] No
+
+
+Other information",3,3
+1329,2018-11-30T15:49:16Z,2018-12-29T09:46:47Z,2018-12-29T09:46:47Z,125,1550,1021,"PR Checklist
+Please check if your PR fulfills the following requirements:
+
+ The commit message follows our guidelines: https://github.com/nestjs/nest/blob/master/CONTRIBUTING.md
+ Tests for the changes have been added (for bug fixes / features)
+ Docs have been added / updated (for bug fixes / features)
+
+PR Type
+What kind of change does this PR introduce?
+
+[ ] Bugfix
+[x] Feature
+[ ] Code style update (formatting, local variables)
+[x] Refactoring (no functional changes, no api changes)
+[ ] Build related changes
+[ ] CI related changes
+[ ] Other... Please describe:
+
+What is the current behavior?
+
+Issue Number: #531
+What is the new behavior?
+First iteration to extract HTTP adapters (WIP)
+Does this PR introduce a breaking change?
+[x] Yes
+[ ] No
+
+
+Other information",5,15
+1385,2018-12-19T15:22:53Z,2019-02-05T13:07:48Z,2019-02-05T13:07:48Z,7,232,50,"This feature was requested in the issue #1343. When routing, besides using a single string, you can
+now use an array of strings in the Post, Get, ... decorators.
+PR Checklist
+Please check if your PR fulfills the following requirements:
+
+ The commit message follows our guidelines: https://github.com/nestjs/nest/blob/master/CONTRIBUTING.md
+ Tests for the changes have been added (for bug fixes / features)
+ Docs have been added / updated (for bug fixes / features)
+
+PR Type
+What kind of change does this PR introduce?
+
+[ ] Bugfix
+[X] Feature
+[ ] Code style update (formatting, local variables)
+[ ] Refactoring (no functional changes, no api changes)
+[ ] Build related changes
+[ ] CI related changes
+[ ] Other... Please describe:
+
+What is the current behavior?
+
+Issue Number: #1343
+What is the new behavior?
+When routing, besides using a single string, you can now use an array of strings in the Post, Get, ... decorators.
+Does this PR introduce a breaking change?
+[ ] Yes
+[X] No
+
+
+Other information",3,7
+1388,2018-12-20T10:40:40Z,2019-01-14T23:30:03Z,2019-01-14T23:30:03Z,7,140,114,"PR Checklist
+Please check if your PR fulfills the following requirements:
+
+ The commit message follows our guidelines: https://github.com/nestjs/nest/blob/master/CONTRIBUTING.md
+ Tests for the changes have been added (for bug fixes / features)
+ Docs have been added / updated (for bug fixes / features)
+
+PR Type
+What kind of change does this PR introduce?
+Interfaces has been updated and grpc Server options has been implemented
+
+[ ] Bugfix
+[x] Feature
+[ ] Code style update (formatting, local variables)
+[ ] Refactoring (no functional changes, no api changes)
+[ ] Build related changes
+[ ] CI related changes
+[ ] Other... Please describe:
+
+What is the current behavior?
+
+grpc Server use default grpc.max_received_message_length and grpc.max_send_message_length values
+Issue Number: N/A
+What is the new behavior?
+Enable to modify grpc Server  grpc.max_received_message_length and grpc.max_send_message_length values with the following maxReceivedMessageLength and maxSendMessageLength attributes
+Does this PR introduce a breaking change?
+[ ] Yes
+[x] No
+
+
+Other information",3,4
+1416,2019-01-02T11:55:37Z,2019-01-30T22:08:52Z,2019-01-30T22:08:52Z,21,595,202,"PR Checklist
+Please check if your PR fulfills the following requirements:
+
+ The commit message follows our guidelines: https://github.com/nestjs/nest/blob/master/CONTRIBUTING.md
+ Tests for the changes have been added (for bug fixes / features)
+ Docs have been added / updated (for bug fixes / features)
+
+PR Type
+What kind of change does this PR introduce?
+
+[ ] Bugfix
+[ ] Feature
+[x] Code style update (formatting, local variables)
+[x] Refactoring (no functional changes, no api changes)
+[ ] Build related changes
+[ ] CI related changes
+[ ] Other... Please describe:
+
+What is the current behavior?
+At the moment the nest-application-context.ts is kind of bloated with lifecycle hooks. They can be easily refactored into dedicated files packages/core/hooks/*.hook.ts.
+Related issue #1417
+What is the new behavior?
+The hooks are being refactored in a dedicated file per lifecycle hook (e.g. on-module-init.hook.ts).
+Does this PR introduce a breaking change?
+[ ] Yes
+[x] No
+
+
+Other information
+I have not finished the PR yet. I want to get first some feedback before I continue. So please feel free to comment if this PR is in the alignment of the 6.0.0 roadmap.
+Planned to refactor are for sure the lifecycle hooks:
+
+onModuleInit (done)
+onModuleDestroy
+onApplicationBootstrap
+
+This is a preparation for #1417",4,10
+1468,2019-01-24T15:04:31Z,,2019-04-16T23:51:14Z,2,35,4,"PR Checklist
+Please check if your PR fulfills the following requirements:
+
+ The commit message follows our guidelines: https://github.com/nestjs/nest/blob/master/CONTRIBUTING.md
+ Tests for the changes have been added (for bug fixes / features)
+ Docs have been added / updated (for bug fixes / features)
+
+PR Type
+What kind of change does this PR introduce?
+
+[ ] Bugfix
+[ ] Feature
+[ ] Code style update (formatting, local variables)
+[x] Refactoring (no functional changes, no api changes)
+[ ] Build related changes
+[ ] CI related changes
+[ ] Other... Please describe:
+
+What is the current behavior?
+
+Issue Number: #1466
+What is the new behavior?
+Catch an Observable error and call a native error handler.
+Does this PR introduce a breaking change?
+[ ] Yes
+[x] No
+
+
+Other information",3,3
+1481,2019-01-29T15:04:12Z,2019-07-01T12:41:40Z,2019-07-01T12:41:40Z,4,27,11,"… responses
+PR Checklist
+Please check if your PR fulfills the following requirements:
+
+ The commit message follows our guidelines: https://github.com/nestjs/nest/blob/master/CONTRIBUTING.md
+ Tests for the changes have been added (for bug fixes / features)
+ Docs have been added / updated (for bug fixes / features)
+
+PR Type
+What kind of change does this PR introduce?
+
+[ ] Bugfix
+[x] Feature
+[x] Code style update (formatting, local variables)
+[x] Refactoring (no functional changes, no api changes)
+[ ] Build related changes
+[ ] CI related changes
+[ ] Other... Please describe:
+
+What is the current behavior?
+
+Currently there is no example for swagger + Typed Responses (Response Models)
+What is the new behavior?
+It introduces the correct example.
+Does this PR introduce a breaking change?
+[ ] Yes
+[x] No
+
+
+Other information",3,6
+1517,2019-02-02T22:02:44Z,,2019-06-26T21:17:59Z,11,395,7,"PR Checklist
+Please check if your PR fulfills the following requirements:
+
+ The commit message follows our guidelines: https://github.com/nestjs/nest/blob/master/CONTRIBUTING.md
+ Tests for the changes have been added (for bug fixes / features)
+ Docs have been added / updated (for bug fixes / features)
+
+PR Type
+What kind of change does this PR introduce?
+
+[ ] Bugfix
+[x] Feature
+[ ] Code style update (formatting, local variables)
+[ ] Refactoring (no functional changes, no api changes)
+[ ] Build related changes
+[ ] CI related changes
+[ ] Other... Please describe:
+
+What is the current behavior?
+
+No multi provider option
+Issue Number: #770
+What is the new behavior?
+Support the multi option for providers
+@Module({
+  providers: [{
+    provide: 'TEST',
+    useValue: 'a',
+    multi: true,
+  },
+  {
+    provide: 'TEST',
+    useValue: 'b',
+    multi: true,
+  }],
+})
+export class ApplicationModule { }
+
+async function bootstrap() {
+  const app = await NestFactory.createApplicationContext(ApplicationModule);
+  console.log(app.get('TEST')); // ['a', 'b']
+}
+bootstrap();
+Does this PR introduce a breaking change?
+[ ] Yes
+[x] No
+
+
+Other information
+I am looking forward to implementing a APP_INITIALIZER token for NestJS which could help with #1438",6,8
+1533,2019-02-07T13:49:18Z,,2020-01-24T12:54:39Z,6,1045,2404,"… #1365
+PR Checklist
+Please check if your PR fulfills the following requirements:
+
+ The commit message follows our guidelines: https://github.com/nestjs/nest/blob/master/CONTRIBUTING.md
+ Tests for the changes have been added (for bug fixes / features)
+ Docs have been added / updated (for bug fixes / features)
+
+PR Type
+What kind of change does this PR introduce?
+
+[ ] Bugfix
+[ ] Feature
+[ ] Code style update (formatting, local variables)
+[ ] Refactoring (no functional changes, no api changes)
+[ ] Build related changes
+[ ] CI related changes
+[ ] Other... Please describe:
+
+What is the current behavior?
+
+Issue Number: N/A
+What is the new behavior?
+Does this PR introduce a breaking change?
+[ ] Yes
+[X] No
+
+
+Other information",4,6
+1549,2019-02-12T11:38:22Z,2019-04-10T11:00:10Z,2019-04-10T11:00:10Z,7,9,2,"PR Checklist
+Please check if your PR fulfills the following requirements:
+
+ The commit message follows our guidelines: https://github.com/nestjs/nest/blob/master/CONTRIBUTING.md
+ Tests for the changes have been added (for bug fixes / features)
+ Docs have been added / updated (for bug fixes / features) - nestjs/docs.nestjs.com#244
+
+PR Type
+What kind of change does this PR introduce?
+[ ] Bugfix
+[x] Feature
+[ ] Code style update (formatting, local variables)
+[ ] Refactoring (no functional changes, no api changes)
+[ ] Build related changes
+[ ] CI related changes
+[ ] Other... Please describe:
+
+What is the current behavior?
+You cannot specify the socket (connection) options detailed in https://www.squaremobius.net/amqp.node/channel_api.html#connect
+Issue Number: N/A
+What is the new behavior?
+You will now be able to specify the socket options (i.e. adding noDelay)
+Does this PR introduce a breaking change?
+[ ] Yes
+[x] No
+
+Other information
+I came across this not being possible when I was looking at tuning our system, so decided to add it!",3,6
+1560,2019-02-14T15:11:13Z,2019-02-18T13:10:15Z,2019-02-18T13:10:15Z,15,206,196,"PR Checklist
+
+ The commit message follows our guidelines: https://github.com/nestjs/nest/blob/master/CONTRIBUTING.md
+
+PR Type
+What kind of change does this PR introduce?
+[X] Other... Please describe: Dependency update
+
+What is the new behavior?
+Sinon and all related dependencies are upgraded to latest versions
+Does this PR introduce a breaking change?
+[] Yes
+[X] No",3,3
+1561,2019-02-14T15:16:51Z,2019-02-18T13:07:24Z,2019-02-18T13:07:24Z,3,104,135,"PR Checklist
+
+ The commit message follows our guidelines: https://github.com/nestjs/nest/blob/master/CONTRIBUTING.md
+
+PR Type
+What kind of change does this PR introduce?
+[X] CI related changes
+
+What is the current behavior?
+Node 9, which is no longer supported, is used to execute tests.
+What is the new behavior?
+Node 11, which is current Node version, is used to execute tests
+Does this PR introduce a breaking change?
+[ ] Yes
+[X] No",3,3
+1562,2019-02-15T11:46:54Z,2019-05-30T14:45:30Z,2019-05-30T14:45:30Z,2,21,1,"PR Checklist
+
+ The commit message follows our guidelines: https://github.com/nestjs/nest/blob/master/CONTRIBUTING.md
+ Tests for the changes have been added (for bug fixes / features)
+ Docs have been added / updated (for bug fixes / features)
+
+PR Type
+What kind of change does this PR introduce?
+
+[x] Bugfix
+[ ] Feature
+[ ] Code style update (formatting, local variables)
+[ ] Refactoring (no functional changes, no api changes)
+[ ] Build related changes
+[ ] CI related changes
+[ ] Other... Please describe:
+
+What is the current behavior?
+When we pass class type as data parameter to createParamDecorator function, it will be recognized as Pipe and data will be null in the factory. 😞
+What is the new behavior?
+We can pass classes as data parameter 😃
+Does this PR introduce a breaking change?
+[ ] Yes
+[x] No",4,5
+1563,2019-02-16T14:20:29Z,2019-02-21T10:10:26Z,2019-02-21T10:10:26Z,4,23,7,"PR Checklist
+Please check if your PR fulfills the following requirements:
+
+ The commit message follows our guidelines: https://github.com/nestjs/nest/blob/master/CONTRIBUTING.md
+ Tests for the changes have been added (for bug fixes / features)
+ Docs have been added / updated (for bug fixes / features)
+
+PR Type
+What kind of change does this PR introduce?
+
+[x] Bugfix
+[ ] Feature
+[ ] Code style update (formatting, local variables)
+[ ] Refactoring (no functional changes, no api changes)
+[ ] Build related changes
+[ ] CI related changes
+[ ] Other... Please describe:
+
+What is the current behavior?
+
+When using a Symbol as provide it won't print the UnknownDependencyException message correctly
+e.g.
+[Nest] 31114   - 2019-2-13 17:08:35   [ExceptionHandler] Cannot convert a Symbol value to a string +1ms
+TypeError: Cannot convert a Symbol value to a string
+    at Object.exports.UNKNOWN_DEPENDENCIES_MESSAGE (/home/user/project/node_modules/@nestjs/core/errors/messages.js:25:61)
+
+Issue Number: #1551
+What is the new behavior?
+Will print the error like this:
+Nest can't resolve dependencies of the Symbol(CatProvider) (?). Please make sure that the argument at index [0] is available in the ApplicationModule context.
+
+Does this PR introduce a breaking change?
+[ ] Yes
+[x] No
+
+
+Other information",3,5
+1568,2019-02-18T07:11:16Z,2019-05-30T09:46:05Z,2019-05-30T09:46:05Z,7,396,23,"PR Checklist
+Please check if your PR fulfills the following requirements:
+
+ The commit message follows our guidelines: https://github.com/nestjs/nest/blob/master/CONTRIBUTING.md
+ Tests for the changes have been added (for bug fixes / features)
+ Docs have been added / updated (for bug fixes / features)
+
+PR Type
+What kind of change does this PR introduce?
+
+[ ] Bugfix
+[X] Feature
+[ ] Code style update (formatting, local variables)
+[X] Refactoring (no functional changes, no api changes)
+[ ] Build related changes
+[ ] CI related changes
+[ ] Other... Please describe:
+
+What is the current behavior?
+
+Issue Number: #1286
+Issue Number: #1264
+Previous PR: #1292
+Currently when protobuf rpc is defined like this:
+service TestService {
+    rpc testMethod(stream TestMessage) returns (stream TestResponse)
+}
+Nest has no ability to pass a stream object down to the Controller handler, so there is no option to have full-duplex message interaction.
+What is the new behavior?
+Two new behaviors added, both are aiming same goals but serves different approach towards reaching the goal. Let's enumerate those:
+RX Object approach
+Developer receives RX object as the message and can return Promise or RX object as the stream
+@Controller()
+export class GrpcController {
+  @GrpcStreamMethod('TestService')
+    async testMethod(messages: Observable<TestMessage>): Promise<TestResponse> {
+      // Form a resulting promise
+      return new Promise<any>((resolve, reject) => {
+        // Subscribe for a message to for a test answer
+        messages.subscribe(msg => {
+          // Resolve with iterating the value
+          resolve({
+            result: msg.data + 1
+          });
+        }, err => {
+          reject(err);
+        });
+      });
+    }
+}
+GRPC Call Object approach
+Developer receives GRPC Stream wrapper and can operate it in the style of how streams are operated:
+@Controller()
+export class GrpcController {
+    @GrpcStreamCall('TestService')
+    async testMethod(stream: ClientWritableStream<TestResponse>) {
+        stream.on('data', (msg: TestMessage) => {
+            stream.write({result: msg.data + 1});
+        }
+    }
+}
+Does this PR introduce a breaking change?
+[ ] Yes
+[X] No
+
+Other information",7,31
+1569,2019-02-18T13:51:14Z,2019-02-28T13:26:42Z,2019-02-28T13:26:43Z,2,2251,1962,"PR Checklist
+
+ The commit message follows our guidelines: https://github.com/nestjs/nest/blob/master/CONTRIBUTING.md
+
+PR Type
+[X] Build related changes
+
+What is the new behavior?
+Several test/linting dependencies were updated, new husky configuration syntax is used
+Does this PR introduce a breaking change?
+[X] No",3,5
+1600,2019-03-01T18:45:23Z,2019-03-05T11:43:32Z,2019-03-05T11:43:32Z,8,146,24,"PR Checklist
+Please check if your PR fulfills the following requirements:
+
+ The commit message follows our guidelines: https://github.com/nestjs/nest/blob/master/CONTRIBUTING.md
+ Tests for the changes have been added (for bug fixes / features)
+ Docs have been added / updated (for bug fixes / features)
+
+PR Type
+What kind of change does this PR introduce?
+
+[x] Bugfix
+[ ] Feature
+[ ] Code style update (formatting, local variables)
+[ ] Refactoring (no functional changes, no api changes)
+[ ] Build related changes
+[ ] CI related changes
+[ ] Other... Please describe:
+
+What is the current behavior?
+Gets a memory leak error message when running Nest in e2e tests because it is listening to too many process.on
+What is the new behavior?
+Added the following function to NestApplicationContext:
+/**
+   * Enables the usage of shutdown hooks. Will call the
+   * `onApplicationShutdown` function of a provider if the
+   * process receives a shutdown signal.
+   *
+   * @returns {this} The Nest application context instance
+   */
+  enableShutdownHooks(signals?: ShutdownSignal[] | string[]): this;
+Does this PR introduce a breaking change?
+[ ] Yes
+[x] No
+
+
+Other information",3,7
+1840,2019-03-25T18:36:45Z,2019-03-26T10:29:50Z,2019-03-26T10:29:50Z,1,1,2,"PR Checklist
+Please check if your PR fulfills the following requirements:
+
+ The commit message follows our guidelines: https://github.com/nestjs/nest/blob/master/CONTRIBUTING.md
+ Tests for the changes have been added (for bug fixes / features)
+ Docs have been added / updated (for bug fixes / features)
+
+PR Type
+What kind of change does this PR introduce?
+
+[x] Bugfix
+[ ] Feature
+[ ] Code style update (formatting, local variables)
+[ ] Refactoring (no functional changes, no api changes)
+[ ] Build related changes
+[ ] CI related changes
+[ ] Other... Please describe:
+
+What is the current behavior?
+
+Issue Number: #1839
+What is the new behavior?
+Send data properly on ClientPorxy emit method
+Does this PR introduce a breaking change?
+[ ] Yes
+[x] No
+
+
+Other information",4,8
+1957,2019-04-08T16:54:45Z,,2021-01-13T11:54:19Z,16,2460,1366,"PR Checklist
+Please check if your PR fulfills the following requirements:
+
+ The commit message follows our guidelines: https://github.com/nestjs/nest/blob/master/CONTRIBUTING.md
+ Tests for the changes have been added (for bug fixes / features)
+ Docs have been added / updated (for bug fixes / features)
+
+PR Type
+What kind of change does this PR introduce?
+
+[ ] Bugfix
+[x] Feature
+[ ] Code style update (formatting, local variables)
+[ ] Refactoring (no functional changes, no api changes)
+[ ] Build related changes
+[ ] CI related changes
+[ ] Other... Please describe:
+
+What is the current behavior?
+
+Issue Number: #1953
+What is the new behavior?
+After this PR you will have:
+
+HTTP CanceledException
+HTTP TooManyRequestsException
+GRPC exceptions
+A mapping of the closest http exception that match the Grpc Exception
+
+Does this PR introduce a breaking change?
+[ ] Yes
+[x] No
+
+
+Other information
+Still WIP.
+Missing:
+
+ GrpcExceptionFiler that would catch all these exceptions and serialize to gRPC error objects => I will try but probably will need help.
+ test (?) => Shall i test Grpc Exceptions ?
+ doc",7,27
+2083,2019-04-26T01:53:08Z,,2019-05-15T04:28:04Z,1,21,1,"PR Checklist
+Please check if your PR fulfills the following requirements:
+
+ The commit message follows our guidelines: https://github.com/nestjs/nest/blob/master/CONTRIBUTING.md
+ Tests for the changes have been added (for bug fixes / features)
+ Docs have been added / updated (for bug fixes / features)
+
+PR Type
+At the moment all client options for @Client decorator are expected to be synchronized, however, sometimes options may require additional actions to happen before those are finalized and can be used with a service.
+Example: Loading or Generating SSL certificates can be an async operation and GRPC options can be concluded only after this operation happened.
+
+[ ] Bugfix
+[X] Feature
+[ ] Code style update (formatting, local variables)
+[ ] Refactoring (no functional changes, no api changes)
+[ ] Build related changes
+[ ] CI related changes
+[ ] Other... Please describe:
+
+What is the current behavior?
+@Client decorator doesn't support Promise wrapped options
+Issue Number: N/A
+What is the new behavior?
+@Client decorator will unwrap options right away when those are available
+Does this PR introduce a breaking change?
+[ ] Yes
+[X] No
+
+
+Other information",2,3
+2240,2019-05-20T17:51:29Z,2019-05-30T13:39:35Z,2019-05-30T13:39:35Z,1,4,0,"PR Checklist
+Please check if your PR fulfills the following requirements:
+
+ The commit message follows our guidelines: https://github.com/nestjs/nest/blob/master/CONTRIBUTING.md
+ Tests for the changes have been added (for bug fixes / features)
+ Docs have been added / updated (for bug fixes / features)
+
+PR Type
+What kind of change does this PR introduce?
+
+[ ] Bugfix
+[x] Feature
+[ ] Code style update (formatting, local variables)
+[ ] Refactoring (no functional changes, no api changes)
+[ ] Build related changes
+[ ] CI related changes
+[ ] Other... Please describe:
+
+What is the current behavior?
+At the moment ClientProxyFactory.create will always return the type ClientProxy & Closeable. Therefore it will not take the given transport option into consideration, even though we would know what type should be returned.
+const client = ClientProxyFactory.create({ transport: Transport.GRPC, options: { ... }); // The type is `ClientProxy & Closeable`
+
+// To get the correct type you have to use this workaround
+const grpcClient = (client as any) as ClientGrpc;
+On top of that ClientProxy & Closeable is straight up wrong with some clients, such as the GrpcClient.
+Calling .connect() from ClientProxy & Closeable on ClientGrpc would result in this error: Error: The ""connect()"" method is not supported in gRPC mode.
+What is the new behavior?
+Adds overloads to the ClientProxyFactory for better type security.
+This allows the user to not cast the client to any after creating it
+using the factory.
+const client = ClientProxyFactory.create({ transport: Transport.GRPC, options: { .. }) // The type is `ClientGrpcProxy`
+Does this PR introduce a breaking change?
+[ ] Yes
+[x] No
+
+
+Other information
+The ClientProxyFactory is used in @nestjs/terminus to dynamically create a microservice client on the fly. Better type security would lead to a better code :)",3,3
+2243,2019-05-21T13:04:05Z,2019-05-22T11:35:34Z,2019-05-22T11:35:34Z,1,1,1,"PR Checklist
+Please check if your PR fulfills the following requirements:
+
+[x ] The commit message follows our guidelines: https://github.com/nestjs/nest/blob/master/CONTRIBUTING.md
+ Tests for the changes have been added (for bug fixes / features)
+ Docs have been added / updated (for bug fixes / features)
+
+PR Type
+What kind of change does this PR introduce?
+
+[ ] Bugfix
+[ ] Feature
+[ ] Code style update (formatting, local variables)
+[ ] Refactoring (no functional changes, no api changes)
+[ ] Build related changes
+[ ] CI related changes
+[x] Other... Please describe: remove deprecation warning
+
+What is the current behavior?
+Nest prints the following warning when signing a token
+[JwtService] ""secretOrPrivateKey"" has been deprecated, please use the new explicit ""secretOrKeyProvider"" or use ""privateKey""/""publicKey"" exclusively.
+Issue Number: N/A
+What is the new behavior?
+No warning is printed
+Does this PR introduce a breaking change?
+[ ] Yes
+[x] No
+
+
+Other information",3,5
+2327,2019-06-01T02:00:54Z,,2019-06-28T11:05:11Z,1,2,2,"PR Checklist
+
+ The commit message follows our guidelines: https://github.com/nestjs/nest/blob/master/CONTRIBUTING.md
+ Tests for the changes have been added (for bug fixes / features)
+ Docs have been added / updated (for bug fixes / features)
+
+PR Type
+What kind of change does this PR introduce?
+[x] Bugfix
+[ ] Feature
+[ ] Code style update (formatting, local variables)
+[ ] Refactoring (no functional changes, no api changes)
+[ ] Build related changes
+[ ] CI related changes
+[x] Other... Fix auth example
+
+What is the current behavior?
+The current auth example is not using the customized AuthGuard for the JWT strategy.
+What is the new behavior?
+The auth example is now using the customized AuthGuard for the JWT strategy.
+Does this PR introduce a breaking change?
+[ ] Yes
+[x] No",4,5
+2387,2019-06-13T02:45:25Z,,2019-07-31T09:38:49Z,8,151,13,"…e provider with NestApplicationContext. #2049
+PR Checklist
+Please check if your PR fulfills the following requirements:
+
+ The commit message follows our guidelines: https://github.com/nestjs/nest/blob/master/CONTRIBUTING.md
+ Tests for the changes have been added (for bug fixes / features)
+ Docs have been added / updated (for bug fixes / features)
+
+PR Type
+What kind of change does this PR introduce?
+
+[ ] Bugfix
+[x] Feature
+[ ] Code style update (formatting, local variables)
+[ ] Refactoring (no functional changes, no api changes)
+[ ] Build related changes
+[ ] CI related changes
+[ ] Other... Please describe:
+
+What is the current behavior?
+
+Issue Number: 2049
+What is the new behavior?
+Does this PR introduce a breaking change?
+[x] Yes
+[ ] No
+
+
+before
+@Module({
+  providers: [
+    {
+      scope: Scope.TRANSIENT,
+      provide: 'TRANSIENT_PROVIDER',
+      useFactory: () => {
+        return 'TRANSIENT_PROVIDER_VALUE';
+      }
+    },
+  ]
+})
+export class AppModule {}
+
+async function bootstrap() {
+  const app = await NestFactory.createApplicationContext(AppModule);
+  // Returns `null`
+  app.get('TRANSIENT_PROVIDER')}
+}
+
+after
+@Module({
+  providers: [
+    {
+      scope: Scope.TRANSIENT,
+      provide: 'TRANSIENT_PROVIDER',
+      useFactory: () => {
+        return 'TRANSIENT_PROVIDER_VALUE';
+      }
+    },
+  ]
+})
+export class AppModule {}
+
+async function bootstrap() {
+  const app = await NestFactory.createApplicationContext(AppModule);
+  // Returns `TRANSIENT_PROVIDER_VALUE`, the same as support with `Scope.REQUEST`
+  // Note: The`get` mothed return `Promise<any>`, it`s is a breaking change
+  await app.get('TRANSIENT_PROVIDER')}
+}
+
+Other information",3,5
+2406,2019-06-17T02:23:06Z,2019-08-26T12:32:31Z,2019-08-26T12:32:31Z,4,112,2,"PR Checklist
+Please check if your PR fulfills the following requirements:
+
+ The commit message follows our guidelines: https://github.com/nestjs/nest/blob/master/CONTRIBUTING.md
+ Tests for the changes have been added (for bug fixes / features)
+ Docs have been added / updated (for bug fixes / features)
+
+PR Type
+What kind of change does this PR introduce?
+
+[ ] Bugfix
+[x] Feature
+[ ] Code style update (formatting, local variables)
+[ ] Refactoring (no functional changes, no api changes)
+[ ] Build related changes
+[ ] CI related changes
+[ ] Other... Please describe:
+
+What is the current behavior?
+
+Issue Number: 1451
+What is the new behavior?
+Does this PR introduce a breaking change?
+[ ] Yes
+[x] No
+
+
+Other information",5,14
+2457,2019-06-26T15:56:28Z,2019-06-28T09:56:20Z,2019-06-28T09:56:20Z,2,16,1,"…dule tokens
+PR Checklist
+Please check if your PR fulfills the following requirements:
+
+ The commit message follows our guidelines: https://github.com/nestjs/nest/blob/master/CONTRIBUTING.md
+ Tests for the changes have been added (for bug fixes / features)
+ Docs have been added / updated (for bug fixes / features)
+
+PR Type
+What kind of change does this PR introduce?
+
+[x] Bugfix
+[ ] Feature
+[ ] Code style update (formatting, local variables)
+[ ] Refactoring (no functional changes, no api changes)
+[ ] Build related changes
+[ ] CI related changes
+[ ] Other... Please describe:
+
+What is the current behavior?
+
+Issue Number: #2379
+What is the new behavior?
+ModuleTokenFactory now correctly handles metadata with class/function objects in.
+Does this PR introduce a breaking change?
+[ ] Yes
+[x] No
+
+
+Other information",5,4
+2460,2019-06-26T21:17:22Z,,2023-02-01T13:07:19Z,13,481,18,"PR Checklist
+Please check if your PR fulfills the following requirements:
+
+ The commit message follows our guidelines: https://github.com/nestjs/nest/blob/master/CONTRIBUTING.md
+ Tests for the changes have been added (for bug fixes / features)
+ Docs have been added / updated (for bug fixes / features)
+
+PR Type
+What kind of change does this PR introduce?
+
+[ ] Bugfix
+[x] Feature
+[ ] Code style update (formatting, local variables)
+[ ] Refactoring (no functional changes, no api changes)
+[ ] Build related changes
+[ ] CI related changes
+[ ] Other... Please describe:
+
+What is the current behavior?
+
+No multi provider option
+Issue Number: #770 #1517
+What is the new behavior?
+Support the multi option for providers
+const MULTI_TOKEN = Symbol('MY_MULTI_TOKEN');
+
+class Test {
+  value = 'B';
+}
+
+@Module({
+  providers: [
+    {
+      multi: true,
+      useValue: 'A',
+      provide: MULTI_TOKEN
+    },
+  ]
+})
+class AModule { }
+
+@Module({
+  providers: [
+    {
+      multi: true,
+      useClass: Test,
+      provide: MULTI_TOKEN
+    },
+  ]
+})
+class BModule { }
+
+@Module({
+  imports: [AModule, BModule],
+  providers: [
+    {
+      multi: true,
+      useFactory: () => 'Application',
+      provide: MULTI_TOKEN,
+    },
+  ]
+})
+class ApplicationModule { }
+
+async function bootstrap() {
+  const app = await NestFactory.createApplicationContext(ApplicationModule);
+
+  const result = app.get(MULTI_TOKEN);
+  console.log(result);
+}
+
+bootstrap();
+Does this PR introduce a breaking change?
+[ ] Yes
+[x] No
+
+
+Other information",9,9
+2493,2019-07-02T12:59:11Z,2019-09-16T08:10:58Z,2019-09-16T08:10:58Z,13,87,21,"PR Checklist
+Please check if your PR fulfills the following requirements:
+
+ The commit message follows our guidelines: https://github.com/nestjs/nest/blob/master/CONTRIBUTING.md
+ Tests for the changes have been added (for bug fixes / features)
+ Docs have been added / updated (for bug fixes / features)
+
+PR Type
+What kind of change does this PR introduce?
+
+[ ] Bugfix
+[x] Feature
+[ ] Code style update (formatting, local variables)
+[ ] Refactoring (no functional changes, no api changes)
+[ ] Build related changes
+[ ] CI related changes
+[ ] Other... Please describe:
+
+What is the current behavior?
+
+Issue Number: #1581
+What is the new behavior?
+Does this PR introduce a breaking change?
+[x] Yes
+[ ] No
+
+
+Other information",3,1
+2512,2019-07-04T01:15:19Z,2019-07-09T13:13:55Z,2019-07-09T13:13:56Z,6,79,0,"PR Checklist
+Please check if your PR fulfills the following requirements:
+
+[ X ] The commit message follows our guidelines: https://github.com/nestjs/nest/blob/master/CONTRIBUTING.md
+[ X ] Tests for the changes have been added (for bug fixes / features)
+ Docs have been added / updated (for bug fixes / features)
+
+PR Type
+What kind of change does this PR introduce?
+[ X ] Bugfix
+[ ] Feature
+[ ] Code style update (formatting, local variables)
+[ ] Refactoring (no functional changes, no api changes)
+[ ] Build related changes
+[ ] CI related changes
+[ ] Other... Please describe:
+
+What is the current behavior?
+When trying to print the error it resolves to 'Error: [object Object]' which is unhelpful and means that the error objects are not serializable.
+What is the new behavior?
+This adds a toString() function to HttpException that will serialize only when the message is an object. It does not modify anything other than serialization of the error (which there was none)
+Does this PR introduce a breaking change?
+[ ] Yes
+[ X ] No
+
+The only potential breaking change is if some library somewhere expects the error to return [object Object] which would be an invalid use of this error.",4,6
+2527,2019-07-08T19:59:41Z,2019-07-10T16:56:52Z,2019-07-10T16:56:52Z,16,97,16,"PR Checklist
+Please check if your PR fulfills the following requirements:
+
+ The commit message follows our guidelines: https://github.com/nestjs/nest/blob/master/CONTRIBUTING.md
+ Tests for the changes have been added (for bug fixes / features)
+ Docs have been added / updated (for bug fixes / features)
+
+PR Type
+What kind of change does this PR introduce?
+
+[ ] Bugfix
+[ ] Feature
+[ ] Code style update (formatting, local variables)
+[ ] Refactoring (no functional changes, no api changes)
+[ ] Build related changes
+[x] CI related changes
+[ ] Other... Please describe:
+
+What is the current behavior?
+
+Issue Number: Followup of #2516
+What is the new behavior?
+Run npm install && npm run build with all samples.
+Does this PR introduce a breaking change?
+[ ] Yes
+[x] No
+
+
+Other information",3,7
+2567,2019-07-12T19:21:49Z,2019-08-24T15:19:21Z,2019-08-24T15:19:21Z,13,247,68,"PR Checklist
+Please check if your PR fulfills the following requirements:
+
+ The commit message follows our guidelines: https://github.com/nestjs/nest/blob/master/CONTRIBUTING.md
+ Tests for the changes have been added (for bug fixes / features)
+ Docs have been added / updated (for bug fixes / features)
+
+PR Type
+What kind of change does this PR introduce?
+
+[ ] Bugfix
+[x] Feature
+[ ] Code style update (formatting, local variables)
+[ ] Refactoring (no functional changes, no api changes)
+[ ] Build related changes
+[ ] CI related changes
+[ ] Other... Please describe:
+
+What is the current behavior?
+At the moment only OnApplicationShutdown exists, which gets called once the server stops taking any requests.
+What is the new behavior?
+BeforeApplicationShutdown gets called once an e.g. system signal got sent to the process, but the app still accepts any requests, as long as all BeforeApplicationShutdown-Promises have been resolved.
+Does this PR introduce a breaking change?
+[ ] Yes
+[x] No
+
+Other information
+The shutdown order
+- OnModuleDestroy: Use to clean up an injectable (unsubscribe Observables, etc.)
+- BeforeApplicationShutdown: Gracefully shutdown all the services, but still send unavailable response codes
+- OnApplicationShutdown: Shutdown all pending services
+
+Being able to still process requests, even if a system signal has been sent, is crucial in Kubernetes.
+@nestjs/terminus can be further improved once this PR gets merged. As soon as beforeApplicationShutdown gets called, Terminus will send unhealthy responses, notifying Kubernetes to switch out the Pod.
+I will update the docs once this PR has been merged :)",5,7
+2580,2019-07-14T19:40:57Z,,2019-07-23T06:06:35Z,2,4,1,"fix error stack serialization property
+Closes #1626
+PR Checklist
+Please check if your PR fulfills the following requirements:
+
+ The commit message follows our guidelines: https://github.com/nestjs/nest/blob/master/CONTRIBUTING.md
+ Tests for the changes have been added (for bug fixes / features)
+ Docs have been added / updated (for bug fixes / features)
+
+PR Type
+What kind of change does this PR introduce?
+
+[x] Bugfix
+[ ] Feature
+[ ] Code style update (formatting, local variables)
+[ ] Refactoring (no functional changes, no api changes)
+[ ] Build related changes
+[ ] CI related changes
+[ ] Other... Please describe:
+
+What is the current behavior?
+
+Issue Number: N/A
+What is the new behavior?
+Does this PR introduce a breaking change?
+[ ] Yes
+[x] No
+
+
+Other information",4,2
+2632,2019-07-23T00:48:45Z,2019-08-26T08:42:29Z,2019-08-26T08:42:29Z,12,122,13,"PR Checklist
+Please check if your PR fulfills the following requirements:
+
+ The commit message follows our guidelines: https://github.com/nestjs/nest/blob/master/CONTRIBUTING.md
+ Tests for the changes have been added (for bug fixes / features)
+ Docs have been added / updated (for bug fixes / features)
+
+No docs yet
+PR Type
+What kind of change does this PR introduce?
+Exposes @Redirect() decorator
+@Redirect(url: string, statusCode?: number)
+Redirects to the specified url
+If no statusCode, sends TEMPORARY_REDIRECT (307)
+Method can return an object like
+{ statusCode: 302, url: 'http://nestjs.com' }
+which will override the decorator parameters.
+
+
+
+[ ] Bugfix
+[X] Feature
+[ ] Code style update (formatting, local variables)
+[ ] Refactoring (no functional changes, no api changes)
+[ ] Build related changes
+[ ] CI related changes
+[ ] Other... Please describe:
+
+## What is the current behavior?
+<!-- Please describe the current behavior that you are modifying, or link to a relevant issue. -->
+
+Issue Number: N/A
+
+
+## What is the new behavior?
+
+
+## Does this PR introduce a breaking change?
+
+[ ] Yes
+[X] No
+
+<!-- If this PR contains a breaking change, please describe the impact and migration path for existing applications below. -->
+
+
+## Other information
+
+Need help with two failing unit tests:
+
+
+RouterExecutionContext createHandleResponseFn when ""renderTemplate"" is defined should call ""res.render()"" with expected args:
+RouterExecutionContext createHandleResponseFn when ""renderTemplate"" is undefined should not call ""res.render()"":",3,7
+2682,2019-07-31T09:38:21Z,2019-08-26T10:38:41Z,2019-08-26T10:38:42Z,16,294,38,"PR Checklist
+Please check if your PR fulfills the following requirements:
+
+ The commit message follows our guidelines: https://github.com/nestjs/nest/blob/master/CONTRIBUTING.md
+ Tests for the changes have been added (for bug fixes / features)
+ Docs have been added / updated (for bug fixes / features)
+
+PR Type
+What kind of change does this PR introduce?
+
+[ ] Bugfix
+[x] Feature
+[ ] Code style update (formatting, local variables)
+[ ] Refactoring (no functional changes, no api changes)
+[ ] Build related changes
+[ ] CI related changes
+[ ] Other... Please describe:
+
+What is the current behavior?
+
+Issue Number: N/A
+What is the new behavior?
+resolve() method that allows loading both transient and request-scoped providers dynamically
+Does this PR introduce a breaking change?
+[ ] Yes
+[x] No
+
+
+Other information",6,8
+2688,2019-07-31T23:17:49Z,2019-08-26T20:45:42Z,2019-08-26T20:45:42Z,83,2071,143,"PR Checklist
+Please check if your PR fulfills the following requirements:
+
+ The commit message follows our guidelines: https://github.com/nestjs/nest/blob/master/CONTRIBUTING.md
+ Docs have been added / updated (for bug fixes / features)
+
+PR Type
+What kind of change does this PR introduce?
+
+[ ] Bugfix
+[ ] Feature
+[ ] Code style update (formatting, local variables)
+[ ] Refactoring (no functional changes, no api changes)
+[ ] Build related changes
+[ ] CI related changes
+[x] Other... Please describe:
+Documentation
+
+Does this PR introduce a breaking change?
+[ ] Yes
+[x] No",5,21
+2708,2019-08-06T09:41:03Z,2019-08-24T09:16:14Z,2019-08-24T09:16:14Z,1,7,3,"PR Checklist
+Please check if your PR fulfills the following requirements:
+
+ The commit message follows our guidelines: https://github.com/nestjs/nest/blob/master/CONTRIBUTING.md
+ Tests for the changes have been added (for bug fixes / features)
+ Docs have been added / updated (for bug fixes / features)
+
+PR Type
+What kind of change does this PR introduce?
+
+[X] Bugfix
+[ ] Feature
+[ ] Code style update (formatting, local variables)
+[ ] Refactoring (no functional changes, no api changes)
+[ ] Build related changes
+[ ] CI related changes
+[ ] Other... Please describe:
+
+What is the current behavior?
+
+Issue Number: #1364
+What is the new behavior?
+
+isTerminated value is updated during close
+
+Does this PR introduce a breaking change?
+[ ] Yes
+[X] No
+
+
+Other information",3,6
+2725,2019-08-08T22:41:42Z,2019-08-24T15:15:05Z,2019-08-24T15:15:05Z,2,3,3,"providing the element name would help you pin-point your missing provider quicker
+PR Checklist
+Please check if your PR fulfills the following requirements:
+
+ The commit message follows our guidelines: https://github.com/nestjs/nest/blob/master/CONTRIBUTING.md
+ Tests for the changes have been added (for bug fixes / features)
+ Docs have been added / updated (for bug fixes / features)
+
+PR Type
+What kind of change does this PR introduce?
+
+[ ] Bugfix
+[ ] Feature
+[ ] Code style update (formatting, local variables)
+[ ] Refactoring (no functional changes, no api changes)
+[ ] Build related changes
+[ ] CI related changes
+[ ] Other... Please describe:
+
+What is the current behavior?
+
+Issue Number: N/A
+What is the new behavior?
+Does this PR introduce a breaking change?
+[ ] Yes
+[ ] No
+
+
+Other information",4,5
+2735,2019-08-12T22:32:56Z,2019-09-04T11:13:00Z,2019-09-04T11:13:00Z,55,4048,136,"PR Checklist
+Please check if your PR fulfills the following requirements:
+
+ The commit message follows our guidelines: https://github.com/nestjs/nest/blob/master/CONTRIBUTING.md
+ Tests for the changes have been added (for bug fixes / features)
+ Docs have been added / updated (for bug fixes / features)
+
+PR Type
+What kind of change does this PR introduce?
+
+[ ] Bugfix
+[x] Feature
+[ ] Code style update (formatting, local variables)
+[ ] Refactoring (no functional changes, no api changes)
+[ ] Build related changes
+[ ] CI related changes
+[ ] Other... Please describe:
+
+What is the current behavior?
+#2361
+Issue Number: #2361
+What is the new behavior?
+Does this PR introduce a breaking change?
+[ ] Yes
+[x] No
+
+
+Other information",8,67
+2750,2019-08-14T09:17:56Z,2019-08-15T11:29:46Z,2019-08-15T11:29:46Z,1,0,1,"PR Checklist
+Please check if your PR fulfills the following requirements:
+
+ The commit message follows our guidelines: https://github.com/nestjs/nest/blob/master/CONTRIBUTING.md
+ Tests for the changes have been added (for bug fixes / features)
+ Docs have been added / updated (for bug fixes / features)
+
+PR Type
+What kind of change does this PR introduce?
+
+[ ] Bugfix
+[ ] Feature
+[ ] Code style update (formatting, local variables)
+[ ] Refactoring (no functional changes, no api changes)
+[ ] Build related changes
+[ ] CI related changes
+[x] Other... Please describe: Sample fix
+
+What is the current behavior?
+
+Issue Number: N/A
+What is the new behavior?
+Does this PR introduce a breaking change?
+[ ] Yes
+[x] No
+
+
+Other information",2,1
+2767,2019-08-18T18:14:42Z,2019-08-26T08:18:56Z,2019-08-26T08:18:56Z,19,377,219,"PR Checklist
+Please check if your PR fulfills the following requirements:
+
+ The commit message follows our guidelines: https://github.com/nestjs/nest/blob/master/CONTRIBUTING.md
+ Tests for the changes have been added (for bug fixes / features)
+ Docs have been added / updated (for bug fixes / features)
+
+PR Type
+What kind of change does this PR introduce?
+
+[ ] Bugfix
+[x] Feature
+[ ] Code style update (formatting, local variables)
+[ ] Refactoring (no functional changes, no api changes)
+[ ] Build related changes
+[ ] CI related changes
+[ ] Other... Please describe:
+
+What is the current behavior?
+
+Issue Number: #1384
+What is the new behavior?
+Allows the NestModule.configure() method to be asynchronous. More details can be found on #1384.
+Does this PR introduce a breaking change?
+[ ] Yes
+[x] No
+
+
+Other information",4,7
+2770,2019-08-19T07:08:59Z,2019-08-24T17:37:13Z,2019-08-24T17:37:13Z,1,1,0,"At the moment only hours and minutes are logged in the default Logger implementation.
+This pull request add seconds to default logger format.
+Note that I don't want to override the whole logger service. It's pretty nice, I just want another timestamp format
+PR Checklist
+Please check if your PR fulfills the following requirements:
+
+ The commit message follows our guidelines: https://github.com/nestjs/nest/blob/master/CONTRIBUTING.md
+ Tests for the changes have been added (for bug fixes / features)
+ Docs have been added / updated (for bug fixes / features)
+
+PR Type
+What kind of change does this PR introduce?
+
+[ ] Bugfix
+[x] Feature
+[ ] Code style update (formatting, local variables)
+[ ] Refactoring (no functional changes, no api changes)
+[ ] Build related changes
+[ ] CI related changes
+[ ] Other... Please describe:
+
+What is the current behavior?
+
+Issue Number: N/A
+What is the new behavior?
+The logger now shows seconds
+Does this PR introduce a breaking change?
+[ ] Yes
+[x] No
+
+
+Other information",5,10
+2790,2019-08-22T06:51:39Z,2019-08-24T09:15:49Z,2019-08-24T09:15:49Z,7,74,8,"Fixes #1252
+PR Checklist
+Please check if your PR fulfills the following requirements:
+
+ The commit message follows our guidelines: https://github.com/nestjs/nest/blob/master/CONTRIBUTING.md
+ Tests for the changes have been added (for bug fixes / features)
+ Docs have been added / updated (for bug fixes / features)
+
+PR Type
+What kind of change does this PR introduce?
+
+[x] Bugfix
+[ ] Feature
+[ ] Code style update (formatting, local variables)
+[ ] Refactoring (no functional changes, no api changes)
+[ ] Build related changes
+[ ] CI related changes
+[ ] Other... Please describe:
+
+What is the current behavior?
+See issue
+Issue Number: #1252
+What is the new behavior?
+It does not call onModuleInit, onApplicationBootstrap, onApplicationShutdown or onModuleDestroy if it is of type null.
+Does this PR introduce a breaking change?
+[ ] Yes
+[x] No
+
+
+Other information",3,2
+2796,2019-08-22T13:51:58Z,2019-08-24T15:18:47Z,2019-08-24T15:18:47Z,22,76,96,"renamed and moved createResponseBody function to be exported as a part
+of HttpException
+Closes #2727
+PR Checklist
+Please check if your PR fulfills the following requirements:
+
+ The commit message follows our guidelines: https://github.com/nestjs/nest/blob/master/CONTRIBUTING.md
+ Tests for the changes have been added (for bug fixes / features)
+ Docs have been added / updated (for bug fixes / features)
+
+PR Type
+What kind of change does this PR introduce?
+
+[ ] Bugfix
+[x] Feature
+[ ] Code style update (formatting, local variables)
+[ ] Refactoring (no functional changes, no api changes)
+[ ] Build related changes
+[ ] CI related changes
+[ ] Other... Please describe:
+
+What is the current behavior?
+
+Issue Number: #2727
+What is the new behavior?
+Easier creation of custom http exceptions with body that is uniform with built in exceptions
+Does this PR introduce a breaking change?
+[ ] Yes
+[x] No
+
+
+Other information",5,2
+2888,2019-09-05T08:59:01Z,,2019-09-07T11:03:19Z,9,579,71,"PR Checklist
+Please check if your PR fulfills the following requirements:
+
+ The commit message follows our guidelines: https://github.com/nestjs/nest/blob/master/CONTRIBUTING.md
+ Tests for the changes have been added (for bug fixes / features)
+ Docs have been added / updated (for bug fixes / features)
+
+PR Type
+What kind of change does this PR introduce?
+
+[ ] Bugfix
+[ ] Feature
+[ ] Code style update (formatting, local variables)
+[ ] Refactoring (no functional changes, no api changes)
+[ ] Build related changes
+[ ] CI related changes
+[ ] Other... Please describe:
+
+What is the current behavior?
+
+Issue Number: N/A
+What is the new behavior?
+Does this PR introduce a breaking change?
+[ ] Yes
+[ ] No
+
+
+Other information",2,1

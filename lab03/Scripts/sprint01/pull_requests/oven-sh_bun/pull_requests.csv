@@ -1,0 +1,1650 @@
+number,created_at,merged_at,closed_at,files,additions,deletions,body_text,participants,comments
+41,2021-10-29T19:15:23Z,2021-10-29T22:39:36Z,2021-10-29T22:39:36Z,1,1,1,"Before:
+export BUN_INSTALL=""/Users/mike/.bun
+After:
+export BUN_INSTALL=""/Users/mike/.bun""
+P.s. Thank you for bun, I'm PSYCHED! 🚀",3,0
+65,2021-11-11T19:02:36Z,2021-11-24T00:35:46Z,2021-11-24T00:35:46Z,14,1960,193,"Add typed polyfills for URL & TextEncoded/Decoder
+Add prettier to root
+Adds some boilerplate for executing actions on GH
+Adds Next & Typescript as DevDeps for bun-framework-next (Next remains a peer dependency as well)
+Consolidate empty files / references to a single empty.js",2,5
+76,2021-12-12T02:39:34Z,,2023-07-31T13:39:26Z,2,37,0,"As discussed in the discord, this PR adds experimental Nix support via a default.nix file and a small note in the README. While this is great and all, it still leaves many unanswered questions:
+
+Should we be building from source instead? (Currently unfeasible for multiple reasons, but good long term)
+How should we handle updating versions?
+
+Should we just use the latest version at all times?
+Should use/update check-sums?
+As mentioned in the discord by @Jarred-Sumner
+
+There have been a couple cases where I had to re-upload the version after some build issue
+so it might make sense to forgo the checksum for now
+
+
+Should we dynamically update the default.zig file upon each new release with the Makefile?
+
+
+Should we provide more detailed instructions on how to install with Nix?
+When is the right time to submit to nixpkgs?
+How should we handle configuring Bun's cache directory?
+
+and the list goes on.
+There are definitely a few things that should be fixed here, this is a decent starting point to build upon.",8,7
+124,2022-03-09T18:09:42Z,,2023-03-29T21:10:34Z,1,48,0,"Update using bun with an existing CRA instructions in README to include a few caveats I ran into.
+https://discord.com/channels/876711213126520882/887787428973281300/951179760988459048",6,3
+141,2022-04-12T19:30:13Z,2022-04-14T02:08:57Z,2022-04-14T02:08:57Z,2,18,5,,2,0
+150,2022-04-19T06:05:24Z,,2023-07-31T13:39:26Z,1,359,535,"Refactoring the code and adding improvements
+Autocomplete for --define flag
+
+Reads the environment variables and autocomplete them in json format
+Autocomplete the environment variable
+process.env.NODE_ENV
+
+
+Autocomplete for --load flag
+Auto complete file extensions with valid loaders
+
+Fixed bug when autocompleting recent packages
+Previously, when adding multiple packages in the same command, the autocomplete did not work well.
+bun add react vite esbuild nanoid
+Before:
+
+After:
+Segmentation in
+
+recent
+popular
+
+
+Autocomplete for remove command
+Segmentation in
+
+Dependencies
+Dev Dependencies
+Optional Dependencies
+Peer Dependencies
+
+
+Segmentation for the run command
+Segmentation in
+
+files
+binaries
+scripts",3,6
+184,2022-05-29T13:28:15Z,,2022-05-30T10:52:11Z,1,2,1,"This commit adds the bun dev step in creating a new Next.js app example in the README
+fixes: #183",2,3
+189,2022-06-15T07:15:52Z,2022-07-11T23:20:10Z,2022-07-11T23:20:10Z,1,1,1,Just a small typo fix,2,0
+203,2022-07-05T15:26:50Z,2022-07-05T16:26:59Z,2022-07-05T16:26:59Z,11,310,0,,2,0
+221,2022-07-06T01:49:45Z,,2022-07-13T21:10:15Z,1,3,7,"fix #210
+remove useless nodes (and duplicated by id)",3,2
+228,2022-07-06T03:24:32Z,2022-07-06T11:12:45Z,2022-07-06T11:12:45Z,1,3,0,Add Bun logo at the top of README,3,2
+264,2022-07-06T13:40:36Z,2022-07-07T05:03:07Z,2022-07-07T05:03:07Z,1,1,1,"Just a very simple fix for an issue I noticed on the landing page where a space was not applying to the text:
+Before
+
+After",2,0
+274,2022-07-06T17:12:29Z,2022-07-07T09:46:32Z,2022-07-07T09:46:32Z,1,1,1,occurences -> occurrences,3,0
+280,2022-07-06T18:40:37Z,2022-07-14T18:20:43Z,2022-07-14T18:20:43Z,3,6,6,"Congratulations on the launch, much excited for this project.
+Fixed a punctuation on home page.",5,6
+281,2022-07-06T18:43:34Z,,2022-07-08T01:56:45Z,1,3,3,,6,0
+289,2022-07-06T19:34:06Z,2022-07-08T09:32:55Z,2022-07-08T09:32:55Z,3,18,0,I created this simple template when people want to start from scratch so that they at least have package.json,6,4
+305,2022-07-06T21:53:34Z,2022-07-08T01:36:41Z,2022-07-08T01:36:41Z,1,28,0,"This adds the ""Unzip is required"" section to the ReadMe. This section is linked when the installation of bun is failing and unzip is not installed. There are instructions for a variety of Linux distributions (shamelessly stolen from https://www.tecmint.com/install-zip-and-unzip-in-linux/). After applying this the link in the installation process will scroll down the page to that section as intended:
+https://github.com/MoritzLoewenstein/bun#unzip-is-required",4,0
+324,2022-07-07T03:31:35Z,,2022-07-08T19:59:29Z,10,167,81,fix: add the favicon. fixes #262,5,4
+330,2022-07-07T05:34:10Z,2022-07-08T13:13:50Z,2022-07-08T13:13:50Z,2,106,115,"This PR improves the following potential accessibility pitfalls on the site:
+
+Adds lang=""en"" to <html> which helps screenreaders correctly identify the site's language.
+Adds a <ul> element to the navbar so their children <li>s have valid semantic meaning.
+Removes <li> elements from benchmarks tabbar as ARIA requires the tablist role's direct children to have tabitem roles, making them redundant and potentially harmful to screenreaders. This also inadvertently fixes a regression with some missing selection styling introduced by #225.
+Adjusts the text color of tag links to better contrast against their respective backgrounds.
+Refactors InstallBox to not use IDs since it's used multiple times for mobile/desktop, resulting in invalid (well, more unorthodox) HTML, that could behave strangely.
+Removes the unselectable class repetition from CodeBox and just slaps a user-select: none; on it's base element to simplify things CSS-wise.
+Iterates over the copy button to ensure that all instances get the listener (unsure if this is required since mobile removes hides the second potential instance.)",3,5
+342,2022-07-07T09:33:33Z,,2022-07-07T11:36:55Z,1,3,3,"Corrected the use and spelling of  ""builtin"" to ""built-in"", then corrected its use to ""inbuilt"". I also added the link to the JavaScript Core documentation by Apple to the appropriate anchor text. All these changes aim to improve the overall readability of the documentation.",3,0
+346,2022-07-07T10:03:52Z,2022-07-11T22:36:51Z,2022-07-11T22:36:51Z,1,3,0,Mentions AVX2 and Intel SDE in the README.md as mentioned in #181.,5,0
+367,2022-07-07T15:28:16Z,2022-07-07T18:52:27Z,2022-07-07T18:52:27Z,1,13,21,"fix #226
+
+Before:
+
+After:",3,1
+370,2022-07-07T15:40:50Z,2022-07-07T16:57:41Z,2022-07-07T16:57:41Z,1,26,26,docs: improved readability,2,0
+403,2022-07-08T01:21:47Z,2022-07-25T07:47:34Z,2022-07-25T07:47:34Z,2,229,8,This PR adds support for buns autocompletion in bash.,3,2
+404,2022-07-08T02:01:51Z,,2022-07-08T08:05:03Z,1,1,1,"I just found one typo, I think another people already fix what I found last night. It's me who are doing PR Farm several hours ago. I'm not expert in software, so I wish I can help open source project by checking its grammar in the README, I hope mr.maintainer understand what I think, I just want to help.
+I've changed ""compatibiltiy"" to ""compatibility""",3,0
+428,2022-07-08T10:00:08Z,2022-07-10T01:33:52Z,2022-07-10T01:33:52Z,1,2,2,,4,1
+433,2022-07-08T10:38:10Z,2022-07-08T13:24:25Z,2022-07-08T13:24:25Z,1,2,2,,2,0
+436,2022-07-08T12:17:23Z,2022-07-09T19:49:37Z,2022-07-09T19:49:37Z,1,1,1,"The dotenv config snippet on the website isn't correct.
+dotenv package usage",3,0
+449,2022-07-08T16:08:19Z,2022-07-09T19:39:02Z,2022-07-09T19:39:02Z,1,1,1,"""still in it's early days"" -> ""still in its early days""",2,0
+464,2022-07-08T23:48:49Z,2022-07-11T03:42:44Z,2022-07-11T03:42:44Z,1,1,1,"The bun create react ./app command posts an initial commit when it is done, but that commit contains extra quotes that don't appear to be necessary.",2,0
+466,2022-07-09T00:17:09Z,2022-07-10T01:34:20Z,2022-07-10T01:34:20Z,3,86,0,"fix templating issue from #308
+Heavily inspired from node's templates.
+Feel free to request a change.",3,0
+467,2022-07-09T00:38:57Z,,2022-07-12T23:52:43Z,6,178,0,"BunYouTubeScaper (BYS).
+A simple youtube written with pure Js and Bun.
+Video Usage:
+
+  
+    
+    
+
+    2022-07-08.19-32-00.mp4",5,1
+470,2022-07-09T01:16:17Z,2022-07-11T12:40:08Z,2022-07-11T12:40:08Z,24,23551,60,"This PR includes the following changes:
+
+ __dirname and __filename are now typed, but deprecated to point people to use import
+ entries(), keys(), and values() are typed in Headers
+ stream() is typed in Blob
+ process.isBun is typed
+
+Added Module Types (listed here, mainly from @types/node)
+
+ assert
+
+assert.doesNotMatch is typed, but is not defined in the polyfill
+
+
+ buffer
+
+Not sure if I should comment out functions that don't work right now (like toJSON)
+Should deprecations like new Buffer() and Buffer.slice be kept?
+
+
+ constants
+ crypto
+ domain
+ events
+ http
+ https
+ os
+
+For types like Platform, Architecture and Signals, not sure whether to have them global, put them in a NodeJS namespace or a BunJS namespace
+os needs to have a better polyfill, since none of the functions seem to give proper information
+
+
+ punycode
+ process
+ querystring
+ stream
+ string_decoder
+ sys
+ timers
+ tty
+ url
+ util
+ zlib
+ supports-color
+
+
+  Missing Buffer methods
+toJSON
+writeUIntLE
+writeUintLE
+writeUIntBE
+writeUintBE
+writeIntLE
+writeIntBE
+readUIntLE
+readUIntBE
+readIntLE
+readIntBE",4,1
+476,2022-07-09T06:48:08Z,2022-07-09T18:29:04Z,2022-07-09T18:29:04Z,1,5,5,"""builtin"" -> ""built-in""
+""to create new a React App"" -> ""to create a new React App""
+""and still in it's early days"" -> ""and is still in it's early days""
+""its"" -> ""it's""",3,1
+483,2022-07-09T09:40:27Z,2022-07-09T18:29:16Z,2022-07-09T18:29:16Z,1,2,2,,3,1
+523,2022-07-10T01:34:16Z,2022-07-12T10:03:17Z,2022-07-12T10:03:18Z,1,2,2,,5,2
+528,2022-07-10T05:35:53Z,2022-07-11T15:11:02Z,2022-07-11T15:11:02Z,3,358,7,"Closes #448
+Follows Deno's style for logging and (mostly) the web spec https://html.spec.whatwg.org/multipage/timers-and-user-prompts.html#simple-dialogs",2,1
+542,2022-07-10T15:17:31Z,,2022-12-23T17:26:01Z,20,154,147,"It's slightly different from what I described in the PR description of #535. Now Global.exit() means successful exit, Global.crash() retains its meaning of unsuccessful exit, and Global.exitOther(n) is used for any other specific exit code, with the latter two having @setCold(true) set for hints to the compiler.
+While looking over the diff I notice that a lot of times the success-indicating Global.exit() is used after an error was printed. It seems like it's not well defined when exactly Global.crash() should be used and when Global.exit().
+It'd probably be better if there was an error printing function that prints both a message and also exits with 1.",2,1
+544,2022-07-10T17:02:59Z,2022-07-11T03:46:31Z,2022-07-11T03:46:31Z,4,8,2,"Disable blank issues
+Add contact link
+Add bug & need repro label to bug report template
+
+Please, create tag need repro
+The need repro tag is used for when the bug is not yet confirmed.",2,0
+563,2022-07-11T03:21:29Z,2022-07-12T08:47:58Z,2022-07-12T08:47:58Z,1,4,4,"TODO:
+Remove white space
+Test",4,2
+568,2022-07-11T06:18:08Z,2022-07-11T12:39:04Z,2022-07-11T12:39:04Z,1,3,3,"This pr does:
+Fixes a typo in the file src/c.zig .
+Constant name renamed from Enviroment to Environment",3,0
+572,2022-07-11T09:45:56Z,2022-07-13T14:08:57Z,2022-07-13T14:08:57Z,2,556,2,big step towards #496,2,0
+577,2022-07-11T13:21:08Z,2022-07-12T09:46:22Z,2022-07-12T09:46:22Z,4,57,0,hono example with typescript,3,9
+578,2022-07-11T13:49:45Z,2022-07-25T07:39:26Z,2022-07-25T07:39:26Z,1,112,0,"Warning
+I copied these types from https://github.com/microsoft/TypeScript/blob/main/lib/lib.dom.d.ts",2,2
+580,2022-07-11T14:52:27Z,2022-07-11T22:33:03Z,2022-07-11T22:33:03Z,1,1,1,,2,0
+585,2022-07-11T16:30:26Z,2022-07-11T22:38:42Z,2022-07-11T22:38:42Z,1,3,3,closes #584,3,3
+602,2022-07-11T23:10:16Z,2022-07-12T08:42:36Z,2022-07-12T08:42:36Z,1,9,0,"Closes #519. Before this PR, .env files like PORT =8080 wouldn't get parsed.",2,1
+603,2022-07-11T23:13:39Z,2022-07-13T21:51:22Z,2022-07-13T21:51:22Z,1,11,11,I added dots for consistency where it doesn't prevent users to understand code.,2,2
+611,2022-07-12T04:16:09Z,2022-07-13T21:20:54Z,2022-07-13T21:20:55Z,1,31,31,,2,0
+612,2022-07-12T06:39:17Z,,2022-07-13T12:40:55Z,3,19,4,Add a fix on no such file or directory: /home/<usernanme>/.sde/sde for those experiencing such errors,2,1
+623,2022-07-12T11:20:58Z,2022-07-25T07:45:57Z,2022-07-25T07:45:57Z,1,10,1,"There's no 'nproc' on macOS by default so add a helper script that uses
+sysctl instead. Simplifies build environment setup on macOS.",2,1
+627,2022-07-12T14:24:07Z,2022-07-15T10:17:38Z,2022-07-15T10:17:38Z,4,31,15,"I updated the React template to be more inline with the most recent version of create-react-app's default template, including:
+
+upgraded to most recent version of react and react-dom, and made necessary usage updates
+removed reference to jest in eslintConfig, since jest is no longer in the template
+added reportWebVitals to be more inline with most recent version of create-react-app",4,3
+629,2022-07-12T14:48:42Z,2022-07-12T20:20:39Z,2022-07-12T20:20:39Z,2,3,0,I see that the landing page doesn't have a image when someone share in Twitter/Facebook/LinkedIn. I created an image and put in the code.,2,2
+633,2022-07-12T15:53:14Z,2022-07-14T18:42:19Z,2022-07-14T18:42:19Z,2,3,3,"It seems that the port only accepts Integer.
+before
+$ PORT=3001 bun run start
+$ bun run src/index.ts
+Running at http://localhost:3001
+$ curl localhost:3001
+curl: (7) Failed to connect to localhost port 3001: Connection refused
+after
+$ PORT=3001 bun run start
+$ bun run src/index.ts
+Running at http://localhost:3001
+$ curl localhost:3001
+{""message"":""Hello World!""}",2,1
+639,2022-07-12T18:27:08Z,2022-07-12T20:10:05Z,2022-07-12T20:10:05Z,1,1,1,"Add a period at the end of ""What does the lockfile store?"" in README.md to make this section consistent with others in the documentation.",2,2
+641,2022-07-12T18:46:05Z,2022-07-12T20:11:43Z,2022-07-12T20:11:43Z,1,1,1,Backticks cannot be used to quote codes within html. Replaced ` ` with <code></code>.,2,0
+649,2022-07-12T21:16:03Z,2022-07-13T20:40:29Z,2022-07-13T20:40:29Z,6,69,0,"Closes Kapsonfire-DE/bun-bakery#2
+just a template for using bun-bakery",2,0
+654,2022-07-12T23:04:22Z,,2023-02-17T16:09:11Z,3,11,15,"No logic changes, just cleaning up code.
+Because a software's quality is often judged on its example implementations.",2,0
+663,2022-07-13T06:54:26Z,,2022-07-18T08:44:16Z,31,4585,0,"Link: https://bun-docs.vercel.app/
+Features:
+
+Navigation menu
+Sidebar navigation
+Search
+Light and Dark theme",4,4
+665,2022-07-13T06:59:00Z,,2023-03-29T21:11:04Z,1,17,0,"Created a basic PR template that will hopefully help people make sure they have followed the correct steps when creating a PR.
+This is just a start and could be improved later by making it more bun-centric.",3,3
+670,2022-07-13T09:44:58Z,2022-07-13T21:44:08Z,2022-07-13T21:44:08Z,1,2,2,Closes #662,2,0
+672,2022-07-13T10:42:15Z,2022-07-15T23:42:54Z,2022-07-15T23:42:54Z,1,7,1,"Suggested command for installing ninja build, depending on package manager",3,2
+683,2022-07-13T17:29:48Z,2022-07-13T21:32:46Z,2022-07-13T21:32:46Z,1,2,2,gurantee -> guarantee,2,0
+704,2022-07-14T11:11:44Z,2022-07-14T18:43:02Z,2022-07-14T18:43:02Z,1,1,1,Change version to latest,2,1
+706,2022-07-14T11:40:04Z,2022-07-14T17:56:51Z,2022-07-14T17:56:51Z,1,1,1,,3,0
+708,2022-07-14T13:20:56Z,2022-07-15T11:54:19Z,2022-07-15T11:54:19Z,7,189,0,Add template for kingworld to use with bun create,4,2
+713,2022-07-14T15:55:49Z,,2022-07-15T19:01:13Z,1,14,14,"Updated a few wordings, and punctuation and fixed a few typos.",3,0
+727,2022-07-15T13:12:46Z,2022-07-15T20:09:56Z,2022-07-15T20:09:56Z,1,13,0,Added a readme file for blank template so that it can convey clear messages what to expect and how to run the code.,3,0
+745,2022-07-16T10:47:46Z,2022-07-19T18:56:28Z,2022-07-19T18:56:28Z,1,162,122,"Did a little overhaul of the install script
+Some notable changes:
+
+Added set -euo pipefail to make the script fail on errors & undefined variables
+Corrected bad practices, like using double square brackets for if conditions for better performance & syntax
+Fixed various dangerous statements with the help of the ShellCheck linter
+Removed a lot of duplicate code
+Changed the fish config to use set --export PATH instead of fish_add_path, since the latter modifies $PATH permanently with $fish_user_paths",2,2
+746,2022-07-16T11:32:54Z,2022-07-17T16:57:29Z,2022-07-17T16:57:29Z,1,3,3,Updated hono,3,0
+764,2022-07-17T13:15:53Z,2022-07-17T20:24:35Z,2022-07-17T20:24:36Z,1,41,56,"Fixes #757
+(stack trace/code still needs to be printed)",2,11
+771,2022-07-18T04:23:53Z,2022-07-18T23:30:58Z,2022-07-18T23:30:58Z,7,21,2,,2,1
+773,2022-07-18T06:06:42Z,2022-07-24T20:51:41Z,2022-07-24T20:51:41Z,4,11,4,"Bump up Hono version number
+Simplify the script
+Add tests",3,5
+775,2022-07-18T09:57:48Z,2022-07-27T18:42:39Z,2022-07-27T18:42:40Z,3,34,12,"latin1, binary and ascii are now stored as full bytes. It's consistent with that Node.js does. The conversion of ascii buffers is only done in toString.",3,2
+779,2022-07-18T12:17:29Z,,2024-01-12T04:17:29Z,2,75,3,"#381 This is a starting point for the init command. The main code is found inside src/cli/init_command.zig.
+There are issues that needs to be address with the code in this pull request.
+Issues
+
+Will not work on Windows because it doesn't recognize '\r\n' line break. It's not an issue now, but keep it in mind.
+Maybe some options are missing like package version or adding script command.
+Haven't been able to test it with bun (can't compile bun as of now).",5,2
+783,2022-07-18T17:25:07Z,2022-07-21T11:07:40Z,2022-07-21T11:07:40Z,1,8,0,"Improvement reactjs example readme file, Added learning resources",2,0
+795,2022-07-20T05:48:21Z,,2022-08-07T20:03:52Z,1,11,0,"As we know curl and wget are the most popular download tools . very few people are familiar with curl commands.
+Adding wget into this project will help them installing bun more easier 🙂",5,10
+800,2022-07-20T07:53:23Z,2022-07-23T00:32:57Z,2022-07-23T00:32:57Z,1,6,4,"Fixes #645
+
+
+
+Before
+After",2,1
+804,2022-07-20T11:17:41Z,2022-07-23T00:31:59Z,2022-07-23T00:31:59Z,1,10,6,"WHAT
+Just added an helper target for the huge makefile, it could be nice to fill it up along the way but since it's not the goal of this PR, i wanted to propose it like that !
+SCREENSHOTS",2,0
+827,2022-07-22T11:26:08Z,2022-07-23T14:16:41Z,2022-07-23T14:16:41Z,1,1,1,"Changed the 'our' in ""Check out our Next.js deployment documentation for more details."" to 'the'.",3,3
+839,2022-07-23T04:52:28Z,2022-07-25T01:16:47Z,2022-07-25T01:16:47Z,1,156,148,"WHAT
+If we want in the future set, change those value it may be frustrating since it's the same across stages, that's why i factorize those argument in this PR !",2,0
+899,2022-07-28T12:44:35Z,2022-07-31T08:11:26Z,2022-07-31T08:11:26Z,1,1,1,i hope it will fix,3,0
+905,2022-07-28T19:41:56Z,,2022-12-16T16:48:47Z,1,30,9,"WHAT
+Added more .PHONY and help comments in the Makefile.
+PS: this is more like a continuation of these two merged PR :
+- #847
+- #804",2,0
+929,2022-07-31T02:43:51Z,,2022-08-21T18:08:06Z,3,155,0,This dns fallback uses cloudflare DoH to implement a basic lookup,2,1
+945,2022-08-01T02:02:12Z,2022-08-05T07:37:34Z,2022-08-05T07:37:34Z,18,262,4184,"This PR converts the custom React SSR landing page for bun.sh to a static, zero JavaScript Next.js application.
+You can try it out here -> https://bun-landing-one.vercel.app/",2,2
+968,2022-08-02T16:01:44Z,,2023-08-30T03:15:29Z,1,14,5,"In a process of trying to build Bun on Windows I found some problems and prepared some fixes. Bun still doesn't build on Windows and obviously it's very far from it, but it's a few additional steps to that goal.",3,0
+972,2022-08-03T12:08:23Z,2022-08-03T21:05:39Z,2022-08-03T21:05:39Z,5,289,153,This also fixes multiple memory leaks and double frees and opens the doors for the code that utilizes this iterator to easily add UTF-8 and UTF-16 support based on the encoding provided by JSC.,2,1
+982,2022-08-04T23:08:41Z,2022-08-05T19:42:43Z,2022-08-05T19:42:43Z,1,16,7,"Included info on Docker being necessary
+Updated instructions for modern devcontainer cli
+Added general troubleshooting section (only one rn)
+
+@ maintainers: Feel free to update the wording or placement of the additions/edits. I don't know how you'd like it to be organized.",2,1
+992,2022-08-05T11:26:37Z,2022-08-05T17:34:50Z,2022-08-05T17:34:50Z,1,120,118,Fix of panic in threads while downloading scoped packages to progress with #190,2,0
+1018,2022-08-07T19:49:06Z,2022-09-25T02:05:18Z,2022-09-25T02:05:18Z,2,299,0,"General Description
+This PR is supposed to cover tests in here .
+Link to discussion
+TODOs
+
+ File structure to map with node's functions.
+ Promisify tests",3,1
+1036,2022-08-09T08:49:19Z,,2023-03-29T21:24:04Z,18,331,0,#967 adding the react typescript template,4,4
+1048,2022-08-10T17:43:08Z,,2023-06-05T16:14:24Z,1,3,1,"2nd attempt... I wiped changes from my branch, forgetting that I still had an unmerged PR open, and it automatically closed PR #998
+
+Issue was from wrapping assert in an ESM-style export * from assert statement. ESBuild, instead of copying the exported variable straight from assert, created a new object and populated it with all the properties. This lost the handy dandy fact that assert was actually a function at heart, not an object.",3,2
+1060,2022-08-12T19:12:51Z,,2022-08-13T07:46:54Z,1,4,0,"After this PR, we can run res.send in express.",2,1
+1076,2022-08-14T16:18:25Z,2022-08-15T01:08:25Z,2022-08-15T01:08:25Z,4,44,21,"With this PR, we can finally run the express example 🎉 :
+'use strict';
+const express = require('express')
+const app = express()
+
+app.get('/', (req, res) => {
+  return  res.send('Hello World!')
+})
+
+app.listen(8080)
+Notice that we need to add JavaScriptCore/runtime/JSModuleNamespaceObject.h to WebKit release.",2,2
+1109,2022-08-19T15:38:21Z,,2024-01-18T05:28:04Z,2,42,46,"Helps on this issue: #188
+One big difference with node is the amount of stuff printed out, bun prints what node would with JSON.stringify
+Code snippet used to quickly compare
+pub const max_u16_ascii = @splat(8, @as(u16, 127));
+pub const min_u16_ascii = @splat(8, @as(u16, 0x20));
+
+pub fn toUTF16Literal(comptime str: []const u8) []const u16 {
+    comptime {
+        comptime var output: [str.len]u16 = undefined;
+
+        for (str) |c, i| {
+            output[i] = c;
+        }
+
+        const Static = struct {
+            pub const literal: []const u16 = output[0..];
+        };
+
+        return Static.literal;
+    }
+}
+
+pub fn simd_double_loop(slice: []const u16) ?u32 {
+    const VECTOR_SIZE:usize = 8;
+    const remainder:usize = slice.len % VECTOR_SIZE;
+    
+    const remaining = if (remainder != 0) slice[0..slice.len - remainder] else slice;
+
+    var indices: @Vector(VECTOR_SIZE, usize) = std.simd.iota(usize, VECTOR_SIZE);
+    const increment:  @Vector(VECTOR_SIZE, usize) =  @splat(VECTOR_SIZE, VECTOR_SIZE);
+    var i: usize = 0;
+    while (i < remaining.len) : (i += VECTOR_SIZE) {
+        const mins: @Vector(VECTOR_SIZE, u16) = remaining[i..][0..VECTOR_SIZE].*;
+        const mask: @Vector(VECTOR_SIZE, bool) = @select(bool, mins < min_u16_ascii, @splat(VECTOR_SIZE, true), mins > max_u16_ascii); 
+        const min_indices  = @select(usize,  mask, indices, @splat(VECTOR_SIZE, ~@as(usize, 0)));
+
+        if (@reduce(.Or, mask)) {
+            return @intCast(u32, @reduce(.Min, min_indices));
+        }
+
+        indices += increment;        
+    }
+
+    if (remainder > 0) {
+        i = slice.len - remainder;
+        while (i < remainder): (i += 1) {
+            const char = slice[i];
+            if (char > max_u16_ascii[0] or char < min_u16_ascii[0]) {
+                return @intCast(u32, i);
+            }
+        }
+    }
+    return null;
+}
+
+pub fn simd_single_loop(slice: []const u16) ?u32 {
+    var remaining = slice;
+    const end_ptr = remaining.ptr + remaining.len - (remaining.len % 8);
+    if (remaining.len > 8) {
+        const remaining_start = remaining.ptr;
+        while (remaining.ptr != end_ptr) {
+            const vec: @Vector(8, u16) = remaining[0..8].*;
+            const max_value = @reduce(.Max, vec);
+
+            // by using @reduce here, we make it only do one comparison
+            // @reduce doesn't tell us the index though
+            const min_value = @reduce(.Min, vec);
+            if (min_value < 0x20 or max_value > 127) {
+                remaining.len -= (@ptrToInt(remaining.ptr) - @ptrToInt(remaining_start)) / 2;
+
+                // this is really slow
+                // it does it element-wise for every single u8 on the vector
+                // instead of doing the SIMD instructions
+                // it removes a loop, but probably is slower in the end
+                const cmp = @bitCast(@Vector(8, u1), vec > max_u16_ascii) |
+                    @bitCast(@Vector(8, u1), vec < min_u16_ascii);
+                const bitmask: u16 = @ptrCast(*const u16, &cmp).*;
+                const first = @ctz(u16, bitmask);
+
+                return @intCast(u32, @as(u32, first) +
+                    @intCast(u32, slice.len - remaining.len));
+            }
+            remaining.ptr += 8;
+        }
+        remaining.len -= (@ptrToInt(remaining.ptr) - @ptrToInt(remaining_start)) / 2;
+    }
+    return null;
+}
+
+const std = @import(""std"");
+pub fn main() anyerror!void {
+    @setEvalBranchQuota(99999);
+    const input = std.mem.span(toUTF16Literal(""aspdokasdpokasdpokasd aspdokasdpokasdpokasdaspdokasdpokasdpokasdaspdokasdpokasdpokasd123123aspdokasdpokasdpokasdaspdokasdpokasdpokasdaspdokasdpokasdpokasd123123aspdokasdpokasdpokasdaspdokasdpokasdpokasdaspdokasdpokasdpokasd123123aspdokasdpokasdpokasdaspdokasdpokasdpokasdaspdokasdpokasdpokasd123123aspdokasdpokasdpokasdaspdokasdpokasdpokasdaspdokasdpokasdpokasd123123aspdokasdpokasdpokasd  aspdokasdpokasdpokasdaspdokasdpokasdpokasdaspdokasdpokasdpokasd123123aspdokasdpokasdpokasdaspdokasdpokasdpokasdaspdokasdpokasdpokasd123123aspdokasdpokasdpokasdaspdokasdpokasdpokasdaspdokasdpokasdpokasd123123aspdokasdpokasdpokasdaspdokasdpokasdpokasdaspdokasdpokasdpokasd123123aspdokasdpokasdpokasdaspdokasdpokasdpokasdaspdokasdpokasdpokasd123123aspdokasdpokasdpokasd aspdokasdpokasdpokasdaspdokasdpokasdpokasdaspdokasdpokasdpokasd123123aspdokasdpokasdpokasdaspdokasdpokasdpokasdaspdokasdpokasdpokasd123123aspdokasdpokasdpokasdaspdokasdpokasdpokasdaspdokasdpokasdpokasd123123aspdokasdpokasdpokasdaspdokasdpokasdpokasdaspdokasdpokasdpokasd123123aspdokasdpokasdpokasdaspdokasdpokasdpokasdaspdokasdpokasdpokasd123123aspdokasdpokasdpokasd aspdokasdpokasdpokasdaspdokasdpokasdpokasdaspdokasdpokasdpokasd123123aspdokasdpokasdpokasdaspdokasdpokasdpokasdaspdokasdpokasdpokasd123123aspdokasdpokasdpokasdaspdokasdpokasdpokasdaspdokasdpokasdpokasd123123aspdokasdpokasdpokasdaspdokasdpokasdpokasdaspdokasdpokasdpokasd123123aspdokasdpokasdpokasdaspdokasdpokasdpokasdaspdokasdpokasdpokasd123123""));
+
+    var timer = std.time.Timer.start() catch unreachable;
+    _ = simd_double_loop(input);
+    std.debug.print(""simd Double Loop took {}\n"", .{std.fmt.fmtDuration(timer.lap())});
+
+    _ = simd_single_loop(input);
+    std.debug.print(""simd Single Loop took {}\n"", .{std.fmt.fmtDuration(timer.lap())});
+}",5,7
+1110,2022-08-20T01:01:15Z,2022-08-31T02:31:59Z,2022-08-31T02:31:59Z,3,67,1,"JSC's builtin profiler has the ability to dump profiles to a file or return JSON encoded runtime stack traces.
+Three API's are exposed
+startSamplingProfiler(/*optional*/ dir_to_dump_profiles, /*optional*/ sample_rate_in_us);
+const json = samplingProfilerStackTraces(); // get a running list of stack traces from the sampler
+noInline(func); // tell the JIT compiler not to inline the named function - useful for getting better stack traces",2,3
+1112,2022-08-20T05:37:14Z,2022-08-20T07:17:17Z,2022-08-20T07:17:17Z,2,237,32,,2,0
+1115,2022-08-20T08:47:06Z,2022-08-26T02:38:28Z,2022-08-26T02:38:28Z,27,1820,15,"Warning
+In huge WIP
+
+
+Note
+Implemented, our first PR (@Fire-The-Fox, @xHyroM)
+
+
+ tests
+ bun-types
+ faster than other runtimes
+ benchmarks
+
+ cpus()
+ networkInterfaces()
+ arch()
+ endianness()
+ freemem()
+ getPriority()
+ homedir()
+ hostname()
+ loadavg()
+ platform()
+ release()
+ setPriority()
+ tmpdir()
+ totalmem()
+ type()
+ uptime()
+ userInfo()
+ version()
+
+
+
+Required before ready to review:
+
+ Install MacOS on VMWare (in progress, my net is slow)
+ Make support for MacOS
+
+ cpus()
+ freemem()
+ loadavg()
+ networkInterfaces()
+ uptime()
+ version()
+ release()
+
+
+ Test every function
+
+ linux
+ darwin
+
+
+
+import os from ""node:os"";
+
+for (const p of Object.getOwnPropertyNames(os)) {
+    if (p === ""setPriority"" || p === ""default"") continue;
+
+    if (typeof os[p] === 'function') console.log(p, os[p]());
+    else console.log(p, os[p]);
+}
+
+console.log(`priority ${os.getPriority()} (should be 0)`);
+os.setPriority(0, 2);
+console.log(`priority ${os.getPriority()} (should be 2)`);
+os.setPriority(4);
+console.log(`priority ${os.getPriority()} (should be 4)`);
+Must be implemented:
+
+ os.EOL
+ os.arch()
+ os.cpus()
+ os.devNull
+ os.endianness()
+ os.freemem()
+ os.getPriority() - missing info field in error
+ os.homedir()
+ os.hostname()
+ os.loadavg()
+ os.networkInterfaces()
+ os.platform()
+ os.release()
+ os.setPriority() - missing info field in error
+ os.tmpdir()
+ os.totalmem()
+ os.type()
+ os.uptime()
+ os.userInfo() - missing encoding option
+ os.version()
+ os.constants
+
+ os.constants.signals
+ os.constants.errno
+ os.constants.dlopen
+ os.constants.priority
+ UV_UDP_REUSEADDR
+
+
+
+// RUN WITH NODEJS NO BUN
+const os = require(""node:os"");
+
+let declarations = """";
+let addToModule = """";
+for (const [key, value] of Object.entries(os.constants.signals)) {
+    declarations += `   pub const ${key} = ${value};\n`;
+    addToModule += `    constantsModule.put(globalObject, &JSC.ZigString.init(""${key}""), JSC.JSValue.jsNumber(${key}));\n`
+}
+
+console.log([
+    declarations,
+    '',
+    'pub fn create(module: JSC.JSValue, globalObject: *JSC.JSGlobalObject) callconv(.C) void {',
+    `   const constantsModule = JSC.JSValue.createEmptyObject(globalObject, ${Object.keys(os.constants.signals).length});`,
+    `   ${addToModule}`,
+    '   module.put(globalObject, &JSC.ZigString.init(""dlopen""), constantsModule);',
+    '}',
+].join('\n'));
+Big ❤️ for @Fire-The-Fox . He help me with cpus and networkInterfaces",3,5
+1123,2022-08-21T06:45:21Z,2022-08-21T12:34:31Z,2022-08-21T12:34:31Z,16,1241,1,,2,0
+1145,2022-08-25T15:10:23Z,,2022-10-07T13:41:16Z,1,14,4,"adds info for how to update wsl
+reorders documentation to match the order in the table of contents
+
+Had this issue and couldn't find any documentation for it and went on the Discord to ask for help. Found this solution, but I've since seen at least one other person come into the Discord asking the same question.",2,0
+1147,2022-08-25T21:14:43Z,2022-08-29T04:21:21Z,2022-08-29T04:21:21Z,2,47,14,"#72
+I will preface this PR by saying this is my first time touching Zig, so this code needs some work, but it does two things:
+
+Fixes a bug with tsconfig paths that are purely a wildcard prefix (i.e, '*': [""foo/*""]), these previously caused a segfault while trying to slice the key.
+Handle extends when the property is encountered in a tsconfig. We look up all parent tsconfigs until we hit the base config, then apply the tsconfigs starting from the base to generate a merged tsconfig.
+
+The solution really needs some caching and memoization so that we don't keep reading and reparsing parent tsconfigs. But I think this is at odds with how Bun currently stores tsconfigs on DirEntry objects. I think there needs to be a dedicated cache of TsConfigJSONs, which includes both the DirEntry tsconfigs as well as ones referenced by extends.",2,1
+1164,2022-08-27T21:21:34Z,,2023-06-05T16:33:59Z,2,184,0,"Closes #1021
+Checks:
+
+package_json main field
+index.js
+index.ts
+index.mjs
+index.cjs
+
+fallback: index.js
+Cant find any file:
+
+Invalid main field but index.xx exist:
+
+Invalid main field + cant find file:
+
+Correct main field/found file:",3,3
+1168,2022-08-28T17:24:14Z,2022-09-03T12:01:26Z,2022-09-03T12:01:26Z,1,49,0,Closes #935,3,1
+1188,2022-09-01T06:03:06Z,2022-09-01T19:56:41Z,2022-09-01T19:56:41Z,13,766,10,"The code is a migration of https://github.com/nodejs/string_decoder. And the tests are from https://github.com/nodejs/node/blob/main/test/parallel/test-string-decoder.js.
+Note that I also fixed the buffer.toString(""utf16le"").
+Thank you for your time on this PR :)",2,0
+1201,2022-09-02T23:29:54Z,,2023-08-25T07:01:53Z,8,62,4,resolves: #866,4,3
+1218,2022-09-08T12:37:35Z,2022-09-09T02:52:27Z,2022-09-09T02:52:27Z,6,405,138,,2,0
+1221,2022-09-09T11:10:08Z,2022-09-10T05:48:55Z,2022-09-10T05:48:56Z,8,292,193,,2,1
+1232,2022-09-11T22:02:42Z,,2022-11-08T21:57:20Z,10,208,5,,2,1
+1238,2022-09-14T20:34:51Z,,2022-11-08T08:42:55Z,2,17,3,resolves: #174,2,1
+1246,2022-09-17T15:28:58Z,2022-09-18T05:11:16Z,2022-09-18T05:11:16Z,1,46,1,"Co-authored by @ekil1100.
+Add support for ${ENV} syntax to read nested values when defining environment variables.
+Closes #248.
+Note:
+Currently does not support default value like ${undefined:-default}.
+Please let me know if I should create an issue for that.",4,3
+1247,2022-09-17T16:03:49Z,2022-09-18T00:49:47Z,2022-09-18T00:49:47Z,3,6,4,A couple of small improvements to the contributing documentation for macOS.,2,1
+1277,2022-09-24T11:13:41Z,,2023-06-05T16:19:27Z,9,942,585,"Fixes
+
+
+Fixes #622
+
+
+Fixes #1015
+
+Calls with template literals of the form foo`\?`​ now preserve the raw characters present in template literals, even in ascii mode. This is important for the raw field in the first parameter that would be sent to foo. Most importantly, String.raw relies on this field.
+
+String.raw`\?`​ would erroneously transpile to String.raw`?`​, now it preserves the '\\' character.
+Previously, String.raw`💩`​ would erroneously transpile to String.raw`\ud83d\udca9`​. Now it transpiles to:
+
+String.raw(Object.freeze(Object.defineProperty([""\u{1F4A9}""], ""raw"", { value: Object.freeze([""\u{1F4A9}""]) })));
+
+Small size optimization, ""\ud83d\udca9"" is now ""\u{1F4A9}"" instead. (saves 3 characters in this case, but for larger codepoints which take 6 sextets this strategy saves 2 characters)
+
+We could also consider switching to using different kinds of quotes in the ${interpolated spaces} to cut down on characters that way too. We now switch which quote is used based on which would require the fewest number of escape sequences!
+
+There is an older, less intelligent function for choosing the best quote character already present in the codebase which I did not change yet, but it could benefit from a logic upgrade too.
+
+
+
+
+
+
+
+
+
+Fixed '\b' from erroneously being transpiled to '\f'
+- 0x08 => { if (quote == '`') e.print(0x08) else e.print(""\\f""); },
++ 0x08 => { if (quote == '`') e.print(0x08) else e.print(""\\b""); },
+
+
+Fixed ""\r\n"" not properly being normalized.
+
+Previously, the code which was supposed to look at the next character after '\r' to see if it is '\n' would just look at the current character, i.e. '\r', so it was not very useful.
+-if (iter.i < text.len and text[iter.i + 1] == '\n') // potential segfault!
++if (iter.i + 1 < text.len and text[iter.i + 1] == '\n')
+
+-iter.i += @as(u32, @boolToInt(iter.i < text.len and text[iter.i] == '\n')); // safe, but wrong
++iter.i += @as(u32, @boolToInt(iter.i + 1 < text.len and text[iter.i + 1] == '\n'));
+
+
+
+
+Fixed low surrogates from erroneously being checked against first_high_surrogate rather than first_low_surrogate
+-if (c2 >= first_high_surrogate and c2 <= last_low_surrogate)`
++if (c2 >= first_low_surrogate and c2 <= last_low_surrogate)`
+
+
+There was a place in the code where c < 255 would become a two digit hex escape, whereas I believe it should be c <= 255. I combined a bunch of the branches together, but here was the bad code:
+if (c < 0xFF) {
+    var ptr = e.writer.reserve(4) catch unreachable;
+    ptr[0..4].* = [_]u8{ '\\', 'x', hex_chars[c >> 4], hex_chars[c & 15] };
+    e.writer.advance(4);
+    continue;
+}
+
+
+Made it so \b, \f, and \v in template literals transpile to their escape sequence rather than inserting the literal character when in ascii mode
+
+
+Tab characters are now fine for string literals of any kind
+
+
+Fixed some miscellaneous off-by-one issues that were in my way (and an off-by-two)
+
+
+Debug-mode fixes
+
+Made it so the following conditions no longer crash debug builds:
+
+large codepoints in strings like \u{111032}
+null pointers produced by empty strings being copied. e.g.
+const str = `\
+`
+
+
+
+
+Gradual improvements
+The groundwork is laid in this PR to get away from internally allocating utf16 strings. The printProcessedRawQuotedUTF16 function allows for strings to be processed as they are being printed, which can just as easily work for utf8 strings. The bestQuoteCharForProcessedRawString function also has all the functionality one would need to figure out things like what length an equivalent utf16 string would have without needing to allocate it.
+
+(There is a function in js_printer.zig which already tried to determine which quote would require the fewest number of escape sequences, although it was very naïve and prone to give the wrong answer. However, I did not fully replace it yet.)
+
+Minor improvements
+
+Made the fast path for string parsing include newline and tab characters when dealing with template literal strings.
+Made reserved space for JS output more closely match what is actually called for by file contents.
+Improved error handling slightly, however in my opinion error handling needs its own revamp.
+
+It would probably be ideal to move all parsing and lexxing error methods from out of the functions that do the parsing and lexxing, so that Bun can be optimized for not encountering errors potentially after every character or token. I think errors should be returned as raw error codes, so as to not be handled by a method called directly when the error is encountered. If necessary, Bun could have a little parser to figure out which characters to highlight once an error has been returned. E.g. imagine this JS is transpiled: ""\u{FFFFFFF}"". This could return error.UnicodeOverflow and then after the stack is unwound there could be a parser than runs for error.UnicodeOverflow error codes that would parse the aforementioned string to grab all the characters that look like a unicode literal, and then report it as an error from higher up in the stack. Again, the advantage of this is that there would be no need for methods and branches handling these errors in-line where the real workload is being done. Even when methods are set to cold, I believe they should still have some overhead due to having to move registers around, although I have never actually looked at assembly for cold methods before. I could be totally wrong about this so I would love to hear what others have to say. I could imagine a function being generated which does all the bookkeeping after being called, but that would be a bit of a feat for register allocation.
+For now, a couple of errors are nicer, specifically dealing with e.g. \8, \18, \xGH, \uLLLL, \u{FFFFFFFFF}, etc.
+
+
+
+Future work
+
+
+The code I am the least confident in is some of the p.lexer.is_potential_template_literal_call = was_potential_template_literal_call; statements in ""js_parser.zig"". I tried to just stick those in all the places I could find that made sense, but I did not actually read through the code to understand whether all cases are covered. Anyway, I think this PR is large enough, and I will save that task for another day.
+
+
+I am not sure how to trigger the following lines of code, so if someone could provide a test case that does so, that would build my confidence in the correctness of my solution. 
+  
+    
+      bun/src/js_printer.zig
+    
+    
+        Lines 2594 to 2604
+      in
+      0ca42e8
+    
+  
+  
+    
+
+        
+          
+           allow_shorthand = false; 
+        
+
+        
+          
+           const quote = p.bestQuoteCharForString(key.data, true); 
+        
+
+        
+          
+           if (quote == '`') { 
+        
+
+        
+          
+               p.print('['); 
+        
+
+        
+          
+           } 
+        
+
+        
+          
+           p.print(quote); 
+        
+
+        
+          
+           p.printUTF8StringEscapedQuotes(key.data, quote); 
+        
+
+        
+          
+           p.print(quote); 
+        
+
+        
+          
+           if (quote == '`') { 
+        
+
+        
+          
+               p.print(']'); 
+        
+
+        
+          
+           } 
+        
+    
+  
+
+
+
+
+I also noticed it is very easy to have the Bun transpiler accidentally remove live code when calling with a template literal instead of normal function arguments.
+function kee() {
+    console.log('soup')
+    return kee;
+}
+const str = kee````; // does not emit
+
+
+As mentioned, the debugging library could use work. I fixed a few cases but not all of them.
+
+
+Octal literals should be disallowed in template strings and in strict mode. Currently, they can be used in any string and will transpile to a \x or \u literal.
+
+These now properly error, at least in some cases.
+
+
+
+The compile time .length calculator is broken for things like console.log('\r'.length). This could be super easy to fix, I just haven't looked at it.
+
+Fixed! The issue was that the slow path was not being taken for '\r' and related situations. Now, the slow path will be taken for any string with a backslash character.
+
+
+
+String.raw template literal calls should be optimized away, if possible.
+
+Does Bun already have a way of detecting whether a reference to String.raw refers to the default one?",2,2
+1317,2022-10-13T20:26:02Z,2022-10-17T03:52:40Z,2022-10-17T03:52:40Z,73,3,1633,https://github.com/bun-community/create-templates/,3,0
+1319,2022-10-14T02:24:43Z,,2022-10-19T01:32:59Z,63,3784,23,,2,1
+1321,2022-10-14T05:42:18Z,2022-10-19T04:12:33Z,2022-10-19T04:12:33Z,1,3,5,"Changes the Deno FFI benchmark to use the ""buffer"" type so that the bytes Uint8Array can be used directly, aligning it with how the Bun benchmark is done.
+Also, use the static method version of Deno.UnsafePointerView.getCString()",3,1
+1346,2022-10-19T01:27:08Z,2022-10-19T03:11:17Z,2022-10-19T03:11:17Z,4,39,1,fixes #1087,2,0
+1363,2022-10-21T02:13:07Z,2022-10-25T02:02:57Z,2022-10-25T02:02:57Z,3,341,27,,2,0
+1364,2022-10-21T13:20:43Z,2022-10-21T16:54:14Z,2022-10-21T16:54:14Z,1,34,34,,2,0
+1374,2022-10-23T09:06:40Z,2022-10-25T07:44:26Z,2022-10-25T07:44:26Z,29,4337,40,"Tests
+ Types
+ Fix bugs uncovered from tests
+
+This looks a lot like the websocket API. It introduces three new classes and two functions:
+Functions on Bun:
+
+listen
+connect
+
+Classes:
+
+TCPSocket
+TLSSocket
+Listener
+
+TCPSocket and TLSocket currently have the same API, but we may want specific features for TLS in there later. It does not implement ReadableStream or WritableStream yet, but it should.
+Example:
+import {listen} from 'bun';
+
+const listener = listen({
+  host: ""127.0.0.1"",
+  port: 8000,
+  socket: { 
+     data(socket, msg) {
+        socket.write(msg);
+     }
+  }
+});
+
+listener.stop();",2,0
+1378,2022-10-23T18:26:31Z,2023-02-18T21:54:59Z,2023-02-18T21:54:59Z,3,38,13,"Ref: https://nodejs.org/api/os.html#osmachine
+Please wait on CI/CD, not sure about Darwin stuff and I don't have a mac to test it on.",4,6
+1393,2022-10-26T10:23:33Z,2022-10-26T16:23:34Z,2022-10-26T16:23:34Z,1,2,2,"It seems like the VS Code extension name has changed to Dev Containers, this updates the documentation to reflect that.",2,0
+1412,2022-10-28T10:55:43Z,,2022-11-03T15:00:14Z,4,18,13,"Node
+Bytes Before
+Bytes After
+
+
+
+
+E.String
+48
+40
+
+
+E.Local
+32
+24
+
+
+
+**Hold on review please - going to add more optimizations.",2,4
+1419,2022-10-29T03:56:55Z,2022-11-01T05:00:27Z,2022-11-01T05:00:27Z,3,353,159,,2,1
+1422,2022-10-29T09:55:47Z,,2023-03-29T21:32:29Z,1,24,0,"A group of friends and I, 15 developers in our free time at university, studying computer engineering, tried unsuccessfully to use Bun, we realized that many developers are missing the opportunity to use Bun, because after its installation, devs are unable to use Bun when they restart their machines, that's why we decided to support this amazing and nice project, bringing to open source, a crucial step, as it is: make permanent on your machine Bun. Currently Bun is missing the opportunity to be adopted by the masses by not incorporating this step in the guide, we hope and love Bun, that's why we bring this PR.",3,3
+1424,2022-10-29T18:02:07Z,2022-11-06T21:43:42Z,2022-11-06T21:43:42Z,4,2756,3,"Beginning of node:child_process polyfill, adds base case for spawn without any extra options specified, and the necessary functionality of the ChildProcess class.",2,3
+1439,2022-11-01T18:25:45Z,2022-11-03T00:34:21Z,2022-11-03T00:34:21Z,2,5,3,"$PATH was pointing to /build/packages/* instead of /build/bun/packages/* where they actually get built.
+The code /build/README.md in the post-create command was also causing some trouble, I replaced it with a generic cat instead.",2,1
+1445,2022-11-01T23:17:15Z,2022-11-02T04:25:30Z,2022-11-02T04:25:30Z,12,1123,4,,8,0
+1453,2022-11-03T02:01:10Z,,2023-03-29T21:32:06Z,2,2,3,fixes bug from #1399,3,2
+1459,2022-11-05T08:32:01Z,2022-11-07T05:42:05Z,2022-11-07T05:42:05Z,35,5529,1786,"This enables automatically installing npm packages used in a script and resolving from a global shared cache when no node_modules folder is present.
+It works:
+
+with and without package.json
+with and without lockfiles
+
+package.json can be used the same as with node_modules. The version ranges specified in the package.json for dependencies become the default used in the runtime. This makes it so you don't have to run npm install or bun install to install dependencies in Bun's runtime. There is no special syntax.
+
+TODO:
+
+ Tests
+ Error handling
+ Disable version specifier support when a package.json is present
+ Update README for changes
+ Load lockfile from nearest package.json
+ Enable progress bar
+ Save lockfile
+ Add a flag that enables it even if a node_modules folder is present. Useful for monorepos with a <workspace>/scripts folder. Thinking something like: (cc @colinhacks), though they might actually put it in ""scripts"" within package.json
+
+bun -i scripts/extract-tps-reports.js
+Out of scope for this first release:
+
+ TypeScript support (generate .d.ts)
+ Nested lockfiles",2,3
+1471,2022-11-08T18:24:07Z,2022-11-08T23:33:47Z,2022-11-08T23:33:48Z,7,497,237,"Fixed up very broken tests from node, added a few utils in tests/bun.js/our-assert for testing, including createDoneDotAll and createCallCheckCtx both very useful for working with callbacks and specifically event emitter callbacks.",2,1
+1475,2022-11-09T02:41:33Z,2022-11-09T23:40:40Z,2022-11-09T23:40:40Z,277,34093,2464,"Moves bun-types into packages
+Fixes types throughout the codebase. All code including tests (except some excluded subdirectories) are now typechecked according to the root tsconfig.json. There's no need to rebuild bun-types to get the latest types - the ""source"" type declaration files are used.
+Removes the labeling workflows from bun-types
+Add child_process types
+
+You can run bun run typecheck to run typechecking. This is currently passing. We should consider integrating this into CI at some point if it isn't too burdensome.",3,0
+1476,2022-11-09T06:07:54Z,2022-11-09T08:37:57Z,2022-11-09T08:37:57Z,12,1579,0,,4,3
+1479,2022-11-10T00:13:02Z,2022-11-10T02:10:29Z,2022-11-10T02:10:30Z,3,49,38,,2,1
+1483,2022-11-11T00:28:49Z,2022-11-22T01:31:03Z,2022-11-22T01:31:03Z,3,228,93,"Starting to tackle #1402
+Going though the last few commits on the corresponding esbuild files, including improving the error messages on simple fixable user errors.",2,4
+1495,2022-11-12T06:19:57Z,2022-12-02T16:25:13Z,2022-12-02T16:25:13Z,9,2031,476,Still trying to get pipe support and there seems to be some bugs in some edge cases. But overall main functionality is supported. Tests coming too.,2,5
+1496,2022-11-12T10:48:49Z,2022-11-13T02:30:13Z,2022-11-13T02:30:13Z,22,1251,707,"TODO:
+
+ Why are child_process tests failing but the Bun.spawn tests passing? cc @ThatOneBro
+ Fixup/test on macOS
+
+Fixes #1320",3,0
+1515,2022-11-16T17:14:03Z,,2022-11-16T18:17:01Z,1,1,1,"And it works on the package.json file, which is the actual standard, same as yarn or pnpm.
+I know, this is a nit, but still I guess the ground truth is package.json, not the fact that it's been used by npm",3,2
+1526,2022-11-18T22:13:55Z,2022-11-19T07:03:40Z,2022-11-19T07:03:40Z,16,670,65,"Adds toContain(), toBeFalsy(), toBeTruthy(), toBeUndefined(), toBeNull(), toBeDefined(), toBeNaN() and not to bun test.",2,0
+1528,2022-11-19T05:53:22Z,2022-11-22T00:52:00Z,2022-11-22T00:52:00Z,2,108,7,"\p{<script name>=<script value>} -> \p{<script value>}
+\p{^<script name>=<script value>} -> \p{^<script value>}",2,0
+1568,2022-11-30T22:40:51Z,2022-12-02T03:36:47Z,2022-12-02T03:36:47Z,8,277,48,Implementation for toStrictEqual(). Also fixes a bug where toEqual() was incorrectly comparing objects with undefined properties.,2,1
+1573,2022-12-02T20:50:37Z,2022-12-03T04:35:14Z,2022-12-03T04:35:14Z,7,770,6,,2,0
+1581,2022-12-06T23:36:55Z,2022-12-07T02:48:03Z,2022-12-07T02:48:03Z,24,237,84,,3,0
+1619,2022-12-16T17:16:17Z,2022-12-16T18:36:08Z,2022-12-16T18:36:08Z,1,1,1,occured -> occurred,2,0
+1626,2022-12-18T04:32:42Z,2022-12-18T06:37:45Z,2022-12-18T06:37:45Z,3,95,49,"fix variable name typo
+fix tests",2,2
+1644,2022-12-22T18:07:46Z,2023-01-31T20:22:51Z,2023-01-31T20:22:51Z,1,4,4,See: https://share.cleanshot.com/gcB3gbXJz6RQk5tx559n,2,0
+1658,2022-12-24T16:27:45Z,,2023-06-15T22:11:08Z,16,4578,4110,"Hello,
+I am trying to set up a ‘Mock’ class to import via ‘bun:test’, and was wondering on how to setup the scaffolding.
+I think I’ve set up the correct pieces, but can’t get the Mock class to be imported by a test.
+I set this up by modifying ‘jest.classes.ts’, set up the struct in ‘jest.zig’, and then run ‘make codegen’ and ‘make build’.
+Would appreciate any direction.",3,3
+1659,2022-12-25T01:31:34Z,2023-01-11T02:43:58Z,2023-01-11T02:43:58Z,2,163,3,"The Buffer api is not complete as detailed in #155.
+Specifically swap16, swap32 and swap64 are unimplemented.
+This PR:
+
+Implements swap16, swap32 and swap64 in src/bun.js/bindings/JSBuffer.cpp
+Adds supporting tests to test/bun.js/buffer.test.js, testing:
+
+Correct swapping behaviour for several examples
+An error is thrown if the buffers are not appropriately sized (not multiples of the swap byte size, i.e. 2, 4, or 8 bytes for swap16, swap32 and swap64 respectively)
+
+
+
+To do:
+
+ Port node tests",2,1
+1670,2022-12-27T18:34:31Z,2022-12-28T00:34:33Z,2022-12-28T00:34:33Z,2,298,442,fixes #1668,2,0
+1674,2022-12-28T07:16:24Z,2022-12-28T09:21:21Z,2022-12-28T09:21:21Z,8,94,26,"use Symbol.toStringTag of the object or that of its .prototype
+fixes #1584",2,2
+1689,2022-12-31T07:23:54Z,2022-12-31T11:14:23Z,2022-12-31T11:14:23Z,4,189,8,"wait for async hooks to complete before running tests
+add support for done(err) callbacks in hooks
+
+fixes #1688",2,3
+1697,2023-01-01T23:12:17Z,2023-01-02T00:37:45Z,2023-01-02T00:37:45Z,14,127,162,,2,1
+1700,2023-01-02T06:46:34Z,2023-01-02T10:24:23Z,2023-01-02T10:24:23Z,3,179,67,"Bun.listen() and Bun.connect() would create sockets that under certain conditions with calls to .end() or .stop,  prevents the process from exiting gracefully.",2,2
+1701,2023-01-02T20:55:43Z,2023-01-02T22:55:02Z,2023-01-02T22:55:02Z,3,432,3,"support TCP sockets for now, i.e. no IPC
+extra features like keep-alive, no-delay etc. are absent due to limitations of uSockets
+fix jest to treat done(nullish) as success",2,3
+1705,2023-01-03T02:16:16Z,2023-01-03T07:06:46Z,2023-01-03T07:06:46Z,5,143,95,assorted clean-ups & fixes,2,4
+1721,2023-01-04T21:20:43Z,2023-01-04T23:32:40Z,2023-01-04T23:32:40Z,1,68,37,,2,0
+1735,2023-01-06T02:01:45Z,2023-01-06T03:43:33Z,2023-01-06T03:43:33Z,3,158,33,,2,1
+1738,2023-01-06T23:48:34Z,2023-01-08T09:49:50Z,2023-01-08T09:49:50Z,10,5673,161,"This PR is a lot of code to look at, readline and a bunch of stuff that can be later extracted into other internal components/conventions.
+readline
+The whole module is more or less completed, but I'm going to do a pass to refactor it. A lot of stuff was modified but I ended up copying a lot of the original code again from node due to some issues that arose from the optimizations I made changing behavior.
+Some tests still need to be ported from node, but I think about half of them already have been. Only a few tests are not passing currently and most are failing due to a scoping issue which I think I have a fix for.
+Other notable stuff
+
+SymbolFor(""__BUN_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED__""): A way to export internal symbols to other internal modules. A little safer and more explicit than just exporting functions or vars with an underscore
+Start polyfilling Node internal errors in a way which tests can easily be autoimported from Node without any or little changes to the code. There is still some work to be done here when it comes to creating multiple errors for the same error code (for example,ERR_INVALID_ARG_VALUE can be a RangeError or a TypeError confusingly. But not too hard to deal with if we abuse multiple prototype inheritance... But there may be a better solution.
+node-test-helpers.ts: A Node test helper library which helps with compatibility of Node tests in the Bun wiptest suite. Basically it exports a wrapped version of assert which calls expect for each assert function and some our own equivalent of common.mustCall, common.mustNotCall and friends used frequently in Node tests. This is useful for working with callbacks in conjunction with done callback, without wrapping everything in Promises.
+
+Next
+Need to implement tty.setRawMode, shouldn't be too hard. That should get basically readline pretty much 1:1 Node parity.
+Also because we are using only two files for readline and readline/promises respectively, need to figure out how to fix a circular dependency we created with promises which Node doesn't have because they have separate internal and external modules. This shouldn't be hard but may require a bit of file restructuring, and creating a convention for internal modules which only Node builtins can access.",2,0
+1748,2023-01-08T23:07:17Z,2023-01-10T00:27:56Z,2023-01-10T00:27:56Z,2,183,239,Refactor to support exporting promises from base readline module,3,1
+1753,2023-01-10T06:28:23Z,2023-01-12T20:49:37Z,2023-01-12T20:49:37Z,3,45,3,"This PR fixes #1533.
+Instead of printing just the test name in a test success or failure, bun-test will now print the full path of scopes for the test.
+Previously:
+✓ inner most describe 1 > first
+
+Now:
+✓ outer most describe > mid describe 1 > inner most describe 1 > first",2,1
+1761,2023-01-10T23:28:27Z,2023-01-11T22:56:42Z,2023-01-11T22:56:42Z,15,2323,13,"node:net
+node:dns
+process.exit return never
+tighten up definition of ArrayBufferView",2,0
+1764,2023-01-11T08:09:48Z,2023-01-14T15:14:49Z,2023-01-14T15:14:49Z,8,833,337,,2,0
+1802,2023-01-16T06:16:50Z,2023-01-18T05:01:56Z,2023-01-18T05:01:56Z,2,2,4,"The TypeScript documentation said:
+
+Enabling esModuleInterop will also enable allowSyntheticDefaultImports
+
+Because there is already an esModuleInterop flag, so allowSyntheticDefaultImports is redundant.",2,0
+1814,2023-01-17T18:50:00Z,2023-01-18T01:47:01Z,2023-01-18T01:47:01Z,7,683,168,,2,2
+1817,2023-01-17T21:45:13Z,2023-01-18T00:49:19Z,2023-01-18T00:49:19Z,9,2160,45,,2,0
+1818,2023-01-17T22:08:53Z,2023-01-17T23:45:15Z,2023-01-17T23:45:15Z,1,1,1,,2,0
+1823,2023-01-18T02:38:10Z,2023-01-18T07:06:27Z,2023-01-18T07:06:27Z,4,15,4,,2,0
+1840,2023-01-19T05:42:34Z,2023-01-19T14:39:01Z,2023-01-19T14:39:01Z,2,171,128,,2,2
+1851,2023-01-20T04:17:21Z,,2023-05-17T08:14:20Z,3,330,21,Fixes for highWaterMark: 1 and returned error codes,2,0
+1854,2023-01-20T07:17:30Z,2023-01-21T12:16:26Z,2023-01-21T12:16:26Z,6,644,249,,2,1
+1862,2023-01-20T17:43:22Z,2023-01-23T22:38:41Z,2023-01-23T22:38:41Z,8,356,793,"@Jarred-Sumner as we discussed yesterday I moved the options from the third parameter to the second parameter, used only 1 buffer for URL + proxy, and merged headers when informed headers on Request parameter + second option headers.
+This also fixes some options of the second parameter not being used when using the Request parameter.
+Added some tests in proxy.test.js using non-TLS proxy and non-TLS request, for more tests I think is better to use a paid proxy server or something similar.
+Need to compile the latest version of uWS in your repository for the proxy tests to pass.",2,1
+1870,2023-01-21T22:38:56Z,2023-01-22T22:31:08Z,2023-01-22T22:31:08Z,12,1129,32,Still missing tests and probably some fixes #1822,2,3
+1874,2023-01-22T23:54:31Z,2023-01-24T07:06:13Z,2023-01-24T07:06:13Z,27,989,0,"TODO:
+
+GitHub actions",2,0
+1875,2023-01-23T01:13:06Z,2023-01-24T19:57:25Z,2023-01-24T19:57:25Z,7,827,115,,2,7
+1881,2023-01-23T18:03:00Z,2023-01-24T00:48:52Z,2023-01-24T00:48:52Z,7,211,57,"arguments miss interpreted in Buffer.write
+ utf16 wrong size returned in Buffer.write
+ base64  wrong size returned in Buffer.bytesLenght
+ hex wrong size returned in Buffer.bytesLenght
+ segfault when buffer doesn't have enough room
+ Buffer.alloc missing fill and encoding argument  https://nodejs.org/api/buffer.html#static-method-bufferallocsize-fill-encoding
+ Incorrect writing utf16le ( writeU16 into utf16le option)
+
+const buf = Buffer.alloc(8);
+expect(buf.write('ыы', 1, 'utf16le')).toBe(4);
+expect([...buf]).toStrictEqual([0, 0x4b, 0x04, 0x4b, 0x04, 0, 0, 0]);
+Expected: [ 0, 75, 4, 75, 4, 0, 0, 0 ]
+Received: [ 0, 75, 75, 0, 0, 0, 0, 0 ]",2,2
+1895,2023-01-25T05:19:43Z,2023-01-26T09:06:51Z,2023-01-26T09:06:51Z,5,203,87,fixes #861,3,2
+1903,2023-01-25T21:40:57Z,2023-01-27T02:36:54Z,2023-01-27T02:36:54Z,9,1737,523,"resolveSrv
+ resolveTxt
+ resolveNs
+ resolvePtr
+ resolveCname
+ resolveAny will not implement yet
+ resolveCaa
+ resolveMx
+ resolveNaptr
+ resolveSoa
+ dns.resolve( hostname, rrtype, callback )
+
+Related to #1744",3,2
+1924,2023-01-28T19:18:20Z,2023-01-29T05:30:46Z,2023-01-29T05:30:46Z,5,448,185,"fix invalid buffer references
+
+fixes #1920",2,2
+1959,2023-01-31T23:13:09Z,2023-02-02T03:22:29Z,2023-02-02T03:22:29Z,3,1197,62,"Still needs more tests and more cleanup. Going to start porting node tests for this and node:net next probably. Discovering small divergences between Node and Bun as testing corner cases, so this is really important to make sure we get closer to 100% Node compatibility
+Closes #1849",3,2
+1971,2023-02-02T10:47:33Z,2023-02-15T08:11:48Z,2023-02-15T08:11:48Z,13,1181,45,"This is mostly copied from WebKit but the OpenSSL/BoringSSL-specific parts aren't
+Before this can be merged:
+
+ Regenerate JS builtins
+ Test it works in Jose
+ Get someone to review the OpenSSL parts because I don't know if its correct",3,14
+1977,2023-02-03T18:05:49Z,2023-02-04T02:13:33Z,2023-02-04T02:13:33Z,1,138,2,"Partially fixes #1888
+os.cpus() currently returns an empty array for all platforms.  This PR implements full functionality for Linux and has been tested on x86-64.  Other OSes will continue to return an empty array.
+Note that Linux on Arm64 may report the CPU model differently; if this is the case the CPU model will currently be reported as ""unknown"".  As I do not have Arm64 hardware to verify and develop against, a todo has been left in the code.",2,1
+2001,2023-02-07T00:40:36Z,2023-02-08T22:42:11Z,2023-02-08T22:42:11Z,2,56,8,"Fixes tests with unmatched surrogates. There are still failing tests with base64, base64url, and error throwing",2,1
+2004,2023-02-07T03:01:55Z,2023-02-08T22:57:13Z,2023-02-08T22:57:13Z,5,100,59,"Fixes import and export, keeps a copy of ""seed"" for export when key is a private ed25519 key.",2,1
+2009,2023-02-07T20:00:34Z,2023-02-22T18:34:16Z,2023-02-22T18:34:16Z,10,1174,0,Closes #352,6,2
+2011,2023-02-08T14:17:58Z,2023-02-08T22:37:14Z,2023-02-08T22:37:14Z,13,476,278,"take peerDependencies into account during package placement
+do not recursively resolve workspaces (matches npm)
+link binaries to non-root packages correctly
+prune empty nodes during dependency tree construction
+support non-standard workspace: specifier",2,1
+2019,2023-02-09T02:35:58Z,2023-02-15T22:20:41Z,2023-02-15T22:20:41Z,17,443,58,"onData abortion
+ onWritable abortion
+ addEventListener
+ fail with the right reason
+ detect TimeoutError and AbortError
+ fix socket timeout to use TimeoutError
+ add tests",2,0
+2041,2023-02-10T18:41:18Z,2023-02-11T03:05:32Z,2023-02-11T03:05:32Z,2,39,1,Fixes #631.  The string literal parsing code was not treating double backslash like the other escaped characters.,2,2
+2046,2023-02-11T01:01:18Z,,2023-10-17T20:20:56Z,27,1045,178,"Still need to finish wiring things and make sure the mode is set properly for a few different cases (namely, async iteration of console, ie:
+for await (const line of console)...
+and also for node:readline interfaces)
+but this is nearly ready.
+Closes #2025 and closes #2239",3,5
+2047,2023-02-11T04:57:34Z,2023-02-14T23:43:19Z,2023-02-14T23:43:19Z,2,44,12,"This is a draft PR since I can't figure out how to compile bun on my computer yet! Will work that out and then run tests to make sure it actually builds and runs.
+Resolves #2014",4,7
+2061,2023-02-13T06:01:05Z,2023-02-13T11:07:19Z,2023-02-13T11:07:19Z,3,44,0,"Closes #2056 , tested with node-addon-api.
+We should probably add tests for N-API stuff soon",2,1
+2066,2023-02-13T18:32:42Z,2023-02-17T23:54:05Z,2023-02-17T23:54:05Z,12,228,94,"Fixes #1602
+This PR fixes a number of issues related to FetchHeader handling:
+
+A test uncovered a possible segfault.  This was due to non-exhaustive header conversion that could result in a null headers object but no exception thrown.  This is now covered by an else return null.
+The C++ FetchHeader API makes extensive use of returning ExceptionOr<void / String> but most of these possible exceptions were not handled, which could lead to silent failures on append, put, get, etc.  These have been fixed to ensure that if there's an exception it is propagated as a error in JSC.  This has necessitated expanding the signature of many FetchHeader methods to include a global object parameter.
+The FetchHeader and JSFetchHeader implementations make use of convert to wrangle the incoming JSValue.  These converts were using IDLByteString which throw a generic TypeError when encountering a non-Latin1 character.  To ensure more informative error messages, these have been changed to IDLDOMString and the FetchHeader canWriteHeader checks are now relied on to ensure that header names and values are valid.
+The translation of a FetchHeader from JSC to actual strings for writing in the request did not check whether the encoding was 8 or 16 bit.  By slicing a string containing for instance, an emoji, it was possible to get an all-ASCII string encoded as UTF16.  I've added is8Bit checks and a conversion path if necessary for both header names and values.  This solves the primary problem uncovered by the original issue.  The copyToUWS function has been updated in a similar vein, but using utf8() to perform the conversion if needed.
+The isValidHTTPHeaderValue function actually doesn't enforce Latin1 or ASCII because it appears that the spec doesn't require it.  However since Node and other common implementations disallow codepoints > 255, I have added a check to prevent the same.",2,1
+2074,2023-02-14T22:43:43Z,2023-02-15T02:04:07Z,2023-02-15T02:04:07Z,6,342,104,report error and exit gracefully instead of crashing,2,1
+2086,2023-02-16T04:12:17Z,2023-02-16T23:06:35Z,2023-02-16T23:06:35Z,2,253,97,"yarn does this:
+{
+    ""workspaces"": {
+        ""packages"": [
+           ""my-package""
+        ]
+    }
+}
+npm does this:
+{
+     ""workspaces"": [ ""foo"" ]
+}
+let's support both, so that people using yarn workspaces (which are more popular than npm workspaces, afaict) don't see an error
+there are no tests for this PR",2,0
+2088,2023-02-16T19:19:25Z,2023-02-16T23:05:15Z,2023-02-16T23:05:15Z,3,19,0,"Partially resolves #1981
+This implements os.machine for Linux only.  It appears that OS X has uname (see this man page), but the Zig os package doesn't implement it.  High road for Mac support is probably to contribute the implementation to the Zig std lib.
+For unsupported platforms ""unknown"" is returned.",3,1
+2097,2023-02-18T00:05:38Z,2023-02-23T03:27:26Z,2023-02-23T03:27:26Z,18,624,134,,2,3
+2106,2023-02-19T19:42:34Z,2023-02-20T15:08:32Z,2023-02-20T15:08:32Z,1,15,0,"Current Behavior
+bun x is not mentioned in documentation
+Expected Behavior
+bun x has some public documentation",2,0
+2115,2023-02-20T19:20:24Z,2023-02-24T20:24:04Z,2023-02-24T20:24:04Z,3,174,75,"Fixes #1888.
+Provides an implementation of os.cpus for Darwin platforms.",3,7
+2117,2023-02-20T22:24:11Z,,2023-02-24T19:02:59Z,21,607,101,"add signal property
+ abort async
+ abort sync
+ exitCode as abort reason
+ exitCode as abort reason (sync)
+ tests",2,1
+2126,2023-02-22T10:05:17Z,2023-02-22T22:26:22Z,2023-02-22T22:26:22Z,1,1,1,"There's an override error with latest alpine and various versions of glibc (including 2.35): sgerrand/alpine-pkg-glibc#185
+This MR proposes a workaround (tested on fly.io - it works) so that it's possible to have bun usable with minimal linux dependencies.",4,3
+2128,2023-02-22T15:48:37Z,2023-02-22T20:39:41Z,2023-02-22T20:39:41Z,2,84,43,Fixes #2127,2,0
+2131,2023-02-22T20:05:02Z,2023-02-22T21:55:42Z,2023-02-22T21:55:42Z,5,97,33,,3,0
+2142,2023-02-23T18:27:26Z,2023-02-27T17:58:46Z,2023-02-27T17:58:46Z,6,308,10,"Implements os.networkInterfaces for both Linux and OSX, partially resolving #1550 fully resolves #1550 now that  #2115 is merged.
+Testing locally on Linux produces exact same results as Node aside from field ordering.
+Tested on x86_64 OSX, same results as Node.",3,2
+2143,2023-02-23T19:31:00Z,2023-02-28T00:10:03Z,2023-02-28T00:10:03Z,3,89,61,,2,1
+2150,2023-02-24T02:08:36Z,,2023-02-28T00:26:34Z,2,14,4,,2,0
+2160,2023-02-24T20:08:55Z,2023-02-25T00:33:53Z,2023-02-25T00:33:54Z,18,444,5437,,2,0
+2172,2023-02-25T02:49:21Z,2023-02-25T15:47:11Z,2023-02-25T15:47:11Z,4,6,6,Hey I was reading through this section and I thought these improvements could be made,2,0
+2181,2023-02-25T13:41:21Z,2023-02-25T15:49:44Z,2023-02-25T15:49:44Z,1,2,2,,2,0
+2222,2023-02-27T23:06:17Z,2023-02-28T02:28:43Z,2023-02-28T02:28:43Z,2,67,18,,2,1
+2227,2023-02-28T02:37:25Z,2023-03-02T20:24:44Z,2023-03-02T20:24:44Z,4,222,28,"Remakes typings for dlopen/linkSymbols to give types to exported functions. It's a little hacky, so any polish is appreciated. Also, introduces a pointer type, seeing as how all of the argument names are arg_#, I introduced a pointer type which is a thin wrapper over number to allow for explicitly typing pointers. Example:",2,2
+2236,2023-02-28T18:42:03Z,2023-03-01T01:55:18Z,2023-03-01T01:55:18Z,1,1,1,Closes #2234,2,0
+2238,2023-02-28T19:04:58Z,2023-02-28T21:49:06Z,2023-02-28T21:49:06Z,16,291,1840,"Major changes:
+
+Instead of vendoring zig-clap and adding changes, this uses Hejsil/zig-clap directly as a submodule
+cli.zig and related files have been updated to use new API (no more flag() or option())
+A workaround for the Run and Auto commands has been implemented that allows us to use the official upstream
+
+Minor change:
+
+-i now has the long option --install-fallback; I didn't spend much time thinking about this name, so suggestions weclome.
+
+Merging this should unblock #1819 and potentially other Node compatibility issues.",2,0
+2241,2023-03-01T00:43:54Z,2023-03-01T07:35:04Z,2023-03-01T07:35:04Z,1,5,1,"The c-ares build expects lib/libcares.a to exist after running cmake, but on my system (Fedora, x86_64) it was being generated in lib64/.  This simply sets the cmake variable so that the target ends up where we expect.",2,0
+2242,2023-03-01T01:05:53Z,2023-03-02T17:00:20Z,2023-03-02T17:00:20Z,4,62,6,"Bun.sleepSync was treating its argument as seconds rather than milliseconds as the docs stated.  This is a breaking change in that the function now behaves as documented.  Fixed relevant tests.
+Fixes #1420",5,8
+2261,2023-03-02T04:15:21Z,2023-03-02T05:40:11Z,2023-03-02T05:40:11Z,3,79,133,also removed redundant tests (bun-server.test.ts have better and more consistent tests),2,6
+2272,2023-03-02T21:31:35Z,,2023-03-02T23:25:28Z,11,221,120,"relevant stuff:
+
+  
+    
+      bun/src/bun.js/node/node_os.zig
+    
+    
+        Lines 636 to 640
+      in
+      4e2b751
+    
+  
+  
+    
+
+        
+          
+           var dir = bun.asByteSlice(bun.getenvZ(""TMPDIR"") orelse bun.getenvZ(""TMP"") orelse bun.getenvZ(""TEMP"") orelse ""/tmp""); 
+        
+
+        
+          
+           if (dir.len > 1 and strings.endsWithChar(dir, '/')) { 
+        
+
+        
+          
+               dir = dir[0 .. dir.len - 1]; 
+        
+
+        
+          
+           } 
+        
+
+        
+          
+           break :brk dir; 
+        
+    
+  
+
+
+
+  
+    
+      bun/test/bun.js/os.test.js
+    
+    
+        Lines 45 to 49
+      in
+      4e2b751
+    
+  
+  
+    
+
+        
+          
+           let dir = process.env.TMPDIR || process.env.TMP || process.env.TEMP || ""/tmp""; 
+        
+
+        
+          
+           if (dir.length > 1 && dir.endsWith(""/"")) { 
+        
+
+        
+          
+               dir = dir.substring(0, dir.length - 1); 
+        
+
+        
+          
+           } 
+        
+
+        
+          
+           expect(os.tmpdir()).toBe(dir);",3,0
+2276,2023-03-02T23:26:57Z,2023-03-03T01:33:26Z,2023-03-03T01:33:26Z,2,83,100,,2,1
+2277,2023-03-02T23:36:22Z,2023-03-03T03:02:10Z,2023-03-03T03:02:10Z,119,1840,4393,,2,4
+2281,2023-03-03T04:07:55Z,2023-03-03T05:49:13Z,2023-03-03T05:49:13Z,1,2,2,"Fix invalid named variable tx in the second example
+Update variable name tx to transpiler in the first example to make it consistent across all examples",2,1
+2288,2023-03-03T16:44:34Z,2023-03-04T05:08:26Z,2023-03-04T05:08:26Z,3,28,1,Fixes #2273,2,1
+2290,2023-03-03T19:50:32Z,,2023-03-11T15:51:10Z,0,0,0,Fix typos across codebase.,2,3
+2293,2023-03-03T22:37:25Z,2023-03-04T12:56:25Z,2023-03-04T12:56:25Z,2,43,2,"Fixes #2292
+
+ Works if package is installed
+
+bun-debug x @antfu/ni --version # ignore that this one failed as it will install it
+bun-debug x @antfu/ni --version
+
+ Works if package needs to be installed (clear cache)
+
+rm -rf /tmp/@antfu
+bun-debug x @antfu/ni --version",3,1
+2294,2023-03-03T22:39:02Z,2023-03-14T23:50:59Z,2023-03-14T23:50:59Z,41,4635,131,"console.log() formatting changes not related to snapshots in this PR:
+
+object property names will have quotes.
+new Boolean(true) will be logged as [Boolean: true].
+if extended from Boolean or Number, the class will be logged as [<super> (<new class name>): <value>]
+
+TODO:
+
+ better overflow checks in parseFile()
+ handle returned snapshot errors in toMatchSnapshot()
+ match jest formatting for strings with newlines and Buffer types
+ more tests for jest formatting, specifically with arrays, objects, buffers, and classes all nested
+ optional propertyMatcher argument",3,6
+2312,2023-03-05T12:52:17Z,2023-04-08T03:08:01Z,2023-04-08T03:08:01Z,113,48908,16125,"What is this?
+This implements a new JavaScript bundler designed for production bundling targeting browsers & Bun's runtime. It's mostly based on esbuild's implementation. It outputs ESM and supports code-splitting. Unlike bun's current bundler, this bundles the entire app (not just node_modules), which makes it suitable for production. It also fixes many issues with CommonJS <> ESM interop and some transpiler edgecases due to (previously) lack of correct symbol renaming.
+This PR is still very much a work-in-progress. It is far enough along to produce bundled output, but not far enough along yet for actual usage or benchmarking.
+Breaking changes
+This PR deprecates the current version of bun bun and replaces it with this new bundler. We may also rename bun bun to bun bundle or bun build (not decided yet). node_modules.bun files will no longer be generated. To smooth the transition, we will alias bun bun to the new command for at least one minor version.
+Important missing features
+Large missing features:
+
+ Source Maps
+ JavaScript API
+ React Server Components
+
+Bun's runtime specifically:
+
+ Expose JavaScript API
+ Read // @bun, to prevent bundling in the runtime twice
+ Inline import.meta object
+ Enable bundling by default in the JavaScript runtime
+
+Must TODO before merging:
+
+ Port esbuild's tests
+ Free memory when building from JS API (right now it leaks)
+ Source Maps
+ More granular parallelization than chunks.
+ Event loop integration with JS
+ Incremental mode suitable for development
+ IIFE output format
+
+Fixes #1968 Fixes #1961 Fixes #1032 Fixes #74 Fixes #1724 Fixes #1270 Fixes #875 (more correctly) Fixes #2244 Fixes #2221 Fixes #1169 Fixes #421 (more correctly)",12,5
+2314,2023-03-06T00:04:08Z,2023-03-06T01:33:38Z,2023-03-06T01:33:38Z,6,124,71,fix time-zone-dependent test failure,2,1
+2327,2023-03-07T00:21:53Z,2023-03-07T06:50:12Z,2023-03-07T06:50:12Z,2,452,57,,3,0
+2331,2023-03-07T02:27:10Z,2023-03-07T04:00:50Z,2023-03-07T04:00:50Z,3,125,105,,2,3
+2337,2023-03-07T21:25:37Z,2023-03-13T23:42:35Z,2023-03-13T23:42:36Z,5,896,28,"These features are still missing and will come in a later PR:
+dedicated option
+backlog",3,6
+2340,2023-03-08T02:36:45Z,2023-03-08T08:18:14Z,2023-03-08T08:18:14Z,16,261,63,"Fixes a couple test failures
+Adds a MIMEType hash table to intern mime type strings so we usually won't have to allocate them
+Blob.prototype.type with a non-ascii value should return """"
+Uses saturated and/or wrapping arithmetic in .slice() to more clearly handle integer overflow
+Checks isNumber in a couple places we should've been checking",2,4
+2347,2023-03-08T13:00:00Z,2023-03-08T16:16:07Z,2023-03-08T16:16:07Z,1,1,1,,2,0
+2361,2023-03-10T23:31:37Z,2023-03-13T20:47:58Z,2023-03-13T20:47:58Z,1,6,0,proto (https://moonrepo.dev/proto) is a new toolchain (version) manager that has support for Bun. This adds a proto example to the install page.,2,1
+2371,2023-03-12T04:58:05Z,2023-03-12T10:43:33Z,2023-03-12T10:43:33Z,2,11,5,"this would segv require.resolve(""bun"", {})
+this also fixes test in import-meta.test.js
+fixes #2370",2,1
+2380,2023-03-13T23:33:04Z,2023-03-17T07:05:51Z,2023-03-17T07:05:51Z,17,18987,3,"TODO List
+
+ Finish implementing expectBundled
+ convert every generated TODO comment into a js property
+ (Ideally) hand check all 867 tests for accuracy, and add runtime checks so we rely on more than just snapshots. This will make the bundler bulletproof.
+
+
+Introduces expectBundled as a helper for running bundle tests, which can totally be used to write our own tests later.
+/**
+ * Call within a test to test the bundler. The `id` passed must be unique across the all test. See
+ * `BundlerTestInput` for all available options.
+ *
+ * All bundle entry files and their output files are written to disk at:
+ * `$TEMP/bun-bundler-tests/{id}`.
+ * This can be used to inspect and debug bundles, as they are not deleted after runtime.
+ *
+ * Instead of comparing the bundle outputs against snapshots, most of our test cases just run the
+ * bundle and have additional code to assert the logic is happening properly. This allows the
+ * bundler to change exactly how it writes files (optimizations / variable renaming), without
+ * breaking any tests- as long as the code in the end achieves the same result.
+ *
+ * Also, passing `BUN_BUNDLER_TEST_USE_ESBUILD=1` will bundle with `esbuild` instead, essentially
+ * testing the `esbuild` CLI instead.
+ */
+function expectBundled(id: string, opts: BundlerTestInput)
+and the goal is to port every test from https://github.com/evanw/esbuild/tree/main/internal/bundler_tests
+in addition some small changes were made on top of these tests
+
+add bierner.comment-tagged-templates to repo recommendations. it gives syntax highlighting of js strings within the .test.ts files.
+edit test/tsconfig.json to point to in-repo typedefs
+in test/package.json, add dedent+@types/dedent remove bun-types",3,2
+2382,2023-03-14T04:48:23Z,,2023-06-05T16:32:13Z,1,10,0,"This fixes #2381 (prettier)
+It doesn't cover bun-framework-next as I really can't figure out what that's doing.",2,3
+2383,2023-03-14T05:30:19Z,2023-03-14T15:13:48Z,2023-03-14T15:13:48Z,1,13,13,"This is mostly because the last item in CONTRIBUTING is incorrect, but using markdown links makes the file more useful...",2,1
+2396,2023-03-15T06:57:09Z,2023-03-16T03:04:56Z,2023-03-16T03:04:56Z,7,49,27,"this is a follow up of previous pr: #2389
+
+use isConstrutor() replacing jsType().isFunction()
+update toBeInstanceOf formatting message
+update isInstanceOf binding ( C API -> C++ Binding), as for C API is not recommended anymore 🤔",2,3
+2404,2023-03-16T08:18:51Z,2023-03-17T10:49:41Z,2023-03-17T10:49:41Z,8,155,8,"implement toMatch
+related issue: #1825",3,1
+2412,2023-03-17T12:28:42Z,,2023-04-03T22:45:35Z,221,20049,12664,"This depends on Jarred-Sumner/uSockets#1
+To run the tests, rebuild usockets with the PR source is needed.
+Closes #2504",19,6
+2414,2023-03-17T16:47:06Z,2023-03-21T03:32:28Z,2023-03-21T03:32:28Z,1,35,21,This PR makes the event emitter by default type safe,3,1
+2416,2023-03-17T22:52:12Z,2023-03-18T00:14:40Z,2023-03-18T00:14:40Z,20,428,156,I also included toStringTagSymbol in Process.cpp,2,4
+2429,2023-03-19T19:56:24Z,2023-03-21T02:51:24Z,2023-03-21T02:51:24Z,5,24,17,"Based upon discussion with @andrewbranch of the TypeScript team, this PR updates docs to use ""moduleResolution"": ""bundler""",2,2
+2430,2023-03-20T01:24:26Z,2023-03-20T02:42:45Z,2023-03-20T02:42:45Z,1,9,3,,2,3
+2446,2023-03-21T13:34:32Z,2023-03-21T17:14:22Z,2023-03-21T17:14:22Z,1,1,1,fixed typo in the month name,2,1
+2458,2023-03-22T23:40:53Z,2023-03-23T01:09:52Z,2023-03-23T01:09:52Z,25,390,139,,3,3
+2463,2023-03-23T06:41:31Z,2023-03-23T13:49:43Z,2023-03-23T13:49:43Z,2,60,2,,3,1
+2486,2023-03-25T23:03:31Z,2023-03-29T01:23:50Z,2023-03-29T01:23:50Z,29,507,294,,2,3
+2490,2023-03-27T02:31:49Z,2023-03-27T03:45:52Z,2023-03-27T03:45:52Z,1,1,1,closes: #2421,2,1
+2491,2023-03-27T04:37:11Z,2023-04-06T21:01:49Z,2023-04-06T21:01:49Z,6,128,33,mtime value is epoch time stamp in millisecond unit.,2,3
+2501,2023-03-29T05:28:07Z,2023-03-29T12:37:16Z,2023-03-29T12:37:16Z,5,462,320,"This does three things:
+
+Ensures uWS never calls onWritable or onAborted after the request/response is ended.
+Adds a has_marked_pending flag to RequestContext which says ""Are we attempting to write a response body to the HTTP request, but haven't yet?"".  This happens when tryEnd tells us ""no not yet"", but we need to write something or else the connection will hang. Previously, in #2499, we attempted to write two different response bodies and then promptly crashed. This issue affected development mode Bun.serve()
+Regenerates schema.js, which eventually ends up in bun-error.js. This somehow wasn't prettier'd last time. Prettier also escapes the strings in the identifiers in there. Quoting it fixes an HTML escaping issue that causes the default error JS page to appear as raw HTML instead of the <script> tag.
+
+Fixes #2499",3,6
+2506,2023-03-29T20:39:44Z,2023-03-30T00:10:44Z,2023-03-30T00:10:44Z,1,16,6,"I am not sure at this moment how to make a test for this but in an empty folder the following commands repro the issue.
+bun init
+bun add true -y
+
+At the time of writing this produces a yarn.lock file which looks like so:
+# THIS IS AN AUTOGENERATED FILE. DO NOT EDIT THIS FILE DIRECTLY.
+# yarn lockfile v1
+# bun ./bun.lockb --hash: 11FD1BB989596431-20acd09908802a90-46C46CAD6336683E-4a23890a7915a917
+
+
+bun-types@^0.5.0:
+  version ""0.5.8""
+  resolved ""https://registry.npmjs.org/bun-types/-/bun-types-0.5.8.tgz""
+  integrity sha512-VHwD0MAHo3wraYAeqTWH2NDmXOdGfC3wWWOnZvK93ytI6yq/LkgsCjDudWNmN7MlfPvJb2zoLMnkzhjxNwLsLw==
+
+true@:
+  version ""0.0.4""
+  resolved ""https://registry.npmjs.org/true/-/true-0.0.4.tgz""
+  integrity sha512-e7hkFCda5y51OTE4eQHVPFbuljGnOpzrVcigGM5Pd9+Bw1bEsHCq3mVIm/z/O5Mh1bXtVPNxUV8oCl/dMunlRg==
+
+This PR fixes two bugs with the true emit. First of all, any package beginning with ""true"" or ""false"" would be wrapped in quotation marks by yarn (source). Second of all, the version is not written between its @ and :. I was not sure if this should have been fixed earlier in the pipeline but it appears to only happen to packages you installed with bun add or bun install. This makes it just drop the resolved version with a '^' in front of it. This seems correct in the most common case but again, I am not sure if it would more elegantly be fixed in a different way.",2,1
+2509,2023-03-30T04:25:53Z,,2023-04-21T21:35:50Z,4,16,3,,3,3
+2539,2023-04-03T13:59:27Z,,2024-02-17T06:31:15Z,4,123,27,"Issues:
+
+The way the results are reported, it implies that each run is N clients X M messages however this is not the case.
+Only bun benchmark uses pub/sub.
+
+Suggested fixes:
+
+For each run, client measures time taken from sending first message to server and receiving last response.
+Implement pub/sub benchmark for node using uWebSockets.js
+
+Both fixes are implemented in this PR.
+On my ROG Strix G513QM (Ryzen 9 5900HX, 32GB RAM) running Fedora 37 kernel 6.2.8 NodeJS 19.18.1 I can consistently get 1.2-1.3 million messages per second. Bun 0.5.8 can also get to 1.3 million but it is not consistent - average is about 830k per second.",4,1
+2552,2023-04-04T18:20:35Z,2023-04-07T11:02:06Z,2023-04-07T11:02:06Z,23,13944,10367,"To run the tests, rebuild usockets with the PR source is needed.
+Closes #2504
+Closes #2565
+Closes: #2470",2,10
+2557,2023-04-04T23:50:19Z,2023-04-05T20:39:51Z,2023-04-05T20:39:51Z,2,249,10,fixes #2417,3,8
+2562,2023-04-05T13:09:51Z,2023-04-06T00:38:47Z,2023-04-06T00:38:47Z,4,1,4,Trying to build with esbuild emitted the following warnings,2,1
+2563,2023-04-05T13:32:00Z,,2023-06-05T16:26:36Z,49,6,1,"This comes after #2562
+Problem
+JS files were essentially ""path-less"" (e.g. node:path) so they couldn't import relative paths, and thus couldn't reuse code.
+Changes
+
+Moves src/bun.js/*.exports.js files to src/bun.js/src/*.exports.js
+Build using esbuild to src/bun.js/dist/*.exports.js
+
+Other info
+
+
+In the near future, we want to build these using bun
+
+
+In the future, I wonder if Node.js APIs can be aliases (e.g. node:path), so their real FS path allows them to be used to resolve relative paths. This way, we can skip the build step during development. @Jarred-Sumner",4,5
+2566,2023-04-05T16:44:09Z,2023-04-06T01:28:42Z,2023-04-06T01:28:42Z,2,107,1,"Per @Jarred-Sumner in this Discord chat, tests exist for the preload config for bun run but not for bun test. This PR adds those missing tests. (It also updates the cowsay example on the README to be compatible with zsh.)",2,3
+2567,2023-04-05T19:54:24Z,2023-04-06T22:55:24Z,2023-04-06T22:55:24Z,8,17,9,"Docs claim fs.constants is missing. in actuality it is fs.promises.constants that is missing (which is in node)
+This PR:
+
+fixes the missing export
+adds unit test
+fixes docs
+typedefs",3,5
+2582,2023-04-07T00:21:25Z,,2023-06-05T16:29:46Z,85,413923,613,"Dependency.Version.infer updates
+
+no longer matches httpgithub.com/u/r or https://github.com/u/# (not sure what # is matched for though?)
+v=x is now properly inferred as an npm package
+strings beginning with ""x."" are no longer assumed to be npm (could be github or tarball)
+
+To-do: Might want to fix up the npm version manager to match https://github.com/npm/node-semver/blob/main/internal/re.js (loose version)
+Yarn.lock printer updates
+
+
+made dependencies sort lexicographically
+
+
+fixed inconsistent wrapping in quotes:
+dependency versions now match the yarn stringify implementation :)
+""library_with_build_info_3@^0.0.4"":
+version ""0.0.4""
+resolved ""https://registry.npmjs.org/library_with_build_info_3/-/library_with_build_info_3-0.0.4.tgz""
+integrity sha512-11QipYcHSwOZyhzgizRUObdbZeeR5zSZgSKaBmu3DyLAfRkAJoYoYhXaDdpsslXbBifl/PeosrlYiRtrGLH46A==
+dependencies:
+    add v2.0.2||2.0.5
+    is-number x
+    ""true"" ""0.0.3||0.0.2""
+optionalDependencies:
+    pad ""3.x""
+
+
+
+Fixed incorrect and redundant emit for folder installs:
+""bun-types@../_0/node_modules/bun-types"":
+  version ""../_0/node_modules/bun-types""
+  resolved ""../_0/node_modules/bun-types""
+
+new:
+bun-types@../_0/node_modules/bun-types:
+  version ""0.5.8""
+
+
+
+JSON fix
+Running react@latest will now properly resolve to the latest version in both package.json and yarn.lock
+Notes
+Made a new bun.openFileZ function which can support longer paths than the OS will accept by default.
+Ways we could be more consistent with yarn:
+When installing local tarballs, yarn prints links differently depending on how they were installed. The first package below was installed with a global path, the second with a local path, and the third was installed last from a global path from the directory above, using --cwd to work inside the lower directory.
+""emoji-turkey@file:../test/cli/install/resources/emoji-turkey-1.2.1.tgz"":
+  version ""1.2.1""
+  resolved ""file:../test/cli/install/resources/emoji-turkey-1.2.1.tgz#11bcf77a172b80f17c203ed0ece034915a5a6886""
+
+""false@../test/cli/install/resources/false-0.0.4.tgz"":
+  version ""0.0.4""
+  resolved ""../test/cli/install/resources/false-0.0.4.tgz#8f55de5af5c03f50bf68aed57ed80e3d2176a517""
+
+""true@/home/validark/bun/test/cli/install/resources/true-0.0.4.tgz"":
+  version ""0.0.4""
+  resolved ""/home/validark/bun/test/cli/install/resources/true-0.0.4.tgz#921ebfbd58122d3a66cfff6dc054daf269eb9f21""
+
+If one installs another package, it will update true to be:
+""true@file:../test/cli/install/resources/true-0.0.4.tgz"":
+  version ""0.0.4""
+  resolved ""file:../test/cli/install/resources/true-0.0.4.tgz#921ebfbd58122d3a66cfff6dc054daf269eb9f21""
+
+This seems like a bug in yarn, but it's one inconsistency Bun has with it nonetheless. We also do not yet output the #921ebfbd58122d3a66cfff6dc054daf269eb9f21 you see at the end of the resolved URL's in yarn.lock files.
+There is a bug I am aware of where we just straight-up do the wrong thing and it can cause crashes. It's one of our test cases actually, the one where we install ""uglify-js"", but it gets installed as ""uglify"" and is placed in ""node_modules/uglify"". The issue is that we have several places, including the yarn printer, that assume ""node_modules/uglify-js"" is where it will be installed, and the printer believes node_modules/uglify-js is the name under which it should be installed. That's incorrect, it should be ""uglify"". I am not sure whether Package.name should be changed from uglify-js to uglify, or if we should leave that for where it might be needed, and switch to using the Dependency.name when we can.
+
+Fixed it in the printer. However, we should still decide whether parseWithJSON should be allowed to read the name property in situations like this.",3,2
+2584,2023-04-07T01:49:17Z,2023-05-11T21:39:44Z,2023-05-11T21:39:44Z,2,8,13,,2,6
+2587,2023-04-07T07:53:52Z,2023-04-21T18:34:05Z,2023-04-21T18:34:05Z,4,63,20,"TODO: check if bun resolves extends from parent npm packages
+Removed the ""extends"": [""bun-types""] for the moment",3,4
+2588,2023-04-07T14:52:49Z,2023-04-08T09:23:11Z,2023-04-08T09:23:11Z,11,218,149,"The dev container isn't a great experience for working on bun (biggest limit is you can't easily take bun-debug outside of it), and setting up a development environment on the host computer isn't very difficult, it's just not documented. This PR aims to fix that, Instead of 30-90 minutes on figuring out how to set up zig and docker, just ~5 commands and ~10-30 minutes of network and build time.
+It only covers these three common situations, which I think we should expand to some more
+
+MacOS
+Ubuntu
+Arch Linux
+
+But this is much better than before, where we pushed the Docker Devcontainer instead.
+Documentation TODO
+
+ Move all other information in old that I omitted
+ Explain purpose for common make commands
+ IDE Stuff
+
+ ZLS, solved already by #2434
+ C++ Config
+
+
+ Explain that -j shouldn't be used except on bindings. Note on why make dev runs on one core. etc.
+ rename for consistency; URL should match sidebar /project/development, readme should match too.
+ Explain that npm can be used if bun is not available
+ Make note of the devcontainer; it works, but meh. (or should it be removed completely)
+ How to build release
+
+Makefile changes:
+
+-l:libatomic.a -> -latomic to support Arch Linux only shipping with a .so file of this.
+ Hide which errors, since this confused me initially and made me think I had to install other packages when in reality the Makefile used a different binary that did exist.
+ Use node_modules/esbuild instead of global (Ubuntu 20)
+ Use python3 when python and python2 don't exist. (Ubuntu 20)
+ Add make setup which is a shortcut for vendor, bindings, etc
+ Add make regenerate-bindings which is a shortcut for make clean-bindings builtins && make bindings -j (cpu count)
+
+Other ideas
+
+Move to using bun i @oven/zig in the actual repo? it's probably too soon for that in this PR. once that's been done, if decided, then the zig section of the document can be almost entirely removed.",3,5
+2604,2023-04-10T05:47:33Z,2023-04-18T21:59:52Z,2023-04-18T21:59:52Z,15,1161,210,"Currently, node:events is implemented in C++, which may sound fast but ends up being much slower than a pure JS implementation as the rapid hopping between native code and JS with listener callbacks is a lot of overhead. This PR is not only porting the node.js events into JS as closely as possible, but also trying to get it as fast as possible.
+Currently node.js own events implementation beats us, but we've gone from being 4x slower to something more like 2x.
+Still debating which implementation details are best, such as
+
+Object vs Map: they lead to different gains in different tests
+An optimization where having only one listener is not an array but just the function itself. This seems to be slower than just having and looping over a length=1 array.
+
+Also, setting real-world benchmarks that tests actual usage instead of than a single "".emit()"". Microbenchmarks are handy but we need to consider the bigger picture.
+required todo:
+
+ Replace the C++ module out for events.exports.js
+ Find the best implementations for addListener and emit
+
+the array clone we have to do seems to be the slow part?
+
+
+ EventEmitter#once (implemented but check if can be made faster)
+
+ optimization: compare arrow fn vs the current bind solution.
+
+
+ EventEmitter#removeListener (reimplement)
+ EventEmitter#prependListener
+ EventEmitter#listenerCount
+ EventEmitter#types
+ EventEmitter.once (async iterator)
+ EventEmitter.setMaxListeners
+ EventEmitter.getEventListeners
+ error event
+ capturing rejections
+ validators
+
+things might not do in this PR
+
+ Remove the C++ implementation, it's still in the code somewhere.
+ EventEmitter.on (async iterator)
+ EventEmitterAsyncResource
+
+Fixes #2190",2,4
+2617,2023-04-11T01:48:38Z,,2024-01-12T04:16:27Z,2,73,8,"Problem
+Currently path.parse() incorrectly returns an empty root:
++ { dir: '/a/b/c',
++   root: '',
++   base: 'index',
++   name: 'index.html',
++   ext: '.html' }
+- { root: '/',
+-   dir: '/a/b/c',
+-   base: 'index.html',
+-   ext: '.html',
+-   name: 'index' }
+This causes the https://github.com/sindresorhus/find-up/blob/12605f97f3be2f4ebc4b0d4a9078a165a8680c95/index.js#L55 package, to have an infinite loop because the FS root isn't identified.",4,1
+2625,2023-04-11T19:15:29Z,2023-04-11T20:19:25Z,2023-04-11T20:19:25Z,1,5,5,"adds the bash language specifier to which clang-15 so that when you click the copy button, it doesn't include the $",3,3
+2630,2023-04-12T01:51:52Z,2023-04-13T01:40:03Z,2023-04-13T01:40:03Z,1,0,2,"Problem
+fs.promises.readFile exists in Node.js but fs.promises.readfile doesn't:
+https://github.com/privatenumber/compare-bun-node#fspromises
+Changes
+Remove fs.promises.readfile. This would be a breaking change.",3,0
+2633,2023-04-12T09:09:46Z,,2023-10-17T00:19:45Z,39,55367,95,"current status: barely does anything
+
+TODO:
+
+ Delete JSGlobalObjectInspectorController.h and AugmentableInspectorController.h
+ Fix runEventLoopWhilePaused to use our own function for running the event loop while paused, so that the websocket server continues to receive events when you press pause instead of freezing forever. See call stack below
+ Simulate Runtime.consoleAPICalled
+ Simulate Network.requestWillBeSent
+ Simulate Network.responseReceived
+ Simulate Network.dataReceived
+ Simulate Network.loadingFinished
+ Figure out why writing anything to the console does nothing
+
+Call stack while paused:
+mach_absolute_time (@mach_absolute_time:30)
+WTF::MonotonicTime::now() (@WTF::MonotonicTime::now():8)
+WTF::RunLoop::populateTasks(WTF::RunLoop::RunMode, WTF::RunLoop::Status&, WTF::Deque<WTF::Ref<WTF::RunLoop::TimerBase::ScheduledTask, WTF::RawPtrTraits<WTF::RunLoop::TimerBase::ScheduledTask>>, 0ul>&) (@WTF::RunLoop::populateTasks(WTF::RunLoop::RunMode, WTF::RunLoop::Status&, WTF::Deque<WTF::Ref<WTF::RunLoop::TimerBase::ScheduledTask, WTF::RawPtrTraits<WTF::RunLoop::TimerBase::ScheduledTask>>, 0ul>&):75)
+WTF::RunLoop::runImpl(WTF::RunLoop::RunMode) (@WTF::RunLoop::runImpl(WTF::RunLoop::RunMode):60)
+WTF::RunLoop::cycle(unsigned int) (@WTF::RunLoop::cycle(unsigned int):8)
+Inspector::JSGlobalObjectDebugger::runEventLoopWhilePaused() (@Inspector::JSGlobalObjectDebugger::runEventLoopWhilePaused():16)
+JSC::Debugger::handlePause(JSC::JSGlobalObject*, JSC::Debugger::ReasonForPause) (@JSC::Debugger::handlePause(JSC::JSGlobalObject*, JSC::Debugger::ReasonForPause):35)
+JSC::Debugger::pauseIfNeeded(JSC::JSGlobalObject*) (@JSC::Debugger::pauseIfNeeded(JSC::JSGlobalObject*):365)
+JSC::Debugger::atStatement(JSC::CallFrame*) (@JSC::Debugger::atStatement(JSC::CallFrame*):68)
+JSC::Interpreter::debug(JSC::CallFrame*, JSC::DebugHookType) (@JSC::Interpreter::debug(JSC::CallFrame*, JSC::DebugHookType):106)
+llint_slow_path_debug (@llint_slow_path_debug:31)
+llint_entry (@llint_entry:40162)
+Example `Runtime.consoleAPICalled`:
+{""type"":""log"",""args"":[{""type"":""string"",""value"":""Hey: 2""}],""executionContextId"":1,""timestamp"":1681288114514.483,""stackTrace"":{""callFrames"":[{""functionName"":""count"",""scriptId"":""44"",""url"":""node:internal/console/constructor"",""lineNumber"":466,""columnNumber"":9},{""functionName"":"""",""scriptId"":""384"",""url"":""file:///private/tmp/yo.js"",""lineNumber"":1,""columnNumber"":10},{""functionName"":""listOnTimeout"",""scriptId"":""18"",""url"":""node:internal/timers"",""lineNumber"":567,""columnNumber"":16},{""functionName"":""processTimers"",""scriptId"":""18"",""url"":""node:internal/timers"",""lineNumber"":510,""columnNumber"":6}],""parentId"":{""id"":""1""}}}",3,4
+2642,2023-04-13T04:42:20Z,2023-04-13T07:21:00Z,2023-04-13T07:21:00Z,4,37,12,,2,3
+2648,2023-04-13T17:39:11Z,2023-04-13T22:14:34Z,2023-04-13T22:14:34Z,1,35,53,Closes: #2644,2,4
+2652,2023-04-13T21:15:04Z,2023-04-14T04:55:02Z,2023-04-14T04:55:02Z,13,265,14032,"createHash(algo).update(string).digest(format)
+Will be over 3x faster, just shy of what our native Bun.CryptoHasher does. This is done by lazily initializing the stream.Transform only if the user decides to use the Hash as a stream, meaning the above case only calls CryptoHasher, giving it that performance boost.
+
+The exact way this is done is by extending Transform but not calling """"super"""" in the constructor (it's an es5 class so this is allowed). Then there are a ton of getters and if any are triggered, we call the Transform constructor on our current instance and replace the prototype.
+Addresses #2190 but not the issue it's talking about, but it does solve performance issues for what it's testing for.",2,4
+2661,2023-04-15T08:17:41Z,2023-04-15T15:52:47Z,2023-04-15T15:52:47Z,1,7,1,"Noticed the expect counter for toBeFalsy wasn't updating.
+
+Added counter increment.
+Added test scope check
+Made capitalization of Internal consistency error message consistent with other errors in file",2,1
+2667,2023-04-15T21:14:56Z,2023-04-16T01:28:21Z,2023-04-16T01:28:21Z,18,826,215,"NOTE: loose mode is enabled by default, which marks most of our fails as SKIPS. it also marks all unchecked tests as success if they bundle.
+disable with BUN_BUNDLER_TEST_LOOSE=false, which will eventually be true by default or removed entirely",2,3
+2693,2023-04-19T00:15:01Z,2023-04-19T01:55:00Z,2023-04-19T01:55:01Z,2,19,12,properly reset JSC_BASE_DIR after installing bun-webkit,3,3
+2713,2023-04-21T21:54:38Z,2023-04-26T21:54:06Z,2023-04-26T21:54:06Z,1,46,5,Initial typings for Bun.build as currently implemented.,3,0
+2728,2023-04-24T23:43:37Z,2023-04-25T00:56:43Z,2023-04-25T00:56:43Z,2,82,5,,2,1
+2731,2023-04-25T08:10:51Z,2023-04-25T12:13:57Z,2023-04-25T12:13:57Z,4,7,5,minor clean-ups,2,0
+2750,2023-04-26T19:57:49Z,2023-04-27T04:57:26Z,2023-04-27T04:57:26Z,2,5,2,"Fixes a few little issues I had while setting up bun development.
+Ninja is faster than make at building, and explicitly setting which generator to use avoids issues when someone (like me) has CMAKE_GENERATOR set in their envvars.
+I'm not sure whether test/bun.lockb should be ignored or committed, but given it's not been committed thus far I assume it should be ignored :)",2,1

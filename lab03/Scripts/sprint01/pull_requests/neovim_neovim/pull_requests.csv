@@ -1,0 +1,213 @@
+number,created_at,merged_at,closed_at,files,additions,deletions,body_text,participants,comments
+243,2014-03-01T20:17:57Z,,2021-09-19T03:01:37Z,90,33391,251,"This is the current work on VimL to lua translator.
+TODO:
+
+ expression parser
+ expression parser tests
+ expression parser documentation
+ Ex commands parser
+
+ Structure commands (branching, cycles, function definitions, try block)
+ Modifier command family
+ :*do command family (argdo, bufdo, etc)
+ :edit command family
+ Commands that use patterns (:s, :g, …)
+ Other commands
+ Save information about “tokens” present on the command-line, to be used for highlighting and more deep analysis then current AST allows later
+ As it processes parsing, save information about completion context to use, to be used in place of set_one_cmd_context
+
+
+ Ex commands parser tests
+
+ Structure commands (branching, cycles, function definitions, try block)
+ Modifier command family
+ :*do command family (argdo, bufdo, etc)
+ :edit command family
+ Commands that use patterns (:s, :g, …)
+ Other commands
+
+
+ Ex commands parser documentation
+
+ (partial) Present functions documentation
+ Developer documentation
+
+
+ VimL to lua translator
+
+ Complex variable names (curly braces names)
+ Block commands
+
+ :if block
+ :while block
+ :for block
+ :try block
+ flow control commands: break and continue
+
+
+ Assignment support
+
+ :let assignment
+ :let slice assignment
+ :function definitions
+ :let modifying assignment (+=, -=, .=)
+ :unlet
+ :delfunction
+
+
+ :command definitions
+ Error handling (saving error positions)
+ Commands taking other commands as arguments (modifier, :*do, :e +cmd, …)
+ Other commands
+
+
+ VimL to lua translator tests
+
+ Complex variable names (curly braces names)
+ Block commands
+
+ :if block
+ :while block
+ (partial: no tests for modifying lists during iteration) :for block
+ :try block
+ flow control commands: break and continue
+
+
+ Assignment support
+
+ (partial: only local and global scopes) :let assignment
+ :let slice assignment
+ (partial) :function definitions
+ (partial: local and global scopes) :let modifying assignment (+=, -=, .=)
+ (partial) :unlet
+ (indirect) :delfunction
+
+
+ :command definitions
+ Commands taking other commands as arguments (modifier, :*do, :e +cmd, …)
+ Other commands
+
+
+ VimL to lua translator documentation
+
+ Present functions documentation
+ Developer documentation
+
+
+ Backend lua module
+
+ Core types
+
+ Scalar types
+ Container types
+
+ Locks
+ Type literals
+
+
+ Function references
+
+
+ Operator support
+
+ Arithmetic operators (+-*/%)
+ String concatenation
+ Pattern matching
+ Comparison operators (less/greater then (or equal to), equality)
+ Identity operators (is/isnot)
+ Type coercions when using operators
+
+
+ Subscripting support
+
+ [key] dictionary, list, string and number subscripting
+ [idx1:idx2] list, string and number slicing
+ (args) function call
+
+
+ User command calls
+ Error handling
+ Built-in functions implementation
+
+ Implemented functions: string(), call(), type(), copy(), deepcopy()
+ Partially implemented functions: function()
+ Other functions were not implemented
+
+
+ User functions support
+
+ :function definitions
+ Dictionary functions
+ Defining functions right inside a dictionaries
+ Varargs functions
+ Range functions
+ Functions with abort modifier
+
+
+ Built-in commands implementation
+ User commands support
+ Translations support
+
+
+ Backend lua module tests
+
+ Core types
+
+ Scalar types
+ Container types
+
+ Locks
+ Type literals
+
+
+ Function references
+
+
+ Profiling
+ Operator support
+
+ Arithmetic operators (+-*/%)
+ String concatenation
+ Pattern matching
+ (partial: no check whether &ic option applies) Comparison operators (less/greater then (or equal to), equality)
+ (partial: no check whether &ic option applies) Identity operators (is/isnot)
+ Type coercions when using operators
+
+
+ Subscripting support
+
+ [key] dictionary, list, string and number subscripting
+ [idx1:idx2] list, string and number slicing
+ (args) function call
+
+
+ User command calls
+ Error handling
+ Built-in functions implementation
+
+ Tested functions: string(), copy(), deepcopy()
+ Partially or indirectly tested functions: function()
+ Other functions were not tested
+
+
+ User functions support
+
+ :function definitions
+ Dictionary functions
+ Defining functions right inside a dictionaries
+ Varargs functions
+ Range functions
+ Functions with abort modifier
+
+
+ Built-in commands implementation
+ User commands support
+
+
+ Backend lua module documentation
+ Old implementation replacement (need to replace some entry point functions)
+ Old implementation removal (need to remove old backend functions that were replaced by lua code)
+ vim/neovim incompatibilities documentation (ref #387)",25,75
+1272,2014-10-09T06:42:23Z,2016-10-25T10:16:03Z,2016-10-25T10:16:03Z,5,130,31,"followup of  #1267 (comment)
+
+Rather than add another vimscript mechanism such as v:nversion or something, I propose we enable users to check the nvim version via has(""nvim-1.2.3"").",5,0

@@ -1,0 +1,8 @@
+number,created_at,merged_at,closed_at,files,additions,deletions,body_text,participants,comments
+787,2012-01-27T04:16:49Z,2012-03-22T14:45:51Z,2012-03-22T14:45:51Z,17,1181,250,"Design goals:
+
+Only keep a limited number of addresses around, so that addr.dat does not grow without bound.
+Keep the address tables in-memory, and occasionally write the table to addr.dat.
+Make sure no (localized) attacker can fill the entire table with his nodes/addresses.
+
+See comments in addrman.h for more detailed information.",3,5

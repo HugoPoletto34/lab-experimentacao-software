@@ -1,0 +1,116 @@
+number,created_at,merged_at,closed_at,files,additions,deletions,body_text,participants,comments
+14,2022-09-21T21:17:35Z,2022-09-22T02:51:05Z,2022-09-22T02:51:05Z,1,1,1,,3,0
+24,2022-09-22T01:25:43Z,2022-09-22T02:48:58Z,2022-09-22T02:48:58Z,1,1,1,,3,1
+54,2022-09-23T04:31:21Z,,2022-09-23T13:36:24Z,4,81,0,This PR adds a CLI tool that allows a user to use a microphone to interact with the models.  It also updates the readme and adds a requirements.txt for GPU usage.,4,5
+107,2022-09-24T15:09:36Z,,2022-09-25T16:31:22Z,1,9,0,"Whisper is fantastic, many other users are already proposing integrations and extensions for different use-cases. Creating a new section helps to find these extensions and make good use of whisper.",2,1
+133,2022-09-25T22:47:58Z,,2022-09-26T10:14:58Z,2,8,6,"Using logging instead of print makes it easier to log out from various code modules happening at the same time. Also, print only logs to stdout whereas logging logs to the required output.
+As a public library, it is better to use logging than print.
+Here is a reference that lists more reasons  why logging is better than print.",3,2
+140,2022-09-26T14:01:36Z,2022-09-26T18:46:21Z,2022-09-26T18:46:21Z,1,6,4,"I've hidden ""Detected langauge: "" massage behind verbose flag.
+Also fixed the flag usage with tqdm",2,6
+219,2022-10-01T19:47:46Z,2022-10-03T21:51:08Z,2022-10-03T21:51:08Z,1,2,2,"YouTube won’t accept the generated .vtt files if there are any timestamps beyond an hour, because the hour field isn’t formatted correctly. It also shows extraneous whitespace around the segment text because we’re not stripping it. This PR fixes both problems.",3,0
+228,2022-10-02T21:45:50Z,2023-01-22T08:27:17Z,2023-01-22T08:27:17Z,2,22,1,"This PR adds CSV output to Whisper transcription similar to the way #102 added SRT subtitle formatted output.
+Each line of the resulting CSV file is formatted like:
+ <startTime-in-integer-milliseconds>, <endTime-in-integer-milliseconds>, ""<transcript-including-commas>""
+One of the reasons for using integer millisecond timings is to avoid regional incompatibilities with writing and reading floating point timings across language regions which use different characters - either ""."" or "","" - as the decimal separator (c.f. #197). The CSV format with integer millisecond timings also allows for more efficient parsing and storage of Whisper results when read into other applications, in other languages like C++.",4,8
+231,2022-10-03T00:43:12Z,,2022-10-04T04:23:45Z,1,399,0,"This PR adds a Jupyter Notebook including Colab forms to ease Whisper inference on Youtube videos.
+This is mainly meant for non-technical folks, but I find the parameter selection GUI pretty useful for high-level experimentation.
+I'll create a new discussion on the show and tell about this Notebook if you prefer not to add it to the repo.",3,4
+401,2022-10-23T22:05:08Z,2022-12-07T18:45:31Z,2022-12-07T18:45:31Z,1,1,1,"Per IANA registry, iw was deprecated as the code for Hebrew in 1989 and the preferred code is he
+The correct subtag:
+%%
+Type: language
+Subtag: he
+Description: Hebrew
+Added: 2005-10-16
+Suppress-Script: Hebr
+%%
+
+And the deprecation
+%%
+Type: language
+Subtag: iw
+Description: Hebrew
+Added: 2005-10-16
+Deprecated: 1989-01-01
+Preferred-Value: he
+Suppress-Script: Hebr
+%%",2,2
+468,2022-11-04T15:00:36Z,,2022-12-04T23:29:25Z,1,37,0,"First of all, thank you for your amazing work on the Whisper project and for open-sourcing the family of pre-trained checkpoints - these are of tremendous benefit to both the open-source/open-science communities!
+Whisper was added to Hugging Face Transformers in v4.23.1 in PyTorch and Tensorflow, making it more accessible to the research community. Since then, usage has been steadily increasing, with model downloads now at ~30k / month. Adding a section on the 🤗 Transformers implementation of Whisper to the README would help highlight how one can evaluate Whisper in ~10 lines of code! We're excited to share with you how the community adopt Whisper for ASR research and production!",5,4
+670,2022-12-11T20:52:58Z,,2023-01-18T07:30:14Z,1,4,1,"New to python.
+Sometimes I have this error in Windows.
+This is a work around, maybe set encoding is a better solution, but I dont know if other encoding will cause the output in terminal to be unreadable.
+Traceback (most recent call last):
+  File ""C:\Python39\Scripts\whisper-script.py"", line 33, in <module>
+    sys.exit(load_entry_point('whisper==1.0', 'console_scripts', 'whisper')())
+  File ""C:\Python39\lib\site-packages\whisper\transcribe.py"", line 307, in cli
+    result = transcribe(model, audio_path, temperature=temperature, **args)
+  File ""C:\Python39\lib\site-packages\whisper\transcribe.py"", line 207, in transcribe
+    add_segment(
+  File ""C:\Python39\lib\site-packages\whisper\transcribe.py"", line 168, in add_segment
+    print(f""[{format_timestamp(start)} --> {format_timestamp(end)}] {text}"")
+UnicodeEncodeError: 'gbk' codec can't encode character '\u266a' in position 33: illegal multibyte sequence",3,2
+869,2023-01-20T20:31:43Z,2023-03-06T22:00:50Z,2023-03-06T22:00:50Z,14,769,78,,15,15
+894,2023-01-25T16:36:11Z,2023-03-04T00:42:00Z,2023-03-04T00:42:00Z,1,5,5,Fixed a few typos and made general improvements for clarity.,3,0
+914,2023-02-01T09:12:55Z,2023-02-01T23:46:51Z,2023-02-01T23:46:51Z,1,7,1,#810,4,1
+1044,2023-03-07T10:25:10Z,2023-03-13T09:34:17Z,2023-03-13T09:34:17Z,15,100601,100096,"Using tiktoken to replace HuggingFace Tokenizers allows faster tokenization and removing tensorflow as a transitive dependency.
+A downside is that tiktoken does not yet provide aarch64 linux wheels while tokenizers is built even for ppc64le and s390x. So it may be a blocker for some users..",4,1
+1076,2023-03-11T04:30:18Z,2023-03-14T07:07:09Z,2023-03-14T07:07:09Z,1,3,0,"Tiny PR identical to this :) karpathy/nanoGPT#115
+Adds a .gitattributes file telling github to treat jupyter notebooks as ""generated code"" so that repo is no longer counted as 98% jupyter",3,2
+1123,2023-03-20T20:28:20Z,,2023-04-11T00:49:27Z,1,1,8,"As of #1044, the instructions for installing tokenizer (and rust as its build dependency) is obsolete.",3,1
+1155,2023-03-27T09:16:09Z,2023-04-11T22:06:04Z,2023-04-11T22:06:04Z,1,7,0,"Following the suggestions of @Jeronymous in #914 and #924, it solves the problem of endless loop.",2,2
+1242,2023-04-16T15:32:52Z,2023-05-04T17:53:59Z,2023-05-04T17:53:59Z,3,20,13,"The last ffmpeg-python module release was in 2019[1], upstream seem to be unavailable[2] and the project development seem to have stagnated[3].  As the features it provide is trivial to replace using the Python native subprocess module, drop the dependency.
+[1] <URL: https://github.com/kkroening/ffmpeg-python/tags >
+[2] <URL: kkroening/ffmpeg-python#760 >
+[3] <URL: https://openhub.net/p/ffmpeg-python >",5,9
+1396,2023-05-27T10:59:59Z,2023-10-10T17:01:02Z,2023-10-10T17:01:02Z,1,1,1,"When generating the subtitles for an audio with no speech, an exception is thrown because the code assumes that there will be always a segment at index 0 which is not the case.
+  File ""/lib/python3.11/site-packages/whisper/transcribe.py"", line 453, in cli
+    writer(result, audio_path, writer_args)
+  File ""/lib/python3.11/site-packages/whisper/utils.py"", line 255, in write_all
+    writer(result, file, options)
+  File ""/lib/python3.11/site-packages/whisper/utils.py"", line 85, in __call__
+    self.write_result(result, file=f, options=options)
+  File ""/lib/python3.11/site-packages/whisper/utils.py"", line 195, in write_result
+    for start, end, text in self.iterate_result(result, options):
+  File ""/lib/python3.11/site-packages/whisper/utils.py"", line 148, in iterate_result
+    if ""words"" in result[""segments""][0]:
+                  ~~~~~~~~~~~~~~~~~~^^^
+IndexError: list index out of range",4,1
+1483,2023-06-30T10:35:20Z,2023-07-06T19:48:09Z,2023-07-06T19:48:09Z,1,9,6,"Since kv_caches from cross attention block is the same for each beam, we can avoid rearranging or calculating it for multiple times.
+I saw about 20% speed up of large model with beam_size = 5 on cpu backend.",3,0
+1526,2023-07-16T14:52:09Z,2023-09-18T23:10:00Z,2023-09-18T23:10:00Z,1,1,1,,3,0
+1528,2023-07-17T06:38:33Z,2023-09-18T23:15:34Z,2023-09-18T23:15:34Z,4,60,5,"I've created a pull request to run a pre-commit GitHub action explicitly for repetitive linter tasks.
+
+Replace black, isort, flake8 with pre-commit ( .pre-commit-config.yaml )
+After checking coverage for all files using the command below, I've reduced the number of flake8's ignore from E203,W503,W504,E501,E731,E741 to four: E203,E501,W503,W504.
+ pre-commit run -a
+
+I've tested in kimdwkimdw#1",3,0
+1559,2023-07-29T23:28:25Z,2023-08-07T21:48:56Z,2023-08-07T21:48:56Z,1,7,2,,3,5
+1568,2023-08-02T02:36:36Z,,2023-09-18T23:01:20Z,4,109,34,,6,0
+1704,2023-10-11T18:03:56Z,,2023-11-09T13:25:43Z,0,0,0,"Refactored iterate_result function to include a new subtitle_format option that modifies the style of subtitles. The function now iterates through the subtitles and formats the subtitle text based on the subtitle_format option. If the option is not provided, the default value of ""underline"" is used. The function also includes some minor changes to improve readability and maintainability.
+The iterate_result function in utils.py now includes a new subtitle_format option that modifies the style of subtitles. The available options are:
+
+""underline"" (default): Subtitles are underlined.
+""bold"": Subtitles are bolded.
+""italic"": Subtitles are italicized.
+
+To use this option, simply include ""subtitle_format"": ""underline"", ""subtitle_format"": ""bold"", or ""subtitle_format"": ""italic"" in the options dictionary when calling the iterate_result function.
+Example of usage:
+import whisper
+from whisper.utils import get_writer 
+
+audio = './audio.mp3'
+model = whisper.load_model(model='small')
+result = model.transcribe(audio=audio, language='en', word_timestamps=True, task=""transcribe"")
+
+# Set VTT Line and words width
+word_options = {
+    ""highlight_words"": False,
+    ""max_line_count"": 1,
+    ""max_line_width"": 42,
+    ""subtitle_format"": ""bold"",
+}
+vtt_writer = get_writer(output_format='vtt', output_dir='./')
+vtt_writer(result, audio, word_options)",4,2

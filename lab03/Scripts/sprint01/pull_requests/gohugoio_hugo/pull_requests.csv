@@ -1,0 +1,31 @@
+number,created_at,merged_at,closed_at,files,additions,deletions,body_text,participants,comments
+1839,2016-02-11T08:55:15Z,,2017-10-02T17:18:55Z,1,22,19,"Included explanation for Taxonomy lists, next to Taxonomy term templates. Changed the title of the document to cover both.",4,2
+1850,2016-02-13T09:08:57Z,,2017-12-27T10:58:47Z,5,829,33,"Here's the first attempt at standardizing Hugo author details.
+
+Data lives in /data/authors with one file per author. I thought about nesting it in /data/site/authors or /data/hugo/authors, but those seemed unnecessarily hidden.
+Author front matter is an array to support multiple authors, though it will be up to themes to support multiple authors or not. There is a convenience .Author method to return a single author.
+if there are multiple authors and this is used, there is no guarantee which author will be returned
+I changed .Site.Author from map[string]interface{} to Author, though I don't know if that is in use outside of the embedded RSS feed
+Social data should only be the username
+For Author social details, I added a .URL() convenience method that returns canonical urls for major social networks
+I added a params section to the author, though as of right now it is map[string]string instead of map[string]interface{}
+I use snake_case in the data files but templates will access them with PascalCase
+Here's a sample author file
+
+given_name      = ""Derek""
+family_name     = ""Perkins""
+display_name    = ""Derek Perkins""
+thumbnail       = ""img link""
+image           = ""img link""
+short_bio       = ""super short bio""
+bio             = ""Here's Derek's awesome bio""
+email           = ""derek@email.com""
+
+[social]
+    facebook    = ""derekperkins""
+    github      = ""derekperkins""
+    twitter     = ""derek_perkins""
+    googleplus  = ""DerekPerkins1""
+
+[params]
+   random       = ""whatever you want""",13,79

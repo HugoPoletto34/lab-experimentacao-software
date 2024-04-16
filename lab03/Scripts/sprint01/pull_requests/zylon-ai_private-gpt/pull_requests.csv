@@ -1,0 +1,1178 @@
+number,created_at,merged_at,closed_at,files,additions,deletions,body_text,participants,comments
+26,2023-05-10T18:24:21Z,,2023-05-11T06:12:13Z,1,4,4,"I am a newbie and wanted to contribute to an open-source project. So, I started updating README.md. Fixed some grammatical errors and sentences.",3,0
+35,2023-05-11T10:36:51Z,2023-05-11T12:32:28Z,2023-05-11T12:32:28Z,1,1,0,Resolve #17: Applied fix from @abereghici to requirements.txt,4,1
+36,2023-05-11T12:12:24Z,,2023-12-04T10:36:28Z,2,73,45,"I have just changed the way of writing ""ingest.py"" and ""privateGPT.py"" files
+Now they handle errors and are in more readable manner",3,3
+44,2023-05-11T15:11:20Z,2023-05-11T17:38:43Z,2023-05-11T17:38:43Z,3,17,4,Closes #34. Uses settings that disable chroma telemetry.,2,0
+49,2023-05-11T18:03:19Z,,2023-12-04T10:36:29Z,4,152,12,"Now user can just run python gui.py to start a GUI that will let you send queries and see answer and sources in a window, also keeps the history of all questions and answers until clicked on reset button to reset answer box.",7,14
+56,2023-05-11T20:59:52Z,,2023-05-14T09:26:42Z,1,4,0,There previously was a lack of clarity on the custom dataset front as there was no clear instructions on how to structure a custom dataset. Hopefully this will be cleared up on my slightly updated README.md file.,2,2
+62,2023-05-12T02:21:34Z,,2023-12-04T10:36:30Z,1,9,0,Adds code to let the user just use the defaults by running these commands...,4,0
+64,2023-05-12T04:03:23Z,2023-05-14T08:39:38Z,2023-05-14T08:39:38Z,1,1,0,pdfminer.six==20221105,4,3
+70,2023-05-12T10:39:43Z,,2023-05-15T07:47:53Z,1,21,0,"Thanks for the invitation @imartinez . This is only a draft for now, because we need to decide whether it should have endpoints exposed.",8,9
+74,2023-05-12T13:45:50Z,2023-05-13T08:36:58Z,2023-05-13T08:36:58Z,1,38,11,"Addressing thread #69 where we noted codebase would ingest only one document from source_directory
+# Load document and split in chunks
+for root, dirs, files in os.walk(""source_documents""):
+    for file in files:
+        if file.endswith("".txt""):
+            loader = TextLoader(os.path.join(root, file), encoding=""utf8"")
+        elif file.endswith("".pdf""):
+            loader = PDFMinerLoader(os.path.join(root, file))
+        elif file.endswith("".csv""):
+            loader = CSVLoader(os.path.join(root, file))
+documents = loader.load() # loads only the last file content! 
+@imartinez it would be interesting to think if it is possible to optimize the creation of the LLAMA embedding and the Chroma db overall. It was already taking quite some time with a single document, and quickly becomes prohibitively slow with more and more docs...",4,1
+91,2023-05-13T13:32:47Z,,2023-12-04T10:36:06Z,3,159,1,"Thanks @imartinez for great repo about private data and LLM offline.
+
+Make the conservation of chat
+Can edit prompt for instruction
+Can edit config model, number context
+Clear history chat",11,16
+93,2023-05-13T19:22:10Z,2023-05-14T08:55:13Z,2023-05-14T08:55:13Z,1,18,1,It took me a while to setup because of the c++ dependancies so I edited README for all the newbies like me to setup more easily,2,2
+96,2023-05-13T22:47:46Z,,2023-05-14T07:36:33Z,1,162,0,"VBNBCHAIN
+< centro >< img src = ' [url=https://ibb.co/yssMtBT][img]https://i.ibb.co/yssMtBT/image-1-2-1.png[/img][/url] ' altura = ""200"" ></ centro
+{
+""name"": ""VBNB"",
+""type"": ""BEP20"",
+""symbol"": ""VBNB"",
+""decimals"": 4,
+""website"": ""https://tokenworkcom.wordpress.com/#jp-carousel-50"",
+""description"": ""VBNB es un token descentralizado echo en bcscan es un meme Coín "",
+""explorer"": ""https://bscscan.com/token/0x7E20f650Cd25B72813280933f2754d651601AE6B"",
+""status"": ""active"",
+""id"": ""0x7E20f650Cd25B72813280933f2754d651601AE6B"",
+""links"": [
+{
+""name"": ""twitter"",
+""url"": ""https://twitter.com/RaulAra78303627""
+},
+{
+""name"": ""github"",
+""url"": ""https://github.com/raul836/assets""
+},
+{
+""name"": ""telegrama"",
+""url"": ""@ReporVBNB""
+},
+{
+""name"": ""papel blanco"",
+""url"": ""https://tokenworkcom.wordpress.com/#jp-carousel-50""
+},
+{
+""name"": ""Reddit"",
+""url"": ""https://www.reddit.com/user/Ral633/""
+},
+{
+""name"": ""coinmarketcap"",
+""url"": ""https://coinmarketcap.com/dexscan/bsc/0x40968913544195fc0609f21a514cf26c30fbc7f7/""
+},
+{
+""name"": ""medio"",
+""url"": ""https://medium.com/@rauldeleon_32774""
+},
+{
+""name"": ""Facebook"",
+""url"": ""https://www.facebook.com/profile.php?id=100083171714836&mibextid=ZbWKwL""
+},
+{
+""name"": ""YouTube"",
+""url"": ""https://youtube.com/@VBNBCHAIN""
+},
+{
+""name"": ""Blog"",
+""url"": ""https://www.geckoterminal.com/es/bsc/pools/0x40968913544195fc0609f21a514cf26c30fbc7f7""
+},
+{
+""name"": ""documentos"",
+""url"": ""https://tokenworkcom.wordpress.com/#jp-carousel-50""
+},
+{
+""name"": ""telegram"",
+""url"": ""https://t.me/""
+},
+{
+""name"": ""gorjeo"",
+""url"": ""https://twitter.com/RaulAra78303627""
+},
+{
+""name"": ""telegram_news"",
+""url"": ""https://t.me/@ReporVBNB""
+},
+{
+""name"": ""blog"",
+""url"": ""https://coinmarketcap.com/dexscan/bsc/0x40968913544195fc0609f21a514cf26c30fbc7f7/""
+},
+{
+""name"": ""foro"",
+""url"": ""0x40968913544195fc0609f21a514cf26c30fbc7f7""
+}
+],
+""tags"": [
+""26"",
+""memes""
+]
+}",2,0
+102,2023-05-14T03:19:20Z,,2023-12-04T10:36:07Z,3,35,7,"minor changes:
+
+I propose to use a logger for debugging purpose, this might be useful if the project grows.
+Raise a ValueError exception for incorrect models",3,0
+105,2023-05-14T04:57:06Z,2023-05-14T08:42:25Z,2023-05-14T08:42:25Z,1,1,1,,2,0
+120,2023-05-14T13:06:51Z,,2023-12-04T10:36:09Z,17,195,4,,14,24
+163,2023-05-15T13:13:43Z,,2023-05-16T22:42:44Z,3,25,8,"Added additional document loaders to index mails (eml and msg file types).
+Closes (partially) #160",2,2
+196,2023-05-16T06:36:01Z,,2023-05-18T20:38:30Z,1,1,1,-Xmx3G -Xms3G -Xmn768m -XX:+DisableExplicitGC -XX:+UseConcMarkSweepGC -XX:+UseParNewGC -XX:+UseNUMA -XX:+CMSParallelRemarkEnabled -XX:MaxTenuringThreshold=15 -XX:MaxGCPauseMillis=30 -XX:GCPauseIntervalMillis=150 -XX:+UseAdaptiveGCBoundary -XX:-UseGCOverheadLimit -XX:+UseBiasedLocking -XX:SurvivorRatio=8 -XX:TargetSurvivorRatio=90 -XX:MaxTenuringThreshold=15 -Dfml.ignorePatchDiscrepancies=true -Dfml.ignoreInvalidMinecraftCertificates=true -XX:+UseFastAccessorMethods -XX:+UseCompressedOops -XX:+OptimizeStringConcat -XX:+AggressiveOpts -XX:ReservedCodeCacheSize=2048m -XX:+UseCodeCacheFlushing -XX:SoftRefLRUPolicyMSPerMB=10000 -XX:ParallelGCThreads=10,3,1
+198,2023-05-16T07:23:19Z,,2023-05-24T04:25:14Z,3,49,29,"Fixes #140: Adds a file path validator to ingest.py
+This pull request addresses the reported issues in #140 by adding a file validator to the ingest.py module using the pathlib PATH module. Previously, when reading the .env file, an exception was not raised immediately if the file was not found. This change ensures that an exception is raised at the appropriate location instead of waiting for an exception from another module.
+These changes specifically resolve the issues experienced in WSL (which is the env mentioned in the issue and is my dev env).
+TY!",3,2
+201,2023-05-16T09:02:33Z,,2023-05-18T14:09:10Z,2,68,27,,7,13
+208,2023-05-16T15:06:59Z,,2023-12-04T10:36:11Z,11,228,761,Fixes #147,3,0
+211,2023-05-16T15:49:16Z,2023-05-16T22:39:38Z,2023-05-16T22:39:38Z,3,70,16,This adds more document loaders and makes it easy to add more.,2,3
+224,2023-05-16T22:33:08Z,2023-05-17T08:56:35Z,2023-05-17T08:56:35Z,4,21,21,"After testing different models, I suggest to stop using llama.cpp as an embeddings model and switch to Sentence-Transformers.
+From my initial tests with this new approach I obtained:
+
+better results in terms of the similarity semantic search used to include in the LLM prompt, improving the overall result of the tool (embeddings + LLM)
+way faster ingest: 10 seconds to ingest a 60-pages PDF on a Mac M1 (fixes #10 , #166, #152)
+avoids the recent issues with llama.cpp (fixes #220, #15, #213)
+
+That's why I propose to make this change to the main branch.
+Note: this is a breaking change. Existing local vector databases won't work with the new embeddings model. Those that want to keep the current database should not update to this commit.",5,6
+229,2023-05-17T01:31:29Z,,2023-05-17T08:53:55Z,1,1,1,,5,5
+231,2023-05-17T01:48:50Z,2023-05-18T21:51:36Z,2023-05-18T21:51:37Z,1,5,0,,3,0
+246,2023-05-17T12:08:46Z,,2023-05-18T21:25:06Z,1,1,1,Due to #245 LangChain 0.0.171 should be loaded,4,2
+254,2023-05-17T15:10:22Z,2023-05-18T21:49:40Z,2023-05-18T21:49:40Z,2,4,0,"To avoid manually converting documents saved in old format, add for the loader to load these as well",3,2
+255,2023-05-17T15:22:56Z,,2023-05-20T13:15:51Z,3,9,2,Faster loading of many documents by loading multiple documents in parallel using thread pool,4,4
+268,2023-05-17T22:48:01Z,2023-05-18T13:15:18Z,2023-05-18T13:15:18Z,1,0,3,"Nothing too serious. 'load_dotenv()' in called twice in ingester.py
+One line was removed.",2,0
+271,2023-05-18T00:22:08Z,2023-05-20T08:49:21Z,2023-05-20T08:49:21Z,3,50,4,"Changes to execute ingest.py and privateGPT.py without needing to manually add python3 for executing them.
+Also added a ""minimal"" pre-commit configuration that will not make major changes to the files - for now it removed some spaces at the end of the lines.  It also checks spelling, yaml format (useful for the docker configuration that is prepared in another PR).",2,3
+284,2023-05-18T09:52:07Z,,2023-05-18T13:15:40Z,1,2,4,"This pull request addresses two specific changes:
+
+
+Removal of load_dotenv() duplication: Previously, the load_dotenv() function was called twice in the code, leading to unnecessary duplication. In this pull request, I have removed the duplicated call and added it once at the beginning of the script to ensure proper loading of environment variables.
+
+
+Uncommenting # "".docx"": (Docx2txtLoader, {}) line.",3,1
+287,2023-05-18T14:48:29Z,2023-05-20T10:15:34Z,2023-05-20T10:15:34Z,1,52,19,"Move environment variables to the global scope
+Add a better check for vectorstore existence
+Introduced a new function for better readability
+Co-authored-by: Pulp 51127079+PulpCattel@users.noreply.github.com
+Recreating the PR #201 due to the history getting way too messy (my frustration was beyond imagination...). Sorry for the inconvenience.",3,2
+292,2023-05-18T17:38:33Z,2023-05-20T08:57:43Z,2023-05-20T08:57:43Z,2,13,3,"This pull request introduces multiprocessing in the load_documents() function to improve performance by utilizing multiple cores for document loading.
+Key Changes
+
+The load_documents() function now uses Python's multiprocessing module, allowing for concurrent document loading across multiple CPU cores.
+This modification takes advantage of machines with multiple cores and/or hyper-threading capabilities, leading to significant potential improvements in document loading times.
+It enhances performance, especially when dealing with a large number of documents.
+
+This update is expected to significantly speed up the document loading process, contributing to overall system efficiency and user experience. Please review and provide your feedback.
+^^^This commit message is generated by ChatGPT^^^",4,4
+299,2023-05-18T23:05:32Z,2023-05-19T19:40:43Z,2023-05-19T19:40:43Z,1,23,1,To be validated by users.,3,2
+300,2023-05-18T23:47:32Z,,2023-05-19T17:41:46Z,7,49,7,"I moved the scripts into a scripts folder to make mounting them easier.
+Using the compose file moves the .env properties to the compose file.
+Included a small readme update for the files.",3,1
+312,2023-05-19T15:42:28Z,2023-05-20T09:28:31Z,2023-05-20T09:28:31Z,2,28,6,"Sometimes may not need the source or the LLM stdout stream to be shown, just need the answer.
+Refactored main function to take hide_source and mute_stream parameters for controlling output.
+Added argparse for command-line argument parsing.
+StreamingStdOutCallbackHandler and source document display are now optional based on user input.
+kept the current behaviour as the default when not parsing any arguments.
+Also, updated README.md to reflect these changes.",3,4
+315,2023-05-19T20:22:27Z,,2023-05-20T10:20:12Z,1,3,2,"implemented tqdm progress bar.
+This is a simple way to solve this issue: #257",4,2
+318,2023-05-20T01:40:45Z,,2023-05-21T19:00:24Z,1,4,2,"Cleanup #5003 which removes the from_documents functionality which conflicted with another method of the same name.
+Replaced from_documents with from_texts. See:
+langchain-ai/langchain#5003
+It looks like this will go through and they have marked the change as breaking existing code when it goes into the main branch and is released.
+In more detail, the from_documents method is removed and another incompatible prototype is all that remains (in vectorstores.py)
+Apparently, the from_documents implementation used in privateGPT was a convenience to connect the output of text_splitters (Documents) which contain both the text and metadata to Chroma from_texts which expects two lists, one with strings and one with dicts (metadata). The code used in the old implementation of from_documents to split the Document list into two list is inserted into ingest.py (main) to allow use of the from_texts method.
+This approach is compatible with both the old and prospective versions of langchains support for the Chroma db.
+This is my first pull request, so feel free to correct my technique.",2,1
+324,2023-05-20T11:09:40Z,,2023-12-04T10:36:13Z,8,333,55,"Rename the function does_vectorstore_exist to ensure_integrity for its new purpose.
+We have to ensure that the database is intact, in order to use it.
+Refactor main function to simplify the code. Apparently the Chroma database will be updated if it exists, or will be created if it does not exist in a given path.",3,2
+327,2023-05-20T12:20:55Z,,2023-07-07T09:51:57Z,1,60,31,"This replaces #109.  os.walk is faster than globbing.
+I also ran pylint on the code and fixed some other issues.",3,10
+341,2023-05-21T14:02:40Z,,2023-12-04T10:36:15Z,3,65,0,"Great project.
+Plan to use private ""PrivateGPT"" along OpenAI GPT for Code Review/Code Scanning.
+Exposed the interface to do it via REST API
+It can be now loaded as a plugin in my project (https://github.com/marcinguy/betterscan-ce)
+
+Maybe it helps others., also with their projects.
+It is a WIP.
+Comments/feedback is welcome.",4,2
+365,2023-05-22T10:50:32Z,,2023-12-04T10:36:16Z,6,45,0,"I think that this is good practice and a more convenient way to install and start tools like this, especially for non-programmers.",6,6
+387,2023-05-22T16:04:09Z,2023-05-22T21:23:29Z,2023-05-22T21:23:29Z,1,1,1,"On some environments with both Python 2.x and 3.x installed, pip will be used for 2.x.",2,0
+419,2023-05-23T11:52:55Z,,2023-12-04T10:34:04Z,1,1,1,"Fixes #418 (#415).
+Fixes #453
+As seen in langchain docs:
+https://github.com/hwchase17/langchain/blob/master/docs/use_cases/question_answering.md",2,2
+423,2023-05-23T13:44:57Z,,2023-12-04T10:34:05Z,1,9,5,"Improves the handling of files with unsupported extensions during the document ingestion process.
+Previously, if a file with an unsupported extension was encountered, the load_single_document function would raise a ValueError, potentially interrupting the ingestion process.
+With this change, the load_single_document function will simply print a warning message and return None when it encounters a file with an unsupported extension. The load_documents function has also been updated to filter out these None results. This means that the ingestion process will continue with the rest of the files even if some files have unsupported extensions.",4,3
+425,2023-05-23T14:56:44Z,,2023-12-04T10:34:06Z,6,301,27,"This pull request enables GPU to be used with privateGPT. (along with some markdownlint enhancements.)
+Fixes #121
+Fixes #306",9,40
+460,2023-05-24T18:17:32Z,2023-05-25T06:26:20Z,2023-05-25T06:26:20Z,3,5,2,"The current implementation uses 4 chunks by default. This commit adds the functionality of changing the number of chunks to be used in the generation of answers.
+Answers #416",2,2
+475,2023-05-25T10:57:50Z,,2023-12-04T10:34:07Z,5,115,6,"Added a simple command line interactive prompt for the ingest script to enable the user to select a set of documents.
+This addresses the issue of having to delete the source folder and db if they want to restart with another project.
+See the updated README.md for the new approach in the ingest section.
+The solution still uses the dotenv approach.",3,0
+490,2023-05-26T05:56:46Z,,2023-12-04T10:34:08Z,1,1,1,,4,0
+500,2023-05-27T13:11:08Z,,2023-12-04T10:34:09Z,5,105,66,,4,1
+521,2023-05-29T06:06:40Z,,2023-12-04T10:34:09Z,8,68,747,"Fixed an issue that made the evaluation of the user input prompt extremely slow, this brought a monstrous increase in performance, about 5-6 times faster.
+Added a script to install CUDA-accelerated requirements
+Added the OpenAI model (it may go outside the scope of this repository, so I can remove it if necessary)
+Added some additional flags in the .env
+Changed the embedder template to a better performing template
+Bumped some versione, like llama-cpp-python and langchain (WARNING with the new version of llama.cpp, models are more powerful, but old models are now completely incompatible, if necessary, you can downgrade)
+I removed the state-of-union example file because someone who does not see it might leave it there and it would bother them during queries
+Added auto translation (Perhaps it should be removed because it uses an Internet connection)",15,45
+526,2023-05-29T07:56:04Z,,2023-12-04T10:34:10Z,8,358,250,"Fixes #525
+Keep the same interface for ingest.py and privateGPT.py but refactored to use a library and a CLI.
+I've built this, to speed up my own usage and to prepare for building a specific client. Sharing with the community thinking it will be useful for you too.
+With this PR, privateGPT.py becomes a Click-based CLI exposing the following commands:
+
+chat, the default command when the CLI is invoked without command that runs the original privateGPT scripts
+ingest, executes the logic for ingesting documents
+init, this is new and it's useful to bootstrap a new env, copying the default configuration and downloading the default model
+reset, just drop the database (instead of dropping manually the folder)`
+
+Example of launching privateGPT.py --help
+Usage: privateGPT.py [OPTIONS] COMMAND [ARGS]...
+
+  Ask questions to your documents without an internet connection, using the
+  power of LLMs.
+
+Options:
+  --help  Show this message and exit.
+
+Commands:
+  chat    Query your documents.
+  ingest  Ingest your documents.
+  init    Inititalize with default settings.
+  reset   Reset your database.
+
+NB: it's the beginning of making a library, a few things like setup.py and others are missing but could be added after this.",5,1
+528,2023-05-29T08:35:21Z,,2023-12-04T10:34:10Z,1,7,9,refactored to use IF instead of MATCH; I found that this prevented the script from running (py -v 3.9),5,0
+558,2023-05-30T16:44:24Z,,2023-12-04T10:34:11Z,2,71,0,"Hi it's the first time I'm trying to give pull request to someone
+so please don't be mad whether I'm right or wrong....
+Thanks for good source, good luck!
+Sincerely, Momo",3,1
+560,2023-05-30T18:42:21Z,2023-06-01T08:25:38Z,2023-06-01T08:25:38Z,1,4,5,Original code was written by GuySarkinsky in issue #448,4,1
+582,2023-06-01T14:01:32Z,,2023-08-31T15:28:09Z,1,17,1,"If an argument ""--log-level"" or ""-l"" is passed as a command line argument the log file privateGPT.py.log is created in the root directory.
+e.g.
+python privateGPT.py -l INFO
+An example log output looks like this
+2023-06-01 14:05:47,235 INFO     Load pretrained SentenceTransformer: all-mpnet-base-v2
+2023-06-01 14:05:51,582 INFO     Use pytorch device: cpu
+2023-06-01 14:05:51,589 INFO     Running Chroma using direct local API.
+2023-06-01 14:05:51,592 WARNING  Using embedded DuckDB with persistence: data will be stored in: db
+2023-06-01 14:05:51,640 INFO     Successfully imported ClickHouse Connect C data optimizations
+2023-06-01 14:05:51,643 INFO     Successfully import ClickHouse Connect C/Numpy optimizations
+2023-06-01 14:05:51,800 INFO     Using python library for writing JSON byte strings
+2023-06-01 14:05:52,333 INFO     loaded in 3040 embeddings
+2023-06-01 14:05:52,336 INFO     loaded in 1 collections
+2023-06-01 14:05:52,337 INFO     collection with name langchain already exists, returning existing collection
+
+I personally would like to see the ability to log as I want to track and compare different model's inputs/outputs/inference timings. These will be proposed in a separate PR.
+The method utilised is agnostic to the name of the file and can easily be modified to change the location of the logs to a specific directory if required.",2,0
+649,2023-06-06T21:14:41Z,,2023-12-04T10:32:47Z,5,19,2,"Taken only the performance improvement modification from #521
+I have explained in detail what each parameter added to the .env file does, but I feel I have been too verbose, any suggestions would be appreciated!
+In the README where I explain how to install with CUDA, in the windows section I put a WIP because I am not sure what the commands are and I currently have no way of testing it on windows",4,0
+659,2023-06-07T15:31:14Z,2023-06-11T17:13:58Z,2023-06-11T17:13:58Z,1,2,0,Directly press ENTER or search space will get a meaningless result.,2,0
+660,2023-06-07T15:57:56Z,2023-06-11T17:10:09Z,2023-06-11T17:10:09Z,2,3,3,"The PyMuPDF brings much better performance for PDF loading.
+https://pymupdf.readthedocs.io/en/latest/about.html#performance
+Here is a comparison article:
+https://medium.com/social-impact-analytics/comparing-4-methods-for-pdf-text-extraction-in-python-fd34531034f
+It's about 5x-30x faster for text extraction.
+And In my few test cases, PyMuPDF have better result in CJK characters, Although they both may display a lot of garbled characters.
+The different is PDFMinerLoader make a single document object but PyMuPDFLoader make each page as a document object.
+This PR already contains the change that I've made for this update:
+https://github.com/imartinez/privateGPT/pull/560/files
+
+Remove read subscript [0] only for loader.load()
+Update results.append(doc) to  results.extend(docs)",2,0
+675,2023-06-10T04:57:13Z,2023-06-11T17:11:10Z,2023-06-11T17:11:10Z,1,6,1,Clarified to create a copy of example.env instead of renaming it to prevent accidentally removing from repo,2,0
+709,2023-06-13T20:37:49Z,2023-06-14T07:36:15Z,2023-06-14T07:36:15Z,1,1,1,"gpt4all==0.3.2 was yanked according to https://pypi.org/project/gpt4all/#historyi
+Ties to issue 691: #691",2,0
+715,2023-06-14T09:25:19Z,,2023-12-04T10:32:50Z,1,1,1,"Here's my proposal for using all available CPU cores automatically in privateGPT.py.
+I have only used it with GPT4ALL, haven't tried LLAMA model.",5,1
+727,2023-06-16T13:21:18Z,2023-06-16T17:29:18Z,2023-06-16T17:29:18Z,1,3,2,It's better to raise an exception to handle the error more gracefully than abruptly exiting the script.,2,0
+788,2023-06-28T09:29:34Z,,2023-12-04T10:32:53Z,1,1,0,"In some cases, creating a venv with Python wheel is not installed automatically and there are errors while installation of dependencies.",3,0
+822,2023-07-05T22:18:25Z,2023-08-28T15:41:49Z,2023-08-28T15:41:49Z,3,10,5,"Instead of
+Traceback (most recent call last):
+  File ""/home/xxx/privateGPT/ingest.py"", line 27, in <module>
+    from constants import CHROMA_SETTINGS
+  File ""/home/xxx/privateGPT/constants.py"", line 11, in <module>
+    CHROMA_SETTINGS = Settings(
+                      ^^^^^^^^^
+  File ""pydantic/env_settings.py"", line 40, in pydantic.env_settings.BaseSettings.__init__
+  File ""pydantic/main.py"", line 341, in pydantic.main.BaseModel.__init__
+pydantic.error_wrappers.ValidationError: 1 validation error for Settings
+persist_directory
+  none is not an allowed value (type=type_error.none.not_allowed)
+
+get a nice
+Could not load .env file or it is empty. Please check if it exists and is readable.
+
+or
+Please set the PERSIST_DIRECTORY environment variable",2,0
+837,2023-07-09T00:19:06Z,2023-07-20T07:32:19Z,2023-07-20T07:32:20Z,3,3346,0,"Hi! I have added support for poetry to manage the dependencies in a better way.
+I didn't remove the requirements.txt file so it has backward compatibility.
+Added:
+
+ pyproyect.toml
+ poetry.lock
+
+Modified:
+
+ README.md
+
+Note: The pyproyect has the dependencies updated but the requirements doesn't. I did it to keep the backward compatibility.
+I add the poetry installation in the README.md",2,7
+852,2023-07-13T09:25:56Z,,2023-08-08T16:57:19Z,1,7,8,"Error: With python 3.8 we get error:
+    match model_type:
+          ^
+SyntaxError: invalid syntax
+
+Reason: The match/case syntax, otherwise known as Structural Pattern Matching, was only introduced in Python version 3.10.
+Fix: Updated the code to not use match and use if/else instead.",4,0
+881,2023-07-21T15:08:12Z,2023-07-24T10:21:17Z,2023-07-24T10:21:17Z,1,2,2,,4,1
+889,2023-07-23T11:16:10Z,,2023-08-28T15:35:32Z,1,1,0,add,6,1
+950,2023-08-14T08:10:32Z,,2023-09-13T14:43:47Z,2,4,1,I have noticed that changing MODEL_N_CTX wasn't changing the way the models were loaded in llamacpp. This is particularly obvious now with the larger llama2 context sizes. After some digging I found that this was down to the parameter being passed to langchain. That is what this pull request fixes. I have tested it and it is working as it should for llama2-chat models.,2,1
+957,2023-08-16T23:11:19Z,2023-08-18T15:20:33Z,2023-08-18T15:20:33Z,1,5,2,"Files in the source_directory where ignored if their extensions where in uppercase like (*.PDF).
+This change supports ingestion of files that match either lowercase or uppercase extensions like *.pdf or *.PDF.
+This can be enhanced further to support camelcase like *.Pdf at a later stage. The assumption is that this scenario is probably less than 5%.",2,0
+960,2023-08-18T18:59:18Z,2023-08-21T13:33:02Z,2023-08-21T13:33:02Z,1,1,0,Adding sentence_transformers to requirements.txt. Two different computers had an issue and pip told me to install this in order to resolve the problem. Fix worked for both computers on python3,3,2
+1015,2023-09-10T05:45:08Z,2023-09-11T08:34:45Z,2023-09-11T08:34:45Z,2,806,655,"Fix packages for poetry env running ingest.py
+Issues
+poetry .toml & .lock outdated for running ingest.py
+$ python ingest.py
+Traceback (most recent call last):
+  File ""C:\Users\LUN_000\privateGPT\ingest.py"", line 169, in <module>
+    main()
+  File ""C:\Users\LUN_000\pprivateGPT\ingest.py"", line 146, in main
+    chroma_client = chromadb.PersistentClient(settings=CHROMA_SETTINGS , path=persist_directory)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'chromadb' has no attribute 'PersistentClient'
+
+If only update chromadb to >0.4.0
+$ python ingest.py
+Traceback (most recent call last):
+  File ""C:\Users\LUN_000\privateGPT\ingest.py"", line 169, in <module>
+    main()
+  File ""C:\Users\LUN_000\privateGPT\ingest.py"", line 148, in main
+    if does_vectorstore_exist(persist_directory, embeddings):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""C:\Users\LUN_000\privateGPT\ingest.py"", line 137, in does_vectorstore_exist
+    db = Chroma(persist_directory=persist_directory, embedding_function=embeddings)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""C:\Users\LUN_000\AppData\Local\pypoetry\Cache\virtualenvs\privategpt-5tCjYFEK-py3.11\Lib\site-packages\langchain\vectorstores\chroma.py"", line 90, in __init__
+    self._client = chromadb.Client(self._client_settings)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""C:\Users\LUN_000\AppData\Local\pypoetry\Cache\virtualenvs\privategpt-5tCjYFEK-py3.11\Lib\site-packages\chromadb\__init__.py"", line 140, in Client
+    system = System(settings)
+             ^^^^^^^^^^^^^^^^
+  File ""C:\Users\LUN_000\AppData\Local\pypoetry\Cache\virtualenvs\privategpt-5tCjYFEK-py3.11\Lib\site-packages\chromadb\config.py"", line 223, in __init__
+    if settings[key] is not None:
+       ~~~~~~~~^^^^^
+  File ""C:\Users\LUN_000\AppData\Local\pypoetry\Cache\virtualenvs\privategpt-5tCjYFEK-py3.11\Lib\site-packages\chromadb\config.py"", line 160, in __getitem__
+    raise ValueError(LEGACY_ERROR)
+ValueError: You are using a deprecated configuration of Chroma.
+
+If you do not have data you wish to migrate, you only need to change how you construct
+your Chroma client. Please see the ""New Clients"" section of https://docs.trychroma.com/migration.
+________________________________________________________________________________________________
+
+If you do have data you wish to migrate, we have a migration tool you can use in order to
+migrate your data to the new Chroma architecture.
+Please `pip install chroma-migrate` and run `chroma-migrate` to migrate your data and then
+change how you construct your Chroma client.
+
+See https://docs.trychroma.com/migration for more information or join our discord at https://discord.gg/8g5FESbj for help!
+
+Changes
+Update poetry packages with requests.txt as reference.
+
+Add sentence-transformers
+Update chromadb to 0.4.7
+
+After changes
+Runnning sucessfully
+$ python ingest.py
+Creating new vectorstore
+Loading documents from source_documents
+Loading new documents: 100%|██████████████████████| 4/4 [00:09<00:00,  2.27s/it]
+Loaded 26 new documents from source_documents
+Split into 462 chunks of text (max. 500 tokens each)
+Creating embeddings. May take some minutes...
+Ingestion complete! You can now run privateGPT.py to query your documents",2,0
+1017,2023-09-10T19:10:10Z,,2023-12-04T10:32:57Z,4,98,0,"Pull Request Overview
+This PR introduces:
+
+A private_gpt_api.py file with configuration settings and a query interface classes.
+A api.py file for RESTful model queries via Flask.
+Updated README.md detailing the new API usage.
+
+Reviewers are encouraged to assess the new classes, Flask functionality, and documentation clarity. Feedback is appreciated.",3,0
+1053,2023-09-29T21:02:36Z,,2023-10-29T10:09:25Z,2,2,2,"otherwise getting
+Creating new vectorstore
+Loading documents from source_documents
+Loading new documents:   0%|                              | 0/1 [00:02<?, ?it/s]
+multiprocessing.pool.RemoteTraceback:
+""""""
+Traceback (most recent call last):
+  File ""/opt/homebrew/lib/python3.11/site-packages/langchain/document_loaders/pdf.py"", line 297, in __init__
+    import fitz  # noqa:F401
+    ^^^^^^^^^^^
+  File ""/opt/homebrew/lib/python3.11/site-packages/fitz/__init__.py"", line 22, in <module>
+    from fitz.fitz import *
+  File ""/opt/homebrew/lib/python3.11/site-packages/fitz/fitz.py"", line 14, in <module>
+    from . import _fitz
+ImportError: dlopen(/opt/homebrew/lib/python3.11/site-packages/fitz/_fitz.so, 0x0002): tried: '/opt/homebrew/lib/python3.11/site-packages/fitz/_fitz.so' (mach-o file, but is an incompatible architecture (have 'x86_64', need 'arm64')), '/System/Volumes/Preboot/Cryptexes/OS/opt/homebrew/lib/python3.11/site-packages/fitz/_fitz.so' (no such file), '/opt/homebrew/lib/python3.11/site-packages/fitz/_fitz.so' (mach-o file, but is an incompatible architecture (have 'x86_64', need 'arm64'))",4,3
+1055,2023-10-03T09:17:14Z,,2023-11-29T05:45:45Z,13,1836,2148,,3,1
+1069,2023-10-13T11:08:49Z,,2023-11-19T05:45:27Z,2,7,4,,3,2
+1077,2023-10-19T11:41:36Z,2023-10-19T14:04:36Z,2023-10-19T14:04:36Z,98,7089,3419,PrivateGPT has been rewritten for scratch with good engineering practices.,4,0
+1079,2023-10-19T15:36:21Z,,2023-10-20T10:10:30Z,2,19,1,"🤖 I have created a release beep boop
+1.0.0 (2023-10-19)
+Features
+
+Get answers using preferred number of chunks (cf709a6)
+Release GitHub action (#1078) (b745091)
+ui: add LLM mode to UI (#1080) (d249a17)
+
+Bug Fixes
+
+294 (tested) (4cda348)
+Add TARGET_SOURCE_CHUNKS to example.env (2027ac5)
+Disable Chroma Telemetry (8c6a81a)
+make docs more visible (#1081) (aa4bb17)
+
+
+This PR was generated with Release Please. See documentation.",1,0
+1082,2023-10-19T21:02:49Z,2023-10-20T12:36:50Z,2023-10-20T12:36:50Z,2,79,37,Fixes #1083,2,0
+1085,2023-10-20T09:31:25Z,2023-10-23T08:49:03Z,2023-10-23T08:49:03Z,3,243,7,"This PR adds a citation file and a license to the repository.
+While this info was already available in one form or another, adding it using the standard files not only makes it more accessible, but also allows GitHub to display it more promptly.
+I created the citation file with the info I could find, so it's not really complete. You can also add your ORCIDs!
+Closes #1006",4,4
+1091,2023-10-22T18:23:26Z,2023-10-23T06:54:12Z,2023-10-23T06:54:12Z,1,1,1,componentes -> components,2,0
+1094,2023-10-23T06:54:47Z,2023-12-01T13:45:55Z,2023-12-01T13:45:55Z,2,23,1,"🤖 I have created a release beep boop
+0.1.0 (2023-11-30)
+Features
+
+Improved documentation using Fern
+Fastest ingestion through different ingestions modes ([#1309] (#1309))
+Add sources to completions APIs and UI
+Add simple Basic auth
+Add basic CORS
+Add ""search in docs"" to UI
+LLM and Embeddings model separate configuration
+Allow using a system prompt in the API to modify the LLM behaviour
+Expose configuration of the model execution such as max_new_tokens
+Multiple prompt styles support for different models
+Update to Gradio 4
+Document deletion API
+Sagemaker support
+Disable Gradio Analytics (#1165) (6583dc8)
+Drop loguru and use builtin logging (#1133) (64c5ae2)
+enable resume download for hf_hub_download (#1249) (4197ada)
+move torch and transformers to local group (#1172) (0d677e1)
+Qdrant support (#1228) (03d1ae6)
+Added wipe command to easy up vector database reset
+
+Bug Fixes
+
+Docker and sagemaker setup (#1118) (895588b)
+fix pytorch version to avoid wheel bug (#1123) (24cfddd)
+Remove global state (#1216) (022bd71)
+sagemaker config and chat methods (#1142) (a517a58)
+typo in README.md (#1091) (ba23443)
+Windows 11 failing to auto-delete tmp file (#1260) (0d52002)
+Windows permission error on ingest service tmp files (#1280) (f1cbff0)
+
+
+This PR was generated with Release Please. See documentation.",1,1
+1102,2023-10-24T07:34:25Z,2023-10-24T10:43:42Z,2023-10-24T10:43:42Z,1,7,7,Removed Grammatical errors,2,0
+1107,2023-10-24T23:21:19Z,2023-11-11T08:23:46Z,2023-11-11T08:23:46Z,1,4,0,"Added a section on how to customize low level args, proposing people to stick to suggested models.",2,0
+1118,2023-10-26T16:17:55Z,2023-10-27T11:29:29Z,2023-10-27T11:29:29Z,7,67,15,,3,0
+1123,2023-10-27T16:04:02Z,2023-10-27T18:27:40Z,2023-10-27T18:27:40Z,5,1151,481,https://stackoverflow.com/questions/76327419/valueerror-libcublas-so-0-9-not-found-in-the-system-path,2,0
+1132,2023-10-29T02:53:12Z,2023-10-30T20:54:09Z,2023-10-30T20:54:09Z,2,54,6,"Currently the ingestion progress of an entire folder using the command line script can be quite annoying should errors happen.
+Additionally, there is little feedback of the current overall progress if there are many files to be ingested.
+For this reason this commit adds two things:
+
+Wrapping individual documents into a try except block
+Improve logging
+
+Count total documents and show the current document count
+Optionally log to a file
+
+
+
+Using the following command as an example:
+poetry run python ./scripts/ingest_folder.py ./tests --log-file ./test.log
+The new console output can be seen here:
+
+With the following log file being created:",4,8
+1133,2023-10-29T16:03:58Z,2023-10-29T18:11:03Z,2023-10-29T18:11:03Z,7,23,54,"Changed the 2 existing print in the private_gpt code base into actual python logging, stop using loguru (dependency will be dropped in a later commit).
+Try to use the key=value logging convention in logs (to indicate what dynamic values represents, and what is dynamic vs not).
+Using %s log style, so that the string formatting is pushed inside the logger, giving the ability to the logger to determine if the string need to be formatted or not (i.e. strings from debug logs might not be formatted if the log level is not debug)
+The (basic) builtin log configuration have been placed in private_gpt/__init__.py in order to initialize the logging system even before we start to launch any python code in private_gpt package (ensuring we get any initialization log formatted as we want to)
+Disabled uvicorn custom logging format, resulting in having uvicorn logs being outputted in our formatted.
+
+Some more concise format could be used if we want to, especially:
+COMPACT_LOG_FORMAT = '%(asctime)s.%(msecs)03d [%(levelname)s] %(name)s - %(message)s'
+
+Python documentation and cookbook on logging for reference:
+
+https://docs.python.org/3/library/logging.html
+https://docs.python.org/3/howto/logging.html",3,2
+1134,2023-10-29T19:40:45Z,2023-10-29T20:48:17Z,2023-10-29T20:48:17Z,1,3,6,,2,0
+1136,2023-10-30T09:32:16Z,,2023-11-23T05:45:43Z,2,106,4,,2,1
+1142,2023-10-30T19:00:35Z,2023-10-30T20:54:42Z,2023-10-30T20:54:42Z,2,29,4,,2,0
+1144,2023-10-31T10:28:52Z,2023-11-02T11:45:49Z,2023-11-02T11:45:49Z,1,4,1,"When running privateGPT, this was spotted in the logs:
+chromadb.telemetry.posthog - Anonymized telemetry enabled. See https://docs.trychroma.com/telemetry for more information.
+
+One can either disable it in the config object, as done in the PR, or as an env var ANONYMIZED_TELEMETRY=False",3,2
+1161,2023-11-03T08:29:44Z,2023-11-05T15:16:49Z,2023-11-05T15:16:49Z,9,114,7,"Support for an embedding model deployed in Sagemaker.
+Intended for production setups.",2,0
+1163,2023-11-04T17:50:35Z,2023-11-06T14:47:42Z,2023-11-06T14:47:42Z,3,45,2,"A file that is ingested will be transformed into several documents (that are organized into nodes).
+This endpoint is deleting documents (bits of a file). These bits can be retrieved thanks to the endpoint to list all the documents.
+Also added logs in the scope of this PR",3,2
+1165,2023-11-05T16:47:59Z,2023-11-06T13:31:26Z,2023-11-06T13:31:26Z,2,13,1,"Gradio analytics can be disabled by either using the kwargs enable_analytics on gr.Blocks, or by setting the env variable GRADIO_ANALYTICS_ENABLED to something different from True.
+Since that Gradio does not seem to respect their code contract (around enable_analytics), and that they are performing other operations only based on the value of GRADIO_ANALYTICS_ENABLED (c.f. gradio.strings https://github.com/gradio-app/gradio/blob/main/gradio/strings.py#L39), we are disabling gradio analytics by setting the required env variable to False.
+Note: Setting an environment variables using os.environ['foo'] = 'bar' on system that are not based on unix might not work.
+c.f. https://docs.python.org/3/library/os.html#os.environ for details on how os.environ works and all its caveats
+See #1144 for the similar PR on chromaDB telemetry (that motivated this PR)",3,1
+1171,2023-11-06T05:58:01Z,,2023-11-30T05:45:44Z,1,5,1,"To fix issue: #1166
+Error: 'utf-8' codec can't decode byte 0xd0 in position 0: invalid continuation byte #1166",3,2
+1176,2023-11-07T12:43:40Z,2023-11-07T14:39:40Z,2023-11-07T14:39:40Z,1,15,1,"Patch the default list of llama_index to support JSON files. This injection of JSON documents should improve the comprehension in JSON files, as there is a parsing of JSON files.
+It might avoid the docstore pollution that we've been seeing in reported issues lately",2,0
+1177,2023-11-07T13:20:17Z,2023-11-07T14:41:05Z,2023-11-07T14:41:05Z,1,29,0,Workflow to automatically mark and close stale issues and PRs,3,0
+1191,2023-11-09T20:50:47Z,2023-11-10T09:42:44Z,2023-11-10T09:42:44Z,3,178,145,"The class PrivateGptUi will hold the definition of the UI, as well as it's state.
+The PrivateGptUi becomes stateless, and the UI will reload the documents that are ingested everytime it needs to (i.e. after a file upload, or every time the UI reloads)
+
+Documentation used to change gradio's behaving:
+
+DataFrame: https://www.gradio.app/docs/dataframe
+UploadButton: https://www.gradio.app/docs/uploadbutton
+Blocks: https://www.gradio.app/docs/blocks
+State in Blocks: https://www.gradio.app/guides/state-in-blocks",2,0
+1198,2023-11-10T09:35:50Z,2023-11-10T13:29:44Z,2023-11-10T13:29:44Z,4,57,2,,2,0
+1206,2023-11-11T09:57:55Z,2023-11-11T20:39:15Z,2023-11-11T20:39:15Z,7,159,70,"Reuse Chunk object to append the sources used during completions to the completions response.
+Affects both chat/completions and plain /completions
+It has been integrated in the API and UI (see attachments).
+Note 1: Chunks returned as sources will always have their previous_texts and next_texts set to none, given those are intended to be only used in the /chunks API - therefore we could eventually separate both objects (Chunks used for source representation, and /chunks API response)
+Note 2: this information is also being added to the stream API, making the streaming chunks too big in my opinion, potentially affecting performance; should we remove sources from the streaming API?",3,1
+1209,2023-11-11T19:58:13Z,2023-11-11T21:44:19Z,2023-11-11T21:44:19Z,14,314,269,"Updated llama-index to 0.8.67 to avoid users to have issues around openai import.
+Re-generated the poetry.lock file by running:
+rm -rf .venv/ poetry.lock
+
+python3 -m venv .venv && source .venv/bin/activate && pip install --upgrade pip poetry && poetry install --with ui,local
+Tested locally, and the basic call through the UI works as expected.",3,3
+1215,2023-11-12T14:06:51Z,2023-11-16T10:44:02Z,2023-11-16T10:44:02Z,5,60,51,"As suggested in the README.md file, I've added the wipe command to clear the local_data folder.",3,4
+1216,2023-11-12T14:32:24Z,2023-11-12T21:20:36Z,2023-11-12T21:20:36Z,24,286,190,"No functional changes, this PR removes all global state (specially settings) so tests are very easiy to write.
+Also added a way to inject mock settings for the same reason.",2,0
+1220,2023-11-12T19:42:09Z,2023-11-12T21:14:38Z,2023-11-12T21:14:38Z,1,21,8,"So far PrivateGPT has been creating one index per ingested file.
+That makes it difficult to load the index from disk to perform update or delete operations, and it was causing errors during deletion.
+We now reuse the existing index if any. That way we ensure a single index for all files ingested, making it easier to operate with it.",2,1
+1228,2023-11-13T17:08:50Z,2023-11-13T20:23:27Z,2023-11-13T20:23:27Z,6,320,18,"This PR intends to add Qdrant as a supported vector database.
+The database to be used can be configured using the new vectorstore.database property. The default values are set, ensuring no breaking change in the current behaviour.",2,0
+1238,2023-11-14T22:23:18Z,,2023-11-17T09:55:23Z,14,1662,0,"This PR adds the open source, free tier of Fern Docs for PrivateGPT.",4,3
+1249,2023-11-15T18:29:10Z,2023-11-16T23:13:11Z,2023-11-16T23:13:11Z,1,9,0,enable auto resume download by default to prevent always restart on downloading large file with poor network connection.,3,3
+1260,2023-11-17T15:29:03Z,2023-11-17T17:23:58Z,2023-11-17T17:23:58Z,1,11,7,Fixes #1227,4,2
+1261,2023-11-17T18:51:07Z,2023-11-18T17:47:31Z,2023-11-18T17:47:31Z,1,7,0,"Using https://shields.io/, and the github action badges: https://docs.github.com/en/actions/monitoring-and-troubleshooting-workflows/adding-a-workflow-status-badge
+To have the complete list of badges available, c.f. to their documentation: https://shields.io/badges
+
+Attached, the result of the badges (to effective reviewing - they will be split in two lines: test and doc, and socials)
+@imartinez still need to configure the Discord server to remove that ""widget disabled"" (using the video/tutorial there: https://shields.io/badges/discord)",2,1
+1262,2023-11-17T20:16:35Z,,2023-11-18T11:36:23Z,11,133,24,Split into several tab and sections,2,1
+1264,2023-11-17T20:23:07Z,2023-11-19T17:46:09Z,2023-11-19T17:46:09Z,18,398,150,"Split into several tab and sections
+
+Closes #1258",3,8
+1266,2023-11-17T21:54:21Z,2023-11-18T11:29:28Z,2023-11-18T11:29:28Z,2,7,3,"The existing logo was not working anymore (returning 403).
+Additionally, it could have been used to track privateGPT users (by collecting metadata on them)
+Now rendering a specific file inside the python code",2,0
+1278,2023-11-19T15:53:36Z,2023-11-19T17:49:37Z,2023-11-19T17:49:37Z,3,544,118,"Update llama_index to 0.9.3
+Had to change some imports because of breaking change during the llama_index update to 0.9.0
+Finally drop langchain and langsmith from the dependencies (making the installation lighter and faster)
+
+llama_index 0.9.0 announcement: https://blog.llamaindex.ai/announcing-llamaindex-0-9-719f03282945
+Changelogs of llama_index: https://github.com/run-llama/llama_index/blob/main/CHANGELOG.md",2,0
+1279,2023-11-19T18:42:43Z,,2023-11-25T13:08:59Z,10,425,146,"Refactor ingestion service to keep the index reference in memory
+
+TODO
+Producer -> work queue -> consumer pattern to reduce the memory load while parallelizing the document reading and parsing with the tokenization",2,2
+1280,2023-11-19T20:55:02Z,2023-11-20T09:08:03Z,2023-11-20T09:08:03Z,1,1,0,"The ingestion API causes some permission troubles over the temporal files on Windows. A fix was recently added here #1260 but the unlinking causes a different trouble. On big files another PermissionError is throw because the file still being used by another process.
+  File ""E:\PycharmProjects\privateGPT\private_gpt\server\ingest\ingest_service.py"", line 124, in ingest
+    path_to_tmp.unlink()
+  File ""C:\Users\frang\.pyenv\pyenv-win\versions\3.11.0\Lib\pathlib.py"", line 1147, in unlink
+    os.unlink(self)
+    PermissionError: [WinError 32] The process cannot access the file because it is being used by another process: 'C:\\Users\\frang\\AppData\\Local\\Temp\\tmp4v0e9vnh'
+
+Still being a permission error and It dont happen with small files. But closing the file before unlinking the path fix it for both cases on Windows 10. This might fix #1227",2,0
+1285,2023-11-20T12:02:01Z,2023-11-20T15:19:23Z,2023-11-20T15:19:23Z,9,121,90,"Docs updated
+Move qdrant out of optional dependencies
+Move chrome to optional dependencies
+Default settings.yaml to load a QdrantLocal",4,14
+1289,2023-11-21T17:28:21Z,2023-11-29T19:56:37Z,2023-11-29T19:56:38Z,1,7,0,"Simple PR adding a note for parametrized make calls on Windows.
+Saw that some users were having some troubles making use of it on Windows command line here: #1226 (probably u can close this issue!)
+If you prefer a different format to include this note on the docs just let me know and will modify it.
+Thanks",3,1
+1295,2023-11-22T19:44:15Z,,2023-12-19T05:45:47Z,6,16,12,…the model repo + model file + embeddings model from the settings.yaml file,4,3
+1301,2023-11-23T13:48:32Z,,2023-11-25T15:43:34Z,9,401,7,Vigogne model for example does not work with llama2 model. Using the default role: message format from llama_index give good results.,2,1
+1307,2023-11-24T16:54:13Z,2023-11-25T13:34:23Z,2023-11-25T13:34:23Z,10,402,8,,2,1
+1309,2023-11-25T13:08:12Z,2023-11-25T19:12:09Z,2023-11-25T19:12:09Z,13,516,196,"Multiple strategy for file ingestion.
+This is good to be pushed as is.
+Following PR will come to add a switch between the implementation using the configuration.
+Documentation should be added as well.
+Ideally, the most optimal implementation should be debugged as well in this future PR.
+
+The current behavior is preserved and will not impact the existing users",2,1
+1315,2023-11-26T13:59:35Z,2023-11-29T19:54:22Z,2023-11-29T19:54:22Z,1,11,0,"Adding working combination of Large LLM (70B) and Embedding Model to recipe list.
+LLM:
+llm_hf_repo_id: TheBloke/GodziLLa2-70B-GGUF
+llm_hf_model_file: godzilla2-70b.Q4_K_M.gguf
+HF link: https://huggingface.co/TheBloke/GodziLLa2-70B-GGUF
+Embedding Model:
+model name: bge-large-en
+HF link: https://huggingface.co/BAAI/bge-large-en
+Have tested using the GGUF model files available on HF.
+Details of my setup-
+OS: Ubuntu 20.04
+GPU details:
+NVIDIA-SMI 545.23.08
+Driver Version: 545.23.08
+CUDA Version: 12.3
+GPU Name: Tesla V100-PCIE-16GB x 4",3,2
+1317,2023-11-26T16:53:13Z,2023-11-26T18:17:29Z,2023-11-26T18:17:29Z,3,20,0,Added max_new_tokens as a configuration option to the llm block in settings,3,6
+1318,2023-11-26T17:54:12Z,2023-11-29T14:51:20Z,2023-11-29T14:51:20Z,6,1037,947,"Allow passing a system_prompt in completions API and to send a role:system message in chat/completions APIs messages array to modify the LLM behaviour.
+
+Added a basic system_prompt to Gradio Query Docs to avoid the LLM answering questions with context that is not in the documents.",4,7
+1353,2023-12-01T20:27:30Z,2023-12-10T18:45:15Z,2023-12-10T18:45:15Z,5,110,18,"This PR allows users to set the system prompt from within the gradio interface (#1329). The default system prompt shows up as a placeholder to the input box, and the user may choose to override it.
+I plan to add some documentation updates that provide example prompts, and these updates could be linked to from the gradio interface.
+
+  
+    
+    
+
+    Recording.2023-12-01.142954.mp4",3,13
+1368,2023-12-05T18:59:22Z,2023-12-08T09:34:13Z,2023-12-08T09:34:13Z,1,4,1,,2,0
+1374,2023-12-06T15:49:51Z,2023-12-08T10:26:25Z,2023-12-08T10:26:25Z,1,11,1,The best german speaking model I have found so far.,3,3
+1384,2023-12-08T17:03:43Z,2023-12-08T21:39:23Z,2023-12-08T21:39:23Z,7,41,1642,This will remove unnecessary files and code that was used to create the docs previous to integrating Fern docs.,3,1
+1385,2023-12-08T19:18:05Z,2023-12-08T22:13:52Z,2023-12-08T22:13:52Z,4,17,96,"As discussed on Discord, the decision has been made to remove the system prompts by default, to better segregate the API and the UI usages.
+A concurrent PR (#1353) is enabling the dynamic setting of a system prompt in the UI.
+Therefore, if UI users want to use a custom system prompt, they can specify one directly in the UI. If the API users want to use a custom prompt, they can pass it directly into their messages that they are passing to the API.
+In the highlight of the two use case above, it becomes clear that default system_prompt does not need to exist.",3,1
+1386,2023-12-08T21:33:57Z,2023-12-09T19:13:01Z,2023-12-09T19:13:01Z,4,11,2,"@imartinez This PR allows setting the Open AI model to use in settings as proposed here https://github.com/users/imartinez/projects/3?pane=issue&itemId=44266044. Please feel free to update the board, and let me know if you have any feedback.",2,5
+1387,2023-12-08T22:14:37Z,2023-12-10T19:08:13Z,2023-12-10T19:08:13Z,2,9,1,"🤖 I have created a release beep boop
+0.2.0 (2023-12-10)
+Features
+
+llm: drop default_system_prompt (#1385) (a3ed14c)
+ui: Allows User to Set System Prompt via ""Additional Options"" in Chat Interface (#1353) (145f3ec)
+settings: Allow setting OpenAI model in settings #1386
+
+Fixes
+
+docs: delete old documentation #1384
+
+
+This PR was generated with Release Please. See documentation.",1,1
+1391,2023-12-10T18:37:47Z,,2024-03-11T21:57:50Z,1,3,3,,3,3
+1392,2023-12-11T11:01:45Z,2023-12-12T19:31:38Z,2023-12-12T19:31:38Z,2,3,3,:),3,2
+1393,2023-12-11T11:11:24Z,2023-12-12T19:33:35Z,2023-12-12T19:33:35Z,1,2,0,"As of now, the preview workflow is doing the checkout on the ref provided for pull_request_target events, which points to the main branch.
+That means that the changes in the PR will not actually be displayed in the preview, making it kind of useless.
+This should fix the issue: it keeps the pull_reuqest_target event, so that the workflow can't be modified by the PR, but the checkout ref for building the docs will point to the PR ✨
+See #1392",2,0
+1394,2023-12-11T21:24:46Z,2023-12-15T20:35:03Z,2023-12-15T20:35:03Z,1,2,2,I was misled into believing I could install using python 3.12 whereas the pyproject.toml explicitly states otherwise. This PR only removes this comment to make sure other people are not also trapped 😄,3,2
+1397,2023-12-13T07:38:45Z,2023-12-17T11:02:13Z,2023-12-17T11:02:13Z,1,9,4,"Hi, are you guys open to making the chat area stretch and fill the height of the screen?
+This PR addresses #1377
+I have added some CSS to stretch and fill the height of the screen, thanks to @yvrjsharma 's help.
+I have tested it using the dev tool. It is responsive and accommodates the recent addition of a system prompt.
+Video:
+Responsiveness:
+
+  
+    
+    
+
+    First.Half.mov
+    
+  
+
+  
+
+  
+
+
+After Chat Generation:
+
+  
+    
+    
+
+    Second.Half.mov
+    
+  
+
+  
+
+  
+
+
+This will help privateGPT look similar to chatGPT and help with adoption.",3,2
+1403,2023-12-14T03:44:16Z,2023-12-16T18:02:46Z,2023-12-16T18:02:46Z,1,8,6,"multiline string in yaml should not be surrounded in quote, instead > to condense string as single line or | to preserve formating.
+https://yaml-multiline.info/
+good for a first pull request 💪",3,3
+1413,2023-12-16T18:03:34Z,2024-02-16T16:42:39Z,2024-02-16T16:42:39Z,2,29,1,"🤖 I have created a release beep boop
+0.3.0 (2024-02-16)
+Features
+
+add mistral + chatml prompts (#1426) (e326126)
+Add stream information to generate SDKs (#1569) (24fae66)
+API: Ingest plain text (#1417) (6eeb95e)
+bulk-ingest: Add --ignored Flag to Exclude Specific Files and Directories During Ingestion (#1432) (b178b51)
+llm: Add openailike llm mode (#1447) (2d27a9f), closes #1424
+llm: Add support for Ollama LLM (#1526) (6bbec79)
+settings: Configurable context_window and tokenizer (#1437) (4780540)
+settings: Update default model to TheBloke/Mistral-7B-Instruct-v0.2-GGUF (#1415) (8ec7cf4)
+ui: make chat area stretch to fill the screen (#1397) (c71ae7c)
+UI: Select file to Query or Delete + Delete ALL (#1612) (aa13afd)
+
+Bug Fixes
+
+Adding an LLM param to fix broken generator from llamacpp (#1519) (869233f)
+deploy: fix local and external dockerfiles (fde2b94)
+docker: docker broken copy (#1419) (059f358)
+docs: Update quickstart doc and set version in pyproject.toml to 0.2.0 (0a89d76)
+minor bug in chat stream output - python error being serialized (#1449) (6191bcd)
+settings: correct yaml multiline string (#1403) (2564f8d)
+tests: load the test settings only when running tests (d3acd85)
+UI: Updated ui.py. Frees up the CPU to not be bottlenecked. (24fb80c)
+
+
+This PR was generated with Release Please. See documentation.",1,1
+1415,2023-12-17T10:56:47Z,2023-12-17T15:11:09Z,2023-12-17T15:11:09Z,5,1433,1233,"Make TheBloke/Mistral-7B-Instruct-v0.2-GGUF the default model in settings.yaml
+Update LlamaCPP dependency (it now works with modern models, including Mixtral, even though that one requires a 32GB RAM)
+Fix API empty documentation section",3,1
+1417,2023-12-17T21:14:36Z,2023-12-18T20:47:05Z,2023-12-18T20:47:05Z,6,198,17,"Add a new API to ingest plain text.
+
+Deprecate previous /ingest API
+Move previous ingestion logic to a new ingest/file API
+Create a new ingest/text API that allows for plain text ingestion by passing the file_name and the plain text to be ingested. A single Document is generated for the ingested text.
+
+All the previously existing ingestion logic is reused to leverage the different ingestion capabilities. A little refactor is done in IngestService to accommodate the new text ingestion",2,2
+1426,2023-12-19T12:34:06Z,2024-01-16T21:51:14Z,2024-01-16T21:51:14Z,6,107,5,this adds what I believe is the correct prompt formatting for Mistral.. based on testing where I've rated it best vs llama-index and llama2,3,6
+1432,2023-12-20T16:16:26Z,2024-02-07T18:59:32Z,2024-02-07T18:59:32Z,3,41,7,"This pull request introduces the --ignored flag to the ingestion script. The motivation for this change stems from encountering UnicodeDecodeError when the script processes Python-generated __pycache__ folders and MacOS-specific .DS_Store files. These files are not relevant to our data processing and can cause errors due to their format.
+The --ignored flag allows users to specify a list of files or directories to exclude from the ingestion process, enhancing the script's flexibility and reliability, especially in Python and Mac environments.",3,7
+1440,2023-12-22T02:41:13Z,,2024-01-14T05:45:48Z,2,24,0,,2,2
+1447,2023-12-22T16:44:43Z,2023-12-26T09:26:08Z,2023-12-26T09:26:08Z,4,54,3,"This mode behaves the same as the openai mode, except that it allows setting custom models not supported by OpenAI. It can be used with any tool that serves models from an OpenAI compatible API.
+Note that the mentioned libraries, LocalAI and vLLM, also have their own providers in LlamaIndex. This is a more generic solution that should support those and many more libraries.
+One fun implication that I'm testing is the possibility of running PrivateGPT on top of another instance of PrivateGPT. The top-level instance manages embeddings, and the bottom-level instance runs an LLM. With a little additional logic, it could be possible to route requests from the parent instance to multiple child instances based on model id in the request, effectively letting a single PrivateGPT instance serve multiple models while benefiting from a single document store.
+Implements #1424",2,3
+1449,2023-12-22T20:07:47Z,2024-01-16T15:41:21Z,2024-01-16T15:41:21Z,1,1,1,"This is a proposed fix for a minor bug I noticed while using simonw/llm to connect to a local privategpt instance -- I'm seeing serialized python error strings in the output. I'm not entirely sure why this shows up in this tool, but not via the UI, but it might have to do with how the output is parsed or something.
+Behavior I was seeing:
+Containers, in the context of computing and software development, are lightweight, standalone, executable software packages that include everything needed to run a piece of software: code, runtime, system tools, system libraries, and 
+
+<... snip additional output...>
+
+Containers have become a key component in modern software development and deployment practices, particularly in the context of microservices architectures, where applications are built as a collection of loosely coupled services.Error: can only concatenate str (not ""NoneType"") to str
+
+The Error: can only concatenate str (not ""NoneType"") to str seems to be coming from the server-side. There might be a better way to fix this, but this seemed to work (and aligns w/ my expectations of a fix for NoneType being concatenated w/ str).",3,1
+1451,2023-12-22T21:51:51Z,2023-12-26T12:09:31Z,2023-12-26T12:09:31Z,2,3,3,,2,1
+1467,2023-12-29T15:55:41Z,2024-03-11T21:55:14Z,2024-03-11T21:55:14Z,2,5,0,"Discussed in #1458 , To be able to deploy in offline environment, currently tiktoken_ext package is restricting, which can be cached using the added fixes.",2,1
+1493,2024-01-08T15:02:54Z,,2024-04-02T14:50:20Z,1,34,3,Enhanced ingest_service.ingest_file() and ingest_service.bulk_ingest(…) to skip ingestion if the file(s) is already ingested.,4,2
+1512,2024-01-15T13:37:08Z,,2024-04-02T14:49:03Z,6,42,8,"This patch introduces the chatml prompt format (and associated tests) necessary for driving the Dolphin 2.6 fine-tune of microsoft/phi-2.  I'm using the fine-tune rather than the upstream because the prompt behaviour with the chatml format seems to be more robust.
+Also included is settings-phi-2.yaml, which you can use by setting PGPT_PROFILES=phi-2 for a local experience that's tolerable on CPU.  On an M1 mac with Metal, I'm getting about 20 tokens per second output using the Q4_K_M model listed.
+The phi-2 architecture also needs the llama-cpp-python version to be updated, so I've bumped it to 0.2.28.",2,2
+1519,2024-01-17T15:06:40Z,2024-01-17T17:10:45Z,2024-01-17T17:10:45Z,1,1,1,"The newer versions of llama-cpp-python do not have the parameter offload_kqv set to True. Fixing this in privateGPT is pretty straightforward. Instead of installing a lower version of llama-cpp-python, adding ""offload_kqv"": True to model_kwargs enables KGV offloading, and also significantly boosts GPU performance.",2,0
+1526,2024-01-21T15:05:35Z,2024-02-09T14:50:50Z,2024-02-09T14:50:50Z,4,53,1,Allow using Ollama as the LLM,6,7
+1568,2024-02-01T10:13:33Z,,2024-02-16T16:40:40Z,4,45,1,"Button to delete all ingested files. (+ ability to disable the button in settings.yaml)
+When first using pgpt I could've used this myself (now I use Python SDK)
+I saw multiple cases where people wanted something similar (issues / Discord).
+issue example:
+#1559",4,4
+1569,2024-02-01T21:13:48Z,2024-02-02T15:14:22Z,2024-02-02T15:14:22Z,3,32,0,,2,1
+1589,2024-02-08T01:45:10Z,2024-02-16T11:52:15Z,2024-02-16T11:52:15Z,1,2,0,"…m deltas.  This recursive function fires off so quickly to eats up too much of the CPU.  This small sleep frees up the CPU to not be bottlenecked.  This value can go lower/shorter.  But 0.02 or 0.025 seems to work well.
+Here you can view the slow down before the modifications (sorry for the poor quality):
+
+And here you can view the speed up after:
+
+The entire process before this small change, the chat stream took 60-120 seconds or so.
+However after the change it takes about 8-10 seconds for me.",5,3
+1596,2024-02-08T22:45:37Z,2024-03-11T22:02:57Z,2024-03-11T22:02:57Z,1,1,1,"privateGPT is on an older version of Fern CLI, which doesn't fully support parsing streaming endpoints defined in OpenAPI, causing an outage on a few pages of the docs under Contextual Completions.
+Upgrading the CLI and running fern generate --docs will fix it.",2,1
+1624,2024-02-20T07:48:40Z,2024-02-20T14:29:26Z,2024-02-20T14:29:26Z,6,323,59,"add pgvector as one option to vector store with the following configurations
+The available configuration options are:
+
+
+
+Field
+Description
+
+
+
+
+host
+The server hosting the Postgres database. Default is localhost
+
+
+port
+The port on which the Postgres database is accessible. Default is 5432
+
+
+database
+The specific database to connect to. Default is postgres
+
+
+user
+The username for database access. Default is postgres
+
+
+password
+The password for database access. (Required)
+
+
+embed_dim
+The dimensionality of the embedding model (Required)
+
+
+schema_name
+The database schema to use. Default is private_gpt
+
+
+table_name
+The database table to use. Default is embeddings",2,4
+1628,2024-02-20T14:30:00Z,2024-03-06T16:53:36Z,2024-03-06T16:53:36Z,2,9,1,"🤖 I have created a release beep boop
+0.4.0 (2024-03-06)
+Features
+
+Upgrade to LlamaIndex to 0.10 (#1663) (45f0571)
+Vector: support pgvector (#1624) (cd40e39)
+
+
+This PR was generated with Release Please. See documentation.",1,1
+1643,2024-02-23T14:33:38Z,2024-03-11T21:27:30Z,2024-03-11T21:27:30Z,1,6,3,"I noticed that every time after restarting PrivateGPT, the output on the screen would vary with similar queries used in ""Search Files"" mode even though the retrieved 'response' contained the same values that were ordered to the same scores.
+After some troubleshooting, it looked like the output from the Source.curate_sources(response) function mixes up the values, which results in sources that are no longer ordered to the reponse scores.
+In order to fix this, 'curated_sources' in the 'Source' class is changed from a set to a unique list to ensure that the score order is maintained and the results are consistent.",2,2
+1663,2024-02-29T14:27:12Z,2024-03-06T16:51:30Z,2024-03-06T16:51:30Z,43,1470,1392,"This PR includes breaking changes to how PrivateGPT is installed.
+It follows the breaking changed introduced by LlamaIndex 0.10.x
+Changes:
+
+Documentation update
+More and better setups examples in installation documentation, followed by a reviewed set of default settings-.yaml
+Stop using ServiceContext (deprecated in LlamaIndex)
+Refactor of all imports following changes in LlamaIndex - we went through the full migration, no ""deprecated"" or ""legacy"" API is being used.
+Cleanup of dependencies, making most of the dependencies optional. Follow LlamaIndex nomenclature to name the optional dependencies for full clarity.
+Stopped using the concept ""local"" that used to abstract the usage of LlamaCPP LLM + Huggingface Embeddings. Now both concepts are separated for clarity and extensibility.
+
+The new way of installing privateGPT's dependencies is by choosing the different modules to use and installing them through ""extras"":
+poetry install --extras ""<extra1> <extra2>...""
+Where <extra> can be any of the following:
+
+ui: adds support for UI using Gradio
+llms-ollama: adds support for Ollama LLM, the easiest way to get a local LLM running
+llms-llama-cpp: adds support for local LLM using LlamaCPP - expect a messy installation process on some platforms
+llms-sagemaker: adds support for Amazon Sagemaker LLM, requires Sagemaker inference endpoints
+llms-openai: adds support for OpenAI LLM, requires OpenAI API key
+llms-openai-like: adds support for 3rd party LLM providers that are compatible with OpenAI's API
+embeddings-huggingface: adds support for local Embeddings using HuggingFace
+embeddings-sagemaker: adds support for Amazon Sagemaker Embeddings, requires Sagemaker inference endpoints
+embeddings-openai = adds support for OpenAI Embeddings, requires OpenAI API key
+vector-stores-qdrant: adds support for Qdrant vector store
+vector-stores-chroma: adds support for Chroma DB vector store
+vector-stores-postgres: adds support for Postgres vector store
+
+We are making Ollama setup the recommended local setup:
+poetry install --extras ""ui llms-ollama embeddings-huggingface vector-stores-qdrant""
+poetry run python scripts/setup  # To install local embeddings model, given Ollama doesn't contain Embeddings yet
+PGPT_PROFILES=ollama make run",3,12
+1698,2024-03-10T16:00:38Z,2024-03-15T15:49:50Z,2024-03-15T15:49:50Z,9,415,6,Allows to use Azure OpenAI as LLM and embedding model.,3,8
+1703,2024-03-11T16:25:00Z,2024-03-11T21:51:05Z,2024-03-11T21:51:05Z,10,91,8,"Original PR here:
+#1677
+llama-cpp https://llama-cpp-python.readthedocs.io/en/latest/api-reference/
+https://docs.llamaindex.ai/en/stable/examples/llm/llama_2_llama_cpp.html#
+ollama - https://github.com/run-llama/llama_index/blob/eeb2a60387b8ae1994005ad0eebb672ee02074ff/llama-index-integrations/llms/llama-index-llms-ollama/llama_index/llms/ollama/base.py
+No configurable changes. -
+openailike - https://docs.llamaindex.ai/en/stable/examples/llm/localai.html#localai
+Not sure about the model_kwargs. The value is references for openai, but I could not find documentation on what values were allowed.
+openai - https://github.com/run-llama/llama_index/blob/eeb2a60387b8ae1994005ad0eebb672ee02074ff/llama-index-integrations/llms/llama-index-llms-openai/llama_index/llms/openai/base.py
+https://docs.llamaindex.ai/en/stable/examples/llm/openai.html
+For the text/description I used the values found here:
+https://github.com/ollama/ollama/blob/main/docs/modelfile.md#valid-parameters-and-values
+LlamaCPP, where it used the same K/V, had the same values. However my setup is currently using ollama, need some testing done for LlamaCPP.
+I also added the temperature under the main llm.settings. This should allow the models that supports this value to be edited/changed.",2,2
+1705,2024-03-11T16:45:53Z,2024-03-11T21:24:18Z,2024-03-11T21:24:18Z,1,9,4,"Original PR: #1679
+Recreating as the branch I was working on was closed.
+I found that after increasing
+similarity_top_k: int in vector_store_component.py to something higher, like 10, I would getting some duplicate hits in the sources used.
+Instead of just outputting the sources, as you loop through these, inject them into an array. If the item already exists in the array, don't re-add this to the sources_text.
+This only affects ""Query Docs""",2,0
+1706,2024-03-11T18:41:52Z,2024-03-14T16:12:33Z,2024-03-14T16:12:33Z,9,226,26,"Adding Postgres support for the Doc and Index store.
+Provided example using ollama and everything stored in Postgres.
+One thing that is a little unusual is that if you are using the same postgres DB for both the Docstore and the Vector store
+you need to supply the credentials twice.  This is has both benefit and downsides.",3,17
+1708,2024-03-11T21:24:52Z,2024-04-02T15:45:15Z,2024-04-02T15:45:15Z,2,36,1,"🤖 I have created a release beep boop
+0.5.0 (2024-04-02)
+Features
+
+code: improve concat of strings in ui (#1785) (bac818a)
+docker: set default Docker to use Ollama (#1812) (f83abff)
+docs: Add guide Llama-CPP Linux AMD GPU support (#1782) (8a836e4)
+docs: Feature/upgrade docs (#1741) (5725181)
+docs: upgrade fern (#1596) (84ad16a)
+ingest: Created a faster ingestion mode - pipeline (#1750) (134fc54)
+llm - embed: Add support for Azure OpenAI (#1698) (1efac6a)
+llm: adds serveral settings for llamacpp and ollama (#1703) (02dc83e)
+llm: Ollama LLM-Embeddings decouple + longer keep_alive settings (#1800) (b3b0140)
+llm: Ollama timeout setting (#1773) (6f6c785)
+local: tiktoken cache within repo for offline (#1467) (821bca3)
+nodestore: add Postgres for the doc and index store (#1706) (68b3a34)
+rag: expose similarity_top_k and similarity_score to settings (#1771) (087cb0b)
+RAG: Introduce SentenceTransformer Reranker (#1810) (83adc12)
+scripts: Wipe qdrant and obtain db Stats command (#1783) (ea153fb)
+ui: Add Model Information to ChatInterface label (f0b174c)
+ui: add sources check to not repeat identical sources (#1705) (290b9fb)
+UI: Faster startup and document listing (#1763) (348df78)
+ui: maintain score order when curating sources (#1643) (410bf7a)
+unify settings for vector and nodestore connections to PostgreSQL (#1730) (63de7e4)
+wipe per storage type (#1772) (c2d6948)
+
+Bug Fixes
+
+docs: Minor documentation amendment (#1739) (258d02d)
+Fixed docker-compose (#1758) (774e256)
+ingest: update script label (#1770) (7d2de5c)
+settings: set default tokenizer to avoid running make setup fail (#1709) (d17c34e)
+
+
+This PR was generated with Release Please. See documentation.",2,2
+1709,2024-03-11T22:13:58Z,2024-03-13T08:53:41Z,2024-03-13T08:53:41Z,1,1,0,Fixes #1695,2,0
+1715,2024-03-12T19:40:02Z,,2024-03-20T16:44:11Z,5,32,4,"Added capability to use similarity match as well as keyword include/exclude.
+            if settings().llm.keywords_include or settings().llm.keywords_exclude:
+                return ContextChatEngine.from_defaults(
+                    system_prompt=system_prompt,
+                    retriever=vector_index_retriever,
+                    llm=self.llm_component.llm,  # Takes no effect at the moment
+                    node_postprocessors=[
+                        MetadataReplacementPostProcessor(target_metadata_key=""window""),
+                        SimilarityPostprocessor(similarity_cutoff=settings().llm.similarity_value),
+                        KeywordNodePostprocessor(required_keywords=settings().llm.keywords_include, exclude_keywords=settings().llm.keywords_exclude),
+                    ],
+                )
+            else:
+                return ContextChatEngine.from_defaults(
+                    system_prompt=system_prompt,
+                    retriever=vector_index_retriever,
+                    llm=self.llm_component.llm,  # Takes no effect at the moment
+                    node_postprocessors=[
+                        MetadataReplacementPostProcessor(target_metadata_key=""window""),
+                        SimilarityPostprocessor(similarity_cutoff=settings().llm.similarity_value),
+                    ],
+                )
+
+Looking at:
+SimilarityPostprocessor(similarity_cutoff=settings().llm.similarity_value)
+The default value is none and you can look at how llama_index handles this:
+https://github.com/run-llama/llama_index/blob/d33b789de9635dcf19e02050c6a0487fcfeb30ad/llama-index-core/llama_index/core/postprocessor/node.py#L64
+This class automatically ignores it if set to None:
+sim_cutoff_exists = self.similarity_cutoff is not None",2,3
+1730,2024-03-15T00:29:14Z,2024-03-15T08:55:17Z,2024-03-15T08:55:17Z,5,39,45,"The duel configuration of the postgres connection settings for the nodestore and the vector store has a smell about it.   This PR unifies the connection to a postgres database by changing the database mode string from pgvector to postgres.
+It has an opinionated configuration for the name of the embedding table, and removes it from the configuration.  As the vector table needs to know the embedding model dimension to correctly setup the table, this has been moved into the embedding: section.
+It was easier to create a PR than trying to explain all this in a discussion forum.",2,1
+1735,2024-03-15T04:57:53Z,,2024-03-20T20:35:21Z,4,12,5,… and settings-ollama.yaml,2,2
+1739,2024-03-15T12:16:19Z,2024-03-15T15:36:32Z,2024-03-15T15:36:32Z,1,1,1,"It's essential that the documentation is correct.
+Just noticed a typo database: postgresql and it should be postgres",2,1
+1741,2024-03-15T15:43:10Z,2024-03-19T20:26:54Z,2024-03-19T20:26:54Z,2,6,6,Upgrade fern version and add info about the SDKs,2,1
+1750,2024-03-16T22:40:35Z,2024-03-19T20:24:46Z,2024-03-19T20:24:46Z,5,301,2,"Created a faster ingestion mode - pipeline
+Configuration
+embedding:
+  mode: ollama
+  embed_dim: 768
+  ingest_mode: pipeline
+  count_workers: 2
+
+Comparison (mm:ss) Ingesting 434 documents 144Mb all stores are in postgres using ollama for embeddings
+
+
+
+Mode
+2 Workers
+4 Workers
+
+
+
+
+pipeline
+3:42
+3:32
+
+
+parallel
+4:18
+3:45
+
+
+batch
+6:43
+
+
+
+simple
+9:45
+
+
+
+
+Using the local profile
+
+
+
+Mode
+2 Workers
+4 Workers
+
+
+
+
+pipeline
+3:47
+2:42
+
+
+parallel
+5:11
+4:26
+
+
+
+In the parallel ingest design, the blocking mutex for the index write causes a bottleneck stalling the embedding computations until the write operation completes. This is particularly problematic because the index is updated per file, exacerbating the slowdown. In contrast, the pipeline design adopts a non-blocking approach. Here, all worker data is fed into a single queue, where it accumulates before being written less frequently. This design choice allows for smoother and more efficient processing, as it minimizes the impact of filesystem operations on the overall workflow.
+Add an ETA logger so you can get an idea how far its gone and when it going  to finish
+11:34:09.279 [INFO    ]     private_gpt.utils.eta - 237/434 - ETA 1m 39s @ 120/min
+
+
+Processed files / total files ETA - time remaining @ files processed / minute
+
+The first log will appear after 30s of ingestion, and then every 60s thereafter.",2,3
+1758,2024-03-18T12:34:15Z,2024-03-20T20:36:45Z,2024-03-20T20:36:45Z,1,1,2,Make the compose work avoiding Pydantic error not recognizing local as proper mode.,2,1
+1763,2024-03-19T20:13:35Z,2024-03-20T18:11:45Z,2024-03-20T18:11:45Z,1,9,8,"Improves the speed of launching PrivateGPT's UI when lots of documents are ingested.
+Improves the speed of the ""list"" API.",3,2
+1770,2024-03-20T14:01:10Z,2024-03-20T19:23:08Z,2024-03-20T19:23:08Z,1,1,1,huggingface -> Hugging Face,2,0
+1771,2024-03-20T16:47:51Z,2024-03-20T21:25:26Z,2024-03-20T21:25:26Z,3,33,1,"Since i was out of town and there were some rather large changes to the code, I am doing a new PR for cleanliness.
+#1715 was the original.
+In the settings.yaml file I added two new settings.  Both of these are important to use together IMO.
+rag:
+  similarity_top_k: 2
+  #This value controls how many ""top"" documents the RAG returns to use in the context.
+  #similarity_value: 0.45
+  #This value is disabled by default.  If you enable this settings, the RAG will only use articles that meet a certain percentage score.
+
+similarity_top_k controls how many of the ""top"" results are returned by the RAG Pipeline.  Since i am ingesting lots of information for our organization from many different areas, sometimes I might have 5, 6 or 7 relevant sources.
+However the risk of increasing this value, is that you get a lot of junk that does not relate other than having a key word or something.  So similarity_value comes into play here and is used in the chat_service.py file.
+This scare requires the RAG to match a certain level of the document, or it is thrown out.  In my test cases 0.40 works well to weed out some of the lower end junk that comes out when you increase similarity_top_k to a higher value.",2,0
+1772,2024-03-20T19:28:35Z,2024-03-20T20:31:44Z,2024-03-20T20:31:44Z,1,76,2,"Improved the make wipe command to intelligently detect the database mode and perform the appropriate actions.
+A pure file system based profile setting-fs.yaml
+nodestore:
+  database: simple
+
+vectorstore:
+  database: chroma
+
+Wiping local storage.
+% PGPT_PROFILES=fs make wipe
+15:25:49.072 [INFO    ] private_gpt.settings.settings_loader - Starting application with profiles=['default', 'fs']
+ - Deleted /Users/brettengland/Development/privateGPT/local_data/private_gpt/docstore.json
+ - Deleted /Users/brettengland/Development/privateGPT/local_data/private_gpt/index_store.json
+Wiping /Users/brettengland/Development/privateGPT/local_data/private_gpt/chroma_db...
+ - Deleted /Users/brettengland/Development/privateGPT/local_data/private_gpt/chroma_db/chroma.sqlite3
+
+All data is stored in the database.
+nodestore:
+  database: postgres
+
+vectorstore:
+  database: postgres
+
+Wiping the postgres database tables.
+PGPT_PROFILES=brett make wipe
+15:21:58.503 [INFO    ] private_gpt.settings.settings_loader - Starting application with profiles=['default', 'brett']
+Table private_gpt.data_docstore dropped.
+Table private_gpt.data_indexstore dropped.
+Table private_gpt.data_embeddings dropped.
+
+TODO: qdrant storage",2,0
+1782,2024-03-21T22:35:11Z,2024-04-02T14:55:05Z,2024-04-02T14:55:05Z,1,34,0,"Added instructions for starting the GPU from AMD.
+Tested on AMD RadeonRX 7900 XTX.",2,0
+1783,2024-03-22T00:46:41Z,2024-04-02T14:41:42Z,2024-04-02T14:41:42Z,2,136,60,"Add support for deleting the collection created in a qdrant vector datastore.
+vectorstore:
+  database: qdrant
+
+I did not change the name of the store from make_this_parameterizable_per_api_call for upgrade compatibility.
+This collection should be named something more appropriate.   I suggest data_embeddings. This is how its named in the Postgres database.  Renaming this store will be a breaking upgrade for those who have ingested data.
+Test output
+% ls local_data/private_gpt/qdrant/collection 
+make_this_parameterizable_per_api_call
+% PGPT_PROFILES=local make wipe
+poetry run python scripts/utils.py wipe
+20:31:23.378 [INFO    ] private_gpt.settings.settings_loader - Starting application with profiles=['default', 'local']
+Collection dropped successfully.
+% ls local_data/private_gpt/qdrant/collection
+%
+
+Stats command
+This gives some simple metrics about the data, index and vector stores.
+QDRANT
+% PGPT_PROFILES=local  python scripts/utils.py stats
+16:19:16.360 [INFO    ] private_gpt.settings.settings_loader - Starting application with profiles=['default', 'local']
+Unable to execute command 'stats' on 'nodestore' in database 'simple'
+Storage for Qdrant vectorstore.
+	Points:        16,453
+	Vectors:       16,453
+	Index Vectors: 0
+
+POSTGRES
+% PGPT_PROFILES=brett  python scripts/utils.py stats
+15:37:53.301 [INFO    ] private_gpt.settings.settings_loader - Starting application with profiles=['default', 'brett']
+Storage for Postgres nodestore.
+Table           |            Rows |      Size
+---------------------------------------------
+data_docstore   |       3,562,741 |   6209 MB
+data_indexstore |               1 |    143 MB
+
+Storage for Postgres vectorstore.
+Table           |            Rows |      Size
+---------------------------------------------
+data_embeddings |       1,701,607 |     10 GB",2,0
+1785,2024-03-22T05:28:58Z,2024-04-02T14:42:40Z,2024-04-02T14:42:41Z,1,2,2,replaced concat of strings to avoid potential mismatch of types and make code more clear,3,1
+1800,2024-03-27T16:19:13Z,2024-04-02T14:23:11Z,2024-04-02T14:23:11Z,5,33,1,"ollama settings: ability to keep LLM in memory for a longer time + ability to run ollama embedding on another instance
+We've got a butter smooth production setup as of right now by doing the following things:
+
+
+Run the embedding on a separate Ollama instance (docker container)
+By doing this we avoid waiting times needed where Ollama swaps the LLM in (V)RAM to the embedding model in VRAM and back
+
+
+By explicitely stating with each request we want the used model to stay in (V)RAM for another 6 hours
+By default Ollama makes a model leave (V)RAM after 5 minutes of not being used. This caused long wait times to reload the LLM after > 5 minutes (running a 20 GB quant at the moment)
+
+
+(3. ingest_mode: pipeline)
+I hope this PR can make others as happy as I am right now ;)",3,3
+1810,2024-03-30T19:13:51Z,2024-04-02T08:29:51Z,2024-04-02T08:29:51Z,7,198,8,"Description
+This PR introduces support for document reranking, specifically leveraging SentenceTransformer cross-encoders. The addition aims to provide a lightweight and optimized approach to reranking, enhancing the model's response quality and speed.
+Motivation
+The integration of a reranking feature addresses the need for more relevant and accurate responses by pre-filtering documents before answer generation. The choice of SentenceTransformer's cross-encoder as the reranker is motivated by its efficiency and effectiveness in identifying the most relevant documents, compared to traditional LLM-based reranking methods.
+Changes Made
+
+Added an optional SentenceTransformerRerank node_postprocessor to ChatService, which facilitates the reranking process using the SentenceTransformer cross-encoder.
+Updated settings to include rerank-specific configurations, allowing users to enable and customize reranking according to their specific needs. This includes parameters such as model and top_n, where the latter controls the selection process of documents for final response generation.
+Documentation updates to guide users through enabling reranking, installing necessary dependencies (poetry install --extras rerank-sentence-transformers), and configuring rerank settings effectively for optimal performance.
+
+The reranking feature is disabled by default to accommodate the additional dependencies and the need for users to adjust configurations based on their unique use cases.
+Future Considerations
+Looking ahead, there's potential to further refine the reranking functionality by:
+
+Creating a dedicated reranker component: This would facilitate the incorporation of different reranker types, enhancing flexibility and customization for users.
+Expanding reranker support: Exploring and integrating additional reranker methods beyond the SentenceTransformer cross-encoder could provide users with more options to tailor the reranking process to their specific requirements.",4,0
+1812,2024-03-31T07:33:35Z,2024-04-01T11:08:48Z,2024-04-01T11:08:48Z,3,18,4,"Given that we have Ollama as the new recommended setup, I propose to make a modification to the Dockerfile and compose it to make it coherent with the new local setup. I decoupled Ollama from privateGPT, making it a separate microservice.",3,1
+1831,2024-04-03T16:27:11Z,2024-04-04T12:37:29Z,2024-04-04T12:37:30Z,1,8,1,Fix sagemaker implementation not filtering special tokens like </s>,2,0

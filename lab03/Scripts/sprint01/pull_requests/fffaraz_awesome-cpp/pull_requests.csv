@@ -1,0 +1,46 @@
+number,created_at,merged_at,closed_at,files,additions,deletions,body_text,participants,comments
+88,2015-03-23T16:41:25Z,2015-03-23T22:36:15Z,2015-03-23T22:36:15Z,1,1,0,,3,0
+278,2016-11-18T11:05:40Z,2016-11-20T19:34:03Z,2016-11-20T19:34:03Z,1,1,0,,2,1
+281,2016-12-07T09:05:10Z,2016-12-07T15:04:18Z,2016-12-07T15:04:19Z,1,1,1,Biicode has been abandoned and the same idea (and almost the same team) is now developing Conan.,3,0
+349,2017-06-03T05:27:43Z,,2021-04-12T07:29:26Z,1,1,0,,3,1
+377,2017-09-15T09:39:40Z,2017-09-16T19:05:11Z,2017-09-16T19:05:11Z,1,6,1,,2,0
+411,2017-12-02T10:22:54Z,2017-12-02T19:38:01Z,2017-12-02T19:38:01Z,2,12,2,"In Asynchronous Event Loop section, I also added Asio.  Asio and Boost.Asio share the same code base though. The differences between them are described here. Shall we keep them all?",3,0
+423,2017-12-29T12:20:29Z,,2022-03-30T07:45:25Z,1,1,0,,3,0
+456,2018-02-19T16:42:42Z,,2018-02-20T10:38:21Z,1,1,0,Added Deleaker.,2,0
+472,2018-04-06T01:14:25Z,2018-04-09T15:25:46Z,2018-04-09T15:25:46Z,1,10,0,,2,1
+692,2019-03-07T10:25:23Z,2019-03-07T15:36:37Z,2019-03-07T15:36:37Z,1,1,1,mini_al has been rebranded to miniaudio.,3,0
+727,2019-04-08T14:18:58Z,2019-04-09T10:16:31Z,2019-04-09T10:16:31Z,1,1,0,,2,1
+910,2019-10-27T18:59:41Z,,2021-01-30T07:55:12Z,1,2,0,"Hey everyone,
+I would like to introduce an opensource cross-platform console component with no dependencies (using STL only).
+console-component
+Preview:
+Install:
+
+Create Project:
+
+Usage:
+
+For all the vscoders, In addition I've also created a great vscode extension that helps to generate the cmake project and the commands using the command palette that would increase your productivity.
+And you could install this extension using the following link: vscode-extension
+I hope some of you will find it useful for your own projects and interesting as much as I did :)",4,7
+964,2020-03-04T09:34:30Z,2020-03-20T23:40:32Z,2020-03-20T23:40:32Z,1,1,0,,4,0
+1033,2020-09-15T15:06:40Z,2020-09-15T23:09:13Z,2020-09-15T23:09:13Z,2,1,1,"UnQLite - A self-contained, serverless, zero-configuration, transactional NoSQL engine. [BSD-2-Clause] website",3,0
+1108,2021-05-25T02:45:15Z,2021-05-25T15:38:43Z,2021-05-25T15:38:43Z,1,1,1,Fixes #1107,2,0
+1208,2022-04-29T03:22:30Z,2022-04-30T15:28:32Z,2022-04-30T15:28:32Z,1,1,0,"fccf is a new command-line tool that quickly searches through C/C++ source code in a directory based on a search string and prints relevant code snippets that match the query.
+https://github.com/p-ranav/fccf",3,0
+1234,2022-08-07T08:45:06Z,2022-08-08T04:21:57Z,2022-08-08T04:21:57Z,1,1,1,link is not working for A TUTORIAL ON POINTERS AND ARRAYS IN C by Ted Jensen.,2,0
+1292,2023-01-30T19:38:53Z,,2023-09-26T03:02:59Z,1,1,0,This cheat sheet provides a great reference for C++ concepts and syntax and is a great resource for anyone learning or coding in the language.,4,2
+1336,2023-04-25T16:52:25Z,2023-05-03T02:59:00Z,2023-05-03T02:59:00Z,1,1,1,"As of May 17, 2022, the latest major release of Catch2 (v3) is no longer a header-only library. See:
+https://github.com/catchorg/Catch2#catch2-v3-has-been-released
+
+v3 brings a bunch of significant changes, the big one being that Catch2 is no longer a single-header library. Catch2 now behaves as a normal library, with multiple headers and separately compiled implementation.",3,1
+1349,2023-06-10T23:02:53Z,2023-06-13T22:51:51Z,2023-06-13T22:51:51Z,1,1,0,"This pull request adds a new tool, Doxide, to the documentation category:
+
+Doxide - Modern documentation for modern C++, configure with YAML, output Markdown. [Apache 2.0] website",3,0
+1403,2023-08-20T16:56:15Z,2023-08-22T01:06:44Z,2023-08-22T01:06:44Z,1,1,1,,3,0
+1413,2023-10-03T16:56:52Z,2023-10-04T06:06:57Z,2023-10-04T06:06:57Z,1,1,1,"The bit7z project was recently re-licensed from GPLv2 to the Mozilla Public License v2.
+Also, it is now a cross-platform library rather than Windows-only.
+In this PR, I updated the entry of bit7z with the new license and a better-suited description.",3,0
+1419,2023-10-11T17:00:46Z,2023-10-12T02:58:06Z,2023-10-12T02:58:06Z,1,1,1,"Please refer following release note:
+https://taskflow.github.io/taskflow/release-2-5-0.html",2,0
+1488,2024-01-07T06:16:32Z,2024-01-08T00:35:32Z,2024-01-08T00:35:33Z,1,10,1,"Recently learned about this list and was very excited to see StringZilla, one of my libraries, here. With this PR I want to add a few more C++ projects, both related and unrelated to my work in AI infra.",3,1

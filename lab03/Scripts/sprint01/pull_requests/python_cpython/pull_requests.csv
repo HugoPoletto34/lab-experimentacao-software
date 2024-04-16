@@ -1,0 +1,1881 @@
+number,created_at,merged_at,closed_at,files,additions,deletions,body_text,participants,comments
+2,2017-02-10T22:41:59Z,2017-02-11T01:21:39Z,2017-02-11T01:21:39Z,2,44,51,"README.rst is recognized by GitHub which will render the README as reStructured text (nice!), instead of plain text.
+Example with my tiny project https://github.com/haypo/perf which has a README.rst file.",8,14
+4,2017-02-10T23:15:26Z,,2017-02-14T16:09:30Z,38,45,46,"Make it current.
+I searched for \d+ Python Software Foundation. and selectively updated where it made sense.",12,18
+8,2017-02-10T23:58:12Z,2017-02-16T15:18:43Z,2017-02-16T15:18:43Z,4,6,6,,7,5
+9,2017-02-11T00:04:16Z,2017-02-11T04:47:38Z,2017-02-11T04:47:38Z,3,17,17,"crosses fingers (My crappy computer never finishes building the docs, so let's see how far Travis goes...)",6,4
+10,2017-02-11T00:24:44Z,2017-02-12T16:17:51Z,2017-02-12T16:17:51Z,1,5,5,"There were some grammatical errors in weakref.WeakValueDictionary
+documentation.
+This should be applied to 3.5, 3.6, and master.
+Original patch was in bpo http://bugs.python.org/file46597/issue29474py3-2.patch",3,3
+11,2017-02-11T00:33:40Z,2017-02-11T01:44:58Z,2017-02-11T01:44:58Z,1,2,2,"There were some grammatical errors in weakref.WeakValueDictionary
+documentation.
+This is to be applied to 2.7",3,1
+12,2017-02-11T00:38:46Z,2017-02-12T18:27:06Z,2017-02-12T18:27:06Z,9,1393,1345,"Move all functions to call objects in a new Objects/call.c file.
+Rename fast_function() to _PyFunction_FastCallKeywords().
+Copy null_error() from Objects/abstract.c
+Inline type_error() in call.c to not have to copy it, it was only   called once.
+Export _PyEval_EvalCodeWithName() since it is now called   from call.c.
+
+http://bugs.python.org/issue29524",4,3
+17,2017-02-11T02:57:19Z,2017-02-12T04:51:31Z,2017-02-12T04:51:31Z,2,9,3,,4,2
+19,2017-02-11T03:38:27Z,,2017-02-15T01:01:58Z,3,12,12,I have simply updated the document and its references to README.rst (thanks to whoever formatted it).,7,17
+20,2017-02-11T03:55:18Z,2017-02-15T09:04:44Z,2017-02-15T09:04:44Z,1,3,3,,5,9
+21,2017-02-11T05:33:36Z,2017-02-14T04:01:04Z,2017-02-14T04:01:04Z,1,77,83,"This does some modernization and cleanup of the toplevel README.  There is still significant room for improvement, but this hits some of the low-hanging fruit.
+For reviewers, the first commit is the real change, the second commit is a simple rewrap.",8,2
+22,2017-02-11T05:49:52Z,2017-02-12T16:18:07Z,2017-02-12T16:18:07Z,1,5,5,"There were some grammatical errors in weakref.WeakValueDictionary
+documentation.
+Same as #10, backported to 3.6 branch",3,2
+23,2017-02-11T05:50:14Z,2017-02-12T16:21:36Z,2017-02-12T16:21:36Z,1,5,5,"There were some grammatical errors in weakref.WeakValueDictionary
+documentation.
+Same as #10, backported to 3.5 branch",3,1
+24,2017-02-11T08:31:12Z,2017-04-06T05:19:41Z,2017-04-06T05:19:41Z,5,110,26,"The 2to3 tool will automatically wrap calls to map, zip, and filter with list():
+# Original:
+zip('abc', '123')
+
+# After 2to3:
+list(zip('abc', '123'))
+...but the tool misses some cases, if the call is followed by a ""trailer"" such as [0]:
+# Skipped by 2to3:
+zip('abc', '123')[0]
+This PR augments the lib2to3 ""fixers"" for map, zip, and filter to correctly handle such cases.
+http://bugs.python.org/issue28837",3,2
+25,2017-02-11T09:15:46Z,2017-02-19T05:12:00Z,2017-02-19T05:12:00Z,1,104,0,,6,12
+26,2017-02-11T09:16:07Z,2017-02-19T05:13:02Z,2017-02-19T05:13:02Z,1,104,0,,7,1
+27,2017-02-11T09:19:24Z,2017-02-20T00:44:54Z,2017-02-20T00:44:54Z,1,77,0,,6,2
+28,2017-02-11T11:53:37Z,2017-02-13T21:50:14Z,2017-02-13T21:50:15Z,4,335,58,"This PR contains various updates from upstream python/typing repo:
+
+Added typing.Counter and typing.ChainMap generics
+More flexible typing.NamedTuple
+Improved generic ABC caching
+More tests
+Bugfixes
+Other updates
+
+This should be backported to 3.6 and 3.5 branches.",5,11
+30,2017-02-11T16:21:25Z,2017-02-13T04:21:20Z,2017-02-13T04:21:20Z,1,6,2,"I'm not sure that this is correct, but we'll see what codecov thinks.  It does pass the validator, but I couldn't get the validator to fail at all with well-formed YAML...",7,4
+31,2017-02-11T19:35:34Z,2017-08-28T12:08:50Z,2017-08-28T12:08:50Z,3,123,30,"Ctypes currently produces wrong pep3118 type codes for several types.
+E.g. memoryview(ctypes.c_long()).format gives ""<l"" on 64-bit platforms,
+but it should be ""<q"" instead for sizeof(c_long) == 8
+The problem is that the '<>' endian specification in the struct syntax
+also turns on the ""standard size"" mode, which makes type characters have
+a platform-independent meaning, which does not match with the codes used
+internally in ctypes.  The struct module format syntax also does not
+allow specifying native-size non-native-endian items.
+This commit adds a converter function that maps the internal ctypes
+codes to appropriate struct module standard-size codes in the pep3118
+format strings. The tests are modified to check for this.
+Example of the current problem in practice:
+>>> import numpy, ctypes
+>>> numpy.asarray(memoryview(ctypes.c_long(42)))
+/usr/lib64/python3.5/site-packages/numpy/core/numeric.py:482: RuntimeWarning: Item size computed from the PEP 3118 buffer format string does not match the actual item size.
+  return array(a, dtype, copy=False, order=order)
+Traceback (most recent call last):
+  File ""<stdin>"", line 1, in <module>
+  File ""/usr/lib64/python3.5/site-packages/numpy/core/numeric.py"", line 482, in asarray
+    return array(a, dtype, copy=False, order=order)
+ValueError: setting an array element with a sequence.
+
+
+struct format string syntax
+bpo-10746
+
+
+https://bugs.python.org/issue10746",6,26
+32,2017-02-12T00:22:29Z,2017-02-16T02:00:32Z,2017-02-16T02:00:32Z,5,41,7,"Add the python version since the functionality is deprecated,
+and raise a couple of deprecation warnings in a few places.
+Theses functions are marked as deprecated in the documentation, but
+especially in existing codebase, programmers tends to not re-check
+whether functions are deprecated. So trigger the warning when possible.
+It's also more probable that a developer will drop deprecated
+functionality if we immediately give them information about
+replacement API, and not have them to go find it in the documentation.
+Include deprecation information in DocString as well, as many tools pull
+documentation from there and not from docs.python.org.",4,5
+33,2017-02-12T00:32:35Z,2017-03-02T14:21:27Z,2017-03-02T14:21:27Z,3,25,6,"Allow developers to not have to either test on N Python versions or
+looked through multiple versions of the docs to know whether they can
+easily update.",4,6
+34,2017-02-12T02:41:22Z,2017-02-16T10:00:46Z,2017-02-16T10:00:46Z,1,35,7,"Clarify the documentation of time.time by more
+precisely defining what is meant by ""seconds since
+the epoch"" on most platforms. Additionally explain
+how gmtime and localtime may be used to extract
+calendar components and convert to a more common
+date format.
+@Haypo
+https://bugs.python.org/issue29026",6,3
+35,2017-02-12T03:50:00Z,2017-02-12T21:07:06Z,2017-02-12T21:07:06Z,1,5,2,"Change the documentation's Show Source link on the left menu
+to GitHub source file.",3,1
+36,2017-02-12T03:54:49Z,2017-02-12T21:08:01Z,2017-02-12T21:08:01Z,1,5,2,"Change the documentation's Show Source link on the left menu
+to GitHub source file.
+(cherry picked from commit 23bafa2)",4,0
+37,2017-02-12T03:55:17Z,2017-02-12T21:08:25Z,2017-02-12T21:08:25Z,1,5,2,"Change the documentation's Show Source link on the left menu
+to GitHub source file.
+(cherry picked from commit 23bafa2)",4,0
+38,2017-02-12T04:05:08Z,2017-02-12T21:07:34Z,2017-02-12T21:07:34Z,1,3,2,"Change the documentation's Show Source link on the left menu
+to GitHub source file.",3,0
+39,2017-02-12T05:11:17Z,2017-02-13T00:19:05Z,2017-02-13T00:19:06Z,2,9,3,,4,0
+40,2017-02-12T05:38:10Z,2017-02-13T00:16:20Z,2017-02-13T00:16:20Z,2,6,6,,4,0
+41,2017-02-12T06:40:19Z,2017-02-13T13:57:14Z,2017-02-13T13:57:14Z,2,5,4,"Much of bpo-29521 was fixed in parallel with commit
+e7ffb99 .  This cleans up the rest.
+Apply parallel change to Doc/make.bat to read
+""set SPHINXOPTS=-D latex_elements.papersize=""
+I don't have a Windows system on which to observe the warning,
+but it should be necessary.
+The warning:
+.../workspace/cpython_github/Doc/faq/windows.rst:303:
+WARNING: unknown option: -t
+In the Windows FAQ, How do I keep editors from inserting tabs
+into my Python source?, contained a reference to a Python -t
+option. In Python 2.x, this caused Python to issue warnings
+about lines with mixed spaces and tabs, but as of Python 3.6
+it does nothing.
+Per discussion at http://bugs.python.org/issue29387, take
+their wording. Python [3] raises an IndentationError or
+TabError. Tabnanny is now a module.",5,1
+42,2017-02-12T07:44:10Z,2017-02-12T12:18:46Z,2017-02-12T12:18:46Z,1,4,4,cherry-picked from #1,4,2
+43,2017-02-12T07:48:52Z,2017-02-13T20:11:26Z,2017-02-13T20:11:26Z,1,4,4,"Change the url to 3.5
+(cherry picked from commit 79ab8be)",4,3
+44,2017-02-12T07:52:17Z,2017-02-12T20:59:21Z,2017-02-12T20:59:21Z,1,2,2,"Change documentation's Show Source link to GitHub (2.7 branch)
+Render issue role as bpo-NNNN",3,3
+45,2017-02-12T08:01:21Z,,2018-05-21T04:18:35Z,1,53,27,"A fix for bug bpo-29428, Doctest documentation unclear about multi-line fixtures.
+This changes Doc/library/doctest.rst only. No code changes.
+Clarify the introduction of section, ""How are Docstring
+Examples Recognized"", by moving it to above the example
+and rewriting for clarity.
+Change the example in that section to use more plausible
+code, which also demonstrates a multi-line test fixture.
+Add three ""fine print"" points, about the example prefix
+strings, blank expected output, and multi-line expected
+output.
+Clarify the introduction of section, ""What's the Execution
+Context"", by rewriting for clarity, and breaking into three
+paragraphs.
+Copy-edit the first paragraph in section, ""Which Docstrings
+Are Examined?"".",9,9
+46,2017-02-12T09:16:56Z,2017-02-22T15:32:00Z,2017-02-22T15:32:00Z,15,3150,3045,"ClassDef, ModuleDef, FunctionDef, and AsyncFunctionDef has docstring
+field for now.  It was first statement of there body.",4,6
+48,2017-02-12T11:45:43Z,2017-02-12T16:13:32Z,2017-02-12T16:13:32Z,1,1,1,"It took me quite a bit to figure out what this was referring to,
+since the given issue number is wrong, and the original commit
+message I found through git blame lists a different, also wrong
+issue number... see https://bugs.python.org/issue27122#msg279449(cherry picked from commit af88e7e)",4,1
+49,2017-02-12T11:48:16Z,2017-02-12T22:10:49Z,2017-02-12T22:10:49Z,1,0,1,"EasyDialogs was removed in 3.x.
+ff47a13",6,5
+50,2017-02-12T11:49:41Z,2017-02-12T16:18:02Z,2017-02-12T16:18:02Z,1,1,1,"It took me quite a bit to figure out what this was referring to,
+since the given issue number is wrong, and the original commit
+message I found through git blame lists a different, also wrong
+issue number... see https://bugs.python.org/issue27122#msg279449
+(cherry picked from commit af88e7e)",4,2
+51,2017-02-12T15:15:45Z,2017-02-23T13:38:05Z,2017-02-23T13:38:05Z,3,22,3,"When you use '%s' % SubClassOfStr(), where SubClassOfStr.__rmod__ exists, the reverse operation is ignored as normally such string formatting operations use the PyUnicode_Format() fast path. This patch tests for subclasses of str first and picks the slow path in that case.
+Fixes bpo-28598.",7,6
+52,2017-02-12T18:35:16Z,2017-02-12T22:42:03Z,2017-02-12T22:42:03Z,1,1,1,"Set name to ""_curses.window"" instead of ""_curses.curses window"" (with
+a space!?).",5,2
+54,2017-02-12T19:10:17Z,2017-04-17T18:35:43Z,2017-04-17T18:35:43Z,1,44,0,"Add a test to check the current MAGIC_NUMBER against the
+expected number for the release if the current release is
+at candidate or final level. On test failure, describe to
+the developer the procedure for changing the magic number.
+https://bugs.python.org/issue29514",7,5
+55,2017-02-12T22:04:50Z,2017-02-20T13:09:00Z,2017-02-20T13:09:00Z,1,3,3,,10,12
+57,2017-02-12T23:18:49Z,,2018-11-04T22:41:06Z,1,24,12,"http://bugs.python.org/issue19675
+
+This is my first contribution. Please forgive if the commit-message is not formatted correctly. I was not able to find the guidelines for the convention. I read ""https://docs.python.org/devguide/committing.html"" and ""https://docs.python.org/devguide/pullrequest.html"".
+I'm assuming this is too trivial a change to make a change to Misc/ACKS.
+
+""make test"" output:
+28 tests skipped:
+    test_bz2 test_ctypes test_curses test_dbm_gnu test_dbm_ndbm
+    test_devpoll test_gzip test_idle test_kqueue test_lzma test_msilib
+    test_ossaudiodev test_readline test_smtpnet test_sqlite test_ssl
+    test_startfile test_tcl test_tix test_tk test_ttk_guionly
+    test_ttk_textonly test_turtle test_winconsoleio test_winreg
+    test_winsound test_zipfile64 test_zlib
+
+Total duration: 4 min 18 sec
+Tests result: SUCCESS
+
+""make patchcheck"" also succeeds. Not sure if any other checks are required prior to posting the PR and relying on any automatic checks that ensue there.
+This would obviously also need to be labeled for backporting.
+
+https://bugs.python.org/issue19675",8,13
+58,2017-02-13T00:46:43Z,,2017-02-13T19:45:31Z,173,666,666,"I renamed whole different variations Mac OS X's to macOS
+A few different variations I found.
+Mac OS 		——>	macOS
+Mac OS X 	——>	macOS
+Mac OSX 	——>	macOS
+MacOS X		——>	macOS
+Mac OSX		——>	macOS
+MacOSX 		——>	macOS
+OSX 		——>	macOS
+OS X 		——>	macOS
+With this, everything about macOS can be found comfortably.",7,6
+59,2017-02-13T01:45:56Z,,2017-02-14T01:24:44Z,5,6,6,fix typo,5,2
+60,2017-02-13T01:50:41Z,,2017-09-26T19:22:09Z,7,38,7,"While this is a valid Python 2 and Python 3 syntax lib2to3 would choke
+on it:
+    set(x for x in [],)
+This patch changes the grammar definition used by lib2to3 so that the
+actual Python syntax is supported now and backwards compatibility is
+preserved.
+
+https://bugs.python.org/issue27494",3,7
+61,2017-02-13T03:47:35Z,,2017-02-15T13:32:28Z,1,2,0,"This is targeted at 3.6, but half of it should be backported to 3.5.",3,6
+64,2017-02-13T08:18:33Z,2017-02-28T06:32:08Z,2017-02-28T06:32:08Z,1,3,3,"I think the sections about different compiler options should be sub-sections of the ""Building"" section. This change does that -- the LTO and profile-guided optimization sections are now ""h3"" sections.
+You can see how this renders on GitHub at https://github.com/eklitzke/cpython/tree/docs",3,4
+65,2017-02-13T10:24:21Z,2017-02-14T18:22:56Z,2017-02-14T18:22:56Z,3,28,11,Fix for https://bugs.python.org/issue29534,4,10
+70,2017-02-13T14:44:00Z,2017-02-13T15:57:31Z,2017-02-13T15:57:31Z,2,8,6,"Badges are small images which gives the status of the Travis CI and
+the coverage percentage of Codecode. It helps to check the status of
+the Travis CI and to get the link to Travis CI.
+See also https://shields.io/",5,3
+71,2017-02-13T15:32:45Z,2017-02-14T09:56:14Z,2017-02-14T09:56:14Z,1,14,9,,5,3
+72,2017-02-13T15:50:50Z,,2017-05-13T19:49:37Z,3,27,4,"Fix for https://bugs.python.org/issue29540
+I decided to go with Alternative version provided R.David Murray just to keep things simple",6,14
+74,2017-02-13T17:02:54Z,2017-02-14T09:57:27Z,2017-02-14T09:57:27Z,1,27,9,,4,2
+75,2017-02-13T17:38:08Z,2017-03-14T09:01:00Z,2017-03-14T09:01:00Z,2,30,33,"PyEval_Call* APIs are not documented and they doesn't respect PY_SSIZE_T_CLEAN.
+So add comment block to recommend them where PyEval_Call APIs are declared.
+This commit also changes PyEval_CallMethod and PyEval_CallFunction implementation
+same to PyObject_CallMethod and PyObject_CallFunction.
+PyEval_CallFunction(callable, ""i"", (int)i) now calls callable(i) instead of raising TypeError.
+I expect this allows compiler to share some code between PyEval_CallFunction and PyObject_CallFunction.  But I'm not sure.
+
+[bpo-29548]",5,7
+77,2017-02-13T21:58:19Z,2017-02-14T14:11:13Z,2017-02-14T14:11:13Z,4,335,58,"various updates from upstream python/typing repo:
+
+Added typing.Counter and typing.ChainMap generics
+More flexible typing.NamedTuple
+Improved generic ABC caching
+More tests
+Bugfixes
+Other updates
+
+
+
+Add Misc/NEWS entry
+
+
+Add issue number
+
+
+Contributed by Ivan Levkivskyi @ilevkivskyi
+(cherry picked from commit b692dc8)",4,0
+79,2017-02-13T22:20:14Z,2017-02-13T23:48:41Z,2017-02-13T23:48:41Z,1,11,3,"Add a paragraph at the top for users, not builders, of Python.
+
+
+Use nicer rst url syntax to avoid borking paragraphs in the plain text.
+
+
+Contributed by Ned Batchelder @nedbat
+(cherry picked from commit 3cdbd68)",4,0
+80,2017-02-13T22:22:37Z,2017-02-13T23:49:08Z,2017-02-13T23:49:08Z,1,11,2,"Add a paragraph at the top for users, not builders, of Python.
+
+
+Use nicer rst url syntax to avoid borking paragraphs in the plain text.
+
+
+Contributed by Ned Batchelder @nedbat
+(cherry picked from commit 3cdbd68)",4,0
+81,2017-02-14T00:28:51Z,2017-02-14T14:11:49Z,2017-02-14T14:11:49Z,2,16,16,"Fix some deprecation warnings in Doc/conf.py
+Fix an rst error in Misc/NEWS
+
+Contributed by Ryan Gonzalez @kirbyfan64
+(cherry picked from commit e7ffb99)",4,0
+82,2017-02-14T00:33:41Z,2017-02-14T14:12:16Z,2017-02-14T14:12:16Z,2,16,16,"Fix some deprecation warnings in Doc/conf.py
+Fix an rst error in Misc/NEWS
+
+Contributed by Ryan Gonzalez @kirbyfan64
+(cherry picked from commit e7ffb99)",4,0
+83,2017-02-14T00:37:06Z,2017-02-14T16:55:00Z,2017-02-14T16:55:00Z,2,5,4,"Much of bpo-29521 was fixed in parallel with commit
+e7ffb99 .  This cleans up the rest.
+Apply parallel change to Doc/make.bat to read
+""set SPHINXOPTS=-D latex_elements.papersize=""
+I don't have a Windows system on which to observe the warning,
+but it should be necessary.
+The warning:
+.../workspace/cpython_github/Doc/faq/windows.rst:303:
+WARNING: unknown option: -t
+In the Windows FAQ, How do I keep editors from inserting tabs into my Python source?, contained a reference to a Python -t
+option. In Python 2.x, this caused Python to issue warnings
+about lines with mixed spaces and tabs, but as of Python 3.6
+it does nothing.
+Per discussion at http://bugs.python.org/issue29387, take
+their wording. Python [3] raises an IndentationError or
+TabError. Tabnanny is now a module.
+Contributed by Jim DeLaHunt @JDLH
+(cherry picked from commit 3d707be)",4,2
+84,2017-02-14T00:38:32Z,2017-02-14T16:54:23Z,2017-02-14T16:54:23Z,2,5,4,"Much of bpo-29521 was fixed in parallel with commit
+e7ffb99 .  This cleans up the rest.
+Apply parallel change to Doc/make.bat to read
+""set SPHINXOPTS=-D latex_elements.papersize=""
+I don't have a Windows system on which to observe the warning,
+but it should be necessary.
+The warning:
+.../workspace/cpython_github/Doc/faq/windows.rst:303:
+WARNING: unknown option: -t
+In the Windows FAQ, How do I keep editors from inserting tabs into my Python source?, contained a reference to a Python -t
+option. In Python 2.x, this caused Python to issue warnings
+about lines with mixed spaces and tabs, but as of Python 3.6
+it does nothing.
+Per discussion at http://bugs.python.org/issue29387, take
+their wording. Python [3] raises an IndentationError or
+TabError. Tabnanny is now a module.
+Contributed by Jim DeLaHunt @JDLH
+(cherry picked from commit 3d707be)",4,0
+85,2017-02-14T02:37:52Z,2017-02-25T04:47:38Z,2017-02-25T04:47:38Z,4,37,16,"When calling webbrowser.open*(), the module goes through a list of installed browsers, and uses the first one that succeeds, to process the request.
+The first 'browsers' in the 'X' list are 'xdg-open' and others of that ilk. The problem is that they only have one 'open' behavior - the 'new' parameter is ignored ('same window', 'new window', 'new tab').
+These commits move the default web browser to the front of the tryorder list, allowing get() behavior to match the documentation.
+This same problem was recently fixed in Windows via Issue #8232",7,11
+86,2017-02-14T04:22:14Z,2017-02-15T19:29:16Z,2017-02-15T19:29:16Z,2,235,242,"Includes GH-2, GH-70, GH-73, and GH-21.",4,3
+87,2017-02-14T04:28:56Z,2017-03-01T11:41:04Z,2017-03-01T11:41:04Z,2,11,6,It should raise TypeError when kwargs is not a dict.,3,0
+89,2017-02-14T05:45:54Z,,2018-07-08T17:38:37Z,5,103,13,"Add ckj option flag, default to False
+Add cjk_wide(), cjk_len() and cjk_slices() utilities",9,12
+90,2017-02-14T06:20:59Z,2017-02-14T22:37:50Z,2017-02-14T22:37:50Z,1,0,2,"""appears to not work in all cases"" does not inspire confidence in this
+module. I can find no context for what bug this was referencing so it
+should be removed.
+It appears this comment was from the original documentation for this function in 1995 but the commit also does not include any context regarding a bug: https://hg.python.org/cpython/rev/3911d4a89ab0#l4.40",5,6
+91,2017-02-14T08:33:32Z,2017-02-15T00:05:26Z,2017-02-15T00:05:26Z,3,31,2,"And path as well when existing.
+See bpo-29546
+This is a step toward providing better error messages in case of
+from-import. Barry Warsaw Proposed:
+cannot import name {name} from {module} ({path})
+But that's probably going to trigger more discussions that filling in
+already existing fields.
+
+I'm not familiar with C-internal of CPython, So let me know if I'm doing things wrong.",5,16
+94,2017-02-14T09:21:16Z,2017-02-27T16:07:27Z,2017-02-27T16:07:27Z,3,21,3,Backport of #51,5,0
+97,2017-02-14T15:30:43Z,2017-02-16T00:26:01Z,2017-02-16T00:26:01Z,7,23,40,"While bpo-29548, some inefficient PyEval_Call*() usage are found.
+This is spin off pull request for fixing them.
+
+Use _PyObject_CallNoArg() when there are no arguments.
+Use PyObject_CallMethod instead of manually calling Py_BuildValue().  (temporary tuple may be skipped)",4,0
+98,2017-02-14T16:09:23Z,2017-02-15T23:34:30Z,2017-02-15T23:34:30Z,4,0,16,"This #include is added in b744ba1 (issue8610) and later the use of CODESET is removed in d64e8a7 (issue9642).
+Found this in investigating issue29436
+This is a minor fix but my first patch on Github. Hope everything works :)",3,2
+103,2017-02-15T01:00:10Z,2017-02-22T15:06:51Z,2017-02-22T15:06:51Z,4,39,5,"Add location information like canonical module name where identifier
+cannot be found and file location if available.
+First iteration of this was gh-91
+
+Testless for now, I can add tests once the exact format has been agreed upon.",4,8
+104,2017-02-15T01:06:40Z,2017-02-15T22:54:06Z,2017-02-15T22:54:06Z,5,16,15,I have simply updated the document and its references to README.rst (thanks to whoever formatted it).,7,14
+106,2017-02-15T03:58:54Z,2017-02-15T23:16:25Z,2017-02-15T23:16:25Z,1,1,0,"I missed adding @JDLH into Misc/ACKS in GH-41 🙁
+Sorry about that... Hope it's not too late.😸
+Will cherry-pick into 3.5 and 3.6 🍒",4,3
+107,2017-02-15T04:26:27Z,2017-02-15T19:37:19Z,2017-02-15T19:37:19Z,1,2,0,http://bugs.python.org/issue29481,3,0
+108,2017-02-15T04:33:57Z,2017-02-15T19:38:49Z,2017-02-15T19:38:49Z,1,2,0,"http://bugs.python.org/issue29481
+(cherry picked from commit 7e147f1)",3,0
+109,2017-02-15T04:39:37Z,2017-02-15T19:39:38Z,2017-02-15T19:39:38Z,1,2,0,http://bugs.python.org/issue29481,3,0
+110,2017-02-15T04:48:09Z,2017-02-15T23:14:42Z,2017-02-15T23:14:42Z,1,1,0,(cherry picked from commit 6420088),4,0
+111,2017-02-15T04:48:38Z,2017-02-15T23:14:39Z,2017-02-15T23:14:39Z,1,1,0,(cherry picked from commit 6420088),4,0
+112,2017-02-15T05:09:12Z,2017-02-25T02:09:22Z,2017-02-25T02:09:22Z,1,2,0,"Mention bpo-28929 in the Documentation section of:
+
+What's New in Python 3.7.0 alpha 1?
+What's New in Python 3.6.1 release candidate 1?
+What's New in Python 3.5.4 release candidate 1?
+
+http://bugs.python.org/issue28929",4,4
+113,2017-02-15T05:49:37Z,2017-02-15T22:18:03Z,2017-02-15T22:18:03Z,1,3,10,"Return to always building the docs, it's a relatively cheap operation, the check is currently flawed (see GH-104, where the docs build was not run on a Doc/-only change; the grep call should not have -v), and the docs build is affected by at least Misc/NEWS as well as Doc/.
+Add make suspicious
+Do all three checks as one make check suspicious html invocation for
+earliest possible exit in case of issues.",4,0
+116,2017-02-15T10:05:23Z,2017-02-15T16:00:55Z,2017-02-15T16:00:55Z,1,3,3,from GH-20,4,0
+117,2017-02-15T10:31:49Z,,2019-08-22T22:02:27Z,3,46,2,Fix for https://bugs.python.org/issue29553,7,4
+118,2017-02-15T12:45:47Z,,2017-02-18T05:20:00Z,1,8,162,,6,4
+120,2017-02-15T14:21:22Z,,2019-08-31T00:13:55Z,3,72,11,"Fix for https://bugs.python.org/issue29553
+Alternative to #117
+This alternative advised by Christoph Stahl and Brian Curtin",6,3
+121,2017-02-15T14:59:09Z,,2017-02-20T09:30:58Z,3,48,13,"I think that functionality of threading.Timer class can be easily extended to generate the sequence of runs with specified period. The idea comes from the GLib.timeout_add function.
+http://bugs.python.org/issue29569
+As most current CB functions that are used in Timer returns nothing (None) they will run only once as earlier. Only functions that returns True will continue their periodical execution.
+There are two ways to stop such continues execution:
+
+Return something that is not True from action function,
+Call cancel method of Timer class.
+
+It is my first contribution and I kindly ask to help me with required future actions.
+Thanks",3,7
+122,2017-02-15T16:54:25Z,2017-02-22T05:45:52Z,2017-02-22T05:45:52Z,2,10,13,"Nick Coghlan said on bpo-28814:
+
+inspect.getargvalues() and inspect.formatargvalues() were deprecated
+in Python 3.5 as part of implementing bpo-20438
+
+
+This is incorrect, as these are frame introspection related functions,
+not callable introspection ones. The documentation and implementation
+layout is confusing though, as they're interleaved with the callable
+introspection operation
+
+So un-deprecate in the doc, and leave a note to ignore previous
+deprecation notice.",4,6
+123,2017-02-15T20:32:47Z,,2017-11-25T10:38:51Z,5,52,10,https://bugs.python.org/issue28334,8,16
+126,2017-02-16T00:00:59Z,2017-02-16T09:43:16Z,2017-02-16T09:43:16Z,2,3,3,"Fix ""make -C Doc check"": backport two fixes.
+PR #125 was the backport for 3.6.",3,0
+127,2017-02-16T04:18:36Z,,2021-05-24T22:20:38Z,3,273,60,,12,12
+128,2017-02-16T04:44:29Z,2017-02-20T04:25:16Z,2017-02-20T04:25:17Z,2,5,0,,5,1
+132,2017-02-16T11:21:51Z,2017-05-27T16:25:03Z,2017-05-27T16:25:03Z,5,79,29,,3,0
+134,2017-02-16T13:57:46Z,,2019-07-26T20:09:44Z,2,8,1,"Fix for http://bugs.python.org/issue29573
+
+https://bugs.python.org/issue29573",6,3
+135,2017-02-16T14:04:37Z,2017-05-10T15:08:15Z,2017-05-10T15:08:15Z,3,5,0,"Issue reported at: https://bugs.python.org/issue28787
+This was observed after DTrace and Systemtap support was introduced for Python 3.6.0: https://bugs.python.org/issue21590",3,3
+136,2017-02-16T14:16:42Z,2017-06-28T15:31:54Z,2017-06-28T15:31:54Z,8,96,43,"Skip importing sysconfig when possible.
+Median +- std dev: [default] 15.8 ms +- 0.0 ms -> [patched] 14.7 ms +- 0.0 ms: 1.07x faster (-7%)
+(bpo-29585)",5,18
+137,2017-02-16T14:21:06Z,2017-03-27T14:05:27Z,2017-03-27T14:05:27Z,40,30,55,"Make also minor PEP8 coding style fixes on modified imports.
+http://bugs.python.org/issue29919",5,6
+138,2017-02-16T15:47:01Z,2017-02-18T20:45:50Z,2017-02-18T20:45:50Z,6,124,12,Add an enum SafeUUID which describes whether the platform has generated a UUID in a safe manner (i.e. ensuring that no two processes can generate the same UUID).  Also add UUID.is_safe attribute which relays the information from the underlying platform.,7,0
+139,2017-02-16T16:10:03Z,2018-07-11T08:48:44Z,2018-07-11T08:48:44Z,2,5,19,"https://bugs.python.org/issue29442
+PS: This patch has conflicts with #1372
+Update: depends on #1269
+
+https://bugs.python.org/issue29442",6,1
+140,2017-02-16T20:15:51Z,2017-02-21T06:20:24Z,2017-02-21T06:20:24Z,1,5,6,"As of Python 3.6 **kwargs are ordered, thus, remove the paragraph stating that
+ordering is undefined and change snippet to remove the unnecessary sorted call.
+Only issue that might need addressing as raised on the tracker is, if it is worth to mention that the output corresponds to the order of passed keyword arguments.
+(Though this was already present with a patch on b.p.o I decided to turn it in a pull request since, I believe, it makes it easier to check and apply now that things are on Github)",4,4
+142,2017-02-17T19:05:33Z,,2018-05-16T19:05:12Z,2,8,0,"This fixes a very old issue with email.utils.parseaddr.
+Right now email.utils.parseaddr will fail to parse the input correctly when the address contains a route with multiple hops. However it does not have an issue with single hop routes.
+RFC5322 states that including route hops is obsolete and that the route part should be ignored (Section 4.4). It also states that this syntax is valid and it must be accepted and parsed (Section 4).
+
+https://bugs.python.org/issue1025395",6,8
+143,2017-02-17T19:44:03Z,,2019-03-22T17:50:49Z,4,42,5,"Hi!
+Please forgive this blunt pull request, I wanted to open an issue first and ask, but couldn't.
+The situation I ran into recently was that I used ThreadPoolExecutor to parallelize AWS API calls; I had to move data from one S3 bucket to another (~150M objects). Contrary to what I expected the maximum size of the underlying queue doesn't have a non-zero value by default. Thus my process ended up consuming gigabytes of memory, because it put more items into the queue than the threads were able to work off: The queue just kept growing. (It ran on K8s and the pod was rightfully killed eventually.)
+Of course there ways to work around this. One could use more threads, to some extent. Or you could use your own queue with a defined maximum size. But I think it's more work for users of Python than necessary.
+So this pull request exposes a max_queue_size parameter for the ThreadPoolExecutor which will be forwarded to queue.Queue(). It defaults to 0, so backward-compatibility is ensured. I am happy to add tests if you'd give me further instructions. I would've done this already, but I'm largely unfamiliar with this project as well as the language 😅
+I hope you find this as useful as I would and am looking forward to read your thoughts about it!
+
+https://bugs.python.org/issue29595",13,30
+144,2017-02-17T21:50:38Z,,2018-06-04T10:34:54Z,1,3,2,"As discussed below, in Python 3, PyMapping_Check(list) returns 1. This behavior is justified by a developer as consistent with Python 3's internals. It is however surprising to C-API users (speaking from experience) and because it deviates from collections.abc.Mapping.
+I think it is better to be vague than describe the implementation details.
+https://mail.python.org/pipermail/python-dev/2009-May/089445.html
+
+https://bugs.python.org/issue5945",11,14
+145,2017-02-18T05:22:48Z,2017-02-18T06:31:48Z,2017-02-18T06:31:48Z,1,7,4,,5,3
+146,2017-02-18T06:40:58Z,2017-05-23T05:09:42Z,2017-05-23T05:09:42Z,1,4,2,"csv.reader
+>>> import csv
+>>> fp = open('foo.csv')
+>>> csv_reader = csv.reader(fp)
+>>> next(csv_reader)
+['a', 'b', 'c', 'd']
+csv.DictReader
+>>> fp = open('foo.csv')
+>>> csv_dict_reader = csv.DictReader(fp)
+>>> next(csv_dict_reader)
+OrderedDict([('a', 'e'), ('b', 'f'), ('c', 'g'), ('d', 'h')])
+Contents of foo.csv
+a,b,c,d
+e,f,g,h
+i,j,k,l
+
+Documentation: https://docs.python.org/3.7/library/csv.html#reader-objects",9,7
+147,2017-02-18T06:41:34Z,,2017-02-22T11:28:40Z,1,5,1,This fixes issue  http://bugs.python.org/issue29549,6,6
+150,2017-02-18T09:35:32Z,2017-08-04T02:00:10Z,2017-08-04T02:00:10Z,1,3,1,"fix documentation for -3 commandline option not warning when incompatibilities can't be detected using static code analysis
+
+https://bugs.python.org/issue27470",6,2
+152,2017-02-18T09:53:28Z,2017-03-28T14:13:02Z,2017-03-28T14:13:02Z,1,10,9,">>> class Foo(object):
+...     def __contains__(self, item):
+            return 42
+>>> foo = Foo()
+>>> 3 in foo
+True
+>>> foo.__contains__(42)
+42",11,23
+153,2017-02-18T10:44:49Z,2017-02-19T04:33:36Z,2017-02-19T04:33:36Z,2,6,1,"local.getlocale(locale.LC_CTYPE) and
+locale.getpreferredencoding(False) may give different answers
+in some cases (such as the en_IN locale).
+re.LOCALE uses the latter, so update the test case to match.",3,0
+154,2017-02-18T10:45:13Z,2017-02-19T04:33:51Z,2017-02-19T04:33:51Z,2,9,1,"local.getlocale(locale.LC_CTYPE) and
+locale.getpreferredencoding(False) may give different answers
+in some cases (such as the en_IN locale).
+re.LOCALE uses the latter, so update the test case to match.",3,0
+155,2017-02-18T10:47:13Z,,2017-02-22T08:36:49Z,1,11,0,,6,2
+156,2017-02-18T11:12:12Z,2017-05-27T05:44:42Z,2017-05-27T05:44:42Z,1,9,9,Fixes issue http://bugs.python.org/issue22702,10,11
+157,2017-02-18T11:26:23Z,2017-02-26T17:06:11Z,2017-02-26T17:06:11Z,4,21,3,,7,10
+160,2017-02-18T21:17:15Z,2017-02-19T00:12:02Z,2017-02-19T00:12:02Z,2,2,3,,5,1
+161,2017-02-18T21:30:19Z,2017-02-19T00:12:07Z,2017-02-19T00:12:07Z,2,2,3,Backport of #160,4,0
+162,2017-02-18T23:42:12Z,2017-02-22T07:23:31Z,2017-02-22T07:23:31Z,3,33,13,"When given an invalid AIFF file, aifc.open doesn't clean up after itself. This patch makes it close the file object if it was opened by the library.
+Also, it adds one unit test, test.aifc_test.AifcMiscTest.test_close_opened_files_on_error. The patch can be verified with ./python -m test -j0 test_aifc.",4,3
+164,2017-02-19T00:21:25Z,2017-02-19T11:40:55Z,2017-02-19T11:40:56Z,2,3,3,"Drop duplicate word 'object' in lzma docs
+Fix typo in os docs: fpr -> for
+
+(cherry picked from commit d4d4874)",5,3
+165,2017-02-19T04:17:04Z,2017-02-19T17:07:33Z,2017-02-19T17:07:33Z,1,9,2,"Confirmed with Sphinx 1.3.6 and 1.5.2
+[bpo-29520]",5,4
+166,2017-02-19T06:21:47Z,2017-05-29T01:02:27Z,2017-05-29T01:02:27Z,2,8,4,">>> import pprint
+>>> pprint.pprint(format.__doc__)
+('Return value.__format__(format_spec)\n' 
+ '\n'
+ 'format_spec defaults to the empty string.\n'
+ '\n'
+ ""See help('FORMATTING') for description."")",8,9
+167,2017-02-19T06:29:13Z,2017-03-14T15:52:19Z,2017-03-14T15:52:19Z,1,6,1,"[bpo-29592]
+os.path.abspath() is relatively slow function.  Let's skip it if possible.",3,1
+168,2017-02-19T06:44:52Z,2017-02-20T00:16:33Z,2017-02-20T00:16:33Z,4,57,0,"Added code and test to check that when a structure passed by value
+is large enough to need to be passed by reference, a copy of the
+original structure is passed. The callee updates the passed-in value,
+and the test verifies that the caller's copy is unchanged. A similar
+change was also added to the test added for bpo-20160 (that test was
+passing, but the changes should guard against regressions).
+Thanks to Eryk Sun for the patch.",5,0
+169,2017-02-19T07:24:45Z,2017-03-08T06:41:01Z,2017-03-08T06:41:01Z,13,2823,2607,"bpo-27286 fixed a problem where BUILD_MAP_UNPACK_WITH_CALL could
+be emitted with an incorrect oparg value, causing the eval loop
+to access the wrong stack entry when attempting to read the
+function name.
+The associated magic number change caused significant problems when
+attempting to upgrade to 3.5.3 for anyone that relies on pre-cached
+bytecode remaining valid across maintenance releases.
+This patch restores the ability to import legacy bytecode generated
+by 3.5.0, 3.5.1 or 3.5.2, and modifies the eval loop to
+avoid any harmful consequences from the potentially malformed legacy
+bytecode.",4,3
+171,2017-02-19T07:25:54Z,2017-02-25T14:59:05Z,2017-02-25T14:59:05Z,5,32,7,,6,6
+174,2017-02-19T10:44:54Z,,2017-02-23T06:14:41Z,1,1,0,"Currently the travis runs on master and branches like 2.7, 3.2, (number.number), which prevents running travis on fork branches which have custom names. This PR introduces a normalized naming scheme for branches: bpo-32368238 (bpo-some_number). So as to enable running travis on fork branches with this naming scheme.
+This could help the contributors in testing on their own travis.
+For example: https://travis-ci.org/aktech/cpython/builds/203125688",6,5
+176,2017-02-19T15:04:05Z,2018-02-21T04:30:02Z,2018-02-21T04:30:02Z,1,17,22,"As per the message logs, it is good to add the deprecated decorators to the separate section in
+https://docs.python.org/3.7/library/abc.html
+
+https://bugs.python.org/issue28886",8,8
+177,2017-02-19T16:19:37Z,,2018-03-24T18:10:50Z,4,312,96,[bpo-28754],6,2
+178,2017-02-19T17:11:40Z,2017-02-20T00:46:47Z,2017-02-20T00:46:47Z,1,9,2,backport of #165.,3,0
+179,2017-02-19T17:12:46Z,2017-02-20T00:46:25Z,2017-02-20T00:46:25Z,1,9,2,backport of #165,3,0
+180,2017-02-19T17:13:50Z,2017-02-20T00:45:56Z,2017-02-20T00:45:56Z,1,9,2,backport of #165,3,0
+182,2017-02-20T00:19:59Z,2017-02-20T01:22:29Z,2017-02-20T01:22:29Z,1,1,1,3eea8c6 missed dot at the end of paragraph.,3,0
+184,2017-02-20T01:48:59Z,2017-02-20T02:58:20Z,2017-02-20T02:58:20Z,4,6,6,(cherry picked from commit b2ee40e),4,1
+185,2017-02-20T01:49:23Z,2017-02-20T02:58:34Z,2017-02-20T02:58:34Z,4,6,6,(cherry picked from commit b2ee40e),4,1
+186,2017-02-20T04:57:59Z,2017-02-20T06:33:03Z,2017-02-20T06:33:03Z,2,5,0,,4,2
+187,2017-02-20T04:58:50Z,2017-02-20T06:32:54Z,2017-02-20T06:32:54Z,2,5,0,,3,0
+188,2017-02-20T04:59:29Z,2017-02-20T06:33:06Z,2017-02-20T06:33:06Z,2,5,0,,4,1
+189,2017-02-20T07:38:14Z,2017-02-22T04:32:30Z,2017-02-22T04:32:30Z,1,7,12,,3,0
+190,2017-02-20T09:08:19Z,2017-02-20T12:04:31Z,2017-02-20T12:04:31Z,3,16,1,no longer affects a partial object after creation.,5,1
+193,2017-02-20T10:45:49Z,2017-03-27T22:56:29Z,2017-03-27T22:56:29Z,3,46,22,"bpo-23890: unittest.TestCase.assertRaises() now manually breaks a
+reference cycle to not keep objects alive longer than expected.",7,6
+195,2017-02-20T11:20:05Z,2017-03-08T10:07:14Z,2017-03-08T10:07:14Z,2,18,2,[bpo-28331],5,7
+196,2017-02-20T11:34:58Z,2017-02-20T13:48:11Z,2017-02-20T13:48:11Z,1,2,1,"lookdict_unicode() and lookdict_unicode_nodummy() may raise exception
+when key is not unicode.",4,0
+197,2017-02-20T11:54:45Z,2017-02-21T14:57:26Z,2017-02-21T14:57:26Z,1,1,1,"PyObject_GetAttrString intern temporary key string.
+It's completely redundant.",3,0
+199,2017-02-20T13:05:11Z,,2017-06-19T11:19:44Z,4,561,96,[bpo-15216],2,1
+201,2017-02-20T17:28:43Z,,2019-12-05T14:36:06Z,2,61,9,"Work in progress, pending consensus on whether feature should be added
+This pull request increases the utility of python -m json.tool by adding support for setting ensure_ascii and indent in the json.dump call.
+Happy to also address any other arguments that need updating. Or other issues with json.tool.",8,11
+202,2017-02-20T19:54:17Z,2017-02-21T13:25:22Z,2017-02-21T13:25:22Z,2,4,1,,5,4
+207,2017-02-21T06:07:47Z,,2018-07-09T19:52:55Z,2,10,25,"When doing getattr lookups with a default of ""None"", it
+now uses an ""is"" comparison against None which is both
+faster and more correct
+Used getattr() instead of hasattr()
+Removed obsolete branches where it's impossible to be
+called in Python 3
+
+Patch by Brandon Rhodes.
+
+https://bugs.python.org/issue11572",4,8
+208,2017-02-21T06:25:02Z,2017-02-21T18:30:08Z,2017-02-21T18:30:08Z,1,5,6,"bpo-29453
+As of Python 3.6 **kwargs are ordered, thus, remove the paragraph stating that
+ordering is undefined and change snippet to remove the unecessary sorted call.
+
+Add sentence mentioning guaranteed output order of kwargs
+
+Contributed by Jim Fasarakis-Hilliard @DimitrisJim
+(cherry picked from commit 32e8f9b)",4,0
+209,2017-02-21T06:25:21Z,2017-02-21T16:18:28Z,2017-02-21T16:18:28Z,3,26,1,…no longer affects a partial object after creation.,4,3
+210,2017-02-21T07:18:27Z,2017-02-21T19:56:08Z,2017-02-21T19:56:08Z,1,35,0,,4,0
+211,2017-02-21T07:54:33Z,2017-02-21T12:12:03Z,2017-02-21T12:12:04Z,7,206,219,,3,2
+214,2017-02-21T10:58:44Z,,2018-04-07T20:09:43Z,5,22,0,"Implemented as per draft
+https://tools.ietf.org/html/draft-west-first-party-cookies-07",8,19
+215,2017-02-21T11:35:02Z,2017-02-21T12:51:47Z,2017-02-21T12:51:47Z,2,2,1,,4,0
+216,2017-02-21T12:53:42Z,2017-02-21T14:56:27Z,2017-02-21T14:56:27Z,2,2,1,(cherry picked from commit fb8fe72),3,0
+217,2017-02-21T12:54:39Z,2017-02-21T14:55:50Z,2017-02-21T14:55:50Z,2,2,1,(cherry picked from commit fb8fe72),3,0
+218,2017-02-21T15:02:42Z,,2017-03-16T13:28:38Z,1,40,0,"Add unit tests for find_function, getsourcelines and lasti2lineno functions.",5,10
+219,2017-02-21T15:02:44Z,2017-02-21T17:33:25Z,2017-02-21T17:33:25Z,2,4,1,"original pull request: GH-202
+(cherry picked from commit 3a9ac82)",5,4
+220,2017-02-21T19:44:39Z,2017-02-22T06:21:18Z,2017-02-22T06:21:18Z,4,57,0,"…n Windows AMD64. (#168)
+Fixed bpo-29565: Corrected ctypes passing of large structs by value.
+(cherry picked from commit a86339b)",3,1
+221,2017-02-21T19:47:50Z,2017-02-22T06:19:56Z,2017-02-22T06:19:56Z,4,57,0,"…n Windows AMD64. (#168)
+Closed bpo-29565: Corrected ctypes passing of large structs by value.
+(cherry picked from commit a86339b)",3,1
+222,2017-02-21T20:42:49Z,2017-02-22T09:46:33Z,2017-02-22T09:46:33Z,3,16,1,,3,1
+223,2017-02-21T20:43:39Z,,2017-02-23T02:48:08Z,1,11,6,"Rename and modify current implementation of DictReader to TableReader that offers non-destructive behavior for csv documents with duplicate fieldname values.
+Create new class DictReader as a child to TableReader, allowing for backwards compatibility.",6,2
+224,2017-02-21T21:35:56Z,2017-03-10T00:49:11Z,2017-03-10T00:49:11Z,3,29,15,"…d add ChaCha20 Poly1305.
+Backport: replace 3.5.3 with 3.4.7 in the doc versionchanged.
+(cherry picked from commit 03d13c0)",8,17
+226,2017-02-21T22:09:37Z,,2017-03-27T14:04:13Z,3,26,3,"Issue #26657: Fix Windows directory traversal vulnerability with http.server
+Based on patch by Philipp Hagemeister.  This fixes a regression caused by revision f4377699fd47.
+(cherry picked from commit d274b3f)
+http://bugs.python.org/issue26657
+Backport to 3.4 the fix of a security vulnerability:
+http://python-security.readthedocs.io/vulnerabilities.html#issue-26657
+This pull request is based on PR #224. It's the first time that I try to create a PR based on another one. Let's see how it works :-)",4,1
+227,2017-02-21T23:25:53Z,2017-02-22T01:55:33Z,2017-02-22T01:55:33Z,2,12,8,"Clarify that methods take a string which is interpreted as a regex,
+not a regex object.
+Also clarify what the old -1, 0, 1 and 2 options were.
+(cherry picked from commit 8fb1f6e)",4,0
+228,2017-02-21T23:28:19Z,2017-02-22T01:55:03Z,2017-02-22T01:55:03Z,2,12,8,"Clarify that methods take a string which is interpreted as a regex,
+not a regex object.
+Also clarify what the old -1, 0, 1 and 2 options were.
+(cherry picked from commit 8fb1f6e)",4,1
+229,2017-02-22T00:48:21Z,2017-02-22T05:02:17Z,2017-02-22T05:02:17Z,1,35,0,(cherry picked from commit e9c0e55),3,0
+231,2017-02-22T05:35:25Z,2017-02-28T09:12:53Z,2017-02-28T09:12:53Z,5,80,20,,4,2
+232,2017-02-22T05:48:43Z,2017-04-25T01:57:19Z,2017-04-25T01:57:19Z,12,65,223,[bpo-29617],5,9
+233,2017-02-22T07:40:27Z,2017-02-23T06:38:49Z,2017-02-23T06:38:49Z,1,9,0,It seems git's automatic LF -> CRLF translation for some binary data files is breaking the Windows buildbots. (My favorite is ModuleNotFoundError: No module named 'random\r'.) Turn that off .,6,2
+234,2017-02-22T07:58:30Z,2017-02-22T11:12:01Z,2017-02-22T11:12:01Z,2,34,30,"sock_addr_t is used to define the minimum size of any socket address on
+the stack. Let's make sure that an AF_ALG address always fits. Coverity
+complains because in theory, AF_ALG might be larger than any of the other
+structs. In practice it already fits.
+Closes Coverity CID 1398948, 1398949, 1398950
+Signed-off-by: Christian Heimes christian@python.org",4,0
+235,2017-02-22T10:37:35Z,2017-03-02T10:09:01Z,2017-03-02T10:09:01Z,1,15,37,"The curses module used mkstemp() + fopen() to create a temporary file in
+/tmp. The /tmp directory does not exist on Android. The tmpfile()
+function simplifies the task a lot. It creates a temporary file in a
+correct directory, takes care of cleanup and returns FILE*.
+tmpfile is supported on all platforms (C89, POSIX 2001, Android,
+Windows).
+https://bugs.python.org/issue29176
+Signed-off-by: Christian Heimes christian@python.org",5,2
+236,2017-02-22T10:53:26Z,2017-02-27T03:01:31Z,2017-02-27T03:01:31Z,3,9,0,,4,1
+238,2017-02-22T13:32:52Z,2017-03-03T21:46:40Z,2017-03-03T21:46:40Z,1,53,2,"This needs to be backported to 3.5 and 3.6
+This fixes http://bugs.python.org/issue26213
+@serhiy-storchaka Please take a look",7,8
+239,2017-02-22T14:15:20Z,2017-03-10T22:16:45Z,2017-03-10T22:16:45Z,1,15,4,"This adds documentation for one more _UNPACK bytecode. This needs to be backported only to 3.6 and merged after #238
+Documentation of other bytecodes added in 3.6 is discussed at http://bugs.python.org/issue28810
+@serhiy-storchaka Please take a look.",5,2
+240,2017-02-22T20:54:42Z,2017-03-02T11:02:44Z,2017-03-02T11:02:44Z,3,22,15,"This PR patially fixes bpo-27200. Partially and not completely, because I followed the suggestion of @ezio-melotti to split the patch in several patches. According to @rhettinger I applyed minimal changes, skipping some tests instead of using sorted(). I just want to point out that the two <BLANKLINE> and the testsetup dicrective will not appear in the output.",4,0
+241,2017-02-22T21:34:24Z,2017-02-26T15:26:23Z,2017-02-26T15:26:24Z,1,6,0,This PR fixes issue bpo-22549.,5,0
+242,2017-02-22T21:37:49Z,2017-03-03T17:14:28Z,2017-03-03T17:14:28Z,4,31,8,Checks for os.PathLike and bytes along with str before attempting to iterate.,4,5
+243,2017-02-22T22:08:01Z,2017-02-23T15:42:31Z,2017-02-23T15:42:31Z,2,10,13,"Nick Coghlan said on bpo-28814:
+
+inspect.getargvalues() and inspect.formatargvalues() were deprecated
+in Python 3.5 as part of implementing bpo-20438
+
+
+This is incorrect, as these are frame introspection related functions,
+not callable introspection ones. The documentation and implementation
+layout is confusing though, as they're interleaved with the callable
+introspection operation
+
+This commit undeprecates these functions and adds a note to ignore
+previous deprecation notices.
+(cherry picked from commit 0899b98)",6,6
+244,2017-02-22T22:10:10Z,2017-02-23T15:45:58Z,2017-02-23T15:45:58Z,2,10,13,"Nick Coghlan said on bpo-28814:
+
+inspect.getargvalues() and inspect.formatargvalues() were deprecated
+in Python 3.5 as part of implementing bpo-20438
+
+
+This is incorrect, as these are frame introspection related functions,
+not callable introspection ones. The documentation and implementation
+layout is confusing though, as they're interleaved with the callable
+introspection operation
+
+This commit undeprecates these functions and adds a note to ignore
+previous deprecation notices.
+(cherry picked from commit 0899b98)",5,0
+245,2017-02-22T22:49:46Z,2017-02-26T15:22:39Z,2017-02-26T15:22:39Z,5,24,11,Patch by Aviv Palivoda.,4,0
+246,2017-02-23T06:32:20Z,2017-02-24T10:47:35Z,2017-02-24T10:47:35Z,1,1,1,"Was bumped in the docstring by b9f4fea
+but not in __version__
+--
+Cf http://bugs.python.org/issue27788",5,2
+247,2017-02-23T06:42:13Z,,2019-03-22T17:52:29Z,1,17,13,Fixed slow request processing in urllib on Windows with proxy when adressing to hosts that have no reverse DNS,5,1
+249,2017-02-23T10:09:21Z,2017-02-23T17:48:18Z,2017-02-23T17:48:18Z,3,34,42,"Currently, AST constructor accepts
+a. empty arguments
+b. positional arguments, only when it's length is exactly same to number of fields
+c. keyword arguments.  No check for missing required fields.
+Only (b) is strict.  And it require argument even if matching field is optional.
+This pull request removes the strict check.
+Missing required field can be detected when compiling AST though.",5,5
+250,2017-02-23T12:58:10Z,2017-03-10T22:52:36Z,2017-03-10T22:52:36Z,1,40,31,"This needs to be backported to 3.6
+@serhiy-storchaka This PR is based on your patch in http://bugs.python.org/issue28810
+plus minor additions/corrections.
+@brettcannon Could you please take a look?",4,2
+251,2017-02-23T13:42:43Z,2017-02-23T14:57:25Z,2017-02-23T14:57:25Z,2,8,7,,5,1
+253,2017-02-23T15:40:03Z,2017-02-23T17:26:43Z,2017-02-23T17:26:43Z,2,5,2,"Add a comment to prevent further attempts to avoid a copy for optimization.
+http://bugs.python.org/issue27840",4,0
+255,2017-02-23T16:44:45Z,2017-02-24T03:59:50Z,2017-02-24T03:59:50Z,1,4,0,Improve the deque_inplace_repeat for-loop when deque size is greater then maxlen.,3,0
+256,2017-02-23T16:58:47Z,2017-04-05T05:36:22Z,2017-04-05T05:36:22Z,2,20,5,PR for https://bugs.python.org/issue29549,7,0
+257,2017-02-23T18:22:56Z,,2018-03-26T13:33:43Z,1,2,5,"sys.getdefaultencoding() always returns 'utf-8'
+Reference: Objects/unicodeobject.c line number -> 4214
+Also str() accepts bytes, bytearray or buffer-like objects as input
+hence changing it to object.
+As str returns .__str__() method defined inside object or repr(obj)
+otherwise.",8,4
+258,2017-02-23T19:28:52Z,2017-02-23T22:11:37Z,2017-02-23T22:11:37Z,2,53,10,"This change will help identify problems like in bpo-29624 before the release is announced.
+It also simplifies reuploading by automatically purging the CDN cache for the files that were just uploaded (since the download test will have put them in the cache).",4,0
+259,2017-02-23T19:29:22Z,2017-03-28T15:43:39Z,2017-03-28T15:43:39Z,6,82,53,">>> import locale;
+>>> print(locale.format('%.0f KB', 100))
+100 KB
+>>> locale.format.__doc__
+'Deprecated, use format_string instead.'",4,16
+260,2017-02-23T19:52:10Z,2017-03-01T17:21:29Z,2017-03-01T17:21:29Z,3,117,20,,4,10
+261,2017-02-23T21:05:59Z,2017-03-03T20:42:05Z,2017-03-03T20:42:05Z,1,6,0,This pull request fixes bpo-29455.,6,0
+262,2017-02-23T22:12:30Z,2017-03-04T05:20:38Z,2017-03-04T05:20:38Z,3,18,18,"bpo-27593: Updates Windows build to use information from git
+Note that until getbuildinfo.c has been updated, this won't make things work any better.",4,1
+265,2017-02-23T23:34:36Z,2017-02-24T03:03:29Z,2017-02-24T03:03:29Z,2,34,0,"This a recent update from python/typing repo. See python/typing#393 for details.
+This needs to be backported to 3.5 and 3.6
+@ned-deily Guido would like to get this into 3.6.1",3,3
+267,2017-02-24T00:58:14Z,2017-02-24T06:44:20Z,2017-02-24T06:44:20Z,2,5,1,"Likely introduced by the combinaison of bpo-29622 and bpo-29463
+http://bugs.python.org/issue29463
+http://bugs.python.org/issue29622",3,2
+269,2017-02-24T03:14:59Z,2017-02-25T00:41:20Z,2017-02-25T00:41:20Z,2,45,0,"(cherry picked from commit abb3b8a)
+(cherry picked from commit 365cb5b)",4,0
+270,2017-02-24T08:54:28Z,2017-02-24T17:28:26Z,2017-02-24T17:28:26Z,2,12,1,"Unfortunately, recent update to typing module introduced a bug: ABC registry of a generic type gets completely wiped out on every subscription. This PR fixes the problem.",3,1
+271,2017-02-24T10:37:58Z,,2022-04-15T00:03:42Z,13,1138,10,"This PR adds support in BLOB incremental I/O at the sqlite module. As asked by @serhiy-storchaka and @berkerpeksag I will try to get some more developers to give their input on the wanted API. I am tagging some people that are active in the ghaering/pysqlite and rogerbinns/apsw.
+@ghaering, @rianhunter, @rogerbinns, @phdru. Please look at the PR and give your notes.
+
+https://bugs.python.org/issue24905",19,32
+272,2017-02-24T13:22:27Z,2017-02-25T21:13:34Z,2017-02-25T21:13:34Z,2,5,5,"A couple of small issues:
+
+Remove reference to Unicode string in introduction.
+Fix description of list.extend to mention iterable (and not make it look like only lists are allowed)
+""subsequence of x"" should be ""subsequence of the list""",5,4
+273,2017-02-24T16:07:59Z,2019-06-01T21:11:48Z,2019-06-01T21:11:48Z,1,16,10,"The sentence ""the for statement is such an iterator"", at the end of the section The range() function, is misleading. This PR fixes that sentence and completes the paragraph. For the whole discussione look at [bpo-29414](http://bugs.python.org/issue29414l).
+
+https://bugs.python.org/issue29414",9,6
+274,2017-02-24T16:59:21Z,2017-02-24T19:05:59Z,2017-02-24T19:05:59Z,2,9,0,"We should probably also cherry pick this change into 3.4, 3.5, and 3.6 since those are the versions aiosmtpd are compatible with.",4,6
+277,2017-02-24T20:08:27Z,2017-02-26T15:36:58Z,2017-02-26T15:36:58Z,1,5,2,"Add versionchanged note indicating that an ImportError is raised when exec_module() is defined, but create_module() is not.
+http://bugs.python.org/issue26184",5,2
+283,2017-02-25T00:18:13Z,2017-02-25T16:59:26Z,2017-02-25T16:59:26Z,1,9,0,,3,2
+284,2017-02-25T03:38:44Z,2017-02-26T06:34:06Z,2017-02-26T06:34:06Z,1,2,0,"mention bpo-28929 in the Documentation section of
+What's New in Python 3.6.1 release candidate 1
+Backport for GH-112",3,0
+285,2017-02-25T03:42:26Z,2017-02-26T06:33:52Z,2017-02-26T06:33:52Z,1,2,0,"mention bpo-28929 in the Documentation section of
+What's New in Python 3.5.4 release candidate 1
+Backport for GH-112",3,0
+286,2017-02-25T03:46:15Z,2017-02-26T06:33:37Z,2017-02-26T06:33:37Z,1,2,0,"mention bpo-28929 in the Documentation section of
+What's New in Python 2.7.14
+Backport for GH-112",3,0
+287,2017-02-25T07:40:18Z,,2020-01-20T18:00:29Z,3,70,2,"This patch is base on Giampaolo Rodola works. It is a workaround
+that change the assertion of trace_dispatch_return, somehow the
+context manager will make a bad return, workaround skip this
+special case and let it go.",7,4
+290,2017-02-25T11:56:17Z,2017-02-26T15:14:45Z,2017-02-26T15:14:45Z,1,1,1,"Add a reference to create_module(), in the first versionadded of section Loaders. See bpo-29648.",4,0
+291,2017-02-25T14:10:02Z,,2020-01-20T18:01:59Z,2,202,163,"Adding PyErr_SetString and PyErr_Format wrapper, with a global offset
+variable to handle this.
+struct.pack('!h', 0x8FFFF)
+Traceback (most recent call last):
+  File ""tests.py"", line 5, in <module>
+    struct.pack('!h', 0x8FFFF)
+struct.error: Raise at offset 1, 'h' format requires -32768 <= number <= 32767",9,4
+292,2017-02-25T14:38:18Z,,2017-02-25T16:47:31Z,1,3,3,Pygubu didn't work for me without them. Other programs may rely on them too.,4,3
+293,2017-02-25T18:21:27Z,2017-02-26T12:11:59Z,2017-02-26T12:11:59Z,2,13,1,ref: https://github.com/python/cpython/pull/162/files#r102688420,3,0
+296,2017-02-25T21:00:29Z,,2018-01-25T08:58:45Z,4,27,0,"See https://reproducible-builds.org/ for why this is good
+and https://reproducible-builds.org/specs/source-date-epoch/
+for the definition of this variable.
+Background:
+In some distributions like openSUSE, binary rpms contain precompiled .pyc files.
+And packages like amqp or twisted dynamically generate .py files at build time
+so those have the current time and that timestamp gets embedded
+into the .pyc file header.
+When we then adapt file timestamps in rpms to be constant,
+the timestamp in the .pyc header will no more match
+the .py timestamp in the filesystem.
+The software will still work, but it will not use the .pyc file as it should.
+
+https://bugs.python.org/issue29708",13,46
+297,2017-02-25T21:17:56Z,2017-02-26T06:34:52Z,2017-02-26T06:34:52Z,2,5,5,(cherry picked from commit 53c1892),4,0
+298,2017-02-25T21:25:32Z,2017-04-02T10:26:13Z,2017-04-02T10:26:13Z,5,112,9,"The PR adds support of the If-Modified-Since HTTP request header.
+If the user agent sends this header and the url matches a file that was not modified after the value specified in the header, the server returns status code 304 (Not Modified).
+A test for this feature (test_browser_cache) is added in test_httpservers.py.",5,11
+299,2017-02-25T21:38:14Z,2017-02-26T06:35:40Z,2017-02-26T06:35:40Z,2,32,29,"Backport for GH-272.
+Also including backport for bpo-28587.",5,0
+300,2017-02-25T21:57:07Z,2017-03-05T16:56:05Z,2017-03-05T16:56:05Z,1,3,1,"The docs for heapq.merge are a little ambiguous. Iterables passed
+into heapq.merge with the reversed flag enabled must be sorted from
+largest to smallest to achieve the desired sorting effect, but the
+previous paragraph states that they should be sorted from smallest
+to largest.",5,3
+301,2017-02-26T01:28:53Z,2017-02-26T05:58:06Z,2017-02-26T05:58:06Z,1,4,1,See http://bugs.python.org/issue29655,4,2
+302,2017-02-26T05:54:49Z,2017-03-12T03:19:09Z,2017-03-12T03:19:09Z,1,52,6,,3,2
+306,2017-02-26T11:42:11Z,2017-02-26T13:05:31Z,2017-02-26T13:05:31Z,1,3,12,(cherry picked from commit dea1536),3,0
+307,2017-02-26T11:50:45Z,2017-02-26T13:06:12Z,2017-02-26T13:06:12Z,3,9,2,"Issue #28961: Fix unittest.mock._Call helper: don't ignore the name parameter
+anymore.
+Patch written by Jiajun Huang.
+(cherry picked from commits 84b6fb0
+and dea1536)
+Conflicts:
+Misc/NEWS",4,0
+310,2017-02-26T12:42:21Z,2017-02-26T19:09:32Z,2017-02-26T19:09:32Z,3,45,13,cherry pick of GH-162 and GH-293,5,0
+311,2017-02-26T12:43:12Z,2017-02-26T19:35:01Z,2017-02-26T19:35:01Z,3,45,13,cherry pick of GH-162 and GH-293,5,0
+321,2017-02-26T15:48:22Z,2017-02-26T16:56:21Z,2017-02-26T16:56:21Z,1,6,0,(cherry picked from commit ed6795e),4,0
+322,2017-02-26T17:00:12Z,,2017-02-27T11:46:23Z,4,21,4,Initial patch by Ethan Furman.,4,1
+324,2017-02-26T17:57:15Z,2017-03-05T21:45:54Z,2017-03-05T21:45:54Z,2,10,0,"This adds .appveyor.yml and a placeholder badge to the README.  Builds take ~9 minutes, which is comparable to the Travis builds.
+There are a couple of particular settings in the Appveyor config to make this work properly, namely ""Custom configuration .yml file name"" of .appveyor.yml and check ""Skip branches without appveyor.yml.
+I've marked this as work-in-progress because Appveyor needs to be officially set up for the python/cpython project so that the correct badge can be added to README.rst.  We may also want to bikeshed about the version field, or other options that I haven't explored.
+Example builds can be found at https://ci.appveyor.com/project/zware/cpython",7,16
+327,2017-02-27T01:14:22Z,,2020-05-27T21:51:49Z,2,58,3,"Instead of having to pass type/value/tb separately, allow to pass
+exc=ExceptionInstance()",7,4
+328,2017-02-27T01:19:31Z,,2019-02-25T09:27:01Z,3,60,18,"Corresponds to issue bpo-29659
+When copying large files the copy time can be sufficiently
+shortened by increasing the memory buffer used in the copyfileobj()
+routine.  Expose the length argument from copyfileobj() upwards
+for use throughout the module.
+
+https://bugs.python.org/issue29659",10,16
+334,2017-02-27T06:22:04Z,2017-02-27T13:44:16Z,2017-02-27T13:44:16Z,1,3,3,,4,0
+340,2017-02-27T14:17:57Z,,2020-01-12T13:12:33Z,4,26,8,"When a non-literal is given to literal_eval, attempt to be more
+helpful with the message, rather than calling it 'malformed'.
+
+https://bugs.python.org/issue32888",10,13
+341,2017-02-27T14:25:19Z,2017-02-27T16:14:12Z,2017-02-27T16:14:12Z,1,1,1,"Was bumped in the docstring by b9f4fea
+but not in __version__
+(cherry picked from commit 6059ce4)",4,0
+342,2017-02-27T14:40:50Z,2017-02-27T16:13:41Z,2017-02-27T16:13:41Z,1,4,1,,3,0
+343,2017-02-27T15:01:04Z,2017-03-01T03:26:56Z,2017-03-01T03:26:56Z,4,7,7,,5,3
+344,2017-02-27T15:37:36Z,2017-06-01T21:54:02Z,2017-06-01T21:54:02Z,1,11,3,See http://bugs.python.org/issue29660,5,2
+345,2017-02-27T15:37:41Z,2019-12-04T06:15:20Z,2019-12-04T06:15:20Z,3,69,7,"From #201 which is being split into two pull requests.
+Tagging @serhiy-storchaka, @berkerpeksag, @methane who helped review #201.
+Closes http://bugs.python.org/issue29636.
+
+https://bugs.python.org/issue29636",8,15
+346,2017-02-27T15:45:39Z,2017-03-15T14:31:07Z,2017-03-15T14:31:07Z,1,4,5,"See #201 (comment).
+Tagging @berkerpeksag",3,4
+349,2017-02-27T16:45:33Z,2017-02-27T18:25:30Z,2017-02-27T18:25:30Z,1,4,1,"Patch by Matthias Bussonnier.
+(cherry picked from commit 160edb4)",4,0
+351,2017-02-27T21:11:49Z,2017-04-03T11:06:34Z,2017-04-03T11:06:34Z,1,48,38,"The close method moved to finally block, so closing a socket will occur even in case of exception",6,12
+357,2017-02-28T12:52:49Z,2017-03-27T22:15:21Z,2017-03-27T22:15:21Z,1,2,1,Clarified that round can take a negative value for ndigits.,7,3
+358,2017-02-28T18:43:08Z,2017-02-28T20:07:19Z,2017-02-28T20:07:19Z,1,2,2,Correct documentation for enum.html by adding the fourth missing type Flag and correcting the wrongly mentioned IntFlag,7,6
+359,2017-02-28T20:39:42Z,2017-03-03T10:58:18Z,2017-03-03T10:58:18Z,6,30,9,Use the _v2 API when possible.,5,4
+360,2017-03-01T00:19:06Z,2017-05-01T01:25:58Z,2017-05-01T01:25:58Z,5,343,6,,7,24
+361,2017-03-01T00:29:40Z,2017-03-01T03:33:08Z,2017-03-01T03:33:08Z,1,1,1,,4,3
+363,2017-03-01T02:48:34Z,2017-03-01T18:16:24Z,2017-03-01T18:16:24Z,1,1,1,,6,11
+366,2017-03-01T04:18:10Z,2017-03-01T06:28:15Z,2017-03-01T06:28:15Z,3,18,2,backports to 2.7 for #51,4,1
+369,2017-03-01T04:30:02Z,2017-03-01T11:13:39Z,2017-03-01T11:13:39Z,1,3,0,,3,0
+370,2017-03-01T04:32:21Z,2017-03-01T11:13:21Z,2017-03-01T11:13:22Z,1,3,0,,3,0
+376,2017-03-01T08:57:16Z,2017-03-02T10:32:18Z,2017-03-02T10:32:18Z,2,17,10,"On PyMem_Malloc failure, _PyCode_SetExtra should set co_extra->ce_size = 0.
+On PyMem_Realloc failure, _PyCode_SetExtra should set co_extra->ce_size = 0.
+On PyMem_Realloc success, _PyCode_SetExtra should set all unused slots in co_extra->ce_extras to NULL.",6,5
+377,2017-03-01T09:26:51Z,,2017-11-02T17:56:25Z,6,301,2,"This is a set of patches (rebased on current master) that adds a new backup() method on sqlite3.Connection.
+
+https://bugs.python.org/issue27645",8,14
+381,2017-03-01T15:57:08Z,2017-03-02T10:23:20Z,2017-03-02T10:23:20Z,1,4,4,,7,2
+384,2017-03-01T17:38:11Z,,2017-03-03T21:16:08Z,1,12,0,,8,8
+386,2017-03-01T23:57:06Z,2017-03-02T17:42:40Z,2017-03-02T17:42:40Z,7,87,9,"bpo-28129:
+
+replace some assertion failures in ctypes (mentioned in http://bugs.python.org/issue28129) with if statements
+add tests to verify these changes",4,8
+392,2017-03-02T09:06:23Z,2017-03-02T11:29:21Z,2017-03-02T11:29:21Z,1,3,2,"fix two mistakes in Modules/_testcapimodule.c:
+
+in the function comment of test_k_code
+in an error message in test_k_code
+
+(note that I mentioned these mistakes in bpo-27298, but only as a side note.)
+Just in case, I ran the test module on my Windows 10, and as expected, it seems that this minor patch doesn't break anything.",4,1
+393,2017-03-02T13:03:16Z,2017-03-02T22:47:45Z,2017-03-02T22:47:45Z,1,1,2,"NOTE: We may want to instead deploy our own bot that is a member of the Python org and has facebookarchive/mention-bot#212 added.
+Previously we configured the mention-bot to only mention people who are members of the Python organization. However, this doesn't currently work if members don't have their membership public. Instead we will configure mention-bot to poke anyone, even non-members.",8,16
+396,2017-03-02T16:26:33Z,,2017-03-03T04:29:33Z,1,7,14,"It is clear for me that n++; while (--n) and for (; n; --n) are interchangable statements, but here is the prof of it http://coliru.stacked-crooked.com/a/a6fc4108b223e7b2.
+According to asm out https://godbolt.org/g/heHM33 the for loop is even shorter (takes less instructions).
+While I believe that location of cmp/jmp instruction makes no sense and performance is the same, but I have made a benchmark.
+
+  Benchmark
+  
+Run on (4 X 3310 MHz CPU s)
+02/27/17 22:10:55
+Benchmark                      Time           CPU Iterations
+------------------------------------------------------------
+BM_while_loop/2               13 ns         13 ns   56089384
+BM_while_loop/4               17 ns         16 ns   40792279
+BM_while_loop/8               24 ns         24 ns   29914338
+BM_while_loop/16              40 ns         40 ns   20396140
+BM_while_loop/32              84 ns         80 ns    8974301
+BM_while_loop/64             146 ns        146 ns    4487151
+BM_while_loop/128            270 ns        269 ns    2492862
+BM_while_loop/128            267 ns        266 ns    2639500
+BM_while_loop/512           1022 ns       1022 ns     641022
+BM_while_loop/4096          8203 ns       8344 ns      89743
+BM_while_loop/32768        66971 ns      66750 ns      11218
+BM_while_loop/262144      545833 ns     546003 ns       1000
+BM_while_loop/2097152    4376095 ns    4387528 ns        160
+BM_while_loop/8388608   17654654 ns   17883041 ns         41
+BM_for_loop/2                 13 ns         13 ns   56089384
+BM_for_loop/4                 15 ns         15 ns   49857230
+BM_for_loop/8                 21 ns         21 ns   32051077
+BM_for_loop/16                37 ns         37 ns   19509351
+BM_for_loop/32                81 ns         80 ns    8974301
+BM_for_loop/64               144 ns        128 ns    4985723
+BM_for_loop/128              265 ns        263 ns    3205108
+BM_for_loop/128              265 ns        266 ns    2639500
+BM_for_loop/512             1036 ns       1022 ns     641022
+BM_for_loop/4096            8314 ns       8344 ns      89743
+BM_for_loop/32768          67345 ns      66750 ns      11218
+BM_for_loop/262144        541310 ns     546004 ns       1000
+BM_for_loop/2097152      4354986 ns    4387528 ns        160
+BM_for_loop/8388608     17592428 ns   17122061 ns         41
+
+#include <benchmark/benchmark.h>
+
+#define MAKE_ROTL_BENCHMARK(name) \
+  static void BM_##name(benchmark::State& state) { \
+    while (state.KeepRunning()) { \
+      int n = name(state.range(0)); \
+    } \
+  } \
+  /**/
+
+
+int while_loop(int n)
+{
+  int sum = 0;
+  n++;
+  while (--n) {
+    sum += 1;
+  }
+  return sum;
+}
+
+int for_loop(int n)
+{
+  int sum = 0;
+  for(; n; --n) {
+    sum += 1;
+  }
+  return sum;
+}
+
+MAKE_ROTL_BENCHMARK(while_loop)
+MAKE_ROTL_BENCHMARK(for_loop)
+BENCHMARK(BM_while_loop)->RangeMultiplier(2)->Range(2, 8<<4);
+BENCHMARK(BM_while_loop)->Range(8<<4, 8<<20);
+BENCHMARK(BM_for_loop)->RangeMultiplier(2)->Range(2, 8<<4);
+BENCHMARK(BM_for_loop)->Range(8<<4, 8<<20);
+
+BENCHMARK_MAIN()",7,7
+401,2017-03-02T19:41:49Z,2017-03-18T16:59:34Z,2017-03-18T16:59:34Z,4,10,5,"This PR partially fixes bpo-27200. Partially and not completely, because I followed the suggestion of @ezio-melotti to split the patch in several patches. This PR is the 2nd of the series, the first one was #240.
+Here I changed the name of the file tzinfo-examples.py to tzinfo_examples.py, for two reasons. The first one is the PEP8 conformity. The second one is that tzinfo-examples could not be imported to execute the interactive example. It is not just a problem of doctest. The real problem is that the reader actually can not execute the example without renaming tzinfo-examples in something else (without the -).",4,1
+403,2017-03-02T22:01:29Z,,2017-09-05T17:21:10Z,1,7,0,"Coverity complains about three new potential NULL derefs. One is a false
+positive but the two remaining look valid.
+CID 1401656
+CID 1401655
+Signed-off-by: Christian Heimes christian@python.org",9,7
+406,2017-03-02T22:35:13Z,2017-03-03T03:16:34Z,2017-03-03T03:16:34Z,4,29,9,See http://bugs.python.org/issue29271 for context. LGTM'ed by @methane,5,5
+407,2017-03-02T23:07:49Z,2017-03-03T03:20:00Z,2017-03-03T03:20:00Z,3,44,3,See http://bugs.python.org/issue28893 for details. /cc @serhiy-storchaka,5,1
+409,2017-03-03T00:58:36Z,2017-06-10T04:04:39Z,2017-06-10T04:04:39Z,3,62,1,"Some servers does not complete ssl shutdown procedure, which cause socket leak on asyncio side.",5,27
+412,2017-03-03T03:23:14Z,2017-03-07T03:06:10Z,2017-03-07T03:06:10Z,1,15,5,,5,2
+422,2017-03-03T07:37:06Z,2017-03-08T06:03:14Z,2017-03-08T06:03:14Z,4,112,43,I also made makelocalealias.py prefer the glibc defaults.,5,6
+423,2017-03-03T09:17:05Z,2019-05-07T17:18:50Z,2019-05-07T17:18:50Z,5,34,7,"Moved from python/asyncio#493.
+This PR fixes issue python/asyncio#480, as explained in this comment.
+The _SelectorDatagramTransport.sendto method has to be modified so _sock.sendto is used in all cases (because it is tricky to reliably tell if the socket is connected or not). Could that be an issue for connected sockets? EDIT ... so _sock.send is used only if _sock is connected.
+It also protects socket.getsockname against OSError in _SelectorTransport. This might happen on Windows if the socket is not connected (e.g. for UDP broadcasting).
+
+https://bugs.python.org/issue31922",9,12
+424,2017-03-03T12:41:27Z,2017-04-04T10:46:26Z,2017-04-04T10:46:26Z,3,53,4,Fix for https://bugs.python.org/issue29649,6,7
+425,2017-03-03T12:43:25Z,2017-03-03T13:44:51Z,2017-03-03T13:44:51Z,1,1,1,"there are several typo in the #ifdef and #endif, right now I am working on these typos.
+tanks for review",6,2
+428,2017-03-03T14:02:03Z,2017-03-17T08:50:23Z,2017-03-17T08:50:23Z,2,8,1,Fix bpo-16355.,6,7
+431,2017-03-03T15:06:52Z,2017-12-19T12:23:18Z,2017-12-19T12:23:18Z,3,19,5,"Current implementation of the asyncio Proactor event loop has an issue, when you stop a server it's cancel the futures of all other servers.
+Original discussion: python/asyncio#496
+
+https://bugs.python.org/issue29711",7,9
+433,2017-03-03T18:09:29Z,2017-03-03T21:16:29Z,2017-03-03T21:16:29Z,1,2,2,"Change False into false, and True into true.",4,2
+434,2017-03-03T19:39:03Z,,2017-03-05T08:56:49Z,1,17,0,,5,4
+445,2017-03-03T23:58:10Z,2017-03-06T08:42:47Z,2017-03-06T08:42:47Z,1,3,3,"ISTM that it's quite obvious that the (unsigned long) and the (unsigned long long) casts are redundant.
+the (twodigits) cast is also redundant, because casting has precedence over shift left (as can be seen in http://en.cppreference.com/w/c/language/operator_precedence).
+Just in case, I ran the test module on my Windows 10, with and without the patch, and as expected, it seems the patch doesn't break anything.",6,2
+446,2017-03-04T03:56:05Z,2017-03-04T05:19:55Z,2017-03-04T05:19:55Z,9,84,78,"sys.version and the platform module python_build(),
+python_branch(), and python_revision() functions now use
+git information rather than hg when building from a repo.
+Based on original patches by Brett Cannon and Steve Dower.",5,1
+447,2017-03-04T03:58:47Z,,2017-09-11T03:57:20Z,28,1033,51,"Python 3.7 had an issue just like 3.6 with the TLS entries. As such the only way to compile on Cygwin was to replace TLS with TSS. This also fixes issues that was present in the standard library and setup.py in the repo for cygwin as well. TSS is the thing that actually gets python 3.7 to work on cygwin and in fact the only thing currently so TLS is not really used on it at all after this is merged. This will not affect building on MAC, windows, nor even linux at all it will only affect cygwin.
+$ ./python.exe
+Python 3.7.0a0 (default:4243df51fe43+, Mar  3 2017, 20:14:50)
+[GCC 6.3.0] on cygwin
+Type ""help"", ""copyright"", ""credits"" or ""license"" for more information.
+>>>",4,2
+460,2017-03-04T08:07:07Z,2017-03-04T23:49:45Z,2017-03-04T23:49:45Z,1,0,2,"Github doesn't support it (ref. isaacs/github#487).  So it can't ease
+conflict on Github.
+Additionally, it can make trouble when cherry-pick. (ref. GH-212)",3,0
+461,2017-03-04T09:31:24Z,2017-04-09T09:11:59Z,2017-04-09T09:11:59Z,2,24,0,Test for issue 26187,4,2
+466,2017-03-04T21:55:26Z,2017-03-06T03:55:13Z,2017-03-06T03:55:13Z,1,2,0,…s output.,5,0
+469,2017-03-04T23:38:17Z,2017-03-05T18:15:20Z,2017-03-05T18:15:21Z,1,8,3,"Fixes http://bugs.python.org/issue29638
+This adds three more caches to refleak.py/clear_caches().",5,4
+473,2017-03-05T06:22:27Z,,2017-03-23T09:10:13Z,6,34,8,"if this variable is set the user can change the location of
+a ~/.python_history file without adding hook to PYTHONSTARTUP.",7,23
+476,2017-03-05T07:51:42Z,2017-03-06T17:15:42Z,2017-03-06T17:15:42Z,1,1,1,(cherry picked from commit f669fff),5,0
+478,2017-03-05T15:13:26Z,2017-03-05T16:14:07Z,2017-03-05T16:14:07Z,3,117,20,,4,7
+480,2017-03-05T17:19:55Z,2017-06-09T21:46:15Z,2017-06-09T21:46:15Z,3,23,2,"fixed ssl socket leak
+python/asyncio#487
+aio-libs/aiohttp#1679",7,5
+484,2017-03-05T21:38:07Z,2017-03-08T15:15:55Z,2017-03-08T15:15:55Z,3,120,79,webbrowser.register() is now thread-safe.,5,4
+485,2017-03-05T21:43:12Z,2017-03-12T08:10:48Z,2017-03-12T08:10:48Z,17,81,73,It is used for semantical booleans using 'i' format unit.  This allows to not repeat the default value for Python and C and will help in converting to bool in future.,6,1
+488,2017-03-05T22:22:16Z,2017-05-15T10:21:32Z,2017-05-15T10:21:32Z,5,29,100,"in the plistlib module.  Dict values in the result of functions
+readPlist() and readPlistFromBytes() are now exact dicts.",6,1
+489,2017-03-05T22:27:14Z,2017-03-07T12:33:22Z,2017-03-07T12:33:22Z,5,37,15,,5,1
+490,2017-03-05T22:37:22Z,2017-05-25T10:33:55Z,2017-05-25T10:33:55Z,3,48,21,,4,0
+494,2017-03-05T23:50:33Z,2017-03-06T06:42:00Z,2017-03-06T06:42:00Z,1,0,2,"""What's New In Python 3.6"" describe changes between 3.5 and 3.6.
+But |release| and |today| is used at top of the page.  They can be
+unrelated to Python 3.6.",5,2
+498,2017-03-06T06:12:44Z,,2020-06-28T22:41:56Z,2,54,4,"It is similar to ""always"" but show the full stack of where the warning
+was triggered.
+Currently incomplete, does not respect the stacklevel= value, and
+non-tested. Code may be shared with the traceback module as well, but
+may need a tiny bit of refactoring, stack is printed backward.
+~/dev/cpython stack $ cat foo.py
+import warnings
+warnings.filterwarnings('stack')
+
+def foo():
+    warnings.warn('this', UserWarning)
+
+def bar():
+    foo()
+
+bar()
+~/dev/cpython stack $ ./python.exe foo.py
+  File ""foo.py"", line 5, in foo
+    warnings.warn('this', UserWarning)
+  File ""foo.py"", line 8, in bar
+    foo()
+  File ""foo.py"", line 10, in <module>
+    bar()
+foo.py:5: UserWarning: this
+  warnings.warn('this', UserWarning)
+
+
+https://bugs.python.org/issue29731",7,3
+499,2017-03-06T07:57:45Z,2017-03-06T09:17:05Z,2017-03-06T09:17:05Z,3,15,2,,4,1
+503,2017-03-06T09:14:03Z,2017-03-08T03:04:24Z,2017-03-08T03:04:24Z,3,19,6,,5,2
+505,2017-03-06T09:32:04Z,2017-03-30T06:11:11Z,2017-03-30T06:11:11Z,3,48,6,unlucky Unicode characters.,4,1
+506,2017-03-06T09:53:16Z,2017-05-13T09:40:52Z,2017-05-13T09:40:52Z,4,12,9,"rather of format(str(self), '').",5,1
+507,2017-03-06T10:05:04Z,2017-03-12T11:15:02Z,2017-03-12T11:15:02Z,4,17,3,"…text is
+now deprecated.",4,1
+508,2017-03-06T10:23:19Z,2017-03-06T19:21:41Z,2017-03-06T19:21:41Z,1,12,4,,4,2
+511,2017-03-06T11:10:42Z,2017-03-08T12:37:52Z,2017-03-08T12:37:52Z,4,143,21,,5,1
+512,2017-03-06T11:37:54Z,2017-03-08T08:32:45Z,2017-03-08T08:32:45Z,2,100,4,,4,2
+513,2017-03-06T11:54:58Z,2017-03-08T03:51:20Z,2017-03-08T03:51:20Z,4,57,58,"…rcent ""%%"" in the format string for classic string formatting.",4,1
+515,2017-03-06T13:11:08Z,2017-03-11T21:37:17Z,2017-03-11T21:37:17Z,3,53,1,"tgamma(), lgamma(), erf() and erfc().",4,4
+516,2017-03-06T13:29:14Z,2017-03-14T20:37:21Z,2017-03-14T20:37:21Z,3,100,35,"Avoid temporary tuple to pass positional arguments.
+
+2 args: 1.14x faster (-12%)
+6 args: 1.15x faster (-13%)
+10 args: 1.17x faster (-14%)",4,5
+517,2017-03-06T13:34:56Z,2017-03-12T11:50:36Z,2017-03-12T11:50:36Z,2,19,5,"if attributes ""encoding"" or ""errors"" of sys.stdin or sys.stdout
+are not set or are not strings.",6,1
+520,2017-03-06T15:39:57Z,2017-03-06T19:09:00Z,2017-03-06T19:09:00Z,1,14,8,…sic type constructors.,3,4
+521,2017-03-06T16:49:42Z,2017-03-06T18:56:59Z,2017-03-06T18:56:59Z,1,2,1,"Because everybody is editing in every PR and that's finding wrong
+reviewers.",5,5
+523,2017-03-06T17:16:36Z,2017-03-07T05:24:38Z,2017-03-07T05:24:38Z,1,14,1,"When LOAD_METHOD is used for calling C mehtod, PyMethodDescrObject
+was passed to profilefunc from 5566bbb.
+But lsprof traces only PyCFunctionObject. Additionally, there can be
+some third party extensions which assumes passed arg is
+PyCFunctionObject without calling PyCFunction_Check().
+So make PyCFunctionObject from PyMethodDescrObject when
+tstate->c_profilefunc is set.",4,1
+524,2017-03-06T19:52:59Z,2017-03-06T21:39:35Z,2017-03-06T21:39:35Z,1,8,0,,4,1
+525,2017-03-06T19:54:19Z,2017-03-12T19:23:31Z,2017-03-12T19:23:31Z,3,18,1,fix for python/asyncio#494,5,5
+526,2017-03-06T20:13:06Z,2017-04-15T01:06:07Z,2017-04-15T01:06:07Z,1,1,7,"Remove conditional on free of dps, since dps is now allocated for
+all versions of OpenSSL
+Use sk_DIST_POINT_pop_free instead of sk_DIST_POINT_free since
+the latter doesn't free the individual elements of the stack
+Remove call to x509_check_ca since it was only used to cache
+the crldp field of the certificate",6,5
+528,2017-03-06T23:47:59Z,,2017-12-18T03:52:49Z,5,115,42,PR for python/asyncio#488,6,12
+529,2017-03-07T00:20:29Z,2017-03-07T01:51:48Z,2017-03-07T01:51:48Z,1,1,1,"I made changes in almost all CPython files last 5 years, so
+mention-bot asks me to review basically all pull requests. I simply
+don't have the bandwidth to review everything, sorry! I prefer to
+select myself which PR I want to follow.",5,13
+532,2017-03-07T03:48:37Z,2017-03-08T16:19:58Z,2017-03-08T16:19:58Z,1,1,1,"Set name to ""_curses.window"" instead of ""_curses.curses window"" (with
+a space!?).
+(cherry picked from commit 61e2bc7)",4,0
+534,2017-03-07T03:59:59Z,2017-03-07T10:44:12Z,2017-03-07T10:44:12Z,1,1,1,"This change is required to make python-dbg.py compatible with GDB versions before 7.3.
+(cherry picked from commit 661ca88)",3,1
+535,2017-03-07T05:09:04Z,2017-03-07T06:34:38Z,2017-03-07T06:34:38Z,1,1,1,AppVeyor log is too unreadable.,4,1
+540,2017-03-07T08:43:22Z,,2017-04-28T21:27:54Z,1,46,4,"We used the input FD for readline with select(), which crashes if it is >1024.
+Fix it by adding an implementation based on poll().
+This does not fix it on all platforms, because poll() does not work correctly on
+terminals on some platforms. For now, only use the new implemetation on Linux.
+This also does not fix it on all versions of readline, as some of them use
+select() internally. Those crash the same way we used to.
+Fixes issue 29700.",5,4
+541,2017-03-07T09:35:40Z,2017-03-12T07:20:16Z,2017-03-12T07:20:16Z,2,229,67,Based on patch by Vajrasky Kok.,5,2
+542,2017-03-07T09:36:27Z,2017-03-11T07:19:21Z,2017-03-11T07:19:21Z,3,527,154,,4,1
+546,2017-03-07T10:34:15Z,2017-03-14T07:07:16Z,2017-03-14T07:07:16Z,3,23,3,,5,3
+547,2017-03-07T10:46:41Z,2017-03-12T06:53:23Z,2017-03-12T06:53:23Z,4,31,29,,5,1
+557,2017-03-08T08:04:53Z,2017-03-09T16:34:29Z,2017-03-09T16:34:29Z,4,15,9,"bpo-29619: os.stat() and os.DirEntry.inodeo() now convert inode
+(st_ino) using unsigned integers.",5,1
+558,2017-03-08T09:10:56Z,2017-03-08T11:03:04Z,2017-03-08T11:03:04Z,1,1,1,,3,0
+560,2017-03-08T12:35:45Z,2017-08-24T18:33:43Z,2017-08-24T18:33:43Z,3,68,14,"according to http://bugs.python.org/issue29741:
+
+change some functions in Modules/_io/stringio.c and in Modules/_io/bytesio.c to use _PyIO_ConvertSsize_t (which supports integer types)
+change _io_BytesIO_truncate_impl so that it would accept integer types
+add tests to test_memoryio
+change stuff in Lib/_pyio.py to behave like the C implementaiton
+
+(I ran the test module again, and on my Windows 10, the same tests failed with
+and without my patches. However, on my Ubuntu 16.04 VM, none of the tests
+failed.)
+
+https://bugs.python.org/issue29741",7,11
+561,2017-03-08T12:42:08Z,2017-03-08T13:45:44Z,2017-03-08T13:45:44Z,4,143,21,,4,0
+562,2017-03-08T14:43:58Z,,2022-04-19T12:06:51Z,1,8,6,"Context
+The utility method socket.create_connection() currently works like that:
+
+resolve the destination-address into one or more IP(v4 & v6) addresses;
+loop on each IP address and stop to the 1st one to work;
+if none works, re-raise the last error.
+
+The problem
+So currently the loop in socket.create_connection() ignores all intermediate errors and reports only the last connection failure, which  might be irrelevant.  For instance, when both IPv4 & IPv6 networks are supported, usually the last address is a IPv6 address and it frequently fails with an irrelevant error - the actual cause have already been ignored.
+Possible solutions
+To facilitate network debugging, there are at least 3 options:
+a. log each failure as it happens, but that would get the final failure twice: once as a (warning?) message, and once as an exception .
+b. collect all failures and log them only when connection fails, but that might miss important infos to the user;
+c. collect and return all failures in list attached to the raised exception, which also might miss important infos.
+open questions
+Q1. A question for all cases is what logging ""means"" to use: the warnings or logging module?
+Q2. And if logging is chosen, log them in 'DEBUG' or 'WARNING' level?
+Q3. Finally, cases (b) & (c) need an answer whether to log collected errors in the case that connection passes.
+The 1st part of case (c) is implemented in this PR.",9,19
+563,2017-03-08T17:35:13Z,2017-04-14T09:00:26Z,2017-04-14T09:00:26Z,4,19,5,,10,17
+568,2017-03-08T21:13:54Z,2017-03-08T22:27:47Z,2017-03-08T22:27:47Z,1,1,1,"This is a follow up to #566
+(Python 3.6 backport)",3,1
+569,2017-03-08T21:19:14Z,2017-04-05T06:37:24Z,2017-04-05T06:37:24Z,30,50,48,This hides unwanted implementation details from tracebacks.,5,4
+570,2017-03-08T23:40:58Z,2017-03-09T09:35:29Z,2017-03-09T09:35:29Z,3,89,61,"according to http://bugs.python.org/issue28298:
+
+make array 'Q', 'L' and 'I' accept big intables (objects that have __int__) as elements
+add to test_array tests to verify this change, and tests to verify that int types arrays don't accept floats as elements
+while we are in test_array, remove checks whether long long is available
+
+(I ran the test module again, and on my Windows 10, the same tests failed with
+and without my patches. However, on my Ubuntu 16.04 VM, none of the tests
+failed.)",5,3
+572,2017-03-09T04:59:24Z,2017-03-13T02:09:17Z,2017-03-13T02:09:17Z,2,3,3,,5,1
+575,2017-03-09T06:28:36Z,2017-03-12T10:38:33Z,2017-03-12T10:38:33Z,2,111,28,"Directory and zipfile execution previously added
+the parent directory of the directory or zipfile
+as sys.path[0] and then subsequently overwrote
+it with the directory or zipfile itself.
+This caused problems in isolated mode, as it
+overwrote the ""stdlib as a zip archive"" entry
+in sys.path, as the parent directory was
+never added.
+The attempted fix to that issue in bpo-29319
+created the opposite problem in non-isolated
+mode, by potentially leaving the parent
+directory on sys.path instead of overwriting it.
+This change fixes the root cause of the problem
+by removing the whole ""add-and-overwrite"" dance
+for sys.path[0], and instead simply never adds
+the parent directory to sys.path in the first
+place.",5,1
+580,2017-03-09T15:12:38Z,2017-03-09T18:07:59Z,2017-03-09T18:07:59Z,1,20,8,,5,1
+582,2017-03-09T15:22:58Z,2018-01-29T03:03:24Z,2018-01-29T03:03:24Z,5,462,71,"Description of the optimization (see also this poster)
+The idea is simple: in practice, it's very uncommon to sort type-heterogeneous lists. This is because lists in general tend to be used in a homogeneous way (if you're iterating and the type is changing, your code may break, depending on what you're doing), and because comparison is often not defined in the heterogeneous context (""apples and oranges"").
+So, instead of checking types during every single compare in the sort (dynamic dispatch), we can simply iterate once in a pre-sort check and see if the list is type-homogeneous. If it is, we can replace PyObject_RichCompareBool with whatever compare function would have ended up being dispatched for that type. Since this check is cheap and very unlikely to fail, and checking types every time we compare is expensive, this is a reasonable optimization to consider.
+This is, however, only the beginning of what's possible. Namely, there are many safety checks that have to be performed during every compare in the common cases (string, int, float, tuple) that one encounters in practice. For example, character width has to be checked for both strings every time two strings are compared. Since these checks almost never fail in practice (because, e.g., non-latin strings are uncommon in practice, etc.), we can move them out of the comparison function and into the pre-sort check, as well. We then write special-case compare functions (I implemented one for each of the four types mentioned above) that are selected iff. the assumptions necessary to use them are verified for each list element.
+Benchmarks
+I considered two sets of benchmarks: one organized by type (random lists of that type), and one organized by structure. Full benchmark scripts can be found here. The results are below (standard deviations were less than 0.3% of the mean for all measurements):
+By type
+
+
+
+Type
+Percent improvement on random lists of [type] (1-patched/unpatched)
+
+
+
+
+heterogeneous (lots of float with an int at the end; worst-case)
+-1.5%
+
+
+float
+48%
+
+
+bounded int (magnitude smaller than 2^32)
+48.4%
+
+
+latin string (all characters in [0,255])
+32.7%
+
+
+general int (reasonably uncommon?)
+17.2%
+
+
+general string (reasonably uncommon?)
+9.2%
+
+
+tuples of float
+63.2%
+
+
+tuples of bounded int
+64.8%
+
+
+tuples of latin string
+55.8%
+
+
+tuples of general int
+50.3%
+
+
+tuples of general string
+44.1%
+
+
+tuples of heterogeneous
+41.5%
+
+
+
+By structure
+These are just the benchmarks described in Objects/listsort.txt. The first table is the loss we experience if we sort structured heterogeneous lists (worst case: list is already sorted, we go all the way through doing n type-checks, and then we only end up doing n comparisons. Tragic, but extremely unlikely in practice; in practice, we would usually find the first heterogeneous element early on, and break out of the check, but here, the single, lonely float is hiding all the way at the end of the list of int, so we don't find it until we've done all n checks):
+
+
+
+Benchmark (for heterogeneous lists, worst-case)
+Percent improvement (1-patched/unpatched)
+
+
+
+
+\sort
+-17.2%
+
+
+/sort
+-19.8%
+
+
+3sort
+-18.0%
+
+
++sort
+-18.8%
+
+
+%sort
+-10.0%
+
+
+~sort
+-2.1%
+
+
+=sort
+-21.3%
+
+
+
+The second table is the same benchmark, but on homogeneous lists (int):
+
+
+
+Benchmark (for homogeneous lists)
+Percent improvement (1-patched/unpatched)
+
+
+
+
+\sort
+54.6%
+
+
+/sort
+56.5%
+
+
+3sort
+53.5%
+
+
++sort
+55.3%
+
+
+%sort
+52.4%
+
+
+~sort
+48.0%
+
+
+=sort
+45.2%
+
+
+
+Patch summary
+Here we describe at a high level what each section of the patch does:
+
+
+
+Line numbers in Objects/listobject.c
+What the lines do
+
+
+
+
+1053-1069
+Define a struct to hold the function pointers we will select in the pre-sort check. This struct then has to be passed in to every function that performs comparison (to keep things in local scope).
+
+
+1075-1080
+Compare function for heterogeneous lists; just a wrapper for PyObject_RichCompareBool. To be selected if all of our pre-checks fail.
+
+
+1086-1108
+Compare function for general homogeneous lists; just a wrapper for ob_type->tp_richcompare, which is stored by the pre-sort check at compare_funcs.key_richcompare. This yields modest optimization (neighbourhood of 10%), but we generally hope we can do better.
+
+
+1111-1127
+Compare function for lists of latin string. During the pre-sort check, we verify that every string in the list uses one character per byte; otherwise, we default to the general homogeneous compare. If this check is even somewhat likely to pass, it's worth it, because the payoff is large, as can be seen in the Benchmarks section. The compare function basically directly accesses the data buffers of the two strings and memcmps them.
+
+
+1130-1154
+Compare function for lists of bounded long. During the pre-sort check, we verify that every int in the list fits in a single machine word. If that check passes, we can use this optimized compare function, which basically directly compares the machine words representing the two ints (taking sign into account). This is faster than the general comparison, which has to figure out which word is most significant for both inputs, etc, in addition to all the type-checking.
+
+
+1157-1166
+Compare function for lists of float. Doesn't assume anything; just directly compares the two floats, skipping all the unnecessary type-checking. Because PyFloat_Type->tp_richcompare does a lot of typechecking that we want to move out of the sort loop, it pays to have this optimized compare available.
+
+
+1173-1233
+Compare function for lists of non-empty tuple. Tuple comparison is optimized on two levels. Namely, after selecting compare_funcs.key_compare in the pre-sort check, we run the pre-sort check again on the list T = [x[0] for x in L] (we don't actually run the check twice, but we do something functionally equivalent to this). If T is type-homogeneous, or even better, satisfies the requirements for one of our special-case compares, we can replace the call to PyObject_RichCompareBool for the first tuple element with a call to compare_funcs.tuple_elem_compare. This allows us to bypass two levels of wasteful safety checks. If the first elements of the two tuples are equal, of course, we have to call PyObject_RichCompareBool on subsequent elements; the idea is that this is uncommon in practice.
+
+
+2168-2212
+First part of the pre-sort check: we set the variables key_type, keys_are_all_same_type, ints_are_bounded, strings_are_latin, and keys_are_in_tuples (which is 1 iff. every list element is a non-empty tuple, in which case all the other variables refer to the list [x[0] for x in L]).
+
+
+2215-2243
+Second part of the pre-sort check: given values for those variables, select the appropriate compare function. If keys_are_in_tuples and key_type != &PyTuple_Type, then use the other variables to select compare_funcs.tuple_elem_compare, and set compare_funcs.key_compare = unsafe_tuple_compare.
+
+
+
+Selected quotes from the python-ideas thread
+Terry Reedy:
+
+Do reference this thread, and quote Tim's approval in principle, if he did not post on the tracker.
+
+Tim Peters:
+
+Would someone please move the patch along?  I expect it's my fault it's languished so long, since I'm probably the natural person to review it, but I've been buried under other stuff.
+But the patch doesn't change anything about the sorting algorithm itself - even shallow knowledge of how timsort works is irrelevant.  It's just plugging in a different bottom-level object comparison function when that appears valuable.
+I've said from the start that it's obvious (to me ;-) ) that it's an excellent tradeoff.  At worst it adds one simple (pre)pass over the list doing C-level pointer equality comparisons.  That's cheap.  The worst-case
+damage is obviously small, the best-case gain is obviously large, and the best cases are almost certainly far more common than the worst cases in most code.
+
+Later in that message, Tim also pointed out a bug, which has been fixed in this version of the patch.
+
+https://bugs.python.org/issue28685",10,20
+583,2017-03-09T15:33:54Z,2017-03-09T16:34:04Z,2017-03-09T16:34:04Z,1,3,1,…ile.,4,1
+584,2017-03-09T16:41:35Z,2017-03-09T17:43:39Z,2017-03-09T17:43:39Z,3,11,8,"bpo-29619: os.stat() and os.DirEntry.inodeo() now convert inode
+(st_ino) using unsigned integers.
+(cherry picked from commit 0f6d733)
+(Misc/NEWS conflict handled manually.)",3,0
+585,2017-03-09T17:12:27Z,2017-03-19T06:40:32Z,2017-03-19T06:40:32Z,10,52,33,,3,0
+590,2017-03-10T05:11:12Z,2017-03-11T05:02:53Z,2017-03-11T05:02:53Z,10,25,31,,6,3
+592,2017-03-10T07:02:38Z,2017-03-10T16:58:41Z,2017-03-10T16:58:41Z,1,11,0,,5,1
+594,2017-03-10T10:58:58Z,,2017-04-26T21:50:19Z,6,67,59,,6,6
+595,2017-03-10T11:20:14Z,2017-06-12T06:43:42Z,2017-06-12T06:43:42Z,4,17,2,This fixes an issue with the Compat32 email policy where setting the max_line_length attribute to None should prevent line wrapping as specified in the docs.,6,16
+599,2017-03-10T14:44:13Z,2017-06-16T06:59:02Z,2017-06-16T06:59:02Z,5,18,39,"In test_sax, remove buffering=0 since io.open() doesn't support
+unbuffered text I/O.",3,3
+602,2017-03-10T17:19:35Z,2017-03-11T02:17:22Z,2017-03-11T02:17:22Z,1,2,2,,4,3
+603,2017-03-10T19:43:31Z,2017-06-09T06:29:00Z,2017-06-09T06:29:00Z,1,5,0,,6,4
+604,2017-03-10T19:48:50Z,2017-04-27T12:23:34Z,2017-04-27T12:23:34Z,7,39,24,"This PR partially fixes bpo-27200.  Partially and not completely, because I followed the suggestion of @ezio-melotti to split the patch in several patches.  This PR is the 3rd of the series.  The first one was #240 and the second one #401.
+To run the doctests (from the Doc directory):
+$ sphinx-build -b doctest . build/doctest \
+library/urllib.parse.rst \
+library/functions.rst \
+library/ipaddress.rst \
+library/reprlib.rst \
+library/shlex.rst \
+library/email.compat32-message.rst \
+whatsnew/3.2.rst",5,3
+610,2017-03-11T04:00:58Z,2017-03-11T17:34:56Z,2017-03-11T17:34:56Z,1,2,2,,4,2
+611,2017-03-11T05:24:13Z,2017-03-11T20:55:35Z,2017-03-11T20:55:35Z,1,17,0,"This goes for the whitelist approach to skipping doc builds, the blacklist approach is also available via skip_commits.",3,0
+615,2017-03-11T13:52:39Z,2017-03-19T06:51:08Z,2017-03-19T06:51:08Z,14,527,202,"Converted constructors are:
+
+complex.__new__
+float.__new__
+function.__new__
+int.__new__
+mappingproxy.__new__
+module.__init__
+property.__init__
+structseq.__new__",4,1
+616,2017-03-11T15:10:55Z,2017-04-13T14:17:59Z,2017-04-13T14:17:59Z,4,25,9,"This PR is the last but one in the series bpo-27200.  The first one was #240, the second one #401, and the third #604.  To run the doctests (from the Doc directory):
+$ sphinx-build -b doctest . build/doctest \
+library/pathlib.rst \
+library/ssl.rst \
+library/turtle.rst \
+library/weakref.rst",4,4
+637,2017-03-12T10:48:23Z,2017-03-12T12:08:06Z,2017-03-12T12:08:06Z,2,1,33,…a on all platforms.,4,1
+643,2017-03-12T12:54:41Z,,2017-03-30T17:10:44Z,1,54,7,"Description: Adding various tests for all the HTTP header related methods of urllib.request.Request class.
+
+
+BPO: http://bugs.python.org/issue29799",4,1
+644,2017-03-12T16:59:14Z,2017-03-12T19:53:07Z,2017-03-12T19:53:07Z,2,16,2,"See bpo-29600 for details.
+/cc @njsmith",5,3
+649,2017-03-12T21:13:06Z,2017-03-15T05:26:33Z,2017-03-15T05:26:33Z,4,34,1,"This is my first contribution for CPython and I must admit I haven't read through all the developer guide.
+I signed the CLA (probably still in review) but if you notice anything else that needs to be done please let me know.",6,5
+651,2017-03-13T00:17:55Z,2017-03-24T21:05:04Z,2017-03-24T21:05:04Z,1,16,2,"@serhiy-storchaka @brettcannon
+These are two remaining changes to close http://bugs.python.org/issue28810
+This needs a backport to 3.6",7,7
+659,2017-03-13T06:06:48Z,2017-06-11T03:16:16Z,2017-06-11T03:16:16Z,14,699,55,"Reference implementation for PEP 538, which is in turn a partial fix for bpo-28180.
+This updates the CPython CLI to attempt to set LC_CTYPE to a suitable UTF-8
+based locale before loading the runtime when it detects that it is running in
+the C locale.
+It also updates the CPython runtime to emit a compatibility warning on stderr
+when running in the C locale.
+Remaining work:
+
+ Fix the Windows compatibility issue reported by Appveyor
+ What's New entry
+ Add a note in the What's New entry regarding the current locale coercion warning that indicates we're actively seeking feedback on it during the 3.7 pre-release cycle. Our experience with the Fedora 26 backport so far has been that the warning is useful in spotting places where we should probably change the configured locale to C.UTF-8 (e.g. in RPM build environments), but I'm still starting to wonder if it might be better for us to disable it before the F26 final release.
+ NEWS entry",7,5
+660,2017-03-13T06:16:56Z,2018-02-13T10:33:33Z,2018-02-13T10:33:33Z,1,1,5,https://bugs.python.org/issue29803,5,6
+661,2017-03-13T17:39:31Z,2019-10-18T13:07:21Z,2019-10-18T13:07:21Z,3,9,25,"Revert parsing decision from bpo-754016 in favor of the documented
+consensus in bpo-16932 of how to treat strings without a // to
+designate the netloc.
+https://bugs.python.org/issue27657
+https://bugs.python.org/issue754016
+https://bugs.python.org/issue16932
+
+https://bugs.python.org/issue27657",10,12
+663,2017-03-14T06:29:05Z,2017-03-17T15:25:06Z,2017-03-17T15:25:06Z,1,8,1,,8,14
+665,2017-03-14T08:27:26Z,2017-03-14T19:42:09Z,2017-03-14T19:42:09Z,1,28,22,"@serhiy-storchaka @brettcannon Here is the separate PR for lnotab_notes.txt that I promised.
+This needs to be backported to 3.6.",6,4
+667,2017-03-14T21:16:07Z,2017-03-14T22:20:56Z,2017-03-14T22:20:56Z,1,0,1,,5,1
+668,2017-03-14T23:15:33Z,,2019-05-29T01:27:28Z,42,700,201,"according to http://bugs.python.org/issue15988:
+
+in Python/getargs.c, patch seterror so that it would be easier to do 2 in various places that use PyArg_* functions.
+make various OverflowError and ValueError messages more consistent and helpful
+add various overflow tests
+
+(I ran the test module, and on my Windows 10, the same tests failed with
+and without my patches. However, on my Ubuntu 16.04 VM, none of the tests
+failed.)",6,5
+670,2017-03-15T05:04:02Z,2017-04-10T17:27:50Z,2017-04-10T17:27:51Z,2,2,2,(cherry picked from commit 3d707be),4,4
+678,2017-03-15T18:50:04Z,2017-04-24T17:06:16Z,2017-04-24T17:06:16Z,3,49,1,"At the time when an abstract base class' __init_subclass__ runs, ABCMeta.__new__ has not yet finished running, so in the presence of __init_subclass__, inspect.isabstract() can no longer depend only on TPFLAGS_IS_ABSTRACT.",7,9
+680,2017-03-15T20:25:41Z,2017-03-30T06:47:07Z,2017-03-30T06:47:07Z,3,82,24,"ValueError always is raised rather than OverflowError for negative counts.
+Shifting zero with non-negative count always returns zero.",4,1
+682,2017-03-16T13:09:45Z,,2020-08-29T10:50:19Z,4,51,20,"Unlike previous patches, this one retains support for AIX 4.1 and earlier.",11,10
+685,2017-03-16T20:53:14Z,2017-03-17T02:50:40Z,2017-03-17T02:50:40Z,1,6,12,"This PR fixes bpo-29820. @Mariatta I removed the outdated books, but I also changed the first line of the PySide and PyGObject entries, making them consistent to the PyQt and wxPython ones.",4,1
+686,2017-03-16T21:06:58Z,2019-04-23T08:34:30Z,2019-04-23T08:34:30Z,1,2,3,"The docstring for assertCountEqual() says ""An unordered sequence comparison,"" but in fact it works fine with general Iterables, since the first thing it does is make a defensive copy.  Since order does not matter, we are not indexing into the arguments, it is necessary to read all elements to make a comparison, and a defensive copy is generally a good practice, there does not seem to be a reason to forbid iterables.  That is, it is hard to imagine a situation where a list is fine but an iterable is not.  (The only potential issue is if the same iterator object is passed as both arguments, but of course that is the nature of iterators.)  This is, however, a change to the method contract and the implementation would have to remain consistent in the future.
+I noticed the issue when using mypy, and typeshed has updated their stubs: python/typeshed#1006",8,3
+692,2017-03-17T10:19:42Z,2017-03-20T12:24:40Z,2017-03-20T12:24:40Z,1,1,1,NotImplentedError --> NotImplementedError,5,3
+694,2017-03-17T15:36:53Z,2017-03-17T18:16:21Z,2017-03-17T18:16:21Z,2,7,3,,5,2
+697,2017-03-17T18:12:48Z,2017-03-17T22:29:27Z,2017-03-17T22:29:27Z,1,2,9,"This will eliminate one of the builds in Travis, allowing for CI overall to complete faster.",5,2
+699,2017-03-17T19:31:40Z,2017-03-20T06:44:47Z,2017-03-20T06:44:47Z,3,27,5,,5,4
+707,2017-03-18T02:13:27Z,,2022-07-18T15:29:44Z,5,62,11,"… input iterables appropriately
+https://bugs.python.org/issue29842
+
+https://bugs.python.org/issue29842",16,20
+709,2017-03-18T10:18:31Z,2017-03-19T17:47:02Z,2017-03-19T17:47:02Z,2,2,2,…ith unsupported type.,6,1
+710,2017-03-18T10:19:44Z,2017-03-19T17:38:43Z,2017-03-19T17:38:43Z,1,10,1,,4,1
+712,2017-03-18T19:01:47Z,2017-03-21T03:13:43Z,2017-03-21T03:13:43Z,2,19,10,,5,3
+717,2017-03-19T16:24:57Z,2017-03-24T08:23:43Z,2017-03-24T08:23:43Z,3,3,3,"This PR introduces 2 fixes (in corresponding commits) for make tags:
+
+Fix warnings because of searching for C sources and headers in ""Grammar"" and ""Mac"" directories
+
+ctags: Warning: cannot open source file ""Grammar/*.[ch]"" : No such file or directory
+ctags: Warning: cannot open source file ""Mac/*.[ch]"" : No such file or directory
+
+
+Fix failure when ctags is configured with non-default tags filename (like "".tags"").
+
+sort: cannot read: tags: No such file or directory
+Makefile:1570: recipe for target 'tags' failed
+make: *** [tags] Error 2",6,5
+728,2017-03-19T22:27:35Z,2017-07-07T06:10:46Z,2017-07-07T06:10:46Z,3,48,7,"If history-length is set in .inputrc, and the history file is double the
+history size (or more), history_get(N) returns NULL, and python
+segfaults. Fix that by checking for NULL return value.
+It seems that the root cause is incorrect handling of bigger history in
+readline, but python should not segfault even if readline returns
+unexpected value.",7,21
+736,2017-03-20T09:25:28Z,2022-11-10T12:32:02Z,2022-11-10T12:32:02Z,3,12,3,"If we wrap function with bound method, which is also a wrapper around function, inspect.signature will not do skip_bound_arg.
+It will use inspect.unwrap and pass by bound method from outer function to inner one.
+Reproducer:
+import functools, inspect
+
+
+def decorator(func):
+    @functools.wraps(func)
+    def inner(*args):
+        return func(*args)
+    return inner
+
+
+class Foo(object):
+    @decorator
+    def bar(self, testarg):
+        pass
+
+
+f = Foo()
+baz = decorator(f.bar)
+assert inspect.signature(baz) == inspect.signature(f.bar)
+
+
+Issue: gh-74044",15,17
+737,2017-03-20T10:07:16Z,,2023-02-21T14:21:35Z,7,166,124,"Fix output of 'python-config' for creating loadable Python modules.
+Fix output of 'pkg-config python' for linking against the interpreter.
+
+
+Issue: gh-59795",12,11
+740,2017-03-20T15:36:15Z,2019-02-02T21:08:24Z,2019-02-02T21:08:24Z,3,67,8,"Make sure that failure paths call CloseHandle
+Fix inconsistent flags in GetFinalPathNameByHandleW calls
+Move CloseHandle call from get_target_path to its calling function.
+Add unit test to check that the fix works, and prevent regression
+
+https://bugs.python.org/issue29734
+
+https://bugs.python.org/issue29734",9,3
+741,2017-03-20T15:54:14Z,2017-03-21T13:06:07Z,2017-03-21T13:06:07Z,2,16,11,"Fix error messages from return codes for pthread_* calls
+Before (example call to PyThread_release_lock):
+pthread_mutex_lock[3]: Undefined error: 0
+pthread_cond_signal: Undefined error: 0
+pthread_mutex_unlock[3]: Undefined error: 0
+
+After (example call to PyThread_release_lock):
+pthread_mutex_lock[3]: Invalid argument
+pthread_cond_signal: Invalid argument
+pthread_mutex_unlock[3]: Invalid argument",3,2
+742,2017-03-20T18:42:20Z,,2018-07-17T14:09:12Z,2,14,3,"Original author of this patch demianbrecht@gmail.com
+HTTP/1.0 not supported CONNECT method, fix http version.
+Support for IDN.
+https://bugs.python.org/issue22708",5,4
+750,2017-03-21T07:32:20Z,2017-03-22T05:45:23Z,2017-03-22T05:45:23Z,1,1,1,(cherry picked from commit c61ac16),4,1
+751,2017-03-21T07:55:22Z,2017-04-21T23:48:12Z,2017-04-21T23:48:12Z,4,4,4,,5,1
+752,2017-03-21T17:10:11Z,2017-04-13T10:21:05Z,2017-04-13T10:21:05Z,2,30,8,I found this while debugging google/yapf#370. The fix is quite simple and quick.,5,10
+754,2017-03-21T20:41:57Z,2017-03-23T00:54:54Z,2017-03-23T00:54:54Z,1,0,6,"This fixes http://bugs.python.org/issue24796
+This needs to be backported to 3.5 and 3.6.",4,1
+756,2017-03-22T01:48:25Z,,2019-03-22T18:07:10Z,2,12,8,"…ptimized locking primitives added in Windows Vista.
+https://bugs.python.org/issue29871",8,2
+759,2017-03-22T05:38:23Z,2017-03-22T06:53:57Z,2017-03-22T06:53:57Z,2,5,5,https://github.com/python/cpython/blob/master/Lib/tabnanny.py,4,2
+770,2017-03-22T16:46:40Z,,2017-03-23T13:00:06Z,8,111,63,"New type: _Py_StaticVar
+New macro _Py_STATICVAR(var) to declare a variable
+New macro _PY_STATICVAR_INIT(var, expr) to initialize a variable
+once
+New function _PyStaticVar_Set() to explicitly set a variable once
+to initialize it
+New _PyStaticVar_Fini() function clearing all references at exit",4,2
+771,2017-03-22T17:32:01Z,2020-05-29T16:28:02Z,2020-05-29T16:28:02Z,7,135,2,"https://bugs.python.org/issue29882
+
+https://bugs.python.org/issue29882",12,17
+773,2017-03-22T21:30:06Z,2017-03-30T15:12:06Z,2017-03-30T15:12:06Z,6,120,53,"Element.getiterator() and the html parameter of XMLParser() were
+deprecated only in the documentation.  Now using them emits a deprecation
+warning.",5,1
+776,2017-03-23T02:32:14Z,2018-03-26T11:03:41Z,2018-03-26T11:03:41Z,1,1,1,"Fix wrong description about SimpleXMLRPCServer class constructor parameter bind_and_activate.
+Passing True as the bind_and_activate do immediately opening and binding to thier socket.
+
+SimpleXMLRPCServer constructor
+TCPServer constructor called from SimpleXMLRPCServer constructor",6,4
+777,2017-03-23T05:46:26Z,2017-03-23T17:14:30Z,2017-03-23T17:14:30Z,3,20,1,,6,6
+778,2017-03-23T07:39:21Z,2017-03-23T15:53:48Z,2017-03-23T15:53:48Z,8,15,15,"There was few cases of using literal 0 instead of NULL in the context of
+pointers.  While this was a legitimate C code, using NULL rather than 0 makes
+the code clearer.",4,1
+779,2017-03-23T09:09:46Z,,2024-03-19T08:41:20Z,11,104,63,"Deprecate using bytes-like objects except bytes and bytearray in
+builtins int(), float(), compile(), eval() and exec().
+
+
+Issue: gh-71759",11,11
+780,2017-03-23T10:52:31Z,,2018-02-01T02:36:08Z,23,286,236,"New C API for variables only initialized once to be able to clear
+them at exit:
+
+New macro _Py_ONCEVAR(var) to declare a variable
+New macro _PY_ONCEVAR_INIT(var, expr) to initialize a variable
+once
+New function _PyOnceVar_Set() to explicitly set a variable once
+to initialize it
+New _PyOnceVar_Fini() function clearing all variables (initialized
+once) at exit
+
+https://bugs.python.org/issue29881",5,1
+781,2017-03-23T11:07:47Z,2017-03-23T13:48:40Z,2017-03-23T13:48:40Z,27,116,88,"From C API side the type of results of PyThread_start_new_thread() and
+PyThread_get_thread_ident(), the id parameter of
+PyThreadState_SetAsyncExc(), and the thread_id field of PyThreadState
+changed from ""long"" to ""unsigned long"".",4,2
+784,2017-03-23T13:55:13Z,,2017-11-26T21:29:52Z,1,14,0,Some symbols where only added in 3.5.2 and this information was missing in the docs,7,6
+785,2017-03-23T16:20:34Z,,2018-12-26T01:53:12Z,1,5,0,"A suggested fix for http://bugs.python.org/issue29886 which I reported earlier today
+
+https://bugs.python.org/issue29886",10,17
+788,2017-03-23T17:06:26Z,2017-03-30T15:05:09Z,2017-03-30T15:05:09Z,3,35,35,,5,5
+790,2017-03-23T17:07:44Z,2017-03-27T10:59:08Z,2017-03-27T10:59:08Z,1,15,15,,8,1
+793,2017-03-23T17:36:08Z,2017-11-02T10:32:54Z,2017-11-02T10:32:55Z,16,75,316,"Patch from @encukou
+More info at: http://bugs.python.org/issue23699
+Rebased for the current master branch.
+
+https://bugs.python.org/issue23699",8,5
+794,2017-03-23T21:40:06Z,,2018-12-07T11:43:44Z,5,333,95,"errors='surrogateescape' should be used for successful decoding.
+encoding='latin1' should be used for successful decoding.
+
+https://bugs.python.org/issue22005",7,3
+798,2017-03-24T08:32:46Z,2017-03-24T19:28:43Z,2017-03-24T19:28:43Z,4,28,13,In a future versions of Python this can be an error.,4,1
+799,2017-03-24T09:52:20Z,2017-03-24T11:27:43Z,2017-03-24T11:27:43Z,5,32,3,permission bits of newly-created intermediate-level directories.,4,3
+802,2017-03-24T14:24:12Z,2017-03-25T02:55:08Z,2017-03-25T02:55:08Z,1,1,1,,5,3
+804,2017-03-24T16:09:39Z,2023-12-26T09:15:14Z,2023-12-26T09:15:14Z,4,26,3,"… file
+(for example Claws Mail IMAP-cache folders).
+
+
+Issue: gh-66515",8,3
+805,2017-03-24T17:19:52Z,2017-03-24T18:51:53Z,2017-03-24T18:51:53Z,3,23,17,when the OS gives priority to errors such as EACCES over EEXIST.,6,3
+809,2017-03-24T22:17:19Z,2017-03-25T04:51:22Z,2017-03-25T04:51:22Z,1,1,1,"Fixed the grammar error found by Brett in the TypeError exception message on Line 140. All tests passed after making the change so I went ahead and created this pull request. If I need to add a test that checks the exception message, please let me know.",5,8
+814,2017-03-25T08:30:15Z,2017-03-25T11:42:12Z,2017-03-25T11:42:12Z,1,17,29,"Since functions in the os module support path-like objects, explicit
+converting Path to str no longer needed.",5,1
+815,2017-03-25T09:43:21Z,2017-03-25T11:05:24Z,2017-03-25T11:05:24Z,3,11,11,"Now general path-like objects are supported, not just pathlib.Path.",4,1
+816,2017-03-25T10:20:21Z,,2020-01-20T18:01:48Z,2,14,6,,8,2
+821,2017-03-26T08:18:42Z,,2018-10-30T19:58:07Z,2,186,14,"This PR is the last one in the series bpo-27200.  The other PRs were: #240, #401, #604, and #616.  After applying all PRs in the series, all doctests will pass.  At this point we can add the doctest check in the build.
+To run the doctests (from the Doc directory):
+$ sphinx-build -b doctest . build/doctest library/unittest.mock*",7,11
+822,2017-03-26T10:38:44Z,2017-03-28T19:32:36Z,2017-03-28T19:32:36Z,1,20,35,"We have functions to check the symlink support already. No need to reinvent the wheel. On top of that, can_symlink() is clearer than not symlink_skip_reason.",5,4
+823,2017-03-26T13:13:17Z,2017-03-27T02:59:15Z,2017-03-27T02:59:15Z,1,3,3,"Formats of download page URLs and section names of download pages for each Python versions are vary.
+see bpo-29888.",3,1
+825,2017-03-26T17:31:09Z,2017-06-27T04:02:32Z,2017-06-27T04:02:32Z,11,48,16,"by key shortcut.  Fixed also other potential conflicts between IDLE's and
+default key bindings.",5,3
+828,2017-03-26T22:03:41Z,2017-03-27T02:17:39Z,2017-03-27T02:17:39Z,1,2,1,,5,6
+830,2017-03-27T01:40:40Z,,2022-07-09T15:03:46Z,4,29,6,"PR for issue 20774, adding a JSON serializer to collections.deque.
+
+https://bugs.python.org/issue20774",12,9
+831,2017-03-27T02:06:46Z,2017-09-15T16:25:28Z,2017-09-15T16:25:28Z,2,40,15,"There is currently only indirect documentation of the PyGetSetDef struct in the documentation in the PyTypeObject.tp_getset slot. However the documentation there contains a note that it ""belongs elsewhere"".
+The rendered documentation looks like this:
+
+
+https://bugs.python.org/issue29916",8,25
+840,2017-03-27T05:35:23Z,2017-06-10T19:58:43Z,2017-06-10T19:58:43Z,27,2379,2346,"This is largely a direct conversion of .hgeol, assuming I understand the rules of .gitattributes correctly.  I also went through and made sure there were actually examples of each entry checked in.
+A big difference here is that some of the test files (in test_email, xmltestdata, etc) are no longer marked as binary but rather just -text which should mean that they are not subject to EOL conversion, but git diff provides a nice text diff including line ending changes.
+It also expands on .hgeol a bit, with a few more Windows-specific files marked as CRLF.",9,1
+841,2017-03-27T05:37:57Z,2017-04-01T05:18:23Z,2017-04-01T05:18:23Z,1,34,45,This is another attempt at making AppVeyor more happy with test_site.,4,1
+845,2017-03-27T11:11:35Z,2017-06-23T13:11:12Z,2017-06-23T13:11:12Z,5,19,2,,7,6
+846,2017-03-27T11:32:09Z,2017-03-30T07:01:03Z,2017-03-30T07:01:03Z,12,84,89,,4,1
+849,2017-03-27T13:57:16Z,2017-05-05T08:15:12Z,2017-05-05T08:15:12Z,1,18,0,,8,4
+850,2017-03-27T17:09:25Z,,2017-04-20T04:14:00Z,2,13,7,allow argparse.FileType to accept 'newline' keyword argument,7,4
+851,2017-03-27T17:19:39Z,2018-06-14T07:05:36Z,2018-06-14T07:05:36Z,2,344,1,"Description: Unit tests for standard module tabnanny. Tests are added for almost all the functionality except tabnanny.Whitespace class.
+
+
+Reason leaving Whitespace:? I found the module contains mathematical calculations. I will try to understand it first and then write tests for it. I think it will be good to do that in another branch.
+
+
+Testing strategy: Whitebox
+
+
+BPOs
+
+https://bugs.python.org/issue19382
+https://bugs.python.org/issue19102
+
+
+
+
+https://bugs.python.org/issue19382",9,28
+852,2017-03-27T18:56:51Z,2017-03-30T06:09:42Z,2017-03-30T06:09:42Z,18,105,249,For internal use only.,5,1
+855,2017-03-27T22:03:04Z,2017-12-13T11:29:09Z,2017-12-13T11:29:10Z,27,593,178,"Add -X utf8 command line option
+Add PYTHONUTF8 environment variable
+Add sys.flags.utf8_mode
+If the LC_CTYPE is ""C"" at startup: enables automatically the UTF-8
+mode
+In UTF-8 mode, open() now uses UTF-8 encoding by default
+subprocess._args_from_interpreter_flags(): inherit the UTF-8 mode
+using -X utf8 or -X utf8=strict command line options.
+Skip some tests relying on the current locale if the UTF-8 mode is
+enabled.
+Add test_utf8mode.py
+_Py_DecodeUTF8_surrogateescape() gets a new optional parameter to
+return also the length (number of wide characters).
+Update Py_DecodeLocale() and Py_EncodeLocale() to support the UTF-8
+mode
+
+
+https://bugs.python.org/issue29240",7,10
+856,2017-03-27T22:36:39Z,2017-03-28T14:02:07Z,2017-03-28T14:02:07Z,3,28,15,"bpo-20314
+bpo-19824",4,2
+857,2017-03-27T22:37:11Z,,2017-06-14T21:30:54Z,19,568,334,"Add new conversions functions for PyLong:
+
+PyLong_FromIntMax()
+PyLong_FromUIntMax()
+PyLong_AsIntMax()
+PyLong_AsIntMaxAndOverflow()
+PyLong_AsUIntMax()
+
+
+
+getargs: add 'm' format
+
+
+New _testcapi constants: INTMAX_MAX, INTMAX_MIN, UINTMAX_MAX, SIZEOF_INTMAX_T
+
+
+Add _testcapi.getargs_m() and _testcapi.test_long_intmax_api()
+
+
+PyLong_FromVoidPtr() uses PyLong_FromUIntMax()
+
+
+Use intmax_t in various modules
+
+
+array, struct, ctypes and memoryview are not modified yet to support
+intmax_t.",4,1
+858,2017-03-27T22:57:42Z,2017-06-15T22:18:16Z,2017-06-15T22:18:16Z,3,46,22,"bpo-23890: unittest.TestCase.assertRaises() now manually breaks a
+reference cycle to not keep objects alive longer than expected.
+(cherry picked from commit bbd3cf8)",4,0
+864,2017-03-28T05:09:25Z,2017-03-30T19:12:18Z,2017-03-30T19:12:18Z,1,5,0,,7,3
+865,2017-03-28T05:49:03Z,2017-03-30T07:44:29Z,2017-03-30T07:44:29Z,2,4,0,updating the doc as discussed in issue 29913,6,10
+866,2017-03-28T06:45:12Z,2017-03-29T05:28:16Z,2017-03-29T05:28:16Z,1,51,53,,5,0
+869,2017-03-28T12:57:28Z,2017-03-28T15:25:27Z,2017-03-28T15:25:27Z,3,7,2,"(cherry picked from commit 8cea592)
+(Original pull request is GH-129)",4,0
+875,2017-03-28T14:27:52Z,2017-03-28T16:32:51Z,2017-03-28T16:32:51Z,1,10,9,(cherry picked from commit 0ae7c8b),3,1
+877,2017-03-28T16:22:30Z,2017-03-29T21:14:07Z,2017-03-29T21:14:07Z,1,6,3,"Changed the parameter name fromnumber to x to be consistent with documentation for other numeric functions, such as abs, float, math.floor, and mail.ceil. The use of number seemed to indicate an object from the Number class, which with PEP 3141 was not valid for round since round is implemented for Real and not Complex.
+Not sure about this one, but changed the phrase *ndigits* digits to be *ndigits* precision to match the help() text.
+Moved the delegation line and expanded it to match the similar line in the float() section since that is the only other built-in over the Real class.",5,4
+879,2017-03-28T18:31:19Z,2017-04-01T06:09:54Z,2017-04-01T06:09:54Z,3,36,10,"the original logic was just comparing the network address
+but this is wrong because if the network address is equal then
+we need to compare the ip address for breaking the tie
+add more ip_interface comparison tests",6,7
+881,2017-03-29T01:26:18Z,2017-04-02T10:45:41Z,2017-04-02T10:45:41Z,2,150,56,"see bpo-19225.
+I create this patch based on the patch created by Tamás Bence Gedai (beng94).",9,8
+885,2017-03-29T10:18:59Z,2017-04-27T03:36:36Z,2017-04-27T03:36:36Z,2,48,42,,8,10
+886,2017-03-29T16:41:38Z,2017-03-31T16:14:41Z,2017-03-31T16:14:41Z,4,9,5,"There is a bit of confusion in the CPython source between Py_DEBUG and (C) asserts. By default Python builds without Py_DEBUG and without asserts (definining NDEBUG to disable them). Turning on Py_DEBUG also enables asserts. However, it is possible to turn on asserts without turning on Py_DEBUG, and at Google we routinely build CPython that way. (Doing this with the regular configure/make process can be done by setting CFLAGS=-UNDEBUG when running configure.) This happens to highlight two different problems:
+
+
+Code being defined in Py_DEBUG blocks but used in assertions: _PyDict_CheckConsistency() is defined in dictobject.c in an #ifdef Py_DEBUG, but then used in assert without a check for Py_DEBUG. This is a compile-time error.
+
+
+Assertions checking for things that are outside of CPython's control, like whether an exception is set before calling something that might clobber it. Generally speaking assertions should be for internal invariants; things that should be a specific way, and it's an error in CPython itself when it's not (I think Tim Peters originally expressed this view of C asserts). For example, PyObject_Call() (and various other flavours of it) does assert(!PyErr_Occurred()), which is easily triggered and the cause of which is not always apparent.
+
+
+The second case is useful, mind you, as it exposes bugs in extension modules, but the way it does it is not very helpful (it displays no traceback), and if the intent is to only do this when Py_DEBUG is enabled it would be better to check for that. This PR fixes both issues.
+I think what our codebase does (enable assertions by default, without enabling Py_DEBUG) is useful, even when applied to CPython, and I would like CPython to keep working that way. However, if it's deemed more appropriate to make assertions only work in Py_DEBUG mode, that's fine too -- but please make it explicit, by making non-Py_DEBUG builds require NDEBUG.",6,4
+888,2017-03-29T17:02:28Z,2017-03-29T18:09:23Z,2017-03-29T18:09:23Z,1,3,3,,6,2
+889,2017-03-29T17:08:54Z,2017-03-30T16:58:36Z,2017-03-30T16:58:36Z,3,39,24,"Fix the use of recursion in itertools.chain.from_iterable. Using recursion is unnecessary, and can easily cause stack overflows, especially when building in low optimization modes or with Py_DEBUG enabled.",6,5
+891,2017-03-30T00:56:33Z,,2017-04-01T12:07:25Z,90,1173,913,…rror,17,9
+899,2017-03-30T05:55:44Z,2017-03-30T20:39:07Z,2017-03-30T20:39:07Z,1,4,3,,4,5
+902,2017-03-30T06:14:34Z,2017-03-31T11:05:26Z,2017-03-31T11:05:26Z,1,3,3,e.g.: _ctypes_test.c:53:42: warning: parameter ‘in’ set but not used [-Wunused-but-set-parameter],5,4
+905,2017-03-30T07:52:20Z,2017-03-30T15:06:53Z,2017-03-30T15:06:53Z,1,9,4,,6,3
+911,2017-03-30T17:37:03Z,2017-03-30T19:48:24Z,2017-03-30T19:48:24Z,3,39,24,"Fix the use of recursion in itertools.chain.from_iterable. Using recursion
+is unnecessary, and can easily cause stack overflows, especially when
+building in low optimization modes or with Py_DEBUG enabled.
+(cherry picked from commit 5466d4a)",5,1
+912,2017-03-30T17:37:39Z,2017-03-30T19:48:55Z,2017-03-30T19:48:55Z,3,39,24,"Fix the use of recursion in itertools.chain.from_iterable. Using recursion
+is unnecessary, and can easily cause stack overflows, especially when
+building in low optimization modes or with Py_DEBUG enabled.
+(cherry picked from commit 5466d4a)",4,0
+913,2017-03-30T17:38:08Z,2017-03-30T19:49:22Z,2017-03-30T19:49:22Z,3,39,24,"Fix the use of recursion in itertools.chain.from_iterable. Using recursion
+is unnecessary, and can easily cause stack overflows, especially when
+building in low optimization modes or with Py_DEBUG enabled.
+(cherry picked from commit 5466d4a)",5,0
+915,2017-03-30T19:51:34Z,2017-04-24T03:54:09Z,2017-04-24T03:54:09Z,1,6,7,…nd base=0,7,6
+916,2017-03-31T00:04:20Z,2017-04-09T07:47:13Z,2017-04-09T07:47:13Z,4,54,33,"Issue: 29951
+I wasn't sure if this needs to be tested and if there is a dedicated test-file for these functions.",7,5
+917,2017-03-31T03:44:07Z,2017-03-31T05:48:50Z,2017-03-31T05:48:50Z,1,1,1,see Issue29952.,4,1
+919,2017-03-31T05:26:14Z,2017-03-31T09:12:19Z,2017-03-31T09:12:19Z,1,28,22,(cherry picked from commit 9135275),4,0
+926,2017-03-31T12:28:42Z,2017-04-25T18:26:37Z,2017-04-25T18:26:37Z,4,7,7,The name SlotWrapperType was added in bpo-29377 but it added the type based on the repr of the object instead of it's type as type(object.__init__) results in. PR changes this to WrapperDescriptorType to avoid and any unecessary confusion down the line.,6,5
+927,2017-03-31T13:46:35Z,2017-03-31T19:48:17Z,2017-03-31T19:48:17Z,3,18,11,objects when pass out of bound fold argument.,6,1
+928,2017-03-31T15:39:00Z,2017-10-11T13:29:15Z,2017-10-11T13:29:15Z,2,116,109,"Separated functions and constants descriptions in sections.
+Added a note about the limitations of timezone constants.
+Removed redundant lists from the module docstring.
+
+
+https://bugs.python.org/issue28157",8,12
+932,2017-03-31T19:44:40Z,2017-03-31T21:19:05Z,2017-03-31T21:19:05Z,1,2,4,,3,0
+937,2017-04-01T04:59:27Z,2017-11-26T22:31:28Z,2017-11-26T22:31:28Z,5,22,8,https://bugs.python.org/issue23033,9,18
+943,2017-04-01T06:40:29Z,2017-04-01T08:20:25Z,2017-04-01T08:20:25Z,2,7,6,reverts 4897300.,4,1
+944,2017-04-01T06:40:35Z,2017-04-07T15:56:12Z,2017-04-07T15:56:12Z,4,28,14,,3,0
+945,2017-04-01T08:32:41Z,2017-04-01T14:29:32Z,2017-04-01T14:29:32Z,2,7,6,"Revert ""Minor factoring:  move redundant resize scaling logic into the resize function.""
+This reverts commit 4897300.
+(cherry picked from commit e82cf86)
+(original pull request is GH-943)",3,0
+947,2017-04-01T12:22:57Z,2017-04-04T05:16:14Z,2017-04-04T05:16:14Z,1,5,0,,7,1
+948,2017-04-01T13:18:37Z,2017-04-02T02:50:48Z,2017-04-02T02:50:48Z,1,3,3,,7,2
+949,2017-04-01T13:33:35Z,2017-04-11T09:11:13Z,2017-04-11T09:11:13Z,3,32,6,"@ncoghlan @serhiy-storchaka @JelleZijlstra @brettcannon
+I had to close PR 891 and open a new PR due to an incorrect rebase on my part.
+All review comments made in PR 891 have been implemented and a test case added, please review, thanks.",6,6
+950,2017-04-01T14:38:51Z,2017-04-05T17:34:28Z,2017-04-05T17:34:28Z,5,268,0,Add IEEE 754-style remainder operation.,6,1
+953,2017-04-01T21:05:18Z,,2017-04-07T05:42:27Z,14,89,272,Changes the _random.Random.setstate() function so that if it raises an exception the state of the generator is unchanged.,5,4
+962,2017-04-02T11:47:06Z,2017-04-03T16:18:32Z,2017-04-03T16:18:32Z,1,0,2,Couldn't trace exactly when PyTokenizer_RestoreEncoding was removed from tokenizer.c but the corresponding declaration in the header file survived. PR removes it.,4,5
+964,2017-04-02T23:37:37Z,2017-04-08T06:19:24Z,2017-04-08T06:19:24Z,2,151,66,backports to 2.7 for #881,3,6
+965,2017-04-02T23:42:24Z,2017-04-06T14:00:15Z,2017-04-06T14:00:15Z,2,146,56,backports to 3.5 for #881,3,3
+966,2017-04-02T23:46:11Z,2017-04-03T16:26:33Z,2017-04-03T16:26:33Z,2,150,56,backports to 3.6 for #881,3,1
+967,2017-04-03T03:49:18Z,2017-04-08T16:09:15Z,2017-04-08T16:09:15Z,1,43,7,"Documents a few omitted classes and adds NamedTuple methods.
+@ilevkivskyi would you mind reviewing this?",8,4
+971,2017-04-03T11:05:03Z,2017-04-19T11:01:04Z,2017-04-19T11:01:04Z,1,3,0,,4,1
+972,2017-04-03T11:19:16Z,2017-05-24T22:19:51Z,2017-05-24T22:19:51Z,5,21,2,"if _bootstrap._find_spec() return None, an ImportError is raised
+stating: module could not be found in the path specified",9,13
+976,2017-04-03T13:54:05Z,2017-04-03T16:16:15Z,2017-04-03T16:16:15Z,1,1,1,,5,4
+977,2017-04-03T15:05:30Z,2017-04-03T16:09:56Z,2017-04-03T16:09:56Z,2,14,12,"Don't fail anymore if test run with python3 -Werror.
+Fix also deprecation message: add a space.",4,1
+978,2017-04-03T15:09:20Z,,2017-06-14T21:32:13Z,1,7,3,"On AIX, ssl.SSLContext.get_ciphers() is not available, whereas
+ssl.OPENSSL_VERSION_INFO is (1, 0, 2, 8, 15).
+Display also the ssl API version when running test_ssl in verbose
+mode.",4,8
+979,2017-04-03T15:24:48Z,2017-04-04T08:35:16Z,2017-04-04T08:35:16Z,5,23,5,See http://bugs.python.org/issue29972 for more information.,3,6
+980,2017-04-03T16:41:20Z,,2017-05-22T22:51:29Z,408,9952,5407,"Defaults to 'no', but as before assertions are implied by --with-pydebug.",79,7
+981,2017-04-03T17:11:05Z,2017-06-09T22:29:46Z,2017-06-09T22:29:47Z,1,6,4,"I'm using Python 3.6 and aiohttp 2.0.5.
+Given this server:
+import http.server
+import ssl
+
+addr = ('localhost', 8081)
+httpd = http.server.HTTPServer(addr, http.server.SimpleHTTPRequestHandler)
+httpd.socket = ssl.wrap_socket(httpd.socket,
+                keyfile='server.key',
+                certfile='server.cert',
+                server_side=True)
+httpd.serve_forever()
+and this client (that basically sends get requests to the above server):
+import asyncio
+import aiohttp
+import resource
+
+last = 0
+
+def handler(*_):
+        global last
+        mem = resource.getrusage(resource.RUSAGE_SELF).ru_maxrss / 1024
+        print('Variation:', mem - last)
+        last = mem
+
+async def get(session):
+        response = await session.request('get', 'https://0.0.0.0:8081') # https (ssl)
+        print(response.status)
+        response.close()
+
+async def main(loop):
+        conn = aiohttp.TCPConnector(verify_ssl=False, enable_cleanup_closed=True)
+        session = aiohttp.ClientSession(loop=loop, connector=conn)
+
+        for x in range(500):
+                await get(session)
+                await asyncio.sleep(1, loop=loop)
+                handler()
+
+        session.close()
+
+if __name__ == '__main__':
+        loop = asyncio.get_event_loop()
+        loop.run_until_complete(main(loop))
+I have been able to reproduce the issue. In fact, every 6-7 get requests, I got a Variation: 0.25 printed on my screen that indicates my client uses 0.25 more MB of memory (it just grows indefinitely, I tested it with 10000 requests).
+Using ipdb and objgraph led me to this graph where you can clearly see that there are some circular references between SSLProtocol and _SSLPipe objects:
+
+I know that since PEP 442 it shouldn't be a problem anymore, the python garbage collector doesn't care about the cycle and collect them anyway. But the interesting fact is that breaking this cycle (see my commit) actually fixes the memory leak in my client (no more Variation: 0.25, just always Variation: 0.0). My hypothesis is that circular references between SSLProtocol and _SSLPipe actually hide some circular references between some C objects (that define some tp_dealloc slots), that lead to these memory leaks.",5,10
+982,2017-04-03T17:33:15Z,2017-04-26T10:49:46Z,2017-04-26T10:49:46Z,1,7,2,"The documentation of typing.TYPE_CHECKING has an example (introduced in issue #26141) that would lead to NameError at runtime. The example shows how to limit the import of ""expensive_mod"" to type checkers, but then goes on to use ""expensive_mod.some_type"" in a type annotation that is evaluated at runtime (""local_var: expensive_mod.some_type""). The use case of TYPE_CHECKING is probably meant for type annotations placed in comments, e.g. ""local_var  # type: expensive_mod.some_type"".",6,10
+984,2017-04-04T04:55:54Z,2017-05-18T04:48:59Z,2017-05-18T04:48:59Z,1,19,11,Issue for discussion: http://bugs.python.org/issue29976,6,5
+987,2017-04-04T07:10:45Z,,2019-09-13T13:02:30Z,1,0,6,"I am not sure when TypeError is the right choice. Definitely, most of the time I've seen it done, it causes trouble, and NotImplemented usually does something better.
+For example, see the work in https://bugs.python.org/issue8743 to get set to interoperate correctly with other set-like classes --- a problem caused by the use of TypeError instead of returning NotImplemented (e.g. https://hg.python.org/cpython/rev/3615cdb3b86d).
+This advice seems to conflict with the usual and expected behavior of objects from Python: e.g. object().__lt__(1) returns NotImplemented rather than raising TypeError, despite < not ""making sense"" for object. Similarly for file objects and other uncomparable classes. Even complex numbers only return NotImplemented!
+>>> 1j.__lt__(1j)
+NotImplemented
+
+OTOH, if this note should be kept, and this PR rejected, this section could use a decent explanation of the difference between ""undefined"" (should return NotImplemented) and ""nonsensical"" (should apparently raise TypeError). Perhaps a reference to an example from the stdlib.
+
+https://bugs.python.org/issue29986
+
+Automerge-Triggered-By: @tiran",12,10
+991,2017-04-04T14:00:07Z,2017-05-08T12:08:35Z,2017-05-08T12:08:35Z,5,38,102,"The Pull Request simplifies the code of cgi.parse_multipart() by reusing the FieldStorage class, and makes it consistent with FieldStorage results : the values for non-file fields becomes a list of strings, instead of a list of bytes.",4,1
+992,2017-04-04T20:04:36Z,2019-06-01T04:13:58Z,2019-06-01T04:13:58Z,2,33,2,"This brings coverage of the heapq module to 100%.
+The doctest change is a bit weird, so I've made that a separate commit so it can be straightforwardly backed out if it's too weird. I dug into why tests.addTests(doctest.DocTestSuite(py_heapq)) doesn't find any tests and it's because the comparison here doesn't return True, which I suspect is because the module is loaded with import_fresh_module.
+(This is a pretty trivial change - I'm just improving test coverage somewhere to get started with contributing to Python, per https://docs.python.org/devguide/coverage.html)
+
+https://bugs.python.org/issue29984",9,4
+993,2017-04-04T20:49:57Z,2017-06-10T02:56:34Z,2017-06-10T02:56:34Z,1,3,2,"A new PR for issue29905, without including the TypeError reformatting for asynchat which, if my interpretation of  #issue25002 and specifically #msg250151 was correct, should probably not be included.
+If my interpretation was incorrect, I'll push a change for it too :-).",6,2
+995,2017-04-05T05:08:06Z,,2018-05-21T04:29:14Z,3,41,15,,11,8
+996,2017-04-05T05:31:32Z,,2017-04-07T01:56:50Z,1,1,1,"http.client's parse_headers ends up providing only header data to parsestr, but
+doesn't set the headersonly option. This ends up generating warning for
+StartBoundaryNotFoundDefect. This only corrects this defect.
+urllib3/urllib3#800 is related.",5,4
+999,2017-04-05T06:28:47Z,,2017-04-14T10:26:19Z,3,12,1,"recreate for CLA check.
+http://bugs.python.org/issue29990",5,4

@@ -1,0 +1,19 @@
+number,created_at,merged_at,closed_at,files,additions,deletions,body_text,participants,comments
+680,2020-04-14T14:00:33Z,,2020-04-14T16:52:05Z,2,69,69,Updated some parts of English translations and it's now a bit more native.,2,1
+1607,2021-05-29T15:34:26Z,,2021-05-30T08:07:48Z,1,1,1,"#1584  #1483
+不知道这个修复方法好不好，我的理解是最好的是当路由配置了direct 应该也配置到这个系统排除路径这里，不过为了更快的解决我就改了这一行。",4,4
+1754,2021-08-23T00:50:17Z,2021-09-29T12:10:34Z,2021-09-29T12:10:34Z,1,2,2,"我的安装路径在D:\Program Files\v2rayN\
+设置开机启动，经常会在开机时候，弹出启动了``D:\Program`这个文件，导致 v2rayN 启动不了
+目前不清楚是什么软件导致的，尝试在注册表的路径加上双引号后，就不再出现了",3,0
+2841,2022-12-04T05:40:58Z,,2022-12-09T12:43:52Z,35,456,731,Use latest C# language features to simplify code style,3,1
+3530,2023-03-20T14:34:36Z,,2023-03-22T02:29:48Z,3,30,3,"双击图标切换主界面的Hide/Show
+单击在开启关闭代理之间切换",2,2
+3756,2023-04-24T14:15:21Z,2023-04-25T02:03:40Z,2023-04-25T02:03:40Z,2,10,17,Also dispose CancellationTokenSource. Next step can be getting CancellationToken as argument of these methods.,3,0
+4287,2023-09-25T15:11:12Z,2023-11-10T07:03:03Z,2023-11-10T07:03:03Z,1,23,27,,4,0
+4849,2024-03-16T17:25:40Z,,2024-03-23T01:29:39Z,5,142,27,"Enhanced custom profile will do:
+
+Convert multiple v2ray json configs in an array to multiple custom_config
+Add support remarks in subscription json (as we have in V2rayNG) or pasted json
+Add support network in routing rules
+
+#4745",4,6

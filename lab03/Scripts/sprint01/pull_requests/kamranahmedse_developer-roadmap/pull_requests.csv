@@ -1,0 +1,97 @@
+number,created_at,merged_at,closed_at,files,additions,deletions,body_text,participants,comments
+25,2017-03-19T13:32:51Z,,2017-03-23T05:14:20Z,2,2,2,"Related: #12 #24
+Adds:
+
+ Xdebug to PHP (Backend)
+ Byebug to Ruby (Backend)
+ Material Design to CSS Frameworks (Frontend)",4,2
+328,2018-01-11T02:10:03Z,2018-02-27T08:57:27Z,2018-02-27T08:57:27Z,2,2,4,"I'm making this PR to include some Linux and Unix distributions that are ideal for web servers as not all distributions are suitable to be used in a production server and it can be hard to choose one if you're new to Linux.
+I've also added Emacs as a text editor since it has some amazingly powerful features and it's the closest contendant to Vim.",5,5
+373,2018-01-30T22:21:06Z,,2018-02-04T21:16:06Z,1,3487,1,,2,0
+502,2018-10-11T02:09:55Z,2018-10-11T20:48:08Z,2018-10-11T20:48:08Z,1,1,1,Because the tech industry isn't for males only.,2,0
+505,2018-10-13T22:00:01Z,,2020-01-04T07:21:27Z,1,1,1,"matching with the neutral term ""user""",3,1
+519,2018-11-29T21:08:43Z,2019-03-17T06:06:20Z,2019-03-17T06:06:21Z,2,5460,5460,The names were cutoff so I updated the spacing so its clear.,3,2
+526,2018-12-31T09:16:04Z,,2019-05-06T16:37:15Z,2,1,1,"In Understand the concepts under Javascript Basics, I wondered whether ""Hosting"" meant ""Hoisting"".  So I'm proposing this amendment.",3,1
+559,2019-02-01T00:42:06Z,,2020-01-18T09:17:55Z,11,48,22,"Hi, Kamran.
+I took the liberty of doing a translation of your roadmap in Brazilian Portuguese and I am sending a pull request to approve it who knows in a separate branch. I will also open an issue so that other Brazilians can contribute with improvements and corrections.
+Thanks! ^^",6,5
+622,2019-10-16T02:41:44Z,,2020-01-18T09:03:14Z,3,4,2,Infrastructure monitoring tool - prometheus is used very prominently by most of the companies as it helps monitor multiple metrics using a single agent called exporter. I think adding prometheus would be apt as this is one of a kind in this list.,6,3
+626,2019-10-29T17:42:05Z,,2020-01-03T14:58:05Z,2,1,1,"According to issue #625, SASS shouldn't be referenced as SASS, but as Sass.",4,1
+638,2020-01-07T14:42:16Z,2020-01-08T10:05:32Z,2020-01-08T10:05:32Z,1,2,2,"What roadmap does this PR target?
+README
+Enter the details about the contribution
+This PR fixes broken links to CONTRIBUTING.md and LICENSE.",2,0
+656,2020-02-20T05:49:47Z,,2020-03-13T21:15:05Z,6,10,10,"What roadmap does this PR target?
+
+ Frontend Roadmap
+ Backend Roadmap
+ DevOps Roadmap
+ All Roadmaps
+
+Please acknowledge the items listed below
+
+ I have discussed this contribution and got a go-ahead in an issue before opening this pull request.
+ This is not a duplicate issue. I have searched and there is no existing issue for this.
+ I understand that these roadmaps are highly opinionated. The purpose is to not to include everything out there in these roadmaps but to have everything that is most relevant today comparing to the other options listed.
+ I have read the contribution docs before opening this PR.
+
+Enter the details about the contribution
+Fix typo Gitlab -> GitLab
+#654",3,1
+671,2020-03-29T00:33:19Z,2020-03-29T08:05:34Z,2020-03-29T08:05:34Z,2,11959,0,"What roadmap does this PR target?
+
+ Frontend Roadmap
+ Backend Roadmap
+ DevOps Roadmap
+ All Roadmaps
+
+Enter the details about the contribution
+
+ Farsi/Persian support added :)",2,2
+675,2020-03-29T10:48:11Z,2020-03-29T11:52:13Z,2020-03-29T11:52:13Z,2,11487,0,"What roadmap does this PR target?
+
+ Frontend Roadmap
+ Backend Roadmap
+ DevOps Roadmap
+ All Roadmaps
+
+Please acknowledge the items listed below
+
+ I have discussed this contribution and got a go-ahead in an issue before opening this pull request.
+ This is not a duplicate issue. I have searched and there is no existing issue for this.
+ I understand that these roadmaps are highly opinionated. The purpose is to not to include everything out there in these roadmaps but to have everything that is most relevant today comparing to the other options listed.
+ I have read the contribution docs before opening this PR.
+
+Enter the details about the contribution
+Translate the back-end roadmap into Chinese, and the translated version needs to be checked and reviewed.",2,0
+678,2020-03-30T03:41:41Z,2020-03-30T05:59:39Z,2020-03-30T05:59:39Z,10,38196,0,"What roadmap does this PR target?
+
+ Frontend Roadmap
+ Backend Roadmap
+ DevOps Roadmap
+ All Roadmaps
+
+Please acknowledge the items listed below
+
+ I have discussed this contribution and got a go-ahead in an issue before opening this pull request.
+ This is not a duplicate issue. I have searched and there is no existing issue for this.
+ I understand that these roadmaps are highly opinionated. The purpose is to not to include everything out there in these roadmaps but to have everything that is most relevant today comparing to the other options listed.
+ I have read the contribution docs before opening this PR.
+
+Enter the details about the contribution
+As a side note I would like to address that some things like throttling are much better if they searched in English or even not being translated, but for some people with no English knowledge the translation would be enough to start off.
+If there's no problem then the translation to Spanish is done!",3,3
+687,2020-04-04T14:05:24Z,2020-04-04T18:02:53Z,2020-04-04T18:02:53Z,5,12405,0,"What roadmap does this PR target?
+
+ into Roadmap
+ Frontend Roadmap
+
+Please acknowledge the items listed below
+
+[x ] I have discussed this contribution and got a go-ahead in an issue before opening this pull request.
+ This is not a duplicate issue. I have searched and there is no existing issue for this.
+ I understand that these roadmaps are highly opinionated. The purpose is to not to include everything out there in these roadmaps but to have everything that is most relevant today comparing to the other options listed.
+[ x] I have read the contribution docs before opening this PR.
+
+Enter the details about the contribution
+this pull PR contains the translation of the front-end development roadmap to Arabic I would like also to contribute to the devops roadmap translation in the future",2,0

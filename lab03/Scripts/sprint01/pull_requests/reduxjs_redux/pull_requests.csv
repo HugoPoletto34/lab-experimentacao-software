@@ -1,0 +1,69 @@
+number,created_at,merged_at,closed_at,files,additions,deletions,body_text,participants,comments
+1701,2016-05-07T09:52:29Z,2016-05-08T11:45:01Z,2016-05-08T11:45:01Z,2,14,4,,5,2
+1702,2016-05-09T03:43:32Z,,2018-09-02T18:55:02Z,3,80,189,"Heavily inspired by #1576 but taken further.
+(I temporarily removed JSDoc because everything inside moved.)
+The public API for regular consumers stays the same. The public API for people who write store enhancers is simplified.
+We add a new concept. I tentatively call it “store base” but its name doesn’t really matter yet. I encourage you to avoid bikeshedding on the name for now, and consider the concept instead.
+The “store base” thing is exactly what we currently pass to the middleware. It’s a stripped down version of the store that offers no subscriptions. It’s just { dispatch, getState }. In this PR, we consider Redux if it was implemented around this abstraction.
+Since a “store base” doesn’t have a subscription mechanism, a function that creates the store base accepts (reducer, initialState, onChange) as arguments. The mechanism of notifying subscribers is implemented at a higher level by the store.
+Making onChange an argument is important for keeping the “store base” a useful composition abstraction. For example, a “store base” enhancer may want to wrap onChange to debounce calls to all store subscribers without knowing anything about the subscriber logic.
+I might be wrong but I have a feeling that “store base” enhancers can completely replace store enhancers as the main Redux extension mechanism. Not also do they offer wrapping reducer and initialState, but they also have a number of other benefits that store enhancers don’t:
+
+They are easier to write because only two methods need to be returned: getState and dispatch.
+Unlike store enhancers, “store base” enhancers don’t need to worry about wrapping replaceReducer or copy-pasting our $$observable implementation since both of those things are implemented at the store level which “seals” the composed store base enhancers.
+“Store base” enhancers that implement batching wouldn’t need to worry about tracking the changes to our change emitter mechanism because they would be able to wrap (to delay or debounce) onChange as they see fit without knowing what’s inside of it.
+If store “seals off” the enhanced “store base” chain as shown in this PR, enhancers won’t be able to put arbitrary methods on the store. (Arguably some enhancers do that today, but the overall system is less fragile if we just disallow this.)
+The INIT action goes through all enhancers and middleware because it is emitted outside the “store base” chain in the store itself. The store has the ability to enforce that the initial action is dispatched synchronously, as it can check the current state right after the first dispatch. (#465)
+This would also leave us with just one API for applying enhancers (the modern one) because the old way would give you a store without a subscribe method.
+
+This doesn’t even quite introduce a new concept, as we already pass a thing with the same API to middleware. We’re just giving it a name (rather than a vague “middleware API”) and using more prominently. Also, it is only relevant to people who write store enhancers.
+The only downside I can think of so far is the documentation / tutorial update / ecosystem costs, but luckily we never documented enhancers thoroughly, and we only have a few popular ones. In fact many some enhancers should just work unless they forget to pass all arguments, add custom methods, or specifically handle subscribe (in which case they’d be better off handling onChange instead anyway). And we don’t need to be stuck in an update limbo because we can release a 4.0 alpha that switches enhancer argument to mean a “store base” enhancer, and send some PRs to popular enhancers, and then roll it out when everybody is happy.
+Thoughts? I know this is a big change, but we barely had any breaking changes since the release, and if there are no other problems, I feel this moves Redux closer to what I originally tried to pull off with separating dispatching from subscribing when I was first thinking about Redux. I’d be much more comfortable with this store extension mechanism than what we have now, but if I’m wrong please help me understand why.
+@acdlite @zalmoxisus @tappleby @tomkis1 @yelouafi @timdorr @lukewestby",13,38
+1887,2016-08-09T15:27:20Z,2016-09-19T21:21:26Z,2016-09-19T21:21:26Z,23,736,0,"Using Flow for statically analyzing state and actions
+This PR is a proof of concept and is not meant to be merged
+Added examples (ordered by difficulty)
+
+counter-flow
+todos-flow
+todomvc-flow
+
+Added libdefs (in the ROOT/flow-typed directory)
+
+redux
+react-redux
+
+Observations
+
+the best type safety is achieved by avoiding the following helpers
+
+
+combineReducers (you can miss a field and / or assign a wrong reducer to a field)
+bindActionCreators (all action creator signatures are erased) <= this is now type safe
+
+combineReducers may be replaced by combining the reducers by hand (see the todos-flow example). bindActionCreators is unsafe when an object is passed in. However bindActionCreators also accepts a single function which is safer (see the todomvc-flow example)
+
+
+react-redux's libdef was pretty hard to write. Should cover the most common cases (at least)
+
+
+In order to please Flow I've done some refactorings but I tried to keep them as small as possible
+
+
+libdefs need community feedback, then we might consider to push them to flow-typed",21,62
+1930,2016-09-04T23:23:24Z,2016-09-25T22:57:47Z,2016-09-25T22:57:47Z,12,1759,0,"Initial content review for #1784 .  Please give feedback on content, formatting, structure, and ordering of topics.  Current content is a first draft, and I expect I'll need to make numerous changes before it's ready to merge.",9,26
+1946,2016-09-12T18:55:10Z,2016-09-18T20:27:51Z,2016-09-18T20:27:51Z,16,170,245,"Convert the async example files to using fat arrows, spread operators and stateless components.
+This is a follow up to what I started in #1942 and #1945
+References #1800",3,3
+1947,2016-09-12T19:29:46Z,2016-09-18T20:41:30Z,2016-09-18T20:41:30Z,16,136,203,"Convert the shopping cart example files to using fat arrows, spread operators and stateless components.
+References  #1800",4,1
+1951,2016-09-13T15:54:42Z,2016-09-21T13:13:04Z,2016-09-21T13:13:05Z,10,157,142,"Just wanted to get something going where the tests are passing on my machine.
+The replacement for expect.spyOn() is not ideal. It is quite verbose and the linter doesn't like that console is accessed. It might make sense to use jestjs/jest#1592 (comment) when it becomes available.
+Please let me know what else I can do.",4,2
+1959,2016-09-17T04:44:48Z,2016-09-19T15:16:25Z,2016-09-19T15:16:25Z,2,11,1,"A minor issue, listeners is leaked as the this context when invoking each listener.",3,1
+1995,2016-09-27T16:30:21Z,2016-09-28T13:58:01Z,2016-09-28T13:58:01Z,1,6,1,"You Might Not Need Redux
+This article sufficiently states why you might not need Redux from the creator itself. Adding this to the documentation will help those people who are not able to decide whether they need Redux or not.
+Not sure if it is the correct place for the link, please suggest.",3,2
+1996,2016-09-27T18:46:10Z,,2016-09-27T20:05:08Z,1,1,1,,3,0
+2001,2016-09-30T13:45:57Z,2016-09-30T19:22:47Z,2016-09-30T19:22:47Z,1,1,1,,4,0
+2016,2016-10-05T10:58:10Z,2016-10-05T12:42:57Z,2016-10-05T12:42:57Z,1,2,2,Typo fix,3,1

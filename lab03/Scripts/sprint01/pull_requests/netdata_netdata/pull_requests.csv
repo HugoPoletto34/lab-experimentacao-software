@@ -1,0 +1,284 @@
+number,created_at,merged_at,closed_at,files,additions,deletions,body_text,participants,comments
+383,2016-05-06T11:52:12Z,,2019-02-08T06:52:02Z,55,7459,1085,"Added doxygen-style documentation to proc_self_mountinfo.h
+This should not be merged as is.
+Things to be done before we can merge this:
+
+ Include generation of the doc to into the build process.
+ Document at least all header files.
+
+To view the documentation these steps are needed:
+
+Change dir to project root.
+doxygen doxygen.conf
+View doc/html/index.html to see the documentation of the file.",6,32
+430,2016-05-21T11:40:14Z,,2018-09-23T18:39:20Z,5,418,0,"I closed the old pull request and reopen it here.
+Sorry for that, I did something wrong with rebasing.
+Added global polling. We now have a thread to poll files for becoming a specified state. Any other thread can register and erase files from the list of polled files.
+The thread updates a timestamp which can be checked by the other thread.",2,38
+975,2016-09-17T17:33:53Z,2016-09-20T16:21:31Z,2016-09-20T16:21:31Z,2,13,22,fixes #972,2,1
+1002,2016-09-21T14:40:15Z,2016-09-21T23:48:24Z,2016-09-21T23:48:24Z,2,114,5,Closes #826.,2,2
+1022,2016-09-25T10:43:30Z,2016-09-26T13:17:32Z,2016-09-26T13:17:32Z,6,30,35,Fix some minor warnings found by cppcheck. The code base is generally clean :),2,4
+1028,2016-09-26T23:01:54Z,2016-09-27T16:48:08Z,2016-09-27T16:48:08Z,7,222,36,"fixes all warnings / errors when compiling against musl
+fixes all other issues detected when the system is busybox based
+fixes #860",2,3
+1032,2016-09-27T23:29:53Z,2016-09-28T15:28:27Z,2016-09-28T15:28:27Z,6,157,69,"@alonbl please review this.
+Is this what you had in mind?",2,3
+1050,2016-09-30T17:26:45Z,2016-09-30T21:19:34Z,2016-09-30T21:19:34Z,13,305,77,"also:
+
+added memory allocations logger enabled with -DNETDATA_LOG_ALLOCATIONS=1
+apps.plugin now reports virtual size of all applications, users and user groups
+reduced the virtual memory size of netdata when it is linked against gcc, by setting MALLOC_ARENA_MAX (by default it is 1, but there are configuration options to set it for netdata and for its plugins).
+fixes #1048 (missing libuuid from netdata.spec)",2,11
+1053,2016-10-01T11:41:24Z,2016-10-01T13:52:52Z,2016-10-01T13:52:52Z,8,248,16,"This PR adds support for linking with jemalloc and tcmalloc. Both are optional and controlled via --with-jemalloc and --with-tcmalloc ./configure options.
+netdata virtual memory size
+You may notice that netdata's virtual memory size, as reported by ps or /proc/pid/status  (or even netdata's applications virtual memory chart)  is unrealistically high.
+For example, it may be reported to be 150+MB, even if the resident memory size is just 25MB. Similar values may be reported for netdata plugins too.
+Check this for example: A netdata installation with default settings on Ubuntu 16.04LTS. The top chart is real memory used, while the bottom one is virtual memory:
+
+why this happens?
+The system memory allocator allocates virtual memory arenas, per thread running. To my observations, this defaults to 16MB per thread on 64 bit machines. So, if you get the difference between real and virtual memory and divide it by 16MB you will roughly get the number of threads running.
+The system does this for speed. Having a separate memory arena for each thread, allows the threads to run in parallel in multi-core systems, without any locks between them.
+This behaviour is system specific. For example, the chart above when running netdata on alpine linux (that uses musl instead of glibc) is this:
+
+can we do anything to lower it?
+Since netdata already uses minimal memory allocations while it runs (i.e. it adapts its memory on start, so that while repeatedly collects data it does not do memory allocations), it already instructs the system memory allocator to minimize the memory arenas for each thread. We have also added 2 configuration options to allow you tweak these settings: https://github.com/firehol/netdata/blob/5645b1ee35248d94e6931b64a8688f7f0d865ec6/src/main.c#L410-L418
+However, even if we instructed the memory allocator to use just one arena, it seem it allocates an arena per thread.
+This PR adds support for jemalloc and tcmalloc, however both of which behave exactly the same to the default memory allocator in this aspect.
+Is this a problem?
+No, it is not.
+Linux reserves real memory (physical RAM) in pages (on x86 machines pages are 4KB each). So even if the system memory allocator is allocating huge amounts of virtual memory, only the 4KB pages that are actually used are reserving physical RAM.",2,2
+1123,2016-10-16T00:55:43Z,2016-10-18T20:56:39Z,2016-10-18T20:56:39Z,26,712,224,"This PR adds the following features:
+
+netdata saves the alarms log to /var/lib/netdata/health/health_log.db. This file is a machine readable text file.
+this file is auto-rotated by netdata (by default every 10000 entries the file is renamed to .old and a new one is created.
+these files (the primary and its .old) are loaded back when netdata restarts, so that the alarm log at the dashboard shows the alarm history properly. This also allows the alarm log and the alarms themeselves to have incremental IDs.
+
+fixes #1036
+Other changes:
+
+added fping plugin. Check #1122 - this requires a special version of fping, which currently can be downloaded from https://github.com/ktsaou/fping. The configuration file /etc/netdata/fping.conf has instructions to download and build it.
+netdata installer now runs with priority 19 (the lowest) and uses all the available processors to compile netdata.
+ansible playbook removed in favor of: https://galaxy.ansible.com/jffz/netdata/
+minor other improvements",1,0
+1139,2016-10-19T06:28:29Z,2016-11-16T20:50:23Z,2016-11-16T20:50:23Z,5,53,18,"changed arguments from decode() in base.py to support versions of Python 2.6
+added pass parameters to redis for AUTH command
+optimized nginx.chart.py and phpfpm.chart.py submenu name
+optimized phpfpm.chart.py average display",3,9
+1211,2016-11-05T01:22:31Z,2016-11-06T01:19:05Z,2016-11-06T01:19:05Z,2,99,3,"Do not Merge, this needs attention. Fails to call send_twilio()",2,8
+1234,2016-11-09T22:52:23Z,,2016-11-13T00:05:02Z,12,611,255,fixes #1128,1,1
+1277,2016-11-22T10:58:23Z,,2016-11-27T19:19:07Z,1,2,0,,2,0
+1304,2016-11-30T16:12:59Z,2016-12-11T11:57:46Z,2016-12-11T11:57:46Z,2,117,57,"Hi,
+On one of our systems, some interrupts appear after netdata start, leading to lots of
+Cannot find dimension with id 'xxx' on stats 'system.interrupts' (system.interrupts)""
+
+error logs at each do_proc_interrupts() execution.
+Thanks",2,36
+1313,2016-12-02T16:46:44Z,2016-12-11T15:18:02Z,2016-12-11T15:18:02Z,49,441,297,"netdata currently uses a realtime clock for all time computations (sleep times, updated values time checks, ...), this leads to several issues when the system date/time changes brutally (date command, ntpdate).
+This patchset is a draft to try to resolve this issue.
+The usual good practice is too use a monotonic clock for all time computations to avoid this, this is what this patch does except for a few places when a realtime clock is really needed (and not dangerous).
+First, let's see the impacts on current master when we change the system date a few years in the future, then going back (I also added a log in sleep_usec to illustrate more issues):
+With release 1.2, netdata was taking 100% cpu on one core after the date change, with release 1.4, this does not seem to be the case anymore but there are still some issues, a few examples:
+2016-12-01 17:18:06: apps.plugin: INFO: sleeping 0.989672000
+2016-12-01 17:18:07: apps.plugin: INFO: sleeping 0.991512000
+2020-01-01 00:00:00: netdata: Resuming logging from process 'netdata' (prevented 3669 logs in the last 1200 seconds).
+2020-01-01 00:00:00: netdata: INFO: sensors.coretemp_isa_0000_temperature: took too long to be updated (97224112.995 secs). Reseting it.
+2020-01-01 00:00:00: netdata: INFO: sensors.radeon_pci_0100_temperature: took too long to be updated (97224112.995 secs). Reseting it.
+2020-01-01 00:00:00: netdata: INFO: netdata.plugin_pythond_sensors: took too long to be updated (97224112.995 secs). Reseting it.
+2020-01-01 00:00:00: netdata: INFO: cpu.cpufreq: took too long to be updated (97224112.995 secs). Reseting it.
+...
+
+then going back:
+2016-12-01 17:19:00: apps.plugin: INFO: sleeping 97224112.004799000
+
+More generally, it is very difficult to know the impact everywhere in the code and to be robust when using a realtime clock.
+By using a monotonic clock (clock_gettime(CLOCK_MONOTONIC, ...)), we don't have anymore issues, however the main drawback is that graphs time labels and values are not based on current time anymore (monotonic clock is usually closed to uptime). This could make system issues investigations more difficult.
+The approach taken is to transmit to the web client the current monotonic time and to use the graphs formatters to add the offset with the web client time, so all graphs are displayed based on the client time (which could also be usefull for a system without a correct date, for example embedded systems without a CMOS battery).
+The main drawbacks I see are:
+
+on reboot, the clock restarts from 0, so rrd values go in the past.  I have not checked yet but this could raise issues with the cache
+this is implemented only for dygraph for now
+could this raise issues when monitoring several systems ?
+
+Notes:
+
+we could add a setting in the web client to choose between monotonic or realtime clock time value in the graphs
+I didn't change profiles/*.c files as they don't seem to compile anymore, should they be removed ?
+I still use a realtime clock for the following cases, I may have forgotten ones or let too much, this is only a draft:
+
+healths/alarms logs (I'm not sure about my modifications there)
+logs date/time
+registry expiration date
+unit tests
+
+
+there are likely shell, python or javascript scripts that have the same issues, I have not checked them
+
+Tell me what you think.
+Thanks",2,32
+1345,2016-12-10T14:18:02Z,2016-12-16T00:06:17Z,2016-12-16T00:06:17Z,1,27,15,"Referencing issue #1306.
+Also some removal of redundant commands/settings. I've built and tested the spec file on Fedora 24/25, CentOS 7 and OpenSUSE Leap 42.1
+@ktsaou, you can use this spec file in place of the one currently in use on the VPS build server.",3,10
+1427,2016-12-23T15:22:29Z,,2017-01-29T07:27:10Z,2,55,39,"default is no
+#1375",2,8
+1481,2016-12-31T13:40:11Z,2016-12-31T15:00:20Z,2016-12-31T15:00:20Z,1,4,0,Makes it look consistent.,3,1
+1552,2017-01-12T08:51:57Z,2017-01-18T18:52:52Z,2017-01-18T18:52:52Z,7,468,116,"These changes implement support for NUMA locality statistics (from CONFIG_NUMA and CONFIG_NUMA_BALANCING).
+Automatically detects if you have a system with more than one NUMA node and enables the graphs in such a case.
+Here's a demo of the charts when running STREAM with 32GB of RAM and OpenMP support:",2,17
+1555,2017-01-12T15:32:41Z,2017-01-13T18:13:39Z,2017-01-13T18:13:39Z,2,43,9,"This adds one variable 'avail' that's the available space in the datastore.  It then uses that and the previously built 'size' variable to add an alert when the datastore gets over 90% full.
+My only question is this: parsing the config isn't something that should be done every call, so I just parse it the first time and then cache it, so that costly work is only done once.  Server config isn't likely to change very often, so I thought it'd be acceptable to require a netdata restart if it did.  Should I instead figure out how to parse the config at some interval  (once every 5 or 10 mins maybe)?
+Oh, and I also switched the size graph to area instead of line because that's what other disk-space-related graphs use.",3,8
+1575,2017-01-16T11:20:29Z,2017-01-18T01:21:02Z,2017-01-18T01:21:02Z,4,29,4,"@vlvkobal could you please review that? Thank you for starting porting netdata to macOS. This is fantastic!
+I moved getsysctl() to commons.c because otherwise I get this error:
+clang: warning: argument unused during compilation: '-pthread'
+Undefined symbols for architecture x86_64:
+  ""_getsysctl"", referenced from:
+      _get_system_cpus in common.o
+      _get_system_pid_max in common.o
+ld: symbol(s) not found for architecture x86_64
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+make[2]: *** [apps.plugin] Error 1
+make[1]: *** [all-recursive] Error 1
+
+Can somebody help me with that?",3,11
+1594,2017-01-19T20:57:05Z,2017-01-22T04:57:08Z,2017-01-22T04:57:08Z,54,1848,2580,"replaced strtoull(), strtoul(), atol(), atoi(), strtold() with custom functions that can be inlined.
+ default CFLAGS changed from -O3 to -O2. It seems the later is faster.
+ implemented ARL (Adaptive Resortable List) that is optimizing the repeating task of parsing large lists of NAME VALUE pairs.
+ Use ARL in /sys/fs/cgroups/memory
+ Use ARL in /proc/vmstat ( it is now a lot more simplified, cc @tycho ).
+ Use ARL in /proc/net/snmp6
+ Use ARL in /proc/meminfo
+ Use ARL in /proc/net/netstat
+ reworked a few alarms to avoid making long scans on the data, to lower the CPU pressure of alarms on systems with dozens of network interfaces.
+ some apps.plugin optimizations (about 10% faster)",2,39
+1671,2017-01-28T18:19:19Z,,2018-10-20T16:24:44Z,1,46,34,"Add documentation links, service restart and reloading. Protect /tmp and other system directories, filter capabilities.",4,4
+1672,2017-01-29T07:20:34Z,2017-01-29T10:55:07Z,2017-01-29T10:55:07Z,4,354,308,"Using qdiscs for monitoring TC QoS is a lot more efficient. The kernel internally creates random classes, which are exposed, so netdata had to parse them and eliminate them.
+On the other had qdiscs do not have this side effect. So, netdata is a lot more efficient (faster, less CPU hungry) when qdiscs are parsed.
+Thanks to @t-h-e for PR #1427, who brought to my attention that parsing qdiscs is very similar to classes and the code he submitted to show the fact.
+This PR, extends @t-h-e PR #1427 to support:
+
+hierarchical qdiscs
+eliminate ingress qdiscs
+adapt tc-qos-helper.sh to either send qdiscs or classes to netdata
+adapt tc-qos-helper.sh to rename qdiscs too, based on FireQOS names
+optimizes tc plugin a bit, by eliminating a lot of strcmp() and redundant checks
+
+@t-h-e your commits are included in this PR, so we can close #1427
+fixes #1375",2,1
+1678,2017-01-29T20:49:35Z,,2019-01-16T23:36:13Z,5,402,2,"This is a work in progress.
+Closes #857",4,8
+1733,2017-02-06T12:13:25Z,2017-02-07T23:06:22Z,2017-02-07T23:06:22Z,2,10,3,Fixes macOS part of #1667,4,9
+1744,2017-02-08T11:58:21Z,2017-02-11T08:05:55Z,2017-02-11T08:05:55Z,7,541,5,"What we have so far.
+
+This plugin is replacement for nginx_log and gunicorn_log. Plugin is ok for apache (lighttpd?) access log too.
+It is initial version. There is a lot of room for improvement.
+
+Charts
+
+
+responses Detailed responses chart is optional. Enabled by default.
+
+
+
+timings Only if $request_time (nginx) or %D (apache) is in logs. By default chart will not appear.
+
+
+
+requests per url requests chart is optional. Not enabled by default.
+
+
+
+bandwidth received dimension will appear only if $request_length (nginx) or %I (apache) is in logs.
+
+
+
+unique clients All time chart is optional. Enabled by default.",3,30
+1819,2017-02-19T20:15:27Z,2017-02-27T17:42:25Z,2017-02-27T17:42:25Z,1,86,97,"Please review carefully.
+Please test as most is not tested.
+The apps.plugin logic was an enigma, please specify how exactly it should behave, why and what is the difference between distros.",4,33
+1877,2017-03-02T06:11:57Z,2017-03-04T09:18:30Z,2017-03-04T09:18:30Z,1,256,249,"#1750
+it was a quick fix.:
+
+index and table stats charts are disabled by default
+database size (per database) added
+
+Per database metrics are not wrong anymore... But there is a lot of room for improvements.",3,9
+1881,2017-03-02T23:16:01Z,2017-03-04T21:34:22Z,2017-03-04T21:34:22Z,5,1912,153,"fixes #1799
+fixes #1794
+fixes #1309
+fixes #1729
+This plugin is written in C, it is setuid to root and uses libipmimonitoring for collecting IPMI sensors for:
+
+temperatures
+voltages
+currents
+fans
+number of sel events
+
+The minimum update frequency is set to 5 seconds (IPMI is slow / cpu intensive). The plugin can also detect if the IPMI processor used is slower and it will adapt to 3 times its speed.
+To install it, run the netdata installer with --enable-plugin-freeipmi.",3,14
+1902,2017-03-06T13:29:09Z,2017-03-09T17:50:09Z,2017-03-09T17:50:09Z,6,247,0,"nsd
+https://www.nlnetlabs.nl/projects/nsd/
+Tested on nsd-4.1.14(from EPEL), CentOS7
+Thank you.",3,14
+1970,2017-03-18T20:12:59Z,,2018-11-01T11:42:30Z,5,233,84,"This adds a chart with intel gpu usage via intel_gpu_top.
+intel_gpu_top needs to be run separately as it needs root privileges.
+#770",7,20
+1991,2017-03-21T22:56:41Z,,2019-09-17T09:38:28Z,2,50,0,,6,12
+2251,2017-05-29T14:31:39Z,2017-05-30T18:30:02Z,2017-05-30T18:30:02Z,7,703,341,"#2235
+Not ready.
+@ktsaou your help needed (charts, descriptions, dimensions, etc 😄 )
+Initial support for squid logs added.
+squid_log:
+  name: 'squid'
+  type: 'squid'   # <--- new option
+  path: '/var/log/squid3/access.log'",2,38
+2279,2017-06-03T15:56:13Z,2017-06-05T00:41:02Z,2017-06-05T00:41:02Z,3,48,14,"#2278
+#2192
+
+An easy way to do it, is to add a filter regex configuration option. So, we could add the same log file many times, with different filters.
+
+^
+#2328",2,3
+2280,2017-06-04T13:56:17Z,2017-06-08T10:03:14Z,2017-06-08T10:03:14Z,9,395,2,"Hi there,
+this PR adds support for collecting statistics from running applications written in the Go programming language using the Go stdlib's expvar package.
+You can use the expvar package to efortlessly (basically in like 5 lines of Go code) expose the Go runtime's memory stats over HTTP, and it is very easy to add your own metrics. I for example like to also monitor the number of currently running Goroutines, or various rate counters in go apps running a HTTP server etc.
+You can read more about the expvar package here.
+Here's how it looks:
+
+
+A couple notes:
+
+
+the plugin is disabled by default, as there is no standard port for running go apps. There is no default configuration for the same reason. I could add a default config for something like localhost:80, as Go's built-in HTTP server can run standalone without an additional reverse proxy, but I think the hit ratio for that default would be pretty low.
+
+
+The plugin is designed for basically two use-cases:
+
+out-of-the-box collection of Go runtime memory stats, can be enabled or disabled in config by a bool, and to add support for this to any Go application, you only need to do a magic import one-liner (if it's already using a HTTP server)
+custom values collection: as every Go app can expose its own values different from any other app, I have pulled out the charts and dimensions definitions from the plugin to the configuration file. That way, everyone is free to setup what vars to monitor and how to chart them.
+
+
+
+This PR is not completely ready yet, as I need some help with these things:
+
+
+I have added some chart annotations to dashboard_info.js, but for some reason, they are not showing up in the browser. Do i need to set anything else up to get them to show?
+
+
+I have written a pretty long config how-to directly in the config file. I wonder if that should be moved to python.d/README.md  and keep only the sample config in the config file itself?
+
+
+I would like someone to go over the plugin code and check if it looks okay. This is my first PR to netdata, so there will probably be lots of room for improvement. There also isn't much error handling - should I add more checks, or is it fine to just let the plugin die when it hits an error?
+
+
+I have tried to build netdata from scratch with the plugin added and it's working fine so far. If you have any questions and/or comments please do let me know.",3,22
+2306,2017-06-09T07:14:33Z,2017-06-11T16:03:29Z,2017-06-11T16:03:29Z,2,100,101,"human readable names for pools
+new pools format in the module configuration file
+leases:
+  pools:
+    wifi: '192.168.2.0/24'
+    office: '192.168.3.0/24'
+    dmz: '192.168.4.0/24'
+    192.168.5.0/24: '192.168.5.0/24'",2,6
+2310,2017-06-11T07:39:40Z,2017-06-13T22:45:36Z,2017-06-13T22:45:36Z,2,8,7,"The current check fails when using Python 2 because dict.keys() returns a list in Python 2 and & is not a valid operation with operands set and list.
+In addition the previous implementation only allowed extending the default attributes (even though the comment at the top of this file suggests otherwise).  This changes the behavior to allow for overriding the default attributes.",3,4

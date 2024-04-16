@@ -1,0 +1,249 @@
+number,created_at,merged_at,closed_at,files,additions,deletions,body_text,participants,comments
+164,2014-07-13T04:37:52Z,2014-07-13T06:01:52Z,2014-07-13T06:01:52Z,2,2,2,,4,1
+553,2016-06-16T01:38:56Z,,2016-06-16T17:34:43Z,5,37,6,"I added a option in the general settings, when selected, will make it so that when the streaming button is pushed, recording starts automatically.",4,3
+627,2016-09-23T22:36:34Z,,2016-10-16T08:54:24Z,70,6298,102,"Updated to help support the newest cards, features, bug fixes, and options.",4,5
+687,2016-11-05T17:04:00Z,,2016-11-09T22:38:11Z,7,230,9,"A feature I missed from the original OBS was a toggle option for 1:1 scaling for the preview. I believe I hit all the marks for this, but if I messed up with anything, I'll be happy to fix it up.",5,40
+694,2016-11-10T14:34:23Z,2016-11-20T11:02:17Z,2016-11-20T11:02:17Z,1,20,15,"As reboot pointed out, it's assumed that the intention of a locked
+preview is to prevent editing the scene. Because scrolling the preview
+does not have any interaction with the scene and its sources, you should
+be able to still scroll around and look at different parts of your
+preview while the preview is locked.
+There is also a bugfix included for a small bug: previously, if you were
+to right click while space bar was held down, you would be stuck in
+scroll mode until spacebar is pressed/released again. This gets around
+it by forcing scroll mode to end when a right click is issued on the
+preview.
+edit: looked up the definition of hotfix and it seems bugfix is more appropriate of a word",3,3
+708,2016-11-29T05:01:50Z,,2016-12-21T07:08:57Z,5,520,1,Updated branch for review. Please be critical.,4,11
+720,2016-12-08T02:12:19Z,,2017-01-24T23:56:50Z,2,82,2,This adds the connection status square. This was in OBS Classic.,4,3
+738,2016-12-27T03:46:12Z,,2017-07-02T18:13:55Z,4,39,1,This adds the ability for the volume meter to display the current dB. If the dB is greater than 0 dB then CLIP will be displayed.,8,8
+750,2017-01-05T21:15:07Z,,2017-01-31T00:07:26Z,3,6,1,I'd love it if I could also get a code review over at https://github.com/DDRBoxman/obs-vst,6,5
+786,2017-02-03T10:59:01Z,,2017-06-25T19:10:14Z,2,20,5,"This changes the currently hard coded 100ms for libvlc's network-caching option to a user defined property. Without this change, an RTMP source sometimes ""falls behind"" causing the delay between real time and RTMP source to increase.",5,5
+793,2017-02-08T16:01:17Z,2017-02-25T10:35:47Z,2017-02-25T10:35:47Z,2,5,0,,4,1
+796,2017-02-12T22:56:47Z,,2017-09-23T03:33:56Z,1,71,27,"This fix #794.
+Not sure if the best solution. Any tip is appreciated.",4,10
+798,2017-02-13T22:28:58Z,,2017-03-26T12:34:25Z,2,11,2,Added Livestream to the services json,4,3
+799,2017-02-16T01:44:27Z,,2017-02-25T13:44:17Z,4,228,1,"Implemented a compressor audio filter to allow for built-in, improved audio control.  Provided UI text for US English.",4,12
+860,2017-03-13T03:10:08Z,,2017-03-25T11:27:37Z,9,143,0,,6,13
+871,2017-03-30T15:46:12Z,,2017-03-30T21:17:11Z,3,28,4,"Add an alternate create function for sources that will includes type
+data for the source.",3,3
+880,2017-04-15T04:47:23Z,,2017-11-26T11:36:03Z,19,251,74,"This is a workaround for:
+https://obsproject.com/mantis/view.php?id=806
+But, it uses ""par"" param.",4,2
+888,2017-04-23T22:12:51Z,,2017-04-30T10:38:02Z,1,4,2,"After dragging and dropping a file, the source name will be the
+filename.",3,1
+904,2017-05-04T09:31:25Z,2017-05-05T16:56:54Z,2017-05-05T16:56:54Z,2,22,0,,3,0
+906,2017-05-05T15:20:09Z,,2018-01-19T04:49:12Z,5,65,4,"This also modifies libobs. If the user selects this option, the media source will play the latest replay buffer.",4,6
+924,2017-05-22T22:37:24Z,,2017-06-13T19:23:49Z,0,0,0,"I have always felt that the out of the box themes for OBS were quite
+lacking, and have spent a lot of time going through and sorting out the
+difficulties with the current setup. I've added a new themeID parameter to
+several elements that were otherwise impossible to target with QSS in a
+theme. Since Qt has pushed for the use of QML over QSS at this point,
+these should be considered workarounds. Included is the theme I was
+working on that can serve as a base. I'm hoping to encourage others to
+make their own themes, so we can grow the available themes for OBS.
+I am happy for any feedback on the theme itself, or other updates that
+can me made to make creating new themes easier overall.",3,0
+925,2017-05-24T22:44:56Z,,2017-06-25T19:12:47Z,1,107,5,"Hi, this is my first time bringing to OBS Studio!
+I have added support for media options. They are important or even mandatory for some usages. Options have to begin with ':' and a space must precede the heading colon. This work is to be reviewed.
+I am not really experienced in working in C with computers and I'm still disturbed while browsing source code. Although this modification is pretty important to me so I spent some time to figure out myself the lack of support for VLC media options.
+Please proofread and give me tips to improve this work and my future works.
+It was hard to follow the coding rules, especially the max 80 columns.
+Momo ❤️",6,21
+926,2017-05-25T07:55:11Z,2017-05-25T17:06:04Z,2017-05-25T17:06:04Z,1,2,0,"When building on FreeBSD before this patch, it would produce the error:
+plugins/obs-outputs/librtmp/rtmp.c:733:25: error: use of undeclared identifier 'ENODATA'
+This patch fixes that.  For more information, check this FreeBSD mailing list conversation and this file from Ceph.
+This patch builds successfully on FreeBSD 11.  As always, I would appreciate additional testing and feedback.  On this particular PR, review from @jp9000 or @notr1ch would be great since it touches librtmp.  If there's a better solution, feel free to edit this PR or close it and fix the issue in another commit.",3,0
+927,2017-05-25T13:24:12Z,2017-05-26T18:58:03Z,2017-05-26T18:58:03Z,2,22,22,"Microsoft renamed Beam.pro to Mixer for some reason, so here's the update for that.",5,3
+936,2017-05-31T22:31:38Z,,2017-07-02T19:00:59Z,2,15,7,"This commit changes the ""Theme"" string in the config to only ever be
+""Default"" or ""Dark"", and adds a new string ""Custom Theme"" to accept all
+other theme choices.
+The reason for this, is because there are custom themes being worked
+on that if a user selects, will then cause older versions or other
+installations to fail to launch without editing the config.
+This makes sure a fallback is always available.
+This change also doesn't conflict with older versions of OBS who look
+only for the ""Theme"" string, since they'll just end up using the
+fallback instead.",4,2
+939,2017-06-05T22:58:40Z,,2017-07-03T22:46:51Z,22,451,94,"This PR exposes the multichannel audio capabilities of OBS-Studio.
+Features:
+
+recording in 2.1, 4.0 quad, 5.1, 7.1, 8.0, 16.0 (mkv, ts, mp4)
+streaming in same formats :
+mpeg-ts (ffmpeg aac, opus) and rtmp (ffmpeg aac)
+(exposed in the UI by additional audio settings,  most changes have been cosmetic because the code was already multichannel capable).
+decklink input extended to 8.0 and 16.0 (e.g. audio embedded in SDI)
+07/18/17: compatible streaming services: Twitch , FB 360 live
+
+Possible uses for multichannel audio streaming:
+
+feeding facebook live 360 with a 4.0 audio
+(ambisonics of first order needs to be acquired and processed first,
+by a DAW, check here)
+[06/28/2017: confirmed to work by one of the FB developers]
+multilingual streaming: the rtmp and mpeg-ts streams can be live  dumped and remuxed (e.g. by ffmpeg) into either mpeg-ts with several separate mono audio streams or into several rtmp streams
+carrying a mono channel (this is my case use);
+several HLS players (eg hls.js, jwplayer, videojs), mpeg-dash players (bitmovin, videojs, jwplayer) support live multiple audio renditions.
+server side: wowza, Unified streaming support multiple audio ingest (mpeg-ts); most CDN also do.
+
+Extensive testing for this PR was carried out :
+
+
+by varying the multichannel format ( 7.1 5.1 etc), the recording method (simple recording, advanced standard recording, advanced custom ffmpeg recording to file), the file formats, the streaming protocols (rtmp, mpeg-ts), the streaming method (simple rtmp, advanced rtmp, advanced custom ffmpeg output to URL: rtmp or mpeg-ts), the audio codecs ( coreaudio aac, ffmepg aac, opus mostly, a little bit vorbis) , the input device (capture card [decklink] with various inputs [hdmi and sdi tested], or multichannel movie);
+
+
+details here
+
+
+Issues:
+
+decklink cards swap several audio channels with respect with libav usage:
+channel 3 <-> 4, 5 <->7, 6<-> 8
+==> as a fix, I have expanded Mntone commit to have channel orders comply with libavutil;
+(octagonal and hexadecagonal channel layouts 8.0 and 16.0 are however recognized without swapping issue)
+coreaudio aac almost always misidentifies the channel order
+==> not fixed, therefore prefer the use of ffmpeg aac which works all the time.
+CoreAudio AAC works however for quad channels (FL FR BL BR).
+2.1 does not work in simple output mode: one has to use ffmpeg aac in advanced mode.
+opus can be picky about bitrates for certain multichannel setups (2.1 4.0); however it supports 16.0 8.0 6.0  in the tests I made while aac does not.
+
+Edit 06/26/17:
+
+
+PR updated with 8.0 and 16.0 capabilities useful for broadcast (SDI ingest) ; tested with mpeg-ts tcp with 16.0 source /libx264 + opus with mapping_family=255 option (required for general channel layouts beyond 7.1)
+
+
+toggle box added to enable multichannel (to comply with Xaymar suggestion) ; when unchecked, defaults to standard mono or stereo usage.",6,17
+940,2017-06-07T21:17:06Z,,2017-09-12T10:38:45Z,11,1057,28,"This series of commits checks if the system has pulseaudio library and proceed to enable monitoring support.
+Tested with pulseaudio 9.0 and 10.0",5,9
+941,2017-06-08T18:59:17Z,,2018-04-26T13:33:59Z,21,3671,0,"Includes code from the reboot/obs-studio github project and the vaapi-h264 branch.
+This adds the ability to use libva to use the gpu to do hardware encoding.  It is
+functional for both streaming and file recording.
+Tested with Intel Haswell chipset.
+Note that I had contact @reboot in regards to this code as it came from his branch.  According to him it was from another branch in the original obs-studio code, but that branch has since been deleted and the work was never included into the original code.   It also appears that @kc5nra did a lot of the original work.
+I'm re-submitting it for possible inclusion if somebody wants to take it over.   I believe it addresses issue
+https://obsproject.com/mantis/view.php?id=263",17,65
+965,2017-07-15T03:48:11Z,,2017-07-21T15:29:10Z,5,18,1,found this useful when it is important to initialize things after other modules have been loaded.,4,1
+970,2017-07-19T18:08:11Z,,2017-08-22T02:14:13Z,1,16,4,"Hi,
+Our application uses both OpenGL and D3D APIs at the same time, and streamers reported that they experience frequent crashes when using OBS.
+I've figured out that crashes occur because our application calls OpenGL functions, which are hooked by OBS, but GL capture is not initialized - this small commit fixes those crashes.
+Thanks.",5,25
+971,2017-07-20T22:10:55Z,2017-07-21T16:08:34Z,2017-07-21T16:08:34Z,2,49,2,,7,7
+974,2017-07-24T22:01:09Z,,2017-11-02T17:28:01Z,27,3375,0,"The initial version adds '3D Transform', 'Displacement Map' and 'Blur' filters, which can be used to create more advanced scenes.
+
+'3D Transform' allows for semi-3D (non-interacting with other scene items) effects. It can be used to place a source into a 3D rendered image, for example to place a browser source chat into a rendered phone on a desk.
+'Displacement Map' is simply a displacement map.
+'Blur' adds Box, Gaussian, and Bilateral blur. Each of these is kind of GPU hungry so they should be used sparingly, if at all.
+
+See #960 for the old PR containing screenshots.",3,8
+976,2017-07-25T06:39:08Z,,2017-08-05T02:53:37Z,2,331,6,"This adds the following features to the slideshow source:
+-Manual mode: With hotkeys the user can change slides manually
+-Loop: Add option to loop slideshow
+-Hotkeys: Add play/pause, restart, stop, next slide, previous slide hotkeys
+-Hide on end: Add option to hide slideshow when it ends
+-Visibility behavior: Add pause on inactive, restart when activated, and always play",5,2
+980,2017-07-28T19:48:30Z,,2017-08-01T09:29:48Z,15,1705,45,"This work adds support for Mixer’s custom FTL protocol to OBS. This includes adding support for encoding OPUS audio, adding the FTL submodule, and adding a ftl-output.",8,6
+984,2017-08-02T16:32:23Z,,2017-08-06T12:43:12Z,1,1,1,"Possible fix for: https://obsproject.com/mantis/view.php?id=923
+If you close whole application (not just Stats window) it skips the
+close event and thus saving of the geometry.",3,1
+987,2017-08-07T00:04:54Z,2017-09-12T12:30:36Z,2017-09-12T12:30:36Z,2,7,1,"Some window managers like i3 don't issue Expose events when switching
+between workspaces, but send VisibilityNotify events. This causes the
+stream to freeze even when the workspace is switched back.
+Related issue: https://obsproject.com/mantis/view.php?id=863",7,4
+989,2017-08-08T06:12:34Z,2017-08-08T14:22:52Z,2017-08-08T14:22:53Z,3,76,7,"Other applications I have used in the past (e.g. vMix) use the number of the frame to transition on instead of the timestamp within the file, this change enables that behaviour in the new native stinger transition.
+I'm not sure if the implementation is the best way to do this, I think it could be improved, especially the way how the number of frames is estimated.
+I tested it with two different stinger animations I had and verified that the transition happens at the correct point.",3,1
+990,2017-08-08T12:47:25Z,,2017-09-12T11:06:06Z,3,43,5,"OBS should use the actual name of the output device in the device selection for pulse audio output sources and not the name of the monitor device. With this the output device selection for PR #940 should make more sense, since using an input device for audio monitoring makes no sense.
+I kept the name of the device id that is stored in the properties the same as before including the "".montior"" also I think it would make much more sense to just store the name of the actual output device and lookup the monitoring device when it is needed. But that would require that all users have to reconfigure their audio devices.",3,3
+994,2017-08-08T22:46:52Z,,2017-11-27T11:39:54Z,4,2933,0,Adds DoxyGen based documentation to the profiler.,5,2
+1007,2017-08-16T01:25:59Z,,2017-12-03T00:57:50Z,14,1957,31,"@jp9000 : Please take a look and let me know which (if any) of these filters you want. Any you don't want I'll pull from this PR and release in a standalone pack.
+Sorry for the lack of Gaussian blur. The filter would crash when OBS is closed (looks to be a bug in the OBS subsystem), and the blur wasn't completely fixed/good enough yet. I can post that code somewhere if you want to look at it.
+Also a couple of .effect files wouldn't work with OBS on DirectX on Windows, so I created a Linux/Mac compatible variant. Those 2 files are the cross_stitching_filter_gl.effect and crosshatching_filter_gl.effect files in the plugins/obs-filters/data folder. Those files are called in via OS detection in their equivalent .c files. If you're wondering why I didn't just go with the *_gl versions, it's because they cause OBS to crash when running on Windows/DirectX.
+Thanks for making OBS great.",3,9
+1008,2017-08-16T07:25:39Z,2017-09-11T23:19:18Z,2017-09-11T23:19:18Z,2,18,2,,4,3
+1017,2017-08-26T14:25:10Z,,2017-09-24T03:40:01Z,2,48,1,"Add the navigation_keys field to obs_key_event and populate it with a
+bitfield indicating which navigation keys (arrows, page up/down, etc)
+are pressed. This allows sources which provide interaction to handle
+these keys without depending on Qt to map them or using native key
+codes.",3,4
+1019,2017-08-31T23:42:38Z,,2017-09-16T15:44:36Z,5,2406,2023,"Replay buffer is currently only supported in simple mode. This change adds support to advanced mode and is, for the most part, a mirror of the addition of replay buffer to simple mode.
+There are some things that were left out, such as max time, since advanced mode should always have a target bitrate. As per Jim's request, the options are in a new tab and the buffer is not available with lossless or FFmpeg enabled.
+Mantis-bug: https://obsproject.com/mantis/view.php?id=792",6,19
+1022,2017-09-08T17:38:27Z,,2017-09-17T12:57:12Z,4,17,1,"This PR adds an option to Media Source that disables seeking. This translates to the 'seekable' option of ffmpeg http protocol handler (https://ffmpeg.org/ffmpeg-protocols.html#http). Disabling seeking causes ffmpeg to not include Range header in the request.
+I have a Sony DSC-QX10 camera that exposes its preview as a HTTP MJPEG stream. Unfortunaltely, it does not work when the Range header is included in the request (it responds with 406 Not Acceptable). Disabling seeking makes it work, though. :)",3,3
+1030,2017-09-23T03:36:16Z,,2017-10-30T09:15:38Z,1,45,57,"This fix #794 and #855.
+This is an improvement of PR #796.",5,8
+1033,2017-09-26T03:26:53Z,2017-11-23T08:36:57Z,2017-11-23T08:36:57Z,1,2,2,"The ""Custom"" device entry was added inside the loop that runs for each device; this causes ""Custom"" to be added once for each device detected, or not at all if no device was detected. Moving this outside the loop (as would appear to have been the original intent, judging by the indentation) fixes this by adding the entry only after all devices have been processed.
+This pull request fixes the above problem.
+Steps to reproduce:
+
+Using a Linux computer which has more than one ALSA audio device detected by OBS (ie. more than one front: PCM listed by arecord -L), add the ""Audio Capture Device (ALSA)"" source to a scene. (Alternatively, on a computer with no front: PCMs at all.)
+Right click the new source, choose ""Properties"", and show the ""Device"" dropdown.
+
+Expected results:
+
+OBS displays the ""Custom"" option, once, at the end of the list, as specified in #599.
+
+Actual results:
+
+OBS displays multiple ""Custom"" options (or none at all), one after every detected device.
+
+[edit: Oh, I just realised I misnamed the plugin in the commit summary; it should be ""linux-alsa"", not ""alsa-input"". My mistake. Should I force-push the correction to this PR?]",5,5
+1036,2017-09-28T17:20:47Z,,2017-11-23T08:11:28Z,2,14,0,"The OBSBasicFilters window did not register a handler for the
+""update_properties"" signal. Now it does. Addresses issue #1028 .",3,2
+1037,2017-09-29T08:34:40Z,,2017-11-28T02:25:29Z,2,23,2,This PR aims at adding Garena Live as a streaming platform. Garena Live is one of the largest streaming platform in South East Asia. This is our official site: https://garena.live/. Thank you very much!,5,3
+1039,2017-10-06T20:28:43Z,,2017-11-23T08:54:22Z,3,16,2,"Per a suggestion in the forum: https://obsproject.com/forum/threads/suggestion-color-code-the-streaming-and-recording-toggle-buttons.75209/
+This makes these buttons stand out more visually when active, and also allows them to be skinned differently when active.",5,7
+1043,2017-10-09T01:22:19Z,2018-09-26T01:15:15Z,2018-09-26T01:15:15Z,95,2973,1036,"Verify that looping back output to and input works withing OBS
+ Configuration interface
+ Better error handling in the decklink plugin in general
+ Audio Support
+ Investigate performance issue
+ Run at SGDQ without ruining it
+ Checkbox to allow auto starting on boot (code written needs PR approved Here)
+ Keyer support (code written needs testing Here)
+ Track down input issue
+ Support outputting more audio channels that just 2.0",26,68
+1063,2017-11-01T06:39:59Z,,2017-11-26T04:28:37Z,2,15,2,add Lahzenegar primary rtmp server,7,8
+1065,2017-11-02T17:02:00Z,2017-11-26T02:10:04Z,2017-11-26T02:10:04Z,2,8,4,"Hey! Here's another ingress we're adding. We also changed the naming scheme to include more information. Let us know if it checks out on your side.
+We're also interested if there's a special decision process for when a service gets the common flag - not that we think we're entitled to having it, someone in the office just wanted to know how well we'd need to do :)
+If you want to check that this request comes from a Picarto staff member you can send a mail to schittler@picarto.tv
+Thank you!",3,3
+1069,2017-11-07T13:51:34Z,2017-11-26T01:56:52Z,2017-11-26T01:56:52Z,2,17,2,"Eventials is a platform to broadcast webinars and events.
+Eventials is a Brazilian company and was founded in 2010.",4,0
+1073,2017-11-10T03:23:48Z,,2017-11-26T09:00:58Z,2,17,2,"MyLive is a streaming platform in Thailand.
+Website founded in 2013 and company established in 2017.",3,3
+1081,2017-11-27T14:02:07Z,,2017-11-29T12:06:58Z,1,10,3,"Implement automatic audio device selection for devices that use 2
+separate DirectShow filters for audio and video instead of having a
+single filter with audio and video output pins. Please note that this
+fix is currently only active for Elgato USB and PCIe devices
+(e.g. Cam Link, HD60 S, HD60 Pro, 4K60 Pro) to do not unintentionally
+change the behavior for any other devices (e.g. webcams).",3,10
+1086,2017-12-01T01:36:18Z,,2019-08-19T21:25:18Z,24,1028,15,"Suggestions link : here
+Updated (5/5/2018)
+Partly based on R1CH code from OBS Classic with some changes from Woodbyte fork.
+I'm removing the experimental tag since it's working quite well.
+The algo has seen a series of improvements, notably support for all h264 encoders supported by obs
+(x264, enc-amf, nvenc, mac-vth264, quicksync, etc).
+warning
+
+For enc-amf, a flag signalling that dynamic bitrate must be added; I put this as a placeholder so that I don't forget to submit a PR to enc-amf submodule repo.  (see below update of 02/22)
+for (old) nvenc, ffmpeg master git head is required since dynamic bitrate was added to nvenc ffmpeg only recently (05/05/18 ) through a patch I submitted.
+new jim-nvenc supported. Works much better than previous nvenc. I routinely get zero frame drops.
+
+What this does:
+
+for rtmp streams, decrease the video bitrate when available bandwidth is going down until all packets go through;
+increase the video bitrate once bandwidth conditions get better.
+
+Some screenshots
+(1) enable dynamic bitrate in Simple output
+
+(2) Advanced settings for dynamic bitrate
+
+(3) Bitrate decrease from 2500 kbs due to congestion (downward red arrow)
+
+(4) Bitrate stationary during congestion (not increasing yet because congestion hasn't cleared, arrow is now orange and not red as in this screenshot, see discussion with Dodgepong)
+
+(5) Bitrate increasing due to congestion clearing (upward green arrow (red in this screenshot))",15,47
+1091,2017-12-02T12:39:46Z,,2018-02-16T00:49:08Z,4,26,4,Allow adjusting the playback speed of media source.,3,3

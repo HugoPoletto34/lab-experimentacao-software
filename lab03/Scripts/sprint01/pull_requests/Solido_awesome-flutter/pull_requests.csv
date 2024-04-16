@@ -1,0 +1,560 @@
+number,created_at,merged_at,closed_at,files,additions,deletions,body_text,participants,comments
+38,2018-01-31T17:50:26Z,2018-01-31T22:01:54Z,2018-01-31T22:01:54Z,1,10,9,"DroidKaigi 2018 is the biggest Android conference in Japan.
+I created the conference app by using Flutter.
+If you are okay, please add this app to Open Source Apps section.
+https://github.com/konifar/droidkaigi2018-flutter",2,0
+160,2018-08-10T13:40:25Z,2018-09-29T10:48:21Z,2018-09-29T10:48:21Z,1,1,0,@Solido hope you like this.,3,4
+238,2018-11-23T02:14:51Z,,2018-11-24T01:41:55Z,1,2,2,"add flutter_ocr opensource app
+You've read How to contribute right ?
+So tell me more about your awesome contribution and add the badge to your repo after it's accepted :D
+ 
+  
+ 
+<a href=""https://stackoverflow.com/questions/tagged/flutter?sort=votes"">
+   <img alt=""Awesome Flutter"" src=""https://img.shields.io/badge/Awesome-Flutter-blue.svg?longCache=true&style=flat-square"" />
+</a>",2,0
+266,2018-12-22T18:50:39Z,,2019-10-19T08:39:32Z,3,57,541,"You've read How to contribute right ?
+So tell me more about your awesome contribution and add the badge to your repo after it's accepted :D
+ 
+  
+ 
+<a href=""https://stackoverflow.com/questions/tagged/flutter?sort=votes"">
+   <img alt=""Awesome Flutter"" src=""https://img.shields.io/badge/Awesome-Flutter-blue.svg?longCache=true&style=flat-square"" />
+</a>",7,1
+296,2019-01-16T04:58:29Z,,2019-04-01T20:27:34Z,1,5,2,add smart_color package and flutter_icons package,4,1
+314,2019-02-07T06:53:32Z,,2019-04-01T20:27:03Z,1,6,0,"Added Link to the Animated Navigation Drawer UI.
+new Flippo( mask: new Scaffold( backgroundColor: Colors.white, ), body: new Scaffold( backgroundColor: Colors.white, ), drawer: new Scaffold( backgroundColor: Colors.black, ), );",3,1
+315,2019-02-08T10:56:32Z,2019-02-08T21:56:08Z,2019-02-08T21:56:08Z,1,1,0,Provides a wrapper library so devs can access the AppAuth SDKs via Flutter,2,0
+316,2019-02-10T17:02:42Z,2019-02-11T19:00:16Z,2019-02-11T19:00:17Z,1,4,0,Catcher is Flutter plugin which automatically catches error/exceptions and handle them. Catcher offers mutliple way to handle errors. Catcher is heavily inspired from ACRA.,2,2
+322,2019-02-15T17:25:09Z,2019-11-04T06:46:05Z,2019-11-04T06:46:05Z,1,1,1,"Scoped models for state management
+Internationalization in place (English and Polish languages)
+Clean Material Design
+Use sensors (accelerometer) as alternative game controller
+Firebase analytics with custom events
+Crashlytics reporting
+Released on both - Android and iOS
+More than 10,000 downloads
+Mature and stable product
+Layout adjusted for phones and tables",3,5
+331,2019-02-27T19:41:17Z,,2020-01-21T19:18:05Z,1,1,0,"This series of articles describes how to develop the user interface of a login page, list view, how to include Firebase into a Flutter project, authenticate users with Google by using Firebase Authentication and store data using Firestore. README of the github repository ""recipes_app"" includes URLs of all articles of this series.",3,0
+333,2019-02-28T02:06:48Z,2019-03-01T22:32:34Z,2019-03-01T22:32:34Z,1,1,0,Added Lottie plugin to list under the section titled images,2,0
+348,2019-03-09T07:13:55Z,,2020-01-21T19:18:26Z,1,1,0,"Users can open App Store for Play Store for a given app Id.
+You've read How to contribute right ?
+So tell me more about your awesome contribution and add the badge to your repo after it's accepted :D
+ 
+  
+ 
+<a href=""https://github.com/Solido/awesome-flutter"">
+   <img alt=""Awesome Flutter"" src=""https://img.shields.io/badge/Awesome-Flutter-blue.svg?longCache=true&style=flat-square"" />
+</a>",3,0
+363,2019-04-03T01:58:43Z,,2022-05-20T07:26:05Z,1,1,0,"I have read How to contribute.
+Below is the screenshot of InfiniteCards
+
+
+
+Android
+iOS",4,1
+395,2019-05-14T07:23:14Z,2020-05-28T21:42:41Z,2020-05-28T21:42:41Z,1,2,1,It's a simple app I've been developing to store my journal entries in a Git Repo. It stores them in Markdown + YAML header.,5,3
+412,2019-06-05T15:13:06Z,,2019-11-04T06:22:17Z,1,1,0,"Hi. AppSpector is remote debugging and monitoring services for Flutter, iOS and Android apps. Like Stetho or Flipper but better. It works over internet and has offline history.",2,0
+485,2019-08-20T14:16:43Z,,2019-11-04T06:17:44Z,1,1,1,"You've read How to contribute right ?
+So tell me more about your awesome contribution and add the badge to your repo after it's accepted :D
+ 
+  
+ 
+<a href=""https://github.com/Solido/awesome-flutter"">
+   <img alt=""Awesome Flutter"" src=""https://img.shields.io/badge/Awesome-Flutter-blue.svg?longCache=true&style=flat-square"" />
+</a>",2,0
+549,2019-11-03T07:44:35Z,,2019-11-04T06:13:55Z,1,1,0,I am very happy to add Alphabet Scroll List View to the Awesome Flutter list. It is a customizable ListView with A to Z side scrollbar.,2,2
+551,2019-11-04T09:31:21Z,,2020-01-04T23:34:53Z,1,1,0,"This is a package I created. I did not find a package with a similar implementation among the available ones, except as an inject.dart, but it has not been updated for a long time and there is no guarantee what will happen in the future.",3,5
+552,2019-11-04T21:35:35Z,2019-11-05T10:28:26Z,2019-11-05T10:28:27Z,1,1,1,I have renamed my profile form Drakirus to pchampio.,2,0
+554,2019-11-06T23:43:28Z,,2019-11-17T15:56:50Z,1,1,0,"I think the Flutter team has been a little late so far for adapting more to the new iOS 13  style design elements. So I created two new packages for helping:D This is one of them and it provides a widget for the new tab bars used by iOS 13. As you can see in the repo, its very simple and very customisable.",2,0
+555,2019-11-06T23:44:12Z,,2019-11-17T15:56:29Z,1,1,0,"I think the Flutter team has been a little late so far for adapting more to the new iOS 13  style design elements. So I created two new packages for helping:D This is one of them and it provides a widget/tool for easily navigating within a ""StackView"" system as iOS 13 frequently does. I call it a ""StackView"" system because I don't know what the officia name is but you will understand what I am referring to by visiting the repo.",2,0
+556,2019-11-06T23:45:16Z,2019-11-07T11:04:45Z,2019-11-07T11:04:45Z,1,1,0,"As requested, I am resubmitting this pull request with the conflicts resolved because apparently I've already removed the previous fork from my repos.",2,0
+560,2019-11-09T19:09:19Z,,2020-05-28T21:33:30Z,1,1,1,Added a youtube chanel with awesome videos!,3,1
+563,2019-11-11T21:31:54Z,,2019-11-13T14:34:08Z,1,3,0,"Dartx is a collection of static extension methods for Dart. I'm currently working on flutterx.
+I'm not sure if the new category is okay. What do you think?",2,1
+567,2019-11-16T21:41:50Z,,2020-01-31T04:52:25Z,1,1,0,"Get is a package than allow navigate on Flutter with no context to mobile Apps(very useful with BLoC, where business logic can determine which screen to display, but business logic has no context.), friendly urls to flutter_web and improve navigation performance with no rebuild of MaterialApp with each navigation (Navigator.push does this).
+You've read How to contribute right ? Yes
+So tell me more about your awesome contribution and add the badge to your repo after it's accepted :D
+ 
+  
+ 
+<a href=""https://github.com/Solido/awesome-flutter"">
+   <img alt=""Awesome Flutter"" src=""https://img.shields.io/badge/Awesome-Flutter-blue.svg?longCache=true&style=flat-square"" />
+</a>",3,5
+568,2019-11-17T07:29:46Z,,2019-11-17T15:48:37Z,1,1,0,"Underlords Guru is unofficial guide app for Dota Underlords. Using flutter with beautiful UI and smooth animation.
+Repo: https://github.com/Levi-ackerman/underlords-guide",2,4
+571,2019-11-19T18:30:23Z,,2020-02-01T23:11:37Z,1,1,0,"I wrote the Guide in collaboration with DevonFw. It condenses current best-practices and conventions into one guideline for developing large-scale Flutter applications.
+Covered Topics
+
+A brief introduction to the Flutter Framework in general:
+
+How the underlying technology works,
+how it’s programming style is little different from other frameworks,
+how Flutter apps are structured on an abstract level and,
+how asynchrony and communication with the web can be implemented.
+
+
+A showcase of possible architectural styles you can use to build your app and
+
+an in-depth guide on one of those possibilities (BLoC Pattern).
+
+
+How to test your app.
+Some conventions and best practices for Dart, and the Flutter Framework in general.
+My personal evaluation of the framework.",3,4
+572,2019-11-20T07:17:47Z,,2019-11-20T10:58:35Z,1,3,2,"I have added my Rick and Morty App under the list of top apps. It's a mix of good UI combined with Pagination in Flutter. It's built using the famous Rick and Morty API. This API doesn't require any authentication and it's the most generous one available online too.
+<a href=""https://github.com/Solido/awesome-flutter"">
+   <img alt=""Awesome Flutter"" src=""https://img.shields.io/badge/Awesome-Flutter-blue.svg?longCache=true&style=flat-square"" />
+</a>",2,1
+573,2019-11-22T08:52:34Z,,2019-11-23T15:05:56Z,1,1,0,"You've read How to contribute right ?
+So tell me more about your awesome contribution and add the badge to your repo after it's accepted :D
+ 
+  
+ 
+<a href=""https://github.com/Solido/awesome-flutter"">
+   <img alt=""Awesome Flutter"" src=""https://img.shields.io/badge/Awesome-Flutter-blue.svg?longCache=true&style=flat-square"" />
+</a>",2,0
+574,2019-11-29T16:21:18Z,2019-11-29T20:29:28Z,2019-11-29T20:29:28Z,1,1,1,My plugin flutter_inappbrowser has been renamed to flutter_inappwebview.,2,0
+575,2019-12-01T09:38:45Z,2019-12-01T15:20:42Z,2019-12-01T15:20:42Z,1,1,2,"Flutter Turkey Slack link updated and Youtube link removed.
+You've read How to contribute right ?
+So tell me more about your awesome contribution and add the badge to your repo after it's accepted :D
+ 
+  
+ 
+<a href=""https://github.com/Solido/awesome-flutter"">
+   <img alt=""Awesome Flutter"" src=""https://img.shields.io/badge/Awesome-Flutter-blue.svg?longCache=true&style=flat-square"" />
+</a>",2,0
+578,2019-12-06T05:33:45Z,2019-12-11T12:47:30Z,2019-12-11T12:47:30Z,1,1,0,"You've read How to contribute right ?
+So tell me more about your awesome contribution and add the badge to your repo after it's accepted :D
+ 
+  
+ 
+<a href=""https://github.com/Solido/awesome-flutter"">
+   <img alt=""Awesome Flutter"" src=""https://img.shields.io/badge/Awesome-Flutter-blue.svg?longCache=true&style=flat-square"" />
+</a>",4,2
+580,2019-12-13T19:37:09Z,,2019-12-14T10:10:56Z,1,2,1,"You've read How to contribute right ?
+So tell me more about your awesome contribution and add the badge to your repo after it's accepted :D
+ 
+  
+ 
+<a href=""https://github.com/Solido/awesome-flutter"">
+   <img alt=""Awesome Flutter"" src=""https://img.shields.io/badge/Awesome-Flutter-blue.svg?longCache=true&style=flat-square"" />
+</a>",2,0
+595,2020-01-07T22:11:50Z,2020-01-08T13:40:40Z,2020-01-08T13:40:40Z,1,1,0,,2,0
+596,2020-01-12T11:00:41Z,,2020-01-19T18:43:04Z,1,1,1,"Smooth Page Indicator is a Customizable animated PageView indicator with a set of built-in effects.
+Effects
+
+Worm
+Expanding Dots
+Scrolling Dots
+Jumping dot
+Slide
+Scale
+Swap
+Color Transition",3,3
+597,2020-01-12T12:05:50Z,2020-01-13T20:25:28Z,2020-01-13T20:25:28Z,1,7,0,"added links to Polish, Warsaw, Wrocław and Poznań Flutter communitites",2,0
+600,2020-01-16T13:05:21Z,,2020-05-28T21:32:19Z,1,1,0,"You've read How to contribute right ? Yes!
+Fluid layout makes easy create layouts that look awesome in web, mobile, tablets and desktop.
+It is used already in production in three different projects, it has a really good started guided and a example project that you can even try on the web https://jamesblasco.github.io/fluid_layout/.
+Github project:
+https://github.com/jamesblasco/fluid_layout
+Dart pub:
+https://pub.dev/packages/fluid_layout",4,1
+601,2020-01-18T11:16:38Z,2020-01-19T18:36:17Z,2020-01-19T18:36:17Z,1,1,0,@Solido I have added my image cropping package to the list.,3,2
+602,2020-01-20T10:05:26Z,,2020-02-17T17:33:20Z,1,4,1,"Added GetFlutter UI library
+https://github.com/ionicfirebaseapp/getflutter",2,1
+605,2020-01-21T19:28:48Z,2020-01-22T18:06:18Z,2020-01-22T18:06:18Z,1,6,0,I added a new country social links (Peru),2,2
+617,2020-02-13T08:02:06Z,2020-02-17T21:49:54Z,2020-02-17T21:49:54Z,1,8,0,"You've read How to contribute right ?
+So tell me more about your awesome contribution and add the badge to your repo after it's accepted :D
+ 
+  
+ 
+<a href=""https://github.com/Solido/awesome-flutter"">
+   <img alt=""Awesome Flutter"" src=""https://img.shields.io/badge/Awesome-Flutter-blue.svg?longCache=true&style=flat-square"" />
+</a>",3,2
+618,2020-02-13T16:42:26Z,2020-02-16T00:20:22Z,2020-02-16T00:20:22Z,1,15,1,Added a section on print books with links to the Amazon pages and links to the authors of the books.,3,0
+620,2020-02-21T12:48:23Z,,2020-06-03T18:36:11Z,1,1,0,,3,2
+622,2020-02-26T08:30:16Z,2020-05-06T12:49:47Z,2020-05-06T12:49:47Z,1,1,0,"Note: Not sure if it was an appropriate place in source.md, let me know if you want me to move it under another section
+Dart command tool to generate Dart class and .env files with keys and params from command.
+Allows to configure set of fields, provided in environment_config.yaml or in package.yaml.
+Command can be executed for any Flutter application from terminal like
+flutter pub run environment_config:generate --<key_name>=<key_value>
+
+with key_names specified in YAML file and key_values for particular build environment.
+Primarily created to simplify Flutter App config generation during Application builds in CodeMagic, Bitrise or any other build automation tools.",4,8
+627,2020-03-03T20:09:42Z,2020-03-04T19:22:28Z,2020-03-04T19:22:28Z,1,4,4,Old repositories doesn't exist anymore.,3,0
+644,2020-03-20T18:41:03Z,2020-05-04T22:54:41Z,2020-05-04T22:54:41Z,1,1,0,"Navigate between screens, display snackbars, dialogs and bottomSheets, from anywhere in your code without context with Get.
+You've read How to contribute right ? yes
+So tell me more about your awesome contribution and add the badge to your repo after it's accepted :D ok
+ 
+  
+ 
+<a href=""https://github.com/Solido/awesome-flutter"">
+   <img alt=""Awesome Flutter"" src=""https://img.shields.io/badge/Awesome-Flutter-blue.svg?longCache=true&style=flat-square"" />
+</a>",4,6
+646,2020-03-24T07:41:02Z,2020-03-26T10:05:16Z,2020-03-26T10:05:16Z,1,7,0,"You've read How to contribute right ? Yes
+styled_widget a useful UI helper to simplify widget trees thanks to extension methods.",6,11
+648,2020-03-25T17:02:48Z,,2020-11-10T22:27:17Z,1,1,0,"You've read How to contribute right ? yes
+So tell me more about your awesome contribution and add the badge to your repo after it's accepted :D
+Sentinel x is an experimental version of samourai sentinel for better performance and user experience.
+the app is heavily relay on existing java libraries, so it uses method channels to communicate native apis,
+Sentinel x already gained lot of attention in samourai communities
+app uses following modules and patterns
+
+flutter provider for state management
+sembast db for data storage link
+database encryption support
+theme customization
+custom QR code scanner (Push In QR scanner camera)
+supports tor service
+
+ 
+  
+ 
+<a href=""https://github.com/Solido/awesome-flutter"">
+   <img alt=""Awesome Flutter"" src=""https://img.shields.io/badge/Awesome-Flutter-blue.svg?longCache=true&style=flat-square"" />
+</a>",3,3
+651,2020-04-02T23:24:29Z,2020-04-07T13:25:14Z,2020-04-07T13:25:15Z,1,4,0,"You've read How to contribute right ?
+So tell me more about your awesome contribution and add the badge to your repo after it's accepted :D
+Yes, I have read the contribution guide. Flutter Pakistan Community Facebook group is for Pakistani Developers and beginner's place to share knowledge and learn.
+ 
+  
+ 
+<a href=""https://github.com/Solido/awesome-flutter"">
+   <img alt=""Awesome Flutter"" src=""https://img.shields.io/badge/Awesome-Flutter-blue.svg?longCache=true&style=flat-square"" />
+</a>",3,0
+653,2020-04-09T11:33:00Z,2020-04-25T09:30:36Z,2020-04-25T09:30:36Z,1,2,4,"You've read How to contribute right ? sure
+So tell me more about your awesome contribution and add the badge to your repo after it's accepted :D
+I created a visual scheme with step-by-step guidance for Flutter newbies and I hope it might be useful for the community.
+ 
+  
+ 
+<a href=""https://github.com/Solido/awesome-flutter"">
+   <img alt=""Awesome Flutter"" src=""https://img.shields.io/badge/Awesome-Flutter-blue.svg?longCache=true&style=flat-square"" />
+</a>",4,1
+658,2020-04-20T16:02:08Z,,2020-04-25T09:40:04Z,1,1,0,"You've read How to contribute right ?
+So tell me more about your awesome contribution and add the badge to your repo after it's accepted :D
+ 
+  
+ 
+<a href=""https://github.com/Solido/awesome-flutter"">
+   <img alt=""Awesome Flutter"" src=""https://img.shields.io/badge/Awesome-Flutter-blue.svg?longCache=true&style=flat-square"" />
+</a>
+
+
+A ruby text widget, you can easily use this library to achieve the furigana effect.
+I'm sorry I just made a mistake in submitting the file.",3,3
+675,2020-05-10T07:42:28Z,,2020-05-12T10:26:18Z,1,6,1,It will be nice if you added our country community to the list,3,2
+678,2020-05-12T09:41:42Z,,2020-05-24T17:07:15Z,1,1,0,Added Localizely - translation management tool. It is free for Open Source and smaller projects,3,2
+700,2020-06-09T16:19:54Z,2020-09-14T20:04:01Z,2020-09-14T20:04:01Z,1,2,1,"Description
+
+Add job board websites
+Add job in summary contents
+
+
+Checklist
+
+ I read How to contribute
+ I edited the SOURCE.md file only",3,2
+715,2020-07-08T09:59:33Z,2020-07-10T19:31:08Z,2020-07-10T19:31:08Z,1,1,0,"Description
+Flutter Math is a package to render TeX equations using pure Dart & Flutter. It aims to produce high-quality render result while maintaining the performance advandage of Dart & Flutter without using any WebView or Javascript. It will be an alternative to the flutter_tex package.
+The project currently has 2276 SLOC of test cases. The coverage of 77% at the current stage is due to some provisioning in core structures for future development. The parser under /lib/src/parser/ has a coverage of 84%.
+Link
+
+Checklist
+
+ I read How to contribute
+ I edited the SOURCE.md file only",3,2
+722,2020-07-22T14:51:50Z,2020-08-18T11:06:59Z,2020-08-18T11:06:59Z,1,1,0,"#384  Description
+My YouTube channel contains a growing collection of over 50 free videos about Flutter app development.
+
+Checklist
+
+ I read How to contribute
+ I edited the SOURCE.md file only
+
+
+Feel free to add this badge to your repository after it's accepted to awesome-flutter.
+ 
+  
+ 
+<a href=""https://github.com/Solido/awesome-flutter"">
+   <img alt=""Awesome Flutter"" src=""https://img.shields.io/badge/Awesome-Flutter-blue.svg?longCache=true&style=flat-square"" />
+</a>",4,4
+733,2020-08-21T02:13:58Z,2020-08-26T18:08:57Z,2020-08-26T18:08:57Z,1,1,0,"Description
+Dough is an open source UI toolkit which gives developers simple tools to create squishy user interfaces. https://github.com/HatFeather/flutter_dough
+
+
+
+Checklist
+
+ I read How to contribute
+ I edited the SOURCE.md file only",4,1
+736,2020-09-11T08:15:19Z,2020-09-12T19:48:24Z,2020-09-12T19:48:24Z,1,0,4,"Hey @Solido
+just removing a broken link in the web demo section.
+Cheers
+
+Checklist
+
+ I read How to contribute
+ I edited the SOURCE.md file only
+
+
+Feel free to add this badge to your repository after it's accepted to awesome-flutter.
+ 
+  
+ 
+<a href=""https://github.com/Solido/awesome-flutter"">
+   <img alt=""Awesome Flutter"" src=""https://img.shields.io/badge/Awesome-Flutter-blue.svg?longCache=true&style=flat-square"" />
+</a>",3,2
+741,2020-09-19T07:11:59Z,,2020-11-03T05:39:13Z,1,4,0,"Added Telegram Community Flutter App Development India
+Added Telegram Community Flutter Mumbai
+Added Telegram Community Flutter Ahmedabad
+Added LinkedIn Community Flutter India #FlutterIND",4,4
+749,2020-10-02T05:21:00Z,2020-10-03T23:27:38Z,2020-10-03T23:27:38Z,1,1,1,"Description
+fix a broken link for the book Flutter in Action
+
+Checklist
+
+ I read How to contribute
+ I edited the SOURCE.md file only
+
+
+Feel free to add this badge to your repository after it's accepted to awesome-flutter.
+ 
+  
+ 
+<a href=""https://github.com/Solido/awesome-flutter"">
+   <img alt=""Awesome Flutter"" src=""https://img.shields.io/badge/Awesome-Flutter-blue.svg?longCache=true&style=flat-square"" />
+</a>",3,1
+775,2020-10-31T11:00:41Z,2020-12-03T19:59:41Z,2020-12-03T19:59:41Z,1,4,0,"Please read How to contribute before creating a submission.
+Description
+Submission description here
+
+Checklist
+
+ I read How to contribute
+ I edited the SOURCE.md file only
+
+
+Feel free to add this badge to your repository after it's accepted to awesome-flutter.
+ 
+  
+ 
+<a href=""https://github.com/Solido/awesome-flutter"">
+   <img alt=""Awesome Flutter"" src=""https://img.shields.io/badge/Awesome-Flutter-blue.svg?longCache=true&style=flat-square"" />
+</a>",3,4
+792,2020-11-20T06:19:37Z,2020-11-20T15:54:05Z,2020-11-20T15:54:05Z,1,1,1,"Hey @Solido
+just fixing a dead link to the GitHub instead.
+Cheers!",3,1
+796,2020-11-28T20:13:01Z,2020-11-28T21:28:26Z,2020-11-28T21:28:26Z,1,1,0,"Please read How to contribute before creating a submission.
+Description
+Added bitsdojo_window - https://github.com/bitsdojo/bitsdojo_window
+
+Checklist
+
+ I read How to contribute
+ I edited the SOURCE.md file only
+ Added a link to the repo in the PR
+
+
+Feel free to add this badge to your repository after it's accepted to awesome-flutter.
+ 
+  
+ 
+<a href=""https://github.com/Solido/awesome-flutter"">
+   <img alt=""Awesome Flutter"" src=""https://img.shields.io/badge/Awesome-Flutter-blue.svg?longCache=true&style=flat-square"" />
+</a>",2,1
+803,2020-12-09T17:42:59Z,2020-12-11T10:33:47Z,2020-12-11T10:33:48Z,1,1,1,"Simple typo fix, from détails to details in contributing.md",3,0
+804,2020-12-16T06:05:15Z,2020-12-21T14:40:31Z,2020-12-21T14:40:31Z,1,1,0,"Description
+flutter-pi: A light-weight Flutter Engine Embedder for Raspberry Pi
+
+Checklist
+
+ I read How to contribute
+ I edited the SOURCE.md file only
+ Added a link to the repo in the PR
+
+
+Feel free to add this badge to your repository after it's accepted to awesome-flutter.
+ 
+  
+ 
+<a href=""https://github.com/Solido/awesome-flutter"">
+   <img alt=""Awesome Flutter"" src=""https://img.shields.io/badge/Awesome-Flutter-blue.svg?longCache=true&style=flat-square"" />
+</a>",4,1
+821,2021-03-12T14:47:46Z,2021-03-30T00:34:44Z,2021-03-30T00:34:44Z,1,1,1,"Description
+Addition of the Code Field package
+https://github.com/BertrandBev/code_field
+Live demo
+https://bertrandbev.github.io/code_field/#/",3,3
+823,2021-03-19T10:57:16Z,2021-03-30T00:29:24Z,2021-03-30T00:29:24Z,1,1,0,"Description
+Added Zeplin Extensions - Flutter Gen to Utilities section.
+The Flutter dart code generator from zeplin.
+
+Checklist
+
+ I read How to contribute
+ I edited the SOURCE.md file only
+ Added a link to the repo in the PR",3,0
+832,2021-04-15T14:30:53Z,2021-04-16T02:01:35Z,2021-04-16T02:01:35Z,1,1,0,"Description
+Harpy is a Twitter client that takes advantage of the strength of Flutter to deliver a smooth and elegant Twitter experience rich in animations and features.
+Harpy is also available in the PlayStore for free as a beta release and has currently has over 6000 testers.
+Repo: https://github.com/robertodoering/harpy [247 ⭐]
+PlayStore: https://play.google.com/store/apps/details?id=com.robertodoering.harpy.free
+What makes Harpy awesome?
+Harpy aims to provide a pleasant user experience and add lots of useful features that the official or other 3rd party Twitter apps don't have.
+I big focus of mine is to use Flutter to it's full potential and deliver top notch UX by implementing fancy animations and customized UI to stand out.
+Harpy has been in development for over a year and I actively listen to user feedback and showcase the development progress through a GitHub project:
+https://github.com/robertodoering/harpy/projects/1
+Preview:
+
+
+
+
+
+Checklist
+
+ I read How to contribute
+ I edited the SOURCE.md file only
+ Added a link to the repo in the PR",5,3
+910,2022-07-03T21:00:00Z,2022-07-10T15:25:10Z,2022-07-10T15:25:10Z,1,13,12,"Description
+Repo: https://github.com/serverpod/serverpod
+
+Serverpod is a next-generation app and web server, built for the Flutter community. It allows you to write your server-side code in Dart, automatically generate your APIs, and hook up your database with minimal effort. Serverpod is open-source, and you can host your server anywhere.
+
+Also minor clean-ups (unnecessary whitespaces removed)
+
+Checklist
+
+ I read How to contribute
+ I edited the SOURCE.md file only
+ Added a link to the repo in the PR
+
+
+Feel free to add this badge to your repository after it's accepted to awesome-flutter.
+ 
+  
+ 
+<a href=""https://github.com/Solido/awesome-flutter"">
+   <img alt=""Awesome Flutter"" src=""https://img.shields.io/badge/Awesome-Flutter-blue.svg?longCache=true&style=flat-square"" />
+</a>",2,0
+913,2022-07-19T10:25:00Z,2024-04-14T23:05:02Z,2024-04-14T23:05:02Z,1,2,1,"Description
+Repo: https://github.com/britannio/in_app_review
+
+A Flutter plugin that lets you show a review pop up where users can leave a review for your app without needing to close your app. Alternatively, you can open your store listing via a deep link.
+It uses the In-App Review API on Android and the SKStoreReviewController on iOS/MacOS.
+
+Also minor clean-ups (Fix App Review).
+
+Checklist
+
+ I read How to contribute
+ I edited the SOURCE.md file only
+ Added a link to the repo in the PR
+
+
+Feel free to add this badge to your repository after it's accepted to awesome-flutter.
+ 
+  
+ 
+<a href=""https://github.com/Solido/awesome-flutter"">
+   <img alt=""Awesome Flutter"" src=""https://img.shields.io/badge/Awesome-Flutter-blue.svg?longCache=true&style=flat-square"" />
+</a>",3,0
+914,2022-07-21T08:05:53Z,,2022-07-22T03:54:51Z,1,1,0,"Please read How to contribute before creating a submission.
+Description
+Zerker is a flexible and lightweight flutter canvas graphic animation library.
+With Zerker, you can create a lot of seemingly cumbersome animation effects, such as animated animations, pop-up animations, scene transitions, icon effects, and more.
+At the same time, you can create a lot of simple games with Zerker. Zerker contains elements such as sprites, scrolling backgrounds, and atlases, making it easy to create game worlds with them.
+https://github.com/flutterkit/zerker
+
+Checklist
+
+ I read How to contribute
+ I edited the SOURCE.md file only
+ Added a link to the repo in the PR
+
+
+Feel free to add this badge to your repository after it's accepted to awesome-flutter.
+ 
+  
+ 
+<a href=""https://github.com/Solido/awesome-flutter"">
+   <img alt=""Awesome Flutter"" src=""https://img.shields.io/badge/Awesome-Flutter-blue.svg?longCache=true&style=flat-square"" />
+</a>",2,0
+925,2022-10-08T09:53:49Z,,2022-10-17T19:35:02Z,1,1,1,"Description
+Since battery is discontinued, link has been replaced with battery_plus
+
+Checklist
+
+ I read How to contribute
+ I edited the SOURCE.md file only
+ Added a link to the repo in the PR",3,1
+927,2022-10-14T09:18:53Z,,2022-10-16T05:33:54Z,1,2,0,"Please read How to contribute before creating a submission.
+Description
+mitt
+
+Dart event emitter/pubsub. inspired by npm mitt.
+
+tailrec
+
+This package help you to convert recursive function into the while-loop codes. so that program won't meet out of memory that caused by stack overflow.
+
+
+Checklist
+
+ I read How to contribute
+ I edited the SOURCE.md file only
+ Added a link to the repo in the PR
+
+
+Feel free to add this badge to your repository after it's accepted to awesome-flutter.
+ 
+  
+ 
+<a href=""https://github.com/Solido/awesome-flutter"">
+   <img alt=""Awesome Flutter"" src=""https://img.shields.io/badge/Awesome-Flutter-blue.svg?longCache=true&style=flat-square"" />
+</a>",2,1
+947,2023-03-12T12:30:42Z,,2023-05-03T17:37:08Z,1,1,1,"'flutter_google_map_view' was archived and abandoned by the authors 'apptreesoftware'.
+'flutter_map' was the replacement, now maintained by multiple maintainers (of which I am one), under the 'fleaflet' organisation.
+Checklist
+
+ I read How to contribute
+ I edited the SOURCE.md file only
+ Added a link to the repo in the PR",2,2
+949,2023-03-20T12:50:13Z,2023-06-29T22:28:19Z,2023-06-29T22:28:19Z,1,1,1,"Please read How to contribute before creating a submission.
+Description
+Add the link to the Flutter Nantes meetup : https://www.meetup.com/fr-FR/flutter-nantes/
+
+Checklist
+
+ I read How to contribute
+ I edited the SOURCE.md file only
+ Added a link to the repo in the PR
+
+
+Feel free to add this badge to your repository after it's accepted to awesome-flutter.
+ 
+  
+ 
+<a href=""https://github.com/Solido/awesome-flutter"">
+   <img alt=""Awesome Flutter"" src=""https://img.shields.io/badge/Awesome-Flutter-blue.svg?longCache=true&style=flat-square"" />
+</a>",4,1
+952,2023-04-17T23:08:09Z,2024-04-14T22:49:17Z,2024-04-14T22:49:17Z,1,1,1,"Please read How to contribute before creating a submission.
+Description
+Added  smooth_page_indicator to UI section, It's so far the number on page indicator on pub.dev 
+Checklist
+
+ I read How to contribute
+ I edited the SOURCE.md file only
+ Added a link to the repo in the PR
+
+
+Feel free to add this badge to your repository after it's accepted to awesome-flutter.
+ 
+  
+ 
+<a href=""https://github.com/Solido/awesome-flutter"">
+   <img alt=""Awesome Flutter"" src=""https://img.shields.io/badge/Awesome-Flutter-blue.svg?longCache=true&style=flat-square"" />
+</a>",4,1

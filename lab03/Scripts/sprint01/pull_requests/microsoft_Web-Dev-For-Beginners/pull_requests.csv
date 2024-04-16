@@ -1,0 +1,1392 @@
+number,created_at,merged_at,closed_at,files,additions,deletions,body_text,participants,comments
+4,2020-11-14T12:26:37Z,2020-11-14T16:55:58Z,2020-11-14T16:55:58Z,1,1,1,,3,0
+5,2020-11-14T13:10:14Z,2020-11-14T16:55:06Z,2020-11-14T16:55:06Z,1,1,1,,2,0
+8,2020-11-15T03:55:27Z,2020-11-15T14:11:04Z,2020-11-15T14:11:04Z,24,48,48,"Pre/Post quizzes links were broken. As an example the URLs were like 1-getting-started-lessons/1-intro-to-programming-languages/.github/..., but actually they must be like   /.github/....",2,1
+13,2020-11-15T10:40:38Z,2020-11-15T14:06:53Z,2020-11-15T14:06:53Z,1,1,1,"The Introduction to GitHub readme has a broken image link, incorrectly referencing the images folder. The local images folder was referenced as /images/... instead of images/....",2,0
+15,2020-11-15T15:36:10Z,2020-11-15T17:17:30Z,2020-11-15T17:17:30Z,1,2,2,,2,1
+16,2020-11-15T17:57:06Z,,2020-11-18T13:39:54Z,1,5,3,also no misspells found.,2,4
+20,2020-11-16T00:36:25Z,2020-11-16T02:02:38Z,2020-11-16T02:02:38Z,1,1,1,Proposed grammar change to add a verb to the question.,3,1
+22,2020-11-16T10:21:35Z,2020-11-16T12:40:09Z,2020-11-16T12:40:09Z,1,0,2,,2,1
+27,2020-11-16T15:16:21Z,2020-11-16T17:56:32Z,2020-11-16T17:56:32Z,7,558,0,"Initial Indonesian translation, more incoming soon. :D",2,6
+39,2020-11-17T13:04:11Z,2020-11-29T16:19:28Z,2020-11-29T16:19:26Z,30,5550,0,"WIP
+I interested in this project, so I started translating Korean.
+
+
+ 1
+
+
+ 1-1
+
+
+ 1-2
+
+
+ 1-3
+
+
+ 2
+
+
+ 2-1
+
+
+ 2-2
+
+
+ 2-3
+
+
+ 2-4
+
+
+ 3
+
+
+ 3-1
+
+
+ 3-2
+
+
+ 3-3
+
+
+ 4
+
+
+ 5
+
+
+ 5-1
+
+
+ 5-2
+
+
+ 5-3
+
+
+ 6
+
+
+ 6-1
+
+
+ 6-2
+
+
+ 6-3
+
+
+ 6-4
+
+
+ 6-5
+
+
+ 6-6
+
+
+ 7
+
+
+ 7-1
+
+
+ 7-2
+
+
+ 7-3
+
+
+ 7-4",3,7
+44,2020-11-17T16:26:09Z,2020-11-17T17:54:44Z,2020-11-17T17:54:44Z,2,4,3,"Fixed #42
+Added  missing closed div tag in index.html example in readme file",2,2
+53,2020-11-18T05:50:06Z,2020-12-31T14:44:48Z,2020-12-31T14:44:48Z,17,915,0,"2-js-basics
+ 1-data-types
+ 2-functions-methods
+ 3-making-decisions
+ 4-arrays-loops",5,5
+54,2020-11-18T06:02:16Z,,2020-11-18T13:56:58Z,17,1,1,"There were only 2 Images in the Web-Dev-For-Beginners/3-terrarium/1-intro-to-html/images Folder.
+Which were not sufficient as per the Curriculum
+The Images Were taken from the Solution Folder.
+I hope this will help.
+14 Images Added in the Web-Dev-For-Beginners/3-terrarium/1-intro-to-html/",2,3
+55,2020-11-18T07:40:56Z,2020-11-18T13:56:38Z,2020-11-18T13:56:38Z,1,1,1,Resolves #52,3,1
+57,2020-11-18T08:07:29Z,2020-11-18T13:55:35Z,2020-11-18T13:55:35Z,1,2,2,Update question numbers for the quiz,2,0
+59,2020-11-18T09:24:06Z,,2020-11-19T06:32:59Z,3,70,63,,2,4
+61,2020-11-18T11:20:11Z,2020-12-05T20:54:43Z,2020-12-05T20:54:43Z,1,193,0,"Quizzes and assignments are not translated yet.
+@FloorD do you want to review?",3,2
+64,2020-11-18T15:11:51Z,2020-11-18T17:23:22Z,2020-11-18T17:23:22Z,1,5,5,,3,1
+68,2020-11-19T08:04:29Z,2020-11-19T14:22:48Z,2020-11-19T14:22:48Z,1,27,2,Added commands for staging a particular file and unstaging a file or multiple files,3,1
+70,2020-11-19T14:16:55Z,2020-11-19T20:56:41Z,2020-11-19T20:56:41Z,1,2,2,Typo in game README example code doesn't work.,4,1
+71,2020-11-20T11:41:55Z,2020-11-20T18:13:26Z,2020-11-20T18:13:26Z,3,287,0,,3,3
+72,2020-11-20T19:16:17Z,2020-11-21T14:32:51Z,2020-11-21T14:32:51Z,1,2,2,,4,0
+76,2020-11-21T20:03:05Z,2020-11-30T18:13:39Z,2020-11-30T18:13:39Z,1,1,1,The last sequence of words did not made a complete sentence. I just added the verb of the sentence to this sequence.,3,2
+77,2020-11-21T20:22:58Z,,2021-02-05T18:48:36Z,2,50,0,"WIP
+I am  interested in this project, so I started translating German.
+
+  1
+  1-1
+  1-2
+  1-3
+  2
+  2-1
+ 2-2
+ 2-3
+ 2-4
+ 3
+ 3-1
+  3-2
+ 3-3
+ 4
+  5
+  5-2
+ 5-3
+  6
+  6-1
+ 6-2
+ 6-3
+ 6-4
+ 6-5
+ 6-6
+ 7
+ 7-1
+ 7-2
+ 7-3
+ 7-4",3,4
+80,2020-11-24T08:08:44Z,2020-11-24T14:23:08Z,2020-11-24T14:23:08Z,3,6,6,Resolves #79,2,0
+86,2020-11-28T02:49:55Z,2020-11-30T18:11:43Z,2020-11-30T18:11:43Z,2,24,15,"❤️ having an accessibility section in a web dev course! I reviewed the content, and created the following suggested updates (with reasons detailed below):
+
+Removed the word ""physical"" from ""screen reader""
+Updated the wording about browser text reading tools
+The reason for this is because the functionality and usage of tools like Edge's speak aloud feature and other text reading extensions are fundamentally different from screen readers. They are not primarily used for vision-related disabilities, and provide a very different UX and have different accessibility considerations than screen readers do. Since people who are new to accessibility sometimes confuse simpler text-reading tools for screen readers, I wanted to make the difference more clear in the tutorial wording.
+Added a section on zoom
+I thought zoom would fit really well in the tools section, since it's easy for anyone to try, and has wide accessibility benefits if done well. I also thought it would be a good place to include easy built-in browser accessibility tools, since all major browsers have some zoom and text sizing options built-in.
+Removed the text highlight section
+While some people will recommend using <strong> and <em> tags for emphasis because those tags have semantic meaning, it doesn't make a difference to screen reader users in practice, or to any other AT. It seems like a fine recommendation for developers learning HTML in general, bug I couldn't think of a way to relate it to accessibility, and I don't think it would be a good idea to imply that it makes a difference for screen reader accessibility.
+Added heading hierarchy section
+This was partly to make up for removing the section on text highlight, I wanted to add an alternative advice section on a type of semantic emphasis that makes a big difference to screen reader users.
+Switched ARIA example from progressbar to tree
+There is actually a semantic HTML element for progressbar, <progress>, so I updated the example to role=""tree""
+Some minor wording changes, e.g. to make the distinction between a user and their assistive tech more clear
+
+Thanks for your time, and please let me know if any of the changes aren't well explained or need to be updated!",3,5
+90,2020-11-30T08:49:32Z,2021-01-31T15:57:18Z,2021-01-31T15:57:18Z,61,6357,4,"Hi there, I have started working on translating 24 lessons to the Malay language ('Bahasa Melayu')  .
+Status
+
+ 1
+ 1-1
+ 1-2
+ 1-3
+ 2
+ 2-1
+ 2-2
+ 2-3
+ 2-4
+ 3
+ 3-1
+ 3-2
+ 3-3
+ 4
+ 4-1
+ 5
+ 5-1
+ 5-2
+ 5-3 (assignment)
+ 5-3 (README)
+ 5-start
+ 5-solution
+ 6
+ 6-1
+ 6-2
+ 6-3 README.ms.md
+ 6-3 assignment
+ 6-4
+ 6-5
+ 6-6
+ 7
+ 7-1
+ 7-2
+ 7-3
+ 7-4
+ 7-api
+ 7-solutions",2,4
+99,2020-12-09T09:14:28Z,2020-12-09T16:16:02Z,2020-12-09T16:16:02Z,13,101,76,"I'm back again with some more accessibility updates 😅. These are split into roughly two categories:
+
+Updates to wording (including some random spelling fixes I came across while reading)
+Updates to the HTML of the examples and solutions
+
+The wording changes mostly fall into the following categories:
+
+Updates that are necessary due to changing the HTML
+Wording choices that (based on my own understanding) are likely to go over better with the disabled community
+Updates to instructions that reference screenshots to ensure they don't rely only on visual things like color/iconography/shape
+
+The code changes mostly revolve around labeling form controls and the judicious use of semantic elements.
+Please let me know if you have any questions/comments on any specific changes! I also know that I am far from the best wordsmith, so I welcome any suggestions for better phrasing of anything I've added :).
+Thanks for your time!",2,0
+101,2020-12-13T16:01:18Z,2021-01-11T01:22:14Z,2021-01-11T01:22:14Z,23,315,0,"I think it is better to translate all assigments and merge it at once. Anyone is welcome to work with me :)
+
+ 1
+ 1-1
+ 1-2
+ 1-3
+ 2-1
+ 2-2
+ 2-3
+ 2-4
+ 3-1
+ 3-2
+ 3-3
+ 4
+ 5-1
+ 5-2
+ 5-3
+ 6-1
+ 6-2
+ 6-3
+ 6-4
+ 6-5
+ 6-6
+ 7-1
+ 7-2
+ 7-3
+ 7-4",5,1
+102,2020-12-13T16:17:08Z,,2020-12-30T05:42:57Z,48,799,0,"🥳
+Status
+
+ 1-1
+ 1-2
+ 1-3
+ 2
+ 2-1
+ 2-2
+ 2-3
+ 2-4
+ 3
+ 3-1
+ 3-2
+ 3-3
+ 4
+ 5
+ 5-1
+ 5-2
+ 5-3
+ 6
+ 6-1
+ 6-2
+ 6-3
+ 6-4
+ 6-5
+ 6-6
+ 7
+ 7-1
+ 7-2
+ 7-3
+ 7-4",3,9
+107,2020-12-25T17:44:52Z,,2020-12-25T21:17:44Z,1,3,3,,2,0
+110,2020-12-25T22:52:54Z,2020-12-26T15:01:21Z,2020-12-26T15:01:21Z,3,6,3,"Using """" HTML cannot guarantee relative paths.
+The issue is being investigated but using a markdown table format
+would be an alternative approach.
+
+FYI: docsifyjs/docsify#850",2,0
+121,2020-12-27T19:21:44Z,2021-01-03T18:54:35Z,2021-01-03T18:54:35Z,93,5526,1,"😊
+Status
+
+
+ 1.1
+
+
+ 1.2
+
+
+ 1.3
+
+
+ 2.1
+
+
+ 2.2
+
+
+ 2.3
+
+
+ 2.4
+
+
+ 2
+
+
+ 3.1
+
+
+ 3.2
+
+
+ 3.3
+
+
+ 3
+
+
+ 4
+
+
+ 5.1
+
+
+ 5.2
+
+
+ 5.3
+
+
+ 5
+
+
+ 6.1
+
+
+ 6.2
+
+
+ 6.3
+
+
+ 6.4
+
+
+ 6.5
+
+
+ 6.6
+
+
+ 7.1
+
+
+ 7.2
+
+
+ 7.3
+
+
+ 7.4
+
+
+ 7-api
+
+
+ 7-solution
+
+
+ 7-bank-project
+
+
+ lesson-template
+
+
+ quiz-app",4,5
+135,2020-12-29T11:16:23Z,2020-12-29T14:02:34Z,2020-12-29T14:02:34Z,1,2,2,"I created a issue #134  on how the offline viewer docsify considers a link without https:// in it as a local file and hence shows a  404 not found error .
+Here is the fix.",2,1
+144,2020-12-31T10:58:30Z,2020-12-31T15:52:09Z,2020-12-31T15:52:09Z,1,1,1,Just a typo fix.,2,1
+158,2021-01-04T14:02:50Z,2021-01-04T17:46:47Z,2021-01-04T17:46:47Z,1,2,2,,2,0
+159,2021-01-04T18:11:05Z,,2021-01-06T15:28:54Z,1,5,5,"In this PR, I have fixed some small grammar and punctuation mistakes.",2,0
+160,2021-01-04T18:15:26Z,,2021-01-06T15:28:55Z,1,1,1,I fixed a small mistake in for-teachers.md file.,2,0
+161,2021-01-04T18:28:10Z,,2021-01-06T15:28:55Z,1,10,10,"Not much to add, ran a few tools and found some mistakes, like PowerShell and so on.",2,1
+163,2021-01-05T08:16:12Z,2021-01-05T13:49:41Z,2021-01-05T13:49:41Z,1,1,1,Rephrased question 1,2,1
+164,2021-01-05T08:33:45Z,2021-01-05T13:51:01Z,2021-01-05T13:51:01Z,1,2,2,Fix a few grammatical mistakes in /getting-started-lessons/2-github-basics/README.md,2,0
+167,2021-01-09T09:50:29Z,2021-01-09T17:30:43Z,2021-01-09T17:30:43Z,10,782,1,…chapter 1,2,0
+168,2021-01-10T06:50:06Z,2021-01-11T01:21:13Z,2021-01-11T01:21:13Z,22,63,64,"Hi.
+I fixed pre and post quiz-url.
+This pull request is OK to merge.
+How about this?",2,0
+170,2021-01-10T23:06:02Z,2021-01-11T01:19:16Z,2021-01-11T01:19:16Z,1,21,21,Fix typos in lesson text and used generic language for input methods for accessibility.,2,0
+172,2021-01-13T18:24:03Z,2021-01-13T20:29:13Z,2021-01-13T20:29:13Z,1,2,2,,2,0
+173,2021-01-16T10:49:48Z,2021-01-16T16:10:48Z,2021-01-16T16:10:48Z,7,780,0,"Jen, here's the translation for the 3rd chapter.
+You may want to check this (sorry if I misinterpreted):
+Chapter 3.1 (assignment.md)
+""Create a graphical markup of your site""  maybe should  be ""Create a graphical mock up of your site""?
+Chapter 3.2 (readme.md): some language specs for the code markup are missing, the syntax highlighting is not rendered, for example ```css is missing here:
+""Set the body's font to a given font, and check to see a nested element's font:
+```
+body {
+font-family: helvetica, arial, sans-serif;
+}
+```
+""
+Chapter 3.3 (assignment.md)
+""Visit the MSDN's list of DOM interfaces and pick one"" maybe should be ""Visit the MDN's list of DOM interfaces and pick one""
+Thanks!",2,0
+177,2021-01-24T09:17:04Z,2021-01-31T17:38:37Z,2021-01-31T17:38:38Z,15,699,30,"Hi,
+just a thought regarding the extension installation instructions: maybe it's worth specify that you have to enable ""Developer mode"" first in order to see ""Load unpacked"", by default this mode is disabled. You can see this in the screenshot anyway but after all we are addressing beginners...
+1-about browser
+
+
+After ""Take a minute to look through the codebase:"" may a code block directive is missing when you specify the directory structure of the app?
+
+
+""build your extension using npm build"" should be ""build your extension using npm run build""?
+
+
+3-background task and performance
+
+This link is broken:
+You'll learn more about the Canvas API in the Space Game lessons.
+I think should be
+You'll learn more about the Canvas API in the Space Game lessons.
+
+Thanks!",3,5
+178,2021-01-24T19:11:10Z,2021-01-25T23:48:34Z,2021-01-25T23:48:34Z,1,192,0,Lesson 1 Greek translation,2,1
+179,2021-01-24T19:15:24Z,2021-01-25T23:48:02Z,2021-01-25T23:48:02Z,1,11,0,assignment lesson 1 greek translation,2,3
+180,2021-02-02T03:17:14Z,2021-02-05T18:48:15Z,2021-02-05T18:48:15Z,1,5,5,"This PR's main purpose is the change to line 198. Adding the / to return navigate('/dashboard'); fixes a bug with an infinite loading screen on incorrect routes. The bank app solution also has the / included, so I'm fairly sure this is a typo in the lesson code.",3,2
+181,2021-02-05T21:54:56Z,2021-03-24T15:42:23Z,2021-03-24T15:42:23Z,4,242,0,"Track translation progress by opening a draft PR using this template and checking off the translations completed
+Each lesson includes a translation of the README.md and the Assignment.md file, if available. Only mark the lesson complete if both those files are translated per lesson, please.
+
+ 1
+ 1-1
+ translations",4,12
+182,2021-02-06T04:32:54Z,2021-02-07T18:27:30Z,2021-02-07T18:27:30Z,1,1,1,updated axios dependency to fix the dependabot vulnerability.,2,1
+183,2021-02-06T10:35:47Z,2021-02-07T18:15:44Z,2021-02-07T18:15:45Z,14,1663,16,,2,1
+194,2021-02-14T09:28:29Z,2021-02-14T14:26:25Z,2021-02-14T14:26:25Z,11,1350,0,,2,0
+196,2021-02-15T13:23:22Z,2021-02-15T15:25:33Z,2021-02-15T15:25:33Z,7,7,14,,2,0
+197,2021-02-16T17:38:10Z,2021-02-16T19:48:17Z,2021-02-16T19:48:18Z,1,1,1,while reading through the curriculum found and fixed a typo.,2,0
+198,2021-02-17T02:26:40Z,,2021-06-08T00:16:33Z,6,868,0,"Hi,
+I translated the first README file which presents the curriculum, and the one that contains instructions for teachers. I would like to keep contributing by translating to portuguese other files, but I'm not sure how quickly  I would do it, so decided to make a PR for these two.",6,23
+199,2021-02-17T22:11:02Z,2021-02-18T01:10:07Z,2021-02-18T01:10:07Z,6,21,21,Links appeared to be broken. It looks like translations are still a work in progress throughout so I only fixed a couple that I noticed while going through the js-basics lesson.,2,1
+202,2021-02-19T18:18:11Z,2021-05-22T15:05:57Z,2021-05-22T15:05:57Z,13,1258,6,Translation of : Getting started readme and Intro to programming language readme to Portuguese,3,8
+203,2021-02-20T04:46:51Z,2021-02-21T01:42:26Z,2021-02-21T01:42:26Z,3,2512,0,Translated to JSON file to Malay.,2,0
+206,2021-02-22T08:33:18Z,2021-03-19T15:03:59Z,2021-03-19T15:03:59Z,58,8836,0,"These tutorial documents are awesome!
+I would like to translate them to Traditional Chinese.
+I have re-created a new PR with better branch management.
+
+  Translate lesson 1
+  Translate lesson 2
+  Translate lesson 3
+  Translate lesson 4
+  Translate lesson 5
+  Translate lesson 6
+  Translate lesson 7
+  Add translation file ( zh-tw.json )
+  Add language code in App.vue
+  Add language code in index.js
+  Edit ALL the quiz links in translated README.md",4,4
+210,2021-02-28T19:50:23Z,2021-02-28T21:05:40Z,2021-02-28T21:05:40Z,1,1,1,Only fix image url,2,0
+212,2021-03-01T01:19:35Z,,2021-03-06T15:46:29Z,6,107,108,,3,1
+225,2021-03-06T10:56:17Z,2021-03-21T18:07:59Z,2021-03-21T18:07:59Z,46,3779,30,"Dutch files
+
+ quiz
+ assignments
+ README's
+
+ 2 - 2
+ 2 - 3
+ 2 - 4
+ 3
+ 3 - 1
+ 3 - 2
+ 3 - 3
+ 4
+ 4 - typing-game
+ 5
+ 5 - solution
+ 5 - start
+ 5 - 1
+ 5 - 2
+ 5 - 3
+ 6
+ 6 - 1
+ 6 - 2
+ 6 - 3
+ 6 - 4
+ 6 - 5
+ 6 - 6
+ 7
+ 7 - api
+ 7 - solution
+ 7 - 1
+ 7 - 2
+ 7 - 3
+ 7 - 4",3,7
+227,2021-03-14T23:02:44Z,2021-03-15T17:42:03Z,2021-03-15T17:42:04Z,4,159,154,,2,0
+228,2021-03-14T23:39:58Z,,2021-10-10T14:22:50Z,3,84,14,"As a POC, I added some keyboard interaction to the terrarium solution, so now arrow keys + home/end/pageup/pagedown all can move the plants, plus some more specific alt text and a :focus-visible style.
+I'm curious what you think! I wasn't sure if this would need to be paired with some more content in the last lesson or not, or if you'd be interested in other more thorough accessibility-related updates. This change only handles keyboard a11y, it's still pretty much unusable with a screen reader, voice control, pointer-only devices like eye control, etc. Some other options include showing arrow key buttons under the title when a plant is activated, or being able to double-click to ""lift"" a plant, then allowing the user to click anywhere else on the page to place it.",3,4
+242,2021-03-25T18:48:52Z,2021-03-25T20:00:33Z,2021-03-25T20:00:33Z,4,2526,14,"Translate all quizzes to Simplified Chinese following the Guidelines
+Fix some mistakes in the Traditional Chinese translation (@CRTao PTAL)
+Quiz App tested on my PC, everything works fine 😀",2,2
+244,2021-03-26T14:58:04Z,2021-03-31T21:19:40Z,2021-03-31T21:19:40Z,7,800,0,"Translate Ch.1 into simplified Chinese (zh-cn)
+
+ Ch. 1-1
+
+ README
+ assignment
+
+
+ Ch. 1-2
+
+ README
+
+
+ Ch. 1-3
+
+ README
+ assignment
+
+
+ README
+
+
+Translate for-teachers into simplified Chinese (zh-cn)
+
+ for-teachers
+
+
+
+Reference
+#190 - Thanks to @morenyang 's contribution!",2,1
+245,2021-03-27T10:23:48Z,2021-04-01T19:55:48Z,2021-04-01T19:55:48Z,1,23,0,"Create for-teachers.pl.md
+Initial translations for .pl
+Best wishes,",2,0
+248,2021-03-29T07:06:38Z,2021-04-22T15:13:28Z,2021-04-22T15:13:28Z,12,787,4,"Translate Ch.2 into simplified Chinese (zh-cn)
+
+ Ch. 2-1
+
+ README
+ assignment
+
+
+ Ch. 2-2
+
+ README
+ assignment
+
+
+ Ch. 2-3
+
+ README
+ assignment
+
+
+ Ch. 2-4
+
+ README
+ assignment
+
+
+ README",2,1
+250,2021-04-01T03:04:44Z,2021-04-07T20:39:10Z,2021-04-07T20:39:10Z,4,141,41,,2,0
+257,2021-04-29T21:01:45Z,2021-04-30T01:56:54Z,2021-04-30T01:56:54Z,1,26,23,"Add various fixes.
+
+Eliminate neutrality.
+Correct spelling mistakes.
+Modify words of proper names (assembly).",2,1
+260,2021-05-11T20:25:04Z,2021-06-15T14:45:12Z,2021-06-15T14:45:12Z,1,231,0,"👋 Hi
+I am very enthusiastic about this project and hope to translate some simplified Chinese content every week. It is really fun.",3,5
+261,2021-05-12T05:28:24Z,2021-05-12T11:55:54Z,2021-05-12T11:55:54Z,1,3,3,"I was reading through the lesson on templates and routes, and found a few small things that I think could be a tiny bit clearer.",2,0
+262,2021-05-13T19:16:32Z,2021-05-14T18:24:11Z,2021-05-14T18:24:11Z,1,12,0,"Create file assignment.es.md
+This file was not in the central repository.",3,4
+263,2021-05-15T17:52:32Z,2021-05-16T14:12:17Z,2021-05-16T14:12:17Z,1,1,1,,2,1
+266,2021-05-20T05:29:06Z,2021-05-20T14:46:12Z,2021-05-20T14:46:12Z,1,13,0,,2,0
+267,2021-05-20T05:30:10Z,,2021-07-03T14:07:29Z,1,2,0,,2,2
+268,2021-05-20T05:55:56Z,,2021-06-15T11:26:35Z,1,190,0,,2,4
+271,2021-05-26T05:58:13Z,,2021-05-29T18:33:17Z,1,43,44,,5,5
+272,2021-05-26T08:46:50Z,2021-05-26T14:48:12Z,2021-05-26T14:48:12Z,1,1,1,,2,0
+276,2021-05-30T09:21:34Z,,2021-06-02T12:18:39Z,1,3,1,Added Microsoft Edge developer docs and web.dev,2,3
+279,2021-05-31T05:17:49Z,2021-05-31T22:01:27Z,2021-05-31T22:01:27Z,6,20,20,"The first page of Hindi Translations of all topics except the first used to redirect to English Version of the sub-topics.
+Second Topics' markdown Links were broken.",3,1
+282,2021-06-02T19:16:20Z,2021-06-04T01:40:07Z,2021-06-04T01:40:07Z,4,4,4,,2,5
+288,2021-06-09T02:03:50Z,2021-06-15T01:55:30Z,2021-06-15T01:55:30Z,26,37,37,"The other link was returning ""not found""",3,0
+299,2021-06-28T10:22:53Z,2021-06-28T12:15:31Z,2021-06-28T12:15:31Z,11,34,12,Fixes #296,2,1
+311,2021-07-12T13:08:16Z,2021-07-12T14:58:15Z,2021-07-12T14:58:15Z,2,30,30,I have revised and finished translating the Getting started session and got started with JS basics.,2,0
+314,2021-07-12T16:28:36Z,2021-07-12T18:43:34Z,2021-07-12T18:43:34Z,2,15,5,update the second image path to display it,2,1
+316,2021-07-14T02:03:33Z,2021-07-14T12:05:49Z,2021-07-14T12:05:49Z,4,2592,91,add the fr option to the select box and add fr.json translation file to the vue quizz app,2,0
+317,2021-07-15T15:24:46Z,2021-07-19T14:30:09Z,2021-07-19T14:30:09Z,5,284,54,,3,3
+318,2021-07-19T06:31:32Z,2021-07-19T14:29:35Z,2021-07-19T14:29:35Z,1,15,0,Add translation for chapter7/solution. I think this is a missing translation.,2,0
+320,2021-07-19T15:54:11Z,2021-07-20T02:36:10Z,2021-07-20T02:36:10Z,1,3,3,,2,0
+321,2021-07-20T15:16:44Z,2021-07-20T22:27:32Z,2021-07-20T22:27:32Z,1,70,0,,3,2
+324,2021-07-21T07:59:03Z,2021-07-21T11:36:18Z,2021-07-21T11:36:18Z,1,1,0,,2,0
+325,2021-07-21T08:08:15Z,2021-07-21T11:37:53Z,2021-07-21T11:37:53Z,1,0,1,there is not a github-basics assignment.md file to translate,2,0
+327,2021-07-21T08:16:54Z,2021-07-21T11:36:48Z,2021-07-21T11:36:48Z,1,3,3,,2,0
+328,2021-07-24T02:58:05Z,2021-07-24T13:35:03Z,2021-07-24T13:35:03Z,2,26,0,,2,0
+333,2021-07-27T08:43:11Z,2021-07-27T12:43:01Z,2021-07-27T12:43:01Z,4,108,0,Translate the rest of the chapters into simplified Chinese. (Chapter 4 to 7),2,1
+336,2021-07-31T17:16:45Z,2021-08-01T02:42:05Z,2021-08-01T02:42:05Z,2,61,34,,2,0
+343,2021-08-03T06:17:30Z,2021-08-03T14:31:27Z,2021-08-03T14:31:27Z,2,213,0,"Hello,
+I have started translating the README.md files from section 2 into French. Here are the first two.
+Best regards,
+Alain.",2,1
+347,2021-08-05T16:02:47Z,2021-08-06T10:57:24Z,2021-08-06T10:57:24Z,2,53,0,add french translation of assignment.md file in 2-3,2,0
+349,2021-08-08T20:36:37Z,2021-08-09T03:14:38Z,2021-08-09T03:14:38Z,1,11,0,add assignment french translated file for 3-1,2,1
+350,2021-08-09T21:43:42Z,2021-08-11T16:33:06Z,2021-08-11T16:33:06Z,1,11,0,add assignment translated file for 3-2,2,0
+351,2021-08-12T07:12:45Z,2021-08-12T12:06:57Z,2021-08-12T12:06:57Z,1,11,0,,2,0
+354,2021-08-15T16:21:24Z,2021-08-17T13:16:35Z,2021-08-17T13:16:35Z,2,64,0,add readme.fr.md for 3-terrarium base README,3,1
+359,2021-08-19T06:29:10Z,2021-08-19T21:53:56Z,2021-08-19T21:53:57Z,2,12,1,,2,0
+360,2021-08-19T06:42:01Z,2021-08-19T21:53:13Z,2021-08-19T21:53:13Z,3,5,5,,2,0
+362,2021-08-22T21:44:21Z,2021-08-23T02:21:57Z,2021-08-23T02:21:57Z,1,0,1,Deleting solution base README from 3-terrarium because no translation folder into solution.,2,0
+364,2021-08-23T04:03:54Z,2021-08-24T18:00:57Z,2021-08-24T18:00:57Z,1,1,1,,2,0
+365,2021-08-23T09:35:10Z,2021-08-23T13:15:59Z,2021-08-23T13:15:59Z,1,11,0,add 5-1-assignment.fr.md,4,0
+366,2021-08-23T10:44:25Z,2021-08-23T13:15:34Z,2021-08-23T13:15:34Z,4,134,0,"Also renamed the gr code from an already translated file to el.
+#361",2,1
+367,2021-08-23T15:49:48Z,,2021-09-03T20:27:37Z,6,17109,1158,"Base README.md
+
+
+  for-teachers.md
+
+
+  Quizzes
+
+
+  1-getting-started-lessons base README
+
+  intro-to-programming-languages README
+  intro-to-programming-languages assignment
+  github-basics README
+  accessibility README
+  accessibility assignment
+
+
+
+  2-js-basics base README
+
+  data-types README
+  data-types assignment
+[x ]  functions-methods README
+  functions-methods assignment
+[]  making-decisions README
+  making-decisions assignment
+  arrays-loops README
+  arrays-loops assignment
+
+
+
+  3-terrarium base README
+
+  intro-to-html README
+  intro-to-html assignment
+  intro-to-css README
+  intro-to-css assignment
+  intro-to-DOM-and-closures README
+  intro-to-DOM-and-closures assignment
+
+
+
+  4-typing-game base README
+
+  typing-game README
+  typing-game assignment
+
+
+
+  5-browser-extension base README
+
+  about-browsers README
+  about-browsers assignment
+  forms-browsers-local-storage README
+  forms-browsers-local-storage assignment
+  background-tasks-and-performance README
+  background-tasks-and-performance assignment
+  solution base README
+  start base README
+
+
+
+  6-space-game base README
+
+  introduction README
+  introduction assignment
+  drawing-to-canvas README
+  drawing-to-canvas  assignment
+  moving-elements-around README
+  moving-elements-around  assignment
+  collision-detection README
+  collision-detection assignment
+  keeping-score README
+  keeping-score assignment
+  end-condition README
+  end-condition assignment
+
+
+
+  7-bank-project base README
+
+  template-route README
+  template-route assignment
+  forms README
+  forms  assignment
+  data README
+  data assignment
+  state-management README
+  state-management  assignment
+  solution base README
+
+
+
+
+
+
+
+  Base README.md
+
+
+  for-teachers.md
+
+
+  Quizzes
+
+
+  1-getting-started-lessons base README
+
+  intro-to-programming-languages README
+  intro-to-programming-languages assignment
+  github-basics README
+  accessibility README
+  accessibility assignment
+
+
+
+  2-js-basics base README
+
+  data-types README
+  data-types assignment
+  functions-methods README
+  functions-methods assignment
+  making-decisions README
+  making-decisions assignment
+  arrays-loops README
+  arrays-loops assignment
+
+
+
+  3-terrarium base README
+
+  intro-to-html README
+  intro-to-html assignment
+  intro-to-css README
+  intro-to-css assignment
+  intro-to-DOM-and-closures README
+  intro-to-DOM-and-closures assignment
+
+
+
+  4-typing-game base README
+
+  typing-game README
+  typing-game assignment
+
+
+
+  5-browser-extension base README
+
+  about-browsers README
+  about-browsers assignment
+  forms-browsers-local-storage README
+  forms-browsers-local-storage assignment
+  background-tasks-and-performance README
+  background-tasks-and-performance assignment
+  solution base README
+  start base README
+
+
+
+  6-space-game base README
+
+  introduction README
+  introduction assignment
+  drawing-to-canvas README
+  drawing-to-canvas  assignment
+  moving-elements-around README
+  moving-elements-around  assignment
+  collision-detection README
+  collision-detection assignment
+  keeping-score README
+  keeping-score assignment
+  end-condition README
+  end-condition assignment
+
+
+
+  7-bank-project base README
+
+  template-route README
+  template-route assignment
+  forms README
+  forms  assignment
+  data README
+  data assignment
+  state-management README
+  state-management  assignment
+  solution base README",5,8
+382,2021-08-25T15:07:38Z,2021-08-26T03:11:53Z,2021-08-26T03:11:53Z,1,11,0,Suggest french translation for 5-browser-extension/forms-browsers-local-storage assignment,3,1
+385,2021-08-26T06:46:06Z,2021-08-27T03:18:20Z,2021-08-27T03:18:20Z,1,1,1,,2,0
+388,2021-08-26T10:47:50Z,2021-08-26T19:44:41Z,2021-08-26T19:44:41Z,1,9,0,Suggest french translation for 5-browser-extension/3-background-tasks-and-performance assignment,2,0
+390,2021-08-27T03:44:23Z,2021-08-29T14:23:50Z,2021-08-29T14:23:50Z,6,30,19,and improve.,2,1
+395,2021-08-29T02:07:10Z,2021-08-29T14:24:30Z,2021-08-29T14:24:30Z,8,14,10,,3,0
+398,2021-08-31T22:02:49Z,2021-09-03T20:25:42Z,2021-09-03T20:25:42Z,1,28,0,translate  5-browser-extension base README / solution base README,2,0
+399,2021-09-01T16:06:59Z,2021-09-03T20:25:16Z,2021-09-03T20:25:17Z,2,139,0,Translated files in array-loops folder,2,2
+400,2021-09-02T02:15:42Z,2021-09-03T20:23:41Z,2021-09-03T20:23:41Z,1,34,0,Portuguese translation of for-teachers.md file.,2,1
+401,2021-09-03T13:17:03Z,2021-09-03T20:22:59Z,2021-09-03T20:22:59Z,6,18,9,,2,0
+402,2021-09-03T13:22:22Z,2021-09-03T20:22:03Z,2021-09-03T20:22:03Z,1,3,3,,2,0
+403,2021-09-03T13:39:45Z,2021-09-03T20:21:35Z,2021-09-03T20:21:35Z,3,8,8,"Before:
+
+After:",2,0
+404,2021-09-03T15:31:35Z,2021-09-03T20:21:04Z,2021-09-03T20:21:04Z,1,28,0,suggest translation for 5-start base readme,2,0
+405,2021-09-05T03:37:12Z,2021-09-06T02:02:41Z,2021-09-06T02:02:41Z,14,143,94,,2,0
+406,2021-09-06T13:32:12Z,2021-09-07T21:29:36Z,2021-09-07T21:29:36Z,1,31,0,suggest french translation for 6-space-game base README,3,0
+407,2021-09-09T11:39:00Z,2021-09-09T13:52:41Z,2021-09-09T13:52:41Z,1,11,0,Suggest a french translation for 6-1-assignment.md,2,0
+408,2021-09-10T12:51:31Z,2021-09-12T02:33:21Z,2021-09-12T02:33:21Z,1,11,0,suggest a translation for 6-2-assignment.md into french,3,1
+416,2021-09-17T16:05:41Z,2021-09-17T17:47:52Z,2021-09-17T17:47:52Z,2,12,3,"This PR is meant to address this issue Issue link
+Better clarification has been provided for the server setups. Thanks",2,1
+417,2021-09-20T00:24:59Z,2021-09-27T15:57:47Z,2021-09-27T15:57:47Z,1,2,2,,2,0
+421,2021-09-21T19:14:12Z,2021-09-23T01:23:13Z,2021-09-23T01:23:13Z,1,11,0,Suggest translation for 6-4-assignment in french,2,0
+426,2021-09-28T17:24:36Z,2021-10-01T16:55:10Z,2021-10-01T16:55:10Z,1,11,0,Suggest translation for 6-5-assignment into french,2,0
+427,2021-09-29T06:50:02Z,,2021-11-21T16:09:14Z,2,100,1,help needed to translated to Readme to malayalam,3,7
+429,2021-10-02T16:59:05Z,2021-10-03T01:13:43Z,2021-10-03T01:13:43Z,2,9,5,"Fixed typo. Re-arranged items.
+Removed the broken link.",2,2
+432,2021-10-05T21:43:15Z,2021-10-10T14:22:07Z,2021-10-10T14:22:07Z,1,19,0,Suggest translation for 6-6-end-condition assignment.md into french!,2,1
+436,2021-10-12T02:22:14Z,2021-10-29T16:00:51Z,2021-10-29T16:00:51Z,1,109,0,"I've created the ""README.pt.md"" file, with the portugeses trabslation of the ""README.md"" file. Some terms I prefered to leave in english, because there is no good term that translates it into Portuguese. I really want you to appreciate my job and merge it.",2,5
+440,2021-10-13T10:43:16Z,2021-10-13T12:30:26Z,2021-10-13T12:30:26Z,1,15,0,Suggest a 7-1-template-route assignment translation into french :-),2,0
+442,2021-10-14T10:56:09Z,2021-10-14T12:17:41Z,2021-10-14T12:17:41Z,1,2,13,"When I click the 「事後確認」 link in the Japanese README ( https://github.com/microsoft/Web-Dev-For-Beginners/blob/main/1-getting-started-lessons/1-intro-to-programming-languages/translations/README.ja.md ), the locale selection field is blank as shown in the screenshot below.
+
+To fix this problem, changed manual listing to listing all existing locales automatically.",2,0
+443,2021-10-15T18:28:52Z,2021-10-18T15:22:14Z,2021-10-18T15:22:14Z,1,3,3,Fix typos,2,0
+449,2021-10-25T09:44:44Z,2021-10-25T11:40:51Z,2021-10-25T11:40:51Z,1,0,0,,2,0
+450,2021-10-25T10:59:07Z,2021-10-25T12:35:34Z,2021-10-25T12:35:34Z,1,233,0,Refers to #326,3,3
+452,2021-10-25T13:41:04Z,2021-10-27T12:01:08Z,2021-10-27T12:01:08Z,1,196,0,Refers to #326 I added new README translation,3,2
+453,2021-10-25T14:13:24Z,2021-10-27T12:01:27Z,2021-10-27T12:01:27Z,1,265,0,Refers to #326 I added new README translation,3,1
+454,2021-10-25T14:39:52Z,2021-10-27T19:56:49Z,2021-10-27T19:56:50Z,1,217,0,Refers to #326 I added new README translation,3,2
+455,2021-10-25T15:25:24Z,2021-10-28T14:36:21Z,2021-10-28T14:36:21Z,1,168,0,Refers to #326 I added new README translation,4,3
+457,2021-10-25T22:25:46Z,2021-10-29T15:59:58Z,2021-10-29T15:59:58Z,1,100,0,"[Translation] - Filipino
+Add a translation of README in Filipino to this repo (README.fil.md) under the translations.",3,2
+460,2021-10-28T11:13:05Z,2021-10-29T18:25:09Z,2021-10-29T18:25:09Z,1,198,0,"Add translation to Filipino
+
+ Translations
+1 Getting Started Lessons >1 Intro to Programming Languages > translations | README.fil.md",2,1
+463,2021-10-28T16:03:16Z,2021-10-28T19:04:48Z,2021-10-28T19:04:48Z,1,3,3,Add localization parameter on quizzes links and reference fr assignment,2,0
+465,2021-10-28T18:58:18Z,2021-10-29T15:55:30Z,2021-10-29T15:55:30Z,1,223,0,Added french translation for README.fr.md in Web-Dev-For-Beginners/6-space-game/6-end-condition/,3,2
+467,2021-10-28T20:16:24Z,2021-10-30T14:31:50Z,2021-10-30T14:31:50Z,2,28,0,,2,1
+468,2021-10-28T20:56:25Z,,2021-10-29T15:01:14Z,1,2,2,,2,0
+476,2021-10-30T03:17:34Z,2021-10-31T14:20:37Z,2021-10-31T14:20:37Z,5,275,2,"I made the portugue (pt-BR) translation for the Terrarium's folder. I translated the base README.md (of the terrarium's folder) and linked it to this portuguese translation. Besides that, I translated the README file of the 1-intro-to-html folder and the assignment file (same folder). Furthuermore, I linked the root README.pt-BR.md to this translation. So, I guess this first part of the folder is completely translated. I'm here to solve any problem and question.",2,3
+480,2021-10-30T15:59:54Z,2021-10-31T14:20:52Z,2021-10-31T14:20:52Z,1,13,0,Please find a suggestion of translation for forms assignment (#326),3,0
+482,2021-10-31T01:20:11Z,2021-10-31T15:28:07Z,2021-10-31T15:28:07Z,1,234,0,"Translation of: 3-terrarium/3-intro-to-DOM-and-closures README to portuguese.
+#341",2,2
+486,2021-10-31T05:21:54Z,2021-10-31T14:19:56Z,2021-10-31T14:19:56Z,1,1,0,Add API readme to the translation checklist template,2,0
+487,2021-10-31T08:29:31Z,2021-10-31T20:55:21Z,2021-10-31T20:55:21Z,1,15,0,"Translation of 7-bank-project 3-data assignment.md
+From issue #326",3,2
+492,2021-10-31T15:50:28Z,2021-10-31T17:50:05Z,2021-10-31T17:50:05Z,1,14,0,"Add Ukrainian translation for 2-js-basics/README.md
+From issue #489",2,0
+493,2021-10-31T16:01:29Z,2021-10-31T17:50:26Z,2021-10-31T17:50:26Z,1,21,0,"Add Ukrainian translation for 1-getting-started-lessons
+From issue #489",2,1
+497,2021-10-31T19:34:04Z,2021-10-31T20:54:47Z,2021-10-31T20:54:47Z,1,167,0,"Translation of: 5-browser-extension/about browsers readme to portuguese.
+#341",2,0
+498,2021-10-31T19:41:17Z,2021-10-31T20:56:11Z,2021-10-31T20:56:12Z,1,11,0,"Translation of: 5-browser-extension/about browsers assignment to portuguese.
+#341",2,0
+499,2021-10-31T19:45:49Z,2021-10-31T20:59:56Z,2021-10-31T20:59:56Z,2,524,0,,2,0
+500,2021-10-31T20:10:40Z,2021-10-31T23:48:22Z,2021-10-31T23:48:22Z,1,30,0,issue #489,3,6
+501,2021-10-31T21:27:20Z,2021-10-31T23:47:23Z,2021-10-31T23:47:23Z,1,0,33,The actual Ukrainian translation is in .uk file,2,0
+502,2021-10-31T22:39:11Z,2021-10-31T23:49:38Z,2021-10-31T23:49:38Z,1,46,46,,2,0
+506,2021-11-02T10:39:55Z,2021-11-02T20:11:09Z,2021-11-02T20:11:09Z,1,3,3,"Fix image and text link, reference fr assignment",3,2
+510,2021-11-03T13:48:16Z,2021-11-06T21:51:43Z,2021-11-06T21:51:43Z,6,204,0,"Translate README Malayalam
+Signed-off-by: Justin J Daniel 62233773+Justinjdaniel@users.noreply.github.com",2,5
+512,2021-11-04T02:52:05Z,,2021-11-05T13:37:26Z,4,194,0,,2,1
+513,2021-11-04T04:35:30Z,2021-11-06T22:00:15Z,2021-11-06T22:00:15Z,5,6,6,wrt #507,2,5
+521,2021-11-08T19:55:03Z,2021-11-09T02:16:00Z,2021-11-09T02:16:00Z,1,13,0,Suggest translation for 7-solution-readme,2,0
+526,2021-11-11T20:30:43Z,2021-11-15T17:55:42Z,2021-11-15T17:55:42Z,1,131,0,Suggest french translation file for 2-4-arrays-loops README,2,0
+528,2021-11-15T18:57:45Z,2021-11-17T22:17:14Z,2021-11-17T22:17:14Z,1,35,0,,2,0
+530,2021-11-16T00:03:46Z,2021-11-16T16:26:10Z,2021-11-16T16:26:10Z,1,177,0,Suggest french translation for 2-3-making decision base readme course,2,0
+532,2021-11-19T15:56:05Z,2021-11-20T18:39:45Z,2021-11-20T18:39:45Z,1,3,3,Fix image links,2,0
+538,2021-11-22T11:28:16Z,2021-11-24T15:16:30Z,2021-11-24T15:16:30Z,1,1,1,"Mockup is Mockup in Spanish.
+Changes in writing to facilitate reading.",2,0
+543,2021-11-25T16:02:55Z,2021-12-01T20:08:52Z,2021-12-01T20:08:52Z,1,4,2,"Resolved #533
+There was misleading instruction in point 10 and 11. I have resolved it",4,3
+547,2021-11-29T15:26:44Z,2021-12-01T20:07:33Z,2021-12-01T20:07:33Z,2,250,26,Suggest a new french translation :-),2,0
+551,2021-12-08T19:22:08Z,2021-12-11T15:38:17Z,2021-12-11T15:38:17Z,1,1,1,"Fix the missing of ""du"" article in french translation, add precision for closure",2,0
+552,2021-12-11T23:40:29Z,2021-12-19T21:45:18Z,2021-12-19T21:45:18Z,1,224,0,Suggest french translation for 6-1-readme,2,0
+557,2021-12-20T23:41:06Z,2021-12-28T02:54:19Z,2021-12-28T02:54:19Z,2,137,0,"these are the initial translations that were done, though someone could look them over and find errors with spacing and other small things. from what I know, these translations should be complete for the content and the message should resemble what is in English. if there are any changes that you want me to do, feel free to comment and I will try to implement.",2,1
+558,2021-12-21T05:07:53Z,2021-12-24T14:43:12Z,2021-12-24T14:43:12Z,1,3,3,Minor Hindi typing mistake has been resolved.,2,0
+560,2021-12-27T18:49:20Z,2021-12-28T15:04:04Z,2021-12-28T15:04:04Z,1,216,0,Suggest french translation for 6-2-readme 🥳🥳,2,0
+562,2021-12-28T16:20:45Z,2022-01-02T04:08:09Z,2022-01-02T04:08:09Z,1,50,0,Add the README in Spanish,2,0
+571,2022-01-08T14:58:30Z,2022-01-10T12:58:39Z,2022-01-10T12:58:39Z,1,2,3,One column was missing for the bottom-border,2,0
+576,2022-01-18T17:26:05Z,2022-01-19T12:36:09Z,2022-01-19T12:36:09Z,7,9,9,Fix some typos in the documentation.,2,1
+578,2022-01-20T08:47:57Z,2022-01-21T15:53:34Z,2022-01-21T15:53:34Z,3,5,3,fix:  style miss && small content,2,3
+579,2022-01-21T10:26:52Z,,2022-03-29T00:25:05Z,1,103,0,"Urdu Translation of the base README for better navigation of the roadmap for instructors & students in far-flung areas of Pakistan.
+Terms do remain the same, however, the sentence structure is made easy for grasping the underlying concept.
+Good headstart for converting from mild Urdu to English medium content!",2,1
+582,2022-01-28T14:06:21Z,2022-01-28T16:24:40Z,2022-01-28T16:24:40Z,1,388,0,add french translation file for 6-3-readme,2,1
+583,2022-01-29T05:07:12Z,,2022-03-29T00:24:50Z,7,17298,18,,2,1
+584,2022-01-29T23:56:24Z,2022-02-03T03:48:22Z,2022-02-03T03:48:22Z,1,22,22,"""There are different ways to express and end condition in a game."" seems to be better translated by ""Il existe différentes manières d'exprimer et de terminer une condition dans un jeu.""",2,0
+585,2022-01-30T00:42:47Z,2022-02-03T03:47:51Z,2022-02-03T03:47:51Z,1,19,19,Fix small typo and image link,2,0
+586,2022-02-01T17:12:12Z,,2022-05-01T00:02:57Z,1,17,0,,2,2
+587,2022-02-02T11:51:30Z,2022-02-03T03:45:31Z,2022-02-03T03:45:32Z,10,158,158,"This PR fixes lesson project links. (from /solution to /solution/README.md)
+Current link (/solution) shows 404 on the webpage.
+
+But some /solution/README.md (11. Typing game, 15. Space Game) has no content, so needs to be written.",2,1
+588,2022-02-04T08:21:45Z,2022-02-07T02:22:32Z,2022-02-07T02:22:32Z,1,103,0,"Solution to: #466
+What did I do: translated base README.md to Russian
+Notes: I see translators to other languages leave their PRs as drafts to continue commiting to them, however I don't know, will I continue translating or not, so it will be better to leave this PR as Ready to review to deliver faster translations.",2,2
+589,2022-02-05T14:21:14Z,2022-02-05T16:18:39Z,2022-02-05T16:18:39Z,1,1,1,Fixed typo,2,0
+592,2022-02-07T14:30:18Z,2022-02-08T12:59:45Z,2022-02-08T12:59:45Z,1,32,32,"What does this PR target?
+
+ To improve translate
+
+Details
+I improved the translation in /Web-Dev-For-Beginners/translations/README.ru.md:
+
+Fixed typos
+Fixed declensions
+Used more suitable word forms
+other minor improvements
+
+@Smooth-E, I mentioned you because you are the author of the original translation and your opinion is important to me, because I respect your work.",3,4
+594,2022-02-08T07:26:09Z,2022-02-08T12:58:23Z,2022-02-08T12:58:23Z,2,8,8,"What does this PR target?
+
+ To improve translate
+ To fix link to lesson assignment
+
+@OKitel, I mentioned you because you are the author of the original translation and your opinion is important to me and I respect your work.
+Relations: #466",2,0
+595,2022-02-09T05:09:23Z,2022-02-10T17:16:20Z,2022-02-10T17:16:20Z,1,1,1,"What does this PR target?
+
+ To improve quiz content
+
+Relations: #593",2,0
+597,2022-02-10T04:57:21Z,2022-02-10T17:15:51Z,2022-02-10T17:15:51Z,1,14,0,"What does this PR target?
+
+ Translate 2-js-basics\README.md to Russian
+
+Note
+Links to subsequent lessons will be updated as a new translation is released. They are inactive now, marked as #.
+Relations: #466",2,0
+599,2022-02-11T21:31:58Z,2022-02-13T17:04:10Z,2022-02-13T17:04:10Z,1,1,1,fix a link by deleting space,2,0
+600,2022-02-11T21:37:46Z,2022-02-13T17:05:03Z,2022-02-13T17:05:03Z,1,334,0,Complete french translation for 7-bank-project/3-data README file,2,0
+601,2022-02-12T21:16:14Z,2022-02-13T17:05:24Z,2022-02-13T17:05:24Z,1,281,0,french translation of 7-bank-project/4-state-management readme done,2,0
+602,2022-02-13T16:01:02Z,2022-02-14T15:19:28Z,2022-02-14T15:19:28Z,1,61,72,Refactor and update of the base readme french translation,2,1
+608,2022-02-19T07:02:48Z,2022-02-23T16:44:42Z,2022-02-23T16:44:42Z,1,3,3,"Bumps url-parse from 1.5.3 to 1.5.7.
+
+Commits
+
+8b3f5f2 1.5.7
+ef45a13 [fix] Readd the empty userinfo to url.href (#226)
+88df234 [doc] Add soft deprecation notice
+78e9f2f [security] Fix nits
+e6fa434 [security] Add credits for incorrect handling of userinfo vulnerability
+4c9fa23 1.5.6
+7b0b8a6 Merge pull request #223 from unshiftio/fix/at-sign-handling-in-userinfo
+e4a5807 1.5.5
+193b44b [minor] Simplify whitespace regex
+319851b [fix] Remove CR, HT, and LF
+Additional commits viewable in compare view
+
+
+
+
+Dependabot will resolve any conflicts with this PR as long as you don't alter it yourself. You can also trigger a rebase manually by commenting @dependabot rebase.
+
+
+Dependabot commands and options
+
+You can trigger Dependabot actions by commenting on this PR:
+
+@dependabot rebase will rebase this PR
+@dependabot recreate will recreate this PR, overwriting any edits that have been made to it
+@dependabot merge will merge this PR after your CI passes on it
+@dependabot squash and merge will squash and merge this PR after your CI passes on it
+@dependabot cancel merge will cancel a previously requested merge and block automerging
+@dependabot reopen will reopen this PR if it is closed
+@dependabot close will close this PR and stop Dependabot recreating it. You can achieve the same result by closing it manually
+@dependabot ignore this major version will close this PR and stop Dependabot creating any more for this major version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this minor version will close this PR and stop Dependabot creating any more for this minor version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this dependency will close this PR and stop Dependabot creating any more for this dependency (unless you reopen the PR or upgrade to it yourself)
+@dependabot use these labels will set the current labels as the default for future PRs for this repo and language
+@dependabot use these reviewers will set the current reviewers as the default for future PRs for this repo and language
+@dependabot use these assignees will set the current assignees as the default for future PRs for this repo and language
+@dependabot use this milestone will set the current milestone as the default for future PRs for this repo and language
+
+You can disable automated security fix PRs for this repo from the Security Alerts page.",2,1
+609,2022-02-21T01:05:14Z,2022-02-23T16:44:20Z,2022-02-23T16:44:20Z,1,3,3,,2,0
+610,2022-02-23T01:27:43Z,2022-02-23T16:43:30Z,2022-02-23T16:43:30Z,1,2,2,Fix a translation typo,2,0
+612,2022-02-24T08:25:39Z,2022-02-27T00:04:00Z,2022-02-27T00:04:00Z,2,5,5,Fixes #598,3,1
+614,2022-02-26T22:43:13Z,2022-02-26T23:59:43Z,2022-02-26T23:59:43Z,1,1,1,,2,0
+623,2022-03-08T04:58:10Z,2022-03-09T19:34:43Z,2022-03-09T19:34:43Z,9,2687,1,Translated all lessons to tamil language,2,6
+628,2022-03-09T15:58:30Z,2022-03-09T19:36:40Z,2022-03-09T19:36:40Z,2,137,0,,2,0
+629,2022-03-09T17:56:13Z,2022-03-13T17:39:18Z,2022-03-13T17:39:18Z,1,30,0,Creating a README.md in Brazilian Portuguese in typing-game.,2,1
+631,2022-03-10T03:07:46Z,2022-03-13T17:38:27Z,2022-03-13T17:38:27Z,3,535,0,"1-1 , 1-2 was translated to tamil",2,1
+651,2022-05-06T00:43:31Z,2022-05-06T02:07:18Z,2022-05-06T02:07:18Z,2,13,13,Translation correction of some Portuguese words,2,1
+661,2022-05-08T07:58:42Z,2022-05-08T13:39:59Z,2022-05-08T13:39:59Z,1,1,1,,3,0
+681,2022-05-20T22:37:56Z,2022-05-21T01:22:41Z,2022-05-21T01:22:42Z,1,20,20,Swapped out some words and rewrote some sentences to increase overall readability without sacrificing the original meaning.,3,8
+686,2022-06-01T20:56:48Z,2022-06-06T14:41:12Z,2022-06-06T14:41:12Z,1,3,3,"Bumps eventsource from 1.0.7 to 1.1.1.
+
+Changelog
+Sourced from eventsource's changelog.
+
+1.1.1
+
+Do not include authorization and cookie headers on redirect to different origin (#273 Espen Hovlandsdal)
+
+1.1.0
+
+Improve performance for large messages across many chunks (#130 Trent Willis)
+Add createConnection option for http or https requests (#120 Vasily Lavrov)
+Support HTTP 302 redirects (#116 Ryan Bonte)
+Prevent sequential errors from attempting multiple reconnections (#125 David Patty)
+Add new to correct test (#111 Stéphane Alnet)
+Fix reconnections attempts now happen more than once (#136 Icy Fish)
+
+
+
+
+Commits
+
+aa7a408 1.1.1
+56d489e chore: rebuild polyfill
+4a951e5 docs: update history for 1.1.1
+f9f6416 fix: strip sensitive headers on redirect to different origin
+9dd0687 1.1.0
+49497ba Update history for 1.1.0 (#146)
+3a38537 Update history for #136
+46fe04e Merge pull request #136 from icy-fish/master
+9a4190f Fix issue: reconnection only happends for 1 time after connection drops
+61e1b19 test: destroy both proxied request and response on close
+Additional commits viewable in compare view
+
+
+
+
+Dependabot will resolve any conflicts with this PR as long as you don't alter it yourself. You can also trigger a rebase manually by commenting @dependabot rebase.
+
+
+Dependabot commands and options
+
+You can trigger Dependabot actions by commenting on this PR:
+
+@dependabot rebase will rebase this PR
+@dependabot recreate will recreate this PR, overwriting any edits that have been made to it
+@dependabot merge will merge this PR after your CI passes on it
+@dependabot squash and merge will squash and merge this PR after your CI passes on it
+@dependabot cancel merge will cancel a previously requested merge and block automerging
+@dependabot reopen will reopen this PR if it is closed
+@dependabot close will close this PR and stop Dependabot recreating it. You can achieve the same result by closing it manually
+@dependabot ignore this major version will close this PR and stop Dependabot creating any more for this major version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this minor version will close this PR and stop Dependabot creating any more for this minor version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this dependency will close this PR and stop Dependabot creating any more for this dependency (unless you reopen the PR or upgrade to it yourself)
+@dependabot use these labels will set the current labels as the default for future PRs for this repo and language
+@dependabot use these reviewers will set the current reviewers as the default for future PRs for this repo and language
+@dependabot use these assignees will set the current assignees as the default for future PRs for this repo and language
+@dependabot use this milestone will set the current milestone as the default for future PRs for this repo and language
+
+You can disable automated security fix PRs for this repo from the Security Alerts page.",2,0
+690,2022-06-15T15:32:12Z,2022-08-19T08:20:46Z,2022-08-19T08:20:46Z,2,114,0,,3,2
+692,2022-06-18T01:00:11Z,,2022-08-22T20:00:48Z,1,30,0,adding Portuguese Translation in lesson 5-browser-extension.,3,2
+693,2022-06-18T15:43:18Z,2022-06-19T14:43:00Z,2022-06-19T14:43:00Z,1,1,1,Video not working. Corrected URL.,3,0
+694,2022-06-22T09:10:06Z,2022-06-23T20:59:42Z,2022-06-23T20:59:42Z,1,1,1,,3,0
+699,2022-07-01T17:46:55Z,2022-08-22T06:58:51Z,2022-08-22T06:58:51Z,14,15,15,"Incorrect answer marked as true in first question of prelecture quiz for lesson 3
+That answer should not be true unless there exists such a tool (I couldn't find it anywhere)
+Edit: incorrect answer also present in other translations",4,18
+702,2022-07-05T14:06:34Z,,2022-07-11T06:36:52Z,1,8,0,I added dependabot for Actions.,1,0
+707,2022-07-16T16:59:44Z,,2022-11-06T09:40:44Z,1,3,0,I just updated the README file with a PDF preview by embedding it.,4,5
+709,2022-07-21T11:20:50Z,2022-08-04T18:55:29Z,2022-08-04T18:55:29Z,1,6,6,"Bumps terser from 4.8.0 to 4.8.1.
+
+Changelog
+Sourced from terser's changelog.
+
+v4.8.1 (backport)
+
+Security fix for RegExps that should not be evaluated (regexp DDOS)
+
+
+
+
+Commits
+
+See full diff in compare view
+
+
+
+
+Dependabot will resolve any conflicts with this PR as long as you don't alter it yourself. You can also trigger a rebase manually by commenting @dependabot rebase.
+
+
+Dependabot commands and options
+
+You can trigger Dependabot actions by commenting on this PR:
+
+@dependabot rebase will rebase this PR
+@dependabot recreate will recreate this PR, overwriting any edits that have been made to it
+@dependabot merge will merge this PR after your CI passes on it
+@dependabot squash and merge will squash and merge this PR after your CI passes on it
+@dependabot cancel merge will cancel a previously requested merge and block automerging
+@dependabot reopen will reopen this PR if it is closed
+@dependabot close will close this PR and stop Dependabot recreating it. You can achieve the same result by closing it manually
+@dependabot ignore this major version will close this PR and stop Dependabot creating any more for this major version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this minor version will close this PR and stop Dependabot creating any more for this minor version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this dependency will close this PR and stop Dependabot creating any more for this dependency (unless you reopen the PR or upgrade to it yourself)
+@dependabot use these labels will set the current labels as the default for future PRs for this repo and language
+@dependabot use these reviewers will set the current reviewers as the default for future PRs for this repo and language
+@dependabot use these assignees will set the current assignees as the default for future PRs for this repo and language
+@dependabot use this milestone will set the current milestone as the default for future PRs for this repo and language
+
+You can disable automated security fix PRs for this repo from the Security Alerts page.",1,0
+712,2022-07-27T12:59:13Z,2022-08-19T08:31:19Z,2022-08-19T08:31:19Z,1,1,1,Adding the fact that you should try to specify why you made a certain change when creating a pull request. This change was made at the end of the second paragraph of CONTRIBUTING.md to add this instruction.,4,5
+724,2022-08-19T05:14:28Z,2022-08-19T14:45:34Z,2022-08-19T14:45:35Z,1,11,2,"add Ai link beginners
+Add paragraph for student programme learn and ambassador.
+Some link url in a title to delete.",2,0
+726,2022-08-23T17:15:04Z,2022-12-19T15:38:19Z,2022-12-19T15:38:19Z,2,376,0,"/translations/README.zh-cn.md
+/3-terrarium/2-intro-to-css/translations/README.zh-cn.md",4,1
+727,2022-09-04T08:42:48Z,2023-01-09T22:34:15Z,2023-01-09T22:34:15Z,3,2622,4,"What is new in this pull request?
+Made Persian (fa) translation available.
+What steps have been taken?
+
+ Created readme file in README.[language].md format following the ISO 639-1 standard
+ Translated the README.fa.md file
+ Added translation to the quiz-app by creating fa.json in the translations folder.
+ No need for adding your language code to the dropdown in the quiz app's App.vue file while it lists locales automatically, for the new update #442.
+ Imported fa and added it to messages in translations index.js file
+ Updated quiz-app link in new translated README.fa.md file for the Persian version
+
+-      https://ashy-river-0debb7803.1.azurestaticapps.net
++     https://ashy-river-0debb7803.1.azurestaticapps.net?loc=fa",3,4
+729,2022-09-13T17:46:31Z,,2023-02-02T20:31:12Z,1,30,0,"This is a README file translated into Turkish.
+The file 5-browser-extension/translations/README.tr.md has been created.",2,2
+731,2022-09-18T14:49:22Z,2022-12-19T20:47:29Z,2022-12-19T20:47:29Z,8,151,6,"Localized into italian (it) the following pages:
+
+README.md
+for-teachers.md
+
+Replaced broken links to /images/web.gif on the following pages:
+
+README.bn.md
+README.el.md
+README.fil.md
+README.id.md
+README.ja.md
+README.ml.md
+README.pt-BR.md",3,3
+734,2022-09-18T19:55:02Z,2023-01-09T22:35:33Z,2023-01-09T22:35:33Z,1,11,0,I would also like to do azerbaijani translation.,3,1
+745,2022-09-30T12:29:28Z,2022-09-30T13:55:53Z,2022-09-30T13:55:53Z,21,413,0,,3,8
+747,2022-09-30T20:41:05Z,2022-10-27T00:47:48Z,2022-10-27T00:47:48Z,1,4,0,added a text editor and its extensions,2,0
+753,2022-10-01T03:50:30Z,2022-10-26T14:37:49Z,2022-10-26T14:37:49Z,1,2,2,,4,0
+762,2022-10-01T15:55:14Z,2022-10-26T14:46:37Z,2022-10-26T14:46:37Z,1,1,1,,2,0
+764,2022-10-01T16:44:30Z,,2022-10-26T15:02:45Z,1,2,0,,4,2
+765,2022-10-01T16:45:42Z,2022-10-26T15:12:19Z,2022-10-26T15:12:19Z,1,1,1,,3,0
+766,2022-10-01T16:47:54Z,2022-10-26T15:19:20Z,2022-10-26T15:19:20Z,1,1,1,,3,0
+768,2022-10-01T21:07:03Z,2023-01-13T16:47:02Z,2023-01-13T16:47:02Z,1,1,1,If you would follow the old instructions you could end up in the wrong directory.,2,1
+769,2022-10-01T21:31:43Z,2023-07-10T15:42:02Z,2023-07-10T15:42:02Z,3,35,0,Result can be see here https://imgur.com/a/Gay4UpI,2,4
+770,2022-10-01T23:50:24Z,,2022-12-23T08:38:44Z,2,216,0,,3,3
+771,2022-10-02T02:10:35Z,,2022-10-05T17:34:32Z,1,129,0,I have given detailed explanation of each and every basic git commands. Any beginner can understand the concept of GIT after following this Git Cheat Sheet.,3,8
+774,2022-10-02T08:30:58Z,2023-01-09T22:49:08Z,2023-01-09T22:49:08Z,1,13,0,,3,1
+777,2022-10-02T10:46:53Z,2023-01-09T22:47:41Z,2023-01-09T22:47:41Z,2,60,0,"Hi microsoft devs 🙂
+I am creating this Pull Request to help a little with the french translation of this repository, during the Hacktoberfest.
+This Pull Request translates the README.md and the assignment.md files of the folder lesson-template into french..",3,2
+778,2022-10-02T13:24:37Z,,2022-10-05T08:28:12Z,6,31,14,Good,3,0
+779,2022-10-02T14:17:43Z,2022-10-04T21:06:28Z,2022-10-04T21:06:28Z,2,17,4,"Add README.es.md translation for 1-getting-started-lessons.
+Remove blank lines at the end of the 1-getting-started-lessons\README.md file.",4,8
+783,2022-10-02T21:00:55Z,,2022-12-11T08:38:58Z,2,210,0,Add translation to Russian for 2-js-basics functions-methods lesson and assignment,3,1
+784,2022-10-02T23:11:33Z,,2022-10-26T14:53:06Z,1,2,0,,3,1
+785,2022-10-03T07:03:31Z,2023-01-12T23:47:55Z,2023-01-12T23:47:55Z,1,52,31,"Corrected wrong translations.
+Modified Lessons table.
+Inserted PDF and Other Curricula sections.",4,4
+786,2022-10-03T21:51:29Z,,2022-12-11T08:38:57Z,2,216,0,Add translation to Russian for 2-js-basics 3-making-decisions lesson and assignment.,3,1
+787,2022-10-03T22:03:56Z,2023-07-13T20:42:19Z,2023-07-13T20:42:19Z,3,2522,9,Adding the Portuguese-BR translation file to the quizz following the specified guidelines.,3,4
+788,2022-10-04T02:38:27Z,,2022-10-04T14:58:00Z,1,1,0,,3,0
+804,2022-10-06T07:14:09Z,2022-10-28T19:37:07Z,2022-10-28T19:37:07Z,1,6,6,Error of translations in FR and correct sentences for a better FR,2,0
+805,2022-10-06T15:05:04Z,2023-01-09T22:55:35Z,2023-01-09T22:55:35Z,1,85,0,,2,2
+806,2022-10-06T15:30:06Z,2023-01-12T23:45:18Z,2023-01-12T23:45:18Z,2,108,0,,2,3
+807,2022-10-06T17:47:12Z,2022-10-26T16:40:31Z,2022-10-26T16:40:31Z,1,1,1,"Hello.
+I wonder if null should be added as a primitive type.
+According to the Javascript Specification:
+null is a primitive value that represents the intentional absence of any object value
+
+This PR was created within Hacktoberfest. thx",3,0
+808,2022-10-06T19:26:30Z,2022-10-26T16:42:34Z,2022-10-26T16:42:34Z,1,1,1,"Fixed a small mistake in the about-browsers chapter.
+This PR was created within Hacktoberfest. thank you",3,0
+812,2022-10-07T08:01:19Z,,2022-10-26T19:35:39Z,1,2,2,Fixed non working 404 error visual studio and quiz link,2,1
+814,2022-10-07T13:17:14Z,2022-10-26T20:31:36Z,2022-10-26T20:31:36Z,1,2,2,fix a broken link in 1-getting-started-lessons/2-github-basics,3,1
+819,2022-10-08T07:24:37Z,,2023-03-24T18:02:41Z,2,2,2,,2,5
+820,2022-10-08T07:56:02Z,,2023-03-24T18:56:10Z,1,19,18,I corrected some grammar mistakes,3,3
+821,2022-10-08T08:06:18Z,2022-10-26T20:57:44Z,2022-10-26T20:57:44Z,1,8,8,"In Lines 9, 15, 144, and 198, I fixed the verb form to correct the grammar.
+
+Line 9: display -> displaying
+Line 15: building -> build
+Line 144: are -> is
+Line 198: by call -> by calling
+
+In Lines 107, 142, and 148,  I added a , to separate the sentences.
+
+Line 107: getItem(), setItem() or removeItem() -> getItem(), setItem() , or removeItem()
+Line 142: Finally it's time to query the API! -> Finally , it's time to query the API!
+Line 148: First notice the async keyword -> First , notice the async keyword
+
+In Line 219, I fixed the preposition to correct the grammar.
+
+Can you think how these two things work together? -> Can you think about how these two things work together?",2,1
+822,2022-10-08T08:53:24Z,2023-01-12T23:29:51Z,2023-01-12T23:29:51Z,1,9,9,Add hacktoberfest if applicable,2,0
+823,2022-10-08T09:22:48Z,,2023-07-03T10:42:30Z,1,7,7,"In the Hindi documentation, CSS needs to be updated. Also, some of the JavaScript word is in Hindi and some are in English. I have updated both of these issues.",4,2
+824,2022-10-08T10:47:37Z,,2023-07-03T10:42:31Z,2,20,8,Update README with git log details and alternative for git switch,3,3
+829,2022-10-09T11:29:33Z,2022-10-31T17:23:18Z,2022-10-31T17:23:18Z,1,18,19,"Correct spelling mistakes
+Fix markdown style
+Change technical terms where applicable",3,3
+832,2022-10-09T13:52:24Z,2023-01-10T16:14:17Z,2023-01-10T16:14:17Z,1,4,3,"Added w3school's free course in the resources section (which is the  best course imo)
+Added the first 10 Fibonacci numbers",3,4
+833,2022-10-09T15:28:34Z,2022-10-26T20:50:04Z,2022-10-26T20:50:04Z,1,2,2,,2,0
+837,2022-10-09T21:09:10Z,2022-10-28T13:07:04Z,2022-10-28T13:07:04Z,1,3,4,,2,1
+849,2022-10-10T22:14:35Z,2022-10-28T19:41:49Z,2022-10-28T19:41:50Z,1,1,1,,3,1
+850,2022-10-10T23:09:31Z,2022-10-31T23:07:58Z,2022-10-31T23:07:58Z,1,9,9,,3,1
+851,2022-10-11T01:14:06Z,,2023-07-11T19:54:28Z,1,10,10,"paragraphs 14, 30, 34, 38, 44, 116, 162, 199",4,10
+856,2022-10-11T16:32:14Z,2022-10-27T02:42:59Z,2022-10-27T02:42:59Z,1,7,7,Some grammatical errors were corrected and the language is made easy-to-understand for the beginners,2,0
+857,2022-10-11T16:57:38Z,2022-10-27T02:54:30Z,2022-10-27T02:54:31Z,1,3,3,Grammatical changes were corrected and the language was made more understandable,2,0
+859,2022-10-11T19:04:38Z,,2023-01-11T08:39:23Z,5,63,6,,3,1
+863,2022-10-11T20:47:11Z,2023-01-12T22:53:23Z,2023-01-12T22:53:23Z,1,161,0,,2,1
+864,2022-10-12T02:54:42Z,2022-10-28T19:43:51Z,2022-10-28T19:43:51Z,1,6,6,Added some missing Spanish translations for  2-functions-methods,3,1
+866,2022-10-12T13:39:25Z,2022-10-28T16:38:21Z,2022-10-28T16:38:21Z,1,1,1,"Hello, I have modified the translation of README.hi.md file.",3,2
+869,2022-10-12T17:46:54Z,2022-10-28T15:00:03Z,2022-10-28T15:00:03Z,1,2,2,replacing invalid MDN documentation link with valid link,3,0
+872,2022-10-13T00:30:08Z,,2022-11-18T17:29:38Z,1,161,0,,2,1
+874,2022-10-13T13:59:56Z,2022-12-08T16:12:15Z,2022-12-08T16:12:15Z,1,2,2,"In Lines 26 and 34, I fixed word (Gtihub -> Github)",3,2
+878,2022-10-13T21:32:05Z,2023-07-13T20:33:52Z,2023-07-13T20:33:52Z,1,21,0,I have added a portuguese translation for 7 bank-project,3,1
+883,2022-10-14T15:34:58Z,2022-12-09T19:12:23Z,2022-12-09T19:12:23Z,1,11,0,I have added malayalam translation for assignment in first lesson Intro-to-programming-languages,2,0
+886,2022-10-14T23:22:54Z,2022-12-09T19:14:34Z,2022-12-09T19:14:34Z,1,7,7,,2,0
+888,2022-10-15T05:02:10Z,,2022-12-09T19:03:09Z,1,54,0,,3,1
+889,2022-10-15T06:22:15Z,2022-12-09T18:59:21Z,2022-12-09T18:59:21Z,1,12,12,Add hacktoberfest if applicable,2,0
+890,2022-10-15T11:38:48Z,2022-12-09T18:55:55Z,2022-12-09T18:55:55Z,6,39,39,Some of the links in PT and PT-BR translations were not working properly.,3,1
+891,2022-10-15T18:56:49Z,2023-01-09T18:16:55Z,2023-01-09T18:16:55Z,1,33,0,Add translation: for-teachers.es.md,3,3
+903,2022-10-18T03:29:19Z,,2023-01-03T08:38:47Z,1,82,27,added switch case statement in js-basics/making-decisions,3,5
+905,2022-10-18T07:22:04Z,,2022-12-30T08:38:28Z,3,96,47,"I found as this project is for web-dev-beginners, But there is not enough content in ReadMe.md on how to get started with docsify also there was no script in package.json to run docsify
+My changes
+1.ReadMe.md
+
+
+2.package.json",4,8
+908,2022-10-18T16:42:39Z,,2022-12-30T08:38:25Z,1,1,1,creating a pull request for contribution to hacktoberfest.,4,1
+909,2022-10-19T06:39:37Z,,2023-03-24T19:49:31Z,9,483,0,,4,3
+910,2022-10-19T09:28:29Z,,2022-12-29T08:38:45Z,4,152,9,,3,6
+915,2022-10-20T07:31:31Z,2022-10-28T19:48:57Z,2022-10-28T19:48:57Z,2,10,10,The PR un-translates a language confusion caused by a translation to Italian before.,2,3
+916,2022-10-20T16:47:29Z,2022-10-26T14:23:47Z,2022-10-26T14:23:47Z,110,254,254,"Includes:
+
+Add add of tracking params to first-party URLs that were not previously being tracked
+Update exising tracking params that were using outdated ""cxa""",2,1
+917,2022-10-21T19:40:54Z,,2022-12-08T18:21:36Z,3,13,0,added css changed old colour theme added images made the website looks more attactive earlier it was like 90s website,2,2
+918,2022-10-22T06:40:19Z,2022-12-09T17:35:45Z,2022-12-09T17:35:46Z,1,3,3,,2,0
+924,2022-10-23T16:26:12Z,2022-12-08T18:14:48Z,2022-12-08T18:14:48Z,1,1,1,,2,0
+927,2022-10-24T11:15:22Z,2023-01-17T15:39:29Z,2023-01-17T15:39:29Z,1,112,0,"Added README.th.md for the main README.md file
+
+PS: I left any untranslated documents in English topic. When I (or another Thai translator) translate the lesson to Thai, I'll edit them as a proper name",4,4
+930,2022-10-25T08:35:20Z,2022-10-28T18:22:02Z,2022-10-28T18:22:02Z,1,6,6,"I changed the comment to explain the working of the loop from past tense to present tense. The condition is true, not was true when it enters the loop and executes the statement.
+You can see other comments which are in present tense ""// runs if condition is false"" but comments in other loops are in past tense ""//Condition was true. Code in this block will run."".
+Minor but completes the doc.",2,0
+935,2022-10-26T09:59:46Z,2022-10-31T23:07:14Z,2022-10-31T23:07:14Z,1,1,1,,2,1
+939,2022-10-26T15:31:20Z,2022-10-28T19:55:39Z,2022-10-28T19:55:39Z,2,5,1,,2,2
+943,2022-10-26T17:22:39Z,2023-07-10T14:49:51Z,2023-07-10T14:49:51Z,1,39,0,,2,4
+944,2022-10-26T19:31:42Z,2022-12-08T18:08:24Z,2022-12-08T18:08:24Z,1,4,4,Added support to right links to remove 404 errors page.,2,1
+946,2022-10-26T19:58:57Z,2023-03-24T19:47:58Z,2023-03-24T19:47:58Z,1,5,5,The URL contained in the direct links no longer reloads the page to the page site but instead points to the main URL.,3,2
+947,2022-10-26T20:24:12Z,2022-12-09T15:45:01Z,2022-12-09T15:45:01Z,1,3,3,"Fixed the redirection of URL for HTML, CSS and Javascript",2,1
+948,2022-10-26T20:30:27Z,2022-12-08T18:05:30Z,2022-12-08T18:05:30Z,1,3,3,Fixed the correct URLs to the links for appropriate language.,2,1
+949,2022-10-27T04:49:50Z,2023-03-24T19:45:44Z,2023-03-24T19:45:44Z,1,113,0,"This is great tutorial. I translated main README of this curriculum. Thank you!
+Btw happy ""Hacktoberfest""",2,3
+950,2022-10-27T05:09:39Z,2023-03-24T19:51:29Z,2023-03-24T19:51:29Z,2,117,0,"I added help wanted part!
+Happy ""Hacktoberfest""!",3,5
+956,2022-10-29T10:44:50Z,2022-12-08T17:58:18Z,2022-12-08T17:58:18Z,5,14,14,Corrected some grammatical errors in a few files.,2,2
+957,2022-10-29T12:37:42Z,2023-02-08T16:41:31Z,2023-02-08T16:41:31Z,2,12,4,"Add omitted section
+Fix images links
+Fix minor translations errors.",3,1
+958,2022-10-30T09:06:18Z,2023-01-13T00:17:57Z,2023-01-13T00:17:57Z,1,3,3,Readme.hi.md :  Added । at the end of the lines. In hindi language । is used to end the statement.,2,0
+959,2022-10-30T09:08:47Z,2022-12-09T18:44:26Z,2022-12-09T18:44:26Z,1,17,0,updated README.md files with correction in formatting and language grammer rules.,2,2
+960,2022-10-30T09:12:29Z,2023-01-13T00:16:59Z,2023-01-13T00:16:59Z,1,1,1,"In hindi language ""Assignment"" is written and pronounced as कार्यभार",2,0
+961,2022-10-30T13:27:17Z,2022-12-08T18:01:19Z,2022-12-08T18:01:19Z,1,11,11,"Corrected grammatically incorrect sentences, punctuations and typos for better readability.
+I felt these changes would make this documentation clearer and more understandable than before.",2,1
+963,2022-10-31T07:32:29Z,,2022-12-09T19:28:46Z,43,8215,15740,,33,1
+967,2022-11-05T02:16:27Z,2023-07-11T19:56:35Z,2023-07-11T19:56:35Z,1,6,0,,3,1
+968,2022-11-07T05:16:18Z,2023-01-10T15:20:32Z,2023-01-10T15:20:32Z,1,6,0,Missing full stop.,2,2
+971,2022-11-15T01:43:45Z,2023-02-08T00:32:09Z,2023-02-08T00:32:09Z,1,5,5,"semantic issue (paragraph 26)
+backtick position (paragraph 139)
+typo fixed (paragraph 141)",3,0
+972,2022-11-15T02:52:51Z,2023-01-16T23:07:56Z,2023-01-16T23:07:56Z,1,6,6,,4,1
+973,2022-11-15T15:15:36Z,2023-02-08T00:29:38Z,2023-02-08T00:29:38Z,1,2,2,minor proposal on X & Y (paragraph 138),3,0
+974,2022-11-18T00:04:54Z,2023-02-07T20:03:34Z,2023-02-07T20:03:34Z,1,1,1,,3,1
+975,2022-11-18T00:17:22Z,2023-07-24T18:35:17Z,2023-07-24T18:35:17Z,1,1,1,,3,2
+977,2022-11-19T04:23:21Z,2023-07-17T18:11:14Z,2023-07-17T18:11:15Z,1,5,5,semantic issue (paragraphs 151 & 156),3,1
+978,2022-11-21T00:35:38Z,2023-02-07T20:13:20Z,2023-02-07T20:13:21Z,1,1,1,,3,0
+979,2022-11-21T22:35:32Z,2023-02-08T00:27:06Z,2023-02-08T00:27:06Z,1,2,2,…ation,3,0
+981,2022-11-23T00:23:37Z,2023-01-06T17:19:11Z,2023-01-06T17:19:11Z,1,2,2,,2,0
+983,2022-11-23T03:02:51Z,2023-07-11T18:23:54Z,2023-07-11T18:23:54Z,1,8,8,,3,1
+984,2022-11-25T00:42:47Z,2023-07-11T18:25:58Z,2023-07-11T18:25:58Z,1,2,2,,3,1
+985,2022-11-25T01:08:20Z,2023-07-11T18:32:37Z,2023-07-11T18:32:37Z,1,4,4,fixed typo in paragraph 27,3,1
+986,2022-11-25T01:12:07Z,2023-07-11T18:34:04Z,2023-07-11T18:34:04Z,1,2,2,,3,1
+987,2022-11-25T01:28:27Z,2023-07-11T18:35:13Z,2023-07-11T18:35:13Z,1,1,1,,4,3
+988,2022-11-25T22:43:42Z,2023-07-11T19:57:37Z,2023-07-11T19:57:37Z,1,3,3,fixed internal URL (paragraph 58),4,2
+990,2022-11-26T00:06:53Z,2023-01-05T23:29:03Z,2023-01-05T23:29:03Z,1,2,2,,3,0
+991,2022-11-26T00:14:10Z,2023-01-06T20:51:35Z,2023-01-06T20:51:35Z,1,1,1,,3,0
+992,2022-11-26T20:43:47Z,2023-07-11T18:41:30Z,2023-07-11T18:41:30Z,1,1,1,,3,1
+993,2022-11-26T22:11:58Z,2023-07-11T18:43:13Z,2023-07-11T18:43:13Z,1,4,4,"translation issue (paragraph 11)
+semantic issue (paragraph 145)",3,1
+994,2022-11-26T22:14:22Z,2023-07-11T18:44:37Z,2023-07-11T18:44:37Z,1,1,1,,3,1
+997,2022-11-28T07:41:27Z,2022-12-08T16:18:17Z,2022-12-08T16:18:17Z,1,3,3,"Updated the links for the Extensions of Visual Studio Code mentioned in the README.md line number 115-117, all the links were expired and returned a 404 link not found error, so updated them with the new links from the Extensions in the Visual Studio Marketplace.",2,0
+1011,2022-12-10T19:03:36Z,2022-12-20T13:35:06Z,2022-12-20T13:35:06Z,1,2,0,"Add additional note to Installing Browser extension.
+fixes #1010",2,1
+1015,2022-12-20T02:14:50Z,2023-07-13T20:30:44Z,2023-07-13T20:30:44Z,1,3,3,"Hello, I made two small changes to the documentation.",3,1
+1021,2022-12-25T16:00:19Z,2023-01-03T19:12:44Z,2023-01-03T19:12:44Z,1,1,0,,2,0
+1026,2022-12-28T10:33:03Z,2023-01-12T20:14:43Z,2023-01-12T20:14:43Z,3,37,18,"There are three links in the README.es that lead to the English version. With this update, they now redirect to the Spanish version.",3,0
+1031,2022-12-29T12:32:29Z,2023-01-03T19:14:32Z,2023-01-03T19:14:32Z,1,2,2,Updating README.md with better formatting and better grammar.,2,0
+1032,2022-12-29T13:19:08Z,,2023-10-10T18:21:52Z,0,0,0,,2,7
+1033,2022-12-29T17:39:13Z,2023-01-03T19:17:43Z,2023-01-03T19:17:43Z,1,1,1,Making the variables in a code block for better formatting.,2,0
+1035,2022-12-30T12:41:30Z,2023-01-03T19:12:05Z,2023-01-03T19:12:05Z,1,2,2,This PR adds better grammar to CONTRIBUTING.md.,2,0
+1037,2022-12-31T20:19:18Z,2023-01-03T19:12:59Z,2023-01-03T19:12:59Z,1,1,1,,2,0
+1038,2023-01-01T19:22:27Z,,2023-09-26T15:32:05Z,1,12,12,Update README.md with better formatting.,2,5
+1042,2023-01-06T19:49:25Z,2023-01-09T21:40:00Z,2023-01-09T21:40:00Z,1,4,4,Solving issue #1041,2,1
+1044,2023-01-08T17:43:16Z,,2023-01-11T21:31:53Z,0,0,0,"Changes
+
+URLs change from lab.github.com to skills.github.com
+
+Issues
+This will solve #1023 and #1018",3,2
+1053,2023-01-12T10:16:11Z,,2023-07-07T17:56:46Z,2,2,2,,3,2
+1067,2023-02-01T03:11:21Z,2023-03-22T00:17:22Z,2023-03-22T00:17:22Z,1,0,0,"When I was reading 1-about-browsers chapter, I found that the text of this picture(browser.jpg) is not clear enough.
+Could I replace it with a clearer version?
+Thank you for doing such a great project.",2,0
+1078,2023-02-14T13:22:17Z,2023-07-07T17:47:32Z,2023-07-07T17:47:32Z,1,1,1,"[ja]
+「論理演算子とブール値」 テーブル2行目（ヘッダーを除く）おいてエスケープ処理ができておらず、論理和演算子である||がマークダウン記法のテーブルを構成するセルとして扱われていた。エスケープ\を追加し、正しく表示されることを確認した。
+[en]
+Boolean Operators and Boolean Values"" In the second row of the table (excluding the header), escaping was not performed and the logical OR operator || was treated as a cell that constitutes a table in markdown notation. The escaping was added, and it was confirmed that the table was displayed correctly.",3,3
+1079,2023-02-14T15:02:55Z,2023-07-07T17:48:31Z,2023-07-07T17:48:31Z,1,2,2,Fixed a bit translation mistake.,2,1
+1080,2023-02-14T18:54:07Z,2023-07-07T17:49:21Z,2023-07-07T17:49:21Z,1,1,1,"リンク切れ修正
+Correction of broken links",3,1
+1091,2023-02-24T16:12:05Z,2023-03-24T14:54:14Z,2023-03-24T14:54:14Z,1,9,9,"PR #726 translated the translations/README.zh-cn.md six months ago, some translations on zh-cn have been done, a few links lead to course README can be changed to zh-cn version",2,1
+1092,2023-02-25T10:55:31Z,2023-03-03T17:37:46Z,2023-03-03T17:37:46Z,1,1,1,"I feel there is a typo in the learning objectives in the table (row - 22), as it should be handling validation instead it is handing validation.
+Thank you",3,0
+1105,2023-03-19T20:14:53Z,2023-03-24T15:01:56Z,2023-03-24T15:01:56Z,1,1,1,,3,1
+1107,2023-03-21T06:40:15Z,2023-07-05T18:13:48Z,2023-07-05T18:13:48Z,1,1,1,"Solved the issue #1103 .
+Variable 'regionName' not declared, so replaced with 'region' in index.js.
+Thank You.",2,1
+1120,2023-04-19T07:31:21Z,2023-07-05T18:09:37Z,2023-07-05T18:09:37Z,1,5,5,,2,1
+1129,2023-05-14T11:37:02Z,,2023-07-08T01:38:34Z,1,325,0,"[TRANSLATIONS] in Urdu #1114
+github-basics README  done",3,1
+1177,2023-08-08T18:39:09Z,,2023-09-26T15:19:15Z,1,50,0,"Description
+I provide some commands ,by applying which the project get setup locally
+Fixes  #1176",3,4
+1182,2023-08-14T17:45:25Z,2023-09-25T12:40:37Z,2023-09-25T12:40:37Z,1,43,42,"Description
+Please include a summary of the changes and the related issue. Please also include relevant motivation and context.
+Fixes # (issue)
+Type of change
+
+ Bug fix (non-breaking change which fixes an issue)
+ New feature (non-breaking change which adds functionality)
+ Breaking change (fix or feature that would cause existing functionality to not work as expected)
+ This change requires a documentation update",4,3
+1187,2023-08-21T14:19:24Z,2023-09-26T15:20:26Z,2023-09-26T15:20:26Z,1,1,1,"Description
+wrong image URL in intro to programming README.zh-cz
+before
+
+after
+
+Fixes #1184
+Type of change
+
+[X ] Bug fix (non-breaking change which fixes an issue)",2,0
+1197,2023-08-28T08:56:23Z,2023-09-25T12:44:42Z,2023-09-25T12:44:42Z,4,13,13,Fix: typos,2,1
+1222,2023-10-14T18:15:33Z,2023-11-15T01:00:19Z,2023-11-15T01:00:19Z,1,1,1,"Description
+Please include a summary of the changes and the related issue. Please also include relevant motivation and context.
+chck  -> check
+Type of change
+
+ Bug fix (non-breaking change which fixes an issue)
+ New feature (non-breaking change which adds functionality)
+ Breaking change (fix or feature that would cause existing functionality to not work as expected)
+ This change requires a documentation update",3,1

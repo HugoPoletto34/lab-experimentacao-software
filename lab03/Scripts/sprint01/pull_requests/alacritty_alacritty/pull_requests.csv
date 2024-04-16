@@ -1,0 +1,2180 @@
+number,created_at,merged_at,closed_at,files,additions,deletions,body_text,participants,comments
+74,2017-01-06T05:00:32Z,,2017-01-06T19:20:15Z,2,15,2,:),2,1
+131,2017-01-07T00:46:41Z,2017-01-07T05:51:25Z,2017-01-07T05:51:25Z,16,225,95,"I replaced all the usages of unstable features with in-house stuff. Now the only unstable bit is proc_macro, which is stabilizing in 1.15, and I didn't want to go through the effort of separating out serde types into a standalone file if it was going to be temporary.
+Most of these features have no roadmap for stabilization. contains() might, but the inclusive ranges story is probably going to be redone. The step stuff is dependent on the design space being explored first, so unless someone spearheads that that will probably stay stagnant. drop_types_in_const and core_intrinsics won't stabilize, but you can push for unlikely in particular to be stabilized. If any of these features stabilize it should be relatively easy to undo these changes.",5,8
+138,2017-01-07T02:08:09Z,2017-01-07T17:46:29Z,2017-01-07T17:46:29Z,5,34,6,"This allows you to configure the shell to use when alacritty starts.
+cc: #122",6,3
+145,2017-01-07T02:55:45Z,,2017-01-07T19:43:10Z,1,6,1,"This fixes #133.
+See discussion on #133 about whether or not this is the right way to fix #133. Naturally, if it isn't feel free to close this pull request.",2,1
+164,2017-01-07T08:07:21Z,2017-01-07T18:20:02Z,2017-01-07T18:20:02Z,1,38,30,"Fixed a bunch of bounds issues. Most of them were caused by input in src/term/mod.rs leaving self.cursor.col dirty after printing the last char on a line before a wrap was forced.
+These changes ensure when using self.cursor.col and self.cursor.line are within sane values before using them when using them when handling other escape sequences. Care is also taken to ensure the resulting updates to self.cursor.col and self.cursorline are within proper bounds.
+#63 - Fixed
+#104 - Fixed
+#108 - Fixed
+#116 - Fixed
+#133 - Fixed",3,9
+216,2017-01-07T21:55:28Z,2017-01-08T05:24:55Z,2017-01-08T05:24:55Z,1,58,40,"Remove the use of limit.
+Reduce the number of comparisons.
+
+When using numbers provided by the PTY for subtractions there is a extra
+step of ensuring that we won't trigger failure on testing when trying to
+subtract form zero.",3,26
+238,2017-01-08T21:32:48Z,2017-01-13T05:21:15Z,2017-01-13T05:21:15Z,2,4,2,as per #39,2,4
+268,2017-01-10T06:11:49Z,2017-01-10T07:19:08Z,2017-01-10T07:19:08Z,1,27,14,"Checks to make sure lines count coming from the pty are within a proper
+range before doing scrolling.
+
+
+Sanitizes scroll region when being set.
+
+
+Changes panic for unimplemented screen clear to a print statement.
+
+
+The first two changes ensure scrolling won't crash us. By sanitizing the
+region on set we don't have to complicate the scroll code with limits,
+mins, or maxes to ensure the scroll operation is within the range.
+Checking if the lines is greater than the total region allows us to
+simply clear the region and avoid subtracting large numbers from small
+ones.
+Fixes #63",2,3
+274,2017-01-10T12:16:14Z,,2017-01-24T06:46:00Z,4,92,24,"I added support for arguments to the shell option. This is convenient when debugging, e.g. shell: /bin/bash --norc --noprofile can be used to avoid loading everything when running bash.
+I'm a bit of a rookie when it comes to rust so please review.
+Cheers
+EDIT: I've also added the -e command line argument so that you temporarily can launch alacritty with another shell.",3,9
+277,2017-01-10T14:00:04Z,2017-01-13T05:19:42Z,2017-01-13T05:19:42Z,7,32,9,"Makes thin stroke rendering for darwin configurable by a new toplevel
+key under font: in the config file. Defaults to false, has no impact
+on non macos.",2,6
+288,2017-01-11T15:43:49Z,,2017-01-11T23:31:57Z,7,98,11,"solves #155, while preserving the invert behavior by default",2,0
+308,2017-01-14T13:14:31Z,,2017-01-14T20:56:55Z,3,45,5,"@jwilm I picked this up from #62. I got (I think) most of the way there, but would love to hear feedback about the approach I used. The rough pattern is that there's an event_translator that can be passed this config, and it is called in the events::Processor.
+I'm struggling a bit with why the build fails with this error:
+
+error[E0282]: unable to infer enough type information about `E`
+   --> src/event.rs:197:21
+    |
+197 |                     Processor::handle_event(
+    |                     ^^^^^^^^^^^^^^^^^^^^^^^ cannot infer type for `E`
+...
+224 |                     process!(translated);
+    |                     --------------------- in this macro invocation
+    |
+    = note: type annotations or generic parameter binding required
+
+error: aborting due to previous error
+
+error: Could not compile `alacritty`.
+
+To learn more, run the command again with --verbose.
+
+I'd be happy to take a different approach than this - you could hardcode everything into the processor, but it seemed like a reasonable place to put a new thing in.",2,1
+311,2017-01-14T15:23:58Z,2017-01-23T17:14:02Z,2017-01-23T17:14:02Z,18,186,113,"I'm not done changing all occurrences, requesting for comments",2,4
+314,2017-01-14T20:45:40Z,2017-01-30T04:29:23Z,2017-01-30T04:29:23Z,1,16,7,"Includes (relatively) minor touch ups.
+Fixes #294.",6,9
+317,2017-01-15T18:51:26Z,2017-05-01T15:52:23Z,2017-05-01T15:52:23Z,8,81,56,"Love the idea of this terminal, great work so far! I really wanted this so I went ahead and added it myself 😄
+Let me know if there's anything I missed for this change, or tests you would like to accompany these changes.",11,27
+319,2017-01-16T09:02:52Z,,2017-02-01T18:02:59Z,1,10,2,"This relatively trivial feature is required by Heatseeker, which seems to work perfectly on alacritty once this patch is applied.",2,3
+335,2017-01-21T10:15:25Z,2017-01-23T16:59:55Z,2017-01-23T16:59:55Z,8,99,96,"This uses the rustc-test crate, a copy of the standard test crate, to
+dynamically create tests for each reference test. No need to remember to
+update the macro, just add the directory to ref!
+It also removes the line_wrap test, as it was never actually enabled and doesn't pass :( cc @mbrumlow",2,3
+340,2017-01-22T09:09:40Z,2017-01-24T16:38:40Z,2017-01-24T16:38:40Z,4,247,127,"Relates to #287
+Help output:
+alacritty 0.1.0
+GPU-accelerated terminal emulator
+
+USAGE:
+    alacritty [FLAGS] [OPTIONS]
+
+FLAGS:
+    -h, --help            Prints help information
+        --print-events
+        --ref-test        Generates ref test
+    -V, --version         Prints version information
+
+OPTIONS:
+    -d, --dimensions <columns> <lines>    Defines the window dimensions
+    -t, --title <title>                   Defines the window title [default: Alacritty]",4,5
+347,2017-01-23T09:21:32Z,2017-01-24T05:08:01Z,2017-01-24T05:08:01Z,2,51,93,"This changes to use std::process::Command instead of libc::execpv. Should compile with 1.15 and newer.
+
+I need some help to figure out how to use slave/master fds in both child and parent.
+set_controlling_terminal is needed on ubuntu.. Should I change the comment about it only beeing needed on bsd?
+Should I store child globally instead of PID?",3,6
+349,2017-01-23T18:08:30Z,,2017-06-11T20:08:24Z,5,189,13,"This PR basically will solve #171 in future because right now it's still kinda bad looking patch and I hope I'll implement everything in a right way in couple days.
+What works right now:
+
+ Specifying from config file
+ Steady block
+ Steady beam
+ Steady underline
+ Fix rendering
+
+The way it works right now is pretty hacky and I hope we will manage it with @jwilm because I don't really like how it works right now and I still have a couple of bugs so...yeah.",10,41
+351,2017-01-23T23:54:16Z,2017-01-25T16:50:30Z,2017-01-25T16:50:30Z,2,42,13,"This pull request builds on my previous pull request #347
+It implements args in the config file like this:
+shell:
+  program: /bin/bash
+  args:
+    - --login",2,2
+352,2017-01-24T23:50:34Z,2017-01-30T15:30:47Z,2017-01-30T15:30:47Z,1,20,11,I'm open to feedback; this is my first PR for a Rust project. Thanks to @jimmycuadra for help.,2,3
+355,2017-01-25T23:48:54Z,2017-01-28T20:25:58Z,2017-01-28T20:25:58Z,4,45,8,I've added support for -e option and done some minor fixes to the config file I forgot in the last PR.,3,7
+376,2017-02-01T21:23:55Z,,2017-02-06T19:47:03Z,1,1,1,"Before this change there were gaps between words. To fix this underline is
+rendering also on those empty cells.",2,1
+378,2017-02-02T06:15:40Z,2017-02-02T17:25:10Z,2017-02-02T17:25:10Z,3,151,89,"Should make input processing much more easily tested. Going to clean this up a bit in the morning before merging.
+cc @xyin96",3,6
+385,2017-02-03T23:49:16Z,,2017-02-08T05:15:36Z,8,277,31,"Hi @jwilm,
+This project is awesome 👍. I haven't written Rust before, but I wanted to try my hand at a small feature. I think this change is not quite ready, since draw is called lazily (so the bell will not be smooth). If you are interested in accepting this feature, perhaps you could share some tips on how to make the right changes? Commit message below.
+Thanks,
+Mark
+
+This commit adds support for a visual bell. Although the Handler in src/ansi.rs warns ""Hopefully this is never implemented"", I wanted to give it a try. Two new config options are added, with sensible defaults:
+
+visual_bell, which defaults to true, and
+visual_bell_duration, which defaults to 150 ms.
+
+The visual bell is modeled by VisualBell in src/display.rs. It has a method to ring the bell, ring, and another method, value. Both return the ""value"" of the bell, which ramps down from 1.0 to 0.0 at a rate set by duration.",2,9
+391,2017-02-05T10:06:19Z,2017-02-07T04:45:18Z,2017-02-07T04:45:18Z,6,78,18,"I saw #370 and decided to have a go at implementing this.
+Will use a default of 80x24 cols x lines if neither config file or argument options are specified.
+Argument options will override config options if specified.",3,6
+436,2017-02-22T19:57:11Z,2017-02-22T22:49:30Z,2017-02-22T22:49:30Z,6,50,3,"By default the feature is disabled. Should it be? Other terminal emulators, at least on X11, hide the cursor when typing.
+Fixes #246",2,2
+442,2017-02-26T04:01:25Z,2017-03-02T06:07:15Z,2017-03-02T06:07:15Z,3,176,60,This obsoletes and replaces #441.,2,1
+470,2017-03-09T10:44:17Z,,2017-04-04T03:56:28Z,1,13,0,"#462 add OS X desktop entry Makefile.
+Thanks @brycefisher",3,7
+478,2017-03-14T08:06:40Z,,2017-04-19T02:59:24Z,2,18,0,"As it stands, running alacritty -e 'cd foo' causes Command::spawn() to fail with OS error code 2. With this feature, running alacritty -c foo runs alacritty from the working directory foo via libc::chdir, with the intended purpose of starting the shell from a specific directory. It mirrors the functionality of the -cd flag from urxvt.",3,11
+492,2017-03-22T08:39:50Z,,2017-06-23T17:53:15Z,7,131,11,"Add support for the VTE 'dim' flag, with additional support for
+custom-themed dim colors. If no color is specified in the config,
+it will default to 2/3 the previous (not a spec, but the value
+other terminals seem to use).
+The actual dimming behavior brings bright colors to normal and
+regular colors to the new dim ones. Custom RGB values are not
+changed, nor are non-named indexed colors.
+Old behavior:
+
+New behavior:
+
+New behavior with (odd-looking) custom colors:
+
+The colors from the config file are roughly Tomorrow Night Eighties.",3,5
+566,2017-05-13T01:48:02Z,2017-05-25T16:19:00Z,2017-05-25T16:19:00Z,2,54,10,"Based on option command in key binding section in config, e.g.
+  - { key: N,        mods: Control|Shift,    command: alacritty          }
+  # or
+  - {
+      key: N,
+      mods: Control|Shift,
+      command: {
+        program: ""alacritty"",
+        args: [""-e"", ""vttest""],
+  }}
+
+specified command will be run in the background on key press. Alacritty doesn't wait for its result nor block IO.
+Fixes #334.",2,2
+576,2017-05-18T11:38:03Z,2017-05-29T00:42:37Z,2017-05-29T00:42:37Z,3,74,44,"I wanted to be able to test different versions of alacritty that had different configuration file syntaxes and then this was useful.
+Intended use is --config-file alacritty.yml.
+This also allows you to use the built-in defaults with --config-file /dev/null.
+Please review =)",4,19
+579,2017-05-20T05:05:16Z,2017-05-24T17:56:51Z,2017-05-24T17:56:51Z,2,61,9,"Background:
+If a shell process exits with children still alive (typically due to the
+disown shell builtin), POLLHUP will not be sent to the master PTY file
+descriptor. This is due to the fact that the disowned process still has
+the slave PTY open as its STDIN, STDOUT, and STDERR.
+If a disowned process never reads or writes from its file descriptors
+(which is often the case for graphical applications), the event loop
+will end up blocking on poll()/select() when not handling user input
+received over the mio channel. When Alacritty shuts down and joins on the
+event loop thread, there can never be any more input on the mio channel -
+the main thread is no longer handling user keystrokes from the window. Unless
+a disowned process happens to access its slave PTY file descriptors, the
+event loop will never get the chance to deetect that it should exit.
+This commit extends the Msg enum to include an explicit Shutdown
+message, which ensures a clean shutdown (e.g. closing the 'recording'
+file). This allows the select()/poll() call to remain blocking, instead
+of needing to periodically check the shutdown state in between
+timed-out calls.
+Fixes #339",3,2
+580,2017-05-21T16:27:34Z,2017-05-24T16:10:12Z,2017-05-24T16:10:12Z,1,4,0,"On macOS, pasting 0 bytes from the clipboard hangs the terminal.
+I.e. pbcopy </dev/null followed by ctrl-v. This ensures
+we never send 0 bytes.",3,7
+594,2017-05-31T11:22:51Z,2017-06-06T16:47:33Z,2017-06-06T16:47:33Z,1,133,24,"Given feedback in #575, this is a rewrite intended to be minimally invasive in terms of architectural changes. The PR needs #593 to land in master first to get the required dependencies.",2,8
+621,2017-06-15T22:02:53Z,2017-06-19T00:04:17Z,2017-06-19T00:04:17Z,2,10,17,"Fixes #611
+First time coding in Rust so I'm sure that this could potentially be solved in a better way...",2,2
+625,2017-06-18T11:54:26Z,2017-10-14T17:35:56Z,2017-10-14T17:35:56Z,9,149,49,,15,35
+652,2017-07-04T03:01:34Z,2020-08-05T00:24:52Z,2020-08-05T00:24:52Z,4,99,127,"The InstanceData type in the rendering subsystem was previously 16
+floats which occupied a total of 64 bytes per instance. This meant that
+for every character or background cell drawn, 64 bytes were sent to the
+GPU. In the case of a 400x100 cell grid, a total of 2.5MB would be sent.
+This patch reduces InstanceData's size to 26 bytes, a 60% improvement!
+Using the above example for comparison, a worst case of 1MB would be
+transferred.
+The motivation for this patch comes from macOS. Once the terminal grid
+would reach a certain size, performance experienced a sharp and dramatic
+drop (render times would go from ~3ms to ~16ms). I don't want to
+speculate too much on the underlying issue, but suffice it to say that
+this patch alleviates the problem in my testing.
+If this patch looks familiar, it's because it was just landed a few days ago in #643! It ended up being reverted due to #648. There's clearly some more work needed in order to land this properly, so it has returned in a new PR to continue development.",4,4
+657,2017-07-12T03:32:57Z,,2018-09-17T15:15:21Z,51,1951,706,"The Grid<T> is now a view into a region (I called it the 'active region') of a VecDeque. When new lines are added, they are pushed onto the back of the queue, and once the scrollback buffer is considered 'full', then old lines are popped off the front of the queue. This seems to work rather well since, unlike a Vec, elements don't need to be reshuffled around very often.
+Of course, as discussed in #124 there are a few things that need to be fixed before I'd consider this 'ready':
+
+ configurable max scrollback length
+ write new tests
+ fix existing ref tests
+ measure performance impact (it seems fine but some numbers would be more reassuring)
+ fix out of bounds errors on resize",33,124
+658,2017-07-12T04:44:24Z,,2017-07-24T03:34:24Z,7,75,8,This provides with a tentative implementation to add support for XIM. The major modifications are made to winit so that the alacritty side is minimal. Temporarily redirect the glutin repo to my branch because we want glutin to use my current version of winit (rust-windowing/winit#223). This directly addresses issue #44. It would be better to open another PR to change @jwilm own  glutin repo to aggregate the changes.,4,3
+662,2017-07-14T17:54:52Z,2017-07-28T22:14:19Z,2017-07-28T22:14:19Z,4,146,54,Fixes #656,4,5
+683,2017-07-21T10:20:34Z,2017-07-28T16:02:57Z,2017-07-28T16:02:57Z,1,4,2,Currently setting cursor visibility always fails on Wayland. It shouldn't be a critical error on any platform.,2,1
+688,2017-07-23T16:51:06Z,2017-07-28T16:02:05Z,2017-07-28T16:02:05Z,1,7,0,Closes #687,3,2
+689,2017-07-23T18:29:26Z,2017-08-29T16:32:09Z,2017-08-29T16:32:09Z,5,41,2,"I normally have a lot of terminals open and don't really care if they can reload the latest configuration or not.
+It seems that I'm not alone on this, hence this PR.
+CC: #670",7,16
+691,2017-07-24T03:36:28Z,2017-07-25T00:54:07Z,2017-07-25T00:54:07Z,4,54,1,Reapply the changes to the latest master (#658).,5,1
+726,2017-08-13T08:47:52Z,2017-09-02T19:29:04Z,2017-09-02T19:29:04Z,2,8,3,"This is an RFC PR to fix #721, my first attempt at modifying a Rust application that people use and my first foray into Alacritty's code. As such there are a few issues with how it's implemented — I'm not happy with how the scrolling state is duplicated across event::Processor and input::ActionContext (although this might be appropriate?), the names I've used are terrible and I've added a dumb implementation of the state function to what is as far as I can tell a stub implementation of ActionContext for testing purposes. I'd love to get some feedback on where this stuff should go and what it should look like!",3,4
+756,2017-08-26T12:10:28Z,2017-08-29T15:54:13Z,2017-08-29T15:54:13Z,2,15,2,This is a bit ugly fix for #749.,2,0
+757,2017-08-26T20:39:55Z,2017-11-12T03:11:22Z,2017-11-12T03:11:22Z,1,81,27,"This should fix #743. However some codes like those related to highlight color
+are not implemented because they are not (yet) supported by the application.
+Also intrestingly, there doesn't seem to be an escape code for changing cursor
+foreground color, only the background color.",2,2
+812,2017-10-04T07:25:05Z,2017-10-21T23:03:59Z,2017-10-21T23:03:59Z,4,61,0,"This patch adds support for setting the urgent flag on systems using X11
+when a terminal bell occurs.
+When the window becomes focused, we will clear the urgent flag since not
+all WMs will clear it automatically.
+Fixes #181",2,10
+819,2017-10-06T22:32:03Z,2017-12-24T18:24:29Z,2017-12-24T18:24:29Z,4,21,1,"This PR adds a small feature to Alacritty, namely turning off the dynamic title in the bar of the application. I was thinking of maybe adding another property which completely removes any text from the title bar. Thoughts on this?",3,1
+841,2017-10-15T07:48:06Z,,2017-12-23T01:36:32Z,7,133,77,"Disclaimer: total rust n00b.
+This was the only thing keeping me from switching over, so I took a crack at implementing the requested changes in #610 .
+
+rebased against current master
+fixed all the multiline method signatures
+inlined get_specific_descriptor
+fixed indentation of chained method
+implemented a separate to_font_with_fallbacks constructor on Descriptor (wasn't totally sure this is what you meant here
+
+Also not sure if I should squash this with @algesten's and leave him as the author, since my contribution is so trivial.
+fixes #45",6,12
+852,2017-10-19T20:49:54Z,2017-11-11T17:44:33Z,2017-11-11T17:44:33Z,3,24,16,"Currently alacritty always enforces the starting window size based on the dimensions specified as an option or in the configuration file. This presents a problem for me, because I use XMonad to create the window with a certain size and in a certain position based on the size of the screen.
+However, since alacritty forces itself into a certain size instead of allowing the window manager to dictate the size of the window, it makes alacritty difficult to integrate into my workflow as the window always resizes itself to something else. This pull request essentially falls back to using the existing size of the window when either the width or the height dimension properties are less than or equal to zero.
+This will allow me to specify -d 0 0 in order to tell alacritty not to resize itself at all.
+Thanks!",3,4
+886,2017-11-04T00:45:40Z,2017-11-11T16:23:49Z,2017-11-11T16:23:49Z,1,15,9,,2,0
+888,2017-11-05T22:18:46Z,2017-11-12T01:17:47Z,2017-11-12T01:17:47Z,5,114,25,"Example output:
+$ alacritty --version
+alacritty 0.1.0 (git commit f68558e) [debug build using rustc 1.21.0 (3b72af97e 2017-10-09)])
+
+-V after this PR will still have a short output:
+$ alacritty -V
+alacritty 0.1.0
+
+Rationale
+Useful when requesting more info from users to help investigating issues.
+Drawbacks
+
+Increase in build time because built depends on a large git2 dependency which may not be fine for an application that already has a relatively large build time (~400 secs on my 4-cored machine with Rust 1.21). On the flip side, alacritty ""already taking a lot of time to build"" may mean that an additional large dependency has less impact on it than on a smaller application (in a relative time addition sense).
+Different outputs for -V and --version may confuse users who used to them being equivalent (for many programs -V and --version have the same output in my experience).
+
+Unresolved questions
+
+Format of --version is the subject for bikeshedding. I've only included info that is definitely useful when asking users what configuration of alacritty were they using when hitting issues. Please leave your opinion on  how much --version should reveal and how this info should be shown.",4,2
+890,2017-11-06T14:02:12Z,2019-01-17T20:42:13Z,2019-01-17T20:42:13Z,5,28,1,"In some keyboard layouts, some characters like @, {}, [], etc.. requires the ALT-key. Sending the escape character when the ALT-key i pressed, makes it hard to enter those characters.
+Therefore I think it's a good idea to choose wether to send the escape character or not. This PR should fix that.",4,3
+907,2017-11-19T14:34:03Z,2017-11-19T16:57:02Z,2017-11-19T16:57:02Z,2,9,1,"Helps to address #297.
+Patch waits to display window until initial configuration is complete. This prevents the window from visually resizing.
+Gif demonstration:
+
+In the current release, the window will snap and resize as it configures. In the second case, it hides while configuring.
+Unfortunately, this doesn't seem to fix the initial blink of black for the screen, but it does help to address some of the ""flickering"" during startup.",3,2
+928,2017-12-03T18:14:32Z,2017-12-03T21:38:42Z,2017-12-03T21:38:42Z,5,51,10,"This makes it possible to change the default cursor style of the
+terminal. It requires a restart to apply the changes.
+When vim or a different terminal application changes the cursor, it is
+not reset. But I wouldn't say that's an issue with alacritty, but rather
+with the terminal application.",4,7
+932,2017-12-04T20:15:05Z,,2017-12-22T23:00:07Z,2,15,15,See also lukaslueg/built#7,3,1
+937,2017-12-06T21:28:03Z,2017-12-24T17:46:55Z,2017-12-24T17:46:55Z,7,221,64,"As mentioned in #931, it can be troublesome if a font has
+an underline symbol outside of the glyph's bounding box. This can lead
+to the underline disappearing at the bottom of the terminal.
+As a solution a symbol from the private use area was used as the
+character code for the underline symbol. Whenever this symbol is
+encountered, instead of rendering it, a custom block is rendered.
+In this implementation the block has the full character as width and
+sits flush with the bottom of the glyph's bounding box. The height is
+half the distance between the baseline and the bottom of the bounding
+box.
+Here are some screenshots of how this underline looks now:
+
+
+
+
+This fixes #931",7,30
+941,2017-12-13T10:18:30Z,2017-12-13T21:30:27Z,2017-12-13T21:30:27Z,1,31,27,"I dug into this and narrowed the issue down to the macOS app bundle
+Info.plist file. So, I spun up a native macOS app real quick and tested
+it by launching the binary directly and launching it via the app bundle.
+When launching from the command line directly, it created multiple
+windows & instances of the app. However, when launching via the app
+bundle it behaved as I normally expect a macOS app to behave, that is
+when launched multiple times to simply focus the already existing window
+and instance.
+This informed me that it wasn't something in code as much as it was
+something in the app bundle configuration. Hence, I reworked the
+Info.plist file based on the one that was created by XCode when I made
+the native macOS app and it started behaving as expected.
+The downside is that the ALACRITTY_LOCALE, LANG, and LC_CTYPE are not set as
+they would be via the launcher script. Also, the PWD starts out at / rather than
+the users home directory. The LANG, LC_CTYPE environment variables can be set in
+your config under the env section. It isn't dynamic which still isn't quite as
+nice as the bash + applescript approach. However, it make the behavior work
+correctly which is critical for anyone using an app launcher like Spotlight to
+switch apps.",4,13
+945,2017-12-15T21:37:58Z,,2019-01-23T19:44:25Z,1,33,0,"This PR tries to partially fix the #909. Specifically, memorising the input source when window loses focus and restoring it once focus is received.
+I'm new to Rust and have no MacOS API experience, so the code is quite naive, but solves the problem I'm having. I would appreciate an advice on how to make it better / more idiomatic.
+@kalekseev, do mind giving it a whirl?",5,7
+946,2017-12-16T14:50:03Z,2017-12-22T22:00:18Z,2017-12-22T22:00:18Z,2,43,17,"This patch implements faux scrolling inside the alternate screen buffer.
+Whenever the user scrolls up or down while the alternate screen buffer
+is active, instead of actual scrolling three up/down arrow keys are
+inserted.
+This fixes #550.
+Important: I wasn't able to test this on a touch device, because I do not own one, so if anyone could test it, that would be nice.
+Also I've tested termite and they seem to scroll 7 lines, I've settled for 3 lines for now, but any feedback is appreciated.",7,27
+947,2017-12-17T10:09:49Z,2017-12-22T21:14:49Z,2017-12-22T21:14:49Z,5,113,42,Partial solution for #168 until winit has more granular control over the window decorations rust-windowing/winit#323,4,17
+963,2017-12-24T15:27:31Z,2018-12-17T19:06:07Z,2018-12-17T19:06:07Z,12,410,166,"This addresses the main feedback in /pull/430. I've
+decided to go from scratch instead of basing my work on top of what
+markandrus has already implemented to keep it as simple as possible.
+If there's any stuff that I should take from the other PR, please let me
+know. I can also try to send a PR to markandrus.",6,18
+968,2017-12-25T21:20:02Z,2018-01-02T16:24:04Z,2018-01-02T16:24:04Z,4,66,30,"Some people have complained about the behavior of faux scrollback inside
+of vim/tmux, however from what I can tell, alacritty behaves the same
+way as other terminal emulators that support faux scrollback.
+However there are a lot of terminal emulators that do not support faux
+scrollback at all, which leads to people complaining about unusual
+scroll behavior.
+This is my proposal on how to solve this issue, by giving people that do
+not like the VTE-Style faux scrolling the option to opt-out.",3,1
+974,2017-12-28T20:37:52Z,2018-01-03T19:15:58Z,2018-01-03T19:15:58Z,4,125,285,"When an application takes control over the mouse, it usually disables
+selection completely. However the common way to still make selection
+possible is by allowing selection while the shift key is held down.
+This feature is implemented here by making use of the new modifiers
+field on mouse events with glutin/winit.
+This fixes #146.
+I've thought about changing the cursor, but it seems like that would be kinda odd (you wouldn't want it changing every time when hitting shift). And other terminal emulators also do not seem to change the cursor with shift selection.
+For clearing a selection you also need to hold shift and click, but this also seems consistent with my experience on other terminal emulators.
+If you have any feedback on these two things, feel free to tell me about it.",7,35
+986,2018-01-02T22:23:44Z,2018-01-06T01:42:56Z,2018-01-06T01:42:56Z,18,212,210,"This commit adds clippy as a required step of the build process. To make
+this possible, all existing clippy issues have been resolved.
+I think making clippy part of the travis CI run would be a great step,
+but if this is not desired, I can also take that part out of this and
+add just the fixes for all current clippy issues.",2,1
+987,2018-01-02T23:07:47Z,2018-01-06T20:12:29Z,2018-01-06T20:12:29Z,1,0,3,"Apparently switching to the home directory on startup was primarily done for macos, however the default behavior on linux is to start the terminal emulator in the working directory.
+This just doesn't switch to the home directory when alacritty is run on linux.
+If there is any more to it, please let me know.
+This fixes #961.",3,3
+991,2018-01-03T20:23:23Z,2018-12-15T21:33:34Z,2018-12-15T21:33:34Z,11,111,50,Adding tab characters to the Grid as an actual tab - rather than a space - followed by spacer characters. The spacer characters have the WIDE_CHAR_SPACER flag so the selection code will not pass them to the clipboard. This means Term::string_from_selection() will filter out the spacers and just return the tabs.,3,1
+994,2018-01-03T23:13:33Z,2018-01-05T03:22:59Z,2018-01-05T03:22:59Z,5,29,32,"This change prevents the font_size_modifier of the terminal from going
+below the font size 1. If this is not done, it is possible to decrease
+the font_size_modifier without the font size itself changing. So when
+raising it again, nothing happens until the font_size_modifier is back
+at a reasonable level.
+This fixes this by making sure the font_size_modifier never goes below
+1 - original_font_size. So if the original font size is 12, the
+font_size_modifier will always bee -11 or bigger. Effectively limiting
+it to the value where the font is 1. (12 - 11 = 1)
+This fixes #955.",3,3
+995,2018-01-04T01:59:14Z,2018-01-07T21:11:47Z,2018-01-07T21:11:47Z,1,7,1,"(see comment on issue #733, which would have probably been better inserted here instead)",2,9
+999,2018-01-05T19:43:07Z,2018-01-06T00:50:13Z,2018-01-06T00:50:13Z,3,236,115,"When part of the config is broken, alacritty shouldn't instantly try to
+recover to the default config, but instead try to use defaults only for
+the parts of the config which are broken.
+The primary fields which are still breaking the complete config when
+they are not configured properly are fonts, mouse bindings and key
+bindings. In those cases alacritty falls back to the default config.
+This fixes #954.
+I think it might be possible to prevent the mouse and keyboard shortcuts from destroying everything with a custom deserializer over the whole vec, I'll look into that.
+I'm not sure about the fonts though.
+Update: Mouse and Keyboard bindings should work now too. Only invalid yaml should be able to break the config now.",2,0
+1007,2018-01-08T03:18:41Z,2018-01-08T04:46:12Z,2018-01-08T04:46:12Z,1,6,0,"Probably should have double-checked this before merging, but apparently macos did change its behavior after #987.
+This should make sure the macos behavior is to switch to home directory, while linux stays in the working directory.",2,0
+1011,2018-01-08T21:48:52Z,2018-01-08T22:49:02Z,2018-01-08T22:49:02Z,1,5,3,,2,0
+1025,2018-01-13T02:21:49Z,2018-12-08T20:28:58Z,2018-12-08T20:28:58Z,5,156,30,"Thought I'd clean things up a bit, add some functionality and all that jazz.
+
+Moved spawn-alacritty-cwd into a new top level share/ directory to help people find it.
+Modified create-flamegraph.sh so it can be run from anywhere, and so that it hides the cloned FlameGraph repo a bit.
+Added a useful colors.sh script.
+Updated the README.
+
+I didn't touch the python script because I couldn't seem to get it to work.",3,5
+1026,2018-01-13T23:22:05Z,2018-07-15T19:47:08Z,2018-07-15T19:47:08Z,5,30,1,"It was requested in #825 that it should be possible to
+add an optional bright foreground color.
+This is now added to the primary colors structure and allows the user to
+set a foreground color for bold normal text. This has no effect unless
+the draw_bold_text_with_bright_colors option is also enabled.
+If the color is not specified, the bright foreground color will fall
+back to the normal foreground color.
+This fixes #825.",2,9
+1028,2018-01-14T19:08:37Z,2018-01-15T16:19:32Z,2018-01-15T16:19:33Z,1,2,0,"This change initially spawns alacritty as in invisible window, this
+makes it possible for the pty to already access data like window_id
+without having to wait for the window manager to actually open the
+window.
+This fixes #875.",3,2
+1029,2018-01-14T23:31:12Z,2018-01-21T21:29:58Z,2018-01-21T21:29:58Z,1,35,23,"This should fix #1020, #710, and #902
+I'm happy to rework this if there are any problems with it.",5,14
+1035,2018-01-17T23:10:47Z,2018-01-18T17:27:08Z,2018-01-18T17:27:08Z,2,16,1,"Up to this point the reset_state method of the Term struct has been
+just a placeholder. This has been changed and all important state has
+been reset.
+The only state that has not been reset is stuff which is retrieved from
+the config and isn't stored as default on the Term struct either. From
+what I can tell these are all never changed though.
+This fixes #1033.
+After doing some more testing trying to figure out how to fix that all
+glyphs are messed up after doing cat /dev/urandom, I was able to
+confirm that resetting Term::cursor fixes the glyphs and restores
+everything to normal.
+So this also fixes #804.",2,0
+1057,2018-01-26T16:00:26Z,2018-03-13T06:21:20Z,2018-03-13T06:21:20Z,5,282,199,"This PR extends Alacritty's mouse handling to handle:
+
+Reporting all three of the left, right, and middle mouse buttons.
+Reporting mouse dragging events with all three buttons.
+Reporting mouse movement events when no button is pressed.
+
+This PR does not report modifier keys with clicks/drags, because I'm unsure what modifiers (if any) we want or need to handle. We can't report Shift, as that is the de-facto standard modifier for ignoring application mouse handling (and Alacritty already treats it as such). The vast majority of CLI applications out there don't expect Ctrl to be reported, because xterm mandates Ctrl-Click to access its menus. They also do not generally expect Alt, as the de-facto standard modifier for moving and resizing windows with the mouse. The Windows key, of course, is also generally ignored.
+This PR also does not support more than three mouse buttons (plus the wheel). While Glutin reports them, VT200/SGR button codes treat 0 as left, 1 as middle, 2 as right, and 3 as either ""button release"" (VT200), ""any other button"" (SGR), or ""no button pressed"" (SGR with any-event tracking); thus, we skip supporting them entirely.
+This fixes #714, fixes #506 and fixes #1145.",3,12
+1078,2018-02-01T19:13:01Z,2018-12-22T17:16:55Z,2018-12-22T17:16:55Z,10,302,88,"Support for strikethrough has been added by inserting and removing a
+STRIKE_THROUGH flag on the cell.
+Now all strikethrough and underline drawing is also done through the
+rectangle renderer. So no glyphs are used to render underlines and
+strikethrough.
+The position is taken from the font metrics and should be accurate for
+linux, however is not yet tested on macos.
+It works by checking the underline state for each cell and then drawing
+from the start until the last position whenever an underline ended. This
+adds a few checks even if no underline is rendered but I was not able to
+measure any significant performance impact.
+Fixes #806.
+Fixes #31.
+Demo:
+
+TODO:
+
+ Account for font and glyph offsets
+ Account for window padding
+ Test (and potentially fix) DPI
+ Refactor code and extract it into separate files
+ Add Windows support",13,67
+1079,2018-02-01T21:27:18Z,2018-07-15T13:10:33Z,2018-07-15T13:10:33Z,4,17,1,"Currently Alacritty changes the cursor to a hollow block shape when the window loses focus. While it's a reasonable default, some may prefer their normal configured cursor. This PR adds a config toggle for this, defaulting to using the hollow block.",3,0
+1087,2018-02-03T22:09:02Z,2018-05-14T19:37:15Z,2018-05-14T19:37:15Z,1,50,7,"fixes #993
+Using logic from https://github.com/gnachman/iTerm2/blob/79aff4d59fd591e7628649bcabe5f27541740bf6/sources/PTYSession.m#L1703",5,20
+1092,2018-02-05T15:13:49Z,2018-11-01T17:23:49Z,2018-11-01T17:23:49Z,10,179,206,"The cursor configuration has been reworked based on the proposal made in
+#1080. This moves the custom_cursor_colors into the
+culors.cursor struct, cleans up the deserialization of primary and
+cursor colors and moves all other cursor configuration in a new cursor
+config field.
+I'm proposing this as one potential implementation to improve cursor configuration.
+If there are any changes desired that haven't been stated in the RFC, I'd love to
+incorporate them in this PR.
+This also updates all dependencies to get back on track with clippy.
+This fixes #1080.",3,6
+1112,2018-02-11T17:15:08Z,2018-02-13T16:36:26Z,2018-02-13T16:36:26Z,1,10,0,,2,0
+1114,2018-02-12T09:30:53Z,2018-02-28T19:52:42Z,2018-02-28T19:52:42Z,3,167,276,"This patch updates Cargo.lock to pick up in-range updates, and bumps the euclid and gl_generator dependencies.
+As a suggestion, it also includes a dependency status badge in the README.md. Let me know if you want to keep it!",2,4
+1123,2018-02-19T14:03:11Z,2018-02-28T20:33:29Z,2018-02-28T20:33:30Z,3,9,25,"This patch updates arraydeque dependency to v0.4.1. It removes indirect dependency of odd and nodrop, and it also reduced one cell memory usage.",4,5
+1126,2018-02-22T14:30:22Z,2018-06-19T21:27:48Z,2018-06-19T21:27:48Z,1,3,15,,2,0
+1130,2018-02-27T13:33:29Z,2018-02-28T02:57:21Z,2018-02-28T02:57:21Z,1,1,1,The level of heading were one to high.,3,0
+1131,2018-02-28T04:31:55Z,2018-03-23T17:20:36Z,2018-03-23T17:20:36Z,1,31,18,"Also, made the the FAQ section look a bit better.",3,3
+1133,2018-03-03T16:18:26Z,2018-03-07T21:34:06Z,2018-03-07T21:34:06Z,4,199,3,"This adds basic completions for bash and zsh to make exploration and frequent usage of alacritty's flags and options a bit easier.
+The information from the README and --help has also been used to create this manpage:",3,2
+1136,2018-03-04T15:15:44Z,2018-03-04T22:40:15Z,2018-03-04T22:40:15Z,15,119,124,"Unwrapping inside the config file parsing can lead to some issues that
+prevent us from falling back to a default configuration file.
+One instance of that issue was mentioned in #1135.
+Now all instances of unwrap() have been removed and replaced with
+proper error handling. This will make the config more robust and
+prevents live reload from silently breaking while alacritty is running.",2,0
+1147,2018-03-09T05:45:03Z,2018-09-17T15:15:21Z,2018-09-17T15:15:22Z,53,3137,1518,"Warning: this is under development, is missing several features, and has a number of known bugs. The progress of this feature is being tracked under the Scrollback project which captures all known issues and missing functionality (to be populated after filing this PR).
+Motivation
+A while ago I mentioned that I had an alternative implementation of scrollback that I was working on, and here it is! First of all, some explanation of why an alternative implementation was needed in the first place is warranted. There are two main reasons,
+
+Performance
+Maintainability
+
+Regarding performance, I've written a small tool, vtebench, for testing certain performance characteristics of terminals that have a big impact on users. From the original scrollback thread, there were some benchmarks recorded which suffered under that implementation. Without diving into details, they are all resolved in this branch. To see for yourself, try running
+time vtebench -h $(tput lines) -w $(tput cols) -b 10000000 scrolling-in-region
+
+on master, this PR, and the original scrollback PR. There are some other benchmarks built into the tool that can be seen with vtebench --help. scrolling-in-region just happens to show the biggest disparity.
+On the topic of maintainability, this is from the perspective of a maintainer who will be supporting this code for who knows how long into the future. Scrollback fundamentally changes how storage is implemented in the terminal, how updates work, and introduces the need for transformations between ""visible screen space"" and ""storage space"" or ""buffer space"". To help ensure we can continue to grow the project, I want to be intimately familiar with these parts of the code base.
+The work @neon64 did was excellent, and the number of people I've seen on the internet claiming they use that branch every day is a testament to that. I am certainly not saying their code is unmaintainable; it's just not the way I thought about the problem, and I didn't know how to think about the problem until playing around with several approaches myself.
+I am very thankful for all the work @neon64 did, and I intend to recognize that work  in a number of ways:
+
+The bounty for scrollback should be awarded to them after this PR lands. The only reason they haven't already received it is because I've been playing around with this alternative implementation instead of landing theirs
+Add a Special Thanks section in several highly visible places. This will be a way to recognize not only @neon64 for this work but several other contributors who have had an outsized impact on the project.
+
+The project README
+The Alacritty website once it launches (does not yet exist)
+The --help text
+The man page.
+
+
+
+Approach
+The approach here starts before ever considering scrollback. There were some improvements to be made in the Grid implementation along with cleanup, and we needed a storage layer which could support fast scrolling operations.
+The new storage layer is still based on a Vec, but it's been abstracted behind a struct Storage<T> which only allows certain operations on the Vec. Critically, it's been optimized to make scrolling a simple addition or subtraction to an offset. In this way, the Vec became a circular buffer, and scrolling becomes very cheap.
+There's also a new optimization with scrolling regions. These regions are a VT feature which fix certain lines in place while allowing others to scroll; classic examples of this are the colored bar at the bottom of a tmux screen, or the status bar at the bottom of vim. The optimization here is that we can still implement scrolling as a rotation, and then we just need to swap the non-""scrolling"" lines back into their correct location.
+The scrolling region optimization was inspired by a request on #1000. @maximbaz was asking for the ability to ""use tmux and native scrolling"" at the same time such that a maximized tmux pane would simply have output move into the native buffer. There's a gif in the ticket for additional clarity. The nice thing about this feature is it actually leads to a very efficient implementation!
+In addition to all of the tickets in the project linked at the top, there's a bit more work to do around finalizing transformations between ""screen"" and ""buffer"" space. I realized that this could be cleaned up significantly while updating selections to work with scrolling.
+Finally, one really important piece to me was that the Term implementation doesn't have to think about conversions to/from buffer coordinates. That should all be handled inside Grid; said another way, Grid should continue to be indexable by Line and Column and do a transformation internally for those cases. This keeps the Term impl much simpler.
+Benchmarks
+It's getting late and I still need to file tickets for outstanding issues here, but I just want to add that this branch is, for scrolling operations, about 30% faster than master is today in my testing.
+Closes #124
+Closes #657
+Closes #1000
+Resolves #836
+Resolves #885
+Resolves #837
+Resolves #923
+Resolves #1022",19,32
+1155,2018-03-09T09:39:47Z,2018-03-09T17:54:46Z,2018-03-09T17:54:47Z,1,2,0,"This fixes #680
+It is rather old but it took some time for the winit changes to get into master + get the version bump into glutin.
+Ref: rust-windowing/winit#380
+It allows on my germany keyboard to enter ^ (Caret) with the given configuration:
+  - { key: Caret,                         chars: ""\x5e""                          }
+
+Mainly created to use VIM like I used to :-D",3,1
+1158,2018-03-09T10:19:41Z,2018-03-13T05:55:58Z,2018-03-13T05:55:58Z,2,22,19,"This should follow the behavior of VTE terminals like termite or gnome-terminal.
+This fixes #1152.",3,0
+1163,2018-03-09T15:08:25Z,2018-03-13T21:52:15Z,2018-03-13T21:52:15Z,6,126,74,"It is now possible to configure the amount of lines the viewport should
+scroll when using the normal scrolling mode.
+This fixes #1160.",4,7
+1172,2018-03-10T14:17:39Z,2018-03-13T06:00:16Z,2018-03-13T06:00:16Z,2,52,26,"There was an issue where alacritty tries to convert the lines in a
+selection to the on-screen lines even when the selection is not on the
+screen. This results in a crash.
+To prevent this from happening the selection now is not shown if it is
+off the screen.
+There currently still is a bug that when the selection is at the top of
+the screen but still half visible, it will not show the top line as
+selected but start in the second line.
+This bug should be resolved with
+#1171.
+This fixes #1148.",2,0
+1176,2018-03-11T19:11:42Z,,2018-05-06T18:17:04Z,1,124,138,"This adds a macro which makes it easy to implement a custom deserializer
+for a specific field in the config.
+Applying this deserializer and the default value it provides will always
+make sure that this value has a valid fallback value.
+This also makes a small change to the way the mouse._*click fields are
+deserialized, because the threshold did not have a default value, it
+leads to a complete config fallback in the current master.
+However by providing 300 as the default, it is possible to fall back to
+this value and make sure that the rest of the config is not ignored.
+This is a proposal which should make custom deserializers a little more
+straight-forward in the future, this fixes #1166.",2,2
+1178,2018-03-12T17:09:42Z,2018-03-13T06:11:57Z,2018-03-13T06:11:57Z,1,1,0,"This fixes #921, the error Error creating GL context; Couldn't find any pixel format that matches the criterias..
+I'm not sure whether this is right and ideal solution, but this change actually fix the issue for some people including me.",3,1
+1181,2018-03-12T22:41:13Z,2018-03-13T06:07:40Z,2018-03-13T06:07:40Z,5,40,40,"Prevent the cell dimensions from going below 1, this bug resulted in
+allocation of large amounts of memory in the scrollback PR but is also
+present on master.
+Currently the approach is to just panic!, however an eprintln! and
+exit could be an alternative too. I don't think it's realistic to
+check this at startup and it should have no performance impact since the
+failing method is only called once at startup.
+To make it a bit more clear what kind of values are accepted, the
+datatypes of offsets and paddings have also been changed so that these
+don't accept floats anymore and padding can never be negative.
+This should allow us to be a bit more strict with the config to make
+sure that errors are printed when invalid values are specified (like
+negative padding).
+This fixes #1167.",2,0
+1183,2018-03-13T11:20:08Z,2018-03-13T23:43:16Z,2018-03-13T23:43:16Z,1,13,4,"By this patch, alacritty will try to create window with SRGB enabled at first,
+but when creation failed, retry with SRGB disabled.
+This may truly solve #921, and issue caused by #1178: #921 (comment).",4,3
+1186,2018-03-15T19:17:26Z,2018-03-16T00:30:48Z,2018-03-16T00:30:48Z,2,34,213,"The current span_simple selection is everything but simple. This
+version should have the same functionality as the current span_simple
+with the difference that a lot of complexity has been removed.
+Not only is this code shorter, it should also be significantly easier to
+understand with no ""magic"" to it. This will hopefully prevent us from
+having an unmaintainable blob of off-by-one guessing in the repo.
+Also removed the out file which I used in the original PR because
+scrollback is not implemented yet. :)",2,0
+1188,2018-03-15T21:30:35Z,2018-11-17T14:39:13Z,2018-11-17T14:39:14Z,24,415,171,"This change adds an error message at the bottom of the screen which will
+be displayed when the config file contains any errors.
+Currently deprecation warnings are unchanged but it would be possible to
+add these too (maybe in yellow?) if it is desired.
+The method for rendering text has been changed to always render at the
+bottom of the terminal, this seems like a more reliable way of doing
+this and it shouldn't cause any issues because under normal use, nothing
+should be displayed.
+I'd say this is still a bit rough around the edges so feedback is
+welcome, maybe some things could be streamlined?
+Currently if the terminal is not wide enough, nothing will be displayed,
+maybe we should display the message but cut off? Not sure how important
+this is because it would probably be fine to not display anything in
+small terminals.
+All errors are written to /tmp/alacritty.log, nothing is written to
+stderr anymore, we could do both but I think it should not be necessary
+to write anything to stderr anymore.
+This fixes #1143.",4,18
+1189,2018-03-16T09:10:29Z,2018-03-27T16:58:20Z,2018-03-27T16:58:20Z,1,1,1,,3,6
+1190,2018-03-17T19:03:36Z,2018-11-11T20:24:42Z,2018-11-11T20:24:42Z,4,43,29,"Currently alacritty always puts the grid at the top-left position of the
+window. The only distance to the top-left window border is set by the
+padding in the config.
+However the grid always has a fixed size, and if a cell doesn't
+completely fit the screen anymore, the padding at the bottom right
+window corner can be significantly bigger than the padding at the top
+left.
+To fix this whenever there is more space left and there would usually be
+a bigger padding at the bottom right, the space is now split up and
+added to the padding.
+This should always center the grid inside the window and make sure all
+borders have the same padding from the text area.
+This screenshot shows how it has been until now:
+
+Here is how it looks now:
+
+This fixes #1065.
+This also solves a few minor clippy issues.",4,7
+1216,2018-03-30T13:27:40Z,2018-07-21T17:41:40Z,2018-07-21T17:41:40Z,1,1,0,,2,1
+1218,2018-03-31T12:18:53Z,2018-05-05T15:10:59Z,2018-05-05T15:10:59Z,1,10,6,"When the mouse mode is set using either 1000h, 1002h or 1003h, the
+selection should not be pasted when hitting the middle mouse button,
+because it is job of the application to handle this when mouse mode is
+enabled.
+This has been solved by checking for the current mouse modes whenever
+the PasteSelection binding is invoked.
+This fixes #1215.",2,0
+1226,2018-04-03T07:51:43Z,2018-04-14T17:17:51Z,2018-04-14T17:17:51Z,4,16,6,"This commit expands the conditional compilation directives to support
+building Alacritty for OpenBSD.  The build succeeds, and Alacritty runs
+without issue once rust-lang/libc#957 has been
+merged and added to a versioned release.
+This has been tested on the recently-released OpenBSD 6.3 on amd64 with
+rustc 1.24.0 from its standard ports tree.
+Oligatory screenshot: https://twitter.com/khanreaper/status/981073170580017153",2,1
+1233,2018-04-05T23:05:30Z,,2018-10-04T00:06:35Z,4,66,11,"Hiya, I'm trying to improve on #368 by fixing part of #1210 and let double-click select include things that look like URLs by default (ie. include ://). Otherwise, the : character breaks the selection by default which is frustrating.
+I'm also very new to Rust, so please be gentle with the review. I'm happy to iterate on it.
+I believe there is still room for improvement (see #1210 for a more complete outline) but I'm using this patch locally which has been a very convenient improvement and a good first step.",5,14
+1234,2018-04-06T23:54:26Z,2018-04-24T16:59:53Z,2018-04-24T16:59:53Z,2,214,9,"There was an issue where alacritty would panic whenever the scrollback
+history size is set to 0, this fixes that issue.
+The panic was caused by a substraction with unsigned integers which was
+underflowing, this has been fixed to use saturating_sub.
+After that was fixed there was still a bug where scrollback would not
+behave correctly because the number of lines in the grid was decided at
+startup.
+This has been adapted so whenever the size of the terminal changes, the
+scrollback history and grid adapts to make sure the number of lines in
+the terminal is always the number of visible lines plus the amount of
+scrollback lines configured in the config file.
+This fixes #1150.",3,3
+1241,2018-04-11T17:59:29Z,2018-09-20T15:24:27Z,2018-09-20T15:24:27Z,5,244,58,"update glutin dependency to 0.14
+full|transparent|buttonless|none
+transparent and buttonless are macos only (fallback to default
+in others)
+bools in config show a deprecation message and fallback to default
+
+fixes #686
+fixes #1461",13,30
+1245,2018-04-12T19:15:19Z,2018-04-28T14:14:46Z,2018-04-28T14:14:46Z,2,6,3,"In the current scrollback PR the reset command does not affect the
+scrollback history. To make sure the terminal is properly reset, it
+should clear the scrollback history.
+This commit fixes this by creating a new and empty grid whenever reset
+is executed. It takes the current dimensions and history size from the
+old grid.
+Right now there's an empty ref-test called grid_reset without any
+content, this should be implemented once #1244 is resolved.
+This fixes #1242.",2,0
+1249,2018-04-14T17:06:46Z,2018-05-14T16:50:13Z,2018-05-14T16:50:13Z,11,275,16,"Previously ref-tests just ignored the scrollback history to keep
+the old tests working, this would lead to new tests which rely on
+scrollback history to succeeed even though they should not.
+This has been fixed and it is now possible to create ref-tests with and
+without scrollback history. When available the scrollback history is
+compared, but the old tests still work without having to adjust them.
+This fixes #1244.
+This also includes #1234 and #1245.",4,1
+1273,2018-04-24T22:20:30Z,,2018-11-19T19:32:34Z,5,21,1,,5,8
+1281,2018-04-28T02:12:19Z,2018-07-22T00:38:54Z,2018-07-22T00:38:54Z,5,56,2,"This fixes #542
+This PR is based on the changed provided by @sorccu and @algesten in #542 in that the Alacritty window is hidden when handling Action::Hide. Additionally, I've updated the macos config to bind Command+H to emit Action::Hide.
+Currently though, when the window is hidden, focus is maintained on Alacritty. I couldn't see a way to unfocus the window with glutin so I'm thinking it might be an upstream issue but I'll keep investigating.
+Tested on macOS",3,7
+1283,2018-04-29T13:59:51Z,2018-05-01T17:58:53Z,2018-05-01T17:58:54Z,1,1,1,"Install completion for Fish on macOS.
+This fixes #1237.",2,0
+1284,2018-04-29T22:45:26Z,2018-05-30T04:00:22Z,2018-05-30T04:00:22Z,6,210,73,"Until now the resizing implementation with scrollback has been really
+inefficient because it made use of APIs like Vec::insert. This has
+been rewored with this commit.
+A len property has been added to the Storage struct which keeps
+track of the actual length of the raw buffer. This has changed both
+shrinking and growing implementations.
+With shrinking, no more lines are removed, only the len property is
+updated to set all lines shrunk to an ""invisible"" state which cannot be
+accessed from the outside, this effectively changes it to a O(1)
+operation. The only issue with this would be memory consumption, but
+since the maximum shrinkage is the number of lines on one screen, it
+should be a rather small impacte (probabl <100 lines usually). If
+desired it would be possible to change this to shrink the raw inner
+buffer whenever there are more than X lines hidden.
+Growing now works in a similar way to shrinking, if the ""invisible""
+lines are enough, no new lines are inserted but rather the invisible
+buffer is made visible again. Otherwise the amount of lines that still
+needs to be inserted is added to the raw buffer, but instead of the
+inefficient Vec::insert, the Vec::push API is used now.
+This is probably not an ideal implementation, but it should get us
+started on making this work properly in the scrollback PR.
+Any comments appreciated @jwilm.
+This fixes #1271.",2,3
+1290,2018-05-02T04:55:10Z,,2018-10-28T20:23:40Z,26,171,95,,4,18
+1293,2018-05-05T00:30:24Z,2018-05-30T16:33:49Z,2018-05-30T16:33:49Z,3,138,17,"This PR is based on #1284 and should not be merged before it.
+Making use of the changes that have been introduced in #1234 and #1284,
+this allows changing the size of the scrollback buffer at runtime.
+This simply changes the size of the raw inner buffer making use of the
+optimized mutation algorithms introduced in #1284. As a result,
+shrinking the scrollback history size at runtime should be basically
+free and growing will only introduce a performance cost when there are
+no more buffered lines. However, as a result there will not be any
+memory freed when shrinking the scrollback history size at runtime.
+As discussed in #1234 a potential solution for this could be to truncate
+the raw buffer whenever more than X lines are deleted, however this
+issue should not be very significant PR and if a solution is desired a
+separate issue/PR should be opened.
+This fixes #1235.",2,0
+1300,2018-05-07T19:49:23Z,2018-11-01T19:35:38Z,2018-11-01T19:35:38Z,3,51,37,"It is now possible to paste in mouse mode again by making use of the
+shift key while pressing the mouse button reserved for PasteSelection.
+This fixes #1298.",4,14
+1304,2018-05-11T15:33:06Z,2018-05-11T23:54:21Z,2018-05-11T23:54:21Z,8,355,289,"It's now possible to insert the path of a file or directory by dropping
+it from the file manager into alacritty.
+This fixes #1301.",5,13
+1315,2018-05-17T20:04:00Z,2018-07-15T16:02:44Z,2018-07-15T16:02:44Z,1,15,0,"This makes cursor shapes in neovim work for me.
+I couldn't find any documentation or specification on these osc_dispatch commands, but I'm guessing this addition is simple enough not to get anything too wrong :)",2,9
+1324,2018-05-23T15:08:52Z,2018-07-15T13:00:59Z,2018-07-15T13:00:59Z,3,41,5,"I updated the Cargo.toml file and added a package.metadata.deb
+subsection to define how to build a debian ""deb"" instal file using
+cargp deb. This will allow debian/ubuntu users to install alacritty
+using their systems package manager. It also will make it easier to
+provide pre-built binaries for those systems.",2,3
+1329,2018-05-25T01:28:11Z,2018-11-03T15:08:31Z,2018-11-03T15:08:31Z,7,123,23,"This release introduces some config to automatically build deploy a .deb and .dmg on the github release page using travis. The build only happens when a commit is tagged and it uses the stable version of rust.
+TODO:
+
+Mechanism for changelog in both debian release and github release
+Mechanism for manpages in debian release
+Potential PPA upload for debian release?
+
+BEFORE MERGE:
+
+In .travis.yml, the github api key needs to be changed to one that has write permissions for this repo
+
+AFTER MERGE:
+
+Set cron task in travis to create nightlies
+
+@chrisduerr ^
+This pull request is built off of #1324",5,15
+1346,2018-06-01T06:11:01Z,,2018-07-14T00:35:39Z,3,48,16,"Resolves #964.
+Resolves #71.",3,6
+1351,2018-06-04T17:45:41Z,2018-06-07T16:53:17Z,2018-06-07T16:53:17Z,3,19,7,"This fixes #1350.
+I don't know how elegant this is, if you have suggestions I'd be glad to apply them.",5,12
+1355,2018-06-06T19:20:59Z,2018-06-07T15:52:07Z,2018-06-07T15:52:07Z,4,30,7,"This makes it possible to disable DPI scaling completely, instead the
+the display pixel ration will always be fixed to 1.0.
+By default nothing has changed and DPI is still enabled, this just seems
+like a better way than running WINIT_HIDPI_FACTOR=1.0 alacritty every
+time the user wants to start alacritty.
+It would be possible to allow specifying any DPR, however I've decided
+against this since I'd assume it's a very rare usecase. It's also still
+possible to make use of WINIT_HIDPI_FACTOR to do this on X11.
+Currently this is not updated at runtime using the live config update,
+there is not really much of a technical limitation why this woudn't be
+possible, however a solution for that issue should be first added in
+#1346, once a system is established for changing DPI at
+runtime, porting that functionality to this PR should be simple.",5,3
+1357,2018-06-07T21:37:59Z,2018-06-18T05:26:54Z,2018-06-18T05:26:55Z,4,61,20,"This PR makes it so that the --title flag is respected regardless of your dynamic_title configuration, which is the intended behavior.
+
+alacritty by default, still has a dynamic title
+alacritty --title ""<title>"" will effectively set the title to any string you like
+alacritty --title """" will effectively hide the title (just a special case of the last one)",2,3
+1361,2018-06-08T16:49:23Z,2018-06-08T23:32:22Z,2018-06-08T23:32:22Z,3,81,9,Fix for issue #1353,2,9
+1367,2018-06-11T03:23:22Z,,2019-03-12T21:24:26Z,2,61,29,"Ensures that the window processor wakes up upon SIGCHLD.
+Otherwise, after exit or logout, the user had to trigger
+a window event before alacritty closed.
+Fixes #1313.
+Fixes #1276.
+Fixes #915.
+This may not be the best solution. It's certainly not pretty. Also, my editor is forcing rustfmt on the codebase - let me know if that's annoying.
+Relevant parts: main.rs :  110 - 114, tty.rs : 43 - 64",5,11
+1369,2018-06-11T21:25:14Z,2018-06-16T17:50:45Z,2018-06-16T17:50:45Z,2,23,14,"The compute_index method in the Storage struct used to normalize
+indices was responsible for a significant amount of the CPU time spent
+while running the alt-screen-random-write benchmark (~50%).
+The issue with this relatively simple method was that due to how often
+the method is executed, the modulo operation was too expensive. However
+since most of the time when a majority of the buffer changes (high
+througput), it's in the alternate screen, the modulo operation can be
+skipped with a simple branch. There might be some more optimization to
+be done here, however this resolved all measurable issues in the
+alt-sceen-random-write benchmark.
+The whole vtebench suite hasn't been tested, however unless there were
+some regressions, this fixes #1316. I will benchmark this a bit more in
+the near future.",3,5
+1373,2018-06-13T23:53:41Z,2018-06-17T09:19:31Z,2018-06-17T09:19:31Z,18,512,468,"Using clippy as a library has been deprecated, instead the cargo clippy command should be used instead. To comply with this change
+clippy has been removed from the Cargo.toml and is now installed with
+cargo when building in CI.
+This has also lead to a few new clippy issues to show up, this includes
+everything in the font subdirectory. This has been fixed and font
+should now be covered by clippy CI too.
+This also upgrades all dependencies, as a result this fixes #1341 and
+this fixes #1344.",3,2
+1374,2018-06-14T08:37:54Z,2018-10-16T17:02:52Z,2018-10-16T17:02:52Z,36,4340,480,"Primarily this:
+
+Adds Windows support to copypasta
+Adds rusttype as a font rendering backend
+Creates an interface to abstract over how we interact with a TTY-like thing (EventedRW)
+Adds safe winpty bindings
+Adds winpty as a TTY shim
+Adds appveyor CI support
+
+The windows support is not perfect yet but it's good enough that I think it makes sense to merge it. Any unresolved issues are listed here.
+Apologies for the unrelated formatting changes, I can dig through and remove them from the pull but it might take me a little while.",12,50
+1384,2018-06-19T00:56:03Z,2018-06-23T10:13:20Z,2018-06-23T10:13:20Z,1,5,3,Implements #1291,4,10
+1387,2018-06-20T19:40:06Z,2018-09-23T23:05:15Z,2018-09-23T23:05:15Z,6,95,9,"This adds a config option which allows setting terminal colors above the
+0..16 range, this is often not used so it has been added to the config
+option commented out by default.
+Live config reload already works for this, so it is possible to change
+these colors the same way it works with the normal colors.
+If a color below 16 is specified, the configuration will throw an error,
+so the normal colors can't be overridden. This is just to prevent
+possible complications with the settings that already exist.
+I've also fixed existing clippy issues in this PR, I've chosen to do
+so in a different commit to make reviews easier. All changes related
+to the term colors are outside of the Fix existing clippy issues commit.",2,0
+1389,2018-06-21T07:50:38Z,2018-09-27T12:12:50Z,2018-09-27T12:12:50Z,3,55,32,"Since the mouse start position has been the first movement event after
+the mouse button was held down, there have been some issues with the
+start point lagging behind the cursor because movement events were not
+reported from the initial position but there was a gap until movement
+starts reporting.
+To fix this whenever the mouse button is pressed, the position and cell
+side is stored on the Mouse struct. Because of this it does not matter
+anymore if the movement events are all reported and we can just start a
+selection using the stored position/side whenever there currently is no
+selection present.
+This fixes #1366.",2,3
+1402,2018-06-30T16:42:48Z,2018-07-02T22:03:05Z,2018-07-02T22:03:05Z,3,14,13,"There have been two instances of the scrollback trying to access indices
+which were moved out of bounds due to new lines (yes command). These
+have both been fixed.
+The first instance was during semantic selection, since the logic of
+limiting the selection start point was moved outside of compute_index,
+it was necessary to add this to semantic selection too. Now semantic
+selection, line selection and normal selection should all work without
+crashing when new lines are shoving the selection out of bounds.
+The other error was with the viewport being outside of the scrollback
+history. Since the default is to keep the scrollback buffer at its
+current position when new lines are added, it is possible that the
+position the scrollback buffer is at is suddenly shoved out of the
+visible area. To fix this the display_offset is now limited to always
+be an allowed value.
+If a single line of the viewport is moved out of the history now, the
+viewport should move down a single line now, so only valid content is
+displayed, with multiple lines this process is repeated.
+This fixes #1400 and also fixes #1406.",4,11
+1403,2018-06-30T18:30:42Z,2018-11-10T16:08:48Z,2018-11-10T16:08:49Z,18,638,438,"Fixes #1756
+Fixes #1525
+Fixes #1509
+Fixes #1428
+Fixes #1414
+Fixes #1382
+Fixes #1358
+Fixes #1345
+Fixes #1257
+Fixes #1146
+Fixes #964
+Fixes #952
+Fixes #210
+Fixes #71
+This compiles and after reviewing looks sane enough. However I am running into an issue where the text output of the terminal only shows up on the lower left quadrant of the whole window.
+I figured I could go ahead and open this up as a work in progress to get some feedback and suggestions for what could have gone wrong.",23,226
+1404,2018-07-01T13:15:37Z,2018-07-01T20:20:30Z,2018-07-01T20:20:30Z,3,1,5,"We moved to ""cargo clippy"" in 5ba34d4 and
+removing them did not seem to cause additional warnings.",2,9
+1407,2018-07-02T09:56:44Z,2018-07-02T22:11:25Z,2018-07-02T22:11:25Z,3,8,3,"turned out regular ""cargo clippy"" would ignore these previously.",2,1
+1415,2018-07-04T19:47:07Z,2018-07-06T14:30:38Z,2018-07-06T14:30:38Z,1,3,1,"Previously the cell side of a selection with the mouse outside of the
+grid has been calculated by setting the Side to Right whenever the
+X of the mouse is bigger or equal to window_width - padding_x.
+However since the grid doesn't perfectly fit the window in most cases,
+there was an additional few pixels where the Side would be Left,
+resulting in the selection jumping around.
+To fix this the additional padding due to not perfectly fitting window
+size has been included in the calculation. The X position is now
+checked to be bigger or equal to width - padding_x - extra_padding_x.
+An important note is that this will need changing when the grid is
+centered inside the window, so extra padding is split up evenly. Once
+that change is merged the calculation required will be
+width - padding_x - extra_padding_x / 2..
+This fixes #1412.
+I've created this PR separate from the block selection one because
+this is a fix for an already existing bug. This way it will be easier
+to merge this PR without having to first get a finished version of
+#1398 up and running.",2,0
+1418,2018-07-05T20:19:25Z,2018-07-05T23:05:34Z,2018-07-05T23:05:34Z,4,10,1,"To check that transmutes will work correctly without having to rely on
+error-prone runtime checking, the static_assertions crate has been
+introduced. This allows comparing the size of types at runtime,
+preventing potential silent breakage.
+@jwilm do you think there are any other places where this could be introduced?
+This is the only place where mem::size_of is used inside an assertion.
+There also is no other instance of transmute that is unchecked outside of tests.
+This fixes #1417.",2,2
+1422,2018-07-06T14:50:29Z,2018-07-09T17:40:08Z,2018-07-09T17:40:08Z,1,1,1,"The scroll history size for the alternative grid (used by fullscreen
+apps such as vim and tmux) is now forced to zero. There are two
+motivations for this change:
+
+According to the literature, the alt screen should not have scroll
+history.
+Reduce memory consumption by only allocating the single scroll
+history.
+
+In the future, it may be desirable to support a configuration option to
+enable a scroll buffer for the alt screen. By launching without this
+feature, we can delay a decision about whether to officially support
+this or not.",2,3
+1432,2018-07-15T15:20:13Z,2018-09-26T18:42:42Z,2018-09-26T18:42:42Z,3,41,21,"When selecting multiple lines in Alacritty, there was an issue with
+empty lines not being copied. This behavior has been chanaged so empty
+lines should be correctly copied now.",3,0
+1451,2018-07-19T22:48:01Z,2019-04-01T22:41:21Z,2019-04-01T22:41:21Z,30,1489,78,"This adds the SVG files for the three different versions of the
+Alacritty logo to the repository. The three variations are the logo with
+scanlines, without scanlines and without background or scanlines.
+To unclutter the root directory of the repository a bit, every file
+which is just copied to the system during the build process has been
+moved into the extra directory. This should clean things up a bit and
+allowed renaming the completions a bit to make them comply with the
+default naming scheme for completions for each shell by default.
+This fixes #967.
+This just adds the logos which were already shown off in #967.
+The goal is primarily to start the process rather than having something
+which is good to go the way it is right now.",5,16
+1452,2018-07-20T14:21:50Z,2018-07-23T16:48:28Z,2018-07-23T16:48:28Z,6,44,9,"Optional color for the dim foreground (\e[2m)
+Defaults to 2/3 of the foreground color. (same as other colors)
+Fixes #1448
+The option in alacritty.yml is in colors.primary.dim_foreground, to be in the same place as bright_foreground.",4,12
+1460,2018-07-21T11:34:46Z,2018-09-19T19:18:51Z,2018-09-19T19:18:52Z,5,79,42,"This adds support for the hidden escape sequence \e[8m, which will
+render the text as invisible.
+This has also raised a few questions about the rendering of foreground
+and background colors and their interaction with the different escape
+sequences. Previously, Alacritty has oriented itself after URxvt, which
+has some strange and unexpected behavior.
+The new implementation of color inversion is modeled after XTerm, which
+has a consistent pattern of always inverting the foreground and
+background colors. This should hopefully lead to less confusion for the
+user and a more consistent behavior.
+A full matrix showcasing the new way Alacritty inverses text can be
+found here:
+https://i.imgur.com/d1XavG7.png
+This fixes #1454 and fixes #1455.
+@jwilm you've mentioned that things were implemented this way for a reason,
+modeling Alacritty after URxvt and allowing transparency to work properly.
+I'd be interested to hear what you think about the changes to color inversion,
+I'd say this is a pretty clear improvement because it makes things a lot more
+consistent.",2,4
+1468,2018-07-25T11:49:34Z,2018-07-25T19:46:46Z,2018-07-25T19:46:46Z,4,6,5,,3,12
+1469,2018-07-26T14:13:56Z,2018-07-26T20:47:34Z,2018-07-26T20:47:34Z,1,2,2,"There is an issue where the terminal would use the template cell to fill
+new space after resizing the terminal. However this leads to issues
+since the template cell is not always empty and thus can create some
+blocks of color appearing out of nowhere.
+This should fix this problem by always initializing cells with the
+default cell after resizing.
+This fixes #1376.",2,0
+1486,2018-07-31T18:16:39Z,2018-09-18T20:27:41Z,2018-09-18T20:27:41Z,2,3,0,"Fixes #1484
+macOS 10.14 will bring a new system wide dark mode. To enable this, the official guides suggest to relink using the newest OS. This approach, however, did not work for me as described in an issue in the glutin repository.
+As a second option, the accompanying Info.plist file can also overwrite the link-time check and enable dark mode rendering if the system config is set by setting NSRequiresAquaSystemAppearance to YES. This approach seems to work flawlessly no matter if a user opts into dark mode or not.
+I would appreciate it if someone can test this on macOS 10.13 as well, but I suppose the key there is unused and would not break anything.",4,3
+1487,2018-07-31T20:30:30Z,2018-09-18T20:21:00Z,2018-09-18T20:21:00Z,2,16,2,"Changing tabspaces from the default (8) requires a corresponding
+update to the it item in the terminfo entry used.
+Some applications, like Emacs, rely on knowing the width of a tab, and
+will experience unexpected behavior if the terminfo data does not
+match the actual width used.
+Closes #1482.",2,1
+1491,2018-08-02T17:12:32Z,2018-09-24T19:06:12Z,2018-09-24T19:06:12Z,9,237,20,"This replaces the current alacritty terminfo definitions with three standalone variants; alacritty, alacritty-256color and alacritty-direct.
+They are all completely standalone, meaning they do not use any definitions from the system's terminfo database.
+They are based off of the corresponding xterm definitions from ncurses 6.1. I've kept the fragments as-is. This makes it easier to compare with the xterm definitions (and to pull in future changes/fixes from xterm). It does however make the file much more verbose and perhaps unnecessarily difficult to navigate. It might make sense to merge all the basic fragments into the alacritty definition.
+I've removed all the fragment comments, since I felt they apply to xterm but not alacritty.
+infocmp shows no differences between the new alacritty definitions and xterm's. I'm putting it up for others to try it out. @chrisduerr .
+Closes #1489
+
+ Remove fragmentation of terminfo
+ Rename alacritty-256color to alacritty
+ Set the default $TERM used by Alacritty to alacritty
+ Remove export TERM=""alacritty"" part from README (couldn't find anything like this anywhere)
+ Update documentation of TERM in alacritty.yml
+ Clean up/remove capabilities tic complains about.
+ Update README.md",6,51
+1500,2018-08-07T18:19:10Z,2018-09-02T00:30:03Z,2018-09-02T00:30:03Z,6,57,16,"The ANSI escape CSI [n] J where n is 0-3 clears various parts of the terminal screen. This implements n = 3 to clear the ""saved"" buffer, which should just clear the scrollback history, and leave the contents displayed on the terminal alone.
+This is part of the work done to fix #1480. My plan was originally to create a new action for this (you can see some of the code done for that here), but as I discovered the ANSI control for this I am now wondering if it should be a keybinding that somehow triggers a sequence of ANSI control codes. This seems to be something that you cannot currently do however. @chrisduerr linked me a relevant issue, but I can't seem to find it right now.
+
+ Decide on new action vs ANSI codes for keybinding
+ Cleanup dead code
+ Tests?",5,11
+1503,2018-08-10T17:48:03Z,2018-09-17T21:37:01Z,2018-09-17T21:37:01Z,2,12,3,,2,5
+1516,2018-08-20T00:31:46Z,2018-09-05T21:15:17Z,2018-09-05T21:15:17Z,1,3,2,"The IL escape sequence (CSI Ps L) allows inserting blank, uninitialized
+lines. Ps is a placeholder for the number of lines that should be
+inserted. Before this change Alacritty would crash when a large number
+of lines was passed as Ps parameter.
+The issue was caused whenever the current line of the cursor plus the
+lines that should be inserted would leave the bottom of the terminal,
+since this makes indexing impossible.
+This patch makes sure that the biggest amount of lines inserted does
+never exceed the end of the visible region minus the current line of the
+curser, which fixes the underflow issue.
+This fixes #1515.
+@jwilm I'd be interested in knowing what you think about this workaround.
+It's not immediately obvious to me what exactly this escape sequence
+should be used for. Even though the ecma documentation has some
+information on it. So I'm not entirely convinced yet that this is the correct
+behavior for dealing with the IL escape parameter being out of bounds.",3,4
+1518,2018-08-20T13:57:06Z,2018-09-23T16:21:48Z,2018-09-23T16:21:48Z,3,33,35,"This PR essentially reverts 62eb1e2 but fixes issue #1517.
+Fixes #1536
+Fixes #1517
+Fixes #1282
+Fixes #1227",4,8
+1521,2018-08-24T23:44:45Z,2018-09-17T21:44:29Z,2018-09-17T21:44:30Z,1,1,1,,2,2
+1532,2018-09-02T13:34:32Z,2018-09-05T16:02:13Z,2018-09-05T16:02:13Z,1,6,5,"Small PR to stop the redundant copying of glyph_cache.font_key for each cell when the cell is bold or italic, probably will only make the slightest perf improvement if rendering loads of underlined or bold cells",3,0
+1540,2018-09-13T01:30:33Z,2018-09-17T20:00:43Z,2018-09-17T20:00:43Z,2,5,1,"Fixes a regression on non-MacOS platforms caused by the fix for
+issue #1291.  The fix is to follow platform norms for mouse click
+behavior on unfocused terminals.  On MacOS, the first click (that
+gives the window focus) is swallowed, and has no effect on the
+terminal.  On all other platforms, the first click is passed through
+to the terminal.
+A new config option is added to the ""mouse"" section of the config,
+called ""ignore_unfocused_click"".  If unspecified, it will follow
+the default for the platform.  Very few users are likely to want
+to use non-platform-standard behavior here, but the option is there.",4,12
+1551,2018-09-17T22:29:00Z,2018-09-18T15:54:40Z,2018-09-18T15:54:41Z,1,14,1,"Since the scrollback history allocates all lines in memory, it is
+possible to specify a scrollback history which is big enough to freeze
+the computer due to OOM.
+To resolve this issue, an upper limit of 100_000 has been set for the
+scrollback history. Even though this might still cause some systems to
+freeze, this should provide a good balance for most users.",2,2
+1559,2018-09-18T19:17:21Z,2018-09-20T00:04:08Z,2018-09-20T00:04:08Z,1,4,4,"Use usize instead of u64 to fix 32-bit builds.
+This fixes #1552.",4,8
+1567,2018-09-19T17:19:57Z,2018-09-19T21:55:35Z,2018-09-19T21:55:35Z,3,439,340,"The following upstream changes needed adapting to:
+
+font_path() returns a PathBuf now
+get_descriptors() returns an Option
+get_advances_for_glyphs and get_glyphs_for_characters are now unsafe.",3,1
+1569,2018-09-19T20:10:06Z,2018-09-19T21:37:37Z,2018-09-19T21:37:37Z,2,5,1,"Alacritty made the assumption that every window started as focused and
+because of that the hollow cursor wouldn't show up for windows which are
+launched without focus.
+Since even the initial focus should be reported as a focus event by
+winit, this could be easily fixed just setting the default window state
+to unfocused instead of focused.
+This fixes #1563.",2,0
+1571,2018-09-20T02:29:21Z,2018-09-24T12:12:46Z,2018-09-24T12:12:46Z,6,30,8,"With save_to_clipboard: true in selection section of
+alacritty.yml. The selected string will automatically copy to primary
+clipboard.",5,13
+1579,2018-09-20T20:20:23Z,2018-09-22T02:46:42Z,2018-09-22T02:46:42Z,2,313,260,"Before getting into the meat of the changes introduced by this PR,
+I want to provide some background information on why I propose
+these changes.
+Originally I just wanted to remove the notice from the mouse bindings
+that modifiers are not supported, but I noticed that the available
+actions were not complete either. To make future changes simpler I
+wanted to reference the key binding options, however these have always
+been very complicated in my opinion, so I decided to try and refactor those.
+After the key bindings were refactored, I just tried to get the rest of the
+configuration file in line with the changes I had made to the key and
+mouse binding sections.
+I don't think there's anything wrong with the current configuration file,
+however I personally find it easier to make changes myself when there
+is some consistent structure present which I can follow when making
+new additions. My hope with these changes is that it makes reading
+the configuration file easier, but also allows easily adding new stuff in the
+future.
+These are some guidelines used for this refactoring:
+
+Specify that changes require restart consistently
+Unify the specification of available field values
+Provide clear distinction between description title and body
+Try to end lines at ~80 characters
+
+Since the main changes in this PR are the alterations to the key
+configuration documentation. I'd especially appreciate feedback about
+the changes to this section.",2,4
+1584,2018-09-23T13:26:49Z,2018-09-24T18:40:10Z,2018-09-24T18:40:10Z,6,188,128,"Previously Alacritty has initialized all lines in the buffer as soon as
+it is started. This had the effect that terminals which aren't making
+use of the scrollback buffer yet, would still consume large amounts of
+memory, potentially even freezing the system at startup.
+To resolve this problem, the grid is now dynamically resized in chunks
+of 1000 rows. The initial size is just the visible area itself, then
+every time lines are written to the terminal emulator, the grid storage
+is grown when required.
+With the worst-case scenario of having 100_000 lines scrollback
+configured, this change improves startup performance at the cost of
+scrolling performance.
+On my machine the startup changes from ~0.3 to ~0.2 seconds.
+The scrolling performance with large throughput is not affected, however
+it is slowed down when the number of lines scrolled are close to the
+100_000 configured as scrollback. The most taxing benchmark I've found
+for this was running yes | dd count=500 > 500.txt (note the relatively
+small file size). This will cause a slowdown on the first run from 0.05s
+to 0.15s. While this is significant, it lines up with the time saved at
+startup.
+This fixes #1236.
+Edit: I have not mentioned the memory difference at startup in the
+commit message, so here's the comparison for 100k lines of scrollback:
+
+
+
+Master
+PR
+
+
+
+
+571M
+74K",3,1
+1585,2018-09-24T23:21:59Z,2018-09-25T01:04:34Z,2018-09-25T01:04:34Z,1,1,1,"The reset cursor terminal escape sequnce specified in the terminfo file
+was using xterm's \E[2 q. However this just resets the cursor to the
+block cursor shape.
+Since Alacritty supports the \E[0 q escape sequence for resetting the
+cursor shape to the original shape specified in the configuration file,
+the terminfo file has been altered to make use of this sequence instead.",2,0
+1587,2018-09-25T05:59:57Z,2018-12-02T16:11:52Z,2018-12-02T16:11:52Z,2,8,10,"We now request the user's attention in macOS when a visual bell
+character is received. This manifests as the window jumping up and
+down in the dock.
+Depends on #1403.
+Depends on rust-windowing/winit#664 for the changes to WindowExt on macOS.",3,11
+1589,2018-09-26T05:48:04Z,,2020-11-07T05:26:47Z,6,285,292,"This is working off of mkeeler:glutin-0.17-upgrade, so just the last two commits are mine. You can check out just the relevant diff here.
+I've basically been just trying to factor things (in a cargo-culty way) so that it's possible to create multiple windows without changing any logic. This compiles and runs, and will even create two windows (if hardcoded in).
+But I seem to be missing something, because even with just one window, there are some issues.
+
+sometimes the terminal doesn't update
+certain keys are triggered twice (like backspace)
+
+I haven't tried to get the second window working in earnest yet, but I'll describe what happens in case it helps diagnose the single window case. One window seems to work just like the single-window case, but the second window at first renders with just the blank background color, and on any interaction becomes transparent. It seems to still take window events, like resize events and keyboard input, but it doesn't display anything. With both windows attached to a tmux session, I can see keyboard input from the second window take effect in the first window, but not immediately, only after interacting with the second window.
+I'd like to get the single window case working properly before trying to get multiple windows working and I'm kinda stuck, so I'm hoping someone else can take a look and see if I missed something obvious or point me at some better debugging methods. I've tried with --print-events, and the events there appear to be totally normal.
+
+
+This change is ",4,17
+1590,2018-09-26T15:33:31Z,2018-09-26T17:38:42Z,2018-09-26T17:38:42Z,2,7,2,I was running some software that used CPL so I implemented these.,2,3
+1592,2018-09-26T20:38:32Z,2018-09-28T19:53:58Z,2018-09-28T19:53:58Z,1,25,19,"The deprecated window.decoration values true and false were using
+the visit_bool visitor for serde. However it seems like with yaml, the
+str visitor is used instead.
+To print the correct deprecation notice, the bool visitor has been
+removed and the warning has been added for the ""true"" and ""false""
+str visitor.",2,0
+1597,2018-09-27T18:36:32Z,2018-09-28T22:07:25Z,2018-09-28T22:07:25Z,3,23,24,"When rendering selections with both start and end outside of the visible
+area, Alacritty would assume that both start and end are either above or
+below the viewport and not render the selection at all.
+To fix this the buffer_line_to_visible method now returns a
+ViewportPosition instead of an Option<Line>, this allows giving more
+feedback about where outside of the visible region the line is using the
+ViewportPosition::Above and ViewportPosition::Below varients.
+Using these newly introduced varients, a selection spanning the whole
+screen is now rendered if the selection should go from above the visible
+area to below it.
+This fixes #1557.",2,0
+1600,2018-09-27T22:08:04Z,2018-11-02T01:34:03Z,2018-11-02T01:34:03Z,2,12,0,"Properly update an active selection while scrolling the main scrollback buffer.
+
+ Standard scrolling support
+ Rebase down to three commits (cell_side update, standard scrolling, changelog)
+Faux scrolling support succeeded by #1644 and #1640 (possibly)
+
+Fixes #1598.",2,4
+1605,2018-09-29T06:58:51Z,2018-10-03T01:38:04Z,2018-10-03T01:38:04Z,1,5,0,"On macOS 10.12.6 (as far as I can test), running make app creates a
+bundle that refuses to start (it complain application is only compatible
+with more recent versions of macOS. The binary works great when running
+it directly.
+As far as I can tell this fixes the issue and the bundle works great
+(despite the other issues reported for login shell, but I guess that's
+another story).
+I'm going to assume that targeting 10.11 or lower would also work.
+I don't know what effect this have on the final binary and whether this
+removed  some optimisation. Maybe that could be conditionally setup
+depending on the version of macOS this is built on?",3,8
+1607,2018-09-29T08:15:16Z,2018-09-30T21:54:09Z,2018-09-30T21:54:09Z,4,32,37,"This PR stores grid cells in the renderer when fn draw() is called and then releases the terminal lock so that rendering can be done without the terminal locked.
+This also creates a new function fn render_grid() which is almost the exact same as fn render_cells() but uses the reference to the grid passed by the renderer to the render api, I think this might be the only way to do it without copying the entire grid to turn it into an iterator.
+RenderableCell derives debug so it can be stored in the renderer
+These changes give me about a 400ms speedup when rendering a 500mb alt-screen-random-write file with cat.
+Fixes #1535
+Hopefully fixes #1529 (can't test on macos)",3,4
+1617,2018-10-02T19:55:44Z,2018-10-22T19:39:27Z,2018-10-22T19:39:27Z,13,483,178,"This adds the option to automatically launch URLs with a specified
+program when clicking on them.
+The config option mouse.url_launcher has been added to specify which
+program should be used to open the URL. The URL is always passed as the
+last parameter to the specified command.
+This fixes #113.",7,25
+1619,2018-10-03T00:56:46Z,2018-10-03T11:29:38Z,2018-10-03T11:29:38Z,2,6,0,In order to avoid mistakes like in #1612,2,0
+1622,2018-10-03T21:54:00Z,2018-10-14T21:01:10Z,2018-10-14T21:01:10Z,2,312,296,"Alacritty's manual installation instructions take up a lot of space in
+the README and they are hard to navigate because there's a lot of
+information for specific distros which are irrelevant to most users.
+To improve this situation, the manual installation section has been
+moved to the INSTALL.md file. This allows keeping the readme to a
+minimum which just includes the straight-forward instructions required
+to install it on systems which provide packages for it.
+Having a separate file also makes it possible to add a full index just
+for the installation instructions, which makes it possible to skip
+sections which are irrelevant.",4,4
+1629,2018-10-05T22:57:19Z,2018-10-07T21:10:59Z,2018-10-07T21:10:59Z,2,9,11,"First off thanks for Alacritty, I've been loving it!
+Since v0.2.1 I attempted to set custom indexed_colors and noticed that I was getting erroneous results.
+If set to a color value of 200, nothing would get set:
+- { index: 200, color: '0x2ec6c6' }
+If set to a color value of 20, 20 would be set along with other indexed numbers (random from 25-160):
+- { index: 20, color: '0x2ec6c6' }
+20 20: Rgb { r: 46, g: 198, b: 198 }
+25 20: Rgb { r: 46, g: 198, b: 198 }
+30 20: Rgb { r: 46, g: 198, b: 198 }
+35 20: Rgb { r: 46, g: 198, b: 198 }
+40 20: Rgb { r: 46, g: 198, b: 198 }
+55 20: Rgb { r: 46, g: 198, b: 198 }
+60 20: Rgb { r: 46, g: 198, b: 198 }
+65 20: Rgb { r: 46, g: 198, b: 198 }
+70 20: Rgb { r: 46, g: 198, b: 198 }
+90 20: Rgb { r: 46, g: 198, b: 198 }
+95 20: Rgb { r: 46, g: 198, b: 198 }
+100 20: Rgb { r: 46, g: 198, b: 198 }
+125 20: Rgb { r: 46, g: 198, b: 198 }
+130 20: Rgb { r: 46, g: 198, b: 198 }
+160 20: Rgb { r: 46, g: 198, b: 198 }
+This PR compares the ic.index value to the full_cube mutable index variable instead of 16 + r + g + b. Using this method I was able to get consistent and accurate indexed_color results.",1,1
+1642,2018-10-11T01:02:45Z,2018-10-14T22:23:54Z,2018-10-14T22:23:55Z,2,5,0,"Closes #1636
+@chrisduerr, @dnkl: Is it alright to just put the new capabilities at the bottom of the file or do you want it formatted a certain way?",3,2
+1651,2018-10-13T04:28:33Z,,2018-10-14T20:10:43Z,4,70,4,,3,2
+1658,2018-10-16T20:58:43Z,2018-10-20T22:30:59Z,2018-10-20T22:31:00Z,4,171,49,"Whenever the viewport is scrolled, the selection is rotated to make sure
+that it moves with the viewport. However this did not correctly handle
+the underflow that happens when the selection goes below 0.
+This resolves that problem for the selection by moving the internal line
+representation to an isize, thus correctly keeping track of the
+selection start/end points even when they have a negative index. Once
+the selection is converted to a span, the lines are clamped to the
+visible region.
+This fixes #1640 and fixes #1643.
+Note that this currently breaks semantic and line selection because
+the necessary adjustments to handle isizes haven't been made in their
+span methods yet. This should be fairly simple, however opening a
+temporary PR here should prevent unnecessary duplicated effort.",2,3
+1678,2018-10-18T08:11:16Z,2018-10-20T20:16:27Z,2018-10-20T20:16:27Z,3,33,1,"This implements the alternative cursors for the rusttype backend which were missed in the initial implementation.
+I was going to change the way these are generated to make it more obvious but:
+
+I'm lazy
+Font-kit should invalidate most of this work anyway
+
+Fixes #1676",3,2
+1686,2018-10-19T06:13:09Z,2018-10-29T07:52:15Z,2018-10-29T07:52:15Z,5,29,7,"This adds the local dependencies (font, copypasta, winpty) to a workspace (required for winpty's test deps), and runs those tests in CI.
+I also had to ignore the console_process_list test because of rprichard/winpty#135. The function isn't actually used in Alacritty proper so it's not a big issue.",2,2
+1707,2018-10-27T00:53:37Z,2018-10-27T02:58:52Z,2018-10-27T02:58:52Z,2,24,27,Fixes #1706,2,0
+1709,2018-10-27T04:48:24Z,2018-10-27T21:53:03Z,2018-10-27T21:53:03Z,1,6,2,"Without this cmd won't redraw it's prompt when alacritty exits
+Fixes #1698",2,1
+1710,2018-10-27T05:15:55Z,2018-10-27T11:14:13Z,2018-10-27T11:14:13Z,1,2,16,"great terminal!
+gentoo/gentoo@5a7134c",2,0
+1715,2018-10-29T07:04:48Z,2018-11-24T21:08:03Z,2018-11-24T21:08:03Z,4,12,6,"This changes the winpty resize logic to ensure we'll back out in the bindings if we get passed an invalid value rather than passing it on.
+It also fixes the cause of the underflow in the logic for converting calculating the lines, cols from SizeInfo. I'm not sure if it was like that intentionally but I haven't observed any breakage from this change.
+Fixes #1669",2,0
+1721,2018-10-29T23:08:05Z,2018-10-31T19:48:05Z,2018-10-31T19:48:05Z,1,1,0,Fixes #1717,3,2
+1731,2018-10-31T15:22:44Z,2018-11-01T11:45:20Z,2018-11-01T11:45:21Z,3,104,104,"Fixed #1730 .
+A breaking change was introduced in serde_yaml 0.8:
+
+Reduce compile time of Deserialize impls by instantiating fewer Visitor methods when we know the type of data expected (#96)
+This is potentially a breaking change for some handwritten Deserialize impls. For example a Deserialize impl that invokes Deserializer::deserialize_string would no longer deserialize successfully from anything but a string in the input data, even if the Visitor impl otherwise supports types other than string. Deserialize impls that support deserializing from multiple different Serde data types need to use Deserializer::deserialize_any instead.
+
+More details about the breaking change in serde-rs/serde#1125 .",2,0
+1762,2018-11-09T08:36:55Z,2018-12-28T16:01:59Z,2018-12-28T16:01:59Z,10,759,182,"The support is added behind a config flag enable_experimental_conpty_backend, defaulted to false. When set to true then before the WinPty initialisation alacritty will try to spawn a Pseudoconsole process, and use that instead.
+I can confirm #1662 is fixed by this (and possibly others, I haven't searched too extensively). However there's a couple of pain points which is why I wanted to mark this experimental:
+
+
+The ConPTY API only support synchronous pipes (rather than the asynchronous Evented ""NamedPipe"" from mio_named_pipes). So windows.rs has to change to dispatch over the two possible pipe types, and I added a local crate mio_anonymous_pipes to make these things Evented (using worker thread + intermediate buffer). Performance on those can likely be improved, tbh I'm hoping the problem goes away and we can move everything to NamedPipe if Microsoft lands microsoft/terminal#262 soon.
+
+
+Sometimes the last column has characters from other lines ""ghosting"" after scrolls or other writes to the buffer. I haven't used Alacritty in WinPty mode much so I'm not sure if the problem is also present there. I suspect it's an issue where the ConPTY api is treating the cursor position as having moved to the next line already when alacritty thinks it's in the last column, but I want to investigate this further after we have some other user experience.
+
+
+Fixes #1661.
+Fixes #1926.",8,34
+1775,2018-11-12T10:56:57Z,2018-11-12T18:23:24Z,2018-11-12T18:23:24Z,7,74,75,"The extra window padding was calculated in the renderer which lead to
+problems with the paddings calculated in the src/display.rs and
+src/term/mod.rs.
+As a solution, every instance of config.padding().x/y has been removed
+from the renderer (src/renderer/mod.rs), instead the padding is always
+passed through from the src/display.rs.
+The initial calculations during display creation and after resize then
+are scaled appropriately and then the extra padding is calculated. As a
+result every other location can just make use of the correctly
+calculated size_info.padding_x and size_info.padding_y.
+This fixes #1773.",5,14
+1779,2018-11-12T18:26:18Z,2018-11-13T16:06:34Z,2018-11-13T16:06:34Z,5,5,5,"Since the version 0.2.2 had some significant breakage which affects a
+large number of users, this 0.2.3 release aims at providing a stable
+release which works for everyone without any major regressions.",3,1
+1788,2018-11-13T22:08:17Z,2018-11-14T23:47:14Z,2018-11-14T23:47:14Z,4,23,12,"The i386 CI releases were still using x86_64 platforms for building the
+output binaries, as a result the produced binaries did not work properly
+on i386 systems.
+This fixes #1786.",3,4
+1795,2018-11-14T21:48:15Z,2018-11-19T09:24:23Z,2018-11-19T09:24:23Z,5,16,1,"/usr/local is for non-.deb installs.
+Registering alacritty as an x-terminal-emulator alternative to use it as a default terminal app.",2,7
+1799,2018-11-15T06:41:45Z,2018-11-15T13:58:25Z,2018-11-15T13:58:25Z,1,8,0,"There is a maintained Homebrew formula that should be a preferred method of installation for macOS users.
+I did not include details about the Homebrew package manager, as this is a resource that I would imagine most macOS users interested in Alacritty would already know about, but a dependency link would be an easy addition.",3,15
+1823,2018-11-19T18:21:55Z,2018-11-19T21:23:48Z,2018-11-19T21:23:48Z,6,23,1,"Rebased version of #1273.
+This fixes #38.
+Only tested on macOS 10.14.1",3,14
+1831,2018-11-21T18:30:31Z,2018-12-08T20:51:36Z,2018-12-08T20:51:36Z,2,7,2,Fixes #1829.,3,1
+1834,2018-11-22T22:54:25Z,2018-12-23T22:36:07Z,2018-12-23T22:36:07Z,4,58,0,"Please go easy on me.  I am very new to Rust and haven't touched Win32 in —
+let me check — 15 years.  Happy for whatever feedback you have.
+This commit introduces a new module called platform, which provides
+operating system and platform-level integration capability.  For now, it
+targets Windows only.  It provides a panic handler that exposes such
+events through the classical Win32 MessageBox facility, whereupon a user
+can easily copy-and-paste the error for later forensic analysis and bug
+reporting..
+Why is this proposed?  In Issue #1818, I remarked that Alacritty in
+Windows crashed unexpectedly since winpty was unable to find
+winpty-agent.exe.  This error message was opaque and invisible, for I
+had not started Alacritty itself from another terminal.  I reason that
+few users of Alacritty on Windows would ever start a terminal from
+another terminal, so it would be best to take a platform-idiomatic
+approach of exposing the dialog box.",4,15
+1835,2018-11-23T00:45:19Z,2018-11-23T23:41:06Z,2018-11-23T23:41:07Z,1,4,1,closes #1826,2,0
+1837,2018-11-23T20:08:24Z,,2018-11-24T06:44:15Z,4,27,9,"This lets you pass in --start-maximized or -m as commandline flags.
+
+Is this unnecessary clutter?
+Should I wait until #1835 lands?
+Is passing start_maximized into get_platform_window the cleanest way to do things?",2,1
+1838,2018-11-23T20:37:51Z,2018-11-23T23:02:11Z,2018-11-23T23:02:12Z,2,5,6,For #357,2,0
+1839,2018-11-23T22:44:57Z,2019-01-07T00:06:58Z,2019-01-07T00:06:58Z,21,197,192,"The general proposed style for errors, warnings and info messages is to start with a capitalized letter and end without a period. The main exception is when dealing with nouns that are clearer with special case handling, e.g. ""macOS failed to work"" or ""ioctl is borked"".
+Generally speaking log messages should be present tense (e.g. ""Setting value"", not ""Set value"") and should be full english.",3,6
+1840,2018-11-24T06:02:38Z,2019-02-02T12:00:29Z,2019-02-02T12:00:29Z,3,17,7,"I'm not sure this is the best place to put this information because it's only supposed to be for from-source builds, but this affects binary releases as well. I don't know if there's a better place to put it though.
+Fixes #1818",3,3
+1857,2018-12-02T21:48:21Z,2018-12-27T14:16:31Z,2018-12-27T14:16:32Z,5,40,13,"Contrary to my initial idea this does not remove platform specific code, mostly because after dealing with fallbacks and supporting the old windows location it's not worth it.
+This changes the configuration file location from (in fallback order):
+
+%HOME%\alacritty.yml
+%USERPROFILE%\alacritty.yml
+GetUserProfileDirectory()\alacritty.yml
+
+To:
+
+%APPDATA%\Roaming\alacritty\alacritty.yml
+
+If a configuration file is found in the old location a warning is emitted pointing to the new location.
+Fixes #1660",2,1
+1858,2018-12-03T09:51:59Z,2018-12-06T21:38:34Z,2018-12-06T21:38:34Z,3,34,39,Attempts to fix #1833. While I am new to learning rust(Very new). I intend to use alacritty for a long time my attempt to give something back. So if I have done something wrong or something you would like to see added please let me know.,2,10
+1866,2018-12-06T04:36:42Z,2018-12-06T21:55:03Z,2018-12-06T21:55:03Z,1,10,0,Doc changes as discussed in #1860,2,1
+1867,2018-12-06T04:47:28Z,2018-12-06T14:17:55Z,2018-12-06T14:17:55Z,1,0,1,"sudo keyword is obsolete, reference.",2,0
+1869,2018-12-06T17:56:41Z,2018-12-10T17:53:57Z,2018-12-10T17:53:57Z,36,318,375,This updates Alacritty to Rust 2018 while fixing old workarounds for lack of NLLs. Almost all // borrowck commens have been resolved except for two instances of overlapping mutable borrows not quite covered by the initial NLL support.,4,10
+1871,2018-12-06T20:20:47Z,2018-12-07T13:58:12Z,2018-12-07T13:58:12Z,10,11,11,,3,1
+1877,2018-12-07T05:31:59Z,,2018-12-07T14:17:13Z,1,2,2,"Fixes #1876
+Adding -x flag fixes the issue. With this flag, unknown terminfo capabilities are treated as user-defined.",2,3
+1878,2018-12-07T12:17:30Z,2018-12-09T01:46:10Z,2018-12-09T01:46:10Z,1,98,0,"It contains a few rules for making a PR. @chrisduerr you can add the formatting or style changes that you want to see the folks do before opening a PR. I think the point 6 can be done with a fewer commands. Any thing you would like to be removed or added?
+Attempts to fix #1870",3,2
+1890,2018-12-11T16:51:44Z,2018-12-12T14:13:00Z,2018-12-12T14:13:00Z,2,8,2,"Closes issue #1862, by updating the colors pairs in alacritty.info to use 0x7FFF instead of 0x10000. 0x7FFF is aligned with xterm-256color and solves coloring issues for htop and certain other known ncurses programs.",2,1
+1898,2018-12-13T16:24:55Z,2018-12-14T03:54:06Z,2018-12-14T03:54:06Z,2,2,1,"to prevent the panic on unwrap if fd is not found
+closes #1897",2,0
+1899,2018-12-13T23:13:38Z,2018-12-14T10:00:51Z,2018-12-14T10:00:51Z,1,9,0,,2,0
+1911,2018-12-18T12:24:54Z,2018-12-20T00:33:43Z,2018-12-20T00:33:43Z,2,5,4,"The delay between the alt key and the actual received key might cause
+certain key sequences to be missed, ex. when tmux has its escape-time
+set to 0.",2,0
+1959,2018-12-31T01:30:48Z,2019-01-02T21:40:33Z,2019-01-02T21:40:33Z,4,7,9,Fix #1928,4,8
+1962,2018-12-31T16:02:19Z,2019-01-02T13:04:54Z,2019-01-02T13:04:54Z,2,2,1,"On my linux machine, the Arrow cursor is this very rarely used Xorg cursor:
+
+However, changing the cursor to Default gives me the default mouse cursor I'm used to:
+
+@zacps, @dm1try and @sodiumjoe could you guys check to that this doesn't mess it up on Windows/Mac?",4,2
+1965,2019-01-02T00:52:45Z,2019-01-02T21:56:37Z,2019-01-02T21:56:37Z,2,3,2,"As reported in #1963, mouse binding actions are being processed too late to allow copying the selection. This is the fix for this issue, assuming there's no other actions the depend on the opposite order.",2,0
+1971,2019-01-04T03:59:42Z,2019-01-05T20:47:12Z,2019-01-05T20:47:12Z,9,66,34,"Other terminals allow you to spawn a new instance of the terminal with the same working directory. This pull request adds this feature.
+Tested on:
+
+Linux Xorg
+Linux Wayland ( Sway )
+
+Notes:
+
+It will probably crash on windows and mac.
+I changed the shell PID variable on tty::unix::PID to public. Don't know if that is allowed.
+I didn't write any tests 😅.
+
+This fixes #808.",6,13
+1990,2019-01-08T07:00:33Z,2019-01-19T13:45:45Z,2019-01-19T13:45:46Z,3,141,315,"Currently spawn new instance action is crashing on macOS and BSD systems. This pull request tries to fix the crash and implement a way to get the current working directory of the child shell for this 2 systems. See #1988
+This was implemented blindly. I'm not sure if it works since I have no macOs or BSD machine to test it.  libproc-rs  was used to get the current working directory for macOS.
+For BSD, it parses the output from procstat -f $PID command.
+I would like macOS and BSD to test this changes.
+This fixes #1988.",6,12
+1991,2019-01-08T20:44:01Z,2019-01-09T20:27:14Z,2019-01-09T20:27:14Z,2,15,12,"Since the Alacritty configuration file is written to the filesystem at
+startup, this could create issues when the system does not have any free
+space left.
+To circumvent this problem, the default configuration is now returned
+even when the configuration file could not be created. Instead of
+crashing Alacritty, an error is now emitted.
+Fixes #1936.",3,1
+1993,2019-01-09T09:34:26Z,2019-01-17T09:17:27Z,2019-01-17T09:17:27Z,13,849,1390,"This adds a default implementation for the
+selection.semantic_escape_chars option to make sure that the specified
+default configuration value matches the fallback value when it is not
+specified.
+TODO:
+
+ Key bindings
+ Mouse bindings
+ Ensure there are no fields that have default, but they aren't matching between source and config
+
+This fixes #1923.",2,1
+1998,2019-01-10T16:24:23Z,2019-01-11T05:35:45Z,2019-01-11T05:35:45Z,3,3,3,,2,0
+2001,2019-01-12T18:18:56Z,2019-01-12T19:55:04Z,2019-01-12T19:55:04Z,1,6,0,"Alacritty is now available in the Solus package repository:
+https://dev.getsol.us/source/alacritty",2,0
+2015,2019-01-18T18:46:36Z,2019-01-21T21:59:11Z,2019-01-21T21:59:11Z,2,7,1,"I had an issue with last characters on the line remaining on the screen even after line they belonged to moved up or down. Easy repro: open any text file with long lines (alacritty.yml for example around line 100) in an editor of your choice, and then move around so the editor scrolls up or down. Last char of the line will not be erased.
+Here is the example:
+
+It looked like off-by-one kind of error from the start, so it was just a matter of seeing what kind of events are happening when bug is present.
+According to rust docs, slicing with [..N] doesn't include N-th element, so we don't have to subtract 1 from num_cols().
+On a side note, for some reason the issue doesn't manifest itself with winpty on Windows, only with conpty.",3,5
+2022,2019-01-20T11:02:58Z,2019-05-11T16:15:33Z,2019-05-11T16:15:33Z,3,57,2,"closes #2014
+This functionality is a direct copy of the same implementation in Apple's Terminal.app. See the original issue for an example of how it works in that terminal.
+Selection logic now behaves as follows (all using the left mouse button):
+
+
+
+click state
+button state
+character under cursor
+selection type
+
+
+
+
+single click
+pressed
+*
+simple
+
+
+double click
+pressed
+*
+semantic
+
+
+double click
+released
+()[]{}<>
+bracket-pair
+
+
+triple click
+pressed
+*
+line
+
+
+
+Example:
+
+Since this is my first contribution to Alacritty, and I'm still fairly new at Rust, I'd welcome any and all feedback on how this implementation could be further optimised.
+I'm still looking into adding more tests (the current selection tests all assume selection based on mouse drag behaviour), and perhaps a benchmark to prevent performance regressions when working with large buffers.
+I did test this locally, including with a somewhat large JSON blob, and saw no performance regression in the selection actions, and no unexpected cross-over situations between the different selection types.",2,8
+2024,2019-01-20T17:51:04Z,2019-01-21T16:39:25Z,2019-01-21T16:39:25Z,6,62,60,This fixes a major regression on Windows which would cause a crash on startup.,2,1
+2036,2019-01-25T13:21:32Z,2019-01-27T21:06:28Z,2019-01-27T21:06:28Z,2,39,43,"Premultiply pixel change with scrolling_multiplier.
+This makes scrolling smoother and more responsive (scroll line by line instead of N lines at once).",1,10
+2037,2019-01-25T13:37:06Z,2019-01-28T18:28:52Z,2019-01-28T18:28:52Z,2,12,4,Properly detect a URL that is right next to a tmux pane border (see screenshot),2,2
+2045,2019-01-27T20:36:51Z,2019-02-07T22:36:46Z,2019-02-07T22:36:46Z,18,1055,479,"The warning and error messages now don't overwrite other terminal
+content anymore but instead resize the terminal to make sure that text
+can always be read.
+Fixes #1996.
+The following tasks should be made possible:
+
+ Display message to the user at the top bottom of the screen
+ Shrink the terminal height by one line (possibly even more than one, calculating the required height automatically)
+ Allow interacting with the message, using either click interactions or allow for selection (useful for copying the path to the logfile)
+ (Optional) Make it possible to remove outdated errors (if the config has been fixed, it would be nice if the popup wouldn't need to be removed from all Alacritty instances, though this might be a job for something like AlacrittyD)
+
+
+Things still left to implement/investigate:
+
+ Clicking the space to the left of the [X] will also close the message
+ Changing the mouse cursor shape to a pointer when over the [X] button out of scope for now
+ Remove duplicate messages",2,4
+2047,2019-01-29T13:46:43Z,,2020-03-14T02:55:07Z,4,46,14,"Adds the option to set the wayland client side decorations theme to a dark one. The colors in the theme are changeable but I chose colors that in my opinion look good on the ConceptFrame. Once a new winit and SCTK version has been released then this PR can be considered merge-able.
+I don't really know that much about alacritty's configuration process so please tell me if I missed something.
+
+Fixes #2092.",5,19
+2059,2019-02-01T15:13:43Z,2019-02-03T16:44:39Z,2019-02-03T16:44:39Z,3,33,2,"Due to the merging of configuration files on all platforms, it has been
+made impossible to completely disable URL launching without still
+executing some kind of program like true.
+Setting the launcher to None in the config, will now disable it
+completely.
+This fixes #2058.",2,0
+2063,2019-02-02T16:56:35Z,2019-02-03T16:45:09Z,2019-02-03T16:45:09Z,3,15,19,"To test, verify that strikeout, underline, and visual bell behave as before.",3,0
+2065,2019-02-02T23:52:54Z,2019-02-05T22:33:08Z,2019-02-05T22:33:08Z,2,16,11,Fixes #2056,3,1
+2066,2019-02-03T02:42:30Z,2019-02-04T19:03:26Z,2019-02-04T19:03:26Z,5,60,127,"This should be orthogonal to #2063. I do not observe any performance improvement or regression, but assume that reducing the total amount of work done cannot hurt.
+This PR:
+
+Replaces the projection 4x4 matrix uniform with a single vec4 ; the former contained mostly zeros.
+Specializes the text vertex shader to act on instances of rectangles. [I am unsure about the utility of this change. Keep or drop?]
+Moves most of the y-flipping logic out of the vertex shader, getting rid of a uniform in the process.
+Disables updates to the depth buffer. I haven't figured out how to make OpenGL not allocate it (or the stencil buffer) in the first place. [I guessed at the correct place to put the gl::DepthMask call; is there a better spot?]",2,5
+2077,2019-02-05T16:04:29Z,2019-02-06T21:10:46Z,2019-02-06T21:10:46Z,3,32,52,"Fixes #1582.
+Fixes #1875.",2,2
+2091,2019-02-08T03:26:31Z,2019-02-18T19:54:46Z,2019-02-18T19:54:47Z,3,57,47,"Here I've taken the liberty of changing things about as dramatically as I could imagine being reasonable. Please feel free to push back on anything I've changed, or suggest a different set of changes.
+
+Call Alacritty ""beta"" tier software (I think it's time).
+Add ""most"" to the sentence about GPU terminals (others might be catching on)
+Generalize section about performance measurements, mostly removing the claim we're always faster in every way. Latency is an issue we care about, and will be improved
+Small formatting updates
+
+Partially inspired by #2087, among others.",5,11
+2114,2019-02-15T21:22:52Z,2019-03-12T19:44:48Z,2019-03-12T19:44:48Z,10,207,134,"This is a crack at handing SIGCHLD (and conceivably others) safely and correctly, taking a different approach to #1367 by using the well-known ""self-pipe trick"". This should allay concerns about non- async-signal-safe functions in signal handlers.
+The signal handler writes received SIG* numbers into a pipe, which wakes up the existing I/O event loop. The loop then delegates handling back to the Pty, which reads the pipe, and reacts appropriately.
+I'm not 100% certain on the finer points of this design, though, so I'd appreciate some feedback.
+
+Fixes #915
+Fixes #1276
+Fixes #1313",3,23
+2117,2019-02-16T19:13:15Z,2019-02-16T20:23:23Z,2019-02-16T20:23:23Z,1,21,19,This allows the main body of the function to be indented one level less.,2,0
+2123,2019-02-18T17:26:29Z,2019-02-21T09:28:33Z,2019-02-21T09:28:33Z,2,9,16,"Windows: ClosePseudoConsole has no return value, but impl Drop for ConPty was mistakenly trying to assert the return value was ""OK"".
+When I wrote the ConPty implementation I'd been working from this document: https://github.com/MicrosoftDocs/Console-Docs/blob/master/docs/closepseudoconsole.md, and as you will see there the documentation states the function has no return value.
+If you check the history of that file you'll see the docs used to state that it had an HRESULT return type. I wrote the assertion based on that erroneous doc.
+I've removed the usage of the return value.",2,1
+2127,2019-02-22T22:25:37Z,2019-03-07T20:37:12Z,2019-03-07T20:37:12Z,5,33,18,"As discussed previously in #1708 I have successfully restored support for dynamic title for Windows, but only for the Conpty backend.
+From what I can tell, winpty support would require us to fork the winpty-agent.exe binary. This would be incompatible with the current approach of downloading prebuilt versions of it. Perhaps worth closing #1708 PR and opening a new issue for winpty support to remember it for the future?
+Fixes #1695.",2,7
+2129,2019-02-25T06:43:11Z,2019-03-02T18:31:15Z,2019-03-02T18:31:15Z,6,151,2,"Work in progress for #1900
+
+ Copy alaritty.exe and winpty-agent.exe to Program Files
+ Copy the default config file to %APPDATA%
+ Add the Program Files folder to $PATH
+ Add right click context menu",2,10
+2134,2019-02-26T13:33:11Z,2019-03-03T20:25:29Z,2019-03-03T20:25:29Z,3,2,3,"To make sure all extended capabilities can be queried correctly, it is
+necessary to compile the terminfo file using the -x flag.
+Since Alacritty specified support for the XTerm mouse mode (XM/xm),
+using the -x flag was not possible until now without breaking programs
+like htop. By removing this flag, these issues should be resolved.
+This fixes #2131.",2,2
+2139,2019-02-28T21:43:57Z,2019-03-02T18:57:08Z,2019-03-02T18:57:08Z,3,9,0,"These key bindings worked for me in xterm and urxvt but seemed to be missing in alacritty's defaults.
+They're used for example in WeeChat's default key bindings to scroll to the top of the buffer, the bottom, a few lines up or a few lines down.
+Cheers!",2,1
+2140,2019-02-28T22:59:14Z,2019-03-04T22:58:03Z,2019-03-04T22:58:04Z,3,35,6,"Closes #2128.
+As agreed in that thread, I have modified the start_daemon function on Windows to make behaviour as close to Unix as possible.
+At the same time I have also fixed a crash where new Alacritty windows opened with SpawnNewInstance keybind would close instantly with the ConPTY backend. This was due to invalid stdio handles being passed to the conpty child process.
+If you think this all looks reasonable I'll create a ChangeLog entry and add it to the PR.",2,2
+2151,2019-03-03T17:27:21Z,2019-03-04T16:20:16Z,2019-03-04T16:20:16Z,3,14,8,"SizeInfo ctx with padding was being used to determine if the last mouse location was valid, however the padding doesn't need to be applied to mouse locations. Mouse x,y is updated by CursorMoved events which only send events if the mouse is inside of the alacritty window bounds.
+Instead, use usize::max_value() as a marker for invalid mouse positions and set to that value on CursorLeft events to ensure that mouse_coords() returns None when the mouse position is invalid. This should allow any mouse location inside the alacritty window to return a proper row/col coord.
+This fixes #2109",3,6
+2152,2019-03-03T19:39:15Z,2019-03-19T19:14:17Z,2019-03-19T19:14:17Z,12,314,148,"This PR adds URL highlighting to give better feedback to the user about
+which text strings are recognized as an URL.
+This includes changing the cursor to indicate that it is possible to
+click URLs and underlining the URLs to show which cells are part of the
+URL.
+This fixes #1618.
+Currently this is only an initial draft, there's still some things that need to be done:
+
+ Change cursor when hovering over URLs
+ Underline URLs
+ Fix style/performance issues",2,1
+2157,2019-03-06T20:28:06Z,,2019-04-22T16:10:16Z,1,5,0,"Judging by the latest comments on #34 seems I'm not the only one irritated by the fact that Alacritty does not start in fullscreen mode.
+This changes the start_maximized config behaviour to start the app in full-screen on the current primary monitor (macos : where the mouse is located and spotlight bar is displayed).
+I guess an additional configuration can be added for this. For now, I rather keep this simple.
+I've tested this on latest macOs Mojave version and it works as expected.
+Can't test how this change behaves on Windows but I will update this PR once tested.",2,3
+2159,2019-03-07T02:23:54Z,2019-03-12T23:11:32Z,2019-03-12T23:11:32Z,4,35,2,"Now selection color and selection text color can be specified in config.
+Implements #2069",2,5
+2162,2019-03-08T02:44:48Z,2019-03-08T16:36:24Z,2019-03-08T16:36:24Z,2,7,1,"This fixes opening a new instance in the shell's current working
+directory.  The code currently assumes that there is a Linux
+compatible procfs mounted on /proc which is not the case on FreeBSD.
+However linprocfs(5) is often mounted on /compat/linux/proc so we
+can use that here for the time being.
+A proper solution would look up the kern.proc.cwd. sysctl
+instead, but that is not currently easily doable due to missing
+KERN_PROC_CWD and struct kinfo_file definitions in the libc crate.",1,4
+2163,2019-03-08T04:23:48Z,2019-03-11T12:35:50Z,2019-03-11T12:35:50Z,10,76,13,"Adds the ability to specify window position through either a config option or
+command line flag. Position is set early to avoid ""teleporting"" the window from
+its initial position (typically 0x0) to its configured position.
+(Somewhat) resolves #41 -- Ideally, at some point this should become POSIX compliant à la COLUMNSxROWS+X+Y. For now, a combination of dimensions and position is a somewhat competent workaround.
+
+This is my first ""substantial"" contribution to this project and I'm new to the code base, so I would appreciate any feedback on style and the like. I tested this on my local machine and nothing seemed out of the ordinary. I mostly copied the code present for setting the dimensions of the window and modified it as necessary.
+
+Current problems:
+
+ FIXED: Terminal now spawns at absolute 0x0, as opposed to 0x0 of the current screen.
+ FIXED: Terminal does not respect DPI settings set via WINIT_HIDPI_FACTOR env var",2,2
+2165,2019-03-08T23:37:28Z,2019-03-15T20:41:49Z,2019-03-15T20:41:49Z,3,7,0,"This closes #2010  by implementing the suggestion made by @chrisduerr to include the IncreaseFontSize keybinding for the 'Add' key by default.
+I tested this on MacOS and Arch Linux, and it seems to work. All of the cargo tests pass as well.
+Also, I realize there's not a lot going on in this PR, but it's my first 'real' one so any suggestions or critiques about the code or the message would be most welcome! Thanks :)",3,5
+2176,2019-03-14T03:54:04Z,2019-03-14T20:27:19Z,2019-03-14T20:27:19Z,1,1,1,"Hi, thought I'd make pr for this rather than an issue since it's such a small change.
+Currently passing an argument with --working-directory and ConPTY enabled causes a panic:
+panicked at 'assertion failed: success', src\tty\windows\conpty.rs:243:9
+The results of Error::last_os_error() reveals a bit more:
+{ code: 123, kind: Other, message: ""The filename, directory name, or volume label syntax is incorrect."" }
+I believe the current code code: cwd.map_or_else(ptr::null, |s| s.as_ptr()) returns a dangling pointer - looks like the value is moved and then immediately dropped IIUC.",2,0
+2186,2019-03-16T18:03:35Z,2019-04-08T19:50:07Z,2019-04-08T19:50:07Z,4,20,2,"It was mentioned in #923 that there is currently no way to scroll line by line using the keyboard.  This PR adds two actions, ScrollLineUp and ScrollLineDown, which can be optionally bound to keyboard keys by the user.",2,0
+2192,2019-03-19T17:45:47Z,2019-03-19T22:32:41Z,2019-03-19T22:32:41Z,2,13,5,"If a URL ends right at the end of the terminal, it would sometimes
+incorrectly include the characters from the following line when
+launching the URL.
+Similar to the semantic search function, the URL parsing iterator will
+now stop if it encounters a cell at the end of the line which does not
+contain the WRAPLINE flag.
+This fixes #1906.",2,0
+2201,2019-03-21T22:05:40Z,2019-03-25T00:27:38Z,2019-03-25T00:27:38Z,2,12,2,"Because Alacritty's window starts out unmapped with with_visibility(false), adding with_maximized() makes Winit try to maximize the window before it's mapped. Compliant window managers ignore the request, so when show() is called, it's not maximized. This pull request explicitly maximizes the window after it's mapped, and fixes #1902.",2,1
+2207,2019-03-23T18:08:18Z,2019-04-28T20:21:40Z,2019-04-28T20:21:40Z,22,301,923,"This switches our own copypasta crate with the more standardized
+clipboard library, which allows us to get rid of the xclip
+dependency on X11.
+Additionally, this lays the foundation for native Wayland clipboard
+support once the clipboard crate is updated (or a fork is created).
+Fixes #5.",12,18
+2224,2019-03-28T07:04:05Z,2019-04-23T17:41:22Z,2019-04-23T17:41:22Z,6,232,204,"This adds a DirectWrite font rasterizer for Windows. This enables subpixel rendering and hinting on Windows, resolving #1673 . I have stuck this behind a feature flag, directwrite, for now, I'm not sure what would be desirable going forward. I was not confident enough to outright replace rusttype.
+I have tested this at 100% DPI, 150% DPI and 200% DPI and it appears to behave correctly. There are no test regressions though I haven't checked to see if there are any tests that would catch a renderer bug! I have run rustfmt with the rustfmt config in #2212 on the presumption that PR will be merged in the future, I wanted to minimise any future required changes.
+I did try to run vtebench but it seems that it doesn't work on Windows, is there something I'm missing? For example, am I meant to run vtebench in WSL to check Windows performance or is Windows perf something that hasn't been looked at yet?
+Whilst not a regression when compared to the rusttype, this rasterizer currently does not attempt to fallback if the font isn't found. The DirectWrite APIs for fallbacks appear pretty complex (https://docs.microsoft.com/en-gb/windows/desktop/api/dwrite_2/nf-dwrite_2-idwritefontfallback-mapcharacters) and are not exposed in dwrote. Perhaps it would be sufficient to hardcode some fallback familes as Windows ships with a well known set of fonts, it seems to me that Consolas should be a safe fallback but perhaps we should look for Lucida Console too.
+Apologies if I've made any silly mistakes, this is the most Rust I've ever written, I think I like it though!
+Fixes #2316.",7,21
+2235,2019-03-31T16:33:29Z,2019-03-31T18:29:05Z,2019-03-31T18:29:05Z,1,1,4,Looks like merge conflict created two ChangeLog sections? Have fixed.,2,0
+2250,2019-04-03T07:18:33Z,2019-04-04T18:41:57Z,2019-04-04T18:41:57Z,6,9,1,"After completing all the steps presented in INSTALL.md, Alacritty will correctly report its icon (e.g. screenshot from rofi).",2,4
+2252,2019-04-03T22:06:17Z,2019-04-04T17:04:06Z,2019-04-04T17:04:07Z,3,6,11,"Bump to winapi 0.3.7.
+Closes #1920",3,0
+2262,2019-04-06T17:02:53Z,2019-04-06T20:36:49Z,2019-04-06T20:36:50Z,1,2,2,"Don't mix floats and integers.
+As mentioned in #2016 (comment).",2,6
+2269,2019-04-08T19:59:25Z,2019-04-08T22:19:23Z,2019-04-08T22:19:23Z,2,11,0,"Reset the scrolling region (aka top/bottom margins) when the RIS escape sequence is received.
+The change is in mod.rs:reset_state(). This function is only called when the RIS sequence is received.
+This mostly fixes #2258. It also mentions DECSTR (soft reset). That escape sequence doesn't appear to be implemented at all. This PR makes no attempt to implement it.",2,0
+2293,2019-04-10T11:01:03Z,2019-04-11T08:41:21Z,2019-04-11T08:41:21Z,2,15,5,"This fixes the execution of subprocesses on macOS which could sometimes
+prevent actions like SpawnNewProcess or custom commands from launching
+their processes correctly.
+This fixes #2259.",2,8
+2295,2019-04-10T16:49:39Z,2019-04-10T18:11:21Z,2019-04-10T18:11:21Z,1,1,1,,2,0
+2298,2019-04-10T21:22:12Z,,2020-01-15T20:19:02Z,5,56,29,"Adds a new configuration option under visual_bell called
+bell_command that reuses the command formatting of the keybindings.
+This allows for things like playing a notification sound.
+See #1528 (comment)
+Closes #1528",6,6
+2305,2019-04-12T12:06:23Z,2019-04-17T22:42:28Z,2019-04-17T22:42:28Z,2,7,1,"Instead of calling TIOCSWINSZ for every pixel change it will now be called only on changes to the grid size. This should reduce screen refreshes.
+This is my first pull-request for this project and first time really working with Rust. I'm open to improvements and hope that my code will be at least a bit useful.
+This fixes #2177",2,0
+2308,2019-04-12T22:27:38Z,2019-04-23T19:05:48Z,2019-04-23T19:05:48Z,8,177,25,"This adds fullscreen support to Alacritty.
+It also adds a ""simple"" fullscreen support (the highly requested feature for macOS where the fullscreened window doesn't occupy its own space).
+Added platform keybindings:
+
+macOS: ctrl + cmd + F (native fullscreen)
+windows: Alt + Enter
+
+Added actions (can be used to create your own keybindings):
+
+ToggleFullscreen:
+
+this toggles the native fullscreen on each platform
+
+
+ToggleSimpleFullscreen:
+
+on macOS, this toggles the nice ""simple"" fullscreen (no space required)
+non macOS, this is just an alias for ToggleFullscreen. The rationale for this choice is so that the one alacritty.yml config file is still compatible cross-platform.
+
+
+
+I've manually tested this on the following:
+
+macOS (mojave)
+Windows 10
+Linux (X11)
+
+
+Fixes #34.
+Fixes #2012.
+This is different to #2157 (that one is for starting in fullscreen mode).",2,8
+2312,2019-04-14T01:33:05Z,2019-04-28T13:24:59Z,2019-04-28T13:24:59Z,120,398,433,"Spiritual successor of #1023. The eventual goal is to have alacritty-core not depend on glutin or winit.
+@chrisduerr Would you be willing to merge this in the current state? I'd prefer to avoid what happened with the last attempt, where the final goal was so far off that it was never merged and eventually it got impossible to rebase.",3,18
+2329,2019-04-18T23:33:47Z,2019-11-18T21:15:26Z,2019-11-18T21:15:26Z,5,170,39,"Upon pressing ctrl-L in many terminal applications (including most shells) the ANSI escape command CSI 2 J is triggered to clear the entire screen. There are various implementations of this in the wild, however we've decided the best course of action should be to retain all output by scrolling the visible region up each time. This ensures you never lose anything on the screen with CSI 2 J. Then to clear the history another escape, CSI 3 J can be used, as clear does.
+TODO
+
+ clear no longer clearing all history, last page preserved (might need to be config?)
+ clear causes a full page of scrollback history each time (most other terminals also do strange things)
+ Scrolling regions (printf ""\e[1;5r"" )
+ Broken ref tests
+
+fixes #2199",3,15
+2331,2019-04-19T02:23:37Z,2019-04-19T13:34:39Z,2019-04-19T13:34:39Z,1,4,3,Fixes #2327,2,0
+2348,2019-04-22T18:18:19Z,2019-04-22T19:50:08Z,2019-04-22T19:50:08Z,2,10,4,This caused a panic on startup in Windows. It happens in the 0.3.1 release.,2,2
+2349,2019-04-22T18:23:27Z,2019-04-25T16:51:46Z,2019-04-25T16:51:46Z,2,18,14,"If a cell has a matching foreground and background and is inversed
+through the escape or selection, it will now fall back to the default
+background on top of the default foreground.
+This makes it possible to show invisible text like this by selecting it.
+Hidden text is unaffected by this change.
+This fixes #2315.",2,0
+2358,2019-04-23T13:54:36Z,2019-04-23T15:27:34Z,2019-04-23T15:27:34Z,1,3,7,"Although wayland support still has some issues I believe that functionality has improved a lot since this comment in the README was written, and with more support on the way such as native wayland clipboard support. I've been using alacritty on the wayland backend for a few months now and no longer experienced any notable issues.
+env WINIT_UNIX_BACKEND=x11 alacritty seems more correct as it allows winit to decide to use x11 instead of just disabling access to wayland.
+The winit wayland meta issue seems to be stagnant and not be tracking improvements made to wayland support.",2,0
+2361,2019-04-24T03:52:51Z,,2020-02-11T00:07:57Z,3,298,157,"Allow the user to modify a selection. This can be triggered with either a key combination or modifier + mouse button. The end point of the selection will be moved to the mouse location.
+The selection will still be cleared when clicking the mouse without any modifiers activated.
+Fixes: #1554",5,56
+2368,2019-04-25T19:48:48Z,2019-04-28T18:12:36Z,2019-04-28T18:12:36Z,3,13,6,"On linux some wms relies on _NET_WM_ICON when reporting application/window icon ( e.g. awesomewm with its tasklist and titlebars), so to set this we should call with_window_icon as we did it on windows.",3,2
+2371,2019-04-26T09:20:01Z,2019-04-28T16:09:27Z,2019-04-28T16:09:27Z,2,4,6,"Currently, RenderableCellsIter skips over the WIDE_CHAR_SPACER, as it's empty, and doesn't underline it, resulting in only the left half of the character being underlined. This PR makes it so that RenderableCellsIter always underlines every cell in url_highlight, even if it's empty.",2,0
+2387,2019-04-29T22:27:01Z,2019-04-30T11:47:48Z,2019-04-30T11:47:48Z,1,1,1,A fresh openSUSE Tumbleweed installation was missing a build dependency,2,1
+2394,2019-04-30T22:20:42Z,2019-05-01T13:10:16Z,2019-05-01T13:10:16Z,1,2,2,"This is similar to #2387
+On a Fedora system running X11 I had to install the libxcb-devel dependency in order to compile.",2,1
+2397,2019-05-01T03:46:37Z,2019-05-03T23:48:25Z,2019-05-03T23:48:25Z,19,318,270,"This changes the output of the --version (-V) flag. Before it was printing just the version of alacritty, now it will include the current git revision built. For example, this branch currently prints: alacritty 0.3.2 (531976a).
+This also fixes a small issue caused by dbd8538, which caused alacritty -V to print alacritty_terminal 0.3.2.
+
+ output is using crate_name!() now yielding alacritty_terminal not alacritty",3,2
+2413,2019-05-04T05:13:18Z,,2019-08-28T00:40:20Z,6,119,87,"This PR makes it so that whenever the terminal's dirty, as well as on certain events, Alacritty checks for URLs - but only if the mouse is in the window.
+I changed a good bit of code, so critique is welcome!
+Should fix #2388",5,15
+2416,2019-05-05T09:48:35Z,2019-05-11T15:57:23Z,2019-05-11T15:57:23Z,4,35,35,"Commit 494348a only cached by cursor style, which meant that the cached cursor, which was probably single-width, would be used to draw over wide characters.
+This commit caches by height, width, line_width, and style, so any time the cursor requirements change, a new cursor will be cached.",2,5
+2419,2019-05-06T02:38:42Z,2019-05-11T14:29:08Z,2019-05-11T14:29:08Z,2,36,0,"Adding Appstream data to Alacritty to meet Freedesktop.org specification and standard, which will enable it to be seen in Linux software shops, and help in the creation of a Flatpak.",1,0
+2423,2019-05-06T22:59:55Z,2019-05-12T17:04:18Z,2019-05-12T17:04:18Z,1,1,1,"Fixes #2393
+If this doesn't get pulled then build instructions over at https://github.com/jwilm/alacritty/blob/master/INSTALL.md#cargo with fail with
+cargo-deb: unable to read license file: ../LICENSE-APACHE
+  because: No such file or directory (os error 2)",3,4
+2424,2019-05-07T00:58:11Z,2019-05-13T23:06:20Z,2019-05-13T23:06:20Z,1,8,2,Fixes #2418,2,3
+2427,2019-05-07T22:57:15Z,2019-05-08T08:38:53Z,2019-05-08T08:38:53Z,1,60,67,"This updates notify and thus finally removes bitflags 0.7 from the
+lockfile",2,0
+2429,2019-05-08T22:38:36Z,2019-05-09T17:56:35Z,2019-05-09T17:56:35Z,1,6,2,Packages are pulled from the Pop!_OS PPA so that Ubuntu and Ubuntu-derivatives may use it.,2,0
+2438,2019-05-13T20:56:39Z,2019-10-05T00:29:26Z,2019-10-05T00:29:29Z,54,2743,3019,"This takes the latest glutin master to port Alacritty to the EventLoop
+2.0 rework.
+This changes a big part of the event loop handling by pushing the event
+loop in a separate thread from the renderer and running both in
+parallel.
+TODO:
+
+ Resize issues (#2438 (comment))
+ run_return support for macOS (rust-windowing/winit#1005)
+ Resizing extremely slow
+ Font size change not updating pty size
+ Message bar does not update PTY size properly
+ Incorrect window dimensions when moving Alacritty between different DPI monitors
+ Font size not updating when moving Alacritty between different DPI monitors
+ Clean up code / resolve remaining TODOs
+ Incorrect startup DPI on X11 (rust-windowing/winit#998)
+-> ⚡ Still broken when spawning a floating window in i3
+-> Workaround implemented
+ Make sure before merging all the linked issues have change log entries
+ Clear errors on message bar reload
+
+Fixes #2796.
+Fixes #2694.
+Fixes #2643.
+Fixes #2625.
+Fixes #2618.
+Fixes #2601.
+Fixes #2564.
+Fixes #2456.
+Fixes #2438.
+Fixes #2334.
+Fixes #2254.
+Fixes #2217.
+Fixes #1789.
+Fixes #1750.
+Fixes #1125.",18,200
+2441,2019-05-14T17:21:13Z,,2019-05-15T10:11:47Z,1,5,1,"Sorry, I opened this PR directly without opening a Issue. This is my reason:
+
+In some environments, the git clone will not be used, but by downloading the zip or tar.gz package. At this time, the failure to read the commit hash will fail to build. A concrete example is to build the Rust software via the openSUSE Build Service: https://build.opensuse.org/package/show/X11:terminals/alacritty.
+On my local git version 2.21.0, the rustc_tools_util::get_commit_hash function will not return None even if it does not read the commit hash, but instead returns a Some(""""), An empty string. This causes the expect to never be triggered to terminate the build.
+
+If the rustc_tools_util::get_commit_hash function does not get a commit hash (empty string) then the environment variable is read. I think this will solve both problems at the same time.
+Even if you decide not to merge this commit, I still hope to improve build.rs so that it can be built without the .git directory.
+Thanks!",3,1
+2443,2019-05-15T10:09:34Z,2019-06-06T18:46:33Z,2019-06-06T18:46:33Z,2,8,4,"Follow the discussion plan for PR#2441. The ultimate goal is to continue building without git installed or without getting a commit hash, and correctly output --version.
+The build script for openSUSE or other Linux distribution continues to be compatible without any source code patches.",4,0
+2449,2019-05-16T14:51:22Z,2019-05-19T19:24:01Z,2019-05-19T19:24:01Z,2,5,3,Addresses #2409,3,0
+2452,2019-05-17T04:45:06Z,2019-05-17T19:08:42Z,2019-05-17T19:08:43Z,1,202,175,Tested and working on Linux and macOS.,2,0
+2458,2019-05-18T18:43:25Z,,2019-06-07T22:08:20Z,4,29,3,Issue related #2126,1,9
+2470,2019-05-22T21:31:29Z,2019-06-06T00:02:20Z,2019-06-06T00:02:20Z,2,8,2,"Currently, when the cursor is inside the selection, it isn't visible, because both it and the selection are the inverse of the regular terminal. This PR inverts the cursor and its cell again, making sure that the cursor is still visible.",3,3
+2477,2019-05-25T06:11:34Z,2019-05-25T10:14:50Z,2019-05-25T10:14:50Z,1,12,1,,2,0
+2482,2019-05-26T08:32:46Z,2019-05-28T16:29:43Z,2019-05-28T16:29:43Z,2,6,0,"I'm currently stuck with Notepad when editing the config file and it insists on adding a BOM when saving it. Alacritty errors when loading the config file due to it and so this patch adds code to skip the BOM.
+Note that my Rust knowledge is basically based on Googling for how-to-do-stuff and interpreting the results, so any improvements to the code are welcome.",2,0
+2495,2019-06-02T06:42:45Z,2019-06-02T13:16:39Z,2019-06-02T13:16:39Z,3,30,2,"When a ""?"" is given rather than a color in xterm for foreground/background escape codes, the current color is returned. This can be and is used by programs such as vim to preserve readability.
+I have based the output format directly on xterm.",2,1
+2501,2019-06-03T08:32:36Z,2019-06-03T15:05:43Z,2019-06-03T15:05:43Z,1,1,1,"The previous link (above) was pointing at its own section, and the reference is actually below. Corrected section link and wording.",2,0
+2502,2019-06-03T18:04:30Z,2019-06-03T20:01:26Z,2019-06-03T20:01:26Z,1,1,1,"Since the headline was changed, the relative link wasn't working anymore.
+(minor)",2,0
+2504,2019-06-04T15:54:15Z,2019-08-19T19:56:28Z,2019-08-19T19:56:28Z,2,71,59,"Escape sequences in xterm are parsed according to xparsecolor. xparsecolor supports 1, 2, 3, and 4 digit hex colors. Previously, only 2 digits were supported.
+This also fixes a bug where ""fX"" was parsed as ""0xf"" instead of ""0xf0"". xterm handles invalid hex values as 0, except for '/'.
+The response to a request for fg/bg must be a valid escape sequence. Most terminals output a 4-digit hex response on request for fg/bg color. This changes the response to 4-digit, improving compatibility.
+
+xterm control sequence document referencing xparsecolor
+xparsecolor spec describing the valid colors
+context for why we were using 2-digit color hex responses",2,12
+2506,2019-06-04T18:42:28Z,2019-06-09T16:30:43Z,2019-06-09T16:30:43Z,2,70,0,"I added a specfile template that enables building alacritty with rpkg, for example in COPR. I would be happy to maintain an inofficial COPR repo that we could mention in README.md for Fedora and EL7/Centos users.
+I hope I got all the building and installation steps right, but it seems to work fine in my testing.
+Is libEGL a build or a runtime dependency? I was able to build without the package mesa-libEGL-devel . I could add mesa-libEGL (no -dev) as Requires: if it's a runtime dependency.
+I had to base this on #2443, as the rpmbuild chroot is not a git repository, and the build failed otherwise.
+Unfortunately, I was unable to place the files into extra/linux/rpm or similar, because rpkg expects the macros in the project root.
+Lastly, I made some assumptions when generating the RPM package version: I take the output of git describe, replace dashes with dots and drop the leading ""v"" from the tag name. I didn't want to repeat the crate version in the spec template so it doesn't need to be bumped for every release.
+(N.B. git_version is a built-in rpkg macro, but I override it because it expects a specific tagging scheme in the repo).",5,41
+2507,2019-06-04T20:47:32Z,2019-06-09T18:02:16Z,2019-06-09T18:02:16Z,2,25,41,"Saw #2497 and decided to take a crack at it
+Recursively causes os dispatch to parse the next
+parameters, as if they were entered with their
+own escape codes
+Not too familiar with rust but seems like this
+would be tail recursive
+before:
+
+after:",2,4
+2509,2019-06-05T14:37:57Z,2019-06-21T14:35:29Z,2019-06-21T14:35:29Z,1,130,121,"This is in response to #2457, and should fully cover the key_bindings configuration.
+
+ Document mode values",4,3
+2519,2019-06-07T18:23:59Z,2019-06-09T11:46:32Z,2019-06-09T11:46:32Z,20,1021,63,"This is a follow-up PR to #2513.
+Using the smithay-clipboard v0.3 release, this adds support for the primary selection clipboard on Wayland.
+Since the progress on the rust-clipboard PR has been a bit slow, the clipboard crate has also been moved into alacritty under the name copypasta (same as the previous clipboard crate we had). This should hopefully allow directly sending PRs, without having it live in a separate repo.
+Fixes #2510.",4,5
+2533,2019-06-13T09:25:13Z,2019-06-13T15:28:02Z,2019-06-13T15:28:02Z,1,6,4,"Without having installed the Python 3 package, the Alacritty build fails as rust-xcb requires it:
+error: failed to run custom build command for `xcb v0.8.2`
+process didn't exit successfully: `/home/pwrdwnsys/building/alacritty/target/release/build/xcb-581edfd7cf040f3d/build-script-build` (exit code: 101)
+--- stderr
+thread 'main' panicked at 'Unable to find build dependency python3: Os { code: 2, kind: NotFound, message: ""No such file or directory"" }', src/libcore/result.rs:997:5
+note: Run with `RUST_BACKTRACE=1` environment variable to display a backtrace.
+
+warning: build failed, waiting for other jobs to finish...
+error: build failed",2,0
+2541,2019-06-14T09:22:55Z,2019-06-16T11:29:19Z,2019-06-16T11:29:19Z,1,2,1,"Alacritty did not launch a login shell by default on Linux contrary to
+what is claimed by the comments in the configuration file. As a result,
+bash does not read /etc/profile file leading to an inconsistent
+environment compared to those with other terminals.
+This commit simply extends what has been done by PR #1856 referenced by
+issue #1071.",3,6
+2545,2019-06-15T19:06:38Z,2019-06-15T20:30:18Z,2019-06-15T20:30:18Z,1,3,0,Ref #2529 LLVM out of memory on OpenBSD default login.conf settings,2,1
+2557,2019-06-18T01:46:31Z,2019-06-18T21:23:03Z,2019-06-18T21:23:04Z,5,16,20,,2,0
+2563,2019-06-19T11:30:37Z,2019-06-19T18:26:59Z,2019-06-19T18:26:59Z,1,1,1,"The timestamp is that of when the v0.3.3 tag was created.
+While at it, I also changed the date format to follow ISO 8601 👍",2,2
+2573,2019-06-21T20:37:35Z,2019-06-21T23:00:02Z,2019-06-21T23:00:02Z,2,5,1,"This commit fixes regression introduced in cfc20d4.
+self.cursor.line forced the cursor to hold a fixed location while scrolling
+until its ""original"" location (usually the shell prompt) went off the screen.
+So cursor position should be keep updated, which can be achieved by using
+self.inner.line().
+cc @chrisduerr @lovesegfault",3,2
+2580,2019-06-22T22:10:19Z,2019-06-25T21:34:56Z,2019-06-25T21:34:56Z,3,47,33,"This should fill window with background color while it is offscreen instead of
+showing uninitilized window (just borders) and then performing clear. So, the new behavior
+should prevent glitches during startup (e.g. content of a windows below,
+garbage from drivers, so on).
+--
+However, I was able to get glitches ( previous app content ) with the new behavior, but it happens 1 time out of 15-20 openings, instead of every time. So if someone knows how should I prevent this 1 time, I'll appreciate it.
+P.s. I'm not very familiar with opengl, so if you see something completely wrong, let me know.",2,8
+2591,2019-06-25T09:41:07Z,2019-06-25T15:04:15Z,2019-06-25T15:04:15Z,1,1,1,"current master does not build on arch w/o libxcb
+https://www.archlinux.org/packages/extra/x86_64/libxcb/",3,1
+2598,2019-06-27T21:00:43Z,,2019-07-13T09:51:29Z,1,1,1,"DWRITE_RENDERING_MODE_NATURAL:
+
+DWRITE_RENDERING_MODE_NATURAL_SYMMETRIC:",4,9
+2605,2019-06-30T14:26:56Z,2019-06-30T16:04:10Z,2019-06-30T16:04:10Z,1,2,3,"This uses $fish_complete_path[1], which should be in the user's home directory, so sudo is no longer needed.",2,1
+2606,2019-06-30T23:27:08Z,2019-07-06T19:34:57Z,2019-07-06T19:34:57Z,7,107,53,"This makes two small changes for better support under gnome:
+
+Allow setting the _GTK_THEME_VARIANT hint.  This permits selecting dark title bars to go with a dark terminal theme
+Allow setting both the instance and class portions of the WM_CLASS hint (with CLI support).  This gives complete control over which desktop entry gnome-shell associates with the window.  Without this, gnome-shell would always associated the created window with alacritty.desktop, even if it was launched from a custom desktop entry (e.g. to create a dedicated vim window).  The commit message gives an example.",5,22
+2614,2019-07-06T02:40:23Z,2019-07-08T18:13:56Z,2019-07-08T18:13:56Z,4,55,11,"This PR sets the mouse cursor to an arrow when over the message bar, and to a pointer when over the close button. This indicates that the message bar isn't part of the regular terminal, and that the close button can be clicked on and closed.
+Feedback welcome!",2,0
+2619,2019-07-06T22:46:45Z,2019-07-10T21:24:05Z,2019-07-10T21:24:05Z,5,22,12,"The cursor rework introduced a regression where cursor color was always picked
+from a config file, rather then using ansi::NamedColor::Cursor and
+ansi::NamedColor::CursorText for this purposes.
+Fixes:  #2617",2,0
+2621,2019-07-07T00:48:40Z,2019-07-08T15:19:43Z,2019-07-08T15:19:43Z,4,9,3,"Add --class and -t options to shell completions.
+Fixes: #2612",2,3
+2630,2019-07-09T18:50:55Z,2019-07-10T21:17:21Z,2019-07-10T21:17:21Z,11,865,129,Fixes #2613.,3,0
+2633,2019-07-09T23:36:51Z,2019-07-22T18:56:09Z,2019-07-22T18:56:09Z,3,113,168,Fixes #2631.,2,0
+2636,2019-07-10T05:31:45Z,2019-07-10T18:27:44Z,2019-07-10T18:27:44Z,1,1,1,"This commit fixes the regression introduced in
+84aca67
+Fixes: #2635",2,0
+2642,2019-07-11T22:47:08Z,2019-07-15T21:32:48Z,2019-07-15T21:32:48Z,2,129,14,Fixes #2641.,4,27
+2644,2019-07-13T05:01:09Z,2019-07-14T10:53:05Z,2019-07-14T10:53:05Z,2,11,1,"As an alternative to #2598, query DirectWrite for the font rendering mode to use instead of hard-coding one.
+With the settings on my system this doesn't make much of a difference visually, but asking for the OS to decide the mode seems better simply because there could be different system configurations that result in different modes, or it could even be varied on a per font basis by Microsoft.",2,1
+2648,2019-07-15T01:02:56Z,,2019-07-30T20:51:30Z,1,3,1,"After having #2629 sitting there for a while I decided to have a go at it. The change is pretty straightforward. There isn't much to say in addition to what I already explained there. Let me know if this is ok.
+Fixes #2629.",3,6
+2649,2019-07-16T11:15:10Z,2019-07-16T15:45:47Z,2019-07-16T15:45:47Z,1,0,1,"The outputs below were printed in executing make app on macOS.
+warning: the item `WindowExt` is imported redundantly
+   --> alacritty_terminal/src/window.rs:406:13
+    |
+22  | use glutin::os::macos::WindowExt;
+    |     ---------------------------- the item `WindowExt` is already imported here
+...
+406 |         use glutin::os::macos::WindowExt;
+    |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |
+    = note: #[warn(unused_imports)] on by default",2,0
+2659,2019-07-19T19:58:14Z,2019-07-23T21:21:12Z,2019-07-23T21:21:12Z,2,9,1,Resolves #2655,2,0
+2661,2019-07-20T08:38:27Z,2019-08-24T23:18:51Z,2019-08-24T23:18:51Z,5,112,65,Resolves #2550,3,13
+2664,2019-07-20T15:09:36Z,2019-08-06T22:59:17Z,2019-08-06T22:59:17Z,7,167,138,"I came from akinomyoga/ble.sh#28, #2652, #2171 .
+For details of the problem, please refer to these issues. If it does not support some control functions, it should ignore them rather than triggering random control functions which have similar coded representations. The problem is not restricted in private sequences, but even some ANSI sequences (such as SL, SR, PPA, etc.) triggers wrong control functions in the current Alacritty where parameter/extra-intermediate bytes of CSI sequences are not checked. In this patch, the sequences with extra bytes are handled separately from the sequences without extra bytes.
+Note: the support for DA2 (Secondary Device Attribute) is not included in this patch.
+Fixes #2171.",5,18
+2666,2019-07-21T01:34:12Z,2019-07-28T17:04:27Z,2019-07-28T17:04:27Z,3,86,64,"This commit fixes the regression introduced in
+84aca67.
+Fixes #2665.
+reset_mouse_cursor() was called most of the time twice during mouse move actions and in case of hovering over already highlighted url, we were resetting hand cursor and then immediately setting it back,  this behavior was causing cursor ""flickering"".",3,14
+2672,2019-07-23T17:56:45Z,2019-07-26T11:18:48Z,2019-07-26T11:18:48Z,3,3,2,"Add \t to the semantic_escape_chars in alacritty.yml.
+Fixes #2639",2,0
+2677,2019-07-26T01:41:21Z,,2021-12-28T22:20:39Z,15,788,267,"Initial support for font ligatures using harfbuzz and free type on linux.
+This builds on the work done by @anirudhb in [WIP] Basic text shaping and rendering using Harfbuzz
+Step in the direction towards closing #50 .
+This is relatively early in it's implementation but I wanted to get some eyes on it as changes past this point will start to effect core pieces of infrastructure (rendering etc.).
+Currently code will render ligatures on linux with a monospace font (I've only tested with Fira Code).
+
+Major Changes
+
+
+TextRun replaces RenderableCell as main method of rendering text
+Harfbuzz used to shape runs of text (allowing ligatures)
+GlyphKey uses u32 (glyph index) instead of char
+
+Support for font ligatures is enabled by changing the base rendering unit from a RenderableCell to a TextRun (name flexible). A TextRun bundles a series of RenderableCells that share the same render properties (line, fg, bg, etc.) into one unit. Each TextRun gets shaped by harfbuzz returning the glyph indices for each character.  From here each glyph is rasterized as normal through the glyph cache.
+Changes are guarded behind the hb-ft feature in alacritty_terminal.
+Along with adding new code under this feature, some code is removed when this feature is turned on. Mainly code dealing with rendering RenderableCell's (and GlyphKey's c member).
+The idea behind this is to ensure that there aren't any unknown uses of RenderableCell in the codebase. Once the code is free of RenderableCell when hb-ft is on, more intrusive changes can be made to rendering that break the conventions set by RenderableCell.
+Caveats
+
+
+Only works on linux.
+Incurs performance hit of shape() call for each text run for each draw call (haven't done any testing yet to see how steep this is).
+Ignores position information from harfbuzz, this means it probably only works for monospace ligatures (Fira Code) since each ligature is still rendered as if it's in it's own cell.
+Each Face object carries an instance of hb_font with it, in addition to freetype::Face, this doesn't seem hugely problematic but is should definitely be noted.
+Post shaping work is mainly done in Glyph Indices, this makes it hard to employ the same font recovery technique currently used by load_face_with_glyph as we don't have a char available to guess at the font. This functionality can be recovered by keeping the char stored with it's indice however this means GlyphKey would no longer fit in a u64.
+
+Questions
+
+
+Should TextRuns be cached similar to how GlyphKeys are currently?
+Can this approach be adapted to Mac OSX and Windows, and if it can how different does the code need to be?
+Currently code grabs a Vec<RenderableCell> from grid and wraps that as a TextRunIter to produce TextRuns. Would it make more sense for grid to directly produce a TextRunIter and avoid the unecessary middle allocation (hopefully)?
+Should alacritty only support monospace ligatures and ignore ""proper"" ligatures?
+Can TextRun completely replace RenderabelCell?
+Does it make sense to use glyph index in GlyphKey (instead of char)?
+
+Remaining Work
+
+
+Rendering and Atlas construction should hopefully be able to take more advantage of TextRuns then they are currently (none).
+Font ligatures should be a configurable option, this is a matter of enabling/disabling the harfbuzz feature based on a bool.
+Harfbuzz supports building a font from a freetype Face directly, however none of the rust bindings expose that functionality currently.
+Glyph Index is represented by a raw u32, this should be replaced with a newtype wrapper such as GlyphIndex(u32) similar to Line and Column.
+Benchmarking performance with new TextRun implementation
+
+I'm relatively new to the open source community so my apologies if something is out of place or I've missed a process I should've completed.
+I initially ran my code through cargo fmt however it changed a ton of the codebase that I hadn't touched so I undid those changes. Is there a common rustfmt.toml config the repo uses?",25,63
+2681,2019-07-28T02:22:07Z,2019-08-01T15:37:01Z,2019-08-01T15:37:02Z,9,205,453,"This switches to rfind_url for detecting URLs inside the grid. Instead
+of expanding at the cursor position, the complete terminal is searched
+from the bottom until the visible region is left with no active URL.
+Fixes #2629.
+Fixes #2627.",2,25
+2682,2019-07-28T13:20:20Z,,2019-08-04T12:19:26Z,3,33,17,"SizeInfo lines/cols start from 1, however RenderableCell lines/cols start from 0, so explicit inc/dec is required. Also checking for cell.column == size_info.cols() + 1 seems incorrect here, since it will be called, when our terminal last line will be entirely occupied by text, so underline/strikethrough wouldn't be updated most of the time.
+Fixes: #2680",2,15
+2683,2019-07-28T14:19:51Z,2019-07-28T17:03:53Z,2019-07-28T17:03:53Z,2,13,2,Bump gl_generator dependency to 0.13 now that brendanzab/gl-rs#493 is merged,2,0
+2697,2019-08-03T11:30:11Z,2019-08-03T13:19:34Z,2019-08-03T13:19:34Z,4,37,48,"This makes sure that the URL search is only initiated when all required
+modifiers are held down. This should improve performance with long URLs.
+This was previously the case, however 72dfa47 introduced a regression
+which broke this.",2,6
+2700,2019-08-04T08:23:15Z,2019-08-04T16:01:09Z,2019-08-04T16:01:09Z,1,1,1,"visible_to_buffer can't be used on a point from message bar, such use
+of function will result in crash.
+This commit fixes the regression introduced in 9dddf64.
+Fixes: #2699",2,2
+2705,2019-08-05T15:35:58Z,2019-08-06T22:46:03Z,2019-08-06T22:46:03Z,3,58,66,"This commit fixes regression introduced in ddee14a.
+P.s.
+I really with feel bad for not spotting this one in a first place.",3,15
+2717,2019-08-12T20:30:48Z,,2020-01-14T23:02:14Z,2,39,2,"Hey there! First PR on Alacritty.
+This enables triple-select to select all lines that have wrapped in either direction from the clicked point.
+
+I am unable to get one of the tests to work -- the line_selection_works test fails with the following error:
+thread 'term::tests::line_selection_works' panicked at 'assertion failed: requested < self.len', alacritty_terminal/src/grid/storage.rs:195:9
+
+Also, the contribution guide recommends running cargo fmt, but the formatter changes a couple dozen files. I did not commit these changes.",4,19
+2719,2019-08-13T15:43:11Z,2019-09-09T20:39:40Z,2019-09-09T20:39:40Z,3,21,19,"This change makes the mouse cursor reset to it's default state while a selection is in progress. A click to clear the selection doesn't trigger a URL action, and so the mouse hand style isn't applied until the selection is cleared.
+Before:
+
+After:",2,5
+2723,2019-08-16T20:13:25Z,2019-08-18T02:46:30Z,2019-08-18T02:46:30Z,4,19,33,,3,4
+2724,2019-08-16T22:44:32Z,,2022-01-12T17:22:25Z,7,1063,31,"Implement damage tracking and reporting.
+This allows compositors to only process damaged (that is, updated) regions of our window buffer, which for larger window sizes (think 4k) should significantly reduce compositing workload under compositors that support/honor it, which is good for performance and battery life.
+On Wayland, clients are expected to report always report correct damage, so this makes us a good (or at least, better) citizen there. It can also aid remote desktop (waypipe, RDP, VNC, ...) and other types of screencopy by having damage bubble up correctly.
+Damage tracking has been implemented in a somewhat naïve fashion, but I believe it is a fair start.
+Note that this currently depends on a fork of glutin where support has been added.
+Fixes #3186.",4,75
+2746,2019-08-24T05:51:02Z,2019-08-25T12:35:19Z,2019-08-25T12:35:19Z,4,56,18,"It’s perfectly reasonable to combine bold and italic.
+I also normalised the ordering of the four variants, which was inconsistent in some places (including also the doc comment not matching the code in one place), to this: regular, bold, italic, bold italic.
+This may functionally be a slight regression for fonts that don’t have a bold italic variant, because I suppose it’ll pick some other variant, I know not which, rather than the bold font. If we care about that enough, we can fiddle it in config::font to fall back to bold rather than normal, and in renderer to fall back to bold rather than I know not what. I didn’t do that due to the (very) mild complexity involved, because of the rareness I expect of manually setting a bold font that differs materially from the normal font, and because I naively expect the renderer fallback to do a sane thing out of the box.
+
+Untested because I’m on Windows and italics aren’t working there (#2745). It builds and runs, but I can’t definitely say further than that.",2,5
+2749,2019-08-24T19:45:55Z,2019-09-10T16:08:02Z,2019-09-10T16:08:02Z,3,9,8,,4,3
+2751,2019-08-25T01:04:47Z,2019-08-25T12:46:54Z,2019-08-25T12:46:54Z,1,19,23,"This also encompasses some functional improvements like handling = between options and their arguments and reflecting some cases of option mutual exclusion.
+Declaring curcontext etc local is superfluous as _arguments states are not used. It is also superfluous to include an outer function definition syntax in zsh autoloadable functions: _alacritty() { ... } is implied.
+Zsh convention is not to capitalize descriptions.
+We also generally use the imperative mood verb form for descriptions as this allows them to start with the shortest form of the verb - e.g. ""reduce"" instead of ""reduces"" and
+results in better grammar in the absence of an explicit sentence subject. I'd
+recommend this in the --help output too.
+Using _guard for the position and dimensions was unnecessary given that the values are not mixed with other matches.",2,0
+2762,2019-08-28T00:04:15Z,,2019-10-19T19:41:56Z,3,45,13,"This PR scans for URLs every frame, and it will only go 4096 characters away from the current viewport. It starts scanning 4096 characters below the viewport, and it stops scanning either once the last URL that extends above the viewport ends, or once the last URL reaches 4096 characters.
+I made sure to scan before events are processed but after they're gathered, so that the events always operate on the same lock as the URL scan.
+Thanks, feedback welcome!",2,8
+2774,2019-09-03T13:52:42Z,2019-09-03T15:42:24Z,2019-09-03T15:42:24Z,2,4,3,… of the window,2,3
+2785,2019-09-08T01:00:41Z,2019-09-18T19:21:01Z,2019-09-18T19:21:02Z,3,147,198,"This commit removes all bindings which are sending escapes from
+the default configuration file, adds bindings for F13-F24, adds bindings
+for ScrollToTop/ScrollToBottom actions, removes bindings for Super + F1-F12,
+fixes bindings for Alt + F1-F12.
+Fixes: #2688",3,1
+2786,2019-09-08T04:23:49Z,2019-09-24T17:43:55Z,2019-09-24T17:43:55Z,7,169,97,"This is a basic implementation of XEmbed.  Please go easy on me.  I'm a Java developer, and haven't seen rust code until about 3 days ago.  Nevertheless, my interest in XEmbed for this application is to allow it to be used in conjunction with Suckless tabbed - which seems to work fine with not too much effort.
+I normally run a basic terminal in tabbed in dwm, but here's what it looks like in Xfce:",4,8
+2787,2019-09-08T13:43:50Z,2019-10-09T21:37:49Z,2019-10-09T21:37:49Z,9,130,104,"Hi there! Thanks a lot for your work on Alacritty, this project been helpful for me in countless ways, so I want to contribute something back. This PR implements --hold flag together with the hold configuration option which keeps Alacritty open after its child process exits.
+Maybe I should clarify why I decided to put the hold flag in the Term struct instead of passing it directly to the EventLoop where the handling of child process exit happens. I've tried this approach first, but it turned out to be extremely hard to write a test for (at least for me, I'm a total noob in Rust). I've also tried ref-tests, but for some reason, even with just opening and closing Alacritty I get 60 megabytes of grid.json, and a generated ref test is always failing. I'm not sure why it happens as I'm not very familiar with how Grid works yet.
+So I've taken the easy-to-test approach, I hope it's good enough :)",4,12
+2793,2019-09-10T21:58:32Z,2019-09-13T23:51:15Z,2019-09-13T23:51:16Z,2,43,4,Fixes #2789.,2,3
+2802,2019-09-15T19:48:15Z,2019-09-16T15:02:30Z,2019-09-16T15:02:30Z,1,94,25,Fixes #2794.,2,0
+2809,2019-09-20T01:38:31Z,2019-09-21T17:54:33Z,2019-09-21T17:54:33Z,5,10,17,,3,0
+2810,2019-09-20T12:03:07Z,2019-09-28T00:37:23Z,2019-09-28T00:37:23Z,4,55,69,"Currently, there is no option to disable default key bindings while keep receiving pressed keys. It's because specifying action None is actually a no-op and does not result in an unset binding. This pull request aims to overcome this limitation.",4,24
+2819,2019-09-24T16:33:17Z,2019-09-26T14:10:55Z,2019-09-26T14:10:55Z,2,6,3,"Commit e964af8 introduced a regression, where if cell's bg color was
+equal to NamedColor::Background rgb color it was rendered with transparent
+background. However the correct behavior is to render bg transparent
+only when bg color is actually a NamedColor::Background.
+Fixes: #2814",4,3
+2820,2019-09-24T19:44:09Z,2019-10-06T10:47:21Z,2019-10-06T10:47:21Z,9,157,219,"Alacritty can work without any configuration file being presented,
+so generating one for user in $HOME/.config/alacritty/alacritty.yml by default
+is considered a bad practice.
+Fixes: #2818",4,2
+2823,2019-09-24T20:34:21Z,2019-09-26T12:45:00Z,2019-09-26T12:45:00Z,4,25,19,Fixes: #2822,3,5
+2831,2019-09-28T07:33:23Z,2019-09-28T16:59:28Z,2019-09-28T16:59:28Z,2,8,4,"A semicolon in a title OSC should be interpreted literally, not as a parameter
+separator, but the OSC parser is very simple and does not know about arities of
+commands.
+Therefore, this patch takes all the parameters returned by the OSC parser and
+reconstructs the original string by interspersing semicolons. Now an OSC like
+\e]2;hello;world will set the title to 'hello;world' and not 'hello' like
+before.",2,0
+2834,2019-10-02T00:36:02Z,2019-10-02T18:49:20Z,2019-10-02T18:49:20Z,2,6,0,"Addresses first part of #2737. Second part, which will be font family and styles to also be live-reloaded, is coming in a follow-up PR.",3,1
+2836,2019-10-02T03:10:00Z,2019-11-03T19:02:27Z,2019-11-03T19:02:27Z,5,101,90,"Follow-up to #2834, addresses second part of #2737.
+This seems to work for me as a naive first pass, but I kind of just blindly copied what looked to be the relevent parts of Display.new where the initial GlyphCache is populated.
+One notable difference is that I left out the logic around estimated DPR since at this point we already have a known Display.size_info.dpr calculated when Display::new is run.",2,2
+2843,2019-10-03T20:22:02Z,2019-11-28T18:09:15Z,2019-11-28T18:09:15Z,6,1429,2,"This removes the fancy masked bit that makes up the white part of the logo in favor of a simple radial gradient. This makes all the SVGs compatible with the SVG Tiny subset that QtSVG supports. Sadly webkit will still butcher some of the blurs, so I also rendered a PNG for the README. The results are somewhat different from the original though, so not sure if this is an acceptable workaround.
+Opening this PR since there has been little discussion on the matter beyond acknowledging the issue, and to increase the possibility of having this fixed in 0.3.4, if consensus is to go with these simplified versions 😉 .",4,5
+2845,2019-10-04T04:26:39Z,,2020-01-11T21:34:01Z,5,95,12,"Currently, this gives a system failure with no clear indication of what the issue is (a general file not found error)",3,2
+2847,2019-10-04T08:22:12Z,2019-10-04T10:27:07Z,2019-10-04T10:27:07Z,1,1,1,"The URL was not valid anymore, updating it.",2,0
+2855,2019-10-06T19:18:57Z,2019-10-15T19:13:59Z,2019-10-15T19:13:59Z,8,54,38,Closes #2727,2,2
+2868,2019-10-10T14:46:43Z,2019-10-11T20:16:13Z,2019-10-11T20:16:13Z,2,3,0,"Disable allocation of depth and stencil buffers. This reduces active GPU memory consumption by almost a third, at least on Linux.
+If I have a large number of terminals open and there is memory pressure, switching between terminals takes a while, presumably because some required GEM objects are swapped to disk. This change makes the number and size of required GEM objects smaller, hopefully alleviating the issue.
+I have only tested this on Linux (X11). If passing 0 as the depth/stencil buffer size has different semantics on other platforms with glutin, things might break.
+With this branch: Note that the amount of active objects is 27MB. (the inactive object count is higher, since I just ran vtebench)
+archaea# cat i915_gem_objects|grep alacritty
+alacritty: 32 objects, 79409152 bytes (27426816 active, 51798016 inactive, 0 global, 29360128 shared, 184320 unbound, 0 closed)
+alacritty: 26 objects, 67796992 bytes (0 active, 67694592 inactive, 0 global, 29360128 shared, 102400 unbound, 0 closed)
+
+With master, 47MB of active objects are needed.
+archaea# cat i915_gem_objects|grep alacritty
+alacritty: 31 objects, 79147008 bytes (0 active, 78962688 inactive, 0 global, 29360128 shared, 184320 unbound, 0 closed)
+alacritty: 26 objects, 67796992 bytes (47620096 active, 20074496 inactive, 0 global, 29360128 shared, 102400 unbound, 0 closed)
+
+This had no effect on vtebench results.",5,11
+2872,2019-10-12T13:42:53Z,2019-10-14T20:34:55Z,2019-10-14T20:34:55Z,3,6,5,"It was discovered that we were logging path with \\ instead of \ as
+separators on Windows due to use of Debug formatting instead of Display
+for paths.",2,4
+2879,2019-10-14T16:29:03Z,2019-10-15T20:53:25Z,2019-10-15T20:53:25Z,2,2,1,,3,0
+2888,2019-10-17T16:37:57Z,2019-10-17T19:24:21Z,2019-10-17T19:24:22Z,2,20,3,"In the config, if window is undefined, the derived Default for the String title is used, which is an empty String. This was unintended, and causes issues in gnome-shell (e.g. in the alt-tab dialog) when the window title is an empty string.
+This commit adds a manually implemented default for the WindowConfig, it's the same as the derived Default, except for the title, which will now always be ""Alacritty"" as originally intended.
+Fixes #2887",2,0
+2890,2019-10-18T12:04:31Z,,2019-12-20T23:02:08Z,4,12,12,"I’ve been using the ConPTY backend since I started using Alacritty, and I don’t think I have ever experienced a problem unique to the ConPTY backend. Whenever I disable it to test something on the WinPTY backend, I cringe at how buggy ConPTY’s rendering is. After a year of ConPTY’s existence, I see no compelling reason to stick with the old and inferior. I reckon it’s time to default to the new and improved.",3,4
+2896,2019-10-19T19:38:55Z,2019-11-03T20:59:29Z,2019-11-03T20:59:29Z,17,698,621,"TODO:
+
+ Resolve issue with leaving/entering Alacritty window straight into URL
+ Update mouse cursor when URL highlight changes without mouse motion
+ Fix URL color
+ Add documentation to urlocator source + readme
+ Alacritty source code documentation
+ Fix remaining style issues
+
+Fixes #2898.
+Fixes #2479.",2,9
+2897,2019-10-20T00:07:09Z,2019-10-20T12:31:00Z,2019-10-20T12:31:00Z,2,5,2,"Compilation is broken on 32-bit X11 platforms since c1f0899:
+error[E0308]: mismatched types
+   --> alacritty/src/window.rs:420:69
+    |
+420 |         (xlib.XReparentWindow)(xlib_display as _, xlib_window as _, parent_id, 0, 0);
+    |                                                                     ^^^^^^^^^ expected u32, found u64
+help: you can convert an `u64` to `u32` and panic if the converted value wouldn't fit
+    |
+420 |         (xlib.XReparentWindow)(xlib_display as _, xlib_window as _, parent_id.try_into().unwrap(), 0, 0);
+
+The XID of the XEmbed parent needs to be an unsigned long, as seen here: xlib.rs#L623.",2,0
+2904,2019-10-22T08:35:58Z,2019-10-22T15:42:08Z,2019-10-22T15:42:08Z,1,1,0,"Getting rid of an unused import for Windows/macOS.
+My rustc version is 1.38.0.",4,2
+2909,2019-10-23T13:25:14Z,2019-10-24T03:11:18Z,2019-10-24T03:11:18Z,1,2,0,,2,1
+2910,2019-10-23T15:02:09Z,2019-10-23T19:17:10Z,2019-10-23T19:17:10Z,11,306,262,Should probably fix macOS termination problem and illegal instruction(not sure about the last one).,2,0
+2915,2019-10-24T12:01:22Z,2019-10-24T22:26:34Z,2019-10-24T22:26:34Z,1,7,3,"If the event queue was empty, we would stop the event loop even if the terminal was dirty. This lead to the terminal not being drawn when running animations unless something else was causing events to queue, such as user input.
+This change ensures that the terminal is always drawn on EventsCleared when dirty.
+Fixes #2914.",3,3
+2917,2019-10-25T10:19:15Z,2019-11-16T21:11:57Z,2019-11-16T21:11:57Z,8,171,54,"This is a proof-of-concept for working around winit:1241 to fix alacritty:2889.
+The workaround creates a notification channel between main even loop and pty thread that notifies the thread that the main loop is about to exit. This notifies the thread to terminate which stop it from  spamming Wakeup messages on Windows message channels.",3,14
+2918,2019-10-25T15:47:52Z,2019-10-26T19:45:48Z,2019-10-26T19:45:48Z,4,35,41,cc @nixpulvis,3,3
+2926,2019-10-28T12:43:18Z,2019-10-29T16:58:27Z,2019-10-29T16:58:27Z,1,2,3,Fixes #2924,2,0
+2927,2019-10-28T13:05:58Z,2019-10-29T16:56:49Z,2019-10-29T16:56:49Z,2,2,0,"This is probably a bit controversial change, however I don't see much difference between Action::Esc and arbitrary user input for selection clearing.
+What do you think @chrisduerr, @nixpulvis?
+Fixes: #2925",3,1
+2935,2019-10-30T03:35:37Z,,2020-01-12T21:29:28Z,2,17,2,"In the previous behavior, when looking for a missing glyph, fontconfig will just return some font containing that glyph based on its own ordering preference. It doesn't try to match the user's configured font; it might not even be monospace. This is probably (at least partially) the cause of #1560.
+This is my first time contributing in Rust, and I'm not very familiar with the structure of this project yet. So I took the simplest approach of reading back the values already loaded in FreeType. If there's an easy way to get the values directly from the user config, I'm happy to do that instead.",4,8
+2936,2019-10-30T18:59:21Z,2019-10-31T21:10:31Z,2019-10-31T21:10:31Z,1,4,1,"Resolves a couple of unused imports warnings when building on windows.
+The only other warnings I get are some deprecation warnings originating from the clap::crate_authors! macro. Looks like they'll be resolved in the next clap version: clap-rs/clap#1558",2,1
+2937,2019-10-30T19:48:04Z,,2020-08-05T09:30:55Z,3,56,12,"This OS escape code is used by libvte (on unix) and Terminal.app on macOS to inform the terminal emulator about the working directory.
+By adding an OSC 7 message to the prompt (i.e. as libvte and Terminal.app do) Alacritty can be updated about the working directory of a child process, even on Windows. This technique also works for subshells, e.g.
+Alacritty -> bash -> bash
+
+Checking /proc can only get the cwd of the ""root"" bash instance which Alacritty itself spawned, but this OSC 7 message can work for any depth of subshell as long as that subshell is sending the message (normally as part of its prompt).
+Relevant iterm2 issue where they added support: https://gitlab.com/gnachman/iterm2/issues/3939
+The Windows Terminal guys are also considering handling this: microsoft/terminal#3158
+So in theory, this has the potential to fix #1979 for all platforms without /proc, but requires the user to customise their prompt a little. If you are in favour of merging this PR, I will add documentation for customising the prompt.
+Fixes #1979.",7,17
+2945,2019-11-02T02:35:46Z,2019-11-02T11:34:08Z,2019-11-02T11:34:08Z,1,3,6,,2,0
+2948,2019-11-03T14:52:59Z,2020-07-14T01:13:19Z,2020-07-14T01:13:20Z,2,2,1,Fixes #2780.,3,10
+2952,2019-11-04T10:13:38Z,2019-11-17T00:04:16Z,2019-11-17T00:04:17Z,41,224,34,Fixes: #2330,2,10
+2955,2019-11-04T17:09:33Z,2019-11-04T19:41:14Z,2019-11-04T19:41:14Z,4,52,28,Fixes: #1934,2,0
+2966,2019-11-10T15:47:16Z,2019-11-11T00:12:15Z,2019-11-11T00:12:15Z,3,37,14,,2,5
+2971,2019-11-12T14:47:51Z,2019-11-12T16:50:34Z,2019-11-12T16:50:34Z,2,14,2,,2,0
+2972,2019-11-12T16:30:11Z,2019-11-13T23:36:55Z,2019-11-13T23:36:55Z,2,21,28,"I keep getting the following error from latest master every time I minimize Alacritty on Windows:
+---------------------------
+Alacritty: Runtime Error
+---------------------------
+panicked at 'attempt to calculate the remainder with a divisor of zero', C:\Users\byk\Documents\Projects\alacritty\alacritty_terminal\src\index.rs:53:52
+
+Press Ctrl-C to Copy
+---------------------------
+OK   
+---------------------------
+
+Looks like we expect num_cols to never be 0 but when minimizing, it becomes zero. I thought about protecting against this lower in the URL update code but it makes sense to skip drawing completely if we have 0 columns, right?
+Disclaimer: this is one of my first Rust patches and certainly the very first one against Alacritty so assume I have no idea what I'm doing. Pretty open to guidance and fix ups.",2,5
+2985,2019-11-15T19:40:21Z,2019-11-15T22:37:25Z,2019-11-15T22:37:25Z,5,42,0,Fixes #2984.,2,2
+2986,2019-11-15T23:06:27Z,2019-11-17T02:10:12Z,2019-11-17T02:10:12Z,3,148,101,,2,1
+3000,2019-11-21T11:14:25Z,2019-11-21T18:11:55Z,2019-11-21T18:11:56Z,2,4,3,Fixes: #2844,2,0
+3009,2019-11-23T04:18:37Z,2019-11-23T17:08:53Z,2019-11-23T17:08:53Z,14,48,70,,2,0
+3011,2019-11-23T15:32:50Z,2019-12-09T22:12:45Z,2019-12-09T22:12:45Z,9,258,52,"This PR implements colored emojis support on Linux/BSD with freetype.
+The Linux/BSD part of it is working fine, however the implementation requires some discussion, since integration is not that simple in the current structure and I don't want to tight the other platforms on how Linux/BSD operates here.
+
+P.s. I'll fix macOS/Windows builds when we agree on integration.",8,24
+3020,2019-11-25T19:16:18Z,2019-11-25T22:04:17Z,2019-11-25T22:04:17Z,2,7,7,"Closes #3018
+
+Haven't done much for the project in a while so figured I'd start with something as simple changing one digit 😉",3,1
+3033,2019-11-26T13:28:54Z,2019-11-26T16:53:43Z,2019-11-26T16:53:44Z,2,2,2,cargo deb -p was added this year mmstick/cargo-deb#49 (comment),2,0
+3035,2019-11-26T16:52:23Z,2019-11-26T21:02:47Z,2019-11-26T21:02:47Z,1,0,6,"All references to PackedVertex were removed in #2066, so there is no
+reason to keep it around.
+
+I'm on a roll. From changing a few characters to completely removing a few lines!",2,0
+3043,2019-11-27T18:29:40Z,2019-11-30T06:11:43Z,2019-11-30T06:11:43Z,5,11,166,"In preparation for feature gating winpty (#2890), move the embed step out of the winpty build process.
+Add default-members to workspace, this permits non-targeted platforms to completely ignore unused packages.
+Remove default features from image dependency, further reducing build time.",2,3
+3049,2019-11-28T16:40:01Z,2019-11-28T20:18:22Z,2019-11-28T20:18:22Z,2,33,24,"These bindings was forgotten, when the first massive addition took place.
+Fixes: #3046",2,0
+3051,2019-11-28T19:21:58Z,2019-12-04T23:12:23Z,2019-12-04T23:12:23Z,3,81,18,,2,3
+3054,2019-11-29T21:54:47Z,,2019-12-10T11:53:52Z,6,318,266,"Fixes #3042
+I also refactored some of the differences between winpty / conpty at the same time - resulting in more uniform interfaces and less code overall. Also got rid of the lifetime on the Pty type 😄",5,12
+3057,2019-11-30T16:26:57Z,2019-12-01T02:15:22Z,2019-12-01T02:15:22Z,3,29,36,"This adds a PR template that should remind users to document their
+changes in our CHANGELOG, without requiring too much direct interaction
+from the user.
+The issue template has also been reworked a bit, hopefully making it
+easier for people to report bugs, without intruding on them if the
+information is irrelevant or providing it is too much effort.
+Fixes #3031.",3,0
+3059,2019-12-01T02:37:27Z,2019-12-02T16:12:30Z,2019-12-02T16:12:30Z,2,11,25,"This is a follow-up to 918ce9d, since that showed some issues.",4,0
+3069,2019-12-05T05:14:28Z,2019-12-05T17:14:48Z,2019-12-05T17:14:48Z,4,64,104,"With the exception of Err, all implement Drop on their owned heap allocations and contain no references - making lifetime declaration unnecessary.
+In the case of Err, the unused raw pointer was removed - making Drop unnecessary.
+Memory is correctly freed according to sanitizer instrumentation, manually verified in debug session.",2,0
+3074,2019-12-06T03:18:46Z,,2019-12-10T11:47:43Z,6,197,52,"The ClosePseudoConsole call was deadlocking if it was called after the i/o pipes had already been closed in some other thread. To avoid this issue the i/o pipes have been moved into the Conpty struct in order to ensure they are dropped (closed) at the same time as the pseudoconsole.
+This commit also makes corresponding changes to the Winpty backend to keep the code uniform.
+Compared to #3054, this PR:
+
+Also moves the i/o pipes into the Conpty / WinptyAgent structs to ensure that Conpty's drop closes the i/o pipes and calls .
+Instead to static dispatch using match
+Instead does not remove the EventedReadablePipe and EventedWritablePipe types
+Instead attempts to inline the necessary match calls to choose between the Winpty / Conpty backends
+
+Also many thanks to @sterlingjensen for #3069 which makes this changeset smaller and neater. No lifetimes 😄 !",3,2
+3077,2019-12-06T21:55:34Z,2019-12-06T23:06:39Z,2019-12-06T23:06:39Z,2,2,0,Solves #3072,2,2
+3080,2019-12-07T21:11:56Z,2019-12-11T23:30:31Z,2019-12-11T23:30:31Z,2,80,60,"Closes #2344
+I've managed to make it such that failures to spawn the shell now result in a proper error message being displayed. Turns out the winpty crate had a TODO item to plumb through the appropriate error in the Winpty::spawn method 😄
+Crashes on the Winpty backend now also display error descriptions such as SpawnCreateProcessFailed instead of the Winpty internal error codes (e.g. 2).",3,3
+3081,2019-12-09T16:02:46Z,2019-12-09T17:26:32Z,2019-12-09T17:26:32Z,2,12,0,"This is a potential solution for #3047.
+Both WinPTY and ConPTY backends have issues when minimizing because a winit Resize event fires which sets the size to zero (and for various reasons both backends don't like this).
+Alternative solutions:
+
+Change winit to not emit a Resize event when minimizing. (Perhaps emit some other event.)
+Add an API to winit to check if the window is minimized, and use that instead of checking lsize.width and lsize.height.
+
+(Closes #3047)",3,6
+3084,2019-12-10T11:53:10Z,2019-12-12T15:01:24Z,2019-12-12T15:01:24Z,4,20,0,"This follows on one more attempt from #3054 and #3074.
+This time we're implementing the correct drop order in Drop for Pty. To ensure the pseudoconsole is properly closed, I've added a debug_assert! to Drop for Conpty.
+Fingers crossed that this implementation now looks passable 😄
+Fixes #3042",2,8
+3094,2019-12-13T04:21:37Z,2019-12-15T05:21:55Z,2019-12-15T05:21:55Z,3,9,2,"The libloaderapi implementation pre-dates availability in consoleapi (0.3.7).
+The winapi feature flags have fallen out of sync with what is in use, as no relative paths to the crate are used in this project, so they were removed.",3,19
+3096,2019-12-13T18:04:14Z,2019-12-14T21:32:25Z,2019-12-14T21:32:25Z,7,50,118,"Closes #3086
+This turned out to be a great idea! I was able to leverage the existing OnResize trait and use it to plumb through the messages in a couple places.
+I was also able to completely delete the tty::winpty::Agent type and just re-export pub use winpty::Winpty as Agent.",2,1
+3102,2019-12-14T15:11:56Z,2020-01-09T23:06:41Z,2020-01-09T23:06:42Z,9,339,208,"This resolves the issue with full width glyphs getting rendered in the
+last column. Since they need at least two glyphs, it is not possible to
+properly render them in the last column.
+Instead of rendering half of the glyph in the last column, with the
+other half cut off, an additional spacer is now inserted before the wide
+glyph. This means that the specific glyph in question is then three
+cells wide.
+Fixes #2385.",4,12
+3113,2019-12-20T18:30:42Z,2019-12-21T21:23:18Z,2019-12-21T21:23:18Z,6,23,20,I've cleaned up #2890 and improved the Windows notes in README.md slightly.,3,1
+3114,2019-12-20T20:41:42Z,2019-12-22T11:05:20Z,2019-12-22T11:05:20Z,2,4,0,"Fixes: #3112
+cc @nixpulvis @sQVe",2,0
+3115,2019-12-20T21:48:00Z,2020-01-26T13:49:59Z,2020-01-26T13:49:59Z,37,163,218,"The grid reset should fail, but It seems like we should rerecord the test.
+@chrisduerr",4,23
+3117,2019-12-22T01:22:58Z,2020-01-02T11:49:27Z,2020-01-02T11:49:27Z,13,65,93,"Removes widestring and dunce dependencies, reduces some code duplication and cleans up a few minor pieces regarding Path / PathBuf.",3,2

@@ -1,0 +1,308 @@
+number,created_at,merged_at,closed_at,files,additions,deletions,body_text,participants,comments
+29,2018-03-10T11:11:28Z,,2018-03-11T21:10:02Z,1,8,0,"Add dnf packages for Fedora.
+I need to double check with a vanilla Fedora installation because I already had some dev tools installed.
+Checked with a vanilla install and updated the script.",2,7
+56,2018-03-13T03:02:04Z,,2018-03-28T12:17:22Z,1,39,4,"First of all, gcc is not needed to build it -- clang works fine
+There is Java8 cask, and recommending it to users would make life easier for them
+
+Actually, second commit might be not really fitting, especially Homebrew part.",2,3
+85,2018-03-21T01:14:46Z,2018-03-23T09:15:10Z,2018-03-23T09:15:10Z,3,11,0,"When developing for React Native, shaking the physical Android device is how you pull up the React Native debug menu, which is a very common task.
+This catches the CTRL+S key combination and maps it to the ""shake"" keycode (keycode 82, AKEYCODE_MENU).",5,9
+133,2018-04-28T22:28:38Z,,2018-05-28T20:58:57Z,6,229,0,"I have just added a little feature to install apk files by using drag and drop.
+So, just drag and drop an apk file and wait for its installation to complete.",2,14
+142,2018-05-04T01:56:26Z,,2018-08-15T13:24:38Z,1,4,0,"it may belong somewhere else, but I thought that this video guide (linked above) would be a better explanation for n00bs than reading a block of text. lmk..",2,1
+226,2018-08-11T13:59:58Z,,2018-08-15T15:25:45Z,7,278,231,"Hi, folks
+With drop & drag file to device /sdcard, it will be very convenient to app developer to test app which need some file in the device.
+In this patch, if people drop & drag an apk file, it will remain the same behavior. Otherwise, it will push the file to /sdcard.
+Thanks.
+Signed-off-by: npes87184 npes87184@gmail.com",2,6
+236,2018-08-21T13:34:33Z,,2018-09-04T06:50:12Z,4,93,14,"There are many user who encounters missing adb.
+To stop things happens again, we check it and show
+sexy response to user.
+In the first version, I only check in linux. If you like this idea, I will continue to finish windows part.
+Thanks.
+Signed-off-by: yuchenlin npes87184@gmail.com",2,8
+245,2018-08-26T11:52:13Z,,2019-10-31T20:29:39Z,3,37,0,"It's just a workaround to resolve #15
+What this pr did is to re-set a new logical size when the window scale factor got changed.
+In consequence, the subsequent SDL events will get the coordinates what we wants,
+which are consistent across all the displays even if there are different scales.",8,23
+252,2018-09-04T13:57:59Z,,2018-09-04T16:49:56Z,3,15,1,I needed the option to automatically start scrcpy in fullscreen mode. I therefore added a new command line parameter --fullscreen. This solves my opened issue #250,3,1
+254,2018-09-08T01:24:31Z,,2018-09-09T13:36:34Z,2,10,1,"Hi, @rom1v
+Windows has GetLastError() to show what happen when CreateProcess() failed.
+Reference:
+
+CreateProcess
+GetLastError
+Error code
+
+In this series, I also prevent console closing immediately when error occurs by adding pause in windows console mode. It helps to show error message to user.
+Related pr: #236.
+Thanks.",2,1
+261,2018-09-14T12:37:43Z,2018-09-18T06:56:41Z,2018-09-18T06:56:41Z,1,6,0,Signed-off-by: yuchenlin npes87184@gmail.com,2,0
+292,2018-10-09T02:25:14Z,,2018-11-11T22:40:26Z,5,74,9,This change enables writing AV packets received from the target to a video file without re-encoding.,3,21
+296,2018-10-14T08:57:43Z,,2022-09-09T17:13:53Z,2,16,0,"Adds the ability to launch scrcpy using your preferred application launcher on Linux.
+See: https://specifications.freedesktop.org/desktop-entry-spec/desktop-entry-spec-latest.html",6,4
+412,2019-01-27T11:10:58Z,2019-01-27T13:09:19Z,2019-01-27T13:09:19Z,6,44,15,"Fix #391
+It is very convenient when I play mobile game and watch video at the
+same time.
+Tested on Linux mint Cinnamon as well as Windows 10.
+Signed-off-by: Yu-Chen Lin npes87184@gmail.com",2,4
+418,2019-02-01T22:22:54Z,,2019-03-02T17:42:37Z,4,32,4,"This option allows scrcpy to be run withou showing preview window : we can now use
+scrcpy only for screen recording as an example",4,12
+478,2019-03-27T08:10:47Z,,2019-10-31T20:19:53Z,1,11,1,add KeyCharacterMap.UnavailableException in charMap,3,6
+542,2019-05-19T01:04:14Z,,2019-05-20T07:06:09Z,1,5,3,"It will insert as many text as possible now.
+Fix #509, tested on Windows 10 and Arch Linux.
+Signed-off-by: Yu-Chen Lin npes87184@gmail.com",2,2
+824,2019-09-28T03:47:33Z,,2021-03-16T20:16:06Z,15,207,138,Fix #714,2,16
+848,2019-10-07T21:36:15Z,,2020-05-23T12:22:21Z,3,97,29,"Workaround for #15
+The bug manifests in multi-monitor configurations mixing HiDPI and non-HiDPI monitors.
+This fix is a little brute force - it reinitializes the SDL_Renderer context after each resize.  But it seems to work in every combination of resizing, fullscreening, window dragging, etc I could think of.
+Testing in an ASAN debugging build too just to check the initialization isn't leaking stuff.",3,13
+927,2019-11-15T08:49:21Z,,2019-11-18T16:46:59Z,4,5,5,"I fixed a typo as an annotation of server.c and links of command.c , checkstyle.xml, gradle-wrapper.properties. Please check :)",2,1
+934,2019-11-18T06:53:23Z,,2019-11-24T10:10:43Z,2,582,0,Added the note about frequent update as requested at the issue #893,2,5
+965,2019-11-29T22:36:41Z,,2019-12-03T15:08:07Z,1,1,1,,2,3
+967,2019-11-30T04:35:46Z,,2019-12-04T20:23:48Z,4,99,2,"test_strquote
+test_buffer_util",2,3
+1002,2019-12-12T12:39:14Z,,2019-12-15T12:26:15Z,4,41,14,"The file 'E:\安安\scrcpy-win64-v1.12.1-1-g31bd950\scrcpy-server'
+exists, however, it will show msg as follow:
+INFO: scrcpy 1.12.1 https://github.com/Genymobile/scrcpy
+stat: No such file or directory
+ERROR: 'E:\安安\scrcpy-win64-v1.12.1-1-g31bd950\scrcpy-server' does not
+exist or is not a regular file
+Press any key to continue...
+This patch fixes it.
+Signed-off-by: Yu-Chen Lin npes87184@gmail.com",3,6
+1031,2019-12-20T05:23:28Z,,2019-12-21T20:07:11Z,1,7,3,"If for example a user is not knowledged in Meson, they might not know that if they run:
+meson x --buildtype release --strip -Db_lto=true -Dprebuilt_server=/path/to/scrcpy-server
+
+and use the path ~/Downloads/scrcpy-server, Meson look in /root/scrcpy/~/Downloads/scrcpy-server giving this message:
+WARNING: Custom target input '/root/scrcpy/~/Downloads/scrcpy-server' can't be converted to File object(s).
+This will become a hard error in the future.
+
+Meson can then be difficult/annoying for some newer users to reconfigure correctly, and this pull request mitigates that risk",3,5
+1151,2020-02-16T12:11:02Z,,2020-02-27T20:29:42Z,17,180,75,"I've added an option to keep the client window in a specific orientation. This helps in recording and in utilizing small screens.
+I've tried my best to update any relevant documentation and test files. I could not update the Korean documentation files though.
+Thanks,
+George",3,13
+1177,2020-02-25T08:35:50Z,,2020-03-23T09:50:22Z,14,151,22,"Hello I've added a small feature that allows to configure scrcpy server with the optional parameter ""display id"" that should be mirrored.
+It simply gets layerStack field from DisplayInfo for appropriate dispayId and passes it ""setDisplayLayerStack"" method
+Hope it could be useful for others.",3,13
+1188,2020-02-29T17:46:25Z,,2020-03-15T16:08:46Z,1,17,0,"Hello, I tried to fix the issue #1048.
+I mapped the NumPad keys as follow when both SHIFT and NUM aren't set:
+
+SDLK_KP_6 --> AKEYCODE_DPAD_RIGHT
+SDLK_KP_4 --> AKEYCODE_DPAD_LEFT
+SDLK_KP_2 --> AKEYCODE_DPAD_DOWN
+SDLK_KP_8 --> AKEYCODE_DPAD_UP
+SDLK_KP_7 --> AKEYCODE_MOVE_HOME
+SDLK_KP_1 --> AKEYCODE_MOVE_END
+SDLK_KP_3 --> AKEYCODE_PAGE_DOWN
+SDLK_KP_9 --> AKEYCODE_PAGE_UP
+SDLK_KP_0 --> AKEYCODE_INSERT
+SDLK_KP_PERIOD --> AKEYCODE_FORWARD_DEL",3,8
+1223,2020-03-19T02:04:34Z,,2020-04-02T21:18:37Z,12,81,14,Added display-id option so devices with multiple displays can be mirrored.,5,11
+1226,2020-03-19T18:33:57Z,,2020-05-24T12:56:29Z,9,97,12,"There are some decoders like Broadway that can accept only H.264 Baseline profile streams.
+This profile is considered the most generic and is available on most Android devices.
+To allow selecting a profile new option has been added to client and server.",2,22
+1263,2020-04-03T15:03:47Z,,2020-04-03T17:15:09Z,6,26,21,Confirmed that the resultant binaries build on Linux host and run correctly on Android 10 and R DP2.1.,3,6
+1296,2020-04-17T17:35:08Z,,2020-04-26T12:15:23Z,11,211,20,"Introduced options arguments for the Android MediaCodec library.
+There are some decoders like Broadway that can accept only H.264 Baseline profile streams.
+This profile is considered the most generic and is available on most Android devices.
+To allow selecting a profile new option has been added to client and server.",2,1
+1313,2020-04-23T23:03:02Z,,2020-05-09T18:14:22Z,1,529,0,Created a portuguese version of the file.,3,5
+1482,2020-06-06T22:06:27Z,,2020-06-07T20:06:27Z,1,3,0,"Fixes #1481
+Signed-off-by: Louis Leseur louis.leseur@gmail.com",3,1
+1626,2020-07-27T14:16:23Z,,2020-08-10T18:54:24Z,2,717,1,Added Traditional Chinese translation for README.md,3,18
+1670,2020-08-13T06:34:08Z,,2020-08-29T22:40:10Z,1,6,1,,2,4
+1716,2020-08-27T17:14:38Z,,2022-06-06T10:51:58Z,1,19,7,See the commit messages.,2,3
+1723,2020-08-30T16:38:35Z,,2020-09-17T11:11:36Z,1,727,0,,4,13
+1783,2020-09-22T22:06:25Z,,2020-10-01T12:53:19Z,1,1,1,I changed the output to ask the user to press enter instead of any key which does not work.,3,2
+1838,2020-10-18T03:16:10Z,,2022-02-22T14:06:06Z,5,29,14,"There are three changes in this PR.
+
+In script prepare-dep the third parameter will be the output folder name now.
+Stop building win32 version due to lack of ffmpeg libs
+Use BtbN built ffmpeg (win64-lgpl-shared)
+
+There are two problems still need to be solved. First, it looks like BtbN is an auto build server, it is hard to guarantee the built ffmpeg is stable. Second, it lacks of win32 version.
+Thanks.",3,3
+1973,2020-12-14T09:17:22Z,,2020-12-22T00:47:16Z,1,33,0,"I wrote a very small tutorial for Windows users who don't know how to use the command line.
+Rendered: https://github.com/Genymobile/scrcpy/blob/wincli/FAQ.md#command-line-on-windows
+Reviews welcome.",3,3
+2029,2021-01-12T05:59:22Z,,2021-01-15T15:22:32Z,1,227,218,,3,3
+2034,2021-01-14T04:06:27Z,,2021-01-15T09:19:31Z,2,392,128,,3,3
+2195,2021-03-13T15:30:05Z,,2021-03-28T19:39:29Z,2,729,0,I added Japanese translation for REDME.md,3,10
+2260,2021-04-17T16:10:35Z,,2021-04-25T13:02:57Z,13,155,34,"Show the settings panel if pressing CTRL+n and then, without releasing CTRL, press n again
+Still not done/updated:
+README:
+
+ New shortcut
+ Rename what CTRL+SHIFT+n does
+
+Closes: #2264",2,11
+2265,2021-04-18T18:52:46Z,,2022-04-16T13:58:01Z,11,216,7,"Send intents when scrcpy starts and when scrcpy exits
+Still missing (will be added if feature accepted)
+
+ Mention feature in README
+ Create command line option to choose whether to send the intents (defaulting to off)
+
+Extra: video showing a visual use:
+https://www.mediafire.com/file/ktcxs0exclvoqha/intent_demo.mp4/file
+(I was unable to attach the file in this post)",2,29
+2286,2021-04-30T22:23:12Z,,2021-06-11T07:36:43Z,2,119,21,"@npes87184 in response to #824 (comment)
+What do you think?",3,2
+2318,2021-05-15T07:14:49Z,,2021-05-28T08:22:20Z,2,744,0,"Well, this took longer than expected...
+Maybe another day I might translate the FAQ.md too :)",3,2
+2371,2021-06-08T16:19:09Z,,2021-06-20T14:45:53Z,14,240,33,"I wanted to automate a few actions using 'adb shell input' commands, but
+it requires pixel coordinates. Logging input event details from scrcpy is
+helpful for achieving that.",2,18
+2397,2021-06-17T06:21:16Z,,2021-06-17T19:08:55Z,27,1727,94,"Tried to make it less platform-dependent, the only bug so far is pts assertion at line 45, stream.c if you try to close the window. Not sure what causes it. By integrating vcpkg and cmake manifest adding more libraries will be more trivial too. A review would be nice.
+All changes narrow down to removing gcc function macros by turning them into comma operator ones, removing C11 stdatmic and using SDL atomics instead, also removed VLAs and used size_t instead of ssize_t since there's no real need to use ssize_t at all.",2,5
+2405,2021-06-19T15:01:03Z,,2021-06-20T19:59:20Z,3,43,23,,2,6
+2606,2021-09-02T15:12:31Z,,2021-09-07T19:42:25Z,1,1,1,,3,1
+2632,2021-09-15T09:53:29Z,,2024-02-08T18:43:56Z,18,931,23,"Add HID keyboard simulation via USB HID over AoAv2, which provides better input experience if connected with USB cable.
+Currently this needs --serial to provide USB serial, we may update it to fetch serial via adb automatically.
+A new option --input-mode is added, by default is auto, try HID first and fallback to old input injection, user can set hid or inject manually, it will fail if user's selection not work.
+Please add your comments if you have any advice and I'll try to update it.
+Fixes #279.",5,48
+2686,2021-10-06T16:27:32Z,,2021-10-08T19:49:57Z,2,147,60,,2,2
+2740,2021-10-30T09:36:05Z,,2021-10-31T12:04:44Z,2,104,29,Update Japanese translation from v1.17 to v1.19,2,2
+2831,2021-11-26T21:17:13Z,2021-11-29T20:19:43Z,2021-11-29T20:19:43Z,12,277,90,"This option allows to inject all input keys as key events, and ignore text events.
+Fixes #2816.
+
+This feature is available in scrcpy v1.21.
+obsolete
+Here are binaries so that you can test easily. Please replace these files in your v1.20 release:
+
+scrcpy.exe sha256:c3d96408d81d4c3f17259a8d99bd2e343f6c9758dc85e6317b114f6cdc95fd00
+scrcpy-server sha256:e08e9aa4796c213bf601f6323b5e9f4fce250b1f3b1d46441289824cb4af294a
+
+old binaries v1
+
+scrcpy.exe sha256:848fc28d0b2e864fabcd82f327ddb1ee987fc364f441deed262b8f733fe7298d
+scrcpy-server sha256:e08e9aa4796c213bf601f6323b5e9f4fce250b1f3b1d46441289824cb4af294a
+
+
+This is based on the development branch, and includes #2827, so this is almost a release candidate for scrcpy 1.21.
+Please test and report any issue you might encounter. In particular, please test the --tcpip option detailed in #2827.
+Thank you.",2,4
+2952,2022-01-17T18:13:44Z,2022-01-18T09:15:24Z,2022-01-18T09:15:24Z,6,39,34,"Use FFmpeg win64 binaries from gyan.dev (referenced from ffmpeg.org):
+
+https://www.gyan.dev/ffmpeg/builds/
+https://ffmpeg.org/download.html#build-windows
+
+Keep the old FFmpeg prebuilt binaries (4.3.1) for win32 builds.
+Fixes #1753
+Refs #1838
+Refs #2583
+@npes87184 @nkh0472 This is partially a mix of your PR #1838 and #2583, so I added:
+Co-authored-by: Yu-Chen Lin <npes87184@gmail.com>
+Co-authored-by: nkh0472 <nkh0472@hotmail.com>",3,2
+2978,2022-01-28T08:10:50Z,,2022-01-29T14:11:53Z,2,128,35,Update README.zh-Hans.md to 1.21.,2,1
+3126,2022-03-18T03:54:08Z,,2022-03-25T07:40:25Z,1,3,3,"Fix misleading zoom instruction, which gave opposite action steps.
+操作说明写反了，造成误导。",4,2
+3151,2022-03-26T05:20:00Z,,2022-04-14T08:12:38Z,1,306,59,Updated the Italian translation of README.md to v1.23 and a few minor modifications.,3,7
+3174,2022-04-09T14:46:18Z,,2022-04-14T08:19:29Z,1,5,5,"Hi. I have corrected a few typos/grammar issues, and added a link to Shortcuts for the first time MOD is mentioned",2,3
+3177,2022-04-10T15:45:54Z,,2022-04-22T07:30:43Z,1,71,72,"Improved clarity, grammar, consistency, punctuation, and formatting.
+Thank you for the great tool!",3,3
+3351,2022-06-27T03:45:20Z,,2022-09-09T17:09:46Z,3,41,3,"See: https://specifications.freedesktop.org/desktop-entry-spec/desktop-entry-spec-latest.html
+
+Address review comments
+
+Seems #296 is stale, so I created a replacement with fixes. Differences from the previous pull request are in the second commit.",4,15
+3369,2022-07-06T05:36:21Z,,2022-08-28T13:46:45Z,10,98,29,"Fixes #3363
+HID mode doesn't support this smooth scrolling, because sending fractional scrolling distance over standard HID mouse protocol seems complicated. I may investigate more in the future (plus horizontal scrolling support).
+Only tested on Windows with both mouse and touchpad.",3,8
+3523,2022-10-07T14:27:17Z,,2022-10-15T12:35:40Z,2,6,2,"Add -s auto-complete option.
+Commented at the following issue: #3522",2,4
+3547,2022-10-23T06:21:04Z,,2022-10-25T20:05:58Z,1,53,2,"This MR will fix #2932.
+There are various approaches that can be used to address this issue, such as the usage of wmain with link flag -municode. Only the applied method, however, was successful.
+Signed-off-by: Yu-Chen Lin npes87184@gmail.com",2,6
+3592,2022-11-24T08:13:19Z,,2022-12-02T18:13:10Z,0,0,0,"If the current adb port is not 5555 (typically it is 0 because it is not in TCP/IP mode), --tcpip automatically executes (among other commands):
+adb tcpip 5555
+
+In case adb was already listening on another port, this command forced to listen on 5555, and the connection should still succeed.
+But this reconfiguration might be inconvenient for the user. If adb is already in TCP/IP mode and listens on another port, use that port without reconfiguration.
+Fixes #3591",2,1
+3704,2023-01-29T22:20:00Z,2023-01-30T19:59:36Z,2023-01-30T19:59:36Z,10,112,14,"This is a mix of two branches made by @yume-chan to fix #3635:
+
+#3635 (comment)
+#3635 (comment)
+
+
+@yume-chan Thank you, great work 👍
+On fix-chrome-mouse (the branch with events synthesized on the server), I like that the client don't have to handle the Android-specific sequence ACTION_DOWN, ACTION_BUTTON_PRESS, ACTION_BUTTON_RELEASE, ACTION_UP (IMO, this should be done on the server).
+However, on fix-chrome-mouse-v2 (the branch with events synthesized on the client), I like that the action_button forwarded by the client to the server (since it provided by the client, it's better than let the server ""guess"" using a diff of buttons state).
+This is a mix of these two branches.
+It works fine on my device. Please review and test before I merge.",2,5
+3895,2023-04-05T14:34:06Z,,2023-04-12T19:29:12Z,2,24,0,"Normally macOS gives us only OpenGL 2.1, but if we request 3.3 and create a new context, we get the best OpenGL version it has to offer.
+Before:
+INFO: Renderer: opengl
+INFO: OpenGL version: 2.1 NVIDIA-14.0.32 355.11.11.10.10.143
+WARN: Trilinear filtering disabled (OpenGL 3.0+ or ES 2.0+ required)
+After:
+INFO: Renderer: opengl
+DEBUG: Creating GL Context
+INFO: OpenGL version: 4.1 NVIDIA-14.0.32 355.11.11.10.10.143
+INFO: Trilinear filtering enabled
+when running with
+--verbosity=verbose --render-driver=opengl
+Note:
+Since SDL_CreateRenderer causes a fallback to OpenGL 2.1, the profile and version attributes have to be set and the context created after.
+This took a while to figure out.",2,9
+3979,2023-05-07T20:17:03Z,,2023-06-01T07:20:48Z,4,72,1,"Hello 👋
+It's been a while since my last contribution, it's a pleasure to be able to contribute again to this amazing project!
+I'm a lucky owner of a foldable phone ( Z fold 4 ) and I've seen that scrcpy does not handle the fold events ( The SDL Window does not update its size when I bend my phone ).
+I just fixed this issue ( it is implemented the same way as RotationWatcher ).
+Btw I have a little concern about the naming of the boolean ScreenEncoder.rotationChanged which may not have a good name after this PR.",2,3
+4005,2023-05-16T10:54:07Z,,2023-05-17T17:37:29Z,1,9,1,,3,2
+4130,2023-06-29T19:47:01Z,2023-10-11T07:45:04Z,2023-10-11T07:45:04Z,8,127,11,"scrcpy-console.bat and scrcpy-console.desktop must keep the terminal open if scrcpy fails with an error.
+It was implemented in cmd and shell respectively, which added complexity.
+Add an option --pause-on-exit in scrcpy to simplify.
+Three behaviors are possible:
+
+always pause on exit:
+
+--pause-on-exit
+--pause-on-exit=true
+
+
+never pause on exit:
+
+(no option)
+--pause-on-exit=false
+
+
+pause when scrcpy returns with an error (a non-zero exit code):
+
+--pause-on-exit=if-error
+
+
+
+One problem to consider is that an error in command line parsing could occur before --pause-on-error was taken into account. For that purpose, if getopt did not detect it, this parameter is searched in the whole argv array ""manually"" (without getopt) so that it works in all cases.
+Refs #3817 #3822",2,2
+4213,2023-08-03T06:39:56Z,,2023-11-01T17:57:18Z,15,924,274,"Closes #241
+I can imagine this becoming another compatibility hell.
+I can only test on emulators and XiaoMi devices, so there isn't much more I can do, for example to the bug report in #241 (comment).",6,38
+4373,2023-10-24T13:25:15Z,,2023-10-24T21:28:16Z,5,12,15,"This PR also changes patterns like memset(&a[b], ...) to memset(a + b, ...) for consistency. Currently, we have the mix of both.",2,7
+4473,2023-11-28T09:26:26Z,,2024-02-29T23:56:27Z,38,1200,251,"Fixes #4034
+Fixes #3110
+Fixes #3913
+Currently only the keyboard part is implemented to get the overall architecture reviewed.
+As described in #4034 (comment), the client is responsible for creating and parsing UHID messages, and the server only do the reads and writes to UHID  file descriptors. This allows reusing existing AoA mouse/keyboard code to do the HID device emulation, and use native C code to handle UHID messages (which is also defined in C headers).
+The new option is named --keyboard-input-mode, after its internal name. Available values are disable, inject, aoa and uhid. aoa deprecates the -K/--hid-keyboard option. When --otg is not specified, all values are accepted, except aoa doesn't work on Windows. When --otg is specified, only disable and aoa are accepted. When --keyboard-input-mode is not speficied, it defaults to inject in normal mode and aoa in OTG mode.
+Three new control messages are added: UHID_OPEN, UHID_WRITE and UHID_CLOSE. Each UHID device is a separate file descriptor, so all messages have an int id field, generated by client, maps to a file descriptor on server.
+Currently UHID_OPEN and UHID_WRITE both have a byte[] data field (containing a uhid_event structure), so opening file and registering device can be done in one message. But this design is a little bit strange. Maybe we don't need UHID_OPEN at all.
+One new device messages are added: UHID_DATA. It contains a uhid_event structure read from the file descriptor. In theory the client should wait for a UHID_DATA messages with START and OPEN UHID message types before starting to send inputs, but in practice these two arrives pretty quickly, so when user starts typing, UHID already finished initializing.
+UHID_DATA can also contain OUTPUT UHID messages, these are HID output reports defined in the device's report descriptor, for example LED status for keyboards and rumbles for gamepads. The code to handle these messages haven't been added to the client.",5,27
+4713,2024-03-01T19:03:23Z,2024-03-02T21:53:50Z,2024-03-02T21:53:50Z,15,348,184,"Remove the mechanism to download (and link against) pre-built dependencies, and add a new mechanism to download the dependencies sources and build them.
+Executing ./release.sh builds everything.
+Here are 32-bit and 64-bit Windows binaries for the current dev branch:
+
+scrcpy-win32-builtdeps.zip SHA-256: 7e07dd4a24e84988ec582360a92a0e06aa1d32ae5742347da6634d3fe32b18d
+scrcpy-win64-builtdeps.zip SHA-256: e66cae74480ca0a90e08fc2c0a1808ce3ce138007ed30d7dcf698707ed41fa9
+
+Please test that it works correctly on your Windows.",4,4
+4830,2024-04-09T11:51:26Z,,2024-04-10T13:16:06Z,6,97,36,"Adds a feature to hide and resume the window by pressing MOD+d, the window can be resumed by pressing Enter in console.
+Window hidden, press [Enter] to restore...
+
+Window resumed",2,1

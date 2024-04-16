@@ -1,0 +1,27 @@
+number,created_at,merged_at,closed_at,files,additions,deletions,body_text,participants,comments
+676,2015-08-02T17:58:29Z,,2018-06-23T04:48:46Z,2,33,4,"With this patch applied CodedInputStream.readByteBuffer() returns
+ByteBuffer wrapping array contained in LiteralByteString.  To
+ensure that LiteralByteString is not modified, returned buffer
+is made readonly with .asReadOnlyBuffer() operation.",3,3
+1269,2016-02-23T00:43:10Z,,2018-06-03T22:18:34Z,42,5012,8,"This PR adds support for the D programming language.
+Compiler version dmd 2.077.0 or later is required.
+I am thankful for any suggestion that helps merging this PR upstream.",6,11
+1315,2016-03-10T21:49:39Z,2017-05-23T23:22:58Z,2017-05-23T23:22:58Z,7,38,32,"These commits clean up several compiler warnings which most of the code is written to build with (like -Wunused-arguments), but appear to have been missed in a few places. They also fix a few pieces of undefined behavior caught by ubsan.",5,7
+1525,2016-05-12T00:54:33Z,2016-09-23T18:07:45Z,2016-09-23T18:07:45Z,9,266,1,"Here are initial benchmark results:
+Run on (12 X 3201 MHz CPU s)
+2016-05-11 17:49:45
+Benchmark                                     Time           CPU Iterations
+---------------------------------------------------------------------------
+google_message1_proto2_parse_noarena        274 ns        274 ns    2773101   792.218MB/s
+google_message1_proto2_parse_arena          996 ns        993 ns     707578   218.903MB/s
+google_message1_proto2_serialize            155 ns        156 ns    4489021   1.36459GB/s
+google_message1_proto3_parse_noarena        520 ns        519 ns    1268185   419.151MB/s
+google_message1_proto3_parse_arena         1204 ns       1205 ns     604370   180.504MB/s
+google_message1_proto3_serialize            293 ns        292 ns    2403943   722.365MB/s
+google_message2_parse_noarena            125942 ns     126397 ns       5557   638.088MB/s
+google_message2_parse_arena              284564 ns     285310 ns       2464   282.683MB/s
+google_message2_serialize                 94871 ns      94737 ns      10123   851.324MB/s",4,5
+1662,2016-06-08T19:40:25Z,2017-03-27T19:03:10Z,2017-03-27T19:03:10Z,7,237,9,Review to @joeltine.,4,5
+1796,2016-07-15T23:07:51Z,,2021-06-07T13:45:17Z,8,302,0,"Going to provide protoc package in pypi. Only python and c++ code gen are included. The package is currently under grpc tools: https://github.com/grpc/grpc/tree/master/tools/distrib/python/grpcio_tools
+After install, user can call
+$ python -m google.protoc.protoc -I$INCLUDE --python_out=$OUTPUT $PROTO_FILES",6,4

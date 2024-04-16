@@ -1,0 +1,1454 @@
+number,created_at,merged_at,closed_at,files,additions,deletions,body_text,participants,comments
+24,2017-11-01T16:12:45Z,2017-11-01T17:56:51Z,2017-11-01T17:56:51Z,1,2,0,To be consistent with other sections on the same file.,3,1
+38,2017-11-01T21:11:53Z,2017-11-01T22:33:27Z,2017-11-01T22:33:27Z,1,2,2,This should be 100%,3,1
+72,2017-11-03T05:47:11Z,2017-11-03T15:39:42Z,2017-11-03T15:39:42Z,2,171,1,,4,2
+77,2017-11-03T13:55:45Z,2017-11-03T15:04:09Z,2017-11-03T15:04:09Z,14,73,37,"This change tells Webpack (for those using it) that the config file used should be tracked as a dependency and that the CSS should be re-compiled if that config file changes.
+It's careful to make sure the config file is loaded fresh every single time to avoid weird caching issues.
+Resolves #55 🙌",4,1
+79,2017-11-03T14:19:35Z,2017-11-03T15:31:21Z,2017-11-03T15:31:21Z,1,1,2,"Removes the separate build command and just always builds our dist files on npm run prepare.
+This makes sure we never accidentally publish a release that doesn't have up to date dist files for CDNs like unpkg and jsdelivr.",2,0
+82,2017-11-03T15:21:16Z,2017-11-06T16:22:59Z,2017-11-06T16:22:59Z,10,273,17,"Closes #75
+This is the first of two steps to add all the margin auto utilities. In the next breaking release we'll actually move these to the default config.",3,0
+85,2017-11-03T16:22:43Z,2017-11-03T18:24:42Z,2017-11-03T18:24:42Z,1,12,19,"Removes the rest operator (...) from the documentation's Tailwind config, making it possible to build the docs on older versions of Node.",3,0
+88,2017-11-03T18:47:33Z,2017-11-09T20:11:38Z,2017-11-09T20:11:38Z,5,92,6,"Resolves #18.
+I made a PR to ""fix"" #18
+I'm not experienced in developing for PostCSS and I do not use Javascript at all :-D
+Please do not laugh and please do not hesitate to give me advice for improvement.
+I'm hungry to learn and help.
+I left comments in the PR to the things that look for me like code-smell.
+(Okay, Javascript always looks like codesmell for me, but I marked the place where I introduced codesmell)",2,4
+89,2017-11-03T19:54:11Z,2017-11-03T23:13:49Z,2017-11-03T23:13:49Z,2,12,1,"Fixes issue from that comment: #16 (comment)
+@adamwathan wants this to happen, so here it is ;-)
+#16 (comment)
+Empty media queries are added if i do not use @tailwind utilities and use only preflight.",2,1
+95,2017-11-04T05:44:29Z,2017-11-06T20:10:09Z,2017-11-06T20:10:09Z,58,674,305,"In response to #93, this PR establishes the use of ESLint using Prettier for code formatting. The ESLint config is using https://github.com/postcss/eslint-config-postcss, and Prettier is configured using the following settings:
+""semi"": false, // Use semicolons
+""singleQuote"": true, // Use single quotes instead of double quotes
+""printWidth"": 80, // Limit each line to 80 characters
+""tabWidth"": 2, // Each tab is 2 spaces wide
+""useTabs"": false, // Use spaces instead of tabs
+""trailingComma"": ""none"", // Don't use trailing commas, even if allowed in things like arrays
+""bracketSpacing"": true // Use spaces between brackets",3,7
+116,2017-11-06T16:20:37Z,2017-11-06T20:38:31Z,2017-11-06T20:38:32Z,5,230,293,"Previously all of our border width styles (.border, .border-2, etc) worked by applying the border shorthand property.
+They would set the width to the specified width, but also set the style to solid, and the color to the default color specified in the borderColors config.
+This seemed convenient but has the consequence of resetting any border color overrides any time you change the border width at a breakpoint, for example:
+<div class=""border border-purple md:border-2""></div>
+This will have a 1px purple border on small screens, and a 2px grey border on medium screens.
+This is pretty unintuitive, and we have the same issue with border styles (dashed, dotted, etc.)
+This resolves all of this by setting a default border style, width, and color to all elements as part of preflight, that looks like this:
+*,
+*::before,
+*::after {
+  border-width: 0;
+  border-style: solid;
+  border-color: config('borderColors.default', black);
+}
+So every element by default will have a zero width border, set to the default border color.
+The border width utilities now only set border-width, not the entire border shorthand. That means that the previous example:
+<div class=""border border-purple md:border-2""></div>
+...will now retain the purple color at larger screens, because md:border-2 is only overriding the width.
+This also removes the need for this gruesome borderStyleReset hack we had to apply, where any time you applied a border style, we also reset the border-width back to 0, but defined that portion of the class before the border width utilities so that those would still take precedence. This was the only place in the entire framework where one class had multiple definitions in different places, and actually leads to the bug discussed in #112.
+Overall this change dramatically simplifies this portion of the codebase, and also makes the behavior much more intuitive.
+The only question is if there's any unintended consequences to the styles added to preflight. Testing suggests that everything is totally fine, but if anyone has questions or concerns feel free to bring them to our attention.
+This is technically a breaking change, so even though we are still pre-1.0 and moving rapidly, it's probably wise to save this for 0.2 instead of an 0.1.x patch release.
+Resolves #80.
+Resolves #112.",5,6
+120,2017-11-06T17:39:58Z,2017-11-08T12:49:07Z,2017-11-08T12:49:07Z,6,13857,16,"Hello guys!
+I'm happy to announce that this is the final PR for the DocSearch implementation on Tailwind.css!
+So, a few stuff to share with you, I added a few more files in order to have the best implem ever!
+But first, let see what happen here.
+I removed the ""sidebar header"" from the sidebar scope, because  sidebar got a class that handle the scroll on the y axis if there is too much content. Therefore, the x axis is hidden, and because of that, the docsearch dropdown couldn't be visible.
+So I had to remove the header from the sidebar, even tho the look'n'feel is the same ( see here master...LukyVj:master#diff-70b205842e0adc80d56e2ce469aadd47R8 )
+To make sure this sidebar doesn't overlap the header, I had to create a new less file, called sidebar.less which only purpose is to offset the sidebar from top. Otherwise it would hide the header.
+I added also a file called docsearch.less which handle the color & responsiveness of the DocSearch dropdown.
+Talking about responsive, you'll notice 2 DocSearch declarations ( here : master...LukyVj:master#diff-2802ff3e03db6b3656a5fc4e9b9467a5R30 )
+And this is for reducing the amount of specific css that would have been required to adapt and reposition the search input on mobile. So this is an equivalent of having a multiple input for docsearch, which is being implemented right now.
+So expect a PR really soon, that will remove the double DocSearch instance, and being replaced by
+inputSelector: '#searchbox, #searchbox-mobile'
+I think that's pretty much it, feel free to ping me for anything you could need, or if you need me to change something. I'll be glad to do that for you!
+Lucas B & the Algolia team",7,16
+126,2017-11-07T03:25:58Z,2017-11-07T13:11:38Z,2017-11-07T13:11:38Z,4,14,14,,2,1
+127,2017-11-07T08:31:53Z,2017-11-07T13:12:38Z,2017-11-07T13:12:38Z,1,6,6,"Changed the Less code sample source and output paths and also added a missing semicolon.
+Changed the Sass code sample Tailwind config path and fixed indentation.",4,2
+135,2017-11-07T15:34:38Z,2017-11-07T17:03:58Z,2017-11-07T17:03:59Z,1,46,0,This Pull Request adds the Contributor Covenant Code of Conduct to Tailwind.,2,0
+154,2017-11-08T14:49:46Z,2017-11-09T16:41:37Z,2017-11-09T16:41:37Z,4,113,132,"Note: This only extracts the child links, not the parent; we could make that a separate partial or just keep it in the code like it is now.",2,7
+183,2017-11-10T22:07:50Z,,2017-11-11T13:14:19Z,4,78,40,"This could've been two separate PRs but it's really just the consolidation of #99 and #100 but moved into the config file instead of being made available as at-rules.
+This PR adds support for a new options key in the config file, with two options so far:
+{
+    // ...
+    options: {
+        prefix: 'tw-', // Defaults to ''
+        important: true, // Default to false
+    }
+}
+Prefix
+The prefix option causes all of Tailwind's utilities to be generated with the given prefix.
+This is (shockingly) more complex than it sounds, so there's a few rules worth understanding.
+
+
+The prefix is added to the beginning of the utility name, not the full class name.
+This means that if you set a prefix of tw-, you'll get utilities that look like this:
+.tw-text-blue { ... }
+.hover:tw-text-blue { ... }
+.sm:tw-text-blue { ... }
+.md:tw-text-blue { ... }
+.lg:tw-text-blue { ... }
+.xl:tw-text-blue { ... }
+...not like this:
+.tw-text-blue { ... }
+.tw-hover:text-blue { ... }
+.tw-sm:text-blue { ... }
+.tw-md:text-blue { ... }
+.tw-lg:text-blue { ... }
+.tw-xl:text-blue { ... }
+This may seem counter-intuitive at first, keep reading.
+
+
+Your own classes that Tailwind touches with features like @responsive do not adopt this prefix.
+For example, this custom class wrapped in @responsive:
+@responsive {
+    .foo { color: blue }
+}
+...will generate this code:
+.foo { color: blue }
+@media (min-width: 576px) {
+    .sm:foo { color: blue }
+}
+@media (min-width: 768px) {
+    .md:foo { color: blue }
+}
+@media (min-width: 992px) {
+    .lg:foo { color: blue }
+}
+@media (min-width: 1200px) {
+    .xl:foo { color: blue }
+}
+...not this code:
+.tw-foo { color: blue }
+@media (min-width: 576px) {
+    .sm:tw-foo { color: blue }
+}
+@media (min-width: 768px) {
+    .md:tw-foo { color: blue }
+}
+@media (min-width: 992px) {
+    .lg:tw-foo { color: blue }
+}
+@media (min-width: 1200px) {
+    .xl:tw-foo { color: blue }
+}
+This is the reason for putting the prefix at the beginning of the utility name, not the class name.
+If we put the prefix at the beginning of the full class, your own custom utilities would have no prefix, and the responsive prefixes would look different:
+<div class=""tw-text-blue custom-foo tw-md:text-red md:custom-bar"">
+    <!-- ... -->
+</div>
+This inconsistency was ugly enough that it felt like putting the prefix before just the utility portion was the right move, because the only other option was prefixing your own custom utilities too, and that didn't feel right either.
+
+
+Important
+Important is simpler; it just makes all of Tailwind's utilities !important.
+It doesn't make any of your own custom utilities that use Tailwind features important though; if you want that behavior, simply mark them as !important yourself:
+@responsive {
+    .foo {
+        color: blue !important;
+    }
+}
+One important special case here is the .container class. Using the important option does not make the .container class important.
+This is because that class isn't really a utility; it's more of a component. It already gets special treatment in the codebase in that it doesn't get responsive variations generated (.md:container, .lg:container, etc.).
+Since it's more of a component, it makes sense that it's styles should be overridable if needed, even though I don't know why you'd ever do that.
+The End.
+If you have opinions about all the prefix positioning crap I am open to hearing them, we argued about it for a while and this seemed like the best solution.",2,0
+186,2017-11-11T13:14:07Z,2017-11-11T15:40:13Z,2017-11-11T15:40:13Z,4,79,41,"This replaces #183 which was based on develop; we've decided to merge against master instead.
+This could've been two separate PRs but it's really just the consolidation of #99 and #100 but moved into the config file instead of being made available as at-rules.
+This PR adds support for a new options key in the config file, with two options so far:
+{
+    // ...
+    options: {
+        prefix: 'tw-', // Defaults to ''
+        important: true, // Default to false
+    }
+}
+Prefix
+The prefix option causes all of Tailwind's utilities to be generated with the given prefix.
+This is (shockingly) more complex than it sounds, so there's a few rules worth understanding.
+
+
+The prefix is added to the beginning of the utility name, not the full class name.
+This means that if you set a prefix of tw-, you'll get utilities that look like this:
+.tw-text-blue { ... }
+.hover:tw-text-blue { ... }
+.sm:tw-text-blue { ... }
+.md:tw-text-blue { ... }
+.lg:tw-text-blue { ... }
+.xl:tw-text-blue { ... }
+...not like this:
+.tw-text-blue { ... }
+.tw-hover:text-blue { ... }
+.tw-sm:text-blue { ... }
+.tw-md:text-blue { ... }
+.tw-lg:text-blue { ... }
+.tw-xl:text-blue { ... }
+This may seem counter-intuitive at first, keep reading.
+
+
+Your own classes that Tailwind touches with features like @responsive do not adopt this prefix.
+For example, this custom class wrapped in @responsive:
+@responsive {
+    .foo { color: blue }
+}
+...will generate this code:
+.foo { color: blue }
+@media (min-width: 576px) {
+    .sm:foo { color: blue }
+}
+@media (min-width: 768px) {
+    .md:foo { color: blue }
+}
+@media (min-width: 992px) {
+    .lg:foo { color: blue }
+}
+@media (min-width: 1200px) {
+    .xl:foo { color: blue }
+}
+...not this code:
+.tw-foo { color: blue }
+@media (min-width: 576px) {
+    .sm:tw-foo { color: blue }
+}
+@media (min-width: 768px) {
+    .md:tw-foo { color: blue }
+}
+@media (min-width: 992px) {
+    .lg:tw-foo { color: blue }
+}
+@media (min-width: 1200px) {
+    .xl:tw-foo { color: blue }
+}
+This is the reason for putting the prefix at the beginning of the utility name, not the class name.
+If we put the prefix at the beginning of the full class, your own custom utilities would have no prefix, and the responsive prefixes would look different:
+<div class=""tw-text-blue custom-foo tw-md:text-red md:custom-bar"">
+    <!-- ... -->
+</div>
+This inconsistency was ugly enough that it felt like putting the prefix before just the utility portion was the right move, because the only other option was prefixing your own custom utilities too, and that didn't feel right either.
+
+
+Important
+Important is simpler; it just makes all of Tailwind's utilities !important.
+It doesn't make any of your own custom utilities that use Tailwind features important though; if you want that behavior, simply mark them as !important yourself:
+@responsive {
+    .foo {
+        color: blue !important;
+    }
+}
+One important special case here is the .container class. Using the important option does not make the .container class important.
+This is because that class isn't really a utility; it's more of a component. It already gets special treatment in the codebase in that it doesn't get responsive variations generated (.md:container, .lg:container, etc.).
+Since it's more of a component, it makes sense that it's styles should be overridable if needed, even though I don't know why you'd ever do that.
+The End.
+If you have opinions about all the prefix positioning crap I am open to hearing them, we argued about it for a while and this seemed like the best solution.",3,1
+229,2017-11-21T20:54:35Z,2017-11-21T21:55:11Z,2017-11-21T21:55:11Z,1,12,0,Saw an alert like this on one of the Sketch marketing pages and thought it looked pretty rad.,2,0
+233,2017-11-23T16:37:03Z,2017-11-24T14:25:28Z,2017-11-24T14:25:28Z,40,10195,9939,"Still WIP
+This PR does a bunch of stuff:
+
+
+Makes module names more consistent so each generator matches the name we want to expose to the user for that module
+
+
+Adds a new modules key to the config file where you can customize how Tailwind generates each module
+
+
+Missing keys in the config now use the default values for those keys; this was already happening in some places but it's now consistent
+
+
+Allows specifying the generated variants for a given module in the config file, including not generating responsive variants for a given module if desired:
+{
+    // ...
+    options: {
+        // ...
+        modules: {
+            // ...
+            appearance: [],
+            backgroundColors: ['responsive', 'hover'],
+            zIndex: ['responsive'],
+        }
+    }
+}
+
+
+Allows disabling a module:
+{
+    // ...
+    options: {
+        // ...
+        modules: {
+            // ...
+            whitespace: false,
+        }
+    }
+}
+
+
+Moves hard-coded decisions about which utilities get which variants by default into the default config file instead
+
+
+Still to do:
+
+Add support for focus variants in config file
+Refactor the generateUtilities plugin to make it easier to write some tests for the new configuration features
+Write those tests",2,0
+254,2017-11-28T13:16:32Z,2017-11-28T14:29:49Z,2017-11-28T14:29:49Z,4,11,7,"Currently margins are removed in the list-reset class.
+We remove margins by default on all kinds of other elements, so it seems reasonable to me to remove them by default on lists too, leaving list-reset to only handle removing the list style and the left padding.
+Without this, lists will have some non-standard margin on the top and bottom by default that uses a value from outside of Tailwind's spacing config, which seems like an unnecessary inconsistency.
+I'm also considering changing list-reset to list-style-none and putting the onus on the user to remove the padding, but also happy to make that a separate PR, and still not entirely convinced on it anyways.",3,0
+282,2017-12-02T17:18:30Z,2017-12-03T15:36:15Z,2017-12-03T15:36:15Z,50,658,3,"As requested by @adamwathan on Twitter 🙂
+Not all is done yet, but thinking about making a partial for it?",2,17
+378,2018-02-08T07:00:33Z,,2019-12-25T18:50:13Z,7,225,0,"This PR introduces a handful of CSS transition utilities. See the discussion at #14. It's mostly just a few new generators and updated docs/tests/etc, but it also includes a fix to the variants-and-disabling partial that allows for no variants.
+
+ Generators
+ Config
+ Docs
+ Tests",15,46
+379,2018-02-09T19:37:19Z,2018-03-13T12:12:55Z,2018-03-13T12:12:55Z,56,149,5,"This is just a small addition to the state variant family. active state can come in handy while defining how buttons should behave when clicked, and I guess in a lot of other situations.
+The thing is: we already support hover and focus, right? Why not active?
+This pull request includes basic support, documentation and ad-hoc tests. It only needs to get merged to be up and running.
+A little sidenote: I changed the order in which state variants get generated, and their tests accordingly (now hover gets outputted before focus, and active sits between the two). That's to keep the same order throughout the codebase.",4,12
+383,2018-02-12T11:19:51Z,2018-02-12T13:42:51Z,2018-02-12T13:42:51Z,1,1,1,"https://tailwindcss.com/docs/flexbox-align-items
+align-items: flex-stretch; -> align-items: stretch;",3,2
+478,2018-05-29T21:56:02Z,,2019-03-16T20:44:26Z,2,34,5,"This will add support for custom class names on the container. Currently using this in a project to create a ""wide"" container modifier by doing this:
+plugins: [
+  require('tailwindcss/plugins/container')(),
+  require('tailwindcss/plugins/container')({
+    className: 'container--wide',
+    screens: [
+      '1500px',
+    ],
+  }),
+],
+
+This lets me use class=""container container--wide"" to add that extra breakpoint only in the places I need.
+It will of course also let anyone specify a custom class name if the word container feels too... bounded.",4,4
+499,2018-06-20T19:14:19Z,2018-06-21T12:05:51Z,2018-06-21T12:05:51Z,2,3293,80,"This PR adds a bunch more padding/margin/negative margin values by default:
+{
+  // ...
+
+  padding: {
+    'px': '1px',
+    '0': '0',
+    '1': '0.25rem',
+    '2': '0.5rem',
+    '3': '0.75rem',
+    '4': '1rem',
+    '5': '1.25rem',
+    '6': '1.5rem',
+    '8': '2rem',
+    '10': '2.5rem',
+    '12': '3rem',
+    '16': '4rem',
+    '20': '5rem',
+    '24': '6rem',
+    '32': '8rem',
+  },
+
+  // ...
+}
+Also added the 5 size to width and height so it didn't have any holes that the spacing scale didn't have.
+Minified + gzipped this pushes Tailwind's default config just under 50kb but I'm adding these on every single project I create for myself so there's no point pretending they aren't necessary (or at least very useful.) Purgecss ftw.",3,1
+537,2018-08-19T23:06:43Z,2018-09-13T12:08:09Z,2018-09-13T12:08:09Z,2,59,277,"normalize.css 8.0.0 drops support for old browsers like IE9 (0.15%), Android 4.3 (0.15%), Safari 8 (0.04%), iOS 7-8 (0.14%) (from https://caniuse.com/usage-table).
+I also tested the corresponding update to https://github.com/suitcss/base but found it too disruptive without modification, and so left it out of this pull.
+In Tailwind's custom resets there is also a fix for Chrome 62 (0.12%) that can be removed eventually.
+Closes #525.
+Thanks!",3,3
+645,2019-02-06T01:44:06Z,2019-02-06T19:49:46Z,2019-02-06T19:49:46Z,5,243,105,"Yet another alternative to #639 and #643...
+This time instead of any fancy merging logic that's tightly coupled to the theme structure or anything, I've added generic support for using functions as values in the theme.
+Any theme values specified as functions will receive the theme as an argument so it can reference itself.
+Looks like this in use:
+module.exports = {
+  theme: {
+    colors: {
+      cyan: 'cyan',
+      magenta: 'magenta',
+      yellow: 'yellow',
+    },
+    backgroundColors: ({ colors }) => colors,
+    textColors: ({ colors }) => colors,
+  },
+}
+There is potential for infinite recursion and circular dependencies if you use this feature in a stupid way, but I'm comfortable shifting that responsibility to the end user. Basically, don't try to reference other theme values that are functions inside of another theme function or it's impossible to resolve the final value, of course.
+I've updated the defaultTheme to take advantage of this under the hood which magically makes all color inheritance work, and removes the need to have that horrible colors constant at the top of the file.",2,1
+655,2019-02-14T03:22:42Z,2019-02-14T19:33:32Z,2019-02-14T19:33:32Z,2,293,5,"One of the changes we are making for 1.0 is to start encouraging people to only replace/extend what they need to change in the config file, rather than scaffolding every single value and giving the user complete ownership by default.
+A challenge with this approach is that it's not quite as simple to just add a few new values to your config (or more aptly your theme in 1.0 terms).
+Previously all of the default values would already be present, and you could just tack on any extra ones you wanted to add:
+  // 0.x config format
+
+  module.exports = {
+    // ...
+    borderWidths: {
+      default: '1px',
+      '0': '0',
+      '2': '2px',
+      '4': '4px',
+      '8': '8px',
++     '10': '10px',
++     '12': '12px',
+    },
+  }
+But with the approach we are recommending for 1.0, there would be no borderWidths key in your theme by default, and to add the two new values you'd also have to re-add the existing values.
+  // 1.x config format
+
+  module.exports = {
+    // ...
+    theme: {
++     borderWidths: {
++       default: '1px',
++       '0': '0',
++       '2': '2px',
++       '4': '4px',
++       '8': '8px',
++       '10': '10px',
++       '12': '12px',
++     },
+    }
+  }
+My original thinking for working around this was just adding a new export (something like tailwindcss/defaultTheme) that users could import and spread into their theme to extend things, for example:
++ const defaultTheme = require('tailwindcss/defaultTheme')
+
+  module.exports = {
+    // ...
+    theme: {
++     borderWidths: {
++       ...defaultTheme.borderWidths,
++       '10': '10px',
++       '12': '12px',
++     },
+    }
+  }
+...but I realized this would break down in combination with the theme-values-as-closures support added in #645 (you can't spread in an object that hasn't even been fully evaluated yet).
+So instead, the best idea I could come up with is a new extend key inside the theme section that will properly handle all of this stuff for you.
+It looks like this:
+  module.exports = {
+    // ...
+    theme: {
++     extend: {
++       borderWidths: {
++         '10': '10px',
++         '12': '12px',
++       },
++     }
+    }
+  }
+By handling this in a first-class way we can intelligently handle the closure situations to give you intuitive results that make perfect sense but would be almost impossible to implement ergonomically in userland.
+For example, this config file adds a few custom colors to the overall color palette, and adds a new background color, with the background colors still inheriting their base values from the user-extended color palette:
+module.exports = {
+  theme: {
+    extend: {
+      colors: {
+        cyan: 'cyan',
+        magenta: 'magenta',
+      },
+      backgroundColors: {
+        customBackground: '#bada55',
+      },
+    },
+  },
+}
+The result here would be that you'd get all of the default background color utilities (bg-blue, bg-blue-light, etc.), as well as bg-cyan and bg-magenta from the extended color palette, and bg-customBackground for the color added only to backgroundColors. Doing this in user-land with the defaultTheme export and trying to spread stuff in yourself is not really even possible without extracting some variables to avoid duplication.
+With this PR, a user theme would end up being broken into two sections: complete replacements, and extensions.
+I expect in the real world it would usually look something like this:
+module.exports = {
+  theme: {
+
+    // Completely replaced values:
+    colors: {
+      // User's custom color palette
+    },
+    fonts: {
+      // User's custom font stack
+    },
+
+    // Values that extend the defaults with a few extras:
+    extend: {
+      shadows: {
+        xl: '0 25px 40px 0 rgba(0,0,0,0.11), 0 10px 20px 0 rgba(0,0,0,0.05)',
+      },
+      opacity: {
+        '60': '.6',
+      }
+    },
+  },
+}",5,7
+708,2019-03-04T21:23:46Z,2019-03-05T14:42:16Z,2019-03-05T14:42:16Z,4,109,18,"This PR makes Tailwind automatically load a tailwind.config.js file (the new name we will be recommending in v1.0) as your config file if it's present in your project root.
+This means you don't need to even invoke Tailwind as a function in your postcss.config.js file since PostCSS will handle that automatically, leaves things looking a bit cleaner:
+  module.exports = {
+    plugins: [
+-     require('tailwindcss')('./tailwind.config.js'),
++     require('tailwindcss'),
+      require('autoprefixer')
+    ]
+  }
+You can of course still pass a path to your config file if you want to keep it somewhere else 👍
+module.exports = {
+  plugins: [
+    require('tailwindcss')('./path/to/some/other/tailwind.config.js'),
+    require('autoprefixer')
+  ]
+}",2,0
+865,2019-04-24T00:22:51Z,2019-04-24T19:33:33Z,2019-04-24T19:33:33Z,7,5380,5687,"The negativeMargin plugin has always sort of been an odd one out, and with #848 asking for the ability to mimic the -mx-4-style leading dash for negative values for other properties, it makes sense to solve this in a more general way.
+This PR starts that process by eliminating the negativeMargin plugin, and making the regular margin plugin capable of handling negative values and generating the same -mx-4-style classes.
+The way it works is if you specify a key in your margin configuration that starts with a -, the plugin translates that to a class name that starts with a -.
+For example, this configuration:
+// tailwind.config.js
+module.exports = {
+  theme: {
+    margin: {
+      '-6': '-1.5rem',
+    }
+  }
+}
+...would generate these classes:
+.-m-6 { margin: -1.5rem }
+.-my-6 { margin-top: -1.5rem; margin-bottom: -1.5rem }
+.-mx-6 { margin-right: -1.5rem; margin-left: -1.5rem }
+.-mt-6 { margin-top: -1.5rem }
+.-mr-6 { margin-right: -1.5rem }
+.-mb-6 { margin-bottom: -1.5rem }
+.-ml-6 { margin-left: -1.5rem }
+Importantly, it does not generate classes like .mx--6 like you might expect, since normally keys in the config translate directly to class suffixes.
+This is special/magic behavior, sort of like how the default key means ""no suffix or trailing dash"".
+This approach was not decided on lightly, and it is unfortunate that we have to introduce new special behavior/magic, but it is the best solution in terms of balancing backwards compatibility, leveraging existing muscle memory, and class readability.
+Alternatives that were considered included using classes like mx-n6, mx-neg-6, mx--6, mx(-6), and even changing the whole framework to use colons instead of dashes so we could do mx:-6. Keeping the existing -mx-6 class name and generalizing that approach so it works with other plugins is definitely the least bad option.
+This is a breaking change in two ways:
+
+
+The negativeMargin key now does nothing in your config file. Users will need to move any customizations made to this key to the margin key.
+
+
+Anyone already using keys like '-6' in their margin config will no longer see their existing classes generated. Up until now, using a key like '-6' would result in classes like mx--6. Now -mx-6 will be generated instead, and it is now impossible to generate values that result in a double dash in the class name. It looks stupid as hell anyways so honestly I'm doing you a favor.
+
+
+The default margin config has been updated to automatically generate all of the negative values based on the spacing config:
+    // ...
+    margin: theme => {
+      const negativeSpacing = Object.keys(theme('spacing'))
+        .filter(key => theme('spacing')[key] !== '0')
+        .reduce((negativeSpacing, key) => {
+          return { ...negativeSpacing, [`-${key}`]: `-${theme('spacing')[key]}` }
+        }, {})
+
+      return {
+        auto: 'auto',
+        ...theme('spacing'),
+        ...negativeSpacing,
+      }
+    },
+Having this logic live right in the config file is not my favorite thing in the world, especially because people can publish this with tailwind init --full, but it's fine for now and I can move it somewhere else after I think about the best place to put it.
+Next steps
+The next step is to generalize this across all relevant plugins, starting with at least the inset and zIndex plugins.
+I may also expose a new className function through the plugin API that combines this logic, the escaping logic, and the special default key handling into one function, so all plugin authors (including those working on Tailwind's core plugins) don't have to really worry about this stuff. It would make it really easy for everything to be consistent:
+function ({ addUtilities, className }) {
+  const utilities = _.fromPairs(
+    _.map(theme('rotate'), (value, modifier) => {
+      return [
+        `.${className('rotate', modifier)}`,
+        {
+          'transform': `rotate(${value})`,
+        },
+      ]
+    })
+  )
+
+  addUtilities(utilities, variants('rotate'))
+}",4,3
+961,2019-06-08T12:42:12Z,2019-06-11T00:15:07Z,2019-06-11T00:15:08Z,3,154,154,This PR increases the precision of percentage widths by one decimal place to help avoid 1px rounding errors that can appear at certain viewport sizes. The new level of precision matches Bootstrap which is probably smart because their stuff is super tested.,2,0
+976,2019-06-18T11:28:31Z,2019-07-10T12:31:12Z,2019-07-10T12:31:12Z,2,22,0,"This PR adds the visited state variant to Tailwind core.  It can be used as follows:
+<a class=""visited:text-pink"" href=""#"">Visited Link</a>
+It should be placed before the hover and active variants in the configuration or it will override their behavior.
+This feature was requested in issue #501, not sure if the implementation is what @adamwathan had in mind.   Based this solution on #732",3,1
+1024,2019-07-12T16:58:11Z,2019-07-20T15:16:56Z,2019-07-20T15:16:56Z,2,46,2,"This PR adds new first-child and last-child variants to the framework, but disabled by default for all core plugins.
+These allow you to apply a utility to an element only when it is the first child or last child of its parent. Very useful for things like ""put a border between all of these items that are generated in a loop"" for example:
+<ul>
+  <li v-for=""item in items"" class=""border-t first-child:border-t-0"">{{ item }}</li>
+</ul>
+Something worth emphasizing is that these variants apply to the child element itself, not to the children of the element with the utility. This is consistent with how other pseudo-class variants in Tailwind work, and how the :first/last-child pseudo selectors work in CSS.
+Said again in code:
+<!-- This is *not* how the plugin is meant to be used -->
+<ul class=""first-child:border-t-0"">
+  <li v-for=""item in items"" class=""border-t"">{{ item }}</li>
+</ul>
+
+<!-- The utilities should be used on the child itself, not the parent -->
+<ul>
+  <li v-for=""item in items"" class=""border-t first-child:border-t-0"">{{ item }}</li>
+</ul>",7,8
+1026,2019-07-13T14:53:53Z,2019-07-20T14:44:29Z,2019-07-20T14:44:29Z,7,7,9,"This PR replaces use of _.isArray with standard built-in Array.isArray
+Built-in isArray is faster and should be preferred",3,1
+1031,2019-07-17T20:31:31Z,,2019-12-27T14:11:22Z,5,94,0,"This PR adds 2 new classes in order to have control about box-sixing CSS property (https://developer.mozilla.org/en-US/docs/Web/CSS/box-sizing)
+I often use this property but I can't found it in Tailwind CSS.
+Rules are super simple
+.box-sizing-border {
+  box-sizing: border;
+}
+
+.box-sizing-content {
+  box-sizing: content;
+}
+
+Maybe these could be renamed in sizing-border and sizing-content.",4,8
+1094,2019-08-22T21:15:02Z,2019-12-30T14:23:48Z,2019-12-30T14:23:49Z,6,286,0,"This pull request is addressing the changes proposed by @tillkruss at #1074.
+I don't know if this issue is neccessary but i went ahead and did it anyways.
+I hope it is usefull and the code is enough.
+This is a example of the new plugin:
+
+Closes #1074
+@adamwathan",7,2
+1269,2019-12-21T19:54:22Z,,2019-12-24T00:53:05Z,8,78717,5,"This proof of concept makes the default font Inter while allowing users to overwrite it by adding a new base fontFamily to their tailwind.config.js.
+Here's how it works...
+In preflight.js we check if theme('fontFamily.base') exists. If it does, we use that value in preflight.css to set the base font-family in the html tag, replacing the previous system font stack. If theme('fontFamily.base') does not exist, we use Inter as the default.
+fontFamily.base doesn't exist in the default config. This means there are no utilities, responsive or otherwise, generated for it by default. I don't think this will be a problem though. If you are using the default font stack, you likely won't need them anyway. Of course, we could add a base font stack to the default config. That would then become the default font used in Preflight.
+Where is Inter being served from?
+This PR uses the hosted Inter css from (https://rsms.me/inter/inter.css) as recommended here. It is only imported if it needs to be used. Otherwise, if a custom base font is being used, there is no unnecessary overhead. Another option would be to put the fonts and font-face rules in Tailwind itself and copy the fonts to the user's build directory. Because the build directory could ultimately be anything, I'm not sure if that would be the best approach. A reliable CDN would be a solid option but for proof of concept, I think this solution works.
+What are your thoughts on this approach? Would finding a reliable way to serve the font from the build be the better option?",3,2
+1273,2019-12-24T13:35:10Z,2020-01-08T15:13:31Z,2020-01-08T15:13:31Z,7,775,6,"This PR adds support for transition-property, transition-duration, and transition-timing-function utilities.
+Here are the utilities generated by default:
+.transition-none {
+  transition-property: none;
+}
+
+.transition-all {
+  transition-property: all;
+}
+
+.transition {
+  transition-property: background-color, border-color, color, opacity, transform;
+}
+
+.transition-colors {
+  transition-property: background-color, border-color, color;
+}
+
+.transition-opacity {
+  transition-property: opacity;
+}
+
+.transition-transform {
+  transition-property: transform;
+}
+
+.ease-linear {
+  transition-timing-function: linear;
+}
+
+.ease-in {
+  transition-timing-function: cubic-bezier(0.4, 0, 1, 1);
+}
+
+.ease-out {
+  transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+}
+
+.ease-in-out {
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.transition-fastest {
+  transition-duration: 75ms;
+}
+
+.transition-faster {
+  transition-duration: 100ms;
+}
+
+.transition-fast {
+  transition-duration: 150ms;
+}
+
+.transition-medium {
+  transition-duration: 200ms;
+}
+
+.transition-slow {
+  transition-duration: 300ms;
+}
+
+.transition-slower {
+  transition-duration: 500ms;
+}
+
+.transition-slowest {
+  transition-duration: 700ms;
+}
+transition-property
+By default we include utilities for transition, transition-none, transition-all, transition-colors, transition-opacity, and transition-transform.
+The base transition utility enables transitions for colors, opacity, and transform all at once. I think this is the most popular/useful combination and makes sense as the default, since the alternative would be something horrific like transition-colors-opacity-transform. Transitioning color properties is not quite as performant as opacity and transform (it happens during the paint phase rather than the composite phase) but is still very fast compared to stuff like padding, and basically every website on the internet uses color transitions so I think it's fine.
+I considered trying to come up with a CSS Custom Properties based solution to make transition properties composable but there's not really a great way to do it.
+Instead, if you wanted to transition say opacity and transform but not colors, I would recommend two approaches:
+
+Add a new key like opacity-transform to your transformProperty theme config.
+Just use an inline style, style=""transition-property: opacity, transform"" — there's no magic numbers or anything to worry about here so an inline style introduces no maintainability issues other than potentially vendor prefixing.
+
+transition-timing-function
+By default I've included utilities for ease-in, ease-out, ease-in-out, and ease-linear. These can be customized under the transitionTimingFunction key in your theme config.
+I agonized for a long time over what values to include here, and originally was planning to use familiar values from easings.net.
+After a lot of time studying animation and reading different resources, the Material Design Motion Guidelines stood out to me as making the most sense and having the best justification for their chosen easing curves, so I've decided to use those three curves as the defaults for Tailwind.
+I may add a couple more in the future that have a more exaggerated entrance/exit curve for a more cinematic look but lets see how far we can get with just these three. I did a call with Jonas Naimark who does motion design at Google and in his opinion these three curves are pretty sufficient, and he can achieve everything he needs by just tweaking the duration usually.
+transition-duration
+By default I've included utilities for transition-fastest, transition-faster, transition-fast, transition-medium, transition-slow, transition-slower, and transition-slowest. These can be customized under the transitionDuration key in your theme config.
+These are loosely inspired by values used throughout the Material motion guidelines.
+What's not included
+
+No transition-delay utilities — we can add these later if people need them, I've personally never needed them though and I was having a hard time deciding on a class name so I've just punted on it for now.
+No will-change utilities — I never use this and don't really understand it, if someone can make a compelling case with a good demo that proves it's important we can definitely add.
+
+Try it out
+Here's a quick and dirty demo (just using pre-compiled CSS):
+https://tailwind.run/PfhdtG/1
+Any feedback appreciated 👍🏻",16,23
+1413,2020-03-02T08:53:35Z,2020-03-12T00:00:44Z,2020-03-12T00:00:44Z,3,41,0,@adamwathan a PR to add missing clear-none refs #1401,3,1
+1635,2020-04-27T13:21:20Z,2020-04-29T20:31:05Z,2020-04-29T20:31:05Z,44,56792,185,"This PR introduces a new target key to the config that plugins can inspect to make decisions about what styles they add to Tailwind:
+// tailwind.config.js
+module.exports = {
+  target: 'ie11',
+  theme: {},
+  variants: {},
+  plugins: [],
+}
+Currently the only target that core plugins look for is ie11, but in the future we could add more options like modern for just evergreen browsers, email to make sure all the output works well with tools like Maizzle, or browserslist to tell plugins to respect the user's browserslist config.
+Motivation
+The primary motivation behind this feature is to help people who need to support IE11 avoid accidentally using Tailwind features that IE11 doesn't support, like:
+
+Utilities like object-fit, object-position, flow-root, etc. that represent CSS features that don't exist in IE 11
+Our grid utilities, which are designed for the modern grid API and can't be polyfilled to work in IE 11
+Utilities that depend on CSS custom properties, like translate, scale, or the new text-opacity utilities
+
+I've heard from several users for example who have wanted to disable CSS Grid in Tailwind because they need to support IE 11 and found it a bit cumbersome because they had to manually disable like 9 different plugins, and even then the grid utility still exists because it's in the display plugin which they can't disable.
+So this feature aims to be a universal solution to the general problem, ""how do I disable Tailwind features I can't use anyways"".
+Implementation
+The Tailwind ""engine"" is actually entirely unchanged, all we've done is update a few core plugins to look for the new target key using the config function that plugins already receive.
+For example, this is what the objectFit plugin looks like now:
+// objectFit.js
+export default function() {
+  return function({ addUtilities, variants, config }) {
+    if (config('target') === 'ie11') {
+      return
+    }
+
+    addUtilities(
+      {
+        '.object-contain': { 'object-fit': 'contain' },
+        '.object-cover': { 'object-fit': 'cover' },
+        '.object-fill': { 'object-fit': 'fill' },
+        '.object-none': { 'object-fit': 'none' },
+        '.object-scale-down': { 'object-fit': 'scale-down' },
+      },
+      variants('objectFit')
+    )
+  }
+}
+It simply checks the target key to see if it matches ie11, and if so it just doesn't add any utilities.
+Other plugins like display still add most of their utilities, but certain ones are conditionally added based on the target:
+// display.js
+export default function() {
+  return function({ addUtilities, variants, config }) {
+    addUtilities(
+      {
+        '.block': {
+          display: 'block',
+        },
+        '.inline-block': {
+          display: 'inline-block',
+        },
+        '.inline': {
+          display: 'inline',
+        },
+        // ...
+        '.table-row': {
+          display: 'table-row',
+        },
+        ...(config('target') === 'ie11'
+          ? {}
+          : {
+              '.flow-root': {
+                display: 'flow-root',
+              },
+              '.grid': {
+                display: 'grid',
+              },
+              '.inline-grid': {
+                display: 'inline-grid',
+              },
+            }),
+        '.hidden': {
+          display: 'none',
+        },
+      },
+      variants('display')
+    )
+  }
+}
+Eventually we will probably work on some more declarative abstractions we can use internally to avoid things getting complex with these sorts of conditional checks, but while we are only offering this special ie11 mode I think this solution is perfectly fine.
+Affected plugins
+Here's a list of all the changes this features makes to make Tailwind's output more tailored for IE 11:
+
+grid, inline-grid, and flow-root display utilities are removed
+Background color, border color, text color, and placeholder color utilities just output a simple color declaration and don't look at their corresponding opacity custom property to enable the opacity modifiers
+Color opacity modifiers are removed
+The reverse modifiers for space and divide utilities are removed, and the space and divide utilities are simplified accordingly
+All grid utilities are removed
+object-fit and object-position utilities are removed
+All transform utilities are simplified to be non-composable so they don't rely on custom properties — this makes these utilities actually work in IE 11 whereas before this they didn't work at all
+
+Future
+Like I mentioned briefly towards the beginning of this PR, I could see us eventually introducing new targets, for example:
+
+modern (or similar), where we remove any existing IE 11 fallback code we already provide (color opacity stuff is a good example)
+email, tailored to generate the best possible output for compatibility with tools like Maizzle
+browserslist, where we use your browserslist configuration to determine what features to enable/disable. This would be the best approach long-term but because of the granularity browserslist supports, it could make this feature a lot more complicated and I'd rather ship a simple version than nothing at all. I don't want to have to write all the logic for someone who wants to support IE 9, or only support Blackberry Browser just because that's expressible in a browserslist config for example
+
+Questions
+
+Have I missed any Tailwind features that should be disabled in IE 11?
+What should we do about custom values in the config, for example if someone adds max-content to their custom width config should we at least warn in the console?",12,18
+1907,2020-06-10T12:22:52Z,,2020-10-16T17:46:25Z,6,63,17,this PR enables support for dependabot instead of currently installed dependabot-preview,6,10
+1915,2020-06-12T00:44:57Z,2020-08-06T19:24:43Z,2020-08-06T19:24:43Z,1,10,1,"We can already configure line-height with font sizes, but this allows
+us to also specify the default tracking for these sizes too.
+This can be overwritten with tracking utilities.
+I asked here but got no response: #1874",5,7
+1937,2020-06-20T04:45:32Z,2020-10-25T18:46:32Z,2020-10-25T18:46:32Z,3,3,0,"Hi, Tom from Codecov here.
+Some of our engineers are huge fans of tailwindcss, and I thought it would be useful to add more useful code coverage metrics to this repository. Codecov is a hosted code coverage provider with awesome features. You can checkout your first reports here.
+I made a quick discussion thread here, but I figured I could just open a PR. Feel free to let me know if you have any questions or comments.
+I would love all the feedback you have, and please don't hesitate to reach out.
+Cheers,
+Tom
+Codecov ❤️'s open source and will be free forever for OSS",5,5
+2114,2020-08-03T18:27:36Z,2020-08-07T18:14:15Z,2020-08-07T18:14:15Z,5,5,60,"From https://www.w3.org/TR/css-animations-1/#keyframes:
+
+If a 0% or from keyframe is not specified, then the user agent constructs a 0% keyframe using the computed values of the properties being animated. If a 100% or to keyframe is not specified, then the user agent constructs a 100% keyframe using the computed values of the properties being animated.
+
+Which means lots of animation states can easily be removed.
+In the second commit translateY(0) is simplified to none",2,0
+2118,2020-08-04T00:47:56Z,,2022-02-25T22:16:57Z,2,80,3,"The goal of this pull request is simply to offer a single new option to the addUtilities() function. This option will allow plugin authors to choose if they want their plugin's utilities appended to the stack instead of appended to the end of the list.
+The benefit of this is that it allows a little more control over the resulting cascade rules that will apply.
+One example of how this may be used is as an API to create ""compound utilities"" that apply multiple CSS properties at once that may commonly be used together. For example, a green background on a button may often be paired with a certain colour text and border too. However, this class is still not a complete component - it is still a utility and fits into that paradigm.
+.button-green {
+  color: #F0FFF4;
+  background-color: #48BB78;
+  border-color: #2F855A;
+}
+The problem with doing this currently is that it will always be applied after Tailwind's core plugins, so there is no opportunity to override any of these properties on a one-off basis:
+<button class=""button-green bg-gray-500"">
+  <!-- The background is still green -->
+</button>
+Other utilities manage to achieve this kind of thing by being part of the same plugin, eg. mx-1 can still be overridden by ml-1 and mr-1 as the order of the utilities is controlled by the internal ordering of the margin plugin. This isn't possible for anything outside that context.
+I hope this explanation makes sense - this is something I mentioned to Adam on Twitter a while ago and he said it'd be worth adding, so here we are.
+I'm really not sure if this is the correct approach to bring such functionality or if there's another step I'm missing. A few of the tests appear to be failing right now but I'm not 100% sure why they are affected off the top of my head - any pointers in the right direction would be much appreciated.",6,7
+2159,2020-08-12T23:48:27Z,2020-08-15T19:39:57Z,2020-08-15T19:39:57Z,13,1364,192,"This PR introduces support for using @apply with any class, and finally (3 years later!) resolves #313, which is probably the most requested feature in the history of the framework.
+TL;DR, this works now:
+.btn {
+  @apply bg-indigo hover:bg-indigo-700 sm:text-lg;
+}
+Pending merge, this will be available under a feature flag in Tailwind 1.x until it becomes the default in Tailwind 2.0 in the Fall:
+// tailwind.config.js
+module.exports = {
+  experimental: {
+    applyComplexClasses: true,
+  },
+}
+Motivation
+Previously, this sort of code would throw an error:
+.btn {
+  @apply bg-indigo-600 hover:bg-indigo-700;
+}
+You would have to write this instead:
+.btn {
+  @apply bg-indigo-600;
+}
+.btn:hover {
+  @apply hover:bg-indigo-700;
+}
+This totally kills the ""copy the classes from your HTML class attribute and paste it after @apply"" workflow that the framework promises.
+There were also a handful of other classes you couldn't apply that have always surprised people, like clearfix, or more recently the space between and divide utilities like space-x-4 and divide-y-2.
+This is because of a fundamental limitation with the original implementation that prevented @apply from working with any selector that contained anything more than a single class name and was at the root of the CSS tree (so not nested within an at-rule like a media query).
+This is a major source of confusion for new users, and we get new GitHub issues and Discord questions all the time that can be traced back to this fundamental problem
+New functionality
+This PR makes it possible to use @apply with any class:
+/* Input */
+.btn {
+  @apply bg-indigo-600 hover:bg-indigo-700 group-hover:opacity-50 sm:text-lg;
+}
+
+/* Output */
+.btn {
+  background-color: #5a67d8;
+}
+.btn:hover {
+  background-color: #4c51bf;
+}
+.group:hover .btn {
+  opacity: 0.5;
+}
+@media (min-width: 640px) {
+  .btn {
+    font-size: 1.125rem;
+  }
+}
+Responsive variants
+The @apply directive can now be used with all of Tailwind's responsive utilities, like md:text-center, and even things like md:hover:opacity-50:
+/* Input */
+.btn {
+  @apply md:text-center md:hover:opacity-50;
+}
+
+/* Output */
+@media (min-width: 768px) {
+  .btn {
+    text-align: center;
+  }
+  .btn:hover {
+    opacity: 0.5;
+  }
+}
+Pseudo-class variants
+The @apply directive can now be used with pseudo-class variants, like hover:opacity-75:
+/* Input */
+.btn {
+  @apply hover:opacity-50;
+}
+
+/* Output */
+.btn:hover {
+  opacity: 0.5;
+}
+Complex selectors
+The @apply directive can now be used to apply classes that appear in complex selectors:
+/* Input */
+.btn {
+  @apply complex-class;
+}
+
+.foo .complex-class:hover * {
+  color: red;
+}
+
+/* Output */
+.foo .btn:hover * {
+  color: red;
+}
+
+.foo .complex-class:hover * {
+  color: red;
+}
+Classes used in multiple rules
+The @apply directive can now be used to apply classes that appear in multiple rules:
+/* Input */
+.btn {
+  @apply example-class;
+}
+
+.example-class {
+  background: red;
+  font-weight: bold;
+}
+
+.example-class.is-active {
+  opacity: 1;
+}
+
+@media (min-width: 1024px) {
+  .example-class {
+    font-size: 24px;
+  }
+}
+
+/* Output */
+.btn {
+  background: red;
+  font-weight: bold;
+}
+
+.btn.is-active {
+  opacity: 1;
+}
+
+@media (min-width: 1024px) {
+  .btn {
+    font-size: 24px;
+  }
+}
+
+.example-class {
+  background: red;
+}
+
+.example-class {
+  font-weight: bold;
+}
+
+.example-class.is-active {
+  opacity: 1;
+}
+
+@media (min-width: 1024px) {
+  .example-class {
+    font-size: 24px;
+  }
+}
+This makes it possible to @apply the container class for example:
+/* Input */
+.custom-class {
+  @apply container;
+}
+
+/* Output */
+.custom-class {
+  width: 100%;
+}
+@media (min-width: 640px) {
+  .custom-class {
+    max-width: 640px;
+  }
+}
+@media (min-width: 768px) {
+  .custom-class {
+    max-width: 768px;
+  }
+}
+@media (min-width: 1024px) {
+  .custom-class {
+    max-width: 1024px;
+  }
+}
+@media (min-width: 1280px) {
+  .custom-class {
+    max-width: 1280px;
+  }
+}
+Recursive @apply
+The @apply directive can now be used recursively
+Detailed explanation of behavior
+This new implementation is designed around a single guiding principle:
+
+Copying a list of classes from your HTML, pasting them after @apply, then replacing the list of classes with the new class should result in the exact same observed behavior as keeping the list of classes in your HTML.
+
+Sounds simple in theory but following it does lead to behavior you might initially find unintuitive or think is undesirable, so let's discuss the particularly controversial implications...
+All declarations relating to a class are included
+Following the guiding principle, we now apply the declarations from all rules where the class being applied is included.
+To understand why this is the correct behavior, consider this example:
+<style>
+  .link {
+    color: black;
+    font-weight: bold;
+  }
+  .link.is-active {
+    background: yellow;
+  }
+</style>
+
+<a href=""#"" class=""link text-lg leading-7"">Link</a>
+If we wanted to extract a new class here, we would write this CSS:
+.link-lg {
+  @apply link text-lg leading-7;
+}
+Now we can replace the class list like so:
+<a href=""#"" class=""link-lg"">Link</a>
+Now consider what happens if in the original example, we add the is-active class:
+<a href=""#"" class=""link text-lg leading-7 is-active"">Link</a>
+This gives the link a yellow background color. If we are following the guiding principle outlined above, then this should also have a yellow background color:
+<a href=""#"" class=""link-lg is-active"">Link</a>
+If it doesn't, then the extraction we performed wasn't safe — it changed the behavior of the design.
+For that reason, it is important that given this input:
+.link {
+  color: black;
+  font-weight: bold;
+}
+.link.is-active {
+  background: yellow;
+}
+
+.link-lg {
+  @apply link text-lg leading-7;
+}
+...we generate this output:
+.link {
+  color: black;
+  font-weight: bold;
+}
+.link.is-active {
+  background: yellow;
+}
+.link-lg {
+  color: black;
+  font-weight: bold;
+  font-size: 1.125rem;
+  leading: 1.75rem;
+}
+.link-lg.is-active {
+  background: yellow;
+}
+Applied classes follow CSS source order, not apply order
+Consider this example:
+<div class=""bg-white bg-black"">
+  <!-- ... -->
+</div>
+<div class=""bg-black bg-white"">
+  <!-- ... -->
+</div>
+Both of these div elements will have a white background color, because the order of classes in the HTML does not matter. What matters is the order of the rules in the stylesheet (and specificity, but that's not relevant to this example).
+So following that, this input CSS:
+.foo {
+  @apply bg-white bg-black;
+}
+.bar {
+  @apply bg-white bg-black;
+}
+...needs to generate this output:
+.foo {
+  background-color: black;
+  background-color: white;
+}
+.bar {
+  background-color: black;
+  background-color: white;
+}
+Otherwise the behavior of @apply will differ from the behavior of using the utilities in your HTML, which breaks our guiding principle and means extracting with @apply is not a pure refactoring.
+The shadow lookup table is merged with the user's CSS, not treated as a fallback
+Prior to this PR, Tailwind would use a ""shadow lookup table"" to find a utility that was used in @apply if it couldn't find it in the user's CSS tree.
+In practice this was useful for Vue components, where you might try to use @apply in the <style> block, because Vue runs PostCSS for each style block in isolation, which means Tailwind can't ""see"" anything outside of that block, so @apply flex would fail because there was no flex class in the style block.
+In this PR, the shadow lookup table still exists to support this use case, but because you can apply classes that appear in multiple rules, we prepend the lookup table to your custom CSS. This means it is not treated as a fallback, and will always be considered, even if Tailwind finds the class you are trying to apply in your custom CSS.
+Consider this weird situation that you better not be doing you animal:
+<!-- Some Vue component -->
+<template>
+  <!-- ... -->
+</template>
+
+<style>
+.pt-4 {
+  background-color: lol;
+}
+.foo {
+  @apply pt-4;
+}
+</style>
+In Tailwind currently, this would compile to this CSS output:
+.pt-4 {
+  background-color: lol;
+}
+.foo {
+  background-color: lol;
+}
+This is because when Tailwind tried to find pt-4, it found your custom version of it and used that. It doesn't consider the default pt-4 unless it can't find pt-4 in your own CSS.
+In this PR, you'd get this output:
+.pt-4 {
+  background-color: lol;
+}
+.foo {
+  padding-top: 1rem;
+  background-color: lol;
+}
+Odds of this affecting you are basically zero, but it's a different mental model so worth explaining.
+Related, Tailwind only prepends the shadow lookup if it cannot find evidence of Tailwind's styles existing in your CSS tree. The way it checks this is if your CSS contains any @tailwind rules.
+If Tailwind finds a single @tailwind rule in the tree, it will not prepend the lookup table, and will only search in your CSS.
+Declarations are always inserted relative to the position of @apply
+Consider this input:
+.foo {
+  background-color: red;
+  @apply text-white font-normal hover:font-bold;
+  text-align: center;
+}
+This PR generates this output:
+.foo {
+  background-color: red;
+  color: white;
+  font-weight: normal;
+}
+.foo:hover {
+  font-weight: bold;
+}
+.foo {
+  text-align: center;
+}
+Seem a little confusing? Think about it in expanded form:
+.foo {
+  background-color: red;
+}
+
+/* Start of `@apply`'d classes */
+.foo {
+  color: white;
+  font-weight: normal;
+}
+.foo:hover {
+  font-weight: bold;
+}
+
+/* End of `@apply`'d classes */
+.foo {
+  text-align: center;
+}
+All of the classes added with @apply are inserted at the position of @apply itself, even if that means pushing existing declarations out of the parent rule and into a clone of that parent rule that is added after the last @apply-related rule.
+This is a weird one because it sort of breaks the guiding principle, and you could argue that the applied declarations should be added relative to the source order of the class you are applying into, but after a bunch of trial and error, this felt the most intuitive to us.
+Breaking changes
+This PR necessitates a few small breaking changes to how @apply currently works. They will affect very few people.
+Applied classes now follow source order
+Like discussed above, the order of utilities after @apply no longer maps to the order that the declarations are actually inserted.
+In Tailwind currently, things work like this:
+/* Input */
+.foo {
+  @apply bg-white bg-black;
+}
+.bar {
+  @apply bg-black bg-white;
+}
+
+/* Output */
+.foo {
+  background-color: white;
+  background-color: black;
+}
+.bar {
+  background-color: black;
+  background-color: white;
+}
+With this PR, things will work like this:
+/* Input */
+.foo {
+  @apply bg-white bg-black;
+}
+.bar {
+  @apply bg-black bg-white;
+}
+
+/* Output */
+.foo {
+  background-color: black;
+  background-color: white;
+}
+.bar {
+  background-color: black;
+  background-color: white;
+}
+This new behavior is without a doubt correct if we agree that @apply is a tool for extracting a list of classes, and I would argue the current behavior is almost a bug.
+When migrating to this new implementation, you will need to be careful that you were not relying on the old behavior. In practice it is very unlikely you actually depended on this behavior anyways, you would almost never apply two classes that targeted the same CSS property, and if you did it would be situations like this:
+.foo {
+  @apply p-4 pt-2;
+}
+...which you would have had to explicitly put in that order to get it to work, and Tailwind uses that order out of the box.
+Can't apply utilities without your configured prefix
+If you have a prefix configured in your tailwind.config.js file, you need to include that prefix when using @apply:
+.foo {
+  @apply tw-mt-6;
+}
+Previously this was optional, but now because Tailwind supports applying classes that appear in multiple rules, it's impossible for this behavior to not be ambiguous so we are removing it as a result. It breaks the guiding principle anyways, as using unprefixed classes in your HTML does not work if you have the prefix configured.
+Using a leading dot in front of utilities is no longer supported
+This no longer works with the new implementation:
+.foo {
+  @apply .bg-white;
+}
+We can make this work if there's some really good reason, but it hasn't been documented for like two years. No good reason to support both syntaxes.
+Interoperability with the old @apply that used to be included in cssnext has been removed
+There used to be a draft for an @apply rule that worked with these custom property bag things like this:
+.foo {
+  @apply --custom-thing;
+}
+Prior to this PR, Tailwind supported mixing that functionality with Tailwind's version of @apply, so you could do this:
+/* Input */
+.foo {
+  @apply --custom-thing text-center;
+}
+
+/* Output */
+.foo {
+  @apply --custom-thing;
+  text-align: center;
+}
+That proposal is deprecated and that feature will never exist now, so we have removed interop support.
+FAQ
+The most common question I've seen so far is ""why aren't declarations with the same selector being grouped together?"" in situations like this:
+/* Input */
+.foo {
+  @apply font-normal hover:font-bold text-white hover:text-black;
+}
+
+/* Output */
+.foo {
+  font-weight: normal;
+}
+.foo:hover {
+  font-weight: bold;
+}
+.foo {
+  color: white;
+}
+.foo:hover {
+  color: black;
+}
+The simple answer is that this is the only way to make the applied class order match the CSS source order, because that is the order those rules appear in the CSS.
+It's true that it is safe to optimize this in this case and collapse them, because there are no conflicting properties, but I consider this to be outside the scope of Tailwind itself. Use cssnano or CleanCSS for this, you should be using one of them for your production builds anyways and they are very smart dedicated tools that handle this beautifully.
+Release strategy
+Because this includes breaking changes it is slated for Tailwind 2.0, but will be available to try as an experimental feature in the next release under the applyComplexClasses key:
+// tailwind.config.js
+module.exports = {
+  experimental: {
+    applyComplexClasses: true,
+  },
+}
+We will release it as experimental for now so we can make changes if necessary once it's out in the wild and people can provide feedback, then we will promote it to future when it is stable, and finally turn it on by default in Tailwind 2.0.",9,11
+2233,2020-08-24T14:06:02Z,,2020-08-30T20:43:58Z,5,3740,83,"Once this is merged we will need to prefix all the commits with feat:, fix:, ci: and so on. If you don't know the conventional commit structure you can use npm run commit or yarn commit which guides you through some steps.
+This PR also includes a pr.yml file which ensures that new PR's follow this convention, otherwise the build will fail.
+
+This will allow us to auto generate release notes.
+This will allow us to release faster and more often. (Merges in master will be released as the latest version; merges in develop will be released as prereleases).
+
+I made some test commits (not pushed)
+3c9eb15: fix: we fixed a bug
+5aef0a2: feat(future): a future feature
+d06c270: feat(experimental): some new and fancy experimental feature
+
+If we happen to merge only these commits then the following changelog would be generated:
+# 1.8.0 (https://github.com/tailwindcss/tailwindcss/compare/v1.7.3...v1.8.0) (2020-08-24)
+
+### Bug Fixes
+
+    * we fixed a bug (3c9eb15 (https://github.com/tailwindcss/tailwindcss/commit/3c9eb15c24d023c3128bf53d8aa3a4417ce0185a))
+
+### Features
+
+    * experimental: some new and fancy experimental feature (d06c270 (https://github.com/tailwindcss/tailwindcss/commit/d06c27029ecfd5fa80d0af4371360cb44f91dc3a))
+    * future: a future feature (5aef0a2 (https://github.com/tailwindcss/tailwindcss/commit/5aef0a2538e7d3897633d2b59daabfeb6c3c7a9a))
+
+
+TODO:
+
+ setup intermediate branch (develop) for pre-releases.
+ setup GitHub & NPM tokens.",3,2
+2290,2020-09-02T20:12:05Z,,2020-09-03T11:21:14Z,5,146,20,"Link to the discussion: #2278
+To be done:
+
+ tests 😅",2,2
+2312,2020-09-04T16:19:23Z,2020-09-04T18:21:57Z,2020-09-04T18:21:57Z,4,118,0,"This PR takes any custom CSS defined within a @layer at-rule that matches one of Tailwind's layers and groups them together with the corresponding Tailwind rules.
+For example, this CSS:
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .btn { background: blue }
+}
+
+@layer utilities {
+  .align-banana { text-align: banana }
+}
+
+@layer base {
+  h1 { font-weight: bold }
+}
+
+@layer components {
+  .card { border-radius: 12px }
+}
+
+@layer base {
+  p { font-weight: normal }
+}
+
+@layer utilities {
+  .align-sandwich { text-align: sandwich }
+}
+...conceptually becomes this:
+@tailwind base;
+h1 { font-weight: bold }
+p { font-weight: normal }
+
+@tailwind components;
+.btn { background: blue }
+.card { border-radius: 12px }
+
+@tailwind utilities;
+.align-banana { text-align: banana }
+.align-sandwich { text-align: sandwich }
+This is useful for avoiding CSS declaration order specificity issues and lets you decouple authoring order from intended render order. This is generally inline with the new @layer CSS proposal that came out shortly after we introduced this at-rule to Tailwind ourselves without knowing that existed, heh.
+This is a change in behavior to how things worked before but we don't document the @layer rule outside of mentioning it in the release notes for Tailwind 1.6. I am going to be a bit bold and classify this as a bugfix, as this is how this always should have worked.",2,0
+2391,2020-09-15T16:26:50Z,2020-10-12T18:15:56Z,2020-10-12T18:15:56Z,2,15,13,IE11 uses old word-wrap property instead of overflow-wrap. This adjusts the output of the wordBreak plugin.,2,2
+2460,2020-09-28T17:38:22Z,2020-10-08T19:48:07Z,2020-10-08T19:48:08Z,8,647,58,"Windows has a high contrast mode which disables all styling it considers superficial, and renders the UI in ultra high contrast for users with low vision. This presents a problem when you try to use box shadows for custom focus styles alongside focus:outline-none, because for WHC users, the box shadow is not rendered, and since outline-none has historically just set outline: 0, WHC users see no outline either, so they have no way to tell that the element is focused.
+This PR changes outline-none to use the following implementation:
+.outline-none {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+}
+For non-WHC users, the rendered result is the same because the outline is transparent and therefore invisible. But WHC users will now see a 2px solid outline, since WHC ignores most color preferences, including setting the outline to transparent.
+I considered adding this as a new outline-transparent utility but that name is annoyingly long, and I think the responsible thing to do is ""auto-upgrade"" all existing usage of outline-none to help Tailwind users make their existing sites more accessible without making any changes. I'm not going to classify this as a breaking change since there should be no perceived difference in behavior.
+Also considered the name outline-hidden, but again it feels more responsible to change the existing behavior (since 99% of people are using outline-none to hide focus styles) instead of forcing people to change their HTML.
+I considered also adding a new outline-0 utility for people who really want to completely disable the outline for one reason or another, but have decided not to as I think it would be too easy to use by mistake instead of outline-none.
+I'm not totally opposed to making outline a configurable property if anyone has a good argument for it but honestly I have never once in my life used it for anything but hiding focus styles.
+Appreciate any thoughts or input on this one 👍",4,9
+2474,2020-09-30T17:00:20Z,2020-10-08T15:21:40Z,2020-10-08T15:21:40Z,14,345,166,"This PR adds support for adding a presets key to your Tailwind config to make it possible to ignore Tailwind's default config file.
+This configuration is identical to Tailwind's default behavior, and this is what happens if the presets key is omitted:
+// tailwind.config.js
+module.exports = {
+  presets: [require('tailwindcss/defaultConfig')],
+  theme: { ... }
+}
+This configuration removes Tailwind's default config from the list of configs to resolve, essentially disabling all defaults:
+// tailwind.config.js
+module.exports = {
+  presets: [],
+  theme: { ... }
+}
+This configuration specifies a custom base config file, useful if you have a config you share across different properties at your company:
+// tailwind.config.js
+module.exports = {
+  presets: [require('@acmecorp/tailwind-config')],
+  theme: { ... }
+}
+Multiple presets can be applied, and they will be resolved in order, with presets at the end taking precedence over presets at the beginning:
+// tailwind.config.js
+module.exports = {
+  presets: [
+    require('@acmecorp/base-tailwind-config')
+    require('@acmecorp/marketing-tailwind-config')
+  ],
+  theme: { ... }
+}
+Presets can also have their own presets, so the above configuration could be rewritten like this:
+// @acmecorp/marketing-tailwind-config
+module.exports = {
+  presets: [require('@acmecorp/base-tailwind-config')]
+  // ...
+}
+
+// tailwind.config.js
+module.exports = {
+  presets: [
+    require('@acmecorp/marketing-tailwind-config')
+  ],
+  theme: { ... }
+}
+This PR also adds better support for merging the corePlugins key, so now your custom default config can specify the core plugins you want to enable while still being able to extend it in a project specific config:
+// tailwind.config.
+const sharedConfig = {
+  // ...
+  corePlugins: ['backgroundColor', 'float', 'opacity', 'padding']
+}
+
+module.exports = [
+  sharedConfig,
+  {
+    // ...
+    corePlugins: {
+      float: false,
+    }
+  }
+]
+If you'd like to add core plugins to your base config, you can use a function syntax that receives the so-far-resolved corePlugins array as a destructurable argument:
+// tailwind.config.js
+const sharedConfig = {
+  // ...
+  corePlugins: ['backgroundColor', 'float', 'opacity', 'padding']
+}
+
+module.exports = {
+  // ...
+  presets: [sharedConfig],
+  corePlugins: ({ corePlugins }) => {
+    return [...corePlugins, 'margin']
+  }
+}
+We may add helpers like after and before in the future, to mimic the API that is available for variants.
+This PR in general is in service of introducing a new ""lite"" config mode for Tailwind, for folks who want a more minimal starting point.",5,9

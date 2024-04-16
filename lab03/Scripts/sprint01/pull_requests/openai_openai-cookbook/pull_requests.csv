@@ -1,0 +1,2483 @@
+number,created_at,merged_at,closed_at,files,additions,deletions,body_text,participants,comments
+1,2022-05-31T21:06:15Z,2022-06-03T00:05:29Z,2022-06-03T00:05:29Z,28,61151,11,,2,0
+2,2022-06-09T21:29:18Z,2022-06-10T00:32:27Z,2022-06-10T00:32:27Z,1,1,1,"Nit - fix link in Readme.
+I tested it locally in VSCode, link now works.",3,1
+3,2022-06-10T00:46:56Z,2022-06-10T02:08:07Z,2022-06-10T02:08:08Z,1,3,3,,2,0
+26,2022-10-20T22:47:29Z,2022-10-27T00:50:50Z,2022-10-27T00:50:50Z,5,2950,0,"I've made two examples of transaction classification using GPT-3, one with multiclass classification and one using clustering on an unlabelled dataset.
+I've also included the source dataset used in the multiclass classification notebook, plus a set of labelled examples I made based on it.
+I added a .gitignore to the repo as well",2,0
+36,2022-11-18T17:29:15Z,2022-12-12T19:24:06Z,2022-12-12T19:24:06Z,1,1,1,Fixing issue encountered when using this in some contexts (like virtual environments in notebooks). @sorinsuciu-msft FYI,2,0
+40,2022-12-10T00:18:14Z,2022-12-12T19:22:42Z,2022-12-12T19:22:42Z,1,3,3,,2,0
+46,2022-12-23T20:30:48Z,2023-01-09T00:07:43Z,2023-01-09T00:07:43Z,1,1,1,"fd181ec updated what was previously two different get_embedding() calls w/ different models to be two identical calls. Rather than doing the same API call twice in a row, we can now just set the second variable to be equal to the first one.",2,1
+47,2022-12-23T20:46:49Z,,2023-01-10T18:47:20Z,1,2,1,"The github UI doesn't allow you to horizontally scroll code blocks, and this one is too long to display even with a maximized window.
+Let's line-wrap the comment for readability.",3,2
+50,2022-12-27T08:57:09Z,2023-01-14T03:57:21Z,2023-01-14T03:57:21Z,3,355,55,"Updated api_versions to 2022-12-01 (GA)
+Added completions notebook
+Adjusted fine-tuning and embedding example",3,2
+54,2023-01-04T03:00:25Z,2023-01-09T00:06:09Z,2023-01-09T00:06:09Z,1,0,7,,2,0
+56,2023-01-05T09:56:40Z,2023-02-06T17:20:01Z,2023-02-06T17:20:01Z,3,905,0,This PR contains a notebook running through an example of using our embeddings to embed Simple Wikipedia and then indexing and searching it in both Weaviate and Pinecone.,5,5
+81,2023-01-18T10:24:09Z,2023-01-19T17:37:38Z,2023-01-19T17:37:38Z,2,318,1,"I added Qdrant vector database to the notebook using the same approach as you did for Pinecone and Weaviate. Due to some rate limits and other issues, I could not create the embeddings for all the documents so it may require relaunching. However, all the required logic is already in place, with a corresponding docker-compose.yaml file to run Qdrant in a container.",2,1
+84,2023-01-19T02:23:26Z,2023-01-19T18:32:00Z,2023-01-19T18:32:00Z,1,278,0,,2,3
+93,2023-01-29T16:56:39Z,2023-02-05T18:51:14Z,2023-02-05T18:51:14Z,1,1,1,,3,1
+97,2023-01-30T15:10:22Z,2023-02-09T10:35:42Z,2023-02-09T10:35:42Z,7,1981,93,,4,4
+100,2023-02-01T13:55:11Z,2023-02-09T18:35:03Z,2023-02-09T18:35:03Z,1,118,0,"Hi,
+I've added an example showing how to use the Weights & Biases embedding projector with OpenAI embeddings. Let me know if there's anything I can change to help it get merged.
+Here's an example that was created by it: http://wandb.me/openai_embeddings
+You can dynamically change what dimensionality reduction algorithm is used, along with choosing which of your logged data is shown with color & hover.",2,6
+105,2023-02-04T05:40:37Z,2023-02-06T17:37:27Z,2023-02-06T17:37:27Z,1,1,1,,3,0
+115,2023-02-06T23:48:55Z,,2023-02-16T15:36:20Z,1,0,1,,2,2
+122,2023-02-09T10:36:35Z,2023-02-13T18:33:00Z,2023-02-13T18:33:01Z,7,1984,95,Worth one additional review to ensure main notebook runs end-to-end,3,14
+131,2023-02-14T02:24:40Z,2023-02-15T16:04:02Z,2023-02-15T16:04:02Z,6,1569,29,"Description
+This PR adds in Redis examples for the vector database section. Redis is now in the main ""into to vector dbs"" notebook as well as a new folder dedicated to redis-specific examples.
+The Redis example notebook details
+
+Setting up an index
+Loading documents
+simple querying
+hybrid querying
+index types (FLAT vs HNSW)
+
+Future Work
+A couple items are in progress that can be included in this PR or subsequent PRs
+
+Q/A example
+Async example
+JSON storage example
+
+TODO
+
+ @tylerhutcherson review
+ proofreading, minor clean up and testing",3,2
+132,2023-02-14T16:34:11Z,2023-02-14T18:29:08Z,2023-02-14T18:29:08Z,1,8,0,,2,1
+133,2023-02-14T22:25:26Z,2023-03-10T09:02:25Z,2023-03-10T09:02:25Z,2,238,0,"Adding the Milvus vector database into the vector database examples.
+Milvus is one of the most popular Vector DBs that is fully open source. This pr adds in its usage in the vector db usage notebook.",2,1
+136,2023-02-15T22:00:14Z,2023-02-15T23:20:07Z,2023-02-15T23:20:07Z,1,21,0,,2,1
+140,2023-02-16T17:46:21Z,2023-03-03T16:55:27Z,2023-03-03T16:55:27Z,3,87574,1,"This PR adds two additional notebooks on how to use Qdrant as a vector database with OpenAI embeddings. The changes include the following:
+
+""Getting started with Qdrant and OpenAI"" notebook with end-to-end processing of search using the embeddings
+""QA with Langchain Qdrant and OpenAI"" notebook with an example of using Qdrant and OpenAI in a Langchain application to create a Question-Answering system. The library is becoming popular, and due to many questions around that, I want to show that case.
+
+@colin-openai, Could you please review the notebooks?",2,2
+150,2023-02-20T10:26:54Z,2023-03-01T12:02:20Z,2023-03-01T12:02:20Z,2,333,0,"Contains a notebook demonstrating how to iterate through a long document, extract entities from chunks and merge the results",2,0
+151,2023-02-21T08:38:01Z,2023-03-16T23:15:10Z,2023-03-16T23:15:10Z,1,0,7,,3,1
+155,2023-02-23T08:02:06Z,2023-09-11T22:55:57Z,2023-09-11T22:55:57Z,1,19,12,"As of the now, the web crawler stops processing the remaining items from the link queue if any of the link is invalid. To fix the issue a new exception handling code was added to catch the exception and procced with the next item in the link queue.",4,0
+156,2023-02-23T20:15:24Z,2023-02-23T21:51:41Z,2023-02-23T21:51:41Z,1,1,1,"Line 14 -> I think it should be ""call made to the endpoint"" instead of ""call made the the endpoint""",2,1
+172,2023-03-03T06:14:54Z,2023-03-03T19:20:30Z,2023-03-03T19:20:30Z,1,1,1,recieve -> receive,2,1
+175,2023-03-03T15:09:32Z,2023-03-03T19:21:54Z,2023-03-03T19:21:54Z,1,1,5,,3,3
+184,2023-03-05T18:55:07Z,,2023-09-11T22:48:33Z,1,7,4,"I'm finding that the server sometimes returns a null answer. This crashes the client app. This PR adds logic to spit out the response ""I did not receive an answer!"" when that happens. It isn't clear to me why the server returns a null answer rather than ""I couldn't find the answer to that question in your files."" It seems to vary with server restarts.",4,2
+192,2023-03-07T08:52:22Z,2023-03-16T23:45:48Z,2023-03-16T23:45:49Z,2,3,3,I added Qdrant as another example whenever any vector database is mentioned.,3,2
+194,2023-03-07T11:53:36Z,2023-03-08T18:37:14Z,2023-03-08T18:37:14Z,1,1,1,Fixed a typo,2,1
+202,2023-03-09T12:43:56Z,2023-03-10T09:04:31Z,2023-03-10T09:04:31Z,1,7,7,The suffix at the end of the cluster name is a new addition that the WCS now mandates when creating sandboxes.,2,0
+206,2023-03-10T10:47:06Z,2023-03-21T22:03:30Z,2023-03-21T22:03:30Z,14,1500,0,"I'm looking to merge the notebook and basic streamlit apps used at a conference to demonstrate a starting point for using ChatGPT API with your own data.
+Appreciate a rapid review so I can share with the attendees.",4,3
+216,2023-03-13T12:28:32Z,2023-03-13T15:48:34Z,2023-03-13T15:48:34Z,1,1,1,"we check that he separator > we check that the separator
+; )",3,0
+218,2023-03-14T00:59:13Z,2023-09-11T22:51:02Z,2023-09-11T22:51:02Z,3,9,0,"Adds a dev container for the nextjs app, to simplify testing the project directly on VS Code.",3,1
+222,2023-03-15T07:09:52Z,2023-03-15T21:51:20Z,2023-03-15T21:51:20Z,1,1,1,the examples from the traing set -> the examples from the training set,2,0
+238,2023-03-17T09:35:13Z,2023-04-14T11:35:50Z,2023-04-14T11:35:51Z,4,41,14,"modify commands like docker compose -> docker-compose
+spell like 'Hash' -> 'HASH'
+spelling in markdown",4,1
+244,2023-03-18T07:57:47Z,2023-03-22T20:21:36Z,2023-03-22T20:21:36Z,1,33,17,"Use regex to match the API endpoint component.
+Add support for the chat/completions endpoint.
+Replace eval with json.loads for more robustness and safety.",2,1
+246,2023-03-18T10:05:25Z,2023-03-22T19:59:39Z,2023-03-22T19:59:39Z,1,1,1,"Propose the following change:
+
+""For example, if you were you can try more..."" -> ""For example, you can try more...""
+
+I think that ""wanted"" instead of ""were"" was originally intended. However, I think ""if you wanted"" is unnecessary here.",2,2
+250,2023-03-19T12:38:25Z,2023-03-20T22:35:38Z,2023-03-20T22:35:38Z,1,1,1,programatically -> programmatically,2,0
+255,2023-03-20T19:20:06Z,,2023-05-23T04:32:09Z,1,482,0,"Examples of different Named entity recognition(NER) scenarios
+
+Without any training data
+With Custom Tags/Entities
+With One shot Example
+With a few shot Examples
+With some Domain Knowledge",2,2
+262,2023-03-21T21:12:29Z,2023-04-06T23:30:10Z,2023-04-06T23:30:10Z,4,6718,68,"This PR adds Chroma to the vector database examples in the OpenAI cookbook.
+Chroma is a lightweight, developer-friendly embeddings store which aims to get A.I application developers up and running with embeddings as fast as possible.
+This PR:
+
+Adds Chroma as another example to  the generic Using_vector_databases_for_embeddings_search.ipynb
+Adds an example which shows some of the different tradeoffs in using document retrieval with an embeddings store for LLM-based document Q/A. This uses the gpt3.5-turbo api as well as the ada-002 embeddings API.
+Adds a scientific question/answering dataset for use with the above example, in jsonl format.",5,10
+271,2023-03-23T14:50:08Z,2023-03-28T20:25:34Z,2023-03-28T20:25:34Z,3,278,5,"Chat completions on Azure have been released to the public under the preview version '2023-03-15-preview': Reference
+GitHub preview of the notebook: https://github.com/cmurtz-msft/openai-cookbook/blob/azure-chat/examples/azure/chat.ipynb",3,2
+276,2023-03-24T10:00:47Z,,2023-06-12T19:30:30Z,2,144,0,,3,1
+291,2023-03-28T10:24:44Z,2023-03-28T16:44:06Z,2023-03-28T16:44:06Z,1,1,1,,2,0
+295,2023-03-29T03:42:54Z,2023-04-05T21:33:09Z,2023-04-05T21:33:09Z,1,3,3,,2,1
+296,2023-03-29T11:27:36Z,,2023-07-12T00:01:01Z,1,1,0,,4,3
+299,2023-03-30T07:53:12Z,2023-05-02T17:43:44Z,2023-05-02T17:43:44Z,3,66,33,"getting-started-with-weaviate-and-openai.ipynb
+hybrid-search-with-weaviate-and-openai.ipynb
+question-answering-with-weaviate-and-openai.ipynb",4,6
+301,2023-03-31T00:42:11Z,2023-05-14T19:50:07Z,2023-05-14T19:50:07Z,1,47,20,This is an amazing script and I thought I would give it a huge justice by making it more readable for onlookers,2,1
+304,2023-03-31T04:55:23Z,,2023-09-11T22:59:49Z,1,10,2,,4,0
+305,2023-03-31T06:20:35Z,2023-03-31T12:23:44Z,2023-03-31T12:23:44Z,2,9,9,"Filtered_search_with_Zilliz_and_OpenAI.ipynb
+Getting_started_with_Zilliz_and_OpenAI.ipynb",3,0
+306,2023-03-31T19:30:08Z,,2023-07-12T00:02:36Z,2,63,115,Just modified the docs to be more clear on how to get the data and run the code,3,1
+308,2023-03-31T20:38:46Z,,2023-06-23T23:01:05Z,1,25,1,,3,2
+310,2023-04-01T06:36:41Z,2023-04-05T21:24:21Z,2023-04-05T21:24:21Z,1,2,0,Massive Text Embedding Benchmark (MTEB) Leaderboard: https://huggingface.co/spaces/mteb/leaderboard,2,0
+313,2023-04-02T18:06:25Z,2023-04-05T21:21:36Z,2023-04-05T21:21:36Z,1,1,1,grammar edit,2,0
+334,2023-04-12T08:33:05Z,2023-04-12T21:09:58Z,2023-04-12T21:09:58Z,2,4,1,Added tiktoken to requirements file and updated README to include chatbot-kickstarter,2,0
+336,2023-04-12T15:05:22Z,2023-04-21T02:14:01Z,2023-04-21T02:14:02Z,1,1,1,fixed bug for non-serializable Error,2,0
+341,2023-04-14T06:01:38Z,2023-04-14T17:44:22Z,2023-04-14T17:44:22Z,1,31,0,"@logankilpatrick Following up from our conversation, I've opened this PR to add a README for Typesense.",2,0
+353,2023-04-16T11:03:33Z,,2023-05-01T23:54:11Z,1,2,1,,2,1
+356,2023-04-17T16:34:53Z,2023-05-02T08:36:57Z,2023-05-02T08:36:57Z,1,1145,0,Notebook containing examples of LLM Agent + tool use using Search and a Pinecone vectorstore,3,0
+357,2023-04-18T05:33:30Z,2023-04-21T02:09:30Z,2023-04-21T02:09:30Z,1,2,2,,3,0
+361,2023-04-20T18:33:03Z,2023-05-01T23:51:12Z,2023-05-01T23:51:12Z,1,1,1,PostgresSQL -> PostgreSQL,3,1
+368,2023-04-24T04:33:58Z,2023-05-05T20:09:05Z,2023-05-05T20:09:05Z,1,2,1,add c# tiktoken lib.,2,1
+369,2023-04-24T08:25:31Z,2023-05-01T18:01:22Z,2023-05-01T18:01:22Z,1,1,1,as title.,2,1
+372,2023-04-25T02:24:31Z,2023-09-11T23:09:00Z,2023-09-11T23:09:00Z,1,4,2,"Assigning a property value through form.maxFileSize directly no longer works and will result in Type error: Property 'maxFileSize' does not exist on type 'IncomingForm' during compilation when doing npm run build.
+Instead, pass options to the function/constructor as recommended by the Formidable docs.",4,2
+374,2023-04-26T16:15:38Z,2023-05-12T17:25:31Z,2023-05-12T17:25:31Z,1,453,0,"Hi there,I hope you're doing well.
+I'm excited to open this PR. This is another example of using a fully Postgres syntax compatible database 'AnalyticDB' as a datastore to build QA with Langchain and OpenAI APIs.
+As AnalyticDB can be used with Langchain directly for now. This example is a better case for user who want to use  'AnalyticDB' as a vector store.
+I would really appreciate your feedback.",2,4
+376,2023-04-28T04:25:01Z,2023-05-01T17:59:21Z,2023-05-01T17:59:21Z,1,1,0,,2,1
+390,2023-05-02T19:02:26Z,2023-05-03T10:32:16Z,2023-05-03T10:32:16Z,1,20,4,"add link for creating Pinecone API key
+add environment variable to pinecone init
+add missing pip install for openai and wget",2,0
+406,2023-05-10T10:06:57Z,2023-05-19T18:18:54Z,2023-05-19T18:18:54Z,11,614,5,Notebook walking users how to use Meta's Segment Anything model to dynamically mask and in-paint DALL-E images.,2,2
+414,2023-05-11T09:39:00Z,2023-05-15T17:04:56Z,2023-05-15T17:04:56Z,8,3620,0,,2,0
+415,2023-05-11T19:50:59Z,2023-05-14T19:47:26Z,2023-05-14T19:47:26Z,15,689,0,OpenAI Q&A example that leverages Redis via VSS,3,0
+417,2023-05-11T23:41:59Z,2023-06-16T07:41:40Z,2023-06-16T07:41:40Z,4,47384,1,This notebook has examples of running hybrid VSS queries in Redis on openai generated embeddings with ecommerce dataset,3,0
+420,2023-05-12T18:52:47Z,,2023-09-13T16:22:01Z,1,207,0,"Hello! I work at Weights and Biases and we have many offerings/teachings related to OpenAI as we work closely with them. Our MLOps platform has many first class integrations to for usage with OpenAI that we would love to show the community.
+The W&B OpenAI AutoLogger logs requests, responses, token counts and model metadata with 1 line of code for all OpenAI models, allowing users to operationalize their LLM workflows.
+Let me know if there are any suggestions or changes!",2,7
+446,2023-05-23T14:41:50Z,2023-05-23T16:57:08Z,2023-05-23T16:57:08Z,1,1,2,,2,0
+455,2023-05-25T06:23:30Z,2023-10-02T18:20:04Z,2023-10-02T18:20:04Z,1,836,0,"Summary
+Added an example notebook that shows how to implement a QA system with LangChain's Deep Lake integration as a vector store and OpenAI embeddings.
+Changes
+List the major and minor changes.
+
+Major Changes
+
+Adds a new vector database example
+
+
+Minor Changes
+
+...
+
+
+
+Motivation
+Add a new vector database to the collection, hence expanding the cookbook.
+Self Review Checklist
+
+ Is the writing easily skimmable?
+
+Sections have informative titles.
+Key takeaways are upfront.
+Short paragraphs and topic sentences are used.
+
+
+ Is the writing quality high?
+
+Sentences are simple and unambiguous.
+Demonstrative pronouns are avoided or clearly referenced.
+No left-branching sentences.
+
+
+ Is the content universally helpful?
+
+Terminology is specific and avoids jargon.
+Provides solutions to common problems.
+Code examples are general and exportable.
+
+
+ Is the content consistent?
+
+Styling and formatting align with existing documentation.
+Consistent use of punctuation and case.
+
+
+
+Note: For additional guidelines on writing good documentation, check out What Makes Documentation Good.",3,7
+457,2023-05-25T18:43:21Z,2023-06-01T22:45:47Z,2023-06-01T22:45:47Z,1,1,0,,2,3
+459,2023-05-25T19:50:27Z,2023-09-11T23:05:38Z,2023-09-11T23:05:38Z,1,1,1,"Bumps tornado from 6.2 to 6.3.2.
+
+Changelog
+Sourced from tornado's changelog.
+
+Release notes
+.. toctree::
+:maxdepth: 2
+releases/v6.3.2
+releases/v6.3.1
+releases/v6.3.0
+releases/v6.2.0
+releases/v6.1.0
+releases/v6.0.4
+releases/v6.0.3
+releases/v6.0.2
+releases/v6.0.1
+releases/v6.0.0
+releases/v5.1.1
+releases/v5.1.0
+releases/v5.0.2
+releases/v5.0.1
+releases/v5.0.0
+releases/v4.5.3
+releases/v4.5.2
+releases/v4.5.1
+releases/v4.5.0
+releases/v4.4.3
+releases/v4.4.2
+releases/v4.4.1
+releases/v4.4.0
+releases/v4.3.0
+releases/v4.2.1
+releases/v4.2.0
+releases/v4.1.0
+releases/v4.0.2
+releases/v4.0.1
+releases/v4.0.0
+releases/v3.2.2
+releases/v3.2.1
+releases/v3.2.0
+releases/v3.1.1
+releases/v3.1.0
+releases/v3.0.2
+releases/v3.0.1
+releases/v3.0.0
+releases/v2.4.1
+releases/v2.4.0
+releases/v2.3.0
+releases/v2.2.1
+releases/v2.2.0
+releases/v2.1.1
+
+
+... (truncated)
+
+
+Commits
+
+34f5c1c Version 6.3.2
+32ad07c web: Fix an open redirect in StaticFileHandler
+e0fa53e Merge pull request #3257 from bdarnell/build-workflow-wstest-warning
+f5a1d5c ci: Only run pypi actions from the main repo
+1849ef6 test: Close a websocket client that causes occasional test failures
+fcb09eb Merge pull request #3256 from bdarnell/build-workflow-qemu
+c3d50f4 ci: Update setup-qemu-action version
+419838b Merge pull request #3255 from bdarnell/bump-version-6.3.1
+cd5b9fc Bump version to 6.3.1
+2453344 Merge pull request #3254 from bdarnell/fix-set-cookie-case
+Additional commits viewable in compare view
+
+
+
+
+You can trigger a rebase of this PR by commenting @dependabot rebase.
+
+
+Dependabot commands and options
+
+You can trigger Dependabot actions by commenting on this PR:
+
+@dependabot rebase will rebase this PR
+@dependabot recreate will recreate this PR, overwriting any edits that have been made to it
+@dependabot merge will merge this PR after your CI passes on it
+@dependabot squash and merge will squash and merge this PR after your CI passes on it
+@dependabot cancel merge will cancel a previously requested merge and block automerging
+@dependabot reopen will reopen this PR if it is closed
+@dependabot close will close this PR and stop Dependabot recreating it. You can achieve the same result by closing it manually
+@dependabot ignore this major version will close this PR and stop Dependabot creating any more for this major version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this minor version will close this PR and stop Dependabot creating any more for this minor version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this dependency will close this PR and stop Dependabot creating any more for this dependency (unless you reopen the PR or upgrade to it yourself)
+You can disable automated security fix PRs for this repo from the Security Alerts page.
+
+
+
+Note
+Automatic rebases have been disabled on this pull request as it has been open for over 30 days.",2,0
+464,2023-05-26T10:04:03Z,2023-05-30T12:06:17Z,2023-05-30T12:06:17Z,1,564,548,"Updated pip installs to include missing dependencies (openai, tiktoken, wget) for enterprise_knowledge_retrieval.ipynb, which were causing the notebook to fail executing.",2,0
+467,2023-05-28T05:23:59Z,2023-07-12T00:08:37Z,2023-07-12T00:08:37Z,1,108,82,"Enhancements and Refactoring of Python Code Extraction Methods #467
+Description
+This pull request introduces enhancements and refactoring to the Code_search.ipynb notebook, which contains methods for extracting Python functions and generating text embeddings. The proposed modifications not only make the code more efficient and user-friendly, but also ease the process of future maintenance.
+Included Updates
+
+
+Normalization of File Paths: In the current implementation, file path normalization is done using string.replace(). This approach produces inconsistent results and may potentially replace substrings not part of the root directory. To address this issue, I've updated the code to utilize the relative_to() method from the pathlib.Path module. This method accurately computes relative paths, considering the file structure, and ensures correct results in scenarios when the base directory name appears multiple times in the path. Please refer to the example below for a better understanding of the differences between the two approaches.
+import pandas as pd
+from pathlib import Path
+
+data = {'file_path': [
+    'repo/main/src/file1_copy/other/repo/main/src/file1',
+    'repo/main/src/file1_copy/file1',
+]}
+df = pd.DataFrame(data)
+
+# Approach 1: Path.relative_to()
+root_dir = Path('repo/main/src')
+df['Path.relative_to()'] = df['file_path'].map(lambda x: Path(x).relative_to(root_dir))
+
+# Approach 2: string.replace()
+root_dir = 'repo/main/src'
+df['str.replace()'] = df['file_path'].apply(lambda x: x.replace(root_dir, ''))
+
+
+
+
+file_path
+Path.relative_to()
+string.replace()
+
+
+
+
+0
+repo/main/src/file1_copy/other/repo/main/src/file1
+file1_copy/other/repo/main/src/file1
+/file1_copy/other//file1
+
+
+1
+repo/main/src/file1_copy/file1
+file1_copy/file1
+/file1_copy/file1
+
+
+
+
+
+Capture async def: Updated the file searching logic to extract both regular def and asynchronous async def methods. This modification enables a more robust extraction of Python functions and ensures that async methods are not excluded from the analysis.
+
+
+Refactor get_functions: Refactored function to handle files using a context manager to improve safety and resiliency.
+
+
+Refactor get_until_no_space: Update logic to prevent potential index out of range errors.
+
+
+Improve Directory Search: Update code to use pathlib.Path.glob() to search for files vs. the original os.walk() and glob() methods. The os.walk() method traverses the directory tree recursively, generating a tuple for each directory it encounters. The pathlib.Path.glob() method performs the file search directly, without generating intermediate results. This can lead to improved performance, as the search is more efficient and consumes less memory.
+
+
+Implement extract_functions_from_repo: Encompasses the logic of code file function extraction and printing.
+
+
+These changes collectively enhance the functionality and maintainability of the script, providing better support for future development and analysis tasks involving the openai-cookbook repository.
+Best,
+Eli",2,2
+469,2023-05-31T19:10:57Z,2023-07-12T00:11:16Z,2023-07-12T00:11:16Z,1,439,0,"Plots UMAP projection space, one per row, in open source Kangas DataGrid.
+For more information about Kangas, see: https://github.com/comet-ml/kangas",3,4
+481,2023-06-08T03:43:09Z,2023-06-22T20:40:49Z,2023-06-22T20:40:50Z,3,572,0,"Summary
+
+Add example notebook for financial document analysis with LlamaIndex
+Add 2 10-K documents (PDFs) into data/examples/data/10k
+
+
+This may have undesired effect in making repo bigger and thus git clone slower. Let me know if this is a big concern. Alternatives could be to use git-lfs to store this, or just point to the same files hosted at llama-index GitHub repo.",2,0
+483,2023-06-08T09:14:14Z,2023-06-28T07:59:23Z,2023-06-28T07:59:24Z,2,813,0,,3,5
+484,2023-06-08T15:15:12Z,,2023-09-27T23:00:28Z,1,1,0,Added Humanloop as an example paid product that can help with building and evaluating LLM apps.,4,1
+489,2023-06-10T18:03:45Z,2023-07-12T00:13:26Z,2023-07-12T00:13:26Z,1,510,0,,2,5
+505,2023-06-14T10:38:21Z,2023-06-14T15:22:42Z,2023-06-14T15:22:42Z,2,842,1376,Committing a separate notebook for the arXiv example.,2,0
+510,2023-06-15T00:40:20Z,2023-08-25T20:08:50Z,2023-08-25T20:08:50Z,1,1,1,My PR updates the file with improved language and clarity. I've also made some minor changes to improve readability.,3,1
+515,2023-06-15T15:14:07Z,2023-06-17T01:31:53Z,2023-06-17T01:31:53Z,1,1,1,charcter -> character,2,1
+519,2023-06-15T18:49:37Z,2023-06-17T00:37:56Z,2023-06-17T00:37:56Z,3,530,0,"Notebook intro:
+
+Searching for relevant information can sometimes be like looking for a needle in a haystack, but don’t despair, GPTs can actually do a lot of this work for us. In this guide we explore a way to augment existing search systems with various AI techniques, helping us sift through the noise.",2,0
+527,2023-06-18T13:02:01Z,2023-09-27T22:59:30Z,2023-09-27T22:59:30Z,1,588,0,"Changes
+This pull request adds a new notebook that implementations chatGPT functions to automate AWS S3 bucket operations as an example of end to end automation. The chatbot performs various S3 operations such as listing buckets, search files, uploading, and downloading files based on the user's commands.
+Testing
+All the notebook examples tested in my s3 buckets and works as expected.",3,13
+529,2023-06-19T09:22:42Z,2023-06-28T08:37:02Z,2023-06-28T08:37:02Z,9,5477,2488,"This is the first stab at splitting these out individually - there is a common description for all, so it may be worth taking this out and putting it in the README.md instead.
+Two still to be finalised:
+
+Milvus
+Zilliz
+
+Four that do not have a Getting Started notebook but do have a folder:
+
+AnalyticDB
+Hologres
+Kusto
+SingleStoreDB",2,5
+531,2023-06-21T07:30:59Z,2023-06-26T10:53:56Z,2023-06-26T10:53:56Z,1,22,1,"Hi,
+I've created this pull request to add a simple script that checks whether the data/papers directory exists or not. This addition is particularly useful when running the project on platforms like Google Colab, where the directory structure might not be pre-configured.",2,0
+538,2023-06-22T19:25:36Z,2023-06-26T08:45:58Z,2023-06-26T08:45:58Z,1,2,2,"Execution of getting-started-with-redis-and-openai.ipynb was failing due to broken parameters in wget call in nbutils.py
+@Spartee @colin-openai",2,0
+549,2023-06-27T05:03:08Z,,2023-08-04T04:45:13Z,0,0,0,"this PR adds an example of using reliableGPT (https://github.com/BerriAI/reliableGPT/ ) to make batch calls to OpenAI.
+
+it handles rate limits, token limits and optimizes for parallelizing requests to remain under the rate limits.
+With reliableGPT developers can make 200 GPT-4 requests to OpenAI and are guaranteed a response for each call",2,2
+554,2023-06-28T03:48:28Z,2023-06-30T05:23:39Z,2023-06-30T05:23:39Z,1,3,3,"Replace deprecated model ""code-cushman-001"" with ""gpt-3.5-turbo"".",2,1
+556,2023-06-29T13:13:51Z,2023-06-29T14:47:18Z,2023-06-29T14:47:18Z,2,69,15,"This PR just slightly aligns the descriptions in the Question_answering_using_embeddings.ipynb notebook. This was done after dividing the giant notebook into vector store separate ones. I also used that chance to bump the Qdrant version in the docker-compose.yaml.
+Tagging @colin-jarvis",2,0
+561,2023-07-03T14:23:35Z,2023-07-17T23:40:54Z,2023-07-17T23:40:54Z,13,141,30,"When looking through the examples I noticed quite a few are using eval, this might be potentially unsafe if someone runs it let's say on an embeddings file from someone else, could execute arbitrary python code hidden there. I am suggesting replacement with literal_eval, which is also used in other examples in the repo.
+Also VSCode seems to insist on making some formatting changes that I haven't figured out how to stop. If this is an issue please feel free to reject.",2,1
+562,2023-07-03T16:57:34Z,2023-08-18T08:26:04Z,2023-08-18T08:26:04Z,1,2,0,,2,0
+565,2023-07-05T00:27:10Z,,2023-08-29T22:32:13Z,1,4,1,Adjust code to make it compatible with the chat completions endpoint,4,1
+566,2023-07-07T19:28:01Z,,2023-09-27T23:33:26Z,14,1240,0,"LanceDB is an serverless vector database that makes data management for LLMs frictionless. It has multi-modal search, native Python and JS support, and many ecosystem integrations. Learn more about LanceDB here.
+Proposed changes
+Add LanceDB to the list of vector databases.
+We would love to showcase our native python and JS support, so we created folders for each example, with the notebook along with .py and .js files. Let us know if there are any concerns with this.",4,5
+569,2023-07-08T14:50:36Z,2023-09-11T23:34:16Z,2023-09-11T23:34:16Z,2,654,0,@pablocastro please review,4,5
+575,2023-07-10T03:24:52Z,2023-07-16T21:22:46Z,2023-07-16T21:22:46Z,1,22,13,"drop the need for the ""formatted_messages"" setup
+bringing more in line with the simpler ""Conversation"" class used here (link)",3,0
+587,2023-07-13T15:02:58Z,2023-07-13T17:47:49Z,2023-07-13T17:47:49Z,1,1,1,"The comment mentions 20, but it actually uses 5",2,1
+591,2023-07-17T07:27:05Z,2023-07-17T22:53:44Z,2023-07-17T22:53:44Z,1,1,1,,3,1
+595,2023-07-19T16:30:03Z,2023-07-21T23:38:50Z,2023-07-21T23:38:50Z,5,515,4,,2,1
+596,2023-07-20T09:51:45Z,,2023-09-27T23:40:27Z,5,1362,1,Add useful pgvector cookbooks that work with Supabase.,3,2
+598,2023-07-20T20:02:45Z,2023-07-24T22:59:34Z,2023-07-24T22:59:34Z,2,275,105,Updating Chroma's example notebooks to reflect recent API changes.,2,1
+604,2023-07-24T06:00:10Z,2023-08-28T17:28:20Z,2023-08-28T17:28:20Z,1,1,1,"This adds a link to the popular Tiktokenizer webapp, in the section of the ""How to count tokens with tiktoken"" notebook that talks about the OpenAI Tokenizer. It retains the reference to the OpenAI Tokenizer as well.
+Rationale:
+
+The tiktoken FAQ recommends Tiktokenizer as a resource, in the first line under ""Usage help"". Besides indicating that it is a helpful resource, this also suggests that OpenAI is already willing to direct users to it.
+Tiktokenizer supports some important encodings the OpenAI Tokenizer currently does not, such as cl100k_base. This allows users to see how text is tokenized for chat models like gpt-3.5-turbo and gpt-4, and for the embedding model text-embedding-ada-002. In contrast, the OpenAI Tokenizer currently only supports GPT-3 and Codex.
+
+(I am not affiliated in any way with Tiktokenizer. I learned about it a while ago from the tiktoken FAQ, and I've often found it useful.)
+I'm unsure what the best wording is here, but I phrased it ""or the third-party Tiktokenizer webapp"" to so no readers are misled into thinking Tiktokenizer is itself developed by OpenAI.",3,3
+605,2023-07-24T10:03:36Z,2023-07-24T22:54:53Z,2023-07-24T22:54:53Z,1,2,0,Add golang tiktoken to How_to_count_tokens_with_tiktoken sample,2,0
+609,2023-07-27T06:42:17Z,2023-09-11T22:16:01Z,2023-09-11T22:16:01Z,2,1042,0,"Hi there,
+I'm excited to open this PR to add an example of support for using a database Tair as a datastore.
+Tair is a cloud native in-memory database service that is developed by Alibaba Cloud. It is compatible with open source Redis and provides a variety of data models and enterprise-class capabilities to support real-time online scenarios. Tair also introduces persistent memory-optimized instances that are based on the new non-volatile memory (NVM) storage medium. These instances can reduce costs by 30%, ensure data persistence, and provide almost the same performance as in-memory databases. Tair has been widely used in areas such as government affairs, finance, manufacturing, healthcare, and pan-Internet to meet their high-speed query and computing requirements.
+Tairvector is an in-house data structure that provides high-performance real-time storage and retrieval of vectors. TairVector provides two indexing algorithms: Hierarchical Navigable Small World (HNSW) and Flat Search. Additionally, TairVector supports multiple distance functions, such as Euclidean distance, inner product, and Jaccard distance. Compared with traditional vector retrieval services, TairVector has the following advantages:
+
+Stores all data in memory and supports real-time index updates to reduce latency of read and write operations.
+Uses an optimized data structure in memory to better utilize storage capacity.
+Functions as an out-of-the-box data structure in a simple and efficient architecture without complex modules or dependencies.
+
+Therefore, Tair is a good choice for vector storage.",2,6
+622,2023-08-03T14:15:26Z,2023-08-29T17:54:08Z,2023-08-29T17:54:08Z,4,1741,1,"👋 We would like to add Elasticsearch as a vector database in the Cookbook! We have already demonstrated a number of OpenAI integrations in our  elasticsearch-labs repo.
+PR summary
+This PR:
+
+adds Elasticsearch to the list of vector databases and updates README
+adds elasticsearch/README.md
+adds 2 Python notebooks1 to demo working with Elasticsearch + OpenAI for
+
+semantic search
+retrieval augmented generation
+
+
+
+h/t @saarikabhasi for the Python code! 😄
+Footnotes
+
+
+There's always a chicken-and-egg problem with the Open in Colab URLs, but I've used the path that will exist when this PR gets merged 😉. ↩",4,6
+626,2023-08-09T09:44:54Z,2023-08-09T17:34:59Z,2023-08-09T17:34:59Z,1,1,1,,2,1
+629,2023-08-11T19:55:43Z,2023-08-12T00:34:29Z,2023-08-12T00:34:29Z,1,341,0,,2,1
+630,2023-08-12T07:13:00Z,2023-08-29T17:49:23Z,2023-08-29T17:49:23Z,1,4,1,URL containing reserved characters blocks file name creation.,2,1
+636,2023-08-15T02:07:54Z,,2023-09-11T22:13:33Z,1,4,2,It makes it easier to use this code with domains other than openai.com,3,1
+637,2023-08-15T07:19:14Z,2023-08-16T17:25:42Z,2023-08-16T17:25:42Z,1,820,0,,2,0
+639,2023-08-16T20:02:59Z,2023-08-16T21:20:22Z,2023-08-16T21:20:22Z,1,4,3,,2,0
+642,2023-08-17T02:36:16Z,2023-08-17T10:21:48Z,2023-08-17T10:21:48Z,1,1,1,bellow -> below,2,1
+644,2023-08-17T13:56:21Z,,2023-08-29T22:21:12Z,1,330,0,"Hi!
+This pr adds a new notebook that provides an example of using Openai API and AwaDB for QA tasks.
+It contains:
+
+Use Openai Embedding to embed texts and save them to AwaDB
+Do a similarity search
+Automated prompt generation based on search results
+Use Openai API to do question answering",3,2
+645,2023-08-21T19:50:05Z,,2023-08-29T17:40:26Z,133,2233,2,,2,3
+646,2023-08-22T16:51:52Z,2023-08-22T19:24:23Z,2023-08-22T19:24:23Z,3,21602,0,,2,0
+648,2023-08-22T20:02:02Z,2023-08-29T01:12:30Z,2023-08-29T01:12:30Z,1,1,2,"The following fixes checking .jsonl finetuning files that contain UTF-8 characters, specifically the error ""UnicodeDecodeError: 'charmap' codec can't decode byte 0x9d in position 737: character maps to <undefined"".
+I also removed an unused ""os"" import.",2,0
+654,2023-08-23T16:24:36Z,2023-09-11T22:12:37Z,2023-09-11T22:12:37Z,1,445,0,Adds a notebook showing how to access the Azure chat completion models with your own data (preview) with the Python SDK.,2,5
+655,2023-08-23T20:35:30Z,2023-08-29T17:27:50Z,2023-08-29T17:27:50Z,4,5137,0,"This PR adds a folder about using the Vector Search capabilities in Astra DB / Apache Cassandra® with OpenAI
+(specifically, vector embeddings and chat completion).
+The notebooks guide through a standard exercise (retrieval and then text generation over a textual source labeled dataset).
+There is a README acting as index to the folder contents.
+Note to test the notebooks
+To anyone who might want to give a try to the colab notebooks: the links in this PR _assume the code live in the main branch of openai's repo, which of course is currently not the case yet. So here I provide the ""open in colab"" URLs that work right now:
+
+using cassIO library
+using direct CQL
+
+Additionally, for the same reason, testing the Colab notebooks would require replacing the definition of json_url in both notebooks with the following:
+json_url = ""https://raw.githubusercontent.com/hemidactylus/openai-cookbook/SL-cassandra_astra_vector/examples/vector_databases/cassandra_astradb/sources/philo_quotes.json""",4,3
+660,2023-08-25T18:53:27Z,2023-08-25T20:03:06Z,2023-08-25T20:03:06Z,1,5,1,create_user_message and test_df are not defined. Fixing the documentation to address this,2,1
+675,2023-09-04T10:14:00Z,2023-09-11T22:10:17Z,2023-09-11T22:10:17Z,1,1,1,I was going through this documentation and found this error. Hope my little contribution will be added.,2,0
+678,2023-09-04T16:10:43Z,2023-09-12T08:09:23Z,2023-09-12T08:09:23Z,2,1453,1,"Outline
+
+
+Data Preparation: We use a subset of the SQuADv2 and get answers using OpenAI's GPT3.5-Turbo model. This serves as our baseline for performance comparison.
+
+
+Evaluation Metrics: Wrote an Evaluation class to assess the performance of the initial RAG model on our dataset. This sets the stage for the fine-tuning process by providing a quantitative measure of the model's initial capabilities.
+
+
+Fine-Tuning Setup: We convert the dataset into a JSONL format that's compatible with OpenAI's fine-tuning process and create a fine-tuning job, targeting improvements in the model's answer-generating capabilities.
+
+
+Performance Comparison: After fine-tuning, we run the model on the same dataset and use the Evaluator again to quantify the improvements gained from fine-tuning. We see an error reduction from ~50% questions to ~10% questions
+Documentation: The entire process is commented, aimed at aiding anyone looking to fine-tune OpenAI's RAG models.",2,1
+682,2023-09-05T08:33:42Z,2023-09-27T21:06:37Z,2023-09-27T21:06:37Z,1,1,0,"Hello!
+Haystack is a popular Python LLM orchestration framework.
+It supports OpenAI models for text generation and embeddings.
+It would be nice to add it to the ""Prompting libraries & tools"" section...",2,5
+684,2023-09-06T14:51:59Z,2023-09-11T21:59:09Z,2023-09-11T21:59:09Z,1,19,15,"This PR slightly modifies one of the Cassandra/Astra DB notebooks, the one which shows usage of the CassIO library, to show how to perform concurrent insertions. This change reflects the same demonstration being already present in the ""pure-CQL"" counterpart notebook of the same example workload.
+(incidentally, the execution count of the last cells is also corrected, which was the previous+2 instead of +1).
+Thank you for a review!",2,0
+688,2023-09-08T16:31:47Z,2023-09-11T21:57:09Z,2023-09-11T21:57:09Z,1,1,1,Yes I see the irony in my commit message 😄,2,0
+689,2023-09-09T04:26:57Z,2023-09-11T21:56:23Z,2023-09-11T21:56:23Z,1,1,1,Sematic Kernel has supported Java.,2,0
+690,2023-09-10T13:43:02Z,2023-09-29T00:48:41Z,2023-09-29T00:48:41Z,2,589,0,This PR adds OpenAI cookbook examples for Neon Postgres as a vector database. The examples demonstrate how to use Neon Postgres with OpenAI and the pgvector extension for vector similarity search. The pgvector open-source extension enables Postgres as a vector store.,2,0
+709,2023-09-12T10:52:39Z,2023-09-28T00:50:54Z,2023-09-28T00:50:54Z,1,2,2,occurence -> occurrence,2,1
+712,2023-09-12T15:40:00Z,2023-09-26T23:43:06Z,2023-09-26T23:43:06Z,1,8,14,Refactored code to take advantage of azure-search-documents python SDK SearchIndexingBufferedSender instance that eliminates the need for manual splitting and batching for uploading large documents/vectors to your index.,2,1
+713,2023-09-13T13:56:53Z,,2023-09-28T00:48:46Z,4,147,86,"🧠  Context
+Since the enterprise knowledge retrieval chatbot was first developed, Streamlit has released native chat widgets, the Streamlit Callback Handler in Langchain to render llm thoughts and actions, and a st.status widget to visualize step-by-step agent actions.
+🔍  Description
+This PR updates the enterprise knowledge retrieval chatbot to use Streamlit's native chat widgets (instead of a custom third-party component), and the Streamlit callback handler in langchain, as well as the st.status widget to visualize agent thoughts and actions in real-time within the app (as opposed to a displaying a block of text after the agent has completed all its steps).
+✨ Revised
+
+👎  Old",4,1
+714,2023-09-13T16:20:33Z,2023-10-02T21:02:35Z,2023-10-02T21:02:35Z,2,2162,0,Add examples showing autologging and finetuning of OpenAI models using W&B to the third_party_examples section of the repo,2,9
+717,2023-09-14T21:24:02Z,2023-09-15T23:54:30Z,2023-09-15T23:54:30Z,2,94,61,"Code_search.ipynb: Improve comments and add explanations
+Get_embeddings.ipynb: Improve descriptions and add negative examples",2,0
+718,2023-09-14T21:30:28Z,2023-09-15T23:47:09Z,2023-09-15T23:47:09Z,4,0,730,Voting to remove this section due to focus on the 2021 'Answers'/'Classification'/'Search' as such endpoints have been disabled for 10 months.,2,0
+725,2023-09-19T05:44:34Z,,2023-09-27T17:09:56Z,0,0,0,,2,0
+726,2023-09-19T18:01:16Z,2023-09-27T23:02:51Z,2023-09-27T23:02:51Z,2,2,2,"PR Summary
+This PR fixes Elastic Cloud sign up url in Elasticsearch Vector Database example notebooks",4,1
+727,2023-09-20T02:33:19Z,2023-09-20T21:50:59Z,2023-09-20T21:50:59Z,12,20,9,"Hello world!
+
+Added a short description to Obtain_dataset + renamed it something more descriptive
+When running examples/How_to_finetune_chat_models.ipynb got confused at a later step about why it was complaining that I hadn't passed in a model. Throwing error in earlier step when fine-tined model is not ready.",2,0
+728,2023-09-20T20:14:58Z,2023-09-22T17:48:55Z,2023-09-22T17:48:55Z,1,2,2,"This is very minor, just aesthetic fixes. Thank you!",2,0
+729,2023-09-21T23:23:36Z,2023-09-22T17:49:08Z,2023-09-22T17:49:08Z,1,3,1,,2,0
+734,2023-09-24T15:58:09Z,2023-09-26T23:22:58Z,2023-09-26T23:22:58Z,1,1,0,"Summary
+Add Mongodb Atlas Vector Search For Vector Databases
+Changes
+List the major and minor changes.
+
+Major Changes
+
+...
+
+
+Minor Changes
+
+...
+
+
+
+Motivation
+Why are these changes necessary? How do they improve the cookbook?
+Self Review Checklist
+
+ Is the writing easily skimmable?
+
+Sections have informative titles.
+Key takeaways are upfront.
+Short paragraphs and topic sentences are used.
+
+
+ Is the writing quality high?
+
+Sentences are simple and unambiguous.
+Demonstrative pronouns are avoided or clearly referenced.
+No left-branching sentences.
+
+
+ Is the content universally helpful?
+
+Terminology is specific and avoids jargon.
+Provides solutions to common problems.
+Code examples are general and exportable.
+
+
+ Is the content consistent?
+
+Styling and formatting align with existing documentation.
+Consistent use of punctuation and case.
+
+
+
+Note: For additional guidelines on writing good documentation, check out What Makes Documentation Good.",2,1
+742,2023-09-28T08:08:00Z,2023-09-29T00:50:32Z,2023-09-29T00:50:32Z,1,1,1,,2,1
+744,2023-09-28T11:40:19Z,2023-09-29T00:53:37Z,2023-09-29T00:53:37Z,1,1,1,"Summary
+Small typo fix - capital letter.",2,0
+752,2023-10-02T23:35:12Z,2023-10-03T22:04:35Z,2023-10-03T22:04:35Z,1,1,1,"Bumps urllib3 from 1.26.13 to 1.26.17.
+
+Release notes
+Sourced from urllib3's releases.
+
+1.26.17
+
+Added the Cookie header to the list of headers to strip from requests when redirecting to a different host. As before, different headers can be set via Retry.remove_headers_on_redirect. (GHSA-v845-jxx5-vc9f)
+
+1.26.16
+
+Fixed thread-safety issue where accessing a PoolManager with many distinct origins would cause connection pools to be closed while requests are in progress (#2954)
+
+1.26.15
+
+Fix socket timeout value when HTTPConnection is reused (urllib3/urllib3#2645)
+Remove ""!"" character from the unreserved characters in IPv6 Zone ID parsing (urllib3/urllib3#2899)
+Fix IDNA handling of 'x80' byte (urllib3/urllib3#2901)
+
+1.26.14
+
+Fixed parsing of port 0 (zero) returning None, instead of 0 (#2850)
+Removed deprecated HTTPResponse.getheaders() calls in urllib3.contrib module.
+
+
+
+
+Changelog
+Sourced from urllib3's changelog.
+
+1.26.17 (2023-10-02)
+
+Added the Cookie header to the list of headers to strip from requests when redirecting to a different host. As before, different headers can be set via Retry.remove_headers_on_redirect. ([#3139](https://github.com/urllib3/urllib3/issues/3139) <https://github.com/urllib3/urllib3/pull/3139>_)
+
+1.26.16 (2023-05-23)
+
+Fixed thread-safety issue where accessing a PoolManager with many distinct origins
+would cause connection pools to be closed while requests are in progress ([#2954](https://github.com/urllib3/urllib3/issues/2954) <https://github.com/urllib3/urllib3/pull/2954>_)
+
+1.26.15 (2023-03-10)
+
+Fix socket timeout value when HTTPConnection is reused ([#2645](https://github.com/urllib3/urllib3/issues/2645) <https://github.com/urllib3/urllib3/issues/2645>__)
+Remove ""!"" character from the unreserved characters in IPv6 Zone ID parsing
+([#2899](https://github.com/urllib3/urllib3/issues/2899) <https://github.com/urllib3/urllib3/issues/2899>__)
+Fix IDNA handling of '\x80' byte ([#2901](https://github.com/urllib3/urllib3/issues/2901) <https://github.com/urllib3/urllib3/issues/2901>__)
+
+1.26.14 (2023-01-11)
+
+Fixed parsing of port 0 (zero) returning None, instead of 0. ([#2850](https://github.com/urllib3/urllib3/issues/2850) <https://github.com/urllib3/urllib3/issues/2850>__)
+Removed deprecated getheaders() calls in contrib module. Fixed the type hint of PoolKey.key_retries by adding bool to the union. ([#2865](https://github.com/urllib3/urllib3/issues/2865) <https://github.com/urllib3/urllib3/issues/2865>__)
+
+
+
+
+Commits
+
+c9016bf Release 1.26.17
+0122035 Backport GHSA-v845-jxx5-vc9f (#3139)
+e63989f Fix installing brotli extra on Python 2.7
+2e7a24d [1.26] Configure OS for RTD to fix building docs
+57181d6 [1.26] Improve error message when calling urllib3.request() (#3058)
+3c01480 [1.26] Run coverage even with failed jobs
+d94029b Release 1.26.16
+18e9214 Use trusted publishing for PyPI
+d25cf83 [1.26] Fix invalid test_ssl_failure_midway_through_conn
+25cca38 [1.26] Fix test_ssl_object_attributes
+Additional commits viewable in compare view
+
+
+
+
+Dependabot will resolve any conflicts with this PR as long as you don't alter it yourself. You can also trigger a rebase manually by commenting @dependabot rebase.
+
+
+Dependabot commands and options
+
+You can trigger Dependabot actions by commenting on this PR:
+
+@dependabot rebase will rebase this PR
+@dependabot recreate will recreate this PR, overwriting any edits that have been made to it
+@dependabot merge will merge this PR after your CI passes on it
+@dependabot squash and merge will squash and merge this PR after your CI passes on it
+@dependabot cancel merge will cancel a previously requested merge and block automerging
+@dependabot reopen will reopen this PR if it is closed
+@dependabot close will close this PR and stop Dependabot recreating it. You can achieve the same result by closing it manually
+@dependabot show <dependency name> ignore conditions will show all of the ignore conditions of the specified dependency
+@dependabot ignore this major version will close this PR and stop Dependabot creating any more for this major version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this minor version will close this PR and stop Dependabot creating any more for this minor version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this dependency will close this PR and stop Dependabot creating any more for this dependency (unless you reopen the PR or upgrade to it yourself)
+You can disable automated security fix PRs for this repo from the Security Alerts page.",2,0
+754,2023-10-03T22:05:04Z,2023-10-04T01:08:33Z,2023-10-04T01:08:33Z,2,26,16,"Bumps postcss from 8.4.21 to 8.4.31.
+
+Release notes
+Sourced from postcss's releases.
+
+8.4.31
+
+Fixed \r parsing to fix CVE-2023-44270.
+
+8.4.30
+
+Improved source map performance (by @​romainmenke).
+
+8.4.29
+
+Fixed Node#source.offset (by @​idoros).
+Fixed docs (by @​coliff).
+
+8.4.28
+
+Fixed Root.source.end for better source map (by @​romainmenke).
+Fixed Result.root types when process() has no parser.
+
+8.4.27
+
+Fixed Container clone methods types.
+
+8.4.26
+
+Fixed clone methods types.
+
+8.4.25
+
+Improve stringify performance (by @​romainmenke).
+Fixed docs (by @​vikaskaliramna07).
+
+8.4.24
+
+Fixed Plugin types.
+
+8.4.23
+
+Fixed warnings in TypeDoc.
+
+8.4.22
+
+Fixed TypeScript support with node16 (by @​remcohaszing).
+
+
+
+
+Changelog
+Sourced from postcss's changelog.
+
+8.4.31
+
+Fixed \r parsing to fix CVE-2023-44270.
+
+8.4.30
+
+Improved source map performance (by Romain Menke).
+
+8.4.29
+
+Fixed Node#source.offset (by Ido Rosenthal).
+Fixed docs (by Christian Oliff).
+
+8.4.28
+
+Fixed Root.source.end for better source map (by Romain Menke).
+Fixed Result.root types when process() has no parser.
+
+8.4.27
+
+Fixed Container clone methods types.
+
+8.4.26
+
+Fixed clone methods types.
+
+8.4.25
+
+Improve stringify performance (by Romain Menke).
+Fixed docs (by @​vikaskaliramna07).
+
+8.4.24
+
+Fixed Plugin types.
+
+8.4.23
+
+Fixed warnings in TypeDoc.
+
+8.4.22
+
+Fixed TypeScript support with node16 (by Remco Haszing).
+
+
+
+
+Commits
+
+90208de Release 8.4.31 version
+58cc860 Fix carrier return parsing
+4fff8e4 Improve pnpm test output
+cd43ed1 Update dependencies
+caa916b Update dependencies
+8972f76 Typo
+11a5286 Typo
+45c5501 Release 8.4.30 version
+bc3c341 Update linter
+b2be58a Merge pull request #1881 from romainmenke/improve-sourcemap-performance--phil...
+Additional commits viewable in compare view
+
+
+
+
+Dependabot will resolve any conflicts with this PR as long as you don't alter it yourself. You can also trigger a rebase manually by commenting @dependabot rebase.
+
+
+Dependabot commands and options
+
+You can trigger Dependabot actions by commenting on this PR:
+
+@dependabot rebase will rebase this PR
+@dependabot recreate will recreate this PR, overwriting any edits that have been made to it
+@dependabot merge will merge this PR after your CI passes on it
+@dependabot squash and merge will squash and merge this PR after your CI passes on it
+@dependabot cancel merge will cancel a previously requested merge and block automerging
+@dependabot reopen will reopen this PR if it is closed
+@dependabot close will close this PR and stop Dependabot recreating it. You can achieve the same result by closing it manually
+@dependabot show <dependency name> ignore conditions will show all of the ignore conditions of the specified dependency
+@dependabot ignore this major version will close this PR and stop Dependabot creating any more for this major version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this minor version will close this PR and stop Dependabot creating any more for this minor version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this dependency will close this PR and stop Dependabot creating any more for this dependency (unless you reopen the PR or upgrade to it yourself)
+You can disable automated security fix PRs for this repo from the Security Alerts page.",1,0
+755,2023-10-03T22:05:05Z,2023-10-04T01:08:17Z,2023-10-04T01:08:17Z,1,1,1,"Bumps pillow from 9.4.0 to 10.0.1.
+
+Release notes
+Sourced from pillow's releases.
+
+10.0.1
+https://pillow.readthedocs.io/en/stable/releasenotes/10.0.1.html
+Changes
+
+Updated libwebp to 1.3.2 #7395 [@​radarhere]
+Updated zlib to 1.3 #7344 [@​radarhere]
+
+10.0.0
+https://pillow.readthedocs.io/en/stable/releasenotes/10.0.0.html
+Changes
+
+Fixed deallocating mask images #7246 [@​radarhere]
+Added ImageFont.MAX_STRING_LENGTH #7244 [@​radarhere]
+Fix Windows build with pyproject.toml #7230 [@​nulano]
+Do not close provided file handles with libtiff #7199 [@​radarhere]
+Convert to HSV if mode is HSV in getcolor() #7226 [@​radarhere]
+Added alpha_only argument to getbbox() #7123 [@​radarhere]
+Prioritise speed in repr_png #7242 [@​radarhere]
+Limit size even if one dimension is zero in decompression bomb check #7235 [@​radarhere]
+Restored 32-bit support #7234 [@​radarhere]
+Removed deleted file from codecov.yml and increased coverage threshold #7232 [@​radarhere]
+Removed support for 32-bit #7228 [@​radarhere]
+Use --config-settings instead of deprecated --global-option #7171 [@​radarhere]
+Better C integer definitions #6645 [@​Yay295]
+Fixed finding dependencies on Cygwin #7175 [@​radarhere]
+Improved checks in font_render #7218 [@​radarhere]
+Change grabclipboard() to use PNG compression on macOS #7219 [@​abey79]
+Added PyPy 3.10 and removed PyPy 3.8 #7216 [@​radarhere]
+Added in_place argument to ImageOps.exif_transpose() #7092 [@​radarhere]
+Corrected error code #7177 [@​radarhere]
+Use ""not in"" #7174 [@​radarhere]
+Only call text_layout once in getmask2 #7206 [@​radarhere]
+Fixed calling putpalette() on L and LA images before load() #7187 [@​radarhere]
+Removed unused INT64 definition #7180 [@​radarhere]
+Updated xz to 5.4.3 #7136 [@​radarhere]
+Fixed saving TIFF multiframe images with LONG8 tag types #7078 [@​radarhere]
+Do not set size unnecessarily if image fails to open #7056 [@​radarhere]
+Removed unused code #7210 [@​radarhere]
+Removed unused variables #7205 [@​radarhere]
+Fixed signedness comparison warning #7203 [@​radarhere]
+Fixed combining single duration across duplicate APNG frames #7146 [@​radarhere]
+Remove temporary file when error is raised #7148 [@​radarhere]
+Do not use temporary file when grabbing clipboard on Linux #7200 [@​radarhere]
+If the clipboard fails to open on Windows, wait and try again #7141 [@​radarhere]
+Fixed saving multiple 1 mode frames to GIF #7181 [@​radarhere]
+Replaced absolute PIL import with relative import #7173 [@​radarhere]
+Removed files and types override #7194 [@​radarhere]
+
+
+
+... (truncated)
+
+
+Changelog
+Sourced from pillow's changelog.
+
+10.0.1 (2023-09-15)
+
+
+Updated libwebp to 1.3.2 #7395
+[radarhere]
+
+
+Updated zlib to 1.3 #7344
+[radarhere]
+
+
+10.0.0 (2023-07-01)
+
+
+Fixed deallocating mask images #7246
+[radarhere]
+
+
+Added ImageFont.MAX_STRING_LENGTH #7244
+[radarhere, hugovk]
+
+
+Fix Windows build with pyproject.toml #7230
+[hugovk, nulano, radarhere]
+
+
+Do not close provided file handles with libtiff #7199
+[radarhere]
+
+
+Convert to HSV if mode is HSV in getcolor() #7226
+[radarhere]
+
+
+Added alpha_only argument to getbbox() #7123
+[radarhere. hugovk]
+
+
+Prioritise speed in repr_png #7242
+[radarhere]
+
+
+Do not use CFFI access by default on PyPy #7236
+[radarhere]
+
+
+Limit size even if one dimension is zero in decompression bomb check #7235
+[radarhere]
+
+
+Use --config-settings instead of deprecated --global-option #7171
+[radarhere]
+
+
+Better C integer definitions #6645
+[Yay295, hugovk]
+
+
+Fixed finding dependencies on Cygwin #7175
+[radarhere]
+
+
+Changed grabclipboard() to use PNG instead of JPG compression on macOS #7219
+[abey79, radarhere]
+
+
+
+
+... (truncated)
+
+
+Commits
+
+e34d346 Updated order
+a62f240 10.0.1 version bump
+d50250d Added release notes for 10.0.1
+b4c7d4b Update CHANGES.rst [ci skip]
+730f746 Updated libwebp to 1.3.2
+b0e2804 Updated zlib to 1.3
+6e28ed1 10.0.0 version bump
+c827f3b Merge pull request #7246 from radarhere/deallocate
+39a3b1d Fixed deallocating mask images
+8c1dc81 Update CHANGES.rst [ci skip]
+Additional commits viewable in compare view
+
+
+
+
+Dependabot will resolve any conflicts with this PR as long as you don't alter it yourself. You can also trigger a rebase manually by commenting @dependabot rebase.
+
+
+Dependabot commands and options
+
+You can trigger Dependabot actions by commenting on this PR:
+
+@dependabot rebase will rebase this PR
+@dependabot recreate will recreate this PR, overwriting any edits that have been made to it
+@dependabot merge will merge this PR after your CI passes on it
+@dependabot squash and merge will squash and merge this PR after your CI passes on it
+@dependabot cancel merge will cancel a previously requested merge and block automerging
+@dependabot reopen will reopen this PR if it is closed
+@dependabot close will close this PR and stop Dependabot recreating it. You can achieve the same result by closing it manually
+@dependabot show <dependency name> ignore conditions will show all of the ignore conditions of the specified dependency
+@dependabot ignore this major version will close this PR and stop Dependabot creating any more for this major version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this minor version will close this PR and stop Dependabot creating any more for this minor version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this dependency will close this PR and stop Dependabot creating any more for this dependency (unless you reopen the PR or upgrade to it yourself)
+You can disable automated security fix PRs for this repo from the Security Alerts page.",1,0
+756,2023-10-03T22:05:12Z,2023-10-04T01:08:37Z,2023-10-04T01:08:37Z,2,26,16,"⚠️  Dependabot is rebasing this PR ⚠️
+Rebasing might not happen immediately, so don't worry if this takes some time.
+Note: if you make any changes to this PR yourself, they will take precedence over the rebase.
+
+Bumps postcss from 8.4.21 to 8.4.31.
+
+Release notes
+Sourced from postcss's releases.
+
+8.4.31
+
+Fixed \r parsing to fix CVE-2023-44270.
+
+8.4.30
+
+Improved source map performance (by @​romainmenke).
+
+8.4.29
+
+Fixed Node#source.offset (by @​idoros).
+Fixed docs (by @​coliff).
+
+8.4.28
+
+Fixed Root.source.end for better source map (by @​romainmenke).
+Fixed Result.root types when process() has no parser.
+
+8.4.27
+
+Fixed Container clone methods types.
+
+8.4.26
+
+Fixed clone methods types.
+
+8.4.25
+
+Improve stringify performance (by @​romainmenke).
+Fixed docs (by @​vikaskaliramna07).
+
+8.4.24
+
+Fixed Plugin types.
+
+8.4.23
+
+Fixed warnings in TypeDoc.
+
+8.4.22
+
+Fixed TypeScript support with node16 (by @​remcohaszing).
+
+
+
+
+Changelog
+Sourced from postcss's changelog.
+
+8.4.31
+
+Fixed \r parsing to fix CVE-2023-44270.
+
+8.4.30
+
+Improved source map performance (by Romain Menke).
+
+8.4.29
+
+Fixed Node#source.offset (by Ido Rosenthal).
+Fixed docs (by Christian Oliff).
+
+8.4.28
+
+Fixed Root.source.end for better source map (by Romain Menke).
+Fixed Result.root types when process() has no parser.
+
+8.4.27
+
+Fixed Container clone methods types.
+
+8.4.26
+
+Fixed clone methods types.
+
+8.4.25
+
+Improve stringify performance (by Romain Menke).
+Fixed docs (by @​vikaskaliramna07).
+
+8.4.24
+
+Fixed Plugin types.
+
+8.4.23
+
+Fixed warnings in TypeDoc.
+
+8.4.22
+
+Fixed TypeScript support with node16 (by Remco Haszing).
+
+
+
+
+Commits
+
+90208de Release 8.4.31 version
+58cc860 Fix carrier return parsing
+4fff8e4 Improve pnpm test output
+cd43ed1 Update dependencies
+caa916b Update dependencies
+8972f76 Typo
+11a5286 Typo
+45c5501 Release 8.4.30 version
+bc3c341 Update linter
+b2be58a Merge pull request #1881 from romainmenke/improve-sourcemap-performance--phil...
+Additional commits viewable in compare view
+
+
+
+
+Dependabot will resolve any conflicts with this PR as long as you don't alter it yourself. You can also trigger a rebase manually by commenting @dependabot rebase.
+
+
+Dependabot commands and options
+
+You can trigger Dependabot actions by commenting on this PR:
+
+@dependabot rebase will rebase this PR
+@dependabot recreate will recreate this PR, overwriting any edits that have been made to it
+@dependabot merge will merge this PR after your CI passes on it
+@dependabot squash and merge will squash and merge this PR after your CI passes on it
+@dependabot cancel merge will cancel a previously requested merge and block automerging
+@dependabot reopen will reopen this PR if it is closed
+@dependabot close will close this PR and stop Dependabot recreating it. You can achieve the same result by closing it manually
+@dependabot show <dependency name> ignore conditions will show all of the ignore conditions of the specified dependency
+@dependabot ignore this major version will close this PR and stop Dependabot creating any more for this major version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this minor version will close this PR and stop Dependabot creating any more for this minor version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this dependency will close this PR and stop Dependabot creating any more for this dependency (unless you reopen the PR or upgrade to it yourself)
+You can disable automated security fix PRs for this repo from the Security Alerts page.",1,0
+757,2023-10-03T22:42:39Z,2023-10-05T18:03:24Z,2023-10-05T18:03:24Z,1,1,0,Adding litellm to relevant resources,2,15
+758,2023-10-04T13:53:43Z,2023-10-05T18:04:34Z,2023-10-05T18:04:34Z,1,18,0,"Summary
+Update registry.yaml to add Weights & Biases examples for the cookbook website.
+Changes
+Update registry.yaml
+
+Major Changes
+
+Update registry.yaml to add Weights & Biases examples
+
+
+
+Motivation
+Discoverability on the more popularly rendered website
+Self Review Checklist
+
+ Is the writing easily skimmable?
+
+Sections have informative titles.
+Key takeaways are upfront.
+Short paragraphs and topic sentences are used.
+
+
+ Is the writing quality high?
+
+Sentences are simple and unambiguous.
+Demonstrative pronouns are avoided or clearly referenced.
+No left-branching sentences.
+
+
+ Is the content universally helpful?
+
+Terminology is specific and avoids jargon.
+Provides solutions to common problems.
+Code examples are general and exportable.
+
+
+ Is the content consistent?
+
+Styling and formatting align with existing documentation.
+Consistent use of punctuation and case.
+
+
+
+When contributing a new example, make sure to add a new entry for it in registry.yaml to render it on the cookbook website.
+Note: For additional guidelines on writing good documentation, check out What Makes Documentation Good.",2,3
+759,2023-10-04T20:20:18Z,2023-10-11T21:51:34Z,2023-10-11T21:51:34Z,1,1,0,Adding Parea (YC S23) to relevant resources.,2,4
+762,2023-10-05T19:12:58Z,2023-10-17T00:19:17Z,2023-10-17T00:19:17Z,2,367,0,"Summary
+This PR closes #743 by adding an article about function calling using the Node.js SDK. Given that the article is about JavaScript, and not Python, I wrote it as a .md file instead of as an .ipynb file, as I noticed other non-Python articles in the cookbook doing this as well.. Please let me know if you want me to use .ipynb instead.
+In addition to the textual article, I have also recorded an interactive walk-through of the code. This will help learners who prefer watching videos over reading text.
+Motivation
+Almost all notebooks are based on Python. However, there are tons of JavaScript developers who use the OpenAI API as well. These people lack good tutorials, as exemplified by this post in the OpenAI community forum.
+Self Review Checklist
+
+ Is the writing easily skimmable?
+
+Sections have informative titles.
+Key takeaways are upfront.
+Short paragraphs and topic sentences are used.
+
+
+ Is the writing quality high?
+
+Sentences are simple and unambiguous.
+Demonstrative pronouns are avoided or clearly referenced.
+No left-branching sentences.
+
+
+ Is the content universally helpful?
+
+Terminology is specific and avoids jargon.
+Provides solutions to common problems.
+Code examples are general and exportable.
+
+
+ Is the content consistent?
+
+Styling and formatting align with existing documentation (yes, except for it being written in markdown instead of as a Jupyter Notebook)
+Consistent use of punctuation and case.
+
+
+
+When contributing a new example, make sure to add a new entry for it in registry.yaml to render it on the cookbook website.
+Note: For additional guidelines on writing good documentation, check out What Makes Documentation Good.",2,6
+765,2023-10-06T20:17:03Z,2023-10-07T00:12:04Z,2023-10-07T00:12:04Z,1,5,3,Fine Tuning now supports function calling. This PR allows the cookbook to properly validate data for such cases.,2,0
+770,2023-10-09T14:33:31Z,2023-10-11T21:53:37Z,2023-10-11T21:53:37Z,1,2,2,"Correct legacy fine-tuning note
+Summary
+I had the current and legacy links the wrong way round in my initial commit :(
+Motivation
+When navigating the documentation, it is helpful to know to which fine-tuning method the instructions apply",2,1
+771,2023-10-09T21:31:14Z,,2023-10-18T01:28:03Z,2,446,0,"Summary
+Add a notebook to perform Named Entity Recognition (NER) with the ChatCompletion endpoint.
+Motivation
+Illustrate the use of system, assistant, and user messages with the ChatCompletion endpoint to perform the task of identifying and classifying Named Entities (NE) from a given text into predefined semantic categories.",3,2
+775,2023-10-11T18:19:29Z,2023-10-11T21:38:57Z,2023-10-11T21:38:57Z,1,1,1,"Summary
+This link in the about/ page: https://openai.com/api/  is a 404. Updated the link to https://platform.openai.com/.
+Note - I could switch it to the actual API reference instead - https://platform.openai.com/docs/api-reference - happy to change the link.
+Changes
+Update broken README link.",2,0
+787,2023-10-14T18:23:39Z,2023-10-17T00:52:59Z,2023-10-17T00:52:59Z,1,1,1,"Summary
+coresponding -> corresponding",3,0
+790,2023-10-16T02:43:00Z,2023-10-18T17:59:56Z,2023-10-18T17:59:56Z,2,10,0,"Summary
+This notebook demonstrates a method to chain function calls together using a synthetic OpenAPI specification for a fictional ""froge"" character database. The OpenAPI spec was created using gpt-4. The spec is then transformed into a set of function definitions that can be supplied to the Chat completion API. We started by defining the user's instructions and the maximum number of chained function calls allowed. We then defined a function to get the model's response and another function to process the chained function calls
+For new content
+When contributing new content, make sure to read through our contributions rubric before submitting, and complete the following action items:
+
+ I have added a new entry in registry.yaml so that my content renders on the cookbook website.
+ I have conducted a self-review of my content based on the contributions rubric:
+
+ Relevance: This content is related to building with the OpenAI API.
+ Uniqueness: I have searched for related examples in the OpenAI Cookbook, and verified that my content offers new insights or unique information compared to existing documentation.
+ Spelling and Grammar: I have checked for spelling or grammatical mistakes.
+ Clarity and Comprehensibility: I have done a final read-through and verified that the content is easy to understand.
+ Accuracy and Correctness: The information I include is correct, appropriately cited, and all of my code executes successfully.
+ Usability: I have verified that the content and code is well organized and easy to navigate and use.
+ Completeness: I have verified that my content thorough and detailed, and I have explained everything fully.
+
+
+
+Remember, we will rate each of these areas on a scale from 1 to 5, with 1 being the lowest and 5 being the highest. Aim for a score of 3 or higher in each area to increase the chances of your contribution being accepted. Refer to our contributions rubric for more details.",3,1
+791,2023-10-16T14:33:40Z,2023-10-16T17:21:25Z,2023-10-16T17:21:25Z,1,2,0,"Summary
+tiktoken-rs is a rust crate that packages the tiktoken code along with pre-computed tokenizer data to make counting tokens easy in a Rust project.
+Motivation
+I want to make it easier to use OpenAI's APIs in the context of a Rust project.",2,1
+800,2023-10-18T21:08:29Z,2023-10-18T23:13:59Z,2023-10-18T23:13:59Z,1,1,0,"Summary
+Adding Portkey.ai to list of tools",2,1
+801,2023-10-19T04:32:48Z,2023-10-31T02:00:48Z,2023-10-31T02:00:48Z,1,8,4,"Summary
+
+Correct function name to prevent runtime error
+Add pip install to install required packages
+Add command and comment to find fine-tuned job status and model name
+
+Motivation
+
+To fix runtime error and enhance this example to follow",2,0
+803,2023-10-19T10:27:55Z,2023-10-19T17:42:13Z,2023-10-19T17:42:13Z,1,1,1,"Summary
+Link to article where we prepare embeddings.
+Motivation
+Don't need to search this now",3,1
+804,2023-10-19T12:22:17Z,,2023-12-19T09:22:09Z,7,4800,4315,"Summary
+A new cookbook showing how to think about guardrails, and providing some simple examples of asynchronous custom guardrails.
+Motivation
+We don't have any content on implementing these sorts of checks, which are critical for LLM applications going to production.
+
+For new content
+When contributing new content, read through our contribution guidelines, and mark the following action items as completed:
+
+ I have added a new entry in registry.yaml so that my content renders on the cookbook website.
+ I have conducted a self-review of my content based on the c:
+
+ Relevance: This content is related to building with OpenAI technologies and is useful to others.
+ Uniqueness: I have searched for related examples in the OpenAI Cookbook, and verified that my content offers new insights or unique information compared to existing documentation.
+ Spelling and Grammar: I have checked for spelling or grammatical mistakes.
+ Clarity: I have done a final read-through and verified that my submission is well-organized and easy to understand.
+ Correctness: The information I include is correct and all of my code executes successfully.
+ Completeness: I have explained everything fully, including all necessary references and citations.
+
+
+
+We will rate each of these areas on a scale from 1 to 4, and will only accept contributions that score 3 or higher on all areas. Refer to our contributions guidelines for more details.",13,1
+807,2023-10-20T17:03:42Z,2023-11-14T21:52:28Z,2023-11-14T21:52:29Z,2,610,0,"Summary
+Add Named Entity Recognition (NER) notebook to enrich text using function-calling.
+Motivation
+Hello, @simonpfish! Following up on #771 - I've incorporated the suggestions from the rubric. The PR now includes function-calling and an actionable task post-NER. Please let me know if there are any further improvements needed. Thank you!
+
+For new content
+When contributing new content, read through our contribution guidelines, and mark the following action items as completed:
+
+ I have added a new entry in registry.yaml so that my content renders on the cookbook website.
+ I have conducted a self-review of my content based on the c:
+ Relevance: This content is related to building with OpenAI technlogies and is useful to others.
+ Uniqueness: I have searched for related examples in the OpenAI Cookbook, and verified that my content offers new insights or unique information compared to existing documentation.
+ Spelling and Grammar: I have checked for spelling or grammatical mistakes.
+ Clarity: I have done a final read-through and verified that my submission is well-organized and easy to understand.
+ Correctness: The information I include is correct and all of my code executes successfully.
+ Completeness: I have explained everything fully, including all necessary references and citations.
+
+We will rate each of these areas on a scale from 1 to 4, and will only accept contributions that score 3 or higher on all areas. Refer to our contributions guidelines for more details.",2,3
+809,2023-10-24T06:23:51Z,2023-10-31T18:38:12Z,2023-10-31T18:38:13Z,1,6,0,"Summary
+Updates api_request_parallel_processor.py to be used with Azure OpenAI service endpoints.
+Changes:
+
+Extract Azure endpoints also
+Use ""api-key"" header instead of ""Authorization"" for them
+
+Motivation
+Using the script with Azure OpenAI deployments throws NotImplementedError error even though the 'completions' and 'embeddings' requests are implemented.",3,0
+810,2023-10-27T17:14:36Z,2023-11-10T01:36:52Z,2023-11-10T01:36:52Z,2,1025,0,"Summary
+Adding fine tuning for function calling recipe. This generates synthetic data to improve the performance of function calling for a 'drone co-pilot ai'. The notebook shows how an untuned 3.5 Turbo fails to reject certain requests that the drone cannot do, and improperly calls functions. Then, the notebook creates invocations for every function, generates synthetic prompts that would lead to that invocation, and fine-tunes the model. The result is an improved model that properly rejects those questions.
+Motivation
+There is no notebook now on fine tuning for function calling, and this is a big customer need and ask.
+
+For new content
+When contributing new content, read through our contribution guidelines, and mark the following action items as completed:
+
+ I have added a new entry in registry.yaml so that my content renders on the cookbook website.
+ I have conducted a self-review of my content based on the c:
+
+ Relevance: This content is related to building with OpenAI technlogies and is useful to others.
+ Uniqueness: I have searched for related examples in the OpenAI Cookbook, and verified that my content offers new insights or unique information compared to existing documentation.
+ Spelling and Grammar: I have checked for spelling or grammatical mistakes.
+ Clarity: I have done a final read-through and verified that my submission is well-organized and easy to understand.
+ Correctness: The information I include is correct and all of my code executes successfully.
+ Completeness: I have explained everything fully, including all necessary references and citations.
+
+
+
+We will rate each of these areas on a scale from 1 to 4, and will only accept contributions that score 3 or higher on all areas. Refer to our contributions guidelines for more details.",4,1
+811,2023-10-29T06:11:51Z,2023-10-31T18:37:00Z,2023-10-31T18:37:00Z,2,2,2,"Summary
+Fixes simple typos",2,2
+818,2023-11-03T16:13:26Z,2023-11-27T21:35:46Z,2023-11-27T21:35:47Z,1,73,196,"Summary
+Update rate limits to tier based system and use Chatcompletion with gpt 3.5 instead of davinci-002
+Motivation
+Provide more up to date information regarding rate limits and chatCompletion code.",2,0
+819,2023-11-03T20:19:14Z,2023-11-07T22:37:47Z,2023-11-07T22:37:47Z,1,1,0,"Summary
+This adds Supabase (Postgres + pgvector) to the list of vector databases.
+Motivation
+Provides another vector database option (open source) that users can use alongside OpenAI.
+Let me know if you have any thoughts or questions!",2,1
+829,2023-11-08T03:12:33Z,2023-11-10T17:32:52Z,2023-11-10T17:32:52Z,1,3,3,"Summary
+This PR corrects several typographical errors throughout the codebase.
+Motivation
+By correcting these errors, we uphold the quality and clarity of the repository’s content.
+
+For new content
+When contributing new content, read through our contribution guidelines, and mark the following action items as completed:
+
+ I have added a new entry in registry.yaml (and, optionally, in authors.yaml) so that my content renders on the cookbook website.
+ I have conducted a self-review of my content based on the contribution guidelines:
+
+ Relevance: This content is related to building with OpenAI technologies and is useful to others.
+ Uniqueness: I have searched for related examples in the OpenAI Cookbook, and verified that my content offers new insights or unique information compared to existing documentation.
+ Spelling and Grammar: I have checked for spelling or grammatical mistakes.
+ Clarity: I have done a final read-through and verified that my submission is well-organized and easy to understand.
+ Correctness: The information I include is correct and all of my code executes successfully.
+ Completeness: I have explained everything fully, including all necessary references and citations.
+
+
+
+We will rate each of these areas on a scale from 1 to 4, and will only accept contributions that score 3 or higher on all areas. Refer to our contribution guidelines for more details.",2,0
+834,2023-11-09T01:00:00Z,2023-11-10T17:19:08Z,2023-11-10T17:19:08Z,1,107,71,"Motivation
+Uses new spec and cleans up notebook a bit.",2,0
+837,2023-11-09T22:18:19Z,2023-11-14T21:31:14Z,2023-11-14T21:31:14Z,3,68,54,"Summary
+Briefly describe the changes and the goal of this PR. Make sure the PR title summarizes the changes effectively.
+Updates for spec + GPT Vision preview rate limit
+Motivation
+Why are these changes necessary? How do they improve the cookbook?
+So these recipes can run with new spec
+For new content
+When contributing new content, read through our contribution guidelines, and mark the following action items as completed:
+
+ I have added a new entry in registry.yaml (and, optionally, in authors.yaml) so that my content renders on the cookbook website.
+ I have conducted a self-review of my content based on the contribution guidelines:
+
+ Relevance: This content is related to building with OpenAI technologies and is useful to others.
+ Uniqueness: I have searched for related examples in the OpenAI Cookbook, and verified that my content offers new insights or unique information compared to existing documentation.
+ Spelling and Grammar: I have checked for spelling or grammatical mistakes.
+ Clarity: I have done a final read-through and verified that my submission is well-organized and easy to understand.
+ Correctness: The information I include is correct and all of my code executes successfully.
+ Completeness: I have explained everything fully, including all necessary references and citations.
+
+
+
+We will rate each of these areas on a scale from 1 to 4, and will only accept contributions that score 3 or higher on all areas. Refer to our contribution guidelines for more details.",2,1
+838,2023-11-09T23:50:33Z,2023-11-13T18:00:42Z,2023-11-13T18:00:42Z,1,184,119,"Summary
+The goal of this PR is to do the following:
+
+Update this cookbook with the newest schema changes that utilizes 'tools' and 'tool_call' instead of the deprecated 'function' and 'function_call'
+Add a section on parallel function calling
+
+Motivation
+Why are these changes necessary? How do they improve the cookbook?
+These changes capture some of our most recent features from Dev Day
+
+For new content
+When contributing new content, read through our contribution guidelines, and mark the following action items as completed:
+
+ I have added a new entry in registry.yaml (and, optionally, in authors.yaml) so that my content renders on the cookbook website.
+ I have conducted a self-review of my content based on the contribution guidelines:
+
+ Relevance: This content is related to building with OpenAI technologies and is useful to others.
+ Uniqueness: I have searched for related examples in the OpenAI Cookbook, and verified that my content offers new insights or unique information compared to existing documentation.
+ Spelling and Grammar: I have checked for spelling or grammatical mistakes.
+ Clarity: I have done a final read-through and verified that my submission is well-organized and easy to understand.
+ Correctness: The information I include is correct and all of my code executes successfully.
+ Completeness: I have explained everything fully, including all necessary references and citations.
+
+
+
+We will rate each of these areas on a scale from 1 to 4, and will only accept contributions that score 3 or higher on all areas. Refer to our contribution guidelines for more details.",4,4
+840,2023-11-10T03:01:24Z,2023-11-10T17:10:42Z,2023-11-10T17:10:42Z,1,6,0,"Summary
+Adds @jhills20 info to the file",3,0
+848,2023-11-11T14:34:33Z,2023-11-27T21:16:38Z,2023-11-27T21:16:38Z,3,1115,0,"Summary
+This PR adds a tutorial notebook to evaluate RAG with LlamaIndex using GPT-4.
+Motivation
+Why are these changes necessary? How do they improve the cookbook?
+The changes are necessary because while building RAG pipeline is straightforward, optimizing it requires thorough evaluation. The tutorial provides a method for such an evaluation using LlamaIndex components, offering builders valuable insights on how to enhance their RAG systems
+
+For new content
+When contributing new content, read through our contribution guidelines, and mark the following action items as completed:
+
+ I have added a new entry in registry.yaml (and, optionally, in authors.yaml) so that my content renders on the cookbook website.
+ I have conducted a self-review of my content based on the contribution guidelines:
+
+ Relevance: This content is related to building with OpenAI technologies and is useful to others.
+ Uniqueness: I have searched for related examples in the OpenAI Cookbook, and verified that my content offers new insights or unique information compared to existing documentation.
+ Spelling and Grammar: I have checked for spelling or grammatical mistakes.
+ Clarity: I have done a final read-through and verified that my submission is well-organized and easy to understand.
+ Correctness: The information I include is correct and all of my code executes successfully.
+ Completeness: I have explained everything fully, including all necessary references and citations.
+
+
+
+We will rate each of these areas on a scale from 1 to 4, and will only accept contributions that score 3 or higher on all areas. Refer to our contribution guidelines for more details.",2,1
+850,2023-11-12T22:56:34Z,2023-11-13T02:01:35Z,2023-11-13T02:01:35Z,2,104,97,"Add objects diagram to the Assistants API Overview for clarity.
+Re-run notebook to fix a math mistake on the model's part.
+Capitalized Messages.",2,0
+853,2023-11-13T12:15:06Z,2023-11-14T21:37:27Z,2023-11-14T21:37:27Z,4,1434,428,"Summary
+This PR brings an updated ""Astra DB and Cassandra"" set of RAG demo notebooks, including adaptation to OpenAI v1.0, the usage of datasets instead of a local file for source data, revised graphics, a more consistent language, updated links in the references and, most notably, a brand new notebook showcasing usage of the HTTP API for Astra DB through usage of the ""astrapy"" client.
+This newly-added notebook performs the same ""reference"" task as the other two (GenAI with RAG on the same data) but does so using a different tech stack, in the same ""choose-your-own-framework"" spirit pursued so far in this folder.
+Motivation
+Besides making the language more coherent when referring to Astra DB products and Apache Cassandra®, fixing a few typos and improving the images accordingly, there are major improvements/updates to these notebooks as follows:
+
+code made to work with OpenAI v1.0+
+reference links reflect the latest relevant readings for the user (e.g. the Cassandra website recently published a new page about its support for vector search)
+using the datasets library instead of a local JSON file, which makes the colab experience less contrived and basically identical to the local-jupyter case
+
+And of course DataStax is releasing a new database experience based on an HTTP API, which is what the newly-added notebook addresses.
+Note
+I did not advance the date listed on registry.yaml for the pre-existing cookbook notebooks, as I assumed these refer to the creation date and not the last-update. Feel free to let me know and I will change this if needed!
+For new content
+When contributing new content, read through our contribution guidelines, and mark the following action items as completed:
+
+ I have added a new entry in registry.yaml (and, optionally, in authors.yaml) so that my content renders on the cookbook website.
+ I have conducted a self-review of my content based on the contribution guidelines:
+
+ Relevance: This content is related to building with OpenAI technologies and is useful to others.
+ Uniqueness: I have searched for related examples in the OpenAI Cookbook, and verified that my content offers new insights or unique information compared to existing documentation.
+ Spelling and Grammar: I have checked for spelling or grammatical mistakes.
+ Clarity: I have done a final read-through and verified that my submission is well-organized and easy to understand.
+ Correctness: The information I include is correct and all of my code executes successfully.
+ Completeness: I have explained everything fully, including all necessary references and citations.",2,0
+856,2023-11-13T20:09:38Z,,2024-02-15T01:47:23Z,1,161,130,"Summary
+Update the ""How to call functions with Chat Models"" cookbook to use the Python SDK.
+Motivation
+Why are these changes necessary? How do they improve the cookbook?
+
+For new content
+When contributing new content, read through our contribution guidelines, and mark the following action items as completed:
+
+ I have added a new entry in registry.yaml (and, optionally, in authors.yaml) so that my content renders on the cookbook website.
+ I have conducted a self-review of my content based on the contribution guidelines:
+
+ Relevance: This content is related to building with OpenAI technologies and is useful to others.
+ Uniqueness: I have searched for related examples in the OpenAI Cookbook, and verified that my content offers new insights or unique information compared to existing documentation.
+ Spelling and Grammar: I have checked for spelling or grammatical mistakes.
+ Clarity: I have done a final read-through and verified that my submission is well-organized and easy to understand.
+ Correctness: The information I include is correct and all of my code executes successfully.
+ Completeness: I have explained everything fully, including all necessary references and citations.
+
+
+
+We will rate each of these areas on a scale from 1 to 4, and will only accept contributions that score 3 or higher on all areas. Refer to our contribution guidelines for more details.",2,2
+860,2023-11-15T11:05:47Z,2023-11-27T21:14:11Z,2023-11-27T21:14:11Z,1,0,7,"Summary
+Removes an empty code block at the end of https://cookbook.openai.com/examples/gpt_with_vision_for_video_understanding
+Motivation
+I thought that the page was cut off and kept refreshing; looks like it's just an unintentional empty code block in an otherwise complete example.
+(The python patch version change was not an intentional part of the commit but it looks like there is a variety of different version numbers throughout so I figured it's not important but can change back if needed)
+
+For new content
+When contributing new content, read through our contribution guidelines, and mark the following action items as completed:
+
+ I have added a new entry in registry.yaml (and, optionally, in authors.yaml) so that my content renders on the cookbook website.
+ I have conducted a self-review of my content based on the contribution guidelines:
+
+ Relevance: This content is related to building with OpenAI technologies and is useful to others.
+ Uniqueness: I have searched for related examples in the OpenAI Cookbook, and verified that my content offers new insights or unique information compared to existing documentation.
+ Spelling and Grammar: I have checked for spelling or grammatical mistakes.
+ Clarity: I have done a final read-through and verified that my submission is well-organized and easy to understand.
+ Correctness: The information I include is correct and all of my code executes successfully.
+ Completeness: I have explained everything fully, including all necessary references and citations.
+
+
+
+We will rate each of these areas on a scale from 1 to 4, and will only accept contributions that score 3 or higher on all areas. Refer to our contribution guidelines for more details.",2,0
+862,2023-11-15T21:42:36Z,2023-12-09T00:45:55Z,2023-12-09T00:45:55Z,8,1003,0,"Summary
+This is a PR to add a new notebook on creating slides with Assistants API and DE3. For a fictional company and fictional quarterly financial data, the notebook shows how you can use an assistant and code interpreter to create an analysis + accompanying chart from the data, draw insights from the chart, and have GPT-4 create a title and bullet points for the slide. Then, we use DE3 to create an intro image for the presentation.
+Motivation
+This notebook showcases another use case of the Assistants API, and DALL-E3, and addresses a very common and laborious task that many professionals do: making slides. Hopefully it can save people a lot of time and motivate them to think of other ways to speed up more manual parts of their jobs.
+
+For new content
+When contributing new content, read through our contribution guidelines, and mark the following action items as completed:
+
+ I have added a new entry in registry.yaml (and, optionally, in authors.yaml) so that my content renders on the cookbook website.
+ I have conducted a self-review of my content based on the contribution guidelines:
+
+ Relevance: This content is related to building with OpenAI technologies and is useful to others.
+ Uniqueness: I have searched for related examples in the OpenAI Cookbook, and verified that my content offers new insights or unique information compared to existing documentation.
+ Spelling and Grammar: I have checked for spelling or grammatical mistakes.
+ Clarity: I have done a final read-through and verified that my submission is well-organized and easy to understand.
+ Correctness: The information I include is correct and all of my code executes successfully.
+ Completeness: I have explained everything fully, including all necessary references and citations.
+
+
+
+We will rate each of these areas on a scale from 1 to 4, and will only accept contributions that score 3 or higher on all areas. Refer to our contribution guidelines for more details.",3,0
+863,2023-11-15T22:15:01Z,2023-11-27T21:41:05Z,2023-11-27T21:41:05Z,1,101,7,"Summary
+Goal is to fix issue #858 - the solution is to point the notebook to the correct CSV file, and apply the literal_eval correctly.
+Motivation
+The examples/User_and_product_embeddings.ipynb notebook was previously not usable since it was referencing a datafile that was not being generated by the related notebook examples/Get_embeddings_from_dataset.ipynb.",2,3
+864,2023-11-16T14:40:46Z,2023-11-27T21:42:44Z,2023-11-27T21:42:44Z,1,1,0,"Summary
+This PR adds embedchain. Embedchain is an open-source Python library to load, index, retrieve and sync data with LLMs.
+Motivation
+This improves the related resources list and makes it comprehensive.
+
+For new content
+When contributing new content, read through our contribution guidelines, and mark the following action items as completed:
+
+ I have added a new entry in registry.yaml (and, optionally, in authors.yaml) so that my content renders on the cookbook website.
+ I have conducted a self-review of my content based on the contribution guidelines:
+
+ Relevance: This content is related to building with OpenAI technologies and is useful to others.
+ Uniqueness: I have searched for related examples in the OpenAI Cookbook, and verified that my content offers new insights or unique information compared to existing documentation.
+ Spelling and Grammar: I have checked for spelling or grammatical mistakes.
+ Clarity: I have done a final read-through and verified that my submission is well-organized and easy to understand.
+ Correctness: The information I include is correct and all of my code executes successfully.
+ Completeness: I have explained everything fully, including all necessary references and citations.
+
+
+
+We will rate each of these areas on a scale from 1 to 4, and will only accept contributions that score 3 or higher on all areas. Refer to our contribution guidelines for more details.",2,0
+865,2023-11-16T14:49:59Z,2023-11-27T21:43:20Z,2023-11-27T21:43:20Z,1,1,1,"This fixes the URL of registry.yaml and authors.yaml in the pull request template.
+Summary
+This fixes the URL of registry.yaml and authors.yaml in the pull request template.
+At present, the URL of the registry.yaml points to github.com/registry.yaml and authors.yaml point to github.com/authors.yaml.
+This is because it's a relative path.
+Motivation
+These changes improve the contribution guidelines and help point a user to the correct files.
+
+For new content
+When contributing new content, read through our contribution guidelines, and mark the following action items as completed:
+
+ I have added a new entry in registry.yaml (and, optionally, in authors.yaml) so that my content renders on the cookbook website.
+ I have conducted a self-review of my content based on the contribution guidelines:
+
+ Relevance: This content is related to building with OpenAI technologies and is useful to others.
+ Uniqueness: I have searched for related examples in the OpenAI Cookbook, and verified that my content offers new insights or unique information compared to existing documentation.
+ Spelling and Grammar: I have checked for spelling or grammatical mistakes.
+ Clarity: I have done a final read-through and verified that my submission is well-organized and easy to understand.
+ Correctness: The information I include is correct and all of my code executes successfully.
+ Completeness: I have explained everything fully, including all necessary references and citations.
+
+
+
+We will rate each of these areas on a scale from 1 to 4, and will only accept contributions that score 3 or higher on all areas. Refer to our contribution guidelines for more details.",2,0
+866,2023-11-16T20:01:03Z,2023-11-27T21:46:21Z,2023-11-27T21:46:21Z,1,68,22,,3,4
+868,2023-11-17T17:26:10Z,2023-11-27T21:47:19Z,2023-11-27T21:47:19Z,1,2,0,"Summary
+Adding the new Assistants API course from Scrimba to the list of Video Courses in the Related Resources page.
+Motivation
+Makes the API more approachable as this is a step by step course where you build an assistant and actually write code.
+
+For new content
+When contributing new content, read through our contribution guidelines, and mark the following action items as completed:
+
+ I have added a new entry in registry.yaml (and, optionally, in authors.yaml) so that my content renders on the cookbook website.
+ I have conducted a self-review of my content based on the contribution guidelines:
+
+ Relevance: This content is related to building with OpenAI technologies and is useful to others.
+ Uniqueness: I have searched for related examples in the OpenAI Cookbook, and verified that my content offers new insights or unique information compared to existing documentation.
+ Spelling and Grammar: I have checked for spelling or grammatical mistakes.
+ Clarity: I have done a final read-through and verified that my submission is well-organized and easy to understand.
+ Correctness: The information I include is correct and all of my code executes successfully.
+ Completeness: I have explained everything fully, including all necessary references and citations.
+
+
+
+We will rate each of these areas on a scale from 1 to 4, and will only accept contributions that score 3 or higher on all areas. Refer to our contribution guidelines for more details.",4,4
+870,2023-11-19T18:50:01Z,2023-11-27T21:48:22Z,2023-11-27T21:48:22Z,1,1,1,"Summary
+The response was parsed as a json dictionary whereas when we use the python SDK we get objects so that response[""choices""] should be changed to response.choices (and so on). Before we had:
+response_content = response[""choices""][0][""message""][""content""]
+system_fingerprint = response[""system_fingerprint""]
+prompt_tokens = response[""usage""][""prompt_tokens""]
+completion_tokens = (
+    response[""usage""][""total_tokens""] - response[""usage""][""prompt_tokens""]
+)
+Which raised the following error using the 1.3.3 version:
+*** TypeError: 'ChatCompletion' object is not subscriptable
+After correction:
+response_content = response.choices[0].message.content
+system_fingerprint = response.system_fingerprint
+prompt_tokens = response.usage.prompt_tokens
+completion_tokens = (
+    response.usage.total_tokens - response.usage.prompt_tokens
+)
+Switch to latest version of openai library chat completions call.
+Motivation
+The deterministic outputs notebook was not working.",3,0
+874,2023-11-20T19:04:52Z,2023-12-05T20:56:03Z,2023-12-05T20:56:03Z,4,435,1,"Summary
+This PR adds an example of using MongoDB Atlas Vector Search with OpenAI for building semantic search application.
+Atlas Vector Search is a fully managed service that simplifies the process of effectively indexing high-dimensional vector data within MongoDB and being able to perform fast vector similarity searches. With Atlas Vector Search, you can use MongoDB as a standalone vector database for a new project or augment your existing MongoDB collections with vector search functionality. With Atlas Vector Search, you can use the powerful capabilities of vector search in any major public cloud (AWS, Azure, GCP) and achieve massive scalability and data security out of the box while being enterprise-ready with provisions like FedRamp, SoC2 compliance.
+
+For new content
+When contributing new content, read through our contribution guidelines, and mark the following action items as completed:
+
+ I have added a new entry in registry.yaml (and, optionally, in authors.yaml) so that my content renders on the cookbook website.
+ I have conducted a self-review of my content based on the contribution guidelines:
+
+ Relevance: This content is related to building with OpenAI technologies and is useful to others.
+ Uniqueness: I have searched for related examples in the OpenAI Cookbook, and verified that my content offers new insights or unique information compared to existing documentation.
+ Spelling and Grammar: I have checked for spelling or grammatical mistakes.
+ Clarity: I have done a final read-through and verified that my submission is well-organized and easy to understand.
+ Correctness: The information I include is correct and all of my code executes successfully.
+ Completeness: I have explained everything fully, including all necessary references and citations.
+
+
+
+We will rate each of these areas on a scale from 1 to 4, and will only accept contributions that score 3 or higher on all areas. Refer to our contribution guidelines for more details.",2,4
+881,2023-11-23T16:37:34Z,,2024-02-23T01:46:54Z,2,167,8,"Summary
+Briefly describe the changes and the goal of this PR. Make sure the PR title summarizes the changes effectively.
+
+Added token calculation using tiktoken for gpt 4 vision for both image urls and base64 images
+Modified code to support latest version of openai 1.3.5
+
+Motivation
+Why are these changes necessary? How do they improve the cookbook?
+
+Previously there was no support for input image prompt token calculation
+The code was using older version of openai which was incorrect when executed using latest version
+
+
+For new content
+When contributing new content, read through our contribution guidelines, and mark the following action items as completed:
+
+ I have added a new entry in registry.yaml (and, optionally, in authors.yaml) so that my content renders on the cookbook website.
+ I have conducted a self-review of my content based on the contribution guidelines:
+
+ Relevance: This content is related to building with OpenAI technologies and is useful to others.
+ Uniqueness: I have searched for related examples in the OpenAI Cookbook, and verified that my content offers new insights or unique information compared to existing documentation.
+ Spelling and Grammar: I have checked for spelling or grammatical mistakes.
+ Clarity: I have done a final read-through and verified that my submission is well-organized and easy to understand.
+ Correctness: The information I include is correct and all of my code executes successfully.
+ Completeness: I have explained everything fully, including all necessary references and citations.
+
+
+
+We will rate each of these areas on a scale from 1 to 4, and will only accept contributions that score 3 or higher on all areas. Refer to our contribution guidelines for more details.",3,3
+882,2023-11-27T16:11:13Z,2023-12-19T02:13:52Z,2023-12-19T02:13:52Z,1,1,1,"Summary
+peformance -> performance",3,1
+883,2023-11-27T16:47:23Z,,2024-02-23T01:46:52Z,1,6,6,"Summary
+Update pretty_print_conversation of How_to_call_functions_with_chat_models to match new python SDK.
+For your information, #838 updated this function partially.
+Motivation
+Why are these changes necessary? How do they improve the cookbook?
+
+For new content
+When contributing new content, read through our contribution guidelines, and mark the following action items as completed:
+
+ I have added a new entry in registry.yaml (and, optionally, in authors.yaml) so that my content renders on the cookbook website.
+ I have conducted a self-review of my content based on the contribution guidelines:
+
+ Relevance: This content is related to building with OpenAI technologies and is useful to others.
+ Uniqueness: I have searched for related examples in the OpenAI Cookbook, and verified that my content offers new insights or unique information compared to existing documentation.
+ Spelling and Grammar: I have checked for spelling or grammatical mistakes.
+ Clarity: I have done a final read-through and verified that my submission is well-organized and easy to understand.
+ Correctness: The information I include is correct and all of my code executes successfully.
+ Completeness: I have explained everything fully, including all necessary references and citations.
+
+
+
+We will rate each of these areas on a scale from 1 to 4, and will only accept contributions that score 3 or higher on all areas. Refer to our contribution guidelines for more details.",2,4
+885,2023-11-27T21:13:34Z,2023-12-05T20:58:16Z,2023-12-05T20:58:16Z,1,76,85,"Summary
+Fix bug #884 - Migrate How_to_finetune_chat_models.ipynb to API V1
+Motivation
+The notebook How_to_finetune_chat_models.ipynb was no longer working with the API V1 described in the v1.0.0 migration guide
+Testing info
+I tested this manually with Python 3.11.3 and OpenAI Python SDK V1.3.5",2,7
+886,2023-11-28T12:37:38Z,2023-12-19T17:12:27Z,2023-12-19T17:12:27Z,1,94,91,"Summary
+Updates the """"question answering using embeddings""  example Jupyter notebook to use the current chat completions and embeddings methods
+new form is
+openai.chat.completions.create
+openai.embeddings.create
+There are corresponding changes required to parse the structures returned.
+There are also incidental changes to the output text due to changes to ChatGPT and/or the non-deterministic nature of the openAPI text output for a given input.
+I added a line to  explicitly set the API key from ENV variable, as that could help new users to get the example running.
+All code has been run and all example output seems reasonable.
+Motivation
+
+Why are these changes necessary? How do they improve the cookbook?
+The existing example only runs if you pin it to an obsolete version of the openai library.
+Updating the example allows users to get the example running faster and to modify and extend it using the current openai library
+For new content
+Not Applicable.",3,1
+891,2023-11-28T20:10:35Z,2023-12-04T06:01:47Z,2023-12-04T06:01:47Z,1,1,1,"Summary
+I think there was a typo and the word not was missed. I believe it meant to say that the LLM did NOT include your specific data.
+Motivation
+Why are these changes necessary? How do they improve the cookbook?
+
+For new content
+When contributing new content, read through our contribution guidelines, and mark the following action items as completed:
+
+ I have added a new entry in registry.yaml (and, optionally, in authors.yaml) so that my content renders on the cookbook website.
+ I have conducted a self-review of my content based on the contribution guidelines:
+
+ Relevance: This content is related to building with OpenAI technologies and is useful to others.
+ Uniqueness: I have searched for related examples in the OpenAI Cookbook, and verified that my content offers new insights or unique information compared to existing documentation.
+ Spelling and Grammar: I have checked for spelling or grammatical mistakes.
+ Clarity: I have done a final read-through and verified that my submission is well-organized and easy to understand.
+ Correctness: The information I include is correct and all of my code executes successfully.
+ Completeness: I have explained everything fully, including all necessary references and citations.
+
+
+
+We will rate each of these areas on a scale from 1 to 4, and will only accept contributions that score 3 or higher on all areas. Refer to our contribution guidelines for more details.",2,0
+893,2023-11-29T02:47:28Z,2023-12-19T17:02:50Z,2023-12-19T17:02:50Z,1,435,221,"Summary
+Updating 'fine tuning for function calling' notebook to use tools instead of functions (new spec)
+Motivation
+Other version is outdated now",5,2
+895,2023-11-29T19:32:56Z,2023-12-19T17:18:32Z,2023-12-19T17:18:32Z,1,256,99,"Summary
+Made following changes to the Clustering_for_transaction_classification notebooks:
+
+Added a cell to import env variables from .env file
+Updated KMeans instantiation to remove warning
+Updated code to be compatible with the new version of the SDK, including using Chat Completions API instead of legacy Completions API
+
+Motivation
+The notebook in its current state cannot be run with a fresh installation of the openai package.",2,0
+897,2023-11-30T13:49:46Z,2023-12-04T06:01:14Z,2023-12-04T06:01:14Z,1,0,1,"Summary
+In the official document, when using Azure Active Directory(Microsoft Entra), api_key is not required.
+To avoid any misunderstanding that an api_key needs to be issued, the api_key has been removed.",2,1
+898,2023-11-30T22:31:55Z,2023-12-19T17:25:07Z,2023-12-19T17:25:07Z,1,1,1,"Sum 'relevancy' rather than 'faithfulness' for relevancy score.
+Summary
+Sum relevancy rather than faithfulness.
+Motivation
+Makes code consistent with intention.
+
+For new content
+When contributing new content, read through our contribution guidelines, and mark the following action items as completed:
+
+ I have added a new entry in registry.yaml (and, optionally, in authors.yaml) so that my content renders on the cookbook website.
+ I have conducted a self-review of my content based on the contribution guidelines:
+
+ Relevance: This content is related to building with OpenAI technologies and is useful to others.
+ Uniqueness: I have searched for related examples in the OpenAI Cookbook, and verified that my content offers new insights or unique information compared to existing documentation.
+ Spelling and Grammar: I have checked for spelling or grammatical mistakes.
+ Clarity: I have done a final read-through and verified that my submission is well-organized and easy to understand.
+ Correctness: The information I include is correct and all of my code executes successfully.
+ Completeness: I have explained everything fully, including all necessary references and citations.
+
+
+
+We will rate each of these areas on a scale from 1 to 4, and will only accept contributions that score 3 or higher on all areas. Refer to our contribution guidelines for more details.",2,0
+899,2023-12-01T01:44:31Z,,2024-02-13T01:25:46Z,1,245,399,,4,0
+903,2023-12-03T20:24:46Z,2023-12-19T17:10:27Z,2023-12-19T17:10:28Z,1,1,1,"Summary
+Fixed an keyword argument for get_embeddings function
+Motivation
+Bugfix",2,0
+911,2023-12-06T08:22:03Z,,2024-03-28T01:47:55Z,1,288,1088,"Summary
+Update the deprecated wandb - OAI fine-tuning workflow to match the latest version.
+Motivation
+This update prevents broken improper workflows by updating them to the most appropriate form
+For new content
+When contributing new content, read through our contribution guidelines, and mark the following action items as completed:
+
+ I have added a new entry in registry.yaml (and, optionally, in authors.yaml) so that my content renders on the cookbook website.
+ I have conducted a self-review of my content based on the contribution guidelines:
+
+ Relevance: This content is related to building with OpenAI technologies and is useful to others.
+ Uniqueness: I have searched for related examples in the OpenAI Cookbook, and verified that my content offers new insights or unique information compared to existing documentation.
+ Spelling and Grammar: I have checked for spelling or grammatical mistakes.
+ Clarity: I have done a final read-through and verified that my submission is well-organized and easy to understand.
+ Correctness: The information I include is correct and all of my code executes successfully.
+ Completeness: I have explained everything fully, including all necessary references and citations.
+
+
+
+We will rate each of these areas on a scale from 1 to 4, and will only accept contributions that score 3 or higher on all areas. Refer to our contribution guidelines for more details.",2,6
+912,2023-12-06T11:28:18Z,2023-12-19T17:14:50Z,2023-12-19T17:14:50Z,3,354,1339,"Summary
+1. Openai update new major version of openai SDK from to 1.x.x
+Check here
+This notebook base on openai 0.2.8
+I migrated it to open AI 1.3.7
+Example:
+openai.ChatCompletion.create() -> client.chat.completions.create() 
+2. Delete the code for model text-davinci-002 because it be deprecated.
+check here 
+)
+Motivation
+This change will fixed the bug
+APIRemovedInV1: 
+
+You tried to access openai.Completion, but this is no longer supported in openai>=1.0.0 - see the README at https://github.com/openai/openai-python for the API.
+
+You can run `openai migrate` to automatically upgrade your codebase to use the 1.0.0 interface. 
+
+Alternatively, you can pin your installation to the old version, e.g. `pip install openai==0.28`
+A detailed migration guide is available here: https://github.com/openai/openai-python/discussions/742
+
+
+
+[x ] I have added a new entry in registry.yaml (and, optionally, in authors.yaml) so that my content renders on the cookbook website.
+[ x] I have conducted a self-review of my content based on the contribution guidelines:
+
+[x ] Relevance: This content is related to building with OpenAI technologies and is useful to others.
+[ x] Uniqueness: I have searched for related examples in the OpenAI Cookbook, and verified that my content offers new insights or unique information compared to existing documentation.
+[x ] Spelling and Grammar: I have checked for spelling or grammatical mistakes.
+[x ] Clarity: I have done a final read-through and verified that my submission is well-organized and easy to understand.
+[ x] Correctness: The information I include is correct and all of my code executes successfully.
+[ x] Completeness: I have explained everything fully, including all necessary references and citations.",2,0
+913,2023-12-06T22:06:19Z,2023-12-18T13:56:22Z,2023-12-18T13:56:22Z,4,328,0,"Summary
+Adds a cookbook example to store and query OpenAI embeddings in Supabase using pgvector and Supabase's auto-generated REST API. This guide is written for JavaScript developers, but also adds callouts that explain how they can modify it for other languages.
+Motivation
+Many Supabase customers use OpenAI embeddings in their DB (via pgvector) to perform semantic search and RAG over their data. This PR adds a guide that demonstrates exactly how to implement semantic search in Supabase using OpenAI embeddings while also following database best practices (like HNSW indexes, row level security, etc).
+Supabase exposes an auto-generated REST API (based on the user's table schema), so this guide walks users through how to interact with their data via this API. There also aren't too many cookbook examples written for JavaScript developers, so this guide targets this audience and explains how to implement semantic search for multiple JavaScript runtimes (Node.js, Deno, Edge Functions). Since this focuses on JavaScript, the guide was written as mdx, but let me know if ipynb is preferred here!
+
+For new content
+When contributing new content, read through our contribution guidelines, and mark the following action items as completed:
+
+ I have added a new entry in registry.yaml (and, optionally, in authors.yaml) so that my content renders on the cookbook website.
+ I have conducted a self-review of my content based on the contribution guidelines:
+
+ Relevance: This content is related to building with OpenAI technologies and is useful to others.
+ Uniqueness: I have searched for related examples in the OpenAI Cookbook, and verified that my content offers new insights or unique information compared to existing documentation.
+ Spelling and Grammar: I have checked for spelling or grammatical mistakes.
+ Clarity: I have done a final read-through and verified that my submission is well-organized and easy to understand.
+ Correctness: The information I include is correct and all of my code executes successfully.
+ Completeness: I have explained everything fully, including all necessary references and citations.
+
+
+
+We will rate each of these areas on a scale from 1 to 4, and will only accept contributions that score 3 or higher on all areas. Refer to our contribution guidelines for more details.",2,1
+914,2023-12-07T05:14:11Z,2024-01-25T01:05:14Z,2024-01-25T01:05:14Z,46,1939,3218,"Summary
+Migrates all remaining V0.* calls to Open AI API V1.
+Approach: The approach can be seen in these commits. It consists of 4 steps:
+
+Create a helper script, ipynb_migration_helper.py
+Use to ipynb_migration_helper.py extract all code cells from all notebooks. This is necessary because openai migration does not apply its migrations to .ipynb files.
+Run openai migration which applies Grit's OpenAI V1 migrations to all the cells from the notebooks.
+Remerge all migrated cells with ipynb_migration_helper.py using the command line option --reinsert
+Delete all temporary files (extracted cell files) and the helper script.
+
+Motivation
+We have been migrating this repo to V1 piecemeal. This is because the openai migrate command and the migration tools provided by Grit that were referenced in the V1.0.0 migration guide do not support .ipynb files.
+I have gone ahead and taken the approach outlined above, with the helper script to extract and reinsert cells, in order to take care of all remaining migrations in a scalable manner.
+Testing
+I have not tested each .ipynb notebook affected, but am rather relying on the correctness of the openai migrate command.
+Squash and Merge
+Maintainers: If you decide to merge this, please remember to Squash and Merge into a single commit, so the helper script and temporary files created by it will not become part of the record. (Apologies if I'm stating the obvious.)
+I hope this is helpful, and happy to answer any questions. Let me know if you have any feedback!",5,41
+915,2023-12-08T10:50:39Z,2023-12-19T17:05:59Z,2023-12-19T17:05:59Z,3,25769,0,"Summary
+
+Added a new notebook, RAG_with_graph_db.ipynb, to showcase how to leverage LLMs to query a Neo4j graph db
+Added corresponding dataset
+Updated registry.yaml",2,0
+920,2023-12-11T00:20:27Z,2023-12-19T17:19:09Z,2023-12-19T17:19:09Z,1,1,1,"fixed typo
+Summary
+Briefly describe the changes and the goal of this PR. Make sure the PR title summarizes the changes effectively.
+Motivation
+Why are these changes necessary? How do they improve the cookbook?
+
+For new content
+When contributing new content, read through our contribution guidelines, and mark the following action items as completed:
+
+ I have added a new entry in registry.yaml (and, optionally, in authors.yaml) so that my content renders on the cookbook website.
+ I have conducted a self-review of my content based on the contribution guidelines:
+
+ Relevance: This content is related to building with OpenAI technologies and is useful to others.
+ Uniqueness: I have searched for related examples in the OpenAI Cookbook, and verified that my content offers new insights or unique information compared to existing documentation.
+ Spelling and Grammar: I have checked for spelling or grammatical mistakes.
+ Clarity: I have done a final read-through and verified that my submission is well-organized and easy to understand.
+ Correctness: The information I include is correct and all of my code executes successfully.
+ Completeness: I have explained everything fully, including all necessary references and citations.
+
+
+
+We will rate each of these areas on a scale from 1 to 4, and will only accept contributions that score 3 or higher on all areas. Refer to our contribution guidelines for more details.",2,0
+921,2023-12-11T05:31:24Z,,2024-03-01T01:48:43Z,3,710,0,"Summary
+Adding article, GPTs for Business, which will not only help users of ChatGPT for Business (Enterprise & Team plan users) to become experts in building GPTs, but share specific guides as examples to get you started on.
+Motivation
+As ChatGPT increases its technical depth with features like GPTs Actions, there is the need for the same quality of content currently provided to API users, to ChatGPT users. This article can be the start of that trend here on the cookbook. It is a resource we are commonly asked for.
+Action items as completed:
+
+ I have added a new entry in registry.yaml (and, optionally, in authors.yaml) so that my content renders on the cookbook website.
+ I have conducted a self-review of my content based on the contribution guidelines:
+  Relevance: This content is related to building with OpenAI technologies and is useful to others.
+  Uniqueness: I have searched for related examples in the OpenAI Cookbook, and verified that my content offers new insights or unique information compared to existing documentation.
+  Spelling and Grammar: I have checked for spelling or grammatical mistakes.
+  Clarity: I have done a final read-through and verified that my submission is well-organized and easy to understand.
+ Correctness: The information I include is correct and all of my code executes successfully.
+ Completeness: I have explained everything fully, including all necessary references and citations.",2,2
+922,2023-12-11T07:15:07Z,2023-12-19T02:14:51Z,2023-12-19T02:14:51Z,1,4,6,"Because messages are already an array, push should be an object, not an array.",2,1
+924,2023-12-11T15:09:32Z,2024-02-01T20:58:32Z,2024-02-01T20:58:32Z,5,746,655,"Summary
+This PR updates the Vector Database example in the Azure Search Cookbook to utilize the latest stable General Availability (GA) release of the Azure AI Search Python SDK. Additionally, it includes renaming instances of ""Azure Search"" to ""Azure AI Search"" to reflect the current branding and product naming conventions.
+Motivation
+The Azure Search Cookbook is a valuable resource for developers working with Azure AI Search. Keeping the cookbook examples up-to-date with the latest SDK ensures that users have access to the most current features and best practices. The rebranding from ""Azure Search"" to ""Azure AI Search"" aligns the cookbook with the official terminology, reducing confusion and improving searchability.
+
+For new content
+When contributing new content, read through our contribution guidelines, and mark the following action items as completed:
+
+ I have added a new entry in registry.yaml (and, optionally, in authors.yaml) so that my content renders on the cookbook website.
+ I have conducted a self-review of my content based on the contribution guidelines:
+
+ Relevance: This content is related to building with OpenAI technologies and is useful to others.
+ Uniqueness: I have searched for related examples in the OpenAI Cookbook, and verified that my content offers new insights or unique information compared to existing documentation.
+ Spelling and Grammar: I have checked for spelling or grammatical mistakes.
+ Clarity: I have done a final read-through and verified that my submission is well-organized and easy to understand.
+ Correctness: The information I include is correct and all of my code executes successfully.
+ Completeness: I have explained everything fully, including all necessary references and citations.
+
+
+
+We will rate each of these areas on a scale from 1 to 4, and will only accept contributions that score 3 or higher on all areas. Refer to our contribution guidelines for more details.",3,5
+925,2023-12-12T17:37:23Z,2023-12-19T17:08:18Z,2023-12-19T17:08:18Z,1,10,8,"Add a conciseness metric to the rubric to encourage denser, simpler, more concise cookbooks.",2,1
+929,2023-12-15T07:17:04Z,,2024-04-11T01:48:19Z,7,338,0,"Summary
+This notebook teaches developers to get started with the Assistants API using the Node.js SDK. It explains how to build a travel agent that utilizes both the code interpreter and knowledge retrieval tools.
+In addition to the textual article, I have also recorded an interactive walk-through of the code. This will help learners who prefer watching videos over reading text.
+Motivation
+There are currently no tutorials in the cookbook that teach JavaScript developers to get started with the Assistants API. This PR fixes this.
+
+For new content
+When contributing new content, read through our contribution guidelines, and mark the following action items as completed:
+
+ I have added a new entry in registry.yaml (and, optionally, in authors.yaml) so that my content renders on the cookbook website.
+ I have conducted a self-review of my content based on the contribution guidelines:
+
+ Relevance: This content is related to building with OpenAI technologies and is useful to others.
+ Uniqueness: I have searched for related examples in the OpenAI Cookbook, and verified that my content offers new insights or unique information compared to existing documentation.
+ Spelling and Grammar: I have checked for spelling or grammatical mistakes.
+ Clarity: I have done a final read-through and verified that my submission is well-organized and easy to understand.
+ Correctness: The information I include is correct and all of my code executes successfully.
+ Completeness: I have explained everything fully, including all necessary references and citations.
+
+
+
+We will rate each of these areas on a scale from 1 to 4, and will only accept contributions that score 3 or higher on all areas. Refer to our contribution guidelines for more details.",4,7
+930,2023-12-15T20:07:47Z,2023-12-19T17:11:18Z,2023-12-19T17:11:18Z,1,38,21,"Summary
+Added a new example of how to control a large language model (playing out a scenario) and updated the Code Capabilities section as the codex models are deprecated, GPT-4 is the reccomended replacement
+Motivation
+Codex models are still often mentioned throughout the cookbook despite being shut down back in March of 2023 - The Researcher Access Program no longer seems to provide access to the codex models, so they should not be included in any documentation.",2,0
+931,2023-12-16T21:19:47Z,2023-12-19T15:32:20Z,2023-12-19T15:32:20Z,1,2,0,"Summary
+Added a link to my popular prompt engineering guides and my LinkedIn video course, which has had 100k learners so far
+Motivation
+These resources are complementary to some of the ones included in the cookbook and are also already pretty ppular",2,0
+934,2023-12-19T03:17:31Z,2023-12-19T15:29:32Z,2023-12-19T15:29:32Z,1,91,77,"Summary
+Update the node example as ""function_call"" is deprecated.
+Motivation
+""function_call"" is deprecated.
+
+For new content
+When contributing new content, read through our contribution guidelines, and mark the following action items as completed:
+
+ I have added a new entry in registry.yaml (and, optionally, in authors.yaml) so that my content renders on the cookbook website.
+ I have conducted a self-review of my content based on the contribution guidelines:
+
+ Relevance: This content is related to building with OpenAI technologies and is useful to others.
+ Uniqueness: I have searched for related examples in the OpenAI Cookbook, and verified that my content offers new insights or unique information compared to existing documentation.
+ Spelling and Grammar: I have checked for spelling or grammatical mistakes.
+ Clarity: I have done a final read-through and verified that my submission is well-organized and easy to understand.
+ Correctness: The information I include is correct and all of my code executes successfully.
+ Completeness: I have explained everything fully, including all necessary references and citations.
+
+
+
+We will rate each of these areas on a scale from 1 to 4, and will only accept contributions that score 3 or higher on all areas. Refer to our contribution guidelines for more details.",2,1
+935,2023-12-19T09:30:19Z,2023-12-19T17:01:27Z,2023-12-19T17:01:27Z,2,481,0,"Summary
+Shows how to implement simple input and output guardrails for an LLM application.
+Motivation
+This is a common design pattern for developers looking to protect their application from either malicious actors or off-topic conversation.
+
+For new content
+When contributing new content, read through our contribution guidelines, and mark the following action items as completed:
+
+ I have added a new entry in registry.yaml (and, optionally, in authors.yaml) so that my content renders on the cookbook website.
+ I have conducted a self-review of my content based on the contribution guidelines:
+
+ Relevance: This content is related to building with OpenAI technologies and is useful to others.
+ Uniqueness: I have searched for related examples in the OpenAI Cookbook, and verified that my content offers new insights or unique information compared to existing documentation.
+ Spelling and Grammar: I have checked for spelling or grammatical mistakes.
+ Clarity: I have done a final read-through and verified that my submission is well-organized and easy to understand.
+ Correctness: The information I include is correct and all of my code executes successfully.
+ Completeness: I have explained everything fully, including all necessary references and citations.
+
+
+
+We will rate each of these areas on a scale from 1 to 4, and will only accept contributions that score 3 or higher on all areas. Refer to our contribution guidelines for more details.",2,1
+937,2023-12-19T23:38:00Z,2023-12-20T21:28:20Z,2023-12-20T21:28:20Z,2,805,0,"Summary
+Creating a 'using logprobs' notebook that shows how to use logprobs for classification, evaluation of rag Q&A, and a simple autocompletion system.
+Motivation
+Logprobs were a huge dev. ask, and this cookbook was directly requested to show users a few use cases for logprobs.
+
+For new content
+When contributing new content, read through our contribution guidelines, and mark the following action items as completed:
+
+ I have added a new entry in registry.yaml (and, optionally, in authors.yaml) so that my content renders on the cookbook website.
+ I have conducted a self-review of my content based on the contribution guidelines:
+
+ Relevance: This content is related to building with OpenAI technologies and is useful to others.
+ Uniqueness: I have searched for related examples in the OpenAI Cookbook, and verified that my content offers new insights or unique information compared to existing documentation.
+ Spelling and Grammar: I have checked for spelling or grammatical mistakes.
+ Clarity: I have done a final read-through and verified that my submission is well-organized and easy to understand.
+ Correctness: The information I include is correct and all of my code executes successfully.
+ Completeness: I have explained everything fully, including all necessary references and citations.
+
+
+
+We will rate each of these areas on a scale from 1 to 4, and will only accept contributions that score 3 or higher on all areas. Refer to our contribution guidelines for more details.",3,0
+940,2023-12-20T13:58:42Z,2023-12-20T21:39:09Z,2023-12-20T21:39:09Z,1,1,0,"Summary
+Adds Tembo's VectorDB Stack to the list of vector databases.
+Motivation
+The Tembo quick-start guide shows the user how to use the pg_vectorize extension, which is built on OpenAI's embeddings api and pg vector. It is a high level API intended to be the quickest way to get started w/ OpenAI embeddings on Postgres.",2,0
+942,2023-12-20T18:00:17Z,2023-12-20T21:37:01Z,2023-12-20T21:37:01Z,1,1,1,"Summary
+Fixes the link to langchain agents page",2,0
+964,2023-12-29T17:12:51Z,2023-12-29T20:43:17Z,2023-12-29T20:43:17Z,1,1,1,"Summary
+This is a very minor change which updates the W&B Weave example notebook to use valid syntax.
+Motivation
+For context, there's a variable which they want the user to assign a value to e.g. FOO = # set a value but this is invalid syntax and could be confusing to some users. I've edited it to be  FOO = """" # set a value. I discovered this while attempting to include this project in Ruff's ecosystem checks at astral-sh/ruff#9293.
+There is a minor chance that this would increase confusion as the notebook will no longer fail with a syntax error if the user does not set a value. It'd be trivial to add additional code that checks the value of the variable and raises an informative error if that's a concern. I am happy to do so, but wanted to start with the smaller changer.",2,1
+974,2024-01-04T07:36:36Z,2024-01-09T01:10:16Z,2024-01-09T01:10:16Z,1,1,1,"Summary
+Fixed link to ""techniques to improve reliability"" by removing .md extension
+Motivation
+Minor correction.",2,1
+982,2024-01-04T16:59:23Z,2024-01-04T20:56:32Z,2024-01-04T20:56:32Z,1,1,1,"Added capital for registry.yaml
+Summary
+Briefly describe the changes and the goal of this PR. Make sure the PR title summarizes the changes effectively.
+Motivation
+Why are these changes necessary? How do they improve the cookbook?
+
+For new content
+When contributing new content, read through our contribution guidelines, and mark the following action items as completed:
+
+ I have added a new entry in registry.yaml (and, optionally, in authors.yaml) so that my content renders on the cookbook website.
+ I have conducted a self-review of my content based on the contribution guidelines:
+
+ Relevance: This content is related to building with OpenAI technologies and is useful to others.
+ Uniqueness: I have searched for related examples in the OpenAI Cookbook, and verified that my content offers new insights or unique information compared to existing documentation.
+ Spelling and Grammar: I have checked for spelling or grammatical mistakes.
+ Clarity: I have done a final read-through and verified that my submission is well-organized and easy to understand.
+ Correctness: The information I include is correct and all of my code executes successfully.
+ Completeness: I have explained everything fully, including all necessary references and citations.
+
+
+
+We will rate each of these areas on a scale from 1 to 4, and will only accept contributions that score 3 or higher on all areas. Refer to our contribution guidelines for more details.",2,0
+987,2024-01-08T11:27:03Z,,2024-04-07T01:49:09Z,14,21,21,"Hey 👋,
+This PR will fix :
+1 typo in examples/Clustering.ipynb
+2 typos in examples/Creating_slides_with_Assistants_API_and_DALL-E3.ipynb
+1 typo in examples/Fine_tuning_for_function_calling.ipynb
+2 typos in examples/How_to_call_functions_with_chat_models.ipynb
+2 typos in examples/Question_answering_using_a_search_API.ipynb
+1 typo in examples/Semantic_text_search_using_embeddings.ipynb
+3 typos in examples/data/scifact_claims.jsonl
+1 typo in examples/evaluation/Evaluate_RAG_with_LlamaIndex.ipynb
+2 typos in examples/fine-tuned_qa/ft_retrieval_augmented_generation_qdrant.ipynb
+2 typos in examples/third_party/GPT_finetuning_with_wandb.ipynb
+1 typo in examples/vector_databases/cassandra_astradb/Philosophical_Quotes_CQL.ipynb
+1 typo in examples/vector_databases/milvus/Getting_started_with_Milvus_and_OpenAI.ipynb
+1 typo in examples/vector_databases/mongodb_atlas/semantic_search_using_mongodb_atlas_vector_search.ipynb
+1 typo in registry.yaml
+Best!",4,5
+1011,2024-01-14T15:02:44Z,2024-03-06T03:13:50Z,2024-03-06T03:13:50Z,1,1,1,"Summary
+Update How_to_finetune_chat_models.ipynb file
+Motivation
+I used a created variable named user_message.",2,0
+1015,2024-01-18T11:15:15Z,,2024-01-26T17:38:17Z,0,0,0,"Summary
+Changed the cookbook to use the Python SDK instead of the requests library.
+Motivation
+The page of the cookbook was outdated and had to reflect the newest capabilities.
+
+For new content  - N/A
+When contributing new content, read through our contribution guidelines, and mark the following action items as completed:
+
+ I have added a new entry in registry.yaml (and, optionally, in authors.yaml) so that my content renders on the cookbook website.
+ I have conducted a self-review of my content based on the contribution guidelines:
+
+ Relevance: This content is related to building with OpenAI technologies and is useful to others.
+ Uniqueness: I have searched for related examples in the OpenAI Cookbook, and verified that my content offers new insights or unique information compared to existing documentation.
+ Spelling and Grammar: I have checked for spelling or grammatical mistakes.
+ Clarity: I have done a final read-through and verified that my submission is well-organized and easy to understand.
+ Correctness: The information I include is correct and all of my code executes successfully.
+ Completeness: I have explained everything fully, including all necessary references and citations.
+
+
+
+We will rate each of these areas on a scale from 1 to 4, and will only accept contributions that score 3 or higher on all areas. Refer to our contribution guidelines for more details.",2,0
+1025,2024-01-26T17:41:26Z,2024-01-27T08:42:08Z,2024-01-27T08:42:08Z,2,275,276,"Summary
+Changed the cookbook to use the Python SDK instead of the requests library.
+Motivation
+The page of the cookbook was outdated and had to reflect the newest capabilities.
+
+For new content
+When contributing new content, read through our contribution guidelines, and mark the following action items as completed:
+
+ I have added a new entry in registry.yaml (and, optionally, in authors.yaml) so that my content renders on the cookbook website.
+ I have conducted a self-review of my content based on the contribution guidelines:
+
+ Relevance: This content is related to building with OpenAI technologies and is useful to others.
+ Uniqueness: I have searched for related examples in the OpenAI Cookbook, and verified that my content offers new insights or unique information compared to existing documentation.
+ Spelling and Grammar: I have checked for spelling or grammatical mistakes.
+ Clarity: I have done a final read-through and verified that my submission is well-organized and easy to understand.
+ Correctness: The information I include is correct and all of my code executes successfully.
+ Completeness: I have explained everything fully, including all necessary references and citations.
+
+
+
+We will rate each of these areas on a scale from 1 to 4, and will only accept contributions that score 3 or higher on all areas. Refer to our contribution guidelines for more details.",3,0
+1028,2024-01-27T11:40:25Z,2024-02-22T01:33:01Z,2024-02-22T01:33:01Z,1,1,0,"Added vespa.ai
+Summary
+Briefly describe the changes and the goal of this PR. Make sure the PR title summarizes the changes effectively.
+Motivation
+Why are these changes necessary? How do they improve the cookbook?
+
+For new content
+When contributing new content, read through our contribution guidelines, and mark the following action items as completed:
+
+ I have added a new entry in registry.yaml (and, optionally, in authors.yaml) so that my content renders on the cookbook website.
+ I have conducted a self-review of my content based on the contribution guidelines:
+
+ Relevance: This content is related to building with OpenAI technologies and is useful to others.
+ Uniqueness: I have searched for related examples in the OpenAI Cookbook, and verified that my content offers new insights or unique information compared to existing documentation.
+ Spelling and Grammar: I have checked for spelling or grammatical mistakes.
+ Clarity: I have done a final read-through and verified that my submission is well-organized and easy to understand.
+ Correctness: The information I include is correct and all of my code executes successfully.
+ Completeness: I have explained everything fully, including all necessary references and citations.
+
+
+
+We will rate each of these areas on a scale from 1 to 4, and will only accept contributions that score 3 or higher on all areas. Refer to our contribution guidelines for more details.",2,0
+1030,2024-01-29T10:30:10Z,2024-02-27T17:14:45Z,2024-02-27T17:14:45Z,2,82,134,"Summary
+Change the docs to reflect the Python SDK changes.
+Motivation
+Consistency between code and documentation",3,0
+1031,2024-01-29T19:05:11Z,2024-01-29T21:13:28Z,2024-01-29T21:13:28Z,1,1,1,,2,0
+1036,2024-02-02T03:40:06Z,2024-02-26T17:34:34Z,2024-02-26T17:34:34Z,1,1,1,"Similar to #964, this notebook is failing our ecosystem checks over in Ruff due to a syntax error which is resolved by adding the missing ,.",2,2
+1042,2024-02-05T23:32:49Z,2024-03-28T21:14:24Z,2024-03-28T21:14:24Z,1,1,1,"I've seen a bunch of folks (including myself) accidentally include their API keys in PRs. I think this is because many are unaware that you can just add an .env file with your key. Adding that as a pointer in README.md - while I'm not sure if this is the place it should go, I think a pointer like this would be helpful.
+Summary
+Add instructions on best practices to handle API keys.
+Motivation
+I've seen a bunch of folks (including myself) accidentally paste their API keys into PRs.
+Would love your feedback if this information is helpful, and if the README.md file is the right place for this. Let me know what you think!",2,0
+1047,2024-02-13T13:09:48Z,2024-02-16T12:05:30Z,2024-02-16T12:05:30Z,1005,2849,0,"Summary
+Briefly describe the changes and the goal of this PR. Make sure the PR title summarizes the changes effectively.
+Motivation
+Why are these changes necessary? How do they improve the cookbook?
+
+For new content
+When contributing new content, read through our contribution guidelines, and mark the following action items as completed:
+
+ I have added a new entry in registry.yaml (and, optionally, in authors.yaml) so that my content renders on the cookbook website.
+ I have conducted a self-review of my content based on the contribution guidelines:
+
+ Relevance: This content is related to building with OpenAI technologies and is useful to others.
+ Uniqueness: I have searched for related examples in the OpenAI Cookbook, and verified that my content offers new insights or unique information compared to existing documentation.
+ Spelling and Grammar: I have checked for spelling or grammatical mistakes.
+ Clarity: I have done a final read-through and verified that my submission is well-organized and easy to understand.
+ Correctness: The information I include is correct and all of my code executes successfully.
+ Completeness: I have explained everything fully, including all necessary references and citations.
+
+
+
+We will rate each of these areas on a scale from 1 to 4, and will only accept contributions that score 3 or higher on all areas. Refer to our contribution guidelines for more details.",2,2
+1052,2024-02-15T23:24:21Z,2024-02-27T17:17:56Z,2024-02-27T17:17:56Z,2,257,381,"Summary
+Briefly describe the changes and the goal of this PR. Make sure the PR title summarizes the changes effectively.
+Motivation
+Why are these changes necessary? How do they improve the cookbook?
+
+For new content
+When contributing new content, read through our contribution guidelines, and mark the following action items as completed:
+
+ I have added a new entry in registry.yaml (and, optionally, in authors.yaml) so that my content renders on the cookbook website.
+ I have conducted a self-review of my content based on the contribution guidelines:
+
+ Relevance: This content is related to building with OpenAI technologies and is useful to others.
+ Uniqueness: I have searched for related examples in the OpenAI Cookbook, and verified that my content offers new insights or unique information compared to existing documentation.
+ Spelling and Grammar: I have checked for spelling or grammatical mistakes.
+ Clarity: I have done a final read-through and verified that my submission is well-organized and easy to understand.
+ Correctness: The information I include is correct and all of my code executes successfully.
+ Completeness: I have explained everything fully, including all necessary references and citations.
+
+
+
+We will rate each of these areas on a scale from 1 to 4, and will only accept contributions that score 3 or higher on all areas. Refer to our contribution guidelines for more details.",2,0
+1054,2024-02-16T14:43:04Z,2024-03-06T03:12:53Z,2024-03-06T03:12:53Z,1,1,1,"Summary
+conjuction -> conjunction
+
+For new content
+When contributing new content, read through our contribution guidelines, and mark the following action items as completed:
+
+ I have added a new entry in registry.yaml (and, optionally, in authors.yaml) so that my content renders on the cookbook website.
+ I have conducted a self-review of my content based on the contribution guidelines:
+
+ Relevance: This content is related to building with OpenAI technologies and is useful to others.
+ Uniqueness: I have searched for related examples in the OpenAI Cookbook, and verified that my content offers new insights or unique information compared to existing documentation.
+ Spelling and Grammar: I have checked for spelling or grammatical mistakes.
+ Clarity: I have done a final read-through and verified that my submission is well-organized and easy to understand.
+ Correctness: The information I include is correct and all of my code executes successfully.
+ Completeness: I have explained everything fully, including all necessary references and citations.
+
+
+
+We will rate each of these areas on a scale from 1 to 4, and will only accept contributions that score 3 or higher on all areas. Refer to our contribution guidelines for more details.",2,0
+1060,2024-02-20T06:41:57Z,2024-02-23T19:43:31Z,2024-02-23T19:43:31Z,1,1,1,"Summary
+Fix Hugging Face link to avoid 404.
+Motivation
+when user want to check the opensource model ran into issue
+
+For new content
+
+[ x ] I have added a new entry in Search_reranking_with_cross-encoders.ipynb",2,0
+1065,2024-02-22T20:36:45Z,2024-02-23T19:43:52Z,2024-02-23T19:43:52Z,1,1,3,Remove rate limit increase form reference,3,0
+1076,2024-02-27T15:34:02Z,2024-02-27T17:16:47Z,2024-02-27T17:16:47Z,1,9,9,"Summary
+Change registry.yaml to show the GPTv+RAG cookbook
+Motivation
+The cookbook is currently not showing up on the website.",2,0
+1078,2024-02-28T18:47:38Z,2024-03-11T15:09:14Z,2024-03-11T15:09:14Z,2,507,0,"Summary
+New cookbook on how to use the moderation API.
+Motivation
+They add new content.
+
+For new content
+When contributing new content, read through our contribution guidelines, and mark the following action items as completed:
+
+ I have added a new entry in registry.yaml (and, optionally, in authors.yaml) so that my content renders on the cookbook website.
+ I have conducted a self-review of my content based on the contribution guidelines:
+
+ Relevance: This content is related to building with OpenAI technologies and is useful to others.
+ Uniqueness: I have searched for related examples in the OpenAI Cookbook, and verified that my content offers new insights or unique information compared to existing documentation.
+ Spelling and Grammar: I have checked for spelling or grammatical mistakes.
+ Clarity: I have done a final read-through and verified that my submission is well-organized and easy to understand.
+ Correctness: The information I include is correct and all of my code executes successfully.
+ Completeness: I have explained everything fully, including all necessary references and citations.
+
+
+
+We will rate each of these areas on a scale from 1 to 4, and will only accept contributions that score 3 or higher on all areas. Refer to our contribution guidelines for more details.",3,3
+1079,2024-02-29T12:42:56Z,2024-02-29T14:01:20Z,2024-02-29T14:01:20Z,6,3359,2,Added a new notebook Tag_caption_images_with_GPT4V along with the example dataset.,94,0
+1081,2024-03-01T18:58:53Z,2024-03-06T03:11:55Z,2024-03-06T03:11:55Z,1,1,1,"Summary
+Basic spelling update fixing typo ""out"" to ""our"":
+From: Once again, let's update out Assistant either through the Dashboard or the API
+To: Once again, let's update our Assistant either through the Dashboard or the API",2,0
+1089,2024-03-05T18:02:11Z,2024-03-06T03:11:41Z,2024-03-06T03:11:41Z,1,1,1,"Summary
+Resolve the issues #1038
+Motivation
+This changes are necessary's in order to show the file in its correct format.
+For new content
+When contributing new content, read through our contribution guidelines, and mark the following action items as completed:
+
+ I have added a new entry in registry.yaml (and, optionally, in authors.yaml) so that my content renders on the cookbook website.
+ I have conducted a self-review of my content based on the contribution guidelines:
+
+ Relevance: This content is related to building with OpenAI technologies and is useful to others.
+ Uniqueness: I have searched for related examples in the OpenAI Cookbook, and verified that my content offers new insights or unique information compared to existing documentation.
+ Spelling and Grammar: I have checked for spelling or grammatical mistakes.
+ Clarity: I have done a final read-through and verified that my submission is well-organized and easy to understand.
+ Correctness: The information I include is correct and all of my code executes successfully.
+ Completeness: I have explained everything fully, including all necessary references and citations.
+
+
+
+We will rate each of these areas on a scale from 1 to 4, and will only accept contributions that score 3 or higher on all areas. Refer to our contribution guidelines for more details.",2,0
+1093,2024-03-08T09:37:47Z,2024-03-08T11:58:13Z,2024-03-08T11:58:13Z,2,5,5,"Summary
+Change the ""gptv"" to ""gpt-4v""
+Motivation
+Change the name of the model to match language.",2,1
+1096,2024-03-11T10:32:57Z,2024-03-11T15:10:55Z,2024-03-11T15:10:55Z,2,7,7,"Summary
+Changed model references to match docs.
+Motivation
+Nits for consistency",2,0
+1098,2024-03-11T21:41:37Z,2024-03-28T21:15:19Z,2024-03-28T21:15:19Z,1,1,0,"Summary
+Includes a brief description for Vellum in the Related Resources page.
+Motivation
+Inform developers of a platform that helps them build increasingly complex applications with OpenAI models.
+
+For new content
+When contributing new content, read through our contribution guidelines, and mark the following action items as completed:
+
+ I have added a new entry in registry.yaml (and, optionally, in authors.yaml) so that my content renders on the cookbook website.
+ I have conducted a self-review of my content based on the contribution guidelines:
+
+ Relevance: This content is related to building with OpenAI technologies and is useful to others.
+ Uniqueness: I have searched for related examples in the OpenAI Cookbook, and verified that my content offers new insights or unique information compared to existing documentation.
+ Spelling and Grammar: I have checked for spelling or grammatical mistakes.
+ Clarity: I have done a final read-through and verified that my submission is well-organized and easy to understand.
+ Correctness: The information I include is correct and all of my code executes successfully.
+ Completeness: I have explained everything fully, including all necessary references and citations.
+
+
+
+We will rate each of these areas on a scale from 1 to 4, and will only accept contributions that score 3 or higher on all areas. Refer to our contribution guidelines for more details.",2,0
+1107,2024-03-18T07:55:51Z,2024-03-25T22:50:00Z,2024-03-25T22:50:00Z,3,996,1,"Summary
+Starter reference for openai/evals lib
+Motivation
+Why are these changes necessary? How do they improve the cookbook?
+
+For new content
+When contributing new content, read through our contribution guidelines, and mark the following action items as completed:
+
+ I have added a new entry in registry.yaml (and, optionally, in authors.yaml) so that my content renders on the cookbook website.
+ I have conducted a self-review of my content based on the contribution guidelines:
+
+ Relevance: This content is related to building with OpenAI technologies and is useful to others.
+ Uniqueness: I have searched for related examples in the OpenAI Cookbook, and verified that my content offers new insights or unique information compared to existing documentation.
+ Spelling and Grammar: I have checked for spelling or grammatical mistakes.
+ Clarity: I have done a final read-through and verified that my submission is well-organized and easy to understand.
+ Correctness: The information I include is correct and all of my code executes successfully.
+ Completeness: I have explained everything fully, including all necessary references and citations.
+
+
+
+We will rate each of these areas on a scale from 1 to 4, and will only accept contributions that score 3 or higher on all areas. Refer to our contribution guidelines for more details.",3,0
+1109,2024-03-19T14:58:16Z,2024-04-10T14:21:39Z,2024-04-10T14:21:39Z,4,1303,9,"Summary
+Added a cookbook for generating synthetic data
+Motivation
+Synthetic data generation has been a widely used workflow for GPT models.
+For new content
+When contributing new content, read through our contribution guidelines, and mark the following action items as completed:
+
+ I have added a new entry in registry.yaml (and, optionally, in authors.yaml) so that my content renders on the cookbook website.
+ I have conducted a self-review of my content based on the contribution guidelines:
+
+ Relevance: This content is related to building with OpenAI technologies and is useful to others.
+ Uniqueness: I have searched for related examples in the OpenAI Cookbook, and verified that my content offers new insights or unique information compared to existing documentation.
+ Spelling and Grammar: I have checked for spelling or grammatical mistakes.
+ Clarity: I have done a final read-through and verified that my submission is well-organized and easy to understand.
+ Correctness: The information I include is correct and all of my code executes successfully.
+ Completeness: I have explained everything fully, including all necessary references and citations.
+
+
+
+We will rate each of these areas on a scale from 1 to 4, and will only accept contributions that score 3 or higher on all areas. Refer to our contribution guidelines for more details.",2,0
+1110,2024-03-19T17:36:44Z,2024-04-10T12:02:57Z,2024-04-10T12:02:57Z,5,621,1,"Summary
+Adding CLIP embedding RAG.
+Motivation
+Showing users how to use multimodal RAG with direct image embeddings
+
+For new content
+When contributing new content, read through our contribution guidelines, and mark the following action items as completed:
+
+ I have added a new entry in registry.yaml (and, optionally, in authors.yaml) so that my content renders on the cookbook website.
+ I have conducted a self-review of my content based on the contribution guidelines:
+
+ Relevance: This content is related to building with OpenAI technologies and is useful to others.
+ Uniqueness: I have searched for related examples in the OpenAI Cookbook, and verified that my content offers new insights or unique information compared to existing documentation.
+ Spelling and Grammar: I have checked for spelling or grammatical mistakes.
+ Clarity: I have done a final read-through and verified that my submission is well-organized and easy to understand.
+ Correctness: The information I include is correct and all of my code executes successfully.
+ Completeness: I have explained everything fully, including all necessary references and citations.
+
+
+
+We will rate each of these areas on a scale from 1 to 4, and will only accept contributions that score 3 or higher on all areas. Refer to our contribution guidelines for more details.",2,0
+1119,2024-03-27T02:48:07Z,2024-03-27T17:12:57Z,2024-03-27T17:12:57Z,2,514,235,,2,0
+1120,2024-03-28T09:42:32Z,2024-03-28T21:16:34Z,2024-03-28T21:16:34Z,1,1,1,"The current comment is misleading as it says text-davinci-003; however, the code uses gpt-4. Text-davinci-003 is deprecated.
+Summary
+This PR updates the comment to correctly reflect the use of GPT-4 in the code, replacing the outdated reference to text-davinci-003. The goal is to provide accurate documentation and eliminate any confusion regarding the model version used in the cookbook.
+Motivation
+Why are these changes necessary? How do they improve the cookbook?
+The changes are necessary to maintain the accuracy and relevance of the documentation. By updating the comment to match the code, we ensure that users have a clear understanding of the model being used, which is crucial for replicating results and troubleshooting. This improvement enhances the overall usability and reliability of the cookbook.
+
+For new content
+When contributing new content, read through our contribution guidelines, and mark the following action items as completed:
+
+ I have added a new entry in registry.yaml (and, optionally, in authors.yaml) so that my content renders on the cookbook website.
+ I have conducted a self-review of my content based on the contribution guidelines:
+
+ Relevance: This content is related to building with OpenAI technologies and is useful to others.
+ Uniqueness: I have searched for related examples in the OpenAI Cookbook, and verified that my content offers new insights or unique information compared to existing documentation.
+ Spelling and Grammar: I have checked for spelling or grammatical mistakes.
+ Clarity: I have done a final read-through and verified that my submission is well-organized and easy to understand.
+ Correctness: The information I include is correct and all of my code executes successfully.
+ Completeness: I have explained everything fully, including all necessary references and citations.
+
+
+
+We will rate each of these areas on a scale from 1 to 4, and will only accept contributions that score 3 or higher on all areas. Refer to our contribution guidelines for more details.",2,0
+1121,2024-03-28T13:34:27Z,2024-03-28T21:16:02Z,2024-03-28T21:16:02Z,1,1,1,"Summary
+faciliate -> facilitate
+
+For new content
+When contributing new content, read through our contribution guidelines, and mark the following action items as completed:
+
+ I have added a new entry in registry.yaml (and, optionally, in authors.yaml) so that my content renders on the cookbook website.
+ I have conducted a self-review of my content based on the contribution guidelines:
+
+ Relevance: This content is related to building with OpenAI technologies and is useful to others.
+ Uniqueness: I have searched for related examples in the OpenAI Cookbook, and verified that my content offers new insights or unique information compared to existing documentation.
+ Spelling and Grammar: I have checked for spelling or grammatical mistakes.
+ Clarity: I have done a final read-through and verified that my submission is well-organized and easy to understand.
+ Correctness: The information I include is correct and all of my code executes successfully.
+ Completeness: I have explained everything fully, including all necessary references and citations.
+
+
+
+We will rate each of these areas on a scale from 1 to 4, and will only accept contributions that score 3 or higher on all areas. Refer to our contribution guidelines for more details.",2,0
+1128,2024-04-01T18:47:35Z,2024-04-08T23:55:39Z,2024-04-08T23:55:39Z,3,1043,0,"Summary
+The objective of this notebook is to demonstrate how to summarize large documents with a controllable level of detail. If you give a GPT model the task of summarizing a long document (e.g. 10k or more tokens), you'll tend to get back a relatively short summary that isn't proportional to the length of the document. For instance, a summary of a 20k token document will not be twice as long as a summary of a 10k token document. One way we can fix this is to split our document up into pieces, and produce a summary piecewise. After many queries to a GPT model, the full summary can be reconstructed. By controlling the number of text chunks and their sizes, we can ultimately control the level of detail in the output.
+Motivation
+I hope it's self evident!
+For new content
+When contributing new content, read through our contribution guidelines, and mark the following action items as completed:
+
+ I have added a new entry in registry.yaml (and, optionally, in authors.yaml) so that my content renders on the cookbook website.
+ I have conducted a self-review of my content based on the contribution guidelines:
+
+ Relevance: This content is related to building with OpenAI technologies and is useful to others.
+ Uniqueness: I have searched for related examples in the OpenAI Cookbook, and verified that my content offers new insights or unique information compared to existing documentation.
+ Spelling and Grammar: I have checked for spelling or grammatical mistakes.
+ Clarity: I have done a final read-through and verified that my submission is well-organized and easy to understand.
+ Correctness: The information I include is correct and all of my code executes successfully.
+ Completeness: I have explained everything fully, including all necessary references and citations.
+
+
+
+We will rate each of these areas on a scale from 1 to 4, and will only accept contributions that score 3 or higher on all areas. Refer to our contribution guidelines for more details.",3,0
+1129,2024-04-01T23:01:06Z,2024-04-02T00:04:55Z,2024-04-02T00:04:55Z,1,2,2,"Summary
+Briefly describe the changes and the goal of this PR. Make sure the PR title summarizes the changes effectively.
+Motivation
+Why are these changes necessary? How do they improve the cookbook?
+
+For new content
+When contributing new content, read through our contribution guidelines, and mark the following action items as completed:
+
+ I have added a new entry in registry.yaml (and, optionally, in authors.yaml) so that my content renders on the cookbook website.
+ I have conducted a self-review of my content based on the contribution guidelines:
+
+ Relevance: This content is related to building with OpenAI technologies and is useful to others.
+ Uniqueness: I have searched for related examples in the OpenAI Cookbook, and verified that my content offers new insights or unique information compared to existing documentation.
+ Spelling and Grammar: I have checked for spelling or grammatical mistakes.
+ Clarity: I have done a final read-through and verified that my submission is well-organized and easy to understand.
+ Correctness: The information I include is correct and all of my code executes successfully.
+ Completeness: I have explained everything fully, including all necessary references and citations.
+
+
+
+We will rate each of these areas on a scale from 1 to 4, and will only accept contributions that score 3 or higher on all areas. Refer to our contribution guidelines for more details.",2,0
+1133,2024-04-03T21:14:32Z,2024-04-10T16:27:54Z,2024-04-10T16:27:54Z,1,1,1,"Summary
+Clean up one unnecessarily complicated line that may have been just copy-pasted from the line above it in the How_to_stream_completions.ipynb notebook.
+Motivation
+This makes the code in this important tutorial more readable and less confusing.
+
+For new content
+When contributing new content, read through our contribution guidelines, and mark the following action items as completed:
+
+ I have added a new entry in registry.yaml (and, optionally, in authors.yaml) so that my content renders on the cookbook website.
+ I have conducted a self-review of my content based on the contribution guidelines:
+
+ Relevance: This content is related to building with OpenAI technologies and is useful to others.
+ Uniqueness: I have searched for related examples in the OpenAI Cookbook, and verified that my content offers new insights or unique information compared to existing documentation.
+ Spelling and Grammar: I have checked for spelling or grammatical mistakes.
+ Clarity: I have done a final read-through and verified that my submission is well-organized and easy to understand.
+ Correctness: The information I include is correct and all of my code executes successfully.
+ Completeness: I have explained everything fully, including all necessary references and citations.
+
+
+
+We will rate each of these areas on a scale from 1 to 4, and will only accept contributions that score 3 or higher on all areas. Refer to our contribution guidelines for more details.",2,0
+1139,2024-04-10T02:53:24Z,2024-04-10T15:53:14Z,2024-04-10T15:53:14Z,6,582,1,,3,1
+1140,2024-04-10T05:37:42Z,2024-04-10T16:26:50Z,2024-04-10T16:26:50Z,1,213,119,,2,1
+1141,2024-04-11T21:24:49Z,2024-04-11T22:27:02Z,2024-04-11T22:27:02Z,2,2,2,This PR fixes a broken link and converts another link to https protocol.,2,0

@@ -1,0 +1,45 @@
+number,created_at,merged_at,closed_at,files,additions,deletions,body_text,participants,comments
+7562,2015-09-29T07:54:18Z,,2018-01-31T23:48:51Z,1,1,0,"With this new entry in package.json, you can require the font-awesome library easily in bundlers tools like webpack because it resolves directly to the correct file ( like normalize.css do )",3,2
+8184,2015-12-19T20:11:14Z,,2018-01-31T23:45:42Z,1,2,0,Had some trouble finding the ban icon for the first time. I believe these filters could be useful.,3,2
+10396,2016-12-18T18:24:28Z,2016-12-19T20:32:15Z,2016-12-19T20:32:15Z,3,8,2,"This PR changes the print layout, showing three icons per row instead of
+one. In this way we can solve an issue with the Bootstrap grid, which
+for some reason limits the output to three pages when printing the
+cheatsheet.
+Fix: #10395
+Before: Font Awesome Cheatsheet.pdf
+After: Font Awesome Cheatsheet (2).pdf",3,2
+10601,2017-02-01T12:18:29Z,,2018-01-31T23:29:50Z,1,2,0,Would be nice to find the fa-fort-awesome icon by searching for a castle....,3,2
+10945,2017-04-13T22:05:19Z,,2018-01-31T23:30:29Z,1,3,3,"This is a very minor change.
+I just updated some links using http that go to websites that autoredirect to an https version.
+Now they just use https directly so users don't get redirected. ^ _ ^",3,2
+11243,2017-06-30T10:54:26Z,,2018-01-31T23:12:49Z,15,15,15,"http://sassnotsass.com
+See Also #8170",4,4
+11824,2017-12-01T21:36:48Z,2017-12-02T00:16:37Z,2017-12-02T00:16:37Z,1,2,1,consolidate Viacoin formatting to be in line with formatting of Bitcoin and other currencies,3,1
+12760,2018-04-02T22:06:01Z,2018-04-11T03:11:56Z,2018-04-11T03:11:56Z,1,108,0,,2,0
+13007,2018-05-02T22:56:41Z,2018-05-03T11:41:40Z,2018-05-03T11:41:40Z,1,3,2,,3,1
+13055,2018-05-07T08:11:20Z,2018-11-16T22:44:14Z,2018-11-16T22:44:14Z,1,1,1,"I understand that:
+
+ I'm submitting this PR for reference only. It shows an example of what I'd like to see changed but
+I understand that it will not be merged and I will not be listed as a contributor on this project.",4,2
+13431,2018-06-26T16:39:24Z,2018-06-28T01:02:11Z,2018-06-28T01:02:11Z,1,31,15,,2,0
+14921,2019-04-18T15:58:57Z,2019-04-18T17:07:26Z,2019-04-18T17:07:26Z,8,96,17,"I understand that:
+
+ I'm submitting this PR for reference only. It shows an example of what I'd like to see changed but
+I understand that it will not be merged and I will not be listed as a contributor on this project.",2,0
+14995,2019-05-08T06:00:05Z,2019-05-17T19:30:44Z,2019-05-17T19:30:44Z,1,2,2,"I understand that:
+
+ I'm submitting this PR for reference only. It shows an example of what I'd like to see changed but
+I understand that it will not be merged and I will not be listed as a contributor on this project.",3,2
+15274,2019-07-18T15:11:11Z,2019-07-23T23:27:08Z,2019-07-23T23:27:08Z,1,4,1,"Making it official in the official repo. 😄  FYI, @trevorchase, @jasonlundien, @deathnfudge, and @ej2.",2,0
+17286,2020-10-17T08:40:27Z,,2022-03-07T16:07:23Z,1,4,4,"corrected few grammatical and linguistic errors
+
+I understand that:
+
+ I'm submitting this PR for reference only. It shows an example of what I'd like to see changed but
+I understand that it will not be merged and I will not be listed as a contributor on this project.",5,1
+17345,2020-11-01T13:59:04Z,,2023-05-19T20:36:23Z,1,3,3,"*solved minute grammatical mistakes like plurals, etc
+
+I understand that:
+
+ I'm submitting this PR for reference only. It shows an example of what I'd like to see changed but
+I understand that it will not be merged and I will not be listed as a contributor on this project.",3,1

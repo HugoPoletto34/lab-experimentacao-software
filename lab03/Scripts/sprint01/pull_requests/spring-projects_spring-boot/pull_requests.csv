@@ -1,0 +1,21 @@
+number,created_at,merged_at,closed_at,files,additions,deletions,body_text,participants,comments
+3596,2015-07-24T09:49:18Z,,2017-10-03T08:25:25Z,5,381,0,"When hibernate is on the classpath and an EntityManagerFactory is configured then
+register a HibernateMetrics bean so that the statistics from hibernate get published
+to the metrics endpoint.
+The exposed statistics are the same as those that would be exposed using Statistics.logSummary
+from hibernate itself.
+Issue: #2157",5,19
+4299,2015-10-26T01:02:57Z,,2017-05-30T16:49:10Z,21,846,1,"Spring Framework has had Quartz Scheduler support for a very long time - it would be nice to make use of it in Spring Boot.
+This PR adds:
+
+auto-configuration for SchedulerFactoryBean
+spring-boot-starter-quartz
+spring-boot-sample-quartz
+relevant documentation updates
+
+Please review, comments are welcome.
+If this PR is accepted I'd also like to add Actuator support in a separate PR.
+I've signed the CLA.",26,48
+4486,2015-11-14T03:06:47Z,,2018-05-18T09:56:36Z,3,108,2,"It would be nice to have support for modifying logging configuration in runtime using JMX.
+This PR enables Logback's JMX Configurator as a part of default logging setup.
+I've signed the CLA.",4,41

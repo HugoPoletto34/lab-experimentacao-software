@@ -1,0 +1,203 @@
+number,created_at,merged_at,closed_at,files,additions,deletions,body_text,participants,comments
+89,2023-04-23T21:51:40Z,2023-04-25T10:24:35Z,2023-04-25T10:24:35Z,6,613,387,"added new class Poe this will be used as an entry point
+added selenium for signup/login into poe.com
+added code to save cookie to a file, this will be used from next time onwards, if expires it will try to register again
+added fake-useragent module, we can use this instead of static string",2,3
+100,2023-04-24T15:54:11Z,2023-04-24T18:08:55Z,2023-04-24T18:08:55Z,3,48,1,,4,2
+101,2023-04-24T15:54:42Z,2023-04-24T18:09:16Z,2023-04-24T18:09:16Z,1,1,1,"In line 17 the word ""install"" was missing the ""s""!",3,1
+130,2023-04-25T18:01:25Z,2023-04-26T07:55:12Z,2023-04-26T07:55:12Z,1,21,24,"Changes:
+
+I turned the table of contents into an actual table and added the new sections as well (docker, GUI, etc).
+I made a Colab notebook with a quora example usage
+I added a status column to specify which APIs are active or not
+
+I didn't add the notebook file to the repo because I might change it constantly, but you can check it out here
+btw I noticed you already removed some of the APIs, but I still left them in the table of contents as ""inactive"", but you can remove those rows completely from the table I made",3,7
+139,2023-04-26T03:51:48Z,2023-04-26T07:56:20Z,2023-04-26T07:56:20Z,1,1,0,update new gpt4/gpt3.5 website https://chat.forefront.ai/,3,0
+200,2023-04-27T12:48:24Z,,2023-04-27T14:42:56Z,33,675,661,"Please review and merge so I can push new code, the code was automatically formatted using PyCharm with no intervention from my part.",5,7
+210,2023-04-27T17:34:01Z,,2023-04-28T08:01:57Z,1,1,0,Wahtsapp,4,2
+218,2023-04-27T21:23:00Z,,2023-04-29T08:53:01Z,71,1357,518,"added wrapper module for using all API's
+moved all sub-packages(quora, you and theb etc..) inside openai_rev
+added pyproject.toml",3,7
+246,2023-04-28T10:44:18Z,,2023-04-28T11:50:55Z,1,3,3,Indentation error line 42 try and except,2,0
+281,2023-04-29T13:31:32Z,2023-04-30T11:15:59Z,2023-04-30T11:15:59Z,2,83,50,,4,6
+287,2023-04-29T18:40:09Z,2023-04-30T11:19:14Z,2023-04-30T11:19:14Z,3,48,15,"Added some docstrings because it took some time to understand the code.
+Provided type hints.
+Moved constant related variables to class constants.
+Added an exception statements, hence the code is more robust.",4,1
+468,2023-05-05T11:32:40Z,2023-05-07T20:00:38Z,2023-05-07T20:00:38Z,1,1,3,Please do as much as possible in 1 RUN command. This is how it is intended. (Docker BP),4,2
+598,2023-05-23T19:46:50Z,2023-05-24T17:40:12Z,2023-05-24T17:40:12Z,1,4,1,"Fixed issue:
+message_id = mail_client.message_list()[0][""id""]  # <--- Error raised here
+IndexError: list index out of range
+
+Added:
+...
+while True:
+        time.sleep(5)
+        messages = mail_client.message_list()
+        
+        # Check if method `message_list()` didn't return None or empty list.
+        if not messages or len(messages) == 0:
+            # If it returned None or empty list just 'continue'.
+            continue
+    
+...
+
+Now, email confirmation looks like this:
+...
+while True:
+        time.sleep(5)
+        messages = mail_client.message_list()
+        
+        # Check if method `message_list()` didn't return None or empty list.
+        if not messages or len(messages) == 0:
+            # If it returned None or empty list just 'continue'.
+            continue
+        
+        message_id = messages[0][""id""]  # <--- Error was here
+        message = mail_client.message(message_id)
+        verification_url = re.findall(
+            r""http:\/\/ai\.usesless\.com\/api\/cms\/auth\/email-confirmation\?confirmation=\w.+\w\w"",
+            message[""text""],
+        )[0]
+        if verification_url:
+            break
+...
+
+Confirmation:
+No need to test the snippet. Code was tested just by running and it prevents IndexError. However, the confirmation message is not being received on temporary mail (not my problem, but we will try to determine the error and find a new solution)",2,0
+602,2023-05-25T11:52:45Z,,2023-05-28T00:38:06Z,1,1,1,Remove forced Streamlit version. You're breaking other software that uses GPT4Free and Streamlit for their own apps by forcing this.,4,1
+693,2023-06-27T16:30:37Z,2023-08-07T11:23:42Z,2023-08-07T11:23:42Z,1,13,12,"The error you are encountering is related to attempting to use the default asyncio event loop within a non-main thread. asyncio expects you to use the default event loop only in the main thread.
+To resolve this issue, asyncio.new_event_loop() was used instead of asyncio.get_event_loop() to create a new event loop for the current thread.",3,0
+706,2023-06-30T03:10:39Z,,2023-08-16T16:05:43Z,1,44,29,Update:Make streaming responses more like the OpenAI API.,5,3
+777,2023-07-27T12:08:46Z,2023-08-07T11:21:04Z,2023-08-07T11:21:04Z,1,31,0,"Way too many issues have been piling up with their authors disappearing and never closing them. At the same time, lots of the unmerged PRs remain completely unanswered due to their sheer irrelevance. Closing both would clean up a big portion of the clutter lingering on the project's page.",3,1
+792,2023-08-08T08:53:14Z,2023-08-13T22:35:45Z,2023-08-13T22:35:45Z,1,22,15,"Change model address and add proxy & session for pass cloudflare auth on requests.
+
+Change request url
+Change header parameters
+Add proxy
+Used request session",3,1
+824,2023-08-18T18:01:54Z,,2023-08-25T16:22:49Z,1,2,2,,3,0
+830,2023-08-20T19:12:51Z,2023-08-22T14:35:15Z,2023-08-22T14:35:15Z,1,4,4,,3,0
+832,2023-08-22T07:14:30Z,2023-08-22T14:36:10Z,2023-08-22T14:36:10Z,4,13,5,,4,2
+835,2023-08-24T01:46:03Z,2023-09-11T11:35:01Z,2023-09-11T11:35:01Z,3,128,16,"Overview:
+This PR introduces Docker support to simplify the setup and usage of the gpt4free project, making it more accessible to developers and ensuring a consistent environment.
+Changes:
+
+Added Dockerfile to define the container environment.
+Added docker-compose.yml for easy setup and orchestration.
+Updated README.md with instructions on how to use Docker to set up and run the project.
+
+How to Test:
+
+Ensure Docker and docker-compose are installed.
+Clone this branch.
+Run docker-compose up from the project root.
+The application should be accessible at http://localhost:1337.
+
+Please review and provide feedback. If there are any issues or improvements needed, I'm open to making the necessary changes. Thank you for considering this contribution!",4,5
+839,2023-08-24T10:30:04Z,2023-08-25T16:19:24Z,2023-08-25T16:19:24Z,2,67,0,from #40 (comment),3,0
+873,2023-09-02T02:51:53Z,2023-09-07T17:45:05Z,2023-09-07T17:45:05Z,21,501,574,,3,10
+894,2023-09-11T22:49:33Z,2023-09-12T09:37:21Z,2023-09-12T09:37:21Z,17,404,130,,4,1
+924,2023-09-20T04:13:57Z,2023-09-22T19:40:59Z,2023-09-22T19:40:59Z,16,381,127,"Improve error handling in ChatgptLogin
+Cache ""snlm0e"" in Bard
+Fix issue: #913",4,3
+947,2023-09-26T15:13:19Z,2023-09-27T17:51:34Z,2023-09-27T17:51:34Z,1,1,1,"…requests.cookies' (/Users/yanyuming/opt/anaconda3/envs/chatgpt/lib/python3.11/site-packages/curl_cffi/requests/cookies.py)
+When I run the README example, an error occurs, and I fixed it:
+Traceback (most recent call last):
+  File ""/Users/*****/test/g4ftest.py"", line 1, in <module>
+    import g4f
+  File ""/Users/opt/anaconda3/envs/chatgpt/lib/python3.11/site-packages/g4f/__init__.py"", line 2, in <module>
+    from g4f        import models
+  File ""/Users/opt/anaconda3/envs/chatgpt/lib/python3.11/site-packages/g4f/models.py"", line 4, in <module>
+    from .Provider   import BaseProvider, RetryProvider
+  File ""/Users/opt/anaconda3/envs/chatgpt/lib/python3.11/site-packages/g4f/Provider/__init__.py"", line 7, in <module>
+    from .AItianhuSpace import AItianhuSpace
+  File ""/Users/opt/anaconda3/envs/chatgpt/lib/python3.11/site-packages/g4f/Provider/AItianhuSpace.py"", line 5, in <module>
+    from g4f.requests import AsyncSession, StreamRequest
+  File ""/Users/opt/anaconda3/envs/chatgpt/lib/python3.11/site-packages/g4f/requests.py"", line 8, in <module>
+    from curl_cffi.requests.cookies import Request
+ImportError: cannot import name 'Request' from 'curl_cffi.requests.cookies' (/Users/opt/anaconda3/envs/chatgpt/lib/python3.11/site-packages/curl_cffi/requests/cookies.py)",4,1
+954,2023-09-29T14:25:36Z,2023-10-01T02:27:52Z,2023-10-01T02:27:53Z,3,54,39,Edit: this fixes #951,2,0
+1051,2023-10-12T01:39:49Z,2023-10-12T13:32:50Z,2023-10-12T13:32:50Z,12,253,299,"This PR creates a unified g4f CLI that is able to run the gui or the interference api. This CLI has also been added to the setup.py console_scripts so that the gui and api are easily runnable once gpt4free is installed via pip.
+Notes:
+
+I have added a section in the readme mentioning that g4f can also be installed via pipx if a user wants to only use the CLI tools and not the pacakge as a library.
+Moved files from the interference folder to the api folder to more accuratly represent the name of the CLI tool
+I have removed the duplicated interference code from the etc folder - it is uneeded
+
+Please let me know if there are any modifications you would like to make",2,1
+1182,2023-10-28T20:28:28Z,2023-10-29T18:59:34Z,2023-10-29T18:59:34Z,1,3,3,@xtekky Fixed minor typos in Readme.md,3,1
+1366,2023-12-19T13:07:45Z,2023-12-19T20:39:41Z,2023-12-19T20:39:41Z,1,1,1,"Removed the condition for filtering token_id for count 0, because count:0 is not necessarily in the list of token_ids send by the server anymore hence resulting in an empty list and causing error.
+Closes #1363",3,2
+1371,2023-12-20T10:42:54Z,2023-12-23T19:27:00Z,2023-12-23T19:27:00Z,2,57,1,"Created a new Provider for Aura by Openchat which provides a free GPT 3.5 based model.
+Closes #1369",3,9
+1389,2023-12-25T00:38:53Z,2023-12-27T15:55:23Z,2023-12-27T15:55:23Z,4,61,1,,2,0
+1490,2024-01-21T12:36:26Z,2024-01-21T15:59:52Z,2024-01-21T15:59:52Z,2,57,30,,2,0
+1505,2024-01-23T04:04:20Z,2024-01-23T08:31:02Z,2024-01-23T08:31:02Z,11,7044,204,,2,0
+1507,2024-01-23T08:56:02Z,,2024-01-23T11:19:42Z,1,7,6,"Model is not converted properly, when model is string and provider is ProviderType.
+Maybe needs some additional testing 🤔",2,4
+1510,2024-01-23T22:48:42Z,2024-01-24T00:05:29Z,2024-01-24T00:05:29Z,9,54,28,,1,0
+1513,2024-01-25T14:04:55Z,,2024-01-26T12:23:13Z,2,3,3,These changes are related to message box height and issue #1503.,2,1
+1516,2024-01-26T11:50:06Z,2024-01-27T15:09:21Z,2024-01-27T15:09:21Z,25,259,225,"Add set_cookies helper, Show last used model",1,0
+1547,2024-02-04T18:51:10Z,2024-02-05T13:47:24Z,2024-02-05T13:47:24Z,1,8,1,,2,1
+1550,2024-02-05T11:31:18Z,2024-02-05T13:45:09Z,2024-02-05T13:45:09Z,4,6,6,https://linux.do/t/topic/1051,2,1
+1564,2024-02-08T21:03:24Z,2024-02-09T04:53:47Z,2024-02-09T04:53:47Z,14,283,45,,1,0
+1565,2024-02-09T05:38:03Z,2024-02-09T07:51:49Z,2024-02-09T07:51:49Z,5,83,11,,1,0
+1575,2024-02-11T01:00:14Z,2024-02-11T07:41:54Z,2024-02-11T07:41:54Z,9,234,60,"…n GUI, Don't load expired cookies",1,0
+1586,2024-02-14T02:24:43Z,2024-02-14T18:43:07Z,2024-02-14T18:43:08Z,2,3,0,,2,1
+1617,2024-02-23T18:31:21Z,2024-02-23T19:57:22Z,2024-02-23T19:57:22Z,2,12,6,Set  a list of providers,1,0
+1622,2024-02-24T05:58:24Z,2024-02-24T13:57:40Z,2024-02-24T13:57:40Z,2,95,23,Improve hidding regenerated messages,1,0
+1625,2024-02-24T13:57:49Z,2024-02-25T06:23:20Z,2024-02-25T06:23:20Z,7,169,28,,1,0
+1637,2024-02-26T22:41:48Z,2024-02-28T08:48:57Z,2024-02-28T08:48:57Z,17,346,184,"Add fetch access_token and fix cookie usage in OpenaiChat
+Fix save created access_token in cookies in OpenaiChat
+Add use_auth_header config in GeminiPro",1,0
+1642,2024-02-29T13:45:45Z,2024-02-29T15:26:47Z,2024-02-29T15:26:47Z,4,106,49,,1,0
+1663,2024-03-08T02:07:46Z,2024-03-08T08:28:37Z,2024-03-08T08:28:38Z,1,3,3,"Run interference API from PyPi package results in a TypeError: 'Api' object is not callable when attempting to make a request.
+
+The adjustment ensures that the bug is fixed while keeping the same functionalities, including the use_colors or run interference API from repo",2,1
+1667,2024-03-08T10:02:28Z,2024-03-09T18:51:35Z,2024-03-09T18:51:35Z,6,267,230,Map system messages to user messages in GeminiPro,2,1
+1670,2024-03-09T21:37:35Z,2024-03-10T19:30:00Z,2024-03-10T19:30:00Z,1,2,2,"The spacing was misaligned, a little increase in the width fixes it
+before:
+
+after:
+
+on chrome, mac air m2",2,3
+1672,2024-03-11T01:42:23Z,2024-03-11T06:47:36Z,2024-03-11T06:47:36Z,12,234,76,Add more models and image generation in You provider Use You as second default image provider,1,0
+1684,2024-03-12T17:46:05Z,2024-03-13T14:17:25Z,2024-03-13T14:17:25Z,12,223,153,,1,0
+1694,2024-03-13T22:35:10Z,2024-03-15T12:44:15Z,2024-03-15T12:44:15Z,4,157,2,"GigaChat models from Sber added (GigaChat:latest, GigaChat-Plus, GigaChat-Pro) via official API.",2,2
+1712,2024-03-16T09:07:30Z,2024-03-16T21:31:01Z,2024-03-16T21:31:01Z,2,8,3,"When I started this project with Docker on my MacBook Pro M1 chip, I found that Chrome would get an error, probably because Chrome only supports the 4K Pagesize AMD64 platform, not Arm64. After investigating, the current seleniumnode/chrome image used by the dockerfile only supports amd64. The selenium community is already pushing for the arm64 merge SeleniumHQ/docker-selenium#1847. For the time being, we are using the base image seleniarm/node-chromium that supports both arm64 and amd64 to ensure dual-architecture support.
+Currently, arm64 images support Pagesize 4k kernels, and there is no support plan for Pagesize 64k in the short term (Chrome does not support 64k Pagezie).",2,5
+1755,2024-03-25T20:55:39Z,,2024-03-26T09:25:45Z,1,1,0,oh yeah,3,0
+1762,2024-03-27T18:04:41Z,2024-03-28T16:17:59Z,2024-03-28T16:17:59Z,5,32,22,,1,0
+1790,2024-04-05T23:05:21Z,2024-04-06T01:10:37Z,2024-04-06T01:10:37Z,12,180,29,,1,0
+1792,2024-04-06T08:48:00Z,2024-04-06T10:23:58Z,2024-04-06T10:23:58Z,11,177,786,Improve Contributors list in Readme,1,0
+1802,2024-04-07T14:27:42Z,2024-04-07T17:59:28Z,2024-04-07T17:59:28Z,4,43,3,,1,0
+1807,2024-04-08T05:43:59Z,2024-04-09T17:40:42Z,2024-04-09T17:40:42Z,31,4963,138,,1,0
+1809,2024-04-08T22:08:32Z,2024-04-09T16:18:58Z,2024-04-09T16:18:58Z,1,5,2,"Addresses the following uncaught exception:
+ERROR:root:'text'
+Traceback (most recent call last):
+  File ""/app/g4f/gui/server/api.py"", line 229, in _create_response_stream
+    for chunk in ChatCompletion.create(**kwargs):
+  File ""/app/g4f/providers/base_provider.py"", line 206, in create_completion
+    yield loop.run_until_complete(await_callback(gen.__anext__))
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/usr/lib/python3.11/asyncio/base_events.py"", line 653, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File ""/app/g4f/providers/base_provider.py"", line 202, in await_callback
+    return await callback()
+           ^^^^^^^^^^^^^^^^
+  File ""/app/g4f/Provider/needs_auth/OpenaiChat.py"", line 360, in create_async_generator
+    arkose_token, api_key, cookies = await getArkoseAndAccessToken(proxy)
+                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/app/g4f/Provider/openai/har_file.py"", line 126, in getArkoseAndAccessToken
+    chatArk, accessToken, cookies = readHAR()
+                                    ^^^^^^^^^
+  File ""/app/g4f/Provider/openai/har_file.py"", line 54, in readHAR
+    accessToken = json.loads(v[""response""][""content""][""text""]).get(""accessToken"")
+                             ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^
+KeyError: 'text'",2,1
+1814,2024-04-10T00:26:51Z,2024-04-10T06:14:50Z,2024-04-10T06:14:50Z,14,164,38,,1,0
+1830,2024-04-12T13:09:52Z,2024-04-12T16:01:54Z,2024-04-12T16:01:54Z,7,82,15,,1,0
+1835,2024-04-13T20:28:44Z,2024-04-14T12:19:33Z,2024-04-14T12:19:33Z,1,2,2,,2,1

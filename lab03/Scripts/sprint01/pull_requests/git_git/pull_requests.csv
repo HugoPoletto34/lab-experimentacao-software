@@ -1,0 +1,2173 @@
+number,created_at,merged_at,closed_at,files,additions,deletions,body_text,participants,comments
+123,2015-01-15T23:12:00Z,,2015-01-16T18:34:17Z,1,1,1,"https://github.com/git/git/edit/master/Documentation/everyday.txto doesn't show where to find the link it discusses.
+linkgit:giteveryday[1] doesn't seem to mark up, or anything.",2,1
+189,2015-11-25T16:24:10Z,,2019-06-07T13:39:53Z,1,15,15,,6,11
+243,2016-05-24T12:11:50Z,,2023-02-19T16:08:19Z,1,21,1,"Hi,
+I extended the git svn rebase command to support autostash.
+It would be nice if this feature would be integrated in git soon.
+Please review my changes.
+Regards
+René Link",5,13
+284,2016-08-04T19:01:42Z,,2019-11-25T13:52:27Z,1,0,2,"seeing as this is simply an alias to --depth, it is unexpected that this would throw a fatal error when --depth does not",2,8
+291,2016-08-31T23:27:41Z,,2016-10-21T19:25:07Z,1,1,0,,6,4
+294,2016-09-19T15:22:10Z,,2019-06-19T11:44:28Z,1,16,12,"…ge cleanly
+During a rebase or cherry-pick of multiple commits, the error message will now
+correctly tell you to run  --continue rather than just 'git commit'.
+Signed-off-by: Stephen Morton stephen.morton@nokia.com",5,4
+297,2016-10-04T11:21:40Z,,2019-07-05T15:07:23Z,2,47,3,"…moved outside of working tree with enabled sparse-checkout.
+It's a very unexpected behaviour when a user sees a deleted file after a merge with enabled sparse-checkout. Moreover, when the user resolves merge conflicts and commits the changes with the command ""git commit -am xxx"", a repository can be broken because all the moved files will be deleted. Finally, it's really hard to find a user who deleted these files because ""git log file"" doesn't show any merge commits by default. I'm not sure that my fix is correct but I checked all tests and I didn't find a better way to prevent files deleting.",6,10
+319,2017-01-21T11:37:12Z,,2019-03-01T13:24:49Z,1,1,1,"When running git-p4 on Windows, with multiple git-p4.mapUser entries in
+git config - no user mappings are applied to the generated repository.
+Reproduction Steps:
+
+Add multiple git-p4.mapUser entries to git config on a Windows
+machine
+Attempt to clone a p4 repository
+
+None of the user mappings will be applied.
+This issue is actually caused by gitConfigList, using
+split(os.linesep) to convert the output of git config --get-all into
+a list. On Windows, os.linesep is equal to '\r\n' - however git.exe
+returns configuration with a line seperator of '\n'. This leads to
+the list returned by gitConfigList containing only one element - which
+contains the full output of git config --get-all in string form, which
+causes problems for the code introduced to getUserMapFromPerforceServer
+in 10d08a1.
+This issue should be caught by the test introduced in 10d08a1, however
+would require running on Windows to reproduce.
+Using splitlines solves this issue, by splitting config on all
+typical delimiters ('\n', '\r\n' etc.)
+Signed-off-by: George Vanburgh gvanburgh@bloomberg.net",5,4
+338,2017-03-11T16:41:16Z,,2019-05-11T11:52:30Z,4,39,68,,4,0
+343,2017-04-12T02:26:06Z,,2018-01-12T18:13:57Z,2,43,0,"It's possible that exec'd commands may change the TODO.  Prior to 2.12, this was the behavior, but the changes to sequencer.c made it clobber any changes instead of picking them up.",4,11
+355,2017-05-15T17:41:55Z,,2019-07-12T10:33:07Z,1,7,2,for external tools compatibility (such as gollum wiki),3,4
+363,2017-05-28T22:31:17Z,,2019-06-03T20:43:30Z,9,476,48,"Working on this new feature for supporting copying a branch (just like
+renaming) including its config section.
+Signed-off-by: Sahil Dua sahildua2305@gmail.com",5,6
+374,2017-06-10T07:38:00Z,,2017-08-18T20:37:17Z,1,1,0,"git clone --recursive option was missing from the bash autocompletion script:
+SYNOPSIS
+git clone [--template=<template_directory>]
+[-l] [-s] [--no-hardlinks] [-q] [-n] [--bare] [--mirror]
+[-o <name>] [-b ] [-u <upload-pack>] [--reference <repository>]
+[--separate-git-dir <git dir>]
+[--depth <depth>] [--[no-]single-branch]
+[--recursive | --recurse-submodules] [--] <repository>
+[<directory>]",4,6
+375,2017-06-12T11:06:33Z,,2019-12-02T09:17:02Z,1,14,3,,3,9
+377,2017-06-22T02:47:30Z,,2017-07-01T17:11:54Z,1,21,28,"The ""add"" section for 'git-submodule' is redundant in
+its description and the short synopsis line. Fix it.
+Remove the redundant mentioning of the 'repository' argument
+being mandatory.
+The text is hard to read because of back-references, so remove
+those.
+Replace the word ""humanish"" by ""canonical"" as that conveys better
+what we do to guess the path.
+While at it, quote all occurrences of '.gitmodules' as that is an
+important file in the submodule context, also link to it on its
+first mention.
+Helped-by: Stefan Beller sbeller@google.com
+Signed-off-by: Kaartic Sivaraam kaarticsivaraam91196@gmail.com",2,1
+378,2017-06-26T18:25:30Z,,2017-07-05T04:10:10Z,163,8504,3152,"Thanks for taking the time to contribute to Git! Please be advised that the
+Git community does not use github.com for their contributions. Instead, we use
+a mailing list (git@vger.kernel.org) for code submissions, code reviews, and
+bug reports. Nevertheless, you can use submitGit to conveniently send your Pull
+Requests commits to our mailing list.
+Please read the ""guidelines for contributing"" linked above!",23,4
+400,2017-08-28T03:02:45Z,,2017-08-28T04:42:03Z,151,6450,2225,"Thanks for taking the time to contribute to Git! Please be advised that the
+Git community does not use github.com for their contributions. Instead, we use
+a mailing list (git@vger.kernel.org) for code submissions, code reviews, and
+bug reports. Nevertheless, you can use submitGit to conveniently send your Pull
+Requests commits to our mailing list.
+Please read the ""guidelines for contributing"" linked above!",18,0
+410,2017-09-29T06:46:30Z,,2019-06-04T09:12:05Z,5,204,89,Using submitGit to send patch series.,3,3
+421,2017-10-27T16:09:51Z,,2019-09-09T13:56:27Z,1,1,1,"Change the minimum SHA abbreviation to 3
+It is reasonable to mine a 3-digit prefix for commits; it is not
+reasonable to mine a 4 digit prefix. For most projects, this will
+be sufficient and easy enough; it makes referring to commits
+by short hash really simple.
+Additional notes: The SubmittingPatches document says that
+a patch should include updates to any relevant
+documentation. I cannot find anywhere where the 4 digit
+minimum abbreviation is documented.",4,4
+428,2017-11-07T21:47:59Z,,2019-06-03T19:39:15Z,1,3,3,Fixed a grammatical error for a feature that was clearly also meant to flatter users of Git.,4,2
+435,2017-11-24T17:07:30Z,,2019-06-18T11:42:16Z,1,4,4,Fixed some typos in russian translation.,6,6
+440,2017-12-11T11:33:27Z,,2018-06-05T01:29:15Z,16,782,50,"PR only for preliminary code review 😄
+
+Git and its tools (e.g. git diff) expect all text files in UTF-8
+encoding. Git will happily accept content in all other encodings, too,
+but it might not be able to process the text (e.g. view diff, change
+line endings etc.).
+Add an attribute to tell Git what encoding the user expects for a given
+file. This way Git can convert the content to its internal UTF-8
+representation.",3,1
+443,2017-12-16T15:38:46Z,,2018-03-02T01:35:51Z,1,2,0,"Thanks for taking the time to contribute to Git! Please be advised that the
+Git community does not use github.com for their contributions. Instead, we use
+a mailing list (git@vger.kernel.org) for code submissions, code reviews, and
+bug reports. Nevertheless, you can use submitGit to conveniently send your Pull
+Requests commits to our mailing list.
+Please read the ""guidelines for contributing"" linked above!",3,1
+447,2017-12-23T22:22:44Z,,2018-10-22T08:53:01Z,21,2486,90,"The Git for Windows project uses the ""Git garden shears"" (a Unix shell script, piggy-backing on the interactive rebase) to rebase a thicket of branches, maintaining the branch structure.
+To this end, it invents a couple of new commands for the todo list to
+
+label the current revision with an easy-to-read name
+reset the current revision to a previously-labeled one
+merge previously-labeled revisions
+
+In contrast to --preserve-merges, this design makes the topology clear in the todo list and allows for reordering commits or even for changing the branch topology (introducing new branches, reordering commits from several branches into a single one, etc
+The shears.sh script uses some ugly tricks to ""add"" those commands, causing issues with the stability, testability and performance.
+This Pull Request (which is of course not intended to be merged by the Git project, why use Pull Requests when you can force everybody to send patches through a lossy medium like a mailing list) has the patches to teach core Git's rebase -i proper to perform the same trick.
+The PR was opened mainly to leverage the Travis CI configuration to get this tested more thoroughly than a mere patch review ever could.
+Funnily enough, those patches are already maintained in a thicket of branches, which are of course maintained using the patched rebase -i itself (using --recreate-merges=no-rebase-cousins, to be precise). So there has been some interactive testing already :-)",6,45
+448,2017-12-29T01:51:03Z,,2018-01-16T17:52:55Z,1,1,1,"Previously git remote rm did not complete your list of removes as remove
+does.",5,4
+450,2018-01-09T13:02:49Z,,2018-01-18T11:34:50Z,3,196,152,"Start reusing formatting logic from ref-filter in cat-file.
+Final goal is to make all formatting and printing work in ref-filter.
+Thanks for taking the time to contribute to Git! Please be advised that the
+Git community does not use github.com for their contributions. Instead, we use
+a mailing list (git@vger.kernel.org) for code submissions, code reviews, and
+bug reports. Nevertheless, you can use submitGit to conveniently send your Pull
+Requests commits to our mailing list.
+Please read the ""guidelines for contributing"" linked above!",5,3
+451,2018-01-13T02:33:48Z,,2019-10-10T11:56:33Z,1,4,4,"Change test 'find value_list for a key from a configset' to compare
+result with 'expect' instead of 'except' which was a typo. Change the
+test call from 'configset_get_value' to 'configset_get_value_multi'
+since the test expects a list of values instead of a single value.
+Signed-off-by: Tanay Abhra tanayabh@gmail.com",4,5
+457,2018-02-13T13:50:41Z,,2019-09-03T11:30:09Z,1,8,9,"Thanks for taking the time to contribute to Git! Please be advised that the
+Git community does not use github.com for their contributions. Instead, we use
+a mailing list (git@vger.kernel.org) for code submissions, code reviews, and
+bug reports. Nevertheless, you can use submitGit to conveniently send your Pull
+Requests commits to our mailing list.
+Please read the ""guidelines for contributing"" linked above!",3,2
+474,2018-03-20T20:24:24Z,,2018-03-28T13:46:40Z,1,1,0,"No comment
+Thanks for taking the time to contribute to Git! Please be advised that the
+Git community does not use github.com for their contributions. Instead, we use
+a mailing list (git@vger.kernel.org) for code submissions, code reviews, and
+bug reports. Nevertheless, you can use submitGit to conveniently send your Pull
+Requests commits to our mailing list.
+Please read the ""guidelines for contributing"" linked above!",2,0
+476,2018-03-29T08:39:29Z,,2019-06-24T11:06:57Z,1,3,3,Fixed some typos in russian translation. Commit [коммит] and Staged changes [индекс] - not same,5,3
+481,2018-04-05T03:07:16Z,,2019-06-03T18:34:47Z,1,1,1,"Fixes issue with seeing sed: RE error: illegal byte sequence when running git-completion.bash
+Thanks for taking the time to contribute to Git! Please be advised that the
+Git community does not use github.com for their contributions. Instead, we use
+a mailing list (git@vger.kernel.org) for code submissions, code reviews, and
+bug reports. Nevertheless, you can use submitGit to conveniently send your Pull
+Requests commits to our mailing list.
+Please read the ""guidelines for contributing"" linked above!",5,3
+484,2018-04-16T20:33:07Z,,2019-09-30T08:22:45Z,3,34,31,"Thanks for taking the time to contribute to Git! Please be advised that the
+Git community does not use github.com for their contributions. Instead, we use
+a mailing list (git@vger.kernel.org) for code submissions, code reviews, and
+bug reports. Nevertheless, you can use submitGit to conveniently send your Pull
+Requests commits to our mailing list.
+Please read the ""guidelines for contributing"" linked above!",4,12
+485,2018-04-26T15:23:46Z,,2019-10-10T09:41:42Z,8,8,13,"Thanks for taking the time to contribute to Git! Please be advised that the
+Git community does not use github.com for their contributions. Instead, we use
+a mailing list (git@vger.kernel.org) for code submissions, code reviews, and
+bug reports. Nevertheless, you can use submitGit to conveniently send your Pull
+Requests commits to our mailing list.
+Please read the ""guidelines for contributing"" linked above!",2,5
+487,2018-05-03T12:23:57Z,,2019-06-19T12:13:33Z,1,1,1,"It's not needed in that sentence.
+Signed-off-by: Josh Goldberg me@joshuakgoldberg.com",4,8
+495,2018-05-19T23:50:01Z,,2019-06-03T13:30:15Z,156,5550,1802,"Git stash conversion from shell script to C.
+@dscho",23,13
+497,2018-05-23T07:31:19Z,,2018-12-01T14:46:41Z,6,61,1,"To rewrite git-rebase.sh into a C builtin, a minimal implement of skeleton or
+framework which holds the basic usage and creates a base for further
+modification. This allows us to keep on depending upon the git-rebase.sh until
+builtin/rebase2.c is ready.
+This skeletal will be ultimately be re-written to further accommodate the
+crucial rebase features and with the development of this builtin the work of
+rebase--helper gets obsolete with every commit.
+Signed-off-by: Pratik Karki predatoramigo@gmail.com",5,10
+498,2018-05-30T20:42:42Z,,2019-09-25T14:32:30Z,1,2,1,"Thanks for taking the time to contribute to Git! Please be advised that the
+Git community does not use github.com for their contributions. Instead, we use
+a mailing list (git@vger.kernel.org) for code submissions, code reviews, and
+bug reports. Nevertheless, you can use submitGit to conveniently send your Pull
+Requests commits to our mailing list.
+Please read the ""guidelines for contributing"" linked above!",3,7
+503,2018-06-06T11:42:36Z,,2019-06-07T17:38:58Z,11,415,266,"This rewrites the edit-todo functionality from shell to C. This is part of the effort to rewrite interactive rebase in C.
+The relevant commit is the last one.
+@chriscool @stefanbeller @dscho",3,9
+504,2018-06-07T10:46:16Z,,2020-06-26T19:07:49Z,5,199,43,,3,14
+505,2018-06-10T18:23:52Z,,2019-06-03T12:44:01Z,12,1645,143,,6,30
+506,2018-06-13T13:30:42Z,,2019-06-07T17:38:56Z,11,1276,925,"This rewrites setup_reflog_action() and checkout_onto() from shell to C. The relevant commits are the last three.
+For setup_reflog_action(), I need to pass $switch_to.  For
+checkout_onto(), I need to pass $onto, $onto_name, and $orig_head.
+Now, for $onto and $onto_name, I thought I would call the parameters
+--onto and --onto-name (and I don’t know what to set as a help
+message).  For $switch_to and $orig_head, I set --commit-id, and I’m
+not really proud of it.
+Any ideas?",4,10
+518,2018-07-04T15:06:03Z,,2019-06-07T17:38:53Z,12,461,275,"This rewrites init_revisions_and_shortrevisions() in C. The relevant commit is the last one.
+@chriscool @stefanbeller @dscho",4,12
+522,2018-07-16T12:28:54Z,,2019-06-07T17:38:52Z,12,579,293,"This rewrites write_basic_state() and init_basic_state() in C. The relevant commits are the last two.
+@chriscool @dscho @stefanbeller",3,4
+524,2018-07-23T15:28:35Z,,2019-06-07T17:38:49Z,17,737,449,"This turns git-rebase--interactive into a builtin. The revelant commits are the last four.
+@chriscool @dscho @stefanbeller",3,7
+526,2018-08-01T13:20:03Z,,2019-06-04T07:50:26Z,5,553,482,"This refactors most functions that manipulate the todo-list not to read it from the filesystem. The relevant commits are the last nine.
+I’m not sure that the new functions have a good name…
+@chriscool @stefanbeller @dscho",4,6
+527,2018-08-18T03:50:12Z,,2019-06-18T11:40:57Z,1,1,1,"Thanks for taking the time to contribute to Git! Please be advised that the
+Git community does not use github.com for their contributions. Instead, we use
+a mailing list (git@vger.kernel.org) for code submissions, code reviews, and
+bug reports. Nevertheless, you can use submitGit to conveniently send your Pull
+Requests commits to our mailing list.
+Please read the ""guidelines for contributing"" linked above!",3,0
+529,2018-08-27T14:10:50Z,,2019-03-08T19:33:29Z,542,95501,34914,"Thanks for taking the time to contribute to Git! Please be advised that the
+Git community does not use github.com for their contributions. Instead, we use
+a mailing list (git@vger.kernel.org) for code submissions, code reviews, and
+bug reports. Nevertheless, you can use submitGit to conveniently send your Pull
+Requests commits to our mailing list.
+Please read the ""guidelines for contributing"" linked above!",38,4
+534,2018-09-11T23:35:03Z,,2019-07-08T13:31:50Z,7,225,0,"Automated Building Docker Hub
+Thanks for taking the time to contribute to Git! Please be advised that the
+Git community does not use github.com for their contributions. Instead, we use
+a mailing list (git@vger.kernel.org) for code submissions, code reviews, and
+bug reports. Nevertheless, you can use submitGit to conveniently send your Pull
+Requests commits to our mailing list.
+Please read the ""guidelines for contributing"" linked above!",2,10
+541,2018-10-21T14:04:00Z,,2019-09-13T21:43:37Z,1,32,37,"Thanks for taking the time to contribute to Git! Please be advised that the
+Git community does not use github.com for their contributions. Instead, we use
+a mailing list (git@vger.kernel.org) for code submissions, code reviews, and
+bug reports. Nevertheless, you can use submitGit to conveniently send your Pull
+Requests commits to our mailing list.
+Please read the ""guidelines for contributing"" linked above!",2,11
+547,2018-10-27T23:58:21Z,,2019-06-03T17:55:21Z,0,0,0,Use File::Spec->devnull() for output redirection to avoid messages when Windows version of Perl is first in path.  The message 'The system cannot find the path specified.' is displayed each time git is run to get colors.,2,1
+551,2018-11-08T02:43:04Z,,2018-11-08T18:07:51Z,1,2,2,"Is written that Travis CI is not supported for Windows.
+A version with support for Windows has already been released: https://blog.travis-ci.com/2018-10-11-windows-early-release.",2,1
+563,2018-12-08T04:15:29Z,,2019-06-03T13:05:03Z,7,69,7,"This patch adds a --reset-hard option for the update command to hard
+reset submodule(s) to the gitlink for the corresponding submodule in
+the superproject.  This feature is desired e.g. to be able to discard
+recent changes in the entire hierarchy of the submodules after running
+git reset --hard PREVIOUS_STATE
+in the superproject which leaves submodules in their original state,
+and
+git reset --hard --recurse-submodules PREVIOUS_STATE
+would result in the submodules being checked into detached HEADs.
+As in the original  git reset --hard  no checks or any kind of
+safe-guards against jumping into some state which was never on the
+current branch is done.
+must_die_on_failure is not set to  yes to mimic behavior of a update
+--checkout strategy, which would leave user with a non-clean state
+immediately apparent via  git status  so an informed decision/actions
+could be done manually.
+Signed-off-by: Yaroslav Halchenko debian@onerussian.com
+I will send it now also to the list for the review",4,6
+565,2019-01-12T18:03:49Z,,2019-10-23T12:40:29Z,1,1,1,"The link shows up as a footnote in a terminal run of the command git help tutorial.  However, the link fails.  This should produce a correct URL footnote.
+Thanks for taking the time to contribute to Git! Please be advised that the
+Git community does not use github.com for their contributions. Instead, we use
+a mailing list (git@vger.kernel.org) for code submissions, code reviews, and
+bug reports. Nevertheless, you can use submitGit to conveniently send your Pull
+Requests commits to our mailing list.
+Please read the ""guidelines for contributing"" linked above!",4,8
+569,2019-01-26T07:07:24Z,,2019-06-19T11:30:36Z,2,15,4,"To avoid partial deletion / zombie rebases.
+Example behavior under partial deletion, after
+Ctrl-Cing out of a standard rebase:
+$ git rebase target
+First, rewinding head to replay your work on top of it...
+Applying: [...]
+^C
+$ git status
+rebase in progress; onto (null)
+You are currently rebasing.
+  (all conflicts fixed: run ""git rebase --continue"")
+
+Changes to be committed:
+  (use ""git reset HEAD <file>..."" to unstage)
+[...]
+$ git rebase --continue
+error: could not read '.git/rebase-apply/head-name': No such file or directory
+$ git rebase --abort
+error: could not read '.git/rebase-apply/head-name': No such file or directory
+
+Others report this issue here:
+https://stackoverflow.com/questions/3685001/git-how-to-fix-corrupted-interactive-rebase",4,4
+571,2019-01-31T05:03:06Z,,2019-04-20T14:55:54Z,19,321,60,"Thanks for taking the time to contribute to Git! Please be advised that the
+Git community does not use github.com for their contributions. Instead, we use
+a mailing list (git@vger.kernel.org) for code submissions, code reviews, and
+bug reports. Nevertheless, you can use submitGit to conveniently send your Pull
+Requests commits to our mailing list.
+Please read the ""guidelines for contributing"" linked above!",7,7
+574,2019-02-10T22:03:24Z,,2019-10-26T21:38:59Z,1,1,1,"""git add --ignore-errors"" command fails immediately when lstat return error (for example, when it can't read the file), despite the ignore errors' flag is enabled.",3,9
+580,2019-03-01T14:11:45Z,,2019-10-30T19:32:53Z,1,10,2,"Git diff can work with a tree in the form git diff tree..tree too, only
+the form git diff commit...commit can't accept a tree instead of a commit.
+Also added usefull example about using a tree with git diff.
+Thanks for taking the time to contribute to Git! Please be advised that the
+Git community does not use github.com for their contributions. Instead, we use
+a mailing list (git@vger.kernel.org) for code submissions, code reviews, and
+bug reports. Nevertheless, you can use submitGit to conveniently send your Pull
+Requests commits to our mailing list.
+Please read the ""guidelines for contributing"" linked above!",3,13
+590,2019-03-31T12:46:02Z,,2019-06-03T11:21:26Z,1,16,13,"As discussed in the mailing list, I hope this make the edited paragraphs more readable and clear.
+Here are some posts that show what kind of problems people had to understand this part of the docs:
+git/git-scm.com#1332
+https://stackoverflow.com/a/41761521/2311074
+https://stackoverflow.com/questions/50028104/claryfing-gitignore-documentation",3,5
+608,2019-05-14T11:15:04Z,,2019-07-02T10:51:43Z,1,12,2,"HP aCC does not accept any of the previously tested formats, but only its own.
+Add this one to configure.ac.
+Thanks for taking the time to contribute to Git! Please be advised that the
+Git community does not use github.com for their contributions. Instead, we use
+a mailing list (git@vger.kernel.org) for code submissions, code reviews, and
+bug reports. Nevertheless, you can use GitGitGadget (https://gitgitgadget.github.io/)
+to conveniently send your Pull Requests commits to our mailing list.
+Please read the ""guidelines for contributing"" linked above!",3,11
+611,2019-06-07T13:04:25Z,,2019-10-10T09:36:00Z,4,33,24,"There are a few Python 3 incompatibilities to work on.
+Thanks for taking the time to contribute to Git! Please be advised that the
+Git community does not use github.com for their contributions. Instead, we use
+a mailing list (git@vger.kernel.org) for code submissions, code reviews, and
+bug reports. Nevertheless, you can use GitGitGadget (https://gitgitgadget.github.io/)
+to conveniently send your Pull Requests commits to our mailing list.
+Please read the ""guidelines for contributing"" linked above!",3,3
+623,2019-07-09T15:52:37Z,,2019-07-10T10:10:32Z,300,7740,2378,"Thanks for taking the time to contribute to Git! Please be advised that the
+Git community does not use github.com for their contributions. Instead, we use
+a mailing list (git@vger.kernel.org) for code submissions, code reviews, and
+bug reports. Nevertheless, you can use GitGitGadget (https://gitgitgadget.github.io/)
+to conveniently send your Pull Requests commits to our mailing list.
+Please read the ""guidelines for contributing"" linked above!",36,1
+625,2019-08-01T03:30:32Z,,2019-10-01T14:59:28Z,2,39,2,"Why make this change?
+Add the ability to use # to put comments after ignore patterns. This is
+useful for documenting the reason for particular ignore patterns inclusion
+and structure.
+Right now a common convention in .gitignore files is to group patterns
+by similarity using new lines beginning with one or more # characters
+as headings.
+When leaving comments about a particular pattern it can be difficult to
+distinguish comments about a single patterns from comments used for file
+organization.
+Comments left after a pattern are unambiguously related to that line, and
+that line only.
+What should this change do?
+Any part of a string after a non-escaped #, including the #, is removed
+from the pattern.
+Why make the change this way?
+I don't normally write C, so I probably overlooked more idiomatic ways
+to do this. This is done similarly to the way trim_trailing_spaces removes
+extraneous spaces from patterns.
+How can we test this change works?
+That's one area I'd like help with, please.
+Test cases:
+/pattern/to/match
+# Existing comment
+/pattern/with/comment # This comment is ignored
+/pattern/with/\#octothorpe # \#octothorpe is ignored
+
+I wasn't sure where the correct place to add these would be, I didn't see (and
+potentially overlooked) any tests in /t/* that cover this functionality. Would
+someone be willing to provide a pointer to the correct place to add these tests?
+Signed-off-by: Chris Zehner cbzehner@gmail.com",5,7
+627,2019-08-09T02:49:48Z,,2019-10-05T12:20:22Z,4,55,5,"This series is a candidate reroll for cb/pcre2-chartables-leakfix, that
+hopefully addresses the root cause of the problem reported by Dscho in
+Windows, where the PCRE2 library wasn't aware of the custom allocator and
+was returning a pointer created with the system malloc but passing it to
+NED's free, resulting in a segfault.
+The most likely reason why it was triggered by the original leak fix is the layering
+violation reported by René and that is likely exclusive to PCRE2 (hence why it
+hasn't been reported with PCRE1).  Additional work might be available
+in a future release of PCRE2 to address that as detailed in the upstream
+bug[1] report.
+Changes since v4
+
+git log change reverted, still not sure where it will fit better and worst case will leak a few bytes when -P is used.  since the users of this API are doing it indirectly it might be problematic long term though, but luckily since it is most of the tine a NOOP and can be called multiple times might be ok to do it unconditionally
+slightly better looking code
+
+Changes since v3 (mostly in patch 2):
+
+git log also calls the ""destructor"" for grep API
+no more ""bug"" being triggered by make test, sorry René
+hopefully no more crashes in windows (I was expecting at most a BUG)
+
+Future work (other than the needed refactoring explained in the
+second patch) and adjacent bugs, includes:
+
+tracking more possible users of the grep API that might need to call
+grep_destroy()
+completely moving PCRE2 to use NED (as is done with PCRE1 and was
+proposed on the original patch[2] this is based on
+build on top of the new API so that other work could be shared
+(for example the chartables that started this whole mess)
+
+or (hopefully not)
+
+ignore the original leak (maybe with an UNLEAK) as René suggested [3]
+discard this work and just use Dscho's fix (with some improvements, like using xmalloc)
+
+[1] https://bugs.exim.org/show_bug.cgi?id=2429
+[2] https://public-inbox.org/git/3397e6797f872aedd18c6d795f4976e1c579514b.1565005867.git.gitgitgadget@gmail.com/
+[3] https://public-inbox.org/git/7ec60d57-9940-35f2-f7b5-c87d4dc7cdd5@web.de/",2,3
+632,2019-08-11T01:04:17Z,,2019-08-22T12:55:26Z,1,6,0,"4a30976 ([PATCH] support older versions of libcurl, 2005-07-28) added
+support for conditionally initializing cURL but when f0ed822
+(Add custom memory allocator to MinGW and MacOS builds, 2009-05-31) that
+support wasn't updated to make sure cURL will use the same allocator than
+git if compiled with USE_NED_ALLOCATOR=YesPlease (usually done in Windows)
+tested in macOS 10.14.6 with the system provided cURL (7.54.0)
+and latest (7.65.3) and while the API used should be added starting around
+7.12.0 (mid 2004). couldn't get a release that old to build and therefore
+the current mismatch is unlikely to be found while testing because of that.
+cURL is very vocal[1]  about its allocator being thread safe and so that
+might be an issue to look for.
+[1] https://curl.haxx.se/libcurl/c/curl_global_init_mem.html
+Signed-off-by: Carlo Marcelo Arenas Belón carenas@gmail.com
+Thanks for taking the time to contribute to Git! Please be advised that the
+Git community does not use github.com for their contributions. Instead, we use
+a mailing list (git@vger.kernel.org) for code submissions, code reviews, and
+bug reports. Nevertheless, you can use GitGitGadget (https://gitgitgadget.github.io/)
+to conveniently send your Pull Requests commits to our mailing list.
+Please read the ""guidelines for contributing"" linked above!",2,1
+650,2019-09-22T13:25:46Z,,2019-10-13T03:43:29Z,13,35,22,"Hi GIT contributors !
+I am Shubham Ghule.I have resolved the problem of extern integer fetch_if_missing by putting it in  the structure repository as a field.I have achieved this by declaring an object named repo of structure repository and including alloc.h file where fetch_if_missing was used.
+I'm looking forward to your review.
+Special thanks to @dscho.
+with regards,
+Shubham.",1,1
+662,2019-10-20T15:31:26Z,,2020-04-29T11:25:01Z,14,35,24,"Hi GIT contributors !
+I am Shubham Ghule.I have resolved the problem of extern integer fetch_if_missing by putting it in the structure repository as a field.Made the relevent changes suggested by @dscho.
+I'm looking forward to your review.
+Special thanks to @dscho.
+with regards,
+Shubham.",2,14
+666,2019-11-03T05:27:14Z,,2019-11-07T03:10:31Z,2,25,25,"This command currently handles its own argv so by teaching it to
+use parse-options instead we can standardize the way commands
+handle user input across the project.
+As a consequence of using OPT_BOOL data structure on --normalize &
+--refspec-pattern, --no-normalize & --no-refspec-pattern can now be
+used.
+NO_PARSEOPT flag was also removed to update git.c with the
+conversion of the structure in this command.
+This is a rough draft and I need some advice if I'm doing this
+correctly since its being built but it is failing tests.
+Helped by: emily shaffer emilyshaffer@google.com
+Helped by: johannes schindelin johannes.schindelin@gmx.de
+Signed-off-by: george espinoza gespinoz2019@gmail.com",3,6
+668,2019-11-09T02:08:28Z,,2019-11-09T10:11:03Z,1,19,0,"ccpp.yml
+Thanks for taking the time to contribute to Git! Please be advised that the
+Git community does not use github.com for their contributions. Instead, we use
+a mailing list (git@vger.kernel.org) for code submissions, code reviews, and
+bug reports. Nevertheless, you can use GitGitGadget (https://gitgitgadget.github.io/)
+to conveniently send your Pull Requests commits to our mailing list.
+Please read the ""guidelines for contributing"" linked above!",3,1
+670,2019-11-22T14:25:38Z,,2019-12-10T23:52:29Z,5,194,12,"This is yet another of those patch series that matured in Git for Windows for over a year before being ""upstreamed"".
+The problem to be solved: files cannot be deleted on Windows when even one process has an open file handle to it. So when a process opens a temporary file, then spawns a child process that inherits that file handle by mistake, and then the parent process tries to delete the temporary file while the child process is still running, the deletion will fail. (This description is slightly simplified, see the commit message ""spawned processes need to inherit only standard handles"" for more detail.)
+Technically, we might want to squash ""restrict file handle inheritance only on Windows 7 and later"" into ""spawned processes need to inherit only standard handles"", but while preparing this patch series, I found the story easier to follow with them still being separate.
+The real reason why I submit this now is that I needed some ready-to-submit patch series as an excuse to test GitGitGadget on https://github.com/git/git.",1,18
+674,2019-12-03T21:02:27Z,,2020-04-13T17:42:31Z,6,832,263,"This pull request is held in draft to allow a workspace for running the CI unit tests.
+Issue: The current git-p4.py script does not work with python3.
+I have attempted to use the P4 integration built into GIT and I was unable to get the program to run because I have Python 3.8 installed on my computer. I was able to get the program to run when I downgraded my python to version 2.7. However, python 2 is reaching its end of life.
+Submission:
+I am submitting a patch for the git-p4.py script that partially supports python 3.8.
+This code was able to pass the basic tests (t9800) when run against Python3. This provides basic functionality.
+In an attempt to pass the t9822 P4 path-encoding test, a new parameter for git P4 Clone was introduced.
+--encoding Format-identifier
+This will create the GIT repository following the current functionality; however, before importing the files from P4, it will set the git-p4.pathEncoding option so any files or paths that are encoded with non-ASCII/non-UTF-8 formats will import correctly.
+Technical details:
+The script was updated by futurize (https://python-future.org/futurize.html) to support Py2/Py3 syntax. The few references to classes in future were reworked so that future would not be required.
+The existing code test for Unicode support was extended to normalize the classes “unicode” and “bytes” to across platforms:
+‘unicode’ is an alias for ‘str’ in Py3 and is the unicode class in Py2.
+‘bytes’ is bytes in Py3 and an alias for ‘str’ in Py2.
+New coercion methods were written for both Python2 and Python3:
+as_string(text) – In Python3, this encodes a bytes object as a UTF-8 encoded Unicode string.
+as_bytes(text) – In Python3, this decodes a Unicode string to an array of bytes.
+In Python2, these functions do not change the data since a ‘str’ object function in both roles as strings and byte arrays. This reduces the potential impact on backward compatibility with Python 2.
+to_unicode(text) – ensures that the supplied data is encoded as a UTF-8 string. This function will encode data in both Python2 and Python3.
+path_as_string(path) – This function is an extension function that honors the option “git-p4.pathEncoding” to convert a set of bytes or characters to UTF-8. If the str/bytes cannot decode as ASCII, it will use the encodeWithUTF8() method to convert the custom encoded bytes to Unicode in UTF-8.
+Generally speaking, information in the script is converted to Unicode as early as possible and converted back to a byte array just before passing to external programs or files. The exception to this rule is P4 Repository file paths.
+Paths are not converted but left as “bytes” so the original file path encoding can be preserved. This formatting is required for commands that interact with the P4 file path. When the file path is used by GIT, it is converted with encodeWithUTF8().
+Signed-off-by: Ben Keene seraphire@gmail.com",3,7
+675,2019-12-05T16:00:02Z,,2020-01-14T10:51:54Z,1,59,34,"Some user interaction with git-p4 is not as user-friendly as the rest
+of the Git ecosystem.
+Here are three areas that can be improved on:
+
+When a patch fails and the user is prompted, there is no sanitization
+of the user input so for a ""yes/no"" question, if the user enters ""YES""
+instead of a lowercase ""y"", they will be re-prompted to enter their
+answer.
+
+Commit 1 addresses this by sanitizing the user text by trimming and
+lowercasing their input before testing.  Now ""YES"" will succeed!
+
+If the command line arguments are incorrect for git-p4, the program
+reports that there was a syntax error, but doesn't show what the correct
+syntax is.
+
+Commit 2 displays the context help for the failed command.
+
+If Git generates an error while attempting to clean up the RCS
+Keyword expansions, it currently leaves P4 in an invalid state.  Files
+that were checked out by P4 are not revereted.
+
+Commit 3 adds and exception handler that catches this condition and
+issues a P4 Revert for the files that were previously edited.
+
+Git can handle scraping the RCS Keyword expansions out of source
+files when it is preparing to submit them to P4.  However, if the config
+value ""git-p4.attemptRCSCleanup"" isn't set, it will just report that it
+fails.
+
+Commit 4 adds a helpful suggestion, that the user might want to set
+git-p4.attemptRCSCleanup.
+Revisions
+v3 - Implemented the various suggestions from Luke and Denton.
+I did not add additional exception handling for the EOFError in the
+prompt method. I do believe that it is a good idea, but that would
+change the logic handling of the existing code to handle this new
+""no answer"" condition and I didn't want to introduce that at this time.
+v4 - Whitespace clean up and commit clarifications.
+Submit 3 suggested some clarifications to the commit test and
+revealed some whitespace errors.
+v5 - Fixed typo in a commit message.
+(Invalid attribute to Thanks-to: Denton Liu liu.denton@gmail.com)",2,35
+676,2019-12-08T07:28:05Z,,2019-12-25T21:44:17Z,3,354,51,"This series documents multiple fill_directory() bugs, and fixes the one that is new to 2.24.0 coming from en/clean-nested-with-ignored-topic, the rest having been around in versions of git going back up to a decade.
+Changes since v4:
+
+added a comment with the rationale for allocating an extra len+1 bytes for the dirent.
+
+Cc: blees@dcon.de, gitster@pobox.com, kyle@kyleam.com, sxlijin@gmail.com",3,33
+679,2019-12-13T19:27:35Z,,2020-03-03T02:38:47Z,25,693,277,"This is v5 of en/rebase-backend based on v2.25.0.  This series does a lot of work around making the default rebase backend configurable, and switches the default from the apply backend to the merge one.
+Changes since v4:
+
+Added a note about an unfortunately-timed Ctrl-C to the docs, as suggested by SZEDER.
+Addressed feedback from Phillip
+Added a new patch at the end renaming the two backends.  PLEASE take a look at its commit message for rationale and let me know if you agree with it.
+
+Note that in particular, the last patch at the end could have been partially squashed into other patches, but if people objected to the patch in general I wanted Junio to be able to take the rest of the series and just drop that patch.
+As with v4, there are some things mentioned earlier that are not addressed:
+
+I did not remove the --am (now --apply) option as suggested by Phillip, since Junio and Phillip were still discussing whether it is wanted/needed.  I kind of like having it, but have no strong opinion.
+I noted the post-commit hook in the differences between backends.  Emily is investigating what changes need to happen there, so I merely documented the existing differences.
+I did not address the last two items Jonathan brought up as I couldn't find enough information to reproduce or understand the problems.
+
+Cc: Johannes.Schindelin@gmx.de, phillip.wood@dunelm.org.uk, liu.denton@gmail.com, gitster@pobox.com, plroskin@gmail.com, alban.gruin@gmail.com, szeder.dev@gmail.com, jrnieder@gmail.com, emilyshaffer@google.com",2,71
+680,2019-12-20T15:58:01Z,,2020-01-03T01:22:40Z,2,2,2,"This series fixes a pair of small bugs with am/rebase.
+Cc: Johannes.Schindelin@gmx.de, plroskin@gmail.com",1,13
+682,2019-12-25T11:50:41Z,,2020-01-06T23:13:27Z,3,9,9,"As of Git for Windows, v2.24.1(2). cloning a repository that contained a file with a backslash in its name some time in the past, the command will succeed but at the same time print errors like this:
+	error: filename in tree entry contains backslash: '\'
+
+A corresponding git fetch will also show those errors, but fail.
+The reason is that v2.24.1 is much more strict about backslashes in tree entries than earlier versions. The intention was actually to prevent checking out such files, though: if there was a mistake in a repository long ago that has been fixed long since, there is actually no reason why we should require the history to be rewritten.
+This fixes git-for-windows#2435.
+The idea of this patch is to stop complaining about tree entries, and focus instead on the index: whenever a file is added to the index, we do not want any backslashes in the file name on Windows.
+As before, this check is only performed on Windows, and only under core.protectNTFS. On other platforms, even if core.protectNTFS is turned on, the backslash is not a directory separator, therefore the Operating System's syscalls will (should?) refuse to create files on NTFS with backslashes in their file name.
+I would appreciate reviews with a particular eye on keeping users safe: I am not 100% certain that all relevant file writes go through the index (I think that they all go through the index, but I might have well missed a corner case).
+Changes since v1:
+
+Clarified the commit message (what is the goal, explain that the requirement is now loosened, explain why the code is still GIT_WINDOWS_NATIVE-only, etc).",1,18
+685,2020-01-01T03:15:09Z,,2020-01-06T23:13:34Z,1,11,22,merge-recursive has an unnecessary wrapper for oideq.  Remove it.,1,11
+686,2020-01-03T18:13:40Z,,2020-01-24T11:59:51Z,1,14,12,"In trying to understand check_updates(), I found I was able to simplify the function by making it exit early when updates are not wanted.
+Changes since v1:
+
+Added two bullet points to the end of the commit message to explain the questions Junio brought up about function calls that are skipped by the early return.",1,27
+688,2020-01-06T10:32:48Z,,2020-01-09T00:16:44Z,1,1,1,fixed a typo in the  doc of submodule,2,28
+692,2020-01-14T15:16:41Z,,2020-02-05T23:38:38Z,2,47,45,"This is a follow up to en/fill-directory-fixes, and has grown from 1 patch in v1 to 4 patches in v2, 3 of which are submissions by others to the git list that I've just combined into one series since they are all about fill_directory().
+The first two patches may make sense to include in maint at some point, though Stolee isn't that concerned about this regression[5][6].
+
+The first patch is Kevin and Stolee's testcase showing a regression in ""git clean -f ""[1]
+The second patch is a ""simple"" fix for that testcase with a pretty long (and slightly embarrassing though entertaining) backstory.
+The third patch was from v1, and is a small tweak made by me to a patch proposed by Peff[2] (signoff from [3]) to avoid needing to create a dirent.
+The fourth patch was a follow-up from Peff in response to V1 fixing a code comment[4].
+
+[1] https://lore.kernel.org/git/pull.526.git.1579119946211.gitgitgadget@gmail.com/
+[2] https://lore.kernel.org/git/20191219222403.GA705525@coredump.intra.peff.net/
+[3] https://lore.kernel.org/git/20200114220357.GA3957260@coredump.intra.peff.net/
+[4] https://lore.kernel.org/git/20200115202146.GA4091171@coredump.intra.peff.net/
+[5] https://lore.kernel.org/git/354fa43b-0e62-1ee5-a63f-59d9b2da7d3f@gmail.com/
+[6] https://lore.kernel.org/git/e008da66-defe-d2b0-410b-64b7754b9c6e@gmail.com/
+Cc: Jeff King peff@peff.net, Johannes Schindelin Johannes.Schindelin@gmx.de, Derrick Stolee dstolee@microsoft.com, Kevin.Willford@microsoft.com, Kyle Meyer kyle@kyleam.com, Jonathan Nieder jrnieder@gmail.com",4,30
+694,2020-01-15T10:25:49Z,,2020-01-16T14:33:55Z,1,53,50,"The tests in the file t6025-merge-symlinks.sh were written 11 years
+ago and hence contain various style violations such as absence of
+indentation in the code, irregular style usage of the redirection
+operator, etc. Update it to match the latest CodingGuidlines
+Signed-off by: Shourya Shukla shouryashukla.oo@gmail.com",2,7
+698,2020-01-20T19:19:26Z,,2020-04-24T23:48:25Z,3,274,58,"Request for help - if there are any experts with python and Windows, I would appreciate a review of the changes that I have presented here.
+
+Our company's workflow requires that our P4 check-in messages have a specific format. A helpful feature in the GIT-P4 program would be a hook that occurs after the P4 change list is created but before it is displayed in the editor that would allow an external program to possibly edit the changelist text.
+v1:
+My suggestion for the hook name is p4-pre-edit-changelist.
+It would take a single parameter, the full path of the temporary file.
+If the hook returns a non-zero exit code, it would cancel the current P4 submit.
+The hook should be optional.
+v2:
+Instead of a single hook, p4-pre-edit-changelist, follow the git convention for hook names and add the trio of hooks that work together, similar to git commit.
+The hook names are:
+
+p4-prepare-changelist
+p4-changelist
+p4-post-changelist
+
+The hooks should follow the same convention as git commit, so a new command line option for the git-p4 submit function --no-verify should also be added.
+v3:
+2-Feb-2020
+This version reorganizes the commits to be easier to read. The function for running the git hook has been rewritten to include suggestions.  This version no longer restricts the executable supported by windows for the hook.  It will first look for a file with the hook name without an extension and if found, it will pass it to sh.exe (Git for Window's MINGW shell) Otherwise it will take the file with the lowest alphabetical extension and ask Windows to execute the program.
+v5:
+10-Feb-2020
+Integrated the suggested changes from the mailing list into this release.  The changes are:
+
+Restructure the commits to pull the p4-pre-submit hook changes into the commit for adding git_run_hook.
+Update the git_run_hook to include additional tests for GIT_DIR being set if getting the environment returns no value.
+Updated the windows file resolution to ensure that the script to be run is NOT the .SAMPLE version of the hooks.
+Split the RCS keyword cleanup message into its own commit.
+
+v6:
+14-Feb-2020
+Update commit for git-p4: restructure code in submit to be python 3 compatible:
+
+This change comes from 'git-p4: restructure code in submit' in
+'bk/p4-pre-edit-changelist' which introduced the use of the <>
+operator. In Python 2, this is valid but in Python 3, it was removed.
+We can simply replace the <> with != which is the new way of
+writing ""not equals"".",3,111
+700,2020-01-29T20:34:33Z,,2020-04-30T00:51:58Z,10,437,201,"This series provides some ""modest"" speedups (see commit message for patch 8), and should allow 'git status --ignored' to complete in a more reasonable timeframe for Martin Melka (see https://lore.kernel.org/git/CANt4O2L_DZnMqVxZzTBMvr=BTWqB6L0uyORkoN_yMHLmUX7yHw@mail.gmail.com/).  It also cleans up the fill_directory() code and API, and fixes bash-completion for 'git add untracked-dir/'.
+Changes since v4:
+
+cleanups suggested by Junio (patch 1)
+new testcases that would have displayed multiple bugs with v4 (patch 2)
+fixed the bugs with v4 (look for LEADING_PATHSPEC in patch 8)
+fixed ANOTHER exponential slowdown codepath (look for MODE_MATCHING in patch 8)
+make DIR_KEEP_UNTRACKED_CONTENTS less of a weird one-off (patch 9)
+reduce number of calls to [do_]match_pathspec() (patch 10)
+fix error-proneness of fill_directory() API (patch 11)
+fix bash-completion results for 'git add' on an untracked dir (patch 12)
+
+This is one of those rare patchsets that is absolutely perfect and risk-free.  That's right, bask in their glory and the ease of conscience from using such solid stuff.  Using this series will even innoculate you from bugs outside of dir.c, and ones external to git, and even bugs external to your computer.  It's just that good.  Pay no attention to the man behind the curtain, er, I mean the huge warnings in patch 8, er...I mean what warnings?  There's no warnings to view, this stuff is solid as can be.
+But if an extra pair of eyes wants to look at commit message in patch 8, or at the new patches (2 and 9-12) and opine on how perfect everything looks and feels, be my guest.
+Cc: Martin Melka martin.melka@gmail.com, SZEDER Gábor szeder.dev@gmail.com, Samuel Lijin sxlijin@gmail.com, Nguyễn Thái Ngọc Duy pclouds@gmail.com, Derrick Stolee stolee@gmail.com",2,112
+712,2020-02-17T16:10:57Z,,2020-03-03T02:39:06Z,2,53,2,"Changes since v3:
+
+add another patch which fixes the bug.  Thanks to Phillip for doing some digging to find the bug wasn't in rebase but in git_merge_trees().",4,39
+714,2020-02-26T16:12:29Z,,2020-03-05T22:03:14Z,10,93,73,"At least the Windows agents we use will go away on March 23rd, 2020, in favor of newer, faster, better ones. We might just as well use the latter already long before the cut-off date.
+While at it, let's also update to a newer macOS pool. This necessitates two distinct fixes, though:
+
+
+Our ci/ scripts were ill-prepared to deal with System Integrity Protection. This resulted in the p4d -V call seemingly ""hanging"" (Narrator's voice: it did not ""hang"", it actually opened a GUI dialog to ask the user whether it was okay to execute this quarantined executable).
+
+
+Apparently nobody ever bothered running the Apache2-based tests (t5616, t5702 and t5703, probably more) on macOS. I say that because they don't work, over-relying on GNU-specific behavior of sed. I rewrote those sed calls to use Perl instead.
+
+
+Changes since v1:
+
+Avoid blaming BSD for what is (at least nowadays) squarely a macOS issue.
+Targeting maint
+
+Cc: Ed Maste emaste@freebsd.org",1,14
+716,2020-02-26T21:26:13Z,,2020-03-10T15:06:21Z,9,752,677,"This series has a few testcase cleanups, and a new testcase.  In more detail:
+
+The first three patches are just various forms of testcase modernization
+The fourth patch updates some tests to check intended behavior instead of a proxy thereof
+The fifth patch adds a new simple testcase that there is no other merge/rebase/cherry-pick test for in our testsuite, just for added defensiveness.
+
+As a side note: t60[01]* is used by rev-list, and then t60[234].sh is kinda taken by merge-recursive except that t6030 and t6041 are for bisect and t6040 for remote tracking stuff.  Because t60[234].sh got filled up, rev-list spilled over to t61[01]* as well.  It's all kind of a mess.  I'm curious if moving the merge stuff over to t64* would make sense, since that'd keep the merge stuff together, and would also free up space for rev-list, bisect, remote-tracking and whatnot.  Would that just be too much churn?",1,14
+718,2020-02-27T18:13:15Z,,2020-04-22T07:57:52Z,1,3,3,"""refs/"" name space.
+This happens implicitly in the files/packed ref backend; making it
+explicit will simplify adding alternate ref storage backends.
+Signed-off-by: Han-Wen Nienhuys hanwen@google.com",2,4
+722,2020-03-11T04:10:54Z,,2020-03-12T22:38:38Z,3,20,0,"This two commit series addresses two points raised by Peff about rebase backend issues.  The first is a two-line fix to a regression in 2.26.0 (when ""the eighth batch for 2.26.0"" added the dropping of commits which become empty, if the last commit in the series was the one that became empty the rebase would complete without cleaning out state files), and the other is just a documentation update about a backend difference that we were previously unaware of.
+Changes since v1:
+
+Clean out any MERGE_MSG file in addition to CHERRY_PICK_HEAD, and add a test
+
+Cc: Phillip Wood phillip.wood123@gmail.com, Jeff King peff@peff.net, Junio C Hamano gitster@pobox.com",3,15
+726,2020-03-14T04:54:18Z,,2020-04-30T00:52:07Z,7,375,111,"This series provides a replacement for the sparsity updating in sparse-checkout that is based on the logic from git read-tree -mu HEAD.  The most important bit is patch 9 and its lengthy commit message explaining the current state and rationale for most the series, though patches 16 and 17 have additional related directions and rationale for the series.  Those three patches are the most important to review.
+Changes since v2:
+
+addressed Stolee's cleanups and added his Reviewed-by to the series (hopefully the next two changes don't invalidate that)
+added a test for the new 'reapply' subcommand (noticed it was missing with Stolee's test coverage report)
+fix a minor issue with two of the other tests I modified -- when I'm grepping through stderr for a command, I need to make sure to actually record stderr from that command (otherwise my grep is looking through the stderr of a previous command that was recorded).  Also, since I messed this up, I added one or two more sanity checks while I was at it.
+
+Cc: Derrick Stolee dstolee@microsoft.com",1,46
+728,2020-03-14T23:55:25Z,,2020-04-24T23:48:44Z,3,77,52,"While debugging the breakages introduced by hi/gpg-prefer-check-signature, I noticed that the GPG prereq was not available on Windows, even if Git for Windows' SDK comes with a fully functional GPG2.
+The fix was easy, but finding out what was going on was not, so for good measure, the fix is accompanied by a patch that will hopefully make future investigations into GPG-related problems much, much easier.
+Changes since v2:
+
+
+Reordered 4/5 before 3/5, as I had intended originally.
+
+
+Renamed _trace_level to have a trailing underscore, in line with the surrounding code.
+
+
+Added a note to the commit message why only lib-gpg.sh loses its hash-bang line, and no other files in t/.
+
+
+Changes since v1:
+
+
+The prereqs are now lazy ones.
+
+
+A new patch was introduced to make tracing via -x work even with those inter-dependent prereqs.
+
+
+The test-signing's stdout is redirected to /dev/null because it is unreadable and unhelpful binary gibberish, anyway. (This imitates Peff's patch.)
+
+
+Cc: Jeff King peff@peff.net, Junio C Hamano gitster@pobox.com",2,28
+730,2020-03-18T10:43:49Z,,2021-06-18T13:02:46Z,2,2,2,,4,7
+743,2020-03-31T12:22:44Z,,2020-04-30T00:52:16Z,4,292,560,"Our Azure Pipeline has served us well over the course of the past year or so, steadily catching issues before the respective patches hit the next branch.
+There is a GitHub-native CI system now, though, called ""GitHub Actions"" which is essentially on par with Azure Pipelines as far as our needs are concerned, and it brings a couple of advantages:
+
+It is substantially easier to set up than Azure Pipelines: all you need is to add the YAML-based build definition, push to your fork on GitHub, and that's it.
+The syntax is a bit easier to read than Azure Pipelines'.
+We get more concurrent jobs (Azure Pipelines is limited to 10 concurrent jobs).
+
+With this change, users also no longer need to open a PR at https://github.com/git/git or at https://github.com/gitgitgadget/git just to get the benefit of a CI build. They just push to their fork on GitHub and monitor the build. Easier than making apple pie.
+The only caveat is that this will only work once the patch series makes it to master. In the meantime, you can adore the CI build here: https://github.com/dscho/git/actions/runs/67349068",2,134
+751,2020-04-05T15:47:51Z,,2020-04-24T23:50:01Z,2,5,4,"I was reading the git pull documentation and discovered an outdated example description.
+While reading the git fetch documentation to confirm the behaviour described in
+git pull was indeed wrong, I figured it would be easier to refer directly to the ""Configured remote-tracking branches"" section in git fetch from the git pull documentation,
+just as in git fetch.
+CC: Jeff King peff@peff.net, Marc Branchaud marcnarc@xiplink.com,  Clemens Buchacher drizzd@gmx.net",1,17
+755,2020-04-08T18:20:09Z,,2020-04-24T23:50:27Z,6,24,16,"This is yet another patch that was funneled through a Git for Windows PR, read: it has been battle-tested.
+Of course, the current iteration of this patch series has not been battle-tested, so please do review carefully, so that we can prevent bugs from slipping in during the review process.
+Changes since v2:
+
+Fixed the capitalization of ""THerefore"" in the commit message.
+
+Changes since v1:
+
+Added a preparatory patch that refactors all interactive input reading via strbuf_getline(..., stdin).
+Adjusted the patch and its commit message accordingly.
+
+Cc: Jeff King peff@peff.net, Derrick Stolee stolee@gmail.com",1,29
+757,2020-04-09T21:29:40Z,,2020-04-24T23:50:43Z,7,202,33,"Changes since v2:
+
+Addressed feedback from Junio in patch 2, including moving some of the wording to the new patch (see next point)
+Edited jt/rebase-allow-duplicate to include the changes Jonathan mentioned on the list, then rebased it on top of this series, and made the related options mention each other.
+
+Cc: jonathantanmy@google.com, phillip.wood123@gmail.com, Johannes.Schindelin@gmx.de, bturner@atlassian.com, sami@boukortt.com",2,31
+760,2020-04-15T12:18:53Z,,2020-04-29T00:29:13Z,2,27,1,"override a possibly user-customized format.pretty that would render git log output unparsable by git range-diff
+
+
+don't use negative string precision, e.g. ""%.*s"", -5, ""foo""
+
+
+Changes since v1:
+
+Fixed a typo in the commit message (found by Taylor Blau)",2,20
+774,2020-04-30T00:51:08Z,,2020-07-28T04:30:17Z,3,16,1,"Sample build failure on GitHub Action:
+
+https://github.com/sgn/git/commit/3c453f32ce24bd46cca4cd9976fa9906de8a78a8/checks/742735763/logs
+https://api.travis-ci.org/v3/job/695074139/log.txt",2,12
+781,2020-05-07T05:37:43Z,,2020-09-22T21:27:41Z,3,96,16,"Hi, the mergetool ""meld"" does NOT merge the no-conflict changes, while
+the mergetool ""vimdiff"" will merge the no-conflict changes and highlight
+the conflict parts.  This patch will make the mergetool ""meld"" similar
+to ""vimdiff"", auto-merge the no-conflict changes, highlight conflict
+parts.
+cc: Lin Sun lin.sun@zoom.us",6,236
+801,2020-06-04T07:28:37Z,,2020-06-18T06:28:35Z,2,26,0,"Changes since v1:
+
+Fixed the ls command for portability, using the construct Junio suggested
+
+CC: warmsocks@gmail.com, stolee@gmail.com",3,26
+804,2020-06-08T16:39:28Z,,2020-06-25T22:12:38Z,4,226,19,"git diff -h help is succinct, but perhaps too much so.
+The symmetric-diff syntax, git diff A...B, is defined by the documentation to compare the merge base of A and B to commit B.  It does so just fine when there is a merge base.  It compares A and B directly if there is no merge base, and it is overly forgiving of bad arguments after which it can produce nonsensical diffs.  It also behaves badly with other odd/incorrect usages, such as git diff A...B C..D.
+The first patch simply adjusts a test that will fail if the second patch is accepted.  The second patch adds special handling for the symmetric and range diff syntax so that the option parsing works, plus a small test suite.  The third patch updates the documentation, including adding a section for combined commits, and makes the help output more verbose (to match the SYNOPSIS and provide common diff options like git-diff-files, for instance).
+Changes since v3:
+
+correct > / >= goof
+fix test nit per Philip Oakley",3,29
+805,2020-06-10T21:15:15Z,,2020-06-23T00:14:46Z,1,26,4,"gitgitgadget is going to treat this like V1, but it's really V2.  V1 was an inline scissors patch.
+Changes since V1:
+
+More wording clarifications in areas pointed out by Stolee, and using some of his suggested wording.
+In particular, given that the final sentence from V1 was causing lots of problems, I just stepped back and painted a very broad stroke for end users that I think will make sense to them: we have two reasons tracked files might be missing from the working copy, so there are two things that might limit commands that search through tracked files in the working copy.  Greater detail about if or how they are limited can be left to the manpages of individual subcommands.
+
+CC: matheus.bernardino@usp.br, dstolee@microsoft.com",2,11
+806,2020-06-11T06:16:16Z,,2020-06-25T22:12:44Z,2,48,16,"This fixes the performance regression reported at [1], and also performs a few other cleanups found while investigating the issue.
+[1] https://lore.kernel.org/git/CAJB88a23uU2WfB0mnB9NfNbtgmABhNOWNOEMBt7rRVu7uL_C9A@mail.gmail.com/
+CC: bmalehorn@gmail.com",1,12
+807,2020-06-13T23:58:52Z,,2020-10-09T13:46:33Z,1,31,0,"There wasn't ability to perform 'git fetch' from gitk tool.
+Add 'Fetch' option to 'File' menu.
+Bind it to 'F7' key.
+Signed-off-by: Vladimir Chigarev chiga17@mail.ru",2,1
+808,2020-06-16T22:49:39Z,,2020-07-07T05:57:34Z,3,67,2,"Some of the feedback of folks trying out sparse-checkouts at $dayjob is that sparse checkouts can sometimes be disorienting; users can forget that they had a sparse-checkout and then wonder where files went.  This series adds some output to 'git status' and modifies git-prompt slightly as an attempt to help.
+(As per discussion on v1, a ""git sparse-checkout [status|info|status]"" might supplement the changes from this series later; this is just aimed at giving users a simple reminder that they are in a sparse checkout.)
+Changes since v2:
+
+Added an extra commit to document how git-prompt works with in-progress state of operations (rebase/merge/cherry-pick/revert/bisect), since I want to refer to it for comparison later in the docs.
+As requested by SZEDER, added the ability to shorten or remove the information relating to sparsity state in the git-prompt.
+Since there are now three options for whether and how to show information related to sparsity state, I put a fair amount of effort into reasoning among the options about what is a good default and why; I included this in the final commit message.  (While I suspect that we can easily change the default for the prompt in the future based on the big warning at the top of git-sparse-checkout.txt, having the rationale up-front for the original decision may help us out in the future.)
+
+CC: dstolee@microsoft.com, szeder.dev@gmail.com",1,24
+823,2020-07-27T17:18:37Z,,2020-08-31T23:56:43Z,1,28,28,,3,31
+824,2020-07-28T19:23:28Z,,2020-07-31T05:41:33Z,6,6,6,"Fix some simple typos: doubled words, and character swapping",2,14
+825,2020-08-02T01:55:11Z,,2020-08-10T18:37:16Z,4,15,36,"This fixes a few issues surrounding .gitattributes files and usage of the merge machinery outside of ""git merge"".  All were issues I found and fixed while working on merge-ort.
+Changes since v1:
+
+Made the fixes suggested by Eric and Junio
+Just ripped out the test in patch 2 that was testing undefined behavior (especially since it was a test_expect_failure, and clearly was testing multiple things wrong), as suggested by Junio.",2,18
+827,2020-08-05T06:08:08Z,,2020-08-20T00:26:00Z,35,71,48,"This series starts preparing the merge related tests to work with multiple backends: merge-recursive or merge-ort.  Further work will be coming.
+Changes since v2:
+
+fix typos pointed out by Eric
+reworded another commit message for clarify
+
+The greater flexibility patches at the end of the series also previews some of the design changes being brought by merge-ort.
+Merges cleanly with next and seen, despite the pile of testcase renames.",1,25
+830,2020-08-14T01:48:36Z,,2020-08-27T21:48:47Z,5,70,52,"In my new merge algorithm, I made use of the mem_pool API in a few places...but I also needed to add a few more functions and also needed to make the API a bit more general.
+Changes since v2:
+
+Remove 'x' from mem_pool_xstr[n]?dup() names and remove check for NULL since mem_pool_alloc() already handles that (via xmalloc), as suggested by René
+Rewrite mem_pool_strndup() to not rely on strnlen(), since that may be too new from some systems (comes from POSIX 2008 ).  Also pointed out by René
+
+CC: Matheus Tavares matheus.bernardino@usp.br, Eric Sunshine sunshine@sunshineco.com, René Scharfe l.s.r@web.de",3,22
+831,2020-08-16T06:25:50Z,,2020-08-24T23:08:31Z,10,46,40,"Some memory leaks in dir.c were making it hard for me to find my own leaks in merge-ort.  I followed a few threads and tried to both clean up the leaks and make the API less prone to incorrect use.
+Changes since v1:
+
+dropped the first patch, since Peff submitted an identical patch a day before me
+implemented Peff's suggestions to rename dir_free() to dir_clear() and have it call dir_init() at the end so that folks can re-use the struct after dir_clear() if they so choose.",2,15
+835,2020-08-21T16:45:03Z,,2020-11-23T23:01:00Z,27,621,170,"Here I introduce new strmap, strintmap, and strset types.
+Changes since v5:
+
+Fixed a typo in forward declaration of struct mem_pool, spotted by Phillip.  (Usage via pointers meant gcc & clang wouldn't complain.)
+
+[1] https://lore.kernel.org/git/20180906191203.GA26184@sigill.intra.peff.net/
+CC: Jeff King peff@peff.net
+cc: Elijah Newren newren@gmail.com
+cc: Phillip Wood phillip.wood123@gmail.com
+cc: Chris Torek chris.torek@gmail.com",2,82
+841,2020-09-12T20:56:22Z,,2021-02-19T00:12:00Z,2,25,2,"Currently invalid boolean config values return messages about 'bad
+numeric', which I found misleading when the error was due to a
+boolean string value. This change makes the error message reflect
+the boolean value.
+The current approach relies on GIT_TEST_GETTEXT_POISON
+being a boolean value, moving its special case out from
+die_bad_number() and into git_config_bool_or_int(). An
+alternative could be for die_bad_number() to handle boolean
+values when erroring, although the function name might need to
+change if it is handling non-numeric values.
+changes since v1
+
+moved boolean error message change out of git_config_bool_or_int
+to just in git_config_bool and added die_bad_boolean instead of
+modifying die_bad_number.
+
+changes since v2
+
+added a test for boolean config values
+changed the condition to hit die_bad_bool from if (0 <= v) to if (v < 0)
+removed change in get-text-poison.sh test
+
+Signed-off-by: Andrew Klotz agc.klotz@gmail.com
+cc: Jeff King peff@peff.net
+cc: Phillip Wood phillip.wood123@gmail.com",3,26
+845,2020-09-15T16:45:05Z,,2020-09-15T21:13:58Z,1,21,0,"Thanks for taking the time to contribute to Git! Please be advised that the
+Git community does not use github.com for their contributions. Instead, we use
+a mailing list (git@vger.kernel.org) for code submissions, code reviews, and
+bug reports. Nevertheless, you can use GitGitGadget (https://gitgitgadget.github.io/)
+to conveniently send your Pull Requests commits to our mailing list.
+Please read the ""guidelines for contributing"" linked above!",3,2
+847,2020-09-16T18:42:20Z,,2021-07-14T00:51:35Z,96,13125,79,"This splits the giant commit from gitgitgadget#539 into a series of smaller commits, which build and have unittests.
+Changes relative to last series: version 19 Apr 2021 (tip: b8729fe)
+
+drop EINVAL for broken refs.
+fix 2 UBSAN warnings. Thanks to Andrzej Hunt for reporting.
+make tests pass against master (use oidread)
+handle worktree/xx/refname refs.
+handle main-worktree/ref
+fix double free in branch renaming
+handle relative paths (used in git upload-pack invocation) for ref backend creation.
+
+cc: Han-Wen Nienhuys hanwen@google.com
+cc: Jeff King peff@peff.net
+cc: Ramsay Jones ramsay@ramsayjones.plus.com
+cc: Jonathan Nieder jrnieder@gmail.com
+cc: Johannes Schindelin Johannes.Schindelin@gmx.de
+cc: Jonathan Tan jonathantanmy@google.com
+cc: Josh Steadmon steadmon@google.com
+cc: Emily Shaffer emilyshaffer@google.com
+cc: Patrick Steinhardt ps@pks.im
+cc: Ævar Arnfjörð Bjarmason avarab@gmail.com
+cc: Felipe Contreras felipe.contreras@gmail.com
+cc: Derrick Stolee stolee@gmail.com
+cc: Ævar Arnfjörð Bjarmason avarab@gmail.com
+cc: Han-Wen Nienhuys hanwen@google.comg
+cc: ""brian m. carlson"" sandals@crustytoothpaste.net",5,291
+848,2020-09-17T10:24:55Z,,2020-09-22T21:27:51Z,1,1,1,"Expected behaviour
+$ git remote set-head origin -a
+error: Not a valid ref: refs/remotes/origin/master
+
+Actual behaviour
+$ git remote set-head origin -a
+error: Not a valid ref: refs/remotes/origin/master
+origin/HEAD set to master
+
+I believe ... set to master should not be shown in case of an error.
+That's why I added an else to the if-condition.
+Signed-off-by: Christian Schlack christian@backhub.co",3,23
+879,2020-10-13T23:55:55Z,,2020-11-09T23:53:34Z,2,553,54,"While testing merge-ort on some real world repositories a little while back, I found some issues with directory rename detection...some of which were issues in the current merge-recursive as well.  Also, I found that there was a nice optimization I could use if a new obvious-looking rule was added, though it has one slight side effect to one corner case.  Fixing the bugs and implementing the new rules is a bit more involved, so for now this series just updates the rule descriptions and adds or modifies tests to document the various cases.
+cc: Eric Sunshine sunshine@sunshineco.com",1,31
+881,2020-10-15T21:01:16Z,,2020-11-02T22:17:40Z,1,3,0,"Make git credential fill honour the core.askPass variable.
+Signed-off-by: Thomas Koutcher thomas.koutcher@online.fr
+cc: Jeff King peff@peff.net
+cc: Thomas Koutcher thomas.koutcher@online.fr",4,31
+885,2020-10-17T09:18:30Z,,2020-11-09T23:53:41Z,2,4,2,"Changes since v2:
+
+Optimized commit message
+
+Signed-off-by: Amanda Shafack shafack.likhene@gmail.com
+cc: Emily Shaffer emilyshaffer@google.com, Jonathan Nieder jrnieder@gmail.com
+cc: Eric Sunshine sunshine@sunshineco.com
+cc: Amanda Shafack shafack.likhene@gmail.com",3,51
+895,2020-10-21T07:48:08Z,,2020-11-18T22:28:58Z,13,517,15,"In this series, I show the new merge API I have developed in merge-ort, and show how it differs from that provided by merge-recursive.  I do this in four steps, each corresponding to a patch.
+Changes since v4:
+
+Fix a bug where 'cherry-pick --continue' would report 'fatal: cherry-pick: --strategy cannot be used with --continue' when pull.twohead was set to ort (found by user of internal deployment at $DAYJOB)
+
+cc: Elijah Newren newren@gmail.com
+cc: Taylor Blau me@ttaylorr.com
+cc: Peter Baumann peter.baumann@gmail.com
+cc: Jonathan Tan jonathantanmy@google.com
+cc: Eric Sunshine sunshine@sunshineco.com
+cc: SZEDER Gábor szeder.dev@gmail.com
+cc: Jacob Keller jacob.keller@gmail.com",1,48
+919,2020-11-20T08:15:05Z,,2021-01-16T00:24:05Z,3,212,57,"This series fixes some issues with git stash apply in sparse checkouts, when the sparsity patterns have changed between when the stash was created and when the stash is being applied.  It also incidentally fixes a submodule testcase unrelated to sparse checkouts.
+Changes since v1:
+
+Commit message cleanup, including a couple wording issues highlighted by Chris
+Cleaned up the code a bit and commented it better, to try to make it easier for Junio (and others) to follow.
+
+CC: matheus.bernardino@usp.br
+CC: dstolee@microsoft.com
+cc: Elijah Newren newren@gmail.com
+cc: chris.torek@gmail.com",1,62
+921,2020-11-22T22:08:16Z,,2020-12-19T01:36:28Z,10,61,20,"It is our designated intention to ""to explore changing the name of the first branch created automatically for new repositories away from ‘master’"". Further, we promised that we ""will minimize disruption for Git's users and will include appropriate deprecation periods"".
+To that end, we first clarify git init's documentation (a lightly edited version of Junio's patch), and then introduce a message giving advice to users running git init that the fall-back for init.defaultBranch is subject to change, and how to override Git's fall-back manually.
+The beauty of this patch series, if I may say so, is that it does not commit us to any concrete plan, but opens the door for all options regarding the default branch name.
+Changes since v4:
+
+Reworded the documentation to weaken the ""will be changed in the future"" to ""is subject to change"".
+Reworded the advice to explicitly mention ""instead of 'master'"".
+
+Changes since v3:
+
+Kicked out advice.defaultBranchName again. The advice can now only be suppressed by setting init.defaultBranch.
+
+Changes since v2:
+
+git branch -m <initial> <renamed> now works, too
+The config setting advice.defaultBranchName was introduced to allow suppressing this warning specifically
+The advice now first talks about the current default branch name, then how to suppress the advice, and only then explains how to override the default branch name (and that that will also prevent the message from being shown)
+
+Changes since v1:
+
+Grammar fix
+Reworded advice and commit messages
+test_create_repo already respected GIT_TEST_DEFAULT_INITIAL_BRANCH_NAME, but now does so more obviously
+Allowed git branch -m <name> to rename unborn branches, so that the advice actually works
+
+cc: Johannes Schindelin Johannes.Schindelin@gmx.de
+cc: Felipe Contreras felipe.contreras@gmail.com
+cc: SZEDER Gábor szeder.dev@gmail.com",1,31
+923,2020-11-26T18:04:00Z,,2021-01-08T00:37:18Z,4,1256,5,"This is actually v5 of this series, and is being sent due to review comments from a different series, namely en/merge-ort-3[1].
+I have rerolls of en/merge-ort-2 and en/merge-ort-3 already prepared, but since gitgitgadget will not allow me to send a series dependent on a not-published-by-Junio series, I cannot yet send them.  You will need to temporarily drop them, and I'll resend after you publish the updated version of this series.  I do not like this solution, and I was tempted to just push the updates into en/merge-ort-3, but since this series was still hanging in 'seen' awaiting feedback and a lot of the suggestions were for things from this series, I decided to go this route anyway...
+[1] https://lore.kernel.org/git/CABPp-BHa0zehQd-axmb4bF6fR4PTWwGu9uLjOzgTW8_Gu12iZA@mail.gmail.com/
+Changes since v4:
+
+Improved documentation of filemask and dirmask
+Improved documentation of merge_result.clean
+Added new enum merge_side and documentation with it to try to make the code a bit more self-documenting.
+
+CC: jonathantanmy@google.com
+CC: dstolee@microsoft.com
+cc: Elijah Newren newren@gmail.com
+cc: Ævar Arnfjörð Bjarmason avarab@gmail.com
+cc: Felipe Contreras felipe.contreras@gmail.com",3,43
+929,2020-12-06T02:13:38Z,,2021-01-25T23:43:49Z,2,192,131,"This patch series includes 3 small code cleanups, 1 small bug fix (or perhaps just a UI improvement -- it's a very minor issue either way), more testcases, and 3 performance improvements.  The first 7 patches are relatively easy to review, while the second to last one...is a bit more involved (but provided the biggest performance boost).
+Changes since v2:
+
+Fixed spelling error: remove unnecessary double c in 'unneccessary' (thanks to Christian for spotting)
+
+cc: Elijah Newren newren@gmail.com
+cc: Taylor Blau me@ttaylorr.com
+cc: Christian Couder christian.couder@gmail.com
+cc: Ævar Arnfjörð Bjarmason avarab@gmail.com
+cc: Başar Uğur basarugur@gmail.com",3,51
+943,2021-01-08T15:19:37Z,,2021-01-16T22:03:32Z,2,4,6,"""directory cache"" (or ""directory cache index"", ""cache"") are obsolete
+terms which have been superseded by ""index"". Keeping them in the
+documentation may be a source of confusion. This commit replaces
+them with the current term, ""index"", on man pages.
+cc: Taylor Blau me@ttaylorr.com
+cc: Utku ugultopu@gmail.com",3,46
+952,2021-01-26T18:46:13Z,,2021-07-08T21:28:24Z,1,9,0,"mergetools/kdiff3: make kdiff3 work on windows too
+Currently the native kdiff3 mergetool is not found by git mergetool on windows.
+The message ""The merge tool kdiff3 is not available as 'kdiff3'"" is displayed.
+But it is important especially for GUI to use this native version on windows.
+Kdiff3 for various systems can be downloaded from https://download.kde.org/stable/kdiff3/
+Bug cause:
+On Windows the executable name has to be translated (kdiff3.exe instead of kdiff) and the windows path has to be searched - similar to winmerge.
+Fix:
+This change is using mergetool_find_win32_cmd from the library in the translate_merge_tool_path().
+This is done the same way as in winmerge.
+However this translation must not be made on linux/unix, so a ""type kdiff3"" test is made on kdiff3 and only if not found the windows search is tried.
+Signed-off-by: Michael Schindler michael@compressconsult.com",4,39
+959,2021-02-07T07:11:41Z,,2021-08-05T03:34:07Z,1,1,1,"Git printed the stderr, but exit code = 0 and stdout is null, It was very strange, no errors occurred, but print to stderr, why can't I print it to stdout just like ""pull"" does to ""Already up to date"" ?
+Changes since v1:
+
+Use a stdout when printing ""Everything up-to-date""
+
+Signed-off-by: Lyrieek cn lyrieek@hotmail.com",5,24
+972,2021-03-02T20:19:24Z,,2021-03-22T21:29:41Z,1,1,1,,4,40
+973,2021-03-04T20:37:56Z,,2021-03-21T01:19:27Z,13,440,25,"This series (nearly) completes the merge-ort implementation, cleaning up testsuite failures.  The exceptions are some t6423 failures being addressed independently[1].
+Changes since v1, to address feedback from Ævar:
+
+Squashed patches 3 & 4
+Various style fixes
+Check attr_index->initialized before calling initialize_attr_index() instead of inside initialize_attr_index()
+Simplify GIT_TEST_MERGE_ALGORITHM comparison to only have if-then block
+
+Stuff not included in v2:
+
+Ævar suggested patching the test expectation on the 4 known failing tests so that all tests passed under GIT_TEST_MERGE_ALGORITHM=ort.  Seems reasonable, but the semantic conflicts with other series might make it more trouble than it's worth and other series will fix all 4 tests.  Leaving as-is for now to avoid putting more burden on Junio; see https://lore.kernel.org/git/CABPp-BHeR6m4-M=nSX5NZtA2js3E3EVbAyDSMtp3-rN2QnUjqw@mail.gmail.com/
+Ævar noted a few bigger cleanups to surrounding code that could also be done, even if orthogonal to this series.  I'll leave those for other series to address.
+
+[1] See https://lore.kernel.org/git/pull.845.git.1614484707.gitgitgadget@gmail.com/ and batch 10 and 12 from https://github.com/gitgitgadget/git/pulls?q=is%3Apr+author%3Anewren+Optimization+batch
+CC: Ævar Arnfjörð Bjarmason avarab@gmail.com
+CC: Jonathan Nieder jrnieder@gmail.com
+CC: Derrick Stolee dstolee@microsoft.com
+CC: Junio C Hamano gitster@pobox.com
+cc: Elijah Newren newren@gmail.com
+cc: Derrick Stolee stolee@gmail.com",3,16
+977,2021-03-12T02:48:11Z,,2021-07-14T00:51:44Z,1,5,2,"git-p4: fix failed submit by skip non-text data files
+If the submit contain binary files, it will throw exception and stop submit when try to append diff line description.
+This commit will skip non-text data files when exception UnicodeDecodeError thrown.
+I am using git-p4 with UnrealEngine game projects and this fix works for me.
+Signed-off-by: dorgon.chang dorgonman@hotmail.com
+cc: Simon Hausmann simon@lst.de
+cc: Johannes Schindelin Johannes.Schindelin@gmx.de
+cc: ""dorgon.chang"" dorgon.chang@gmail.com",4,47
+982,2021-03-17T13:33:58Z,,2021-03-19T20:45:53Z,1,188,188,"Although  has the same functionality as test_path_is_file(), in
+the case where test_path_is_file() fails, we get much better debugging
+information.
+Replace  with test_path_is_file so that future developers
+will have a better experience debugging these test cases.",2,11
+996,2021-04-09T17:25:11Z,,2021-04-30T06:32:57Z,1,4,1,"AFAICT parsing the output of git diff --name-only master...feature
+is the intended way of programmatically getting the list of files modified
+by a feature branch. It is impossible to parse text unless you know what
+encoding it is in. The output encoding of diff --name-only and
+diff --name-status was not documented.
+I asked on the mailing list and got this:
+https://public-inbox.org/git/YGx2EMHnwXWbp4ET@coredump.intra.peff.net/
+
+There's some discussion in Documentation/i18n.txt, which is included in
+various manpages (e.g., https://git-scm.com/docs/git-log#_discussion)
+but it doesn't seem to be mentioned in git-diff.
+The short answer is: mostly utf8, but historically on platforms that
+don't care (like Linux) you could get away with other encodings.
+-Peff
+
+My takeaway was to always parse it as utf8 regardless of platform or
+environment.
+Changes since v1:
+
+Replace ""always"" with ""usually""
+Add a link to https://git-scm.com/docs/git-log
+Replace ""usually"" with ""often""",3,18
+997,2021-04-09T17:41:54Z,,2021-04-10T07:16:45Z,114,417,417,This is to solve the problem with the errors where the documentation was not properly followed.,3,8
+998,2021-04-11T16:30:32Z,,2021-07-14T23:18:19Z,1,1,1,,4,8
+1008,2021-04-19T09:57:18Z,,2021-07-14T00:51:06Z,18,170,159,"Rewrites some tests to avoid direct filesystem access.
+Introduces the test prereq REFFILES to mark other tests that depend on specifics of the files ref backend.
+changes in v3 (relative to v2 from Apr 27)
+
+address avarab's feedback.
+
+cc: SZEDER Gábor szeder.dev@gmail.com
+cc: Ævar Arnfjörð Bjarmason avarab@gmail.com
+cc: Han-Wen Nienhuys hanwen@google.com
+cc: Bagas Sanjaya bagasdotme@gmail.com",4,103
+1011,2021-04-23T10:09:11Z,,2021-04-23T15:51:21Z,5,27,29,"v2:
+
+peff's feedback. For now, leave refs.c alone; instead cleanups in files-backend and the ref backend API.
+
+cc: Han-Wen Nienhuys hanwen@google.com",1,8
+1012,2021-04-26T14:44:36Z,,2021-11-22T14:13:44Z,5,115,76,"v5
+
+address Ævar's comment; punt on clearing errno.
+
+cc: Han-Wen Nienhuys hanwen@google.com
+cc: Jonathan Tan jonathantanmy@google.com
+cc: Ævar Arnfjörð Bjarmason avarab@gmail.com",4,196
+1019,2021-05-06T10:12:25Z,,2021-06-15T16:03:11Z,1,4,4,"Signed-off-by: Lars Berntzon lars.berntzon@cecilia-data.se
+Thanks for taking the time to contribute to Git! Please be advised that the
+Git community does not use github.com for their contributions. Instead, we use
+a mailing list (git@vger.kernel.org) for code submissions, code reviews, and
+bug reports. Nevertheless, you can use GitGitGadget (https://gitgitgadget.github.io/)
+to conveniently send your Pull Requests commits to our mailing list.
+Please read the ""guidelines for contributing"" linked above!",3,12
+1020,2021-05-07T00:54:17Z,,2021-05-20T03:32:12Z,18,297,172,"This patchset fixes a few directory traversal issues, where fill_directory() would traverse into directories that it shouldn't and not traverse into directories that it should (one of which was originally reported on this list at [1]).  And it includes a few cleanups
+Changes since v4:
+
+Tweak the trace2 statistics emitting a bit, as per suggestions from Jeff.
+Introduce a new readdir_skip_dot_and_dotdot() helper at the end of the series, and use it everywhere we repeat the same code to skip '.' and '..' entries from readdir.  Also use it in dir.c's read_cached_dir() so we can be consistent about skipping it, even for statistics, across platforms.
+
+If anyone has any ideas about a better place to put the ""Some sidenotes"" from the sixth commit message rather than keeping them in a random commit message, that might be helpful.
+[1] See https://lore.kernel.org/git/DM6PR00MB06829EC5B85E0C5AC595004E894E9@DM6PR00MB0682.namprd00.prod.outlook.com/ or alternatively git-for-windows#2732.
+cc: Eric Sunshine sunshine@sunshineco.com
+cc: Elijah Newren newren@gmail.com
+cc: Derrick Stolee stolee@gmail.com
+cc: Jeff King peff@peff.net
+cc: Philip Oakley philipoakley@iee.email
+cc: Jeff Hostetler jeffhost@microsoft.com
+cc: Josh Steadmon steadmon@google.com
+cc: Jeff Hostetler git@jeffhostetler.com",2,35
+1029,2021-05-29T15:07:19Z,,2021-05-29T19:06:51Z,1,15,18,Grammatical Errors,3,3
+1030,2021-05-31T03:23:03Z,,2021-07-08T21:27:51Z,1,1,1,"The git log documentation says ""The default option is 'short'."" This is wrong. After testing, the default value of '--decorate' is 'auto', not 'short'.
+There is no difference between 'auto' and 'short' in terminal, but there is a significant difference in how they behave in the shell.The information generated by the 'short' can be saved in shell variables, while the 'auto' can't.
+Signed-off-by: AndyAo Zen96285@gmail.com
+cc: Bagas Sanjaya bagasdotme@gmail.com
+cc: Felipe Contreras felipe.contreras@gmail.com
+cc: ""Robert P. J. Day"" rpjday@crashcourse.ca
+cc: Derrick Stolee stolee@gmail.com
+cc: Đoàn Trần Công Danh         congdanhqx@gmail.com",4,47
+1033,2021-06-10T15:29:48Z,,2021-07-08T21:27:58Z,54,2513,512,"V2 replaces an #if'd memset with some brace initialisation (patch 3/3) as per review comments.
+I've also removed an irrelevant ""technically"" from commit message 2/3, and fixed a typo in commit message 3/3.
+cc: Chris Torek chris.torek@gmail.com
+cc: Jeff King peff@peff.net
+cc: Philip Oakley philipoakley@iee.email",5,36
+1036,2021-06-15T04:27:37Z,,2021-12-15T21:15:14Z,15,205,30,"Implement a zealous diff3, or ""zdiff3"".  This new mode is identical to ordinary diff3 except that it allows compaction of common lines between the two sides of history, if those common lines occur at the beginning or end of a conflict hunk.
+Change since v4:
+
+None; just resending because v3 wasn't picked up.
+
+Changes since v3:
+
+More fixes from Phillip.
+Marked Phillip as the author of the first commit because he's written most the code now; gave myself a co-authored-by trailer on that commit.
+Removed the RFC label since it's now passing our tests.
+
+Changes since v2:
+
+Included more fixes from Phillip, and a new testcase
+
+Changes since v1:
+
+Included fixes from Phillip (thanks!)
+Added some testcases
+
+cc: Jeff King peff@peff.net
+cc: Elijah Newren newren@gmail.com
+cc: Sergey Organov sorganov@gmail.com
+cc: Johannes Sixt j6t@kdbg.org
+cc: Phillip Wood phillip.wood123@gmail.com
+cc: Bagas Sanjaya bagasdotme@gmail.com
+cc: Eric Sunshine sunshine@sunshineco.com",4,286
+1037,2021-06-15T16:25:20Z,,2021-08-16T18:05:10Z,12,42,27,"This series plugs more leaks found while running t0002-t0099 with LSAN.
+See also the first series (already merged) at [1]. I'm currently expecting at least another 2 series before t0002-t0099 run leak free. I'm not being particularly systematic about the order of patches - although I am focusing on ""real"" (if mostly small) leaks first, before sending out the more boring patches that add free()/UNLEAK() to cmd_* and direct helpers thereof.
+ATB,
+Andrzej
+[1] https://lore.kernel.org/git/pull.929.git.1617994052.gitgitgadget@gmail.com/",3,4
+1039,2021-06-26T07:56:10Z,,2021-07-19T21:14:44Z,3,193,7,"Anders Kaseorg recently reported a few issues in an interesting rename case[1].  I was able to duplicate and find multiple bugs from it; two in merge-recursive, and one in merge-ort.  This series has some fixes.
+Changes since v1:
+
+Added a third testcase
+
+[1] https://lore.kernel.org/git/CABPp-BGDfucqae=HNES_QmmsjpDbdHrR6CG=H3gtiDygHzquVg@mail.gmail.com/
+cc: Derrick Stolee stolee@gmail.com
+cc: Elijah Newren newren@gmail.com",1,26
+1041,2021-07-05T11:49:18Z,,2021-10-25T23:49:41Z,15,1341,66,"openssh 8.7 will add valid-after, valid-before options to the allowed keys keyring. This allows us to pass the commit timestamp to the verification call and make key rollover possible and still be able to verify older commits.
+Set valid-after to the current date when adding your key to the keyring and set valid-before to make it fail if used after a certain date.
+Software like gitolite/github or corporate automation can do this automatically when ssh push keys are addded / removed
+I will add this feature in a follow up patch afterwards since the released 8.7 version has a broken ssh-keygen implementation which will break ssh signing completely.
+v7:
+
+change unknown signing key behavior to fail verify-commit/tag just like gpg does
+add test for unknown signing keys for ssh & gpg
+made default signing key retrieval configurable (gpg.ssh.defaultKeyCommand). We could default this to ""ssh-add -L"" but would risk some users signing with a wrong key
+die() instead of error in case of incompatible signatures to match current BUG() behaviour more
+various review fixes (early return for config parse, missing free, comments)
+got rid of strcmp(""ssh"") branches and used format configurable callbacks everywhere
+moved documentation changes into the commits adding the specific functionality
+
+v8:
+
+fixes a bug around find-principals buffer i was releasing while still iterating over it. Uses separate strbufs now.
+rename a wrong variable in the tests
+use git_config_pathname instead of string where applicable
+
+cc: Han-Wen Nienhuys hanwen@google.com
+cc: Fabian Stelzer fs@gigacodes.de
+cc: ""brian m. carlson"" sandals@crustytoothpaste.net
+cc: ""Randall S. Becker"" rsbecker@nexbridge.com
+cc: Bagas Sanjaya bagasdotme@gmail.com
+cc: Hans Jerry Illikainen hji@dyntopia.com
+cc: Ævar Arnfjörð Bjarmason avarab@gmail.com
+cc: Felipe Contreras felipe.contreras@gmail.com
+cc: Eric Sunshine sunshine@sunshineco.com
+cc: Gwyneth Morgan gwymor@tilde.club
+cc: Jonathan Tan jonathantanmy@google.com
+cc: Josh Steadmon steadmon@google.com
+cc: Carlo Arenas carenas@gmail.com
+cc: Fabian Stelzer fs@gigacodes.de
+cc: Ævar Arnfjörð Bjarmason avarab@gmail.com
+cc: ""brian m. carlson"" sandals@crustytoothpaste.net",10,255
+1043,2021-07-10T09:30:20Z,,2021-08-16T16:17:06Z,9,198,19,"packfile: freshen the mtime of packfile by bump file
+We've talked about the cache reload through earlier patches,
+and we stopped because no further evidence can tell NFS client
+will reload the page caches if the file mtime changed. So
+our team have done these experiments:
+Step1: prepare git servers which mount the NFS disk and a big repo
+We prepared 3 vms named c1, s1 and s2, we also have a NFS server
+named n1. s1 and s2 mount the NFS disk from n1 by:
+    mount -t nfs -o vers=3,timeo=600,nolock,noatime,lookupcache=postive,\
+    actimeo=3 <n1 ip addr>:/repositories /mnt/repositories
+
+We setup git server services on s1 and s2, so we can clone repos
+from s1 by git commands. Then we created a repository under
+/mnt/repositories, and pushed large files to the repository, so we can
+find a large .pack file in the repository with about 1.2 GB size.
+Step2: do first git clone from client after drop caches of s1
+First we drop the caches from s1 by:
+    sync; echo 3 > /proc/sys/vm/drop_caches
+
+Then we run git command in c1 to clone the huge repository we created
+in Step1, at the same time we run the two commands in s1:
+    tcpdump -nn host <n1 ip addr> -w 1st_command.pcap
+    nfsiostat 1 -p /mnt/repositories
+
+try to get the result and check what happends.
+Step3: do new git clones without drop caches of s1
+After Step2, we called new git clone command in c1 to clone
+the huge repository for serveral times, and also run the commands at the
+same time:
+    tcpdump -nn host <n1 ip addr> -w lots_of_command.pcap
+    nfsiostat 1 -p /mnt/repositories
+
+Step4: do new git clones with packfile mtime changed
+After Step2 and Step3, we try to touch all the "".pack"" files from
+s2, and we call a new git clone in c1 to download the huge repository
+again, and run the two command in s1 at the same time:
+    tcpdump -nn host <n1 ip addr> -w mtime_changed_command.pcap
+    nfsiostat 1 -p /mnt/repositories
+
+Result:
+We got a about 1.4GB big pcap file during Step2 and Step4, we can find
+lots of READ request and response after open it with wireshark. And by
+'nfsiostat' command we can see the 'ops/s' and 'KB/s' of 'read'
+in the output shows a relatively large value for a while.
+But we got a 4MB pcap file in Step3, and open it with wireshark, we can
+only find GETATTR and FSSTAT requests and response. And we the 'nfsiostat'
+always show 0 in 'ops/s' and 'KB/s' of 'read' part in the output.
+We have done Step1 to Step4 serveral times, each time the result are same.
+So we can make sure the NFS client will reload the page cache if other NFS
+client changes the mtime of the large .pack files. And for git servers
+which use filesystem like NFS to manage large repositories, reload large
+files that only have mtime changed result big NFS server IOPS pressure and
+that also makes the git server slow because the IO is the bottleneck when
+there are too many client requests for the same big repositries.
+And I do think the team who manage the git servers need a configuration
+choise which can enhance the mtime of packfile through another file which
+should be small enough or even empty. It should be backward compatibility
+when it is in default value, but just as metioned by Ævar before, maybe
+somepeople what to use it in mixed-version environment, we should warn
+them in documents, but such configuration do big help for some team who
+run some servers mount the NFS disks.",3,62
+1047,2021-07-14T23:29:49Z,,2021-07-15T20:41:06Z,17,242,113,"We've recently discussed how to handle conflicting configuration and command line options in git pull, including at least a few different proposals[1][2][3] to handle different subsets of the possibilities.  We also have a user report from someone who had conflicting configuration and got surprised when one of the options overruled the other -- with no warning from the command or the documentation that such would happen.  Here's my attempt to impose clear and simple rules, which can be seen in the commit message of the third patch.
+(The first two patches are just preparatory changes to make patch 3 easier to read.)
+Since the handling of conflicting options was holding up two of Alex's patches[4][5], I also include those two patches at the end of my series, though I've made quite a few changes and additions to the latter of those.
+Possible areas of concern:
+
+Documentation/git-pull.txt includes merge-options.txt.  While git-rebase supports many of those ""merge"" options, I suspect there are others that it does not support.  We are probably silently ignoring those unsupported options whenever one of those is specified at the same time a rebase is requested; we should instead likely error out and report the incompatibility.  I have not yet addressed that, as I was focused on the main rebase vs. merge incompatibility and default warning/error associated with it.
+
+[1] https://lore.kernel.org/git/00e246b1-c712-e6a5-5c27-89127d796098@gmail.com/
+[2] https://lore.kernel.org/git/xmqq8s2b489p.fsf@gitster.g/
+[3] https://lore.kernel.org/git/CABPp-BERS0iiiVhSsSs6dkqzBVTQgwJUjjKaZQEzRDGRUdObcQ@mail.gmail.com/
+[4] https://lore.kernel.org/git/20210711012604.947321-1-alexhenrie24@gmail.com/
+[5] https://lore.kernel.org/git/20210627000855.530985-1-alexhenrie24@gmail.com/
+cc: Alex Henrie alexhenrie24@gmail.com
+cc: Phillip Wood phillip.wood123@gmail.com
+cc: Son Luong Ngoc sluongng@gmail.com
+cc: Eric Sunshine sunshine@sunshineco.com
+cc: Felipe Contreras felipe.contreras@gmail.com
+cc: Elijah Newren newren@gmail.com
+cc: Ævar Arnfjörð Bjarmason avarab@gmail.com",2,8
+1049,2021-07-17T07:25:28Z,,2021-08-31T00:05:53Z,18,371,83,"Based on a recent list of rules for flag/option precedence for git-pull[1] from Junio (particularly focusing on rebase vs. merge vs. fast-forward), here's an attempt to implement and document it.  Given multiple recent surprises from users about some of these behaviors[2][3] and a coworker just yesterday expressing some puzzlement with git-pull and rebase vs. merge, it seems like a good time to address some of these issues.
+Since the handling of conflicting options was holding up two of Alex's patches[4][5], and his patches fix some of the tests, I also include those two patches in my series, with a few small changes to the first (so I've kept him as author) and more substantial changes to the second (so I've given him an Initial-patch-by attribution).
+Changes since v2:
+
+Remove some unnecessary changes in patch 4, pointed out by Junio.
+
+Changes since v1:
+
+Rebased on latest master (resolved a simple conflict with dd/test-stdout-count-lines)
+Patch 1: based on feedback from Junio, fixed some style issues, clarified function names, added a few new tests, and took a stab at fixing up the comments and test descriptions (but still unsure if I hit the mark on the last point)
+Patch 2: changed the test expectations for one of the multiple head tests as per Junio's suggestion, and made one of the other tests expect a more specific error message
+Patches 4 & 5 were squashed and fixed: these now address a submodule bug interaction with --ff-only
+Old patch 6 (now 5): added a code comment explaining a subtle point
+Old patch 8 (now 7): a few more documentation updates, especially making --ff-only not sound merge-specific
+Old patch 9 (now 8): Updates for new test expectation from patch 2
+
+Quick overview:
+
+Patches 1-2: new testcases (see the commit messages for the rules)
+Patch 3: Alex's recent patch (abort if --ff-only but can't do so)
+Patches 4-6: fix the precedence parts Alex didn't cover
+Patch 7: Alex's other patch, abort if rebase vs. merge not specified
+Patch 8: Compatibility of git-pull with merge-options.txt (think rebasing)
+Patch 9: Fix multiple heads handling too
+
+[1] https://lore.kernel.org/git/xmqqwnpqot4m.fsf@gitster.g/
+[2] https://lore.kernel.org/git/CAL3xRKdOyVWvcLXK7zoXtFPiHBjgL24zi5hhg+3yjowwSUPgmg@mail.gmail.com/
+[3] https://lore.kernel.org/git/c62933fb-96b2-99f5-7169-372f486f6e39@aixigo.com/
+[4] https://lore.kernel.org/git/20210711012604.947321-1-alexhenrie24@gmail.com/
+[5] https://lore.kernel.org/git/20210627000855.530985-1-alexhenrie24@gmail.com/
+cc: Alex Henrie alexhenrie24@gmail.com
+cc: Son Luong Ngoc sluongng@gmail.com
+cc: Matthias Baumgarten matthias.baumgarten@aixigo.com
+cc: Eric Sunshine sunshine@sunshineco.com
+cc: Ævar Arnfjörð Bjarmason avarab@gmail.com
+cc: Elijah Newren newren@gmail.com
+cc: Felipe Contreras felipe.contreras@gmail.com",3,65
+1052,2021-07-19T17:36:30Z,,2021-08-24T23:31:33Z,10,35,24,"This fixes a few test failures in the reftable series.
+cc: Han-Wen Nienhuys hanwen@google.com",1,78
+1054,2021-07-19T17:50:41Z,,2022-10-24T15:45:34Z,95,13176,62,"This continues the work in #847, which the gitgitgadget erroneously closed.
+Changes relative to last series (version 17 Aug 2021, tip: 3110d6e)
+
+drop FUNCTION use
+use REALLOC_ARRAY; remove informational errno
+avarab's comments on tests
+fix assert failure in worktree reflog expiry.
+
+For the 'seen' branch, the following should be applied:
+diff --git a/refs/reftable-backend.c b/refs/reftable-backend.c
+index d7137d1213..9323931eeb 100644
+--- a/refs/reftable-backend.c
++++ b/refs/reftable-backend.c
+@@ -108,7 +108,7 @@ static const char *bare_ref_name(const char *ref)
+ static int git_reftable_read_raw_ref(struct ref_store *ref_store,
+ 				     const char *refname, struct object_id *oid,
+ 				     struct strbuf *referent,
+-				     unsigned int *type);
++				     unsigned int *type, int *failure_errno);
+ 
+ static void clear_reftable_log_record(struct reftable_log_record *log)
+ {
+@@ -425,13 +424,14 @@ static int fixup_symrefs(struct ref_store *ref_store,
+ 	for (i = 0; i < transaction->nr; i++) {
+ 		struct ref_update *update = transaction->updates[i];
+ 		struct object_id old_oid;
++		int failure_errno;
+ 
+ 		err = git_reftable_read_raw_ref(ref_store, update->refname,
+ 						&old_oid, &referent,
+ 						/* mutate input, like
+ 						   files-backend.c */
+-						&update->type);
+-		if (err < 0 && errno == ENOENT &&
++						&update->type, &failure_errno);
++		if (err < 0 && failure_errno == ENOENT &&
+ 		    is_null_oid(&update->old_oid)) {
+ 			err = 0;
+ 		}
+@@ -1602,7 +1603,7 @@ static int reftable_error_to_errno(int err)
+ static int git_reftable_read_raw_ref(struct ref_store *ref_store,
+ 				     const char *refname, struct object_id *oid,
+ 				     struct strbuf *referent,
+-				     unsigned int *type)
++				     unsigned int *type, int *failure_errno)
+ {
+ 	struct git_reftable_ref_store *refs =
+ 		(struct git_reftable_ref_store *)ref_store;
+@@ -1626,13 +1627,11 @@ static int git_reftable_read_raw_ref(struct ref_store *ref_store,
+ 
+ 	err = reftable_stack_read_ref(stack, refname, &ref);
+ 	if (err > 0) {
+-		errno = ENOENT;
++		*failure_errno = ENOENT;
+ 		err = -1;
+ 		goto done;
+ 	}
+ 	if (err < 0) {
+-		errno = reftable_error_to_errno(err);
+-		err = -1;
+ 		goto done;
+ 	}
+
+cc: Carlo Marcelo Arenas Belón carenas@gmail.com
+cc: Han-Wen Nienhuys hanwen@google.com
+cc: Philip Oakley philipoakley@iee.email
+cc: Ævar Arnfjörð Bjarmason avarab@gmail.com
+cc: Carlo Arenas carenas@gmail.com
+cc: Han-Wen Nienhuys hanwen@google.com
+cc: Ævar Arnfjörð Bjarmason avarab@gmail.com",3,125
+1055,2021-07-22T21:16:15Z,,2021-08-03T23:07:45Z,9,103,71,"This is an RFC series designed to spur feedback about switching the default merge backend (reviewing the patches is of secondary importance at this point).  Some questions:
+
+Are there things others want before this series is considered for inclusion?
+What kind of timeline do others think is reasonable?
+Would it be beneficial to let this series sit in 'next' for an extended duration to gain more feedback?
+
+Some potentially useful context in relation to the above:
+
+I've personally used the ort backend for well over a year
+I have ~50 testers using ort as the default merge backend since Nov. 2020.
+ort fixes known bugs in recursive, and there are no known regressions (more testers may change that)
+ort is significantly faster than recursive
+ort provides one new feature already, and enables more that are on the way
+The commit message of patch 1 has more details about the last three items above
+
+So...thoughts?
+cc: Christian Couder chriscool@tuxfamily.org
+cc: Derrick Stolee dstolee@microsoft.com
+cc: Emily Shaffer emilyshaffer@google.com
+cc: Eric Sunshine sunshine@sunshineco.com
+cc: Jeff King peff@peff.net
+cc: Johannes Schindelin Johannes.Schindelin@gmx.de
+cc: Jonathan Nieder jrnieder@gmail.com
+cc: Jonathan Tan jonathantanmy@google.com
+cc: Junio C Hamano gitster@pobox.com
+cc: Phillip Wood phillip.wood@dunelm.org.uk
+cc: René Scharfe l.s.r@web.de
+cc: Taylor Blau me@ttaylorr.com
+cc: Ævar Arnfjörð Bjarmason avarab@gmail.com
+cc: Derrick Stolee stolee@gmail.com
+cc: Elijah Newren newren@gmail.com",1,16
+1059,2021-08-01T05:00:35Z,,2021-08-31T00:06:02Z,6,55,42,"I noticed while updating my switch-default-merge-strategy-to-ort submission, that many of the changes were good documentation updates that we might want for Git v2.33.0.  So I pulled those changes out and split them into lots of little commits so that if any parts need discussion or are objectionable, we can just drop those from this series and apply the rest for v2.33.0.
+The first 9 commits are just small documentation updates, but there is one commit at the end that updates an error message and a code comment.
+Changes since v1:
+
+Multiple tweaks suggested by Eric, Dscho, and Junio
+Removed patch 7 explaining no-renames since that probably belongs in git diff --no-renames instead, and this series is about merge-strategies.
+Inserted a new patch 8 that strikes some misleading or at least no-longer-important text from git-rebase.txt (due changes back in late 2006).
+
+Changes since v2:
+
+Removed sentence from commit message of patch 8 referring to a change in v1 that was since removed.
+Added Stolee's and Dscho's Acked-bys.
+
+cc: Eric Sunshine sunshine@sunshineco.com
+cc: Johannes Schindelin Johannes.Schindelin@gmx.de
+cc: Junio C Hamano gitster@pobox.com
+cc: Derrick Stolee stolee@gmail.com
+cc: Ramsay Jones ramsay@ramsayjones.plus.com",2,53
+1064,2021-08-10T07:48:17Z,,2021-08-10T10:48:22Z,1,119,0,"…served.  *  * You are hereby granted a non-exclusive, worldwide, royalty-free license to  * use, copy, modify, and distribute this software in source code or binary  * form for use in connection with the web services and APIs provided by  * Facebook.  *  * As with any software that integrates with the Facebook platform, your use  * of this software is subject to the Facebook Developer Principles and  * Policies [http://developers.facebook.com/policy/]. This copyright notice  * shall be included in all copies or substantial portions of the software.  *  * THE SOFTWARE IS PROVIDED ""AS IS"", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,  * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL  * THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING  * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER  * DEALINGS IN THE SOFTWARE.  *  */  require DIR . '/vendor/autoload.php';  use FacebookAds\Object\AdAccount; use FacebookAds\Object\Campaign; use FacebookAds\Object\AdSet; use FacebookAds\Object\AdCreative; use FacebookAds\Object\Ad; use FacebookAds\Object\AdPreview; use FacebookAds\Api; use FacebookAds\Logger\CurlLogger;  $access_token = 'EAANwV8g8ObkBAKtpqryOZCL0tUJy36J8C3C5DSDjdqLHM4vDdH4f3HFV1CGO1790gZAJf3lZCCvPLgLYv9GZB5tNB06X7JhxZCZCTKcutDvU3ZBAdzQPQKWyvvGaG62b9xj6WiveSwemQdvE33RzYOrFGL07zRMyZCU3yu6MgqNiALTSf78VNxuSqXLvGDGZC3xMZD'; $ad_account_id = 'act_188837559974256'; $app_secret = 'f64b016f6141698bb814d0db0a08b8da'; $page_id = '103543658666930'; $app_id = '967947253987769';  $api = Api::init($app_id, $app_secret, $access_token); $api->setLogger(new CurlLogger());  $fields = array( ); $params = array(   'name' => 'My Campaign',   'buying_type' => 'AUCTION',   'objective' => 'PAGE_LIKES',   'status' => 'PAUSED', ); $campaign = (new AdAccount($ad_account_id))->createCampaign(   $fields,   $params ); $campaign_id = $campaign->id; echo 'campaign_id: ' . $campaign_id . ""\n\n"";  $fields = array( ); $params = array(   'name' => 'My AdSet',   'optimization_goal' => 'PAGE_LIKES',   'billing_event' => 'IMPRESSIONS',   'bid_amount' => '20',   'promoted_object' => array('page_id' =>  $page_id),   'daily_budget' => '1000',   'campaign_id' => $campaign_id,   'targeting' => array('geo_locations' => array('countries' => array('US'))),   'status' => 'PAUSED', ); $ad_set = (new AdAccount($ad_account_id))->createAdSet(   $fields,   $params ); $ad_set_id = $ad_set->id; echo 'ad_set_id: ' . $ad_set_id . ""\n\n"";  $fields = array( ); $params = array(   'name' => 'My Creative',   'object_id' => $page_id,   'title' => 'My Page Like Ad',   'body' => 'Like My Page',   'image_url' => 'http://www.facebookmarketingdevelopers.com/static/images/resource_1.jpg', ); $creative = (new AdAccount($ad_account_id))->createAdCreative(   $fields,   $params ); $creative_id = $creative->id; echo 'creative_id: ' . $creative_id . ""\n\n"";  $fields = array( ); $params = array(   'name' => 'My Ad',   'adset_id' => $ad_set_id,   'creative' => array('creative_id' => $creative_id),   'status' => 'PAUSED', ); $ad = (new AdAccount($ad_account_id))->createAd(   $fields,   $params ); $ad_id = $ad->id; echo 'ad_id: ' . $ad_id . ""\n\n"";  $fields = array( ); $params = array(   'ad_format' => 'DESKTOP_FEED_STANDARD', ); echo json_encode((new Ad($ad_id))->getPreviews(   $fields,   $params )->getResponse()->getContent(), JSON_PRETTY_PRINT);
+Hajaahajahua
+Thanks for taking the time to contribute to Git! Please be advised that the
+Git community does not use github.com for their contributions. Instead, we use
+a mailing list (git@vger.kernel.org) for code submissions, code reviews, and
+bug reports. Nevertheless, you can use GitGitGadget (https://gitgitgadget.github.io/)
+to conveniently send your Pull Requests commits to our mailing list.
+Please read the ""guidelines for contributing"" linked above!",3,2
+1067,2021-08-16T18:36:26Z,,2022-02-17T12:51:28Z,14,101,121,"<As discussed in CAFQ2z_Ps3YxycA+NJ9VKt_PEXb+m83JdNB7ujzWw1fTPKyZ=fg@mail.gmail.com
+v4:
+
+rebase; resolve conflict
+
+cc: Taylor Blau me@ttaylorr.com
+cc: Ævar Arnfjörð Bjarmason avarab@gmail.com
+cc: Han-Wen Nienhuys hanwen@google.com",1,15
+1074,2021-08-21T18:42:16Z,,2022-09-21T21:52:21Z,8,192,100,"This allows ident to be something like $FreeBSD$ so it provides matching functionality for repos migrated from CVS / SVN.
+This works by allowing ident to have a parameter, i.e.:
+* ident=MyCustomId
+In .gitattributes.
+cc: Philip Oakley philipoakley@iee.email
+cc: Matheus Tavares matheus.bernardino@usp.br
+cc: Đoàn Trần Công Danh         congdanhqx@gmail.com",5,220
+1076,2021-08-25T01:00:24Z,,2022-06-08T12:54:38Z,33,605,47,"Thanks to everyone for review so far!
+This series shares the base tmp-objdir patches with my merged version of Elijah Newren's remerge-diff series at:
+https://github.com/neerajsi-msft/git/tree/neerajsi/remerge-diff.
+Changes between v8 and v9 [1]:
+
+Rebased onto master at tag v2.34.0
+Fixed git-prune bug when trying to clean up multiple cruft directories.
+Preserve the tmp-objdir around update_relative_gitdir, which is called
+by setup_work_tree through the chdir_notify mechanism.
+Per [2], I'm leaving the fsyncObjectFiles configuration as is with 'true', 'false', and 'batch'. This makes using old and new versions of git with 'batch' mode a little trickier, but hopefully people will generally be moving forward in versions.
+
+[1] See https://lore.kernel.org/git/pull.1067.git.1635287730.gitgitgadget@gmail.com/
+[2] https://lore.kernel.org/git/xmqqh7cimuxt.fsf@gitster.g/
+Changes between v7 and v8:
+
+
+Dropped the tmp-objdir patch to avoid renaming in a quarantine/temporary objdir, as suggested by Jeff King. This wasn't a good idea because we don't really know that there's only a single reader/writer.  Avoiding the rename was a relatively minor perf optimization so it's okay to drop.
+
+
+Added disable_ref_updates logic (as a flag on the odb) which is set when we're in a quarantine or when a tmp objdir is active. I believe this roughly follows the strategy suggested by Jeff King.
+
+
+CC:Neeraj-Personal nksingh85@gmail.com, Johannes Schindelin Johannes.Schindelin@gmx.de, Jeff King peff@peff.net,  Jeff Hostetler jeffhost@microsoft.com, Christoph Hellwig hch@lst.de, Ævar Arnfjörð Bjarmason avarab@gmail.com
+cc: ""Randall S. Becker"" rsbecker@nexbridge.com
+cc: Bagas Sanjaya bagasdotme@gmail.com
+cc: Elijah Newren newren@gmail.com
+cc: Ævar Arnfjörð Bjarmason avarab@gmail.com
+cc: Neeraj Singh nksingh85@gmail.com
+cc: Patrick Steinhardt ps@pks.im
+cc: Neeraj Singh nksingh85@gmail.com
+cc: Ævar Arnfjörð Bjarmason avarab@gmail.com
+cc: Elijah Newren newren@gmail.com
+cc: rsbecker@nexbridge.com",2,156
+1080,2021-08-29T00:36:44Z,,2021-12-21T16:22:06Z,31,471,57,"Here are some patches to add a --remerge-diff capability to show & log, which works by comparing merge commits to an automatic remerge (note that the automatic remerge tree can contain files with conflict markers).
+Changes since v1:
+
+Modified to use ns/tmp-objdir, and rebased on top of that topic
+Modify ll-merge API to return a status, instead of printing ""Cannot merge binary files"" on stdout (as suggested by Peff)
+Make conflict messages and other such warnings into diff headers of the subsequent remerge-diff rather than appearing in the diff as file content of some funny looking filenames (as suggested by Peff and Junio[3])
+Sergey ack'ed the diff-merges.c portion of the patches, but that wasn't limited to one patch so not sure where to record that ack.
+
+[1] https://lore.kernel.org/git/YVOZRhWttzF18Xql@coredump.intra.peff.net/, https://lore.kernel.org/git/YVOZty9D7NRbzhE5@coredump.intra.peff.net/
+[2] https://lore.kernel.org/git/YVOXPTjsp9lrxmS6@coredump.intra.peff.net/
+[3] https://lore.kernel.org/git/xmqqr1d7e4ug.fsf@gitster.g/
+=== ORIGINAL COVER LETTER MATERIAL ==
+Here are some example commits you can try this out on (with git show --remerge-diff $COMMIT):
+
+git.git conflicted merge:      07601b5
+git.git non-conflicted change: bf04590
+linux.git conflicted merge:      eab3540562fb
+linux.git non-conflicted change: 223cea6a4f05
+
+Many more can be found by just running git log --merges --remerge-diff in your repository of choice and searching for diffs (most merges tend to be clean and unmodified and thus produce no diff but a search of '^diff' in the log output tends to find the examples nicely).
+Some basic high level details about this new option:
+
+This option is most naturally compared to --cc, though the output seems to be much more understandable to most users than --cc output.
+Since merges are often clean and unmodified, this new option results in an empty diff for most merges.
+This new option shows things like the removal of conflict markers, which hunks users picked from the various conflicted sides to keep or remove, and shows changes made outside of conflict markers (which might reflect changes needed to resolve semantic conflicts or cleanups of e.g. compilation warnings or other additional changes an integrator felt belonged in the merged result).
+This new option does not (currently) work for octopus merges, since merge-ort is specific to two-parent merges[1].
+This option will not work on a read-only or full filesystem[2].
+We discussed this capability at Git Merge 2020, and one of the suggestions was doing a periodic git gc --auto during the operation (due to potential new blobs and trees created during the operation).  I found a way to avoid that; see [2].
+This option is faster than you'd probably expect; it handles 33.5 merge commits per second in linux.git on my computer; see below.
+
+In regards to the performance point above, the timing for running the following command:
+time git log --min-parents=2 --max-parents=2 $DIFF_FLAG | wc -l
+
+in linux.git (with v5.4 checked out, since my copy of linux is very out of date) is as follows:
+DIFF_FLAG=--cc:            71m 31.536s
+DIFF_FLAG=--remerge-diff:  31m  3.170s
+
+Note that there are 62476 merges in this history.  Also, output size is:
+DIFF_FLAG=--cc:            2169111 lines
+DIFF_FLAG=--remerge-diff:  2458020 lines
+
+So roughly the same amount of output as --cc, as you'd expect.
+As a side note: git log --remerge-diff, when run in various repositories and allowed to run all the way back to the beginning(s) of history, is a nice stress test of sorts for merge-ort.  Especially when users run it for you on their repositories they are working on, whether intentionally or via a bug in a tool triggering that command to be run unexpectedly.  Long story short, such a bug in an internal tool existed last December and this command was run on an internal repository and found a platform-specific bug in merge-ort on some really old merge commit from that repo.  I fixed that bug (a STABLE_QSORT thing) while upstreaming all the merge-ort patches in the mean time, but it was nice getting extra testing.  Having more folks run this on their repositories might be useful extra testing of the new merge strategy.
+Also, I previously mentioned --remerge-diff-only (a flag to show how cherry-picks or reverts differ from an automatic cherry-pick or revert, in addition to showing how merges differ from an automatic merge).  This series does not include the patches to introduce that option; I'll submit them later.
+Two other things that might be interesting but are not included and which I haven't investigated:
+
+some mechanism for passing extra merge options through (e.g. -Xignore-space-change)
+a capability to compare the automatic merge to a second automatic merge done with different merge options.  (Not sure if this would be of interest to end users, but might be interesting while developing new a --strategy-option, or maybe checking how changing some default in the merge algorithm would affect historical merges in various repositories).
+
+[1] I have nebulous ideas of how an Octopus-centric ORT strategy could be written -- basically, just repeatedly invoking ort and trying to make sure nested conflicts can be differentiated.  For now, though, a simple warning is printed that octopus merges are not handled and no diff will be shown.
+[2] New blobs/trees can be written by the three-way merging step.  These are written to a temporary area (via tmp-objdir.c) under the git object store that is cleaned up at the end of the operation, with the new loose objects from the remerge being cleaned up after each individual merge.
+cc: Jeff King peff@peff.net
+cc: Jonathan Nieder jrnieder@gmail.com
+cc: Sergey Organov sorganov@gmail.com
+cc: Bagas Sanjaya bagasdotme@gmail.com
+cc: Elijah Newren newren@gmail.com
+cc: Ævar Arnfjörð Bjarmason avarab@gmail.com
+cc: Neeraj Singh nksingh85@gmail.com",3,164
+1081,2021-08-30T14:11:01Z,,2021-12-15T21:15:27Z,69,11125,12,"The reftable format is described in Documentation/technical/reftable.txt.
+This is a fully reentrant implementation of reading and writing the reftable file format, and should be suitable for embedding in libgit2 too. It does not hook the code up to git to function as a ref storage backend yet.
+v4:
+
+fixes by Carlo Belón.
+remove RFC from LICENSE commit.
+
+cc: Han-Wen Nienhuys hanwen@google.com
+cc: Carlo Marcelo Arenas Belón         carenas@gmail.com
+cc: Ævar Arnfjörð Bjarmason avarab@gmail.com",2,179
+1082,2021-08-30T19:15:46Z,,2021-09-10T20:17:16Z,2,5,1,"""enum"" keyword will be introduced in PHP 8.1.
+https://wiki.php.net/rfc/enumerations",3,26
+1086,2021-09-08T00:25:18Z,,2021-10-04T19:35:35Z,2,75,3,"This series fixes a few D/F issues in the stash command.  These were some issues I found while working on unintentional removal of untracked files/directories and the current working directory, and I'm just submitting them separately.
+Changes since v1:
+
+Fix accidental creation of file named 'expect' (copy-paste problem...)
+Documented the reason for adding is_path_a_directory() and not using is_directory()
+Removed typo, fixed up confusing wording, and added a companion test to show that F->D and D->F have the same fix.
+
+cc: Johannes Schindelin Johannes.Schindelin@gmx.de
+cc: Derrick Stolee stolee@gmail.com",3,39
+1087,2021-09-08T00:32:01Z,,2021-09-23T22:20:05Z,3,43,1,"This series documents a few issues with git am --abort in the form of new testcases, and fixes one of them.  However, while I was surprised the abort left the working directory dirty, I couldn't find any documentation to confirm it should or shouldn't be, and reading the code led me to question if perhaps it was intentional.  Anyway, if it's intended, let me know and I'll drop that testcase.
+For frame of reference, these were some issues I found while working on unintentional removal of untracked files/directories and the current working directory, and I'm just submitting them separately.
+Changes since v1:
+
+Added a patch to tweak the documentation to clarify that partial cleaning of worktree is expected with --abort
+Tweaked the second test to be a test that unrelated dirty files are kept, as suggested by Junio
+
+cc: Bagas Sanjaya bagasdotme@gmail.com
+cc: Elijah Newren newren@gmail.com
+cc: Johannes Schindelin Johannes.Schindelin@gmx.de",2,35
+1088,2021-09-08T00:32:40Z,,2021-09-23T22:20:10Z,12,18,4,"Changes since v1:
+
+Added Acked-by's from Stolee and Dscho",2,23
+1092,2021-09-18T12:55:15Z,,2021-12-04T09:19:30Z,203,5598,4173,"Carlo points out that t0000 currently doesn't pass with leak-checking enabled in:
+https://public-inbox.org/git/CAPUEsphMUNYRACmK-nksotP1RrMn09mNGFdEHLLuNEWH4AcU7Q@mail.gmail.com/T/#m7e40220195d98aee4be7e8593d30094b88a6ee71
+Here's a series that I've sat on for a while, which adds some UNLEAK's to ""fix"" this situation - see the individual patches for a justification of why an UNLEAK seems appropriate.
+ATB,
+Andrzej
+CC: Carlo Arenas carenas@gmail.com
+cc: Ævar Arnfjörð Bjarmason avarab@gmail.com
+cc: Eric Sunshine sunshine@sunshineco.com
+cc: Jeff King peff@peff.net",3,66
+1103,2021-10-07T17:51:22Z,,2021-10-12T22:59:02Z,4,275,129,"This series aims to make the remotes subsystem work with
+non-the_repository, which will allow submodule remotes to be accessed
+in-process, rather than through child processes. This is accomplished by
+creating a struct remote_state and adding it to struct repository.
+One motivation for this is that it allows future submodule commands to run
+in-process. An example is an RFC series of mine [1], where I tried to implement
+""git branch --recurse-submodules"" in-process but couldn't figure out how to
+read the remotes of a submodule.
+For the most part, this was a mechanical process of taking static variables and
+putting them in a struct. As such, I think this series might benefit from
+thoughtful review, especially from people with more insight into this
+area. Some areas I am extra concerned about are:
+
+Naming, especially the renaming of variables in patch 1 and the field names in
+patch 2. I don't really like the name ""remote_state"", but I can't think of a
+better one.
+Memory leaks - I am not confident that remote_state_clear() frees all
+of the memory that it should. I tried to eliminate as many leaks as I
+could with ""make SANITIZE=address,leak"", but I'm not confident that
+I've caught them all.
+
+[1] https://lore.kernel.org/git/20210921232529.81811-1-chooglen@google.com/
+cc: Jonathan Tan jonathantanmy@google.com
+cc: Jonathan Tan jonathantanmy@google.com",2,63
+1109,2021-10-15T08:13:33Z,,2021-10-22T13:32:51Z,1,71,0,"Thanks for taking the time to contribute to Git! Please be advised that the
+Git community does not use github.com for their contributions. Instead, we use
+a mailing list (git@vger.kernel.org) for code submissions, code reviews, and
+bug reports. Nevertheless, you can use GitGitGadget (https://gitgitgadget.github.io/)
+to conveniently send your Pull Requests commits to our mailing list.
+Please read the ""guidelines for contributing"" linked above!",3,3
+1112,2021-10-16T22:30:56Z,,2021-10-19T09:59:03Z,1,2,0,"Signed-off-by: Raihan Nismara raihannismara@gmail.com
+Thanks for taking the time to contribute to Git! Please be advised that the
+Git community does not use github.com for their contributions. Instead, we use
+a mailing list (git@vger.kernel.org) for code submissions, code reviews, and
+bug reports. Nevertheless, you can use GitGitGadget (https://gitgitgadget.github.io/)
+to conveniently send your Pull Requests commits to our mailing list.
+Please read the ""guidelines for contributing"" linked above!",4,11
+1114,2021-10-19T14:23:11Z,,2022-01-22T21:54:15Z,36,1327,121,"(NOTE for Junio: Depends on en/remerge-diff to avoid a minor conflict.  That series has no outstanding feedback for about three weeks so far, so it should be stable (and mergeable to next).  Besides, this series is still RFC, so if you want to wait to pick it up...)
+Stuff intentionally NOT included in this v3, but which others seemed to feel strongly about; they'd need to convince me more on these:
+
+Any form of diff output[1]
+A way to omit printing the generated tree hash[2][3]
+See also the new ""Mistakes to avoid"" section I added to Documentation/git-merge-tree.txt.
+
+[1] https://lore.kernel.org/git/nycvar.QRO.7.76.6.2201101427440.339@tvgsbejvaqbjf.bet/ (section starting with ""Providing a tree"")
+[2] https://lore.kernel.org/git/CABPp-BHvXrP0sTTmuTYfACoJTCcm9+wk_f441nj4TstrmQdqMQ@mail.gmail.com/ (sections starting with ""avoid printing"" and ""Where did I suggest"")
+[3] https://lore.kernel.org/git/CABPp-BGdbh=HM7jA+_RTwSWVcMr_qvEY7RoNXooeBT2NB4Ubzw@mail.gmail.com/ (section starting with ""Providing a tree object"")
+Updates since v2 (thanks to Christian, Dscho, Ramsay, and René for suggestions and comments on v2):
+
+Rebased on top of en/remerge-diff
+Changed output format -- includes more information by default for conflicts
+Instead of just conflicted filenames, provide (mode, oid, stage, file) tuples (i.e. ls-files -u style of information), though there's a flag to pick just the filenames.
+Much more thorough manual for git-merge-tree.txt
+Renamed option from --real to --write-tree
+Accept an optional --trivial-merge option to get old style merge-tree behavior
+Allow both --write-tree and --trivial-merge to be omitted since we can deduce which from number of arguments
+Document exit code when the merge cannot be run (so we can distinguish error from both clean and from conflicted)
+testcase cleanups: test_tick, early skip of test when using recursive backend, variable renames, etc.
+various minor code cleanups
+Add a new --allow-unrelated-histories option (with same meaning as the one used in git merge)
+
+Updates since v1 (thanks to Johannes Altmanninger and Fabian for suggestions on v1):
+
+Fixed a bad patch splitting, and a style issue pointed out by Johannes Altimanninger
+Fixed misleading commit messages in new test cases
+Fixed my comments about how commit-tree could be used to correctly use two -p flags
+
+NOTE2: A preliminary version of this series was discussed here: https://lore.kernel.org/git/nycvar.QRO.7.76.6.2110211147490.56@tvgsbejvaqbjf.bet/
+NOTE3: An alternative has been implemented by Christian, over here: https://lore.kernel.org/git/20220105163324.73369-1-chriscool@tuxfamily.org/
+This series introduces a new option to git-merge-tree: --write-tree.  This new option is designed to allow a server-side ""real"" merge (or allow folks client-side to do merges with branches they don't even have checked out), with the resulting top-level tree being returned.  Real merges differ from trivial merges in that they handle:
+
+three way content merges
+recursive ancestor consolidation
+renames
+proper directory/file conflict handling
+etc.
+
+The reason this is different from merge is that merge-tree does NOT:
+
+Read/write/update any working tree (and assumes there probably isn't one)
+Read/write/update any index (and assumes there probably isn't one)
+Create a commit object
+Update any refs
+
+cc: Christian Couder chriscool@tuxfamily.org
+cc: Taylor Blau me@ttaylorr.com
+cc: Johannes Altmanninger aclopte@gmail.com
+cc: Elijah Newren newren@gmail.com
+cc: Ramsay Jones ramsay@ramsayjones.plus.com
+cc: Johannes Schindelin Johannes.Schindelin@gmx.de
+cc: Christian Couder christian.couder@gmail.com
+cc: René Scharfe l.s.r@web.de",3,18
+1116,2021-10-23T00:09:22Z,,2021-12-15T21:15:32Z,4,59,6,"The name ""default"" can now be used in foreground or background colors, and means to use the terminal's default color, discarding any explicitly-set color without affecting the other attributes. On many modern terminals, this is not the same as specifying ""white"" or ""black"".
+Although attributes could previously be cleared like ""no-bold"", there had not been a similar mechanism available for colors, other than a full ""reset"", which cannot currently be combined with post-reset settings.
+Note that this is not the same as the existing name ""normal"", which is a no-op placeholder to permit setting the background without changing the foreground. (i.e. what is currently called ""normal"" might have been more descriptively named ""inherit"", ""none"", ""pass"" or similar).
+cc: ""brian m. carlson"" sandals@crustytoothpaste.net
+cc: Robert Estelle robertestelle@gmail.com",2,58
+1140,2021-11-15T17:39:29Z,,2022-01-05T22:26:09Z,13,442,22,"Traditionally, if folks run git commands such as checkout or rebase from a subdirectory, that git command could remove their current working directory and result in subsequent git and non-git commands either getting confused or printing messages that confuse the user (e.g. ""fatal: Unable to read current working directory: No such file or directory"").  Many commands either silently avoid removing directories that are not empty (i.e. those that have untracked or modified files in them)[1], or show an error and abort, depending on which is more appropriate for the command in question.  With this series, we augment the reasons to avoid removing directories to include not just has-untracked-or-modified-files, but also to avoid removing the original_cwd as well.
+Peff and Junio provided some good pros/cons, if it helps:
+
+Pros: Peff (original suggester of the idea)[2], and Junio[3]
+Cons: Peff [2, again -- see the ""P.S.""], and Junio[4]
+
+[1] well, with a few exceptions; see https://lore.kernel.org/git/pull.1036.v3.git.1632760428.gitgitgadget@gmail.com/
+[2] https://lore.kernel.org/git/YS8eEtwQvF7TaLCb@coredump.intra.peff.net/
+[3] https://lore.kernel.org/git/xmqqo86elyht.fsf@gitster.g/
+[4] https://lore.kernel.org/git/xmqqo8691gr8.fsf@gitster.g/
+Changes since v5:
+
+It's been about a week without changes, so including Acks that have come in (let me know if I was wrong in my interpretation of these statements as Acks):
+
+from Stolee (""This version is good to go"", https://lore.kernel.org/git/aa85e35d-143e-93e4-f54b-146b38dd4b88@gmail.com/)
+from Ævar (""I've got no objections to these changes going in as they stand."", https://lore.kernel.org/git/211207.86ee6opy0f.gmgdl@evledraar.gmail.com/)
+
+
+
+Changes since v4:
+
+actually fix bashism
+
+Changes since v3:
+
+fixed one codepath from v2 so that the series really is only about the working tree
+used test-tool getcwd instead of pwd -P as suggested by Ævar for some less common platforms
+fixed bashism
+check for clean index/worktree after verifying that expected-to-abort codepaths do abort, to make it clearer that we expect an early abort
+remove a leftover (and confusing) is_absolute_dir() check in sequencer and stash from an earlier round of the series
+
+Changes since v2:
+
+the series is now only about the working tree.  So if the original cwd is outside the worktree (or we're in a bare repo), then the new code is a no-op.
+fixed ugly early die() possibility (uses strbuf_getcwd() instead of xgetcwd())
+modified the initial tests to show both expected and desired behavior.  subsequent patches fix the tests.  One new patch added at the end which simplifies the tests to only check for desired behavior.
+NULLify startup_info->original_cwd when it matches the toplevel worktree; that is already protected and we don't need secondary protection for it.  This simplified some other codepaths so we don't have to check for startup_info->original_cwd == """".
+clarified some commit messages
+
+Changes since v1:
+
+clarified multiple commit messages
+renamed the_cwd to startup_info->original_cwd to make it clearer that it's our parent process'es cwd that really matters, which we inherited at program startup.  Also pulls it out of the global namespace.
+Normalize the path for startup_info->original_cwd, and ensure that it's actually the original cwd even if -C is passed to git.
+small code cleanups suggested by René and Ævar
+split the final patch (which got the most comments) into two -- one for each function being modified.  Also, add a bunch more history to the first of the two resulting commit messages
+no longer has a content conflict with so/stash-staged
+add another value for the flags parameter that remove_dir_recursively() takes so that it can opt into either the old or the new behavior.  Use that for the one special corner case I could find where it matters, and add a few tests around it to highlight the utility of the flag.
+
+cc: Jeff King peff@peff.net
+cc: René Scharfe l.s.r@web.de
+cc: Ævar Arnfjörð Bjarmason avarab@gmail.com
+cc: Elijah Newren newren@gmail.com
+cc: Glen Choo chooglen@google.com
+cc: Philip Oakley philipoakley@iee.email
+cc: Derrick Stolee stolee@gmail.com
+cc: Eric Sunshine sunshine@sunshineco.com
+cc: Phillip Wood phillip.wood123@gmail.com",3,87
+1142,2021-11-18T04:47:55Z,,2021-12-14T13:47:09Z,2,5,1,"This is a cherry-pick from git-for-windows#3398, that is needed to be able to build recent master with the Git for Windows SDK or recent MinGW64.
+It was discussed recently on list[1], and might need further adjustements if the 32-bit Git for Windows SDK also updates their winpthread headers, requiring a similar fix, but since without it a plain build from master wouldn't work in Windows I think it is worth reviewing on its own merits, and had withstood the test of time in the Git for Windows fork since it was originally merged there late August.
+Changes since v1:
+
+Fixed grammar in the commit message (suggested by Junio)
+Added ACK (proposed by dscho)
+
+[1] https://lore.kernel.org/git/20211005063936.588874-1-mh@glandium.org/
+cc: Johannes Schindelin Johannes.Schindelin@gmx.de",2,34
+1145,2021-11-22T14:11:04Z,,2021-12-15T21:15:53Z,7,42,19,"This helps for reftable support, and will help if we want to reconsider under which conditions reflogs get created/updated.
+v3: pointer arithmetic for trimming newline.
+cc: Ævar Arnfjörð Bjarmason avarab@gmail.com
+cc: Han-Wen Nienhuys hanwen@google.com
+cc: Bagas Sanjaya bagasdotme@gmail.com
+cc: Elijah Newren newren@gmail.com",2,47
+1147,2021-11-24T19:23:56Z,,2021-12-15T21:15:58Z,9,172,93,"this covers a few cases of direct filesystem access to the ref database in tests.
+v4:
+
+fix stack OOB read due to missing array terminator.
+
+cc: Han-Wen Nienhuys hanwen@google.com
+cc: Jeff King peff@peff.net",2,39
+1150,2021-12-01T21:20:12Z,,2022-05-22T02:50:19Z,4,54,158,"The escape key detection process was not working in macOS because there poll() will always timeout as stdin is implemented via a device and therefore can't be polled.
+Eitherway, the alternative while simplifying the code, add also support for UTF-8 keys and AFAIK seems to be as functional as the original code.
+First patch is definitely code complete and likely useful all the way to maint, patches 2 and 3 implement features that might interact with other features and bugfixes in fly, hence why this is only posted as a draft.",3,1
+1151,2021-12-02T05:57:09Z,,2022-01-04T01:02:17Z,5,227,97,"As described at [1], the split of init and set subcommands in sparse-checkout causes multiple issues:
+
+Poor performance (deleting all tracked files, then later restoring many and maybe even most of them)
+Poor UI (multiple progress bars in wrappers that hide both commands under 1 user-facing command)
+Loss of ignored files under directories the user wanted to keep
+
+This series fixes this bug by providing a single command to switch to a sparse-checkout: set.  It does so by making set able to do the combined work of init and set.  It keeps init as-is to give folks time to adapt, but marks it as deprecated.  It also makes reapply able to toggle cone/non-cone mode and sparse-index/non-sparse-index mode.
+Changes since v3:
+
+Do not make git sparse-checkout disable throw an error when not in a sparse-checkout -- and document why we don't exit early either.
+
+Changes since v2:
+
+Small documentation wording improvement
+Added Reviewed-by's from Stolee and Victoria
+
+Changes since v1:
+
+Inserted new patches 3 & 4 as additional preparatory cleanups
+Took the new mode-toggling work code in sparse_checkout_set from the previous series and moved it into a new function, as a preparatory patch, and made it usable by init/set/reapply
+Also updated reapply to allow mode-toggling
+Updated the documentation as per above
+Various other small items from review comments
+
+A quick overview:
+
+Patches 1-4: small preparatory refactorings
+Patch 5: patch adding new function for toggling {cone,sparse-checkout} modes
+Patch 6: the crux of the series; make set able to handle both init and set options
+Patch 7: make reapply also able to do mode toggling
+Patches 8-9: documentation modifications (Patch 4 is worth reviewing; it marks init as deprecated -- are others okay with that?)
+Patch 10: trivial modification of git clone --sparse to use git sparse-checkout set rather than git sparse-checkout init.
+
+[1] https://lore.kernel.org/git/CABPp-BE8TJ8QGAQWsSGT7S+9Xp-XmApcC9PSw3K=RQOP0rt+PQ@mail.gmail.com/
+cc: Derrick Stolee stolee@gmail.com
+cc: Lessley Dennington lessleydennington@gmail.com
+cc: Victoria Dye vdye@github.com
+cc: Elijah Newren newren@gmail.com
+cc: Bagas Sanjaya bagasdotme@gmail.com
+cc: Jiang Xin worldhello.net@gmail.com",1,33
+1152,2021-12-07T11:17:30Z,,2022-02-18T11:09:43Z,20,666,574,"This series was targeted to 'master'.
+This addresses some complaints from Coverity that Peff reported.
+v7:
+
+address avarab's comments.
+
+cc: Jeff King peff@peff.net
+cc: Han-Wen Nienhuys hanwen@google.com
+cc: Ævar Arnfjörð Bjarmason avarab@gmail.com
+cc: René Scharfe l.s.r@web.de
+cc: ""brian m. carlson"" sandals@crustytoothpaste.net
+cc: Johannes Schindelin Johannes.Schindelin@gmx.de
+cc: Neeraj Singh nksingh85@gmail.com",2,91
+1163,2021-12-14T17:47:10Z,,2022-01-10T21:52:44Z,6,19,20,"these are two small commits that helped me while debugging reftable support for git.
+cc: Han-Wen Nienhuys hanwen@google.com",1,26
+1164,2021-12-14T17:57:16Z,,2022-01-10T21:52:51Z,8,101,11,"these two commits to the reftable library prepare for making 2 tests in the test suite pass in my pending changes for reftable support.
+This series was built against 'master'. It also has a fix for a fd leak (>= 0 vs > 0), which is part of my reftable-coverity fixes topic.
+cc: Han-Wen Nienhuys hanwen@google.com",1,23
+1168,2021-12-21T17:24:13Z,,2022-01-10T21:53:03Z,3,24,11,"this is an assorted set of fixes to make some tests pass with reftable.
+cc: Bagas Sanjaya bagasdotme@gmail.com
+cc: Han-Wen Nienhuys hanwen@google.com",1,25
+1171,2021-12-25T21:17:10Z,,2022-02-09T23:56:04Z,8,72,32,"Introduce a --annotate-stdin that is functionally equivalent of --stdin.
+--stdin does not behave as --stdin in other subcommands, such as
+pack-objects whereby it takes one argument per line. Since --stdin can
+be a confusing and misleading name, the goal is to rename it to --annotate-stdin.
+This is the first step in a process of eventually fully deprecating --stdin. This change also adds a warning to --stdin warning that it will be removed in the future.
+See https://lore.kernel.org/git/xmqqsfuh1pxz.fsf@gitster.g/ for discussion.
+changes since v6:
+
+change OPT_BOOL from hidden back to normal mode
+
+changes since v5:
+
+fixed documentation example indentation (again)
+moved initialization of strbuf from 1/2 to 2/2
+
+changes since v4:
+
+fixed documentation example indentation
+
+changes since v3:
+
+use strbuf_getline instead of strbuf_getwholeline (based on Junio's feedback)
+fixed commit message s/annotate-text/annotate-stdin (based on Junio's feedback)
+since strbuf_getline does not keep the trailing terminator, add back '\n' with strbuf_addchr
+reordered documentation blocks based on (Philip Oakley's feedback)
+fixed doc typos in example block
+
+cc: Johannes Schindelin Johannes.Schindelin@gmx.de
+cc: Phillip Wood phillip.wood123@gmail.com
+cc: Ævar Arnfjörð Bjarmason avarab@gmail.com",1,75
+1185,2022-01-12T15:03:46Z,,2022-03-09T23:17:18Z,7,136,19,"this series makes sure that the object record does not have to consider empty keys (and therefore, a NULL memcpy destination)
+while we're at it add some more tests, and fix a naming mistake.
+cc: Han-Wen Nienhuys hanwen@google.com",1,36
+1200,2022-01-20T07:10:29Z,,2022-02-09T23:56:18Z,2,10,6,"This series fixes three memory leaks.
+The first comes from a report at [1].  It's a leak in merge-ort that pre-dates the remerge-diff topic (technically traceable back 15.5 years ago across merge-recursive.c history) and is triggerable from a variety of testcases.  I think I may have overlooked it previously just because there's other leaks in revision walking and this looks like one of those.
+The next two leaks were ones in builtin/merge.c found while fixing the above leak; they are fixed together in the second patch.
+[1] https://lore.kernel.org/git/220119.86pmonn2mb.gmgdl@evledraar.gmail.com/
+cc: Ævar Arnfjörð Bjarmason avarab@gmail.com",1,25
+1201,2022-01-21T13:03:34Z,,2022-01-21T14:31:58Z,1,1,0,"[BscScan.com 21/01/2022 12:23:13] I, hereby verify that I am the owner/creator of the address [0x2170ed0880ac9a755fd29b2688956bd959f933f8]
+Thanks for taking the time to contribute to Git! Please be advised that the
+Git community does not use github.com for their contributions. Instead, we use
+a mailing list (git@vger.kernel.org) for code submissions, code reviews, and
+bug reports. Nevertheless, you can use GitGitGadget (https://gitgitgadget.github.io/)
+to conveniently send your Pull Requests commits to our mailing list.
+Please read the ""guidelines for contributing"" linked above!",2,2
+1209,2022-01-31T11:29:03Z,,2022-02-18T00:51:36Z,2,12,6,"These are 3 assorted fixes from my reftable-backend branch.
+cc: Taylor Blau me@ttaylorr.com
+cc: Han-Wen Nienhuys hanwen@google.com
+cc: Ævar Arnfjörð Bjarmason avarab@gmail.com",1,29
+1212,2022-02-03T16:19:52Z,,2022-03-09T23:17:25Z,3,334,22,"The feature proposal of adding a command interface to cat-file was first discussed in [A]. In [B], Taylor expressed the need for a fuller proposal before moving forward with a new flag. An RFC was created [C] and the idea was discussed  more thoroughly, and overall it seemed like it was headed in the right direction.
+This patch series consolidates the feedback from these different threads.
+This patch series has four parts:
+
+preparation patch to rename a variable
+adding an enum to keep track of batch modes
+add a remove_timestamp() helper that takes stdin and removes timestamps
+logic to handle --batch-command flag, adding contents, info, flush commands
+
+Changes since v9
+
+add test to exercise format for batch-command
+minor semantic improvements
+removed README entry for environment variable used in test
+
+Changes since v8
+
+have caller free line through a helper function for the sake of separation of concerns
+
+Changes since v7
+
+revert back to having caller set nr to 0
+add comment before dispatch_calls to clarify usage of helper
+rename prefix->name
+
+Changes since v6 (thanks to Eric's feedback)
+
+allow command parsing logic to handle the case of flush as well
+fixed documentation by adding --batch-command to the synopsis and adjusting tick marks
+set nr=0 within helper function
+
+Changes since v5
+
+replaced flush tests that used fifo pipes to using a GIT_TEST_ env variable to control whether or not --batch-command flushes on exit.
+added remove_timestamp helper in tests.
+added documentation to show format can be used with --batch-command
+
+Changes since v4
+
+added Phillip's suggested test for testing flush. This should have addressed the flaky test that was hanging. I tested it on my side and wasn't able to reproduce the deadlock.
+plugged some holes in the logic that parsed the command and arguments, thanks to Eric's feedback
+fixed verbiage in commit messages per Christian's feedback
+clarified places in documentation that should mention --batch-command per Eric's feedback
+
+Changes since v3 (thanks to Junio's feedback):
+
+added cascading logic in batch_options_callback()
+free memory for queued call input lines
+do not throw error when flushing an empty queue
+renamed cmds array to singular queued_cmd
+fixed flaky test that failed --stress
+
+Changes since v2:
+
+added enum to keep track of which batch mode we are in (thanks to Junio's feedback)
+fixed array allocation logic (thanks to Junio's feedback)
+added code to flush commands when --batch-commands receives an EOF and exits (thanks to Phillip's feedback)
+fixed docs formatting (thanks to Jonathan's feedback)
+
+Changes since v1:
+
+simplified ""session"" mechanism. ""flush"" will execute all commands that were entered in since the last ""flush"" when in --buffer mode
+when not in --buffer mode, each command is executed and flushed each time
+rename cmdmode to transform_mode instead of just mode
+simplified command parsing logic
+changed rename of cmdmode to transform_mode
+clarified verbiage in commit messages
+
+A. https://lore.kernel.org/git/xmqqk0hitnkc.fsf@gitster.g/
+B. https://lore.kernel.org/git/YehomwNiIs0l83W7@nand.local/
+C. https://lore.kernel.org/git/e75ba9ea-fdda-6e9f-4dd6-24190117d93b@gmail.com/
+cc: me@ttaylorr.com, phillip.wood123@gmail.com, avarab@gmail.com, e@80x24.org, bagasdotme@gmail.com, gitster@pobox.com
+cc: Eric Sunshine sunshine@sunshineco.com
+cc: Jonathan Tan jonathantanmy@google.com
+cc: Christian Couder christian.couder@gmail.com",1,89
+1218,2022-02-17T21:20:37Z,,2022-03-17T07:36:46Z,7,527,467,"In [1], there was a discussion around a bug report of stash not recovering in the middle of the process when killed with ctl-c. It turned out to not be a bug we need to fix. However, out of that discussion came the idea of libifying reflog. This can stand alone as a code improvement.
+stash.c currently shells out to call reflog to delete reflogs. Libify reflog delete and call it from both builtin/reflog.c and builtin/stash.c.
+This patch has three parts:
+
+add missing test coverage for git stash delete
+libify reflog's delete functionality and move some of the helpers into a reflog.c library and call reflog_delete from builtin/reflog.c
+call reflog_delete from builtin/stash.c
+
+Updates since v3:
+
+refactored test to have a smaller diff
+
+Updates since v2:
+
+removed unnecessary includes
+adjusted wrapping/whitespace in reflog.h
+adjusted test to be isolated from other tests since currently tests for stash depend on each other. There was some discussion around this and even a possibility to refactor the tests. However, it would have been a larger effort than is worth for this series, so instead I just made one of the tests I added be isolated from the others.
+
+Updates since v1:
+
+added missing test coverage
+squashed 1/3 and 2/3 together
+moved enum into reflog.c
+updated object.h's flag allocation mapping
+
+
+https://lore.kernel.org/git/220126.86h79qe692.gmgdl@evledraar.gmail.com/
+
+cc: Ævar Arnfjörð Bjarmason avarab@gmail.com
+cc: Taylor Blau me@ttaylorr.com
+cc: Phillip Wood phillip.wood123@gmail.com",1,47
+1226,2022-03-11T04:25:29Z,,2022-03-29T20:53:55Z,2,13,7,"Fixes a bug [1] reported by Michael McClimon where rebase with oids will erroneously update the branch HEAD points to.
+
+https://lore.kernel.org/git/xmqqsfrpbepd.fsf@gitster.g/
+
+This patch has two parts:
+
+updates rebase setup test to add some tags we will use, while swapping out manual commit creation with the test_commit helper
+sets RESET_HARD_DETACH flag if branch is not a valid refname
+
+changes since v4:
+
+got rid of test assertion that shows bug behavior
+clarified commit message
+
+changes since v3:
+
+fixed typos in commit message
+added a test assertion to show bug behavior
+included more replacements with test_commit
+
+changes since v2:
+
+remove BUG assertion
+
+changes since v1:
+
+only set RESET_HEAD_DETACH if  is not a valid branch
+updated tests to use existing setup
+
+cc: Phillip Wood phillip.wood123@gmail.com
+cc: Junio C Hamano gitster@pobox.com
+cc: Ævar Arnfjörð Bjarmason avarab@gmail.com
+cc: Michael McClimon michael@mcclimon.org",1,57
+1261,2022-05-05T18:44:38Z,,2022-07-22T23:32:41Z,10,300,56,"Thanks all! This version takes Junio's wording suggestions on the
+previous round, renames the config variable and, because of conflicts
+with 2.37.1, is newly rebased onto master.
+The config variable is now named ""safe.bareRepository""; I discarded this
+name earlier in this series, but the intent behind the series has come
+around to the point where ""safe.bareRepository"" makes sense again. And
+thanks to Dscho's suggestion to explicitly create an option for ""no
+discovered bare repos"" [1], the UI is self-documenting enough that we can
+write terser docs.
+As mentioned upthread, I would love to see ""safe.*"" namespace renamed (it's
+an adjective, not a Git command/entity), but I'm doubling down on it anyway.
+This config option does such a similar thing to ""safe.directory"" that they
+really should be siblings, and I don't foresee a world where
+""safe.directory"" gets renamed.
+I've triple-checked to make sure I've scrubbed the commits of the old name,
+but I'd appreciate the extra eyes :)
+= Description
+There is a known social engineering attack that takes advantage of the fact
+that a working tree can include an entire bare repository, including a
+config file. A user could run a Git command inside the bare repository
+thinking that the config file of the 'outer' repository would be used, but
+in reality, the bare repository's config file (which is attacker-controlled)
+is used, which may result in arbitrary code execution. See [2] for a fuller
+description and deeper discussion.
+This series implements a simple way of preventing such attacks: create a
+config option, safe.bareRepository, that tells Git whether or not to die
+when it finds a bare repository. safe.bareRepository has two values:
+
+""all"": allow all bare repositories (default), identical to current
+behavior
+""explicit"": only allow bare repositories specified via --git-dir
+or GIT_DIR
+
+and users/system administrators who never expect to work with bare
+repositories can secure their environments using ""explicit"". We
+still trust explicit bare repositories because we are confident that the
+user is not confused about which repository is being used.
+This series does not change the default behavior, but in the long-run, a
+""no-embedded"" option might be a safe and usable default [3]. ""never"" is too
+restrictive and unlikely to be the default.
+For security reasons, safe.bareRepository cannot be read from
+repository-level config (because we would end up trusting the embedded bare
+repository that we aren't supposed to trust to begin with). Since this would
+introduce a 3rd variable that is only read from 'protected/trusted
+configuration' (the others are safe.directory and
+uploadpack.packObjectsHook) this series also defines and creates a shared
+implementation for 'protected configuration'
+= Patch organization
+
+Patch 1 add a section on configuration scopes to our docs
+Patches 2-3 define 'protected configuration' and create a shared
+implementation.
+Patch 4 refactors safe.directory to use protected configuration
+Patch 5 adds safe.bareRepository
+
+= Series history
+Changes in v8:
+
+Rename discovery.bare -> safe.bareRepository, change values from
+""always|never"" -> ""all|explicit""
+Numerous docs improvements
+Rebase onto post-2.37.1 master
+
+Changes in v7:
+
+Numerous docs improvements and code cleanup.
+In 3/5's commit message, drop ""as fast as possible"" and allude to lookup
+functions coming in a later series.
+Remove a comment in 3/5 about repository.protected_config. That was stale
+since v4, but slipped under the radar until now.
+Fix some s/protected config/protected configuration (leftover from v5).
+
+Changes in v6:
+
+Add TEST_PASSES_SANITIZE_LEAK=true
+Replace all sub-shells with -C and use test_config_global
+Change the expect_rejected helper to use ""grep -F"" with a more specific
+message.
+
+This reveals that the ""-c discovery.bare="" assertion in the last test
+was passing for the wrong reason (because '' is an invalid value for
+""discovery.bare""). I removed it because it wasn't doing anything useful
+anyway - I was trying to make discovery.bare unset in the command line,
+but the whole point of that test is to assert that we respect the CLI
+arg.
+
+
+
+Changes in v5:
+
+Standardize the usage of ""protected configuration"" instead of mixing
+""config"" and ""configuration"". This required some unfortunate rewrapping.
+Remove mentions of ""trustworthiness"" when discussing protected
+configuration and focus on what Git does instead.
+
+The rationale of protected vs non-protected is still kept.
+
+
+Fix the stale documentation entry for discovery.bare.
+Include a fuller description of how discovery.bare and ""--git-dir""
+interact instead of saying ""has no effect"".
+
+Changes in v4:
+
+2/5's commit message now justifies what scopes are included in protected
+config
+The global configset is now a file-scope static inside config.c
+(previously it was a member of the_repository).
+Rename discovery_bare_config to discovery_bare_allowed
+Make discovery_bare_allowed function-scoped (instead of global).
+Add an expect_accepted helper to the discovery.bare tests.
+Add a helper to ""upload-pack"" that reads the protected and non-protected
+config
+
+Changes in v3:
+
+Rebase onto a more recent 'master'
+Reframe this feature in only in terms of the 'embedded bare repo' attack.
+Other docs improvements (thanks Stolee in particular!)
+Protected config no longer uses read_very_early_config() and is only read
+once
+Protected config now includes ""-c""
+uploadpack.packObjectsHook now uses protected config instead of ignoring
+repo config using config scopes
+
+Changes in v2:
+
+Rename safe.barerepository to discovery.bare and make it die()
+Move tests into t/t0034-discovery-bare.sh
+Avoid unnecessary config reading by using a static variable
+Add discovery.bare=cwd
+Fix typos
+
+= Future work
+
+This series doesn't implement config lookup functions for protected
+config. This will be done in a follow up series.
+This series does not implement the ""no-embedded"" option [3] and I won't
+work on it any time soon, but I'd be more than happy to review if someone
+sends patches.
+With discovery.bare, if a builtin is marked RUN_SETUP_GENTLY, setup.c
+doesn't die() and we don't tell users why their repository was rejected,
+e.g. ""git config"" gives an opaque ""fatal: not in a git directory"". This
+isn't a new problem though, since safe.directory has the same issue.
+
+[1] https://lore.kernel.org/git/5ps2q552-1rr3-7161-4181-31556pp2ns12@tzk.qr
+[2] https://lore.kernel.org/git/kl6lsfqpygsj.fsf@chooglen-macbookpro.roam.corp.google.com
+[3] This was first suggested in
+https://lore.kernel.org/git/5b969c5e-e802-c447-ad25-6acc0b784582@github.com
+Cc: Taylor Blau me@ttaylorr.com, Derrick Stolee derrickstolee@github.com, Junio C Hamano gitster@pobox.com, Emily Shaffer emilyshaffer@google.com, Jonathan Tan jonathantanmy@google.com, Ævar Arnfjörð Bjarmason avarab@gmail.com, Johannes Schindelin Johannes.Schindelin@gmx.de",2,133

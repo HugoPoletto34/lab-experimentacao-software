@@ -1,0 +1,1768 @@
+number,created_at,merged_at,closed_at,files,additions,deletions,body_text,participants,comments
+753,2015-05-23T06:14:53Z,2016-11-18T09:33:00Z,2016-11-18T09:33:00Z,1,25,4,,2,9
+1061,2016-04-15T00:58:24Z,2021-10-08T06:56:42Z,2021-10-08T06:56:42Z,1,5,1,Tested on OpenBSD 5.9 amd64 but should be working for older versions.,2,6
+1225,2016-09-13T14:25:24Z,2016-09-17T05:38:04Z,2016-09-17T05:38:04Z,1,0,1,"If you go to the fin repo you'll see that it isn't a node version manager, but simply a plugin manager for Fish. Seems out of scope for the readme, and there are other plugin solutions for fish as well. I suggest removing the reference.",2,3
+1231,2016-09-17T00:53:26Z,2016-09-17T05:35:05Z,2016-09-17T05:35:05Z,1,5,0,,2,0
+1234,2016-09-17T06:01:50Z,2016-09-18T08:15:56Z,2016-09-18T08:15:56Z,1,23,0,Add menu for the first two level titles for better readability,2,0
+1248,2016-09-28T08:35:28Z,2016-09-29T05:44:19Z,2016-09-29T05:44:19Z,9,25,6,"The important security releases just been released about 7 hours ago, I think it's better to send a PR instead of just create an issue to ask for the update 👍",2,1
+1264,2016-10-13T14:43:22Z,2016-10-14T22:42:44Z,2016-10-14T22:42:44Z,1,10,3,"This pull request resolve two questions:
+
+For example, my project path is /home/user/work/nvm, in this project directory there is a .nvmrc file with v4.4.7, and my nvm default is v6.7.0。if i enter /home/user/work/nvm, nvm change node to v4.4.7 which is reasonable. but if i enter /home/user/work/nvm/public, nvm use default invoked and now the node become v6.7.0. use the new code, when enter /home/user/work/nvm/public, nvm not only check if .nvmrc exist in this directory, bus also check parents directory which can solve my problem.
+In current version of nvm, if my node version is v6.7.0 and the directory i enterd have .nvmrc file with content of v6.7.0, nvm also invoke nvm use and cost some time, it's meanless.",2,1
+1274,2016-10-28T01:13:22Z,2016-10-28T21:08:47Z,2016-10-28T21:08:47Z,1,4,0,,2,0
+1275,2016-10-28T03:13:02Z,2016-10-28T08:17:38Z,2016-10-28T08:17:38Z,1,8,8,,2,0
+1276,2016-10-28T03:23:57Z,2016-10-29T17:08:33Z,2016-10-29T17:08:33Z,1,16,15,,2,0
+1286,2016-11-06T12:49:11Z,2016-11-07T07:18:17Z,2016-11-07T07:18:17Z,2,7,0,"For user experience enhancement/improvement
+before:
+$ nvm i 7
+######################################################################## 100.0%
+Computing checksum with sha256sum
+Checksums matched!
+Now using node v7.0.0 (npm v3.10.8)
+
+$ nvm i 5
+######################################################################## 100.0%
+Computing checksum with sha256sum
+Checksums matched!
+Now using node v5.12.0 (npm v3.8.6)
+
+after:
+$ nvm i 7
+Start to download and install node v7.0.0
+######################################################################## 100.0%
+Computing checksum with sha256sum
+Checksums matched!
+Now using node v7.0.0 (npm v3.10.8)
+
+$ nvm i 5
+Start to download and install node v5.12.0
+######################################################################## 100.0%
+Computing checksum with sha256sum
+Checksums matched!
+Now using node v5.12.0 (npm v3.8.6)",2,6
+1294,2016-11-07T10:53:58Z,2016-11-12T20:17:54Z,2016-11-12T20:17:54Z,1,26,18,"Delete broken/checksum not matched local cache
+More output message.",2,1
+1295,2016-11-10T14:46:27Z,2016-11-10T21:41:58Z,2016-11-10T21:41:58Z,1,21,3,"Currently AIX isn't supported in nvm so I have made a few small changes to make this work:
+-Change tar to gtar for AIX
+-Change make to gmake for AIX
+-Set ARCH as ppc64 for AIX",4,10
+1296,2016-11-11T11:38:34Z,2016-11-13T17:28:44Z,2016-11-13T17:28:44Z,2,15,15,,2,7
+1297,2016-11-11T11:44:33Z,2016-11-12T19:52:09Z,2016-11-12T19:52:09Z,1,1,1,retab hard-tab to 2 spaces as other indents in nvm,2,0
+1299,2016-11-13T19:48:43Z,2016-11-16T07:23:57Z,2016-11-16T07:23:57Z,1,6,6,"This will help speed up the installation time for the install from source and non-first time
+installation as make can use the ""cache"", this can speed up the build time and test time on
+Travis-CI as we'll cache .cache dir.
+Ref:
+$ time nvm i -s 6.9.1
+.
+.
+.
+Now using node v6.9.1 (npm v3.10.8)
+real    0m31.914s
+user    0m28.116s
+sys     0m4.344s",2,3
+1300,2016-11-13T21:40:52Z,2016-11-17T08:19:04Z,2016-11-17T08:19:04Z,3,74,1,Fixes #902.,2,3
+1301,2016-11-13T22:22:43Z,2016-11-14T07:37:07Z,2016-11-14T07:37:07Z,1,0,4,"This reverts commit ce7f6d6.
+ce7f6d6 could be a mistake, as we'll always execute the gc command at the end of install_nvm_from_git(), this commit should be reverted, sorry for my mistake.",2,0
+1306,2016-11-14T11:46:22Z,2016-11-24T06:12:35Z,2016-11-24T06:12:35Z,1,1,1,,2,2
+1308,2016-11-14T19:38:45Z,,2016-11-21T10:01:07Z,4,81,42,"I use zsh-nvm (lazy-loaded) and direnv. I set up an .envrc that sources nvm.sh and then executes nvm use (.nvmrc file in the directory). This works fine.
+However, as soon as I actually then execute any nvm, npm, or globally installed node cli modules, the lazy loader kicks in and sources nvm.sh, which executes nvm_auto. When nvm_auto is executed, it doesn't take into account that nvm may have already loaded a specific version of node before that. (The reason it's not loaded yet even though it's been executed already by direnv is because direnv spawns a separate sub-shell to do its work.)
+The first commit fixes that, by checking in nvm_auto whether the current nvm version is system or not.
+Somehow this is causing a lot of tests to fail in zsh (although in practice it works just fine in zsh). I can't for the life of me figure out why. Please comment on what I need to do to make them pass and I'll do it.
+Secondly, in the case where nvm loads a version of node, and then the path is prepended to by another process, nvm should not mungle the path order when loading a new version of nvm.
+E.g. in my direnv example I prepend ""$(npm bin)"" to the path after loading nvm.sh and executing nvm use. This means that if there are locally installed as well as globally installed npm cli executables, the shell will prefer the locally installed versions. This makes sense, it's a nice way for projects not to have to worry whether the globally installed version is correct.
+However, as soon as nvm changes the path, either because nvm use <version> is executed, or in my case, the lazy loader kicks in and sources and loads nvm (this time with the correct version of node, thanks to the first commit), nvm strips the nvm-specific parts of the path, and then prepends the new versions of the nvm path to the path. This means that now, globally installed versions of node cli executables will be preferred by the shell. This is not good. It'd be better to respect a user's path ordering.
+The second commit fixes that. nvm_prepend_path is removed. nvm_change_path is added. Test included. nvm_change_path prepends if there are no current nvm-specific parts of the path, otherwise it'll replace the nvm-specific part of the path, leaving the path order intact.",2,8
+1309,2016-11-16T13:23:29Z,2016-11-17T07:04:34Z,2016-11-17T07:04:34Z,1,1,1,,2,9
+1311,2016-11-17T12:47:38Z,2016-11-17T18:06:12Z,2016-11-17T18:06:12Z,1,9,2,"Use Travis CI apt addon source whitelist to load apt source
+Use Travis CI apt addon to install additional packages
+
+This can make .travis.yml more structured and cleaner, prevent duplicating apt package list update and dependencies calculation which means it can speed up the CI build.",2,0
+1312,2016-11-17T19:53:59Z,,2017-06-13T07:43:23Z,3,4,4,type will not confirm the file in $PATH is executable or not.,2,5
+1315,2016-11-21T09:55:46Z,2018-06-10T06:32:59Z,2018-06-10T06:32:59Z,5,46,7,"Sometimes nvm.sh may be sourced more than once (e.g. when using direnv and nvm-zsh's lazy-loading feature). If nvm has already loaded a version of node that is not system, don't change that version.
+In practice this means that if the currently active version of node is not system, nvm.sh will not change the version of node that is active.
+If the version is system, it will still activate default.",2,8
+1316,2016-11-21T10:00:06Z,2017-09-20T22:06:16Z,2017-09-20T22:06:16Z,4,66,35,"nvm may not be the only utility managing the PATH. The order of locations in the PATH matters, as executables in locations in the beginning of PATH will be shadowing executables that are in later locations.
+An example of this is when the output of $(npm bin) is prepended to the PATH. If nvm is used to change the node version after that, it should not change the order of path locations.
+It's up to the user to change the PATH in a way that they prefer, by loading utilities in the correct order.",2,3
+1319,2016-11-23T11:30:43Z,2016-11-27T22:04:01Z,2016-11-27T22:04:01Z,1,1,1,Currently nvm is detecting the number of processors available for building on aix. I have managed to improve this to get the number of threads,3,4
+1320,2016-11-23T14:05:16Z,2016-11-23T17:32:34Z,2016-11-23T17:32:34Z,2,7,6,,2,2
+1322,2016-11-24T06:19:03Z,2016-11-25T05:44:11Z,2016-11-25T05:44:11Z,3,4,4,,2,0
+1323,2016-11-24T06:40:11Z,2016-11-24T07:40:46Z,2016-11-24T07:40:46Z,1,0,7,"The works in #1310 are huge and need time, since the current clang in Travis CI is not working yet, should remove this part until we refactor the testing work flow.",2,0
+1324,2016-11-24T08:01:19Z,2016-11-25T05:42:31Z,2016-11-25T05:42:32Z,2,8,8,,2,0
+1325,2016-11-24T08:53:43Z,,2016-11-25T05:48:10Z,2,12,2,"This would make the shellcheck related process much more maintainable and make .travis.yml simpler.
+This will have conflicts with both #1321, #1324, I'll respectfully suggest to merge that two PRs before this one, and we can solve the conflicts here.",2,0
+1326,2016-11-24T18:08:57Z,2016-11-26T05:02:00Z,2016-11-26T05:02:00Z,1,14,14,"Following #1319 , rename NVM_CPU_THREADS to NVM_CPU_CORES
+cc/ @GeorgeAdams95",3,11
+1330,2016-11-27T13:22:30Z,2016-11-27T19:16:24Z,2016-11-27T19:16:24Z,1,3,3,,2,2
+1332,2016-11-27T19:41:40Z,2016-11-30T07:36:55Z,2016-11-30T07:36:55Z,1,14,9,"This can also help us use the more flexible pattern matching in ""case"" in future.",2,6
+1333,2016-11-27T20:17:27Z,2016-11-27T22:13:58Z,2016-11-27T22:13:58Z,1,5,3,,2,0
+1334,2016-11-27T20:28:41Z,,2017-03-28T07:50:36Z,1,1,1,"The origin logic didn't noticed that the new installed nodejs will not be in the PATH, so if you don't have any installed npm, no matter if you installed nodejs succeed or failed this time, you'll never detect it, so should try to activate the version and then do the npm detection.",2,16
+1335,2016-11-28T10:35:56Z,2016-11-29T01:58:15Z,2016-11-29T01:58:15Z,1,1,0,,2,0
+1336,2016-11-28T14:39:09Z,2016-12-02T08:05:01Z,2016-12-02T08:05:01Z,1,18,9,,2,1
+1338,2016-12-02T11:37:30Z,2016-12-02T19:20:32Z,2016-12-02T19:20:32Z,1,2,1,"The origin badge will link to the GitHub cached badge image which is meaningless to us, link to the release page will be much more meaningful.
+Tested with make release",2,0
+1340,2016-12-03T17:03:45Z,2016-12-04T01:49:56Z,2016-12-04T01:49:56Z,1,10,10,,2,1
+1342,2016-12-05T23:14:29Z,,2017-04-26T12:59:48Z,1,4,0,"NVM_POST_INSTALL env variable is executed after nvm install if it is set
+A fairly unopinionated change that would be a nice way to allow global node modules to be installed after a new node version is installed, as discussed in #977
+
+Using the hook install global npm modules
+Just add the NVM_POST_INSTALL variable to .bash_profile, installing global modules that are used frequently.
+export NVM_DIR=""$HOME/.nvm""
+export NVM_POST_INSTALL=""npm install -g serve webpack standard""
+[ -s ""$NVM_DIR/nvm.sh"" ] && . ""$NVM_DIR/nvm.sh"" # This loads nvm",3,8
+1343,2016-12-06T15:14:19Z,2021-09-29T06:25:13Z,2021-09-29T06:25:13Z,1,24,0,Allow newbies to get a quick understanding of how NVM works right from the start.,3,0
+1348,2016-12-09T16:21:38Z,2017-03-18T07:20:59Z,2017-03-18T07:20:59Z,1,17,14,Fix #1347,3,14
+1357,2016-12-19T12:02:33Z,2017-01-05T17:35:12Z,2017-01-05T17:35:12Z,1,3,1,,3,5
+1360,2016-12-23T08:31:05Z,2021-09-29T19:45:59Z,2021-09-29T19:46:00Z,2,13,7,"nvm_strip_path() will fail if NVM_DIR contains meta characters such as #*.^$[]\.
+$ NVM_DIR='/#'
+$ echo ""${NVM_DIR}/1/bin:${NVM_DIR}/2/bin:${NVM_DIR}/3/bin:/usr/bin"" | sed \
+  -e ""s#${NVM_DIR}/[^/]*/bin[^:]*:##g"" \
+  -e ""s#:${NVM_DIR}/[^/]*/bin[^:]*##g"" \
+  -e ""s#${NVM_DIR}/[^/]*/bin[^:]*##g""
+
+sed: 1: ""s#/#/[^/]*/bin[^:]*:##g
+"": bad flag in substitute command: '#'
+awk is capable to solve this problem.
+$ NVM_DIR='/#*.^$[]'
+$ printf %s ""${NVM_DIR}/1/bin:${NVM_DIR}/2/bin:${NVM_DIR}/3/bin:/usr/bin"" |
+  awk -v NVM_DIR=""${NVM_DIR}"" -v RS=: '
+  index($0, NVM_DIR) == 1 {
+    path = substr($0, length(NVM_DIR) + 1)
+    if (path ~ ""^/[^/]*'""${2-}""'.*$"") { next }
+  }
+  { print }' | paste -s -d: -
+
+/usr/bin",2,21
+1364,2016-12-25T18:47:08Z,2016-12-25T19:58:11Z,2016-12-25T19:58:11Z,1,15,0,Let's make issue report easier.,2,2
+1371,2016-12-29T09:55:13Z,,2017-01-13T01:07:57Z,1,27,1,From #1369,2,10
+1375,2017-01-01T10:15:54Z,2017-03-15T06:51:48Z,2017-03-15T06:51:48Z,3,34,6,"Since NVM_PROFILE will be a full path, the detection was not working properly without */ prefix.
+The origin bash_completion source prompt in installation was:
+
+[ -s ""$NVM_DIR/nvm.sh"" ] && \. ""$NVM_DIR/nvm.sh""  # This loads nvm
+ && [ -s ""$NVM_DIR/bash_completion"" ] && \. ""$NVM_DIR/bash_completion""  # This loads nvm bash_completion
+Which will cause this error if you don't manually remove the comment:
+-bash: x: line 2: syntax error near unexpected token `&&'
+-bash: x: line 2: ` && [ -s ""$NVM_DIR/bash_completion"" ] && \. ""$NVM_DIR/bash_completion""  # This loads nvm bash_completion'
+
+Which is inconvenient, so I removed the  && prefix, and let the bash_completion to detect if nvm loaded.
+
+bash_completion didn't detect if nvm already loaded or not, so it'll work even if nvm is not loaded, now it'll detect if nvm loaded yet.",2,2
+1376,2017-01-02T13:01:19Z,,2017-01-02T21:39:03Z,1,1,1,… window,2,0
+1378,2017-01-04T14:47:47Z,2017-01-05T17:35:12Z,2017-01-05T17:35:12Z,1,3,1,Resolves #1377,3,2
+1381,2017-01-12T18:32:32Z,2017-01-13T07:59:00Z,2017-01-13T07:59:00Z,2,2,2,Closes #1346,4,9
+1387,2017-01-18T06:19:36Z,,2021-10-04T05:58:00Z,2,3,1,"Fixes #1385 .
+Not sure if the wording is clear enough. Feel free to rephrase them!",3,3
+1392,2017-02-02T16:01:44Z,,2017-03-13T00:08:47Z,1,4,4,"Bass seems to be only non-buggy solution right now. Clean, and just works.",3,0
+1397,2017-02-12T10:01:17Z,2017-02-18T08:52:46Z,2017-02-18T08:52:46Z,1,1,1,"Thanks to @ljharb for applying for it!
+Related to: #1395
+Preview: https://github.com/ypid/nvm/tree/add/cii_badge#node-version-manager---",2,0
+1403,2017-02-20T03:34:34Z,2017-02-21T01:58:53Z,2017-02-21T01:58:53Z,1,3,1,This PR enables nvm to work on nases (similar to ohmyzsh/ohmyzsh#4376) by checking if tput exists before calling it.,2,1
+1408,2017-02-26T17:42:49Z,2017-03-01T08:57:06Z,2017-03-01T08:57:06Z,3,36,24,"Introduce doctoc to help maintain ""Table of Content"", make the ""Table of Content"" maintenance work easier, and won't miss anything important.
+Please review the change of README.markdown with whitespace ignored, could be easier to find out the real diff, you can also see there is a item missed before.",2,2
+1415,2017-03-07T00:19:59Z,2017-03-19T07:03:10Z,2017-03-19T07:03:10Z,1,1,1,remove extra pair of quotes that vim suggests as syntax error in line 784,2,0
+1417,2017-03-08T13:05:36Z,2017-03-11T19:40:00Z,2017-03-11T19:40:00Z,1,2,9,"This was an ""oops"" on my part when I was testing changes for my work that was later adapted & merged in f1bca10.
+LibreSSL is never installed as a libressl as it is intended to be a replacement for openssl as much as possible, and consequently the executable is called openssl.",2,1
+1419,2017-03-09T14:51:24Z,,2017-03-11T20:35:03Z,2,7,0,,2,0
+1420,2017-03-09T15:02:36Z,2017-03-11T19:42:38Z,2017-03-11T19:42:38Z,2,2,2,,2,0
+1421,2017-03-09T15:11:24Z,2017-03-15T06:09:03Z,2017-03-15T06:09:03Z,1,3,4,,2,0
+1422,2017-03-09T17:11:27Z,2018-05-02T04:18:04Z,2018-05-02T04:18:05Z,2,70,5,Fixes #1079,3,16
+1424,2017-03-10T10:03:28Z,2017-03-11T19:41:19Z,2017-03-11T19:41:19Z,10,136,10,,2,0
+1427,2017-03-13T10:16:37Z,2017-03-14T06:40:44Z,2017-03-14T06:40:44Z,1,1,1,,2,1
+1430,2017-03-15T20:16:34Z,2017-03-19T06:59:25Z,2017-03-19T06:59:25Z,1,1,1,"By manpath's man page in Ubuntu 16.04:
+
+If $MANPATH is set, manpath will simply display its contents and issue
+a warning.
+
+By fa22d71 for #1413, nvm now will
+declare the ""MANPATH"" variable, no matter if it's set or not, so in the
+situation that $MANPATH is set, you'll get the warning:
+
+manpath: warning: $MANPATH set, ignoring /etc/manpath.config",2,11
+1431,2017-03-15T20:29:29Z,2017-03-19T07:00:53Z,2017-03-19T07:00:53Z,1,1,3,"If we are not going to install nodejs or io.js from source, we may
+not need to have c++ compiler or libssl-dev package
+the build-essential and libssl-dev packages should work on all
+the Debian and Ubuntu based GNU/Linux distros
+Remove useless blank lines",2,0
+1434,2017-03-17T06:57:09Z,2017-03-17T21:27:38Z,2017-03-17T21:27:38Z,2,19,14,Fixes #1429,2,2
+1437,2017-03-19T20:23:04Z,2017-03-23T19:26:13Z,2017-03-23T19:26:13Z,5,66,5,"Enable --compressed parameter on curl to automatically enable
+compression on request content by sending coressponding header, if the
+server side supports compression format like deflate or gzip, curl will
+also decompress the content automatically, so there is no additional
+works need to done manually on client side, but just enjoy the benifits
+of bandwidth and time saving!
+Take https://nodejs.org/dist/index.tab as an example which is last
+modified on Tue, 14 Mar 2017 22:41:05 GMT, the compressed transmission
+only take 4829 bytes howevet the not compressed on taks 48000 bytes,
+which is about 10 times larger!
+This feature can be traced back to Sep 3 2002, in curl commit:
+
+curl/curl@64bbe9d
+
+So should be supported on various versions widely.
+(even on Ubuntu 08.04, just tested!)",2,24
+1438,2017-03-19T20:51:00Z,2017-03-22T06:29:36Z,2017-03-22T06:29:36Z,1,1,3,,2,2
+1439,2017-03-19T22:24:29Z,2017-03-22T21:02:35Z,2017-03-22T21:02:35Z,1,1,1,"Unlike other built in functions like git fetch or apt-get dependencies,
+manual installations won't have retry by default, enabling retry could
+help reduce the impact of network issues and furthur prevent getting
+build error like Job #1956.21:
+
+https://travis-ci.org/creationix/nvm/jobs/212640007
+
+Ref:
+
+https://docs.travis-ci.com/user/common-build-problems/",2,3
+1441,2017-03-20T20:24:29Z,2017-03-22T05:57:17Z,2017-03-22T05:57:17Z,1,3,3,,2,2
+1442,2017-03-20T20:57:14Z,2017-03-21T18:26:52Z,2017-03-21T18:26:52Z,1,2,2,,2,3
+1443,2017-03-20T21:07:00Z,2017-03-22T07:02:58Z,2017-03-22T07:02:59Z,2,56,28,,2,0
+1447,2017-03-22T20:38:38Z,2017-03-23T05:49:01Z,2017-03-23T05:49:01Z,1,0,4,,2,3
+1448,2017-03-22T20:47:27Z,2017-03-22T22:01:38Z,2017-03-22T22:01:38Z,1,7,2,"The origin one looks like it's for PR only, let's add something about the issue?",2,0
+1449,2017-03-22T20:53:26Z,2017-03-23T07:15:38Z,2017-03-23T07:15:38Z,1,2,1,,2,0
+1452,2017-03-23T06:15:07Z,2017-03-23T20:17:42Z,2017-03-23T20:17:42Z,1,1,1,"This could make sure the situation is more like what it really is, and also make the output smaller.",2,3
+1453,2017-03-23T07:00:47Z,2017-03-27T01:11:22Z,2017-03-27T01:11:22Z,2,81,1,"Try to get shell version, OS and its version, curl/wget version.",2,3
+1454,2017-03-23T19:46:49Z,2017-03-24T06:38:33Z,2017-03-24T06:38:33Z,1,2,4,,2,0
+1455,2017-03-25T09:00:16Z,2017-03-26T00:44:43Z,2017-03-26T00:44:44Z,1,3,2,This should make the CI faster.,2,1
+1456,2017-03-25T22:12:39Z,2017-03-28T07:48:19Z,2017-03-28T07:48:19Z,1,1,1,,2,0
+1458,2017-03-27T18:04:19Z,2017-03-30T06:14:31Z,2017-03-30T06:14:31Z,1,1,0,"Since Ubuntu 12.04 is pretty old now, it's also going to EOL next month,
+maybe we can just move on Ubuntu 14.04 first.",2,10
+1459,2017-03-28T07:28:29Z,2017-03-28T19:33:23Z,2017-03-28T19:33:23Z,1,3,6,,2,0
+1461,2017-03-28T14:48:12Z,2017-03-30T01:49:31Z,2017-03-30T01:49:31Z,1,1,1,I update title of #900 to be more precisely and correct.,2,0
+1462,2017-03-28T15:45:51Z,2019-01-21T00:16:16Z,2019-01-21T00:16:16Z,1,2,2,"Please note that this is similar but not the same as #1442, since there was a sort between sed so I need more time to confirm if there will be a problem in the refactor.",2,10
+1463,2017-03-28T16:42:25Z,2017-04-28T23:27:10Z,2017-04-28T23:27:10Z,7,186,6,"This PR adds support for a file containing default packages to be installed with every new version install.
+While the reinstall-packages option is great, this file based approach is nice because I can check this file into my personal dotfiles repo.
+Note: this idea was adapted from https://github.com/rbenv/rbenv-default-gems. I wanted a similar thing from my node version manager setup.",6,22
+1464,2017-03-29T09:52:15Z,2017-03-30T07:23:38Z,2017-03-30T07:23:38Z,1,0,2,,2,0
+1465,2017-03-29T09:54:47Z,2017-03-31T07:14:12Z,2017-03-31T07:14:13Z,2,2,2,It's been more than a year since 896199f,2,0
+1466,2017-03-29T10:05:40Z,2017-03-30T07:18:26Z,2017-03-30T07:18:26Z,1,1,1,ref: afba4e0,2,1
+1467,2017-03-29T10:14:43Z,2017-03-30T23:50:45Z,2017-03-30T23:50:46Z,1,2,2,,2,1
+1468,2017-03-29T17:30:10Z,2017-03-30T07:24:51Z,2017-03-30T07:24:51Z,1,3,5,,2,0
+1470,2017-04-01T23:26:05Z,2017-04-02T03:02:57Z,2017-04-02T03:02:58Z,1,0,2,"Though we can't drop add-on but Ubuntu 14.04 doesn't need to install gcc & g++ v4.8 from a ppa, remove them can speed up the build.",2,4
+1471,2017-04-01T23:34:19Z,2021-09-29T06:06:26Z,2021-09-29T06:06:26Z,1,3,0,,2,0
+1472,2017-04-02T01:08:22Z,2017-06-28T07:10:19Z,2017-06-28T07:10:19Z,3,153,0,This should help nvm development and testing,2,21
+1473,2017-04-02T06:35:44Z,2017-04-06T06:06:22Z,2017-04-06T06:06:23Z,1,2,0,"""$(nvm_alias_path)/lts"" may be created during the test, should backup/remove the old one before testing.",2,0
+1475,2017-04-02T08:31:42Z,2017-04-03T05:11:41Z,2017-04-03T05:11:41Z,1,3,2,,2,0
+1476,2017-04-02T09:27:21Z,2017-07-10T02:43:09Z,2017-07-10T02:43:09Z,1,3,3,"Speed up the installation and bandwidth and save almost 50% disk space in v0.33.1:
+2304KB    ./nvm-origin-install
+1296KB    ./nvm-new-install",2,19
+1477,2017-04-03T15:07:23Z,2017-04-05T05:51:58Z,2017-04-05T05:51:58Z,1,17,13,Should make the code easier to read.,2,0
+1478,2017-04-04T19:02:09Z,2017-04-05T05:43:33Z,2017-04-05T05:43:33Z,1,1,0,,2,0
+1479,2017-04-04T20:55:47Z,2017-04-06T06:08:21Z,2017-04-06T06:08:21Z,1,6,2,,2,2
+1480,2017-04-04T21:05:11Z,2017-04-05T05:38:38Z,2017-04-05T05:38:38Z,1,1,2,,2,0
+1485,2017-04-05T16:36:34Z,2017-04-06T06:04:42Z,2017-04-06T06:04:42Z,1,22,16,Correct two double [tab] and try to improve its readability,2,0
+1486,2017-04-05T19:58:29Z,2017-04-08T07:47:58Z,2017-04-08T07:47:58Z,1,34,47,,2,0
+1487,2017-04-05T21:26:15Z,2017-04-06T06:41:56Z,2017-04-06T06:41:56Z,1,4,4,"my bad 😭
+maybe we should consider to enable WITHOUT_CURL test back, what do you think?",2,1
+1489,2017-04-06T06:54:18Z,2017-04-07T06:42:42Z,2017-04-07T06:42:42Z,1,8,8,To prevent #1487 bug appears again.,2,7
+1490,2017-04-06T23:24:19Z,2017-04-12T05:33:22Z,2017-04-12T05:33:22Z,1,19,7,I found the manual install instructions a bit confusing as they sort of jump into a git clone version in the middle of the manual instruction. I don't think you have to do that first line if you have git/go with git but you do have to do the sourcing regardless so I thought this may be a bit easier to understand. thoughts?,2,0
+1491,2017-04-08T16:16:59Z,2017-04-09T06:27:18Z,2017-04-09T06:27:18Z,2,2,2,,2,1
+1492,2017-04-08T16:19:35Z,2017-04-26T07:13:17Z,2017-04-26T07:13:17Z,4,3,3,Maintain consistency in project based on other usages of Markdown files (.md),4,1
+1494,2017-04-09T03:00:54Z,2017-04-09T07:46:55Z,2017-04-09T07:46:55Z,2,11,1,Can help detect one more problem in #1492 and make sure Makefile changes won't break release process!,2,6
+1496,2017-04-09T05:14:00Z,,2017-04-09T07:06:47Z,2,2,1,cc #1489,2,1
+1498,2017-04-09T08:07:24Z,2017-04-13T04:49:22Z,2017-04-13T04:49:22Z,2,3,1,"Fix #1489, Travis CI cache needs curl",2,1
+1500,2017-04-09T18:50:41Z,2017-04-13T23:51:09Z,2017-04-13T23:51:09Z,1,8,8,,2,0
+1511,2017-04-23T15:33:54Z,2017-04-23T22:53:20Z,2017-04-23T22:53:20Z,1,0,6,This is not working at all.,2,8
+1516,2017-04-27T14:01:43Z,2017-04-28T17:33:48Z,2017-04-28T17:33:48Z,1,3,3,"I noticed #1363 is not fixed completely.
+This PR fixes additional causes.",2,0
+1517,2017-04-27T14:02:52Z,2018-04-23T21:03:52Z,2018-04-23T21:03:52Z,1,33,16,"The same trick as how did we speed up installation script.
+Origin time spent for 1000 times nvm_list_aliases & nvm ls:
+$ time for a in {1..1000}; do nvm_list_aliases > /dev/null; done                                                                             
+
+real    16m38.301s
+user    1m24.416s
+sys     1m21.192s
+
+$ time for a in {1..1000}; do nvm ls > /dev/null; done                                                                                                              
+
+real    20m55.143s
+user    2m4.852s
+sys     1m57.508s
+
+New time spent for 1000 times nvm_list_aliases & nvm ls:
+$ time for a in {1..1000}; do nvm_list_aliases > /dev/null; done
+
+real    11m59.601s
+user    2m0.272s
+sys     2m23.560s
+
+$ time for a in {1..1000}; do nvm ls > /dev/null; done
+
+real    13m31.442s
+user    1m55.320s
+sys     2m11.132s",2,12
+1528,2017-05-19T06:00:07Z,2018-04-23T21:07:03Z,2018-04-23T21:07:04Z,2,9,1,,2,9
+1529,2017-05-19T06:00:25Z,2017-05-21T05:51:58Z,2017-05-21T05:51:58Z,1,1,1,Should use before_cache instead of after_success,2,0
+1538,2017-06-01T13:07:25Z,2017-06-01T21:20:10Z,2017-06-01T21:20:10Z,1,1,1,"Current wording makes the user expect some sort of check against the internet that maybe even ultimately results in an update to the CLI, but this is not the case.",2,0
+1539,2017-06-01T14:47:27Z,2017-06-17T19:05:12Z,2017-06-17T19:05:12Z,1,6,5,because it's 2017 and it might be confusing for people who are new to node.js,2,0
+1550,2017-06-10T08:42:08Z,2017-06-13T05:25:56Z,2017-06-13T05:25:56Z,3,81,3,Added curl_use_compression routine to determine whether we should add compression flag to curl routine. Fixed #1549,2,3
+1554,2017-06-13T05:15:51Z,2017-06-13T06:17:01Z,2017-06-13T06:17:01Z,1,1,1,"Fix clang_version does not expand as expected. This fix is sub-product of previous curl compression patch (#1550).
+One can verify the correctness of the patch from the following snippet
+#!/bin/bash
+
+fxy() {
+    echo ""${1#v}"" and ""${2#v}""
+}
+
+g() {
+    echo ""h""
+}
+
+echo $(fxy g h)
+echo $(fxy ""$(g)"" h)",2,1
+1557,2017-06-14T03:00:02Z,2017-06-14T06:41:37Z,2017-06-14T06:41:37Z,1,2,1,"from curl man page:
+ -f, --fail
+              (HTTP) Fail silently (no output at all) on server errors. This is mostly done to better enable scripts  etc  to  better  deal
+              with failed attempts. In normal cases when an HTTP server fails to deliver a document, it returns an HTML document stating so
+              (which often also describes why and more). This flag will prevent curl from outputting that and return error 22.",2,2
+1564,2017-06-23T06:24:37Z,2017-06-26T05:25:27Z,2017-06-26T05:25:27Z,1,2,1,,2,0
+1566,2017-06-26T19:24:49Z,2017-07-11T08:16:14Z,2017-07-11T08:16:14Z,1,8,1,"Added this for Linux users who may skip over the bit of information because it looks like it pertained only to OS X. Most developers will know about reopening the terminal window, but noobs don't. ;-)
+Fixes #1565",2,0
+1567,2017-06-27T09:17:19Z,2017-06-28T07:08:48Z,2017-06-28T07:08:48Z,1,2,2,,2,0
+1569,2017-06-29T18:23:44Z,2023-12-05T05:59:33Z,2023-12-05T05:59:33Z,1,26,28,,2,4
+1574,2017-07-08T06:32:29Z,2017-07-11T08:32:39Z,2017-07-11T08:32:40Z,1,2,1,,3,6
+1575,2017-07-08T10:56:11Z,2017-07-11T07:59:00Z,2017-07-11T07:59:00Z,1,3,3,,2,0
+1576,2017-07-11T01:23:45Z,2017-07-13T06:52:50Z,2017-07-13T06:52:50Z,1,1,1,"Use --auto can really help speed up the upgrade and also install process if there is no need to re-compress all the objects, just let git to decide it.
+Not sure if GitHub has optimized their git backend server, I noticed that now a new clone of nvm would only a single pack in the .git objects which means it's already compressed, we don't need to force it.",2,2
+1578,2017-07-12T22:18:29Z,2017-07-14T06:00:06Z,2017-07-14T06:00:06Z,1,3,0,"Not sure if it exists anywhere else but macOS, may help debug in situation like #1553 and #1577
+e.g.
+
+iTerm.app
+Hyper
+Apple_Terminal",2,0
+1579,2017-07-13T16:41:01Z,2017-07-20T06:03:50Z,2017-07-20T06:03:50Z,1,3,0,"This can help improve the result of garbage collection. By tracing the doc of reflog, I think it's a feature just come with reflog from the beginning, which is git v1.5 series since 2006.",2,0
+1581,2017-07-21T18:35:21Z,,2017-12-17T00:42:06Z,1,7,0,"I was pretty confused about how to create the .nvmrc file. I know it's really simple but for some reason the instructions confused me, so I'm probably not the only one.",3,5
+1585,2017-08-05T22:04:54Z,,2017-08-06T11:19:52Z,1,7,0,"Hi, unless I'm missing something I didn't find it clear how to install and use a specific version of node (which is why I installed nvm)",2,1
+1597,2017-08-26T20:22:21Z,,2021-09-29T05:36:24Z,3,28,16,"For description see reference.
+Refers to #1596
+Fixes #1596",2,13
+1605,2017-09-07T09:53:26Z,2017-10-04T05:23:48Z,2017-10-04T05:23:48Z,1,5,2,"Original codes will print like:
+=> Downloading nvm as script to '/root/.nvm'
+
+=> Profile not found. Tried  (as defined in $PROFILE), ~/.bashrc, ~/.bash_profile, ~/.zshrc, and ~/.profile.
+=> Create one of them and run this script again
+=> Create it (touch ) and run this script again
+   OR
+=> Append the following lines to the correct file yourself:",2,2
+1606,2017-09-07T10:03:57Z,2017-09-08T06:33:37Z,2017-09-08T06:33:37Z,1,1,1,"Add 4 packages as Alpine Linux wiki suggested:
+(grep util-linux binutils findutils)
+https://wiki.alpinelinux.org/wiki/How_to_get_regular_stuff_working",2,0
+1607,2017-09-07T14:53:18Z,2017-09-08T06:32:04Z,2017-09-08T06:32:04Z,1,1,1,nvm_unload was unsetting RC_VERSION instead of NVM_RC_VERSION. Am I correct in thinking this was a typo?,2,0
+1612,2017-09-14T07:12:15Z,,2020-11-20T05:15:41Z,1,22,0,…version differs.,2,0
+1613,2017-09-19T07:54:47Z,2017-09-22T06:17:26Z,2017-09-22T06:17:26Z,1,9,5,cc #1608,2,1
+1622,2017-09-29T23:46:16Z,,2017-10-03T08:11:01Z,1,3,0,,2,0
+1624,2017-10-04T10:56:24Z,2017-10-04T18:04:22Z,2017-10-04T18:04:22Z,1,1,0,In this way my past contributions are mapped correctly.,2,3
+1625,2017-10-05T16:49:06Z,,2023-08-22T04:07:32Z,6,61,16,"Version normalization removes the issue of the missing v nicely!
+The test shows that precedence is maintained, and I've updated the README too.
+Resolves #794",5,7
+1627,2017-10-06T04:54:16Z,2019-09-28T03:45:25Z,2019-09-28T03:45:25Z,1,2,2,,2,0
+1636,2017-10-18T14:41:05Z,2017-10-19T04:57:15Z,2017-10-19T04:57:15Z,1,2,2,Fixes #1634.,2,0
+1639,2017-10-21T16:43:43Z,2017-10-22T03:55:46Z,2017-10-22T03:55:46Z,1,0,2,"Sorry that I forgot to clean it up in #1619(didn't recall that ghc is for ShellCheck installation), didn't mean to earn another PR or commit :)",2,0
+1640,2017-10-23T05:23:12Z,2017-10-24T04:10:49Z,2017-10-24T04:10:49Z,1,3,3,,2,0
+1644,2017-10-29T00:39:24Z,2017-10-29T05:42:15Z,2017-10-29T05:42:15Z,1,3,3,"I have a Bash function that I use to clear out my apt and nvm caches.
+
+
+If you weren't aware nvm was on your system, the last line (above) is likely to cause some confusion. Here's a simple fix:",2,0
+1654,2017-11-04T14:54:52Z,2019-01-13T08:07:45Z,2019-01-13T08:07:45Z,1,24,2,"Just notice some exceptions on macOS and Alpine linux(busybox based binutils), this should help catch them.",2,1
+1655,2017-11-04T19:27:57Z,2018-02-18T06:14:24Z,2018-02-18T06:14:24Z,1,2,0,This could help debug in nested shell.,2,1
+1658,2017-11-08T00:02:24Z,2017-11-13T08:54:23Z,2017-11-13T08:54:23Z,1,1,1,This sentence broke my brain when I read it the first time :) I hope this helps.,2,0
+1659,2017-11-08T18:43:09Z,,2019-05-07T15:36:29Z,1,2,2,,2,0
+1665,2017-11-15T16:20:57Z,2017-11-18T05:31:27Z,2017-11-18T05:31:27Z,2,2,1,See #1664.,2,0
+1669,2017-11-20T14:36:04Z,2017-11-22T16:52:14Z,2017-11-22T16:52:14Z,2,7,12,"The $path is used by zsh itself.
+Rename path to path_.
+Ref:
+""The lower-case version of PATH is an array parameter
+bound to the scalar upper-case parameter.""
+-- http://www.zsh.org/mla/users/2015/msg00178.html",2,2
+1673,2017-11-24T04:10:03Z,2017-12-17T00:41:43Z,2017-12-17T00:41:43Z,1,9,3,"Alternative to #1581, though I would say nvm should strip whitespace from the version number in .nvmrc.",2,0
+1676,2017-11-30T14:08:32Z,2017-12-03T19:47:39Z,2017-12-03T19:47:39Z,2,16,8,"Hi,
+I found a bug in nvm_install_node function, it overrides the variable NODE_VERSION, which blocks the installation of node in the install.sh script! More details below..
+I did some tests locally with the install.sh script, and the I found that the problem in in the function nvm_install_node in install.sh script.
+One solution is to change the name of the local variable to something other than NODE_VERSION
+You could test it using these 2 scripts:
+I ran tests on ubuntu 16.04 servers
+
+Current version [0.33.6] test script:
+export NODE_VERSION=8 && sudo curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.6/install.sh | bash
+
+Expected result: nvm should install node 8
+Result: node 8 doesn't get installed
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100 12492  100 12492    0     0  68946      0 --:--:-- --:--:-- --:--:-- 69016
+=> nvm is already installed in /home/ubuntu/.nvm, trying to update using git
+=> => Compressing and cleaning up git repository
+
+=> nvm source string already in /home/ubuntu/.bashrc
+=> bash_completion source string already in /home/ubuntu/.bashrc
+=> Close and reopen your terminal to start using nvm or run the following to use it now:
+
+export NVM_DIR=""$HOME/.nvm""
+[ -s ""$NVM_DIR/nvm.sh"" ] && \. ""$NVM_DIR/nvm.sh""  # This loads nvm
+[ -s ""$NVM_DIR/bash_completion"" ] && \. ""$NVM_DIR/bash_completion""  # This loads nvm bash_completion
+
+Proposed fix test script:
+export NODE_VERSION=8 && sudo curl -o- https://raw.githubusercontent.com/Quadric/nvm/fix-node-version-in-install-script/install.sh | bash
+
+Result: node 8 is installed
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100 12540  100 12540    0     0  48598      0 --:--:-- --:--:-- --:--:-- 48604
+=> nvm is already installed in /home/ubuntu/.nvm, trying to update using git
+=> => Compressing and cleaning up git repository
+
+=> nvm source string already in /home/ubuntu/.bashrc
+=> bash_completion source string already in /home/ubuntu/.bashrc
+=> Installing Node.js version 8
+v8.9.1 is already installed.
+Now using node v8.9.1 (npm v5.5.1)
+=> Node.js version 8 has been successfully installed
+=> Close and reopen your terminal to start using nvm or run the following to use it now:
+
+export NVM_DIR=""$HOME/.nvm""
+[ -s ""$NVM_DIR/nvm.sh"" ] && \. ""$NVM_DIR/nvm.sh""  # This loads nvm
+[ -s ""$NVM_DIR/bash_completion"" ] && \. ""$NVM_DIR/bash_completion""  # This loads nvm bash_completion
+I wrote a test for it, and ran ""test/install_script"" on original repo and my fix, and surprisingly the test passes on both!! (https://github.com/Quadric/nvm/blob/fix-node-version-in-install-script/test/install_script/nvm_install_with_node_version), it doesn't change the fact that it still fails when I provision an AWS AMI with packer or when I run the script directly on the newly created machine!
+thanks for you efforts :) 👍",2,0
+1678,2017-12-03T18:49:38Z,,2018-11-06T00:10:26Z,1,24,4,"Added an example for automatically executing nvm use in bash.
+This should work for any directory you cd in, and for a global .nvmrc in your $HOME directory.",2,1
+1679,2017-12-05T08:01:46Z,2017-12-09T19:21:28Z,2017-12-09T19:21:29Z,2,34,11,"@zkat @iarna: I would dearly love your input on this change; if this env var checking is good, then I can next replace npm config get prefix with ""searching .npmrc files"", which will give nvm a huge performance boost.",2,1
+1683,2017-12-09T08:37:57Z,,2019-05-07T15:36:04Z,2,12,1,"Prints yarn version when using npm use.
+For example:
+$ nvm use default
+Now using node v8.9.3 (npm v5.6.0) (yarn v1.3.2)",2,0
+1684,2017-12-09T10:48:42Z,2017-12-13T22:49:34Z,2017-12-13T22:49:34Z,3,23,23,"ShellCheck v0.4.7 just released 6 hours ago and hopefully will be deployed on Travis CI soon.
+This is the fix for SC2207 and SC1117",2,4
+1695,2017-12-23T16:17:36Z,,2021-09-30T07:36:11Z,1,4,16,"fix #1694
+This pull request reduces CPU time from 50ms to 15ms.
+What was done:
+
+I have changed command printf on echo because printf is slower than echo
+(printf - 2ms, echo - 0.09ms)
+#1695 (comment)
+Replace while cycle from nvm_tree_contains_path on string comparison
+(while - 14ms, str comparison - 0.06ms)
+Changed getting node version in nvm_ls_current from node --version to getting it from NVM_LS_CURRENT_NODE_PATH.
+(node --version - 13ms, from string - 0.09ms)
+
+Before:
+v6.8.0
+num  calls                time                       self            name
+-----------------------------------------------------------------------------------
+ 1)    2          28.13    14.07   51.58%     28.13    14.07   51.58%  nvm_tree_contains_path
+ 2)    1          45.82    45.82   84.01%     15.08    15.08   27.65%  nvm_ls_current
+ 3)    2          54.51    27.26   99.96%      8.61     4.31   15.79%  nvm
+ 4)    1           2.61     2.61    4.79%      2.61     2.61    4.79%  nvm_echo
+ 5)    1          45.90    45.90   84.17%      0.08     0.08    0.15%  nvm_version
+ 6)    1          54.54    54.54  100.00%      0.02     0.02    0.04%  run-test
+
+-----------------------------------------------------------------------------------
+
+ 6)    1          54.54    54.54  100.00%      0.02     0.02    0.04%  run-test
+       1/2        54.51    54.51   99.96%      4.50     4.50             nvm [3]
+
+-----------------------------------------------------------------------------------
+
+       1/2        54.51    54.51   99.96%      4.50     4.50             run-test [6]
+       1/2        50.01    50.01   91.70%      4.11     4.11             nvm [3]
+ 3)    2          54.51    27.26   99.96%      8.61     4.31   15.79%  nvm
+       1/1        45.90    45.90   84.17%      0.08     0.08             nvm_version [5]
+       1/2        50.01    50.01   91.70%      4.11     4.11             nvm [3]
+
+-----------------------------------------------------------------------------------
+
+       1/1        45.90    45.90   84.17%      0.08     0.08             nvm [3]
+ 5)    1          45.90    45.90   84.17%      0.08     0.08    0.15%  nvm_version
+       1/1        45.82    45.82   84.01%     15.08    15.08             nvm_ls_current [2]
+
+-----------------------------------------------------------------------------------
+
+       1/1        45.82    45.82   84.01%     15.08    15.08             nvm_version [5]
+ 2)    1          45.82    45.82   84.01%     15.08    15.08   27.65%  nvm_ls_current
+       1/1         2.61     2.61    4.79%      2.61     2.61             nvm_echo [4]
+       2/2        28.13    14.07   51.58%     28.13    14.07             nvm_tree_contains_path [1]
+
+-----------------------------------------------------------------------------------
+
+       2/2        28.13    14.07   51.58%     28.13    14.07             nvm_ls_current [2]
+ 1)    2          28.13    14.07   51.58%     28.13    14.07   51.58%  nvm_tree_contains_path
+
+-----------------------------------------------------------------------------------
+
+       1/1         2.61     2.61    4.79%      2.61     2.61             nvm_ls_current [2]
+ 4)    1           2.61     2.61    4.79%      2.61     2.61    4.79%  nvm_echo
+
+After:
+v6.8.0
+num  calls                time                       self            name
+-----------------------------------------------------------------------------------
+ 1)    2          11.88     5.94   99.83%      8.06     4.03   67.76%  nvm
+ 2)    1           3.75     3.75   31.51%      3.55     3.55   29.82%  nvm_ls_current
+ 3)    2           0.11     0.06    0.93%      0.11     0.06    0.93%  nvm_tree_contains_path
+ 4)    1           0.09     0.09    0.76%      0.09     0.09    0.76%  nvm_echo
+ 5)    1           3.82     3.82   32.06%      0.07     0.07    0.55%  nvm_version
+ 6)    1          11.90    11.90  100.00%      0.02     0.02    0.17%  run-test
+
+-----------------------------------------------------------------------------------
+
+ 6)    1          11.90    11.90  100.00%      0.02     0.02    0.17%  run-test
+       1/2        11.88    11.88   99.83%      4.06     4.06             nvm [1]
+
+-----------------------------------------------------------------------------------
+
+       1/2        11.88    11.88   99.83%      4.06     4.06             run-test [6]
+       1/2         7.82     7.82   65.74%      4.01     4.01             nvm [1]
+ 1)    2          11.88     5.94   99.83%      8.06     4.03   67.76%  nvm
+       1/1         3.82     3.82   32.06%      0.07     0.07             nvm_version [5]
+       1/2         7.82     7.82   65.74%      4.01     4.01             nvm [1]
+
+-----------------------------------------------------------------------------------
+
+       1/1         3.82     3.82   32.06%      0.07     0.07             nvm [1]
+ 5)    1           3.82     3.82   32.06%      0.07     0.07    0.55%  nvm_version
+       1/1         3.75     3.75   31.51%      3.55     3.55             nvm_ls_current [2]
+
+-----------------------------------------------------------------------------------
+
+       1/1         3.75     3.75   31.51%      3.55     3.55             nvm_version [5]
+ 2)    1           3.75     3.75   31.51%      3.55     3.55   29.82%  nvm_ls_current
+       1/1         0.09     0.09    0.76%      0.09     0.09             nvm_echo [4]
+       2/2         0.11     0.06    0.93%      0.11     0.06             nvm_tree_contains_path [3]
+
+-----------------------------------------------------------------------------------
+
+       2/2         0.11     0.06    0.93%      0.11     0.06             nvm_ls_current [2]
+ 3)    2           0.11     0.06    0.93%      0.11     0.06    0.93%  nvm_tree_contains_path
+
+-----------------------------------------------------------------------------------
+
+       1/1         0.09     0.09    0.76%      0.09     0.09             nvm_ls_current [2]
+ 4)    1           0.09     0.09    0.76%      0.09     0.09    0.76%  nvm_echo",2,7
+1701,2018-01-07T11:42:29Z,2018-01-17T20:43:03Z,2018-01-17T20:43:03Z,2,28,5,"I think, the backslashes are not needed.",2,6
+1704,2018-01-10T21:25:50Z,2018-01-13T07:49:55Z,2018-01-13T07:49:55Z,2,10,6,"I didn't see relevant tests to if git produces output or not, so haven't added any. I did test reinstalling with this commit, and it does do as it describes, removing the detached head warning.
+I didn't add --quiet to the git clone, but it's worth considering, or if it should be kept for a download progress indicator.",2,0
+1713,2018-01-25T09:22:37Z,2018-02-09T07:44:40Z,2018-02-09T07:44:40Z,2,2,2,Update the year to 2018,2,4
+1724,2018-02-07T09:10:32Z,2018-02-09T07:43:50Z,2018-02-09T07:43:50Z,1,12,12,,2,0
+1726,2018-02-09T10:52:43Z,2018-02-18T06:01:01Z,2018-02-18T06:01:01Z,1,1,1,Fix for #1708,2,1
+1728,2018-02-13T16:31:47Z,2018-02-18T06:07:04Z,2018-02-18T06:07:04Z,1,2,2,FreeBSD and SunOS would be better than freebsd and sunos for display/human reading :),2,0
+1729,2018-02-13T17:05:58Z,2018-02-18T06:19:57Z,2018-02-18T06:19:57Z,1,13,9,"Use pre-built static release binary instead of building ShellCheck from the source code, this change would save disk space, time, and much computing resources.
+Docker image size:
+Original: 1.31GB, New: 569MB
+Compressed Docker image size:
+Original: 319MB, New: 223MB
+(See: https://hub.docker.com/r/peterdavehello/nvm/tags/, v0.33.8 vs v0.33.8-new)
+It also saves more than 50% build time, 9:50 vs 4:15 on my computer.",2,4
+1733,2018-02-18T16:27:45Z,2018-02-18T22:23:11Z,2018-02-18T22:23:11Z,1,2,2,To reflect the latest optimization.,2,0
+1734,2018-02-18T16:55:42Z,2018-04-24T23:22:42Z,2018-04-24T23:22:42Z,2,27,0,"This can automatically remove the trailing slash in $NVM_DIR when loading nvm, the trailing space isn't that invalid.
+Fixes #1708.",2,7
+1735,2018-02-19T05:59:59Z,2018-02-19T07:11:39Z,2018-02-19T07:11:39Z,1,1,1,Fixes #1725.,2,0
+1736,2018-02-19T20:07:53Z,2018-02-24T22:30:03Z,2018-02-24T22:30:03Z,2,7,7,"Just take a deeper look to find out those commands suppose to have command prefix but was missing, so fix now.",2,1
+1739,2018-02-20T17:43:44Z,2018-04-15T05:36:26Z,2018-04-15T05:36:26Z,3,22,2,"EditorConfig is a famous open source project which can help us maintain part of the coding style easily, including:
+
+indentation (tab or space, indent size, tab width)
+trailing space
+end of line char
+final newline char at end of file
+
+and some other features ...
+It's supported by GitHub(and some other IDEs, editors) natively, so commits made on GitHub web GUI will simply follow the config, and most of the famous IDEs/editors like vim, atom, vscode, sublime, emacs, notepad++, gedit, etc, also support it easily by using plugin/extension, it's also introduced in many projects to help maintain the code readability, coding style, I believe it worth us to use it in nvm, we can save some commits for coding style fixing by using EditorConfig, and can integrate it with some tests in future.",2,12
+1741,2018-02-21T16:03:39Z,2018-02-25T18:18:19Z,2018-02-25T18:18:19Z,1,9,9,We don't need to use a longer command to redirect the standard output but we can directly ask grep to be quiet :),2,2
+1742,2018-02-21T16:04:16Z,2018-02-22T01:45:25Z,2018-02-22T01:45:25Z,1,1,5,"No matter what's the result of the condition here, the path is always the same.",2,0
+1745,2018-02-23T18:21:22Z,2018-02-25T18:12:33Z,2018-02-25T18:12:33Z,1,1,0,This could help debug 💪,2,0
+1746,2018-02-23T18:56:17Z,2018-04-15T04:32:52Z,2018-04-15T04:32:52Z,1,10,2,"nvm debug result in #1744 didn't detect the os version properly, this PR could solve it.",3,0
+1747,2018-02-25T17:08:33Z,2018-02-25T18:10:51Z,2018-02-25T18:10:51Z,62,5,68,"This PR fixes most of the issues that violate the EditorConfig in #1739
+Each commit has their own meaning, so please don't squash them, thanks :)",2,0
+1748,2018-02-25T18:22:25Z,2018-02-25T19:33:23Z,2018-02-25T19:33:23Z,7,55,55,cc #1739,2,0
+1749,2018-02-25T20:52:29Z,2021-09-29T05:56:02Z,2021-09-29T05:56:02Z,1,2,0,"Just added the info to restart the bash terminal if command -v nvm does not ouput anything or gives an error after installation. It was mentioned somewhere earlier but when I read it, I just took note of the verification section, not the part before where the info was mentioned.",3,10
+1750,2018-02-27T06:07:17Z,2018-03-01T18:39:55Z,2018-03-01T18:39:56Z,4,40,10,Fixes #1744.,2,1
+1751,2018-02-27T18:16:54Z,2018-03-01T07:25:18Z,2018-03-01T07:25:18Z,1,9,9,,2,0
+1753,2018-03-03T13:21:43Z,2018-03-09T07:07:19Z,2018-03-09T07:07:19Z,2,3,3,Just to fix few small typos.,2,0
+1756,2018-03-06T04:44:13Z,2018-03-07T07:19:00Z,2018-03-07T07:19:00Z,7,8,8,"Generated by https://github.com/jsoref/spelling f; to maintain your repo, please consider fchurn",3,4
+1759,2018-03-12T14:52:25Z,2018-03-22T12:12:57Z,2018-03-22T12:12:57Z,1,1,1,"command -v nvm
+is a lot faster than
+nvm
+period.
+This significantly cuts shell login time.",2,0
+1770,2018-04-02T14:25:23Z,,2021-09-29T16:16:59Z,1,2,2,Due to constant change of version number it is bothering to update README file. Provided solution resolves this problem.,2,5
+1775,2018-04-04T23:06:12Z,2018-04-05T07:14:46Z,2018-04-05T07:14:46Z,1,1,1,closes #1773,2,0
+1777,2018-04-09T15:38:37Z,2018-04-10T05:15:44Z,2018-04-10T05:15:44Z,1,18,0,This adds instructions how to uninstall nvm.,2,0
+1779,2018-04-09T19:15:44Z,,2022-08-15T18:46:17Z,2,158,0,"The manpage is basically just the output of nvm --help. A few things were added/modified to be more ""manpage-like"".
+The modification to install.sh isn't great, so that probably needs to be changed.
+This was handwritten so there might be some inconsistencies.",3,13
+1780,2018-04-09T21:38:16Z,2018-04-11T23:59:48Z,2018-04-11T23:59:48Z,3,14,12,"For more info visit -> #1707
+Credit goes to @pecigonzalo for figuring out the issue, I just did the work to put it in the install script and made sure that it did not conflict with bash.
+Just run the install script in zsh to see working. Also please test that the install script still works in bash :)
+Fixes #1707.",3,3
+1783,2018-04-10T08:00:17Z,2018-04-11T04:58:47Z,2018-04-11T04:58:47Z,1,1,0,"Add a new line to separate code block and the prompt message, improve the output readability
+Old:
+=> Compressing and cleaning up git repository
+
+=> Profile not found. Tried ~/.bashrc, ~/.bash_profile, ~/.zshrc, and ~/.profile.
+=> Create one of them and run this script again
+   OR
+=> Append the following lines to the correct file yourself:
+
+export NVM_DIR=""$HOME/.nvm""
+[ -s ""$NVM_DIR/nvm.sh"" ] && \. ""$NVM_DIR/nvm.sh""  # This loads nvm
+=> Close and reopen your terminal to start using nvm or run the following to use it now:
+
+export NVM_DIR=""$HOME/.nvm""
+[ -s ""$NVM_DIR/nvm.sh"" ] && \. ""$NVM_DIR/nvm.sh""  # This loads nvm
+
+New:
+=> Compressing and cleaning up git repository
+
+=> Profile not found. Tried ~/.bashrc, ~/.bash_profile, ~/.zshrc, and ~/.profile.
+=> Create one of them and run this script again
+   OR
+=> Append the following lines to the correct file yourself:
+
+export NVM_DIR=""$HOME/.nvm""
+[ -s ""$NVM_DIR/nvm.sh"" ] && \. ""$NVM_DIR/nvm.sh""  # This loads nvm
+
+=> Close and reopen your terminal to start using nvm or run the following to use it now:
+
+export NVM_DIR=""$HOME/.nvm""
+[ -s ""$NVM_DIR/nvm.sh"" ] && \. ""$NVM_DIR/nvm.sh""  # This loads nvm
+
+Diff:
+ export NVM_DIR=""$HOME/.nvm""
+ [ -s ""$NVM_DIR/nvm.sh"" ] && \. ""$NVM_DIR/nvm.sh""  # This loads nvm
++
+ => Close and reopen your terminal to start using nvm or run the following to use it now:
+ 
+ export NVM_DIR=""$HOME/.nvm""",2,0
+1785,2018-04-12T15:45:01Z,2018-04-12T16:58:41Z,2018-04-12T16:58:41Z,2,2,22,"curl output is turned off by -s in the same place, we should unify the behavior on wget, also, this help removes those wget outputs that can't fit our coding style tests. cc #1739",2,0
+1786,2018-04-12T16:22:44Z,2018-04-12T20:33:52Z,2018-04-12T20:33:53Z,1,2,2,"Ref: https://stackoverflow.com/a/7979255
+Fix #1772",3,1
+1787,2018-04-12T17:17:56Z,2018-04-15T04:36:44Z,2018-04-15T04:36:44Z,1,2,0,close #1782,2,0
+1793,2018-04-25T21:55:55Z,2018-04-26T17:31:20Z,2018-04-26T17:31:20Z,1,1,1,"facilitates older git fetching tags so that it can actually upgrade properly
+fixes #1772 ... again. 🤷‍♂️",2,0
+1794,2018-04-26T02:07:10Z,,2018-04-26T17:45:33Z,1,1,0,,2,1
+1816,2018-05-21T12:08:29Z,2018-05-23T11:41:08Z,2018-05-23T11:41:08Z,1,28,35,Correct the indent and make the code more readable,2,1
+1819,2018-05-24T16:55:59Z,2019-01-21T04:12:05Z,2019-01-21T04:12:05Z,1,282,297,"Add { } to variable reference
+Fix indentation of case and some multi-line commands
+Put ; do and ; then on the same line as the while, for or if.
+Remove ; of single line commands
+
+References:
+
+https://google.github.io/styleguide/shell.xml
+https://github.com/mvdan/sh
+
+The sh/shfmt tool can't be integrated with CI yet as there are some styles can't be customized and the changes are too many, so just use it as a reference, helper currently, the fixes are still made by myself.",3,2
+1821,2018-05-25T22:35:04Z,2018-05-26T02:54:30Z,2018-05-26T02:54:30Z,1,1,1,Fixes #1812,3,2
+1822,2018-05-26T22:17:29Z,2018-05-28T07:34:52Z,2018-05-28T07:34:52Z,1,1,1,,2,0
+1823,2018-05-30T07:03:58Z,2018-05-31T00:08:08Z,2018-05-31T00:08:08Z,1,1,1,The script isn't working if .nvmrc file had a diferent version of node,3,4
+1824,2018-05-31T22:36:50Z,2018-06-15T05:17:09Z,2018-06-15T05:17:09Z,6,27,19,"For some context, this was causing issues described in getsentry/sentry#8623.
+nvm_is_version_installed should not be checking for the presence of an installed node version by simply checking the presence of a directory in versions/node. It just isn't a strict enough check. One step would be to check for the presence of an executable bin/node, which is what this PR implements.
+Even more strict would be to actually try and invoke bin/node itself afterwards, and comparing [ ""$(node -v)"" = ""v${1}"" ]. Please let me know if that sounds good, or if you have any questions.",4,26
+1825,2018-06-01T10:22:23Z,2018-06-01T19:09:26Z,2018-06-01T19:09:26Z,1,5,5,https://github.com/koalaman/shellcheck/wiki/SC2235,2,13
+1828,2018-06-07T01:40:05Z,,2020-12-04T16:31:01Z,12,346,22,"👋
+cc @mathias",2,8
+1830,2018-06-08T13:27:04Z,2018-06-16T20:54:03Z,2018-06-16T20:54:03Z,2,23,2,"This change modifies nvm_change_path: it makes sure that nvm's directory is in front of any system directories.
+I.e. it'll replace the path in place, like it currently does, unless it's being shadowed by system directories, in which case it'll prepend again.
+Includes a unit test to make sure there'll be no regression on this.
+Fixes #1652.",3,9
+1835,2018-06-13T09:15:51Z,2019-09-28T02:49:28Z,2019-09-28T02:49:28Z,1,1,0,,3,6
+1836,2018-06-13T09:26:36Z,2019-09-27T23:46:58Z,2019-09-27T23:46:59Z,1,1,1,,3,5
+1839,2018-06-17T06:42:12Z,2018-06-18T19:48:51Z,2018-06-18T19:48:51Z,1,2,0,,2,6
+1840,2018-06-18T04:34:45Z,2018-06-18T19:48:51Z,2018-06-18T19:48:51Z,1,2,0,,2,1
+1861,2018-07-11T07:17:56Z,2018-07-11T19:15:25Z,2018-07-11T19:15:26Z,1,10,8,Let's move forward,2,0
+1863,2018-07-12T06:29:06Z,2018-08-23T16:13:48Z,2018-08-23T16:13:48Z,3,14,5,,2,2
+1864,2018-07-14T18:34:11Z,2018-11-06T07:00:37Z,2018-11-06T07:00:37Z,2,34,3,"There are four kinds of changes in this PR in a single commit:
+
+Lists should be surrounded by blank lines
+Use only 1. for ordered list item prefix
+Starting bulleted lists at the beginning of the line
+Fenced code blocks should be surrounded by blank lines
+
+This improvement helps maintain the consistency in the document and the maintainability, readability in the document source.",2,2
+1888,2018-08-14T19:57:49Z,2018-09-10T06:35:42Z,2018-09-10T06:35:42Z,3,13,4,"Fixes #1088, fixes #1882.
+I haven't really tried it, so would be good if someone tried it at least.",4,5
+1893,2018-08-16T05:15:45Z,,2020-05-01T05:10:35Z,1,5,1,"An alternative to #1892
+Catches the error later in the code path and prints a better message.",2,2
+1901,2018-08-27T14:52:54Z,2018-09-11T23:01:42Z,2018-09-11T23:01:42Z,1,14,1,"Address #1900
+Not sure if this is the best place to shove this in, but I don't see a better alternative without drastically reordering the README to flow better in terms of how folks might use the tool the first time.",2,1
+1911,2018-09-18T20:40:02Z,2018-10-01T06:34:52Z,2018-10-01T06:34:52Z,1,5,1,"When using Oh My Zsh the ZSH_DISABLE_COMPFIX flag allows the zsh completion system to use files in directories it deems to be insecure.
+In the case of the ZSH_DISABLE_COMPFIX flag not being true I added the -i flag to compinit. This flag will cause the zsh completion system to ignore files in directories it deems to be insecure. If this flag is not used the user will be prompted to either ignore insecure directories or abort compinit. Ignoring the insecure directories manually is the same as using the -i flag and aborting will cause autocompletion in zsh to fail. I believe -i would be the sane default here and this would be shared with Oh My Zsh.
+Here is the relevant documentation on compinit: http://zsh.sourceforge.net/Doc/Release/Completion-System.html#Use-of-compinit
+And here is an example on how Oh My Zsh handles this problem: https://github.com/robbyrussell/oh-my-zsh/blob/e96a7b728a9c15f5615f4e41a79a5f0fe2b97712/oh-my-zsh.sh#L70",2,12
+1917,2018-10-02T17:57:50Z,2018-10-08T22:07:50Z,2018-10-08T22:07:50Z,1,3,0,"Print an error and exit the script if $METHOD is set to something unexpected.
+In my own personal case, Salt was setting $METHOD to ""loopback"", and I did not realize it. With this patch, the script output will make it clear what's going on, and it will not pretend to complete successfully.
+I did a small amount of testing of my own, but I don't have the tools or experience to complete all the testing asked for in CONTRIBUTING.md. Can someone else help with that?",2,0
+1925,2018-10-19T03:33:20Z,2018-11-06T03:09:02Z,2018-11-06T03:09:02Z,1,1,1,fixes: #1924,3,2
+1926,2018-10-20T12:07:53Z,2018-10-22T19:05:03Z,2018-10-22T19:05:03Z,1,1,0,,2,0
+1929,2018-10-22T13:45:47Z,2020-08-02T05:00:40Z,2020-08-02T05:00:40Z,3,50,0,"For: nvm install 8.12.0 after install:
+--alias=8 is equivalent to nvm alias 8 8.12.0
+--default is equivalent to nvm alias default 8.12.0
+implements #1867",3,2
+1930,2018-10-24T18:02:26Z,2018-11-06T01:28:51Z,2018-11-06T01:28:51Z,1,1,1,Fixes #1705,2,0
+1938,2018-11-07T23:59:08Z,2018-11-08T23:40:07Z,2018-11-08T23:40:07Z,1,15,94,Fixes #1937,2,3
+1947,2018-11-19T08:40:10Z,2018-11-25T05:18:23Z,2018-11-25T05:18:23Z,1,2,0,"Ref:
+
+https://ccache.samba.org/
+https://docs.travis-ci.com/user/caching#ccache-cache",3,0
+1953,2018-11-25T15:40:09Z,,2021-11-01T18:05:25Z,1,1,29,"As io.js doesn't exist anymore, keeping links and references to it can cause confusion",2,10
+1955,2018-12-03T06:00:47Z,2018-12-04T21:04:35Z,2018-12-04T21:04:35Z,2,5,5,,2,0
+1957,2018-12-12T23:00:23Z,,2022-02-23T21:11:58Z,2,61,55,"Fixes issue #1762.
+Prior behavior:
+nvm install --lts --reinstall-packages-from=8.9.3
+Failed with error:
+grep: unrecognized option `--reinstall-packages-from=8.9.3'
+usage: grep [-abcDEFGHhIiJLlmnOoqRSsUVvwxZ] [-A num] [-B num] [-C[num]]
+	[-e pattern] [-f file] [--binary-files=value] [--color=when]
+	[--context[=num]] [--directories=action] [--label] [--line-buffered]
+	[--null] [pattern] [file ...]
+Version '--reinstall-packages-from=8.9.3' (with LTS filter) not found - try `nvm ls-remote --lts` to browse available versions.
+
+Fixed behavior:
+nvm install --lts --reinstall-packages-from=8.9.3
+Succeeds!
+The install command code separates processing parameters into 2 groups.
+Main group [-s, -j, --no-progress, --lts, --lts=*, --latest-npm]
+Additional group [--reinstall-packages-from=*, --copy-packages-from=*, --skip-default-packages]
+The issue is that between processing these groups it was also grabbing a parameter interpreted as a version# to be installed. So when using the --lts flag, where then this version paramter won't be present if any of the params from the additional group where present it grabbed the first one as a version thus giving an error like...
+
+Version '--reinstall-packages-from=8.9.3' (with LTS filter) not found",2,5
+1964,2018-12-19T20:46:22Z,2018-12-19T22:42:16Z,2018-12-19T22:42:16Z,1,12,0,"Add Ansible task example to show how to install nvm and update it.
+Ansible is a systems administration tool.
+See https://github.com/ansible/ansible
+My personal experience of nvm is that installing via Ansible is good, and that a good example can help. This example took me about an hour to learn, so I'm hoping to save other people some time. This example is somewhat different than any others that I found on the web. There may be a better way to write it, and if so, please improve it.",2,0
+1967,2018-12-25T19:50:16Z,2018-12-26T07:10:41Z,2018-12-26T07:10:41Z,1,16,15,The extendable detail block could be placed more properly in the rendered rich format.,2,0
+1970,2018-12-31T01:24:48Z,2019-09-27T21:47:24Z,2019-09-27T21:47:24Z,1,16,0,"Adds the following information to the ""Migrating global packages while installing"" section:
+
+notification that the npm package is explicitly not updated when using the --reinstall-packages-from flag
+information about the --latest-npm flag
+recovery instructions if a user has already updated node with an incompatible npm version",2,0
+1971,2018-12-31T07:46:34Z,2018-12-31T21:11:52Z,2018-12-31T21:11:52Z,1,1,1,"Automatically call nvm use using .bashrc file is broken for directories with to-be-escaped chars.
+$ cd the\ folder/
+bash : cd : too many arguments
+Quoting $@ will fix this issue.",2,0
+1974,2019-01-05T20:22:28Z,2019-01-05T22:10:31Z,2019-01-05T22:10:32Z,1,1,1,To help beginners know that 'nvm current' is talking about node and not nvm.,2,0
+1981,2019-01-11T10:43:33Z,2019-01-11T18:42:48Z,2019-01-11T18:42:48Z,1,1,1,This is a minor change to make it explicit how the default packages are specified.,2,0
+1986,2019-01-21T00:30:22Z,2019-01-22T18:50:11Z,2019-01-22T18:50:11Z,1,21,6,"This PR fixes #1962.
+It handles the following cases while installing nvm:
+
+If NVM_DIR is defined and set to anything other than the default value, exit installation
+If NVM_DIR is defined and set to a file location not a directory, exit installation
+Otherwise if NVM_DIR doesn't already exist, create the folder
+Otherwise, continue",2,2
+1989,2019-01-22T07:47:17Z,2019-01-23T21:40:10Z,2019-01-23T21:40:11Z,2,7,1,Fix #1988,2,16
+1990,2019-01-22T19:11:08Z,2019-01-22T22:18:23Z,2019-01-22T22:18:23Z,1,2,2,"Double quote to prevent globbing and word splitting.
+Found the syntax issue caused by that when writing tests for #1989",2,0
+1992,2019-01-24T00:46:06Z,2019-01-26T17:01:22Z,2019-01-26T17:01:22Z,2,37,0,"Also I removed a reference to system as a default alias - since as far as I know it is not a default
+I ran into the same issue discussed in this closed issue: #1051
+I wish I could contribute something more substantial to nvm.  Thanks for maintaining this awesome project :)",3,2
+1993,2019-01-26T00:18:08Z,2019-02-24T08:40:42Z,2019-02-24T08:40:42Z,2,7,6,"Greets
+For better and more readable plus show version in help output
+I think it's more productive like every other program or package like gcc or clang when we command help and get version in that
+Plus +
+I wanted to colorize the number of version in output but I didn't succeed in it
+If you can COMPLETE it that I appreciate that
+And
+For README after I saw a commit that add update to it but for such a big amount of question that in my work office asked me about how to update NVM so I just bold and change the title to better understanding
+Thanks for great shell script tool
+Very needed",2,0
+2001,2019-02-15T02:11:44Z,2019-02-15T05:06:09Z,2019-02-15T05:06:09Z,1,1,1,The url has been changed.,2,0
+2003,2019-02-22T15:05:25Z,2019-02-27T00:07:50Z,2019-02-27T00:07:50Z,1,2,0,Fixes #2000,2,0
+2004,2019-02-23T08:54:18Z,2019-02-24T18:58:33Z,2019-02-24T18:58:33Z,1,10,0,,2,1
+2007,2019-02-23T23:03:50Z,2019-03-03T07:10:18Z,2019-03-03T07:10:18Z,2,37,1,See #2005 (comment),2,15
+2010,2019-02-27T10:09:55Z,2019-02-27T21:43:54Z,2019-02-27T21:43:54Z,3,20,27,"Most teardown scripts use rm -rf to delete directories the tests created. test/fast/Listing versions/teardown and test/fast/Listing paths/teardown used rmdir instead, which fails in most cases because the directories are not empty.
+This PR replaces rmdir by rm -rf in these scripts. It also drops the  >/dev/null 2>&1 part, because rm -f never prints any errors anyway.
+Additionally, I removed the line unalias nvm_has_system_node from test/fast/Listing versions/teardown because the tests don't create an alias (instead, they redefine the function nvm_has_system_node), and it looks like the new definition of nvm_has_system_node does not exist anymore after the tests have run (probably because the each test runs in its own process). But I only tested this on my machine by running the tests as scripts. For example:
+$ cd ~/.nvm/test/fast/'Listing versions'
+$ ./'Running ""nvm ls"" should include ""system"" when appropriate'
+$ type nvm_has_system_node
+nvm_has_system_node is a function
+nvm_has_system_node () 
+{ 
+    [ ""$(nvm deactivate >/dev/null 2>&1 && command -v node)"" != '' ]
+}
+In case I missed something and the behavior is different in other shells or in urchin, I'd be happy to add the unalias line again.",2,1
+2013,2019-03-08T15:54:44Z,,2019-08-09T03:16:26Z,1,1,1,"seems to be the intent - wasn't happening when running the install script on bash 4.4.19 on Solus 3.9999
+test output on my machine for master vs this branch:
+nvm/test/install_script on master 
+» ./nvm_install_dir 
+nvm_install_dir should default to $XDG_CONFIG_DIR/.nvm. Current output: /home/ad/.config
+
+nvm/test/install_script on master 
+» git checkout -
+Switched to branch 'update_install_dir_output'
+
+nvm/test/install_script on update_install_dir_output 
+» ./nvm_install_dir
+
+nvm/test/install_script on update_install_dir_output 
+» 
+
+Marked draft as I still need to run through manually testing the shells listed in the CONTRIBUTING.md",4,4
+2017,2019-03-12T16:43:30Z,2019-03-15T07:23:05Z,2019-03-15T07:23:05Z,1,9,8,"Only works for common aliases like default, system, node, lts/*, iojs etc.",2,0
+2022,2019-03-24T18:55:56Z,,2021-10-07T05:46:13Z,1,2,1,"change mode for command for install nvm in home
+insert command for bash completion",2,2
+2028,2019-04-16T05:02:35Z,,2019-04-18T15:37:09Z,1,4,4,"Replace protocol https with git to let install.sh work in an environment where the HTTPS/SSL connection cannot be available somehow.
+==== how to retrigger
+bash-3.2# GIT_CURL_VERBOSE=1 GIT_TRACE=1 git -c
+advice.detachedHead=false clone https://github.com/creationix/nvm.git -b
+v0.34.0 --depth=1
+21:49:01.676517 git.c:419               trace: built-in: git clone
+https://github.com/creationix/nvm.git -b v0.34.0 --depth=1
+Cloning into 'nvm'...
+21:49:01.678041 run-command.c:643       trace: run_command:
+git-remote-https origin https://github.com/creationix/nvm.git
+warning: Protocol restrictions not supported with cURL < 7.19.4
+* Couldn't find host github.com in the .netrc file; using defaults
+*   Trying 192.30.255.113...
+* TCP_NODELAY set
+* Connected to github.com (192.30.255.113) port 443 (#0)
+* Cipher selection:
+* ALL:!EXPORT:!EXPORT40:!EXPORT56:!aNULL:!LOW:!RC4:@STRENGTH
+* successfully set certificate verify locations:
+*   CAfile: none
+  CApath: /etc/ssl/certs/
+* OpenSSL SSL_connect: SSL_ERROR_SYSCALL in connection to github.com:443
+* Closing connection 0
+fatal: unable to access 'https://github.com/creationix/nvm.git/':
+OpenSSL SSL_connect: SSL_ERROR_SYSCALL in connection to github.com:443
+
+
+==== environment
+bash-3.2# git --version
+git version 2.21.0
+bash-3.2# curl --version
+curl 7.64.1 (x86_64-pc-linux-gnu) libcurl/7.64.1 OpenSSL/0.9.7m
+zlib/1.2.3
+Release-Date: 2019-03-27
+Protocols: dict file ftp ftps gopher http https imap imaps ldap ldaps
+pop3 pop3s rtsp smb smbs smtp smtps telnet tftp
+Features: AsynchDNS HTTPS-proxy IPv6 Largefile libz NTLM NTLM_WB SSL
+UnixSockets
+
+
+==== Refer
+angular/angular-phonecat#212",2,15
+2033,2019-04-24T07:04:15Z,2019-08-17T20:51:14Z,2019-08-17T20:51:14Z,2,2,6,"Operating system and version: Mac OS X Mojave
+
+
+nvm debug output:
+
+
+
+
+
+
+nvm ls output:
+
+
+
+
+
+
+How did you install nvm? (e.g. install script in readme, Homebrew): Install script
+
+
+What steps did you perform? Ran the wget install script
+
+
+What happened? $NVM_DIR was set to nvm
+
+
+What did you expect to happen? $NVM_DIR should be set to .nvm
+I added the following line from the README to my .zshrc:
+
+
+export NVM_DIR=""${XDG_CONFIG_HOME/:-$HOME/.}nvm""
+[ -s ""$NVM_DIR/nvm.sh"" ] && \. ""$NVM_DIR/nvm.sh"" # This loads nvm
+
+I couldn't figure out why nvm wasn't loading, until I realized that
+echo NVM_DIR=""${XDG_CONFIG_HOME/:-$HOME/.}nvm"" outputs NVM_DIR=nvm.
+Changing the line to export NVM_DIR=""${XDG_CONFIG_HOME/:-$HOME/}.nvm"" fixed the problem. This outputs NVM_DIR=.nvm as expected. I tested this and the same behavior holds true in Bash as well.
+
+Is there anything in any of your profile files (.bashrc, .bash_profile, .zshrc, etc) that modifies the PATH? Nope
+
+
+
+
+If you are having installation issues, or getting ""N/A"", what does curl -I --compressed -v https://nodejs.org/dist/ print out?",3,9
+2035,2019-04-28T11:19:14Z,2019-05-05T06:05:39Z,2019-05-05T06:05:39Z,1,3,3,"With the environment variable XDG_CONFIG_HOME set, the installation
+script uses the directory $XDG_CONFIG_HOME/nvm now. Before the change
+the variable's value with ""/nvm"" cut off was used, which usually results
+in an installation without any subdirectory.",2,1
+2037,2019-05-02T15:20:36Z,2019-05-04T22:27:18Z,2019-05-04T22:27:18Z,1,1,1,"There's a lot of old info around the interwebs.
+Much stating nvm doesn't work in WSL.",2,0
+2038,2019-05-03T22:44:34Z,2019-09-28T05:43:40Z,2019-09-28T05:43:40Z,1,11,11,plus some minor formatting proposals on certain commands,2,0
+2047,2019-05-14T13:31:49Z,2019-05-15T05:35:32Z,2019-05-15T05:35:33Z,2,24,1,"Adds a default value for NVM_NO_ALIAS so that nvm ls does not error out when run in a bash nounset/-u (no unset vars) environment.
+Reproduce error via:
+$ set -u ; nvm ls 12
+bash: NVM_NO_ALIAS: unbound variable",2,2
+2048,2019-05-15T07:45:28Z,,2021-09-29T21:52:47Z,1,3,2,,2,2
+2062,2019-06-11T04:31:09Z,,2019-06-11T05:39:33Z,1,54,7,,2,1
+2069,2019-06-24T16:43:25Z,,2019-09-27T18:14:19Z,0,0,0,"This was introduced in 8542df4, perhaps as some kind of pseudo-code?
+With this, if XDG_CONFIG_HOME is set you'll get
+""${XDG_CONFIG_HOME}nvm"", if unset you'll get plain ""nvm"" no matter if
+$HOME is set or unset (whatever that would mean). Note the absence of
+a slash, particularly in the former case.
+[Full disclosure: I was stupid enough to actually put that thing into
+my shell rc file, so I know.]
+Fortunately install.sh doesn't really match that behaviour and the
+link to the actual script is immediately above, so just removing this
+seems best.",2,8
+2070,2019-06-26T04:16:11Z,,2019-06-30T18:53:38Z,1,1,1,"First off, thank you for the awesome library!  nvm is an amazing tool and has made Node development infinitely more enojoyable.
+This PR is very minor and only adds a command to the README referencing .bashrc to get nvm to run after install.",1,0
+2077,2019-07-12T15:48:52Z,,2019-07-21T11:25:57Z,1,2,2,"Currently there is a problem that nvm sets MANPATH explicitly to a value. Therefore the configuration in /etc/manpath.config gets ignored.
+According to man manpath:
+MANPATH
+If  $MANPATH  is  set,  manpath  displays its value rather than determining it on the fly.  If $MANPATH is prefixed by a colon, then the value of the variable is appended to the list determined from the content of  the  configuration  files. If  the  colon comes at the end of the value in the variable, then the determined list is appended to the content of the variable.  If the value of the variable contains a double colon (::), then the determined list is inserted in the middle of the value, between the two colons.
+This pull request adds the specified colon : in front of the two places in nvm.sh it sets the MANPATH variable and exports it.
+I have tested this on the current LTS version of Ubuntu (18.04).",3,3
+2086,2019-08-09T20:40:01Z,2019-08-17T16:22:55Z,2019-08-17T16:22:55Z,1,1,1,"It was trying to read ./.nvmrc if you cd'ed into a subdirectory of the directory that has .nvmrc, which would give print -bash: ./.nvmrc: No such file or directory to stderr and potentially not doing the nvm install.",2,3
+2098,2019-09-12T22:23:51Z,,2021-03-29T16:18:03Z,1,0,1,"Remove io.js, it's already merged with Node",2,1
+2104,2019-10-02T19:05:56Z,2020-12-08T23:49:08Z,2020-12-08T23:49:08Z,1,0,1,,2,4
+2107,2019-10-08T13:28:34Z,2019-10-12T05:51:13Z,2019-10-12T05:51:13Z,1,27,25,"I made some tweaks to your PR template:
+
+Remove the need to indent terminal output by using headings instead of a list.
+Simplify formulation of steps",2,0
+2109,2019-10-14T11:07:19Z,,2021-09-29T06:07:39Z,1,4,5,,2,3
+2111,2019-10-18T10:44:14Z,,2019-10-18T17:27:27Z,1,6,0,"From this doc: https://nodejs.org/api/modules.html#modules_loading_from_the_global_folders
+Node will resolve these path initially:
+1: $HOME/.node_modules
+2: $HOME/.node_libraries
+3: $PREFIX/lib/node
+4. $NODE_PATH
+
+Then I add a NODE_PATH to make this path a possible path to lookup modules.
+export NODE_PATH=""$(npm config get prefix)/lib/node_modules""
+
+Don't know if there are any side effects though.
+This fix #2023",2,0
+2112,2019-10-20T16:10:26Z,2019-10-23T20:30:04Z,2019-10-23T20:30:04Z,1,12,21,"Reason behind change
+I was installing nvm and got confused while following the install instructions. I want to make it easier for future users ^_^.
+Also, the script didn't add the profile snippet to my .zshrc file, and I had to do that manually. Probably because I have both .bashrc and .zshrc lying around.
+What was changed
+
+I made changes to the install instructions I believe will make it easier to read.
+Added instructions to add the profile snippet manually to the documentation.",2,0
+2113,2019-10-21T07:19:42Z,,2021-03-29T16:16:46Z,1,1,1,"The MIT License (MIT)
+Copyright (c) 2010 Tim Caswell
+Copyright (c) 2014 Jordan Harband
+Permission is + granted, free of charge, to any person obtaining a copy of
+this software and associated documentation files (the ""Software""), to deal in
+the Software without restriction, including without limitation the rights to
+use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
+the Software, and to permit persons to whom the Software is furnished to do so,
+subject to the following conditions:
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+THE SOFTWARE IS PROVIDED ""AS IS"", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
+FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
+COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
+IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.",3,0
+2121,2019-11-08T09:24:30Z,2019-11-09T05:06:36Z,2019-11-09T05:06:36Z,1,1,1,,2,0
+2125,2019-11-17T14:56:46Z,2020-01-01T23:34:13Z,2020-01-01T23:34:13Z,1,58,42,"Clean up readme structure a bit to help with readability.
+Fix instructions which could lead to a sourcing loop if misinterpreted.
+Guidance should direct macos users to simply copy the source snippet manually into their desired profile file.
+
+Resolve #2123",3,2
+2130,2019-12-05T10:07:49Z,2020-01-01T23:34:12Z,2020-01-01T23:34:13Z,1,1,1,,2,0
+2133,2019-12-08T14:25:34Z,,2021-10-05T13:43:10Z,1,1,0,,2,2
+2156,2020-01-29T21:36:17Z,2020-07-18T06:54:27Z,2020-07-18T06:54:27Z,1,23,3,"macOS only supports extracting xz tarballs with tar in 10.9 and up.
+GNU tar needs an xz executable on the PATH to extract xz tarballs.
+Fixes #2155.",2,7
+2158,2020-02-07T14:36:10Z,2020-02-09T00:15:04Z,2020-02-09T00:15:05Z,1,3,1,"This is a very simple change that makes it easy to configure include paths when developing node addons in C/C++. I use vscode which is not aware of the nvm. As a result it cannot find node include files and flags them as errors.
+I worked on creating a vscode extension that would handle this but it didn't work well and requires significantly more work than this change. The one line change in this PR is a much cleaner approach (provided that one more NVM environment variable is ok).
+I opted for NVM_INC as opposed to NVM_INCLUDE just because all the other NVM env vars were 3 characters or less.
+This allows my c_cpp_properties.json file to use the env var like:
+{
+    ""configurations"": [
+        {
+            ""name"": ""Linux"",
+            ""includePath"": [
+                ""${workspaceFolder}/**"",
+                ""${workspaceFolder}/node_modules/nan"",
+                ""${workspaceFolder}/node_modules/node-addon-api"",
+                ""${env:NVM_INC}""
+            ],
+            ""defines"": [],
+            ""compilerPath"": ""/usr/bin/gcc"",
+            ""cStandard"": ""c11"",
+            ""cppStandard"": ""c++11"",
+            ""intelliSenseMode"": ""clang-x64""
+        }
+    ],
+    ""version"": 4
+}
+
+I have not tested it everywhere because if export works for NVM_BIN it should work for NVM_INC as well.",2,7
+2159,2020-02-10T15:07:33Z,2020-05-25T21:23:15Z,2020-05-25T21:23:16Z,1,14,0,"Here's my stab at documenting the environment variables. It seemed awkward to just inject NVM_INC into the doc without more context so I ended up documenting all the environment variables; it seemed more natural to do so.
+I'm not sure what you had in mind for this so let me know what changes you'd like.",2,0
+2167,2020-02-21T13:29:08Z,,2021-03-26T06:00:35Z,1,9,1,Simple changes so that when folks implement this bash script and open a terminal window in their IDE it will use the correct version of node when they have a .nvmrc file in their project's root.,4,1
+2182,2020-03-19T11:17:19Z,2020-03-22T06:07:16Z,2020-03-22T06:07:16Z,1,2,1,Solves part of #2181,2,0
+2187,2020-03-29T18:22:26Z,2020-03-31T07:14:02Z,2020-03-31T07:14:02Z,1,2,2,"It's a little bit dated, should be updated.",2,2
+2193,2020-04-15T23:30:12Z,2023-06-30T19:20:00Z,2023-06-30T19:20:00Z,1,2,0,"Made a tool, nvshim, for shimming node binaries using nvm. Useful as an option for people that do not want to add auto loading script to their shell.
+Unsure of the community rules about self promotion, just thought to share since it's been working for myself and a couple others.",3,2
+2194,2020-04-16T02:32:46Z,,2020-06-02T23:18:58Z,1,1,1,My humble suggestion is that a request to install an existing version should not result in a message to stderr because it's not a failure. Things are gonna work out just fine.,2,0
+2202,2020-04-26T17:58:05Z,2021-03-17T14:43:49Z,2021-03-17T14:43:49Z,1,13,2,"Linux troubleshooting:
+Troubleshoot without closing the current shell.",3,4
+2205,2020-04-27T08:12:24Z,2020-12-28T00:21:06Z,2020-12-28T00:21:06Z,1,1,1,please refer to the issue #2204,2,1
+2208,2020-04-29T22:25:34Z,2020-04-30T03:05:13Z,2020-04-30T03:05:13Z,1,41,0,"Replaces #2207.
+Fixes #2203.",3,2
+2213,2020-05-08T20:47:58Z,2020-05-25T20:38:42Z,2020-05-25T20:38:42Z,5,55,55,"Renames two internal functions to be prefixed with nvm_, matching the rest of the helpers.
+This fixes node_version_has_solaris_binary coming up as a tab completion for node:
+$ node<TAB>
+node                             node_version_has_solaris_binary
+
+Second commit renames the test scripts to match the new function names. Bit easier to see the diff with the rename standing on its own.",2,1
+2222,2020-05-20T10:14:48Z,,2020-05-25T21:34:32Z,1,2,2,,2,0
+2225,2020-05-25T14:36:51Z,2020-06-23T07:14:08Z,2020-06-23T07:14:09Z,1,1,1,"This is in response to a popular stack overflow answer that has helped people resolve the ""command not found"" hiccup: https://stackoverflow.com/a/17707224/2031033
+Also mentioned here: #748",2,0
+2228,2020-05-29T13:02:12Z,2020-06-22T21:59:35Z,2020-06-22T21:59:35Z,1,1,1,,2,0
+2235,2020-06-10T18:11:54Z,2020-06-19T23:04:13Z,2020-06-19T23:04:14Z,1,1,1,"It brakes switching version of node through nvm in directories with space somewhere in it's path:
+https://youtu.be/dW1cxfElF5U
+I can't imagine why creator of this script is removing spaces from the path, maybe there is a reason for that but I don't know it, please review it then.",3,5
+2242,2020-06-20T13:16:10Z,2020-07-20T07:06:02Z,2020-07-20T07:06:02Z,1,44,44,"Explains more clearly that  parameter is optional and can be provided by .nvmrc on nvm install, nvm use, nvm exec and nvm run.",2,0
+2248,2020-06-24T18:37:36Z,2020-07-06T00:30:36Z,2020-07-06T00:30:37Z,1,3,1,"The default shell for macOS 10.15 is now zsh, by default a .zshrc file is not created, so switch instruction for touch ~/.zshrc
+Reference: Catalina replaces bash with zsh as default shell",3,0
+2252,2020-07-07T07:23:14Z,2020-07-08T06:53:10Z,2020-07-08T06:53:11Z,1,1,1,"Fix fish load_nvm function in readme.
+The load_nvm function for fish contained an error on line 8 where it would try to install ""N/A"" as a node version, instead of the version listed in the .nvmrc file.",2,0
+2263,2020-07-20T10:32:15Z,2020-08-03T17:44:34Z,2020-08-03T17:44:34Z,2,16,0,"Fixes #2261
+My first thought was to somehow compare the capitalisation between the user directory name displayed from $HOME and the one you'd get from an ls /Users/, but that exceeds my bash scripting skills 😅
+So all I did was add an extra subsection in the macOS Troubleshooting section of the docs, and also add an extra warning when that error appears, if we are on a Mac machine.
+I also made a small update to the .gitignore file.",2,1
+2270,2020-07-27T17:34:27Z,2020-07-28T20:00:18Z,2020-07-28T20:00:18Z,1,1,1,"Issue
+resolves #2200
+nvm --version for me returns:
+0.35.3
+nvm -v returns the output of an unrecognized command.
+This is issue proposes adding -v as an alias for --version as it is for node, npm, and many other commands.
+Tests
+I did not add this to any tests.",2,0
+2271,2020-07-28T14:02:06Z,2020-08-01T16:41:42Z,2020-08-01T16:41:42Z,1,6,0,"Added an example for LTS updates that also reinstall the existing packages.
+This is useful for individuals who run the latest LTS version along with global packages and need to update when the LTS version gets bumped",2,8
+2272,2020-07-29T01:02:32Z,2020-07-29T07:44:14Z,2020-07-29T07:44:15Z,1,5,0,"Fixes issue #2120
+Request was to add extra instructions to the help section:
+
+nvm_echo '  nvm install node                      Install the latest available version'
+nvm_echo '  nvm use node                          Use the latest version'
+nvm_echo '  nvm install --lts                     Install the latest LTS version'
+nvm_echo '  nvm use --lts                         Use the latest LTS version'
+
+Tests: I did not add any tests",2,0
+2274,2020-07-31T22:42:09Z,2020-08-02T05:00:30Z,2020-08-02T05:00:30Z,3,50,0,"Resolves #1867
+This is a follow up the work in PR #1929
+I could not push to @kaltepeter 's remote so I have made a new PR.
+Issue :
+
+It'd be nice if I could combine
+✗ nvm install 8 && nvm alias default 8
+into:
+✗ nvm install --default 8
+
+
+Seems like a reasonable request - we could also add --alias=foo (and have --default be a shortcut for --alias=default) to cover the generic case.
+
+Tests:
+ran with:
+ --alias=* version
+ --alias=* no-version
+--default --alias=* version
+Does not return err
+ --alias=*  version --default",3,2
+2277,2020-08-06T00:01:21Z,2020-08-09T21:44:02Z,2020-08-09T21:44:02Z,2,97,82,"This fixes #911
+Issue: Prevent flags from being parsed if the help flag is present in the list of arguments to nvm
+
+Even if nvm doesn't support the --help flag on individual tasks it would be more user friendly to prevent any action being carried out if the --help flag is present
+
+What we did: Check arguments list for help flag and display help then exit without parsing other flags
+Test added: nvm_check_for_help",3,1
+2282,2020-08-11T17:40:15Z,2020-08-14T00:17:05Z,2020-08-14T00:17:05Z,1,2,0,Fixes #2280.,2,0
+2286,2020-08-19T18:51:49Z,2020-08-20T17:49:08Z,2020-08-20T17:49:08Z,1,2,2,"This is a small optimization of the nvm_auto function: $NVM_CURRENT is only used in the elif [ ""_$NVM_MODE"" = '_use' ]; then part of the conditional, so it should only be set if it's needed.
+I source nvm.sh with --no-use so this change takes the load time of the whole script from about 40ms down to about 5ms",2,0
+2294,2020-08-27T13:57:49Z,2020-08-28T05:39:19Z,2020-08-28T05:39:19Z,1,1,1,"Edited the LTS upgrade scenario command to fix the issue discussed over here
+#2271",2,5
+2306,2020-09-21T10:35:56Z,2020-09-22T01:18:27Z,2020-09-22T01:18:27Z,1,1,0,"locale-gen command seems missing since uncertain point for a while:
+Step 15/33 : RUN locale-gen en_US.UTF-8
+ ---> Running in fae073c89c01
+ /bin/bash: locale-gen: command not found
+ The command '/bin/bash -o pipefail -c locale-gen en_US.UTF-8' returned
+ a non-zero code: 127
+
+This patch should fix the Docker image build",2,1
+2307,2020-09-21T12:30:39Z,2020-10-08T18:23:21Z,2020-10-08T18:23:22Z,1,0,1,"That config was deprecated for a while, reference:
+
+https://blog.travis-ci.com/2018-10-04-combining-linux-infrastructures",2,2
+2310,2020-09-24T23:35:19Z,2020-10-31T06:13:32Z,2020-10-31T06:13:32Z,2,17,0,"Issue:
+nvm ls-remote will not filter versions ending with "".""
+Resolves issue #983.
+Example:
+$ nvm ls-remote 5
+->       v5.0.0
+         v5.1.0
+         v5.1.1
+         v5.2.0
+         v5.3.0
+         v5.4.0
+         v5.4.1
+         v5.5.0
+         v5.6.0
+         v5.7.0
+         v5.7.1
+         v5.8.0
+         v5.9.0
+         v5.9.1
+        v5.10.0
+        v5.10.1
+        v5.11.0
+        v5.11.1
+        v5.12.0
+
+$ nvm ls-remote 5.
+            N/A
+
+After change:
+$ nvm ls-remote 5.
+->       v5.0.0
+         v5.1.0
+         v5.1.1
+         v5.2.0
+         v5.3.0
+         v5.4.0
+         v5.4.1
+         v5.5.0
+         v5.6.0
+         v5.7.0
+         v5.7.1
+         v5.8.0
+         v5.9.0
+         v5.9.1
+        v5.10.0
+        v5.10.1
+        v5.11.0
+        v5.11.1
+        v5.12.0",2,5
+2313,2020-10-05T16:39:57Z,2020-10-05T23:11:12Z,2020-10-05T23:11:12Z,1,3,2,"Automatically call nvm use: Ammended the bash script example to call nvm use when booting a terminal (previously only called on cd).
+It means the node version is correctly set for example in VS Code's integrated terminal.",2,0
+2316,2020-10-09T14:44:16Z,2020-10-12T06:17:06Z,2020-10-12T06:17:07Z,3,69,2,"Fixes #2315
+This changes out a string comparison to a directory comparison, removes empty lines from versions, and removes trailing slashes from versions.",2,1
+2322,2020-10-13T16:58:00Z,2020-10-19T19:49:49Z,2020-10-19T19:49:49Z,1,5,4,"Fixes one of the failing tests in #2181
+nvm_ls_current returns 'system' when nvm_tree_contains_path is aliased to return zero, as if nvm is deactivated. This fix instead sets NVM_DIR to match TEST_DIR so that nvm_tree_contains_path passes and the mock executable is actually used. Let me know if this approach is reasonable!
+Relevant branches in nvm_ls_current:
+
+  
+    
+      nvm/nvm.sh
+    
+    
+        Lines 915 to 925
+      in
+      e01060f
+    
+  
+  
+    
+
+        
+          
+           elif nvm_tree_contains_path ""${NVM_DIR}"" ""${NVM_LS_CURRENT_NODE_PATH}""; then 
+        
+
+        
+          
+             local VERSION 
+        
+
+        
+          
+             VERSION=""$(node --version 2>/dev/null)"" 
+        
+
+        
+          
+             if [ ""${VERSION}"" = ""v0.6.21-pre"" ]; then 
+        
+
+        
+          
+               nvm_echo 'v0.6.21' 
+        
+
+        
+          
+             else 
+        
+
+        
+          
+               nvm_echo ""${VERSION}"" 
+        
+
+        
+          
+             fi 
+        
+
+        
+          
+           else 
+        
+
+        
+          
+             nvm_echo 'system' 
+        
+
+        
+          
+           fi",2,4
+2332,2020-10-22T20:22:03Z,,2020-10-23T03:40:54Z,0,0,0,"Noticed that ./test/fast/Running ""nvm unload"" should unset all function and variables. would leave behind ./before.tmp and ./after.tmp files and clutter the git status. This fixes the cleanup behavior.
+Let me know if it'd be preferable to move the temporary files into a test/**/test_output folder which is covered by .gitignore, or something like that.",2,4
+2335,2020-11-03T09:22:03Z,2020-11-06T04:32:45Z,2020-11-06T04:32:45Z,1,0,3,"Should be done in #2187 #2305 but missed, sorry.",2,0
+2336,2020-11-04T00:36:39Z,2020-11-13T19:35:46Z,2020-11-13T19:35:47Z,2,4,2,"Fixes #2181
+This makes npm run test/fast start the test suite from within a fresh login shell, effectively removing the NPM_CONFIG_... variables that caused most tests to fail in #2181. I've run this in both zsh and bash, and all fast tests pass.
+$TERM is included in the fresh environment to prevent tests that rely on the color output of nvm_print_formatted_alias from failing.
+node_modules/.bin is still added to the path by the makefile, so I temporarily remove it in test/fast/Running ""nvm use iojs"" uses latest io.js version for the same reason as #2322.
+This change could probably work for the other suites too! I just haven't dug into that yet... let me know what you think! :)",3,3
+2348,2020-11-17T01:10:07Z,2020-12-01T07:32:19Z,2020-12-01T07:32:20Z,2,13,2,"It's not an especially clever check — just a substring match — but should cover a typical situation.
+Fixes #2339.",2,6
+2351,2020-11-18T18:34:12Z,2020-11-19T22:05:44Z,2020-11-19T22:05:44Z,2,31,4,"This adds a github workflow that runs shellcheck on nvm.sh and install.sh. nvm.sh is tested with each shell in [bash, sh, dash, ksh] and install.sh is tested with just bash. I think submitting this PR should run the workflow, but just in case, here is an example of this change running on my fork.
+Unfortunately shellcheck does not support zsh, which is why it's omitted from the matrix.
+I ignored SC1001 in nvm.sh because there are three instances where \command ... is used (i'm guessing) to suppress aliases. More recent versions of shellcheck automatically ignore these instances, but not the older version available on the ubuntu-based github runners. Alternatively, I could ignore the specific lines in nvm.sh rather than globally ignoring SC1001, or I could figure out a way to manually install a more recent version of shellcheck. Let me know!",2,4
+2354,2020-11-20T11:08:02Z,2021-03-04T20:25:22Z,2021-03-04T20:25:22Z,2,10,0,"Running nvm exec stable -- node --help shows nvm's help, not node's. This change stops help parsing when encountering a --.",3,5
+2355,2020-11-20T20:11:39Z,2020-11-22T01:59:40Z,2020-11-22T01:59:41Z,2,31,9,"Adds a workflow that tests the make release ... process by running it with a placeholder version (99.99.99) and ensuring that a new tag is created.
+This replaces the previous travis process and adds the tag check as a bonus.",2,0
+2365,2020-11-27T23:18:30Z,2021-01-20T21:47:17Z,2021-01-20T21:47:18Z,2,46,16,Hopefully fixes #2362,4,15
+2368,2020-11-28T14:24:17Z,2021-10-07T05:10:56Z,2021-10-07T05:10:57Z,2,4,5,"Fixes #2367.
+I expect this to be more robust than before, since it only considers the names of environment variables, not their values.
+@ljharb Should we try to reproduce #2360 to test for regressions?",2,4
+2377,2020-12-08T17:32:24Z,2020-12-08T19:35:02Z,2020-12-08T19:35:02Z,1,1,0,"When the nvm function is called by a script which itself uses a variable
+named i, nvm clobbers the caller's variable. This happens even if the
+caller has declared its variable as local.
+See note 1 on https://tldp.org/LDP/abs/html/localvar.html#FTN.AEN18568",2,0
+2388,2020-12-22T12:03:54Z,2020-12-29T02:59:55Z,2020-12-29T02:59:55Z,1,10,1,Updated warning for insecure directories while homebrew is installed. Raising PR for #2361,2,1
+2390,2020-12-26T17:05:24Z,2021-03-04T20:43:33Z,2021-03-04T20:43:33Z,1,2,1,num_of_cpu check is missing for OBSD Kindly merge the changes.,3,4
+2391,2020-12-26T22:45:12Z,2021-04-16T05:29:43Z,2021-04-16T05:29:43Z,6,232,20,,4,19
+2394,2021-01-01T17:02:10Z,2021-01-06T21:24:53Z,2021-01-06T21:24:54Z,4,22,10,,3,6
+2395,2021-01-01T19:06:08Z,,2021-01-01T22:11:15Z,1,0,4125,,1,0
+2397,2021-01-03T11:15:34Z,2021-01-06T23:06:30Z,2021-01-06T23:06:30Z,69,61,2,"Issue: the repository cannot be cloned under Windows system as:
+
+the characters \/:*?""<>| are not allowed in filename
+filename cannot end with '.'
+
+The script rename_test.sh fix those problem for the files under test folder as it:
+
+replaces "" by '
+replaces <> by <> not in ASCII
+removes . at the end of filename",3,5
+2400,2021-01-07T02:53:03Z,2021-02-15T19:08:34Z,2021-02-15T19:08:34Z,1,2,0,,2,0
+2401,2021-01-07T03:17:51Z,2021-01-15T16:28:11Z,2021-01-15T16:28:11Z,2,152,11,,3,6
+2403,2021-01-08T17:58:59Z,2021-01-12T01:00:00Z,2021-01-12T01:00:01Z,2,7,1,Simply copy/pasting nvm_grep function from nvm.sh to install.sh makes the test nvm_install_with_node_version to fail.,2,0
+2406,2021-01-11T22:37:38Z,2021-01-13T20:58:58Z,2021-01-13T20:58:59Z,3,41,3,"Playing a bit more with git, I changed a bit the code compared to the other same PR, which is more compact but changing a bit the previous code though.
+It still have the exact same test that pass and which I think cover rather well all the cases I could think of.",3,9
+2416,2021-01-21T20:47:16Z,2021-01-30T22:01:28Z,2021-01-30T22:01:28Z,1,52,0,"Reference: #2350 (comment)
+Closes #2350. Closes #2422.",2,0
+2417,2021-01-22T08:15:34Z,,2021-03-29T16:15:46Z,1,1,1,"While trying to install nvm on MacOS 10.15.7 (Catalina) by using
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash
+I encounter error nvm: command not found. The reason that the nvm source string is not appended to .zshrc, but .bashrc. The current README tells me to run the install script again. However, if I attempt to run curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash, it won't work. But if I run curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | zsh, the nvm source string is added to my .zsh.",3,1
+2436,2021-02-13T11:47:05Z,2021-02-13T14:34:32Z,2021-02-13T14:34:33Z,1,3,9,"Updates the troubleshooting instructions.
+
+Switching the architecture does not require opening a new terminal session. Doing so will run that session using the default and result in Node being built from source for arm64 instead of downloading the x86 binary.
+After installing Node, the architecture can safely be reverted using arch.",2,0
+2439,2021-02-16T14:20:02Z,2021-02-28T20:18:01Z,2021-02-28T20:18:01Z,3,93,1,"This PR aims to add the --b flag that skips source download and  install from binary only.'
+Closes : #2114",2,4
+2442,2021-02-19T13:18:02Z,2021-02-19T21:18:53Z,2021-02-19T21:18:53Z,1,1,9,"当函数名为find-up时，定时运行会报以下错误：
+`find-up': not a valid identifier
+
+修改为find_up即可修复该问题",2,3
+2454,2021-03-01T12:28:35Z,2021-03-17T16:00:35Z,2021-03-17T16:00:35Z,1,2,1,Extend Important Notes README section with nvs alternative for Windows.,3,0
+2462,2021-03-11T21:22:50Z,2021-03-11T23:50:34Z,2021-03-11T23:50:34Z,2,6,3,"Title says it all.
+fixes #2461",2,9
+2466,2021-03-18T03:51:37Z,2021-03-18T16:25:32Z,2021-03-18T16:25:32Z,1,1,1,Adding in missing s so the source command can be run correctly,2,0
+2469,2021-03-22T20:01:58Z,2021-04-15T22:43:52Z,2021-04-15T22:43:52Z,2,10,0,"Several people in the Raspberry Pi community have had issues with nvm. We realized that everyone affected had one thing in common: they were using armhf (armv7l) Raspberry Pi OS, but had enabled the arm64 kernel.
+nvm mistakenly detected the OS to be 64-bit arm, while in reality it was armhf. This pull request solves the problem.",5,22
+2470,2021-03-23T13:37:39Z,2021-03-26T06:00:41Z,2021-03-26T06:00:41Z,1,9,3,"The instructions seemed to encourage the misconception that arch -x86_64 zsh somehow modifies the default architecture for zsh, an operation which would need to be ""reverted"".
+In fact, arch -x86_64 … merely spawns a new process under the selected architecture.",3,1
+2479,2021-04-05T15:29:57Z,2021-04-15T22:55:07Z,2021-04-15T22:55:08Z,1,1,0,"I was trying to follow the instructions on the README on a fresh macOS installation and tripped over the fact that Rosetta 2 wasn’t installed. I got the following error:
+$ arch -x86_64 zsh
+arch: posix_spawnp: zsh: Bad CPU type in executable
+This pull request mentions that you must have Rosetta 2 installed and provides instructions on how to do it. I ended up installing Rosetta 2 by opening OBS, which is Intel-only when installed via Homebrew as of 2021-04-05, and I borrowed the command to install Rosetta 2 on the command line from this thread: https://apple.stackexchange.com/questions/408375/zsh-bad-cpu-type-in-executable",2,0
+2490,2021-04-16T16:54:45Z,2021-04-16T22:16:01Z,2021-04-16T22:16:01Z,1,8,5,"Fixing #2489. Not sure about testing, didn't do anything. Please advise me on how to do it.",2,2
+2502,2021-05-04T05:58:44Z,2021-10-07T05:57:21Z,2021-10-07T05:57:21Z,1,1,1,"I added a notice about lack of Windows support in the README intro, as it's easily missed, and I've seen posts online recommending it without noting this.",4,4
+2512,2021-05-20T14:51:39Z,,2021-11-01T18:04:32Z,1,1,1,Fixed: typo in README.md,3,12
+2517,2021-06-04T19:16:06Z,2021-09-29T05:39:54Z,2021-09-29T05:39:55Z,1,4,4,"I also gave more up to date versions for example of  nvm install and nvm which as well as your pointer section
+I love your project by the way.
+I hope you like my minor suggestions.  I thought it could be confusing to new people of node if we refer to such old versions that no one uses anymore.",2,1
+2523,2021-06-19T21:17:44Z,,2021-06-20T19:38:10Z,4,135,21,"I looked at nvm and I found that the Docker DevEnv is a little messy and old.
+I fixed some ENV's and added a .devcontainer setup. With this you can use a GUI editor and still have a consistent, well defined DevEnv.
+You can quiely check it out by:
+# Fit F1 in VScode and type ""Clone Repository in Container Volume""
+# Paste
+https://github.com/hegerdes/nvm.git
+#Note You need the MS VScode-Remote-Extensions 
+I look forward to feedback and whether there is any interest at all.",3,8
+2527,2021-06-28T00:08:18Z,,2021-06-29T17:06:42Z,1,2,2,,2,0
+2528,2021-06-29T15:34:41Z,,2021-06-29T17:08:21Z,1,1,1,"zsh is the default shell for mac now, so we should write the nvm config to that.",2,1
+2540,2021-07-17T22:24:15Z,,2022-10-08T16:33:20Z,1,1,1,"Keeping your Docker base image up-to-date means you’ll benefit from security fixes in the latest version of your chosen image.
+Changes included in this PR
+
+Dockerfile
+
+We recommend upgrading to ubuntu:xenial-20210416, as this image has only 47 known vulnerabilities. To do this, merge this pull request, then verify your application still works as expected.
+Some of the most important vulnerabilities in your base image include:
+
+
+
+Severity
+Priority Score / 1000
+Issue
+Exploit Maturity
+
+
+
+
+
+321
+Improper Check for Dropped Privileges SNYK-UBUNTU1604-BASH-542609
+Mature
+
+
+
+300
+Information Exposure SNYK-UBUNTU1604-SYSTEMD-346739
+No Known Exploit
+
+
+
+300
+Information Exposure SNYK-UBUNTU1604-SYSTEMD-346739
+No Known Exploit
+
+
+
+300
+Information Exposure SNYK-UBUNTU1604-SYSTEMD-346739
+No Known Exploit
+
+
+
+300
+Information Exposure SNYK-UBUNTU1604-SYSTEMD-346739
+No Known Exploit
+
+
+
+
+Note: You are seeing this because you or someone else with access to this repository has authorized Snyk to open fix PRs.
+For more information: 
+🧐 View latest project report
+🛠 Adjust project settings",3,1
+2556,2021-08-12T13:58:00Z,2021-08-21T05:13:38Z,2021-08-21T05:13:39Z,2,14,13,"This attempts to detect the users default shell rather than the shell the install script is running in, which will always be bash if following install instructions. Fixes #2555",2,2
+2571,2021-08-30T13:47:12Z,2021-08-30T18:34:20Z,2021-08-30T18:34:20Z,2,2,3,"Ubuntu 16.04 is EOLed.
+The realpath package is no longer existed in the new versions of Ubuntu and should be removed.",3,1
+2573,2021-08-30T13:53:53Z,2021-08-30T16:46:11Z,2021-08-30T16:46:11Z,1,1,1,Issue #2572,2,2
+2581,2021-09-04T06:56:09Z,2021-09-04T16:23:17Z,2021-09-04T16:23:17Z,14,359,26,Fixes #2578,2,0
+2585,2021-09-13T12:55:20Z,2021-09-13T18:05:10Z,2021-09-13T18:05:10Z,1,1,1,"Bug:
+If cd is patched (overridden) and prints something to stdout/stderr, completing nvm use with tab-tab erroneously displays this output alongside the completion options.
+Steps to reproduce:
+# Patch cd to print arbitrary text:
+function cd(){ echo EXTRA INFORMATION IN MY FACE; command cd ""$@""; }
+nvm use <TAB> <TAB>
+Completion words should be e.g
+default      EXTRA        FACE         IN           INFORMATION  iojs         MY           node         stable       unstable     v14.17.6
+Fix:
+This is fixed if function __nvm_aliases in bash_completion uses command cd instead of bare cd.",3,3
+2604,2021-09-21T20:57:52Z,2021-09-21T23:38:24Z,2021-09-21T23:38:24Z,1,1,1,"Bash terminal was throwing error: bash: cd: too many arguments when directory had some spaces in the name.
+The quotes around $PWD fixes this issue",2,0
+2605,2021-09-22T06:28:57Z,2021-09-29T05:28:32Z,2021-09-29T05:28:32Z,1,1,1,"Do not use the aliased cd inside cdnvm().
+This avoids an infinite loop when re-reading ~/.bashrc - eg. if the user does a source ~/.profile.",3,0
+2606,2021-09-23T23:59:20Z,2021-09-29T05:17:30Z,2021-09-29T05:17:30Z,1,1,1,Fixes #2599,2,0
+2609,2021-09-26T09:48:53Z,2021-09-29T05:07:13Z,2021-09-29T05:07:13Z,1,1,1,Fix a typo where the word 'run' was written twice.,2,0
+2612,2021-09-29T06:05:45Z,,2022-07-01T08:52:51Z,1,4,5,,2,0
+2620,2021-10-05T13:50:44Z,2021-10-06T18:20:18Z,2021-10-06T18:20:18Z,1,1,0,"The bash_completation command is described in Git Install section, but not in Manual Install section",2,0
+2623,2021-10-06T04:24:33Z,2021-10-06T16:32:34Z,2021-10-06T16:32:34Z,1,2,0,🤷‍♂️ who knows if this works lets find out,2,6
+2637,2021-10-23T13:31:59Z,2021-10-23T21:23:49Z,2021-10-23T21:23:49Z,1,3,3,"To use install.sh in an automated script when there is no no-pager option, the user must press q directly. It's so terrible.",2,11
+2653,2021-11-15T12:24:03Z,2021-11-19T17:20:53Z,2021-11-19T17:20:53Z,1,1,0,"Describe another failure case for installing node versions from source on mac arm64 machines.
+It seems to be related to nodejs/node#39313 (which describes a similar issue).",4,5
+2657,2021-11-20T21:17:11Z,2021-12-03T07:55:41Z,2021-12-03T07:55:41Z,3,121,0,"Changed configuration in nvm_get_download_slug() function, made condition for darwin based OS running on arm64 arch i.e, MAC M1.
+If so, then change HOST_ARCH to x64 so that NVM will fetch x64 arch package from node repository which is the only package node currently having for darwin systems but no arm64 based packages
+Problem
+
+Macbook M1 ARM64 architecture problem that does not allow us to use default terminal for installing node packages using nvm, please refer here
+What we did was use a rosetta-2 terminal for installing different node versions using NVM. It was creating problems for automation developers who use scripts to run operations, and it was not always possible to run the script on a single installed version of the node.
+Even by transforming the current shell to a different arch using rosetta2 e.g, arch -x86_64 zsh causing problems as it creates a new instance of the terminal that is indirectly equivalent to using a different terminal i.e, rosetta one, which stops execution of next series of commands if it is invoked inside the script
+
+Solutions Available
+
+Use the latest version node as old ones were not built for mac m1 arch.
+Use rosetta2 terminal to install node version as it converts architecture from arm64 to amd64, which then nvm install node packages for amd64
+Solution Provided by me for automation engineers who don't want to switch on rosetta2 terminal just for installing node versions, Please refer this. Complete consequences explained in detail
+
+Solution
+
+Made changes in nvm.sh file to update nvm_get_download_slug() function that basically gathers architecture information regarding users system.
+Basically rosetta was only being used to change architecture so that nvm_get_download_slug() would get x86_64 instead of arm64 architecture. Because older versions were never designed for arm64 architectures.
+This part was the pain and I added conditions for the same, so that if the device is apple-based with silicon chip then it will set ""x64"" arch. So that packages fetched from the nodejs repository will be installed properly.
+
+NVM working on mac m1 after making PR changes in nvm.sh
+
+
+First I have run ""uname -a"" to show my mac m1 architecture
+Then I am trying to install node 12.22.7 nvm install 12.22.7 on arm64 arch. This throws me an error as the package was not found.
+Then I sourced the RC file so that my changes in nvm.sh reflect in the shell. Whoop, this worked",3,2
+2658,2021-11-22T14:34:56Z,2021-11-22T18:31:15Z,2021-11-22T18:31:15Z,1,1,1,"Nesting the elif at the same level as the if and fi makes it clear which code applies to which branch (no .nvmrc file / found .nvmrc file).
+I wasted a while looking at it trying to work out how it did anything if there was a .nvmrc file, because obviously the if didn't match and I couldn't see the elif branch.",2,0
+2659,2021-11-22T15:47:58Z,2021-12-10T23:00:54Z,2021-12-10T23:00:55Z,7,78,0,"This PR adds the step-security/harden-runner GitHub Action to the lint.yml workflow to restrict outbound calls. This is a new GitHub Action that provides runtime security for GitHub hosted runner. As of now, it can be used to set allowed outbound traffic for workflow runs to prevent credential exfiltration. You can see the results of running this on a fork here.
+@ljharb would love to pilot step-security/harden-runner on this workflow to get feedback and improve the experience. Do let me know if you have any questions. Thanks!",4,13
+2668,2021-11-30T15:07:40Z,2021-11-30T20:24:26Z,2021-11-30T20:24:26Z,2,2,2,Fixes #2665.,2,0
+2675,2021-12-03T21:59:29Z,2021-12-23T06:12:10Z,2021-12-23T06:12:10Z,1,64,51,I got a chance to fix my complaints about the previous M1 docs. There were a lot of unnecessary details included and some misleading comments. I think this simplifies the instructions without removing any important pieces of information.,2,3
+2677,2021-12-06T09:29:31Z,,2021-12-07T06:40:50Z,1,4,0,CLI rg can be replaced by grep or other pattern search tool.,3,2
+2678,2021-12-06T09:45:18Z,2021-12-27T21:50:18Z,2021-12-27T21:50:18Z,1,1,0,"TL;DR: nvm install fails in Arch's makepkg environment when /sbin/init does not exist. No idea (yet) why exactly this happens, but slightly modifying the line checking for /sbin/init here seems to fix things.
+A few more details/reasoning:
+In some very rare circumstances, a non-existing /sbin/init seems to cause an nvm install to fail without any 'good' hint as to why it fails. (It seems like the commit 7f2ccd5 made it especially hard to pinpoint what's going on here, because even if things silently fail there, it might still cause a script failure in those circumstances.
+This could look like this, for example:
+Downloading and installing node v14.18.1...
+Binary download failed, trying source.
+
+…and then nothing more.
+I am not entirely certain what exactly causes it to fail here – I'd (very broadly) assume that some ""globally"" set shell option from whatever called nvm might still cause the ls error to cause the nvm script to exit. I've originally come across it on Arch in makechrootpkg, although the main culprit seems to be in makepkg itself – which seems to be enough to reproduce it.
+Basically, it happens when running makepkg for a PKGBUILD where nvm is used (as, for example, recommended at https://wiki.archlinux.org/title/Node.js_package_guidelines#Using_nvm), when /sbin/init does not exist (on Arch it does not exist by default, but is provided by the systemd-sysvcompat package).
+I've only come across it by accident by building in a ""clean chroot"" (https://wiki.archlinux.org/title/DeveloperWiki:Building_in_a_clean_chroot), where a package providing /sbin/init is not installed by default. The chroot environment itself does not seem to be relevant though (directly using nvm in it is possible) – it seems like it's only the makepkg environment that seems to matter.
+On top of that, this ""had worked a few weeks ago"" – but I was not able to find out what had changed on Arch's end that might have caused this.
+I understand this is probably not really an nvm issue – I had just hoped that, with this being an easy fix (without any obvious downsides – to me at least), which shouldn't do much damage but just handles the non-existing file ""a bit more cleanly"", it might be easiest to address this here. Unless I can find out where things are actually causing the issue in Arch's tools.",3,2
+2690,2021-12-16T20:19:18Z,,2021-12-18T16:22:21Z,1,10,16,"The zsh script/hook example makes cd too long to finish. For one, it manually calls the load function despite having already made the function on on directory change as a hook. I have made some improvements.
+I also removed the check for installation because I believe that is uncommon and should be done just manually for new repositories, etc.",2,0
+2693,2021-12-19T03:24:31Z,2021-12-20T06:13:17Z,2021-12-20T06:13:17Z,2,57,27,"This PR special-cases the archive extraction code when executed on OpenBSD. This is to workaround the use of the -J and --strip-components options, which OpenBSD's tar does not support. If the xz format archive was downloaded, it correctly calls xzcat and pipes the output to tar. If not, it correctly calls the tar with the normal compression flag. In either case, it does not append the --strip-components=1 option, but rather uses the -s option to perform ed(1)-style basic regex replacement on the path.
+This is tested to execute correctly on OpenBSD 7.0 (current release as of this PR). It does not address compilation issues of the downloaded node source code, as mentioned in #2134, which will likely require upstreaming of some subset of the OpenBSD-specific source patches that were developed for the OpenBSD ports build of node (see the OpenBSD patches for node-12.22.7 here or the implementation of binary builds for OpenBSD, but it does allow you to reach that step without error. This should, however, fully address #2660.
+Fixes #2660.",2,0
+2698,2021-12-26T00:38:06Z,2021-12-27T21:50:18Z,2021-12-27T21:50:18Z,2,65,3,"(Discussed at length in #2678)
+
+Move ls -dl /sbin/init to the following if statement for implicit
+error handling (even if enabled, errexit and errtrace have no
+effect in this context)
+Disable errtrace (set -E) in nvm_get_arch and consolidate existing
+checks for set -e and set -a into one loop
+
+nvm install fails with ""Binary download failed, trying source"" in Arch
+Linux package build scripts. This is the combined result of makepkg
+running these scripts with ERR trap inheritance enabled, and the lack
+of error handling when nvm_get_arch calls ls -dl /sbin/init. If
+/sbin/init doesn't exist, the ERR trap set by makepkg exits
+non-zero and the operation fails.",2,4
+2713,2022-01-16T13:27:13Z,2022-01-18T21:01:52Z,2022-01-18T21:01:52Z,4,8,8,"Checked the links, skipping the redirect HTTP => HTTPS this way 0:-)
+(Also: Hi again 0:-))",2,0
+2729,2022-01-27T19:00:26Z,2022-10-08T05:10:00Z,2022-10-08T05:10:00Z,1,1,1,"Add note about creating .bashrc file as well as .bash_profile.
+My problem was that I didn't have EITHER file, and hopefully the notes will help someone else reading the docs.",3,0
+2744,2022-02-15T10:26:44Z,,2024-01-30T14:05:00Z,1,1809,1803,"Sourcing so many universal variables is dangerous and has led to problems for me. If all variables are 'uniqe', nvm.sh can be sourced globally with 'set -a'. In my case, I had a problem before with the variable 'VERSION' which had the version of the Docker image as value.",2,5
+2770,2022-03-22T14:05:33Z,2022-04-11T03:13:14Z,2022-04-11T03:13:14Z,5,71,10,"We skip showing version only if we have .nvmrc with value and runs nvm use or nvm run.  If nvm use v17 or nvm run v17 app.js is used we still show the version as seen in the screenshot:
+nvm use:
+
+nvm run:
+
+Fixes #2701. Fixes #2775.",3,8
+2777,2022-03-30T14:54:07Z,2022-10-08T17:32:15Z,2022-10-08T17:32:15Z,2,7,4,Fixes #2743,3,0
+2783,2022-04-01T17:17:04Z,2022-04-03T19:44:23Z,2022-04-03T19:44:24Z,1,1,1,Fixes #2782,2,0
+2790,2022-04-15T14:59:00Z,2022-04-15T17:21:42Z,2022-04-15T17:21:42Z,1,76,57,Incorporates the changes of CoC from the contributor covenant to version 2.1.,2,1
+2791,2022-04-15T16:16:35Z,2022-12-23T20:52:25Z,2022-12-23T20:52:25Z,1,102,6,Merges older contributors.md with newer standards. Let me know if anything needs reworking. I've removed the dev install instructions and linked to the readme as that includes all the tips and tricks particular to nvm.,2,0
+2800,2022-04-28T19:12:56Z,2023-05-06T05:27:45Z,2023-05-06T05:27:45Z,1,2,0,"the nvm.sh file assigns and exports an NVM_CD_FLAGS variable if it
+was sourced from a zsh shell. the fact that it's exported means that
+it'll be assigned in all child processes, including the nvm-exec
+script, which uses bash as the interpreter.
+Bash's cd command doesn't have a -q flag, so if the NVM_CD_FLAGS
+is assigned -q, the script will error out and incorrectly claim that
+the node version isn't installed.
+this also manifests itself in the nvm exec command.
+Example:
+$ nvm exec 16.14.0 npm --version
+Running node v16.14.0 (npm v8.3.1)
+/Users/<ME>/.nvm/nvm.sh: line 28: cd: -q: invalid option
+cd: usage: cd [-L|[-P [-e]] [-@]] [dir]
+both the tree and the node path are required
+N/A: version ""v16.14.0 -> N/A"" is not yet installed.
+
+You need to run ""nvm install v16.14.0"" to install it before using it.
+To address this, we unset the NVM_CD_FLAGS at the start of the
+nvm-exec script, before loading nvm.sh.",3,7
+2823,2022-05-25T23:17:41Z,2022-10-08T05:41:52Z,2022-10-08T05:41:52Z,1,1,1,"The instruction list in the Git Install section of the README was being rendered incorrectly.
+Fixes #2822",2,0
+2827,2022-06-05T03:52:37Z,2022-10-13T18:53:40Z,2022-10-13T18:53:40Z,1,65,63,"As of now there are about 700 node versions according to nvm_remote_versions, for which nvm ls-remote might take up to 20 seconds to print the versions in a slightly formatted form.
+We can get a significant performance improvement by replacing the major part of nvm_print_versions with a awk based implementation:
+
+BeforeAfter
+Main loop
+real    17.163s
+user    6.635s
+sys     6.675s
+ 
+real    0.183s
+user    0.108s
+sys     0.098s
+
+Overall
+real    18.555s
+user    6.984s
+sys     6.958s
+ 
+real    1.671s
+user    0.508s
+sys     0.414s",3,14
+2840,2022-06-28T00:24:27Z,2022-10-08T06:02:45Z,2022-10-08T06:02:45Z,1,1,1,"If cd command fails, return whatever cd returned, instead of marching ahead",2,0
+2861,2022-08-24T16:59:21Z,2022-10-08T06:31:25Z,2022-10-08T06:31:25Z,1,2,2,"This fixes these two linting errors:
+
+fqcn-builtins: Use FQCN for builtin actions.
+name: All names should start with an uppercase letter. (name[casing])
+
+Fixes #2860.",2,1
+2874,2022-08-31T06:23:40Z,2022-10-08T14:36:09Z,2022-10-08T14:36:09Z,1,2,3,"The zsh hook in the readme causes cd to take unnecessarily long when working in directory tress without .nvmrc files due to always calling nvm version and nvm version default.
+$ time (nvm version)
+( nvm version; )  0.01s user 0.02s system 46% cpu 0.052 total
+$ time (nvm version default)
+( nvm version default; )  0.07s user 0.12s system 87% cpu 0.213 total
+We should only call nvm version and nvm version default if we left a directory with a .nvmrc file.
+nvm_find_nvmrc and nvm_find_up are fast, so by creating a similar search, but with OLDPWD, unneeded calls to nvm version and nvm version default are eliminated.",2,2
+2882,2022-09-07T08:37:37Z,2022-10-08T15:34:48Z,2022-10-08T15:34:48Z,1,3,3,Closes #2877,2,0
+2892,2022-09-21T20:46:58Z,2022-10-08T19:24:45Z,2022-10-08T19:24:45Z,3,17,6,"Hi there.
+I tried to install nvm on my new Macbook air m2 and failed due to the ""Profile not found. Tried ~/.bashrc, ~/.bash_profile, ~/.zshrc, and ~/.profile."" error
+I checked my home directory and there was only a ~/.zprofile file
+This PR adds support for ~/.zprofile",3,2
+2896,2022-09-27T10:44:39Z,2022-10-08T16:01:56Z,2022-10-08T16:01:56Z,1,12,1,"PR Changes
+Commit 1f2e567
+
+Update install directions to include python3, instead of python2, which is deprecated since Alpine 3.13.
+
+Commit da6ba1e
+
+Add both install scripts, depending on different Alpine versions being ran, at request
+Added a side note for users wanting to run Alpine 3.5 - 3.12 regarding older versions of NodeJS
+
+Commit 3f682a5 & af32ff1
+
+Update the note regarding Alpine versions supporting which NodeJS versions
+
+Fixes #2895.",2,0
+2907,2022-10-06T02:09:50Z,2022-10-08T04:46:22Z,2022-10-08T04:46:23Z,3,8,3,"Problems:
+
+Latest node, v18.10.0, fails at npm install on xenial, breaking builder.
+
+Resolved by running nvm install --lts before nvm install 16, this sets the default node version correctly for the tests and uses 16 for npm install.  This is a workaround which won't be required after migrating from Travis CI to GitHub Actions, where more control over the tests to distro orchestration is possible.
+
+
+Some old versions of node won't install on versions of ubuntu newer than xenial, breaking tests. Example: 0.6.21
+
+Got the tests passing on xenial so no upgrade is needed at this time.
+
+
+Brew removed from Ubuntu runner images. actions/runner-images#6283
+
+brew was used to install shellcheck, readding brew using Homebrew/actions/setup-homebrew action.
+
+
+ShellCheck fails on install.sh due to which error. https://www.shellcheck.net/wiki/SC2230
+
+Disabled the rule at the failure points to get the build passing.  Switching from which to command -v will be address in a future PR.",2,10
+2915,2022-10-15T12:28:30Z,2022-10-16T20:27:42Z,2022-10-16T20:27:42Z,15,482,491,Hopefully fixes #2914,4,3
+2919,2022-10-20T02:51:27Z,2022-10-20T05:35:23Z,2022-10-20T05:35:23Z,1,1,1,"No need to escape the / char in a grep pattern.
+This is to fix the below error when using newer grep with nvm_command_info
+
+$ nvm_command_info curl
+grep: warning: stray \ before /
+/usr/bin/curl
+
+This happens with at least GNU grep 3.8 version.",2,0
+2922,2022-10-21T09:01:02Z,2022-10-21T23:06:26Z,2022-10-21T23:06:26Z,1,7,1,"On Debian, the default awk/mawk doesn't support the --version option, instead there's mawk specific -W version. See https://linux.die.net/man/1/mawk",3,2
+2933,2022-11-02T14:47:51Z,2022-12-23T20:07:12Z,2022-12-23T20:07:12Z,15,150,46,"lts/gallium is node 16, while lts/hydrogen is node 18.
+This fixes the following test:
+
+nvm_list_aliases works with LTS aliases",2,5
+2961,2022-12-01T04:01:07Z,2022-12-23T20:28:15Z,2022-12-23T20:28:15Z,1,35,0,"hopefully this fixes the indent issue for the test I was failing in my last PR
+closes #2958",2,3
+2989,2022-12-25T10:47:19Z,2022-12-26T21:48:07Z,2022-12-26T21:48:07Z,1,1,1,,2,0
+3012,2023-01-22T11:02:27Z,2023-01-26T07:16:41Z,2023-01-26T07:16:42Z,1,4,4,"Remove the call to ls that was used to determine the symlink
+destination
+Reasoning :
+
+od resolves symlink itself due to the use of fopen
+Prevent the behaviour of od which will hang if the filename is
+empty (i.e. /sbin/init missing) as it will be waiting for stdin
+compared to quitting with error if the file just doesn't exist
+
+Closes #3006",2,5
+3019,2023-01-28T17:07:15Z,,2023-02-02T05:40:57Z,1,7,0,I ran into an issue installing NVM on my Mac Book Pro.  I appended the nvm install instructions with the command to fix the scenario I ran into.,2,0
+3020,2023-01-30T18:48:25Z,,2023-12-28T09:50:01Z,1,45,2,Solves #2065,5,13
+3023,2023-02-04T22:51:40Z,,2023-03-22T21:52:11Z,1,1,0,,3,1
+3051,2023-03-08T08:17:24Z,2023-03-22T22:35:50Z,2023-03-22T22:35:50Z,1,8,0,nvm tries to download & install 64Bit node Versions inside a 32Bit docker container on a 64Bit host,2,3
+3057,2023-03-11T03:48:29Z,,2023-03-22T21:51:54Z,1,1,1,"In the case of nvm 0.39.3, this patch fixes the message error:
+«' not found - try nvm ls-remote to browse available versions.»
+that occurs when cd'ing to a directory whose .nvmrc file contains a version starting with ""v"" - which is, in particular, the output of node --version.",3,1
+3060,2023-03-12T01:36:29Z,2023-03-22T21:51:26Z,2023-03-22T21:51:26Z,1,4,8,"Fixes #3054
+Depending on the run, these changes improve the speed of npm ls by anywhere from 5% to 30% depending on the run, though it seems to average around 10%. It's not as much as I would like, but it's something.
+I can get much better performance if I modify nvm_list_aliases to only have one wait call and no sort. It may be worth adding an option --unsorted which does exactly this, but I'm not familiar enough with argument parsing in sh to implement this myself.",2,1
+3067,2023-03-21T18:35:45Z,2023-03-21T20:23:54Z,2023-03-21T20:23:54Z,1,4,1,"Since python 2.x is EOL, default python on the Travis images is 3.x. This PR should fix the issue with builds failing due to that reason i.e. syntax mismatch.",2,0
+3077,2023-04-03T14:51:48Z,2023-04-03T20:30:47Z,2023-04-03T20:30:47Z,1,2,2,travis-ci.org is deprecated and replaced by app.travis-ci.com for a while,2,0
+3078,2023-04-05T17:23:23Z,2023-04-10T05:24:36Z,2023-04-10T05:24:36Z,1,1,1,"Did some basic tests, besides old versions like node.js v12 will need python 2 to build from source, the other part looks good.",2,13
+3080,2023-04-08T16:30:26Z,2023-04-10T21:24:02Z,2023-04-10T21:24:02Z,3,6,2,"This PR fixes an issue where pwd can return ""."" due to insufficient permissions, e.g. when switching users using the su command, which causes an infinite loop in the nvm_find_project_dir and nvm_find_up functions.",2,1
+3082,2023-04-09T13:22:15Z,2023-04-11T18:47:42Z,2023-04-11T18:47:42Z,1,8,3,Resolves #3081,2,0
+3100,2023-04-25T20:49:55Z,2023-05-06T23:49:17Z,2023-05-06T23:49:17Z,1,2,0,"I had to dig into #2410 to learn about the PROFILE=/dev/null technique to install without appending to my shell config. Figured this note would be good to add in the main installation docs.
+Also added a note on how to do this as a one-liner which was not obvious for me.",2,0
+3102,2023-04-28T22:35:49Z,2023-05-06T05:51:48Z,2023-05-06T05:51:48Z,3,7,1,"Fixes #3035
+I wasn't sure what would be the best solution. Right now, if NVM_ARCH is armv8l, it falls back to armv7l since ARMv8 is backward compatible with ARMv7.
+I think other approaches are
+
+Changing aarch64) NVM_ARCH=""arm64"" ;; pattern to  aarch64 | armv8l) NVM_ARCH=""arm64"" ;;. That way it would step into the following code block and also fall back to armv7l.
+
+  # If running a 64bit ARM kernel but a 32bit ARM userland,
+  # change ARCH to 32bit ARM (armv7l) if /sbin/init is 32bit executable
+  if [ ""$(uname)"" = ""Linux"" ] \
+    && ( [ ""${NVM_ARCH}"" = arm64 ] || [ ""${NVM_ARCH}"" = armv8l ] ) \
+    && [ ""$(command od -An -t x1 -j 4 -N 1 ""/sbin/init"" 2>/dev/null)"" = ' 01' ]\
+  ; then
+    NVM_ARCH=armv7l
+    HOST_ARCH=armv7l
+  fi
+
+
+Instead of falling back to armv7l, create another if block to use arm64, something like
+
+  if [ ""$(uname)"" = ""Linux"" ] \
+    && [ ""${NVM_ARCH}"" = armv8l ] \
+  ; then
+    NVM_ARCH=arm64
+    HOST_ARCH=arm64
+  fi
+
+Please let me know if you have any suggestions, feedback, or concerns!",3,4
+3105,2023-05-01T18:24:09Z,2023-05-06T06:15:52Z,2023-05-06T06:15:52Z,1,0,2,Fixes #3104,2,0
+3123,2023-06-05T08:35:01Z,2023-06-12T05:45:56Z,2023-06-12T05:45:57Z,1,7,1,Use GitHub flavored markdown for dark mode,2,0
+3135,2023-06-18T12:43:37Z,2023-06-23T17:00:52Z,2023-06-23T17:00:52Z,1,1,1,"PR Summary:
+The PR contains a fix to typo found it the README.md file. The resolve.conf file should be resolv.conf.",2,0
+3140,2023-07-04T19:30:51Z,,2023-07-06T14:31:27Z,1,1,1,"This PR was automatically created by Snyk using the credentials of a real user.Keeping your Docker base image up-to-date means you’ll benefit from security fixes in the latest version of your chosen image.
+Changes included in this PR
+
+Dockerfile
+
+We recommend upgrading to ubuntu:22.10, as this image has only 10 known vulnerabilities. To do this, merge this pull request, then verify your application still works as expected.
+Some of the most important vulnerabilities in your base image include:
+
+
+
+Severity
+Issue
+Exploit Maturity
+
+
+
+
+
+Memory Leak SNYK-UBUNTU2204-LIBCAP2-5538282
+No Known Exploit
+
+
+
+Integer Overflow or Wraparound SNYK-UBUNTU2204-LIBCAP2-5538296
+No Known Exploit
+
+
+
+Uncontrolled Recursion SNYK-UBUNTU2204-PCRE3-2799820
+No Known Exploit
+
+
+
+Arbitrary Code Injection SNYK-UBUNTU2204-SHADOW-5425688
+No Known Exploit
+
+
+
+Arbitrary Code Injection SNYK-UBUNTU2204-SHADOW-5425688
+No Known Exploit
+
+
+
+
+Note: You are seeing this because you or someone else with access to this repository has authorized Snyk to open fix PRs.
+For more information: 
+🧐 View latest project report
+🛠 Adjust project settings
+
+Learn how to fix vulnerabilities with free interactive lessons:
+🦉 Memory Leak",3,5
+3145,2023-07-07T12:35:29Z,2023-08-22T03:54:36Z,2023-08-22T03:54:36Z,2,8,1,Preserve leading & trailing colons in awk invocation.,2,4
+3151,2023-07-20T08:53:16Z,2023-08-17T22:49:37Z,2023-08-17T22:49:37Z,1,3,1,"In numerous blog posts regarding the configuration of the default nodejs version using nvm, the following command is often cited:
+nvm alias default node
+While this command might work in some cases (as node will point to the latest version installed on your system), it might not behave as intended if you want to default to a specific version of Node.js.
+This command is actually referring to the Set default node version section in the nvm's README. It's crucial to note that the instructions suggest setting a specific node version of your choosing, rather than using the generic node.
+So if you're aiming to set a particular version (for example, 14.15.1) as your default, the correct command would be:
+nvm alias default 14.15.1
+This ensures that the specified version of Node.js will be used by default. If you simply use node as in the first command, it could point to any installed version, which might not be what you intend.",3,3
+3155,2023-08-03T01:55:32Z,,2023-08-03T03:29:54Z,1,4,0,,2,0
+3168,2023-08-19T10:31:28Z,,2023-08-19T15:02:29Z,1,1,1,,2,8
+3195,2023-09-18T10:44:04Z,2023-09-18T19:21:17Z,2023-09-18T19:21:18Z,1,1,1,"Bug: missing /home
+> [18/24] RUN chown nvm:nvm -R ""home/nvm/.nvm"":
+0.467 chown: cannot access 'home/nvm/.nvm': No such file or directory
+------
+dockerfile:90",3,2
+3199,2023-09-19T12:13:33Z,2023-09-20T05:00:04Z,2023-09-20T05:00:04Z,1,0,3,"Looks like it's no longer needed. All commented by default. Can verify by the command below:
+$ for ver in 16.04 18.04 20.04 22.04; do docker run --rm -it ubuntu:$ver sh -c 'grep deb-src /etc/apt/sources.list'; echo; done
+# deb-src http://archive.ubuntu.com/ubuntu/ xenial main restricted
+# deb-src http://archive.ubuntu.com/ubuntu/ xenial-updates main restricted
+# deb-src http://archive.ubuntu.com/ubuntu/ xenial universe
+# deb-src http://archive.ubuntu.com/ubuntu/ xenial-updates universe
+# deb-src http://archive.ubuntu.com/ubuntu/ xenial multiverse
+# deb-src http://archive.ubuntu.com/ubuntu/ xenial-updates multiverse
+# deb-src http://archive.ubuntu.com/ubuntu/ xenial-backports main restricted universe multiverse
+# deb-src http://archive.canonical.com/ubuntu xenial partner
+# deb-src http://security.ubuntu.com/ubuntu/ xenial-security main restricted
+# deb-src http://security.ubuntu.com/ubuntu/ xenial-security universe
+# deb-src http://security.ubuntu.com/ubuntu/ xenial-security multiverse
+
+# deb-src http://archive.ubuntu.com/ubuntu/ bionic main restricted
+# deb-src http://archive.ubuntu.com/ubuntu/ bionic-updates main restricted
+# deb-src http://archive.ubuntu.com/ubuntu/ bionic universe
+# deb-src http://archive.ubuntu.com/ubuntu/ bionic-updates universe
+# deb-src http://archive.ubuntu.com/ubuntu/ bionic multiverse
+# deb-src http://archive.ubuntu.com/ubuntu/ bionic-updates multiverse
+# deb-src http://archive.ubuntu.com/ubuntu/ bionic-backports main restricted universe multiverse
+# deb-src http://archive.canonical.com/ubuntu bionic partner
+# deb-src http://security.ubuntu.com/ubuntu/ bionic-security main restricted
+# deb-src http://security.ubuntu.com/ubuntu/ bionic-security universe
+# deb-src http://security.ubuntu.com/ubuntu/ bionic-security multiverse
+
+# deb-src http://archive.ubuntu.com/ubuntu/ focal main restricted
+# deb-src http://archive.ubuntu.com/ubuntu/ focal-updates main restricted
+# deb-src http://archive.ubuntu.com/ubuntu/ focal universe
+# deb-src http://archive.ubuntu.com/ubuntu/ focal-updates universe
+# deb-src http://archive.ubuntu.com/ubuntu/ focal multiverse
+# deb-src http://archive.ubuntu.com/ubuntu/ focal-updates multiverse
+# deb-src http://archive.ubuntu.com/ubuntu/ focal-backports main restricted universe multiverse
+# deb-src http://archive.canonical.com/ubuntu focal partner
+# deb-src http://security.ubuntu.com/ubuntu/ focal-security main restricted
+# deb-src http://security.ubuntu.com/ubuntu/ focal-security universe
+# deb-src http://security.ubuntu.com/ubuntu/ focal-security multiverse
+
+# deb-src http://archive.ubuntu.com/ubuntu/ jammy main restricted
+# deb-src http://archive.ubuntu.com/ubuntu/ jammy-updates main restricted
+# deb-src http://archive.ubuntu.com/ubuntu/ jammy universe
+# deb-src http://archive.ubuntu.com/ubuntu/ jammy-updates universe
+# deb-src http://archive.ubuntu.com/ubuntu/ jammy multiverse
+# deb-src http://archive.ubuntu.com/ubuntu/ jammy-updates multiverse
+# deb-src http://archive.ubuntu.com/ubuntu/ jammy-backports main restricted universe multiverse
+# deb-src http://security.ubuntu.com/ubuntu/ jammy-security main restricted
+# deb-src http://security.ubuntu.com/ubuntu/ jammy-security universe
+# deb-src http://security.ubuntu.com/ubuntu/ jammy-security multiverse",2,0
+3212,2023-09-30T22:54:45Z,2023-11-02T03:14:55Z,2023-11-02T03:14:55Z,3,139,3,"@ljharb I have updated, nvm_get_arch to return proper value for alpine, please let me know if that would work.",3,33
+3215,2023-10-06T00:36:57Z,2023-10-09T22:34:00Z,2023-10-09T22:34:00Z,1,1,1,Just wanted to be of help and fix a simple missing parenthesis :),2,0
+3217,2023-10-09T07:35:23Z,2023-10-09T21:51:07Z,2023-10-09T21:51:07Z,1,0,0,Just to fix a small typo.,2,1
+3221,2023-10-23T17:31:32Z,2023-10-23T19:04:46Z,2023-10-23T19:04:46Z,1,14,1,"The current documentation leads to confusion. The command nvm install will respect .nvmrc, install the correct version, and automatically switch to it. This is not properly communicated to the end user. The github discussion below is an example.
+ubccsss/ubccsss.org#503
+I added what nvm install will do in the presence of an .nvmrc file, to clear up future confessions.",2,1
+3222,2023-10-24T03:56:26Z,2023-12-05T05:14:43Z,2023-12-05T05:14:43Z,1,6,6,"I was having trouble installing a new version of Node using the --latest-npm flag.  After reading the help message again, I noticed the following:
+The following optional arguments, if provided, must appear directly after `nvm install`
+
+All of the nvm install examples in the README currently put the arguments after the version.  This change should reduce confusion and better align with the intended usage.
+Note: The --reinstall-packages-from flag works just fine when put after the version, but --latest-npm (and possibly others), need to come directly after nvm install.",2,0
+3230,2023-11-12T13:21:05Z,2023-12-05T00:32:20Z,2023-12-05T00:32:20Z,1,6,6,"This PR fixes the level of a few headings in the README file.
+""Restoring PATH"", ""Set default node version"", and ""Use a mirror of node binaries"" should not be subsections under the ""Setting Custom Colors"" section. The change will make the TOC easier to scan for readers.",2,1
+3242,2023-12-01T02:57:37Z,2023-12-05T04:46:14Z,2023-12-05T04:46:15Z,1,10,10,Fix typos and update M1 to Apple silicon because of M2 and M3,2,1
+3246,2023-12-05T09:22:41Z,,2023-12-06T05:50:57Z,1,2,2,"Hey!
+Switching from command to builtin. In zsh the keyword command does not resolve to builtin shell commands, only to binaries in the fs.
+Thanks!
+Fixes #3247",3,3
+3267,2024-01-18T08:37:19Z,2024-01-20T21:56:38Z,2024-01-20T21:56:38Z,1,2,0,add the last step to uninstall  nvm,2,0
+3286,2024-02-13T11:40:15Z,2024-02-24T17:27:44Z,2024-02-24T17:27:44Z,1,4,2,nvm unload will unset NVM_DIR. So gotta save NVM_DIR first.,3,0
+3295,2024-02-18T00:41:39Z,2024-02-18T03:31:20Z,2024-02-18T03:31:20Z,1,1,1,u -> you,2,0

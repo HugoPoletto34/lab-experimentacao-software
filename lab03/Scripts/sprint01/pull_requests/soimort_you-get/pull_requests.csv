@@ -1,0 +1,452 @@
+number,created_at,merged_at,closed_at,files,additions,deletions,body_text,participants,comments
+1548,2016-12-09T11:31:25Z,,2017-01-09T00:15:46Z,2,4,11,"This is my first use you-get, I found that the http-proxy option can not work with extractor-proxy feature: #1546
+This commit fixed it, tested on CPython 3.5.
+The common.py try code can also be instead of the no if condition code.
+try:
+    download_main(download, download_playlist, args, playlist, stream_id=stream_id, proxy=proxy, extractor_proxy=extractor_proxy or proxy, output_dir=output_dir, merge=merge, info_only=info_only, json_output=json_output, caption=caption)
+except ...
+
+
+This change is ",2,5
+1550,2016-12-10T11:27:04Z,2017-04-01T19:56:38Z,2017-04-01T19:56:38Z,2,38,0,"Support for yizhibo.com
+
+
+This change is ",5,7
+1577,2016-12-26T12:35:53Z,,2017-03-09T14:22:20Z,5,48,49,"fixed pptv video url match
+
+
+This change is ",3,1
+1665,2017-02-02T09:46:31Z,2017-02-19T20:06:24Z,2017-02-19T20:06:24Z,1,24,14,"Prevent FFmpeg from consuming stdin and interpreting the character stream as a stream of interactive commands, specifically:
+?      show this help
++      increase verbosity
+-      decrease verbosity
+c      Send command to first matching filter supporting it
+C      Send/Queue command to all matching filters
+D      cycle through available debug modes
+h      dump packets/hex press to cycle through the 3 states
+q      quit
+s      Show QP histogram
+
+This is mostly useful in a batch environment where an unsuspecting user
+may not realize you-get could consume stdin through FFmpeg, e.g.
+while read url; do you-get ""$url""; done <urllist
+(Related: BashFAQ/089.)
+Yeah, apparently the above could easily be replaced with xargs you-get <urllist which is more elegant and doesn't suffer from the stdin consumption problem, but the above is a pretty honest and straightforward command line which could been seen in the real world.
+In addition, even if we ignore the contrived command line, a user probably won't be thrilled if he accidentally smashes the ""h"" key and all of a sudden megabytes worth of dumps pour in on stderr.
+
+An alternative would be FFmpeg's -nostdin option, which explicitly disables interaction, but adding such an option to existing code would be even more destructive than the stdin=DEVNULL approach taken here.
+
+This commit also happens to fix a dual-call bug in ffmpeg_concat_mp4_to_mpg.
+
+
+This change is ",3,4
+1685,2017-02-15T10:31:07Z,,2017-04-06T06:18:04Z,1,253,80,This change is ,21,99
+1698,2017-02-20T06:57:26Z,2017-07-07T13:09:01Z,2017-07-07T13:09:01Z,2,314,192,"在common.py里加了get_content_and_redirected这样一个函数，以tuple返回content和redirected_url
+
+用url_locations处理redirects，修正了#1693
+test case
+
+./you-get -i 'http://www.bilibili.com/video/av7873772/'
+Site:       bilibili.com
+Title:      URARA迷路帖 [1 少女与占卜、偶尔的露肚皮]
+Type:       Flash video (video/x-flv)
+Size:       345.69 MiB (362486000 Bytes)
+
+
+正确处理bangumi的episode titles
+test case
+
+./you-get -i 'http://bangumi.bilibili.com/anime/835/play#15014' 'http://bangumi.bilibili.com/anime/3462/play#89073' 'http://bangumi.bilibili.com/anime/1660/play'
+Site:       bilibili.com
+Title:      我们仍未知道那天所看见的花的名字。 [1 超和平busters]
+Type:       Flash video (video/x-flv)
+Size:       176.81 MiB (185402909 Bytes)
+
+Site:       bilibili.com
+Title:      双星之阴阳师 [17 师傅赋予的红色证明]
+Type:       Flash video (video/x-flv)
+Size:       259.48 MiB (272085344 Bytes)
+
+Site:       bilibili.com
+Title:      夏目友人帐 [1 猫和友人帐]
+Type:       Flash video (video/x-flv)
+Size:       143.16 MiB (150117218 Bytes)
+
+部分修正了 #1735
+
+把timeout的try except block限定到download_urls上去，修正#1897
+timeout增加到15
+
+./you-get http://www.bilibili.com/video/av9954010/
+Site:       bilibili.com
+Title:      【西瓜新】一个小小的八音盒【有一点花絮】
+Type:       MPEG-4 video (video/mp4)
+Size:       25.6 MiB (26847580 Bytes)
+
+Downloading 【西瓜新】一个小小的八音盒【有一点花絮】.mp4 ...
+ 100% ( 25.6/ 25.6MB) ├█████████████████████████████████████████┤[1/1]    9 MB/s
+
+Downloading 【西瓜新】一个小小的八音盒【有一点花絮】.cmt.xml ...
+
+ ./you-get http://bangumi.bilibili.com/anime/1660/play
+Site:       bilibili.com
+Title:      夏目友人帐 [1 猫和友人帐]
+Type:       Flash video (video/x-flv)
+Size:       143.16 MiB (150117218 Bytes)
+
+Downloading 夏目友人帐 [1 猫和友人帐].flv ...
+ 100% (143.2/143.2MB) ├█████████████████████████████████████████┤[1/1]  566 kB/s
+
+Downloading 夏目友人帐 [1 猫和友人帐].cmt.xml ...
+
+./you-get http://www.bilibili.com/video/av10199346
+Site:       bilibili.com
+Title:      【GNZ48王盈】20170429 出道一周年联合特别公演《糖》王盈 陈桂君 农燕萍
+Type:       Flash video (video/x-flv)
+Size:       85.81 MiB (89977095 Bytes)
+
+Downloading 【GNZ48王盈】20170429 出道一周年联合特别公演《糖》王盈 陈桂君 农燕萍.flv ...
+ 100% ( 85.8/ 85.8MB) ├█████████████████████████████████████████┤[1/1]    5 MB/s
+
+Downloading 【GNZ48王盈】20170429 出道一周年联合特别公演《糖》王盈 陈桂君 农燕萍.cmt.xml ...
+
+现在不会重新打印print_info
+
+修正了live.bilibili.com中cid动态加载的问题
+test case:
+
+./you-get -u 'http://live.bilibili.com/1329719'
+Site:       bilibili.com
+Title:      画点健康的，，身体吃不消l - 冰山小公主不二 - 哔哩哔哩直播
+Type:       Flash video (video/x-flv)
+Size:       0.0 MiB (0 Bytes)
+
+Real URLs:
+http://txy.live-play.acgvideo.com/live-txy/958553/live_3568670_2103044.flv?wsSecret=3df3922b3e4b0604f2f5bdf148d4eb50&wsTime=1493788374
+
+
+
+This change is ",8,17
+1755,2017-03-11T07:39:27Z,2017-04-01T20:02:17Z,2017-04-01T20:02:17Z,1,43,0,"#1754
+test case 1: (kg2.qq.com)
+./you-get 'http://kg2.qq.com/share.html?s=qqJuE9qtVgx1IqzS'
+Site:       腾讯全民K歌
+Title:      情歌王
+Type:       MPEG-4 audio (audio/mp4)
+Size:       1.09 MiB (1139329 Bytes)
+
+Downloading 情歌王.mp4 ...
+ 100% (  1.1/  1.1MB) ├█████████████████████████████████████████████┤[1/1]    2 MB/s
+
+ls | grep '情歌王'
+情歌王.lrc
+情歌王.mp4
+
+test case 2 (kg.qq.com, a video)
+./you-get -d 'http://kg.qq.com/share.html?s=VKzj9kVgqBbhLVVp'
+[DEBUG] get_content: http://cgi.kg.qq.com/fcgi-bin/kg_ugc_getdetail?dataType=jsonp&jsonp=callback&jsonpCallback=jsopgetsonginfo&v=4&outCharset=utf-8&shareid=VKzj9kVgqBbhLVVp
+[DEBUG] get_content: http://cgi.kg.qq.com/fcgi-bin/fcg_lyric?jsonpCallback=jsopgetlrcdata&outCharset=utf-8&ksongmid=002qggKE4IjhEn
+[DEBUG] url_info: http://dl.stream.kg.qq.com/vcloud1029.tc.qq.com/1029_3aa4ddd79bc549c0ab2ac6b4baf8e380.f0.mp4?vkey=30F29BB4CFA9258417ADED5C93F18050EFC47A1F715AEF13708F13A456EA3A2635788B22569CECC8F0A1069EF93065AE243ABE3B4DE1683AA2179277C0D5C9C103DEBA712C1A5885DFA987216CB429FF394C7DCC2D095BE3&fromtag=1008&sdtfrom=v1008
+Site:       腾讯全民K歌
+Title:      LEMON TREE
+Type:       MPEG-4 video (video/mp4)
+Size:       19.64 MiB (20591780 Bytes)
+
+
+
+This change is ",5,2
+2015,2017-05-24T13:24:23Z,2017-07-07T22:36:23Z,2017-07-07T22:36:23Z,2,64,78,"NOTE:
+
+
+yxon not impled. F. I. 10 segs in hd3, 8 ones in hd2, 5 ones both in mp4 and flv. 28 extra network requests will be sent, which makes the program seem stuck or produces lots of noise in the debugging log. #1058
+
+
+Failed with http://v.youku.com/v_show/id_XMjc3MjQ0MjEwMA==.html. ep40 of Zetianji. But it works when downloading ep1 and ep45. Perhaps you should curse the CDN before a VIP user of youku find out what's wrong.
+
+
+
+
+
+yxon没有放进代码里。比如一个视频，hd3有10个片段，hd2有8个，mp4和flv各5个，那么一共需要发出28个网络请求，程序会看上去像卡住了一样，或者输出大量没什么用的debugging log。另外可以参考 #1058 ，有人需要。
+
+
+择天记第40集下载会失败（hd3，其他分辨率正常）。但是择天记的第一集或是第45集都正常，选1080p需要vip所以也没法在浏览器里面看是不是正常。大概只能怪youku的CDN了。
+
+
+$ ./you-get -d 'http://v.youku.com/v_show/id_XMjc4MTQ3MzY5Mg==.html'
+[DEBUG] get_content: https://ups.youku.com/ups/get.json?vid=XMjc4MTQ3MzY5Mg==&ccode=0401&client_ip=192.168.1.1&utid=3nOsESeJhAUCAbZyXYm8UflX&client_ts=1495631326
+site:                优酷 (Youku)
+title:               李志、电声与管弦乐 03.尽头
+stream:
+    - format:        hd3
+      container:     flv
+      video-profile: 1080P
+      size:          60.3 MiB (63205554 bytes)
+    # download-with: you-get --format=hd3 [URL]
+
+Downloading 李志、电声与管弦乐 03.尽头.flv ...
+ 100% ( 60.3/ 60.3MB) ├█████████████████████████████████████████┤[2/2]    1 MB/s
+Merging video parts... ffmpeg version 3.3.1 Copyright (c) 2000-2017 the FFmpeg developers
+  built with Apple LLVM version 8.1.0 (clang-802.0.42)
+  configuration: --prefix=/usr/local/Cellar/ffmpeg/3.3.1 --enable-shared --enable-pthreads --enable-gpl --enable-version3 --enable-hardcoded-tables --enable-avresample --cc=clang --host-cflags= --host-ldflags= --enable-libmp3lame --enable-libx264 --enable-libxvid --enable-opencl --disable-lzma --enable-vda
+  libavutil      55. 58.100 / 55. 58.100
+  libavcodec     57. 89.100 / 57. 89.100
+  libavformat    57. 71.100 / 57. 71.100
+  libavdevice    57.  6.100 / 57.  6.100
+  libavfilter     6. 82.100 /  6. 82.100
+  libavresample   3.  5.  0 /  3.  5.  0
+  libswscale      4.  6.100 /  4.  6.100
+  libswresample   2.  7.100 /  2.  7.100
+  libpostproc    54.  5.100 / 54.  5.100
+[flv @ 0x7fa849800a00] Auto-inserting h264_mp4toannexb bitstream filter
+Input #0, concat, from './李志、电声与管弦乐 03.尽头.mp4.txt':
+  Duration: N/A, start: 0.000000, bitrate: 1877 kb/s
+    Stream #0:0: Video: h264 (High), yuv420p(tv, bt709, progressive), 1920x1080 [SAR 1:1 DAR 16:9], 1748 kb/s, 25.03 fps, 25 tbr, 1k tbn, 50 tbc
+    Stream #0:1: Audio: aac (LC), 44100 Hz, stereo, fltp, 128 kb/s
+Output #0, mp4, to './李志、电声与管弦乐 03.尽头.mp4':
+  Metadata:
+    encoder         : Lavf57.71.100
+    Stream #0:0: Video: h264 (High) ([33][0][0][0] / 0x0021), yuv420p(tv, bt709, progressive), 1920x1080 [SAR 1:1 DAR 16:9], q=2-31, 1748 kb/s, 25.03 fps, 25 tbr, 16k tbn, 1k tbc
+    Stream #0:1: Audio: aac (LC) ([64][0][0][0] / 0x0040), 44100 Hz, stereo, fltp, 128 kb/s
+Stream mapping:
+  Stream #0:0 -> #0:0 (copy)
+  Stream #0:1 -> #0:1 (copy)
+Press [q] to stop, [?] for help
+[flv @ 0x7fa849800a00] Auto-inserting h264_mp4toannexb bitstream filter
+frame= 3451 fps=0.0 q=-1.0 size=   31623kB time=00:02:17.98 bitrate=1877.4kbits/frame= 4651 fps=4651 q=-1.0 size=   45169kB time=00:03:06.00 bitrate=1989.4kbitsframe= 5542 fps=3676 q=-1.0 size=   55299kB time=00:03:41.62 bitrate=2044.1kbitsframe= 6595 fps=3615 q=-1.0 Lsize=   61601kB time=00:04:23.85 bitrate=1912.5kbits/s speed= 145x
+video:57281kB audio:4123kB subtitle:0kB other streams:0kB global headers:0kB muxing overhead: 0.320389%
+Merged into 李志、电声与管弦乐 03.尽头.mp4
+
+fix #2012 #2014 #2037 #1847
+It's a quick fix, far from satisfactory but too many users need youku.py.",21,73
+2042,2017-05-27T08:16:35Z,,2017-07-07T22:58:43Z,1,47,43,解决优酷客户端无权播放，603,4,4
+2153,2017-07-15T13:31:28Z,2017-08-07T19:56:07Z,2017-08-07T19:56:07Z,2,67,48,"$ ./you-get -d 'https://www.zhanqi.tv/edmunddzhang'
+[DEBUG] get_content: https://www.zhanqi.tv/api/static/v2.1/room/domain/edmunddzhang.json
+Site:       www.zhanqi.tv
+Title:      EdmundDZhang: 【老E】今晚可能休息？！
+Type:       M3U8 Master m3u8
+M3U8 Url:   http://dlhls.cdn.zhanqi.tv/zqlive/9469_lNZYA.m3u8
+
+Downloading streaming content with FFmpeg, press q to stop recording...
+ffmpeg -y -re -i http://dlhls.cdn.zhanqi.tv/zqlive/9469_lNZYA.m3u8 -c copy -bsf:a aac_adtstoasc EdmundDZhang- 【老E】今晚可能休息？！.mp4
+ffmpeg version 3.3.1 Copyright (c) 2000-2017 the FFmpeg developers
+  built with Apple LLVM version 8.1.0 (clang-802.0.42)
+  configuration: --prefix=/usr/local/Cellar/ffmpeg/3.3.1 --enable-shared --enable-pthreads --enable-gpl --enable-version3 --enable-hardcoded-tables --enable-avresample --cc=clang --host-cflags= --host-ldflags= --enable-libmp3lame --enable-libx264 --enable-libxvid --enable-opencl --disable-lzma --enable-vda
+  libavutil      55. 58.100 / 55. 58.100
+  libavcodec     57. 89.100 / 57. 89.100
+  libavformat    57. 71.100 / 57. 71.100
+  libavdevice    57.  6.100 / 57.  6.100
+  libavfilter     6. 82.100 /  6. 82.100
+  libavresample   3.  5.  0 /  3.  5.  0
+  libswscale      4.  6.100 /  4.  6.100
+  libswresample   2.  7.100 /  2.  7.100
+  libpostproc    54.  5.100 / 54.  5.100
+Input #0, hls,applehttp, from 'http://dlhls.cdn.zhanqi.tv/zqlive/9469_lNZYA.m3u8':
+  Duration: N/A, start: 3575.057333, bitrate: N/A
+  Program 0
+    Metadata:
+      variant_bitrate : 10240
+    Stream #0:0: Video: h264 (High) ([27][0][0][0] / 0x001B), yuv420p(tv, bt709/bt709/iec61966-2-1), 1280x720, 45 tbr, 90k tbn, 2k tbc
+    Metadata:
+      variant_bitrate : 10240
+    Stream #0:1: Audio: aac (LC) ([15][0][0][0] / 0x000F), 48000 Hz, stereo, fltp
+    Metadata:
+      variant_bitrate : 10240
+Output #0, mp4, to 'EdmundDZhang- 【老E】今晚可能休息？！.mp4':
+  Metadata:
+    encoder         : Lavf57.71.100
+    Stream #0:0: Video: h264 (High) ([33][0][0][0] / 0x0021), yuv420p(tv, bt709/bt709/iec61966-2-1), 1280x720, q=2-31, 45 tbr, 90k tbn, 90k tbc
+    Metadata:
+      variant_bitrate : 10240
+    Stream #0:1: Audio: aac (LC) ([64][0][0][0] / 0x0040), 48000 Hz, stereo, fltp
+    Metadata:
+      variant_bitrate : 10240
+Stream mapping:
+  Stream #0:0 -> #0:0 (copy)
+  Stream #0:1 -> #0:1 (copy)
+Press [q] to stop, [?] for help
+frame=   19 fps=0.0 q=-1.0 size=     402kB time=00:00:00.53 bitrate=6206.8kbits/s speframe=   31 fps= 24 q=-1.0 size=     461kB time=00:00:00.79 bitrate=4735.2kbits/s speframe=   39 fps= 16 q=-1.0 size=     513kB time=00:00:00.97 bitrate=4309.5kbits/s spe
+
+$ ./you-get -di 'https://www.zhanqi.tv/videos/zjyx/2017/06/207420.html'
+[DEBUG] get_content: https://www.zhanqi.tv/api/static/v2.1/video/207420.json
+[DEBUG] get_content: http://dlvod.cdn.zhanqi.tv/BjABYgE6WGsLMV0wBzQFaA1r_2017_06_27_BjMBYgE9WGwLNV02
+Site:       www.zhanqi.tv
+Title:      【老E】灵魂画师的艺术造纸！
+Type:       M3U8 Playlist m3u8",4,5
+2260,2017-08-12T16:23:58Z,2017-09-11T13:29:45Z,2017-09-11T13:29:45Z,1,185,191,"see also https://github.com/soimort/you-get/issues/1181.
+功能上应该完全没有改变，输出上，呃，它变长了……好处是选项的定义更加声明化，不会忘记改帮助信息了的。也添加了几个互斥组。
+需要的话，我可以进一步优化。",4,2
+2440,2017-10-19T01:37:02Z,2017-11-17T15:44:31Z,2017-11-17T15:44:31Z,1,1,1,现在的进度条显示，在windows下会因为多算了一个字符的宽度，导致\r不生效，仍然出现换行显示的行为，多减去一个字符即可修复,4,2
+2485,2017-11-08T06:41:52Z,2017-11-17T15:54:31Z,2017-11-17T15:54:31Z,1,14,11,"感谢您的pull request! you-get是稳健成长的开源项目，感谢您的贡献.
+以下简单检查项目望您复查:
+
+ 如果您预计提出两个或更多不相关补丁，请为每个使用不同的pull requests，而不是单一;
+ 所有的pull requests应基于最新的develop分支;
+ 您预计提出pull requests的分支应有有意义名称，例如add-this-shining-feature而不是develop;
+ 所有的提交信息与代码中注释应使用可理解的英语.
+
+作为贡献者，您需要知悉
+
+ 您同意在MIT协议下贡献代码，以便任何人自由使用或分发;当然，你仍旧保留代码的著作权
+ 你不得贡献非自己编写的代码，除非其属于公有领域或使用MIT协议.
+
+不是所有的pull requests都会被合并,然而我认为合并/不合并的补丁一样重要：如果您认为补丁重要，其他人也有可能这么认为，那么他们可以从你的fork中提取工作并获益。无论如何，感谢您费心对本项目贡献.
+祝好,
+Mort",5,2
+2555,2018-01-05T04:24:31Z,2018-01-19T17:14:10Z,2018-01-19T17:14:10Z,1,1,1,"Add referer header to fix http error code 403,
+and user agent to fix http error code 466.",14,14
+2556,2018-01-10T07:35:00Z,2018-02-03T16:50:35Z,2018-02-03T16:50:35Z,1,1,1,"ccode=0512会报错 客户端无权播放,201 改成0513可以下载
+got error 201 when ccode=0512",18,37
+2558,2018-01-24T06:22:08Z,,2018-02-02T18:03:01Z,1,1,1,"the interface ""http://www.acfun.tv/video/getVideo.aspx"" in line 52 can`t be used. it shoud be www.acfun.cn/video/getVideo.aspx
+(PLEASE DELETE ALL THESE AFTER READING)
+Thank you for the pull request! you-get is a growing open source project, which would not have been possible without contributors like you.
+Here are some simple rules to follow, please recheck them before sending the pull request:
+
+ If you want to propose two or more unrelated patches, please open separate pull requests for them, instead of one;
+ All pull requests should be based upon the latest develop branch;
+ Name your branch (from which you will send the pull request) properly; use a meaningful name like add-this-shining-feature rather than just develop;
+ All commit messages, as well as comments in code, should be written in understandable English.
+
+As a contributor, you must be aware that
+
+ You agree to contribute your code to this project, under the terms of the MIT license, so that any person may freely use or redistribute them; of course, you will still reserve the copyright for your own authorship.
+ You may not contribute any code not authored by yourself, unless they are licensed under either public domain or the MIT license, literally.
+
+Not all pull requests can eventually be merged. I consider merged / unmerged patches as equally important for the community: as long as you think a patch would be helpful, someone else might find it helpful, too, therefore they could take your fork and benefit in some way. In any case, I would like to thank you in advance for taking your time to contribute to this project.
+Cheers,
+Mort
+(PLEASE REPLACE ALL ABOVE WITH A DETAILED DESCRIPTION OF YOUR PULL REQUEST)
+汉语翻译最后日期：2016年02月26日
+(阅读后请删除所有内容)
+感谢您的pull request! you-get是稳健成长的开源项目，感谢您的贡献.
+以下简单检查项目望您复查:
+
+ 如果您预计提出两个或更多不相关补丁，请为每个使用不同的pull requests，而不是单一;
+ 所有的pull requests应基于最新的develop分支;
+ 您预计提出pull requests的分支应有有意义名称，例如add-this-shining-feature而不是develop;
+ 所有的提交信息与代码中注释应使用可理解的英语.
+
+作为贡献者，您需要知悉
+
+ 您同意在MIT协议下贡献代码，以便任何人自由使用或分发;当然，你仍旧保留代码的著作权
+ 你不得贡献非自己编写的代码，除非其属于公有领域或使用MIT协议.
+
+不是所有的pull requests都会被合并,然而我认为合并/不合并的补丁一样重要：如果您认为补丁重要，其他人也有可能这么认为，那么他们可以从你的fork中提取工作并获益。无论如何，感谢您费心对本项目贡献.
+祝好,
+Mort
+(请将本内容完整替换为PULL REQUEST的详细内容)",4,2
+2573,2018-02-17T22:14:33Z,2018-02-17T23:22:27Z,2018-02-17T23:22:27Z,1,1,1,"mp4hd3 format of some videos cannot be extracted with 0513, but can be extracted with 0507.
+For example, http://v.youku.com/v_show/id_XMzM2NTk2NTM5Ng==.html, mp4hd2 is the best format if 0513 is used, however, mp4hd3 is available if 0507 is used.",4,6
+2627,2018-08-04T03:07:26Z,2018-08-07T11:39:52Z,2018-08-07T11:39:52Z,1,9,0,"⋊> ~/repos/you-get/you-get -i 'https://www.bilibili.com/video/av16907446?p=3'
+you-get: This page contains a playlist. (use --playlist to download all videos.)
+site:                Bilibili
+title:               ""不要相信歌词，他们为了押韵什么都干得出来"" #3. 居然还有P3!
+streams:             # Available quality and codecs      ^^^^^^^^^^^^^^^
+    [ DEFAULT ] _________________________________                  \
+    - format:        flv720                                         `--------- subtitle
+      container:     flv
+      size:          18.1 MiB (18994910 bytes)
+    # download-with: you-get --format=flv720 [URL]
+
+    - format:        flv
+      container:     flv
+      size:          13.2 MiB (13799463 bytes)
+    # download-with: you-get --format=flv [URL]",3,4
+2655,2018-11-11T05:11:23Z,2018-11-18T21:57:13Z,2018-11-18T21:57:13Z,1,27,0,,4,3
+2680,2019-02-15T15:06:01Z,,2019-02-16T05:11:55Z,1,3,0,"you-get https://www.bilibili.com/video/av43488517 --debug
+[DEBUG] url_locations: https://www.bilibili.com/video/av43488517
+[DEBUG] get_content: https://www.bilibili.com/video/av43488517
+[DEBUG] get_content: http://interface.bilibili.com/v2/playurl?appkey=84956560bc028eb7&cid=76212702&otype=xml&qn=116&quality=116&type=&sign=e5bc9abfdc62204b4336b7d680bda905
+you-get: version 0.4.1205, a tiny downloader that scrapes the web.
+you-get: Namespace(URL=['https://www.bilibili.com/video/av43488517'], auto_rename=False, cookies=None, debug=True, extractor_proxy=None, force=False, format=None, help=False, http_proxy=None, info=False, input_file=None, itag=None, json=False, no_caption=False, no_merge=False, no_proxy=False, output_dir='.', output_filename=None, password=None, player=None, playlist=False, socks_proxy=None, stream=None, timeout=600, url=False, version=False)
+Traceback (most recent call last):
+File ""c:\users\ultra\appdata\local\programs\python\python37-32\lib\runpy.py"", line 193, in run_module_as_main
+""main"", mod_spec)
+File ""c:\users\ultra\appdata\local\programs\python\python37-32\lib\runpy.py"", line 85, in run_code
+exec(code, run_globals)
+File ""C:\Users\Ultra\AppData\Local\Programs\Python\Python37-32\Scripts\you-get.exe_main.py"", line 9, in 
+File ""c:\users\ultra\appdata\local\programs\python\python37-32\lib\site-packages\you_get_main.py"", line 92, in main
+main(**kwargs)
+File ""c:\users\ultra\appdata\local\programs\python\python37-32\lib\site-packages\you_get\common.py"", line 1653, in main
+script_main(any_download, any_download_playlist, **kwargs)
+File ""c:\users\ultra\appdata\local\programs\python\python37-32\lib\site-packages\you_get\common.py"", line 1541, in script_main
+**extra
+File ""c:\users\ultra\appdata\local\programs\python\python37-32\lib\site-packages\you_get\common.py"", line 1276, in download_main
+download(url, **kwargs)
+File ""c:\users\ultra\appdata\local\programs\python\python37-32\lib\site-packages\you_get\common.py"", line 1644, in any_download
+m.download(url, **kwargs)
+File ""c:\users\ultra\appdata\local\programs\python\python37-32\lib\site-packages\you_get\extractor.py"", line 46, in download_by_url
+self.prepare(**kwargs)
+File ""c:\users\ultra\appdata\local\programs\python\python37-32\lib\site-packages\you_get\extractors\bilibili.py"", line 167, in prepare
+self.entry(**kwargs)
+File ""c:\users\ultra\appdata\local\programs\python\python37-32\lib\site-packages\you_get\extractors\bilibili.py"", line 227, in entry
+self.download_by_vid(cid, re.search('bangumi', self.url) is not None, **kwargs)
+File ""c:\users\ultra\appdata\local\programs\python\python37-32\lib\site-packages\you_get\extractors\bilibili.py"", line 104, in download_by_vid
+self.parse_bili_xml(api_xml)
+File ""c:\users\ultra\appdata\local\programs\python\python37-32\lib\site-packages\you_get\extractors\bilibili.py"", line 86, in parse_bili_xml
+stream_type, container = self.bilibili_stream_type(urls_list)
+File ""c:\users\ultra\appdata\local\programs\python\python37-32\lib\site-packages\you_get\extractors\bilibili.py"", line 47, in bilibili_stream_type
+url = urls[0]
+IndexError: list index out of range",11,11
+2697,2019-04-18T09:42:03Z,2019-05-19T14:02:54Z,2019-05-19T14:02:54Z,1,26,7,"Hi,
+Issue and Usage Scenarios:
+Due to ffmpeg version and different format of downloaded parts, sometimes the merge of video parts can fail. This will result in 0 bytes merged files.
+When running you-get again, you-get will check the merged file. Although the merged file exists, it's length is 0 bytes and you-get will try to re-download the video parts and re-merge the file. This is for fault tolerance and continues downloading feature, but sometimes, this can be inconvenient.
+For example:
+I am trying to download 10000+ videos from YouTube. I need to download as many as possible. But the network is not stable and my ffmpeg fails to merge some of the videos. So I run you-get with the 10000+ URLs and get some successfully merged files, some failed merged files and some partially downloaded video parts.
+After the first run, I need to continue to download the partially downloaded videos and skip the failed merge ones. But you-get will still try to re-download the failed merge ones.
+Solution:
+Added an option argument: --skip-ignore-size. When using this argument, you-get will skip the existing files without checking the file size.
+Thank you.
+您好，
+问题描述：
+有时由于ffmpeg版本问题或者下载视频的格式问题，最后的合并过程会失败。这会产生一个大小为0字节的结果文件。
+如果这时重新运行you-get，you-get可以检查到结果文件已存在，但是由于文件大小为0字节，you-get依然会尝试去重新下载、重新合并文件。这是为了错误容忍和断点续传功能，但有时有一点不方便。
+比如：
+我最近需要从YouTube下载10000+的视频。只需要下载尽量多的视频就可以。但我的网络不是很稳定，而且由于ffmpeg的问题，有些视频会合并失败。当我对10000+的视频url执行一遍you-get后，产生了三种结果：一些视频成功了，一些合并失败了，一些由于网络原因只下载了一部分。这时我又运行了第二遍you-get，you-get依然会尝试下载、合并那些由于ffmpeg而合并失败的视频。
+解决方案：
+增加了一个 --skip-ignore-size参数，当设置这个选项时，you-get会跳过检查文件的步骤，直接通过文件是否存在来判断是否跳过下载过程。
+谢谢。",3,4
+2698,2019-04-22T06:31:52Z,2019-04-25T12:52:44Z,2019-04-25T12:52:44Z,1,11,3,"fix the new type of 高清 1080P+ on bilibili.com
+test command:
+# you need a vip account
+you-get --debug -c bilibili.txt --playlist -i ""https://www.bilibili.com/video/av40115478""",3,2
+2736,2019-09-06T12:11:00Z,,2019-09-09T15:45:59Z,1,10,1,"bilibili has banned constant UA,so use random String
+add:
+@staticmethod
+def bilibili_headers(referer=None, cookie=None):
+    # a reasonable UA
+    #bilibili has banned constant UA,so use random
+    
+    browser_version=str(random.randint(60, 63))+'.0.'+str(random.randint(1239, 4239))+'.'+str(random.randint(10, 80))
+    OSversion=str(random.randint(8, 10))+'_'+str(random.randint(5, 10))+'_'+str(random.randint(5, 10))
+    webkitversion=str(random.randint(500, 537))+'.'+str(random.randint(30, 60))
+    ua = 'Mozilla/5.0 (Macintosh; Intel Mac OS X '+OSversion+') AppleWebKit/'+webkitversion+' (KHTML, like Gecko) Chrome/'+browser_version+' Safari/'+webkitversion
+    
+    ...
+
+修改文件:  src/you_get/extractors/bilibili.py",7,6
+2778,2020-03-07T16:10:42Z,2020-03-19T10:51:10Z,2020-03-19T10:51:11Z,1,1,3,,3,1
+2814,2020-06-14T04:12:12Z,,2023-08-05T00:24:14Z,1,24,0,"It's a real PR with contributing code. Please don't simply close it.
+This PR is tested on my side already.
+The description and explanation are in the modified code already.
+It's just a temporary fix but the cause is found and confirmed, you can do some improvements instead of my code, if you want.",5,10
+2900,2021-07-15T02:37:56Z,,2022-05-17T12:32:22Z,1,21,2,"When downloading anime playlist, ""baseUrl"" sometimes becomes invalid. This modified version will automatically use ""backupUrl"" for video and audio downloads.
+在下载动漫playlist时，""baseUrl""有时候会失效。此修改版本会自动使用""backupUrl""进行视频及音频下载",5,2
+2909,2021-07-30T23:34:55Z,2021-08-15T04:41:25Z,2021-08-15T04:41:25Z,3,3,3,"There are small typos in:
+
+src/you_get/extractors/flickr.py
+src/you_get/extractors/mtv81.py
+src/you_get/extractors/qingting.py
+
+Fixes:
+
+Should read several rather than serveral.
+Should read channel rather than chaanel.
+Should read approach rather than approch.
+
+Semi-automated pull request generated by
+https://github.com/timgates42/meticulous/blob/master/docs/NOTE.md",4,2
+2920,2021-09-13T03:53:35Z,,2023-12-31T06:41:02Z,4,73,0,绕过抖音验证页面,5,5
+2935,2021-11-14T15:01:06Z,2021-11-18T14:54:07Z,2021-11-18T14:54:07Z,1,2,2,Reference: https://help.doxy.me/en/articles/1160727-video-resolution-change-definition-during-a-call,4,2
+3017,2023-12-16T15:31:01Z,2024-03-03T15:25:40Z,2024-03-03T15:25:40Z,1,2,1,sync bilibili api url update.,14,13

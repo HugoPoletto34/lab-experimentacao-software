@@ -1,0 +1,148 @@
+number,created_at,merged_at,closed_at,files,additions,deletions,body_text,participants,comments
+46,2014-03-10T22:34:51Z,2014-03-19T12:05:43Z,2014-03-19T12:05:43Z,2,10,0,"via http://www.fourmilab.ch/etexts/einstein/specrel/specrel.pdf
+Not sure about the right directory to place it in but certainly relevant to dist systems. Attempted to follow the naming scheme. Pondering a PR that has an index for all these papers.",6,17
+432,2017-02-25T18:00:14Z,2017-02-26T14:14:22Z,2017-02-26T14:14:22Z,2,6,1,"Paper Title: Immutability Changes Everything
+Paper Year: 2015
+Reasons for including paper
+Requested by ""papers we love"" through the TW account in https://twitter.com/papers_we_love/status/835117313556873216
+NOTE: The paper ""A Unified Theory of Garbage Collection"" was already
+present in the garbage collection section, so I just added a brief
+summary.",3,1
+439,2017-04-04T02:43:51Z,2017-05-03T07:53:54Z,2017-05-03T07:53:54Z,1,1,0,"We had our first meetup 5 days ago: https://www.meetup.com/paperswelovemde/events/238392836/
+Some pictures can be seen in our Twitter account: https://twitter.com/paperswelovemde \o/
+Thank you!",4,5
+513,2018-03-04T19:30:29Z,2018-03-04T22:30:17Z,2018-03-04T22:30:17Z,1,1,0,"… to networks
+Paper Title:
+B4: Experience with a Globally-Deployed Software Defined WAN
+Paper Year:
+2013
+Reasons for including paper
+
+This paper was likely the first large demonstration of SDN networks in industry.
+In my opinion, it set the benchmark for a number SDN companies on what their product had to be.
+This is a great demonstration of 'Intent Based Networking' which is something that only now the industry is starting to see",4,0
+540,2019-04-03T02:03:47Z,2020-03-29T19:38:47Z,2020-03-29T19:38:47Z,19,25,0,"Paper Title:
+New Folders of:
+
+Distributed File Systems
+Search Engine Original Papers
+
+Paper Year:
+Various
+Reasons for including paper
+
+To remove ambiguity from readers concept.
+Help to clear concepts.",5,7
+543,2019-04-22T02:08:12Z,2019-04-22T18:41:32Z,2019-04-22T18:41:32Z,1,7,0,"Paper Title:
+Studying Attitudes and Social Norms in Agile Software Development
+Paper Year:
+2019
+Paper Title:
+Happiness and the productivity of software engineers
+Paper Year:
+2019
+Reasons for including papers
+Topic related to research on agile software development, large scale software development, developer productivity, team dynamics etc. were missing in the repository.",3,0
+552,2019-07-11T14:58:09Z,2019-07-11T20:20:13Z,2019-07-11T20:20:13Z,1,16,0,"paper at PWL conf  https://pwlconf.org/2019/shriram-krishnamurthi
+Paper Title: On the Expressive Power of Programming Languages
+Paper Year: 1991
+Reasons for including paper
+
+Shriram Krishnamurthi wrote at https://pwlconf.org/2019/shriram-krishnamurthi
+
+
+Papers are like poems. Some are dazzling, some are pedestrian, some are insightful, and some reward long periods of quiet contemplation. They stir up an emotional reaction that goes beyond the strictly rational, and can often be deeply personal.
+In graduate school, during a period of identity crisis, I came across Matthias Felleisen's “On the Expressive Power of Programming Languages”. At a time when the world was ruled by C++, I had immersed myself in Scheme, so I always looked skeptically at mainstream linguistic claims. However, the language wars seemed beyond rational discourse. So the idea that someone could take a concept as nebulous as “expressiveness&rdquo and formalize it was already a revelation. But the beauty of this paper goes well beyond that: it also lies in the cleanliness of the approach, the correspondence of the formalism to intuition, and the tautness of its execution.
+It was the most stunning paper I had ever read, and remains so. It's like the poem that never leaves your soul.
+
+
+Shriram Krishnamurthi is speaking on this paper at PWL2019",2,2
+554,2019-07-13T16:47:40Z,2019-07-15T11:12:20Z,2019-07-15T11:12:20Z,1,72,3,"Hi! 👋
+I'm a PhD student at Lancaster University and I research and work on unikernels.  After finding papers-we-love and seeing unikernels subdirectory, I was quick to fork and add some of my favourite papers that I've read on unikernels.  In this commit, I introduce 53 links to pdfs in the public domain or, at the very least, links to the publisher's public citation page of the peer reviewed paper.
+The papers have been organised in chronology following the influence of unikernels, particularly focusing on papers which identify traits in increasing application security, portability and performance with respect to its runtime.  This follows from the early definitions, such as microkernels which attempt to increase application portability by only facilitating reliable Inter-Process Communication (IPC).  Second-wave follows the centralizastion of commodity hardware into 'the cloud' and the realization of increasing application performance with networked, mult-core, many user systems.
+In the unikernels section, I start with links to a number of papers which describe the concept of unikernels and the need for increasing performance in the cloud and how well tuned Virtual Machines (VMs) can aid in increasing performance.  Following this section is a link to relevant published articles of a number of unikernel/libOS implementations. There are a number of links to articles which compare the performance of unikernels themselves to similar counterparts including monolithic OSes and containers. Finally, unikernels have been used in a number of interesting scenarios, and the applications of unikernels section has links to papers which implement the unikernel model in various scenarios following the claims of their performance and security benefits.",3,4
+569,2019-09-09T17:46:44Z,2020-03-29T19:06:55Z,2020-03-29T19:06:55Z,9,19,1,"The directory affective-computing was renamed to follow naming convention.
+
+Paper Title:
+Fast Error-bounded Lossy HPC Data Compression with SZ
+Paper Year:
+2016
+Reasons for including paper
+This is the initial version of SZ. SZ is a state-of-the-art lossy compression technique widely used in scientific community.
+Paper Title:
+Significantly Improving Lossy Compression for Scientific Data Sets Based on Multidimensional Prediction and Error-Controlled Quantization
+Paper Year:
+2017
+Reasons for including paper
+This is SZ-1.4.
+Paper Title:
+Error-Controlled Lossy Compression Optimized for High Compression Ratios of Scientific Datasets
+Paper Year:
+2018
+Reasons for including paper
+Paper Title:
+Fixed-Rate Compressed Floating-Point Arrays
+Paper Year:
+2014
+Reasons for including paper
+ZFP is another leading data compression technique widely adopted in scientific community. Its ability of random access to data blocks makes it a strong tool for compressing and decompressing scientific simulation data.",4,10
+579,2019-10-24T16:06:38Z,2019-10-25T00:10:04Z,2019-10-25T00:10:04Z,1,2,2,"Paper Title: From Game Design Elements to Gamefulness: Defining “Gamification”
+Paper Year: n/a
+Reasons for including paper:
+
+#360",3,1
+617,2020-12-01T13:32:13Z,2020-12-03T05:25:17Z,2020-12-03T05:25:17Z,1,3,0,"Paper Title
+Test-driven development with mutation testing – an experimental study
+Paper Year
+2020
+Reasons for including paper
+It presents an old idea of mutation testing in a new light of extending traditional test-driven development with it. It includes results of an experiment which was conducted to check whether TDD+M is better in terms of test efficiency than traditional TDD.",3,5
+623,2021-09-04T01:23:55Z,2021-09-04T13:27:23Z,2021-09-04T13:27:23Z,1,1,1,The previous link is 404ing now,2,0
+626,2021-09-22T05:16:04Z,2021-09-22T16:05:26Z,2021-09-22T16:05:26Z,1,1,1,"Fix no longer active link to John Backus’ Turning Award ""Can programming be liberated from the von Neumann style? a functional style and its algebra of programs""",2,0
+641,2021-12-31T15:28:04Z,2021-12-31T16:52:14Z,2021-12-31T16:52:14Z,13,30,32,"I went through #638 and fixed the broken links in there.
+There was one I couldn't find, and it wasn't in the wayback machine
+so I deleted it.",2,1
+646,2022-01-06T22:10:11Z,2022-01-25T20:12:13Z,2022-01-25T20:12:13Z,1,1,1,The link in the README for info on starting a local chapter directs to a wiki page. The page contains no information other than just directing to the papers-we-love/organizers repo. I modified the link in the README to just directly go to the repo.,2,0
+681,2022-07-09T15:24:51Z,2022-07-09T21:26:52Z,2022-07-09T21:26:52Z,1,1,0,"Papers We Love: PDX had a successful first meeting after our chapter reboot: https://www.meetup.com/papers-we-love-pdx/events/286209448/
+I'd like to add a link to help continue spreading the word.",2,1
+705,2023-01-09T21:11:05Z,2023-01-10T14:53:15Z,2023-01-10T14:53:15Z,2,8,45,,2,0
+715,2023-01-29T08:24:37Z,2023-01-29T13:00:45Z,2023-01-29T13:00:45Z,1,1,1,"fix broken link: End-to-End Arguments in System Design
+Paper Title: End-To-End Arguments in System Design
+Paper Year: 1984
+Reasons for including paper
+
+replace the broken link",2,0
+718,2023-02-06T22:44:00Z,2023-02-07T00:46:27Z,2023-02-07T00:46:27Z,7,7,7,"Fix some (but not all) broken links identified in #717.
+A note about languages-theory/programming-with-algebraic-effects-and-handlers.pdf / ""Programming and Reasoning with Algebraic Effects and Dependent Types"": the .pdf stored in the repo did not match the paper named in the readme or found at the link. Since I couldn't confirm the copyright status of the correct .pdf, I deleted the in-repo copy instead of trying to replace it.",2,1
+724,2023-03-04T16:24:26Z,2023-03-04T18:46:57Z,2023-03-04T18:46:57Z,1,1,1,"Paper Title:
+KinectFusion: Real-time 3D Reconstruction and Interaction Using a Moving Depth Camera
+Paper Year:
+
+
+
+Reasons for including paper
+Fixing broken link of a paper already in the PWL repo.",2,0
+737,2023-04-28T10:10:41Z,2023-04-28T12:39:57Z,2023-04-28T12:39:57Z,2,2,0,"Paper Title:
+A Universal Modular ACTOR Formalism for Artificial Intelligence
+Paper Year:
+1973
+Reasons for including paper
+This print is better than the one existent in the repository.",2,0
+764,2023-07-21T00:35:22Z,2023-07-21T10:24:21Z,2023-07-21T10:24:21Z,1,8,0,"Blue Screen Matting:
+~1997:
+Paper from the legendary James Blinn about matting algorithm
+Bayesian Approach to Digital Matting:
+~2001:
+This paper proposes a new Bayesian framework for solving the matting problem.
+Learning-based Sampling for Natural Image Matting:
+~2019:
+The goal of natural image matting is the estimation of opacities of a user-defined foreground object that is essential in creating realistic composite imagery. Recent paper about this topic and modern approach",2,0
+772,2023-09-04T05:11:27Z,2023-09-04T21:57:07Z,2023-09-04T21:57:07Z,1,1,0,"Paper Title:
+Zanzibar: Google’s Consistent, Global Authorization System
+Paper Year:
+2019
+Reasons for including paper
+
+A new method for access control that is a superset of RBAC and can support ABAC.
+Main use case is social networks (Twitter, Facebook, etc)
+Lots of open source and commercial solutions are building off this paper",2,0

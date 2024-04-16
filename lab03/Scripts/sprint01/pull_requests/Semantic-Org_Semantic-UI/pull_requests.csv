@@ -1,0 +1,104 @@
+number,created_at,merged_at,closed_at,files,additions,deletions,body_text,participants,comments
+3256,2015-10-28T13:09:47Z,,2016-11-13T04:50:22Z,10,1475,0,"I've created a Calendar (date/time picker) module. It depends on the Popup module and Table collection.
+For examples, see here: https://jsbin.com/hubanufuva/
+Let me know if there's things that can be improved or changed to fit better into the project.
+Issue for reference: #191.
+EDIT: implemented time picker.
+EDIT 2: See this repository for a ready to install version: https://github.com/mdehoog/Semantic-UI-Calendar.",109,279
+4212,2016-07-04T16:32:47Z,,2018-05-03T01:27:16Z,11,1913,2,"Implemented and added onto the range component originally made by tyleryasaka.
+His original repo
+Demo
+Issue
+I'm new to the whole javascript plugin thing, so let me know if I formatted something wrong or whatever.
+Also let me know of any other features you would like to see!",23,84
+4430,2016-08-12T05:41:16Z,2016-12-21T19:30:32Z,2016-12-21T19:30:32Z,1,4,2,"With 'autoInstall: true' in semantic.json, npm install does not copy out the semantic files to root directory.
+The following check always fails when install.shouldAutoInstall() === true
+ /*--------------
+    NPM Install
+  ---------------*/
+
+  // Check if PM install
+  if(answers.useRoot || answers.customRoot) {",6,11
+4631,2016-10-06T17:33:15Z,2018-02-20T00:23:09Z,2018-02-20T00:23:09Z,1,1,1,"The definition references the wrong variable: @textColor instead of @invertedTextColor which is defined in 
+  
+    
+      Semantic-UI/src/themes/default/modules/dimmer.variables
+    
+    
+         Line 54
+      in
+      ebb1cab
+    
+  
+  
+    
+
+        
+          
+           @invertedTextColor: @textColor; 
+        
+    
+  
+
+.",5,5
+4678,2016-10-22T10:11:34Z,2017-01-12T16:04:48Z,2017-01-12T16:04:48Z,2,220,168,"There are following changes:
+
+Code cleaning and format;
+Add slider container padding when locating labels;
+Use css function calc() to locate thumb, track fill and labels, so no need to listen resize event or observe element changes;
+Extra parameter thumbVal, secondThumbVal for listener onChange() and onMove();
+Exactly updating global variables value, module.thumbVal, module.secondThumbVal, position and secondPos;
+Set or update value to min or max when mouse is moving out slider;",3,5
+4700,2016-11-01T06:11:03Z,,2018-03-25T02:29:27Z,1,16,16,add scrollable links on navigation bars,2,2
+4766,2016-11-20T05:53:50Z,2016-12-27T17:01:28Z,2016-12-27T17:01:28Z,6,2722,686,"At it again, enjoy 😛",3,2
+4910,2017-01-14T21:20:57Z,,2018-03-25T01:29:14Z,3,37,15,"A few fixes for the docs so that they run correctly.
+Also added a few things:
+
+Custom label interpreter function
+Bug with reversed slider label positioning
+
+/cc @jlukic @flytreeleft",2,2
+4957,2017-01-29T20:09:05Z,,2018-06-18T02:46:42Z,1,6,6,Found via HoundCI's error I get after a gulp build.,5,8
+5096,2017-02-28T01:41:38Z,2018-01-29T03:33:12Z,2018-01-29T03:33:12Z,1,2,2,Resolves #5094.,4,3
+5116,2017-03-02T08:31:51Z,,2017-04-10T03:19:44Z,1,4,0,"#3604
+Thank to https://github.com/Traverse for the fix",3,1
+5123,2017-03-03T18:05:33Z,2017-04-10T03:35:49Z,2017-04-10T03:35:49Z,2,51,0,"It seems to be a common request: #3214. Feel free to modify the variables; I’ve been using these settings for quite a while, and considering the optimal line length of the default theme’s font size, 0.4 ratio works great with small forms, messages or text. Not so sure about @tinyHeaderSize that I kept at 1.3em, though.
+I’ll submit a PR to the documentation as soon as I figure out how to add JavaScript to it.",3,3
+5363,2017-05-11T16:59:50Z,,2018-02-19T23:34:32Z,1,1,1,"Visibility module was incorrectly using topPassed to determine if bottomVisible. It should use bottomPassed when making this determination.
+Broken Fiddle Example: http://jsfiddle.net/miketalley/y1bu3Le0/
+Working Fiddle Example: http://jsfiddle.net/miketalley/f6khxwqb/",6,6
+5637,2017-08-07T12:45:21Z,,2018-03-25T00:29:17Z,1,6,2,Fix #5391 Gulp Build preserveComments is not a supported option or comments is not a supported option,3,1
+5788,2017-09-14T12:08:49Z,,2018-03-25T00:29:36Z,1,40,0,Added primary and secondary brand card colors.  Enhancement issue #5784.,2,1
+6003,2017-12-06T15:06:00Z,,2018-04-05T16:16:41Z,4,4175,9,"karma is no longer expected to be global
+old karma dependencies explicitly set
+jquery monkey patched since the tests are pointing to JQuery 1.X
+(size())",1,2
+6070,2018-01-04T08:58:30Z,,2018-01-16T10:25:28Z,3,3,2,"Changed the gulp-clone version to 1.0.0 to fix #6067
+Added .idea directory to .gitignore for PhpStorm and WebStorm users",6,3
+6182,2018-02-21T01:33:14Z,2018-02-22T22:03:36Z,2018-02-22T22:03:36Z,1,22,0,"This PR adds the config for stalebot.  This was agreed in the recent conversation about how to help move things forward.
+I've set issues to be marked stale at 90 days of no activity and closed if no activity persists for 30 more days.
+We've been using stalebot with this config over at SUIR for a while and it is going well.",4,6
+6415,2018-05-29T13:15:32Z,,2018-06-18T03:54:59Z,1,1,1,"reference:
+https://developer.mozilla.org/en-US/docs/Web/CSS/font-smooth",3,2
+6440,2018-06-18T12:36:25Z,,2023-05-09T13:44:30Z,1,13,13,"Instead of background the property background-color was used.
+Fixes #6439",6,3
+6566,2018-09-05T20:13:09Z,,2019-10-29T17:00:43Z,20,1462,2002,"This fixes multiple bugs (#6549 #5762 #6214 ) and implements #3793 by upgrading from Gulp 3.9.1 to 4.0.0 which was released a few months ago.
+The primary goal of this is to incorporate a series of vulnerability fixes (minimatch, hoek, and lodash) that were introduced within the dependencies of gulp, and as a result were patched starting in Gulp v4.
+The basic upgrade flow works like this:
+
+Upgrade Gulp from 3.9.1 to 4.0.0
+Upgrade gulp-help to the version that specifically supports Gulp4 (1.6.1 to chmontgomery/gulp-help#gulp4)
+Upgrade additional dependencies that fix additional audit issues (gulp-concat-css, gulp-copy, gulp-less, gulp-watch, and github)
+Remove run-sequence which is now deprecated and natively replaced with gulp.series
+Fix calc() errors that arose out of interpolated strings with the latest version of gulp-less
+
+With those tasks complete, npm install works and completes as intended with no errors and 0 security vulnerabilities.",8,30
+6579,2018-09-13T12:32:46Z,,2018-10-13T22:09:43Z,23,2566,2158,"Issue Titles
+[Variables] Added @gray and associated variants
+[Various] class .gray works just like grey
+Closed Issues
+#4779
+Description
+Grey is the English spelling, but is not consistent with CSS. Therefore, to avoid confusion, gray should be default, whilst still supporting grey for existing users.",3,9
+6685,2018-11-25T04:38:44Z,,2023-12-18T02:36:08Z,1,1,1,Just a small indentation fix.,2,0
+6833,2019-06-21T13:11:44Z,2020-05-26T04:07:31Z,2020-05-26T04:07:31Z,1,3,0,Fixes #6832,3,2

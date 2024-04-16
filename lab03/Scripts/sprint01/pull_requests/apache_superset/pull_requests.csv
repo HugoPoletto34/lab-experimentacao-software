@@ -1,0 +1,1397 @@
+number,created_at,merged_at,closed_at,files,additions,deletions,body_text,participants,comments
+172,2016-03-10T06:38:58Z,2016-03-11T03:33:09Z,2016-03-11T03:33:09Z,12,22,23,"@williaster
+This makes it such that we don't have to ship the whole node_modules with the python package, to do that I had to move a bunch of css html references to the js require notation. I managed to do it for everything but the font-awesome one.
+This also cranks up the version to 0.8.0, I think it's ready to ship to Pypi.",3,0
+1061,2016-09-02T19:34:42Z,,2017-06-12T20:46:47Z,7,355,92,"Overview
+This PR address the issue #933, which is to replace the filter TextField with a FreeFormSelect to make it easier for the user to know what types of values are possible for a filter.
+If their desired value is not in the list, they can still type in their custom value. (Especially common for regex operation)
+The feature must be enabled on the table/datasource.
+Technical Changes
+
+Added new API endpoint /filter/<datasource_type>/<datasource_id>/<column>/
+Added new function values_for_column to models.DruidDatasource and models.SqlaTable (migration script included)
+
+values_for_column uses the same querystring as query
+Currently limited to 500 values
+
+
+Added new boolean column to datasources and tables to indicate allowing filter value select
+add_filter in explore.jsx will now fix the filter IDs upon render instead of by prepForm on query submit
+
+Screenshots
+How filter looks:
+
+Option on table:
+
+TODO for Future PR
+
+Entire filter can be redone in React
+Cache filter endpoint
+
+@mistercrunch",6,31
+1074,2016-09-07T23:54:23Z,2016-09-20T20:45:27Z,2016-09-20T20:45:27Z,17,592,203,"another step towards reactifying the explore view #834
+components for slice action button group
+reuseable component for Button/Modal Trigger
+reuseable component for copy to clipboard
+
+
+
+
+todo:
+
+ pass query code to query modal
+ tests
+
+plz review @mistercrunch @bkyryliuk @vera-liu",2,2
+1078,2016-09-08T07:40:21Z,2016-09-21T16:52:05Z,2016-09-21T16:52:05Z,13,223,110,,6,25
+1092,2016-09-12T05:12:19Z,,2016-09-19T19:18:11Z,40,340,194,"Modify the Travis CI tests to create a database user with a password and use these in the SQLALCHEMY_DATABASE_URI for the tests for mysql and postgres.
+This is related to #1070 and I expect this PR to have failing Travis tests.
+It's fine to reject this PR -- I just wanted to verify that the tests will fail.",6,12
+1104,2016-09-13T23:22:08Z,2016-09-19T22:28:10Z,2016-09-19T22:28:10Z,20,382,163,,3,2
+1108,2016-09-14T19:17:35Z,2016-09-21T18:38:07Z,2016-09-21T18:38:07Z,13,419,103,"Four objects in store: TimeFilter, GroupBy, Sql and Filter
+For the four object-stores above, action can be fired once the query button is pressed
+For the stores that are not contained in objects (datasourceId, vizType, columns, ordering, etc.) the actions will be fired once the field is changed, for instance, the user could see updated visualization once he selects a different viz_type without clicking the query button.",3,3
+1122,2016-09-16T00:04:30Z,2016-09-23T23:13:18Z,2016-09-23T23:13:18Z,13,345,144,"Query search page under SQL Lab in the menu header
+What's done:
+
+Endpoint for getting all users
+Endpoint for retrieving all queries with a databaseId/userId/status/string for filtering on sql
+Query Search page with four fields
+
+Made modifications based on comments, ready for second round review: @mistercrunch
+Todo:
+Add visualize modal triggered in action bar to QuerySearchTable as that in QueryHistory
+make userId and dbId in Query result clickable links to set a specific userId or dbId in filter
+Make a copy-url function beside each entry of query result, once generated the url will lead user to a specific query
+Time range for searching queries
+Alerts or Loading icon while queries are being fetched",4,2
+1125,2016-09-16T16:45:19Z,2016-09-16T23:25:43Z,2016-09-16T23:25:43Z,4,23,22,@jefffeng @ascott @bkyryliuk,3,2
+1126,2016-09-16T23:03:21Z,2016-09-21T21:41:42Z,2016-09-21T21:41:42Z,2,14,0,,2,1
+1134,2016-09-19T03:29:34Z,2016-09-23T18:14:38Z,2016-09-23T18:14:38Z,5,218,48,"Basic implementation of the type inference for smart defaults in the visualize flow for sqllab.
+Tested on presto / sqlite / mysql + unit test cover postgres
+Reviewers:
+
+@mistercrunch
+@ascott
+@vera-liu",3,4
+1154,2016-09-20T22:15:05Z,2016-09-28T05:48:01Z,2016-09-28T05:48:01Z,4,152,14,"A share-query option is available under dropdown menu of a sql editor tab
+Using CopyToClipboard component, the query link can be copied
+In componentWillMount, url is decoded, a new tab pops up when the url encodes a new query
+
+
+needs-review @ascott @mistercrunch @bkyryliuk",3,12
+1160,2016-09-21T04:44:53Z,2016-09-21T21:40:33Z,2016-09-21T21:40:33Z,4,34,0,"Showing the json isn't the most polished option, but the keys that SqlAlchemy return aren't 100% homogenous and thought this would do the trick of exposing everything we have with minimal effort.
+Based on the PyHive documentation, this will show the partition key for Hive/Presto tables",3,2
+1164,2016-09-21T20:03:17Z,2016-09-22T04:54:03Z,2016-09-22T04:54:03Z,3,80,71,"let's us share some common redux utils with the new explore refactor
+@vera-liu @mistercrunch @bkyryliuk",3,2
+1165,2016-09-21T21:31:30Z,2016-09-22T21:30:39Z,2016-09-22T21:30:40Z,8,121,52,"Adding functionality to FilterBox that allows setting global, dynamic time filters on dashboards that apply to all widgets (except the ones set to be immune to filtering).
+
+fixes #894  #893 #665",2,1
+1166,2016-09-22T00:31:33Z,2016-09-22T15:17:27Z,2016-09-22T15:17:27Z,1,2,0,"Adds creator as a owner of the dashboard.
+Tested locally.
+Issue:
+#780
+Reviewers:
+
+@mistercrunch
+@ascott
+@vera-liu",2,2
+1169,2016-09-22T07:55:05Z,,2016-11-18T20:03:47Z,6,129,19,"adds starred slices and dashboards to the welcome page.
+adds placeholder for search bar
+split view 50/50 with all dashboards and starred things
+
+
+todo
+
+ get real starred data, replace dummy data
+ query dashboard/slice model for name once we have starred id's
+
+plz review @mistercrunch @bkyryliuk @vera-liu @elibrumbaugh
+there are some open questions so would love your feedback. thx!",1,0
+1172,2016-09-22T17:33:45Z,2016-09-28T20:55:06Z,2016-09-28T20:55:06Z,5,134,12,"Fixes #466 and cleans up the result of the caravel db migrate.
+In addition this change makes client_id unique and updates the tests.
+Tested via on MySQL:
+caravel db history
+caravel db upgrade 
+caravel db downgrade eca4694defa7
+caravel db upgrade 
+
+SQL Lite doesn't support most of the operations here.
+Reviewers:
+
+@mistercrunch
+@ascott
+@vera-liu",3,1
+1179,2016-09-22T21:33:16Z,2016-09-23T03:12:48Z,2016-09-23T03:12:48Z,7,94,12,,2,0
+1192,2016-09-25T15:27:38Z,2016-10-03T01:03:19Z,2016-10-03T01:03:19Z,10,533,465,@bkyryliuk I had to change the approach a bit to make this work. Also got rid of the request_access endpoint by adding support for &action=go to request_access_form,2,2
+1197,2016-09-26T16:16:59Z,2016-10-12T00:54:40Z,2016-10-12T00:54:40Z,10,827,26,"Provides import export functionality for the dashboards using pickle library to serialize the objects. It requires the tables to have the same names to be able to hook slices up to them.
+Import overrides the existing dashboards and slices. Newly added metrics and table column will stay, old definition will be overridden.
+Git Issues: #1237. #1173
+Exports:
+
+table datasources
+metrics
+column definitions
+dashboards
+slices
+
+Code:
+
+stored additional metadata for slices, datasources and dashboards remote_id, database_name to be able to locate and recreated the dependencies
+creates the migration to add metadata field to the tables
+implements Import mixin with copy and override functions
+removes table_columns relation
+
+uses subqueryload instead of joinedload as it's more efficient
+
+
+
+Future works:
+
+support druid / generic datasource
+make alter_params mixin function too, requires standard params for the models
+
+Tested:
+
+multiple cases manually
+extensive unit testing
+
+Reviewers:
+
+@mistercrunch
+@ascott
+@vera-liu
+
+CC:
+
+@jefffeng",4,4
+1205,2016-09-27T17:42:28Z,2016-09-29T21:48:13Z,2016-09-29T21:48:13Z,21,1199,303,"Sorry I should have divided this to smaller PRs, will work on Todos in future smaller PR
+needs-review @ascott
+Done:
+
+Endpoint for data attached to a datasource
+Chart options, Time Filter, GroupBy, SQL and Filters component
+redux-thunk for getting column options for one datasouce
+actions/reducers for updating states from form-data
+populates fields in control panel with url params retrieved from bootstrap_data.viz.form_data
+
+Todo:
+
+Renovate ugly UI, use panel/O2 stuff
+Add support for druid
+Multi-select for filter values: (as in here) #1061
+Tests
+
+Side note:
+data for slice stored in { bootstrapData.viz.data }
+data for pre-populating form stored in { bootstrapData.viz.form_data }",3,2
+1208,2016-09-27T22:12:05Z,2016-10-04T15:18:17Z,2016-10-04T15:18:17Z,3,173,90,"This showcases some of the visualization types that were there only as
+slices, not as part of any dashboards.",2,1
+1209,2016-09-28T00:41:15Z,2016-10-11T23:49:40Z,2016-10-11T23:49:40Z,2,21,3,"This addresses #1199
+The fixes a common case of editing a database connection by changing something in the ""extra"" json but leaving the sqlalchemy uri as-is (and password-masked).  Saving this would result in the password being updated with ""XXXXXXXXXX"".  This only updates the password if it is not the password mask.
+Added a test as well.",4,7
+1213,2016-09-29T00:40:45Z,2016-09-29T16:12:43Z,2016-09-29T16:12:43Z,1,5,4,"Problem:
+Previously druid tests were failing on alanna-explore-v2-main, this was because we load the json of viz_obj and pass it to refactored explore view: https://github.com/airbnb/caravel/pull/1205/files#diff-e9b1e371eebef6df66bd8cde507e5931R1217
+In Druid test, the return value of export_pandas is defined after endpoint test, causing the test to fail when json.loads(viz_obj.get_json()) is called
+Flow: get_json() calls -> get_data() calls -> get_df() calls -> query() calls ->export_pandas() -> returns a mock object instead of df
+Solution (credits to Bogdan):
+moving export_pandas mock definition before endpoint test
+needs-review @ascott @bkyryliuk @mistercrunch",3,1
+1222,2016-09-29T21:46:49Z,2016-10-05T18:43:05Z,2016-10-05T18:43:05Z,6,70,18,"Done:
+
+Changed query search icon
+
+In query search results, added column for redirect to SQL Editor
+
+Make userIds clickable, once a userId is clicked, queries will be refreshed with only queries by that user
+
+
+Todo:
+
+Change userId and dbId columns to userName and dbName so that they are more readable, needs to change this in Query model, will issue another PR on this
+
+needs-review @ascott @bkyryliuk @mistercrunch",3,1
+1224,2016-09-30T01:21:04Z,2016-10-04T20:44:46Z,2016-10-04T20:44:46Z,6,54,17,"Done:
+
+Datasource access check
+Added support for druid in the endpoint
+Pass in datasource class (SqlaTable/Druid) to javascript components
+
+Todo:
+
+Tests/Specs for everything
+
+needs-review @ascott",4,1
+1225,2016-09-30T02:51:08Z,2016-10-03T17:40:27Z,2016-10-03T17:40:28Z,1,13,2,"Resolves: #1220
+Database changes were not propagated to the redux state, it caused client inability to show the run query button for the activated dbs and also to display newly added databases.
+In addition, looks like componentDidMount is sufficient and may be better than componentWillMountas the latter is supposed to be synchronous and called on the server:
+http://stackoverflow.com/questions/29899116/what-is-the-difference-between-componentwillmount-and-componentdidmount-in-react
+Reviewers:
+
+@mistercrunch
+@ascott
+@vera-liu",4,3
+1242,2016-10-03T23:26:15Z,,2016-10-19T16:34:15Z,14,277,7,"Done:
+
+component tests for default control panels
+test for fetch datasource metadata endpoint
+update tests for action creators
+
+Todo:
+
+tests for ajax call in action creators
+
+help-needed @ascott",3,1
+1247,2016-10-04T00:24:33Z,2016-10-10T20:32:39Z,2016-10-10T20:32:39Z,1,1,1,"Issue: #1030
+A small change in css, make status dot in sqllab the same color as our 'brand-success' color in stylesheet.
+Before:
+
+After:
+
+Same color as:
+
+@ascott",3,3
+1251,2016-10-04T17:40:20Z,2016-10-06T02:41:17Z,2016-10-06T02:41:17Z,11,435,28,"adds a line chart using bootstrap data
+using victory charts, victory theme for chart (same as data-dls currently)
+lots to add in terms of functionality but want to keep PR's smaller.
+
+to view explore v2 in progress, change url from explore to exploreV2
+http://localhost:8081/caravel/exploreV2/table/3/?{...}
+explore-v1
+
+explore-v2
+
+@vera-liu @bkyryliuk @mistercrunch  @williaster",5,4
+1252,2016-10-04T20:55:01Z,2016-10-07T23:24:39Z,2016-10-07T23:24:39Z,8,195,138,,3,1
+1253,2016-10-04T23:18:27Z,2016-10-05T21:53:51Z,2016-10-05T21:53:51Z,11,298,89,"Done:
+
+Added NotGroupBy and Options in control for Table Viz
+
+
+@ascott
+Todo:
+
+tests",4,3
+1255,2016-10-05T04:50:47Z,2016-10-05T20:02:35Z,2016-10-05T20:02:35Z,6,27,29,"Addressed Bogdan's comments in https://github.com/airbnb/caravel/pull/1224
+needs-review @bkyryliuk",2,1
+1266,2016-10-06T01:24:11Z,,2016-10-19T16:54:59Z,5,113,5,"Similar to that of Table View, for pivot table:
+
+needs-review @ascott",3,1
+1267,2016-10-06T01:31:08Z,,2016-10-19T16:36:11Z,8,408,5,"Done:
+
+Advanced Analytics and Chart Options components
+Old:
+
+
+New:
+
+Todo:
+
+Organize the UI so that checkboxes and select are aligned well
+Our bootstrap data-passing in index.jsx is getting fairly large, need to figure out a smarter way to pass in the data
+As we have a lot of Select/input in our control panel, it makes sense to have one general action creator/reducer to update a property in the state. Like what we have here:https://github.com/airbnb/caravel/pull/1267/files#diff-a1f5feeb69d0c72dd77f1c4a22a267e7R216 I need to generalize this for other components as well
+Our store is getting large too, I'm thinking if we want to have separate store for different viz types",3,1
+1277,2016-10-06T17:45:14Z,2016-10-06T20:07:28Z,2016-10-06T20:07:28Z,2,24,17,"only show line chart if viz type is line
+fix proptype validations
+
+@vera-liu",3,1
+1278,2016-10-06T19:26:36Z,2016-10-11T22:27:25Z,2016-10-11T22:27:25Z,1,4,3,"The issue caused by not having the extension installed could be solved by using
+enhancerWithPersistState = compose(
+      persistState(),
+      window.devToolsExtension && window.devToolsExtension() || noop => noop
+    );
+However, it was really confusing. So, we're deprecating the enhancer in favour of a more clear API.
+I'm happy that Airbnb devs found the extension useful. If you have any other suggestions about it, let me know (since we're both building tools for development).
+Fixes #1223, #1228, #1238.",2,1
+1281,2016-10-07T02:10:19Z,2016-10-07T21:53:36Z,2016-10-07T21:53:37Z,13,279,386,"Done:
+
+added viz, formData into store with same structure as bootstrapData.viz and form_data
+rewrite reducers and action creators for new structured store
+Added SelectArray component
+Todo:
+do this for other vizTypes
+rewrite tests for reducers
+
+will merge this first and modify PRs for other viz types
+needs-review @ascott",4,2
+1292,2016-10-07T16:27:15Z,2016-10-07T21:06:26Z,2016-10-07T21:06:26Z,9,149,119,"The idea here is controllerInterface, a common interface for slices to interact with their context, or controller (explore, dashboard or standalone implement this interface).
+For instance, when a slice is done loading, it calls it's controller done method, which will trigger different things depending on the context.
+This allows for moving logic specific to dashboards & explore back into those objects, away from the Slice object itself.",3,1
+1294,2016-10-07T21:45:35Z,2016-10-12T20:50:47Z,2016-10-12T20:50:47Z,7,248,133,First step in adding database-engine specific code. Next step is to use this structure to surface partition / latest partition metadata.,3,2
+1314,2016-10-11T02:32:05Z,2016-10-25T00:49:23Z,2016-10-25T00:49:23Z,4,44,44,"Addressing comments from today's meeting
+Done:
+
+Put url shortener inside CopyToClipboard component
+Delete some unused props and functions
+
+needs-review @ascott @bkyryliuk @mistercrunch",4,3
+1321,2016-10-11T17:24:38Z,2016-10-12T19:48:24Z,2016-10-12T19:48:24Z,1,27,0,"There is a constraint on the SQL side, but it was introduces after quite big set of duplicates was created. To make the clean up process manageable - we should prevent users from creating more duplicated definitions of tables and druid datasources.
+Partially helps #1306.
+Reviewers:
+
+@mistercrunch
+@ascott
+@vera-liu",2,2
+1329,2016-10-12T18:08:20Z,2016-10-28T21:12:53Z,2016-10-28T21:12:53Z,11,300,55,"Based on feedback from the meeting, added from-to time filter for query search",4,7
+1333,2016-10-13T01:23:17Z,2016-10-14T19:54:18Z,2016-10-14T19:54:18Z,10,103,260,"makes <ChartContainer /> use existing visualization js files to render charts.
+
+todo:
+
+ use vizMap object to map chart type to vis module
+https://github.com/ascott/caravel/blob/master/caravel/assets/visualizations/main.js#L3
+ figure out if other vis modules have other different dependencies than than the nvd3_vis module
+---- added an issue documenting all the issues with wrapping vis's in V2. will come back for these in a follow up PR. #1341
+
+/exploreV2/ with line, bar, area, pie, bubble, box_plot
+
+
+
+
+
+
+cc @mistercrunch @vera-liu",2,1
+1337,2016-10-13T06:25:10Z,2016-10-20T15:22:22Z,2016-10-20T15:22:22Z,2,12,3,"Currently, when there's a 'OR' in custom where, it may result an unexpected query.
+For example, if a user explore a table having a main dttm field, and he sets custom where as cond1=""xxx"" or cond2=""yyy"". The query generated would be
+select ... from table_name where
+dttm > '[since]' and dttm < '[until]' and cond1=""xxx"" or cond2=""yyy""
+
+That means any records that met cond=""yyy"" would be counted, even those records are out of user-specified date range. That result might not be what user expected. It would be much more reasonable if the generated query is
+select ... from table_name where
+dttm > '[since]' and dttm < '[until]' and (cond1=""xxx"" or cond2=""yyy"")",2,3
+1343,2016-10-14T01:16:12Z,2016-10-18T23:02:29Z,2016-10-18T23:02:29Z,4,52,4,"Fixes #1147 – saw this was on the roadmap but it's important for the workflow I personally use so worst case I'll abandon this patch if there's already a fix in mainline.
+Commit 7d33c8f shows the first approach I took, before reading a bit more about Redux; I can rebase it away and add tests if the approach in f3326a3 looks good.
+n.b. This was my first time working with React/Redux, apologies in advance if this isn't idiomatic; I tried my best to base it on the rest of the codebase.",2,2
+1344,2016-10-14T02:04:46Z,2016-10-14T07:00:12Z,2016-10-14T07:00:12Z,1,2,0,"add node/npm versions to contributing.md
+
+cc @mistercrunch @bkyryliuk @vera-liu",2,1
+1351,2016-10-14T20:51:41Z,2016-10-18T01:34:26Z,2016-10-18T01:34:26Z,4,29,7,"Used to be based on the first metric from the metric multi-choice, but there's the use case where you don't want to show the metric you are sorting by. It will still default to use the first metric if the new select is empty",4,3
+1359,2016-10-15T18:47:03Z,2016-10-24T23:26:30Z,2016-10-24T23:26:30Z,1,1,0,"The className was not specified in slice container earlier, causing specific viz css files not being used.
+Before:
+
+After:
+
+Before:
+
+After:
+
+Before:
+
+After:
+
+@ascott",3,1
+1360,2016-10-16T02:11:01Z,2016-11-04T04:14:08Z,2016-11-04T04:14:08Z,1,12,0,"Done:
+
+Added containerId and getFilters
+
+Todo:
+
+get filters working in new formdata and control panel
+
+After:
+
+@ascott",3,4
+1361,2016-10-16T18:32:10Z,2016-10-25T17:44:29Z,2016-10-25T17:44:29Z,2,10,2,"Problem:
+The heatmap in V2 was shifted towards the top margin of slice
+container, this was because in v2 slice name header was part of the
+container body, while in v1 the header was separately defined in
+explore.html template.
+Solution:
+To get heatmap properly shown in V2, we need to
+take into account the height of the slice_name header. Adding to
+margin_top will shift the plot in V1 too, but it won't make a big
+difference to the look.
+Ideally when we renovate slice container in future PR we would defined a
+height for slice_name header and take it into account for all
+visualization files.
+Before (v2):
+
+After (v2):
+
+After (v1):
+
+@ascott",3,4
+1372,2016-10-19T05:11:10Z,,2017-06-12T20:45:23Z,2,5,2,"Fixes #1325
+RE: 308f6da, I think that save test passed because request.args contained ""Slice Name"", but there was no persistence of the Slice to the database; I'm not sure whether this was intended or not. As far as I could tell there was no code in views.py to handle the action=save query param.
+This also caused the Cache Warm Up test to fail, since it's tied to DB state affected by the Slice Save test.",2,2
+1377,2016-10-19T20:57:11Z,2016-10-21T06:40:24Z,2016-10-21T06:40:24Z,27,784,361,"@ascott @vera-liu @bkyryliuk
+Long running SQL queries (beyond the scope of a web request) can now use
+a k/v store to hold their result sets.
+
+Side missions:
+
+Use redux-thunk for async query processing
+Added a data preview option for queries that ran async
+Data preview for any table element in the left panel
+Make a bunch of components more flexible to satisfy the use-cases here",3,2
+1379,2016-10-19T22:06:59Z,2016-10-28T17:33:58Z,2016-10-28T17:33:58Z,3,17,2,"Done:
+
+Added a checkbox for dist_bar viz
+Once toggled, distribution bars are ordered according to their x axis labels
+
+Issue:
+#519
+Checkbox:
+
+Before ordering:
+
+After toggling checkbox and click 'Query' button:
+
+needs-review @mistercrunch @ascott",5,8
+1380,2016-10-19T22:36:14Z,2016-10-20T16:17:52Z,2016-10-20T16:17:52Z,2,103,12,"Position config is tied to the slice ids.
+In order to preserve the dashboard config and appearances we have to update the slice ids in the position_json attr in the dashboard.
+Reviewers:
+
+@mistercrunch
+CC:
+@ascott
+@vera-liu",2,2
+1400,2016-10-20T20:24:02Z,2016-10-25T23:44:32Z,2016-10-25T23:44:32Z,44,875,558,,2,5
+1404,2016-10-21T07:30:31Z,2016-10-21T23:55:37Z,2016-10-21T23:55:37Z,6,49,61,"Reserved words should be properly quoted now, indent is arguably better than before",2,1
+1426,2016-10-25T01:14:40Z,2016-10-26T18:09:27Z,2016-10-26T18:09:27Z,20,444,65,@bkyryliuk @ascott @vera-liu,4,2
+1429,2016-10-25T19:40:08Z,2016-10-26T22:24:05Z,2016-10-26T22:24:05Z,3,34,28,"Feature request: #1354
+Done:
+
+
+When standalone=true is specified in url, a standalone dashboard page is rendered. This page doesn't have caravel header or button groups/fav star, it will be more convenient to make screenshots.
+without standalone arg:
+
+with standalone arg:
+
+
+
+Todo:
+I'm thinking about adding a button to our button group in dashboard view for getting standalone endpoint for dashboard, would this be useful?
+needs-review @ascott @bkyryliuk @mistercrunch",4,7
+1432,2016-10-26T01:18:39Z,2016-11-03T20:53:46Z,2016-11-03T20:53:46Z,1,42,5,"Previously pivot table viz was broken in explore v2
+Fixed:
+Added jquery calls for html() and find() in container of mock slice object
+Before (pivot table in explorev2):
+
+After:
+
+@ascott",3,1
+1438,2016-10-26T15:20:03Z,2016-10-27T00:41:46Z,2016-10-27T00:41:46Z,20,133,75,"@ascott  @vera-liu @bkyryliuk
+The UI is much more snappy after these changes. I noticed keystrokes in the editor were getting quite laggy, incrementally as the query history would grow or when the result set was large.
+The big win is to not re-render the whole page at each keystroke in the AceEditor by wrapping it in its own component and managing local state there: affecting the store only onBlur events.
+I also made pretty much every component a PureComponent which reduces the amount of rendering dramatically.
+@ascott I'm doing this trick with shouldComponentUpdate to work around the fact that denormalizing the query array in the ""controller""'s rendering method (to go from a global object in the store, to editor-specific array of queries) always creates a new array object. I made this function areArraysDifferent which looks inside the array for comparison. Any cleaner way to do this? It seems like it would be a common problem when denormalizing. Maybe keeping the array in the controller's state and handling the mutation there only if necessary?",3,4
+1439,2016-10-26T20:17:05Z,2016-10-27T04:22:10Z,2016-10-27T04:22:10Z,3,16,1,"Issue: https://github.com/airbnb/caravel/issues/659
+Done:
+
+When user adds/deletes a filter in dashboard, affected slices will
+have their header highlighted for 2 seconds
+
+
+needs-review @ascott @mistercrunch",3,4
+1442,2016-10-27T04:10:30Z,2016-11-01T15:16:06Z,2016-11-01T15:16:06Z,2,10,3,Next step will be to add support in column / metric expressions,2,2
+1443,2016-10-27T04:25:38Z,2016-11-03T22:50:37Z,2016-11-03T22:50:37Z,1,6,1,"Done:
+Use jquery calls for css(), get() and find() inside container
+Before:
+
+After:
+
+@ascott",3,2
+1466,2016-10-28T01:04:53Z,2017-02-14T00:14:56Z,2017-02-14T00:14:56Z,11,306,223,"Implemented ability to search across the schemas:
+
+added caching to the /tables/<db_id>/<schema>/ endpoint
+added caching to the function that fetches all the table names for the database
+implemented dynamic fetching for the table / view names
+added @cached_view and @cached_cls_func decorators
+
+Implements #1415
+
+Testing
+
+tested locally on presto and mysql DBs
+plan to test on the caravel box using proxy
+
+Reviewers
+
+@mistercrunch
+@ascott
+@vera-liu",3,7
+1470,2016-10-28T07:36:28Z,,2017-08-11T05:53:16Z,1,24,0,"References:
+#1401
+#1445",2,0
+1472,2016-10-28T15:59:56Z,2016-10-29T14:48:17Z,2016-10-29T14:48:17Z,7,138,105,"@ascott @vera-liu @bkyryliuk
+Added a mockedActions in fixtures that uses the sinon lib, makes it easy to test if actions are triggered as they should.
+To test outcomes after animations I decided to define timeout as a prop, which can be set to zero in the context of a test, using a short delay (using setTimeout) was still necessary.",2,3
+1475,2016-10-28T23:12:10Z,2016-10-29T04:35:49Z,2016-10-29T04:35:49Z,2,32,2,"@ascott @vera-liu @bkyryliuk
+
+fixes #1428 , #1418",3,1
+1479,2016-10-29T06:44:27Z,2016-11-01T04:07:47Z,2016-11-01T04:07:47Z,7,67,19,Fixes https://github.com//issues/1427,3,7
+1483,2016-10-30T02:02:52Z,,2016-12-25T20:40:42Z,471,13325,6150,"The get_user_roles should get the role specified for the anon user in the config.py at AUTH_ROLE_PUBLIC. Without this fix, the list of tables the anon user can see is limited to the tables visible to the ""Public"" role.",23,3
+1485,2016-10-31T00:00:44Z,2016-11-01T06:52:37Z,2016-11-01T06:52:37Z,9,195,28,@vera-liu @ascott @bkyryliuk,2,3
+1486,2016-10-31T04:59:00Z,2016-11-04T21:21:51Z,2016-11-04T21:21:51Z,10,206,57,"Issue: #1446
+Before: data preview of a selected table appears as a modal, but for
+some cases users may want to view data and edit sql at the same time
+
+After:
+
+data preview of a selected table pops up a new tab in South Pane
+data are saved to local state and flushed in global store in
+ResultSet component
+
+
+Done:
+
+Added queries to SouthPane component (mapped from state)
+Save results locally in ResultSet once loaded and clear them from global store
+Added tabs in SouthPane for data preview of tables
+
+Todo:
+
+Add pagination to ResultSet
+
+needs-review @mistercrunch @ascott",2,5
+1491,2016-10-31T16:52:13Z,2016-11-03T01:45:10Z,2016-11-03T01:45:10Z,4,71,16,"Implements: #1495
+In this change:
+
+refactored the granularity calculation to use period instead of duration
+added week, week_starting_sunday, week_ending_saturday, month granularities
+week_ending_saturday requires result post processing to offset the time to display the end of the week.
+
+Tested:
+
+I've ran druid timeseries queries on couple examples for all data granularities - result look the same on dev and prod instances.
+
+Reviewers:
+
+@mistercrunch
+@ascott
+@vera-liu",2,1
+1492,2016-10-31T18:04:58Z,2016-10-31T23:02:12Z,2016-10-31T23:02:13Z,1,18,6,"attempt to resolve: #1473
+@mistercrunch ^^
+Testing:
+-- set global vars:
+SET @@GLOBAL.interactive_timeout=10
+SET @@GLOBAL.wait_timeout=10
+-- reset the connection and check them:
+SHOW GLOBAL VARIABLES LIKE ""interactive_timeout"";
+SHOW GLOBAL VARIABLES LIKE ""wait_timeout"";
+SHOW session VARIABLES LIKE ""interactive_timeout"";
+SHOW session VARIABLES LIKE ""wait_timeout"";
+
+-- all of them are 10 sec:
++---------------+-------+
+| Variable_name | Value |
++---------------+-------+
+| wait_timeout  | 10    |
++---------------+-------+
+
+
+Ran presto queries on celery worker locally and connection isn't dying.",2,0
+1493,2016-10-31T20:37:42Z,2016-11-02T19:57:44Z,2016-11-02T19:57:44Z,17,2069,81,"This PR brings all of the vis configuration to the front end so we can render all of the form fields dynamically.
+each vis object in the store has the following structure which includes which sections to show and which fieldsets to show within each section. it also include fieldOverrides so the default values for a give field can be overwritten for that viz only.
+  dist_bar: {
+    label: 'Distribution - Bar Chart',
+    controlPanelSections: [{
+      label: 'Chart Options',
+      description: 'tooltip text here',
+      fieldSetRows: [
+        ['columns'],
+        ['row_limit'],
+        ['show_legend', 'show_bar_value', 'bar_stacked'],
+        ['y_axis_format', 'bottom_margin'],
+        ['x_axis_label', 'y_axis_label'],
+        ['reduce_x_ticks', 'contribution'],
+        ['show_controls'],
+      ],
+    }],
+    fieldSetOverrides: {
+      groupby: {
+        label: 'Series'
+      },
+      columns: {
+        label: 'Breakdowns',
+        description: 'Defines how each series is broken down',
+      },
+    }
+  }
+
+each field/control type is configured with an object in store.js
+viz_type: {
+    type: 'SelectField',
+    label: 'Viz',
+    default: 'table',
+    choices: formatSelectOptions(Object.keys(visTypes)),
+    description: 'The type of visualization to display',
+  }
+
+new components added:
+
+InfoTooltipWithTrigger
+ControlPanelSection
+FieldSet
+FieldSetRow
+CheckboxField
+SelectField
+TextField
+TextAreaField
+
+adds 2 utils functions
+
+formatSelectOptionsForRange
+formatSelectOptions
+
+todo in this pr:
+
+ add js tests
+
+todo in future PR:
+
+hook up change events in FieldSet
+add select options/choices and default keys from forms.py to store.js
+handle fieldset overrides in FieldSet.jsx
+figure out what vis configuration the back end really needs, and find way to share with front end, then delete duplicated configuration code.
+
+ptal: @mistercrunch @vera-liu @bkyryliuk",3,2
+1502,2016-11-01T18:48:22Z,2016-11-02T03:48:31Z,2016-11-02T03:48:31Z,3,179,153,"Why:
+
+Since sql lab is a separate page, separating its endpoint tests to a separate file would make our tests cleaner and easier to add new tests
+
+Done:
+
+moved run_sql() to base_tests since it's used by both core_tests and sqllab_tests
+moved sql lab related tests to sqllab_tests.py
+
+needs-review @mistercrunch @bkyryliuk",3,1
+1504,2016-11-01T20:49:02Z,2016-11-02T20:22:07Z,2016-11-02T20:22:07Z,5,55,51,"@bkyryliuk, I merged the wrong branch, here's the proper one",2,1
+1505,2016-11-01T20:50:43Z,2016-11-02T02:40:09Z,2016-11-02T02:40:09Z,2,35,7,"Before:
+
+queriesArray is reloaded during each render, but for some re-rendering caused by prop-change like tables, queriesArray doesn't change.
+
+After:
+
+queriesArray is moved to local state of TabbedSqlEditors, and is only reloaded during switching tabs or queries object is updated.
+
+needs-review @mistercrunch",2,1
+1517,2016-11-02T06:36:19Z,2016-11-02T18:25:33Z,2016-11-02T18:25:33Z,3,111,66,"Using faster timeseries, topn Druid-type queries where possible, falling back on current 2-phases
+groupby only where needed
+fixes #1002",2,2
+1525,2016-11-02T18:14:53Z,,2017-01-18T20:28:36Z,1,1,1,"Problem
+On the Dashboard view, the form_data is passed in as a regular dict.  This is then passed as **kwargs to WTForms which as the note below describes doesn't do proper type conversion.  u'false' becomes True which is not what we want.  This is not currently impacting users because slices always pull data from the json_endpoint but should still be fixed because the data inside the rendered html is inconsistent.
+Solution
+If passing just one parameter as form_data, the WTForms constructor will do proper type conversion as if the form_data came from a POST.  This is why this bug doesn't surface when using the json_endpoint to get slice data, but it does on the dashboard page.  The fix is to pass the form_data parameter rather than as **kwargs.
+Example reproduction steps:
+
+Open Genders sample data slice in explore page.
+Save as a donut chart
+Save again as a pie chart
+Go to dashboard page, add Genders slice
+Inspect data-dashboard in the markup.  Note that form_data.donut is true when it should be false.
+
+You have to save as donut and then back to pie to reproduce because initially donut isn't in the params object.  You'll note that the Genders slice still renders as a pie correctly without this fix, but only because internally slices render using data from json_endpoint in which form_data always follows the form = form_class(form_data) code path instead of being used as a **kwargs.  This fix is still important because the form_data is out of sync with the real values and could be problematic in the future or in the present to people who are extending Caravel to use form_data now (which is how I discovered it).
+
+Note Backing-store objects and kwargs are both expected to be provided with the values being already-coerced datatypes. WTForms does not check the types of incoming object-data or coerce them like it will for formdata as it is expected this data is defaults or data from a backing store which this form represents. See the section on using Forms for more information.
+
+WTForms docs
+@mistercrunch",3,1
+1532,2016-11-03T01:01:43Z,2016-11-04T22:58:11Z,2016-11-04T22:58:11Z,4,55,24,"Done:
+
+Added scroll-bar to Sql Editor tool bar and right panel in SqlEditor
+Added hide/expand tool bar option to dropdown menu of tab
+
+After:
+
+
+scroll bar
+
+
+
+hide tool bar option
+
+
+
+
+after hiding tool bar
+
+
+![Uploading Screen Shot 2016-11-03 at 4.53.40 PM.png…]()
+
+after expanding
+
+
+Note:
+I put hideLeftBar in state TabbedSqlEditor component, once it's clicked in the menu, tool bar will be hided for all the tabs. The other option would be add hideLeftBar to one of QueryEditor's attribute, then the option for hiding/expanding tool bar will be per-queryEditor-tab-ish. Let me know which you prefer 😃
+needs-review @mistercrunch @ascott @bkyryliuk",3,4
+1536,2016-11-03T06:51:50Z,2016-11-03T20:37:29Z,2016-11-03T20:37:29Z,1,12,103,"get rid of duplicated /exploreV2/ endpoint, just add what we need to current /explore/ endpoint
+
+plz review @mistercrunch @vera-liu @bkyryliuk",2,0
+1540,2016-11-03T23:29:12Z,2016-11-08T18:28:51Z,2016-11-08T18:28:51Z,18,304,251,"Done:
+
+Changed defaultFormData and defaultViz in store to match structure sent from bootstrap_data
+Added onChange function to push data from form components to store
+Changed some variable names from camel to snake case matching state variables in ChartContainer and ControlPanelContainer
+
+Todo:
+
+pass down state needed for Field components from ControlPanelContainer
+datasource/viz_type should be apart from form_data and reset all form data once they are changed
+add query and save button, hit right url when query button clicked
+
+needs-review @ascott",3,3
+1543,2016-11-04T09:33:56Z,2016-11-08T23:55:49Z,2016-11-08T23:55:49Z,11,198,201,"add dynamic field options to fetch_datasource_metadata
+add fields to initial state
+render fields from state, not store
+populate select field options once /fetch_datasource_metadata/ returns
+
+todo:
+
+ datasource options are missing",3,2
+1551,2016-11-06T23:27:47Z,2016-11-09T22:21:43Z,2016-11-09T22:21:43Z,3,92,74,"Previously I made left-bar and right-panel scrollable in sqllab https://github.com/airbnb/caravel/pull/1532#pullrequestreview-6951086
+however it introduced two scroll bars on the right (one for App one for right panel). I am making App non-scrollable in this PR, so that user can only scroll left-bar and right-panel.
+
+needs-review @mistercrunch",2,5
+1552,2016-11-07T00:08:48Z,2016-11-07T23:28:46Z,2016-11-07T23:28:46Z,3,19,8,"Bug/Issue:
+
+We don't want user to lose query results when they refresh the page
+and VisualizeModal needs query results
+
+Done:
+
+Added cache prop to ResultSet
+Results from query run by user are not flushed from global state, when user refreshes the page, results stay the same
+Preview results of selected tables are stored in local component's state, it will go away when user refreshes.
+
+needs-review @mistercrunch",2,3
+1559,2016-11-08T17:46:14Z,2016-11-08T21:52:24Z,2016-11-08T21:52:24Z,3,16,9,plz review @mistercrunch @vera-liu @bkyryliuk,3,0
+1561,2016-11-08T19:24:22Z,2016-11-09T17:01:17Z,2016-11-09T17:01:17Z,12,56,27,"Done:
+
+Let ControlPanelsContainer listen to form_data, and pass down values to fields
+
+e.g. when show_legend is set to true in url, checkbox will be toggled when loading
+needs-review @ascott",3,2
+1562,2016-11-08T20:23:39Z,2016-11-08T23:22:20Z,2016-11-08T23:22:20Z,3,33,4,"Done:
+
+added attribute to mock slice in render() of ChartContainer for action buttons,
+
+
+
+
+needs-review @ascott",3,1
+1567,2016-11-09T01:39:25Z,2016-11-09T16:48:26Z,2016-11-09T16:48:26Z,2,11,1,plz review @vera-liu @mistercrunch,2,0
+1571,2016-11-09T20:25:57Z,,2016-11-10T20:04:33Z,8,160,16,"Created additional endpoint for updating viz with POST request
+Send over form_data via POST request and get back new endpoints and
+data for viz
+
+Note:
+
+the query button doesn't work for multi-select fields such as metrics and groupby for now, the reason is that we haven't supported multi-select in V2, and setFieldValue will set these as a string instead of array. This will be fixed in a future PR where we replace FormControl with react-select and enable multi choices.
+
+needs-review @ascott @mistercrunch",2,1
+1581,2016-11-10T22:08:51Z,2016-11-16T21:21:53Z,2016-11-16T21:21:53Z,11,224,36,"Done:
+
+Create new endpoint for updating explore viz
+Send over new form_data when query button is pressed
+Pass in slice_id and slice_name from explore endpoint
+Move slice_id and slice_name from form_data to viz object
+
+needs-review @ascott @mistercrunch",3,1
+1583,2016-11-11T01:13:34Z,2016-11-13T22:11:52Z,2016-11-13T22:11:52Z,4,62,32,"Switched FormGroup to react-select
+Added multi and freeform to select, now it can take customized user
+input and insert it as options
+
+
+
+needs-review @mistercrunch @ascott",3,1
+1587,2016-11-11T23:03:02Z,2016-11-17T19:58:33Z,2016-11-17T19:58:33Z,19,769,547,,2,3
+1598,2016-11-14T18:53:27Z,2016-11-29T20:43:36Z,2016-11-29T20:43:36Z,6,465,22,"This function parses SQL statement and extracts table names using sqlparse.
+Resolves: #1607
+Reviewers:
+
+@mistercrunch
+@johnbodley
+@vera-liu
+@ascott
+
+If you have tests in mind - please add SQL statements in the comments, happy to extend test coverage.",3,5
+1606,2016-11-15T16:56:16Z,2016-11-15T18:38:03Z,2016-11-15T18:38:03Z,1,2,2,Check for empty result before using it.,2,0
+1609,2016-11-15T22:48:19Z,2016-11-17T20:31:37Z,2016-11-17T20:31:37Z,5,55,19,"A bunch of small fixes for some viz types in explore v2
+Issues & Fixes:
+
+ typo (fieldSetRow was named fields) in pie viz made rendering fail
+
+Before:
+
+After:
+
+
+ add metrics/groupby to dist_bar viz
+Before:
+
+
+After:
+
+
+ typo in heatmap viz (xscale_interval and yscale_interval as x_scale_interval and y_scale_interval)
+Before:
+
+
+After:
+
+
+
+ add big_number_total to viz
+After:
+
+
+
+ columns were not feeded to SelectField in the right way (all_columns/all_columns_y was a string instead of array in fetch_datasource_metadata)
+Before:
+
+
+
+After:
+
+
+ add sqlaTimeSeries to viz
+
+After:
+
+
+ change row_limit and limit from number to strings so that we
+don't need to parse integers in bootstrap data
+Before: data passed in bootstrapData are strings, but values of choices for seriesLimit, bottom_margin and rowLimit are numbers. So the values were not showing up in these select field
+
+After:
+
+
+ Added order_bars checkbox to dist_bar viz
+
+
+needs-review @ascott",3,1
+1610,2016-11-15T23:33:32Z,2016-11-17T17:26:25Z,2016-11-17T17:26:25Z,9,76,48,"Previously we had datasource_id in store outside viz. But since datasource is one of fields it makes more sense to put it in form_data
+Done:
+
+Get datasourceId from bootstrap data and store it in form_data.datasource
+Also plug in datasource_name since it is required by Save dialog triggered by save button (in save_or_overwrite_slice())
+refetching metadata when switching datasource
+
+needs-review @ascott",3,1
+1612,2016-11-16T17:22:45Z,2016-11-18T22:56:02Z,2016-11-18T22:56:02Z,12,392,13,"Done:
+
+Added a SaveModal component, triggered by save button in QueryAndSaveButton
+url params for saveOrOverwriteSlice stay the same as in v1
+when user updates control panel and save the slice, new form_data will be saved into the slice
+Added specs for SaveModal
+This PR includes changes from https://github.com/airbnb/superset/pull/1610 since datasource_name is required in saveOrOverwriteSlice url
+
+
+Todo:
+
+add Alert to explore v2 for all ajax calls and exception handling
+
+needs-review @mistercrunch @ascott",3,3
+1615,2016-11-16T23:57:00Z,2016-11-20T05:23:45Z,2016-11-20T05:23:45Z,28,903,12,,2,3
+1616,2016-11-17T01:00:26Z,2016-11-17T18:05:36Z,2016-11-17T18:05:36Z,4,28,3,@ascott @bkyryliuk @vera-liu,4,3
+1618,2016-11-17T02:13:39Z,2016-11-18T17:43:36Z,2016-11-18T17:43:36Z,3,6,1,"Issue
+Currently, refreshing nvd3 visualizations is not very pleasant to look at especially when set to refresh every 10 seconds:
+
+The problem is that upon render, the entire slice container is emptied which means the whole chart must render from scratch instead of just adjusting to new data.
+Solution
+If we leave the chart intact upon refesh, nvd3 will automatically update the entire chart smoothly.
+Notice the bars and x-axis shift in this example.
+
+@mistercrunch",3,4
+1619,2016-11-17T02:14:17Z,2016-11-21T18:06:44Z,2016-11-21T18:06:44Z,3,65,0,"Reviewers:
+
+@mistercrunch
+@ascott
+@vera-liu",3,2
+1623,2016-11-17T06:34:08Z,2016-11-17T18:53:45Z,2016-11-17T18:53:45Z,8,139,0,plz review @vera-liu @mistercrunch @bkyryliuk,3,1
+1626,2016-11-17T20:26:05Z,2016-11-18T19:17:06Z,2016-11-18T19:17:06Z,6,79,22,"Done:
+
+Add alert for Control Panel when fetch_datasource_metadata failes
+Add alert for Chart Container when update_explore query fails
+
+Control Panel alerts:
+
+Chart Container alerts:
+
+needs-review @ascott @bkyryliuk @mistercrunch",3,3
+1647,2016-11-19T01:04:01Z,2016-11-23T17:51:19Z,2016-11-23T17:51:19Z,15,354,133,"Done:
+
+Filter component in Control Panel container
+parse url params into store in index.jsx
+transfer filters to url params on query and save
+move function for getting url params based on form_data outside SaveModal and ExploreViewContainer
+
+Todo:
+
+spec
+include changes in https://github.com/airbnb/superset/pull/1061
+
+
+needs-review @ascott @mistercrunch",3,0
+1658,2016-11-21T20:22:54Z,2016-11-23T01:08:52Z,2016-11-23T01:08:52Z,2,23,3,"For some fields we would like to re-render chart once field is changed, saving user the time to click query button
+Such fields are stored in an array 'autoQueryFields' in store, could add more fields in the future
+
+
+needs-review @ascott",3,1
+1664,2016-11-22T18:36:05Z,2016-11-29T00:29:30Z,2016-11-29T00:29:30Z,2,5,1,"We are adding more roles that are controlled externally and they shouldn't be modified by user.
+@mistercrunch ^^",2,1
+1669,2016-11-23T00:47:14Z,2016-11-28T16:34:15Z,2016-11-28T16:34:15Z,6,253,59,"Overview
+Allow user to edit an existing dashboard, and then save it as their own.
+Screenshots
+Overwrite dashboard
+
+Copy dashboard",3,5
+1671,2016-11-23T01:09:29Z,2016-12-13T00:42:39Z,2016-12-13T00:42:39Z,2,29,2,"add config option for explore v2 beta users
+if user_id is in beta list, send through v2 path
+
+chef PR https://git.musta.ch/airbnb/chef/pull/13591
+plz review @airbnb/superset-reviewers",4,4
+1685,2016-11-24T13:30:50Z,,2017-08-11T05:54:48Z,3,40,2,"Add three new attributes Half circle,Pad Angle,Corner Radius to Pie Chart",3,5
+1697,2016-11-28T18:38:11Z,2016-12-16T22:23:49Z,2016-12-16T22:23:49Z,13,335,21,"Credits to: @the-dcruz https://github.com/airbnb/superset/pull/1061
+Done:
+
+db migration to add filter_select_enabled
+add freeform-multi option for Selectfield
+modify formatFilter() function on query to accomodate filter-select
+
+To enable:
+in edit table mode:
+
+Select for filter-value:
+
+
+needs-review @mistercrunch @ascott @bkyryliuk",3,2
+1698,2016-11-28T19:17:44Z,2016-11-29T19:16:55Z,2016-11-29T19:16:55Z,4,45,2,"Adds per schema permissions for the user.
+It will be shared among superset explore and sql lab functionality.
+Reviewers:
+
+@mistercrunch
+@vera-liu
+@ascott",2,2
+1701,2016-11-29T01:59:37Z,2016-11-29T18:31:11Z,2016-11-29T18:31:11Z,3,9,5,"Issues:
+
+
+ Chart Container can't accomodate large chart https://github.com/airbnb/superset/issues/1676
+Solution: I was afraid wrapping entire chart within the container would cause it to be squashed/look bad. So I made chart container scrollable.
+
+
+
+ Druid datasource pops errors in views.py
+
+Solution: use datasource_name for druid instead of table_name
+
+
+ action buttons are not clickable in heatmap-v2
+Solution: svg was not shifted downward in Chart Container, so it blocks the action button. Adding headerHeight to svg solved the problem.
+
+
+needs-review @ascott",3,1
+1704,2016-11-29T07:35:55Z,2016-12-01T23:21:18Z,2016-12-01T23:21:18Z,7,79,34,,3,3
+1705,2016-11-29T17:42:15Z,2016-12-14T19:52:53Z,2016-12-14T19:52:53Z,2,13,0,"Done:
+
+In explore view, email-to option is available besides copy button in url short link
+In dashboard view, email-to option is available in controls
+
+explore view:
+
+
+dashboard view:
+
+
+needs-review @ascott @mistercrunch @bkyryliuk",4,3
+1707,2016-11-29T18:12:41Z,2016-11-29T23:03:15Z,2016-11-29T23:03:15Z,7,53,49,"Issues solved:
+
+Save button doesn't pass in gotodash
+slice_name was passed in from store as original slice_name instead of
+new one in 'saveas' action
+datasource_type wasn't passed in to defaultViz and defaultForm
+function
+
+needs-review @ascott",3,1
+1712,2016-11-29T23:19:39Z,2016-11-30T17:09:35Z,2016-11-30T17:09:35Z,1,13,11,"Issue: https://github.com/airbnb/superset/issues/1588
+Solution:
+
+use nextProps instead of this.props in setAutoCompleter in componentWillReceiveProps
+setState() is asynchronous, put completer definition in setState callback
+
+After:
+
+needs-reivew @ascott @mistercrunch",4,3
+1713,2016-11-30T00:52:22Z,2016-12-01T23:18:55Z,2016-12-01T23:18:55Z,4,91,39,"to: @mistercrunch @bkyryliuk
+Context
+Pex is a packaging system and format for Python apps that combines the code for an app and its dependencies in a single file. This change includes some minor updates to superset to support running it via a pex. Everything should be backwards-compatible.
+Content
+
+Support running gunicorn without going through gunicorn command-line; this requires bypassing the cli.manager and having some wrapper code in superset/bin/superset so that the app forks cleanly in this case
+Support loading a local config that isn't in the python path. In the pex case, the pythonpath is isolated and immutable, so this is the easiest way to bring in an external config.",5,5
+1715,2016-11-30T06:20:04Z,2016-12-05T21:36:18Z,2016-12-05T21:36:18Z,3,23,14,"Issue:
+
+#1646
+https://github.com/airbnb/superset/issues/1463
+
+Problem:
+
+query results could be null in VisualizeModal, triggering js error
+defaults were not shown in VisualizeModal for past queries
+
+Solution:
+
+add modal message when query results are not available
+we flush results of latestQuery everytime we start a new query https://github.com/airbnb/superset/blob/94dde075b3eab41797725e1e02c7f87b6b45471a/superset/assets/javascripts/SqlLab/reducers.js#L138. I guess the original incentive was flushing query results in case we have too many data in the store. I changed this to only flushing results.data and results.query, leaving results.columns in store, to be used by VisualizeModal
+move setState from componentWillMount to componentWillReceiveProps, so that column attributes could be passed in
+
+Before:
+
+After:
+
+@ascott @bkyryliuk @mistercrunch",4,3
+1723,2016-11-30T17:42:33Z,2016-12-01T01:41:02Z,2016-12-01T01:41:02Z,1,2,0,"Issue: https://github.com/airbnb/superset/issues/1703
+
+@ascott",5,2
+1724,2016-11-30T21:02:07Z,2016-12-01T19:59:44Z,2016-12-01T19:59:44Z,3,54,26,"Before:
+the old chart stays in chart container when there's error drawing new chart
+Done:
+**Leave chart empty when theres error
+**Make all boolean fields auto-query chart when changed
+
+
+needs-review @ascott",2,2
+1725,2016-11-30T22:30:56Z,,2017-05-09T04:52:52Z,4,67,1,Currently desktops refresh interval setup by user get vanish when they refresh or log back. This change is to persist desktop refresh frequency so that can be reflected to user for that desktop,3,2
+1737,2016-12-02T01:58:50Z,2016-12-04T04:09:09Z,2016-12-04T04:09:09Z,1,5,4,,2,1
+1739,2016-12-02T07:55:02Z,,2017-08-11T05:56:29Z,1,1,0,Dashboard or Welcome pages are keep rendering when user logged out. Redirecting them to login.,4,3
+1742,2016-12-02T13:19:15Z,2017-06-12T20:46:15Z,2017-06-12T20:46:15Z,1,14,0,"Add fix for handling chunk encoding requests.
+If ENABLE_CHUNK_ENCODING is set to true, for requests with transfer
+encoding set to true. It will set wsgi.input_terminated to true which
+tells werkzeug to ignore content-length and read the stream till the
+end.
+Fixes #1720",3,6
+1743,2016-12-02T16:26:22Z,2016-12-04T04:05:43Z,2016-12-04T04:05:43Z,1,4,1,Tested that the example slices renders properly.,3,1
+1747,2016-12-02T18:25:08Z,2016-12-05T18:02:24Z,2016-12-05T18:02:24Z,3,15,11,"Issue:
+
+only span is specified in CopyToClipboard component, the user had to click on the text to copy a url, clicking on blank spaces or icon doesn't work
+
+Solution:
+
+move MenuItem to CopyToClipboard, make entire MenuItem clickable for copying query when rendering in menu
+
+needs-review @mistercrunch @ascott",3,1
+1753,2016-12-03T01:34:52Z,2016-12-06T01:03:40Z,2016-12-06T01:03:40Z,2,81,20,"This change will allow to pre-create and preassign users to the groups before they login to the superset. It will allow users to have full access once they are logged in to the tool.
+Reviewers:
+
+@vera-liu
+@mistercrunch
+@ascott",3,2
+1762,2016-12-05T18:33:47Z,2016-12-06T01:17:31Z,2016-12-06T01:17:31Z,4,16,3,"Issue: #1752
+
+Currently clicking on a cell in table slice will apply filter to dashboard by default, but some users don't want this feature
+
+Done:
+
+Added table_filter checkbox in table viz
+If set to false, clicking on a cell in table will not apply filter to
+dashboard
+
+needs-review @ascott @mistercrunch @bkyryliuk",2,1
+1771,2016-12-06T08:58:30Z,,2016-12-06T19:44:32Z,5,338,40,"add some chart style, such as linePlusBarChart, multiBarHorizontalChart, multiChart.
+
+linePlusBarChart:
+
+
+
+
+multiBarHorizontalChart:
+
+
+
+
+multiChart:",3,2
+1775,2016-12-06T19:19:12Z,2016-12-12T16:58:13Z,2016-12-12T16:58:13Z,9,171,1,"Hi Superset people,
+We are considering adopting Superset for some projects. It looks very nice, thanks for all the work. To get to know it better before jumping in with both feet I wanted to try adding a new chart type that we would want to use anyway. NVD3's bullet chart looked nice and simple. But on a closer look it turned out to have quite a few parameters!
+Here's a draft implementation for this to get your thoughts on it. It seems to work in ""ExploreV2"" mode. I'm not sure about the V1/V2 distinction. A couple issues:
+
+It displays an error until you set a range.
+The measure line's color does not get set for some reason.
+Would be nice to provide a way to set the ranges/markers from metrics as well.
+The bullet chart is stretched to fill the height of the panel. It looks pretty bad until you resize the panel.
+I set is_timeseries = False but still there are time settings at the bottom of the explore UI. Is that normal?
+
+Thanks for any feedback!",3,8
+1788,2016-12-07T08:08:14Z,,2017-01-09T04:41:48Z,27,290,300,"supporting getProps in field definition, simpler semantics, less field-specific rules scattered in the codebase
+fixed the loading spinner
+made the first load async instead of using bootstrap data
+changed a few components to align with react-bootstrap
+cosmetic changes
+
+overall removed 50 lines of code while adding important features and making the flow of data a big easier to track",3,3
+1790,2016-12-07T16:50:37Z,2016-12-09T19:03:31Z,2016-12-09T19:03:31Z,2,2,2,"Issue:
+
+temp table name is shown in output when query is not run using ctas https://github.com/airbnb/superset/issues/1745
+schema name is not shown in output https://github.com/airbnb/superset/issues/1708
+
+Done:
+
+when query was not run as ctas, leave output column empty
+add schema name before temp table name for queries run using ctas
+
+needs-review @ascott @bkyryliuk @mistercrunch",3,1
+1794,2016-12-07T22:12:34Z,2016-12-07T23:59:17Z,2016-12-07T23:59:17Z,1,13,0,"Issue: https://github.com/airbnb/superset/issues/1783
+After:
+
+needs-review @ascott @mistercrunch",2,1
+1798,2016-12-08T01:34:12Z,2016-12-15T13:38:34Z,2016-12-15T13:38:34Z,9,330,178,"Reviewers:
+
+@mistercrunch
+@ascott
+@vera-liu
+@yolken
+
+time superset init
+real	0m51.932s
+user	0m29.039s
+sys	0m1.222s",2,0
+1802,2016-12-08T18:29:32Z,2016-12-09T21:39:53Z,2016-12-09T21:39:53Z,9,136,74,"Issue: https://github.com/airbnb/superset/issues/1563
+Done:
+
+Share Timer component between sqllab and explore v2
+
+After:
+
+Todo:
+
+solve conflicts after https://github.com/airbnb/superset/pull/1788 is merged
+
+needs-review @ascott @mistercrunch @bkyryliuk",3,2
+1805,2016-12-09T01:43:00Z,2016-12-15T00:09:22Z,2016-12-15T00:09:22Z,2,14,5,"Issues solved:
+
+when metrics is not valid in query(), the error message gives 'NoneType' has no attribute sqla_col, which is not very descriptive
+count_distinct was transfered to count_distinct(col) expression in sqllab_viz
+
+Todo:
+
+refactor all metrics_creation PR to a consistent place
+
+needs-review @mistercrunch @bkyryliuk",3,0
+1812,2016-12-12T02:55:01Z,2016-12-12T18:58:07Z,2016-12-12T18:58:07Z,8,84,116,"Issue:
+
+Currently we make an ajax call to update_explore endpoint with form_data, which calls get_viz in the backend, later in render() we make ajax call to explore_json endpoint, so get_viz is called two times for each explore update
+
+Change:
+
+update json endpoint, csv endpoint and standalone endpoint with new form_data once query button is clicked, remove update_explore endpoint
+pass back payload with query from slice.done() method in mocked slice, to update Query button in action buttons
+
+needs-review @mistercrunch @ascott",3,2
+1817,2016-12-13T01:28:45Z,,2016-12-14T17:37:03Z,3,45,24,"Before:
+
+when there are errors in viz.get_json, bootstrap_data is not loaded, stack trace is shown (this happens when user refreshes the page with wrong form_data)
+
+
+After:
+
+actual error message is shown in ChartContainer when user refresh the page with wrong form_data, and viz_type is set back to 'table'
+
+needs-review @ascott @mistercrunch",2,1
+1818,2016-12-13T03:01:20Z,,2017-08-11T05:57:07Z,4,66,63,,3,0
+1821,2016-12-13T05:10:45Z,2016-12-14T16:41:03Z,2016-12-14T16:41:03Z,1,5,0,"This should fix issue #1339.
+IE 11 and lower have a long standing issue: out-of-document element's
+pathname has no leading '/'. See Pathname incorrect for out-of-document elements at Microsoft side (it's marked as fixed but apparently not...).
+And Superset's Slice.jsonEndpoint() method relies on pathname() to build
+JSON API URL for slices:
+      jsonEndpoint() {
+        const parser = document.createElement('a');
+        parser.href = data.json_endpoint;
+        let endpoint = parser.pathname + this.querystring();
+        endpoint += '&json=true';
+        endpoint += '&force=' + this.force;
+        return endpoint;
+      },
+parser above is exactly an out-of-document element. Therefore when
+running in IE <= 11, Superset would build wrong JSON endpoint URLs,
+hence the 404 errors for loading data for slices.
+This commit adds a simple workaround when leading '/' is missing in the
+value returned by pathname().",4,4
+1825,2016-12-13T18:00:17Z,2016-12-15T21:19:54Z,2016-12-15T21:19:55Z,3,15,6,"Before:
+
+force_ctas_schema is not passed to Query model when enabled, the output column of Query Table  does not receive schema from backend unless it is set in query editor
+
+After:
+
+when force_ctas_schema is set, it gets stored in query, and will be displayed in output column of QueryHistory if the query was run using ctas
+
+Tested in staging:
+
+Use case one: run query with selected schema in left pane
+
+
+set schema in sql editor left pane
+run a query
+schema is shown in output column of Query History
+
+
+Use case two: run query with ctas on a database with force_ctas_schema
+
+
+set schema in database view
+run a query using ctas
+schema.table_name is shown in output column of Query History
+
+
+Use case three: run query with selected schema and ctas
+
+
+set schema in sql editor left pane
+run a query using ctas
+schema.table_name is shown in output column of Query History
+
+Todo:
+
+https://github.com/airbnb/superset/issues/1850
+needs-review @bkyryliuk @mistercrunch",3,4
+1828,2016-12-13T19:45:56Z,2016-12-15T22:06:55Z,2016-12-15T22:06:55Z,3,38,23,"Before:
+
+
+ChartContainer renders twice for each query, one rendering happened when ChartStatus changed from previous status to loading, another at ChartStatus switching from loading to success
+
+
+
+spinner position is relative, shifting chart downwards while loading
+
+
+After:
+
+renderVis is only called when ChartStatus is changed to loading (meaning ChartUpdate started), or if there's a height change (at browser window resize)
+chart is dimmed while loading and spinner is put on top as overlay
+timeout is added to resize handler to prevent over-triggering
+
+
+
+needs-review @ascott @mistercrunch",3,4
+1830,2016-12-14T00:40:37Z,2016-12-20T06:32:50Z,2016-12-20T06:32:50Z,4,58,2,@bkyryliuk @ascott @vera-liu,4,4
+1840,2016-12-14T23:20:38Z,2016-12-16T16:06:40Z,2016-12-16T16:06:40Z,3,46,52,"For the controls, moving the scrollbar outside the panel as opposed to inside the panel.
+Before:
+
+After:
+
+Also, in v1, the chart container doesn't allow to overflow-x, unless the viz's CSS override that. Matching this behavior here so that the table view doesn't show an X axis scrollbar.",2,0
+1844,2016-12-14T23:51:59Z,2017-05-03T20:57:40Z,2017-05-03T20:57:40Z,4,62,7,"This PR adds integration with ClickHouse SQLAlchemy engine spec.
+
+ Adding database and tables works
+ Adding views works
+ Table, timeseries, group by, group by + timeseries works
+ Using secondary dttm columns (ClickHouse has often date + datetime, so timeseries needs to reference both)
+ Superset makes quoted (e.g. AVG(""column"")) metrics by default when it shouldn't, don't know why
+ Filter on INTEGER fields creates column IN (""1"", ""2"", ...) SQL where values are quoted, this is wrong
+ Superset launches a query as soon as I create slice, this is bad as it potentially full-scans the whole database",8,21
+1845,2016-12-15T00:16:34Z,2016-12-15T16:53:15Z,2016-12-15T16:53:15Z,2,18,11,Other SelectField and new ones can now be set as non-clearable for places where null isn't right.,2,1
+1858,2016-12-16T21:45:08Z,2017-01-04T01:20:30Z,2017-01-04T01:20:30Z,3,114,61,"show single run button rather than Run Query and Run Async Query
+if async is possible, run async, otherwise run sync
+move buttons to their own component
+
+fixes this issue: #1819
+before
+
+
+after
+
+
+
+plz review @mistercrunch @vera-liu @bkyryliuk",2,0
+1861,2016-12-17T10:22:05Z,2017-01-04T22:43:57Z,2017-01-04T22:43:57Z,1,2,2,,3,2
+1866,2016-12-19T15:01:42Z,,2017-08-11T06:00:38Z,22,283,122,"This PR is in relation to issue #985.
+The first commit basically converts all existing hard coded urls in superset to use the Flask url_for method to generate urls.
+The second commit adds a middleware that runs all tests under the prefix /test to make sure that future contributions will not add in hard coded urls again. It also fixes current tests that wouldn't work with the new prefix.
+I need to clean some of this up a bit, but wanted to create the PR now to get some feedback before I do much more with it.
+If you want to go with running tests under a prefix, there are a some complications due to the fact that url_for needs the application context in order to resolve the urls. And it needs to be prepared with the right prefix to give the right urls. In addition, any test code that runs app code which generates urls need to wrap this code in an app context as well (exceptions being self.client.get/post). I have added a number of help methods to the SupersetTestCase class that should help people out (self.url_for, self.get_app_context. It still requires a bit more from the test code though since app context mishaps give very confusing errors.
+Anything I missed, should change, etc., Please let me know",21,55
+1868,2016-12-19T18:36:33Z,2017-01-04T23:46:53Z,2017-01-04T23:46:53Z,7,111,119,"FieldContainer now wraps ControlLabelWithTooltip, as opposed to each Field doing so
+Moved to support a single SelectField as opposed to multiple flavors of it that had specific prop assignment logic in the FieldSet component. Moved those to become explicit props in the fields configuration object.
+
+@ascott @vera-liu
+this is a part of #1788",3,4
+1869,2016-12-19T21:59:16Z,2017-01-06T20:24:08Z,2017-01-06T20:24:08Z,4,58,51,Fixes #1835,2,0
+1871,2016-12-20T19:57:39Z,2017-01-05T18:00:40Z,2017-01-05T18:00:40Z,9,132,116,"Currently when a query fails for whatever reason, the previous query is shown in the Query modal. It's confusing and makes it hard to debug things.
+This PR addresses the problem both in v1 and v2, making sure the endpoint returns a rich json object that contains all the detail available even in case of failure.
+Related improvements/refactor:
+
+a better always function in explorev1, for logic that needs to happen on failure and success
+more error handling in the backend
+BaseViz now returns an data structure, not a json string, to allow the view to read what was returned and assign a proper error code
+some cleanup of get_df methods for viz that really didn't need it, logic merged in get_data
+...",2,1
+1878,2016-12-25T20:22:33Z,2016-12-27T22:30:02Z,2016-12-27T22:30:02Z,2,3,2,"This PR replaces #1483 and rebases those changes on the current master.
+The get_user_roles should get the role specified for the anon user in the config.py at the key AUTH_ROLE_PUBLIC. Without this fix, the list of tables the anon user can see is limited to the tables visible to the ""Public"" role.",4,1
+1882,2016-12-28T01:25:50Z,2017-01-06T20:38:44Z,2017-01-06T20:38:44Z,11,193,217,"This is part of the effort to break down #1788 and builds up on #1868 (landed).
+
+introducing a mapStateToProps to field configuration
+making the backend endpoint fetch_datasource_metadata do just that, no more backend logic that ""broadcasts"" field options into the state, instead [more generically] the fields define how they pick from the state to define their props (often choices in the current use cases)
+
+Note:
+fetch_datasource_metadata could be simplified further to expose the raw array of objects of columns and metrics, and more logic to build options could be moved to the js side. It's judged out of scope for this PR.",3,4
+1894,2017-01-04T01:11:20Z,2017-01-04T04:23:43Z,2017-01-04T04:23:43Z,3,8,8,"Issue: https://github.com/airbnb/superset/issues/1860
+Solution:
+This was caused by persistState used in enhancer, when we add the V2 tag, it doesn't update store because of persistState in enhancer. Since states are all stored in url params for explore view,  we don't need persistState in explorev2, but we do need it in sqllab.
+needs-review @ascott @mistercrunch",3,2
+1898,2017-01-04T18:57:34Z,2017-01-06T17:41:54Z,2017-01-06T17:41:54Z,1,23,10,"Currently the height param in the embed modal only affect the height of the iframe itself, not the height of the chart contained in the iframe. This PR addresses this issue by adding a height parameter to the querystring in the url.
+fixes #1624",2,1
+1902,2017-01-05T07:58:45Z,2017-02-10T09:17:49Z,2017-02-10T09:17:49Z,1,26,0,"As per #1131, I added more detailed tests for logging in and a test for the + button when adding a slice. I tried breaking the login page and the add function for adding a slice in models.py and the tests caught the breakage.
+One question I had was whether to use python's assert syntax as in assert x in y or use unittest's assert function as in AssertEqual(x,y). I see both usages across the tests so which do you prefer I use?
+I will work on adding tests for adding a datasource. Are there any other tests you would like me to add? I feel like the best way to get my feet wet with a project is writing tests so I would be happy to write more tests before adding features.
+Any comments appreciated and thank you for your time : )",3,8
+1907,2017-01-05T16:29:15Z,2017-01-05T17:56:08Z,2017-01-05T17:56:08Z,2,52,25,Namely datetime.time and numpy.bool_. While at it add tests. The big diff on the tests are because i've run dos2unix on them,2,0
+1909,2017-01-05T22:51:28Z,2017-01-11T18:31:31Z,2017-01-11T18:31:31Z,6,112,106,"Done:
+
+added a AsyncSelect component that fetches options from data endpoint, structure is similar to TableLoader
+use AsyncSelect for users and databases (query search page and sql editor left)
+replace DatabaseSelect with AsyncSelect
+added specs
+
+UI stays the same as in old Select:
+
+
+needs-review @ascott @mistercrunch @bkyryliuk",3,2
+1914,2017-01-06T18:51:12Z,2017-01-14T03:30:18Z,2017-01-14T03:30:18Z,9,320,24,"Implemented email functionality.
+This PR updates DAR approve flow to send notifications to the users that they gained access.
+Email backend can be configured in the config.py
+Email examples from testing:
+
+
+Reviewers:
+
+@ascott
+@mistercrunch
+@vera-liu",3,1
+1920,2017-01-07T02:27:31Z,2017-01-12T17:21:18Z,2017-01-12T17:21:18Z,20,237,105,"allows for an array of validators methods to be associated to any field
+users get clear cues, in context, when things are invalid (red icon with tooltip)
+queries can't be executed unless all controls are valid
+simplified the onChange flow to be handled by FieldSet, and removed the need for field components to pass the field namer
+
+@ascott @vera-liu",2,2
+1927,2017-01-09T05:53:24Z,2017-01-12T20:32:43Z,2017-01-12T20:32:43Z,2,43,23,"moved url related logic upstream in the caller
+moved option creation logic from render method to the constructor as
+it only needs to be executed once",2,2
+1933,2017-01-10T04:39:38Z,2017-01-11T19:58:17Z,2017-01-11T19:58:17Z,2,15,5,"Issue:
+
+we were passing sql query in url params for sqllab_viz, which could break for extremely long queries when url exceeds maximum characters allowed
+
+Solution:
+
+pass vizOptions through POST request, return url instead of redirect
+
+needs-review @ascott @mistercrunch @bkyryliuk",2,1
+1948,2017-01-11T05:05:31Z,2017-01-11T20:29:06Z,2017-01-11T20:29:06Z,3,19,29,"Issue:
+
+query from DisplayQueryButton is always lagging one-render behind, because it is updated after render slice is done
+
+Solution:
+
+pass in query instead of full slice to DisplayQueryButton
+
+needs-review @ascott @bkyryliuk @mistercrunch",3,1
+1951,2017-01-11T19:41:23Z,2017-01-27T18:20:25Z,2017-01-27T18:20:25Z,9,183,45,"Issue:
+
+with extremely long queries, share query link would break as it exceeds maximal number of characters permitted in a url
+
+Solution:
+
+adding a new key-value store model for us to store text associated with IDs
+store query string in key-value store, use id in search params in url
+make asynchronous call to get query string after TabbedSqlEditors is mounted
+added tests
+
+needs-review @ascott @mistercrunch @bkyryliuk",4,2

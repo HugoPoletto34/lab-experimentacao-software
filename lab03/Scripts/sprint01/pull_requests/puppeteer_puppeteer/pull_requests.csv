@@ -1,0 +1,1893 @@
+number,created_at,merged_at,closed_at,files,additions,deletions,body_text,participants,comments
+17,2017-06-19T21:43:22Z,2017-06-19T22:58:31Z,2017-06-19T22:58:31Z,3,14,4,R: @aslushnikov,2,1
+23,2017-06-19T23:50:38Z,,2017-07-11T23:43:43Z,3,897,88,"this is the launcher module from lighthouse that we maintain.
+https://www.npmjs.com/package/chrome-launcher
+it defaults to an open port
+addresses #21",4,4
+24,2017-06-20T01:04:02Z,2017-06-20T21:54:54Z,2017-06-20T21:54:54Z,6,59,81,Need your help debugging tests!,3,2
+25,2017-06-20T02:17:49Z,2017-06-20T18:32:21Z,2017-06-20T18:32:21Z,1,49,28,"R: @aslushnikov
+Just some cleanup and added links. Nothing much yet.",2,0
+29,2017-06-20T22:29:42Z,2017-06-21T00:04:25Z,2017-06-21T00:04:25Z,3,606,5,"Mostly molded after lighthouse's travis config, but I've left out the xvfb setup we have, as puppeteer is designed for the headless case. And the phantom tests tests pass in headless (and fail in xvfb).
+A few annoying lint errors right now in master.
+But the jasmine tests all fail on travis. Unclear why..",3,0
+32,2017-06-20T23:58:00Z,2017-06-21T20:44:12Z,2017-06-21T20:44:12Z,2,103,11,,2,1
+37,2017-06-21T21:33:17Z,,2017-07-18T01:57:50Z,3,1439,32,,2,1
+38,2017-06-23T00:53:27Z,2017-06-28T21:39:37Z,2017-06-28T21:39:37Z,5,203,28,"Changes network idle promise to wait for 2 or fewer network requests for at least idleTime (defaults to 5s) before resolving.
+Add timer cleanup to failure navigation case.
+Add handling of webSocketClosed.
+Ignore unrecognized requestIds to avoid negative inflight requests.
+Fixes default options for Navigator to allow 0",3,7
+45,2017-06-27T22:50:02Z,2017-06-28T01:27:23Z,2017-06-28T01:27:23Z,4,139,0,"#43
+Adds
+.click(selector)
+.focus(selector)
+.type(text)",2,0
+46,2017-06-28T00:08:16Z,2017-06-28T05:02:46Z,2017-06-28T05:02:46Z,4,106,0,This patch adds a test to verify the fancy networkidle logic in navigator.,2,0
+47,2017-06-28T02:34:01Z,2017-07-07T16:36:45Z,2017-07-07T16:36:45Z,11,1715,61,"Documentation Linter
+This is a work-in-progress patch that implements documentation linter.
+How it works
+The linter works by parsing the lib/ folder with esprima, parsing docs/api.md with markdown-parser, and making sure that classes defined in the lib/ are getting described in the docs/api.md.
+The linter describes a bunch of jasmine tests in lint.js.
+It could be run via jasmine test/doclint/lint.js
+Challenges
+
+It turned out to be difficult to find a nice markdown parser that doesn't pull in a whole universe as a dependency. The currently-used chjj/marked is a compromise: it hasn't been updated for a while and doesn't yield token positions in text.
+
+Room for improvement
+
+ the ESTreeWalker.js is taken from devtools front-end and should be moved under third_party
+or substituted with some zero-dependency estree walker. Note though that ESTreeWalker.js walks nodes in the same order as they appear in text
+ method arguments are not getting checked
+ we should check for table-of-contents to be up-to-date (and ideally being able to generate it; probably requires a separate script with --fix argument)
+ it would be nice to ckeck that methodы have consistent and up-to-date argument description
+ events should be linted as well
+
+References #14.",4,10
+58,2017-07-07T20:36:04Z,,2017-07-12T22:17:05Z,28,1428,468,,9,4
+59,2017-07-07T20:49:37Z,2017-07-07T22:39:03Z,2017-07-07T22:39:03Z,4,104,0,Bug: #42,3,0
+61,2017-07-08T00:54:01Z,2017-07-10T18:21:47Z,2017-07-10T18:21:47Z,8,75,8,#54,3,0
+62,2017-07-08T02:14:27Z,2017-07-10T17:09:59Z,2017-07-10T17:09:59Z,3,67,2,#50,2,0
+69,2017-07-11T00:00:07Z,,2017-07-21T21:16:03Z,6,177,20,"I don't think this is going to be the final API, but it's a start. #40",3,2
+70,2017-07-11T18:03:31Z,2017-07-11T23:27:46Z,2017-07-11T23:27:46Z,1,11,0,"This is meant more to start a conversation about how to ""market"" puppeteer more. The readme is pretty thorough but it doesn't feel apparent to a first-time reader why they should use Puppeteer.  Right now, it's mostly focused on why someone might migrate from Phantom to Puppeteer but I think there's a large swath of Javascript developers who aren't familiar with Phantom (even though they might be pulling it in as an indirect npm module).
+What do you think?",2,0
+72,2017-07-11T22:38:04Z,2017-07-18T01:13:04Z,2017-07-18T01:13:04Z,9,1430,41,,2,0
+73,2017-07-12T00:51:09Z,2017-07-12T04:52:09Z,2017-07-12T04:52:09Z,1,2,5,,2,0
+74,2017-07-12T19:27:55Z,2017-07-18T01:49:53Z,2017-07-18T01:49:53Z,11,576,38,"I haven't looked over the patch yet, but what do you think of the API?",2,3
+75,2017-07-12T22:23:10Z,2017-07-18T01:56:56Z,2017-07-18T01:56:56Z,8,158,9,This version of the patch uses document.querySelector instead of DOM.querySelector,4,5
+94,2017-07-18T19:09:35Z,2017-07-19T01:54:25Z,2017-07-19T01:54:25Z,5,74,35,,2,0
+98,2017-07-19T22:28:55Z,2017-07-22T03:00:09Z,2017-07-22T03:00:09Z,4,31,66,This leaves type and press on the page.,2,0
+101,2017-07-21T21:15:47Z,2017-07-22T03:29:31Z,2017-07-22T03:29:31Z,17,458,55,#40,2,1
+123,2017-07-25T07:32:52Z,2017-07-26T00:03:14Z,2017-07-26T00:03:14Z,1,9,3,#122,2,1
+125,2017-07-25T08:27:38Z,2017-07-25T18:37:46Z,2017-07-25T18:37:46Z,3,109,34,"Closes #113
+addScriptTag
+focus
+injectFile
+title",2,1
+128,2017-07-25T18:59:28Z,2017-07-25T21:30:05Z,2017-07-25T21:30:05Z,3,88,357,,3,0
+135,2017-07-25T23:27:39Z,2017-07-27T19:23:42Z,2017-07-27T19:23:42Z,6,62,36,closes #118,4,1
+141,2017-07-26T09:18:07Z,2017-07-26T18:48:41Z,2017-07-26T18:48:41Z,1,1,1,"Method names could be symbol or number, and then startsWith would throw.",2,2
+160,2017-07-28T00:04:18Z,2017-07-28T18:45:05Z,2017-07-28T18:45:05Z,2,25,3,"This prints events when debugging, and ensures that events are fired and listened for in the tests.
+closes #50",2,0
+162,2017-07-28T17:17:58Z,2017-07-28T18:48:41Z,2017-07-28T18:48:41Z,1,3,3,"slashes were the wrong direction, so the test failed on windows.",2,0
+171,2017-07-31T17:09:40Z,2017-08-01T01:18:16Z,2017-08-01T01:18:16Z,3,27,5,"Closes #156
+This lets you easily simulate a long press of a key or mouse press, or a user typing at a normal speed.",4,0
+172,2017-07-31T17:41:11Z,2017-07-31T19:05:46Z,2017-07-31T19:05:46Z,3,19,3,"Repeat works a little bit different than I thought it did. When you hold down a key, it sends multiple keydown and input events, but no keyup. This patch automatically sets repeat to the right value.
+Closes #157",2,0
+173,2017-07-31T20:55:03Z,2017-08-01T01:47:57Z,2017-08-01T01:47:57Z,5,22,8,Throttles the protocol to run tests in slow mode.,3,4
+174,2017-07-31T23:37:32Z,,2017-08-01T22:19:58Z,5,153,10,,4,1
+176,2017-08-01T06:52:19Z,,2017-08-01T19:14:39Z,4,96,30,"This patch implements Page.setIgnoreHTTPSErrors method.
+Fixes #84.",2,4
+181,2017-08-02T01:07:39Z,2017-08-02T17:45:12Z,2017-08-02T17:45:12Z,5,148,0,#179,4,1
+184,2017-08-02T08:51:50Z,,2017-08-08T06:06:53Z,3,119,60,References #121,2,1
+186,2017-08-02T17:38:31Z,2017-08-02T20:24:35Z,2017-08-02T20:24:35Z,1,33,24,"If the evaluation is not awaited for, then the page might be
+closed before it's finished, and an exception will be thrown.",2,0
+187,2017-08-02T18:30:50Z,2017-08-02T20:12:45Z,2017-08-02T20:12:45Z,3,6,9,"This revision includes @pavelfeldman upstream changes to make dialogs
+work in headless.
+References #13",4,3
+189,2017-08-02T19:11:30Z,2017-08-02T22:02:42Z,2017-08-02T22:02:42Z,2,4,2,This fixes the comments @a1ph on #181 about JSDOC.,2,0
+190,2017-08-02T19:20:52Z,2017-08-02T22:03:27Z,2017-08-02T22:03:27Z,10,191,198,#178,2,0
+192,2017-08-02T21:26:38Z,2017-08-02T22:41:05Z,2017-08-02T22:41:05Z,3,19,17,,2,0
+196,2017-08-03T17:51:51Z,2017-08-03T20:37:21Z,2017-08-03T20:37:21Z,3,166,9,"This patch adds sanity tests to make sure Page.pdf() produces
+sane results.
+Fixes #166.",2,1
+197,2017-08-03T18:20:02Z,2017-08-03T20:35:32Z,2017-08-03T20:35:32Z,4,19,155,"The current implementation of page.$ and page.$$ conflicts with
+the elemnts handle implementation.
+This patch removes functions in favor of future implementation.
+References #111.",2,0
+204,2017-08-04T02:00:21Z,,2017-08-09T01:30:43Z,7,230,193,"What do you think?
+closes #111",2,3
+209,2017-08-04T06:01:51Z,2017-08-04T07:23:04Z,2017-08-04T07:23:04Z,1,1,1,,2,0
+212,2017-08-04T11:40:58Z,,2017-08-07T18:39:27Z,4,58,6,"This is a speculative implementation of chaining. It turns out to be simple: the implementation is generic and is ~20 lines of code.
+With this patch, the 'scape google results' script feels light (and it actually works):
+(async () => {
+
+const {Browser} = require('puppeteer');
+const browser = new Browser({headless: false});
+
+// 1. Navigate to google.com
+let page = await browser.newPage()
+                        .setViewport({width: 800, height: 800})
+                        .navigate('https://google.com');
+
+// 2. Type 'godfather' and trigger search.
+await page.chain()
+          .waitFor('input[title=Search]', {visible: true})
+          .type('godfather')
+          .click('input[type=submit]');
+
+// 3. Navigate to each result one-by-one and
+//    take full page screenshot of each.
+for (let i = 0; i < 4; ++i) {
+  // Wait for search result link to appear and click it
+  const selector = `div.g:nth-child(${i+1}) h3 a`;
+  await page.chain()
+            .waitFor(selector)
+            .click(selector)
+            .waitForNavigation({waitUntil: 'networkidle'})
+            .screenshot({
+              fullPage: true,
+              path: `screenshot-${i + 1}.png`
+            })
+            .goBack();
+}
+
+browser.close();
+
+})();
+For comparison, the current version of the script is:
+(async () => {
+
+const {Browser} = require('puppeteer');
+const browser = new Browser();
+
+let page = await browser.newPage();
+// 1. Navigate to google.com
+await page.navigate('https://google.com');
+await page.setViewport({width: 800, height: 800});
+const searchField = 'input[title=Search]';
+await page.waitFor(searchField, {visible: true});
+
+// 2. Type 'godfather' and trigger search.
+await page.focus(searchField);
+await page.type('godfather');
+await page.click('input[type=submit]');
+
+// 3. Navigate to each result one-by-one and
+//    take full page screenshot of each.
+for (let i = 0; i < 5; ++i) {
+  // Wait for search result link and click it
+  const searchResult = `div.g:nth-child(${i+1}) h3 a`;
+  await page.waitFor(searchResult);
+  await page.click(searchResult);
+  // Wait for page to navigate to the search result
+  await page.waitForNavigation({waitUntil: 'networkidle'});
+  await page.screenshot({
+    fullPage: true,
+    path: `screenshot-${i + 1}.png`
+  });
+  // Go back to search results page.
+  await page.goBack();
+}
+
+browser.close();
+
+})();",7,13
+215,2017-08-07T19:00:45Z,2017-08-07T22:13:17Z,2017-08-07T22:13:17Z,2,12,1,"The ""Aborted"" status also has a side-effect of aborting navigation
+(there will be no error page).",2,1
+216,2017-08-07T19:04:54Z,2017-08-07T21:55:45Z,2017-08-07T21:55:45Z,2,48,0,References #178,3,0
+219,2017-08-08T05:32:31Z,,2017-10-10T01:14:15Z,30,220,170,"I think I can make this PR a bit cleaner by shuffling around some code, but this is the basic idea.
+#65",5,3
+220,2017-08-08T05:45:01Z,2017-08-11T08:41:43Z,2017-08-11T08:41:43Z,1,40,0,#178,3,3
+221,2017-08-08T05:46:37Z,2017-08-08T06:50:26Z,2017-08-08T06:50:26Z,1,0,33,#178,2,1
+224,2017-08-08T15:28:47Z,,2017-08-09T01:30:17Z,9,6,6,"phantom_shim is part of our test code, but its placement at the top of the repository is very misleading about what we intend it to be used for.
+#223",2,1
+225,2017-08-08T18:18:08Z,,2017-08-09T22:46:18Z,12,116,40,,2,1
+229,2017-08-09T22:16:16Z,,2017-08-09T23:16:33Z,1,136,0,"The script allows you to pick up a certain date for your DMV
+behind-the-wheel test appointment.",5,2
+231,2017-08-10T00:17:58Z,2017-08-11T01:42:31Z,2017-08-11T01:42:31Z,5,54,1,,3,0
+232,2017-08-10T02:55:14Z,2017-08-10T07:02:10Z,2017-08-10T07:02:11Z,10,137,136,Fixes #228,2,0
+233,2017-08-10T19:08:02Z,2017-08-11T01:31:55Z,2017-08-11T01:31:55Z,6,121,68,Also added some more use case examples.,2,1
+234,2017-08-10T20:18:25Z,2017-08-10T21:49:35Z,2017-08-10T21:49:35Z,1,2,2,,2,0
+235,2017-08-10T23:24:16Z,2017-08-11T01:25:57Z,2017-08-11T01:25:57Z,1,14,0,"This tests that ontouchstart not only exists, but is functional.",2,0
+239,2017-08-11T06:21:10Z,2017-08-11T08:07:33Z,2017-08-11T08:07:33Z,2,3,3,"The issue #168 is a protocol inconsistency which happens only
+in case of HTTPS error. This patch starts refering to the
+upstream bug instead of puppeteer issue.
+Closes #168.",2,0
+240,2017-08-11T06:38:44Z,2017-08-11T08:21:02Z,2017-08-11T08:21:02Z,4,8,15,Mouse events are no longer racy. Enabling touch no longer converts all mouse events into touches. Promises in destroyed execution contexts are rejected immediately.,2,0
+242,2017-08-11T17:51:40Z,2017-08-12T00:24:31Z,2017-08-12T00:24:31Z,7,400,166,"This patch removes InterceptedRequest and adds Request.abort() and Request.continue()
+instead.
+Fixes #121.",2,0
+247,2017-08-11T22:39:49Z,2017-08-12T00:24:47Z,2017-08-12T00:24:47Z,1,2,2,Minor tweak since we have full ES6 capability.,2,0
+248,2017-08-11T23:31:06Z,2017-08-15T21:54:03Z,2017-08-15T21:54:03Z,7,300,82,"This patch implements basic element handles which a backed with remote objects.
+References #111",2,1
+250,2017-08-12T04:36:01Z,,2017-08-14T22:01:11Z,5,16,17,"This patch:
+
+renames Browser.Options.executablePath into Browser.Options.chromePath
+removes the test-related CHROME env variable
+teaches puppeteer to respect CHROME_PATH env variable
+
+The motivation behind this patch:
+
+we already had the ability to run tests against custom-built chromium
+with CHROME env variable. It turned out, this would come handy for any
+puppeteer scripts
+this aligns puppeteer with chrome launcher, which uses CHROME_PATH for the same purpose",3,3
+251,2017-08-13T01:54:50Z,2017-08-13T05:04:39Z,2017-08-13T05:04:39Z,3,3,56,"This patch:
+
+rolls chromium to r493985
+migrates Browser.version() puppeteer method to use newly added
+Browser.getVersion() protocol method",2,0
+252,2017-08-13T06:52:33Z,2017-08-14T17:13:48Z,2017-08-14T17:13:48Z,2,21,8,"The PhantomShim specific readme should be a better explanation of
+what phantom shim is and is not.",2,0
+256,2017-08-15T01:29:26Z,2017-08-15T04:16:59Z,2017-08-15T04:16:59Z,5,3,52,"This patch:
+
+fixes multimap implementation to work properly in node
+moves ESTreeWalker from third-party into utils/doclint. ESTreeWalker
+license is compliant with Apache2.0.",2,0
+260,2017-08-15T05:52:43Z,2017-08-15T06:57:12Z,2017-08-15T06:57:13Z,1,2,0,,2,0
+264,2017-08-15T07:31:04Z,2017-08-15T21:29:42Z,2017-08-15T21:29:42Z,8,82,29,"This patch:
+
+refactors Connection to use a single remote debugging URL instead of a
+pair of port and browserTargetId
+introduces Puppeteer.connect() method to attach to already running
+browser instance.
+
+Fixes #238.",3,0
+271,2017-08-15T22:47:04Z,2017-08-16T00:36:00Z,2017-08-16T00:36:00Z,5,7,13,"This patch:
+
+rolls chromium to r494365
+starts using Runtime.evaluate(awaitPromise: true), with new semantic
+we can avoid additional Runtime.awaitPromise call
+stops resolving promises for Console event",4,4
+272,2017-08-15T23:26:07Z,2017-08-16T08:10:56Z,2017-08-16T08:10:56Z,4,17,16,This patch renames remoteDebuggingURL into protocolWSEndpoint,5,1
+278,2017-08-16T01:00:34Z,2017-08-16T06:04:17Z,2017-08-16T06:04:17Z,3,173,167,,3,2
+297,2017-08-16T18:28:48Z,2017-08-16T19:51:41Z,2017-08-16T19:51:41Z,1,1,1,"The webhook is already using .org for PRs so once this is merged, we can turn down the private instance.",2,0
+314,2017-08-16T23:55:23Z,2017-08-24T19:21:46Z,2017-08-24T19:21:46Z,5,297,14,Closes #53,4,1
+318,2017-08-17T01:05:03Z,2017-08-18T03:24:12Z,2017-08-18T03:24:12Z,1,11,11,This patch converts all of our spread operators to be documented as <...Value>. It adds a Serializable type with links to the documentation on JSON.stringify.,3,0
+319,2017-08-17T03:00:21Z,2017-08-18T02:54:52Z,2017-08-18T02:54:52Z,1,12,12,,3,4
+332,2017-08-17T09:09:49Z,2017-08-20T19:40:29Z,2017-08-20T19:40:29Z,1,2,2,"I just read the docs:
+@param {boolean=} headless True (default) launches Chrome in headless mode.
+It makes more sense to me to have headless: true here as headless: false may confuse people",4,4
+334,2017-08-17T09:31:31Z,2017-08-17T16:39:41Z,2017-08-17T16:39:41Z,1,1,1,"fix position of $
+add extensions .gif, .webp
+
+before)
+/\.(png|jpg|jpeg$)/.test(request.url)
+
+after)
+/\.(png|jpg|jpeg|gif|webp)$/.test(request.url)",3,1
+340,2017-08-17T12:52:01Z,2017-08-17T18:56:11Z,2017-08-17T18:56:11Z,1,1,1,Maintaining consistency in the file.,3,0
+346,2017-08-17T15:31:36Z,,2017-08-17T18:03:15Z,5,39,7,"Emulating the default background color allows for taking transparent screenshots.
+#344",2,1
+347,2017-08-17T16:04:47Z,,2017-08-19T03:00:19Z,4,22,24,"If evaluation results in an Element, then an ElementHandle is returned. This is part 1 of #302.",4,3
+348,2017-08-17T16:33:29Z,2017-08-17T21:53:37Z,2017-08-17T21:53:37Z,6,25,49,This removes page.uploadFile and frame.uploadFile,2,1
+349,2017-08-17T16:59:52Z,,2017-08-25T01:42:28Z,2,39,15,I will update api.md in this PR after #318 lands.,2,7
+351,2017-08-17T17:20:43Z,2017-08-18T02:48:26Z,2017-08-18T02:48:26Z,1,2,1,"The test was not awaiting the promise before checking if it was resolved, causing a race.",2,0
+354,2017-08-17T17:47:30Z,2017-08-18T04:11:39Z,2017-08-18T04:11:39Z,4,11,0,,3,0
+355,2017-08-17T18:54:46Z,2017-08-18T03:54:16Z,2017-08-18T03:54:16Z,1,2,1,Audio probably shouldn't play in headless. It has no ears or mouth.,3,1
+369,2017-08-18T08:32:11Z,2017-08-18T17:21:38Z,2017-08-18T17:21:38Z,1,1,1,"This is a minor cosmetic update on Puppeteer's logo. The rectangle surface at lower left corner seems to have the wrong shade, base on the scene's light source. Below are the original and the updated ones. Of course, if the designer intentionally wants to make the design asymmetric then this is irrelevant.",3,1
+371,2017-08-18T11:29:37Z,,2017-08-18T23:21:35Z,6,656,2,,6,12
+377,2017-08-18T14:48:03Z,2017-08-18T23:46:11Z,2017-08-18T23:46:11Z,2,12,8,,4,3
+392,2017-08-19T15:22:08Z,2017-08-19T16:28:58Z,2017-08-19T16:28:58Z,1,1,1,Refs: #221,3,3
+402,2017-08-19T21:32:33Z,2017-08-20T00:33:26Z,2017-08-20T00:33:26Z,1,7,9,"fix ReferenceError: Invalid left-hand side in assignment errors
+
+
+add variable declarations
+
+
+unify spacing with examples in the README.md",2,0
+403,2017-08-19T21:52:14Z,2017-08-20T19:38:11Z,2017-08-20T19:38:11Z,2,3,3,,2,0
+407,2017-08-20T02:26:20Z,2017-08-20T21:50:24Z,2017-08-20T21:50:24Z,1,32,26,"Replace let with const when appropriate.
+Unify spacing.
+Fix possible copy-paste artifacts.
+Eliminate one unhandled promise rejection ('Target closed').",2,1
+410,2017-08-20T03:31:08Z,2017-08-20T23:44:53Z,2017-08-20T23:44:53Z,1,1,1,"I was a bit puzzled about what was passed in and where, but I am not a native speaker and may not be reliable here.
+Please, close if the wording was OK.",3,1
+414,2017-08-20T06:24:22Z,2017-08-20T19:43:16Z,2017-08-20T19:43:16Z,1,1,1,,3,3
+428,2017-08-21T00:36:41Z,2017-08-21T02:46:14Z,2017-08-21T02:46:14Z,2,70,2,"This patch adds troubleshooting.md and starts referring to it when chromium
+fails to start.",2,0
+430,2017-08-21T01:35:41Z,2017-08-21T20:34:10Z,2017-08-21T20:34:10Z,4,20,9,"This patch changes both install.js and Launcher.js to inform how
+chromium could be downloaded manually if puppeteer fails to download it.",2,0
+434,2017-08-21T04:58:27Z,2017-08-21T22:43:37Z,2017-08-21T22:43:37Z,2,62,37,"This patch:
+
+adds 30s timeout for chromium to report the browser target url.
+adds cleanup logic for main process SIGINT signal.
+
+Fixes #363.",2,1
+435,2017-08-21T05:59:35Z,2017-08-21T20:34:27Z,2017-08-21T20:34:27Z,2,9,3,"In case of cross-process navigation, we receive a context
+which is immediately getting destroyed.
+Fixes #396.",2,0
+439,2017-08-21T07:05:07Z,2017-08-22T03:12:16Z,2017-08-22T03:12:16Z,1,6,10,"I noticed I had a lot of old .dev-profile folders from when I used Ctrl+C to end Puppeteer. I thought about cleaning up on SIGINT, but that would break if users have their own SIGINT handler. So maybe putting the profiles into a temp directory will at least stop them from piling up forever.",2,0
+445,2017-08-21T13:36:50Z,2017-10-10T06:14:10Z,2017-10-10T06:14:10Z,5,94,13,"This will add the ability to capture a screenshot based on a selector (as opposed to using the clip object).
+The implementation is on top of the clip option to make things simple:
+await page.screenshot({
+clip: '.box:nth-of-type(43)'
+});
+*The example above is from the unit test (see output image below in the affected files).
+EDIT: Changed to adding a method: elementHandle.boundingBox() which will return the rectangle needed for screenshot's clip option.",7,19
+447,2017-08-21T16:03:28Z,2017-08-21T23:32:40Z,2017-08-21T23:32:40Z,4,25,34,Also some let -> const action.,3,1
+449,2017-08-21T16:52:14Z,,2017-08-21T23:25:47Z,37,503,502,"Using let where const is more appropriate will now lint as an error. The files where corrected using eslint --fix
+IMO, we should do this but it's up to you all.",2,0
+455,2017-08-21T21:43:53Z,2017-08-23T15:33:29Z,2017-08-23T15:33:29Z,3,54,8,"Without a disgusting amount of dependencies
+Fix for bugs #448 & #337",3,4
+463,2017-08-22T08:28:42Z,2017-08-23T05:56:56Z,2017-08-23T05:56:56Z,4,63,3,"This patch implements page.$$ that runs document.querySelectorAll
+in page and returns results as an array of ElementHandle instances.
+Fixes #384.",4,0
+464,2017-08-22T08:58:33Z,2017-08-23T21:08:57Z,2017-08-23T21:08:57Z,3,31,0,#462,6,13
+465,2017-08-22T09:10:54Z,2017-08-22T21:15:03Z,2017-08-22T21:15:03Z,3,3,2,"This patch rolls chromium to r496140. This includes the r496130 that
+introduces multiple sessions for single target.
+With this patch, it is possible to run puppeteer in headful mode
+and open devtools over the automated pages without puppeteer losing
+connection to the page.",2,0
+472,2017-08-22T16:42:06Z,2017-08-22T21:18:07Z,2017-08-22T21:18:08Z,4,10,22,"This enforces brace style, implicit globals, quotes in object literals, and spaces around colons.",3,0
+481,2017-08-22T22:08:55Z,2017-08-23T03:17:10Z,2017-08-23T03:17:10Z,1,13,0,,2,0
+484,2017-08-23T01:03:55Z,2017-08-24T19:20:06Z,2017-08-24T19:20:06Z,12,292,23,I have to look this over again with fresh eyes.,6,3
+488,2017-08-23T07:18:28Z,2017-08-23T18:55:33Z,2017-08-23T18:55:33Z,1,16,11,"This fixed the issues of profiles being left behind and errors deleting profiles still in use on Windows. Tested on Windows 10 in cmd and cygwin.
+#298",2,0
+490,2017-08-23T09:28:01Z,2017-08-23T20:26:52Z,2017-08-23T20:26:52Z,1,1,1,,2,0
+496,2017-08-23T16:53:34Z,2017-08-23T18:56:59Z,2017-08-23T18:56:59Z,1,1,1,,2,0
+499,2017-08-23T18:04:20Z,2017-08-23T20:25:40Z,2017-08-23T20:25:40Z,2,11,1,"Resolves #474
+When modifying a nodes className, MutationObserver isn't firing.",3,4
+501,2017-08-23T18:47:34Z,2017-08-23T20:39:36Z,2017-08-23T20:39:36Z,2,2,2,"The version in the docs is confusing users b/c it reflects master and not the latest release.
+#492
+#480",3,1
+504,2017-08-23T21:21:04Z,2017-08-23T22:34:58Z,2017-08-23T22:34:58Z,1,1,1,Fixes #494.,3,0
+529,2017-08-24T20:35:17Z,2017-08-25T06:33:32Z,2017-08-25T06:33:32Z,1,50,0,,3,5
+530,2017-08-24T21:22:28Z,2017-08-25T00:33:42Z,2017-08-25T00:33:42Z,8,15,0,"I am not sure what else non-module scripts should be addressed. If any, let me know to add them in another commit.",3,2
+533,2017-08-25T01:41:39Z,2017-08-25T22:15:35Z,2017-08-25T22:15:35Z,216,0,21793,"This patch kills PhantomShim, a lightweight layer that helped to
+bootstrap Puppeteer API.
+At this point, PhantomShim:
+
+passes 139 phantomJS tests
+fails 13 tests
+lacks capabilities to run 26
+
+The failings and unsupported tests don't have any value for Puppeteer
+API, so it doesn't make sense to maintain PhantomShim any longer.",2,2
+534,2017-08-25T02:03:04Z,2017-08-25T05:47:58Z,2017-08-25T05:47:58Z,3,4,4,"This patch:
+
+bumps tip-of-tree version to 0.10.1-alpha
+updates api.md to refer to released API and fix a nit in README.md",2,0
+543,2017-08-25T13:38:15Z,2017-08-29T18:24:32Z,2017-08-29T18:24:32Z,3,31,0,"Related to my issue here #438
+I implemented those methods. Those are just simple shortcuts but I think they might be useful to write tests.
+    it('should return attribute', SX(async function() {
+      await page.setContent('<section id=""testAttribute"">43543</section>');
+      const element = await page.$('section');
+      expect(element).toBeTruthy();
+      expect(await element.attribute('id')).toBe('testAttribute');
+    }));",3,7
+548,2017-08-25T20:09:23Z,2017-08-25T22:14:00Z,2017-08-25T22:14:00Z,5,18,7,"Object.entries is missing from node6
+url.URL is missing from node6
+The ESTreeWalker was failing on nested awaits
+Esprima was failing on return statements outside of functions",2,0
+551,2017-08-25T23:20:03Z,2017-08-26T02:28:49Z,2017-08-26T02:28:49Z,9,31,54,,2,0
+554,2017-08-26T04:25:25Z,2017-10-18T02:14:57Z,2017-10-18T02:14:57Z,9,326,15,"This adds new events pageopened and pageclosed to browser.
+It also adds browser.pages().
+#386 #443",19,37
+559,2017-08-27T11:20:14Z,2017-08-27T21:08:26Z,2017-08-27T21:08:26Z,1,1,1,"The examples use async/await, but Node v6 doesn't support them, so to use these examples you either need Node 8 or a transpiler (like Babel) or to use promises.",4,3
+564,2017-08-27T17:16:12Z,,2017-08-29T12:30:08Z,6,49,6,"This PR introduces support for request interception patterns, freshly introduced in https://chromium-review.googlesource.com/c/chromium/src/+/602483
+I'm not sure which release this commit landed in, as I can't find it yet on https://omahaproxy.appspot.com/
+The new test fails for now, but rolling Chromium to the version that includes the commit should make it pass.",6,13
+566,2017-08-27T21:41:49Z,2017-08-28T18:15:11Z,2017-08-28T18:15:11Z,2,3,3,,3,6
+567,2017-08-27T22:15:53Z,2017-08-28T19:09:24Z,2017-08-28T19:09:24Z,5,30,38,"This patch:
+
+switches to objects instead of maps for headers (in Request, Response and
+page.setExtraHTTPHeaders)
+converts all header names to lower case
+
+Fixes #547, fixes #509",2,0
+577,2017-08-28T15:54:16Z,2017-08-28T17:31:36Z,2017-08-28T17:31:36Z,1,2,2,Hard to find. From #576,2,0
+588,2017-08-29T04:07:49Z,2017-08-29T05:19:08Z,2017-08-29T05:19:08Z,1,1,1,"This patch rolls chromium to r497674, which is current Canary.
+This should hopefully make is more stable and address #583 and #585.",2,0
+590,2017-08-29T06:09:20Z,2017-08-29T23:28:00Z,2017-08-29T23:28:00Z,4,27,8,"This patch introduces Request.resourceType getter that represents resource type as it was perceived by the rendering engine. Possible values are inherited as-is from protocol:
+
+Document, Stylesheet, Image, Media, Font, Script, TextTrack, XHR, Fetch, EventSource, WebSocket, Manifest, Other
+
+This patch also updates an example to effectively block images.",4,3
+604,2017-08-29T22:13:32Z,,2017-08-30T06:11:33Z,1,1,1,"adds note on how to skip install of chromium.
+Related to #603",3,2
+606,2017-08-30T06:18:09Z,2017-08-31T04:40:16Z,2017-08-31T04:40:16Z,2,12,0,This patch starts skipping chromium download when PUPPETEER_SKIP_CHROMIUM_DOWNLOAD env variable is set.,5,4
+619,2017-08-30T15:36:18Z,2017-09-01T16:47:58Z,2017-09-01T16:47:58Z,1,4,2,"Hi,
+When Chromium download is failed (no internet connection for example) downloadRevision will not emit an error and therefore onError function in the install file will not be triggered and the user will not see the message:
+
+ERROR: Failed to download chromium ....
+
+I'm using Node v6.11.2",2,5
+621,2017-08-30T17:44:44Z,2017-08-30T21:16:04Z,2017-08-30T21:16:04Z,1,2,2,"This patch starts creating process groups and later killing it (reusing chrome-launcher approach).
+Fixes #615",2,0
+622,2017-08-30T17:59:19Z,2017-08-30T22:41:46Z,2017-08-30T22:41:46Z,2,26,26,This technique was necessary for figuring out the odd behavior in #618,3,3
+626,2017-08-30T22:45:54Z,,2017-09-09T06:25:42Z,4,80,1,"This adds page.authenticate(user, pass) method to ""fill"" the authentication ""window"". Works for either a webpage auth or a proxy auth, and both on http and https.",3,4
+632,2017-08-31T09:59:17Z,2017-08-31T16:57:30Z,2017-08-31T16:57:30Z,1,1,1,"The license used is Apache License 2.0, so I think it makes sense to update the package.json file with the correct string as a some software use this field to approve or not packages.",3,3
+638,2017-08-31T18:53:13Z,2017-08-31T22:38:02Z,2017-08-31T22:38:02Z,5,83,33,"This patch:
+
+implements page.$eval and frame.$eval
+drops elementHandle.attribute() method in favor of the page.$eval
+
+References #625",5,3
+639,2017-08-31T19:01:46Z,2017-09-02T02:03:51Z,2017-09-02T02:03:51Z,8,147,10,"This adds a touchScreen input object with a tap method, and an equivalent tap on elementHandle. In the future touchScreen with have methods like swipe, pinch and zoom. The other methods are waiting on some backend work to make them less racy.
+#568 #569 #158",7,4
+641,2017-08-31T23:19:15Z,2017-09-01T00:58:08Z,2017-09-01T00:58:08Z,12,1,59,Removes @return {!Promise} for functions already marked as async.,3,2
+646,2017-09-01T12:17:12Z,,2017-09-06T11:40:37Z,5,31,7,"Network.setBlockedURLs
+The interception looks too expensive when used with several workers. Looking up with the timeline/tracing I can see that every request can take initially 100-300ms longer**
+The browser blocker should be more efficient and eventually I will add patterns to the interception since I still need to modify some specific requests. But for this I will create another PR.
+https://chromedevtools.github.io/devtools-protocol/tot/Network/#method-setRequestInterceptionEnabled
+I never did this kind of documentation so feel free to point me on the right direction.
+** I am still trying to check this issue, or if it is even real. If the same image is requested more than once, like on the grid.html the previous implemention looks to be faster. With a lot of different unique resources I think I get a better result with the blockURLs.",4,7
+671,2017-09-04T01:23:59Z,2017-09-05T18:14:59Z,2017-09-05T18:14:59Z,1,1,1,,3,0
+689,2017-09-05T20:11:11Z,2017-09-06T01:41:22Z,2017-09-06T01:41:22Z,1,15,2,Fixes #679.,2,1
+692,2017-09-05T22:15:44Z,2017-09-09T06:37:23Z,2017-09-09T06:37:23Z,1,8,0,Fixes #648,2,1
+693,2017-09-06T01:30:51Z,,2017-09-06T18:37:40Z,1,17,4,"This patch:
+
+in case of user-supplied profile directory, starts gracefully closing
+chrome so that it doesn't corrupt profile
+in case of temp profile directory, force-closes chrome and proactively
+tries to remove temp directory to avoid littering
+
+Fixes #527.",2,2
+700,2017-09-06T15:51:22Z,2017-09-14T04:27:15Z,2017-09-14T04:27:15Z,5,41,16,"My version of #693
+In order to make tests work, I needed to add a 'close' event to Browser. This broke the doclint, which didn't like browser having a 'close' event and a .close method. So that is why this patch is bigger than it should be.
+Fixes #527",2,3
+708,2017-09-07T04:20:14Z,2017-09-07T19:35:53Z,2017-09-07T19:35:53Z,1,1,1,https://bbc.com doesn't appear to work.,2,4
+710,2017-09-07T17:22:06Z,2017-09-07T18:24:50Z,2017-09-07T18:24:50Z,1,30,0,,3,0
+721,2017-09-08T19:47:59Z,2017-09-08T22:25:44Z,2017-09-08T22:25:44Z,1,44,0,,2,0
+725,2017-09-08T21:49:12Z,2017-09-12T02:20:02Z,2017-09-12T02:20:02Z,6,119,109,"This patch:
+
+rolls chromium to r499413 that supports necessary v8 changes
+teaches page.evaluate to accept ElementHandles as parameters
+removes ElementHandle.evaluate method since it's not needed any
+more
+
+References #382",2,1
+729,2017-09-09T06:20:56Z,2017-09-11T23:32:13Z,2017-09-11T23:32:13Z,5,134,12,"This patch implements page.authenticate which should cover all
+cases of HTTP authentication.
+Implementation notes:
+
+Since HTTP authentication is based on request interception internally, the implementation
+of NetworkManager splits the ""requestInterceptionEnabled"" flag into two:
+
+userRequestInterceptionEnabled - true if the user has enabled request interception
+protocolRequestInterceptionEnabled - true if we've enabled request interception in protocol
+
+
+In case of invalid credentials, in order to escape infinite authentication loop we maintain the attemptedAuthentications set that stores all the interception ids we've tried to authenticate.
+
+Fixes #426.",4,2
+731,2017-09-09T07:05:41Z,2017-09-09T16:48:10Z,2017-09-09T16:48:10Z,1,1,1,"The new chromium:
+
+supports executionContextId in Runtime.callFunctionOn protocol method
+supports passing objects as arguments in Runtime.callFuntionOn
+protocol method
+
+This roll also fixes #487.",2,0
+732,2017-09-09T08:18:26Z,2017-09-11T23:59:39Z,2017-09-11T23:59:39Z,2,15,1,"It turns out that [undefined, 1].join(',') results in "",1"" instead
+of ""undefined,1"". This causes a syntax error when trying to pass undefined
+as a first argument to page.evaluate method.
+Fixes #572.",2,0
+741,2017-09-11T06:49:47Z,2017-09-11T23:43:38Z,2017-09-11T23:43:38Z,3,17,14,"Currently, navigation watcher throws exception if timeout
+is exceeded.
+Due to the way it is used in page.navigate, the promise
+get's rejected before it is awaited, which is considered to
+be ""unhandled promise rejection"".
+Fixes #738",2,0
+742,2017-09-11T08:44:04Z,2017-09-11T23:21:52Z,2017-09-11T23:21:52Z,14,61,29,"It's very bad to have 'unhandled promise rejection' that can't be
+handled in user code. These errors will exit node process in a near
+future.
+This patch avoids 'unhandled promise rejection' while sending protocol
+messages.
+This patch:
+
+introduces puppeteer:error debug scope and starts using it for all
+swallowed errors.
+makes sure that every client.send method is either awaited or its
+errors are handled.
+starts return promises from Request.continue() and Request.abort().
+starts swallow errors from Request.contine() and Request.abort().
+
+The last is the most important part of the patch. Since
+Request.continue() might try to continue canceled request, we should
+disregard the error.
+Fixes #627.",2,0
+743,2017-09-11T11:14:35Z,2017-09-11T18:34:07Z,2017-09-11T18:34:07Z,1,11,0,As discussed on #329. This is my proposal.,3,4
+751,2017-09-11T17:43:11Z,,2017-09-29T19:21:44Z,2,31,2,… invalid executablePath option.,4,17
+771,2017-09-13T19:07:50Z,2017-09-14T00:39:19Z,2017-09-14T00:39:19Z,4,25,0,"This patch adds Puppeteer.executablePath() method to query the path
+of bundled chromium.
+Fixes #745",5,2
+772,2017-09-13T19:15:06Z,2017-09-14T00:30:26Z,2017-09-14T00:30:26Z,1,2,1,"The username and password cookies showed up in the wrong order on Windows, causing the test to fail.",2,0
+774,2017-09-13T22:52:55Z,2017-09-15T02:07:23Z,2017-09-15T02:07:23Z,1,2,0,"This patch teaches puppeteer.launch to run chromium with disabled
+chrome extensions and google translate services.
+References #760",4,5
+775,2017-09-13T22:53:37Z,2017-09-15T21:28:16Z,2017-09-15T21:28:16Z,4,21,14,"This lets the user pass ...args into page.waitFor. It also clarifies that the docs that options is not optional if ...args are specified.
+Fixes #770",3,0
+779,2017-09-14T02:19:58Z,2017-09-25T09:23:35Z,2017-09-25T09:23:35Z,4,136,0,"This PR adds the Page.select method to interact with select elements on the page.
+The accompanying tests and docs demonstrate the basic usage.",4,5
+780,2017-09-14T04:01:23Z,2017-09-26T14:04:10Z,2017-09-26T14:04:10Z,1,3,1,"It took me a while to figure this out, thought it may help others.",6,13
+781,2017-09-14T06:13:51Z,2017-09-15T02:08:49Z,2017-09-15T02:08:49Z,3,15,3,"Since protocol ignores all HTTP headers that don't have string
+value, this patch starts validating header key-values before
+sending them over the protocol.
+Fixes #713.",2,0
+797,2017-09-15T05:53:22Z,2017-09-16T04:27:14Z,2017-09-16T04:27:14Z,10,24,24,"Since f398e69 updated browser.close to return a promise, the usage examples should be updated to reflect the new signature.",4,4
+801,2017-09-15T17:49:13Z,2017-10-07T07:28:25Z,2017-10-07T07:28:25Z,6,161,86,"This adds elementHandle.focus, elementHandle.press and elementHandle.type. It adds an optional selector argument to page.press and page.type to align them with page.click, and adds keyboard.press and keyboard.type.
+Closes #241",2,0
+813,2017-09-18T15:42:44Z,,2017-09-22T01:01:12Z,1,2,2,,3,1
+836,2017-09-20T20:26:29Z,2017-09-20T23:51:25Z,2017-09-20T23:51:26Z,1,1,0,Fixes: #830,3,0
+837,2017-09-20T20:43:57Z,,2017-09-21T00:03:30Z,1,2,0,Refs: #825,3,1
+838,2017-09-20T22:47:47Z,2017-09-21T16:18:35Z,2017-09-21T16:18:35Z,1,23,8,part of #809,3,0
+849,2017-09-21T16:32:25Z,2017-09-22T01:01:48Z,2017-09-22T01:01:48Z,1,2,0,,2,0
+853,2017-09-22T11:39:22Z,2017-09-26T02:10:47Z,2017-09-26T02:10:47Z,2,5,1,Add process.env.npm_config_puppeteer_skip_chromium_download support with document.,4,10
+856,2017-09-22T21:56:25Z,2017-09-22T23:16:52Z,2017-09-22T23:16:52Z,1,1,1,,2,0
+863,2017-09-24T03:26:52Z,2017-09-29T19:21:25Z,2017-09-29T19:21:25Z,1,23,15,Fixes #750,2,0
+875,2017-09-26T00:13:08Z,2017-09-28T23:29:20Z,2017-09-28T23:29:20Z,2,16,2,"This patch avoids throwing 'url malformed' error during generating
+request hash for request interception.
+Fixes #869.",2,0
+876,2017-09-26T00:16:05Z,2017-09-29T18:41:11Z,2017-09-29T18:41:12Z,1,1,1,"This patch starts using taskkill program on windows to gracefully
+terminate chrome.
+Fixes #839.",4,6
+879,2017-09-26T04:49:21Z,2017-10-11T07:55:49Z,2017-10-11T07:55:49Z,4,42,13,"I'm completely discouraged by this code. @aslushnikov How could you write such a thing?
+I would somehow understand this solution if the code were written on callbacks. But you use the async
+function! And inside the asynchronous function you are happy to block the EventLoop. What for?
+If someone tells me where to put this ""promisify"", I'll move it without problems. But still I recommended somehow to solve this problem in the near future.
+The remaining cases use synchronous writing and reading are not as critical, but it is advisable to fix them too: 1, 2.",8,10
+881,2017-09-26T05:47:56Z,,2017-11-03T05:12:24Z,3,322,0,"Fixes #478.
+Want to get some feedback on this before finishing tests and api docs.
+The shape of the API is similar to Tracing. This PR introduces page.screencast:
+page.screencast.on('frame', frame => {
+  ...
+});
+
+await page.screencast.start();
+await page.goto(...);
+// ... other stuff ...
+const frames = await page.screencast.stop();
+
+// user can save frames themselves
+frames.forEach((frame, i) => {
+  fs.writeFileSync(`frame_${i}.png`, new Buffer(frame, 'base64'));
+});
+Passing a path creates a .webm video file when you call stop(). The solution uses no dependencies, only web platform APIs! The downside is that capturing a 'recording' is real-time, meaning longer videos will take more time to complete.
+await page.screencast.start({path: 'video.webm'});",6,16
+887,2017-09-26T17:34:30Z,2017-09-30T07:29:39Z,2017-09-30T07:29:39Z,3,16,8,"Intended to close #782 , sorry if this one look really premature.
+As the first point
+
+every feature should be accompanied by a test
+are we count this one count as feature? if yes is this correct way to test it?
+
+Clarification:
+the puppeteer launch options is documented accept 0 to disable timeout. Is #782 only match goto options?
+i already test with fit with 100 sec, and it pass.
+on my windows machine test 1 spec always fail and that is:
+
+Page Network Events Page.Events.Response should not report body unless request is finished
+
+so i just rely on travis
+documentation:
+should i also change page.goBack(options) , page.goForward(options)  ? let me know if i miss some",2,3
+889,2017-09-26T22:22:22Z,2017-09-27T10:33:16Z,2017-09-27T10:33:16Z,1,0,15,Running yarn on a fresh checkout of master updated the lock file. Updating it.,2,0
+898,2017-09-28T11:32:54Z,2017-09-29T21:59:20Z,2017-09-29T21:59:20Z,1,1,1,,3,0
+909,2017-09-28T23:57:15Z,2017-09-29T18:27:23Z,2017-09-29T18:27:23Z,5,59,18,"This patch introduces ConsoleMessage type and starts dispatching
+it for the 'console' event.
+BREAKING CHANGE: this breaks the api of the 'console' event.
+Fixes #744.",3,1
+910,2017-09-29T06:07:47Z,2017-09-30T07:50:14Z,2017-09-30T07:50:14Z,2,10,0,A EventListener is not removed when Protocol error (Page.navigate) is catched. This causes MaxListenersExceededWarning.,2,0
+911,2017-09-29T06:29:57Z,2017-09-29T22:27:02Z,2017-09-29T22:27:02Z,1,3,3,I fixed a few typos.,2,0
+912,2017-09-29T12:48:01Z,2017-10-05T21:34:36Z,2017-10-05T21:34:36Z,2,9,1,"I'd like to launch Chromium with a specific timezone for my tests.  On Linux and macOS, I just need to define the TZ environment variable to the wanted timezone. So I added a new puppeteer.launch() option to allow defining the environment variables of the forked process.
+I read the contributing rules, but I failed to write a good unit test for Windows, because Chromium seems to ignore the TZ environment variable on this platform. If anyone have an idea for a more cross-platform unit test, I'd be happy to amend my PR. For now, the test is simply disabled on Windows.
+FWIW, a similar issue is open at the chrome-launcher project.",4,6
+925,2017-10-01T16:14:57Z,2017-10-01T22:47:41Z,2017-10-01T22:47:41Z,1,2,0,,2,0
+935,2017-10-02T19:32:47Z,2017-10-02T20:38:45Z,2017-10-02T20:38:45Z,33,127,11,"This patch:
+
+gives meaningful names to doclint tests
+supports classes inheritance in documentation linter. When class A
+extends class B, all methods of class B are added to documentation of
+class A.
+
+This is a prerequisite for Object Handles: ElementHandle will be
+extending ObjectHandle.
+References #382",2,0
+937,2017-10-02T19:39:41Z,,2017-12-04T01:06:57Z,1,47,0,"Figured it'd be useful to have an example for the screenshot issues around.
+Chromium issue: https://crbug.com/770769
+This is a workaround that creates a few screenshots. It doesn't stitch them together though folks have had success using sharp for that.
+(Apologies for using a private API ;)
+Fixes #929, #926, #933, #359
+
+2020 update: https://github.com/morteza-fsh/puppeteer-full-page-screenshot handles this and also the vw/vh bug. seems pretty good.",9,8
+942,2017-10-02T23:24:14Z,2017-10-03T01:25:11Z,2017-10-03T01:25:11Z,2,18,0,"Single line arrow functions can have parenthesis wrapping their body, but multi-line arrow functions cannot.",2,1
+943,2017-10-03T01:38:00Z,2017-10-06T22:35:03Z,2017-10-06T22:35:03Z,8,654,112,"This patch:
+
+introduces ExecutionContext class that incapsulates javascript
+execution context. Examples of execution contexts are workers and
+frames
+introduces ObjectHandle that holds a references to the javascript
+object in ExecutionContext
+inherits ElementHandle from ObjectHandle
+
+Fixes #382.",5,1
+947,2017-10-03T18:09:57Z,2017-10-04T20:42:27Z,2017-10-04T20:42:27Z,5,53,0,Implements #892. Feedback more then welcome!,2,0
+953,2017-10-05T00:53:08Z,2017-10-10T00:25:26Z,2017-10-10T00:25:26Z,2,6,1,"Fixes: #864 (see #864 (comment))
+Refs: https://peter.sh/experiments/chromium-command-line-switches/#auto-open-devtools-for-tabs
+Unfortunately, I do not know if this option needs a test and how it should be tested if needed. Please, let me know what code should I add to the tests,",4,2
+958,2017-10-05T12:32:20Z,2017-10-22T01:22:13Z,2017-10-22T01:22:14Z,3,14,11,fixes #951,3,7
+960,2017-10-05T15:49:58Z,2017-11-04T01:46:18Z,2017-11-04T01:46:18Z,4,47,1,"This patch add browser.disconnected event :
+
+ when browser.close() called.
+ when browser.disconnect() called.
+fix #952",3,9
+961,2017-10-05T16:02:06Z,2017-10-07T17:27:38Z,2017-10-07T17:27:38Z,3,23,3,"Without the deprecated initEvent method, my use case fails to recognize the 'change' or 'input' event for select elements.
+Adding it doesn't cause the tests to fail and it causes my use case to pass.
+I swapped some nightmare scripts over to puppeteer, and on healthcare.gov it wouldn't register input or change on a select. The nightmare implementation uses the deprecated syntax, but I just added a call to initEvent on the new event syntax and that solved it.
+I tried coming up with a replica scenario to add to a test, but I couldn't replicate outside the scraping target's website. I'm guessing it's some manual checking done in older JS libraries that might be missing something. I'll revisit adding a new test.
+adding @alixaxel because he implemented the select function",6,9
+962,2017-10-05T17:58:35Z,,2017-10-06T00:32:46Z,1,1,1,,4,8
+964,2017-10-05T21:55:02Z,2017-10-06T00:08:36Z,2017-10-06T00:08:36Z,1,18,0,"Headless isn't closing gracefully, which sometimes causes data loss when Chrome closes before it finishes writing things to disk.
+See https://crbug.com/771830",2,0
+967,2017-10-06T03:00:19Z,2017-10-13T16:11:12Z,2017-10-13T16:11:12Z,3,37,7,"Waits for a selector to be present and hidden, opposite behavior of the option visible.",6,18
+971,2017-10-06T17:34:57Z,2017-10-09T20:23:37Z,2017-10-09T20:23:37Z,2,31,10,fixes #684,3,5
+973,2017-10-06T22:11:31Z,,2018-02-07T20:34:14Z,4,45,16,,4,2
+975,2017-10-06T22:59:17Z,2017-10-10T00:01:02Z,2017-10-10T00:01:02Z,4,8,31,"This patch starts dispatching JSHandle instances as console arguments.
+In doing so, we no longer do hops to the page to serialize page arguments, which
+removes races between events.
+BREAKING CHANGE: this changes the API of the ConsoleMessage.
+Fixes #324.",3,0
+976,2017-10-07T13:38:54Z,2017-10-07T15:31:55Z,2017-10-07T15:31:55Z,1,13,12,I am a bit confused about elementHandle.asElement(). What is its purpose and difference from jsHandle.asElement()? Should it stay? (see #976 (comment) below),3,1
+983,2017-10-09T18:22:49Z,2017-10-09T19:30:06Z,2017-10-09T19:30:06Z,3,7,4,"The new behavior of page.evaluate to convert to JSON makes it difficult to use if you don't care about the return value of your function. Consider
+await page.evaluate(() => window.open('about:blank'));
+await page.evaluate(() => $('body').hide());
+I don't want to be paranoid about whether or not my evaluations unintentionally return circular json.",2,1
+986,2017-10-10T01:13:11Z,2017-10-10T05:31:40Z,2017-10-10T05:31:40Z,22,198,131,"A re-upload of #219 from my new repository.
+#65",5,2
+988,2017-10-10T03:47:07Z,2017-10-10T05:24:21Z,2017-10-10T05:24:21Z,1,1,1,,2,0
+990,2017-10-10T06:55:18Z,2017-10-10T17:53:38Z,2017-10-10T17:53:38Z,4,7,7,"This patch moves resourceType to be all small-caps. This aligns
+with our convention that all string constants should be smallcaps.
+BREAKING CHANGE: this patch changes the constants of the
+request.resourceType to be all small-caps.",3,1
+992,2017-10-10T07:08:05Z,2017-10-11T19:14:14Z,2017-10-11T19:14:14Z,3,11,4,"Allow development under Windows platform:
+Problems resolved
+
+Setting environment variables using cross-env since Windows requires the SET command.
+Calling Jasmine in the script debug-unit using jasmine's JavaScript binary instead of shell.
+Add /test/test-user-data-dir* to .gitignore since temporary user data directories, in case of test fails, remains in the test directory.
+
+Problems which didn't resolve
+
+Two unit tests of using a custom user data directory hangs when trying to close the browser. Currently patched by crossing those when in Windows platform.
+Output:
+
+Failures:
+1) Puppeteer Puppeteer.launch userDataDir option
+  Message:
+    Error: Timeout - Async callback was not invoked within timeout specified by jasmine.DEFAULT_TIMEOUT_INTERVAL.
+  Stack:
+    Error: Timeout - Async callback was not invoked within timeout specified by jasmine.DEFAULT_TIMEOUT_INTERVAL.
+        at ontimeout (timers.js:469:11)
+        at tryOnTimeout (timers.js:304:5)
+        at Timer.listOnTimeout (timers.js:264:5)
+
+2) Puppeteer Puppeteer.launch userDataDir argument
+  Message:
+    Error: Timeout - Async callback was not invoked within timeout specified by jasmine.DEFAULT_TIMEOUT_INTERVAL.
+  Stack:
+    Error: Timeout - Async callback was not invoked within timeout specified by jasmine.DEFAULT_TIMEOUT_INTERVAL.
+        at ontimeout (timers.js:469:11)
+        at tryOnTimeout (timers.js:304:5)
+        at Timer.listOnTimeout (timers.js:264:5)",3,0
+993,2017-10-10T07:20:05Z,2017-10-10T17:54:21Z,2017-10-10T17:54:21Z,5,15,9,"This patch:
+
+updates JSHandle.toString to make a nicer description for primitives
+excludes JSHandle.toString from documentation to avoid its abuse
+
+References #382",2,0
+994,2017-10-10T07:31:54Z,2017-10-10T17:54:52Z,2017-10-10T17:54:52Z,3,0,18,"The page.plainText is confusing: it's unclear what kind of text it
+returns, textContent or innerText. It's also easily polyfillable and
+doesn't seem to be used.
+BREAKING CHANGE: the page.plainText is not existing any more.
+Instead, use page.evaluate(() => document.body.innerText).",2,0
+996,2017-10-10T10:15:13Z,2017-10-12T08:26:44Z,2017-10-12T08:26:44Z,4,161,88,"This PR implements #949.
+
+Deprecated injectFile as it was confusing with the addScriptTag
+Accept an options object in addScriptTag which supports properties url, path and content.
+Accept an options object in addStyleTag which supports properties url, path and content.
+
+// @aslushnikov",3,6
+997,2017-10-10T13:17:56Z,2017-10-10T18:07:40Z,2017-10-10T18:07:40Z,1,6,6,'than' used instead of 'then',3,3
+998,2017-10-10T13:57:01Z,2017-10-10T18:10:27Z,2017-10-10T18:10:27Z,1,6,0,"…an invalid executablePath option.
+When #863 was opened as opposed to my original PR (#751), the test was not carried over.
+/cc @aslushnikov @JoelEinbinder",2,0
+1005,2017-10-11T05:41:59Z,2017-10-11T21:41:21Z,2017-10-11T21:41:21Z,4,89,0,"This patch introduces Page.queryObjects and
+ExecutionContext.queryObjects methods to query JavaScript heap
+for objects with a certain prototype.
+Fixes #304.",3,2
+1011,2017-10-11T10:19:08Z,2017-10-11T20:18:15Z,2017-10-11T20:18:15Z,2,2,0,"Adds the a6 format, perhaps not as useful for website pdf's, but useful for ticket/barcode generation etc.",2,3
+1015,2017-10-11T22:31:01Z,2017-10-12T01:09:44Z,2017-10-12T01:09:44Z,3,208,131,#777,2,0
+1016,2017-10-12T04:58:26Z,2017-10-13T22:22:55Z,2017-10-13T22:22:55Z,3,14,6,"Breaking change:
+Except for in really strange circumstances, pressing the key a will generate an input event with the text 'a'. This patch makes it the default behavior in puppeteer.
+#723",2,0
+1017,2017-10-12T06:44:53Z,2017-10-13T00:54:00Z,2017-10-13T00:54:00Z,4,39,10,fixes #1010,2,0
+1028,2017-10-12T22:55:51Z,2017-10-17T22:35:01Z,2017-10-17T22:35:01Z,4,58,27,"browser.close() now closes the browser, regardless of whether or not it was created with puppeteer.launch() or puppeteer.connect()
+#989
+browser.disconnect() is a new method which disconnects Puppeteer from the browser, but does not close the Chromium process.
+Should fix #921 and #918",7,11
+1029,2017-10-13T03:31:12Z,,2017-10-13T12:50:44Z,3,59,7,"@ebidel you were right, visibility is rabbit hole. But, I think this is a simple version of the visibility check. jQuery uses this check for visibility:
+!!( elem.offsetWidth || elem.offsetHeight || elem.getClientRects().length );
+Their solution considers visible to be if the element takes space on the page. They don't check visibility or opacity attributes because those don't change the layout. This PR uses the jquery definition of visibility and adds a check to the visibility attribute, both check all ancestors.
+I left the visibility check in there because it was already there, but I'm impartial.",2,1
+1037,2017-10-15T03:17:05Z,2017-10-15T05:57:57Z,2017-10-15T05:57:57Z,1,1,0,hidden option should be in page.waitForSelector as well as frame.waitForSelector,2,0
+1038,2017-10-15T03:24:58Z,2017-10-18T02:24:34Z,2017-10-18T02:24:34Z,1,1,0,"Page.close throws an ambiguous error if the connection is already closed
+await page.close();
+await page.close();
+I think the assumption of the function is that the connection is open, so it should throw. But, often close can be called many times without consequences. Node http server for instance does nothing when close is called on a closed server.",3,0
+1040,2017-10-16T02:22:46Z,2017-10-16T18:07:07Z,2017-10-16T18:07:07Z,1,180,168,"This patch:
+
+kills the first level of table-of-contents (it's useless)
+adds hierarchical diagram to the api.md that briefly outlines puppeteer API structure.
+
+Diagram (faded entites are not represented by pptr api right now):",3,2
+1046,2017-10-16T16:06:45Z,2017-10-16T18:47:22Z,2017-10-16T18:47:22Z,2,20,1,"This patch:
+
+add .appveyor.yml to configure appveyor Continuous Integration on windows platform.
+add badge (appveyor build status) beside travis build status
+
+Leaving process:
+
+  registration on appveyor
+  authorization to puppeteer repository
+
+Since #992 is merge, with this should kill #955",2,2
+1050,2017-10-16T18:14:08Z,2017-10-16T20:26:04Z,2017-10-16T20:26:04Z,1,2,2,This is a follow-up to the #1040 that was erroneously merged without addressing comments.,2,0
+1053,2017-10-16T21:52:33Z,2017-10-17T00:11:06Z,2017-10-17T00:11:06Z,1,1,1,,3,3
+1055,2017-10-17T04:22:34Z,2017-10-17T05:36:13Z,2017-10-17T05:36:13Z,1,18,0,,4,5
+1063,2017-10-17T15:39:14Z,2017-10-18T02:19:49Z,2017-10-18T02:19:49Z,1,1,1,This roll gets us https://crrev.com/509347 which will save cookies to disk.,2,1
+1064,2017-10-17T16:17:35Z,2017-10-20T23:55:15Z,2017-10-20T23:55:16Z,5,193,2,"This patch implements a new Request.mockResponse method. This
+allows users to fulfill the intercepted request with a hand-crafted
+response if they wish so.
+References #1020.",3,0
+1065,2017-10-17T17:17:08Z,2017-10-18T00:48:04Z,2017-10-18T00:48:05Z,3,30,0,"Similarly to the request.response() method, this patch adds
+request.failure() method that returns error details for the failed
+requests.
+Fixes #901.",3,1
+1066,2017-10-17T17:32:17Z,2017-10-17T22:07:16Z,2017-10-17T22:07:16Z,1,1,1,"I tried to do it as follows, but I encountered an error.
+$ node examples/search.js
+(node:95394) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 1): TypeError: Cannot read property 'type' of null
+(node:95394) [DEP0018] DeprecationWarning: Unhandled promise rejections are deprecated. In the future, promise rejections that are not handled will terminate the Node.js process with a non-zero exit code.
+
+page.type requires selector of argument.",2,0
+1075,2017-10-18T02:25:31Z,2017-10-18T06:32:34Z,2017-10-18T06:32:34Z,1,1,3,The recent roll lets us enable this test.,2,2
+1076,2017-10-18T03:05:58Z,2017-10-18T04:33:17Z,2017-10-18T04:33:17Z,1,1,1,,2,0
+1078,2017-10-18T04:19:48Z,2017-10-18T06:33:21Z,2017-10-18T06:33:21Z,1,1,1,This moves us off of typescript@next to the slightly more stable release candidate version.,2,0
+1095,2017-10-19T12:44:04Z,,2017-10-20T12:17:41Z,1,1,2,This patch using new API Keyboard class.,2,0
+1098,2017-10-19T18:39:40Z,2017-10-20T17:45:50Z,2017-10-20T17:45:50Z,3,13,6,"Currently, JSHandle.jsonValue() is implemented as in-page JSON.stringify
+call and consequent JSON.parse in node. This approach proved to be
+unfortunate for automation purposes: if page author overrode the
+Object.prototype.toJSON method, then it's harder for puppeteer to
+interact with the page.
+This patch switches JSHandle.jsonValue to use protocol serialization
+that ignores toJSON property. THis also changes the page.evaluate
+behavior since it is based on JSHandle.jsonValue().
+Fixes #1003.
+BREAKING CHANGE:
+page.evaluate no longer calls toJSON when generating return value.
+For the old behavior, do JSON.parse/JSON.stringify manually:
+const json = JSON.parse(await page.evaluate(() => JSON.stringify(obj)));",3,0
+1099,2017-10-19T20:26:53Z,2017-11-01T04:47:53Z,2017-11-01T04:47:53Z,3,47,24,"For my use case, I needed to know when page.select succeeded to alter the form vs when page.select failed. A case where page.select fails is when the option is not present. I think this use case may be common and it could be a good addition to puppeteer! This solution may be too case specific though as page.select may fail under other conditions.",4,8
+1113,2017-10-20T17:54:07Z,2017-10-21T00:03:14Z,2017-10-21T00:03:14Z,1,3,3,yarn.lock was out of date.,2,1
+1116,2017-10-20T22:10:47Z,2017-10-23T19:43:46Z,2017-10-23T19:43:46Z,4,407,217,"This patch lets key names be code in addition to key. When specifying a code, the proper text is generated assuming a standard US keyboard layout. e.g Digit5 -> ""5"" or ""%"" depending on Shift.
+location is now specified.
+Using unknown key names now throws an error.
+Typing newlines now correctly presses enter.",2,2
+1118,2017-10-21T01:36:03Z,2017-10-21T08:33:43Z,2017-10-21T08:33:43Z,1,1,1,"In some cases jsHandle.jsonValue might error
+an error or an empty JSON value.
+Please refer to https://github.com/GoogleChrome/puppeteer/blob/9603bab0c731e6bd914b4b083537a20f7ae0a4da/test/test.js#L426-L443 .",3,3
+1125,2017-10-22T07:33:56Z,2017-11-08T04:38:22Z,2017-11-08T04:38:22Z,4,77,3,"Shows a different outcome depending whether or not headless mode is activated.
+$ HEADLESS=true npm run unit -- --filter=checkbox
+
+> puppeteer@0.13.0-alpha unit /home/alix/Work/puppeteer
+> jasmine test/test.js ""--filter=checkbox""
+
+Testing on Node v8.2.1
+Started
+..
+
+
+Ran 2 of 261 specs
+2 specs, 0 failures
+Finished in 0.493 seconds
+
+$ HEADLESS=false npm run unit -- --filter=checkbox
+
+> puppeteer@0.13.0-alpha unit /home/alix/Work/puppeteer
+> jasmine test/test.js ""--filter=checkbox""
+
+Testing on Node v8.2.1
+Started
+FF
+
+Failures:
+1) Page input should click on checkbox input and toggle
+  Message:
+    Expected null to be true.
+  Stack:
+    Error: Expected null to be true.
+        at /home/alix/Work/puppeteer/test/test.js:1693:55
+        at <anonymous>
+        at process._tickCallback (internal/process/next_tick.js:188:7)
+  Message:
+    Expected $.length = 0 to equal 7.
+    Expected $[0] = undefined to equal 'mouseover'.
+    Expected $[1] = undefined to equal 'mouseenter'.
+    Expected $[2] = undefined to equal 'mousemove'.
+    Expected $[3] = undefined to equal 'mousedown'.
+    Expected $[4] = undefined to equal 'mouseup'.
+    Expected $[5] = undefined to equal 'click'.
+    Expected $[6] = undefined to equal 'change'.
+  Stack:
+    Error: Expected $.length = 0 to equal 7.
+    Expected $[0] = undefined to equal 'mouseover'.
+    Expected $[1] = undefined to equal 'mouseenter'.
+    Expected $[2] = undefined to equal 'mousemove'.
+    Expected $[3] = undefined to equal 'mousedown'.
+    Expected $[4] = undefined to equal 'mouseup'.
+    Expected $[5] = undefined to equal 'click'.
+    Expected $[6] = undefined to equal 'change'.
+        at /home/alix/Work/puppeteer/test/test.js:1694:56
+        at <anonymous>
+        at process._tickCallback (internal/process/next_tick.js:188:7)
+  Message:
+    Expected null to be false.
+  Stack:
+    Error: Expected null to be false.
+        at /home/alix/Work/puppeteer/test/test.js:1704:55
+        at <anonymous>
+        at process._tickCallback (internal/process/next_tick.js:188:7)
+
+2) Page input should click on checkbox label and toggle
+  Message:
+    Expected null to be true.
+  Stack:
+    Error: Expected null to be true.
+        at /home/alix/Work/puppeteer/test/test.js:1711:55
+        at <anonymous>
+        at process._tickCallback (internal/process/next_tick.js:188:7)
+  Message:
+    Expected $.length = 0 to equal 2.
+    Expected $[0] = undefined to equal 'click'.
+    Expected $[1] = undefined to equal 'change'.
+  Stack:
+    Error: Expected $.length = 0 to equal 2.
+    Expected $[0] = undefined to equal 'click'.
+    Expected $[1] = undefined to equal 'change'.
+        at /home/alix/Work/puppeteer/test/test.js:1712:56
+        at <anonymous>
+        at process._tickCallback (internal/process/next_tick.js:188:7)
+  Message:
+    Expected null to be false.
+  Stack:
+    Error: Expected null to be false.
+        at /home/alix/Work/puppeteer/test/test.js:1717:55
+        at <anonymous>
+        at process._tickCallback (internal/process/next_tick.js:188:7)
+
+Ran 2 of 261 specs
+2 specs, 2 failures
+Finished in 0.884 seconds
+
+npm ERR! code ELIFECYCLE
+npm ERR! errno 1
+npm ERR! puppeteer@0.13.0-alpha unit: `jasmine test/test.js ""--filter=checkbox""`
+npm ERR! Exit status 1
+npm ERR!
+npm ERR! Failed at the puppeteer@0.13.0-alpha unit script.
+npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
+
+npm ERR! A complete log of this run can be found in:
+npm ERR!     /home/alix/.npm/_logs/2017-10-22T07_33_25_516Z-debug.log",3,5
+1141,2017-10-23T22:22:51Z,2017-10-24T01:11:00Z,2017-10-24T01:11:00Z,9,65,71,"This patch:
+
+migrates navigation watcher to use protocol-issued lifecycle events.
+removes networkIdleTimeout and networkIdleInflight options for
+page.goto method
+adds a new networkidle0 value to the waitUntil option of navigation
+methods
+
+References #728.
+BREAKING CHANGE:
+As an implication of this new approach, the networkIdleTimeout and
+networkIdleInflight options are no longer supported. Interested
+clients should implement the behavior themselves using the request and
+response events.",2,0
+1142,2017-10-24T00:13:22Z,2017-10-26T21:53:51Z,2017-10-26T21:53:51Z,1,8,0,"Until https://crbug.com/764122 is fixed upstream, this fixes the flakiness of touchscreen.tap.
+Fixes #673",2,0
+1145,2017-10-24T04:19:33Z,2017-10-24T07:35:19Z,2017-10-24T07:35:19Z,3,13,3,"This patch adds a new domcontentloaded option to a bunch of navigation
+methods:
+
+Page.goto
+Page.waitForNavigation
+Page.goBack
+Page.goForward
+Page.reload
+
+Fixes #946.",3,1
+1147,2017-10-24T07:38:17Z,2017-10-24T17:05:15Z,2017-10-24T17:05:16Z,3,35,10,"This patch adds support to multiple events that could be passed inside
+navigation methods:
+
+Page.goto
+Page.waitForNavigation
+Page.goForward
+Page.goBack
+Page.reload
+
+Fixes #805",2,0
+1148,2017-10-24T11:26:19Z,,2017-11-21T23:10:51Z,1,9,1,"Hi Everyone,
+I came across this behavior: requstWillBeSent is not called and request object is not created for certain request.
+It seems that this issue is addressed already in _onLoadingFinished/onLoadingFailed function in NetworkManager.js.  However, a similar issue in _onRequestWillBeSent was not addressed.
+Here a few lines patch fixing this.
+Cheers,
+D.",3,4
+1151,2017-10-24T15:47:11Z,2017-10-27T09:08:58Z,2017-10-27T09:08:58Z,3,88,1,Fixes #508,2,7
+1152,2017-10-24T17:10:33Z,2017-10-24T20:57:40Z,2017-10-24T20:57:40Z,3,36,14,"This patch adds ""options"" parameter to the page.setContent method. The
+parameter is the same as a navigation parameter and allows to specify
+maximum timeout to wait for resources to be loaded, as well as to
+describe events that should be emitted before the setContent operation
+would be considered successful.
+Fixes #728.",3,1
+1161,2017-10-25T18:42:01Z,2017-10-26T21:57:59Z,2017-10-26T21:57:59Z,1,2,0,"The jontewks buildpack worked great for running Chrome headless, but it did not include support for Chinese characters and the PDF rendering I was attempting was not usable. This fix brings in a few custom fonts to allow PDF generation to utilize the fonts.
+The idea came from https://github.com/dscout/wkhtmltopdf-buildpack/pull/14/files",3,3
+1172,2017-10-26T17:51:44Z,2017-10-27T09:14:26Z,2017-10-27T09:14:26Z,2,0,61,"Since the migration on lifecycle events, the websockets are no longer
+taken into account to detect navigation success with networkidle events.",2,1
+1174,2017-10-26T18:19:32Z,2017-10-27T09:15:15Z,2017-10-27T09:15:15Z,1,6,6,"This changes the debugging instructions to be specific to puppeteer, preventing new users (or those that copy-paste) from getting logs from other libraries that use the debug module.",4,3
+1176,2017-10-26T21:02:59Z,2017-10-27T09:12:56Z,2017-10-27T09:12:56Z,1,34,6,"This adds more examples for using keyboard.type, and keyboard.press. It adds warnings about Shift affecting or not affecting the text generated by certain methods.
+fixes #723",2,0
+1178,2017-10-26T21:40:51Z,,2017-11-01T06:38:25Z,8,150,9,"Puppeteer needs to be mostly functional with stable chrome. The first
+stable chrome that will be supported will be Chrome 63.
+This patch:
+
+adds backwards compatibility with Chrome 63 (currently, it's only the
+renamed request interception protocol call)
+whitelists a few tests to be ran only on Chrome 64+
+adds a new unit-chrome-63 command that runs unit tests against
+Chrome M63
+adds a travis job to run tests against Chrome 63.
+
+Over time, when Chrome 63 will be promoted to beta, we'll switch to
+support Chrome Beta, and eventually Chrome Stable.",3,3
+1181,2017-10-27T03:43:12Z,2017-10-27T09:10:36Z,2017-10-27T09:10:36Z,1,2,0,"The search bar was not fully loaded and therefore ""puppeteer"" could not be entered into the submit field.
+await page.waitFor('input[name=q]');
+was added to ensure this element is loaded before attempting to populate it.",3,3
+1192,2017-10-27T17:52:49Z,2017-10-27T19:06:46Z,2017-10-27T19:06:46Z,1,1,1,"Addresses insecure content errors on try-puppeteer
+ebidel/try-puppeteer#7",2,0
+1198,2017-10-28T07:11:55Z,,2017-11-02T03:02:59Z,3,91,1,Added Frame.select method for issue #1139,3,4
+1199,2017-10-28T17:30:21Z,2017-10-30T21:14:28Z,2017-10-30T21:14:28Z,1,2,0,,3,4
+1202,2017-10-28T20:30:42Z,2017-11-17T18:34:21Z,2017-11-17T18:34:21Z,1,17,0,Fixes #1201,5,9
+1216,2017-10-30T16:58:16Z,2017-10-31T18:30:30Z,2017-10-31T18:30:30Z,1,12,12,"more then -> more than
+I haven't signed the cla so this patch is public domain. You may drop me from this patch and merge this under your address.",3,4
+1220,2017-10-31T08:29:30Z,2017-10-31T19:01:51Z,2017-10-31T19:01:51Z,1,3,2,"This patch fixes LICENSE. It basically gets the one from Lighthouse
+project.
+Fixes #1044.",2,0
+1226,2017-10-31T15:37:46Z,2017-10-31T21:06:20Z,2017-10-31T21:06:20Z,1,8,0,"The examples in the examples directory are not directly runnable--node example.js just fails on require('puppeteer'). Maybe there's a better way of doing this, but this worked for me.",3,0
+1227,2017-10-31T17:09:02Z,2017-10-31T19:02:16Z,2017-10-31T19:02:16Z,3,24,1,"Elements in shadow dom erroneously considered that they were detached
+from document.
+This patch starts using Element.isConnected instead of
+document.contains() call.
+Fixes #1061.",2,0
+1233,2017-10-31T19:27:48Z,2017-11-01T21:05:19Z,2017-11-01T21:05:19Z,1,40,0,Semantic commit messages drastically simplify preparation of releases.,2,0
+1234,2017-10-31T21:37:17Z,2017-10-31T23:10:19Z,2017-10-31T23:10:19Z,1,1,1,Gotta love github ui to make things like this very easy to fix,3,0
+1235,2017-10-31T21:42:57Z,2017-11-07T18:27:03Z,2017-11-07T18:27:03Z,1,21,2,Fixes #809,4,4
+1237,2017-11-01T04:05:52Z,2017-11-01T20:28:01Z,2017-11-01T20:28:01Z,4,26,23,"Currently, NavigationWatcher listens to lifecycle events from Page
+domain and security events from Security domain.
+However, the events are dispatched from different processes in browser:
+
+Page's lifecycle events are dispatched from renderer process
+Security events are dispatched from browser process
+
+This makes for the undefined order between events and results in
+NavigationWatcher reporting different failuer messages, based on
+the event order.
+This patch stops relying on security errors in navigation watcher and
+instead switches to request failure codes for the main resource.
+Fixes #1195, Fixes #1163",2,1
+1239,2017-11-01T05:54:10Z,2017-11-01T21:04:11Z,2017-11-01T21:04:11Z,5,54,66,"This patch migrates puppeteer to support PlzNavigate chromium
+project.
+As a consequence of this patch, we no longer wait for both
+requestWillBeSent and requestIntercepted events to happen. This should
+resolve a ton of request interception bugs that ""hanged"" the loading.
+Fixes #877.",2,0
+1240,2017-11-01T06:43:24Z,2017-11-01T20:39:32Z,2017-11-01T20:39:32Z,3,23,23,"BREAKING CHANGE: method page.getMetrics() got renamed into
+page.metrics().",2,0
+1243,2017-11-01T15:56:31Z,2017-11-02T05:06:05Z,2017-11-02T05:06:05Z,3,38,12,,2,3
+1251,2017-11-02T10:57:23Z,2017-11-03T04:46:50Z,2017-11-03T04:46:50Z,1,1,1,It seems this should be in sync with page.select().,2,0
+1252,2017-11-02T12:24:40Z,2017-11-07T21:17:37Z,2017-11-07T21:17:37Z,3,12,1,"According to: https://chromedevtools.github.io/devtools-protocol/tot/Page/#method-bringToFront
+Accept nothing and returns nothing. Please check, and advice some changes.
+More information at #1244",2,4
+1258,2017-11-02T16:44:42Z,2017-11-03T07:05:38Z,2017-11-03T07:05:38Z,3,34,23,"fix #1179
+@aslushnikov Also added some tests. If this looks good, I can do same changes to the addScript.",3,3
+1259,2017-11-02T17:14:13Z,2017-11-02T20:26:22Z,2017-11-02T20:26:22Z,2,3,2,"This roll brings in a bunch of important patches:
+
+crrev.com/512647 Changed headless browser profile dir to use Default profile path
+crrev.com/512760 DevTools: stop idleness detector when pending navigation commits
+crrev.com/512905 DevTools: introduce Page.getFrameTree
+crrev.com/513373 DevTools: report loaderId in the lifecycle events
+crrev.com/513419 DevTools: introduce Page.setLifecycleEventsEnabled
+crrev.com/513422 DevTools: return loaderId from Page.navigate
+
+Fixes #921
+BREAKING CHANGE:
+Headless user profile structure is changing. Custom profiles set with --user-data-dir flag will no longer be read in Chrome 63 and will have to be recreated.
+Alternatively, you can migrate old headless profile to a new structure. if you stored your profile in <profile> folder, you would run the following bash commands:
+cd <profile>
+mkdir Default
+mv * Default
+Full headless-dev PSA announcement: https://groups.google.com/a/chromium.org/forum/#!msg/headless-dev/asX8WgktXIE/zTUfmHDcAQAJ",2,1
+1269,2017-11-03T10:05:52Z,2017-11-03T16:32:18Z,2017-11-03T16:32:18Z,1,2,2,"It seems this should be in sync with frame.addScriptTag() and frame.addStyleTag().
+Follow-up of #1258.",2,0
+1275,2017-11-03T17:44:48Z,2017-11-04T01:37:21Z,2017-11-04T01:37:21Z,1,1,1,"This patch starts using Page.getFrameTree instead of
+Page.getResourceTree.
+The resource tree is experimental, whereas the frame tree is not.",2,0
+1287,2017-11-06T07:43:50Z,2017-11-07T06:04:41Z,2017-11-07T06:04:41Z,2,46,6,fix #1221,2,1
+1293,2017-11-06T18:19:36Z,2017-11-06T21:13:28Z,2017-11-06T21:13:28Z,1,3,2,"Related #1289.
+Let me know if you want to change the description. @ebidel",2,0
+1295,2017-11-06T22:00:38Z,2017-11-07T21:26:24Z,2017-11-07T21:26:24Z,2,27,3,Fixes #690,2,0
+1299,2017-11-07T08:20:42Z,2017-11-07T09:23:29Z,2017-11-07T09:23:30Z,1,1,1,"Rolls Chromium to r514418
+This includes our patch to DOM.getBoxModel, which should fix the clicking issues introduced in v0.12.0.",5,7
+1308,2017-11-07T18:42:30Z,2017-11-07T21:19:55Z,2017-11-07T21:19:55Z,1,17,0,,3,0
+1309,2017-11-07T19:38:33Z,2017-11-07T21:54:41Z,2017-11-07T21:54:41Z,3,46,8,"Adds a bunch more tests for Element.click, and throw new 'Node is not visible' error message.",2,1
+1311,2017-11-07T22:02:52Z,2017-11-08T00:22:58Z,2017-11-08T00:22:59Z,1,2,0,Fixes #776,2,0
+1314,2017-11-08T00:43:18Z,2017-11-08T04:16:22Z,2017-11-08T04:16:22Z,1,4,0,"Support npm no_proxy configuration for the installation script, similar to #692 and helps with #672.
+Having .yarnrc with:
+proxy ""my-proxy:80""
+no_proxy ""my_private_url""
+
+What is happening a lot to us is that we have our proxy defined and we connect somewhere inside our vpn to get chromium, so it tries to go to the private location (""my_private_url"" in the example) using the proxy, which makes it fail with:
+[ERROR] ERROR: Failed to download Chromium r503964! Set “PUPPETEER_SKIP_CHROMIUM_DOWNLOAD” env variable to skip download.
+[ERROR] { Error: write EPROTO 140521875134272:error:140770FC:SSL routines:SSL23_GET_SERVER_HELLO:unknown protocol:../deps/openssl/openssl/ssl/s23_clnt.c:797:
+
+One workaround is setting the no_proxy env variable to the same no_proxy property in the .yarnrc but I think the chromium installer should be the one aware of that property.
+Thanks.",2,1
+1323,2017-11-08T18:24:04Z,2017-11-11T00:02:53Z,2017-11-11T00:02:53Z,3,29,2,"problem statement
+
+element screenshot capture doesn't work when elements are outside of the original viewport
+
+solution
+
+use absolute coordinates
+
+discussion
+
+https://chromedevtools.github.io/devtools-protocol/tot/Page/#type-Viewport is ambiguous about whether x and y are relative/absolute to what reference
+ChromeDevTools/devtools-protocol#67
+
+closes #1304 & #1315",4,5
+1327,2017-11-09T05:05:14Z,2017-11-09T18:26:49Z,2017-11-09T18:26:49Z,1,1,1,update 6MB to 64MB,5,4
+1336,2017-11-09T14:44:00Z,,2017-11-21T23:08:28Z,4,49,0,Implement support for setBlockedURLs as per https://chromedevtools.github.io/devtools-protocol/tot/Network/#method-setBlockedURLs,6,3
+1338,2017-11-09T16:08:37Z,2017-11-10T21:35:23Z,2017-11-10T21:35:23Z,1,3,3,,3,0
+1354,2017-11-10T21:13:32Z,2017-11-10T23:44:01Z,2017-11-10T23:44:01Z,2,26,2,"This makes ""visible"" work recursively. visibility: hidden is inherited, and any element inside of something with display: none will have no width/height. This will give a false negative on an element with display: block; position: absolute; top:0; left:0; right:0; bottom:0; overflow: visible and child elements.",2,0
+1364,2017-11-12T03:11:20Z,2017-11-15T18:53:18Z,2017-11-15T18:53:18Z,1,17,17,"Ref: #1358 (comment)
+Here's the PR to update the docs on master, hopefully this goes into 0.13.0 before the release.",3,3
+1372,2017-11-13T13:56:29Z,2017-12-04T21:45:22Z,2017-12-04T21:45:22Z,1,13,12,"Right now the downloader does not support a http mirror, this can
+complicate things when you want to use a custom internal mirror.
+HTTPS might be the best option to use, but for a internal server this
+might not the optimal solution as it brings forward awhole other issue
+of selfsigned certs and configuration.
+This fixes #1371",3,2
+1375,2017-11-13T19:54:51Z,2017-12-04T07:03:29Z,2017-12-04T07:03:29Z,1,1,1,,4,4
+1383,2017-11-14T18:13:15Z,2017-12-09T03:05:47Z,2017-12-09T03:05:47Z,2,30,9,This rewrites protocol errors to have the stack trace of the call site.,3,5
+1402,2017-11-16T19:38:42Z,2017-11-16T22:26:33Z,2017-11-16T22:26:33Z,2,4,1,"This patch starts listening to SIGTERM event to gracefully shutdown
+chromium instance.
+References #1047.",2,0
+1403,2017-11-16T22:38:48Z,2017-11-17T00:28:53Z,2017-11-17T00:28:53Z,1,3,3,"fix(Browser): fix Browser.create method - options mapping
+This patch fixes Browser.create method so that it keeps arguments naming conventions as they are passed here and here.
+ps: this bug was introduced in #554",2,5
+1411,2017-11-17T15:02:22Z,,2017-12-04T19:44:39Z,1,2,0,"Knowing that name and value are required is nice, but this doesn't tell us everything we need to know.",2,6
+1415,2017-11-18T08:04:23Z,2017-11-19T00:27:53Z,2017-11-19T00:27:53Z,6,105,40,"In Blink, frames don't necesserily have execution context all the time.
+DevTools Protocol precisely reports this situation, which results in
+Puppeteer's frame.executionContext() being null occasionally.
+However, from puppeteer point of view every frame will have at least a
+default executions context, sooner or later:
+
+frame's execution context might be created naturally to run frame's
+javascript
+if frame has no javascript, devtools protocol will issue execution
+context creation
+
+This patch builds up on this assumption and makes frame.executionContext()
+to be a promise.
+As a result, all the evaluations await for the execution context to be created first.
+Fixes #827, #1325
+BREAKING CHANGE: this patch changes frame.executionContext() method to return a promise.
+To migrate onto a new behavior, await the context first before using it.",3,0
+1419,2017-11-19T02:00:05Z,2017-11-20T22:47:11Z,2017-11-20T22:47:11Z,1,2,1,"Currently, the NavigatorWatcher ensures that all the frames in the
+frame subtree reach the desired lifecycle events state.
+For this to be fully correct, NavigatorWatcher should also check
+navigation status whenever frames are detached.",2,0
+1420,2017-11-19T04:18:52Z,2017-11-20T23:59:08Z,2017-11-20T23:59:08Z,2,49,6,"With the addition of browser.targets() api, we now can connect to
+in-flight targets.
+For Puppeteer, it means that it can ""miss"" certain events happenning
+while it wasn't attached to the target.
+This patch:
+
+fixes this problem with NetworkManager, preparing it for the
+missed requestWillBeSent event.
+adds a new test to ensure that not a single unhandled promise
+rejection has happened during test execution.
+
+Fixes #1363.",2,0
+1435,2017-11-20T23:58:19Z,2017-11-21T05:21:25Z,2017-11-21T05:21:25Z,2,5,2,"Since non-promise values always win the Promise.race, we shouldn't
+return null for timeout promise in NavigationWatcher.
+Instead, we can return a promise that never resolved. It should be
+GC'd later with the navigation watcher itself.
+Fixes #1417.",2,0
+1439,2017-11-21T07:04:12Z,2017-12-04T02:36:35Z,2017-12-04T02:36:35Z,3,10,1,"References #1300, #854",4,5
+1446,2017-11-21T19:43:32Z,,2017-12-01T08:22:24Z,1,9,9,"Right now I'm using an older version of npm (3.10.8), where I have global environment variables for HTTP_PROXY and HTTPS_PROXY and no_proxy and they work just fine installing other modules. This module in particular doesn't support it. It just so happens when I add in the http-proxy, https-proxy and no-proxy settings to the NPM config so that puppeteer can pick them up, my no-proxy is unrecognized (as global or npm config). So I am stuck. There's no harm in supporting the global proxy settings also as a fallback if the npm ones aren't set.",2,0
+1447,2017-11-21T22:15:51Z,2017-11-23T02:44:34Z,2017-11-23T02:44:34Z,3,38,13,"This refactors the page.content and page.setContent methods to be defined on the Frame class. This allows access from the Page still but also on all frames.
+Fixes #754",2,1
+1499,2017-11-30T06:39:45Z,2017-12-07T21:40:03Z,2017-12-07T21:40:03Z,2,10,10,"This roll includes:
+
+https://crrev.com/520341 DevTools: Network.getCookies should return -1 for null expiry dates
+
+Fixes #1350",2,5
+1511,2017-12-01T14:40:52Z,2017-12-04T01:27:37Z,2017-12-04T01:27:37Z,1,7,4,this enables tools to more easily determine the dependency tree.,2,1
+1515,2017-12-01T23:07:12Z,2017-12-04T01:15:14Z,2017-12-04T01:15:14Z,1,1,2,"When mojo is enabled for input events, we sometimes get an extra mouse move after the page is created. Moving the mouse ourselves makes the test consistent. The same behavior also caused DevTools dispatchMouseEvent to become flaky, but that will be fixed with: https://chromium-review.googlesource.com/c/chromium/src/+/804357",2,0
+1519,2017-12-02T02:49:25Z,2017-12-08T00:37:22Z,2017-12-08T00:37:22Z,23,1028,97,"This patch introduces a tiny test runner to run puppeteer tests.
+The test runner is self-container and allows parallel test execution.
+It will also allow us to split tests into multiple files if necessary.
+Comparing to the jasmine, the testrunner supports parallel execution, properly
+handles ""unhandled promise rejection"" event and signals.
+Comparing to ava/jest, the testrunner doesn't run multiple node processes,
+which makes it simpler but sufficient for our goals.",2,0
+1526,2017-12-03T20:17:14Z,2017-12-04T22:04:36Z,2017-12-04T22:04:37Z,1,7,6,"This fixes #1492 by only trying to define the mimetype from the options.path value if the options.type is not provided.
+This is useful, for example, in situation where options.path and options.type are provided and options.path exists but is an empty file, with no extension. With the current code, the mimetype deduced is application/octet-stream and this raises an error. With this fix, the options.type value is used, removing the need to deduce the mimetype from the file path.
+Now the screenshot's mime-type is defined using :
+
+options.type if it is provided, whether or not options.path is provided (this is what this PR introduces)
+options.path if options.type is not provided, by inferring the mime-type using mime.lookup (this was not changed)
+png as a default value if neither options.type nor options.path is provided (this was not changed)",3,4
+1528,2017-12-04T01:45:55Z,,2017-12-15T22:44:46Z,2,31,5,"fix(Launcher): Fix limit on browser instances and needing to issue ^c twice to exit.
+This fixes 2 quirks.
+
+
+If creating 11 instances of a Browser (i.e. puppeteer.launch()), we will receive the memory leak warning found in #594. This solution is much safer than setting the maxListeners on process and allows unlimited browser instances.
+
+
+This also closes the node process when hitting ^c. In the past, we had to do this command twice to actually exit our program. This ensures it exits with the correct exit code after only issuing the command once.
+
+
+Further explanation",4,8
+1531,2017-12-04T08:09:56Z,2017-12-12T21:34:21Z,2017-12-12T21:34:21Z,6,887,883,"This patch migrates tests so that they can be run concurrently.
+
+By default, tests still run in one thread.
+To run tests in 4 parallel threads, run node test/test.js -j 4 or npm run unit -- -j 4
+Environment variable PPTR_PARALLEL_TESTS could be set to override default parallelization
+
+Every test gets passed in a state. State is set up in the beforeAll and beforeEach callbacks,
+and should be teared down in the afterAll and afterEach callbacks.
+By default, state has a parallelIndex variable initialized that defines the thread index that runs the execution.",2,0
+1538,2017-12-04T20:44:27Z,2017-12-04T21:45:56Z,2017-12-04T21:45:56Z,1,2,1,#1537,2,0
+1541,2017-12-05T17:08:48Z,2017-12-06T07:53:28Z,2017-12-06T07:53:28Z,1,12,1,"Adds notes to the API documentation that Browser and Page classes
+are EventEmitters. Provides an example of using .once for Page.
+Fixes #1231",2,0
+1554,2017-12-08T08:24:40Z,2017-12-08T21:39:14Z,2017-12-08T21:39:14Z,6,96,61,"This patch:
+
+renames ChromiumDownloader into Downloader (this is in
+preparation for different products download)
+moves Downloader from utils/ to lib/. This unifies all of the
+production-critical code in the lib/ and would make our node6
+transpilation easier.
+
+Drive-by: make Downloader a regular class.",2,0
+1560,2017-12-08T21:47:03Z,2017-12-08T23:14:29Z,2017-12-08T23:14:29Z,7,46,26,"This patch unifies node6 transpilation:
+
+instead of generating multiple top-level directories, prefixed with
+node6-, all transpiled code gets placed under single node6/ folder
+transpilation doesn't change require paths of transpiled modules any
+more",2,0
+1561,2017-12-08T23:15:29Z,2017-12-09T00:44:25Z,2017-12-09T00:44:25Z,1,2,3,This patch teaches TestRunner to treat 0 timeout setting as an infinite timeout.,2,0
+1562,2017-12-08T23:42:51Z,2017-12-09T00:53:13Z,2017-12-09T00:53:13Z,3,23,2,"This patch starts building node6 support if puppeteer is installed directly from
+github and is run under Node 6.",2,1
+1564,2017-12-09T00:17:31Z,2017-12-09T03:04:09Z,2017-12-09T03:04:09Z,1,0,44,"The example is violating the TOS of google.com
+Fix #1557",4,4
+1565,2017-12-09T06:16:23Z,,2018-01-08T22:25:27Z,3,15,5,"There are many, many ways someone can hide an element from view, but it seems odd that the only stylistic check done here is on the visibility property.
+This change adds checks for display: none and opacity: 0;. We're very likely to see these methods of hiding something from view in plenty of codebases.
+Ideally, this code would follow whatever it is that selenium does for 'visibility checks', but I'd rather not start bike shedding that on this PR.",3,6
+1567,2017-12-10T14:43:21Z,2017-12-16T09:17:20Z,2017-12-16T09:17:20Z,2,67,3,"Original from #1411 (comment)
+When you set cookie in 'about:blank' page, you'll get following exception:
+AssertionError [ERR_ASSERTION]: Blank page can not have cookie ""<cookie_name>""",3,3
+1571,2017-12-11T11:22:08Z,,2017-12-20T04:56:55Z,2,12,1,"This patch starts throwing errors when trying to focus non-focusable
+element.
+Fixes #1486",2,1
+1572,2017-12-11T12:12:09Z,2018-01-08T23:01:18Z,2018-01-08T23:01:18Z,1,7,0,"Developers are frequently surprised that Puppeteer does not support video (see e.g. #291 and other issues mentioning ""video"", many of which are related).
+The documentation does explain how to use Chrome instead of Chromium, but I couldn't find anywhere that links this ""fix"" to the problem of audio/video not working (the only reason to do this?).",3,4
+1574,2017-12-11T14:37:43Z,2017-12-15T03:09:48Z,2017-12-15T03:09:49Z,2,25,15,"…romium and Chrome
+This patch clarifies the documentation to more clearly note that Puppeteer works with both Chromium (by default)
+and Chrome.
+Fixes #1516",3,1
+1585,2017-12-12T01:10:14Z,2017-12-15T03:10:26Z,2017-12-15T03:10:27Z,1,2,1,"close #1582
+@ebidel Let me know if I need to change the description!",4,6
+1586,2017-12-12T01:50:50Z,2017-12-15T03:13:27Z,2017-12-15T03:13:27Z,1,57,0,"Adds back a search demo. I chose d.g.c. b/c the protocol viewer uses shadow dom. Gets a bit confusing.
+Fixes #1578",2,0
+1601,2017-12-14T19:22:58Z,,2018-02-05T22:18:11Z,5,73,2,"Fixes #1551
+I tried to use one-style.html for the test but it would require additions to sw.js and the test server doesn't support caching AFAIK.",3,16
+1603,2017-12-14T22:17:41Z,2018-01-04T21:52:14Z,2018-01-04T21:52:14Z,1,12,4,,2,3
+1605,2017-12-15T03:01:38Z,2017-12-15T22:14:28Z,2017-12-15T22:14:28Z,2,30,2,"This patch improves matchers to provide more information once
+some of them fails.",2,0
+1606,2017-12-15T03:32:47Z,2017-12-15T22:25:07Z,2017-12-15T22:25:07Z,3,14,2,"This patch teaches testrunner to override both timeout and
+parallel execution option if there's attached inspector.",2,0
+1609,2017-12-15T12:55:16Z,2018-02-08T05:58:49Z,2018-02-08T05:58:49Z,3,30,0,"Fixes: #1556
+Implements Page.disableCache(disabled) method.",2,3
+1611,2017-12-16T11:41:32Z,,2017-12-20T04:57:49Z,3,82,14,"Both page.addScriptTag() and page.addStyleTag() silently fail when the requested page is protected by Content Security Policy.
+Although it would be a nice feature to have an option to disable it, I think the default behavior should be failing gracefully.
+I don't like my implementation of adding a global variable and an invisible element in the page, so I would like to hear better ideas and solutions.
+Fixes: #1229",5,6
+1613,2017-12-16T14:48:40Z,2017-12-18T18:49:01Z,2017-12-18T18:49:01Z,1,1,1,This patch fixes broken Tracing tests which are failing since the state.parallel -> state.parallelIndex modification of #1531,2,0
+1614,2017-12-16T15:47:29Z,,2017-12-28T03:24:02Z,4,67,13,This patch adds support for using tracing without necessarily saving the result to a file. This allows consumers to process the tracing result without any unnecessary file operations.,3,1
+1615,2017-12-16T19:50:48Z,,2017-12-28T03:25:23Z,3,23,6,This patch adds support for defining thread count in concurrent unit test execution by using MAX as value. This will result in running tests based on number of CPUs dynamically.,2,1
+1618,2017-12-18T13:27:15Z,,2018-01-09T15:10:57Z,2,11,21,"According to issue #1357
+Now user can specify box model. If model is not specified - border will be used.
+Method will be more flexible with full model: https://chromedevtools.github.io/devtools-protocol/tot/DOM/#type-BoxModel",2,5
+1624,2017-12-19T11:24:37Z,,2018-04-06T20:18:17Z,5,86,16,"A better solution to detect CSP errors than #1611
+Since @paulirish 's idea is much better than mine, so I implemented it
+If it looks ok, I'll close #1611
+Also, thanks @JoelEinbinder @dios-david for comments!
+Fixes: #1229",3,6
+1625,2017-12-19T12:49:14Z,2017-12-20T00:54:34Z,2017-12-20T00:54:34Z,2,11,0,"The Stable RC (1.3) release of Chrome DevTools Protocol includes new options for providing a custom header and footer templates to Page.printToPDF method - https://github.com/ChromeDevTools/devtools-protocol/blob/0956b7c770c81c49682f0e50589652dd818655fc/changelog.md#page-modified-command
+They are available in Chrome Canary so we can start using them today.",3,4
+1628,2017-12-19T22:46:23Z,2017-12-20T00:11:56Z,2017-12-20T00:11:56Z,1,4,1,Addresses #1627.,2,0
+1631,2017-12-20T01:56:24Z,2017-12-20T08:30:41Z,2017-12-20T08:30:41Z,1,24,0,,3,3
+1633,2017-12-20T08:58:58Z,2017-12-22T00:29:01Z,2017-12-22T00:29:01Z,1,1,1,This might speedup tests on CI.,3,2
+1646,2017-12-21T18:20:59Z,2018-01-10T02:47:22Z,2018-01-10T02:47:22Z,5,54,21,"I think it's not only convenient for requests to have frame properties, but it's consistent with Chrome DevTool Protocol because Network.requestWillBeSent event has frameId property.
+One problem I faced is that the frameId is optional, so the frame cannot always be accessed from request. I noticed that the property is empty for offline mode and when navigating to bad SSL pages.
+Fixes: #1579
+@aslushnikov",2,3
+1647,2017-12-21T22:53:09Z,2017-12-28T03:04:11Z,2017-12-28T03:04:11Z,2,2,2,PR created using https://github.com/tbroadley/github-spellcheck-cli.,4,0
+1671,2017-12-27T20:33:16Z,2017-12-28T01:19:49Z,2017-12-28T01:19:49Z,1,10,0,"Assuming this works, it should create a puppeteer@next tag on npm that is synced to the master branch on GitHub.",2,0
+1672,2017-12-27T21:05:10Z,2017-12-28T02:58:58Z,2017-12-28T02:58:58Z,1,1,0,"The session value is returned from the protocol, but not accepted as a cookie parameter.
+See: https://developer.mozilla.org/en-US/docs/Web/API/Document/cookie#Session
+fixes #980",2,0
+1673,2017-12-28T02:28:21Z,2018-01-03T03:53:54Z,2018-01-03T03:53:54Z,14,366,0,"This patch introduces a new page.coverage namespace with two methods:
+
+page.coverage.startJSCoverage to initiate JavaScript coverage
+recording
+page.coverage.stopJSCoverage to stop JavaScript coverage and get
+results",3,1
+1675,2017-12-28T04:23:16Z,2017-12-28T19:34:03Z,2017-12-28T19:34:03Z,1,14,0,"#1659 brings up an interesting case about the dblclick event. We behave properly here, but were missing a test.",2,0
+1677,2017-12-28T06:52:30Z,2017-12-28T18:40:38Z,2017-12-28T18:40:38Z,2,3,2,There might be a lot of these. I'm not sure how to test without just merging to master 👍,2,1
+1684,2017-12-28T21:22:11Z,2017-12-28T22:24:52Z,2017-12-28T22:24:52Z,1,1,0,"Just a quick idea, which you can trash if you don't like :)
+Fixes: #1683",2,0
+1692,2017-12-29T14:51:01Z,,2018-01-09T00:37:15Z,2,38,1,"Proposal to add an easy option to add padding to the elementHandle.screenshot() function. I'm not quite sure yet how the api interface should look, but this is a first working proposal.",4,4
+1711,2018-01-03T15:14:17Z,2018-01-10T07:05:53Z,2018-01-10T07:05:53Z,1,6,3,I'm pushing this PR to add more explicit examples in the API documentation of how can one use page.evaluate with parameters.,1,2
+1712,2018-01-03T19:19:06Z,2018-01-04T22:49:14Z,2018-01-04T22:49:14Z,3,90,48,"#1703
+#1654",2,0
+1713,2018-01-03T19:48:41Z,2018-01-03T23:37:09Z,2018-01-03T23:37:09Z,5,65,49,#1705,3,0
+1714,2018-01-03T23:13:02Z,2018-01-04T02:21:40Z,2018-01-04T02:21:40Z,15,427,17,"This patch adds two new methods to the page.coverage namespace:
+
+page.coverage.startCSSCoverage() - to initiate css coverage
+page.coverage.stopCSSCoverage() - to stop css coverage
+
+The coverage format is consistent with the JavaScript coverage.",3,1
+1716,2018-01-04T05:00:04Z,2018-01-05T18:14:31Z,2018-01-05T18:14:31Z,3,30,1,"Add browser.userAgent()
+cache Browser.getVersion response
+
+Fixes: #1706",2,3
+1728,2018-01-05T15:20:09Z,2018-01-10T21:04:02Z,2018-01-10T21:04:02Z,4,41,11,References #1514,6,10
+1730,2018-01-05T17:41:15Z,2018-01-17T07:22:44Z,2018-01-17T07:22:44Z,3,14,0,Fixes #1580,3,11
+1732,2018-01-05T18:29:52Z,,2018-03-15T18:13:45Z,3,35,3,,3,12
+1734,2018-01-05T19:28:15Z,2018-01-10T00:52:29Z,2018-01-10T00:52:29Z,2,15,3,"This is just a fix to the problem that page.goto resolves to null.
+Setting referer does not work properly, but that should be discussed here.
+Fixes: #1729",2,1
+1738,2018-01-08T10:16:14Z,2018-01-09T01:20:03Z,2018-01-09T01:20:03Z,1,1,1,Add missing parentheses after mainFrame.,3,2
+1739,2018-01-08T10:24:14Z,2018-01-09T02:08:28Z,2018-01-09T02:08:28Z,1,1,1,"PUPPETEER_DOWNLOAD_HOST
+Remove redundant '/' at end of configuration",3,3
+1741,2018-01-08T11:18:42Z,2018-01-09T02:10:14Z,2018-01-09T02:10:14Z,1,6,1,Closes #1740,4,6
+1746,2018-01-08T19:51:48Z,2018-01-08T22:14:42Z,2018-01-08T22:14:42Z,2,4,1,"If the success value of waitForFunction was not serializable, checking whether it was truthy with .jsonValue() might fail. Now I check whether it was truthy inside the page.
+Fixes #1737",2,0
+1753,2018-01-09T11:53:55Z,2018-01-10T00:31:42Z,2018-01-10T00:31:42Z,1,2,0,"Added some missing docs based on mainFrame.
+It's also my first tiny contribution so I also want to see how your workflow works.",2,0
+1754,2018-01-09T15:34:30Z,,2018-03-15T18:12:36Z,3,49,0,"Closes #1357
+Now we can get getBoundingClientRect-like box of the element and the full model from devtools.",3,8
+1758,2018-01-10T02:45:53Z,2018-01-10T06:59:21Z,2018-01-10T06:59:21Z,1,4,3,"Since interception events and loadingFailed events come from
+different processes and are not serialized, we might get loadingFailed event and a subsequent outdated requestIntercepted.
+Short-term, this patch stops assuming that interception events are
+aligned with loadingFailed.
+Long-term, this will be resolved as @caseq completes network
+servicification effort in chromium.
+Fixes #880.",2,0
+1759,2018-01-10T03:28:07Z,2018-01-10T05:56:04Z,2018-01-10T05:56:04Z,1,1,1,"Small fix.
+
+I think the error message should recommend ""yarn install"" than ""npm install"".",2,0
+1767,2018-01-10T22:14:45Z,2018-01-22T23:16:20Z,2018-01-22T23:16:20Z,4,213,30,Here's a waitForXpath function as per issue 1757,5,20
+1773,2018-01-11T07:16:10Z,2018-01-11T08:28:37Z,2018-01-11T08:28:37Z,1,39,30,"Adds devsite's comment markers so we can pull sections of the readme into the site.
+We lose a few syntax highlighting sections here on github, but everything looks great on developers.google.com
+
+
+Eventually, we may want to consider just moving some of the docs/*.md files into devsite. For now, we're slurping them into the site. So if they change in this repo, they'll update on devsite when we do the next push (usually daily).",2,1
+1780,2018-01-11T18:24:04Z,2018-01-11T20:20:57Z,2018-01-11T20:20:57Z,1,2,2,R: @aslushnikov,2,0
+1781,2018-01-11T19:41:02Z,2018-01-12T08:16:36Z,2018-01-12T08:16:36Z,3,14,1,"I confirmed that the following URLs will start resolving responses by this fix:
+
+http://giffysk8s.blogspot.com/
+http://lemaninignesinden.blogspot.com/2015/02/vitaminenzimklorofilsifa.html
+http://henke-s.blogspot.com/
+http://www.qh119.com/10022/
+http://corralitopiraeus.blogspot.com/2017/07/malma-con-piezas-de-ordenador-y.html
+http://kedm.org/
+
+I cannot repro for the following URLs:
+
+http://www.cometogetherkids.com/2011/03/fleece-flower-petal-pillows.html
+http://www.wildstar-online.com/uk/drops/1/strain/
+https://www.vanityfair.com/culture/photos/2010/06/world-cup-portfolio-201006
+http://www.sportsnet.ca/baseball/mlb/blue-jays-exploring-trade-options-before-free-agency/
+http://www.fc-weisweil.de/
+https://www.lovedignity.com/ex-back-experts-review/
+http://www.hainanrra.com/bjbw/
+http://www.manlexi.com/rqfp/
+http://www.12011.org/ljnn/
+http://www.grgds.com/jbs/
+
+But these may have been fixed already like #631 .
+Fixes: #1391
+@aslushnikov",2,3
+1783,2018-01-11T20:17:22Z,2018-01-11T21:42:01Z,2018-01-11T21:42:01Z,9,102,135,Indented examples are easier to read.,2,0
+1787,2018-01-12T01:04:38Z,2018-02-23T22:13:08Z,2018-02-23T22:13:08Z,4,146,12,"Modifies ElementHande::screenshot to capture the full element, even if
+it's larger than the current viewport, or it falls off screen. Uses
+window.scrollTo instead of scrollIntoViewIfNeeded because it must be
+as much inside the viewport as possible. Resets the viewport size and scroll position after
+it's finished.
+Getting a random test failure (ran it 100 times, failed 10 times). It's calling a function I created, but I don't know what's causing the issue.
+Failures:
+1) Page Request.respond should allow mocking binary responses
+  Message:
+    Node is not visible @ test.js:1564:5
+  Stack:
+    Error: Node is not visible
+        at ElementHandle._assertBoundingBox (/Users/fb/github/brigand/puppeteer/lib/ElementHandle.js:160:13)
+        at <anonymous>
+        at process._tickCallback (internal/process/next_tick.js:188:7)
+
+Other than that, it seems to be working properly.
+I think the scroll logic is the main place for improvement. It doesn't deal well with non-window scroll parents at the moment. Could add scrollIntoViewIfNeeded back in, but I'd want to revert the changes after taking the screenshot. Not sure if that's introducing too much extra code.
+
+Fixes #1779
+cc @JoelEinbinder",5,18
+1792,2018-01-12T14:03:10Z,2018-01-12T19:41:27Z,2018-01-12T19:41:28Z,1,9,0,Closes #1421.,2,0
+1799,2018-01-14T00:20:24Z,,2018-02-09T02:23:20Z,12,87,69,"Adding missing language tags to markdown code blocks.
+Switching npm to yarn in README to be consistent with what repo is using locally/with travis.",4,8
+1801,2018-01-14T11:24:15Z,2018-01-17T00:59:01Z,2018-01-17T00:59:01Z,1,2,2,"frame.executionContext() returns a Promise, so running examples without await results in exceptions",4,3
+1806,2018-01-15T19:17:43Z,,2018-02-13T21:41:10Z,3,63,0,"The ability to start browser with desired preferences.
+Related issue
+The easier way to kickoff was to allow to set prefs for the cases when there is no preconfigured userDataDir / --user-data-dir and to see the feedback from the maintainers.
+What's done:
+
+ implementation
+ write tests
+ update documentation
+
+What could be done as a separate feature:
+
+allow setting prefs in conjunction with userDataDir / --user-data-dir
+add ability to set ""local state"" prefs
+
+@aslushnikov WDYT?",4,9
+1807,2018-01-16T02:40:39Z,2018-01-16T22:05:28Z,2018-01-16T22:05:28Z,1,1,0,Add link to the https://github.com/checkly/puppeteer-examples,2,0
+1817,2018-01-17T00:25:55Z,,2018-01-20T04:00:40Z,2,13,0,"this change allows you to check the initiator of a request.
+Fixes #1395
+note: does not add property in time for it to be available within interceptedRequest event.",4,8
+1821,2018-01-17T04:28:20Z,2018-01-19T05:39:51Z,2018-01-19T05:39:51Z,1,1,1,Because Request.url is changed to Request.url().,3,4
+1842,2018-01-18T09:15:54Z,2018-01-19T08:43:01Z,2018-01-19T08:43:01Z,1,2,2,As proposed in #1824,4,4
+1845,2018-01-18T11:42:18Z,2018-01-19T05:20:17Z,2018-01-19T05:20:17Z,1,1,1,It seems without the full URL this link is not rendered correctly.,3,0
+1849,2018-01-18T15:41:24Z,2018-01-19T05:19:44Z,2018-01-19T05:19:44Z,1,3,3,,3,2
+1854,2018-01-19T01:30:14Z,2018-01-19T05:19:14Z,2018-01-19T05:19:14Z,1,7,7,,3,0
+1864,2018-01-20T22:56:44Z,2018-01-23T00:45:47Z,2018-01-23T00:45:47Z,2,3,1,,3,0
+1867,2018-01-21T16:56:36Z,2018-02-22T01:11:25Z,2018-02-22T01:11:25Z,2,23,24,,4,7
+1868,2018-01-21T19:25:04Z,2018-01-23T00:10:32Z,2018-01-23T00:10:32Z,1,1,1,console event returns ConsoleMessage object now.,4,3
+1878,2018-01-22T23:05:29Z,2018-01-23T01:11:11Z,2018-01-23T01:11:11Z,8,18,1244,npm is ok,4,1
+1880,2018-01-23T10:31:50Z,2018-02-13T19:26:19Z,2018-02-13T19:26:19Z,3,103,2,"Added feature securityDetails, the response in puppeteer now contains info about security state returned by Chrome DevTools Protocol. Slightly adjusted tests to be able to test this feature.",3,7
+1885,2018-01-23T21:52:39Z,2018-01-25T05:16:02Z,2018-01-25T05:16:02Z,3,47,0,fixes #1051,2,1
+1886,2018-01-23T22:04:15Z,2018-01-25T05:12:28Z,2018-01-25T05:12:28Z,2,12,3,"This PR fixes lost functionality that is no longer on-par with the documentation for Page.select, namely:
+
+...values <...string> Values of options to select. If the <select> has the multiple attribute, all values are considered, otherwise only the first one is taken into account.
+
+I've also added an accompanying test for this use case.",2,0
+1909,2018-01-26T19:09:37Z,2018-01-27T07:00:19Z,2018-01-27T07:00:19Z,1,1,1,,3,4
+1911,2018-01-29T05:21:22Z,2018-02-06T00:03:07Z,2018-02-06T00:03:07Z,1,3,0,,3,1
+1926,2018-01-30T18:23:30Z,2018-01-31T23:31:32Z,2018-01-31T23:31:32Z,1,8,0,Jotting these down for peeps to find.,2,0
+1928,2018-01-30T22:32:55Z,2018-02-13T01:25:39Z,2018-02-13T01:25:39Z,2,13,1,"This is a one line change to resolve an issue where once a key has been utilized in keyboard.down(), the repeat property on keydown events using the same key will always be set to true. See #1901 for full details.
+keyboard.down() and keyboard.up() both use the _pressedKeys Set, however keyboard.down() adds and searches for the key code, whereas keyboard.up() attempts to delete based on the key rather than the key code.",3,2
+1933,2018-01-31T04:37:04Z,,2018-02-02T03:46:04Z,1,2,2,"Menu item ""page.$$(selector)"" now pointing to the right anchor: ""pageselector-1"" instead of ""pageselector""
+Within ""page.$x(expression)"", shortcut link now pointing to ""framexexpression"" instead of ""frameexpression""",3,3
+1938,2018-01-31T21:31:01Z,2018-02-01T00:02:57Z,2018-02-01T00:02:57Z,2,15,1,"This roll includes:
+
+https://crrev.com/530961 DevTools: fix Referer header handling in
+net interceptor
+
+The patch adds a test to cover the referrer functionality.
+References #469.",2,0
+1946,2018-02-01T21:47:57Z,2018-02-07T23:01:41Z,2018-02-07T23:01:41Z,1,1,1,Whenever I install puppeteer I get a node_modules/puppeteers folder that is 282Mb (instead of the advertised ~90Mb).,4,5
+1961,2018-02-04T16:50:05Z,2018-02-05T22:44:22Z,2018-02-05T22:44:23Z,1,2,2,Fixes #1874,3,0
+1962,2018-02-04T18:06:45Z,2018-02-05T19:39:49Z,2018-02-05T19:39:49Z,1,1,0,"Hey folks,
+Full-disclosure for those not familiar -- I am the maintainer/author of browserless. I'm opening up this PR to discuss adding in a reference to that service from the troublehsooting doc. I believe there's a lot of issues/discussions that can be moved over to libraries like browserless since it's not the core problem that puppeteer is trying to solve. I, of course, am biased by being the creator.
+I'd love to hear feedback and am open to moving this elsewhere. Maybe we should start a providers.md file or similar where we can enumerate services and how to use puppeteer on them?
+Thanks for taking time to read over this and review it. Looking forward to hearing your thoughts!",4,5
+1964,2018-02-04T20:53:14Z,2018-02-05T22:42:55Z,2018-02-05T22:42:55Z,4,6,6,"Closes #1960 .
+It also addresses the timeout in Puppeteer.launch(), as per the docs:
+
+timeout  Maximum time in milliseconds to wait for the browser instance to start.
+Defaults to 30000 (30 seconds). Pass 0 to disable timeout.",2,1
+1967,2018-02-05T18:03:03Z,,2018-05-30T14:53:03Z,0,0,0,"Puppeteer doesn't handle WebSocket errors correctly. This pull request is meant to fix that.
+Things puppeteer doesn't handle:
+
+Errors that happen in the middle/end of the WS connection, by subscribing to the ws.on('error') event.
+Less important, WS protocol errors that happen when calling send.
+
+Not handling protocol errors of type (1) results in an error that cannot be handled and crashes the application, such as ECONNRESET. This is what happened to me.
+Not handling errors of type (2) may cause weird behavior in functions that work with promises, since the Connection.send function can throw an exception before it returns a promise.
+If this pull request is relevant, I'll elaborate on the changes.",5,4
+1972,2018-02-06T01:52:55Z,2018-02-13T22:02:45Z,2018-02-13T22:02:45Z,4,26,13,"This patch introduces ExecutionContext.frame() that returns Frame
+associated with this Execution Context.
+This allows to associate console messages with the originating frame,
+if any.",2,2
+1973,2018-02-06T02:02:39Z,2018-02-08T05:59:11Z,2018-02-08T05:59:11Z,1,12,3,,3,0
+1978,2018-02-06T20:05:57Z,,2018-02-15T20:01:25Z,3,58,0,"One use case for #85 is being able to open up many isolated pages. In our case, we needed each page to have its own auth cookie. I got the impression that the puppeteer team was holding off implementing something like this until it was available in headful chrome, but we found this to be very helpful even with that caveat so I figured I would give a PR a shot.",3,4
+1983,2018-02-06T22:19:10Z,2018-02-07T17:31:54Z,2018-02-07T17:31:54Z,11,259,140,"This patch introduces BrowserFetcher class that manages
+downloaded versions of products.
+This patch:
+
+shapes Downloader API to be minimal yet usable for our needs. This
+includes removing such methods as Downloader.supportedPlatforms and
+Downloader.defaultRevision.
+makes most of the fs-related methods in Downloader async. The only
+exception is the Downloader.revisionInfo: it has stay sync due to the
+pptr.executablePath() method being sync.
+updates install.js and utils/check_availability.js to use new API
+finally, renames Downloader into BrowserFetcher
+
+Fixes #1748.",5,1
+1987,2018-02-07T18:05:26Z,,2018-02-07T20:51:24Z,3,86,33,"This patch adds a ""product"" option to BrowserFetcher that can be
+either 'chromium' or 'content_shell'.
+ContentShell might be useful as a stripped-down version of Chromium.
+
+NOTE: Puppeteer API is not guaranteed to work with content_shell; some of the methods don't actually work. Use on your own risk.",2,1
+1998,2018-02-09T02:49:35Z,2018-02-09T03:59:47Z,2018-02-09T03:59:47Z,12,92,74,"Adding missing language tags to markdown code blocks.
+Fixed various spelling mistakes my IDE complained to me about.",2,0
+2003,2018-02-11T17:40:34Z,2018-02-13T21:47:07Z,2018-02-13T21:47:07Z,1,1,1,"Hello,
+I added my solution to used puppeteer into an AWS Lambda, using a npm dependency with last chrome compatible version, compressed and auto-decompress on the fly.",5,7
+2015,2018-02-12T22:14:51Z,,2018-05-03T18:31:33Z,3,59,14,"To be able to know when requests exactly have happened during the network timeline you need a timestamp. Here it is. Timestamp is null when intercepted, this is not available in the Devtools protocol.",5,11
+2016,2018-02-13T00:51:21Z,2018-02-13T19:00:38Z,2018-02-13T19:00:38Z,1,4,4,,2,0
+2017,2018-02-13T01:29:31Z,2018-02-13T18:59:30Z,2018-02-13T18:59:30Z,1,10,13,,2,0
+2023,2018-02-13T22:30:54Z,2018-02-15T00:37:41Z,2018-02-15T00:37:41Z,1,1,0,,2,1
+2024,2018-02-13T22:47:55Z,2018-02-14T01:11:44Z,2018-02-14T01:11:44Z,1,1,1,"This roll incudes:
+
+http://crrev.com/536370 - DevTools: allow remote debugging chrome over pipe instead of the port.",2,0
+2025,2018-02-14T02:37:01Z,2018-02-15T00:08:21Z,2018-02-15T00:08:21Z,3,29,10,"This patch:
+
+starts fulfilling security details for redirect responses
+changes response.securityDetails() to return null if the response
+is served over non-secure connection",2,0
+2032,2018-02-14T23:52:32Z,2018-02-15T01:51:30Z,2018-02-15T01:51:30Z,6,124,22,"This patch enhances appMode to use pipes as a transport to
+the browser instance instead of websocket.",4,5
+2036,2018-02-15T17:57:31Z,2018-02-15T21:24:25Z,2018-02-15T21:24:25Z,3,9,5,"This patch exposes ""browser"" target to the list of targets.",2,0
+2038,2018-02-16T12:13:20Z,,2018-02-22T00:35:00Z,3,22,8,"This patch extends the XPath detection from the basic prefix of // to the following prefix axis:
+
+/ Root
+// Anywhere
+./ Relative
+
+It also detects the following XPath node set functions:
+
+count(
+id(
+last(
+name(
+position(
+
+This is important because an XPath can look something like:
+id(""user-links"")
+count(//*)",2,2
+2043,2018-02-16T17:35:12Z,2018-02-16T19:24:22Z,2018-02-16T19:24:22Z,2,7,3,,2,0
+2056,2018-02-19T16:50:13Z,,2018-05-16T21:32:54Z,22,973,43,"This is a prototype for integrating Virtual Time with Puppeteer.  Virtual Time tries to make the browser deterministic (by controlling the renderer process's view of time, which is paused while there are pending network fetches) and to reduce the CPU load (not wall time) for renders by eliminating unnecessary compositing and JS execution.
+The general idea is the page should be (effectively) paused while it's being inspected, and after navigating or otherwise interacted with, some virtual time can be granted to let the page settle.  I've hooked this up to page.goto, page.waitFor() and page.screenshot.
+I've added a deterministic object to the launch parameters (which is used to turn virtual time on):  e.g.
+const browser = await puppeteer.launch({deterministic: {date: new Date()}});
+...
+The date controls what's returned by Date.now etc... in the browser.  Unless otherwise specified by deterministic:animationBeginFrameInterval, rAF now runs every 100 virtual milliseconds rather than at 60 fps.  RequestAnimationFrame no longer runs when virtual time is paused.
+NB VirtualTime is an experimental chromium feature, and Chrome 66.0.3347.1 or newer is required for all of the flags to work.",4,10
+2063,2018-02-20T17:20:01Z,2018-02-26T19:41:51Z,2018-02-26T19:41:51Z,1,1,1,,4,5
+2064,2018-02-20T17:58:40Z,2018-02-22T00:08:30Z,2018-02-22T00:08:30Z,3,10,1,fixes #1491,2,0
+2066,2018-02-20T21:11:14Z,,2018-03-13T18:13:01Z,9,164,7,,3,2
+2071,2018-02-21T22:39:51Z,2018-02-23T03:06:13Z,2018-02-23T03:06:13Z,3,27,2,fixes #2046,2,3
+2073,2018-02-22T03:33:56Z,2018-02-23T03:10:18Z,2018-02-23T03:10:18Z,2,24,1,Fixes #2021.,3,0
+2077,2018-02-22T19:05:40Z,2018-02-23T00:23:20Z,2018-02-23T00:23:20Z,1,2,0,,2,0
+2081,2018-02-23T03:22:18Z,2018-03-15T18:50:17Z,2018-03-15T18:50:17Z,1,4,1,Fixes #2053.,4,8
+2084,2018-02-23T09:32:29Z,,2018-03-30T19:41:47Z,2,7,5,Closes #2037,4,10
+2088,2018-02-23T16:42:27Z,2018-02-23T19:17:15Z,2018-02-23T19:17:15Z,1,10,0,,3,0
+2090,2018-02-23T20:12:33Z,2018-03-14T20:07:48Z,2018-03-14T20:07:49Z,7,42,6,fixes #2078,4,2
+2091,2018-02-23T20:23:26Z,2018-03-15T18:49:53Z,2018-03-15T18:49:53Z,1,17,2,"Objects {foo: 1, bar: 2} and {bar: 2, foo: 1} should be considered
+equal.",2,0
+2094,2018-02-24T03:51:33Z,2018-02-24T05:22:54Z,2018-02-24T05:22:54Z,4,30,2,"This patch adds ElementHandle.contentFrame() method that allows
+to get a reference to the Frame owned by the iframe.
+Fixes #433.",3,1
+2097,2018-02-24T06:29:01Z,2018-02-26T20:10:07Z,2018-02-26T20:10:07Z,5,122,107,This makes it easier to use only part of Puppeteer.,2,0
+2102,2018-02-26T18:51:20Z,2018-03-16T00:40:24Z,2018-03-16T00:40:24Z,1,8,4,... if the target pid does not exist.,3,6
+2109,2018-02-27T08:00:44Z,2018-03-07T06:01:43Z,2018-03-07T06:01:44Z,2,26,0,This should give some peace of mind that Puppeteer isn't leaving zombie Chromium processes everywhere as we make changes to the closing code.,2,3
+2113,2018-02-27T17:00:40Z,2018-03-01T21:06:23Z,2018-03-01T21:06:23Z,1,1,1,Per the documentation,5,3
+2122,2018-02-28T19:23:57Z,2018-03-13T16:25:26Z,2018-03-13T16:25:26Z,1,12,1,Just so folks are clear that you can un-subscribe from page events,3,0
+2132,2018-03-02T11:57:41Z,2018-03-07T09:35:16Z,2018-03-07T09:35:16Z,1,0,1,,3,4
+2133,2018-03-02T16:48:25Z,2018-03-07T05:50:07Z,2018-03-07T05:50:07Z,1,24,0,"Hello,
+I am very new to node/npm and it took me a bit to figure out how execute/run the examples in the README.  Likely obvious to those that run node all day, but hopefully this saves some time to other newbies.",4,1
+2135,2018-03-03T00:29:46Z,2018-03-07T05:49:02Z,2018-03-07T05:49:02Z,2,4,0,"add documentation pointing folks towards the puppeteer-to-istanbul connector.
+CC: @vkoves, @rjaltman, @aslushnikov
+see: #1768",2,0
+2152,2018-03-07T01:26:58Z,2018-03-12T18:34:34Z,2018-03-12T18:34:34Z,3,14,11,"I tried to add a test, but we don't have a good way to load file:// urls cross platform. I also found out that our type annotations for request and response were wrong.
+Fixes #2116",2,2
+2174,2018-03-10T17:11:05Z,2018-03-12T22:38:06Z,2018-03-12T22:38:06Z,2,11,1,"Now the error message will come with the url where the error was generated
+Fixes: #2165",2,1
+2177,2018-03-12T15:04:07Z,2018-03-13T14:42:38Z,2018-03-13T14:42:38Z,1,1,1,,5,4
+2180,2018-03-12T18:05:51Z,2018-03-13T14:44:15Z,2018-03-13T14:44:15Z,2,19,19,AppVeyour was configured to use the latest versions of Node for major releases. To make builds more reproducible I've changed both Travis and AppVeyor to use the same fixed versions of Node 6 and Node 7 that AppVeyor is using at the moment.,3,3
+2181,2018-03-12T20:19:58Z,2018-03-13T15:06:40Z,2018-03-13T15:06:40Z,6,77,1,"As opposite to #2178, this change configures Cirrus CI to run Puppeteer in both Windows and Linux containers.
+Here is a link to a corresponding Cirrus CI build:
+
+As you can see there are 4 auto-generate Docker Builder tasks to build custom Linux and Windows Docker containers. And 4 tasks to actually run tests in the cached containers. If interested read more about Cirrus CI's container builds in this blog post.",2,2
+2187,2018-03-14T06:53:01Z,2018-03-15T21:04:23Z,2018-03-15T21:04:23Z,1,1,1,,3,3
+2196,2018-03-15T07:00:25Z,2018-03-15T23:37:11Z,2018-03-15T23:37:11Z,2,9,1,"This roll contains a fix for boundingBox not forcing a layout, and the patch contains a corresponding test.",2,1
+2198,2018-03-15T07:37:31Z,2018-03-15T21:54:24Z,2018-03-15T21:54:24Z,2,46,11,"When the start of the function body was await, the async function transformer could break.",2,0
+2209,2018-03-16T13:25:28Z,2018-03-29T17:54:50Z,2018-03-29T17:54:50Z,1,4,0,,4,3
+2218,2018-03-17T14:24:10Z,2018-03-20T03:00:13Z,2018-03-20T03:00:13Z,11,1638,1462,"Started breaking page.spec.js to some small files, by subject.",2,2
+2232,2018-03-20T06:15:28Z,2018-03-28T20:11:52Z,2018-03-28T20:11:52Z,3,24,0,Adds an event for when a page closes.,2,2
+2246,2018-03-22T16:17:23Z,2018-03-29T17:46:01Z,2018-03-29T17:46:01Z,2,2,1,"Often we want to test changes on new chromium versions. At the moment we would have to switch from the default downloader to specifying our own executable and downloading that etc.
+Exposing this to an environment variable would make it easy to test against different chromium versions in CI environments.",4,3
+2252,2018-03-23T20:10:21Z,2018-03-28T23:34:38Z,2018-03-28T23:34:38Z,3,14,7,"closes #2200
+Maybe we should consider adding this feature to all available timeouts? (waitForSelector, waitForXPath etc.)",2,4
+2253,2018-03-23T20:57:35Z,2018-03-28T20:19:00Z,2018-03-28T20:19:00Z,1,2,2,,2,0
+2256,2018-03-25T18:04:49Z,2018-03-29T20:52:29Z,2018-03-29T20:52:29Z,3,82,3,"Fixes #1357 - expose element's boxModel.
+I wasn't sure how exactly do we want to represent boxmodel data, so I just represented it ""as is"": an object containing quads, exactly as it is represented in chromedevtools",3,2
+2257,2018-03-25T19:37:36Z,2018-03-29T17:42:23Z,2018-03-29T17:42:23Z,6,708,614,Break some large chunks into smaller files. This change will remove ~600 lines from page.spec.js,2,0
+2287,2018-03-29T21:08:12Z,2018-03-30T00:25:53Z,2018-03-30T00:25:53Z,3,103,17,"This patch:
+
+re-makes test for EH.boxModel to make it more readable
+slightly changes wording in the docs/api.md.
+
+References #1357.",2,1
+2289,2018-03-29T22:37:33Z,,2018-04-03T21:55:16Z,3,30,5,"This patch removes function creation from WaitTask, making the
+following methods work with strict CSP policy:
+
+frame.waitForFunction
+frame.waitForSelector
+frame.waitForXPath
+
+Page counterparts of the methods work as well.
+References #1229.",4,6
+2290,2018-03-30T11:52:00Z,2018-03-30T17:49:49Z,2018-03-30T17:49:49Z,2,5,2,Added process.env.npm_config_puppeteer_chromium_revision support. Clarify api documentation about variables from npm config,2,0
+2292,2018-03-30T14:05:58Z,2018-03-30T19:37:57Z,2018-03-30T19:37:57Z,2,18,5,"Closes #2037
+(no answer from @felixfbecker regarding #2084. Created a new PR. Sorry for that...)",3,1
+2302,2018-04-02T23:11:49Z,2018-04-03T17:26:21Z,2018-04-03T17:26:22Z,1,1,1,NPM 5+ --save is default to true,3,3
+2304,2018-04-03T21:30:21Z,2018-04-04T21:06:22Z,2018-04-04T21:06:22Z,5,50,40,"This converts externs.d.ts to export a global namespace instead of a UMD global.
+See: #2279 and microsoft/TypeScript#22969",2,0
+2306,2018-04-03T23:50:21Z,2018-04-04T21:03:07Z,2018-04-04T21:03:07Z,1,4,0,,2,0
+2314,2018-04-05T08:18:59Z,2018-04-05T20:08:29Z,2018-04-05T20:08:29Z,1,2,2,"Small spelling error in docs: ""Bare in mind"" -> ""Bear in mind""
+🐻",3,0
+2319,2018-04-06T01:20:18Z,2018-04-06T06:40:15Z,2018-04-06T06:40:15Z,2,13,0,"This patch adds a test that Page.evaluateOnNewDocument works
+with CSP: there's been some concerns on the bugtracker before.
+References #1229",2,1
+2320,2018-04-06T18:03:18Z,2018-04-06T20:17:56Z,2018-04-06T20:17:56Z,2,45,6,"This patch teaches Page.addScriptTag and Page.addStyleTag to throw
+an error when blocked by CSP.
+References #1229.",2,0
+2326,2018-04-07T03:03:40Z,2018-04-08T01:01:32Z,2018-04-08T01:01:32Z,1,2,0,,2,1
+2328,2018-04-07T08:44:51Z,2018-04-08T00:58:53Z,2018-04-08T00:58:53Z,9,88,37,This adds events and commands into protocol.d.ts,2,0
+2332,2018-04-08T19:09:23Z,2018-04-09T21:49:03Z,2018-04-09T21:49:03Z,2,30,15,"Handle errors property while sending Browser.close()
+Fixes #1429.",2,0
+2335,2018-04-09T21:23:20Z,,2018-07-26T23:28:18Z,4,79,2,"This relies on an upstream patch, but I expect bikeshedding on the API so I will do the roll separately.
+elementHandle.accessibleName() returns the computed accessible name for the node. This is not the entirety of what would be read by a screen reader for this element, that depends on the role and value of this node. But the accessible name is one of the hardest properties to compute because it can't be read directly from the aria attributes.",4,10
+2338,2018-04-10T00:04:22Z,2018-04-10T06:38:20Z,2018-04-10T06:38:21Z,5,123,5,"This patch fixes puppeteer navigation primitives to work with
+same-document navigation.
+In browser world, same-document navigation happens when document's URL is changed,
+but document instance is not re-created. Some common scenarios
+for same-document navigation are:
+
+History API
+anchor navigation
+
+With this patch:
+
+pptr starts dispatching framenavigated event when frame's URL gets
+changed due to same-document navigation
+page.waitForNavigation now works with same-document navigation
+page.goBack() and page.goForward() are handled correctly.
+
+Fixes #257.",2,0
+2339,2018-04-10T03:05:30Z,2018-04-10T22:59:42Z,2018-04-10T22:59:42Z,4,42,0,"This patch teaches Page.waitForNavigation to correctly handle navigation
+to pages with frames that might never load.
+These never-loading frames include:
+
+frames which main resource loading was aborted due to mixed-content
+error
+frames that called window.stop() to interrupt their loading
+
+Fixes #1936.",2,0
+2342,2018-04-10T06:01:43Z,2018-04-10T21:11:59Z,2018-04-10T21:12:00Z,2,8,1,"This patch ensures Chromium executable has permissions to be executed
+by non-owner users.
+Fixes #2283.",2,1
+2351,2018-04-11T01:49:54Z,2018-04-11T03:05:28Z,2018-04-11T03:05:28Z,2,2,1,Fixes #1834.,2,0
+2354,2018-04-11T07:22:51Z,2018-04-26T20:32:41Z,2018-04-26T20:32:41Z,1,11,0,Fixes #1860,2,2
+2355,2018-04-11T07:38:56Z,2018-04-11T22:25:43Z,2018-04-11T22:25:43Z,2,380,377,This patch moves network-related tests from page.spec.js into network.spec.js.,2,0
+2360,2018-04-11T20:17:02Z,2018-04-12T15:26:50Z,2018-04-12T15:26:51Z,3,43,7,Fixes #2148,3,0
+2361,2018-04-12T02:03:01Z,2018-04-16T23:53:10Z,2018-04-16T23:53:10Z,1,7,0,References #1879.,2,0
+2376,2018-04-14T10:29:16Z,,2018-09-04T19:24:49Z,4,34,8,"This patch exposes a remoteAddress property which is a formatted string containing the IP address and port of the remote server
+Closes #2171
+I wasn't sure if I should expose the remote address and port separately (rather than a formatted version), so please let me know if that's a better idea.",2,2
+2379,2018-04-14T18:51:50Z,2018-04-16T18:31:20Z,2018-04-16T18:31:20Z,1,1,1,"The implicit links doesnt render for the site:
+https://developers.google.com/web/tools/puppeteer/examples",2,0
+2387,2018-04-16T13:44:54Z,2018-04-17T17:37:17Z,2018-04-17T17:37:18Z,5,39,3,"As suggested in #2275, having access to the browser instance from the page object can be useful. This PR implements that.
+This is my first PR and I'm not intimately familiar with the architecture of puppeteer, so I'm not sure if this is the best way of implementing the feature, but feel free to show me the error of my ways if I'm doing something stupid.",4,2
+2400,2018-04-17T21:52:06Z,2018-04-28T04:40:10Z,2018-04-28T04:40:10Z,2,20,2,"WIP (I'm working on docs)
+Fixes #1939
+Question: Do we want to return a LogEntry object, similar to ConsoleMessage? (I guess the answer is yes, just making sure)",2,3
+2407,2018-04-18T06:44:35Z,2018-05-09T01:18:00Z,2018-05-09T01:18:00Z,4,52,6,"Still Work in progress, this is my first contribution to puppeteer.
+
+
+Just want to tell you guys this project does benefit tons of developers, great job 😎
+
+Description
+Add $eval to ElementHandle and also refactor the frame.$eval with elementHandle.$eval.
+Fixes #2401.
+Progress
+
+ feature implmentation
+ code review
+ $eval:
+
+ lint: npm run lint
+
+ eslint
+ doc lint
+
+
+ API guidelines
+ Unit test
+
+
+ $$eval:
+
+ lint: npm run lint
+
+ eslint
+ doc lint
+
+
+ API guidelines
+ Unit test",3,4
+2412,2018-04-18T22:01:09Z,2018-04-19T20:27:37Z,2018-04-19T20:27:37Z,1,2,0,,2,0
+2419,2018-04-19T20:14:38Z,2018-04-19T21:16:02Z,2018-04-19T21:16:03Z,1,1,1,Fixes #1600 (by pngjs/pngjs#110),2,0
+2425,2018-04-20T19:43:11Z,,2018-06-14T17:46:52Z,4,13,8,"This PR is a followup for the following discussion: #2418 (comment)
+I wasn't sure which message do we want for each scenario, and how exactly do we want to implement the entire feature (if we want it at all...). So it is a start - we can discuss it from here.
+it will fix #2420",4,8
+2426,2018-04-20T21:18:51Z,2018-04-23T17:01:17Z,2018-04-23T17:01:17Z,1,2,2,Quick fix of annotations in the test code,2,0
+2428,2018-04-22T23:30:39Z,2018-04-25T22:29:14Z,2018-04-25T22:29:14Z,1,1,1,"👋 Hey
+This is a fix for this issue jestjs/jest#5748
+In the issue, puppeteer.launch method is called from jest globalSetup script which is running on the same process as jest.
+Puppeteer catches SIGINT in order to kill chrome, but it also replaces the default behaviour of SIGINT, which is to exit with status code 130. In jest's case, the process does not exit, which keeps the process hanging in a weird way.
+This PR makes sure that the process exits after killing chrome.",5,13
+2434,2018-04-24T11:40:48Z,,2018-05-16T21:39:34Z,1,0,2,,4,3
+2450,2018-04-26T01:19:45Z,2018-04-26T03:19:41Z,2018-04-26T03:19:41Z,1,13,0,"There's no need to publish these files. This saves ~22kb
+in published size.",2,0
+2451,2018-04-26T03:02:34Z,2018-04-26T20:32:24Z,2018-04-26T20:32:24Z,1,24,1,"This was fixed upstream: https://crrev.com/550319
+Rolled into pptr: #2393
+Fixes #1506.",2,0
+2453,2018-04-26T07:36:16Z,2018-04-26T15:37:11Z,2018-04-26T15:37:11Z,1,4,4,,3,0
+2456,2018-04-26T12:10:37Z,,2018-05-16T22:05:55Z,4,39,0,add the mouseWheel event method . This method could scroll the page to a specific coordinate .,5,4
+2459,2018-04-26T15:59:42Z,2018-04-26T18:13:23Z,2018-04-26T18:13:23Z,2,6,3,"When failing, the "".not"" matchers should print their name
+with "".not"" prefix.",2,0
+2464,2018-04-27T18:49:49Z,2018-04-27T21:45:03Z,2018-04-27T21:45:04Z,1,48,0,fixes #2448,3,2
+2466,2018-04-27T22:09:09Z,2018-04-28T03:02:38Z,2018-04-28T03:02:38Z,1,1,0,,2,0
+2467,2018-04-27T22:30:55Z,2018-04-30T18:01:35Z,2018-04-30T18:01:35Z,1,21,1,I find this one to be the most useful in my day to day debugging,3,0
+2477,2018-04-30T11:14:15Z,2018-05-01T00:39:17Z,2018-05-01T00:39:17Z,1,1,1,"This roll includes:
+
+https://crrev.com/553657 - headless: create incognito profiles with
+Target.createBrowserContext
+
+References #85, #2473",2,0
+2478,2018-04-30T14:04:17Z,2018-05-02T22:51:45Z,2018-05-02T22:51:46Z,4,41,5,"Today, page.close() method doesn't run page's beforeunload listeners.
+This way users can be sure that page.close() actually closes the
+page.
+This patch adds an optional runBeforeUnload option to the
+page.close() method that would run beforeunload listeners. Note:
+running beforeunload handlers might cancel page closing.
+Fixes #2386.",2,1
+2493,2018-05-02T20:16:22Z,2018-05-16T21:36:35Z,2018-05-16T21:36:35Z,6,39,7,,5,4
+2495,2018-05-03T06:27:12Z,2018-05-03T23:03:10Z,2018-05-03T23:03:10Z,1,1,1,"This roll includes:
+
+https://crrev.com/555640 - DevTools: change Target.disposeBrowserContext
+to force-close WebContents
+
+References #85.",2,1
+2503,2018-05-04T16:36:06Z,2018-05-04T18:45:17Z,2018-05-04T18:45:17Z,2,21,2,Fixes #2502,3,0
+2522,2018-05-09T14:10:40Z,2018-05-09T17:11:22Z,2018-05-09T17:11:22Z,1,1,1,"This roll includes:
+
+https://crrev.com/556783 - Headless: posttask protocol message replies.
+https://crrev.com/556881 - Reland ""DevTools: change Target.disposeBrowserContext to force-close WebContents""""
+https://crrev.com/556923 - DevTools: untie browser context lifetime from protocol session
+https://crrev.com/556977 - DevTools: implement Target.getBrowserContexts() method
+https://crrev.com/557085 - DevTools: fix Target.disposeBrowserContext() to work with empty contexts
+https://crrev.com/557087 - Headless: Target.disposeBrowserContext() should close context
+
+References #85.",2,0
+2523,2018-05-09T21:01:07Z,2018-05-10T20:26:09Z,2018-05-10T20:26:09Z,7,395,33,"This patch introduces Browser Contexts and methods to manage them:
+
+browser.createIncognitoBrowserContext() - to create new incognito
+context
+browser.browserContexts() - to get all existing contexts
+browserContext.dispose() - to dispose incognito context.
+
+Fixes #85.",4,3
+2537,2018-05-11T19:49:22Z,2018-05-16T21:55:28Z,2018-05-16T21:55:28Z,3,31,31,,2,0
+2560,2018-05-16T23:22:45Z,2018-05-21T21:31:12Z,2018-05-21T21:31:12Z,9,228,7,"This adds page.workers(), and two events workercreated and workerdestroyed. It also forwards logs from a worker into the page console event.
+Only dedicated workers are supported for now, ServiceWorkers will probably work differently because they aren't necessarily associated with a single page.
+#2350",2,0
+2562,2018-05-17T00:09:29Z,2018-05-17T01:10:00Z,2018-05-17T01:10:00Z,2,15,10,"This patch starts explicitly passing allowed options to the Browser
+class. This, for example, makes it impossible to pass appMode as
+an option to the pptr.connect.",2,0
+2563,2018-05-17T01:02:22Z,2018-05-25T23:45:05Z,2018-05-25T23:45:05Z,2,9,5,"The in-page task should not set timeout when timeout is 0.
+Fixes #2540.",2,0
+2564,2018-05-17T01:08:26Z,2018-05-17T21:49:04Z,2018-05-17T21:49:04Z,1,2,0,References #2538.,2,0
+2572,2018-05-18T18:28:30Z,2018-05-25T23:44:25Z,2018-05-25T23:44:25Z,1,3,1,"If you're listening to errors reported via the 'pageerror' event, it's very odd for it to have a callstack from node appended to the clientside callstack.
+Repro:
+
+(async function() {
+  const browser = await puppeteer.launch();
+  const page = await browser.newPage();
+
+  page.on('pageerror', error => console.error('pageerror recieved', error));
+
+  await page.goto('https://output.jsbin.com/yuxaxeh/quiet');
+  await browser.close();
+})();
+
+Before
+
+After",3,0
+2578,2018-05-21T11:54:36Z,2018-05-21T21:37:59Z,2018-05-21T21:37:59Z,1,1,1,,2,2
+2580,2018-05-21T12:55:19Z,2018-05-21T20:08:32Z,2018-05-21T20:08:32Z,1,8,0,Added a missing test for the new elementHandle.$eval feature - should throw in case no match for selector.,2,0
+2582,2018-05-21T20:13:07Z,,2018-05-23T01:32:28Z,2,202,12,"This is blocked on https://chromium-review.googlesource.com/c/chromium/src/+/1066978
+Waits for navigations to resolve before returning the frame's execution context.",2,1
+2584,2018-05-21T22:38:22Z,2018-05-25T23:47:16Z,2018-05-25T23:47:16Z,1,7,3,Puppeteer tip-of-tree includes both workers and browser contexts.,2,0
+2586,2018-05-22T09:48:49Z,2018-05-30T21:27:08Z,2018-05-30T21:27:08Z,3,13,4,"Fixes #2566
+Add encoding to the options passed to screenshot. When set to base64 will return a base64 string instead of a buffer.",4,8
+2588,2018-05-22T17:26:46Z,2018-05-25T23:53:58Z,2018-05-25T23:53:58Z,3,25,1,Fixes 2501,7,5
+2589,2018-05-22T18:02:42Z,2018-05-25T23:56:51Z,2018-05-25T23:56:52Z,4,69,5,Fixes #2401,4,3
+2590,2018-05-23T01:36:42Z,,2018-06-07T16:12:09Z,3,262,19,"Waits for navigations to resolve before returning the frame's execution context.
+This PR currently does not work with navigations triggered by clicking on an anchor tag. That will require an upstream patch which is in progress. But this code is done, and once that upstream patch lands we can just enable the tests here.
+Unlike the previous PR, this one does not rely on a new protocol event frameCanceledNavigation. Instead, it simulates that event by listening to the network events.",2,1
+2594,2018-05-23T21:39:11Z,2018-05-26T00:26:40Z,2018-05-26T00:26:41Z,2,25,0,fixes #2402,3,5
+2595,2018-05-23T21:59:09Z,2018-05-26T00:28:14Z,2018-05-26T00:28:14Z,1,2,2,"Docs about page.$$eval and frame.$$eval are not accurate and might be confusing. document.querySelectorAll returns NodeList, while frame.$$eval is actually doing Array.from(querySelectorAll(selector)), which actually returns an array.
+This makes things this possible:
+await page.$$eval('div', divs => divs.map...)
+This patch fixes docs to mention that $$eval is actually performing:
+Array.from(querySelectorAll(selector))
+Which will let the user understand that the element he receives is an array, and not a NodeList.",2,0
+2596,2018-05-23T22:00:36Z,2018-05-31T01:08:27Z,2018-05-31T01:08:27Z,2,10,3,"Some of the worker tests were failing on the bots. After investigating, I found one race in the test, and one race upstream in Chromium which I filed upstream as https://crbug.com/846099. But I added a small hack here as a temporary workaround.",2,0
+2597,2018-05-23T23:17:44Z,2018-05-26T00:29:11Z,2018-05-26T00:29:11Z,1,1,2,A small refactor for cleaner code.,2,0
+2600,2018-05-24T10:06:43Z,2018-06-14T20:58:51Z,2018-06-14T20:58:52Z,4,16,4,Fixes #2438,3,5
+2622,2018-05-29T04:54:07Z,2018-05-29T22:30:09Z,2018-05-29T22:30:09Z,4,15,1,"Scrollbars look different on different platforms, so must be made invisible in tests. As a drive-by, xdescribe was broken with the new test runner.",2,0
+2623,2018-05-29T10:49:35Z,2018-05-29T22:25:21Z,2018-05-29T22:25:22Z,1,6,6,,3,0
+2624,2018-05-29T16:30:51Z,2018-05-29T22:24:27Z,2018-05-29T22:24:27Z,1,2,2,"There are a few github issues where people didn't realise that that Puppeteer already provides the ability to monitor network requests (and even intercept them).  Despite reading the API docs, I couldn't find these abilities - instead, I found them by reading the issues.  So I've proposed a couple of minor documentation changes which would have helped me, and hopefully would help others.",4,3
+2625,2018-05-29T18:02:30Z,2018-05-29T22:23:33Z,2018-05-29T22:23:33Z,3,33,12,"Previously protocol.d.ts was generated on npm run tsc. This was inconvenient because it meant that vscode checking was wrong until type checking was run manually, and was inefficient because it necessarily regenerated the types even if no new Chromium was downloaded. This patch generates the types when npm install is run from the github checkout, assuming a new Chromium revision was downloaded.",2,0
+2631,2018-05-30T20:45:19Z,2018-06-18T20:41:04Z,2018-06-18T20:41:04Z,1,19,14,New way is faster and cleaner.,2,3
+2633,2018-05-31T05:18:24Z,2018-06-01T00:38:31Z,2018-06-01T00:38:31Z,3,61,7,"This patch introduces Request.isNavigationRequest() method.
+Fixes #2627, #1132.",2,0
+2635,2018-05-31T07:49:23Z,2018-05-31T21:20:41Z,2018-05-31T21:20:41Z,1,11,36,"This patch changes utils/check_availability.js to fetch last revisions
+per platform when ran without any arguments.",2,0
+2636,2018-05-31T08:25:21Z,2018-05-31T21:21:44Z,2018-05-31T21:21:44Z,4,57,11,"This patch drops the markdown-toc module and instead rolls out
+our own simple markdown table-of-contents generator.
+As a side effect, it fixes links to page.$ and page.$$.",2,0
+2637,2018-05-31T08:58:24Z,,2018-06-14T17:26:16Z,2,3,0,Fixes #1300.,3,1
+2641,2018-05-31T13:51:24Z,2018-06-01T00:06:30Z,2018-06-01T00:06:30Z,5,46,0,"feat(targets): add target.opener()
+This adds a .opener property to a target so that its origin can be tracked.
+For now returns null when there's no openerId.
+Fixes #1830",3,0
+2643,2018-05-31T14:23:24Z,2018-05-31T19:07:49Z,2018-05-31T19:07:49Z,1,1,0,Related to #1916,2,1
+2646,2018-05-31T19:11:23Z,2018-05-31T23:53:52Z,2018-05-31T23:53:52Z,19,105,83,"Since Node 10, console.assert no longer throws an AssertionError.
+(This is generally good since it aligns Node.js with Browsers.)
+This patch migrates all usages of console.assert in our codebase.
+
+All the lib/ and testing code is migrated onto a handmade assert
+function. This is to make Puppeteer transpilation / bundling easier.
+All the tooling is switched to use Node's assert module.
+
+Fixes #2547.",2,0
+2654,2018-06-01T12:17:21Z,2018-06-01T18:26:41Z,2018-06-01T18:26:41Z,1,1,1,client.on is not async.,2,0
+2657,2018-06-01T18:49:40Z,2018-06-01T20:48:35Z,2018-06-01T20:48:35Z,4,82,48,,2,0
+2660,2018-06-01T21:02:45Z,,2018-06-02T16:47:21Z,1,3,3,,2,1
+2666,2018-06-02T17:09:23Z,2018-06-02T18:45:14Z,2018-06-02T18:45:14Z,1,2,0,"Win bots all fail on Cirrus; disable them until the issue is resolved.
+We still have win coverage with AppVeyour.",2,1
+2673,2018-06-04T13:11:07Z,2018-07-12T00:51:05Z,2018-07-12T00:51:05Z,3,71,0,"Add API to define is element visible in viewport via Intersection Observer
+References #2629",5,13
+2677,2018-06-05T21:03:40Z,2018-06-07T01:16:18Z,2018-06-07T01:16:18Z,8,100,41,"This adds worker.evaluate and worker.evaluateHandle methods as a shortcut to their execution context equivalents. It also moves the worker tests into their own spec file, and makes the error messages a bit nicer when interacting with a closed worker (as opposed to a closed page).",3,1
+2681,2018-06-06T04:05:34Z,2018-06-06T14:48:57Z,2018-06-06T14:48:57Z,2,1,7,"Contains https://chromium-review.googlesource.com/c/v8/v8/+/1086372, which should fix worker flakiness.
+Fixes #2632",2,0
+2690,2018-06-06T20:16:30Z,2018-06-07T01:12:44Z,2018-06-07T01:12:45Z,1,1,1,fixes #2684,4,3
+2693,2018-06-06T23:31:46Z,,2018-06-14T18:35:22Z,4,32,0,"In response to #2410.
+Snapshot of properly aligned text:
+
+Looking for feedback on snapshot test which
+
+is probably not in the right place within the testing suite
+is failing for me on Linux, with the snapshot being different from the expectation, but not visibly so.",5,4
+2695,2018-06-07T05:09:18Z,2018-06-07T16:38:50Z,2018-06-07T16:38:50Z,1,22,0,,2,0
+2697,2018-06-07T15:59:39Z,2018-06-07T18:21:36Z,2018-06-07T18:21:36Z,3,40,21,"Log.entryAdded doesn't report all the arguments from console logs. This PR switches to use Runtime.consoleAPICalled.
+fixes #2640",2,0
+2702,2018-06-08T00:01:14Z,2018-06-14T17:33:06Z,2018-06-14T17:33:06Z,1,1,1,"I've been told that this will make our JavaScript tracing 💯x more accurate, at minimal performance loss. Let's turn it on for everyone always.
+alternative to #2637",2,0
+2711,2018-06-10T08:22:30Z,2018-06-14T17:25:28Z,2018-06-14T17:25:28Z,1,1,1,"Fix documentation errors.
+I think this was a mistake.",3,3
+2715,2018-06-11T15:33:47Z,2018-06-14T17:23:14Z,2018-06-14T17:23:14Z,2,13,1,"Of course, strings aren't proper errors, but scripts sometimes do that, and Puppeteer loses such error messages.",2,1
+2718,2018-06-11T21:17:06Z,2018-06-13T19:47:29Z,2018-06-13T19:47:29Z,1,1,0,TypeScript is unhappy when we pass this around in a constructor. Manually typing this._frameManager causes many more types to be inferred later on in the code.,2,0
+2723,2018-06-13T08:27:14Z,2018-06-14T03:49:25Z,2018-06-14T03:49:25Z,1,2,2,"I guess this was a mistake in the docs. The return type of elementHandle.$x is actually Promise<Array<ElementHandle>>, not Promise<?ElementHandle>.
+See https://github.com/GoogleChrome/puppeteer/blob/master/lib/ElementHandle.js#L319",2,0
+2736,2018-06-14T10:15:07Z,2018-06-14T17:18:03Z,2018-06-14T17:18:03Z,1,1,1,"Date.prototype.toString may return non-ASCII characters, which aren't accepted by setHeader.
+E.g., on Russian locale, it might look like this:
+> new Date().toString()
+'Thu Jun 14 2018 13:11:50 GMT+0300 (Финляндия (лето))'",2,0
+2740,2018-06-14T19:51:06Z,2018-06-14T21:28:53Z,2018-06-14T21:28:53Z,2,4,5,"Fixes #2708
+elementHandle.$$eval introduced a breaking change in page.$$eval: In case of an empty selector, it throws an error. I'm not sure what is the best solution for that, so I added this PR, mainly for discussion.
+Possible solutions:
+
+Remove the check for $$eval empty result from elementHandle.$$eval (which will also be a breaking change for this feature?). We can fix this later on V2.0.0.
+Remove the usage of elementHandle.$$eval in frameManager.$$eval. This will undo the breaking change, leaving elementHandle.$$eval with the test for empty result.
+Do nothing...",3,0
+2766,2018-06-18T21:41:52Z,2018-06-19T07:33:45Z,2018-06-19T07:33:45Z,1,3,4,There was a ._page property on frames which was unused (and not typed).,2,0
+2769,2018-06-19T07:32:21Z,2018-06-19T20:46:09Z,2018-06-19T20:46:09Z,2,6,1,"This roll includes:
+
+https://crrev.com/568341 - DevTools: force-create execution contexts for mixed content iframes
+
+Fixes #2709.",2,0
+2770,2018-06-19T07:54:30Z,2018-06-19T17:35:14Z,2018-06-19T17:35:14Z,2,8,6,"These tests were not awaiting page.evaluate command, so
+page could have been closed before the command returned.",2,1
+2771,2018-06-19T13:12:21Z,2018-06-19T17:46:18Z,2018-06-19T17:46:18Z,2,4,0,"As the title indicated, adds two allowed error codes that are specified in the Chrome Developer Tools Protocol specifications but missing from the Puppeteer enum:
+https://chromedevtools.github.io/devtools-protocol/tot/Network#type-ErrorReason",3,3
+2776,2018-06-20T05:29:46Z,2018-07-12T21:36:32Z,2018-07-12T21:36:32Z,4,172,0,"Resolves #2362
+Introduced waitForRequest and waitForResposne methods with the ability to handle a URL as a String or RegExp. My implementation is heavily based on the waitForNavigation method with a new file NetworkWatcher that works exactly like NavigatorWatcher.",4,11
+2787,2018-06-21T16:09:02Z,2018-06-21T17:20:40Z,2018-06-21T17:20:40Z,1,1,1,Fixes: #2765,2,0
+2788,2018-06-21T17:30:37Z,2018-06-26T20:42:51Z,2018-06-26T20:42:51Z,3,17,12,,3,1
+2795,2018-06-23T19:18:24Z,2018-06-25T22:10:37Z,2018-06-25T22:10:37Z,3,10,2,This will fix #2761,2,0
+2796,2018-06-24T03:27:48Z,2018-07-12T01:38:35Z,2018-07-12T01:38:35Z,5,47,13,Resolves #2777,3,5
+2805,2018-06-26T21:43:10Z,2018-06-27T01:03:01Z,2018-06-27T01:03:01Z,1,14,0,References #1247,2,0
+2812,2018-06-28T00:26:15Z,,2018-07-12T00:05:31Z,7,109,14,,3,1
+2814,2018-06-28T07:36:00Z,2018-06-28T20:22:53Z,2018-06-28T20:22:53Z,3,7,2,"This roll includes:
+
+https://crrev.com/570566 - DevTools: teach DOM.getBoxModel to work with SVG nodes
+
+Fixes #1247.",2,0
+2816,2018-06-29T00:18:18Z,2018-06-29T01:48:45Z,2018-06-29T01:48:45Z,5,16,36,"EmualationManager used to be injecting touch hooks to properly
+support touch emulation.
+However, these are no longer necessary, since https://crbug.com/133915
+is long fixed.",2,2
+2817,2018-06-29T05:29:50Z,2018-06-29T17:00:43Z,2018-06-29T17:00:43Z,1,1,1,"This roll includes:
+
+https://crrev.com/571235 - DevTools: introduce DOM.getContentQuads protocol method
+
+References #2798.",2,0
+2821,2018-06-29T14:32:43Z,2018-06-29T16:57:03Z,2018-06-29T16:57:03Z,1,2,0,"Adds guidance for producing accurate colors in PDF output. page.pdf() can produce unexpected document colors unless forced to render exact colors.
+References #2685",3,3
+2822,2018-06-29T17:07:55Z,2018-06-29T19:03:02Z,2018-06-29T19:03:03Z,3,79,22,"This patch teaches Puppeteer to click elements that are
+part of inline layout and that wrap on multiple lines.
+Fixes #2798.",2,0
+2824,2018-06-29T23:03:19Z,2018-07-31T18:22:27Z,2018-07-31T18:22:27Z,2,14,7,"This changes sendCharacter to use document.execCommand instead of sending a 'char' event from the protocol. This is more aligned with how input would come in from emoji keyboards, and removes the 3ish byte limit on characters that can be sent which prevented larger emoji from being rendered correctly.
+Emoji will still fail to type correctly if typing them into an iframe that is in shadow dom.
+fixes #1096",3,3
+2826,2018-06-30T00:40:07Z,2018-07-05T06:13:26Z,2018-07-05T06:13:26Z,1,59,19,,2,1
+2827,2018-06-30T00:47:49Z,2018-06-30T04:35:52Z,2018-06-30T04:35:52Z,1,1,1,,2,0
+2829,2018-06-30T12:05:20Z,,2018-09-04T18:57:04Z,3,77,0,Implements feature described in #2671,5,6
+2838,2018-07-03T01:07:44Z,2018-07-04T23:36:49Z,2018-07-04T23:36:49Z,1,1,1,"When closing Chromium with the Browser.close protocol command, the 'exit' event can sometimes fire 15 seconds before the close event. This is causing our user-data-dir tests to timeout on the bots.",3,1
+2841,2018-07-04T04:21:56Z,2018-07-05T00:01:40Z,2018-07-05T00:01:40Z,1,3,3,,2,0
+2843,2018-07-04T18:11:50Z,2018-07-04T23:39:10Z,2018-07-04T23:39:10Z,2,9,2,fixes #2653 - better timeout stack trace,2,0
+2847,2018-07-05T11:13:41Z,,2018-07-09T19:08:55Z,3,46,1,add AllCookies function which returns all the cookies in the cookie jar,2,1
+2858,2018-07-09T13:49:22Z,2018-07-09T18:56:31Z,2018-07-09T18:56:31Z,1,1,1,,2,0
+2863,2018-07-10T16:10:57Z,2018-07-12T00:07:27Z,2018-07-12T00:07:27Z,1,1,1,"Slight improvement to usability of README: Those versions of Node are old enough that I think Caution is overkill, and suggest changing it to just Note",2,0
+2874,2018-07-12T01:07:12Z,2018-07-12T04:04:37Z,2018-07-12T04:04:37Z,4,24,60,"This patch:
+
+simplifies test reusing the offscreenbuttons.html asset
+aligns IntersectionObserver usage with the one we have for
+ElementHandle._scrollIntoViewIfNeeded.",2,0
+2875,2018-07-12T01:54:44Z,2018-07-12T04:05:17Z,2018-07-12T04:05:17Z,2,23,22,"Chrome DevTools shows anonymous scripts with yellow background and names
+them with debugger://VM<scriptId> prefix.
+This patch starts reporting the same debugger:// urls for anonymous
+scripts in puppeteer's JS coverage. This might simplify debugging, e.g.
+using debugger; statement to reveal the script in DevTools and later
+matching it against the one in the coverage.",2,0
+2890,2018-07-15T19:07:19Z,2018-07-16T22:07:55Z,2018-07-16T22:07:55Z,1,1,1,"Fixes typo in ElementHandle.asElement method, the return value was written without upper camelcase and since it returns a class, it should.",3,3
+2893,2018-07-16T04:51:04Z,2018-07-19T02:33:52Z,2018-07-19T02:33:52Z,3,37,23,"Resolves #2823
+Took a stab at expanding docs on working with extensions.
+@aslushnikov let me know if this aligns with what you had in mind.",2,0

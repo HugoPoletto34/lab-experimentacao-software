@@ -1,0 +1,853 @@
+number,created_at,merged_at,closed_at,files,additions,deletions,body_text,participants,comments
+9,2016-12-28T04:16:33Z,2017-01-04T01:22:16Z,2017-01-04T01:22:16Z,3,50,4,@goodmanship I'm creating this draft PR from your branch so we can discuss the code changes.,3,2
+12,2017-01-04T23:33:35Z,2017-01-05T01:08:25Z,2017-01-05T01:08:25Z,4,10,7,"new since i last merged:
+
+test actually tests something
+version bump",3,4
+47,2017-03-29T15:21:12Z,,2017-03-31T00:37:09Z,5,75,39,"Added the Web interface/dashboard to the docker image (and little refactor for comments in the Makefile).
+NOTE: I temporary excluded ElasticSearch from DEFAULT_APIS list inside localstack/mock/infra.py due to #46",3,8
+86,2017-05-03T05:46:36Z,2017-05-13T11:37:21Z,2017-05-13T11:37:21Z,2,15,1,Added docker-compose.yml for another option for running localstack,3,5
+95,2017-05-05T18:29:53Z,,2017-05-09T02:12:38Z,7,118,20,"delete_function will no longer error out (500 internal error) when deleting a function that doesn't exist
+added update_event_source_mapping
+added delete_event_source_mapping
+list_event_source_mappings is modified per AWS doc, it will return all mappings unless EventSourceArn and/or FunctionName are in the request, in which case only matched items will be returned. This helps the user decide if a specific mapping already exists before calling update_event_source_mapping",3,4
+160,2017-07-15T14:41:14Z,2017-07-15T15:50:18Z,2017-07-15T15:50:18Z,1,7,0,"I use S3 and DynamoDB on localstack.
+Thank you for commit 985a840 which I am needed.
+But still CORS error occured as following.
+
+So I added Access-Control-Allow-Headers and It worked well.
+Best regards.",2,1
+224,2017-07-31T23:06:03Z,2017-08-05T08:02:28Z,2017-08-05T08:02:28Z,11,95,13,I'll need some guidance to get the test in working order. Fixes #222,2,2
+267,2017-08-27T06:59:16Z,2017-08-29T05:11:49Z,2017-08-29T05:11:49Z,2,228,0,"S3 offers a POST operation for use in browser-based uploads: http://docs.aws.amazon.com/AmazonS3/latest/API/RESTObjectPOST.html
+
+POST is an alternate form of PUT that enables browser-based uploads as a way of putting objects in buckets. Parameters that are passed to PUT via HTTP Headers are instead passed as form fields to POST in the multipart/form-data encoded message body.
+
+This change modifies HTTP request bodies and response headers to match Amazon’s documented behavior. I’ve made these changes in localstack.services.s3.s3_listener.ProxyListenerS3 — is this a good place for them? If yes, I’ll follow up with a few tests of the new behavior.
+
+ Add tests",2,8
+299,2017-09-04T12:45:12Z,2017-09-05T01:18:18Z,2017-09-05T01:18:18Z,46,146,175,Enable flake8 and fix all lint errors,2,0
+311,2017-09-11T20:51:32Z,2017-09-13T17:39:39Z,2017-09-13T17:39:39Z,1,18,2,"Added known function details to create-function response.
+Sample call:
+aws --endpoint-url http://localhost:4574 lambda create-function --runtime python3.6 --role Nobody --handler lambda.score_plan --function-name 'WOMP' --zip-file fileb://lambda.zip --description 'the-desc' --timeout 30 --memory-size 128 --publish --dead-letter-config TargetArn=the-dlc
+
+Sample output:
+{
+    ""FunctionName"": ""WOMP"",
+    ""FunctionArn"": ""arn:aws:lambda:us-east-1:000000000000:function:WOMP"",
+    ""Runtime"": ""python3.6"",
+    ""Role"": ""Nobody"",
+    ""Handler"": ""lambda.score_plan"",
+    ""Description"": ""the-desc"",
+    ""Timeout"": 30,
+    ""MemorySize"": 128,
+    ""VpcConfig"": {
+        ""SubnetIds"": [
+            null
+        ],
+        ""SecurityGroupIds"": [
+            null
+        ]
+    },
+    ""DeadLetterConfig"": {
+        ""TargetArn"": ""the-dlc""
+    },
+    ""Environment"": {
+        ""Variables"": {},
+        ""Error"": {}
+    },
+    ""TracingConfig"": {}
+}
+
+
+ Add tests if this makes sense.
+
+Closes #305.",2,3
+322,2017-09-14T14:48:45Z,,2017-10-08T20:04:36Z,1,22,0,Attempt to fix #321,2,2
+347,2017-09-23T21:55:41Z,2017-09-25T01:00:41Z,2017-09-25T01:00:41Z,4,63,72,,2,4
+351,2017-09-27T02:43:29Z,2017-09-30T04:25:39Z,2017-09-30T04:25:39Z,4,224,34,Also allow the invocation of versions and aliases by placing the function in the versions dictionary of LambdaFunction,2,2
+358,2017-09-29T00:22:01Z,,2017-10-07T23:09:51Z,1,4,0,"Please refer to the contribution guidelines in the README when submitting PRs.
+The subject is empty for http endpoints. This is an easy fix that adds the subject to the message.",2,4
+403,2017-10-13T18:10:40Z,2017-10-14T00:49:51Z,2017-10-14T00:49:51Z,1,24,2,"ShardIDs returned from the DynamoDBStreams emulator now mimic ShardIDs
+in the production service.  Namely, they comply with the length requirements
+in botocore.  Each returned ShardID is > 28 characters in length.
+As ShardIDs from Kinesis are appended with -$UUID5.  The UUID5 value
+generated is relative to the Kinesis stream name as well as the Kinesis
+ShardID, ensuring that the value is consistent across multiple calls to
+describe_stream.  Before ShardID values are passed through to
+Kinesis, they are unwrapped to the original Kinesis value.
+Please refer to the contribution guidelines in the README when submitting PRs.",2,1
+415,2017-10-19T00:09:26Z,2017-10-23T23:33:44Z,2017-10-23T23:33:44Z,1,26,5,"See comment for details: #359 (comment)
+It seems there is an issue that uploads over >128k do not work with the same error as being reported here. I get a message such as:
+Unable to verify integrity of data upload.  Client calculated content hash (contentMD5: 8eET31STItFmGOd/IrNlCA== in base 64) didn't match hash (etag: 7eebd4a71c4c983bd38c1a227c22b236 in hex) calculated by Amazon S3.  You may need to delete the data stored in Amazon S3. (metadata.contentMD5: 8eET31STItFmGOd/IrNlCA==, md5DigestStream: null, bucketName: 4d52e9a7-8666-4149-9ff8-70d22e035782, key: 187c0368-1f2b-4062-883a-cf40ccfff568)
+
+
+Additionally if I suppress the exception and continue anyway the assert on the lengths of the returned object differs... so it would appear uploads over 128k are indeed getting corrupted:
+java.lang.AssertionError: array lengths differed, expected.length=156482 actual.length=156478
+	at org.junit.Assert.fail(Assert.java:88)
+       ...
+
+This does seem to be a Java SDK specific issue. Or at least I have no problem uploading >128k objects using the AWS CLI.",2,7
+479,2017-11-22T02:39:16Z,2017-11-22T13:40:43Z,2017-11-22T13:40:43Z,2,2,1,"Hi,
+When you try to use Serverless Framework with Localstack is impossible to deploy because the Cloudformation generated by Serverless doesn't come with AccessControl property so the deployment breaks, I debug into the issue and we only need to make a quick fix and set a default value for this ACL to continue with the deployment.
+This also fixes the issue #475  that I reported before.
+NOTE: I also add a gitignore entry because I use PyCharm as IDE and there always create an .idea directory.",2,3
+499,2017-12-07T20:57:39Z,2017-12-13T16:09:35Z,2017-12-13T16:09:35Z,20,1030,18,"I couldn't get the existing JUnit Test Runner to work on Windows, so I created a new test runner that leverages the localstack docker image.
+The only dependency is to have docker installed so this should play nice on all environments.
+The TestRunner will automatically pull the localstack image, start up a container, wait for it to be ready, and shut down the container after the suite is completed.",2,3
+500,2017-12-08T13:46:25Z,2017-12-28T01:35:30Z,2017-12-28T01:35:30Z,3,99,5,"According to amazon documentation, RequestHandler can use POJOs as input: http://docs.aws.amazon.com/lambda/latest/dg/java-programming-model-req-resp.html
+Executor will learn the type and try to deserialise the payload, then serialise the response if possible.
+It will continue as normal if unable to serialise/deserialise.
+One thing I did not do was to bump localstack-utils version, but since the build process requires some additional work I hope I can leave it up to @whummer ;)",2,3
+518,2017-12-19T11:18:49Z,2017-12-27T21:09:29Z,2017-12-27T21:09:29Z,5,253,2,"Initial Support for the DynamoDB Event - for the use in Java Lambda,
+the overall Java Executor would deserve some love. Will try to spend more time on this.
+Still would require a bit more testing but it is pretty close.",3,2
+550,2018-01-11T19:30:39Z,2018-01-24T05:13:06Z,2018-01-24T05:13:06Z,1,35,5,"Currently Firehose doesn't have any testing so I'm not sure on how to test this new feature. But any feedback is appreciated.
+We have a system where we need to stream all of our dynamodb records straight into elastic search via FIrehose.",3,5
+567,2018-01-21T04:39:17Z,,2019-06-09T09:33:33Z,14,201,17,"Added support for identifying the docker network when running lambda functions in docker containers
+
+The docker network used when running lambda functions in a container may be specified with the LAMBDA_DEFAULT_DOCKER_NETWORK and LAMBDA_SUBNET_AS_DOCKERNET environment variables along with the subnet specified in the lambda's vpc config
+
+
+
+Added environment variables specifying the function arn and function name
+for use in docker command options -- useful when combined with LAMBDA_DOCKER_OPTIONS
+
+
+fixed issue where environment variables were not returned in get_function_configuration
+
+
+Added support for custom docker actions when running lambda functions in docker containers
+custom options to be passed to docker can be specified via the LAMBDA_DOCKER_OPTIONS
+environment variables
+
+
+Added test configurations for lambda docker network config
+
+
+Added lambda networking test to travis build
+
+
+While this pull request is active, I am maintaining a docker image with these changes in the docker registry by the name of gadgetjunkie/localstack.  Feel free to use it as you see fit.",10,13
+568,2018-01-21T04:40:31Z,2018-01-21T17:40:32Z,2018-01-21T17:40:32Z,1,17,5,"- call s3 lambda notifications asyncronously
+    - send notifications when files are uploaded via POST method",2,1
+574,2018-01-22T23:51:23Z,2018-01-24T05:02:28Z,2018-01-24T05:02:28Z,2,48,2,"To be consistent with behavior in AWS, set SNS message subject to
+'Amazon S3 Notification' when publishing to SNS in response to actions in S3.
+Messages going to Lambda or SQS are unaffected.
+Created a test for this in integrations/test_notifications.py",2,1
+599,2018-02-05T15:14:05Z,2018-02-18T20:24:24Z,2018-02-18T20:24:25Z,3,154,1,"Mocks UpdateTimeToLive, DescribeTimeToLive, TagResource, UntagResource & ListTagsOfResource apis as they are not implemented in DynamoDB.
+Default response for DescribeTimeToLive is DISABLED.
+Fixes this issue when integrating Terraform with localstack endpoints
+
+Tested on terraform with dynamodb endpoint redirected to localstack dynamodb endpoint where the dynamodb tables in terraform files have ttl & tags attributes.",3,4
+665,2018-03-13T21:29:52Z,2018-03-20T16:16:05Z,2018-03-20T16:16:05Z,8,307,168,"The idea of this little refactoring is to extract the Container initialization from the JUnit Runner, so we can manage programmatically a docker container. This way we can use the Java lib not only for tests, but to develop and to test integrated with Spring, for instance.",2,5
+668,2018-03-15T21:09:29Z,2018-03-20T16:13:39Z,2018-03-20T16:13:39Z,2,129,78,"Fixes issue #516.
+As stated in AWS Documentation if the message has a JSON MessageStructure it must contain a top-level JSON key of “default”,  other top-level keys can be defined to specific transport protocols.
+So for a JSON MessageStructure if I have a message like this:
+{‘default’: ‘message’, ‘sqs’: ‘sqs message’}
+It firsts search for the subscriber protocol, if not found it will use the default value.
+If the message’s MessageStructure is not set, nothing is changed.",2,2
+672,2018-03-20T22:10:07Z,,2018-12-08T21:30:53Z,3,7,2,"First, thanks for your amazing work on localstack!
+Please treat this as a start of a conversation rather than a full-featured PR. I'm not certain that this is the right direction and would love your feedback.
+Motivation
+The issue I'm having is that I'm running localstack behind a proxy, which is running on a specific host (which is covered by HOSTNAME_EXTERNAL, but is also on a different port from that of the proxy. So, when SQS returns the queue URL it returns the HOSTNAME_EXTERNAL that I set, but returns the local port and not the port that the client requests the proxy with.
+[proxy:80] -> [localstack:4576] -> [elasticmq:4561]
+What I've done at the moment, is I've set my SQS port to :80 (which is what my proxy wants). This works, but in my opinion is more of a workaround because any other service needs to return a URL pointing back to itself, I will not be able to also put it on :80 as it will be taken by SQS.
+Proposed solution
+So, the solution I'm proposing is to define a <SERVICE>_PORT_EXTERNAL and use that along with HOSTNAME_EXTERNAL. Alternatively (and if there are no plans to use HOSTNAME_EXTERNAL as a single external hostname for all services) we can change it to something like <SERVICE>_EXTERNAL_URI, which would be a host:port combination specific to a service.",3,4
+674,2018-03-21T16:44:55Z,2018-03-31T18:28:07Z,2018-03-31T18:28:07Z,3,350,37,"See: https://docs.aws.amazon.com/sns/latest/dg/message-filtering.html
+This pull request adds support for SNS subscription filters. These filters decide which messages on the topic the subscriber will accept. If a message does not meet the filter conditions then it will not be passed to the subscriber.
+Specifically each attribute in the filter policy will be matched against that corresponding attribute in the messages' MessageAttributes. If the value of the attribute fails to match at least one of the conditions specified against the attribute in the filter, then it will not be passed to the subscriber.
+Currently AWS supports the following:
+
+Exact matches (whitelisting)
+Anything-But (blacklisting)
+Prefix
+Numeric (=, >, <, >=, <=)
+AND/OR logic",5,5
+686,2018-03-28T19:28:28Z,2018-05-02T00:54:33Z,2018-05-02T00:54:33Z,2,140,3,These updates came from testing with Terraform.  Terraform would fail to create the Elasticsearch domain because it never saw it as completed.  Making these changes allowed creating an Elasticsearch domain and applying an access policy to that domain for testing.,2,5
+700,2018-04-02T18:52:26Z,,2022-06-23T08:32:54Z,2,197,18,"The following issues are corrected:
+
+windows paths are injected into the bash scripts (fixed by converting to linux paths)
+commands passed into bash on windows must be enclosed in quotes
+Process.waitFor() not working as expected on Windows (with embedded Linux)
+reading the output streams from bash running in the java process problematic, leading to the following adjustments:
+
+process.waitFor() changed to process.waitFor(timeout) with suitable timeouts selected based on empirical data
+workarounds for all the stream reads put in place
+
+
+
+Also added additional helpful logging/output which will assist Windows users in troubleshooting.
+Tested on Windows 10 using the Linux Subsystem for Windows.  All of the localstack tests pass except for the SQS messaging tests.
+┆Issue is synchronized with this Jira Bug by Unito",4,4
+705,2018-04-04T18:42:00Z,2018-04-05T13:02:17Z,2018-04-05T13:02:17Z,1,1,1,"This upgrades the Kinesalite dependency to version 1.13.0.
+This version is significant because of the following resolved issue, which prevented testing of the KCL versions 1.9.x:
+mhart/kinesalite#59",3,1
+759,2018-05-11T19:13:45Z,2018-05-24T12:22:01Z,2018-05-24T12:22:01Z,2,2,2,"On OSX, I am having permission errors and related, when trying deploy a simple Serverless function using Python runtime.
+Caveats of this PR:
+
+Tests will be added later, before merging the PR
+Squashing can be done on merge, to keep the blame and reasoning before the merge.",2,1
+814,2018-06-20T23:19:11Z,2018-07-07T17:43:21Z,2018-07-07T17:43:21Z,4,59,13,"This allows the API Gateway integration to properly dispatch HTTP requests to resources setup with HTTP method ANY.
+Hopefully, this should fix #667 ... and maybe #449 as well.",3,1
+821,2018-06-29T15:58:19Z,2018-07-05T04:58:31Z,2018-07-05T04:58:31Z,1,2,2,"Fixes #761, and formatting of object path.",3,3
+827,2018-07-02T20:31:36Z,2018-07-07T17:44:30Z,2018-07-07T17:44:30Z,9,75,75,"async is a reserved keyword in Python 3.7 and currently breaks localstack, replaced all references with asynchronous. Tests passing.
+See:
+
+https://docs.python.org/3/whatsnew/3.7.html
+https://docs.python.org/3/reference/compound_stmts.html#async",3,3
+842,2018-07-09T16:13:17Z,2018-12-08T17:24:08Z,2018-12-08T17:24:08Z,1,7,0,"Catches the DeleteTopic API call and clears out the list of subscriptions per spec for the AWS SNS DeleteTopic API call.
+No tests because test suite seems broken and flapping, looks like mostly in Lambda, so I couldn't get the test suite to run. Hoping the CI/CD will be able to check this",5,5
+863,2018-07-23T11:40:47Z,2018-07-23T17:10:57Z,2018-07-23T17:10:57Z,1,4,0,"@whummer
+Updated troubleshooting section. This was pending since I faced #227 issue.",3,2
+864,2018-07-24T13:02:31Z,2018-08-02T15:47:56Z,2018-08-02T15:47:56Z,1,28,17,"@whummer
+Please take a look.",3,5
+866,2018-07-24T21:09:07Z,2018-08-02T12:56:29Z,2018-08-02T12:56:29Z,2,83,20,"This commit updates the calculation of the filter policy so that it works with message attribute values of type ""String.Array""",4,2
+875,2018-08-02T16:40:25Z,2018-08-17T01:39:46Z,2018-08-17T01:39:46Z,4,95,15,Please refer to the contribution guidelines in the README when submitting PRs.,3,5
+880,2018-08-03T14:32:32Z,2018-08-09T00:15:06Z,2018-08-09T00:15:06Z,6,21,16,"I opened this morning an issue about upgrading elasticmq dependency: #879
+It seems that after the merge of softwaremill/elasticmq#143 FIFO queues should be available so I tried to bump to a more recent version. Not sure I missed something but I tried to create one FIFO queue and it still seems to not work
+Step to reproduce
+$ docker build -t localstack:custom .
+$ docker run -d -e SERVICES=sqs -p 4576:4576 localstack:custom
+$ aws --endpoint-url=http://localhost:4576 sqs list-queues
+# empty output without queues
+
+I created then the following terraform configuration:
+References:
+#718
+https://www.terraform.io/docs/providers/aws/r/sqs_queue.html
+provider ""aws"" {
+  region                      = ""us-east-1""
+  access_key                  = ""anaccesskey""
+  secret_key                  = ""asecretkey""
+  skip_credentials_validation = true
+  skip_metadata_api_check     = true
+  s3_force_path_style         = true
+
+  endpoints {
+    sqs      = ""http://localhost:4576""
+  }
+}
+
+resource ""aws_sqs_queue"" ""terraform_queue"" {
+  name                        = ""terraform-example-queue.fifo""
+  fifo_queue                  = true
+  content_based_deduplication = true
+}
+I saved this file in tf/main.tf
+$ cd tf
+$ terraform init -input=false
+$ terraform plan -input=false
+$ terraform apply -input=false -auto-approve
+
+aws_sqs_queue.terraform_queue: Refreshing state... (ID: http://localhost:4576/queue/terraform-example-queue_fifo)
+aws_sqs_queue.terraform_queue: Destroying... (ID: http://localhost:4576/queue/terraform-example-queue_fifo)
+aws_sqs_queue.terraform_queue: Destruction complete after 0s
+aws_sqs_queue.terraform_queue: Creating...
+  arn:                               """" => ""<computed>""
+  content_based_deduplication:       """" => ""true""
+  delay_seconds:                     """" => ""0""
+  fifo_queue:                        """" => ""true""
+  kms_data_key_reuse_period_seconds: """" => ""<computed>""
+  max_message_size:                  """" => ""262144""
+  message_retention_seconds:         """" => ""345600""
+  name:                              """" => ""terraform-example-queue.fifo""
+  policy:                            """" => ""<computed>""
+  receive_wait_time_seconds:         """" => ""0""
+  visibility_timeout_seconds:        """" => ""30""
+
+Error: Error applying plan:
+
+1 error(s) occurred:
+
+* aws_sqs_queue.terraform_queue: 1 error(s) occurred:
+
+* aws_sqs_queue.terraform_queue: [ERR] Error updating SQS attributes: InvalidAttributeName: InvalidAttributeName; see the SQS docs.
+	status code: 400, request id: 00000000-0000-0000-0000-000000000000
+
+Terraform does not automatically rollback in the face of errors.
+Instead, your Terraform state file has been partially updated with
+any resources that successfully completed. Please address the error
+above and apply again to incrementally change your infrastructure.
+
+Would I need any further step?",3,6
+897,2018-08-13T19:36:51Z,2018-09-03T13:23:47Z,2018-09-03T13:23:47Z,1,1,1,"As it was mentioned in this previous pr introducing support for FIFO queues (#880), the merge done on elasticmq an hour ago (softwaremill/elasticmq#148) and the release of v 0.14.5 will allow to create FIFO queues with terraform using localstack.
+If you consider it interesting, I may add a ci step in a separated PR testing the creation of resources via terraform for several services. This will ensure the compatibility with them and provide some examples (@apparentlymart would it be interesting for you as well?)",3,3
+898,2018-08-13T23:07:21Z,2018-11-22T18:15:40Z,2018-11-22T18:15:40Z,4,87,6,Please refer to the contribution guidelines in the README when submitting PRs.,6,7
+904,2018-08-17T13:31:36Z,2018-09-01T16:48:35Z,2018-09-01T16:48:35Z,7,107,6,Currently event notification configurations for lambda functions that use an SQS queue as the source are not taken into account. This PR adds that functionality based on the implementation of a similar Kinesis/Lambda interaction.,4,5
+930,2018-09-12T17:42:40Z,2019-02-23T16:38:10Z,2019-02-23T16:38:10Z,5,204,1,"Add S3EventParser class
+Extend LambdaExecutor.java to call S3EventParser for s3 events
+Add S3EventMappingTest.java
+Add /resources/S3EventLambda.json",4,12
+960,2018-10-12T12:32:36Z,2018-10-18T22:06:27Z,2018-10-18T22:06:27Z,5,35,3,"queryStringParameters.
+This is how the apigateway request is translated to an event for lambda AWS_PROXY integration in localstack.
+this is my path_part definition v1.2.0/{locale}/ab-tester/{target}
+.
+.
+.
+2018-09-28T11:31:51.571Z        b8de8ee4-ccde-12c8-68a1-44e666a4b318    Request:  { 
+  body: '',
+  headers:
+   { 
+     'content-length': '0',
+     'accept-encoding': 'gzip, deflate',
+     host: 'localhost:4567',
+     accept: '*/*',
+     'user-agent': 'Mozilla',
+     connection: 'keep-alive',
+     'cache-control': 'no-cache',
+     'content-type': 'application/x-www-form-urlencoded' 
+  },
+  resource: '/restapis/A-Z40542153A-Z/dev/_user_request_/v1.2.0/de/ab-tester/learn_language_filter_target?learn_language_alpha3=POR',
+  queryStringParameters: {},
+  httpMethod: 'POST',
+  stageVariables: {},
+  path: '/v1.2.0/de/ab-tester/learn_language_filter_target?learn_language_alpha3=POR',
+  pathParameters: { 
+     locale: 'de',
+     target: 'learn_language_filter_target?learn_language_alpha3=POR' 
+  },
+  isBase64Encoded: false 
+}
+Obviously the queryStringParams is not supported yet, and also the resource path will include the part after ? as part of the the path.
+So this is PR to support queryStringParameters.
+
+After building the docker image for these changes, this is how the new request looks like
+START RequestId: c2289296-c19c-10d9-f875-7a7bd4991c8d Version: $LATEST
+2018-10-12T12:21:01.432Z        c2289296-c19c-10d9-f875-7a7bd4991c8d    Request:  { 
+  body: '',
+  headers:
+   { 
+     'content-length': '0',
+     'accept-encoding': 'gzip, deflate',
+     connection: 'keep-alive',
+     accept: '*/*',
+     'user-agent': 'PostmanRuntime/7.3.0',
+     host: 'localhost:4567',
+     'cache-control': 'no-cache',
+     'postman-token': '60b85d39-b930-4443-977d-02bd5ffc8c72' },
+  resource: '/restapis/9A-Z30798483/dev/_user_request_/v1.2.0/de/ab-tester/blabla?foo=foo&bar=bar&bar=baz',
+  queryStringParameters: { foo: 'foo', bar: [ 'bar', 'baz' ] },
+  httpMethod: 'POST',
+  stageVariables: {},
+  path: '/v1.2.0/de/ab-tester/blabla',
+  pathParameters: { locale: 'de', target: 'blabla' },
+  isBase64Encoded: false 
+}",4,3
+977,2018-10-23T11:37:54Z,2018-12-15T23:03:00Z,2018-12-15T23:03:00Z,2,55,11,"Correctly map SNS message attributes to SQS message attributes when RawMessageDelivery is enabled.
+Fixes #655",4,4
+993,2018-10-30T14:56:51Z,2018-10-31T09:16:53Z,2018-10-31T09:16:53Z,1,1,1,Fix #992 by checking the topic ARN is not None in SNS forwarding function,3,4
+997,2018-11-02T22:06:37Z,2018-12-07T17:51:25Z,2018-12-07T17:51:25Z,6,356,243,"requestContext
+According to aws docs https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-create-api-as-simple-proxy-for-lambda.html
+the event that is passed to the lambda when aws_proxy integration type is used, should contain requestContext object that contains some information about the request.
+In my case I use this object to get the the sourceIp of the request where my lambda behaviour depends on that sourceIp:
+const remoteIp = requestContext.identity.sourceIp;
+So this PR is a solution to support the missing object in general, and in particular to support some of the information that my lambda behaviour depends on it such as the sourceIP
+closes #996",3,2
+1001,2018-11-06T15:00:22Z,2018-12-08T17:18:52Z,2018-12-08T17:18:52Z,2,60,2,"Updated check to send notifications to see if a multipart upload has been completed
+Added spec to upload a file larger than 64MB, which is the default threshold to break up file uploads",4,2
+1018,2018-11-23T09:40:18Z,2019-02-19T00:45:56Z,2019-02-19T00:45:56Z,5,32,3,"Primarily this can be used to create resources on localstack which is why the aws cli is also installed so the script running inside container can use it.
+It solves problems like #1014
+Please refer to the contribution guidelines in the README when submitting PRs.",7,15
+1026,2018-11-28T09:12:21Z,2018-12-12T13:52:19Z,2018-12-12T13:52:19Z,1,1,1,fix #1024,3,3
+1043,2018-12-06T23:59:40Z,2019-03-13T04:51:14Z,2019-03-13T04:51:14Z,2,55,5,"Implement a helper function to check for the existence of a bucket before performing a CORS operation on the bucket. If the bucket does not exist, the status code is returned in the response.",4,3
+1048,2018-12-08T22:56:19Z,2018-12-09T00:44:51Z,2018-12-09T00:44:52Z,2,133,136,In #997 I needed to reuse in tests some of the helper methods defined in apigateway_listener In this PR I continued extracting the rest to the helpers module.,3,2
+1050,2018-12-10T18:47:44Z,,2019-04-13T14:15:15Z,1,3,3,"This PR makes it so when you create and run a lambda that it uses the default timeout(currently 3 second) unless otherwise specified. It relates to this issue.
+Tests: I didn't add tests because it is just adding a default value when finding an object in the data dictionary.",4,4
+1051,2018-12-10T19:13:52Z,2019-01-28T03:15:39Z,2019-01-28T03:15:39Z,3,341,284,"Refactor issue #614
+Refactor to add a static helper method for readability and testability.
+This helper method makes it explicit how we notify on Multipart Uploads; the only POST operations that starts with uploadId
+Added an integration test for s3 multipart upload and unit tests.
+Name                                                            Stmts   Miss  Cover   Missing
+---------------------------------------------------------------------------------------------
+localstack/services/s3/s3_listener.py                             319     63    80%   61, 64-66, 147-148, 154-155, 161-167, 170, 175-185, 200-203, 229, 231, 240-250, 255-260, 275-280, 429, 437, 459, 462-463, 466-469, 472, 482, 491-493, 514
+---------------------------------------------------------------------------------------------
+TOTAL                                                            6008   1563    74%
+----------------------------------------------------------------------
+Ran 89 tests in 172.724s
+
+Name                                                            Stmts   Miss  Cover   Missing
+---------------------------------------------------------------------------------------------
+localstack/services/s3/s3_listener.py                             325     63    81%   61, 64-66, 147-148, 154-155, 161-167, 170, 175-185, 200-203, 229, 231, 240-250, 255-260, 275-280, 429, 437, 459, 462-463, 466-469, 472, 482, 491-493, 512
+---------------------------------------------------------------------------------------------
+TOTAL                                                            6015   1581    74%
+----------------------------------------------------------------------
+Ran 91 tests in 164.321s",3,5
+1053,2018-12-10T23:36:26Z,,2021-09-06T21:48:03Z,4,56,5,"Added the functionality to keep track fo how long a lambda has been running. get_remaining_time_in_millis() now will return how much longer the lambda can run before it will be killed.
+Tests: To test this we implemented test_lambda_remaining_time() that runs two lambdas. The first lambda sleeps for 5 seconds and then we check to make sure it has passed it's timeout. The other returns instantly and a check is done to make sure that there is still time left in its 5 second timeout.
+┆Issue is synchronized with this Jira Bug by Unito",5,6
+1082,2019-01-10T11:20:47Z,2019-01-27T22:53:21Z,2019-01-27T22:53:22Z,3,29,3,"Fix #1035
+install ES plugin by  supports Amazon Elasticsearch Service
+https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/aes-supported-plugins.html",2,6
+1086,2019-01-11T20:43:54Z,2019-01-28T00:24:00Z,2019-01-28T00:24:00Z,2,52,37,"I'm creating this PR to trigger TravisCI and (hopefully) reproduce the bug I think I've discovered in #1084.  Sorry for the spam; it's the quickest way for me to run the tests.
+This is a fix for #1084.  I've squashed it to a single commit as requested, but this means you can't see the tests failing.  Should I split this into two commits, one that adds failing tests and one that fixes the bug?",4,7
+1100,2019-01-28T13:06:07Z,2019-02-21T00:40:30Z,2019-02-21T00:40:30Z,1,24,0,Please refer to the contribution guidelines in the README when submitting PRs.,4,3
+1120,2019-02-11T18:10:17Z,2019-02-23T21:31:09Z,2019-02-23T21:31:09Z,1,25,0,"Issue is outlined in
+#869
+and
+#538
+(Specifically
+#538 (comment))
+One of the external symptoms of the bug is that S3 interactions for
+objects that are only the null string (zero length objects) throw
+an error like
+Client calculated content hash (contentMD5: 1B2M2Y8AsgTpgAmY7PhCfg== in base 64) didn't match hash (etag: ...
+which is telling because the contentMD5 value is the base64 encoded
+value for the md5 of null string. The correct etag value should be
+d41d8cd98f00b204e9800998ecf8427e.
+On multiple executions of the test case the etag generated by the S3
+server is different so there is some non deterministic value being put
+into the hash function. I haven't been able to find where the actual
+issue exists in the code as I don't use python very often.
+One workaround for avoiding this issue is to disable the MD5 validations
+in the S3 client. For Java that means setting the following properties
+to any value.
+com.amazonaws.services.s3.disableGetObjectMD5Validation
+com.amazonaws.services.s3.disablePutObjectMD5Validation
+
+Please refer to the contribution guidelines in the README when submitting PRs.",3,3
+1137,2019-02-21T00:26:25Z,2019-02-21T02:23:55Z,2019-02-21T02:23:55Z,1,1,1,"Avoid surprises like
+#1136
+Please refer to the contribution guidelines in the README when submitting PRs.",3,2
+1144,2019-02-24T05:19:25Z,2019-02-28T21:51:42Z,2019-02-28T21:51:42Z,11,433,25,"Please refer to the contribution guidelines in the README when submitting PRs.
+Add the ability for events triggered by SQS to be deserialized properly into SQSEvents before sending to the lambda.",4,4
+1224,2019-03-31T21:30:23Z,2019-04-13T20:43:30Z,2019-04-13T20:43:30Z,2,6,23,"…aders
+The current implementation of ExposeHeaders returns dummy values for arbitrary headers, but it is not how it is supposed to work. This should instead add header named Access-Control-Expose-Headers. It specifies response headers, which can be read by the JS code. See this SO answer for more details.
+I've tested it in our frontend application, which does file uploads directly to S3 (the use case from #520) and it seems to work correctly now. However I didn't manage to run tests locally, getting bunch of errors, when I run make test. Any ideas?
+Fixes #520",2,1
+1227,2019-04-01T19:45:41Z,2019-04-02T21:39:48Z,2019-04-02T21:39:48Z,3,53,4,Addresses #1221 with behavior based off of docs here.,3,2
+1229,2019-04-02T16:25:25Z,2019-04-09T18:43:37Z,2019-04-09T18:43:38Z,1,22,0,"Shamelessly pilfered from theladyjaye@0a1b454, this commit addresses #654
+This commit allows Terraform to run against Localstack and create Kinesis resources.",3,4
+1234,2019-04-03T22:10:36Z,2019-04-29T21:07:03Z,2019-04-29T21:07:03Z,3,80,5,"Hi again, this is the PR fixing : #1235 (refer to this for more context).
+I tested this on my project and It works as expected.",3,8
+1239,2019-04-09T00:43:32Z,2019-04-10T17:55:40Z,2019-04-10T17:55:40Z,4,59,5,"This fixes this issue: #1215
+Python isn't my primary language, so I'm absolutely open to ways to make this better.  Additionally, I wasn't sure where a good place to put a test for this would be.
+Please refer to the contribution guidelines in the README when submitting PRs.",3,6
+1241,2019-04-09T10:22:41Z,2019-04-10T12:22:13Z,2019-04-10T12:22:13Z,1,1,0,"When you change the local path (on the host side) of the volume /tmp/localstack, localstack has to know the target path on the host (don't know why though).
+If you change:
+volumes:
+  - /tmp/localstack:/tmp/localstack
+
+to
+volumes:
+  - /something/else:/tmp/localstack
+
+You need to set HOST_TMP_FOLDER to /something/else
+I had issues with lambda especially.",3,1
+1242,2019-04-10T09:12:22Z,2019-04-10T22:06:42Z,2019-04-10T22:06:42Z,4,92,3,"This is a fix for: #1116
+add support for:
+
+list-tags
+tag-resource
+untag-resource
+
+in lambda",3,2
+1264,2019-04-19T00:36:58Z,2019-04-23T23:41:32Z,2019-04-23T23:41:32Z,4,59,13,"Fix Lambda event source mappings to respect the state (enabled/disabled). Default to enabled if no state is present.
+This requires updated to add_event_source_mapping and update_event_source_mapping.
+Added tests for these functions.",3,2
+1331,2019-05-23T21:23:56Z,2019-05-26T19:50:14Z,2019-05-26T19:50:14Z,2,21,3,"This PR removes the auto registering of topic when receiving requests and throw an error when a publish is called on a non existent topic (just like SNS does).
+I also tried this with a Java client and it works :)
+Fixes #1319.",4,6
+1347,2019-06-01T20:26:02Z,2019-06-02T15:16:14Z,2019-06-02T15:16:14Z,4,80,30,"Please refer to the contribution guidelines in the README when submitting PRs.
+The responses returned from list_versions, create_function, create_alias, update_alias and update_function_code did not match the corresponding responses returned by AWS. This has been fixed in this PR.",3,3
+1353,2019-06-04T20:08:30Z,,2019-07-13T14:57:54Z,2,15,1,"While developing a browser application using the AWS S3 Javascript SDK, I ran into some (quite obtuse) issues related to CORS headers.
+the S3 SDK expects that certain headers will be both allowed in PUT requests (and the like) and that certain headers will be available in the output. If those headers are not present, the SDK will behave inconsistently (and silently).
+Specifically, the SDK expects that x-amz-acl and x-amz-version-id to be in Access-Control-Allow-Headers. It additionally assumes that x-amz-version-id will be in the response headers.
+Further, S3 Metadata is sent via headers, and therefore expects a header looking like x-amz-meta-* to be present. However, I couldn't figure out how to GLOB, so instead I elected to add an env var facilitating parameterization of the CORS header space.
+Anyway, this PR should unblock consumers using the AWS S3 SDK for Javascript in the Browser Context.",4,6
+1354,2019-06-05T11:16:13Z,2019-06-18T07:43:21Z,2019-06-18T07:43:21Z,4,82,2,"Currently, when using an API Gateway integration type of AWS, we're only able to mock Kinesis integrations. Everything else responds with a 404 and a message explaining that the action isn't implemented yet.
+This change adds a new condition which routes the action to SQS.
+Templating in the function is handled in the same way as Kinesis.
+In the future, it might be nice to refactor this into a more generic function which caters for more action types.
+Please refer to the contribution guidelines in the README when submitting PRs.",3,2
+1358,2019-06-05T20:18:31Z,2019-06-11T20:16:30Z,2019-06-11T20:16:30Z,1,15,2,Fixes #1324.,3,2
+1369,2019-06-11T21:29:48Z,2019-06-13T16:22:32Z,2019-06-13T16:22:32Z,2,34,34,"When we try to send SMS through SNS, we don't have to use an existing topic. This fixes #1361.
+Also I did a bit of refacto around the SNS tests as there was lots of code dupplicates.",3,2
+1399,2019-06-27T17:27:41Z,2019-07-11T08:48:25Z,2019-07-11T08:48:25Z,3,68,22,"Please refer to the contribution guidelines in the README when submitting PRs.
+Localstack overwrites the account ID in ARNs in IAM responses from moto, but did not reset it when sending requests to it.
+I added a test case to demonstrate the bug that this PR addresses.",2,4
+1413,2019-07-05T01:33:56Z,2019-07-10T09:13:18Z,2019-07-10T09:13:18Z,1,5,0,"First of all, thanks for making localstack happen. It's a great product, I use it on most of my projects.
+It would greatly help the adoption of this project if developers have more visibility into each service. Managing the data in localstack is super useful for development.
+Therefore, we build Commandeer which works with localstack out of the box. Scanning for localstack is also a part of our onboarding.
+This PR is just to start a conversation about a potential collaboration between Commandeer and Locastack. Let me know if you see more opportunities to collaborate.",2,2
+1428,2019-07-17T09:54:22Z,2019-07-18T15:12:19Z,2019-07-18T15:12:19Z,2,84,0,This should fix  #1322,3,4
+1445,2019-07-28T02:52:30Z,2019-08-13T16:12:12Z,2019-08-13T16:12:12Z,1,9,10,,4,17
+1461,2019-08-06T01:59:33Z,2019-08-07T14:18:32Z,2019-08-07T14:18:32Z,1,8,2,"Without this, KCLv1 for java throws exceptions.",3,8
+1469,2019-08-08T09:35:07Z,2019-08-10T12:08:59Z,2019-08-10T12:08:59Z,1,2,2,"This change set aims to fix the uuid generation error by removing .decode('utf-8') in python3.6.
+python3.6 will return TypeError: encoding without a string argument when running uuid.uuid5(namespace=namespace, name=namestring.encode('utf-8')) , which seems to be only supported by python2, thus causing error on DynamoDB streams api.
+Since LocalStack latest docker image runs on python3.6, I think this issue will cause shard_id generation failure in dynamodbstreams_api.py.
+More reference regarding to this issue:
+https://bugs.python.org/issue34145",3,2
+1523,2019-09-02T13:22:16Z,2019-09-05T07:50:09Z,2019-09-05T07:50:09Z,4,64,9,"Added JAVA_OPTS env for lambda ide debug purpose. Only as docker in lambda executor
+Add JAVA_OPTS in docker-compose.yml
+Sample:
+JAVA_OPTS=-agentlib:jdwp=transport=dt_socket,server=y,suspend=y
+Port is defined randomly",3,1
+1529,2019-09-03T05:05:22Z,2019-09-03T16:41:26Z,2019-09-03T16:41:26Z,1,1,1,"The DynamoDB streams endpoint was throwing away NextShardIterator, making it impossible for continuation through iterator reuse.",3,1
+1542,2019-09-04T21:23:53Z,2019-09-05T07:37:49Z,2019-09-05T07:37:49Z,2,41,5,"Fix ARN when looking up cloudformation resources.
+Should fix #1416",3,1
+1579,2019-09-19T23:18:36Z,2019-09-20T20:03:54Z,2019-09-20T20:03:54Z,2,52,0,"This adds support for signed requests that include response header overrides.
+Fixes #1203",3,3
+1589,2019-09-22T11:22:50Z,2019-09-23T08:19:03Z,2019-09-23T08:19:03Z,1,1,1,Fixes #1588,3,1
+1610,2019-10-01T15:06:45Z,2019-10-03T11:39:39Z,2019-10-03T11:39:39Z,1,17,17,Fixes issue #1609,3,3
+1636,2019-10-08T23:00:04Z,2019-10-10T11:11:07Z,2019-10-10T11:11:08Z,2,59,27,"This is an attempt to help fix this issue #1596 raised by @vballa whenever an SQS -> Lambda is triggered by previously it was erroring in the md5 hashing the response. This would only ever happen if an event source with a lambda was setup for the GW -> SQS -> lambda.
+The reason for this was that there was no ""data"" body for GET requests meaning that data in 
+  
+    
+      localstack/localstack/services/sqs/sqs_listener.py
+    
+    
+         Line 52
+      in
+      e65705a
+    
+  
+  
+    
+
+        
+          
+           new_response = self._send_message(path, data, req_data, headers) 
+        
+    
+  
+
+ was None and therefore throwing an exception when trying to hash.
+We could have fixed it by remapping the query params in the forward_request to data and passing that, however it felt more natural that this should correctly be a POST request as its creating a resource even though AWS docs support GET with query params.
+To validate that the change was covered, we needed to expand on the existing test by creating an event source and lamdbda for the SQS event, so that it correctly triggered the sqs flows from the API gateway setup, because without the event source when this line was called
+
+  
+    
+      localstack/localstack/services/sqs/sqs_listener.py
+    
+    
+         Line 236
+      in
+      e65705a
+    
+  
+  
+    
+
+        
+          
+           process_result = lambda_api.process_sqs_message(message_body, 
+        
+    
+  
+
+
+and hit the below function it wasn't triggered any lambda and therefore just returning
+
+  
+    
+      localstack/localstack/services/awslambda/lambda_api.py
+    
+    
+        Lines 246 to 253
+      in
+      e65705a
+    
+  
+  
+    
+
+        
+          
+           def process_sqs_message(message_body, message_attributes, queue_name, region_name=None): 
+        
+
+        
+          
+               # feed message into the first listening lambda (message should only get processed once) 
+        
+
+        
+          
+               try: 
+        
+
+        
+          
+                   queue_arn = aws_stack.sqs_queue_arn(queue_name, region_name=region_name) 
+        
+
+        
+          
+                   sources = get_event_sources(source_arn=queue_arn) 
+        
+
+        
+          
+                   LOG.debug('Found %s source mappings for event from SQS queue %s' % (len(sources), queue_arn)) 
+        
+
+        
+          
+                   source = next(iter(sources), None) 
+        
+
+        
+          
+                   if source: 
+        
+    
+  
+
+
+I kept the original test as it also provides value in itself as well
+Any feedback appreciated and thanks for maintaining this project",3,3
+1640,2019-10-09T20:18:40Z,2020-02-29T12:45:28Z,2020-02-29T12:45:28Z,2,23,2,Fixes #1225 and #945,3,6
+1671,2019-10-22T23:08:23Z,2019-10-23T07:46:09Z,2019-10-23T07:46:10Z,3,8,4,"Fix SNS x-amz-sns-message-type (fixes #881)
+Fix S3 content type (fixes #854)",3,1
+1693,2019-10-29T00:34:36Z,2019-10-29T19:24:09Z,2019-10-29T19:24:09Z,1,1,0,"Addresses #1113
+Basically allow for the container to have a name when it is launched.  Is it defined as an environment variable.  The .env file is there as according to the documentation here: https://docs.docker.com/compose/environment-variables/
+Variables listed in the .env file can be read in when the user runs docker-compose up
+The last change made is that there is a newer spec for compose files which is shown here:
+https://docs.docker.com/compose/compose-file/#variable-substitution
+So I went ahead and updated the specs for the docker-compose file to a later version
+Signed-off-by: Zuhayr Elahi elahi.zuhayr@gmail.com",4,3
+1695,2019-10-29T18:15:38Z,2019-10-30T10:24:15Z,2019-10-30T10:24:15Z,1,1,1,"This reproduces #1629. Maybe I'll go and try fixing it myself, but anyone is welcome to have a pop...",3,5
+1713,2019-11-01T15:41:28Z,2019-11-02T22:16:12Z,2019-11-02T22:16:12Z,1,21,14,"Added mount flags if DOCKER_REMOTE=""false"" for LAMBDA_EXECUTOR=""docker-reuse"" to prevent expensive copying on each invocation",3,2
+1721,2019-11-05T06:05:52Z,2019-11-06T14:34:01Z,2019-11-06T14:34:01Z,4,26,11,This adds support for Lambda executor docker registries other than lambci/lambda for cases where public docker hub is not accessible and/or where hardened images are in use.,3,2
+1780,2019-11-20T20:50:01Z,2019-11-25T17:13:48Z,2019-11-25T17:13:48Z,2,65,0,"See #1734 for what this PR partially addresses (it handles the ErrorDocument functionality but not IndexDocument).
+This adds emulation of S3's ErrorDocument website configuration. It should not change the behavior of a LocalStack S3 bucket that has no website configuration.",3,2
+1791,2019-11-22T18:55:53Z,2019-11-24T14:03:46Z,2019-11-24T14:03:46Z,4,186,30,Api Gateway authorizer endpoints didn't work correctly and crashed terraform. Fixed in this PR. Additionally added PUT/DELETE methods.,3,4
+1830,2019-12-05T10:16:51Z,2019-12-09T13:43:30Z,2019-12-09T13:43:30Z,6,96,10,"The previous implementation of EventBridge (CloudWatch events) was so basic that put_events didn't even respond in the correct format and had no way of asserting against emitted events. Since we want to use localstack in our system tests, we needed it to respond in the format specified in AWS docs and also give us some way to assert against the events that had been raised.
+This PR provides an implementation solving those two problems. put_events now responds with an array of event-ids, just like real AWS does. Also it puts the events it receives into a temporary directory to assert against. The file name represents the event-id and the content of the file is the payload of the event.
+I hope this is good enough as an extension to current functionality. I'm aware that this is still far off from proper cw-event support, but it at least makes it possible to test event emission and assert against the raised events.",4,6
+1847,2019-12-09T15:51:59Z,,2019-12-12T08:48:58Z,4,44,4,Please refer to the contribution guidelines in the README when submitting PRs.,2,1
+1849,2019-12-09T17:54:01Z,2019-12-11T20:31:31Z,2019-12-11T20:31:31Z,3,52,18,"My attempt to fix #1302
+I agree to the contributor license agreement",4,4
+1868,2019-12-16T21:44:32Z,2019-12-17T23:04:01Z,2019-12-17T23:04:01Z,1,2,0,"The objective of this PR is to add content-length header to success_action_status response because it sends an empty response if that header has no value.
+This is related to #1849",3,3
+1885,2019-12-19T18:04:48Z,2019-12-20T19:57:15Z,2019-12-20T19:57:15Z,2,144,6,"Addresses #1883
+Rather than trying to pre-determine whether or not a given string is json-encoded based on the first character, simply give it a try, and assume that raised errors imply it was not.
+
+ Add tests for any new features and bug fixes. Ideally, each PR should increase the test coverage.
+ Follow the existing code style (e.g., indents). A PEP8 code linting target is included in the Makefile.
+ Put a reasonable amount of comments into the code.
+ Separate unrelated changes into multiple pull requests.
+ 1 commit per PR: Please squash/rebase multiple commits into one single commit (to keep the history clean).",3,3
+1908,2019-12-30T22:32:03Z,2020-01-03T17:07:39Z,2020-01-03T17:07:39Z,8,120,17,"adds localstack.utils.TaggingService, implements TaggingService for CloudWatch Events
+Please refer to the contribution guidelines in the README when submitting PRs.",3,4
+2005,2020-01-31T18:23:12Z,2020-02-03T10:35:31Z,2020-02-03T10:35:31Z,3,84,48,"Hello,
+This PR fix two issues with the attributes:
+
+When we create a queue, attributes not supported by ElasticMQ are not saved
+When we query specific attributes, the unsupported attributes are all appended to the response
+
+Also ElasticMQ now support tag operations (https://github.com/softwaremill/elasticmq/blob/master/rest/rest-sqs/src/main/scala/org/elasticmq/rest/sqs/TagQueueDirectives.scala), so i removed the hack around the tag and list methods.
+There is still an issue around tagging on queue creation but it's on ElasticMQ side (softwaremill/elasticmq#333).
+Thanks",3,3
+2014,2020-02-04T05:26:37Z,2020-02-07T09:14:02Z,2020-02-07T09:14:02Z,2,43,1,Please refer to the contribution guidelines in the README when submitting PRs.,3,1
+2087,2020-02-25T08:03:50Z,2020-02-25T18:54:27Z,2020-02-25T18:54:27Z,2,114,0,"Update delete_keys_response_template (jinja2 template)
+Patch _bucket_response_delete_keys from moto
+Add test case for bugfix",4,2
+2100,2020-02-27T08:58:16Z,2020-02-28T16:00:46Z,2020-02-28T16:00:46Z,3,68,29,"Fix issue #2001
+
+Re-trigger CI",4,1
+2110,2020-02-29T17:52:55Z,2020-03-01T17:01:34Z,2020-03-01T17:01:34Z,1,28,13,"Set default batch size event source = 10
+Create multiple events according to the batch size
+
+Fixes #1131",4,1
+2129,2020-03-05T05:02:45Z,2020-03-05T11:53:22Z,2020-03-05T11:53:22Z,3,173,30,"Add event_start.py: apply patches for moto
+Update plugins loader
+Add integration tests
+
+Addresses #2101",3,2
+2134,2020-03-06T05:01:15Z,2020-03-07T14:20:03Z,2020-03-07T14:20:03Z,2,80,1,"Set a random FunctionName when this property not provided
+Add integration test",3,2
+2143,2020-03-10T08:53:32Z,2020-03-10T17:03:27Z,2020-03-10T17:03:27Z,7,119,53,"Fix lint error template_deployer.py
+Fix log steam name (That was an issue with get-log-events API)
+Add lambda integration test
+
+
+Create topic
+Create a lambda function that subscribe that topic
+Push an message with subject
+Get event message from cloudwatch logs to confirm subject exists in message event",3,1
+2152,2020-03-12T18:40:26Z,2020-03-15T11:16:20Z,2020-03-15T11:16:20Z,2,58,0,Please refer to the contribution guidelines in the README when submitting PRs.,3,2
+2160,2020-03-16T15:18:40Z,2020-03-17T11:18:37Z,2020-03-17T11:18:38Z,5,59,6,"Add ses starter
+Patch send_raw_email in moto.ses
+Add integration test",3,1
+2169,2020-03-18T17:49:03Z,2020-03-19T08:09:45Z,2020-03-19T08:09:45Z,3,51,4,"Update sns listener: handle empty subject
+Add integration test: publish with empty subject",3,1
+2172,2020-03-19T07:14:12Z,2020-03-31T10:49:00Z,2020-03-31T10:49:00Z,3,194,0,Please refer to the contribution guidelines in the README when submitting PRs.,3,3
+2175,2020-03-19T17:36:19Z,2020-03-20T07:45:17Z,2020-03-20T07:45:17Z,2,45,17,"Handle get_object with range parameter
+Update integration test",3,2
+2181,2020-03-21T02:04:01Z,,2021-09-06T21:50:20Z,3,15,13,"Please refer to the contribution guidelines in the README when submitting PRs.
+┆Issue is synchronized with this Jira Bug by Unito",4,2
+2188,2020-03-23T17:30:39Z,2020-03-24T07:24:59Z,2020-03-24T07:24:59Z,2,98,12,"Patch get_integration method (error on getting an integration which was deleted)
+Add integration tests",3,2
+2194,2020-03-25T17:49:05Z,2020-03-26T11:01:13Z,2020-03-26T11:01:13Z,3,162,51,"Path describe_change_set on moto's cloudformation
+Update forward request for changeSet's requests
+Add integration tests for cloudformation deploy API",3,2
+2205,2020-03-27T07:49:35Z,2020-03-28T12:41:25Z,2020-03-28T12:41:25Z,2,29,0,This is to fix the bug reported in: #2204,4,1
+2212,2020-03-28T12:26:22Z,2020-03-29T00:56:11Z,2020-03-29T00:56:11Z,6,154,183,"Update sqs listener
+Add integration test",3,1
+2215,2020-03-29T06:01:55Z,2020-03-29T19:39:21Z,2020-03-29T19:39:22Z,6,206,11,"Fixes #1364
+
+SQS event source poll loop starts after sqs:SendMessageBatch events
+SQS -> Lambda trigger now properly respects batch size parameter instead of always sending 1 message (and will send a maximum of 10, consistent with AWS)
+Added integration test for SQS -> Lambda events
+Added sqs test for SendMessageBatch",3,2
+2227,2020-04-01T06:22:31Z,2020-04-01T19:14:20Z,2020-04-01T19:14:21Z,1,67,0,Add test for sending SQS message to FIFO queue with DelaySeconds - fixes  #1503,3,1
+2233,2020-04-01T22:25:33Z,2020-09-03T17:43:33Z,2020-09-03T17:43:33Z,1,6,1,"In my scenario i would like to use localstack firehose with S3 somewhere else.
+First problem is that aws_stack.get_s3_client doesn't make use of S3_BACKEND at all. Second problem: my S3 requires AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY and this change will make use of them if the env variables are set",3,7
+2235,2020-04-02T05:40:00Z,2020-04-02T18:47:28Z,2020-04-02T18:47:28Z,2,61,1,Add integration test: lambda invoked by sqs message with delay time,3,2
+2244,2020-04-03T09:24:10Z,2020-04-03T16:44:12Z,2020-04-03T16:44:13Z,2,54,15,"Fix logs listener: patch response from moto
+Add integration test
+
+Fixes #1343",3,2
+2248,2020-04-04T02:57:38Z,2020-04-07T12:01:04Z,2020-04-07T12:01:05Z,1,15,0,"Please refer to the contribution guidelines in the README when submitting PRs.
+#2234",3,2
+2251,2020-04-04T21:27:16Z,,2020-04-07T13:37:01Z,2,66,0,"Issue 2150 , Mocking the response for describe_instance_credit_specifications",4,1
+2252,2020-04-04T23:05:34Z,2020-04-07T11:26:25Z,2020-04-07T11:26:25Z,3,22,5,Fixed data type conversions in sns message attributes,4,3
+2260,2020-04-07T14:43:00Z,2020-04-07T18:40:25Z,2020-04-07T18:40:25Z,3,135,24,"Update lambda_api
+Add integration test: lambda add event source mapping with batch size",3,1
+2267,2020-04-08T09:57:51Z,2020-04-11T09:37:12Z,2020-04-11T09:37:12Z,5,229,31,"Added basic cloudformation support for ElasticSearch::Domain, SecretsManager::Secret and KinesisFirehose::DeliveryStream",3,4
+2283,2020-04-11T09:11:41Z,2020-04-12T13:59:16Z,2020-04-12T13:59:16Z,3,107,26,"Patch moto IAM model
+Add integration test
+Fixed:
+#925 Serverless CloudFormation templates using AWS::Partition fail",2,0
+2288,2020-04-13T19:52:53Z,2020-04-15T17:10:28Z,2020-04-15T17:10:28Z,2,74,28,Added missed cloudformation getatt for KinesisFirehose::DeliveryStream and Elasticsearch::Domain,3,2
+2289,2020-04-14T10:07:11Z,2020-04-14T20:53:38Z,2020-04-14T20:53:38Z,2,131,1,"Fix some iam issues on moto backend
+
+Patched detach_role_policy function
+Add missing managed policies
+Add integration test
+
+Issues fixed:
+#2274 iam: Problem with AWSLambdaExecute permission
+#2286 Error reading IAM Role in terraform destroy",3,1
+2292,2020-04-14T19:38:09Z,2020-04-15T17:34:22Z,2020-04-15T17:34:22Z,2,76,6,"Enhancement Added exists operator support for SNS FILTER POLICY
+#1703",3,1
+2301,2020-04-16T09:12:41Z,2020-04-16T19:39:10Z,2020-04-16T19:39:10Z,4,191,23,"Events Rule
+S3 Bucket Policy
+
+
+Add integration tests:
+
+Events Rule
+Kinesis Stream
+S3 Bucket Policy
+SQS
+
+
+
+Issues fixed:
+#1616 No Moto CloudFormation support for AWS::KinesisFirehose::DeliveryStream / AWS::S3::BucketPolicy
+#2058 Invoking CF stack destroy API call seems to delete the stack but not the resources it has provisioned",3,1
+2312,2020-04-18T13:59:19Z,2020-04-18T19:51:40Z,2020-04-18T19:51:40Z,3,115,86,"Handle notification configuration when deleting bucket
+Remove unused code
+Add integration test
+
+Issue fixed:
+#1752 CloudFormation - S3 notification configuration not created",3,2
+2317,2020-04-19T02:07:53Z,2020-04-20T16:40:11Z,2020-04-20T16:40:11Z,8,105,42,#1663,5,5
+2318,2020-04-19T08:41:33Z,2020-04-21T19:02:48Z,2020-04-21T19:02:48Z,7,16,8,,3,1
+2326,2020-04-20T21:55:58Z,2020-04-21T18:25:24Z,2020-04-21T18:25:25Z,2,36,0,#1859 Added missing headers in the s3 get object response.,4,1
+2328,2020-04-21T09:14:52Z,2020-04-21T18:33:48Z,2020-04-21T18:33:48Z,2,21,1,"Add integration test
+Update moto-ext version
+
+Issue fixed:
+#1564 Can't create domain name in apigateway service",3,2
+2350,2020-04-24T16:03:43Z,2020-04-25T01:29:56Z,2020-04-25T01:29:57Z,1,8,0,"Please refer to the contribution guidelines in the README when submitting PRs.
+Fixed issue #2305",2,1
+2351,2020-04-25T11:05:54Z,2020-04-25T16:14:39Z,2020-04-25T16:14:39Z,4,88,6,"Add handle for target lambda
+Add integration test
+
+Fixed last comment in:
+#1429 Add basic EventBridge (CloudWatch Events) support (#1429)",3,2
+2364,2020-04-28T08:16:32Z,2020-04-30T12:08:44Z,2020-04-30T12:08:44Z,4,26,7,"Add integration test
+
+Issue fixed:
+#2338 Can't create FIFO queue with cloudformation",3,2
+2366,2020-04-29T04:43:45Z,2020-05-04T23:32:48Z,2020-05-04T23:32:48Z,9,166,24,"Added the dotnetcore3.1 lambda runtime
+
+May resolve issue #2285",4,6
+2373,2020-04-30T17:04:00Z,2020-05-01T09:03:41Z,2020-05-01T09:03:41Z,2,29,0,"Patch apigateway models init functions
+Update integration test
+
+Issue fixed:
+#1030 ApiGateway doesn't work with simple AWSClient : responseTemplates should not be null",3,1
+2390,2020-05-04T22:47:31Z,2020-05-07T21:35:09Z,2020-05-07T21:35:09Z,4,192,4,"Added tests for moto upstream implementations - #2367
+Added a null check for json conversion. Addresses - #2321
+Add test for api gateway create and get model - #1991",3,1
+2412,2020-05-10T21:07:13Z,2020-05-25T22:12:28Z,2020-05-25T22:12:28Z,3,54,2,Fix : Error handling on sqs send empty message batch #1658,4,2
+2423,2020-05-13T11:50:59Z,2020-05-14T16:06:50Z,2020-05-14T16:06:50Z,1,11,0,"Please refer to the contribution guidelines in the README when submitting PRs.
+Included some utc",3,3
+2434,2020-05-18T11:24:09Z,2020-05-21T13:25:40Z,2020-05-21T13:25:40Z,2,22,3,"Please refer to the contribution guidelines in the README when submitting PRs.
+Included bucket check",2,2
+2468,2020-05-28T11:39:39Z,2020-05-30T14:45:11Z,2020-05-30T14:45:11Z,2,97,7,"Update event listener
+Add integration test
+
+Issue fixed:
+#2460 EventBridge Unsupported Events rule target ARN",3,2
+2474,2020-05-28T19:47:51Z,2020-05-30T08:35:10Z,2020-05-30T08:35:10Z,2,6,1,"Please refer to the contribution guidelines in the README when submitting PRs.
+This is a PR to fix the issue describe in Issue #2472",3,2
+2482,2020-05-30T20:45:42Z,2020-05-31T12:37:14Z,2020-05-31T12:37:14Z,2,31,3,CreateTopic with different tags diverging from aws #2405,4,1
+2495,2020-06-01T20:56:58Z,2020-06-01T23:21:25Z,2020-06-01T23:21:25Z,3,13,6,#2392,3,0
+2499,2020-06-02T17:14:46Z,2020-06-02T20:48:16Z,2020-06-02T20:48:16Z,3,92,2,"Tweak the existing handling of POST form data to also treat multipart forms with a 'key' field as S3
+I've kept the same logic for multipart forms as the existing logic used for normal form params - if it's a multipart form with a key field it's treated as S3.
+Added unit tests with example form/multipart form data, and an integration test using presigned post URLs against the edge port.
+Hopefully this is the last of the S3 weirdness around the edge port! :)
+Fixes #2464",3,3
+2508,2020-06-04T00:41:10Z,2020-06-04T07:30:53Z,2020-06-04T07:30:53Z,3,9,6,Add edge route for S3 HEAD requests - should fix #2506,2,1
+2520,2020-06-06T09:20:17Z,2020-06-06T12:05:39Z,2020-06-06T12:05:39Z,2,33,2,"Fix: Api Gateway validation of api-key-required
+#2488",4,2
+2523,2020-06-06T15:29:03Z,2020-06-08T18:35:06Z,2020-06-08T18:35:06Z,3,102,1,Please refer to the contribution guidelines in the README when submitting PRs.,3,2
+2525,2020-06-07T10:45:32Z,2020-06-10T20:17:51Z,2020-06-10T20:17:51Z,3,9,7,Fix: Binary MessageAttribute is corrupted when routed from SNS Topic to SQS Queue #2432,3,3
+2533,2020-06-08T16:56:37Z,2020-06-10T20:24:41Z,2020-06-10T20:24:42Z,1,3,2,"Please refer to the contribution guidelines in the README when submitting PRs.
+This is added functionality to allow for an ElasticSearch snapshot repo. The added code registers where the ElasticSearch Snapshot repositories will be.",3,1
+2557,2020-06-14T02:26:21Z,2020-06-14T18:16:01Z,2020-06-14T18:16:02Z,3,42,12,"aws proxy resource method call deviation from aws
+#2210",5,2
+2565,2020-06-15T21:54:21Z,2020-06-17T09:50:28Z,2020-06-17T09:50:28Z,2,73,0,"S3:FIX - fix cors policy with one origin
+#2564",4,2
+2567,2020-06-16T22:33:10Z,2020-06-19T10:54:52Z,2020-06-19T10:54:52Z,2,39,0,"Please refer to the contribution guidelines in the README when submitting PRs.
+Found an issue with path selection when the Path starts with a parameter. From the tests added  path_args = {'/{param1}/{param2}/foo/{param3}': {}, '/{param}/bar': {}} is the main culprit.",3,2
+2580,2020-06-18T22:17:05Z,2020-06-19T21:29:19Z,2020-06-19T21:29:19Z,2,36,2,"Fix:delete corresponding event source mappings on deletion of dynamodb table.
+#2561",3,1
+2583,2020-06-19T08:29:42Z,2020-06-20T11:08:14Z,2020-06-20T11:08:15Z,3,48,5,"Add integration test: publish to topic using pure http request
+
+Issue fixed:
+#2438 SNS publish does not work with aws-sdk-java 2.11.8",3,2
+2586,2020-06-19T17:14:55Z,2020-06-19T19:25:29Z,2020-06-19T19:25:29Z,4,68,36,Return proper response details on Lambda invocation error - addresses #2572,3,1
+2593,2020-06-20T18:28:07Z,2020-06-22T16:08:09Z,2020-06-22T16:08:09Z,1,6,3,"Closes #2545
+Added missing optional Record values to kinesis listener responses. As referenced in #940 and verified in Kinesalite, encryption is not supported, so the value has been left as NONE by default.",4,2
+2621,2020-06-25T18:30:39Z,2020-06-26T09:42:37Z,2020-06-26T09:42:37Z,3,173,3,"Fix TypeError issue when create stack for SNS
+Fix issue No Output on deploying stack
+Add integration test
+
+Issue fixed:
+#2568 Cloudformation create-stack for SNS with yaml causes TypeError",3,1
+2628,2020-06-26T20:11:22Z,2020-07-01T09:21:19Z,2020-07-01T09:21:19Z,2,36,3,"This PR fixes an issue for s3 where the response content for a presigned post (with success_action_status = 201) was incorrect when the ""${filename}"" variable was used in the key.  The ""${filename}"" variable should be replaced with the name of the provided file.
+Example
+Given a POST to the presigned post url with the following parameters:
+Bucket: my-bucket
+Key: my-key-${filename}
+Filename: file.txt
+Success Action Status: 201
+Before
+<PostResponse>
+    <Location>http://localhost/my-key-%24%7Bfilename%7D</Location>
+    <Bucket>my-bucket</Bucket>
+    <Key>my-key-${filename}</Key>
+    <ETag>d41d8cd98f00b204e9800998ecf8427f</ETag>
+</PostResponse>
+
+After
+<PostResponse>
+    <Location>http://localhost/my-key-file.txt</Location>
+    <Bucket>my-bucket</Bucket>
+     <Key>my-key-file.txt</Key>
+     <ETag>d41d8cd98f00b204e9800998ecf8427f</ETag>
+</PostResponse>",3,3
+2644,2020-06-29T17:23:52Z,2020-07-01T09:25:33Z,2020-07-01T09:25:33Z,7,206,5,"Disable wait_for block (related to dynamodb stream) when creating dynamodb table
+Add action delete for dynamodb table resource type
+Add integration test
+
+Issues fixed:
+#2607 Cloudformation does not work (tested with DynamoDBstack-amplify.txt template)
+#2336 cloudformation deploy regression in latest version",3,2

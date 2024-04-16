@@ -1,0 +1,52 @@
+number,created_at,merged_at,closed_at,files,additions,deletions,body_text,participants,comments
+146,2016-09-26T12:45:50Z,,2018-03-05T02:56:39Z,3,2,0,,3,1
+163,2016-12-10T06:49:22Z,,2018-03-05T02:56:40Z,6,2,0,SpeedView,3,0
+252,2019-02-07T11:01:02Z,2020-08-31T16:47:05Z,2020-08-31T16:47:05Z,1,1,1,,4,7
+256,2019-03-13T13:59:57Z,2020-09-11T19:41:55Z,2020-09-11T19:41:55Z,3,2,0,,3,9
+257,2019-03-15T20:35:18Z,2020-11-25T13:29:46Z,2020-11-25T13:29:46Z,6,3,1,-includes 4 demo screenshots,2,0
+258,2019-04-15T01:18:39Z,,2021-01-06T01:15:12Z,2,1,0,Add a card switching effect,3,0
+259,2019-06-10T17:41:05Z,2020-11-25T13:33:35Z,2020-11-25T13:33:35Z,3,2,0,,4,0
+261,2019-07-25T09:11:52Z,2020-11-25T13:31:18Z,2020-11-25T13:31:18Z,3,2,0,I've added SqueezeLoader. I'd be happy if you've approved the pull request and add my library to this project,3,0
+262,2019-09-16T04:38:54Z,2020-11-25T13:26:41Z,2020-11-25T13:26:41Z,3,1,0,"You can add my tablayout library to the list!
+Thanks.",3,1
+263,2019-10-13T07:43:45Z,2020-11-25T13:25:37Z,2020-11-25T13:25:37Z,3,1,3,"ExpandableLayout's Github: ExpandableLayout.
+Because there is another ExpandableLayout lib with the same name has already been listed so I have to add postfix ""by skydoves"" (author's Github name) for this one's name. Feel free to change the name if need.",2,0
+264,2019-10-16T08:03:18Z,2020-11-25T13:20:16Z,2020-11-25T13:20:17Z,1,3,0,,2,0
+265,2019-10-16T09:21:19Z,2020-11-25T13:10:27Z,2020-11-25T13:10:27Z,3,2,0,,3,0
+267,2019-11-04T09:07:40Z,2020-11-25T13:11:58Z,2020-11-25T13:11:58Z,3,2,0,,3,0
+269,2020-01-27T17:11:10Z,2020-11-25T13:13:59Z,2020-11-25T13:13:59Z,5,2,0,Just wanted to submit my simple loading button library for kotlin. Easy to use and reliable. I would love to see this in this collection.,3,0
+270,2020-02-23T14:40:21Z,2020-11-25T13:05:43Z,2020-11-25T13:05:43Z,3,1,0,"You can add my DraggablePanel 2 library to the list!
+Thanks.",2,0
+272,2020-04-09T09:44:11Z,2020-11-25T01:23:07Z,2020-11-25T01:23:07Z,1,1,0,,2,0
+277,2020-07-02T10:34:23Z,2020-11-25T13:15:33Z,2020-11-25T13:15:33Z,3,2,0,https://github.com/amir5121/arcView,2,0
+282,2020-09-01T05:04:47Z,2020-11-24T08:31:56Z,2020-11-24T08:31:56Z,3,2,0,"Recently I created a library for progress bars which have rounded corners and are well animated. The link to it can be found here:
+https://github.com/MackHartley/RoundedProgressBar
+I'd love to be included in your list of open source libraries! I made this library because there wasn't an existing solution for my use case, so perhaps others will also find my library helpful.
+If there's anything else I need to add or change for my PR just let me know and I'll do that asap. Thanks!",2,0
+283,2020-09-30T18:41:27Z,2020-11-25T01:22:19Z,2020-11-25T01:22:19Z,2,6,0,Awesome libraries from skydoves.,2,2
+286,2020-11-11T05:17:42Z,2020-11-24T08:23:12Z,2020-11-24T08:23:12Z,3,2,0,"Add iiVisu gif demo
+
+
+Add iiVisu to README.md
+
+
+Add iiVisu to Other.md",2,0
+287,2020-11-20T12:43:38Z,,2020-11-28T14:37:22Z,1,1,0,MaterialDialogs library added.,2,0
+294,2020-12-19T12:31:35Z,2021-01-06T11:56:19Z,2021-01-06T11:56:19Z,3,1,0,"Not sure if allowed, but I have added my own library: https://github.com/Droppers/AnimatedBottomBar
+Also, completely unrelated, wouldn't it make more sense if these lists were alphabetically sorted? Maybe in the form of a GitHub action that runs a script sorting the Markdown tables? Not sure how realistic this would be tough, just an idea.
+Edit: pretty easy, made a script that sorts the README file:
+https://gist.github.com/Droppers/6c4d401d201353bd032f829eec12b95f",2,5
+295,2020-12-19T22:55:45Z,2021-01-05T09:03:53Z,2021-01-05T09:03:53Z,1,1,0,Add CodeView library,2,0
+296,2021-01-07T16:00:57Z,2021-01-10T08:23:55Z,2021-01-10T08:23:55Z,5,1,0,"Closes #246, superseded with solved conflicts.
+
+Voice overlay is an open-source library helping you get your user's voice input as text, handling both permission request and speech to text. It provides out of the box a functional, polished UX, and provides several customization options to let you tweak the experience you want to provide 🙂",2,0
+300,2021-04-08T00:58:04Z,2021-04-14T09:46:22Z,2021-04-14T09:46:22Z,1,0,0,"Hey folks!
+Recently I introduced some big changes to my progress bar library which greatly improved the look and feel. I'd love to update the GIF here as well to show potential developers the full ability of the RoundedProgressBar library.
+If you need more info let me know and I'll get back to you asap.",2,1
+302,2021-05-25T02:33:46Z,2021-06-19T01:50:03Z,2021-06-19T01:50:03Z,1,1,1,"Hey folks, I created this PR to add a library I just finished creating. Please let me know if it's missing anything! I'll reply to any follow ups promptly.
+Github repo link: https://github.com/MackHartley/DashedView",2,1
+303,2021-05-27T10:23:42Z,2021-06-19T01:52:39Z,2021-06-19T01:52:39Z,1,1,0,Add ReactButton library,3,0
+304,2021-05-27T21:51:23Z,2021-06-19T01:54:50Z,2021-06-19T01:54:50Z,1,1,0,"It has always been challenging for the developers to adjust the fling behaviours of the apps, here is a solution to such problems. Flinger is a light-weight library that is built on top of Jetpack compose which will allow the users to tweak all the internal params that governs the fling behaviours of the app.
+https://github.com/iamjosephmj/flinger
+@wasabeef will it be a good addition to the list?",2,0
+305,2021-06-01T15:02:51Z,2021-06-19T01:56:15Z,2021-06-19T01:56:15Z,1,1,0,,2,0

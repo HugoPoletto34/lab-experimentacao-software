@@ -1,0 +1,2153 @@
+number,created_at,merged_at,closed_at,files,additions,deletions,body_text,participants,comments
+19,2017-08-15T16:17:16Z,2018-04-25T21:18:49Z,2018-04-25T21:18:49Z,4,66,4,"As suggested by #6. colortool -o <filename> will write the current properties to <filename>, in ini file format.",7,0
+25,2017-08-28T17:06:15Z,2018-04-25T21:23:47Z,2018-04-25T21:23:47Z,6,30,12,"This will automatically generate a lit of parsers that are available. I'm not sure what the best names are, but it currently searches for anything that implements ISchemeParser and outputs a name such as:
+Usage:
+    colortool.exe [options] <schemename>
+ColorTool is a utility for helping to set the color palette of the Windows Console.
+By default, applies the colors in the specified .itermcolors or .ini file to the current console window.
+This does NOT save the properties automatically. For that, you'll need to open the properties sheet and hit ""Ok"".
+Included should be a `schemes/` directory with a selection of schemes of both formats for examples.
+Feel free to add your own preferred scheme to that directory.
+Arguments:
+    <schemename>: The name of a color scheme. ct will try to first load it as an .itermcolors color scheme.
+                  If that fails, it will look for it as an .ini file color scheme.
+Options:
+    -?, --help     : Display this help message
+    -c, --current  : Print the color table for the currently applied scheme
+    -q, --quiet    : Don't print the color table after applying
+    -d, --defaults : Apply the scheme to only the defaults in the registry
+    -b, --both     : Apply the scheme to both the current console and the defaults.
+    -v, --version  : Display the version number
+
+Available importers:
+  INI File Parser
+  iTerm Parser
+
+Fixes #24",4,1
+50,2018-01-19T21:51:17Z,2018-10-02T17:24:39Z,2018-10-02T17:24:39Z,3,334,154,"Because most of the console API's don't work in WSL via interop, ColorTool wouldn't work inside of the WSL environment.
+As of recent Windows 10 Insider's builds, we added support for a VT sequence you can use to set the color table. With that support added, ColorTool can instead emit the appropriate VT sequences, and change the color table that way in Windows builds after 17048.",4,8
+164,2018-04-29T15:46:49Z,2018-04-30T15:26:33Z,2018-04-30T15:26:33Z,1,4,2,"For use cases where ColorTool has been added to and invoked from PATH, for instance, using a relative path from the working directory to print schemes will result in an empty list. Instead, use the path of the ColorTool.exe to find installed schemes.",2,1
+181,2018-05-16T16:52:11Z,2018-10-02T16:11:50Z,2018-10-02T16:11:50Z,2,5,5,,4,2
+184,2018-05-17T10:29:06Z,2018-05-17T15:18:04Z,2018-05-17T15:18:04Z,1,4,2,,2,0
+197,2018-05-31T11:01:45Z,2018-06-06T21:54:29Z,2018-06-06T21:54:30Z,3,51,69,"This PR addresses the following to-do comment in the code by introducing Scheme.GetSearchPaths method that is then used from IniSchemeParser and XmlSchemeParser:
+https://github.com/Microsoft/console/blob/f334ba68c94e974d8326f2f39ad89ab739761bd5/tools/ColorTool/ColorTool/IniSchemeParser.cs#L73-L75",3,2
+236,2018-08-19T05:16:39Z,2018-10-02T16:09:49Z,2018-10-02T16:09:49Z,1,3,4,"Fixes UIntToColor to use the same BGR color ordering that the ColorScheme uses, so the -s --schemes output makes sense.",2,0
+247,2018-08-31T00:03:48Z,2018-09-11T03:07:18Z,2018-09-11T03:07:18Z,8,486,0,Sample app to illustrate how to use the new ConPTY APIs & infrastructure.,3,1
+260,2018-09-20T15:21:40Z,2018-10-04T17:18:35Z,2018-10-04T17:18:35Z,14,740,0,"As I mentioned in #251, I've been working on a basic C# terminal that uses the new PseudoConsole APIs. It's at a point where I've fixed all the known bugs, and I think it could be a useful sample in this repo.
+The demo is similar to the existing EchoCon example in that it uses the virtual terminal processing feature, starts up a pseudoconsole, and runs a command. It also handles ctrl-c and window exit.
+I'd appreciate some advice on ways to improve it as I'm fairly inexperienced when it comes to writing terminals and pinvoking Windows APIs. The following areas might need some attention:
+
+ Handling when the user types exit. Right now it exits the terminal, when the user might just want to exit whatever the currently running process is. There's a TODO marking that area. Completed this, now we wait for the top-level process to exit.
+ I've used the .NET SafeFileHandle class in place of some of the IntPtrs normally found in PInvoke signatures. I'm not sure what the best practice is here.
+
+I've split this PR into three commits, the final commit will be the most interesting to review.
+I've tested this with the following versions:
+
+OS: Windows 10 Pro Build 17744
+SDK: Windows_InsiderPreview_SDK_en-us_17749
+
+Thanks!",4,5
+272,2018-10-06T10:53:24Z,2018-10-08T16:09:02Z,2018-10-08T16:09:02Z,1,3,1,"Small, bite-sized PR. Now that both ConPTY samples (#247 and #260) are merged, mention them on the main repository README.",2,1
+278,2018-10-10T20:26:41Z,2019-03-28T23:59:38Z,2019-03-28T23:59:38Z,2,182,171,Also used path combine for schemes directory,8,4
+285,2018-10-14T13:22:47Z,2019-05-18T18:17:37Z,2019-05-18T18:17:37Z,22,1193,0,"As mentioned in #274, here's a WPF-centric sample. It creates a window that (for now) draws the raw VT100 codes the console emits, and accepts user input. It's based on @waf's MiniTerm C# sample.
+I've also set it up to use the ACCENT_ENABLE_ACRYLICBLURBEHIND property, mostly for fun. However, that's accomplished with the undocumented SetWindowCompositionAttribute function. If that should be removed for the sake of keeping scope simple, let me know 👍",6,20
+340,2019-01-04T19:20:11Z,2019-04-25T00:20:21Z,2019-04-25T00:20:21Z,1,1,1,,3,0
+378,2019-02-27T16:41:37Z,2019-02-27T20:57:12Z,2019-02-27T20:57:12Z,6,38,31,"ColorTool now has three different color scheme parsers (.ini files, concfg JSON files and itermcolors XML files). Because each scheme parser is tried in turn until one succeeds, any scheme parser that fails dumps useless error information to the console.
+This change flips the reportErrors parameter of ISchemeParser.ParseScheme from true to false so these failed parse error messages are not printed by default. This PR also adds a new --errors or -e command line argument to enable error reporting for usage scenarios that need it.",3,1
+402,2019-03-29T20:58:13Z,2019-04-02T02:16:01Z,2019-04-02T02:16:01Z,1,21,1,Attempt to implement #374,3,1
+414,2019-04-21T17:35:08Z,2019-04-25T17:08:53Z,2019-04-25T17:08:53Z,6,474,0,"This is a demo that shows how we can have a stream-oriented view of characters from the console
+while also listening to console events like mouse, menu, focus, buffer/viewport(1) resize events.
+This has always been tricky to do because ReadConsoleW/A doesn't allow retrieving events.
+Only ReadConsoleInputW/A returns events, but isn't stream-oriented. Using both doesn't work because
+ReadConsoleW/A flushes the input queue, meaning calls to ReadConsoleInputW/A will wait forever.
+I do this by deriving a new Stream class which wraps ReadConsoleInputW and accepts a provider/consumer implementation of BlockingCollection<Kernel32.INPUT_RECORD>. This allows asynchronous monitoring of console events while simultaneously streaming the character input. I also use Mark Gravell's great System.IO.Pipelines utility classes (2) and David Hall's excellent P/Invoke wrappers (3) to make this demo cleaner to read; both are pulled from NuGet.
+(1) in versions of windows 10 prior to 1809, the buffer resize event only fires for enlarging
+the viewport, as this would cause the buffer to be enlarged too. Now it fires even when
+shrinking the viewport, which won't change the buffer size.
+(2) https://github.com/mgravell/Pipelines.Sockets.Unofficial
+https://www.nuget.org/packages/Pipelines.Sockets.Unofficial
+(3) https://github.com/dahall/Vanara
+https://www.nuget.org/packages/Vanara.Pinvoke.Kernel32
+Oisin Grehan - 2019/4/21
+https://twitter.com/oising
+https://github.com/oising",3,2
+418,2019-04-25T11:49:37Z,2019-04-29T19:12:02Z,2019-04-29T19:12:02Z,17,883,774,"This is the PR we discussed in #413 for ColorTool. There are two bugfixes in this PR (the final two commits). The first two commits are the refactoring.
+
+7daea0a - First refactoring commit, pulls logic out of Program.cs and into other files.
+05f518d - Second refactoring commit, gets rid of mutable fields and mutable statics.
+b61cb83 - Only run the required parser for the colorscheme file. Before, all parsers could be run for a single colorscheme file, so we could get error output even if everything imported correctly.
+12fff31 - Allow the writing of screen/popup background/foreground indices to the registry. Before this only worked for the currently running console, now it will save for all consoles.
+
+This PR modifies a lot of files, but I've isolated the bulk of the changes in the first commits, so there are no user-facing changes in those commits.",3,3
+429,2019-05-06T20:41:08Z,2019-05-07T15:23:48Z,2019-05-07T15:23:48Z,1,11,0,Add some really basic guidance on how to get started with the Terminal project,8,6
+434,2019-05-06T22:00:57Z,2019-05-07T15:32:38Z,2019-05-07T15:32:38Z,1,2,2,,3,0
+436,2019-05-06T22:24:57Z,2019-05-07T14:27:37Z,2019-05-07T14:27:37Z,1,32,0,"Add few more possible locations of MSBuild, including VS2019 and VS2017 Professional
+
+Confirmed working on VS2019 Community. Hopefully it does on others as well 😀
+Alternatively, write scripts in C# and use Microsoft.Build.Locator package?",7,6
+449,2019-05-07T00:51:43Z,2019-05-07T15:59:34Z,2019-05-07T15:59:34Z,1,1,0,"Without this, building in VS2019 results in multiple function is not a member of std errors. This fixes that. 😃
+EDIT: Important to mention I'm using VS2019 16.0.3 and build tools v. 142.",18,14
+450,2019-05-07T01:50:52Z,2019-05-07T18:51:15Z,2019-05-07T18:51:15Z,1,1,1,Fixes a small grammatical error in the README.,5,0
+458,2019-05-07T04:18:12Z,,2019-07-11T20:13:37Z,5,43,8,"Use UTF-8 as source and executable encodings for C++ projects that
+contain UTF-8 source files.
+Tree 35229a7 fails to build where the
+default code page is 936 (GBK), due to multiple files containing UTF-8
+encoded strings and/or comments, and these projects set to
+fail-on-warning mode.  Additionally,
+src/host/ut_host/UnicodeLiteral.hpp contains a Windows-1252 encoded
+string.  This commit adds the /utf-8 option to the affected projects,
+and converts src/host/ut_host/UnicodeLiteral.hpp to UTF-8.",9,9
+466,2019-05-07T06:22:10Z,2019-05-14T18:01:16Z,2019-05-14T18:01:16Z,1,66,4,"This is close I think but what I see in the One Half Light theme as described here duplicates the dark colors for the light colors.  On Windows w/colortool, I see that duplication for One Half Dark but not One Half Light.  Should I emulate what colortool is using for the schemes?  Also there are some ""off-by-one"" issues with the colortool scheme RGB values - at least as compared to the link above.  Not sure which I should follow.",6,12
+470,2019-05-07T07:21:48Z,2019-05-07T15:31:41Z,2019-05-07T15:31:41Z,1,2,2,,3,0
+478,2019-05-07T08:16:22Z,2019-05-07T14:28:51Z,2019-05-07T14:28:51Z,1,10,10,,5,1
+494,2019-05-07T12:15:38Z,2019-05-07T18:51:42Z,2019-05-07T18:51:42Z,1,1,1,Minor readme format fix.,3,0
+495,2019-05-07T12:41:24Z,2019-05-09T04:34:58Z,2019-05-09T04:34:58Z,1,2,2,,5,2
+503,2019-05-07T14:03:11Z,2019-05-07T20:01:49Z,2019-05-07T20:01:49Z,1,3,0,"Projects are looking for the packages under the path './packages', so we need to specify the path in Project config, in case it is restored by the User/Computer config.",3,0
+505,2019-05-07T14:07:33Z,2019-05-07T15:28:51Z,2019-05-07T15:28:51Z,1,1,1,"Updated ""console"" to ""Terminal"" in one of the links, see file changes for more info.",4,0
+509,2019-05-07T14:32:30Z,2019-05-07T19:08:27Z,2019-05-07T19:08:27Z,3,3,3,"There were 3 casts warnings, fixed now.",4,4
+542,2019-05-07T22:51:01Z,2019-05-09T04:34:37Z,2019-05-09T04:34:37Z,1,1,1,Grammatical Errors and sentence structure,3,0
+544,2019-05-07T23:47:11Z,2019-05-08T13:59:37Z,2019-05-08T13:59:37Z,1,1,1,"Clarify where prerequisites packages are installed in VS, could be unclear as 'packages' is overloaded term",3,0
+549,2019-05-08T02:00:36Z,,2019-07-11T20:13:53Z,4,8,8,Encoding of modified files is switched from UTF-8 to UTF-8 BOM.,8,9
+551,2019-05-08T02:15:49Z,2019-05-09T04:31:15Z,2019-05-09T04:31:15Z,1,5,5,"Should use ""its"" rather than ""it's"".",5,0
+553,2019-05-08T02:50:16Z,2019-05-23T17:35:30Z,2019-05-23T17:35:31Z,15,125,125,,9,1
+558,2019-05-08T03:06:00Z,2019-05-10T18:56:07Z,2019-05-10T18:56:07Z,5,79,4,"To produce a package named Microsoft.WindowsTerminal, you must build with
+/p:WindowsTerminalReleaseBuild=true.
+Fixes #556.",4,1
+560,2019-05-08T04:38:08Z,2019-05-14T19:44:47Z,2019-05-14T19:44:47Z,1,164,159,Added some more explicit and correct terms for the VS 2019 components that are needed.,5,6
+562,2019-05-08T05:59:54Z,2019-05-13T23:10:46Z,2019-05-13T23:10:46Z,1,3,3,"It looks like the code at some point was trying to use RtlGetLastNtStatus, and this was changed to GetLastError but it's comparing against an NTSTATUS rather than the mapped Win32 error value.  This causes the program to AV on launch downlevel.",4,3
+566,2019-05-08T07:10:57Z,2019-05-09T04:36:26Z,2019-05-09T04:36:26Z,1,36,0,"I've edited it based on what I've seen:
+
+Blend and managed UWP are removed
+ARM32 workloads are removed, because the solution has only ARM64
+Keep the explicit vs141 and windows 18362 tools, remove implicit vs142 and windows 17763
+
+I wish the official team to verify the config file on a clean VS installation with core editor only.",5,8
+578,2019-05-08T12:11:14Z,2019-05-14T01:06:36Z,2019-05-14T01:06:36Z,7,79,79,,6,2
+585,2019-05-08T14:45:40Z,2019-05-24T18:20:18Z,2019-05-24T18:20:18Z,1,13,0,"I only hand-picked the important source files for now, this can obviously be expanded upon in the future but should make it easier for future contributors as well a Microsoft since hopefully incoming Pull Requests will use proper formatting afterwards.",6,7
+586,2019-05-08T15:00:36Z,2019-05-10T18:02:24Z,2019-05-10T18:02:25Z,1,4,1,Check null pointer before fclose because fclose(NULL) will lead to undefined behavior (CWE-476: NULL Pointer Dereference),5,0
+588,2019-05-08T15:12:46Z,2019-05-09T04:35:31Z,2019-05-09T04:35:31Z,1,2,2,,4,0
+591,2019-05-08T16:38:28Z,,2019-05-10T17:41:08Z,1,3,3,"Fixes where some paths were being set as the (x86) ones when it isn't. This fixes #583.
+Thanks, @yuzhiqiangorg!",5,2
+599,2019-05-08T20:39:17Z,2019-05-09T14:17:34Z,2019-05-09T14:17:34Z,2,2,2,This should take care of the easy part of #460.,7,2
+604,2019-05-09T00:15:15Z,2019-05-11T07:02:29Z,2019-05-11T07:02:29Z,3,10,2,"This commit adds the startingDirectory property to the default-created
+cmd and powershell profiles, with the default value
+%HOMEDRIVE%%HOMEPATH%.
+Signed-off-by: Fred Miller fghzxm@outlook.com",4,8
+606,2019-05-09T01:53:40Z,2019-05-10T17:40:26Z,2019-05-10T17:40:26Z,5,38,70,"Instead of listing out all the locations for MSBuild, use the vswhere tool to find the location and add that directory to that path.",7,7
+623,2019-05-09T13:22:34Z,2019-05-10T16:48:37Z,2019-05-10T16:48:37Z,5,85,2,"alt-1 for the 1st tab, alt-2 for the 2nd tab, etc
+fix #573",4,0
+629,2019-05-09T17:27:29Z,2019-05-09T19:19:46Z,2019-05-09T19:19:46Z,1,2,2,"The Microsoft org has been renamed to microsoft. While casing isn't an issue with GitHub, just correcting it in case some implementations are case-sensitive.",4,3
+630,2019-05-09T17:41:59Z,2019-05-09T19:18:06Z,2019-05-09T19:18:06Z,1,1,0,,3,1
+631,2019-05-09T18:18:08Z,2019-05-13T16:35:31Z,2019-05-13T16:35:31Z,1,1,0,,3,0
+639,2019-05-09T20:55:13Z,2019-05-10T22:09:23Z,2019-05-10T22:09:23Z,1,10,10,"Sets powershell as the default profile.
+#431",8,3
+647,2019-05-09T23:38:23Z,2019-05-10T18:16:59Z,2019-05-10T18:17:00Z,2,2,1,"Text selection is now removed when ESC is passed as input. Still unclear as to why selection did get cleared in CMD but not in any of the other options. The line _terminal->ClearSelection() was still called but, for whatever reason, the renderer didn't update. @miniksa Any thoughts on that? Just curious.",5,2
+648,2019-05-09T23:40:57Z,2019-05-10T22:11:24Z,2019-05-10T22:11:24Z,1,8,2,Also add a few of the TODOs for similar areas. This change will do for now until we decide on a better story for closing the last tab.,3,1
+664,2019-05-10T14:49:41Z,,2019-05-16T04:17:39Z,1,3,1,"Need to specify platform per #477 .  Otherwise the build will likely fail with ""The Platform for project 'bufferout.vcxproj' is invalid.  Platform='ARM64'"" and other similar errors.",3,3
+679,2019-05-10T18:23:49Z,,2019-05-11T09:38:17Z,2,101,33,"This closes #675
+This will make sure that the user automatically gets a 'WSL' option in the new tab flyout.
+EDIT: This also closes #441 thanks to @JBanks' code",3,6
+684,2019-05-10T20:57:45Z,2019-05-14T01:02:07Z,2019-05-14T01:02:07Z,6,20,1,First stab at adding a key mapping to settings so I can quickly access it instead of using a mouse :-),5,5
+686,2019-05-10T22:32:01Z,2019-05-14T01:25:54Z,2019-05-14T01:25:55Z,4,80,1,"Resolves #665. Behaviour was discussed a bit there:
+
+When the window is not in focus, the cursor is not shown.
+When the user is typing, the cursor is constantly shown.
+Otherwise, the cursor blinks.",6,6
+688,2019-05-10T23:13:31Z,2019-05-13T00:27:17Z,2019-05-13T00:27:17Z,1,0,2,See issue #677 for screenshots on how this affects the colors.,4,0
+689,2019-05-10T23:49:12Z,,2019-07-18T21:04:02Z,3,42,0,"313e72b: Add App::_CreateJumplist() to Cascadia, registering profiles to the jumplist",4,2
+690,2019-05-11T00:05:48Z,2019-05-30T18:15:38Z,2019-05-30T18:15:38Z,2,28,28,"Modernization and light cleanup of TerminalInput.cpp and .hpp.
+Addresses Issue #685",9,1
+695,2019-05-11T03:50:24Z,,2019-05-29T11:46:55Z,2,62,88,"For #441
+Differences from #679 :
+
+Variable names are now more descriptive;
+Excess test code has been removed;
+Code has been reorganized to make it easier to read;
+vcxproj has been updated to allow registry functions to be used.",7,7
+704,2019-05-11T10:58:22Z,2019-05-16T04:02:42Z,2019-05-16T04:02:42Z,8,18,18,I've fixed some typo's in the docs and improved the consistency (for example in lists).,5,0
+713,2019-05-12T05:28:11Z,,2019-05-14T23:48:52Z,12,49,49,"This commit changes uses of std::optional::value() to operator*() and
+operator->() for optionals known to contain values.
+optional::value() throws while operator*() and operator->() do not.
+Using the latters should help generating more efficient code at no
+maintainability cost.
+Signed-off-by: Fred Miller fghzxm@outlook.com",3,9
+716,2019-05-12T10:56:57Z,,2019-05-18T05:54:29Z,3,2008,1993,,8,6
+717,2019-05-12T10:59:45Z,2019-05-14T22:05:08Z,2019-05-14T22:05:08Z,1,3,3,I believe there are bunches of unnecessary copies in the codebase that can be converted into moves.  Is there any idea how we can find and fix them?,3,1
+723,2019-05-12T19:20:40Z,2019-05-13T13:59:57Z,2019-05-13T13:59:57Z,1,1,1,"Corrected ""ofentimes"" to ""oftentimes""",3,0
+726,2019-05-13T00:32:13Z,2019-05-13T19:46:19Z,2019-05-13T19:46:19Z,1,4,0,"Fixes #700
+Added a new section ""Debugging"" to README, please review and let me know if this is not appropriate.",3,0
+730,2019-05-13T04:50:59Z,2019-05-14T01:05:54Z,2019-05-14T01:05:54Z,1,1,1,using the <kbd> HTML tag,4,2
+736,2019-05-13T12:59:17Z,2019-05-13T16:14:42Z,2019-05-13T16:14:42Z,1,1,1,"updated to indicate HRESULT is preferred over NTSTATUS, as suggested in
+https://github.com/Microsoft/Terminal/blob/master/doc/STYLE.md",3,1
+737,2019-05-13T13:24:32Z,2019-05-14T13:14:24Z,2019-05-14T13:14:24Z,1,17,28,fix #708,3,1
+739,2019-05-13T13:57:34Z,2019-05-13T16:11:32Z,2019-05-13T16:11:32Z,1,6,11,I deleted the duplicate line in TermControl mentioned in #732,4,4
+741,2019-05-13T14:49:07Z,2019-05-21T16:25:55Z,2019-05-21T16:25:55Z,5,11,73,"On a german Windows when building I get the following error:
+(D = Datei, V = Verzeichnis)? Ist das Ziel ...\Terminal\x64\Debug\TerminalSettings.pdb ein Dateiname
+oder ein Verzeichnisname
+(D = Datei, V = Verzeichnis)? f
+The trick with piping 'f' for folder into stdin does not work here, since in
+german folder is called 'Verzeichnis'. Due to the fact that the UI is
+translated a 'v' is expected.
+Lets use plain 'copy' which does not have the problem of asking whether a
+target is a folder, if the target does not exist.
+NOTE: I discovered this because the xcopy in src/cppwinrt.build.post.props failed for x64. The other locations I just applied the same pattern and did not test, since I do not know the code base that thoroughly. But if one location works the others should be fine, right? ;) Please test if this also works for others.",6,22
+742,2019-05-13T14:58:20Z,2019-05-15T18:12:00Z,2019-05-15T18:12:01Z,1,44,8,"#711
+Refactoring the terminal color array to a list of typed values to remove confusion as to what the values represent.",5,12
+746,2019-05-13T19:45:29Z,2019-05-15T12:22:17Z,2019-05-15T12:22:17Z,7,31,6,"Apologies for the indentation issues that might be visible here.
+#627",5,7
+747,2019-05-13T19:59:21Z,2019-05-15T13:21:15Z,2019-05-15T13:21:15Z,9,59,8,Issue #640,7,5
+748,2019-05-13T20:07:24Z,2019-05-21T14:26:04Z,2019-05-21T14:26:05Z,10,641,156,"Fixes #537.
+Adds support for remappable keybindings in the profiles.json file. The keybindings look like the following:
+    ""keybindings"": [
+        {
+            ""keys"": [""ctrl+t""],
+            ""command"": ""newTab""
+        },
+        {
+            ""keys"": [""ctrl+shift+1""],
+            ""command"": ""newTabProfile0""
+        },
+        { ""keys"": [""ctrl+w""], ""command"": ""closeTab"" },
+        { ""keys"": [""ctrl+tab""], ""command"": ""nextTab"" },
+        { ""keys"": [""ctrl+shift+tab""], ""command"": ""prevTab"" },
+        { ""keys"": [""ctrl+shift+pgup""], ""command"": ""scrollUp"" },
+    ]",10,8
+749,2019-05-13T20:13:41Z,2019-05-14T15:33:47Z,2019-05-14T15:33:47Z,1,4,1,This will remove Windows Terminal sources from any replications driven by git2git.,4,0
+762,2019-05-14T05:02:13Z,2019-05-15T19:27:32Z,2019-05-15T19:27:32Z,1,16,0,Fixes #752 by adding a pull request template,6,1
+765,2019-05-14T10:30:26Z,2019-05-14T15:51:20Z,2019-05-14T15:51:20Z,1,1,1,"due to #558, app that is built from source will be named ""Windows Terminal (Dev Build)” instead of ""Windows Terminal (Preview)”",3,0
+777,2019-05-14T16:16:24Z,2019-05-14T18:51:17Z,2019-05-14T18:51:17Z,1,5,0,Solution Platform must match the computer architecture,3,1
+784,2019-05-14T17:11:23Z,2019-05-14T22:04:02Z,2019-05-14T22:04:02Z,1,6,2,The console-docs repository is very related to this one. I feel it should be linked somewhere prominently in this one.,4,0
+785,2019-05-14T17:31:38Z,2019-05-14T21:27:40Z,2019-05-14T21:27:40Z,1,6,6,Added quotes to the commands that caused issues on my machine - Managed to build it and deploy with no issues.,4,3
+786,2019-05-14T18:09:24Z,2019-05-14T20:11:41Z,2019-05-14T20:11:41Z,1,4,4,"""Windows Internal Library"" got named ""Windows Implementation Library"" for its GH release
+Fixed the links to point to the files in the WIL GH instead of the local copies.
+Left the rest of this as general guidance to how we use it.",4,0
+789,2019-05-14T18:34:47Z,2019-05-14T20:16:40Z,2019-05-14T20:16:40Z,1,3,5,"Fixes #787.
+Considering we're just duping all feedback hub issues to github, lets cut out
+the middleman and take them straight here.",5,5
+790,2019-05-14T18:51:11Z,2019-05-14T23:19:54Z,2019-05-14T23:19:54Z,1,10,10,Made bullets consistent with other bullets.,4,3
+793,2019-05-14T20:44:58Z,2019-05-14T23:16:44Z,2019-05-14T23:16:44Z,3,3,0,,3,0
+795,2019-05-14T22:16:20Z,2019-05-16T03:57:26Z,2019-05-16T03:57:27Z,1,7,0,It will help to build project via scripts in case when only prerelease version of MSVS is installed.,3,0
+805,2019-05-14T23:15:24Z,,2019-05-22T00:38:46Z,1,23,0,Addressing #791 by adding the keyboard accelerators to the MenuFlyoutItems in the menu,3,2
+811,2019-05-15T01:03:15Z,2019-05-16T18:22:23Z,2019-05-16T18:22:23Z,3,23,0,"This requires an additional service connection on the Azure Devops instance running our builds. That has been done.
+OPEN DISCUSSION: We may want to mark this task optional so it doesn't fail the build when external folks set up their own AzDO instances?
+Fixes #775.",4,6
+817,2019-05-15T09:40:09Z,,2019-12-09T22:02:49Z,13,278,57,"More for feedback and ideas after I was screwing around with the code,
+not really for merging, though this is probably not that far off.
+Edit
+Updated with settings parsing (though pretty hacky), and applies to all rendering output:
+
+Note the offset x,y settings are not hooked up, but they are other settings you'd probably want. I'm thinking all those should be extracted to a shadow setting block and a shadow renderer effect taking it that can plug in, design wise.
+Original
+After building this, I realized you probably actually want to do it on
+the whole buffer, not just the text layer, which would make things way
+easier, and correctly handle cases like the vim bottom separator.
+Here's the current shadow effect:
+
+And without acrylic:
+
+The super-dumb displacement effect, also showing a weird limit on the affected output size:",7,15
+818,2019-05-15T09:43:18Z,,2019-05-23T15:03:38Z,1,26,5,"Should fix #816
+Should go with #737",3,4
+825,2019-05-15T16:09:23Z,2019-06-07T21:56:45Z,2019-06-07T21:56:45Z,14,1368,125,"This is probably good enough to PR, but might not be polished enough to ship quite yet. There's a LOT of work to still do one panes, even after this is checked in. See #1000 for the megathread of all panes related issues.
+Things that might need todo's, and what issue they're linked to:
+
+ Clicking on a pane focuses it, but also starts a selection. This is probably #670
+ You can tab between panes. That's obviously unwanted. This is also related to #744
+ If you click on the separator's between panes, then on panes will be focused. Related to #528 but definitely different. #999
+ You can't resize panes. They're always 50% of their parent. #991 #992
+ You have to exit the shell to close the pane, there's no shortcut for ""ClosePane"" #993
+ You can only open a pane with the default profile #998
+
+I left space for adding support for opening a specific pane, but it didn't really seem like there was a good keychord for doing this currently. Maybe if we added support for multi-key keychords, then it'd make more sense.
+
+
+ There's no real UI to indicate that a particular pane is focused, other than the blinking cursor. #994
+ You can't navigate the focus of panes with the keyboard currently. #995
+ I'm not sure Ctrl+Shift+plus and Ctrl+Shift+- are the right combo for splitting. Maybe we move them to Alt+Shift+plus/-
+
+This would nicely fit with Alt+Shift+Arrows to navigate focus.
+I'm removing the default keybinding entirely. If people want to start using this experimental feature, they can add the keybinding manually. The fundamentals of this PR should be in sooner than later, but the feature probably isn't ready for most people yet.
+
+
+
+I'm pretty sure most of these don't need to be addressed in the initial PR, and can have follow-up tasks created, but they're all important to note.
+This pretty aggressively touches Tab.cpp and App.cpp. App.cpp was doing a lot of work that assumed there was one control per tab. I figured that getting the structure in now would be beneficial, before we add any more code that assumes that.
+Closes #532",14,16
+827,2019-05-15T18:28:01Z,2019-05-15T19:28:23Z,2019-05-15T19:28:23Z,1,1,1,,3,1
+831,2019-05-15T19:36:10Z,2019-05-17T15:52:02Z,2019-05-17T15:52:02Z,3,0,14,"Summary of the Pull Request
+I deleted the keybinding for NewTabProfile0, because the keybinding doesn't work.
+References
+#826
+PR Checklist
+
+ Closes #826
+ CLA signed. If not, go over here and sign the CLA
+ Tests added/passed
+ Requires documentation to be updated
+ I've discussed this with core contributors already. If not checked, I'm ready to accept this work might be rejected in favor of a different grand plan. Issue number where discussion took place: #826
+
+
+Detailed Description of the Pull Request / Additional comments
+The keyboard shortcut CTRL+SHIFT+0 is handled by something else (probably the input method editor: https://support.microsoft.com/en-us/help/967893/input-method-editor-keyboard-shortcut-ctrl-shift-0-switches-the-input) and can't be used. Discussion about this issue is in #826",4,10
+836,2019-05-15T21:45:25Z,2019-05-23T16:05:58Z,2019-05-23T16:05:58Z,1,1,1,"Summary of the Pull Request
+std::unique_ptr.release() releases ownership and does not destroy an object.
+Fix this issue by using reset(nullptr)
+PR Checklist
+
+ Closes #xxx
+ CLA signed. If not, go over here and sign the CLA
+ Tests added/passed
+ Requires documentation to be updated
+ I've discussed this with core contributors already. If not checked, I'm ready to accept this work might be rejected in favor of a different grand plan. Issue number where discussion took place: #xxx
+
+Detailed Description of the Pull Request / Additional comments
+_Reset() is used only in the two places:
+
+in case of _currentState == _State::Error
+when some exception has occured during parsing or converting",5,9
+838,2019-05-16T00:09:14Z,2019-05-16T18:24:15Z,2019-05-16T18:24:15Z,5,80,13,"Summary of the Pull Request
+This pull request diversifies our issue templates.
+ 
+PR Checklist
+
+ Closes #751
+ I've discussed this with core contributors already. I am one of the core contributors.
+
+Other
+These were lightly but lovingly taken from PowerShell!",9,0
+842,2019-05-16T07:42:03Z,,2019-05-16T15:19:21Z,1,1,1,"Summary of the Pull Request
+ 
+References
+
+PR Checklist
+
+ Closes #xxx
+ CLA signed. If not, go over here and sign the CLA
+ Tests added/passed
+ Requires documentation to be updated
+ I've discussed this with core contributors already. If not checked, I'm ready to accept this work might be rejected in favor of a different grand plan. Issue number where discussion took place: #xxx
+
+
+Detailed Description of the Pull Request / Additional comments",4,3
+843,2019-05-16T07:49:14Z,2019-05-18T03:57:35Z,2019-05-18T03:57:35Z,6,158,10,"With this change, setting the scrollback history size (number of scrollback rows) to more than about 32,000 will no longer cause Windows Terminal to hang forever.
+The problem was indeed what @zadjii-msft said it might be in the bug - the history size is persisted into profiles.json as a 32-bit signed integer (well, really a JSON/JS number, but the internal data models use 32-bit ints), but was being coerced without overflow checks into 16 bits, and the bug was the overflow in question. The fix was to clamp the history size read in to a non-negative 16-bit signed integer.
+I also took the liberty of adding similar overflow/underflow clamping for the initial number of rows and columns in the window.
+Testing:
+
+manual
+CI build and test passes, including new unit tests I added:
+https://dev.azure.com/ms/Terminal/_build/results?buildId=15717
+(note: the TerminalControl changes aren't currently tested as I couldn't find any existing test scaffolding)
+
+No doc changes made or required
+Fixes #453",4,1
+847,2019-05-16T10:17:36Z,2019-05-17T00:48:00Z,2019-05-17T00:48:01Z,1,4,4,"echo ( f | xcopy ) will not work, can get around with putting an '*' at the end, xcopy will treat then as file. This solutions builds
+fine on DE German machine.
+
+Summary of the Pull Request
+ 
+References
+
+PR Checklist
+
+ Closes #507
+ CLA signed. If not, go over here and sign the CLA
+ Tests added/passed
+ Requires documentation to be updated
+ I've discussed this with core contributors already. If not checked, I'm ready to accept this work might be rejected in favor of a different grand plan. Issue number where discussion took place: #xxx
+
+
+Detailed Description of the Pull Request / Additional comments",5,4
+853,2019-05-16T15:16:23Z,2019-05-29T18:35:46Z,2019-05-29T18:35:47Z,8,277,12,"Summary of the Pull Request
+Initial code check-in for background image support.  Handles background images themselves, and adds options to profiles.json to control the feature.
+ 
+References
+#833
+
+PR Checklist
+
+ Closes #833 (Not quite complete as the opacity setting is not fully robust, see below)
+ CLA signed. If not, go over here and sign the CLA
+ Tests added/passed
+ Requires documentation to be updated -- Adds (currently undocumented) settings to profiles.json, but profiles.json as a whole does not appear to be documented
+ I've discussed this with core contributors already. If not checked, I'm ready to accept this work might be rejected in favor of a different grand plan. Issue number where discussion took place: #833 -- aware of the discussion in #833
+
+
+Detailed Description of the Pull Request / Additional comments
+This adds three options to the individual profile options in profile.json:
+
+backgroundImage: Expects a Uri which locates an image.  This property is optional and defaults to null.
+backgroundImageOpacity: Expects a number, controls opacity of the background image.  Optional and defaults to 1.0.
+backgroundImageStretchMode: expects one of ""none"", ""fill"", ""uniform"", or ""uniformToFill"", which controls the stretch mode used -- see documentation here.  Optional and defaults to uniformToFill.
+
+Background images are only displayed if useAcrylic is turned off.
+One known issue:
+backgroundImageOpacity currently only works with respect to the application's default black background and does not respect the profile's background color.
+One potential issue:
+There's no attempt to handle a failed image load from the Uri; I think it is reasonable to expect the underlying classes (specifically BitmapImage) to handle this gracefully.  Additionally, it's unclear how such a failure should be reported to the user (beyond their requested image being displayed as a black console background instead)",6,11
+856,2019-05-16T17:37:59Z,2019-05-20T19:05:58Z,2019-05-20T19:05:58Z,2,17,3,"Summary of the Pull Request
+This fix prevents text from being selected when the user clicks within the active terminal to re-focus the window. This brings the new terminal's behavior inline with the original powershell and cmd terminals.
+Fixes #670
+I tested this fix's behavior manually, but did ensure all unit tests are passing.
+
+PR Checklist
+
+ Closes #xxx
+ CLA signed. If not, go over here and sign the CLA
+ Tests added/passed
+ Requires documentation to be updated
+ I've discussed this with core contributors already. If not checked, I'm ready to accept this work might be rejected in favor of a different grand plan. Issue number where discussion took place: #xxx
+
+
+Detailed Description of the Pull Request / Additional comments
+The proposed changes may be a naive way of fixing the issue. I simply added a bool called _focused to the TermControl class which is set and unset during the respective GotFocus and LostFocus events. That bool is then checked whenever a new MouseClick event is encountered. If _focused is false during the MouseClick event, the MouseClick event handler immediately returns instead of handling the event normally.
+I did try to fix this issue using the GettingFocus event, but I could not find a way to stop the MouseClick event from the GettingFocus event handler. I am pretty new to UWP events, so I am more than happy to revise this fix if a better method exists.",4,2
+862,2019-05-16T20:33:37Z,2019-05-17T00:32:29Z,2019-05-17T00:32:29Z,1,1,1,,4,1
+871,2019-05-16T23:35:05Z,2019-05-17T20:32:51Z,2019-05-17T20:32:52Z,29,52,49,"Summary of the Pull Request
+This PR fixes a bunch of callback function signatures so that they align with the signatures expected by Windows API. Most changes are from __cdecl to __stdcall, which matters on x86, but not on x64 or ARM64.
+
+PR Checklist
+
+ Closes #xxx
+ CLA signed. If not, go over here and sign the CLA
+ Tests added/passed
+ Requires documentation to be updated
+ I've discussed this with core contributors already. If not checked, I'm ready to accept this work might be rejected in favor of a different grand plan. Issue number where discussion took place: #xxx
+
+
+Detailed Description of the Pull Request / Additional comments
+I find it hard to believe that conhost.exe as shipped in Windows would use callback functions with incorrect calling convention. Perhaps the version that ships with Windows is compiled with /Gz (__stdcall-by-default)? But OpenConsole.sln isn't.
+All of these functions were found manually, so it's likely that there are more issues like this that I didn't find. It would be great if MSVC had a warning similar to GCC's -Wcast-function-type.
+The only one signature incompatibility I found that wasn't eliminated was with FONTENUMPROC (I only fixed the calling convention, which is most important anyway), since a slightly different signature is being used that is similar to EnumFontFamProc rather than EnumFontFamExProc/FONTENUMPROC, and a slightly more invasive change would be needed.",7,20
+883,2019-05-17T18:03:24Z,2019-06-18T00:52:01Z,2019-06-18T00:52:01Z,1,74,0,"Summary of the Pull Request
+Added documentation for profiles.json file.
+ 
+References
+
+PR Checklist
+
+ Closes #xxx
+ CLA signed. If not, go over here and sign the CLA
+ Tests added/passed
+ Requires documentation to be updated
+ I've discussed this with core contributors already. If not checked, I'm ready to accept this work might be rejected in favor of a different grand plan. Issue number where discussion took place: #xxx
+
+
+Detailed Description of the Pull Request / Additional comments",10,3
+884,2019-05-17T18:07:12Z,2019-05-20T14:27:37Z,2019-05-20T14:27:37Z,1,89,0,"Summary of the Pull Request
+Adds documentation to how the bot works, what it does, how to reconfigure it, etc.
+ 
+References
+
+PR Checklist
+
+ Closes #882
+ CLA signed. If not, go over here and sign the CLA
+ Tests added/passed
+ Requires documentation to be updated
+ I've discussed this with core contributors already. If not checked, I'm ready to accept this work might be rejected in favor of a different grand plan. Issue number where discussion took place: #882
+
+
+Detailed Description of the Pull Request / Additional comments",3,1
+888,2019-05-18T03:29:08Z,2019-05-30T16:24:35Z,2019-05-30T16:24:35Z,2,12,3,"Summary of the Pull Request
+This commit makes the default profile in the new-tab flyout show up
+at the top and gives it bold text.
+ 
+References
+None.
+
+PR Checklist
+
+ Closes #xxx
+ CLA signed. If not, go over here and sign the CLA
+ Tests added/passed
+ Requires documentation to be updated
+ I've discussed this with core contributors already. If not checked, I'm ready to accept this work might be rejected in favor of a different grand plan. Issue number where discussion took place: #xxx
+
+
+Detailed Description of the Pull Request / Additional comments
+None.",5,6
+891,2019-05-18T06:09:53Z,2019-05-24T16:53:01Z,2019-05-24T16:53:01Z,23,482,72,"Add support for OSC 10 and 11 to set the default colors
+Supports setting the rgb value for the default foreground and background (but no support for querying yet, same as OSC 4)
+
+PR Checklist
+
+ Closes #317
+ CLA signed. If not, go over here and sign the CLA
+ Tests added/passed
+ Requires documentation to be updated
+ I've discussed this with core contributors already. If not checked, I'm ready to accept this work might be rejected in favor of a different grand plan. Issue number where discussion took place: #317
+
+
+This adds support for OSC 10 to set the default foreground color and OSC 11 to set the default background color (just as if they were set in the profiles.json, except that the settings are not changes, so they can be reloaded).
+I have not implemented querying (which is also mentioned in #317), so this only addresses one item in the list.
+I have not really added any unit tests -- I'm happy to do so, but unsure where they should go, or what they look like. I found some mocks for the other OSC codes, and implemented those, but didn't spot tests.",10,11
+892,2019-05-18T06:51:02Z,,2019-05-22T03:46:50Z,1,20,12,"Summary of the Pull Request
+This commit fixes crashes that happen when the last tab is being closed.
+References
+None.
+
+PR Checklist
+
+ Closes #xxx
+ CLA signed. If not, go over here and sign the CLA
+ Tests added/passed
+ Requires documentation to be updated
+ I've discussed this with core contributors already. If not checked, I'm ready to accept this work might be rejected in favor of a different grand plan. Issue number where discussion took place: #xxx
+
+Detailed Description of the Pull Request / Additional comments
+Commit bc69d1a adds code that closes
+the window when the last tab is being closed, but code that should only
+be executed when closing one of multiple open tabs continues to be
+executed.  This leads to App::_RemoveTabViewItem trying to call
+TabView::SelectedIndex(1) when there is only 1 tab remaining in the
+TabView, resulting in an argument exception.",3,1
+895,2019-05-18T13:20:54Z,2019-05-18T20:37:00Z,2019-05-18T20:37:00Z,1,1,1,"Summary of the Pull Request
+Replace your with you due to the word your doesn't fit this context.
+ 
+References
+None
+
+PR Checklist
+
+ Closes #xxx
+ Tests added/passed
+ CLA signed. If not, go over here and sign the CLA
+ Requires documentation to be updated
+ I've discussed this with core contributors already. If not checked, I'm ready to accept this work might be rejected in favor of a different grand plan. Issue number where discussion took place: #xxx
+
+
+Detailed Description of the Pull Request / Additional comments",4,0
+897,2019-05-19T07:15:29Z,2019-05-22T20:24:23Z,2019-05-22T20:24:23Z,7,276,54,"Summary of the Pull Request
+Set a WT_SESSION environment variable to a unique guid on every new connection to allow shell consumers to detect Windows Terminal and uniquely identify the session.
+ 
+References
+Unknown.
+
+PR Checklist
+
+ Closes #840
+ CLA signed. If not, go over here and sign the CLA
+ Tests added/passed
+ Requires documentation to be updated
+ I've discussed this with core contributors already. If not checked, I'm ready to accept this work might be rejected in favor of a different grand plan. Issue number where discussion took place: #840
+
+
+Detailed Description of the Pull Request / Additional comments
+Set a new 'WT_SESSION' environment variable when creating new terminal connections to allow shells to detect a unique Windows Terminal session.  The value of the variable is a stringified GUID as returned by
+CoCreateGuid.
+How verified:
+
+""razzle"" & vs debug build
+runut
+opencon
+testcon
+manual inspection
+
+Uncertain about what tests to add and where; all of the existing ones passed.
+I did some basic research to try to ensure that ""WT_SESSION"" is a ""unique"", non-conflicting environment variable and so shouldn't cause any problems with any existing programs.  I'm certainly open to suggestions about the name though.",6,5
+899,2019-05-19T14:19:44Z,2019-05-21T21:44:23Z,2019-05-21T21:44:23Z,1,11,1,"Fix readme to show correct path of build tools
+
+Summary of the Pull Request
+Fix README.md documentation in Build the Code section
+ 
+References
+
+PR Checklist
+
+ Closes #898
+ CLA signed. If not, go over here and sign the CLA
+ Tests added/passed
+ Requires documentation to be updated
+ I've discussed this with core contributors already. If not checked, I'm ready to accept this work might be rejected in favor of a different grand plan. Issue number where discussion took place: #xxx
+
+
+Detailed Description of the Pull Request / Additional comments
+It might be fixed also by adding path to bcz in razzle command.",6,7
+903,2019-05-20T17:38:54Z,2019-05-23T20:09:36Z,2019-05-23T20:09:36Z,8,224,62,"Summary of the Pull Request
+Add an error dialog when we fail to parse settings.
+PR Checklist
+
+ Closes #622
+ CLA signed. If not, go over here and sign the CLA
+ Tested manually.
+ I've discussed this with core contributors already.
+
+Detailed Description of the Pull Request / Additional comments
+Sneak peek:
+
+
+If we fail to load the settings, we'll temporarily use the default settings. These defaults won't get written back to the profiles.json file, so people don't need to worry about blowing their settings away with a simple typo.
+This includes a bit of a XAML hack to make the button appear correctly when the app's theme is opposite that of the system theme. ContentDialog does a weird thing where it takes its child and moves that to the popup and leaves itself in the tree. That causes things like ElementTheme inheritance to break. So instead, we're theming the CloseButton manually, to make sure it's always visible.",6,4
+905,2019-05-20T18:50:17Z,2019-06-18T22:53:29Z,2019-06-18T22:53:29Z,5,344,164,"Summary of the Pull Request
+Fixes a bug/feature to select wide glyphs (#935 ). Short summary of it is that selecting emojis and other wide glyphs should encompass the entire glyph, not just half.
+Also moved selection logic to new file for cleanliness.
+I had to rebase from the ADO branch but it looks good. And tested :)
+References
+PR Checklist
+
+ Closes #935
+ CLA signed. If not, go over here and sign the CLA
+ Tests added/passed
+ Requires documentation to be updated
+ I've discussed this with core contributors already. If not checked, I'm ready to accept this work might be rejected in favor of a different grand plan. Issue number where discussion took place: #xxx
+
+
+Detailed Description of the Pull Request / Additional comments
+Basically, selection has to be covered in two cases: expand left and expand right. Made 2 similar looking functions.
+To the team: this was already somewhat reviewed back before we went on GitHub. So if you have a deja vu feeling, that's why.",6,4
+906,2019-05-20T18:59:29Z,2019-05-22T16:34:21Z,2019-05-22T16:34:21Z,2,32,14,"Summary of the Pull Request
+Padding used to offset selection.
+ 
+References
+
+PR Checklist
+
+ Closes #660
+ CLA signed. If not, go over here and sign the CLA
+ Tests added/passed
+ Requires documentation to be updated
+ I've discussed this with core contributors already. If not checked, I'm ready to accept this work might be rejected in favor of a different grand plan. (I am a core contributor)
+
+
+Detailed Description of the Pull Request / Additional comments
+Created _GetTerminalPosition() to encompass some of this logic and prevent this kind of stuff from happening again. Also, just nice to wrap everything up into a function call.
+To the team: this was already somewhat reviewed back before we went on GitHub. So if you have a deja vu feeling, that's why.",3,2
+907,2019-05-20T21:00:12Z,2019-05-21T05:00:44Z,2019-05-21T05:00:44Z,1,2,5,Update README.md to describe that opening the solution in VS2019 will prompt to automatically install missing development components.,4,1
+911,2019-05-20T22:15:27Z,2019-05-21T06:15:45Z,2019-05-21T06:15:45Z,26,44,43,"Summary of the Pull Request
+Fix common typo it's (""it is"") versus its in the code comments.
+PR Checklist
+
+ Closes #xxx
+ CLA signed. If not, go over here and sign the CLA
+ Tests added/passed
+ Requires documentation to be updated
+ I've discussed this with core contributors already. If not checked, I'm ready to accept this work might be rejected in favor of a different grand plan. Issue number where discussion took place: #xxx",3,1
+913,2019-05-21T04:19:57Z,2019-05-21T20:29:16Z,2019-05-21T20:29:17Z,19,285,13,"Summary of the Pull Request
+This pull request switches the GUIDs for default profiles from being randomly generated to being version 5 UUIDs. More info in #870.
+PR Checklist
+
+ Closes #870
+ CLA signed
+ Tests added/passed
+ Requires documentation to be updated (#883)
+ I've discussed this with core contributors already.
+
+Detailed Description of the Pull Request / Additional comments
+This pull request has a number of changes that seem ancillary, but they're general goodness. Let me explain:
+
+I've added a whole new Types test library with only two tests in
+Since UUIDv5 generation requires SHA1, we needed to take a dependency on bcrypt
+I honestly don't think we should have to link bcrypt in conhost, but LTO should take care of that
+
+I considered adding a new Terminal-specific Utils/Types library, but that seemed like a waste
+
+
+The best way to link bcrypt turned out to be in line with a discussion @miniksa and I had, where we decided we both love APISets and think that the console should link against them exclusively... so I've added onecore_apiset.lib to the front of the link line, where it will deflect the linker away from most of the other libs automagically.
+
+StartGroup: UuidTests::TestV5UuidU8String
+Verify: AreEqual(uuidExpected, uuidActual)
+EndGroup: UuidTests::TestV5UuidU8String [Passed]
+
+StartGroup: UuidTests::TestV5UuidU16String
+Verify: AreEqual(uuidExpected, uuidActual)
+EndGroup: UuidTests::TestV5UuidU16String [Passed]",7,6
+914,2019-05-21T09:12:15Z,2019-05-21T21:07:04Z,2019-05-21T21:07:04Z,2,3,3,"Use unique_ptr for Core::Terminal object to delete it correctly.
+Related to #875, #745
+
+PR Checklist
+
+ Closes #xxx
+ CLA signed. If not, go over here and sign the CLA
+ Tests added/passed
+ Requires documentation to be updated
+ I've discussed this with core contributors already. If not checked, I'm ready to accept this work might be rejected in favor of a different grand plan. Issue number where discussion took place: #xxx
+
+Detailed Description of the Pull Request / Additional comments
+This is a fix for one allocation site from the bug #875, but it may be related to the #745
+Just use std::unique_ptr<> to hold a Terminal object.",3,0
+916,2019-05-21T12:09:09Z,,2019-06-13T18:00:12Z,1,24,3,"Added snippet of code from the c++ guidelines
+ 
+This will help newcomers to follow the code guideleine, a way to make them remember the style to be followed.",6,6
+918,2019-05-21T15:12:26Z,2019-05-23T22:02:32Z,2019-05-23T22:02:33Z,4,49,28,"Summary of the Pull Request
+
+ alwaysShowTabs -> true
+ experimental_showTabsInTitlebar -> true
+ always include Windows Powershell (background: #012456)
+ include PowerShell Core separately (background: unset)
+ drop Courier New for powershell
+ drop experimental_ for experimental_showTabsInTitlebar
+ reduce default font size to 10pt.
+
+
+PR Checklist
+
+ Closes #869
+ CLA signed. If not, go over here and sign the CLA
+ Tested manually
+ Requires documentation to be updated - unnecessary
+ I've discussed this with core contributors already.",5,4
+920,2019-05-21T17:45:55Z,2019-05-23T20:39:29Z,2019-05-23T20:39:30Z,4,17,1,"Summary of the Pull Request
+Fixes the problem where the scrollbar doesn't update when scrolling with keyboard shortcuts
+References
+#821
+
+PR Checklist
+
+ Closes #xxx
+ CLA signed. If not, go over here and sign the CLA
+ Manually tested
+ Doesn't require documentation to be updated
+ I've discussed this with core contributors already. If not checked, I'm ready to accept this work might be rejected in favor of a different grand plan. Issue number where discussion took place: #821",3,2
+924,2019-05-21T20:55:28Z,2019-05-22T20:01:34Z,2019-05-22T20:01:34Z,5,123,0,"Summary of the Pull Request
+This modifies the UI menu to display the shortcuts for those options based on the new keybinding mappings from #748.
+References
+Enhances #748 to respond to custom keybinding mappings
+PR Checklist
+
+ Closes #791
+ CLA signed. If not, go over here and sign the CLA
+ Tests added/passed
+ Requires documentation to be updated
+ I've discussed this with core contributors already. If not checked, I'm ready to accept this work might be rejected in favor of a different grand plan. Issue number where discussion took place: #xxx
+
+Detailed Description of the Pull Request / Additional comments
+
+Added a few static methods to AppKeyBindings to find a keybinding from the loaded map and create a keyboard UI shortcut for it.
+Two static helpers exist to map Terminal KeyChord values to WinRT VirtualKey and VirtualKeyModifiers.  These should be removed/not needed once #877 is decided on (assuming it would go to WinRT APIs).
+Special casing the comma character due to a bug in the XAML UI framework that is not yet resolved and on backlog for WinUI 3.0 roadmap (noted in comments)",4,8
+925,2019-05-21T21:06:04Z,2019-05-21T22:39:26Z,2019-05-21T22:39:26Z,9,81,81,"Instead of creating const static wstring objects which call malloc in the constructor, use wstring_view instead which just wraps the constant.
+Summary of the Pull Request
+Simple code refactoring.
+References
+PR Checklist
+
+ Closes no bug
+ CLA signed. If not, go over here and sign the CLA
+ Tests added/passed
+ Requires documentation to be updated
+ I've discussed this with core contributors already. If not checked, I'm ready to accept this work might be rejected in favor of a different grand plan. Issue number where discussion took place: #xxx",3,5
+927,2019-05-21T21:33:42Z,2019-05-23T17:42:40Z,2019-05-23T17:42:40Z,2,41,35,"found by cppcheck
+[src/propsheet/OptionsPage.cpp:216] -> [src/propsheet/OptionsPage.cpp:242]: (warning) Either the condition 'lParam' is redundant or there is possible null pointer dereference: pshn.
+[src/propsheet/TerminalPage.cpp:352] -> [src/propsheet/TerminalPage.cpp:378]: (warning) Either the condition 'lParam' is redundant or there is possible null pointer dereference: pshn.",3,6
+928,2019-05-21T22:07:04Z,2019-05-22T16:14:03Z,2019-05-22T16:14:03Z,1,0,1,"Summary of the Pull Request
+Removed Windows Insider warning about 1903.",3,2
+929,2019-05-21T22:26:02Z,2019-06-25T20:06:12Z,2019-06-25T20:06:12Z,33,479,634,"Summary of the Pull Request
+When Terminal is drawing in the non client area we no longer create 2 islands. Instead we create a single island and create a region that ""pokes"" the drag-able title bar area in the top right corner of the main window of terminal.
+
+This change also fixes:
+
+A crash at shutdown where the Application object is released early.
+DestroyWindow is not getting called at shutdown for the all HWND (This have the effect of showing the window for a brief period after closing the app)
+WindowsDesktopXamlSource.Close was not getting called at shutdown.
+
+ 
+References
+
+PR Checklist
+
+ Closes 872, 1085
+ CLA signed. If not, go over here and sign the CLA
+ Tests added/passed
+ Requires documentation to be updated
+ I've discussed this with core contributors already. If not checked, I'm ready to accept this work might be rejected in favor of a different grand plan. Issue number where discussion took place: #xxx
+
+
+Detailed Description of the Pull Request / Additional comments",11,16
+931,2019-05-21T23:55:31Z,2019-05-22T17:28:51Z,2019-05-22T17:28:51Z,1,4,0,"Fixes #722.
+PR Checklist
+
+ Closes #722
+ CLA signed
+ I've discussed this with core contributors already.",4,0
+934,2019-05-22T01:37:28Z,2019-05-22T20:03:11Z,2019-05-22T20:03:11Z,13,38,14,"This pull request introduces a handful of default icons whose paths will be
+emitted into the default profiles.
+Icons are named after the profile GUIDs, which for the default profiles
+are stable v5 UUIDs based on the name of the profile. The plan is that
+we'll never have a duplicate default profile, and if the user wants to
+duplicate it they'll need to issue it a new GUID. Icons will by default
+be unique for each profile (when the user saves their settings), but they
+can of course be shared. It's just a file path.
+Eventually, when icons can be inserted through the settings UI, we can
+keep the GUID name (to unique them among all icons for all profiles) and
+move them into ms-appdata:///roaming/.
+The currently included icons are named for the following profiles:
+""cmd"" {0caa0dad-35be-5f56-a8ff-afceeeaa6101}
+""PowerShell Core"" {574e775e-4f2a-5b96-ac1e-a2962a402336}
+""Windows PowerShell"" {61c54bbd-c2c6-5271-96e7-009a87ff44bf}
+""WSL"" {9acb9455-ca41-5af7-950f-6bca1bc9722f}
+The PowerShell profile names aren't being used yet, but this is in
+preparation for #918 merging.
+Fixes #933.
+PR Checklist
+
+ Closes #933
+ CLA signed
+ Tests added/passed/not required
+ Documentation updated/not required
+ I've discussed this with core contributors already.",7,1
+941,2019-05-22T13:25:33Z,2019-05-23T17:44:28Z,2019-05-23T17:44:28Z,7,73,1,"Summary
+Fixes #601
+Added support for changing the cursor style via the DECSCUSR sequences. Higher values (e.g. \x1b[\x37 q) fall back to the legacy cursor.
+Tested manually by invoking wsl and using echo commands (e.g. echo -e -n ""\x1b[\x32 q"").
+PR Checklist
+
+ Closes #601
+ CLA signed. If not, go over here and sign the CLA
+ Tests added/passed
+ Requires documentation to be updated
+ I've discussed this with core contributors already. If not checked, I'm ready to accept this work might be rejected in favor of a different grand plan. Issue number where discussion took place: #601
+
+Detailed Description of the Pull Request / Additional comments
+Implemented the SetCursorStyle() method for TerminalDispatch and TerminalApi. Also, had to implement logic in TermControl.cpp to stop cursor blink when cursor->IsBlinkingAllowed() is false.",6,0
+948,2019-05-22T22:43:08Z,2019-05-24T21:48:11Z,2019-05-24T21:48:11Z,16,92,28,"Summary of the Pull Request
+ 
+References
+
+PR Checklist
+
+ Closes #773
+ CLA signed. If not, go over here and sign the CLA
+ Tests added/passed
+ Requires documentation to be updated
+ I've discussed this with core contributors already. If not checked, I'm ready to accept this work might be rejected in favor of a different grand plan. Issue number where discussion took place: #773
+
+
+Detailed Description of the Pull Request / Additional comments
+Adds AuditMode to ci. AuditMode will perform static analysis across the entire project.",4,0
+949,2019-05-22T23:11:22Z,2019-05-23T17:36:29Z,2019-05-23T17:36:30Z,9,17,0,"Doing this speeds up local builds and makes module.g.cpp a lot simpler.
+There's also some goodness around instantiating components that are local to your DLL not going through RoGetActivationFactory.
+PR Checklist
+
+ Closes #945
+ CLA signed
+ Tests added/passed/not applicable
+ Documentation updated or not applicable
+ I've discussed this with core contributors already.",4,2
+953,2019-05-23T04:22:58Z,2019-05-30T16:20:43Z,2019-05-30T16:20:43Z,30,81,51,"Summary of the Pull Request
+Functions returning status codes should use [[nodiscard]] as mentioned recently by @adiviness.
+They should also use noexcept, but that's a much more invasive change, so this issue is just about [[nodiscard]].
+ 
+References
+#897
+
+PR Checklist
+
+ Closes #951
+ CLA signed. If not, go over here and sign the CLA
+ Tests added/passed
+ Requires documentation to be updated
+ I've discussed this with core contributors already. If not checked, I'm ready to accept this work might be rejected in favor of a different grand plan. Issue number where discussion took place: #897
+
+
+Detailed Description of the Pull Request / Additional comments
+
+applied [[nodiscard]] for all HRESULT, LRESULT, and NTSTATUS functions
+fixed IntelliSense declaration complaints leading to function not
+implemented warnings
+deleted declared but never implemented functions
+fixed unused parameter warnings
+
+Please note I only checked for functions that had a declaration in a header file of some kind, so there might still be some functions only defined and used within .cpp files that don't have [[nodiscard]] applied.
+How verified:
+
+bcz dbg
+opencon
+testcon
+VS2019 debug build",6,2
+954,2019-05-23T06:34:54Z,2019-05-23T17:46:30Z,2019-05-23T17:46:30Z,1,2,4,"🎉
+
+Summary of the Pull Request
+🎉
+ 
+References
+🎉
+
+PR Checklist
+
+ Closes #🎉
+ CLA 🎉ed
+ 🎉
+ Requires 🎉 to be updated
+ I've discussed this with 🎉 contributors already.",4,2
+955,2019-05-23T08:23:46Z,2019-05-30T18:14:22Z,2019-05-30T18:14:22Z,96,303,182,"Summary of the Pull Request
+Removes the using directives from the header files more specifically the following header files:
+
+src/host/ft_host/precomp.h
+src/host/globals.h
+src/host/renderData.hpp
+src/host/renderFontDefaults.hpp
+src/host/screenInfo.hpp
+src/host/selection.hpp
+
+The using namespace directive was then put into the cpp files that needed them.
+ 
+References
+
+PR Checklist
+
+ Closes #822
+ CLA signed. If not, go over here and sign the CLA
+ Tests added/passed
+ Requires documentation to be updated
+  Issue number where discussion took place: #822
+
+
+Detailed Description of the Pull Request / Additional comments",5,0
+967,2019-05-23T21:20:24Z,2019-06-05T20:54:22Z,2019-06-05T20:54:22Z,4,214,0,"Summary of the Pull Request
+This PR contains the first draft of our contributor's guide and spec template.
+References
+N/A
+
+PR Checklist
+
+ Partially implements #890
+ CLA signed. If not, go over here and sign the CLA
+ Tests added/passed/ N/A
+ Requires documentation to be updated
+ I've discussed this with core contributors already. If not checked, I'm ready to accept this work might be rejected in favor of a different grand plan. Issue number where discussion took place: #890",5,1
+970,2019-05-24T04:50:37Z,2019-06-18T00:32:31Z,2019-06-18T00:32:32Z,3,59,42,"This commit also switches the manual resource management in
+ConhostConnection to use WIL.
+This change also starts conhost suspended so that we can get our lives in order before we let it start.
+This seems like good practice, and it will almost certainly help with the orphaning of some conhosts after WT exits.
+PR Checklist
+
+ Closes #1275, Closes #1250
+ CLA signed
+ Tests added/passed/not required
+ Documentation updated or not required
+ I've discussed this with core contributors already: this was a backlog item from before GitHub",7,1
+985,2019-05-24T15:59:34Z,2019-05-24T20:04:01Z,2019-05-24T20:04:01Z,1,8,0,"Summary of the Pull Request
+Fix #744, by making sure the TermControl always handles Tab keypresses. This will break keyboard navigation with tab, but considering that the shell almost always wants tab as a character, this makes more sense. We should probably introduce another keybinding to manually get the focus out of the control, but that can be a follow-up.
+
+PR Checklist
+
+ Closes #744
+ CLA signed. If not, go over here and sign the CLA
+ N/A Tests added/passed
+ N/A Requires documentation to be updated
+ I've discussed this with myself in the long hours waiting to fall asleep",5,4
+1004,2019-05-24T20:02:48Z,2019-05-24T22:29:13Z,2019-05-24T22:29:13Z,3,149,148,"PR to address Issue #896
+Fixing 2 issues here:
+
+When deriving from Virtual base class, the functions in the derived class must be explicitly marked final or override. The derived class functions were incorrectly declared virtual here instead of override.
+If the base class destructor is declared as virtual, derived class destructor shouldn't be declared override or final. Fixing that as well.
+
+ 
+References
+
+PR Checklist
+
+ Closes #xxx
+ CLA signed. If not, go over here and sign the CLA
+ Tests added/passed
+ Requires documentation to be updated
+ I've discussed this with core contributors already. If not checked, I'm ready to accept this work might be rejected in favor of a different grand plan. Issue number where discussion took place: #xxx
+
+
+Detailed Description of the Pull Request / Additional comments
+When deriving from Virtual base class, the functions in the derived class must be explicitly marked final or override. The derived class functions were incorrectly declared virtual here instead of override.
+If the base class destructor is declared as virtual, derived class destructor shouldn't be declared override or final.",5,3
+1005,2019-05-24T20:15:46Z,2019-06-04T21:55:28Z,2019-06-04T21:55:28Z,25,8682,638,"Summary of the Pull Request
+Switch to using jsoncpp as our json library. This lets us pretty-print the json file by default, and lets users place comments in the json file.
+
+PR Checklist
+
+ Closes #475
+ CLA signed. If not, go over here and sign the CLA
+ Tests added/passed - this would really be a good opportunity to add some tests Yea this is gonna be a follow-up, see #1042
+ Requires documentation to be updated - @cinnamon-msft it's now a race between this PR and yours to see who needs to update the documentation.
+ I've discussed this with @DHowett-MSFT extensively this week
+
+
+Detailed Description of the Pull Request / Additional comments
+We will now only re-write the file when the actual logical structure of the json object changes, not only when the serialization changes.
+Unfortunately, this will remove any existing ordering of profiles, and make the order random. We don't terribly care though, because when #754 lands, this will be less painful.
+It also introduces a top-level globals object to hold all the global properties, including keybindings. Existing profiles should gracefully upgrade.",6,8
+1006,2019-05-24T20:42:17Z,2019-05-24T21:43:47Z,2019-05-24T21:43:48Z,1,7,0,"Summary of the Pull Request
+Remove the 🔔 when pressing Alt+key
+
+PR Checklist
+
+[🔔] Closes #819
+[🔔] CLA signed
+[🔔] Manually tested
+[🔔] Requires documentation to be updated
+[🔔] I've discussed this with core contributors already.
+
+
+Detailed Description of the Pull Request / Additional comments
+Shoutout to @Austin-Lamb who really deserves all the credit here",3,0
+1012,2019-05-24T22:13:57Z,2019-06-26T21:13:33Z,2019-06-26T21:13:33Z,8,157,171,"Summary of the Pull Request
+Moves the solution to VS2019 and the latest SDK/tools
+
+PR Checklist
+
+ Closes #565
+ CLA signed. If not, go over here and sign the CLA
+ Tests added/passed
+ Does not require documentation to be updated
+ I've discussed this with core contributors already. If not checked, I'm ready to accept this work might be rejected in favor of a different grand plan. Issue number where discussion took place: #565
+
+
+Detailed Description of the Pull Request / Additional comments
+This is sitting here until we figure out what to do with the build agents regarding versioning and signing.",8,15
+1015,2019-05-25T04:21:39Z,2019-05-28T16:56:37Z,2019-05-28T16:56:38Z,2,20,16,"This PR makes a couple of small changes:
+
+In src\cascadia\TerminalControl\TermControl.cpp, the TermControl::_InitializeTerminal() method now initializes the RenderThread it creates before making any calls into the Renderer it also creates, as the Renderer has been given the RenderThread and expects it to be fully initialized.
+In src\renderer\base\thread.cpp, the RenderThread's members of type HANDLE are now initialized to NULL instead of INVALID_HANDLE_VALUE. The latter is not appropriate for these HANDLEs because they are returned from CreateThread() or CreateEvent(), which both return NULL on failure.
+
+Using manual testing, I verified that either of these changes alone will resolve one or both of the 2 AppVerifier stops cited in the bug report.
+
+PR Checklist
+
+ Closes #936
+TermControl._InitializeTerminal() gives Renderer an uninitialized RenderThread then calls into Renderer. Cleanup needed?
+ I've discussed this with core contributors already -- See bug thread - mr
+ Tests added/passed -- not sure where to put new test code? - mr",3,3
+1034,2019-05-28T07:50:39Z,2019-05-28T16:53:03Z,2019-05-28T16:53:04Z,1,1,1,"Summary of the Pull Request
+Updated Typo in Function Comment
+ 
+References
+No
+
+PR Checklist
+
+ Closes #xxx
+ CLA signed. If not, go over here and sign the CLA
+ Tests added/passed
+ Requires documentation to be updated
+ I've discussed this with core contributors already. If not checked, I'm ready to accept this work might be rejected in favor of a different grand plan. Issue number where discussion took place: #xxx
+
+
+Detailed Description of the Pull Request / Additional comments",4,2
+1046,2019-05-29T01:27:55Z,2019-05-29T17:02:49Z,2019-05-29T17:02:49Z,1,1,1,"This PR fixes issue #1045, in which if you had NuGet 5 on your PATH prior to running tools\razzle.cmd, then tools\razzle.cmd & nuget restore would fail with an ""Illegal characters on path"" error in NuGet.
+Detailed description of the pull request
+Since version 5.0.2, NuGet has used the PATH environment variable to find MSBuild.exe before looking in other file paths. See NuGet change NuGet/NuGet.Client@21f2b07 (NuGet/NuGet.Client#2687 ).
+Unfortunately, in PR #606 , tools\razzle.cmd was changed to add the MSBuild.exe folder path in quotes to the PATH environment variable. Windows itself is fine with this (you can type msbuild and MSBuild runs), but some tools are not, including NuGet itself, so you would get errors like this:
+D:\GitHub\metathinker\console> path
+PATH=[snip snip];""C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\MSBuild\Current\Bin\MSBuild.exe\.."";
+
+D:\GitHub\metathinker\console> where nuget
+C:\ProgramData\chocolatey\bin\nuget.exe
+D:\GitHub\metathinker\console\dep\nuget\nuget.exe
+
+D:\GitHub\metathinker\console> nuget restore OpenConsole.sln
+Illegal characters in path.
+
+razzle.cmd runs NuGet itself, but does so before adding the MSBuild folder to the PATH, so it was not affected by this problem.
+This change fixes the issue by dequotifying the PATH, so that if you already had a newer version of NuGet on your PATH before running tools\razzle.cmd, that version will continue to work should you need to run nuget restore again (such as after a git clean -dx).
+PR checklist
+
+ Closes #1045
+ CLA signed - I'm a Microsoft employee so I don't need to sign
+ Tests added/passed - not sure any tests are applicable?
+ Requires documentation to be updated - N/A; documentation doesn't need updating
+ I've discussed this with core contributors already
+
+References
+Nothing else relevant.",3,0
+1049,2019-05-29T07:41:08Z,2019-05-29T21:27:30Z,2019-05-29T21:27:30Z,13,38,38,"Summary of the Pull Request
+Some spelling mistakes in comments.",4,1
+1050,2019-05-29T11:59:25Z,2019-06-07T21:12:32Z,2019-06-07T21:12:33Z,3,82,0,"Summary of the Pull Request
+This code generates a list of WSL Distributions to be added to the drop down list.  It was tested manually with a setup holding a single WSL distribution.
+ 
+References
+
+PR Checklist
+
+ Closes #441
+ CLA signed. If not, go over here and sign the CLA
+ Tests added/passed
+ Requires documentation to be updated
+ I've discussed this with core contributors already. If not checked, I'm ready to accept this work might be rejected in favor of a different grand plan. Issue number where discussion took place: #441
+
+
+Detailed Description of the Pull Request / Additional comments
+While implementing the stream I was getting stuck in a loop inside of the wfstream functions when I ran past the end of the output.  None of the wfstream's health functions seemed to be working properly (::rdstate(), ::eof(), etc) so I used peeknamedpipe to get the length and stopped reading from the pipe before this became an issue.  I'd like to find a more clean method",7,1
+1052,2019-05-29T14:11:36Z,2019-06-25T20:36:01Z,2019-06-25T20:36:01Z,8,123,22,"Adds to ColorTool a new console target that writes the color scheme to stdout in JSON format suitable for copy/pasting into a Windows Terminal profiles.json file.
+I didn't see any unit tests for ColorTool, so I only tested this manually with itermcolors files.
+ 
+References
+
+PR Checklist
+
+ Closes #986
+ CLA signed. If not, go over here and sign the CLA
+ Tests added/passed
+ Requires documentation to be updated
+ I've discussed this with core contributors already. If not checked, I'm ready to accept this work might be rejected in favor of a different grand plan. Issue number where discussion took place: #986
+
+
+Detailed Description of the Pull Request / Additional comments",4,3
+1054,2019-05-29T15:30:54Z,2019-05-30T18:32:06Z,2019-05-30T18:32:06Z,5,22,19,"Summary of the Pull Request
+Change the profile key to colorScheme (from colorscheme), to be consistent with other configuration options.
+Update some comments in ColorTool to match.
+ 
+References
+
+PR Checklist
+
+ Closes #xxx
+ CLA signed. If not, go over here and sign the CLA
+ Tests added/passed
+ Requires documentation to be updated
+ I've discussed this with core contributors already. If not checked, I'm ready to accept this work might be rejected in favor of a different grand plan. Issue number where discussion took place: #xxx
+
+
+Detailed Description of the Pull Request / Additional comments
+This will likely break some existing profiles that use the old key.",4,2
+1063,2019-05-30T07:54:19Z,2019-05-30T15:54:46Z,2019-05-30T15:54:47Z,1,3,3,"Summary of the Pull Request
+Every screen update was causing memory usage to grow, seemingly unbounded. This appears to be due to a failure to decrement the reference count on a COM object.
+ 
+References
+
+PR Checklist
+
+ Closes #768
+ CLA signed. If not, go over here and sign the CLA
+ Tests added/passed
+ Requires documentation to be updated
+ I've discussed this with core contributors already. If not checked, I'm ready to accept this work might be rejected in favor of a different grand plan. Issue number where discussion took place: #xxx
+
+
+Detailed Description of the Pull Request / Additional comments
+The main allocation stack was:
+
+
+
+Commit   Stack
+Size (MB)
+
+
+
+
+[Root]
+3.609
+
+
+ntdll.dll!RtlUserThreadStart
+3.609
+
+
+kernel32.dll!BaseThreadInitThunk
+3.609
+
+
+TerminalControl.dll!Microsoft::Console::Render::RenderThread::s_ThreadProc
+3.609
+
+
+TerminalControl.dll!Microsoft::Console::Render::Renderer::PaintFrame
+3.609
+
+
+TerminalControl.dll!Microsoft::Console::Render::Renderer::_PaintFrameForEngine
+3.609
+
+
+TerminalControl.dll!Microsoft::Console::Render::Renderer::_PaintBufferOutput
+3.609
+
+
+TerminalControl.dll!Microsoft::Console::Render::Renderer::_PaintBufferOutputHelper
+3.609
+
+
+TerminalControl.dll!Microsoft::Console::Render::DxEngine::PaintBufferLine
+3.609
+
+
+TerminalControl.dll!Microsoft::Console::Render::CustomTextLayout::_AnalyzeRuns
+3.609
+
+
+|-   TerminalControl.dll!Microsoft::Console::Render::CustomTextLayout::_AnalyzeFontFallback
+3.133
+
+
+|      DWrite.dll!DWriteFontFallback::MapCharacters
+3.133
+
+
+
+DWriteFontFallback::MapCharacters was allocating a new IDWriteFont, but the COM object was never being released after it was used. Switching from a raw pointer to a ComPtr makes the leak no longer occur when, e.g., just scrolling up and down.",4,7
+1072,2019-05-30T21:21:19Z,,2019-06-01T01:23:58Z,10,98,7,"Summary of the Pull Request
+Attaches copy/paste functionality to their keyboard shortcuts and adds an option to improve interaction between ""Windows-space"" clipboards and ""Linux-space"" Terminals.
+ 
+References
+#968
+
+PR Checklist
+
+ Closes #968
+ CLA signed. If not, go over here and sign the CLA
+ Tests added/passed
+ Requires documentation to be updated
+ I've discussed this with core contributors already. If not checked, I'm ready to accept this work might be rejected in favor of a different grand plan. Issue number where discussion took place: #968
+
+
+Detailed Description of the Pull Request / Additional comments
+This connects the (mostly) pre-existing copy/paste mechanics to the keyboard shortcut mechanics, and adds a new option which makes multi-line pasting in WSL actually usable.
+The new option, convertPasteLineEndings does what it says -- replacing Windows-space CRLF pairs with Unix-space LFs in text pasted to the console.  This option applies to both the keyboard-shortcut paste and the right-click paste.  Without this most multiline text pasted into Terminal will be ""double-spaced"" due to the Windows-style CRLF pairs.  Furthermore, any multiline text copied from Terminal (in trim whitespace mode) generates CRLF pairs, which guarantees double-spacing when copying from a WSL Terminal session.
+Changes:
+
+Added TermControl::PasteTextFromClipboard which does what it says on the tin.  Refactored the paste code from the right-click handling in TermControl here.
+Added App::_PasteText, functioning in parallel to the pre-existing App::_CopyText
+Added TermControl::_SendPastedTextToConnection which adds a pre-processing layer on top of _SendInputToConnection to allow line-ending conversion
+Added connections from keybindings to copy/paste functionality in App::_HookupKeyBindings
+Various code in Profile/TerminalSettings to support the new option ""convertPasteLineEndings"" (optional, defaults to false)
+
+Other notes:
+
+This PR interprets the keybinding ""copy"" as a copy trimming trailing whitespace (the operation performed by a right-click with a selection active).  It may be appropriate to add a keybinding for a whitespace-preserving copy (which is now done as a shift-right-click with a selection active).
+Windows -> Unix line-ending conversion is pretty much unavoidable for Terminal to interact happily with WSL.  TextBuffer::GetTextForClipboard inserts CRLF pairs into copied text, and while this could be changed to (optionally) generate LFs instead of CRLFs, this doesn't seem to be sufficient since (e.g.) Notepad also happily generates CRLF pairs.
+The architecture for the copy/paste functionality is... odd, at least to my mind.  This PR follows the existing mechanisms as closely as possible (the additional paste functions closely mirror the existing copy functions), but stuff like App::_CreateNewTabFromSettings filling out the event handlers as opposed to TermControl probably deserves an eyeball, as the only knowledge not available to TermControl during this process is which DependencyObject the Dispatcher for the copy/paste operations should come from (and I'm not sure this particularly matters).",3,1
+1080,2019-05-31T15:58:41Z,2020-06-05T18:14:02Z,2020-06-05T18:14:02Z,3,115,0,"Summary of the Pull Request
+Add a spec for panes with non-terminal content in them. This will enable us to both write tests for Panes, and also enable a wide variety of content within the Terminal app.
+
+PR Checklist
+
+ Is a spec for #997
+ Requires documentation to be updated
+ I've discussed this with myself
+
+
+Detailed Description of the Pull Request / Additional comments
+read the doc",3,2
+1092,2019-06-01T02:00:32Z,2019-06-04T20:25:25Z,2019-06-04T20:25:25Z,1,14,2,"Summary of the Pull Request
+Fixes #1082 -- #853's fix of the acrylic background's flash/fade on any settings change managed to cause a flash/fade on new tab creation.  This change removed both flash/fades.
+ 
+References
+
+PR Checklist
+
+ Closes #1082
+ CLA signed. If not, go over here and sign the CLA
+ Tests added/passed
+ Requires documentation to be updated
+ I've discussed this with core contributors already. If not checked, I'm ready to accept this work might be rejected in favor of a different grand plan. Issue number where discussion took place: #1082
+
+
+Detailed Description of the Pull Request / Additional comments
+#853 split background brush initialization from background color changes; due to the brush being constructed with a default color and then the color being initialized later, new tabs were getting the flash/fade that accompanies a re-focused fluent-style acrylic background.  This PR initializes the acrylic color at brush initialization to avoid the problem.",3,0
+1093,2019-06-01T02:18:16Z,2019-06-25T19:17:03Z,2019-06-25T19:17:03Z,9,45,9,"Summary of the Pull Request
+Connects copy and paste keybindings to the appropriate clipboard functionality within Terminal.
+ 
+References
+#1072, #968
+
+PR Checklist
+
+ Closes #968
+ CLA signed. If not, go over here and sign the CLA
+ Tests added/passed
+ Requires documentation to be updated
+ I've discussed this with core contributors already. If not checked, I'm ready to accept this work might be rejected in favor of a different grand plan. Issue number where discussion took place: #1072, #968 his connects the (mostly) pre-existing copy/paste mechanics to the keyboard shortcut mechanics.
+
+
+Detailed Description of the Pull Request / Additional comments
+Changes:
+
+Added TermControl::PasteTextFromClipboard which does what it says on the tin. Refactored the paste code from the right-click handling in TermControl here.
+Added App::_PasteText, mirroring the pre-existing App::_CopyText
+Added connections from keybindings to copy/paste functionality in App::_HookupKeyBindings
+
+Notes:
+
+This PR interprets the keybinding ""copy"" as a copy trimming trailing whitespace (the operation performed by a right-click with a selection active). It may be appropriate to add a keybinding for a whitespace-preserving copy (which is now done as a shift-right-click with a selection active).",5,14
+1094,2019-06-01T03:03:55Z,,2019-10-15T04:40:48Z,7,65,1,"Summary of the Pull Request
+Implements line-ending conversion for pasting.  Specifically by introducing a new option -- convertPasteLineEndings (optional, defaults to false) -- which, when set, causes pastes from the clipboard to have CRLF pairs converted to LFs.
+See here: (Top copy/paste is prior behavior or convertPasteLineEndings set to false; bottom is convertPasteLineEndings set to true; this is Terminal running WSL bash):
+
+ 
+References
+
+PR Checklist
+
+ Closes #1091
+ CLA signed. If not, go over here and sign the CLA
+ Tests added/passed
+ Requires documentation to be updated -- adds new option
+ I've discussed this with core contributors already. If not checked, I'm ready to accept this work might be rejected in favor of a different grand plan. Issue number where discussion took place: #1072, #1091
+
+
+Detailed Description of the Pull Request / Additional comments
+The new option, convertPasteLineEndings does what it says -- replacing Windows-space CRLF pairs with Unix-space LFs in text pasted to the console. This option applies to both the keyboard-shortcut paste and the right-click paste. Without this most multiline text pasted into Terminal will be ""double-spaced"" due to the Windows-style CRLF pairs. Furthermore, any multiline text copied from Terminal (in trim whitespace mode) generates CRLF pairs, which guarantees double-spacing when copying from a WSL Terminal session.
+Changes:
+
+Added TermControl::_SendPastedTextToConnection which adds a pre-processing layer on top of _SendInputToConnection to allow line-ending conversion
+Various code in Profile/TerminalSettings to support the new option ""convertPasteLineEndings"" (optional, defaults to false)
+
+Notes:
+
+Split from #1072",7,9
+1105,2019-06-02T01:27:51Z,2019-06-04T20:23:43Z,2019-06-04T20:23:43Z,8,18,24,"Almost all functions in the Windows API that open or create objects and return HANDLEs to them return null on failure; only a few (mostly to do with the file system) return INVALID_HANDLE_VALUE on failure. This PR scrubs the repo of a few, but not necessarily all, cases where INVALID_HANDLE_VALUE was mistakenly used or tested against instead of null. In particular, it fixes 2 cases reported in issue #427 where the return value of CreateThread() was compared against INVALID_HANDLE_VALUE against null, causing the error handling code to run at the wrong time.
+There are a lot of other uses of INVALID_HANDLE_VALUE I found that looked questionable, but which I left alone. Most of these were used to initialize HANDLE-typed variables and as a sentinel to see if those variables remained unset to a ""real"" value.
+PR Checklist
+
+ Fixes #427
+ CLA signed - N/A; I work for Microsoft
+ Tests added/passed - no tests added, existing unit tests pass
+ Requires documentation to be updated - N/A; no doc changes needed
+ I've discussed this with core contributors already. If not checked, I'm ready to accept this work might be rejected in favor of a different grand plan.
+
+References
+This PR was inspired by my previous PR #1015 which also resolved some misuses of INVALID_HANDLE_VALUE.",5,1
+1113,2019-06-03T04:56:17Z,2019-06-07T20:20:27Z,2019-06-07T20:20:27Z,2,75,6,"Summary of the Pull Request
+I'm not sure this is good, since I don't write a lot of powershell, and
+I don't know the project very well, but hopefully it's good!
+
+PR Checklist
+
+ Closes #930
+ CLA signed. If not, go over here and sign the CLA",5,6
+1117,2019-06-03T13:47:14Z,2019-06-04T20:18:23Z,2019-06-04T20:18:24Z,1,10,1,"Summary of the Pull Request
+Use tabview.SelectedIndex for setting focus tab
+ 
+References
+
+PR Checklist
+
+ Closes #1100, Closes #1039, Closes #1074
+ CLA signed. If not, go over here and sign the CLA
+ Tests added/passed
+ Requires documentation to be updated
+ I've discussed this with core contributors already. If not checked, I'm ready to accept this work might be rejected in favor of a different grand plan. Issue number where discussion took place: #xxx
+
+
+Detailed Description of the Pull Request / Additional comments",3,3
+1129,2019-06-03T23:31:19Z,2019-06-04T22:22:19Z,2019-06-04T22:22:19Z,4,182,18,"…. It will return a replacement character at that point if it was given bad data. #788
+
+Summary of the Pull Request
+This modifies the parser used while inserting text into the underlying data buffer to never return an empty sequence. The empty sequence is invalid as you can't insert a ""nothing"" into the buffer. The buffer asserted this with a fail fast crash. Now we will instead insert U+FFFD (the Unicode replacement character) � to symbolize that something was invalid and has been replaced.
+
+PR Checklist
+
+ Closes #788 and internal MSFT: 20990158
+ CLA signed. If not, go over here and sign the CLA
+ Tests added/passed
+ Requires documentation to be updated
+ I've discussed this with core contributors already. If not checked, I'm ready to accept this work might be rejected in favor of a different grand plan. Issue number where discussion took place: #788
+
+
+Detailed Description of the Pull Request / Additional comments
+The solution here isn't perfect and isn't going to solve all of our problems. I was basically trying to stop the crash while not getting in the way of the other things coming down the pipe for the input channels.
+I considered the following:
+
+Remove the fail fast assertion from the buffer
+
+
+I didn't want to do this because it really is invalid to get all the way to placing the text down into the buffer and then request a string of 0 length get inserted. I feel the fail fast is a good indication that something is terribly wrong elsewhere that should be corrected.
+
+
+Update the UTF16 parser in order to stop returning empty strings
+
+
+This is what I ultimately did. If it would ever return just a lead, it returns �. If it would ever return just a trail, it returns �. Otherwise it will return them as a pair if they're both there, or it will return a single valid codepoint. I am now assuming that if the parse function is being called in an Output Iterator and doesn't contain a string with all pieces of the data that are needed, that someone at a higher level messed up the data, it is in valid, and it should be repaired into replacements.
+This then will move the philosophy up out of the buffer layer to make folks inserting into the buffer identify half a sequence (if they're sitting on a stream where this circumstance could happen... one wchar_t at a time) and hold onto it until the next bit arrives. This is because there can be many different routes into the buffer from many different streams/channels. So buffering it low, right near the insertion point, is bad as it might pair loose wchar_t across stream entrypoints.
+
+
+Update the iterator, on creating views, to disallow/transform empty strings.
+
+
+I considered this solution as well, but it would have required, under some circumstances, a second parsing of the string to identify lead/trail status from outside the Utf16Parser class to realize when to use the � character. So I avoided the double-parse.
+
+
+Change the cooked read classes to identify that they pulled the lead wchar_t from a sequence then try to pull another one.
+
+I was going to attempt this, but @adiviness said that he tried it and it made all sorts of other weirdness happen with the edit line.
+Additionally, @adiviness has an outstanding series of effort to make cooked read significantly less horrible and disgusting. I didn't want to get in the way here.
+
+
+Change the GetChar method off of the input buffer queue to return a char32_t, a wstring_view, transform a standalone lead/trail, etc.
+
+The GetChar method is used by several different accessors and API calls to retrieve information off of the input queue, transforming the Key events into straight up characters. To change this at that level would change them all.  Long-term, it is probably warranted to do so as all of those consumers likely need to become aware of handling UTF-16 surrogates before we can declare victory. But two problems.
+1. This gets in the way of @adiviness work on cooked read data
+2. This goes WAY beyond the scope of what I want to accomplish here as the immediate goal is to stop the crash, not fix the world.
+
+
+
+I've validated this by:
+
+Writing some additional tests against the Utf16Parser to simulate some of the theoretical sequences that could arrive and need to be corrected into replacement characters per a verbal discussion and whiteboarding with @adiviness.
+Manually triggered the emoji panel and inserted a bunch of emoji. Then seeked around left and right, deleted assorted points with the backspace key, pressed enter to commit, and used the up-arrow history to recommit them to see what happened. There were no crashes. The behavior is still weird and not great... but outside the scope of no crashy crashy.",4,0
+1134,2019-06-04T03:57:34Z,2019-06-04T23:31:37Z,2019-06-04T23:31:37Z,7,79,15,"Summary of the Pull Request
+Currently, the program crashes with a window width or height greater than 32767 (accounting for window decorations). This can be caused when the initialRows and initialColumns settings are set too high (also depends on the font width and height). This fixes the issue by not allowing the window to expand beyond 32767x32767.
+ 
+References
+#843 - relocated the ClampToShortMax helper for reuse elsewhere
+
+PR Checklist
+
+ Closes #859
+ CLA signed. If not, go over here and sign the CLA
+ Tests added/passed
+ Requires documentation to be updated
+ I've discussed this with core contributors already. If not checked, I'm ready to accept this work might be rejected in favor of a different grand plan. Issue number where discussion took place: #859
+
+
+Detailed Description of the Pull Request / Additional comments
+I didn't add tests because there doesn't seem to be a test framework for the WindowsTerminal project yet.",3,0
+1139,2019-06-04T19:44:42Z,2019-06-04T22:16:10Z,2019-06-04T22:16:10Z,1,6,2,"Summary of the Pull Request
+Flushes the input queue on RawReadUnpacksCoalescedInputRecords test to ensure that other tests cannot cause failure by leaving extraneous input records behind after they run.
+
+PR Checklist
+
+ Closes #1137 and internal issue MSFT: 21918618
+ CLA signed. If not, go over here and sign the CLA
+ Tests added/passed
+ Requires documentation to be updated
+ I've discussed this with core contributors already. If not checked, I'm ready to accept this work might be rejected in favor of a different grand plan. Issue number where discussion took place: #1137
+
+
+Detailed Description of the Pull Request / Additional comments
+This only failed in the core operating system gate tests. This is because those tests run a subset of the complete test suite (subtracting the ones that do not make sense in a core environment). Apparently one of the tests that was skipped that normally runs prior to the UnpacksCoalesced test ensured that the input queue was clean enough for this test to succeed. But in the core environment, the test that ran prior left stuff behind.
+To resolve this, I'm making the Coalesced test more resilient by cleaning out the queue prior to performing its operations.
+(Also, bonus, I'm fixing the typo in the name Coalesced.)
+This is less complicated/expensive than tracking down the tests that are leaving garbage behind, should prevent issues in the future related to ordering (since the tests run alphabetically, by default), and isn't as expensive as running the test in isolation (with its own conhost stood up for just the one test.)
+Validated by running te.exe Microsoft.Console.Host.FeatureTests.dll /name:*InputTests* against a core operating system variant. Prior to change, this test failed. After the change, this test succeeded.
+This will be automatically double-checked by the gates run after check-in.",3,0
+1140,2019-06-04T19:49:08Z,2019-06-04T21:19:33Z,2019-06-04T21:19:33Z,1,3,0,"While filling out PR templates, I've realized that I am making a strong effort to list my validation steps at the bottom in the ""details and other comments"" block. I feel like it would be good to make it explicit that we would like to see justification of how changes have been validated for functionality.",3,3
+1148,2019-06-05T02:41:05Z,,2019-06-07T12:18:42Z,74,1399,172,"Summary of the Pull Request
+CommandHistory becomes a std::shared_ptr. Minor changes in code and unit tests.
+Some ctor has been modified.
+There is not weak_ptr usage. Every times a shared_ptr is passed, its using the ref counter of the = operator. It prevents unexpected behaviour and hangs.
+References
+
+PR Checklist
+
+ Closes #1058
+ CLA signed. If not, go over here and sign the CLA
+ Tests added/passed
+No yet, I need to configure it.
+ Requires documentation to be updated
+ I've discussed this with core contributors already. If not checked, I'm ready to accept this work might be rejected in favor of a different grand plan. Issue number where discussion took place: #1058
+It is under discussion.
+
+
+Detailed Description of the Pull Request / Additional comments
+Previous commit was a mistake, it involves the migration to vs2019 and platform toolset v142. Forget about that.
+Just take the H/CPP modifications.
+
+Validation Steps Performed
+Manuel test of running  tab and ask for cmd and type command, and ask for history...",3,4
+1152,2019-06-05T18:39:05Z,2019-06-12T01:47:28Z,2019-06-12T01:47:28Z,2,7,4,"Summary of the Pull Request
+Accounting padding when calculating the initial window size
+ 
+References
+
+PR Checklist
+
+ Closes #1143
+ CLA signed. If not, go over here and sign the CLA
+ Tests added/passed
+ Requires documentation to be updated
+ I've discussed this with core contributors already. If not checked, I'm ready to accept this work might be rejected in favor of a different grand plan. Issue number where discussion took place: #xxx
+
+
+Detailed Description of the Pull Request / Additional comments
+
+Validation Steps Performed
+Set ""padding"": ""100"" and observe the window becomes larger
+Set ""padding"": ""100, 200"" and observe the window becomes larger
+Set ""padding"": ""50, 100, 150, 200"" and observe the window becomes larger",4,3
+1161,2019-06-07T00:43:50Z,2019-06-19T18:06:41Z,2019-06-19T18:06:41Z,9,46,46,"Summary of the Pull Request
+CommandHistory becomes a std::shared_ptr. Minor changes in code and unit tests.
+Some ctor has been modified.
+There is not weak_ptr usage or raw pointer. Every times a shared_ptr is passed, its using the ref counter of the = operator. It prevents unexpected behaviour and hangs.
+References
+My previous PR 1148 was bad quality. you can cancel it.
+
+PR Checklist
+
+ Closes #1058
+[X] Cancel PR #1148
+[X] CLA signed. If not, go over here and sign the CLA
+ Tests added/passed
+ Requires documentation to be updated
+[X ] I've discussed this with core contributors already. If not checked, I'm ready to accept this work might be rejected in favor of a different grand plan. Issue number where discussion took place: #xxx
+
+Detailed Description of the Pull Request / Additional comments
+Previous commit was a mistake, it involves modifcations and both the migration to vs2019 and platform toolset v142.
+The new PR is juts handling H/CPP modifications.
+Worked in VS2017 OK.
+Validation Steps Performed
+Manuel test of running tab and ask for cmd and type command, and ask for history...",4,6
+1164,2019-06-07T13:45:25Z,2019-07-15T19:27:56Z,2019-07-15T19:27:57Z,38,1939,345,"Summary of the Pull Request
+
+Refactors TerminalApp into two projects:
+
+TerminalAppLib, which builds a .lib, and includes all the code
+TerminalApp, which builds a dll by linking the lib
+
+
+Adds a TerminalApp.Unit.Tests project
+
+Includes the ability to test cppwinrt types we've authored using a SxS manifest for unpackaged winrt activation
+includes the ability to test types with XAML content using an appxmanifest
+
+
+Adds a giant doc explaining how this was all done. Really, just go read that doc, it'll really help you understand what's going on in this PR.
+
+
+PR Checklist
+
+ Closes #1042
+ Tests added/passed
+
+omg I can check this box for real
+
+
+ Requires documentation to be updated
+
+
+Detailed Description of the Pull Request / Additional comments
+Go read  doc/cascadia/Unittesting-CppWinRT-Xaml.md
+
+Validation Steps Performed
+Manually ran the tests. I'm really hoping they run in CI too 🤞",6,4
+1166,2019-06-07T18:24:20Z,2019-06-07T20:54:05Z,2019-06-07T20:54:05Z,2,212,0,"Summary of the Pull Request
+Provide a slightly abridged solution dependency diagram...
+
+... and a UTF8 ""torture test"" text file that I've had for a while. It runs through the gamut of UTF8 trickery  to ensure conformance and rendering ability.
+
+PR Checklist
+
+ Closes #xxx
+ CLA signed. If not, go over here and sign the CLA
+ Tests added/passed
+ Requires documentation to be updated
+ I've discussed this with core contributors already. If not checked, I'm ready to accept this work might be rejected in favor of a different grand plan. Issue number where discussion took place: n/a (spoke with Mike Z over twitter)",3,5
+1169,2019-06-08T02:19:05Z,2019-06-10T20:38:19Z,2019-06-10T20:38:20Z,1,8,1,"Summary of the Pull Request
+Checks the Distribution name for \r and removes it if necessary.
+ 
+References
+#1168
+
+PR Checklist
+
+ Closes #1168
+ CLA signed. If not, go over here and sign the CLA
+ Tests added/passed
+ Requires documentation to be updated
+ I've discussed this with core contributors already. If not checked, I'm ready to accept this work might be rejected in favor of a different grand plan. Issue number where discussion took place: #xxx
+
+
+Detailed Description of the Pull Request / Additional comments
+One line to check for and remove any carriage return characters.
+
+Validation Steps Performed
+I've installed a second distribution and tested this to ensure that it now functions properly.",4,1
+1190,2019-06-09T19:00:52Z,2019-06-10T16:38:36Z,2019-06-10T16:38:36Z,1,4,0,"Related to #825, #1000.
+The actual keybinding serialization for splitting new panes got lost in a bad merge. This adds it back.",2,0
+1191,2019-06-09T19:45:40Z,2019-06-10T16:59:31Z,2019-06-10T16:59:31Z,2,67,6,"Summary of the Pull Request
+Adds support for any number of leading zeros in the parameter values of VT escape sequences. Tested manually, with Vttest, and with unit tests.
+
+PR Checklist
+
+ Closes #358
+ CLA signed. If not, go over here and sign the CLA
+ Tests added/passed
+ Requires documentation to be updated
+ I've discussed this with core contributors already. If not checked, I'm ready to accept this work might be rejected in favor of a different grand plan. Issue number where discussion took place: #358
+
+
+Detailed Description of the Pull Request / Additional comments
+In the StateMachine::_ActionParam and StateMachine::_ActionOscParam methods, the parser would treat any parameter number with more than 5 digits as being the maximum value. This PR add checks which prevent leading zeros from contributing to that count, so the 5 digit limit now only applies to significant digits.
+
+Validation Steps Performed
+
+I've tested in the WSL bash shell with escape sequences containing many leading zeros, e.g.:
+printf ""\033[0000000032mGREEN?\033[m\n"".
+I've confirmed that the leading zeros test in Vttest now works (the last screen in the Test of cursor movements).
+I've added a couple of unit tests in Microsoft::Console::VirtualTerminal::OutputEngineTest for both the CSI and OSC sequences.",3,1
+1196,2019-06-10T20:59:08Z,2019-06-12T20:32:10Z,2019-06-12T20:32:10Z,4,99,21,"Summary of the Pull Request
+A picture's worth a thousand words:
+
+
+PR Checklist
+
+ Closes #867
+ I've discussed this with @DHowett-MSFT",4,2
+1199,2019-06-11T01:09:52Z,2019-06-11T19:37:20Z,2019-06-11T19:37:21Z,3,51,33,"Summary of the Pull Request
+This commit introduces a few automatic event revokers and implements staged Close for TermControl's constituent components. It also fixes an issue in reading the title from a tab with no focused control.
+Fixes #1198, #1188.
+PR Checklist
+
+ Closes #1198, #1188
+ CLA signed
+ Tests added/passed/manually tested
+
+Validation Steps Performed
+I've opened and closed a number of tabs at a number of speeds, I can neither get it to crash nor get it to leak console hosts and shells and a bunch of memory.",4,0
+1202,2019-06-11T16:51:52Z,2019-06-12T18:56:09Z,2019-06-12T18:56:10Z,1,4,2,"take advantage of the switch parameter on the Cmdlet Get-VSSetupInstance from the vssetup module.
+Get-VSSetupInstance  -All -Prerelease",3,0
+1207,2019-06-11T20:28:47Z,2019-07-10T13:27:13Z,2019-07-10T13:27:13Z,13,465,20,"Summary of the Pull Request
+Adds the ability to resize panes with the keyboard.
+
+PR Checklist
+
+ Closes #991
+ I work here
+ Tests added/passed - this box makes me cry
+ I actually kinda just went for this one.
+
+
+Detailed Description of the Pull Request / Additional comments
+This is accomplished by making the Column/RowDefinitions for a Pane use GridLengthHelper::FromPixels to set their size. We store a pair of floats that represents the relative amount that each pane takes out of the parent pane. When the window is resized, we use that percentage to figure out the new size of each child in pixels, and manually size each column.
+Then, when the user presses the keybindings for resizePane{Left/Right/Up/Down}, we'll adjust those percentages, and resize the rows/cols as appropriate.
+Currently, each pane adjusts the width/height by 5% of the total size at a time. I am not in love with this, but it works for now. I think when we get support for keybindings with arbitrary arg blobs, then we could do either a percent movement, or a number of characters at a time. The number of characters one would be trickier, because we'd have to get the focused control, and get the number of pixels per character, as adjacent panes might not have the same font sizes.
+
+Validation Steps Performed
+Opened a bunch of panes and tried moving them with the keybindings",5,5
+1208,2019-06-11T20:43:40Z,2019-06-11T23:23:22Z,2019-06-11T23:23:22Z,3,20,0,"Summary of the Pull Request
+Adds build step to enforce code formatting on PR changes
+ 
+References
+
+PR Checklist
+
+ Closes #xxx
+ CLA signed. If not, go over here and sign the CLA
+ Tests added/passed
+ Requires documentation to be updated
+ I've discussed this with core contributors already. If not checked, I'm ready to accept this work might be rejected in favor of a different grand plan. Issue number where discussion took place: #xxx
+
+
+Detailed Description of the Pull Request / Additional comments
+
+Validation Steps Performed",3,0
+1214,2019-06-12T01:56:36Z,2019-06-12T12:21:45Z,2019-06-12T12:21:46Z,1,1,0,"Summary of the Pull Request
+Re-enables serialization of the OpenSettings shortcut action.
+
+PR Checklist
+
+ Closes #1213
+ CLA signed. If not, go over here and sign the CLA
+
+Detailed Description of the Pull Request / Additional comments
+Adds back in the map for OpenSettingsKey that was missed when moved to new JSON cpp lib
+Validation Steps Performed
+Added keybinding in new globals area and ensured it persisted and showed in menu.",3,1
+1218,2019-06-12T14:00:34Z,2019-06-13T00:10:14Z,2019-06-13T00:10:14Z,2,13,8,"Summary of the Pull Request
+I try to fix what looked as a ""FIXME"" to me (under question), and a crash when using the test-app VtPipeTerm.
+
+PR Checklist
+
+ Closes #xxx
+ CLA signed. If not, go over here and sign the CLA
+ Tests added/passed (performed manually only)
+ Requires documentation to be updated
+ I've discussed this with core contributors already. If not checked, I'm ready to accept this work might be rejected in favor of a different grand plan. Issue number where discussion took place: #xxx
+
+
+Detailed Description of the Pull Request / Additional comments
+I would like to have feedback on this commit:
+Cascadia/TerminalConnection: Close the output thread on exit.
+It seems that TerminateThread() is available in the code...
+
+The following one concerns VtPipeTerm:
+VtPipeTerm: Don't crash when closing the app.
+- Gracefully handle ReadFile returning false (usually because of ERROR_BROKEN_PIPE on exit).
+- Minor whitespace formatting.
+
+
+Validation Steps Performed
+Manual tests only, by starting, interacting with, and closing the programs.",4,5
+1224,2019-06-12T18:01:26Z,2019-08-19T22:59:02Z,2019-08-19T22:59:02Z,11,247,271,"Summary of the Pull Request
+HTML data is now copied to the clipboard. I tried reusing the old clipboard method so I had to move some stuff around. The design is pretty straightforward. Instead of sending just text data up on a CopyToClipboard event, send the HTML data up too in the same winrt object.
+Here's some specifics:
+
+Clipboard::GenHTML() Changes:
+
+moved from Clipboard to TextBuffer
+added iFontHeightPoints and fontFaceName so that I don't depend on the ServiceLocator
+
+
+TermControl: have CopyToClipboardEventArgs have space for both data types
+TerminalApp: just extract the data from the event and put it into the clipboard
+
+ 
+References
+#1146 (HTML portion)
+
+PR Checklist
+
+ Closes half of #1146
+ CLA signed. If not, go over here and sign the CLA
+ Tests added/passed
+ Requires documentation to be updated
+ I've discussed this with core contributors already. If not checked, I'm ready to accept this work might be rejected in favor of a different grand plan.
+
+
+Detailed Description of the Pull Request / Additional comments
+I do have a few things I'm not sure of:
+
+As of now, HTML copy is always enabled. I can easily add make it optional but idk what the design should look like (i.e.: new keybinding copies only HTML?)
+I don't think we can/should add tests to this because (1) it resuses old code and (2) we definitely don't want to actually copy stuff to the clipboard during a test. The only thing to test would be what GenHTML does but that was already here.
+Not sure if the iFontHeightPointsis right (or even described properly for that matter) in GenHTML().
+
+for Clipboard we do int const iFontHeightPoints = fontData.GetUnscaledSize().Y * 72 / ServiceLocator::LocateGlobals().dpi;
+for TermControl I did fontData.GetUnscaledSize().Y
+I don't really know how to verify if this is correct. But I also don't know if we actually even need the DPI here. Thoughts?
+
+
+
+Validation Steps Performed
+Copy selections and paste to MSWord (regular text vs formatted text)",8,4
+1237,2019-06-12T20:47:05Z,2019-07-25T22:03:01Z,2019-07-25T22:03:01Z,4,92,27,"Summary of the Pull Request
+Switch conhost back to BGR order instead of RGB order.
+
+PR Checklist
+
+ Closes #1234
+
+
+Validation Steps Performed
+I ran openvt, as shown in the original bug",4,6
+1248,2019-06-13T17:37:31Z,2019-06-18T00:27:18Z,2019-06-18T00:27:18Z,2,59,14,"Summary of the Pull Request
+
+capturing the SwapChainPanel and ScrollBar separately:
+
+it used to be that the root would take pointer events. So both the scroll bar AND the terminal would respond to a mouse drag on the scroll bar. Yuck!
+
+
+Renamed MouseClickHandler and MouseMovedHandler to more generic names (since they handle touch events too).
+
+ 
+References
+So, this fixes #950, but also doesn't. The reason #950 crashes is because the copy is waaaaaay too big. This will make it so that you can't make the selection that unreasonably big anymore. That said, there's still other ways to make massive copy selections so I think there's two relevant issues here:
+
+#1246 Copy large selection --> crash
+#1247 While selecting, dragging mouse over top/bottom border scrolls.
+
+
+PR Checklist
+
+ Closes #950
+ CLA signed. If not, go over here and sign the CLA
+ Tests added/passed
+ Requires documentation to be updated
+ I've discussed this with core contributors already. If not checked, I'm ready to accept this work might be rejected in favor of a different grand plan.",3,2
+1254,2019-06-13T22:24:43Z,2019-06-18T16:59:12Z,2019-06-18T16:59:12Z,1,11,7,"Summary of the Pull Request
+The selection anchors would become outside of the new size. They didn't matter for rendering the selection, but they would crash on the copy because we would actually try to read the buffer in a non-existent space.
+Solution: clamp the anchors at RENDER TIME
+That way, if we have the window resize again AND the anchors are valid, draw them appropriately.
+I think this is better than just clearing a selection after a resize event, BUT if you disagree, I guess we can add that in pretty easily.
+ 
+References
+#1165 specifically mentions resizing so I'll close that one. Just be aware that there is a chance #1246  could be what's happening too.
+
+PR Checklist
+
+ Closes #1165
+ CLA signed. If not, go over here and sign the CLA
+ Tests added/passed
+ Requires documentation to be updated
+ I've discussed this with core contributors already. If not checked, I'm ready to accept this work might be rejected in favor of a different grand plan. Issue number where discussion took place: #xxx
+
+
+Detailed Description of the Pull Request / Additional comments
+
+clamp when you're extracting data from buffer
+also moved the _buffer->GetSize().RightInclusive() out of the for loop so I guess it's more performant?
+
+
+Validation Steps Performed
+
+Maximize window
+Create a scroll region (just do ""dir"" or ""ls"" a bunch)
+Scroll to somewhere in the middle
+Select top-left corner, then right-most side 3 lines down (so select 3 full lines)
+Unmaximize window
+Right-click to copy
+
+Used to crash, now you should get all three lines in your clipboard.
+NOTE: if you copy the same selection in a maximized state vs unmaximized state, it will be slightly different BECAUSE the right side of the buffer is now cropped.",3,2
+1257,2019-06-14T02:02:00Z,2019-06-14T12:02:30Z,2019-06-14T12:02:31Z,3,22,2,"Summary of the Pull Request
+ 
+References
+
+PR Checklist
+
+ Closes #1244
+ CLA signed. If not, go over here and sign the CLA
+ Tests added/passed
+ Requires documentation to be updated
+ I've discussed this with core contributors already. If not checked, I'm ready to accept this work might be rejected in favor of a different grand plan. Issue number where discussion took place: #xxx
+
+
+Detailed Description of the Pull Request / Additional comments
+Note that the word ""Windows Terminal"" is way too long for a medium size tile, and thus will be truncated by Windows. I choose ""Terminal"" as the short name for tiles, but I can revert that if you prefer to leave the app name as it is.
+Example of a truncated tile:
+
+Current implementation
+
+
+Validation Steps Performed",3,1
+1258,2019-06-14T12:32:08Z,2019-08-20T13:53:30Z,2019-08-20T13:53:31Z,1,717,0,"Summary of the Pull Request
+Adds a spec describing how a cascading settings model should work. This spec describes a model where there are two sets of settings, ""Default"" and ""User"" settings, and the two are layered to create the runtime settings.
+
+PR Checklist
+
+ Specs #754
+ CLA signed. If not, go over here and sign the CLA
+[N/A] Tests added/passed
+ I've discussed this with core contributors already. If not checked, I'm ready to accept this work might be rejected in favor of a different grand plan. Issue number where discussion took place: #xxx
+
+
+Detailed Description of the Pull Request / Additional comments
+Just read the spec.",8,6
+1259,2019-06-14T13:41:11Z,2019-06-14T22:00:47Z,2019-06-14T22:00:47Z,3,80,2,"Summary of the Pull Request
+MapVirtualKey will give us the capitalized version of the char.
+However, if shift isn't pressed, we want to send the lowercase version.
+
+PR Checklist
+
+ Closes #637
+ CLA signed. If not, go over here and sign the CLA
+ Tests added/passed
+ I've discussed this with core contributors already. If not checked, I'm ready to accept this work might be rejected in favor of a different grand plan. Issue number where discussion took place: #xxx
+
+
+Validation Steps Performed
+I added a test for this case.",3,0
+1263,2019-06-14T15:58:26Z,2019-06-25T00:02:27Z,2019-06-25T00:02:27Z,2,27,18,"Summary of the Pull Request
+This PR enables a software rendering fallback for the DX renderer in the case that hardware acceleration fails. This is primarily useful for Hyper-V environments where hardware acceleration is not guaranteed to exist.
+ 
+References
+This will be useful for future work to enable the DX renderer to run on windows 7 since win7 virtual machines do not/cannot have hardware acceleration unlike windows 10 machines
+
+PR Checklist
+
+
+ Closes #xxx
+
+
+ CLA signed. If not, go over here and sign the CLA
+
+
+ Tests added/passed
+
+
+ Requires documentation to be updated
+
+
+ I've discussed this with core contributors already. If not checked, I'm ready to accept this work might be rejected in favor of a different grand plan. Issue number where discussion took place: #xxx
+
+
+
+Detailed Description of the Pull Request / Additional comments
+The PR does two things:
+
+Fallback to D3D_DRIVER_TYPE_WARP if D3D_DRIVER_TYPE_HARDWARE fails.
+pass NULL as the adapter instead of creating the default adapter ourselves.
+
+
+Validation Steps Performed
+I ran this as part of a larger codechange to enable win7 support. The software fallback worked correctly on win7.",4,5
+1266,2019-06-14T17:37:32Z,2019-06-14T19:29:41Z,2019-06-14T19:29:41Z,1,10,1,"Summary of the Pull Request
+Ignore UTF-8 BOM in profile.json
+ 
+References
+
+PR Checklist
+
+ Closes #1201
+ CLA signed. If not, go over here and sign the CLA
+ Tests added/passed
+ Requires documentation to be updated
+ I've discussed this with core contributors already. If not checked, I'm ready to accept this work might be rejected in favor of a different grand plan. Issue number where discussion took place: #xxx
+
+
+Detailed Description of the Pull Request / Additional comments
+If we found UTF8-BOM at the beginning of our data, we offset the pointer to ignore it.
+
+Validation Steps Performed
+Save profile.json with regular UTF-8, reload terminal.
+Save profile.json with UTF-8 with BOM, reload terminal.",3,1
+1267,2019-06-14T17:49:44Z,2019-06-14T19:48:13Z,2019-06-14T19:48:14Z,8,102,2,"Summary of the Pull Request
+The OutputStateMachine needs to collect ""Intermediate"" characters to be able to call Designate G0 Character Set (as well as other sequences we don't yet support).
+However, the InputStateMachine used by conpty to process input should not collect these characters. The input engine uses \x1b as an indicator that a key was pressed with Alt. For keys like /, we want to dispatch the key immediately, instead of collecting it and leaving us in the Escape state.
+
+PR Checklist
+
+ Closes #1209
+ CLA signed. If not, go over here and sign the CLA
+ Tests added/passed
+ I've discussed this with core contributors already.",3,0
+1279,2019-06-15T13:35:58Z,2019-06-29T01:17:32Z,2019-06-29T01:17:32Z,1,9,4,"Summary of the Pull Request
+Fixes revoking of old close event handlers after a pane is closed (issue #1278).
+ 
+References
+
+PR Checklist
+
+ Closes #1278
+ CLA signed. If not, go over here and sign the CLA
+ Tests added/passed
+ Requires documentation to be updated
+ I've discussed this with core contributors already. If not checked, I'm ready to accept this work might be rejected in favor of a different grand plan. Issue number where discussion took place: #xxx
+
+
+Detailed Description of the Pull Request / Additional comments
+Currently, when a pane with non-leaf sibling is closed, various close event handlers are incorrectly revoked leading to dangling references. These are dereferenced next time another close event occurs (i.e. closing a 2nd pane) and causes Terminal to crash.
+Additionally it revokes event handlers on old panes and controls (as occurs when a leaf pane is closed).
+
+Validation Steps Performed
+Tested manually. If I understand correctly, an automated test could be written after the framework in #1164 lands.",3,0
+1293,2019-06-17T02:57:51Z,2019-06-18T18:52:35Z,2019-06-18T18:52:35Z,4,45,156,"This commit drops all of the special packaged app code in
+CascadiaSettingsSerialization. It can all be replaced with passing
+KF_FLAG_FORCE_APP_DATA_REDIRECTION to SHGetKnownFolderPath, which will
+automatically handle the different paths used in packaged context.
+We'll still store profiles.json under %APPDATA%\Microsoft\Windows
+Terminal in an unpackaged context.
+I've also taken the liberty of fixing a settings reload crash. Using the
+Application storage APIs would cause us to throw an exception when
+profiles.json was deleted, which it absolutely was for certain editors
+that do an atomic replace.
+Because we're not using W.S.A any more, this cuts down our load time
+significantly and fixes all of our known STA/MTA-on-startup issues.
+Fixes #1102, #1292.
+PR Checklist
+
+ Closes #1102, #1292
+ CLA signed
+ Tests: manual
+ I've discussed this with core contributors already.",4,0
+1296,2019-06-17T12:44:42Z,2019-06-17T23:39:55Z,2019-06-17T23:39:56Z,1,14,13,"…ding the code)
+This makes more sense, as you'd install the prerequisites as part of the build process.",3,1
+1302,2019-06-17T22:52:13Z,,2019-07-05T20:04:02Z,8,117,1,"Summary of the Pull Request
+Introduces ""viewport selection"" which creates a selection of the entire viewport. Also, adds per-profile settings to decide whether a triple-click performs a line selection or viewport selection (disabling it is also an option).
+ 
+References
+Builds on #1197. Similar to #1273.
+Closes #1084.
+
+PR Checklist
+
+ Closes #1084
+ CLA signed. If not, go over here and sign the CLA
+ Tests added/passed
+ Requires documentation to be updated
+ I've discussed this with core contributors already. If not checked, I'm ready to accept this work might be rejected in favor of a different grand plan.
+
+
+Detailed Description of the Pull Request / Additional comments
+
+TerminalSettings:
+
+add property to winrt TerminalSettings
+
+
+Terminal App:
+
+read/write JSON for this new property
+default set to line selection
+
+
+TerminalCore:
+
+import/use selection mode from ICoreSettings
+perform proper action
+
+
+UnitTests_TerminalCore:
+
+Added setting to MockTermSettings
+
+
+
+
+Validation Steps Performed
+
+modified profiles.json. Then performed triple click in an instance of that profile",4,2
+1303,2019-06-17T23:52:26Z,2019-06-18T02:34:28Z,2019-06-18T02:34:28Z,121,612,46,"PR Checklist
+
+ Closes #1061
+ CLA signed. If not, go over here and sign the CLA",6,4
+1306,2019-06-18T18:56:57Z,2019-06-18T20:02:22Z,2019-06-18T20:02:22Z,1,1,1,,4,0
+1314,2019-06-19T01:44:52Z,2019-06-24T16:47:01Z,2019-06-24T16:47:01Z,1,32,32,"Summary of the Pull Request
+Visual Studio defaults the startup project to the first project listed in the solution. Set the default to CascadiaPackage, which launches the packaged terminal. This required moving both its solution folder and the project itself to the top of the solution.
+The other moves in the file is VS ""fixing"" the ordering based on the move. This prevents the solution from being automatically changed by VS when other folks open it.
+Validation Steps Performed
+
+Opened solution with Visual Studio 2017 and Visual Studio 2019 on a clean enlistment (.vs deleted) and verified that CascadiaPackage project was the default.",5,5
+1317,2019-06-19T07:07:16Z,2019-06-19T17:49:58Z,2019-06-19T17:49:59Z,2,18,14,"Summary of the Pull Request
+This was a side effect of #905. But applies the same logic #1254. We were trying to get buffer data at a location that doesn't exist for the buffer. Removed the noexcepts from the expand selection functions.
+The fix is simple enough. Just clamp the Y value of the selection to be between 0 and the mutable viewport's height. I tried using the Viewport's Clamp method but we're doing some weird transforms so I found that it's just easiest to do it manually (and slightly differently).
+As an extra benefit, now if you're all the way at the top of the buffer and you try making a selection past the top, the x-value still updates as you move. The same thing applies to the bottom when you're at the bottom of the buffer.
+ 
+References
+
+PR Checklist
+
+ Closes #1312
+ CLA signed. If not, go over here and sign the CLA
+ Tests added/passed
+ Requires documentation to be updated
+ I've discussed this with core contributors already. If not checked, I'm ready to accept this work might be rejected in favor of a different grand plan.
+
+
+Detailed Description of the Pull Request / Additional comments
+
+Validation Steps Performed
+
+create a selection expanding past the top of the window
+do same selection as above but right-click to copy (this tests extracting the data from the buffer is still done properly)
+do both tests above, but for the bottom (this wasn't an issue before, and shouldn't be one now)
+repeat mentioned tests when you create a scrollable region and you are NOT at the boundaries
+
+NOTE: for that last one, the selection should actually expand to outside of the viewport. That's actually intended as we need that for #1247 .",3,1
+1321,2019-06-19T13:59:53Z,2019-08-01T12:44:45Z,2019-08-01T12:44:45Z,1,129,37,"This is based on discussion with @DHowett-MSFT we had o*line. We're trying to
+work through a way to prevent dynamic profiles from roaming to machines the
+dynamic profiles might not exist on.
+After writing this up, I'm not totally sure that it's a better design.
+I'm making a PR for this element of the design into the other spec. It seemed like a pretty substantial change to the other spec that should almost be reviewed on its own. If we agree on this bit of it, I'll merge it in to be reviewed with the rest.",2,3
+1331,2019-06-19T19:46:50Z,2019-07-02T18:17:05Z,2019-07-02T18:17:05Z,7,4048,3866,"Summary of the Pull Request
+This adds support for the DECOM (origin mode) escape sequence, which controls whether cursor positioning is relative to the margins of the scrolling region, or independent of the scrolling region (the original behaviour). Tested manually, with Vttest, and with some unit tests.
+
+PR Checklist
+
+ Closes #132
+ CLA signed. If not, go over here and sign the CLA
+ Tests added/passed
+ Requires documentation to be updated
+ I've discussed this with core contributors already. If not checked, I'm ready to accept this work might be rejected in favor of a different grand plan. Issue number where discussion took place: #132
+
+
+Detailed Description of the Pull Request / Additional comments
+This adds two state variables to the AdaptDispatch class to track the origin mode and a saved copy of the origin mode for use with the Save/Restore Cursor commands (DECSC/DECRC). When the origin mode is relative, adjustments are then made to the line number in the _CursorMovePosition and _CursorPositionReport methods to account for the margin offset (this is a slight change from my initial proposal, which was to make those adjustments in the methods that called _CursorMovePosition).
+It's a bit complicated when it comes to restoring the saved origin mode in the CursorRestorePosition method, because the saved cursor position is always absolute, so we have to temporarily set the origin mode to the absolute mode before restoring the cursor, and then afterwards restore the actual saved origin mode. But I think that complication is justified if it allows us to keep the origin adjustments centralized in the _CursorMovePosition method (which may one day need to support left/right margins too).
+Other changes include updating the SoftReset method to reset the origin mode and the saved origin mode, and reordering the HardReset method to call the SoftReset before resetting the cursor position to home (this makes sure that the home position is absolute, and not relative to the previous margins).
+I also updated _DoDECCOLMHelper to reset the origin mode when changing between 80 and 132 column modes. I couldn't find a spec reference for this, but I thought it made sense given that the margins are being reset there. And, as far as I can tell, that's what Xterm is doing too.
+
+Validation Steps Performed
+I've added a basic ""state machine"" unit test which validates that the set/reset escape sequences trigger the SetOriginMode call, and some ""screen buffer"" units tests which validate various interactions between the origin mode, the margins, and the cursor positioning. I've also done quite a lot of manual testing, not all of which I've been able to replicate in the unit tests (e.g. cursor position reporting).
+I've run a couple of the Vttest suites that are dependent on origin mode support and noted that they were at least improved, if not fully working yet (because of other VT features not yet implemented). This includes screens 3 and 4 of the Test of cursor movements, and screens 11 and 12 of the Test of screen features.",4,5
+1340,2019-06-20T05:37:43Z,2019-06-20T17:17:36Z,2019-06-20T17:17:36Z,1,11,4,"The signal pipe must be terminated first. It is this very termination
+that signals to the connected console host that it should begin exiting
+in an orderly manner.
+We're introducing an indefinite wait (yes, I know: it's not great) for
+conhost to exit. This matches ClosePseudoConsole in
+kernelbase/winconpty.
+If it does not exit in an orderly manner, powershell (and perhaps other
+.NET CLI applications) may crash immediately after conhost exits.
+Fixes #1338.",4,1
+1342,2019-06-20T06:10:56Z,2019-06-20T18:10:49Z,2019-06-20T18:10:50Z,1,5,0,"Fixes #1339.
+
+ CLA signed. If not, go over here and sign the CLA
+ I've discussed this with core contributors already.",5,1
+1343,2019-06-20T06:11:54Z,2019-06-20T18:20:50Z,2019-06-20T18:20:50Z,1,5,0,This stops the crash in #1318.,4,2
+1349,2019-06-20T18:28:31Z,2019-08-16T21:33:45Z,2019-08-16T21:33:46Z,1,362,0,"Summary of the Pull Request
+The goal of this change is to both simplify the keybindings, and also enable far
+more flexibility when editing a user's keybindings.
+Currently, we have many actions that are very similar in implementation - for
+example, newTabProfile0, newTabProfile1, newTabProfile2, etc. All these
+actions are fundamentally the same function. However, we've needed to define 9
+different actions to enable the user to provide different values to the newTab
+function.
+With this change, we'll be able to remove these essentially duplicated events,
+and allow the user to specify arbitrary arguments to these functions.
+ 
+References
+Might play into #968, since there's some discussion of to munge or not to munge with the default keybinding for copy. This would make it easy to add both.
+
+PR Checklist
+
+ Specs #1142
+
+
+Detailed Description of the Pull Request / Additional comments
+Just read the spec :)
+
+Validation Steps Performed
+It's a spec.",4,1
+1357,2019-06-20T22:38:59Z,,2020-04-14T16:52:21Z,1,127,0,"Summary of the Pull Request
+Adds a spec describing jumplist integration and adding profiles to the jumplist. Includes details about previous investigations into adding the jumplist.
+References
+PR Checklist
+
+ Specs #576
+ CLA signed. If not, go over here and sign the CLA
+[n/a] Tests added/passed
+ Requires documentation to be updated
+ I've discussed this with core contributors already. If not checked, I'm ready to accept this work might be rejected in favor of a different grand plan. Issue number where discussion took place: #576
+
+Detailed Description of the Pull Request / Additional comments
+Details in the spec.
+Validation Steps Performed
+N/A",4,4
+1358,2019-06-20T23:13:58Z,2019-07-02T17:09:23Z,2019-07-02T17:09:23Z,4,59,6,"Summary of the Pull Request
+Added tab renaming functionality to profiles.json
+ 
+References
+
+PR Checklist
+
+ Closes #608
+ CLA signed. If not, go over here and sign the CLA
+ Tests added/passed
+ Requires documentation to be updated
+ I've discussed this with core contributors already. If not checked, I'm ready to accept this work might be rejected in favor of a different grand plan. Issue number where discussion took place: #xxx
+
+
+Detailed Description of the Pull Request / Additional comments
+
+Validation Steps Performed
+Added ""tabTitle"" : ""insert title here"" to a profile in the profiles.json",9,8
+1396,2019-06-22T09:01:56Z,2019-06-23T01:18:15Z,2019-06-23T01:18:15Z,1,1,1,"Summary of the Pull Request
+Add a link to the ColorTool for better understanding.",2,0
+1436,2019-06-22T20:25:38Z,2019-06-27T23:20:56Z,2019-06-27T23:20:56Z,7,66,42,"Summary of the Pull Request
+Let's start fixing #521 and the currently broken state of AltGr combinations, as it heavily affects many non-US users of this project.
+PR Checklist
+
+ Closes #521
+ CLA signed. If not, go over here and sign the CLA
+ Tests added/passed
+ Requires documentation to be updated
+ I've discussed this with core contributors already. If not checked, I'm ready to accept this work might be rejected in favor of a different grand plan. Issue number where discussion took place: #521
+
+Detailed Description of the Pull Request / Additional comments
+I'm about 100% sure that this PR is not going to fix #521 by itself, but it's a start. 🙂
+If others wan't to contribute to this PR, please feel free to do so. I'll gladly grant push permissions to my fork.
+If you want to view the diff here on GitHub I recommend enabling ""Hide whitespace changes"" in the diff viewer.
+Validation Steps Performed
+This PR fixes all immediate/obvious issues in regards to AltGr for me in all types of shells I know.
+I think it's fairly easy to see why it works, since I simply delegate the handling to WM_CHAR instead.",7,10
+1452,2019-06-23T01:54:25Z,2019-06-24T16:13:12Z,2019-06-24T16:13:12Z,1,5,1,"Summary of the Pull Request
+Make about dialog content copyable
+ 
+References
+
+PR Checklist
+
+ Closes #1335
+ CLA signed. If not, go over here and sign the CLA
+ Tests added/passed
+ Requires documentation to be updated
+ I've discussed this with core contributors already. If not checked, I'm ready to accept this work might be rejected in favor of a different grand plan. Issue number where discussion took place: #xxx
+
+
+Detailed Description of the Pull Request / Additional comments
+Wrap aboutText with a selectable text block.
+
+Validation Steps Performed",4,3
+1476,2019-06-23T16:03:46Z,,2019-10-15T04:38:06Z,1,72,0,"Summary of the Pull Request
+When i install the windows terminal i really like it. when it comes to customization it is very hard to find the property names. so it is better to have a interface of the profiles json for easy customization. I'm from #typescript background so i created the interface in typescript. I know it is not complete with all the options but it is an idea to have an interface somewhere we can use it as a reference.
+ 
+References
+
+PR Checklist
+
+ Closes #xxx
+[ x] CLA signed. If not, go over here and sign the CLA
+ Tests added/passed
+ Requires documentation to be updated
+ I've discussed this with core contributors already. If not checked, I'm ready to accept this work might be rejected in favor of a different grand plan. Issue number where discussion took place: #xxx
+
+
+Detailed Description of the Pull Request / Additional comments
+
+Validation Steps Performed",4,4

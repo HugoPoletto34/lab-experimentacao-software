@@ -1,0 +1,1912 @@
+number,created_at,merged_at,closed_at,files,additions,deletions,body_text,participants,comments
+745,2016-09-22T18:14:46Z,2016-09-25T04:37:24Z,2016-09-25T04:37:24Z,13,532,23,,2,0
+973,2016-12-30T08:07:15Z,2016-12-30T09:13:46Z,2016-12-30T09:13:46Z,1,83,81,,1,2
+1059,2017-03-02T14:21:05Z,2017-03-03T16:05:58Z,2017-03-03T16:05:58Z,5,210,25,,3,0
+1130,2017-05-01T05:16:13Z,,2018-08-01T14:04:41Z,9,142,30,"#913
+
+默认未勾选，勾选后启动时自动注册全部热键。
+-----------------------更新 1--------------------------
+
+增加热键注册失败弹窗提示。",8,28
+1222,2017-07-09T13:29:32Z,,2017-07-10T12:24:19Z,1,5,1,Add note that server's password is saved in clear text in gui-config.json file.,3,0
+1298,2017-08-06T00:37:05Z,2017-08-21T12:25:34Z,2017-08-21T12:25:35Z,8,546,80,"Hello,
+This is a first draft WIP to get feedback on my approach. This pull request implements SIP002 url (parsing and generation for QR code with backward-compatibility of accepting old-style urls and generating old-style urls when there is no plugin for the config), and SIP003 plugin interface for shadowsocks-windows.
+
+SIP002 has unit tests and proven to work.
+SIP003 needs a little bit of testing, would appreciate feedback on the approach and fresh eyes to see if I made any mistakes.
+
+Hope to eventually get this merged soon :-)",6,16
+1486,2017-10-28T02:28:15Z,,2017-10-28T08:57:24Z,1,3,3,"消除警告
+warning CS0649: 从未对字段“HttpProxy.HttpState.BytesToRead”赋值，字段将一直保持其默认值 0",3,1
+1684,2018-02-17T20:21:05Z,,2018-03-02T02:12:06Z,1,2,1,"…The Port of SIP003's ""LocalEndPoint"" should be Remote Server's port when a plug-in enabled.",2,4
+1753,2018-03-16T07:30:54Z,2018-03-17T02:15:16Z,2018-03-17T02:15:16Z,4,4,4,"In #1740, I think this feature description may not clear.
+This function actually binding the local socks5 proxy port on 0.0.0.0, In some public IP case, May cause undesired result.",2,0
+1755,2018-03-17T07:44:24Z,2018-08-05T02:40:17Z,2018-08-05T02:40:17Z,1,67,35,"sometimes read from StandardOutput using ReadToEnd, the process can block. Here we use event to avoid hanging when redirect standard output/error.
+ref:
+https://stackoverflow.com/questions/139593/processstartinfo-hanging-on-waitforexit-why
+http://blog.csdn.net/zhangweixing0/article/details/7356841",3,6
+1924,2018-07-11T12:49:04Z,2018-07-12T13:54:15Z,2018-07-12T13:54:15Z,6,31,31,"Please follow the guide below
+
+
+You will be asked some questions, please read them carefully and answer honestly
+
+
+Put an x into all the boxes [ ] relevant to your pull request (like that [x])
+
+
+Use Preview tab to see how your pull request will actually look like
+
+
+ Searched for similar pull requests
+
+
+ Compiled the code with Visual Studio
+
+
+What is the purpose of your pull request?
+
+ Bug fix
+ Improvement
+ New feature
+
+
+Description of your pull request and other information
+Fix #1915",3,0
+1977,2018-08-19T15:51:20Z,2018-08-20T03:10:33Z,2018-08-20T03:10:33Z,1,17,0,"Please follow the guide below
+
+
+You will be asked some questions, please read them carefully and answer honestly
+
+
+Put an x into all the boxes [ ] relevant to your pull request (like that [x])
+
+
+Use Preview tab to see how your pull request will actually look like
+
+
+ Searched for similar pull requests
+
+
+ Compiled the code with Visual Studio
+
+
+What is the purpose of your pull request?
+
+ Bug fix
+ Improvement
+ New feature
+
+
+Description
+Cause: process's additional environment variables are not expanded correctly when processing ProcessStartInfo.Arguments.
+Innovated by studentmain (StudentEx scncgz@gmail.com)",2,0
+1984,2018-08-23T01:04:26Z,,2018-08-26T03:27:03Z,0,0,0,"Please follow the guide below
+
+
+You will be asked some questions, please read them carefully and answer honestly
+
+
+Put an x into all the boxes [ ] relevant to your pull request (like that [x])
+
+
+Use Preview tab to see how your pull request will actually look like
+
+
+ Searched for similar pull requests
+
+
+ Compiled the code with Visual Studio
+
+
+What is the purpose of your pull request?
+
+ Bug fix
+ Improvement
+ New feature
+
+
+Description of your pull request and other information
+Explanation of your pull request in arbitrary form goes here. Please make sure the description explains the purpose and effect of your pull request and is worded well enough to be understood. Provide as much context and examples as possible.",3,1
+2008,2018-09-18T05:49:04Z,2018-10-07T13:18:12Z,2018-10-07T13:18:12Z,7,134,20,"Please follow the guide below
+
+
+You will be asked some questions, please read them carefully and answer honestly
+
+
+Put an x into all the boxes [ ] relevant to your pull request (like that [x])
+
+
+Use Preview tab to see how your pull request will actually look like
+
+
+ Searched for similar pull requests
+
+
+ Compiled the code with Visual Studio
+
+
+What is the purpose of your pull request?
+
+ Bug fix
+ Improvement
+ New feature
+
+
+Description of your pull request and other information
+Explanation of your pull request in arbitrary form goes here. Please make sure the description explains the purpose and effect of your pull request and is worded well enough to be understood. Provide as much context and examples as possible.
+#1487
+#1991 (comment)
+#2013
+
+Sysproxy.exe sometimes output in UTF16LE, cause parse fail. Manually convert it and retry.
+when fail, log information (sysproxy args, sysproxy query return string), then clear proxy setting and retry if requested.",1,6
+2166,2019-01-17T09:00:10Z,2019-01-20T12:02:58Z,2019-01-20T12:02:58Z,2,63,9,"Please follow the guide below
+
+
+You will be asked some questions, please read them carefully and answer honestly
+
+
+Put an x into all the boxes [ ] relevant to your pull request (like that [x])
+
+
+Use Preview tab to see how your pull request will actually look like
+
+
+ Searched for similar pull requests
+
+
+ Compiled the code with Visual Studio
+
+
+What is the purpose of your pull request?
+
+ Bug fix
+ Improvement
+ New feature
+
+
+Description of your pull request and other information
+在系统重启或更新后自启。在我的机器上可用，可能需要更多测试。
+Restart program after system reboot/update. Works on my machine, may need more test.",2,1
+2212,2019-02-14T15:37:14Z,2019-03-11T02:37:25Z,2019-03-11T02:37:25Z,4,55,21,"Please follow the guide below
+
+
+You will be asked some questions, please read them carefully and answer honestly
+
+
+Put an x into all the boxes [ ] relevant to your pull request (like that [x])
+
+
+Use Preview tab to see how your pull request will actually look like
+
+
+ Searched for similar pull requests
+
+
+ Compiled the code with Visual Studio
+
+
+What is the purpose of your pull request?
+
+ Bug fix
+ Improvement
+ New feature
+
+
+Description of your pull request and other information
+插件参数默认隐藏以防止用户填错，如图所示
+
+仅仅是demo，界面什么的还要调整一下",3,3
+2221,2019-02-17T13:33:06Z,2019-02-24T04:47:08Z,2019-02-24T04:47:08Z,1,2,2,"Please follow the guide below
+
+
+You will be asked some questions, please read them carefully and answer honestly
+
+
+Put an x into all the boxes [ ] relevant to your pull request (like that [x])
+
+
+Use Preview tab to see how your pull request will actually look like
+
+
+ Searched for similar pull requests
+
+
+ Compiled the code with Visual Studio
+
+
+What is the purpose of your pull request?
+
+ Bug fix
+ Improvement
+ New feature
+
+
+Description of your pull request and other information
+Fixed condition for useProxy. ""=="" instead od ""="".",2,1
+2274,2019-03-15T22:22:52Z,,2019-10-06T07:29:50Z,1,2,3,"Please follow the guide below
+
+
+You will be asked some questions, please read them carefully and answer honestly
+
+
+Put an x into all the boxes [ ] relevant to your pull request (like that [x])
+
+
+Use Preview tab to see how your pull request will actually look like
+
+
+ Searched for similar pull requests
+
+
+ Compiled the code with Visual Studio
+
+
+What is the purpose of your pull request?
+
+ Bug fix
+ Improvement
+ New feature
+
+
+Description of your pull request and other information
+Replaced ContainsKey and getting value by key with TryGetValue in order to improve perfomance.",4,3
+2301,2019-04-02T09:22:13Z,2019-04-07T13:58:55Z,2019-04-07T13:58:55Z,4,47,28,"Please follow the guide below
+
+
+You will be asked some questions, please read them carefully and answer honestly
+
+
+Put an x into all the boxes [ ] relevant to your pull request (like that [x])
+
+
+Use Preview tab to see how your pull request will actually look like
+
+
+ Searched for similar pull requests
+
+
+ Compiled the code with Visual Studio
+
+
+What is the purpose of your pull request?
+
+ Bug fix
+ Improvement
+ New feature
+
+
+Description of your pull request and other information
+This is kind of implement for issue 2266, but a bit different.
+Current context menu
+
+Enable system proxy
+Mode
+
+PAC
+Global
+
+
+
+Enhanced context menu
+
+Proxy
+
+Disable
+PAC
+Global
+...
+
+
+
+System proxy config will be switched between these three status.",2,0
+2377,2019-06-04T08:09:47Z,2019-06-08T06:36:53Z,2019-06-08T06:36:53Z,2,19,3,"Please follow the guide below
+
+
+You will be asked some questions, please read them carefully and answer honestly
+
+
+Put an x into all the boxes [ ] relevant to your pull request (like that [x])
+
+
+Use Preview tab to see how your pull request will actually look like
+
+
+ Searched for similar pull requests
+
+
+ Compiled the code with Visual Studio
+
+
+What is the purpose of your pull request?
+
+ Bug fix
+ Improvement
+ New feature
+
+
+Description of your pull request and other information
+Fixed issue described in #2371 and checked for potential errors.
+😄
+Explanation of your pull request in arbitrary form goes here. Please make sure the description explains the purpose and effect of your pull request and is worded well enough to be understood. Provide as much context and examples as possible.",3,3
+2379,2019-06-04T09:31:08Z,2019-07-06T13:32:17Z,2019-07-06T13:32:17Z,3,78,2,"Please follow the guide below
+
+
+You will be asked some questions, please read them carefully and answer honestly
+
+
+Put an x into all the boxes [ ] relevant to your pull request (like that [x])
+
+
+Use Preview tab to see how your pull request will actually look like
+
+
+ Searched for similar pull requests
+
+
+ Compiled the code with Visual Studio
+
+
+What is the purpose of your pull request?
+
+ Bug fix
+ Improvement
+ New feature
+
+
+Description of your pull request and other information
+Support Windows 10 1903 light theme. (Menu icon color adaptive, previous version icons are indistinguishable at light theme)
+Icon more beautiful. (use alpha replace 128 gray)
+支持 Windows10 1903 的“亮”主题色。（菜单图标颜色自适应，之前版本图标会在亮色主题下难以看见）
+图标更加美观。（使用Alpha通道替换128灰色）
+Explanation of your pull request in arbitrary form goes here. Please make sure the description explains the purpose and effect of your pull request and is worded well enough to be understood. Provide as much context and examples as possible.",3,2
+2402,2019-06-11T05:46:14Z,,2020-10-10T05:26:18Z,7,241,12,"Please follow the guide below
+
+
+You will be asked some questions, please read them carefully and answer honestly
+
+
+Put an x into all the boxes [ ] relevant to your pull request (like that [x])
+
+
+Use Preview tab to see how your pull request will actually look like
+
+
+ Searched for similar pull requests
+
+
+ Compiled the code with Visual Studio
+
+
+What is the purpose of your pull request?
+
+ Bug fix
+ Improvement
+ New feature
+
+
+Description of your pull request and other information
+If a domain name has more than 1 IP in DNS, rotate the returned IP list to pick up different IP.
+Add DNS Load Balance and test available ip address for Server Domain if Server domain name have multiple IP resolved.",3,7
+2410,2019-06-15T13:47:25Z,2019-06-25T13:05:32Z,2019-06-25T13:05:32Z,8,388,231,"Please follow the guide below
+
+
+You will be asked some questions, please read them carefully and answer honestly
+
+
+Put an x into all the boxes [ ] relevant to your pull request (like that [x])
+
+
+Use Preview tab to see how your pull request will actually look like
+
+
+ Searched for similar pull requests
+
+
+ Compiled the code with Visual Studio
+
+
+What is the purpose of your pull request?
+
+ Bug fix
+ Improvement
+ New feature
+
+
+Description of your pull request and other information
+Fix #1907
+Still need further testing.
+😀
+Explanation of your pull request in arbitrary form goes here. Please make sure the description explains the purpose and effect of your pull request and is worded well enough to be understood. Provide as much context and examples as possible.",2,2
+2469,2019-07-17T04:31:03Z,,2019-12-13T06:31:56Z,7,482,378,"Please follow the guide below
+
+
+You will be asked some questions, please read them carefully and answer honestly
+
+
+Put an x into all the boxes [ ] relevant to your pull request (like that [x])
+
+
+Use Preview tab to see how your pull request will actually look like
+
+
+ Searched for similar pull requests
+
+
+ Compiled the code with Visual Studio
+
+
+What is the purpose of your pull request?
+
+ Bug fix
+ Improvement
+ New feature
+
+
+Description of your pull request and other information
+add server list group feature at system tray icon context menu",2,2
+2485,2019-07-23T01:05:03Z,,2019-11-15T04:44:34Z,9,135,43,"Please follow the guide below
+
+
+You will be asked some questions, please read them carefully and answer honestly
+
+
+Put an x into all the boxes [ ] relevant to your pull request (like that [x])
+
+
+Use Preview tab to see how your pull request will actually look like
+
+
+ Searched for similar pull requests
+
+
+ Compiled the code with Visual Studio ( with ""version"": ""4.1.8.0"")
+
+
+What is the purpose of your pull request?
+
+ Bug fix
+ Improvement
+ New feature
+
+
+Description of your pull request and other information
+add ip whitelist pac. (添加 IP 白名单 模式)",1,1
+2583,2019-09-27T17:12:46Z,,2019-11-25T09:25:38Z,1,28,1,"添加“统计配置”的中文翻译（行70-95）。
+Add ""Chinese simplification"" of Statistics Config (Line 70-95).
+Please follow the guide below
+
+
+You will be asked some questions, please read them carefully and answer honestly
+
+
+Put an x into all the boxes [ ] relevant to your pull request (like that [x])
+
+
+Use Preview tab to see how your pull request will actually look like
+
+
+ Searched for similar pull requests
+
+
+ Compiled the code with Visual Studio
+
+
+What is the purpose of your pull request?
+
+ Bug fix
+ Improvement
+ New feature
+
+
+Description of your pull request and other information
+Explanation of your pull request in arbitrary form goes here. Please make sure the description explains the purpose and effect of your pull request and is worded well enough to be understood. Provide as much context and examples as possible.",4,4
+2698,2019-11-25T09:22:53Z,2019-12-01T08:08:44Z,2019-12-01T08:08:44Z,3,155,105,"Please follow the guide below
+
+
+You will be asked some questions, please read them carefully and answer honestly
+
+
+Put an x into all the boxes [ ] relevant to your pull request (like that [x])
+
+
+Use Preview tab to see how your pull request will actually look like
+
+
+ Searched for similar pull requests
+
+
+ Compiled the code with Visual Studio
+
+
+What is the purpose of your pull request?
+
+ Bug fix
+ Improvement
+ New feature
+
+
+Description of your pull request and other information
+#2583 with I18N enabled in code",1,1
+2699,2019-11-25T09:29:14Z,2019-11-28T02:02:53Z,2019-11-28T02:02:54Z,1,1,1,"Please follow the guide below
+
+
+You will be asked some questions, please read them carefully and answer honestly
+
+
+Put an x into all the boxes [ ] relevant to your pull request (like that [x])
+
+
+Use Preview tab to see how your pull request will actually look like
+
+
+ Searched for similar pull requests
+
+
+ Compiled the code with Visual Studio
+
+
+What is the purpose of your pull request?
+
+ Bug fix
+ Improvement
+ New feature
+
+
+Description of your pull request and other information
+#2668 , update default method to reflect change of protocol and server.",2,2
+2705,2019-11-28T12:28:27Z,2019-12-16T16:55:16Z,2019-12-16T16:55:16Z,3,40,54,"Please follow the guide below
+
+
+You will be asked some questions, please read them carefully and answer honestly
+
+
+Put an x into all the boxes [ ] relevant to your pull request (like that [x])
+
+
+Use Preview tab to see how your pull request will actually look like
+
+
+ Searched for similar pull requests
+
+
+ Compiled the code with Visual Studio
+
+
+What is the purpose of your pull request?
+
+ Bug fix
+ Improvement
+ New feature
+
+
+Description of your pull request and other information
+在PAC URL中改用MD5哈希替代时间戳，仅在PAC内容变化时产生新的URL参数。",1,2
+2712,2019-12-03T04:34:24Z,2019-12-21T08:21:36Z,2019-12-21T08:21:36Z,15,652,1027,"Please follow the guide below
+
+
+You will be asked some questions, please read them carefully and answer honestly
+
+
+Put an x into all the boxes [ ] relevant to your pull request (like that [x])
+
+
+Use Preview tab to see how your pull request will actually look like
+
+
+ Searched for similar pull requests
+
+
+ Compiled the code with Visual Studio
+
+
+What is the purpose of your pull request?
+
+ Bug fix
+ Improvement
+ New feature
+
+
+Description of your pull request and other information
+
+TranslateForm function
+CSV file for easy management
+Load translation from disk",2,4
+2728,2019-12-14T10:31:50Z,2019-12-18T02:08:48Z,2019-12-18T02:08:48Z,2,9,2,"Please follow the guide below
+
+
+You will be asked some questions, please read them carefully and answer honestly
+
+
+Put an x into all the boxes [ ] relevant to your pull request (like that [x])
+
+
+Use Preview tab to see how your pull request will actually look like
+
+
+ Searched for similar pull requests
+
+
+ Compiled the code with Visual Studio
+
+
+ Require translation update
+
+
+ Require document update (readme.md, wikipage, etc)
+
+
+What is the purpose of your pull request?
+
+ Bug fix
+ Improvement
+ New feature
+
+
+Description of your pull request and other information
+User is able use a custom ""GFWList"" which defined in config file.
+Config file only. No UI.",1,0
+2730,2019-12-14T14:52:46Z,2019-12-21T13:13:34Z,2019-12-21T13:13:34Z,2,17,1,"Please follow the guide below
+
+
+You will be asked some questions, please read them carefully and answer honestly
+
+
+Put an x into all the boxes [ ] relevant to your pull request (like that [x])
+
+
+Use Preview tab to see how your pull request will actually look like
+
+
+ Searched for similar pull requests
+
+
+ Compiled the code with Visual Studio
+
+
+ Require translation update
+
+
+ Require document update (readme.md, wikipage, etc)
+
+
+What is the purpose of your pull request?
+
+ Bug fix
+ Improvement
+ New feature
+
+
+Description of your pull request and other information
+At least gives a hint to user to check whether the plugin program file exists on file system.",1,0
+2731,2019-12-14T14:54:05Z,2019-12-15T06:46:50Z,2019-12-15T06:46:50Z,4,9,8,"Please follow the guide below
+
+
+You will be asked some questions, please read them carefully and answer honestly
+
+
+Put an x into all the boxes [ ] relevant to your pull request (like that [x])
+
+
+Use Preview tab to see how your pull request will actually look like
+
+
+ Searched for similar pull requests
+
+
+ Compiled the code with Visual Studio
+
+
+ Require translation update
+
+
+ Require document update (readme.md, wikipage, etc)
+
+
+What is the purpose of your pull request?
+
+ Bug fix
+ Improvement
+ New feature
+
+
+Description of your pull request and other information
+The link was pointed to 4.6.2 but current SS is using 4.7.2.",2,0
+2741,2019-12-22T15:54:40Z,2019-12-23T14:06:37Z,2019-12-23T14:06:37Z,3,32,23,"Please follow the guide below
+
+
+You will be asked some questions, please read them carefully and answer honestly
+
+
+Put an x into all the boxes [ ] relevant to your pull request (like that [x])
+
+
+Use Preview tab to see how your pull request will actually look like
+
+
+ Searched for similar pull requests
+
+
+ Compiled the code with Visual Studio
+
+
+ Require translation update
+
+
+ Require document update (readme.md, wikipage, etc)
+
+
+What is the purpose of your pull request?
+
+ Bug fix
+ Improvement
+ New feature
+
+
+Description of your pull request and other information
+Explanation of your pull request in arbitrary form goes here. Please make sure the description explains the purpose and effect of your pull request and is worded well enough to be understood. Provide as much context and examples as possible.",2,0
+2751,2020-01-01T04:44:42Z,,2020-01-03T07:25:34Z,2,130,98,"Please follow the guide below
+
+
+You will be asked some questions, please read them carefully and answer honestly
+
+
+Put an x into all the boxes [ ] relevant to your pull request (like that [x])
+
+
+Use Preview tab to see how your pull request will actually look like
+
+
+ Searched for similar pull requests
+
+
+ Compiled the code with Visual Studio
+
+
+ Require translation update
+
+
+ Require document update (readme.md, wikipage, etc)
+
+
+What is the purpose of your pull request?
+
+ Bug fix
+ Improvement
+ New feature
+
+
+Description of your pull request and other information
+Close #2406",2,4
+2757,2020-01-05T16:45:18Z,2020-01-30T02:34:55Z,2020-01-30T02:34:55Z,3,204,119,"Please follow the guide below
+
+
+You will be asked some questions, please read them carefully and answer honestly
+
+
+Put an x into all the boxes [ ] relevant to your pull request (like that [x])
+
+
+Use Preview tab to see how your pull request will actually look like
+
+
+ Searched for similar pull requests
+
+
+ Compiled the code with Visual Studio
+
+
+ Require translation update
+
+
+ Require document update (readme.md, wikipage, etc)
+
+
+What is the purpose of your pull request?
+
+ Bug fix
+ Improvement
+ New feature
+
+
+Description of your pull request and other information
+Close #2715, some heavy modify in ConfigForm.cs in order to show deprecated warning in EncryptionSelect",3,10
+2767,2020-01-12T11:30:52Z,2020-01-15T02:28:18Z,2020-01-15T02:28:19Z,1,208,208,"Please follow the guide below
+
+
+You will be asked some questions, please read them carefully and answer honestly
+
+
+Put an x into all the boxes [ ] relevant to your pull request (like that [x])
+
+
+Use Preview tab to see how your pull request will actually look like
+
+
+ Searched for similar pull requests
+
+
+ Compiled the code with Visual Studio
+
+
+ Require translation update
+
+
+ Require document update (readme.md, wikipage, etc)
+
+
+What is the purpose of your pull request?
+
+ Bug fix
+ Improvement
+ New feature
+
+
+Description of your pull request and other information
+First version of Russian (ru-RU) translation.",4,2
+2778,2020-01-18T16:28:37Z,2020-02-23T17:35:45Z,2020-02-23T17:35:45Z,4,48,15,"Please follow the guide below
+
+
+You will be asked some questions, please read them carefully and answer honestly
+
+
+Put an x into all the boxes [ ] relevant to your pull request (like that [x])
+
+
+Use Preview tab to see how your pull request will actually look like
+
+
+ Searched for similar pull requests
+
+
+ Compiled the code with Visual Studio
+
+
+ Require translation update
+
+
+ Require document update (readme.md, wikipage, etc)
+
+
+What is the purpose of your pull request?
+
+ Bug fix
+ Improvement
+ New feature
+
+
+Description of your pull request and other information
+Part of #2758, we can detect we're updated now.",1,2
+2783,2020-01-27T09:51:55Z,2020-01-30T03:08:45Z,2020-01-30T03:08:45Z,41,892,650,"Please follow the guide below
+
+
+You will be asked some questions, please read them carefully and answer honestly
+
+
+Put an x into all the boxes [ ] relevant to your pull request (like that [x])
+
+
+Use Preview tab to see how your pull request will actually look like
+
+
+ Searched for similar pull requests
+
+
+ Compiled the code with Visual Studio
+
+
+ Require translation update
+
+
+ Require document update (readme.md, wikipage, etc)
+
+
+What is the purpose of your pull request?
+
+ Bug fix
+ Improvement
+ New feature
+
+
+Description of your pull request and other information
+Replace the current logger to NLog with nlog.config.
+Now just using legacy Verbose log switch. In future it could be more detailed log levels.
+Main executable file size is about 2.66 MB.",2,5
+2801,2020-02-13T01:34:58Z,2020-02-18T05:23:51Z,2020-02-18T05:23:51Z,1,8,8,"shadowsocks/shadowsocks-org#154
+Please follow the guide below
+
+
+You will be asked some questions, please read them carefully and answer honestly
+
+
+Put an x into all the boxes [ ] relevant to your pull request (like that [x])
+
+
+Use Preview tab to see how your pull request will actually look like
+
+
+ Searched for similar pull requests
+
+
+ Compiled the code with Visual Studio
+
+
+ Require translation update
+
+
+ Require document update (readme.md, wikipage, etc)
+
+
+What is the purpose of your pull request?
+
+ Bug fix
+ Improvement
+ New feature
+
+
+Description of your pull request and other information
+Mark all stream cipher deprecated. Planning to remove them in V5.
+shadowsocks/shadowsocks-org#154",1,3
+2819,2020-03-01T15:49:06Z,2020-03-15T05:06:06Z,2020-03-15T05:06:06Z,2,9,1,"Please follow the guide below
+
+
+You will be asked some questions, please read them carefully and answer honestly
+
+
+Put an x into all the boxes [ ] relevant to your pull request (like that [x])
+
+
+Use Preview tab to see how your pull request will actually look like
+
+
+ Searched for similar pull requests
+
+
+ Compiled the code with Visual Studio
+
+
+ Require translation update
+
+
+ Require document update (readme.md, wikipage, etc)
+
+
+What is the purpose of your pull request?
+
+ Bug fix
+ Improvement
+ New feature
+
+
+Description of your pull request and other information
+When a cipher not exist (user migrate from a too old version), show a warning message instead of crash.",1,0
+2831,2020-03-15T08:30:38Z,2020-03-16T11:03:06Z,2020-03-16T11:03:06Z,1,9,12,"Please follow the guide below
+
+
+You will be asked some questions, please read them carefully and answer honestly
+
+
+Put an x into all the boxes [ ] relevant to your pull request (like that [x])
+
+
+Use Preview tab to see how your pull request will actually look like
+
+
+ Searched for similar pull requests
+
+
+ Compiled the code with Visual Studio
+
+
+ Require translation update
+
+
+ Require document update (readme.md, wikipage, etc)
+
+
+What is the purpose of your pull request?
+
+ Bug fix
+ Improvement
+ New feature
+
+
+Description of your pull request and other information
+;)
+Explanation of your pull request in arbitrary form goes here. Please make sure the description explains the purpose and effect of your pull request and is worded well enough to be understood. Provide as much context and examples as possible.",2,0
+2833,2020-03-16T06:28:42Z,2020-04-04T10:07:12Z,2020-04-04T10:07:12Z,5,28,16,"我的初衷:
+
+使用.Net Core 3.1 以实现不需要安装任何.Net 环境，直接启动并运行， 也不依赖于各种C++库。
+使用.Net 4.7.2 针对已安装.Net 框架的用户， 并保持开发时设计器可用
+
+
+ csproj file upgraded to new format
+ add .Net Core 3.1
+ add .Net 4.7.2
+ modify for ci
+  待celeron533/BouncyCastle 移除纯 x86 DLL后进行调整
+  菜单重复显示问题
+   移除 .NET Framework",4,26
+2835,2020-03-26T17:32:09Z,2020-04-04T11:02:55Z,2020-04-04T11:02:55Z,1,210,210,"Searched for similar pull requests
+ Compiled the code with Visual Studio
+ Require translation update
+ Require document update (readme.md, wikipage, etc)
+
+What is the purpose of your pull request?
+
+ Bug fix
+ Improvement
+ New feature
+
+
+Other information
+The translation file format of the master branch and 4.1.9.2 release is different, please let me know if you need 4.1.9.2 translation created with create translation template button.",1,1
+2846,2020-04-05T08:59:36Z,2020-04-09T13:27:07Z,2020-04-09T13:27:07Z,1,11,2,"Please follow the guide below
+
+ Searched for similar pull requests
+ Compiled the code with Visual Studio
+ Require translation update
+ Require document update (readme.md, wikipage, etc)
+
+What is the purpose of your pull request?
+
+ Bug fix
+
+
+Description
+Avoid application crash when not having file permissions to setup default NLog.config. See also #2841",2,1
+2855,2020-04-18T03:25:38Z,2020-04-22T10:39:53Z,2020-04-22T10:39:53Z,7,292,42,"Please follow the guide below
+
+
+You will be asked some questions, please read them carefully and answer honestly
+
+
+Put an x into all the boxes [ ] relevant to your pull request (like that [x])
+
+
+Use Preview tab to see how your pull request will actually look like
+
+
+ Searched for similar pull requests
+
+
+ Compiled the code with Visual Studio
+
+
+ Require translation update
+
+
+ Require document update (readme.md, wikipage, etc)
+
+
+What is the purpose of your pull request?
+
+ Bug fix
+ Improvement
+ New feature
+
+
+Description of your pull request and other information
+Added an option to allow association with ss:// URLs.
+This PR was made at the request of @studentmain . Credit goes to @studentmain for most of the code 👨‍💻!",3,6
+2858,2020-04-19T20:46:59Z,2020-04-21T08:53:48Z,2020-04-21T08:53:48Z,1,6,0,Fixes #2857,3,1
+2861,2020-04-22T06:35:28Z,2020-04-23T13:51:30Z,2020-04-23T13:51:30Z,1,214,214,"Please follow the guide below
+
+
+You will be asked some questions, please read them carefully and answer honestly
+
+
+Put an x into all the boxes [ ] relevant to your pull request (like that [x])
+
+
+Use Preview tab to see how your pull request will actually look like
+
+
+ Searched for similar pull requests
+
+
+ Compiled the code with Visual Studio
+
+
+ Require translation update
+
+
+ Require document update (readme.md, wikipage, etc)
+
+
+What is the purpose of your pull request?
+
+ Bug fix
+ Improvement
+ New feature
+
+
+Description of your pull request and other information
+Add French translation (first version) to i18n.csv",3,2
+2865,2020-04-24T10:50:20Z,2020-04-25T02:38:09Z,2020-04-25T02:38:09Z,10,425,223,,7,0
+2866,2020-04-24T23:56:32Z,,2020-10-10T05:18:32Z,14,33,38,"Please follow the guide below
+
+
+You will be asked some questions, please read them carefully and answer honestly
+
+
+Put an x into all the boxes [ ] relevant to your pull request (like that [x])
+
+
+Use Preview tab to see how your pull request will actually look like
+
+
+ Searched for similar pull requests
+
+
+ Compiled the code with Visual Studio
+
+
+ Require translation update
+
+
+ Require document update (readme.md, wikipage, etc)
+
+
+What is the purpose of your pull request?
+
+ Bug fix
+ Improvement
+ New feature
+
+
+Description of your pull request and other information
+Added initial capacity for collecions inpaces where it is possible, removed some excessive code.",2,2
+2871,2020-04-28T19:34:33Z,2020-05-01T03:07:48Z,2020-05-01T03:07:48Z,1,32,32,"Searched for similar pull requests
+ Compiled the code with Visual Studio
+ Require translation update
+ Require document update (readme.md, wikipage, etc)
+
+What is the purpose of your pull request?
+
+ Bug fix
+ Improvement
+ New feature
+
+
+Added Missing Lines, Fixed Grammar and Typo and Corrected Wrong Translation. Based By #2835",3,2
+2872,2020-04-29T02:49:00Z,2020-05-06T14:19:03Z,2020-05-06T14:19:04Z,2,235,143,"Please follow the guide below
+
+
+You will be asked some questions, please read them carefully and answer honestly
+
+
+Put an x into all the boxes [ ] relevant to your pull request (like that [x])
+
+
+Use Preview tab to see how your pull request will actually look like
+
+
+ Searched for similar pull requests
+
+
+ Compiled the code with Visual Studio
+
+
+ Require translation update
+
+
+ Require document update (readme.md, wikipage, etc)
+
+
+What is the purpose of your pull request?
+
+ Bug fix
+ Improvement
+ New feature
+
+
+Description of your pull request and other information
+Using event to update statistic data.",2,0
+2874,2020-04-30T10:16:15Z,2020-05-05T03:11:16Z,2020-05-05T03:11:16Z,9,551,313,"Please follow the guide below
+
+
+You will be asked some questions, please read them carefully and answer honestly
+
+
+Put an x into all the boxes [ ] relevant to your pull request (like that [x])
+
+
+Use Preview tab to see how your pull request will actually look like
+
+
+ Searched for similar pull requests
+
+
+ Compiled the code with Visual Studio
+
+
+ Require translation update
+
+
+ Require document update (readme.md, wikipage, etc)
+
+
+What is the purpose of your pull request?
+
+ Bug fix
+ Improvement
+ New feature
+
+
+Description of your pull request and other information
+An experimental p/invoke based system proxy implementation. Main goal is remove all blob in net-core version.",3,6
+2875,2020-05-01T16:55:27Z,2020-05-16T10:33:38Z,2020-05-16T10:33:39Z,17,6103,7518,"Please follow the guide below
+
+
+You will be asked some questions, please read them carefully and answer honestly
+
+
+Put an x into all the boxes [ ] relevant to your pull request (like that [x])
+
+
+Use Preview tab to see how your pull request will actually look like
+
+
+ Searched for similar pull requests
+
+
+ Compiled the code with Visual Studio
+
+
+ Require translation update
+
+
+ Require document update (readme.md, wikipage, etc)
+
+
+What is the purpose of your pull request?
+
+ Bug fix
+ Improvement
+ New feature
+
+
+Description of your pull request and other information
+Replace GFWList with v2ray GeoSite database in case GFWList finally stopped maintenance (gfwlist/gfwlist#1945).
+TODO:
+
+ shared Github release API (Needn't, they has a release branch)
+ i18n update
+ customizable GeoSite group
+ more stability test
+ how to migrate?
+ give more time to GFWList
+ document update
+ announce breaking change",3,2
+2879,2020-05-05T11:20:33Z,2020-05-06T00:36:15Z,2020-05-06T00:36:15Z,4,98,29,"Please follow the guide below
+
+
+You will be asked some questions, please read them carefully and answer honestly
+
+
+Put an x into all the boxes [ ] relevant to your pull request (like that [x])
+
+
+Use Preview tab to see how your pull request will actually look like
+
+
+ Searched for similar pull requests
+
+
+ Compiled the code with Visual Studio
+
+
+ Require translation update
+
+
+ Require document update (readme.md, wikipage, etc)
+
+
+What is the purpose of your pull request?
+
+ Bug fix
+ Improvement
+ New feature
+
+
+Description of your pull request and other information
+Just document update",1,0
+2887,2020-05-11T06:40:15Z,2020-05-11T12:23:48Z,2020-05-11T12:23:48Z,1,28,27,"Please follow the guide below
+
+
+You will be asked some questions, please read them carefully and answer honestly
+
+
+Put an x into all the boxes [ ] relevant to your pull request (like that [x])
+
+
+Use Preview tab to see how your pull request will actually look like
+
+
+ Searched for similar pull requests
+
+
+ Compiled the code with Visual Studio
+
+
+ Require translation update
+
+
+ Require document update (readme.md, wikipage, etc)
+
+
+What is the purpose of your pull request?
+
+ Bug fix
+ Improvement
+ New feature
+
+
+Description of your pull request and other information
+😃",2,0
+2904,2020-06-05T08:23:50Z,2020-06-27T02:33:38Z,2020-06-27T02:33:38Z,11,166,158,"Please follow the guide below
+
+
+You will be asked some questions, please read them carefully and answer honestly
+
+
+Put an x into all the boxes [ ] relevant to your pull request (like that [x])
+
+
+Use Preview tab to see how your pull request will actually look like
+
+
+ Searched for similar pull requests
+
+
+ Compiled the code with Visual Studio
+
+
+ Require translation update
+
+
+ Require document update (readme.md, wikipage, etc)
+
+
+What is the purpose of your pull request?
+
+ Bug fix
+ Improvement
+ New feature
+
+
+Description of your pull request and other information
+Always generate SIP002 URL. User can generate legacy URL via hidden flag in config.
+Close #2774",1,0
+2909,2020-06-11T09:23:14Z,2020-06-20T02:19:11Z,2020-06-20T02:19:11Z,12,147,61,"Please follow the guide below
+
+
+You will be asked some questions, please read them carefully and answer honestly
+
+
+Put an x into all the boxes [ ] relevant to your pull request (like that [x])
+
+
+Use Preview tab to see how your pull request will actually look like
+
+
+ Searched for similar pull requests
+
+
+ Compiled the code with Visual Studio
+
+
+ Require translation update
+
+
+ Require document update (readme.md, wikipage, etc)
+
+
+What is the purpose of your pull request?
+
+ Bug fix
+ Improvement
+ New feature
+
+
+Description of your pull request and other information
+
+Using System.Net.Http.HttpClient for GeositeUpdater.
+Verifies downloaded geosite db by comparing sha256sum before committing the change.
+Removed some legacy compatibility code from Program.cs as we are not using .NET Framework.
+Changed CurrentDirectory detection method so that Self-Contained .exe can have its configuration files in the same directory as the .exe instead of in the temporary folder.
+Added some PublishProfiles for convenience.
+Updated dependencies to their latest versions.
+Code cleanup.",3,1
+2935,2020-08-20T07:21:20Z,2020-08-20T13:24:06Z,2020-08-20T13:24:06Z,2,16,15,"Please follow the guide below
+
+
+You will be asked some questions, please read them carefully and answer honestly
+
+
+Put an x into all the boxes [ ] relevant to your pull request (like that [x])
+
+
+Use Preview tab to see how your pull request will actually look like
+
+
+ Searched for similar pull requests
+
+
+ Compiled the code with Visual Studio
+
+
+ Require translation update
+
+
+ Require document update (readme.md, wikipage, etc)
+
+
+What is the purpose of your pull request?
+
+ Bug fix
+ Improvement
+ New feature
+
+
+Description of your pull request and other information
+Current implementation of SIP002 URI Scheme parser produces wrong output for a URI with spaces in its fragment section.
+Expected Behavior
+Given URI ss://YmYtY2ZiOnRlc3Q@192.168.100.1:8888/?plugin=obfs-local%3bobfs%3dhttp%3bobfs-host%3dgoogle.com#example-server+1, a Server with remark example-server 1 is created.
+Current Behavior
+Given URI ss://YmYtY2ZiOnRlc3Q@192.168.100.1:8888/?plugin=obfs-local%3bobfs%3dhttp%3bobfs-host%3dgoogle.com#example-server+1, a Server with remark example-server+1 is created.
+Note
+Current behavior was also observed in other SIP002 implementations, such as Shadowrocket. This fix may break potential compatibility with these clients.",4,1
+2937,2020-08-25T13:20:31Z,2020-09-01T07:34:41Z,2020-09-01T07:34:41Z,1,3,22,"Please follow the guide below
+
+
+You will be asked some questions, please read them carefully and answer honestly
+
+
+Put an x into all the boxes [ ] relevant to your pull request (like that [x])
+
+
+Use Preview tab to see how your pull request will actually look like
+
+
+ Searched for similar pull requests
+
+
+ Compiled the code with Visual Studio
+
+
+ Require translation update
+
+
+ Require document update (readme.md, wikipage, etc)
+
+
+What is the purpose of your pull request?
+
+ Bug fix
+ Improvement
+ New feature
+
+
+Description of your pull request and other information
+
+
+Code optimization for ""SodiumIncrement"" method.
+
+
+No longer need ""byte[]"" version for compatibility, for it's return void.",3,1
+2942,2020-09-03T10:41:59Z,2020-09-30T13:09:56Z,2020-09-30T13:09:56Z,15,1541,818,"Please follow the guide below
+
+
+You will be asked some questions, please read them carefully and answer honestly
+
+
+Put an x into all the boxes [ ] relevant to your pull request (like that [x])
+
+
+Use Preview tab to see how your pull request will actually look like
+
+
+ Searched for similar pull requests
+
+
+ Compiled the code with Visual Studio
+
+
+ Require translation update
+
+
+ Require document update (readme.md, wikipage, etc)
+
+
+What is the purpose of your pull request?
+
+ Bug fix
+ Improvement
+ New feature
+
+
+Description of your pull request and other information
+Close #1703
+Close #2939
+Close #2928
+Finally, here we are......
+Some glitch is expected...",3,2
+2959,2020-09-18T19:39:30Z,2020-10-11T14:56:45Z,2020-10-11T14:56:45Z,12,275,330,"Please follow the guide below
+
+
+You will be asked some questions, please read them carefully and answer honestly
+
+
+Put an x into all the boxes [ ] relevant to your pull request (like that [x])
+
+
+Use Preview tab to see how your pull request will actually look like
+
+
+ Searched for similar pull requests
+
+
+ Compiled the code with Visual Studio
+
+
+ Require translation update
+
+
+ Require document update (readme.md, wikipage, etc)
+
+
+What is the purpose of your pull request?
+
+ Bug fix
+ Improvement
+ New feature
+
+
+Description of your pull request and other information
+This is a series of attempts that aims to modernize shadowsocks-windows by rewriting most UI components using WPF and standard MVVM patterns, and eventually make it a highly-maintainable WPF MVVM project.
+This PR adds the ReactiveUI.WPF package as the MVVM framework. The old server sharing form is replaced with a new one implemented in XAML.",3,7
+2977,2020-10-09T13:59:17Z,2020-10-24T10:39:54Z,2020-10-24T10:39:54Z,62,14694,0,"Based on the discussion in #2966 , we are now ready to start the pre-work on v5 and begin the migration to WPF.
+
+Created new WPF GUI project (based on .NET Core 3.1)
+Split the old module into Common, Crypto, Shadowsocks for easy maintenance.(based on .NET Std 2.1)
+Modify relevant package information.
+Moving some simple classes and updating the related module dependency list.
+
+c.c. @celeron533
+Closed #2966
+Closed #2962",2,1
+2978,2020-10-09T16:17:30Z,2020-10-11T17:26:07Z,2020-10-11T17:26:07Z,4,14,2,"Signed-off-by: Beta Soft betaxab@gmail.com
+Please follow the guide below
+
+
+You will be asked some questions, please read them carefully and answer honestly
+
+
+Put an x into all the boxes [ ] relevant to your pull request (like that [x])
+
+
+Use Preview tab to see how your pull request will actually look like
+
+
+ Searched for similar pull requests
+
+
+ Compiled the code with Visual Studio
+
+
+ Require translation update
+
+
+ Require document update (readme.md, wikipage, etc)
+
+
+What is the purpose of your pull request?
+
+ Bug fix
+ Improvement
+ New feature
+
+
+Description of your pull request and other information
+Explanation of your pull request in arbitrary form goes here. Please make sure the description explains the purpose and effect of your pull request and is worded well enough to be understood. Provide as much context and examples as possible.
+User-Agent should be added to httpClient to get online configuration.
+Use the shadowsocks-windows owns name  ShadowsocksWindows/{UpdateChecker.Version} instand of Web Browser default UA should be better, help online configuration API determine the client type.",4,0
+2982,2020-10-11T05:44:56Z,2020-10-11T14:43:29Z,2020-10-11T14:43:30Z,1,9,3,"Please follow the guide below
+
+
+You will be asked some questions, please read them carefully and answer honestly
+
+
+Put an x into all the boxes [ ] relevant to your pull request (like that [x])
+
+
+Use Preview tab to see how your pull request will actually look like
+
+
+ Searched for similar pull requests
+
+
+ Compiled the code with Visual Studio
+
+
+ Require translation update
+
+
+ Require document update (readme.md, wikipage, etc)
+
+
+What is the purpose of your pull request?
+
+ Bug fix
+ Improvement
+ New feature
+
+
+Description of your pull request and other information
+
+PAC proxied list now only contains domain names from geolocation-!cn without a cn attribute
+Closes #2971.
+Closes #2974.
+Closes #2981.",3,6
+2983,2020-10-12T11:16:28Z,2020-10-12T16:37:37Z,2020-10-12T16:37:37Z,24,112,407,"Please follow the guide below
+
+
+You will be asked some questions, please read them carefully and answer honestly
+
+
+Put an x into all the boxes [ ] relevant to your pull request (like that [x])
+
+
+Use Preview tab to see how your pull request will actually look like
+
+
+ Searched for similar pull requests
+
+
+ Compiled the code with Visual Studio
+
+
+ Require translation update
+
+
+ Require document update (readme.md, wikipage, etc)
+
+
+What is the purpose of your pull request?
+
+ Bug fix
+ Improvement
+ New feature
+
+
+Description of your pull request and other information
+
+Remove StringEx.CS
+Update all dependencies
+Eliminate all warnings",2,0
+2988,2020-10-14T05:34:27Z,2020-10-14T13:24:10Z,2020-10-14T13:24:10Z,11,151,162,"Please follow the guide below
+
+
+You will be asked some questions, please read them carefully and answer honestly
+
+
+Put an x into all the boxes [ ] relevant to your pull request (like that [x])
+
+
+Use Preview tab to see how your pull request will actually look like
+
+
+ Searched for similar pull requests
+
+
+ Compiled the code with Visual Studio
+
+
+ Require translation update
+
+
+ Require document update (readme.md, wikipage, etc)
+
+
+What is the purpose of your pull request?
+
+ Bug fix
+ Improvement
+ New feature
+
+
+Description of your pull request and other information
+
+Validate geosite group configuration
+Reset to default if specified group doesn't exist
+Regenerate pac.txt on version update (can be turned off)
+Cleanup of Configuration to separate loading logic and processing logic",3,2
+2990,2020-10-14T13:39:56Z,2020-10-16T12:41:36Z,2020-10-16T12:41:36Z,14,246,168,"Please follow the guide below
+
+
+You will be asked some questions, please read them carefully and answer honestly
+
+
+Put an x into all the boxes [ ] relevant to your pull request (like that [x])
+
+
+Use Preview tab to see how your pull request will actually look like
+
+
+ Searched for similar pull requests
+
+
+ Compiled the code with Visual Studio
+
+
+ Require translation update
+
+
+ Require document update (readme.md, wikipage, etc)
+
+
+What is the purpose of your pull request?
+
+ Bug fix
+ Improvement
+ New feature
+
+
+Description of your pull request and other information
+
+Configuration: geositeDirectGroups + geositeProxiedGroups + geositePreferDirect
+PAC: rule generation using these new groups + cleanup
+Closes #2984
+Closes #2987
+Related: #2971, #2973, #2974, #2981, v2fly/domain-list-community#235
+
+Notes
+
+The PAC mode now defaults to whitelist mode.
+geositeDirectGroups is initialized with cn and geolocation-!cn@cn.
+geositeProxiedGroups is initialized with geolocation-!cn.
+When geositePreferDirect is false (default), PAC works in whitelist mode. Exception rules are generated from geositeDirectGroups. Unmatched domains goes through the proxy.
+When geositePreferDirect is true, PAC works in blacklist mode. Blocking rules are generated from geositeProxiedGroups. Exception rules are generated from geositeDirectGroups. Unmatched domains are connected to directly.
+The new default values make sure that:
+
+When in whitelist mode, Chinese domains, including non-Chinese companies' Chinese CDNs, are connected to directly.
+When in blacklist mode, only non-Chinese domains goes through the proxy. Chinese domains, as well as non-Chinese companies' Chinese CDNs, are connected to directly.",3,4
+2991,2020-10-17T17:17:08Z,2020-10-18T16:22:40Z,2020-10-18T16:22:40Z,49,3422,2352,"Please follow the guide below
+
+
+You will be asked some questions, please read them carefully and answer honestly
+
+
+Put an x into all the boxes [ ] relevant to your pull request (like that [x])
+
+
+Use Preview tab to see how your pull request will actually look like
+
+
+ Searched for similar pull requests
+
+
+ Compiled the code with Visual Studio
+
+
+ Require translation update
+
+
+ Require document update (readme.md, wikipage, etc)
+
+
+What is the purpose of your pull request?
+
+ Bug fix
+ Improvement
+ New feature
+
+
+Description of your pull request and other information
+
+Infrastructure: use one HttpClient instance throughout the lifecycle
+Version update: rewrite the update service and add update prompt window
+Server sharing: add copy link button
+Dependencies: add ReactiveUI.Events.WPF, ReactiveUI.Fody, ReactiveUI.Validation, WPFLocalizeExtension, MdXaml",3,2
+3006,2020-10-25T09:03:56Z,2020-11-11T03:38:24Z,2020-11-11T03:38:24Z,15,1653,419,"Please follow the guide below
+
+
+You will be asked some questions, please read them carefully and answer honestly
+
+
+Put an x into all the boxes [ ] relevant to your pull request (like that [x])
+
+
+Use Preview tab to see how your pull request will actually look like
+
+
+ Searched for similar pull requests
+
+
+ Compiled the code with Visual Studio
+
+
+ Require translation update
+
+
+ Require document update (readme.md, wikipage, etc)
+
+
+What is the purpose of your pull request?
+
+ Bug fix
+ Improvement
+ New feature
+
+
+Description of your pull request and other information
+自用了半年多的 Bouncy Castle 扩展。实现很简单（没用 .NET Core 3 的新 API 优化），不过速度足够超过 NaCl.Core 了。
+因为 bc 一堆 internal，所以将需要的基类都放在了 Extensions 目录内。
+
+添加 xchacha20-ietf-poly1305 的 Bouncy Castle 实现，并丢弃原来的 NaCl.Core 实现
+aes-cfb 的扩展优化
+用 Bouncy Castle 替换原来 NaCl.Core 实现的 chacha20-ietf",2,1
+3012,2020-11-01T06:17:04Z,2020-11-02T11:07:26Z,2020-11-02T11:07:26Z,1,15,14,"Searched for similar pull requests
+ Compiled the code with Visual Studio
+ Require translation update
+ Require document update (readme.md, wikipage, etc)
+
+What is the purpose of your pull request?
+
+ Bug fix
+ Improvement
+ New feature
+
+
+Description of your pull request and other information
+fixes #3011",3,12
+3048,2020-12-16T15:12:58Z,2020-12-23T05:07:14Z,2020-12-23T05:07:14Z,3,6,239,"Please follow the guide below
+
+
+You will be asked some questions, please read them carefully and answer honestly
+
+
+Put an x into all the boxes [ ] relevant to your pull request (like that [x])
+
+
+Use Preview tab to see how your pull request will actually look like
+
+
+ Searched for similar pull requests
+
+
+ Compiled the code with Visual Studio
+
+
+ Require translation update
+
+
+ Require document update (readme.md, wikipage, etc)
+
+
+What is the purpose of your pull request?
+
+ Bug fix
+ Improvement
+ New feature
+
+
+Description of your pull request and other information
+remove buggy stream cipher and its test",3,4
+3388,2023-02-23T16:41:32Z,,2023-12-18T21:53:33Z,1,15,1,"Searched for similar pull requests
+ Compiled the code with Visual Studio
+ Require translation update
+ Require document update (readme.md, wikipage, etc)
+
+What is the purpose of your pull request?
+
+ Bug fix
+ Improvement
+ New feature
+
+
+Description of your pull request and other information
+#2926
+修改语言列表的顺序似乎只会在系统重启后才会更新。",2,0

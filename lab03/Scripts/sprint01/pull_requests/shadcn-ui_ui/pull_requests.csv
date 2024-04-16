@@ -1,0 +1,1179 @@
+number,created_at,merged_at,closed_at,files,additions,deletions,body_text,participants,comments
+2,2023-01-24T18:05:08Z,2023-01-26T16:29:49Z,2023-01-26T16:29:49Z,4,54,54,,2,2
+4,2023-01-24T18:46:26Z,,2023-02-19T06:17:52Z,4,85,5,"What do you think? I used this method on my website, doing well.",3,5
+6,2023-01-24T20:50:14Z,2023-01-25T15:42:18Z,2023-01-25T15:42:18Z,1,1,1,"My first ever github contribution! Hopefully I did it correctly...
+
+Class merging with tailwind-merge  - FIXED TYPO HERE (taiwind-merge - tailwind-merge)",2,2
+8,2023-01-25T00:56:10Z,,2023-01-26T18:15:47Z,1,1,1,"This pull request fixes an issue with the component demo going very far off the screen on the X axis at a resolution of 1024. The issue happened at the md and lg breakpoints, with the addition of the <aside> element seemingly breaking the width: 100% calculations. Solved the issue by calculating the width based on screen size for the md and lg breakpoints.",3,6
+12,2023-01-25T10:08:17Z,2023-01-26T16:29:28Z,2023-01-26T16:29:28Z,1,1,1,,2,1
+13,2023-01-25T13:22:48Z,2023-01-29T10:18:09Z,2023-01-29T10:18:09Z,1,1,1,Minor tweak to the installation docs,2,2
+14,2023-01-25T16:24:12Z,,2023-01-29T23:38:03Z,1,15,2,Update installation.mdx to include instructions for generating tailwind.config.js and postcss.config.js,2,1
+31,2023-01-27T14:34:00Z,2023-01-29T17:28:13Z,2023-01-29T17:28:13Z,21,609,99,"Navigation Menu Primitive
+
+  
+    
+    
+
+    navigation-menu.mov",2,7
+32,2023-01-27T20:55:49Z,2023-02-10T06:03:52Z,2023-02-10T06:03:52Z,15,6083,2539,"Just a problem with the animation out for data-state=end, if anyone have an idea ? (After the swipe)
+
+  
+    
+    
+
+    toast.mov",4,21
+33,2023-01-28T05:02:34Z,2023-01-29T09:49:29Z,2023-01-29T09:49:29Z,4,18,0,,3,2
+34,2023-01-28T12:07:08Z,2023-02-04T06:44:50Z,2023-02-04T06:44:50Z,12,221,1,"Toggle Button Primitive
+
+  
+    
+    
+
+    toggle.button.mp4",2,3
+39,2023-01-29T15:21:23Z,2023-01-29T19:35:45Z,2023-01-29T19:35:45Z,1,1,1,"This is a bug fix for the issue #24
+The switch position change on some screen sizes or in some zoom percent.
+I solve that by putting the items-center on in this part of switch.tsx ui component.
+ <SwitchPrimitives.Root
+    className={cn(
+      ""peer inline-flex items-center h-[24px] w-[44px] shrink-0 ...."",
+      className
+    )}
+    {...props}
+    ref={ref}
+  >",2,2
+43,2023-01-30T18:10:54Z,2023-01-31T17:21:34Z,2023-01-31T17:21:34Z,1,1,1,"Fixes #42
+Before
+
+After",2,2
+46,2023-01-31T00:20:58Z,2023-01-31T06:29:46Z,2023-01-31T06:29:46Z,2,2,2,Fixes: #44,2,4
+50,2023-02-01T16:02:44Z,2023-03-02T10:57:44Z,2023-03-02T10:57:44Z,7,521,0,"I found it interesting to add variants to the Dialog component to allow the user to add a type prop to DialogContent.
+With this, you can define whether you want it to be dialog, drawer-top, drawer-bottom, drawer-left and drawer-right. The size will be defined by the user by adding the necessary tailwind cases to the DialogContent.
+
+  
+    
+    
+
+    Grabacion.de.pantalla.2023-02-01.a.la.s.13.01.07.mov",3,12
+53,2023-02-03T21:17:27Z,,2023-11-12T18:04:22Z,11,344,1,"This PR add the Toggle group component, you can see the demo of how it looks on both light & dark modes below:",5,11
+54,2023-02-04T20:20:46Z,2023-02-05T06:41:00Z,2023-02-05T06:41:00Z,2,2,2,"for some reason we were extracting the value prop from props but not passing it to the slider root.
+fixed it by not extracting it from props, so its passed automatically.",2,2
+55,2023-02-05T02:11:57Z,2023-02-08T17:18:44Z,2023-02-08T17:18:44Z,1,35,0,Proposing to add a section to the Dialog component documentation to explain how to use a ContextMenuItem or DropdownMenuItem as a trigger for the Dialog component. This will provide clarity for other users who may struggle with this as I did. It wasn't immediate to me to wrap the ContextMenu with the Dialog as referenced here.,4,4
+56,2023-02-05T04:49:06Z,2023-02-19T06:01:00Z,2023-02-19T06:01:00Z,1,1,1,"Hello from Colombia! My first contribution, i was working and see this in my dark mode, hope it's helpful.",2,4
+57,2023-02-05T13:06:58Z,2023-02-10T05:56:38Z,2023-02-10T05:56:38Z,1,1,1,Popover using side left and right doesn't have any animation,2,2
+58,2023-02-05T13:20:33Z,2023-02-06T11:25:29Z,2023-02-06T11:25:29Z,1,3,2,"Husky is not installed automatically, I noticed this when I am trying to commit to my fork.
+adding prepare script should work, see reference
+also, you might want to re-run prettier. I think the pre-commit hook didn't run for some contributors
+Here's the changes after I run it, let me know if you want me to push the prettier run commit 😃",2,3
+59,2023-02-05T23:05:06Z,2023-02-07T09:02:14Z,2023-02-07T09:02:14Z,2,3,3,Screencast.from.02-06-2023.01.01.04.AM.webm,2,4
+61,2023-02-06T14:35:54Z,2023-02-08T17:11:32Z,2023-02-08T17:11:32Z,1,1,1,slide-from-left and slide-from-right animations based on Dropdown side,2,2
+65,2023-02-08T00:15:30Z,2023-02-08T03:46:40Z,2023-02-08T03:46:40Z,1,1,1,,2,2
+67,2023-02-08T14:42:48Z,2023-02-08T17:15:16Z,2023-02-08T17:15:17Z,1,1,1,,2,2
+69,2023-02-08T17:24:31Z,,2023-10-15T11:22:33Z,1,43,0,See #68,4,4
+77,2023-02-11T13:29:55Z,2023-02-12T05:53:18Z,2023-02-12T05:53:18Z,1,1,1,The destructive toast component example used the wrong example src,2,2
+79,2023-02-13T13:12:47Z,2023-02-19T06:11:08Z,2023-02-19T06:11:08Z,2,2,2,,2,3
+85,2023-02-14T22:14:45Z,2023-02-19T06:08:22Z,2023-02-19T06:08:22Z,1,1,1,"First of all, great work!
+I found a small issue working with the Command component so I wanted to contribute back the fix. When you filter the list of items, some CommandGroups get hidden but are still present in the dom. This causes the padding styles to break. To fix it, I just tweaked one classname.
+Before:
+
+After:",2,3
+87,2023-02-15T14:52:22Z,2023-02-16T08:39:01Z,2023-02-16T08:39:01Z,3,3,3,"Added Tailwind class active:scale-95 on Button component, to provide feedback on click / tap",2,2
+90,2023-02-16T08:51:46Z,2023-02-19T06:10:22Z,2023-02-19T06:10:22Z,1,1,1,"This PR adds a link to the navigation menu link when it is active.
+Screenshot:
+
+Usage:
+<NavigationMenuLink
+    active={true}
+    className={navigationMenuTriggerStyle()}>
+...
+</NavigationMenuLink>",2,2
+92,2023-02-16T14:15:55Z,2023-02-19T06:17:11Z,2023-02-19T06:17:11Z,3,6,3,,2,3
+95,2023-02-17T04:15:24Z,,2023-10-15T11:57:58Z,1,35,5,"This PR adds simple handling for the loading state: the original content becomes invisible to ensure that the element's width is not changed; the loading indicator is shown instead of the original content with pulse animation. Later on it other handlers can be added, such as custom loading indicator/icon/text.",5,6
+97,2023-02-18T11:36:43Z,2023-02-18T18:32:08Z,2023-02-18T18:32:08Z,1,2,1,"prevent the default action of the browser in order to open the command menu.
+
+  
+    
+    
+
+    cmdk-not-working-shadcn-ui.mp4",3,5
+103,2023-02-22T23:25:46Z,2023-03-01T13:26:06Z,2023-03-01T13:26:06Z,1,1,1,This fix resolves an issue mentioned in #83.,2,2
+104,2023-02-23T00:42:56Z,,2023-09-18T12:51:44Z,1,5,1,,2,3
+106,2023-02-25T02:56:58Z,2023-03-01T13:07:53Z,2023-03-01T13:07:53Z,1,2,1,Add code block to case which declares a variable,2,2
+122,2023-03-10T22:57:48Z,,2023-10-15T11:54:27Z,2,6,0,resolves #88,10,17
+133,2023-03-21T18:46:29Z,2024-03-07T18:42:39Z,2024-03-07T18:42:39Z,23,1281,4,Recording.2023-03-21.191329.mp4,26,29
+134,2023-03-21T21:44:08Z,,2023-04-02T16:28:58Z,1,1,1,,2,3
+135,2023-03-22T12:14:18Z,,2023-04-18T10:43:40Z,4,11,11,"Before
+
+  
+    
+    
+
+    before.mp4
+    
+  
+
+  
+
+  
+
+
+After
+
+  
+    
+    
+
+    after.mp4",2,3
+136,2023-03-22T16:16:31Z,2023-04-03T04:14:59Z,2023-04-03T04:14:59Z,1,1,1,"Just noticed the description on https://ui.shadcn.com/docs/primitives/scroll-area was wrong, and duplicated from https://ui.shadcn.com/docs/primitives/separator.
+This PR fixes that and updates the description to be the same as https://www.radix-ui.com/docs/primitives/components/scroll-area.
+Thank you for these components 🙂",2,2
+137,2023-03-22T16:27:37Z,2023-04-03T04:19:48Z,2023-04-03T04:19:48Z,1,1,1,"Just found what I'm guessing is another copy/paste mistake (see #136), this time on https://ui.shadcn.com/docs/primitives/dialog. It's the same as https://ui.shadcn.com/docs/primitives/alert-dialog.
+This PR updates this description to the one found on https://www.radix-ui.com/docs/primitives/components/dialog.",2,2
+141,2023-03-28T11:32:31Z,2023-04-01T04:06:07Z,2023-04-01T04:06:07Z,1,1,1,This PR changes the wrong import of the sheet component,2,2
+145,2023-03-28T18:55:20Z,2023-04-03T05:15:24Z,2023-04-03T05:15:24Z,3,3,4,"This is not a necessary change as of now, but good to have, I just encountered it while using it, so thought of doing it
+Issue #144",2,2
+146,2023-03-31T13:25:21Z,2023-04-01T03:52:48Z,2023-04-01T03:52:48Z,1,4,4,An extra curly brace was hiding at the end of the style tag.,2,2
+147,2023-03-31T23:03:50Z,,2024-01-14T08:38:23Z,3,3,3,"data-[placeholder] is the correct style for radix ui instead of placeholder, which wouldn't work in button,",4,4
+150,2023-04-02T11:11:50Z,2023-04-03T04:30:51Z,2023-04-03T04:30:51Z,1,5,1,This PR adds the missing imports for the collapsible component in the docs.,2,2
+169,2023-04-15T12:05:06Z,,2023-12-23T11:17:49Z,7,83,5,"Thought I'd add an example of a promise-based toaster.
+Adds a shake animation if a toast is updated to destructive:
+
+  
+    
+    
+
+    CleanShot.2023-04-15.at.17.10.41.mp4",3,7
+174,2023-04-17T03:13:35Z,2023-04-30T08:01:42Z,2023-04-30T08:01:42Z,4,36,3,"This PR adds the asChild parameter to Button, which renders the child component with the Button's behavior and styles, reducing DOM nodes.
+Example:
+<Button asChild variant=""ghost"">
+  <Link to=""/login"">Login</Link>
+</Button>
+
+This pattern is very common in frameworks (e.g. Next.js, Remix, etc) and is used throughout @radix-ui/primitives
+Here is a blogpost on implementation",2,6
+184,2023-04-17T16:39:12Z,2023-04-18T06:10:19Z,2023-04-18T06:10:19Z,1,1,1,"Add type keyword because Typescript complains, since ClassValue is only imported as a type.",2,1
+186,2023-04-17T23:30:48Z,2023-04-18T01:45:45Z,2023-04-18T01:45:45Z,3,3,3,,2,1
+189,2023-04-18T09:16:49Z,2023-04-20T05:34:32Z,2023-04-20T05:34:32Z,1,1,1,Possible fix for #188,2,2
+196,2023-04-18T14:38:49Z,2023-04-20T08:49:15Z,2023-04-20T08:49:15Z,1,1,1,,2,2
+210,2023-04-19T18:36:28Z,,2023-04-21T00:18:53Z,1,1,1,"This change resolves #181 by applying pl-11 if svg is present.
+Signed-off-by: Farrukh Ayaz Qazi farrukh.ayazz3@gmail.com",4,2
+213,2023-04-19T21:45:39Z,2023-04-20T12:36:38Z,2023-04-20T12:36:38Z,1,2,2,Changed to be the same colors as the template.  With the current css the card background is always white,2,2
+220,2023-04-20T09:08:14Z,2023-04-20T12:20:14Z,2023-04-20T12:20:14Z,1,1,1,"Changed codeString to accept the rawString from the component if the value isn't available before returning null.
+Fixes #219",2,2
+239,2023-04-23T20:28:50Z,2023-04-29T14:52:25Z,2023-04-29T14:52:25Z,1,20,5,"Fixes #225
+Closes #231",2,3
+243,2023-04-24T11:34:44Z,,2023-10-15T11:03:54Z,1,5,0,Should fix #238 and #234.,7,8
+245,2023-04-24T14:55:23Z,2023-05-28T06:21:11Z,2023-05-28T06:21:11Z,5,87,15,"what this pr adds:
+
+the capability to add config files and setup different configurations to avoid/skip some steps
+allow the user to define entry points for files that will be used on some components and you have to change by hand
+
+also noticing that different people added different kinds of versions of this, I wanted to go with the prettier approach, which is basically add Cosmiconfig which natively allows you to define a lot of entry points, I decided to name the entry point of configuration as shadcn-ui but we can change it, basically all the entry points allowed are:
+
+""shadcn-ui"" key in your package.json file.
+.shadcn-uirc file written in JSON or YAML.
+.shadcn-uirc.json, .shadcn-uirc.yml, .shadcn-uirc.yaml or .shadcn-uirc.json5 file.
+.shadcn-uirc.js, .shadcn-uirc.cjs, shadcn-ui.config.js or shadcn-ui.config.cjs file that exports an object using module.exports.
+.shadcn-uirc.toml file.
+
+also edited the CLI entry of the documentation to show some explanation and examples:
+
+I think this will solve also the cases provided by:
+#244 by @rawnly
+#240 by @JohnDaly
+could fix #207
+could fix #236",4,14
+248,2023-04-25T22:09:12Z,2023-05-08T11:49:19Z,2023-05-08T11:49:19Z,1,128,0,,5,10
+259,2023-05-01T06:51:07Z,2023-05-13T09:07:39Z,2023-05-13T09:07:39Z,4,16,3,"Description
+This PR adds the missing dependency from the Button component.
+Screenshot
+
+
+
+Screenshot of the issue
+
+
+
+
+
+
+
+
+Solution
+Adding the following missing dependency fixes the issue:
+import * as React from ""react""
++ import { Slot } from ""@radix-ui/react-slot""
+import { VariantProps, cva } from ""class-variance-authority""",4,5
+276,2023-05-03T00:31:08Z,2023-05-03T14:47:49Z,2023-05-03T14:47:49Z,1,1,1,#8 Now enables strict type checking in the template,3,2
+285,2023-05-03T10:41:31Z,2023-05-03T13:20:18Z,2023-05-03T13:20:18Z,1,1,1,Noticed that the DropdownMenuSubContent component is referencing text-on-popover which doesn't exist. This PR replaces it with text-popover-foreground to now match ContextMenuSubContent.,2,2
+287,2023-05-03T13:54:34Z,2023-05-25T11:51:14Z,2023-05-25T11:51:14Z,8,9,9,Resolving some typecheck warnings/errors that I noticed when using the components in my project.,3,5
+309,2023-05-06T21:14:33Z,,2023-05-14T02:46:24Z,1,1,1,Components Link only has padding on left side for some reason..,2,1
+310,2023-05-06T21:16:33Z,2023-05-10T17:48:47Z,2023-05-10T17:48:47Z,1,0,1,Remove unused import 'Laptop' in icons.tsx (nextjs-example),2,2
+314,2023-05-07T15:33:52Z,2023-05-25T18:05:56Z,2023-05-25T18:05:56Z,1,1,1,"👋 @shadcn!
+I use corepack, which automatically picks the version of pnpm found in package.json → packageManager. Because this version has been out of date, I’ve been getting a pretty massive diff in pnpm-lock.yaml on pnpm install.
+
+Bumping the value of packageManager locally has fixed this. Going forward, you can use something like Renovate bot which will keep packageManager version in sync with the latest available version.
+Thanks for working on this project, it looks very neat!",3,4
+317,2023-05-08T11:28:08Z,,2023-07-07T17:46:21Z,1,2,2,"Subject: Fix Accordion trigger icon shrinking issue
+Body:
+Hi ,
+I've made some updates to fix an issue with the Accordion trigger icon shrinking when the text gets too long. Here are the changes I've made:
+
+
+Added the class name ""shrink-0"" to the ChevronDown icon to prevent it from shrinking
+
+
+Added the class name ""text-left"" to the AccordionPrimitive.Trigger to left-align the text
+I've tested these changes locally and they fix the issue. Please review and merge the pull request when you have a chance.
+
+
+Thanks,",4,5
+324,2023-05-09T19:44:41Z,2023-05-10T03:49:17Z,2023-05-10T03:49:17Z,1,1,1,Solves #323,2,2
+335,2023-05-10T20:06:20Z,2023-05-11T06:07:39Z,2023-05-11T06:07:39Z,3,3,3,"Add empty string as fallback if value is undefined or null to prevent error.
+Fixes #336",2,2
+340,2023-05-11T09:25:45Z,,2023-10-21T12:03:30Z,1,2,1,Closes #159,3,4
+344,2023-05-12T03:14:19Z,2023-05-16T11:04:18Z,2023-05-16T11:04:18Z,2,2,2,"The default Textarea has a h-20 class, sometimes the height of it cannot be resized :
+
+  
+    
+    
+
+    h-20.mov
+    
+  
+
+  
+
+  
+
+
+When the h-20 is replaced with min-h-[80px], the issue is solved:
+
+  
+    
+    
+
+    min-h-.80px.mov
+    
+  
+
+  
+
+  
+
+
+Issue Link: #343",2,3
+350,2023-05-13T06:37:02Z,2023-06-26T11:50:54Z,2023-06-26T11:50:54Z,1,4,1,"pnpx is deprecated.
+https://pnpm.io/cli/dlx
+refs #190",3,4
+358,2023-05-15T15:04:07Z,2023-05-16T11:41:36Z,2023-05-16T11:41:36Z,1,1,1,Just a missing bracket in a tailwind custom value class,2,2
+364,2023-05-16T15:41:44Z,,2023-05-17T10:54:48Z,1,7,0,added toaster.tsx component to match the example in the docs when using shadcn add toast,2,2
+375,2023-05-19T14:30:25Z,2023-05-20T06:09:43Z,2023-05-20T06:09:43Z,1,1,1,This PR simply fixes the typo; Are you sure absolutely sure?,4,2
+378,2023-05-19T22:09:10Z,2023-05-20T05:58:25Z,2023-05-20T05:58:25Z,1,1,1,"Adding @radix-ui/react-slot Dependency to FormField Component in the documentation
+Summary
+This PR adds the ""@radix-ui/react-slot"" dependency to the FormField component. This addition is meant to streamline the DX and align it with the existing standards in the Button component.
+Changes
+The following text has been changed, from:
+npm install react-hook-form zod @hookform/resolvers
+
+to:
+npm install react-hook-form zod @hookform/resolvers @radix-ui/react-slot
+
+Additional Details
+It's important to note that the ""@radix-ui/react-slot"" dependency is already being utilized in the Button component. However, the current next-template still uses an older version without ""@radix-ui/react-slot"" implementation.
+Given that the installation guide for the Button component recommends installing ""@radix-ui/react-slot"", it seems fitting to include this in the FormField component as well. This not only brings consistency across components but also paves the way for updating the template to utilize ""@radix-ui/react-slot"".
+I look forward to your feedback and appreciate your consideration of this PR!",2,2
+379,2023-05-19T22:47:41Z,2023-05-20T06:03:52Z,2023-05-20T06:03:52Z,1,1,1,"Adding ""aspect-square"" class to RadioGroupItem Component
+Summary
+In this PR, I've added the TailwindCSS class ""aspect-square"" to the RadioGroupItem component in apps/www/components/ui/radio-group.tsx. This change enhances the visual consistency of radio buttons across different device sizes and widths.
+Changes
+Here's a snippet of the code change:
+From:
+className={cn(
+  ""h-4 w-4 rounded-full border border-primary text-primary ring-offset-background focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"",
+  className
+)}
+To:
+className={cn(
+  ""aspect-square h-4 w-4 rounded-full border border-primary text-primary ring-offset-background focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"",
+  className
+)}
+Rationale and Impact
+Previously, the absence of the ""aspect-square"" class resulted in distorted shapes of radio button circles on smaller devices or at smaller widths. Here is a visual demonstration of the issue:
+.
+By introducing the ""aspect-square"" class, the radio buttons maintain their circular shape regardless of device size or width, as demonstrated here:
+.
+This change improves the user experience by maintaining a visually consistent interface across different device sizes and widths.
+I welcome any feedback and appreciate your consideration of this PR!",2,2
+381,2023-05-20T01:39:16Z,2023-05-20T04:40:02Z,2023-05-20T04:40:02Z,1,1,0,Closes: #380,2,2
+383,2023-05-20T03:09:26Z,2023-05-20T04:52:53Z,2023-05-20T04:52:53Z,1,5,8,Closes: #382,2,3
+398,2023-05-21T03:16:51Z,2023-05-29T07:26:44Z,2023-05-29T07:26:44Z,0,0,0,,2,6
+413,2023-05-22T08:46:28Z,2023-05-23T07:22:35Z,2023-05-23T07:22:35Z,1,2,1,,2,2
+417,2023-05-22T11:51:53Z,2023-05-22T13:00:59Z,2023-05-22T13:00:59Z,1,5,3,"Following discussion here.
+Please feel free to ask me to change anything, or to make any change yourself in this PR.
+Thanks for your work 🙂",2,2
+422,2023-05-22T20:47:56Z,,2023-08-21T10:04:28Z,1,1,1,"Problem:
+When the browser font size change, preview is broken
+Old (small size):
+
+New (small size):
+
+Old (bigger size):
+
+New (bigger size):",2,2
+423,2023-05-22T21:19:11Z,2023-05-23T07:31:32Z,2023-05-23T07:31:32Z,1,1,1,,3,2
+428,2023-05-23T17:21:44Z,,2023-08-28T05:21:13Z,1,1,1,closes #416,5,8
+430,2023-05-23T19:30:01Z,2023-05-25T10:37:37Z,2023-05-25T10:37:37Z,5,54,65,"This pr adds:
+
+usage of the commonly used environment variable https_proxy. This allows fetch to work behind a proxy.
+when installing a component the cli now resorts to either ./src/components/ui or ./components/ui depending on which directory already exists (e.g.: from previous installations)",2,3
+432,2023-05-23T19:40:21Z,,2023-05-26T16:59:40Z,4,44,22,"Background: I am new to Tailwind (and still pretty green with CSS generally). The IntelliSense and linting from the Tailwind VS Code extension has been my saving grace to understand what is going on.
+However, out of the box the extension has pretty limited (or focused) areas where the IntelliSense will kick in.
+This change expands the number of places where the Tailwind extension will provide IntelliSense support.
+Any object with Styles (case sensitive) in the name will now trigger IntelliSense.  This is particularly useful in places like Button. Previously, no IntelliSense was provided to the buttonVariant styles.
+With this change (and some moving around), all buttonVariant styles have IntelliSense support.
+Example:
+
+Note: The core change is to add "".*Styles*"" to the list of tailwindCSS.classAttributes which is where Tailwind knows to look in the file for IntelliSense. This was added to the root settings.json as well as the settings.json under the template.",3,9
+433,2023-05-24T01:25:48Z,2023-05-24T14:21:27Z,2023-05-24T14:21:28Z,1,2,2,"Fixed the language placeholder and the empty text when search and doesn't found a language.
+Search placeholder:
+
+Empty text:",3,2
+438,2023-05-24T12:54:51Z,2023-05-25T12:10:23Z,2023-05-25T12:10:23Z,5,36,11,The close trigger was not exposed and made closing a sheet difficult. This can be used to enclose buttons to close the sheet on click.,2,2
+447,2023-05-25T02:22:28Z,,2023-08-04T01:55:18Z,1,19,7,"Remove unused link import.
+Add required useForm import.
+Add missing code to step 3 for consistency.",2,2
+453,2023-05-25T14:59:20Z,2023-05-25T17:05:41Z,2023-05-25T17:05:41Z,2,6,10,"Since the breakpoint prefixes work on a min-width basis, it's only necessary to specify the following breakpoint with :hidden.",2,2
+455,2023-05-25T15:48:25Z,2023-05-25T16:57:49Z,2023-05-25T16:57:49Z,1,2,1,"Fix: the command menu for the docs site would need to be cleared after showing 'no results' for it to become responsive again (as noted in #256). Adding a value prop to each CommandItem fixed this. Also removed an unused import for allDocs in this file.
+
+Cheers! 😄",2,2
+464,2023-05-26T20:39:39Z,,2023-08-03T15:11:49Z,2,10,0,Closes #267,2,5
+466,2023-05-26T22:52:42Z,2023-05-29T07:20:44Z,2023-05-29T07:20:44Z,1,3,3,Closes: #465,2,2
+473,2023-05-28T10:36:36Z,2023-05-29T07:16:05Z,2023-05-29T07:16:05Z,3,4,4,I found that text-foreground-muted was used in some className. The correct name I guess is text-muted-foreground and I have corrected it.,3,2
+479,2023-05-29T02:20:09Z,2023-05-29T07:10:34Z,2023-05-29T07:10:34Z,1,1,1,,2,2
+496,2023-05-30T00:39:10Z,2023-10-21T12:28:00Z,2023-10-21T12:28:00Z,1,1,1,"collapsible is not a valid prop when <Accordion type=""mutliple"" />.
+this prop is only valid when type=""single""
+From docs: collapsible - When type is ""single"", allows closing content when clicking trigger for an open item.",3,2
+504,2023-05-30T21:09:37Z,,2023-09-20T15:04:17Z,3,62,11,"This PR adds state to handle visibility toggle for input with type password
+Fixes #265",9,22
+513,2023-05-31T18:26:14Z,,2024-01-28T09:44:49Z,1,1,0,,2,2
+525,2023-06-02T06:34:19Z,,2024-01-28T09:44:23Z,1,3,4,"Removed Link component in the example that is not used.
+Added missing useForm import in docs
+Added missing dependency in installation command",3,3
+550,2023-06-07T06:15:25Z,2023-08-03T17:57:39Z,2023-08-03T17:57:39Z,1,1,0,Just added the command component to the import statement of the sample code.,2,2
+554,2023-06-07T15:24:11Z,,2023-06-24T16:45:47Z,2,5,5,This PR fixes the bug where you have to manually edit tailwind.config.cjs. Related to #532.,3,3
+577,2023-06-12T07:42:16Z,,2023-07-25T10:06:41Z,1,1,3,"if use a button to wrap the arrow-down icon, it may casue these problems.",2,1
+581,2023-06-12T17:26:38Z,,2023-06-25T09:19:39Z,1,1,1,This fixes issue 418,3,2
+608,2023-06-17T16:44:28Z,,2024-02-11T16:38:56Z,1,1,1,fix small typo,5,2
+614,2023-06-18T20:57:08Z,,2023-06-24T10:22:07Z,2,2,2,Fixes #613,2,3
+626,2023-06-21T08:54:41Z,,2023-06-24T16:45:36Z,1,1,0,,3,3
+645,2023-06-22T19:24:31Z,2023-06-24T16:38:10Z,2023-06-24T16:38:10Z,1,1,1,There is a typo on the Dashboard/Cards/GithubCard component,4,2
+654,2023-06-22T21:04:39Z,2023-06-23T06:58:33Z,2023-06-23T06:58:33Z,1,0,8,"This PR enhances the code by removing the unused PROJECT_DEPENDENCIES variable from the cli/src/index.ts file. The variable is already defined and used in the cli/src/commands/init.ts file, so there is no need for redundant declarations.
+- const PROJECT_DEPENDENCIES = [
+-   ""tailwindcss-animate"",
+-   ""class-variance-authority"",
+-   ""clsx"",
+-   ""tailwind-merge"",
+- ]",2,2
+664,2023-06-23T07:34:19Z,2023-06-23T16:08:19Z,2023-06-23T16:08:19Z,1,1,1,"added a missing # for the RSC section anchor link, resulting in 404.",2,2
+665,2023-06-23T07:36:08Z,,2024-01-28T09:45:38Z,1,2,2,Resolved #663,3,3
+671,2023-06-23T12:40:14Z,,2023-07-05T22:22:10Z,1,2,0,"Updated folder structure includes components.json on installation docs.
+Added components.json description on installation docs.",3,4
+677,2023-06-23T15:04:10Z,2023-06-24T17:01:23Z,2023-06-24T17:01:23Z,4,21,44,The current detection method doesn't work in monorepos but @antfu/ni does.,2,4
+679,2023-06-23T15:24:04Z,2023-06-24T11:51:24Z,2023-06-24T11:51:24Z,1,0,4,Fixes #673,2,2
+682,2023-06-23T16:16:36Z,2023-06-24T16:10:02Z,2023-06-24T16:10:02Z,14,27,22,"Fixes #675
+@shadcn",2,2
+685,2023-06-23T21:07:53Z,2023-06-24T11:49:48Z,2023-06-24T11:49:48Z,1,1,1,"Changes 'use client' directory to 'use client' directive , which I believe is the intent.",3,2
+689,2023-06-24T04:00:54Z,,2023-06-24T14:16:07Z,1,0,4,"Remove extra cli instructions in Skeleton.
+Before:
+
+
+After:",2,1
+701,2023-06-25T06:14:32Z,,2023-10-19T17:46:28Z,1,1,1,,3,4
+702,2023-06-25T09:11:00Z,2023-06-26T12:16:03Z,2023-06-26T12:16:03Z,1,1,3,"This just edits the example for data-table-toolbar. I have not checked if any docs need updating that reference this method of checking for isFiltered
+If you select all filters that equals all rows we never display the reset button.
+We can get the state of selected columnFilters and if there is any selected display the reset button.",3,3
+707,2023-06-25T12:33:19Z,2023-06-27T07:48:51Z,2023-06-27T07:48:51Z,5,18,2,"Add support for bun's package manager (closes #705)
+This will use bun add when installing packages in a bun project, instead of npm install.
+bun.lockb uses a binary file for it's lock file. I generated this by running bun init in the new fixtures project, using the latest stable version of bun: 0.6.9",3,3
+714,2023-06-25T19:51:16Z,2023-06-30T17:21:10Z,2023-06-30T17:21:10Z,2,88,0,,5,27
+744,2023-06-27T15:15:22Z,2023-07-05T19:29:14Z,2023-07-05T19:29:14Z,1,1,1,,3,4
+753,2023-06-28T01:08:10Z,2023-06-29T13:27:03Z,2023-06-29T13:27:03Z,5,148,14,"This PR adds installation documentation for Remix. Tested with the current version of Remix, Tailwind et cetera as of today.
+Also adds nifty little tabs.",4,13
+759,2023-06-28T11:32:27Z,,2023-08-18T19:08:59Z,0,0,0,"This fixes docs and examples for Toggling Command Menu for Windows CTRL key
+Closes #295",2,3
+767,2023-06-29T05:51:56Z,,2023-09-20T04:06:25Z,1,5,0,"There is a typo on the packages/cli/src/utils/get-config.ts
+""Invald -> Invalid ""
+before
+
+after",3,4
+768,2023-06-29T11:18:17Z,,2023-08-15T15:10:35Z,5,75,9,"This PR:
+
+Fixes #687
+Fixes #780
+Fixes #967
+Fixes typo in aspect-ratio docs",2,8
+770,2023-06-29T13:41:23Z,2023-12-21T21:42:40Z,2023-12-21T21:42:40Z,11,477,3,"#535
+Hey there! It appears that this issue has not received any attention yet. I encountered a similar situation yesterday while working on a project, where I had to manually change the components' prefixes. Hence, it seems imperative to address this matter in some way.
+This pr introduces a valuable addition to the CLI. It allows users to define a custom Tailwind prefixes.
+The implementation updates both the configuration schema, the init command and the tailwind config templates. The configuration schema now includes a new optional field called ""prefix."" This will ensures that users who have already customized their configuration won't be required to make any further updates. And, the CLI will not throw any errors with existing configurations.
+please take a moment to review these changes and provide your feedback.",16,19
+781,2023-06-29T20:10:45Z,,2023-07-01T22:02:58Z,1,1,1,"before
+
+after",3,5
+796,2023-07-01T02:33:09Z,,2024-03-05T00:02:16Z,0,0,0,"According to the documentation, we can adjust the size of the sheet using CSS classes className=""w-[400px] sm:w-[540px]"", but this won't work unless we override the assigned classname sm:max-w-sm with sm:max-w-none.
+const sheetVariants = cva('...',
+  {
+    variants: {
+      side: {
+        top: '...',
+        bottom: '...',
+        left: '... w-3/4 ... sm:max-w-sm',
+        right: '... w-3/4 ... sm:max-w-sm',
+      },
+    },
+    ...
+  }
+)",6,4
+799,2023-07-01T11:11:01Z,2023-07-12T16:22:35Z,2023-07-12T16:22:35Z,2,16,16,"I ran into a mislabeled input on this page when trying out shadcn/ui. If you click on the Framework label it selects the Name input instead. This PR:
+
+Corrects the label for framework
+Moves the <SelectContent /> outside of the <SelectTrigger /> to match the Select usage docs",3,2
+807,2023-07-02T01:18:08Z,,2023-08-12T23:37:35Z,1,1,1,"👋🏻
+Noticed a minor typo. This will use the remix default import path, which is also the one used elsewhere in the installation guide.",2,3
+814,2023-07-02T19:49:35Z,2023-08-03T15:41:34Z,2023-08-03T15:41:34Z,4,203,7,This PR adds documentation to add Dark mode into a Vite powered application.,8,12
+823,2023-07-03T22:20:48Z,,2024-01-28T09:01:42Z,4,95,25,"Hey @shadcn and @dan5py I was seeing issues like these #818 appear repeatedly. The issue, I believe, stems from using constant initial values on the cli, so I figured it would make sense to offer better initial values based on project info. I'm not sure whether you guys are working on it with more features, but since it's not a difficult task, I thought I'd give it a shot.",3,15
+824,2023-07-03T23:03:29Z,2023-07-04T06:02:34Z,2023-07-04T06:02:34Z,3,157,0,Add Astro installation guide. Closes #490.,3,4
+839,2023-07-05T02:20:49Z,2023-08-03T15:03:45Z,2023-08-03T15:03:45Z,3,3,3,"Docs > Next.js
+Next.js
+Install and configure Next.js
+(5) That's it
+You can now start adding components to your project.
+npx shadcn-ui@latest add button
+
+The command above will add the Button component to your project. You can then import it like this:
+import { Button } from ""@/components/ui""
+ 
+export default function Home() {
+ return (
+   <div>
+     <Button>Click me</Button>
+  </div>
+ )
+}
+
+
+
+Ticket:  #838
+import { Button } from ""@/components/ui"" will result with:
+⚠ Error (TS2307) | Cannot find module or its corresponding type declarations.
+
+
+Correction: import { Button } from ""@/components/ui/button""",4,7
+858,2023-07-06T15:12:05Z,2023-07-12T16:17:26Z,2023-07-12T16:17:26Z,1,14,0,"Hi,
+just started using the project in astro and went through the installation guide. By default, the @astrojs/tailwind integration includes the tailwind base styles (@tailwind base; @tailwind components; @tailwind utilities;) since we need a custom CSS file to adjust colors and stuff they are included twice in the build.
+We can tell astro to not applyBaseStyles because we do that on our own.
+See docs for @astrojs/tailwind: https://docs.astro.build/en/guides/integrations-guide/tailwind/#applybasestyles
+I updated the astro setup guide to add an additional step to set the options in astro.config.mjs",3,3
+898,2023-07-11T13:07:04Z,2023-07-12T16:34:05Z,2023-07-12T16:34:05Z,1,1,0,Typescript question was missing from the CLI docs (it is present on installation guides already).,2,2
+908,2023-07-12T09:35:24Z,,2023-09-22T11:06:06Z,2,91,1,,2,3
+918,2023-07-13T05:37:55Z,,2023-10-05T10:26:16Z,21,205,44,"Support for selecting the year and month using the select component.
+
+The year and month can now be specified directly using the dropdown selector!
+Filled in the missing styles.
+
+
+
+dropdown-buttons
+
+dropdown
+
+buttons
+Related to:
+#320 #546 #509 #880
+Usage:
+<Calendar
+    initialFocus
+    mode=""range"" // range | single
+    captionLayout=""dropdown-buttons"" 
+    // Optionally, enables the year and month drop-down selector.
+    // also: dropdown-buttons | dropdown | buttons
+    fromYear={2022} 
+    toYear={2023} 
+    defaultMonth={date?.from}
+    selected={date}
+    onSelect={setDate}
+    numberOfMonths={2}
+    {...props}
+/>",6,5
+938,2023-07-15T16:22:45Z,,2023-10-19T11:04:35Z,1,12,5,"People regularly encounter an issue when setting up dark mode, see #313, so I've added the fix to the dark mode's documentation page.
+We could also consider removing @layer base from the CSS. It seems unnecessary and it would be easier.
+PS: amazing the work you're doing Shadcn! The popularity of this library shows it. Congrats and thanks a lot 🙂
+
+docs(dark-mode): add theme-color meta tags to Dark Mode documentation",4,7
+945,2023-07-17T07:54:27Z,2023-11-12T19:12:40Z,2023-11-12T19:12:40Z,1,1,1,,2,4
+973,2023-07-19T23:32:36Z,2023-09-19T11:57:19Z,2023-09-19T11:57:19Z,2,25,8,"better dx to auto overwrite an existing component without running a second command
+more information can be found in the issue #931
+closes #931",2,3
+974,2023-07-19T23:50:32Z,2023-08-03T18:27:39Z,2023-08-03T18:27:39Z,1,1,1,The remix uses ~,2,2
+979,2023-07-20T15:24:58Z,2023-08-01T15:21:19Z,2023-08-01T15:21:19Z,1,0,3,"Removing experimental = { appDir : true }
+from next.config.js as it is stable now.",2,2
+982,2023-07-20T19:56:07Z,2023-08-04T13:03:41Z,2023-08-04T13:03:41Z,3,175,1,"closes #773
+
+screenshot",2,3
+989,2023-07-21T07:57:40Z,2023-07-30T11:33:18Z,2023-07-30T11:33:18Z,3,9,9,"Description:
+
+The search in the Combobox for languages is done by language value instead of label.
+
+https://ui.shadcn.com/docs/components/combobox#form
+https://ui.shadcn.com/examples/forms/account
+
+
+
+Related Issues:
+
+#933
+#1072
+
+Video:
+
+  
+    
+    
+
+    combobox-old.mp4
+    
+  
+
+  
+
+  
+
+
+closes #933, closes #1072",2,2
+993,2023-07-21T11:27:33Z,,2023-08-29T08:59:39Z,1,9,4,"Hi!
+I was recently setting up the UI for the first time and I didn't read the step description properly, which lead to misconfiguring my project (my mistake, ofc).
+I thought others could also stumble across this, so I've changed the installation step description to explicitly represent tsconfig.json structure.
+
+
+
+Before
+After",2,4
+1004,2023-07-22T15:59:46Z,2023-08-03T18:22:39Z,2023-08-03T18:22:39Z,3,6,3,"Before
+
+  
+    
+    
+
+    2023-07-22.21-25-25.mp4
+    
+  
+
+  
+
+  
+
+
+After
+
+  
+    
+    
+
+    2023-07-22.21-27-30.mp4",2,6
+1027,2023-07-25T08:56:23Z,,2023-08-03T18:05:21Z,1,1,1,fix #545,3,1
+1033,2023-07-25T15:14:50Z,2023-09-19T03:37:36Z,2023-09-19T03:37:36Z,2,14,2,"I missed the ability to install all components in one shot. So enhanced the CLI to support the case.
+shadcn-ui add --all
+This was manually tested to work as expected.",3,2
+1055,2023-07-27T08:30:11Z,2023-07-28T12:03:43Z,2023-07-28T12:03:43Z,1,4,2,"Fixes #1049
+Adds scrollbar which will make the overflow content available to the user",2,3
+1059,2023-07-28T02:19:55Z,2023-07-30T11:50:12Z,2023-07-30T11:50:12Z,5,5,5,"replace the unsupported in Firefox
+selector '[&:has(svg)]:pl-11' with [&>svg~*]:pl-7",3,2
+1062,2023-07-28T08:09:39Z,2023-07-28T11:56:20Z,2023-07-28T11:56:20Z,1,1,1,https://github.com/shadcn-ui/ui/issues/1060 fix doc,3,3
+1082,2023-07-31T13:19:03Z,2023-08-01T15:07:04Z,2023-08-01T15:07:04Z,2,2,2,,2,2
+1089,2023-08-01T01:20:46Z,2023-09-19T03:04:57Z,2023-09-19T03:04:57Z,5,46,10,"Deduplicate class names within the applyColorMapping function. To resolve this, the method of storing class names has been updated from using arrays to sets, which inherently ensures that all class names are unique.
+
+Closes #692
+Closes #905",3,3
+1117,2023-08-05T09:23:18Z,,2023-09-15T08:22:40Z,0,0,0,Added a step to download the required package for better understanding for beginners.,4,3
+1118,2023-08-05T12:07:32Z,2023-08-26T10:45:35Z,2023-08-26T10:45:35Z,1,9,7,Updated vite.mdx file adding a new type called Theme. Now 'theme' has a type definition when we use the 'useTheme' hook,4,4
+1137,2023-08-07T21:38:23Z,2023-08-25T02:51:19Z,2023-08-25T02:51:19Z,2,19,8,"This PR fixes an issue where users are able to send empty chat messages.
+Old:
+
+New:",5,6
+1146,2023-08-08T15:54:31Z,2023-08-15T15:24:37Z,2023-08-15T15:24:37Z,2,3,4,This PR will fix #1152,3,5
+1162,2023-08-09T16:03:10Z,2023-08-17T11:27:23Z,2023-08-17T11:27:23Z,4,4,4,Should fix #1121 when using dark mode without CSS variables,3,5
+1203,2023-08-11T03:50:55Z,,2023-08-17T09:47:32Z,0,0,0,"After adding shadcn/ui into my Astro project, I've found the problem of shadcn/ui's CLI to overwrite astro config and result in no styling for non .ts or .tsx file. So, I add the missing part and hope it'll help the community.",2,2
+1209,2023-08-12T02:17:08Z,2023-08-16T17:11:50Z,2023-08-16T17:11:50Z,3,129,105,"The :has selector is not working on Firefox, I added a new class using the peer variant.",4,4
+1224,2023-08-13T15:47:54Z,2023-08-17T09:35:06Z,2023-08-17T09:35:06Z,4,9,9,"Error in color values of ""--ring"" variable in the theme",3,2
+1242,2023-08-15T15:06:20Z,2023-08-16T03:26:49Z,2023-08-16T03:26:49Z,2,33,5,"This PR:
+
+Fixes #967
+Fixes #687 (only form docs)
+Fixes typo in aspect-ratio alt prop",2,2
+1243,2023-08-15T15:08:43Z,2023-08-16T03:32:09Z,2023-08-16T03:32:09Z,2,36,4,"This PR:
+
+Fixes #780
+Fixes #687 (only toast docs)",2,2
+1247,2023-08-15T19:02:18Z,2023-10-19T17:44:12Z,2023-10-19T17:44:12Z,9,159,21,"Fixes #659
+Fixes #633
+Create Next App is using tailwind.config.ts in the TypeScript template. Since this is a very common use case it would be nice to preserve the type safety of the file.
+I added new templates for TypeScript files. I see there is an issue #1073 which asks for ESM support as well. This is not included in this PR.
+I also fixed the type error in the keyframes that is also handled in #636",4,4
+1251,2023-08-16T10:34:21Z,2023-08-17T09:50:35Z,2023-08-17T09:50:35Z,1,0,3,,2,2
+1257,2023-08-16T15:06:10Z,2023-08-17T09:43:33Z,2023-08-17T09:43:33Z,1,1,1,The @hookform/resolvers package is missing in the Form docs in manual installation.,3,2
+1264,2023-08-17T09:58:53Z,2023-10-21T12:26:28Z,2023-10-21T12:26:28Z,1,10,0,"After adding shadcn/ui into my Astro project, I've found the problem of shadcn/ui's CLI to overwrite astro config and result in no styling for non .ts or .tsx file. So, I add the missing part and hope it'll help the community.",4,3
+1270,2023-08-17T12:28:33Z,2023-08-17T17:39:49Z,2023-08-17T17:39:49Z,1,1,1,fix typo in CONTRIBUTING.md,3,2
+1295,2023-08-20T13:01:09Z,2023-08-25T03:24:05Z,2023-08-25T03:24:05Z,2,6,4,"Fix #1294
+I applied the same way used in apps/www/registry/new-york/example/scroll-area-demo.tsx removing the React.Fragmentand added the key.
+CURRENT
+
+AFTER SOLUTION",2,2
+1296,2023-08-20T14:35:06Z,2023-09-25T11:29:05Z,2023-09-25T11:29:05Z,2,12,2,"Fix #1276
+CURRENT BEHAVIOUR
+
+AFTER SOLUTION",2,3
+1311,2023-08-21T16:54:30Z,2023-08-24T05:26:13Z,2023-08-24T05:26:13Z,2,0,8,"Closes #1309
+Removing unneccesary import from text-area form component
+Link, Checkbox, RadioGroup, RadioGroupItem, Switch imports are unused as seen in screenshot below",2,2
+1319,2023-08-23T00:43:32Z,2023-08-24T05:14:20Z,2023-08-24T05:14:21Z,2,5,6,"Overview
+Removed duplicate calls in init.test.
+Noticed it while doing #1292",2,2
+1343,2023-08-25T21:51:32Z,2023-08-31T13:01:37Z,2023-08-31T13:01:37Z,2,42,0,"1. Added Commit convention to CONTRIBUTING.md
+
+2. Added first step to install 'next-themes' when enabling dark mode in next.js to the dark mode next.js page. closes #1116",4,5
+1363,2023-08-27T15:23:19Z,,2024-03-13T11:47:09Z,2,2,2,"This PR will close issue #896 to enable toast title with ReactNode. Here's the preview
+
+
+
+Before
+After",7,9
+1368,2023-08-28T00:46:56Z,,2023-10-21T12:09:56Z,84,361,89,"Hello @shadcn,
+I hope you're doing well. I've created this pull request to propose an enhancement to the shadcn-uI library. I've added position and size variants to the Dialog component, which I believe would enhance the versatility and usability of the library.
+Changes Made:
+Added new position options (left, center, right, top-left, top-center, top-right,  bottom-left, bottom-center, bottom-right) to the Dialog component.
+Included size options (small, medium, large, extra-large, super-large, ultra-large, full) to allow for greater flexibility in adapting the dialog to different content needs.
+I kindly request you to review this pull request at your earliest convenience. Your feedback and suggestions are highly valued, and I'm open to making any necessary adjustments to ensure the quality and cohesion of the library.
+Issue number is #1367
+Best regards,
+Towhid Hasan",7,11
+1370,2023-08-28T05:20:43Z,2023-09-19T15:17:38Z,2023-09-19T15:17:38Z,2,2,2,"Replacement of #428 as there is a change in the directory structure
+closes #416",4,7
+1376,2023-08-28T16:27:04Z,,2023-08-30T01:33:25Z,1,6,4,"Add import { useForm } from ""react-hook-form"" to make the example code more complete.",3,3
+1387,2023-08-30T03:16:49Z,,2024-01-28T09:47:03Z,1,1,1,"There is a typo in docs/dark-mode.
+
+It says ""opening an PR"".
+Fix:",4,2
+1409,2023-08-31T10:39:07Z,,2023-10-19T17:46:49Z,2,17,1,"Tailwind doesn't have supports-backdrop-blur rule, witch is used in site-header.tsx so supports-backdrop-blur:bg-background/60 is never applied.
+Extended it only for app/www as it's not used over ui components.",3,2
+1411,2023-08-31T12:28:23Z,,2024-02-09T03:33:02Z,1,1,1,"The last item of command menu has a smaller padding at the bottom than its sides.
+Chrome
+
+Safari",2,2
+1425,2023-09-01T21:15:43Z,,2023-11-09T01:34:12Z,1,0,1,The import statement for the Badge component was removed as it was not being used in the MainNav component. This improves code cleanliness and removes unnecessary dependencies.,2,2
+1428,2023-09-02T07:37:30Z,2023-09-18T13:35:27Z,2023-09-18T13:35:27Z,1,10,2,"The dialog demo displays a warning message in development mode, as shown in the following.
+""Warning: You provided a value prop to a form field without an onChange handler. This will render a read-only field. If the field should be mutable use defaultValue. Otherwise, set either onChange or readOnly.""
+
+Additionally, it renders the input fields ""name"" and ""username"" uneditable. This PR aims to address the warning and make these inputs editable.",2,2
+1438,2023-09-04T03:29:12Z,2023-09-18T12:31:22Z,2023-09-18T12:31:22Z,1,2,2,"VSCode is shouting at me for this identical interface and function name:
+
+This PR just renames the interface to a more sensible one.",2,2
+1445,2023-09-04T23:31:06Z,2023-09-21T13:30:29Z,2023-09-21T13:30:29Z,4,29,12,"The title basically says it all
+adding a component:
+
+creating an app:
+
+initing shadcn-ui:",5,7
+1447,2023-09-05T00:48:43Z,2023-09-18T12:47:58Z,2023-09-18T12:47:58Z,1,6,1,The ThemeProvider is missing disableTransitionOnChange prop. Adding this prop ensures your UI to stay consistent when changing the theme.,3,2
+1466,2023-09-06T20:46:54Z,2023-09-19T03:23:08Z,2023-09-19T03:23:08Z,2,6,0,example for use-toast.ts file,2,2
+1471,2023-09-07T17:49:10Z,2023-09-18T12:25:26Z,2023-09-18T12:25:26Z,1,1,1,Fix file name,3,1
+1472,2023-09-07T19:27:14Z,,2024-01-28T09:02:50Z,4,21,8,"If the user chooses typescript for the project use tailwindconfig.ts
+The default file for tests is tailwindconfig.ts",2,2
+1484,2023-09-09T09:38:00Z,2023-09-18T12:23:48Z,2023-09-18T12:23:48Z,1,2,1,Updated the help text for choosing all components with add command,2,2
+1486,2023-09-09T15:49:49Z,2023-10-21T12:16:23Z,2023-10-21T12:16:23Z,1,2,0,"When I tried it after the attached issue, I realized;
+For someone who's absolutely copying and pasting form the guide, this would give an error, as useForm is not imported in the guide. So I fixed that.
+Related issue: #1482
+Fix #1482",3,6
+1490,2023-09-10T03:20:36Z,2023-11-12T18:12:17Z,2023-11-12T18:12:17Z,4,4,8,"From issue #1442, I've checked all the components in shadcn by adding all of them into my Astro project and found only Command component to not having type import so I add it. Hope this help.",3,4
+1515,2023-09-12T21:15:43Z,2023-10-21T13:54:16Z,2023-10-21T13:54:16Z,7,134,2,"Adds documentation to the <ScrollArea> component for creating a scroll area with a horizontal scrollbar. There is also a commit to fix the improper sizing of a horizontal scroll bars.
+Before:
+https://github.com/shadcn-ui/ui/assets/9381099/a8b512f1-37f7-4107-a9fa-42a26e124696
+After:
+https://github.com/shadcn-ui/ui/assets/9381099/480f881c-b0fe-4b1b-9472-c533135e6769",2,2
+1546,2023-09-18T00:45:12Z,,2023-09-29T07:45:36Z,2,4,0,"The following was achieved by:
+
+fix(www): form component not working with the server components",3,1
+1547,2023-09-18T02:56:33Z,2023-11-12T19:03:14Z,2023-11-12T19:03:14Z,23,705,0,"Toggle-group
+Preview
+This PR adds the toggle-group primitive from Radix.
+Similar to #53 and #610, but with the styling from the existing toggle component.",2,4
+1548,2023-09-18T19:09:47Z,2023-10-21T12:09:10Z,2023-10-21T12:09:10Z,2,2,2,"What does this PR do?
+This pull request resolves an issue where the button text wraps onto the next line in specific screen sizes when the text contains two or more words. By applying the whitespace-nowrap utility class to the button element, the text now remains on a single line, even on screens with limited space. This enhancement ensures a consistent and visually pleasing user experience across various devices :
+Before (Get Started Button)
+
+After  (Get Started Button)
+
+This problem arises in other projects utilizing Shadcn, and this pull request addresses and resolves the issue, as demonstrated in the Cal.com project example:
+Before (Set Up Button)
+
+After  (Set Up Button)",4,4
+1551,2023-09-19T05:13:44Z,2023-10-21T14:03:32Z,2023-10-21T14:03:32Z,4,21,6,just fixed the twitter icon svg to the X twitter icon svg and size was bigger so decreased it a bit,2,7
+1567,2023-09-21T03:12:27Z,,2023-10-21T12:31:48Z,1,1,1,Removed unused imports in the Alert component document.,3,2
+1586,2023-09-25T02:56:31Z,,2023-11-19T09:35:13Z,1,2,2,"Fix incorrect code highlight lines
+Add missing useForm import",4,3
+1590,2023-09-25T09:54:06Z,2023-10-21T12:47:21Z,2023-10-21T12:47:21Z,1,8,2,"Issue:
+By default bunx runs scripts using Node.
+Changes Made:
+adding the --bun flag while copying the bunx command for installing components
+Contributor's Checklist:
+Before submitting this pull request, I have adhered to the commit convention outlined in the repository's contribution guide:
+✅ Used the appropriate commit category: fix
+✅ Clearly described the scope of the fix (i.e., the card component)
+✅ Provided a descriptive commit message that explains the changes made
+Additional Notes:
+I have followed the repository's contribution guidelines and conventions, ensuring that this pull request aligns with the project's standards.
+Thank you for considering this pull request. It aims to enhance the consistency and user experience of the card component in the application. If you have any questions or require further information, please feel free to reach out.",2,2
+1603,2023-09-26T10:29:29Z,2023-10-03T13:02:32Z,2023-10-03T13:02:32Z,4,8,40,"There are unnecessary AlertDialogPortal and DialogPortal components in alert-dialog and dialog. And they are accepting className props which is not required in AlertDialogPortal and DialogPortal component from radix-ui. So, I have removed them.",3,5
+1606,2023-09-26T21:52:34Z,2023-10-21T11:56:32Z,2023-10-21T11:56:32Z,2,2,14,"Fixes #1595, #1644
+This PR changes the components that use the DialogPortal element to be aliases rather than components that pass a className prop.
+The DialogPortalProps type from @radix/react-dialog recently had a patch update that probably should have been a minor or maybe a major update which is causing a few people to see the error Property 'className' does not exist on type 'DialogPortalProps'.
+Since the DialogPortal component doesn't actually output any DOM elements, it never technically supported the className prop and the fact that it surfaced that prop was really a bug.
+The AlertDialog and Dialog components were updated in #1603, but the Sheet component still references className which is resolved in this PR.",4,8
+1628,2023-09-29T11:23:08Z,2023-10-19T18:10:46Z,2023-10-19T18:10:46Z,2,2,2,Fixes #1627 if that is desired.,3,2
+1634,2023-09-30T10:48:08Z,,2023-10-03T13:08:14Z,1,1,7,,3,3
+1640,2023-09-30T23:36:56Z,2023-11-12T11:09:14Z,2023-11-12T11:09:14Z,9,9,9,closes #1639,2,2
+1642,2023-10-01T02:09:36Z,2023-10-19T17:27:02Z,2023-10-19T17:27:02Z,3,25,13,"This is a small update to the installation instructions for some of the frameworks to make the instructions on editing the tsconfig file consistant across the frameworks, and remove some potentially confusing wording (if people read too fast...like me).
+Mainly applying the gatsby tsconfig instructions to vite and astro, as it is the most clear.
+Additionally changed the wording from:
+ Add the code below to the compilerOptions...
+
+to:
+Add the following code to the compilerOptions...
+
+to avoid people easily misreading it as ""add the code below the compilerOptions"".",4,2
+1646,2023-10-01T16:00:02Z,2023-10-03T13:38:10Z,2023-10-03T13:38:11Z,1,2,2,"At the language example of combobox, framework work is used instead of language. This PR fixes that small issue",2,2
+1661,2023-10-03T13:34:36Z,2023-10-19T17:20:34Z,2023-10-19T17:20:34Z,3,2,4,"Remove unused import from Alert Default example
+Remove unused imports from Alert Destructive example
+Remove unused imports from Dropdown Menu Radio Group example",3,2
+1670,2023-10-04T09:40:44Z,2023-11-12T10:56:52Z,2023-11-12T10:56:52Z,4,7,12,"In order to have a smooth opening of the accordion, moving the AccordionContent className overwrite to the children wrapper component allow Radix to calculate correctly the animation and execute a smooth animation in case of className on the AccordionContent component.
+Possibly related to #944",3,5
+1688,2023-10-06T07:46:02Z,2023-11-12T10:32:03Z,2023-11-12T10:32:03Z,2,109,10,,3,6
+1696,2023-10-07T09:34:20Z,2023-10-21T12:35:56Z,2023-10-21T12:35:56Z,2,8,1,"came across this bug when was trying to use ui lib for js project,
+my project didn't hade jsconfig, was confused what to do, error was saying tsconfig but my whole project didn't have single ts file, better error msg should have help me
+
+i tried to look into test file, but was not able to figure out how to write test for this, which covers this specific edge case, need some help
+cloese #1566",3,3
+1703,2023-10-08T06:09:46Z,2023-10-18T17:33:24Z,2023-10-18T17:33:24Z,2,2,2,"The class transition-colors need not be in the h2 element.
+If the user wants they can add it externally, currently it is not used because there is no hover or focus effect declared.
+This PR removes it from both default and new-york styles",2,2
+1707,2023-10-09T14:27:10Z,2023-10-16T09:16:56Z,2023-10-16T09:16:56Z,3,11,6,The fixture is indenting one line using tab instead of space,2,1
+1710,2023-10-09T19:34:19Z,2023-10-16T08:56:09Z,2023-10-16T08:56:09Z,1,2,2,"Generating a Remix app now defaults to an ES Module (""type"": ""module""). I got an error following this config:
+
+To fix it, we just need to update module.exports in the postcss config example to use export default. I updated the tailwind config also for consistency.",3,1
+1715,2023-10-10T13:21:08Z,2023-11-12T10:25:45Z,2023-11-12T10:25:45Z,2,39,2,"I have added an up and down chevron to the select content area for when too many select items exist to display within the viewport.  This is taking the radix ScrollUpButton and ScollDownButtons from https://www.radix-ui.com/primitives/docs/components/select
+
+
+As can be seen, the chevrons will only appear when a large number of SelectItems exist.
+I noticed updating the registry added like 80 files to the PR so I removed it (the 3rd and 4th commit).  I am therefore just updating two files, the default and newyork select components.
+If the registry update is required, happy to receive direction on how best to do this.
+Thanks",2,6
+1717,2023-10-10T15:19:48Z,2023-11-12T09:28:07Z,2023-11-12T09:28:07Z,4,4,4,"This pull request resolves #1686.
+Rationale for this PR
+This PR affects the code for RadioGroupItem in both styles by removing the children prop from the component. The children prop is automatically passed in by the use of the spread operator (...props) and is redundant because it is never used in the component.
+This PR shouldn't affect tests, representation, etc. and is merely a cosmetic change. There is no urgent need to merge this.",3,3
+1731,2023-10-12T11:31:40Z,2023-10-21T12:47:01Z,2023-10-21T12:47:01Z,1,1,1,"showOutsideDays=false will shift the missing days of a month to the start of the row (cause of 'flex' in classnames: row), to fix it, we can use the same height and width in a cell as in a day",3,2
+1755,2023-10-16T04:50:45Z,2023-10-16T08:37:25Z,2023-10-16T08:37:25Z,3,139,0,"The documentation currently only provides dark mode implementations for Next.js and Vite. I have added a new implementation for Astro.
+This implementation will:
+
+Account for system preferences
+Toggle between light/dark modes without any ""flash of unstyled content""",2,2
+1756,2023-10-16T09:18:09Z,2023-12-22T17:05:24Z,2023-12-22T17:05:24Z,6,15,21,"This PR was opened by the Changesets release GitHub action. When you're ready to do a release, you can merge this and the packages will be published to npm automatically. If you're not ready to do a release yet, that's fine, whenever you add more changesets to main, this PR will be updated.
+Releases
+shadcn-ui@0.5.0
+Minor Changes
+
+
+#770 4fb98d5 Thanks @Bekacru! - add support for custom tailwind prefix
+
+
+#1247 4ec8a67 Thanks @lukahartwig! - add support for tailwind.config.ts
+
+
+Patch Changes
+
+
+#1707 46f247c Thanks @caiquecastro! - fix code style
+
+
+#1696 5a13def Thanks @KMJ-007! - use jsconfig for non-ts projects",2,1
+1765,2023-10-17T07:11:08Z,,2023-12-05T08:43:31Z,1,1,0,"Potentially fixes #1754
+Upon investigating the issue, seems like the cmdk input infers the value from whatever is provided above. However, here's a scenario where that ends up being an issue:
+
+visit components/combobox
+search for 'Next.js'
+now add a whitespace at the end
+see how it returns no results
+remove the whitespace
+see that the search doesn't return next.js and you need to delete the entire value for it to work
+
+So this solution fixes the demo by providing a value to CommandItem so its value is not inferred
+<CommandItem
+  key={framework.value}
+  onSelect={(currentValue) => {
+    setValue(currentValue === value ? """" : currentValue)
+    setOpen(false)
+  }}
+  value={framework.value}
+>
+However, an issue with this: this solution doesn't work, for example, to the TeamSwitcher since the value currently provided inside the content array doesn't match what the user sees (i.e., if you search for Alicia Koch but you've added
+<CommandItem
+  key={team.value}
+  onSelect={() => {
+    setSelectedTeam(team)
+    setOpen(false)
+  }}
+  className=""text-sm""
+  value={team.value}
+>
+It won't return any results since the alicia koch object looks like this:
+{
+  label: ""Alicia Koch"",
+  value: ""personal"",
+},",4,2
+1788,2023-10-20T17:40:05Z,2023-10-21T14:09:58Z,2023-10-21T14:09:58Z,7,7,0,Fix #1785,2,2
+1798,2023-10-21T23:14:49Z,2023-10-24T12:27:21Z,2023-10-24T12:27:21Z,2,0,2,Fixes #1652,2,1
+1828,2023-10-24T17:22:42Z,2023-11-12T07:46:21Z,2023-11-12T07:46:21Z,1,1,1,Fixes : #1827,2,2
+1829,2023-10-24T18:58:27Z,2023-11-12T07:36:35Z,2023-11-12T07:36:35Z,2,2,8,"PRs #1515 and #1296 interfere with each other and cause the horizontal scroll bar to not be visible. This removes the conditional flex-1, however you could also remove flex-col to achieve the same result.
+before:
+
+  
+    
+    
+
+    Screen.Recording.2023-10-24.at.2.56.36.PM.mov
+    
+  
+
+  
+
+  
+
+
+after:
+
+  
+    
+    
+
+    Screen.Recording.2023-10-24.at.2.57.33.PM.mov",4,3
+1830,2023-10-25T00:19:13Z,2023-11-12T07:57:25Z,2023-11-12T07:57:25Z,1,21,8,"Explanation
+Added detailed info to clone and setup the project to contribute.
+Following the PR #1650 and suggestion of @shadcn.  Thanks!",2,2
+1832,2023-10-25T14:07:33Z,2023-11-12T18:12:59Z,2023-11-12T18:12:59Z,5,9,13,"This PR updates a faker-js version (more performant one), and gets rid of deprecations",3,4
+1847,2023-10-27T14:47:30Z,,2024-01-28T09:04:45Z,2,3,3,"Fixes #1810
+
+Updates the default value in the promptForConfig tailwind.config.js or tailwind.config.ts.
+Changes the initial value for the tailwindConfig.",3,6
+1850,2023-10-27T20:29:14Z,,2023-11-12T07:27:37Z,2,2,2,,3,4
+1852,2023-10-28T14:12:14Z,2023-11-12T09:36:12Z,2023-11-12T09:36:12Z,4,9,6,"React Day Picker also has a unique styling distinction that designates the day_outside dates as unselected, and the selection of day_outside only highlights the dates in the next month. This PR will fix this issue - #1762 and help with a cleaner UX ✨
+
+
+
+
+Old Date Range Picker
+New Date Range Picker
+
+
+
+
+
+
+
+
+
+
+React Day Picker",2,3
+1853,2023-10-28T18:23:14Z,2023-11-12T06:18:34Z,2023-11-12T06:18:34Z,1,1,1,Fixed typo from 'Famliy' to 'Family' in music example.,4,1
+1877,2023-11-01T07:14:50Z,2023-11-12T06:17:56Z,2023-11-12T06:17:56Z,1,2,1,Added missing import statement in fonts example in Next.js installation docs,4,1
+1891,2023-11-04T04:48:53Z,2023-11-12T06:17:07Z,2023-11-12T06:17:07Z,2,2,2,"If you use px when the base font size is not 16px, the Thumb transform goes into wrong",4,1
+1899,2023-11-05T18:14:51Z,2023-11-06T14:30:44Z,2023-11-06T14:30:44Z,1,1,1,"The default destructive button is failing contrast ratio for WCAG AA standards.
+This substitutes the previous HSL equivalent of red-500 to red-600. This was previous done in another PR: #79 which looks like it was incorrectly translated to the CSS Variable setup with HSL.",3,2
+1920,2023-11-09T18:23:36Z,2023-11-12T06:16:22Z,2023-11-12T06:16:22Z,3,175,0,"I added documentation to support dark mode for Remix.
+Dependencies
+
+remix-themes is required
+
+Showcase
+
+  
+    
+    
+
+    shadcn-remix.mp4",2,2
+1952,2023-11-14T19:10:11Z,2023-11-16T20:20:37Z,2023-11-16T20:20:37Z,1,1,1,,3,2
+1958,2023-11-16T14:31:04Z,2023-11-19T07:24:12Z,2023-11-19T07:24:12Z,2,8,8,"The latest version of Astro generates tailwind.config.mjs file instead of tailwind.config.cjs.
+The index.astro file is located in /src/pages.",2,2
+1959,2023-11-16T16:15:07Z,2023-11-19T07:15:44Z,2023-11-19T07:15:44Z,6,24,6,add indeterminate state checkboxes on all data table demos and code examples,2,2
+1975,2023-11-19T02:32:48Z,2023-11-19T07:16:28Z,2023-11-19T07:16:28Z,2,2,2,Fixes #1969,2,2
+1977,2023-11-19T20:02:44Z,2024-01-28T09:18:19Z,2024-01-28T09:18:19Z,3,265,6,"This pull request resolves #1926 and prevents issues like it from happening in the future
+Rationale for this PR
+This PR changes the TypeScript execution package for use in scripts like build:registry from ts-node to tsx. This is because ts-node has many difficult quirks to work through (and is slow). In addition, it also has a difficult to understand error for newcomers that is reproducible.
+The ts-node error
+As shown in #1926, using ts-node (specifically in build:registry) results in this error: Unknown file extension "".ts"" for /ui/apps/www/scripts/build-registry.ts. There are many issues in the ts-node repository documenting this problem:
+
+TypeStrong/ts-node/issues/1062
+TypeStrong/ts-node/issues/2033
+TypeStrong/ts-node/issues/1997
+
+Switching the typescript-in-node system to tsx, which uses esbuild under the hood, resolves this error.
+This PR shouldn't affect tests, representation, etc. and is merely a change of build tools. There is no urgent need to merge this.
+I accidentally deleted the head repository on #1937. That will not happen again.",2,2
+1980,2023-11-20T00:13:17Z,,2024-01-30T21:06:50Z,2,2,2,"cmdk's README.md states that [data-disabled] is available on <Command.Item />. However since the PR that made this data attribute available, there has been no releases. As a result the styling using this data attribute is not being applied.
+While making these changes I realised aria-selected is also being used for styling, so I switched this to use the data attribute, data-selected, which is applied by cmdk.
+I created an issue on cmdk repo here, pacocoursey/cmdk#192 and will follow this but there is no indication when this will be addressed or if there will be a new release.
+Before w/ Calendar CommandItem disabled:
+
+After w/ Calendar CommandItem disabled:",3,2
+1982,2023-11-20T10:36:25Z,2023-11-21T12:13:44Z,2023-11-21T12:13:44Z,2,2,2,"This PR replaces the maximum id from Number.MAX_VALUE to Number.MAX_SAFE_INTEGER in use-toast.ts. Considering how JS stores numbers, it's unsafe to plus one if the number is larger than Number.MAX_SAFE_INTEGER. Here is an example:
+> let num
+
+> num = Number.MAX_VALUE - 1
+> num + 1 === num
+true
+
+> num = Number.MAX_SAFE_INTEGER - 1
+> num + 1 === num
+false",2,1
+2009,2023-11-25T12:47:59Z,2024-01-28T09:02:00Z,2024-01-28T09:02:00Z,1,1,1,Fix #2008,3,3
+2036,2023-12-02T17:04:10Z,2024-01-28T09:23:07Z,2024-01-28T09:23:07Z,5,52,0,,4,3
+2048,2023-12-05T04:14:02Z,2024-03-03T11:33:30Z,2024-03-03T11:33:31Z,6,12,4,"Resolves #2025
+This adds the ""use client"" directive to the Toast component, since it makes use of client-only features like useState. When absent, this causes errors in rendering as described in the issue.",3,4
+2102,2023-12-13T08:05:21Z,,2024-01-07T14:47:28Z,2,2,0,closes #2101,3,2
+2163,2023-12-23T18:27:50Z,2024-01-07T07:49:26Z,2024-01-07T07:49:26Z,8,8,8,some Toggle and ToggleGroup demos had incorrect aria-label or value props,2,2
+2164,2023-12-23T18:41:30Z,2023-12-24T05:35:26Z,2023-12-24T05:35:26Z,1,1,1,,2,2
+2166,2023-12-23T19:57:36Z,2023-12-24T05:40:05Z,2023-12-24T05:40:06Z,1,6,6,"Overview
+This pull request updates the documentation to reflect the correct component name, changing ResizableGroup to ResizablePanelGroup. This change ensures consistency and correctness in the documentation, aiding developers in correctly implementing the component.
+Changes Made
+
+In the code examples within the documentation, ResizableGroup has been renamed to ResizablePanelGroup.
+This change is applied to both horizontal and vertical orientation examples.
+
+Additional Information
+
+These changes are confined to documentation and do not alter the actual implementation or functionality of the components in question.
+
+Please review the changes for accuracy and merge if appropriate. Thanks!",2,2
+2169,2023-12-23T20:50:29Z,2023-12-24T05:47:02Z,2023-12-24T05:47:02Z,1,1,0,"This PR:
+
+Fixes:  #2168",2,4
+2178,2023-12-24T12:57:36Z,2024-01-18T07:08:25Z,2024-01-18T07:08:25Z,4,8,2,,2,2
+2180,2023-12-24T15:22:43Z,2023-12-26T13:35:19Z,2023-12-26T13:35:19Z,1,1,1,"This PR:
+Fixes: #2150",2,2
+2182,2023-12-24T21:04:22Z,2023-12-26T14:17:40Z,2023-12-26T14:17:40Z,1,5,0,Update the mobile-nav component and added new label if item.label is present in the docsConfig.sidebarNav.,3,2
+2190,2023-12-25T08:17:35Z,2024-01-18T06:58:22Z,2024-01-18T06:58:22Z,5,24,29,"I got this error from Next.js 14 telling about a <li> nested insied <li> on Pagination component.
+Warning: validateDOMNesting(...): <li> cannot appear as a descendant of <li>.",3,4
+2191,2023-12-25T09:17:19Z,2023-12-26T14:23:04Z,2023-12-26T14:23:04Z,1,1,1,fix the Nextjs import example,3,2
+2216,2023-12-27T13:44:39Z,2024-01-07T08:04:54Z,2024-01-07T08:04:54Z,1,1,1,"What's changed
+
+ Fixed the typo on carousel component
+
+before fix: ""@/registry/new-york/ui/carousel""
+after fix: ""@/components/ui/carousel""
+this is ease the user to copy paste without error",2,2
+2226,2023-12-28T10:36:44Z,,2024-01-07T09:12:57Z,2,8,8,"Description
+
+Enhanced the Dropdown Menu styles by adding the 'cursor-pointer' class for a consistent cursor style throughout the component.
+Motivation
+
+Improves the user experience by providing a clear indication of interactivity with the Dropdown Menu.
+question raised in this #2212
+Changelog
+
+
+Added 'cursor-pointer' class to the DropdownMenu component for a consistent cursor style.
+Improved visual feedback for users interacting with the Dropdown Menu.
+
+Additional info
+
+This change ensures a cohesive and user-friendly experience when using the DropdownMenu component.
+Results
+
+
+  
+    
+    
+
+    Screen.Recording.2023-12-28.at.4.05.26.PM.mov",4,3
+2231,2023-12-28T17:42:53Z,,2024-01-18T07:00:30Z,3,17,43,"PaginationLink component already wrapped with PaginationItem, so following the existing docs of pagination throws a hydration error in NextJs. A li doesn't need to be wrapped with a li. So the docs needs to be updated.",5,2
+2233,2023-12-29T01:32:56Z,,2024-01-04T06:47:22Z,0,0,0,"carousel, resizable components to be used by the app router, a ""use client"" directive is required.",3,5
+2258,2024-01-01T14:53:53Z,,2024-01-08T13:47:07Z,1,2,0,Fixes #2162,2,2
+2266,2024-01-02T13:12:14Z,2024-01-02T18:32:15Z,2024-01-02T18:32:15Z,13,216,8,"This PR adds support for custom dir/path for ui components. It builds on top of the existing schema, aliases and resolveImport.
+Default schema
+This will place components inside .[ROOT]/components/ui.
+{
+  ""$schema"": ""https://ui.shadcn.com/schema.json"",
+  ""aliases"": {
+    ""components"": ""@/components"",
+    ""utils"": ""@/lib/utils"",
+  }
+}
+Custom ui alias
+This will place components inside .[ROOT]/primitives. Imports will be resolved automatically.
+{
+  ""$schema"": ""https://ui.shadcn.com/schema.json"",
+  ""aliases"": {
+    ""components"": ""@/components"",
+    ""utils"": ""@/lib/utils"",
+    ""ui"": ""@/primitives"" <---- adds components to `.[ROOT]/primitives`👈
+  }
+}
+More examples
+{
+  ""$schema"": ""https://ui.shadcn.com/schema.json"",
+  ""aliases"": {
+    ""components"": ""~/components"",
+    ""utils"": ""~/lib/utils"",
+    ""ui"": ""~/app/ui"" <---- adds components to `.[ROOT]/app/ui`👈
+  }
+}
+{
+  ""$schema"": ""https://ui.shadcn.com/schema.json"",
+  ""aliases"": {
+    ""components"": ""#/components"",
+    ""utils"": ""#/lib/utils"",
+    ""ui"": ""#/components"" <---- adds components to `.[ROOT]/components`👈
+  }
+}
+Help me test this
+
+Add a ui alias to your components.json file.
+Run the following command to add new components: npx shadcn-ui@0.0.0-beta.c68e6ed add
+Verify that components are placed in the custom path and that imports are correctly updated.
+Comment to let me know.
+
+What's an alias?
+An alias is an import alias. You can think of it as How do I write imports for my components or utils?.
+If you write import { Button } from ""@/components/button"" then @/components is your alias. import { AlertDialog } from ""~/app/ui/alert-dialog"" has alias ~/app/ui.
+We use aliases instead of paths because it tells us more about your project setup. Using aliases, we can figure out components paths and automatically resolve imports when adding new components.",7,8
+2268,2024-01-02T14:03:32Z,2024-01-07T07:59:20Z,2024-01-07T07:59:20Z,2,2,2,,3,3
+2278,2024-01-03T14:40:56Z,2024-01-07T07:17:47Z,2024-01-07T07:17:47Z,1,5,1,"Fixes #2277
+Add e.preventDefault() to prevent page reload in mail component",3,2
+2283,2024-01-04T07:54:59Z,2024-01-07T09:23:35Z,2024-01-07T09:23:35Z,1,1,0,"New Line added to the docs.
+Just for the consistency.",4,2
+2295,2024-01-05T17:35:36Z,2024-01-07T07:43:51Z,2024-01-07T07:43:51Z,1,1,1,"In the resizable documentation the handle example shows a horizontal handle but the code example has direction=""vertical"" when it should be direction=""horizontal""",2,2
+2306,2024-01-06T14:46:03Z,2024-01-07T07:26:21Z,2024-01-07T07:26:21Z,6,8,12,,3,2
+2319,2024-01-07T08:09:36Z,2024-01-07T09:24:23Z,2024-01-07T09:24:23Z,8,12,4,"Reopen a PR that was accidentally closed.
+carousel, resizable components to be used by the app router, a ""use client"" directive is required.",2,2
+2326,2024-01-08T03:18:03Z,2024-01-18T07:22:46Z,2024-01-18T07:22:46Z,4,16,10,"Fixes #2322 , #2281
+Thanks to @akynau & @nianiam",4,5
+2374,2024-01-11T01:05:05Z,2024-01-14T11:27:26Z,2024-01-14T11:27:26Z,1,1,1,Fixed the space at the start of the UUID,3,2
+2378,2024-01-11T11:01:08Z,,2024-01-12T10:56:20Z,4,9,6,"The library embla-carousel has changed the location of this types to the core package (embla-carousel).
+Actions needed: pnpm install embla-carousel
+Fixes #2376",3,5
+2416,2024-01-14T00:00:12Z,,2024-01-18T06:59:11Z,2,0,4,"Overview
+This pull request aims to solve the bug 2405.
+Bug type
+
+ warning
+
+Description
+In the example of documentation :
+Pagination>
+      <PaginationContent>
+        <PaginationItem>
+          <PaginationPrevious href=""#"" />
+        </PaginationItem>
+        <PaginationItem>
+          <PaginationLink href=""#"">1</PaginationLink>
+        </PaginationItem>
+        <PaginationItem>
+          <PaginationEllipsis />
+        </PaginationItem>
+        <PaginationItem>
+          <PaginationNext href=""#"" />
+        </PaginationItem>
+      </PaginationContent>
+    </Pagination>
+
+We use the component <PaginationItem> which is a li element to wrap the <PaginationLink> which is also wrapped by <PaginationItem/> internally.
+This will produce:
+<li>
+<li>
+....
+</li>
+</li>
+Screenshot
+
+
+What's updated
+
+ Unwrap the <PaginationLink> from <PaginationItem>",3,3
+2428,2024-01-15T03:12:23Z,,2024-03-19T06:02:54Z,27,1217,4,"This PR is a preview that adds an accessible component called OTPInput based on the react-otp-input that allows to render as many inputs as you want (based on the Input component of shadcn) through a numInputs prop so that a user can write OTP verification codes in an accessible way.
+The component allows:
+
+Copy and paste from clipboard
+Auto focus
+Move through inputs with arrows and keyboard tabs
+Delete code and move the focus to the previous input
+Type a character and move the focus to the next input
+Setter and getter props to control component values
+Input of type hidden to allow to have an input with an id that we pass as prop ready for RSC or forms that require to capture data from formData
+
+Pending tasks:
+
+Document the component
+Fix a focus use case where if the user moves the focus to a different input than the first one and starts typing, the characters start to be inserted from the first input instead of the focused input.
+
+Previews
+
+
+I would appreciate feedback and anything you expect from a component of this type",8,17
+2448,2024-01-16T07:49:48Z,,2024-01-16T12:21:25Z,1,1,1,"fixes #2447
+I removed space-x-2 and added gap-2 as we were using flex box.
+Also it is not given to specific breakpoint so it will also give gap to every viewpoint which was the main objective of the pull request.",2,1
+2466,2024-01-17T13:58:13Z,2024-01-28T08:47:46Z,2024-01-28T08:47:46Z,30,32,32,"As of v3 of zod, using import * as z from ""zod"" is no longer required, see here.
+This PR aligns all zod imports to match import { z } from ""zod""
+Both methods are already used in the project.
+This also aligns imports to match zod documentation.",2,6
+2473,2024-01-18T12:47:37Z,2024-01-28T08:57:26Z,2024-01-28T08:57:26Z,9,13,8,updates in /cli,2,2
+2492,2024-01-19T13:30:41Z,,2024-01-28T09:42:08Z,1,0,8,"fixes #2490
+There were two links in navigation bar.
+This pull request has one link removed from nav links and github icon link is still there.
+Note: only removed from larger than sm breakpoint.",3,2
+2593,2024-01-27T20:25:35Z,,2024-01-30T20:15:24Z,1,1,1,"card title overflow error fix
+Problem",2,1
+2610,2024-01-29T09:04:20Z,2024-03-03T11:29:47Z,2024-03-03T11:29:47Z,3,157,0,Closes: #2609.,3,3
+2673,2024-02-05T08:20:52Z,2024-03-03T11:03:05Z,2024-03-03T11:03:05Z,1,1,1,"This PR fixes the issue #2337.
+I removed export of fontSans from app/layout.tsx, which was causing a type error.
+I have ensured that this modification does not impact other functionalities. Your feedback on this pull request would be greatly appreciated.
+Thank you for your consideration.",2,2
+2799,2024-02-20T12:20:41Z,,2024-02-21T06:28:58Z,2,27,19,"Description of Code Change
+Purpose
+The goal of a code change is to increase stability and readability by reducing repetition and improving code organization.
+Previous Implementation
+Previously, the Icons object contained individual functions for each icon, where each function had the type IconProps explicitly defined. This approach led to repetitive code and increased the likelihood of errors if the type needed to be updated.
+Updated Implementation
+In the updated implementation, the Icons object now uses a more concise approach by defining a type for the icon components and leveraging TypeScript's type inference capabilities. The new approach utilizes the IconComponents type, which defines an object where the keys are strings representing icon names, and the values are functions accepting IconProps and returning JSX elements.",2,1
+2919,2024-03-06T07:14:54Z,2024-03-07T18:57:33Z,2024-03-07T18:57:33Z,22,907,4,Based on https://input-otp.rodz.dev,5,8
+2941,2024-03-08T01:05:06Z,2024-03-11T15:42:27Z,2024-03-11T15:42:27Z,4,4,4,"If using || and children is falsy, the <ChevronRightIcon /> will render.
+In the rare case the something like 0 is passed as children to <BreadcrumbSeparator>, the <ChevronRightIcon /> will render instead of 0",3,2
+2946,2024-03-08T08:40:46Z,2024-03-13T04:38:17Z,2024-03-13T04:38:17Z,2,23,23,"Missing Code in Examples
+This PR fixes the issue where some breadcrumb examples were not showing any code preview.
+The issue was caused by missing file extensions in the paths to the files.
+Before:
+
+After:",3,2
+3075,2024-03-20T13:29:35Z,2024-03-21T09:38:21Z,2024-03-21T09:38:21Z,1,1,1,Fixes import in the Next.js onboarding instructions,2,2
+3099,2024-03-22T19:26:28Z,2024-03-23T11:01:05Z,2024-03-23T11:01:05Z,2,2,2,"Change link in the block dashboard-02 from ""/"" to ""#"".
+As described in issue #3098",3,1
+3101,2024-03-22T20:23:23Z,2024-03-25T04:22:04Z,2024-03-25T04:22:04Z,2,2,2,,4,2
+3102,2024-03-22T20:29:21Z,,2024-03-23T19:03:50Z,1,1,1,Correct Tailwindcss classes for input with label,4,2
+3134,2024-03-24T16:51:56Z,2024-03-25T12:26:39Z,2024-03-25T12:26:39Z,2,7,7,It also fix #3093,2,2
+3137,2024-03-25T02:38:43Z,2024-03-26T04:46:04Z,2024-03-26T04:46:04Z,1,2,2,"Overview
+This Pull Request fixes the misalignment between the aside and header borders in the default style for the dashboard-03 component of the blocks. It achieves alignment by adjusting the header height to match the aside border.
+Screenshots
+Before:
+
+After:",2,2
+3401,2024-04-06T19:23:22Z,2024-04-08T17:25:46Z,2024-04-08T17:25:46Z,1,3,1,"FIXES : https://x.com/jimmeyer/status/1776487418150981661?s=46
+The copy button in lift mode was copying code having imports as ""@/registry/.../*.tsx""
+This PR replaces all the imports by ""@/components/ui/*.tsx""",2,3

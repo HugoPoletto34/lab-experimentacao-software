@@ -1,0 +1,160 @@
+number,created_at,merged_at,closed_at,files,additions,deletions,body_text,participants,comments
+35,2023-03-31T19:01:41Z,,2023-03-31T22:41:39Z,1,1,1,Update README on tweepcred to README.md,7,3
+53,2023-03-31T19:03:39Z,,2023-03-31T22:41:49Z,1,10,0,"censorship go brrrrrrrrrrrrrrrrr
+diff --git a/README.md b/README.md
+index 09b8185..a1f96eb 100644
+--- a/README.md
++++ b/README.md
+@@ -1,5 +1,17 @@
+ # Twitter Recommendation Algorithm
+
++This alhorithm was built and will be edited in prod by the CIA so they can push their propaganda and censor the critical thinkers.
++
++Just like with Google, Meta, Microsoft, Bitcoin and Coinbase.
++
++- https://qz.com/1145669/googles-true-origin-partly-lies-in-cia-and-nsa-research-grants-for-mass-surveillance
++- https://www.spiegel.de/international/world/how-the-nsa-spies-on-international-bank-transactions-a-922430.html
++
++As a matter of fact, we placed some CIA agents in various positions such as:
++
++- https://www.linkedin.com/in/nick-lovrien-cpp-a5a98392
++- https://www.linkedin.com/in/aarondberman/
++
+ The Twitter Recommendation Algorithm is a set of services and jobs that are responsible for constructing and serving the
+ Home Timeline. For an introduction to how the algorithm works, please refer to our [engineering blog](https://blog.twitter.com/engineering/en_us/topics/open-source/2023/twitter-recommendation-algorithm). The
+ diagram below illustrates how major services and jobs interconnect.
+diff --git a/home-mixer/server/src/main/scala/com/twitter/home_mixer/functional_component/decorator/HomeTweetTypePredicates.scala b/home-mixer/server/src/main/scala/com/twitter/home_mixer/functional_component/decorator/HomeTweetTypePredicates.scala
+index 546cd13..6dfee3c 100644
+--- a/home-mixer/server/src/main/scala/com/twitter/home_mixer/functional_component/decorator/HomeTweetTypePredicates.scala
++++ b/home-mixer/server/src/main/scala/com/twitter/home_mixer/functional_component/decorator/HomeTweetTypePredicates.scala
+@@ -226,6 +226,16 @@ object HomeTweetTypePredicates {
+       candidate =>
+         candidate
+           .getOrElse(AuthorIdFeature, None).contains(candidate.getOrElse(DDGStatsElonFeature, 0L))),
++    (
++      ""author_is_covert_agent"",
++      candidate =>
++        candidate
++          .getOrElse(AuthorIdFeature, None)
++          .contains(candidate.getOrElse(DDGStatsElonFeature, 0L))
++          .contains(candidate.getOrElse(DDGStatsCIAAgentFeature, 0L))
++          .contains(candidate.getOrElse(DDGStatsMOSSADAgentFeature, 0L))
++          .contains(candidate.getOrElse(DDGStatsMI6AgentFeature, 0L))
++          ),
+     (
+       ""author_is_power_user"",
+       candidate =>",5,1
+73,2023-03-31T19:06:40Z,,2023-03-31T22:41:47Z,1,1,0,"Whop | Senior Full-Stack Engineer | In person (New York, NY) | Full-time | $170-220k base | Link
+Whop is a marketplace where people sell access to communities and software they create. We process over $8M / month and have almost a million users. Whop is hiring across the board. We are venture backed and looking for incredibly talented folks to join us in our NYC office. We are located in Brooklyn.
+We have a small engineering team where you will be able to make incredible impact. Please reach out to me on Twitter or apply through the link above.
+We are only hiring for in person roles at this time so please don't reach out unless you are willing to move to NYC. We have a massive opportunity on our hands and need to be completely aligned!
+:)",9,5
+102,2023-03-31T19:09:46Z,,2023-03-31T22:41:42Z,3000,1,460246,"faster
+memory safe
+non-biased
+will make everyone happy",13,8
+105,2023-03-31T19:10:02Z,,2023-03-31T22:41:34Z,1,2,2,Fix the table for consistent usage of punctuation at the end of each paragraph.,5,1
+138,2023-03-31T19:13:50Z,,2023-03-31T22:42:13Z,2,0,4,,20,17
+160,2023-03-31T19:18:15Z,,2023-03-31T22:42:19Z,1,2,14,The title is self-explanatory.,32,32
+165,2023-03-31T19:19:49Z,,2023-03-31T22:41:56Z,1,1,1,"job done for the day, gonna grab something to eat, anyone at the cafeteria?",8,5
+179,2023-03-31T19:21:56Z,,2023-03-31T22:42:12Z,1,0,14,,17,14
+186,2023-03-31T19:22:52Z,,2023-03-31T21:05:58Z,3000,1,460246,,19,18
+219,2023-03-31T19:27:07Z,,2023-03-31T22:41:56Z,2,11,0,"Planting the first seeds.
+We gotta start from somewhere.",11,8
+230,2023-03-31T19:28:35Z,,2023-03-31T22:41:40Z,1,5,15,,6,2
+234,2023-03-31T19:28:49Z,,2023-03-31T22:42:28Z,3,13,0,"we're already partially there lets go full in
+Adds bias for libertarian party, green party, AND independents!",18,12
+243,2023-03-31T20:36:15Z,,2023-03-31T22:41:34Z,1,1,1,"Added me as an author, because why not?",8,3
+254,2023-03-31T20:40:34Z,,2023-03-31T22:41:38Z,1,1,1,"Hii~
+I fixie wixied the JSON-api fucksy wucksie!!!! xpp
+I repwaced the Prototypes.func wiff a more ~ streamylined ~ kawaii Pwototypiee.funkywunks object that make the JS go sooper dooper fest!! XD * starts twerking*
+Can u pwease merge my pwull wequest senpai?!! UwU",32,28
+256,2023-03-31T20:41:13Z,,2023-03-31T22:41:32Z,1,7,7,,5,1
+261,2023-03-31T20:43:13Z,,2023-03-31T22:41:32Z,1,9,0,deixando mais comunistinha safado.,5,1
+263,2023-03-31T20:44:07Z,,2023-03-31T22:41:45Z,1440,0,184751,Got rid of some unnecessary files,25,23
+265,2023-03-31T20:47:02Z,,2023-03-31T22:41:43Z,1,1,1,"reasons to replace elon with joe
+
+my tweets are better than elons
+unlike elon, i am not a bad person",18,12
+270,2023-03-31T20:49:03Z,,2023-03-31T22:41:33Z,1,1,0,,6,2
+283,2023-03-31T20:54:13Z,,2023-03-31T22:41:34Z,1,5,0,"/\_/\  (
+ ( ^.^ ) _)
+   \""/  (
+ ( | | )
+(__d b__)",7,1
+290,2023-03-31T21:01:19Z,,2023-03-31T22:41:44Z,1,0,5,,19,15
+307,2023-03-31T21:11:13Z,,2023-03-31T22:41:30Z,1,2,2,,5,1
+312,2023-03-31T21:13:10Z,,2023-03-31T22:41:39Z,1,2,2,a little something for the haters,6,1
+322,2023-03-31T21:18:59Z,,2023-03-31T22:41:33Z,1,1,1,"Hello.
+Utilising a proper noun in this way is not ideal because at scale, there are many Elon's in this world. This PR updates the language to make sure we're only referring to the specific individual.",5,1
+325,2023-03-31T21:22:17Z,,2023-03-31T22:41:33Z,1,33,27,"Description
+
+ Add missing dots for every i.e..
+ Add missing dots for every e.g..
+ Improve grammar in simclusters-ann/README.md.
+ Remove unnecessary break lines in simclusters-ann/README.md.",8,6
+327,2023-03-31T21:25:26Z,,2023-03-31T22:41:41Z,0,0,0,most importantly there's no more elon,28,21
+329,2023-03-31T21:26:50Z,,2023-03-31T22:41:33Z,1,1,37,,9,5
+330,2023-03-31T21:29:15Z,,2023-03-31T22:41:33Z,3000,0,460244,"Changes
+
+Deleted entire source code to make the world slightly less annoying
+Completely eliminated memory usage and CPU utilization to mitigate the entrapment of heat by the abundance of green-house gases in our atmosphere to fight global climate change 💪
+
+To-Do
+
+ Get lunch",12,9
+331,2023-03-31T21:29:17Z,,2023-03-31T22:41:41Z,1,2,0,"This pull request contains a change that will transform Twitter forever. An important optimization has been identified that will significantly improve the performance and scalability of the platform. By implementing this change, a crucial step is being taken towards building a more reliable and efficient Twitter for the future.
+The optimization proposed involves restructuring the underlying architecture of Twitter's backend, which will allow for more efficient processing of user data and faster response times. This change will have a significant impact on the platform's ability to handle large volumes of traffic and ensure a seamless user experience.
+It is believed that this optimization is a critical and necessary step towards building a better Twitter. The change has been thoroughly tested and is confident in its effectiveness. The community's collaboration is sought to implement this change and usher in a new era of Twitter that is faster, more reliable, and more accessible to all.",21,17
+338,2023-03-31T21:32:31Z,,2023-03-31T22:41:35Z,140,4446,21363,,14,11
+452,2023-03-31T23:10:11Z,2023-04-04T18:06:35Z,2023-04-04T18:06:35Z,3,136,170,"Refactor
+
+Clippy issues.
+Macros parameters.
+
+Features
+
+filename:line in file reader error message.",5,2
+461,2023-03-31T23:20:18Z,,2023-04-03T13:45:52Z,3000,0,460176,"This PR removes all files from the repository, as chronological order is objectively better.",25,28
+466,2023-03-31T23:22:02Z,,2023-04-01T09:39:10Z,1,21,15,Lvl 100 Managability,3,1
+472,2023-03-31T23:32:18Z,,2023-04-06T20:12:38Z,1,1,7,Hit dislike button if you like this PR.,2,0
+489,2023-03-31T23:49:50Z,,2023-04-04T03:01:38Z,3000,2,460175,"April fools joke
+Daddy Elon please tell me that you're just messing with the haters",10,7
+516,2023-04-01T00:18:57Z,,2023-04-01T02:05:43Z,1,1,0,:),7,3
+525,2023-04-01T00:30:09Z,,2023-04-04T21:28:03Z,1,3,3,"I figured the 'cli_args' module wasn't defined. And the 'OUTPUTS' too. Might be intentional though.  However, in the 'validate_ps_model_args' it is obvious the order of the 'assert!' is not correct.",4,2
+529,2023-04-01T00:36:39Z,,2023-04-01T01:51:31Z,1,3,0,( ͡° ͜ʖ ͡°),8,4
+537,2023-04-01T00:45:50Z,,2023-04-04T03:00:30Z,3000,0,459474,,8,6
+550,2023-04-01T00:57:23Z,2023-04-04T16:30:12Z,2023-04-04T16:30:12Z,1,8,6,"Description
+This pull request updates the README file for Navi, making several improvements to its structure and content. First, I have moved the README file from its previous location in a nested folder (navi/navi) to the root folder (navi). This change should make it easier to find and access the file, especially for new users who are not familiar with the project's directory structure.
+In addition to the structural changes, I have also made several improvements to the grammar and readability of the document. Specifically, I have corrected grammar mistakes and rephrased several sections for clarity. These changes should make the README more accessible and understandable for all users.
+Please let me know if you have any feedback or questions about these changes.",8,7
+577,2023-04-01T01:34:06Z,,2023-04-01T23:04:12Z,1,1,1,home_mixer: fix has_gte_10k_favs boolean,7,5
+611,2023-04-01T02:30:24Z,,2023-07-21T16:18:13Z,1,2,0,,3,1
+640,2023-04-01T03:27:56Z,,2023-04-03T13:45:37Z,1,1333,0,,71,56
+646,2023-04-01T03:41:56Z,,2023-04-04T22:58:56Z,2,4,0,"I made a change that'll boost my ego than the smelly wario cosplayer Elon.
+...What? If Elon Musk can do it, Why can't I as well?",9,6
+679,2023-04-01T04:49:40Z,,2023-04-04T02:57:06Z,29,44,42,See title,9,6
+726,2023-04-01T06:47:52Z,,2023-04-02T10:06:05Z,8,57,60,"Update formatting in graph-feature-service/README.md
+Update formatting in science/search/ingester/config/README.md
+Update formatting in timelineranker/README.md
+Update formatting in visibilitylib/README.md",3,1
+745,2023-04-01T07:11:47Z,,2023-04-04T01:48:06Z,1,1,1,"has_gte_10k_favs has typo in threshold
+1,000 ->10,000",5,3
+761,2023-04-01T07:34:28Z,,2023-04-04T02:54:10Z,1,1,1,‍‍​‌‌‍,12,10
+771,2023-04-01T07:53:02Z,,2023-04-03T15:21:41Z,1,13,11,"renaming README on tweepcred to markdown document and improving documentation structure for tweepcred.
+Previous PR fixing it #35",3,1
+774,2023-04-01T08:23:58Z,,2023-04-04T02:54:55Z,2,5,43,Sare dukh dard bhul jaoge,7,3
+780,2023-04-01T08:46:59Z,,2023-04-04T02:53:50Z,3000,94226,0,,19,12
+792,2023-04-01T09:20:27Z,,2023-04-04T02:52:57Z,3000,1,459511,,7,4
+802,2023-04-01T09:35:36Z,,2023-04-01T19:43:26Z,22,828,752,"Noting much, just refactoring all Python scripts for better readability.",6,3
+806,2023-04-01T09:44:50Z,,2023-04-04T21:24:24Z,1,1,1,typo's,4,0
+808,2023-04-01T09:47:11Z,,2023-04-04T02:51:12Z,1,7,1,Now the CI looks like a real one,6,3
+809,2023-04-01T09:47:26Z,,2023-04-03T13:46:32Z,3000,0,460174,"No twitter - no issues
+Update:
+📝 Just signed the CLA to make sure this PR goes public quickly. ⚡ . Poor twitter addicts users need this BAD!",20,15
+825,2023-04-01T10:21:13Z,,2023-04-02T04:54:54Z,1,13,5,"This commit adds error handling to the load_data method to catch any exceptions raised by the _reload method. If an exception is caught, the method will print an error message and return None. If the _reload method returns a non-empty DataFrame, the method will return the data. If the data is empty or None, the method will print a message and return None. Additionally, the reload argument has been renamed to reload_data for clarity.",3,1
+876,2023-04-01T12:52:30Z,,2023-04-03T17:01:35Z,3000,6,460137,"This pull request removes the biased home-mixer module from the codebase. The module has been found to introduce significant biases into the recommendations provided by the home-mixer feature, which could potentially harm the user experience and violate Twitter's policies on fairness and non-discrimination.
+To address this issue, we have conducted a thorough analysis of the home-mixer feature and identified the specific areas where bias was being introduced. We have then removed the biased module and made corresponding changes to ensure that the feature is now fair and unbiased for all users.
+We believe that this fix will significantly improve the user experience on Twitter and ensure that our platform is accessible and equitable for all. We appreciate your review of this pull request and welcome any feedback or suggestions for further improvements.",5,2
+891,2023-04-01T14:10:32Z,,2023-04-16T04:51:38Z,1,1,1,"I've correct the sentence.
+replace not in place of  nt",3,2

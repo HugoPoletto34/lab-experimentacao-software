@@ -1,0 +1,20 @@
+number,created_at,merged_at,closed_at,files,additions,deletions,body_text,participants,comments
+248,2017-08-12T08:19:10Z,,2022-11-25T06:06:48Z,1,1,1,"Thank you for this awesome project!
+I noticed that my GitHub resume did not list repos to which I had push access.
+
+My resume link - http://resume.github.io/?sudo-suhas
+Unlisted repos:
+
+https://github.com/davidtheclark/cosmiconfig
+https://github.com/booleanapp/elastic-muto
+
+
+
+I checked the relevant GitHub documentation and it has a query parameter to request all repos. This will include repos of which I am either 'owner' or 'member'.
+This PR adds the query parameter to the API request. I was able to confirm the behavior with GET API requests:
+
+Default type - 'owner' - https://api.github.com/users/sudo-suhas/repos
+Type - 'all' - https://api.github.com/users/sudo-suhas/repos?type=all
+
+I have not tested this locally but I am reasonably confident that this should work.",6,6
+255,2018-11-17T01:11:44Z,,2019-06-04T20:36:17Z,1,1,1,,3,0

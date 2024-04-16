@@ -1,0 +1,517 @@
+number,created_at,merged_at,closed_at,files,additions,deletions,body_text,participants,comments
+3133,2016-08-10T22:17:33Z,,2016-09-24T16:20:59Z,4,9,9,"Addresses #3125.
+Skips Infinity datapoints in getRightValue to fix graph creation glitches resulting from 'infinite' datapoints.",5,8
+3201,2016-08-24T04:19:42Z,2016-10-19T13:48:18Z,2016-10-19T13:48:18Z,5,186,10,"Hello everyone,
+Just added more informations to the custom tooltip callback argument.
+In order to know which data points are matching, I added a new property dataPoints to the tooltip object passed to the custom tooltip.
+This property contains an array[CustomTooltipDataPoint] describes as following:
+CustomTooltipDataPoint
+
+
+
+Name
+Type
+Description
+
+
+
+
+index
+Number
+Matching point index.
+
+
+datasetIndex
+Number
+Matching dataset index.
+
+
+xLabel
+String
+Matching label on X axis.
+
+
+yLabel
+String
+Matching label on Y axis.
+
+
+pointX
+Number
+X position of matching point.
+
+
+pointY
+Number
+Y position of matching point.
+
+
+
+I also added a test case covering this new property, and a description inside the documentation under the Advanced External Tooltips section.
+Please let me know if anything,
+Thanks",4,9
+3221,2016-08-26T20:24:05Z,,2016-11-19T15:01:41Z,4,207,2,"is this useful to anyone? my organization was interested to see if we could customize tooltip stroke to match an internal style guide. i kinda got it working but it feels strange and i'm leaning towards just submitting a custom tooltip instead.
+if this is thought to be useful, though, i can add the documentation and clean up / add more tests.
+cheers. happy friday and thanks for the awesome lib.
+update: removed shadow option. worked well with main rectangle of tooltip but had lots of issues with the overlapping caret + shadow + background opacity. perhaps someone else can tackle that later.",6,7
+3281,2016-09-09T00:15:28Z,2016-09-24T20:56:16Z,2016-09-24T20:56:16Z,7,213,110,"Fixes #2602
+Image Before Change
+
+Image After Change",2,7
+3283,2016-09-09T10:36:08Z,,2017-02-11T14:09:37Z,1,2,2,"Build two different conditions, weather normal or reverse scale.
+In original this condition surpressed the drawing at index=0 which is the inner tick.
+This leaded to surpressing the drawing of the outest gridLine if the scale is reversed.
+In every case the inner gridline shouldnot to be drawn. which in normal scale is at index =0 and in reverse mode the last found index (me.ticks.length-1).",4,5
+3287,2016-09-11T16:44:00Z,2016-09-15T22:12:34Z,2016-09-15T22:12:34Z,14,231,348,"new options parameter to acquire a chart, allowing to configure canvas and wrapper attributes
+charts are now automatically deleted after each tests (ignored if persistent option is true)
+fix unit tests that was using a global instance but was supposed to test a local chart
+make sure that all charts are locally acquired and released (no more global instance)
+Jasmine custom matchers are automatically exposed to all tests",3,2
+3303,2016-09-14T05:19:23Z,,2016-10-16T13:25:59Z,1,1,1,"Please consider the following before submitting a pull request:
+Guidelines for contributing: https://github.com/chartjs/Chart.js/blob/master/CONTRIBUTING.md
+Example of changes on an interactive website such as the following:
+
+http://jsbin.com/
+http://jsfiddle.net/
+http://codepen.io/pen/
+Premade template: http://codepen.io/pen?template=JXVYzq
+…ement.
+
+Also no need to check .getContext twice.",3,7
+3308,2016-09-15T00:32:10Z,2016-09-15T16:01:19Z,2016-09-15T16:01:19Z,38,460,482,"These updates add more structure to code styling. Tests will now fail if the code does not match the style set forth by these guidelines. The official standards were created based off of the most commonly used styles in this project already.
+Hopefully this will make code easier to read over time and will keep all styling uniform throughout the project.
+Eventually these rules should be extended to all code in the project (tests, etc.) rather than just the src files.
+I did my best to make sure that no functionality was changed through the adaptation of this styling throughout the project, but I might have caused a bug somewhere so please make sure that my changes will not induce any unexpected behavior.",4,10
+3314,2016-09-15T21:10:59Z,,2016-09-17T10:36:03Z,2,6,1,"Copy/pasting our discussion with @etimberg 👍
+
+there is no plugin call for after rendering fully finished (ie only after the last frame of animation). afterDraw will do after each frame
+I would accept a PR adding it (could call it at the same place the onComplete animation callback is called)
+
+So here it is @etimberg !",4,6
+3315,2016-09-15T22:33:37Z,2016-09-16T03:19:47Z,2016-09-16T03:19:47Z,1,4,1,"Addresses the issue presented in #3309. Pie and Doughnut charts will now render correctly when the corresponding component is clicked on the legend.
+Here is an example before the changes: http://codepen.io/zachpanz88/pen/yaOzJV
+Here is an example with the changes: http://codepen.io/zachpanz88/pen/mAEbdz",3,1
+3321,2016-09-17T09:44:08Z,2016-09-21T19:14:21Z,2016-09-21T19:14:21Z,65,1296,1207,"Experimenting pull request to publish a new release and have most of the @chartjs/maintainers involved in the release process. We can iterate on action items and approve the new release once tasks are done. Merging that PR will (should) trigger the new release (see the release process).
+Version: 2.3.0-rc.1
+Checklist:
+
+ Draft the release notes
+ Update package.json version
+ Publish the documentation",12,3
+3323,2016-09-17T13:56:00Z,2016-09-24T08:57:33Z,2016-09-24T08:57:33Z,1,17,12,"Fixes #3292
+After Fix",2,0
+3324,2016-09-17T14:32:35Z,2016-09-24T08:58:31Z,2016-09-24T08:58:31Z,1,1,1,"When there was no tooltip, the size was too small because we accidentally subtracted the title bottom margin.
+After Fix",2,0
+3326,2016-09-17T20:33:54Z,2016-09-23T15:46:17Z,2016-09-23T15:46:17Z,1,23,29,"Ensure that the hidden iframe is stretched vertically in order to detect height changes. Remove the classlist check/call since it was incorrectly spelled (should be classList), but also useless since the iframe has just been generated. Also remove the callback check: addResizeListener should never be called w/o a valid callback.
+Unit tests are coming in another PR!",2,1
+3345,2016-09-22T09:18:46Z,,2017-12-31T14:43:13Z,1,6,1,"Since fixing the legendCallback before, i've noticed that the legend produced by it looks nothing like the one produced on the canvas. So i've improved the styling to make it look as close to the canvas one as possible. The font of the generated Legend can now also be set in the chart's options i.e. Options: { display: false, legend: { fontFamily: ""insert font family here"" } }, this will stop the Canvas legend from displaying but still set the font for the generated legend. then the user must call generateLegend() and apply the generated html to the inner html of an element as per usual.",4,16
+3356,2016-09-23T16:18:00Z,2016-09-24T16:06:45Z,2016-09-24T16:06:45Z,13,721,90,"Should have been only unit tests but then I realized that aspect ratio for none responsive chart was totally broken. So I decided to clean up the whole canvas initialization process and I hope to not have broken too many things :)
+This PR includes:
+
+correctly handles aspect ratio on chart creation (see unit tests for the many cases)
+properly restore initial canvas render size and overridden style on destroy
+fix default aspectRatio for radar chart and associated samples
+move most of the canvas initialization in the core.controller.js
+new test/core.controller.tests.js currently testing AR and responsiveness (see screenshot below)
+new command switch to run specific tests (gulp unittest --inputs=test/core.controller.tests.js)
+
+More details in commit messages",3,2
+3357,2016-09-23T19:01:33Z,2016-09-24T00:19:08Z,2016-09-24T00:19:08Z,1,3,3,Fixes only on typos found.,3,1
+3358,2016-09-23T21:21:21Z,2016-09-24T00:20:01Z,2016-09-24T00:20:01Z,2,9,6,"CanvasRenderingContext2D.fillText() accepts a fourth parameter called maxWidth that sets the maximum width of the drawn text, enforced by scaling the entire line.
+This commit uses the title element's layout dimensions to set maxWidth and avoid overflow outside of the canvas.
+Example before and after screenshots:
+
+
+I expect the same logic could be applied to axis labels, but it's not a problem I've run into.",3,0
+3360,2016-09-24T13:27:38Z,2016-09-24T15:54:51Z,2016-09-24T15:54:51Z,1,2,2,Issue #3341 minor documentation fixes in scale docs,2,0
+3361,2016-09-24T14:10:23Z,2016-09-25T12:30:39Z,2016-09-25T12:30:40Z,2,3,3,"Fixes #3059
+Should merge #3325 first so that the tests are enabled and then I will update the tests in this branch",2,0
+3363,2016-09-24T15:52:01Z,2016-12-18T13:46:15Z,2016-12-18T13:46:15Z,5,362,75,"Implementation of this plugins proposal.
+Fixed #3335",3,4
+3364,2016-09-24T20:02:24Z,2016-09-28T19:43:15Z,2016-09-28T19:43:15Z,4,63,23,"Responsiveness is currently based on the use of an iframe, however this method causes performance issues and could be troublesome when used with ad blockers. So make sure that the user is still able to create a chart without iframe when responsive is false.
+Replaces #3333, #3351 and #3352",4,2
+3399,2016-10-01T15:21:02Z,2016-10-03T20:01:38Z,2016-10-03T20:01:38Z,5,363,43,"In order to simulate real-time chart updates (i.e. horizontal animation), it's necessary to distinguish a removed or added value from a simple update. The dataset controller now hooks array methods that alter the data array length to synchronize metadata accordingly. Also remove the duplicate calls of updateBezierControlPoints() for line and radar charts.
+Examples: http://playground.abysscorp.org/chartjs/livecharts/
+Plunker: http://plnkr.co/Imxwl9OQJuaMepLNy6ly
+Related issues: #1997 #3126",2,3
+3400,2016-10-01T22:27:36Z,2016-10-03T20:05:21Z,2016-10-03T20:05:21Z,29,1118,161,"Significant improvements to the tooltip and hover modes
+New Configuration
+In addition to the hover.mode and tooltips.mode settings, hover.intersect and tooltips.intersect have been added. The intersect settings are used to configure certain modes so that when items are shown can be controlled
+New Modes
+
+
+
+Mode
+Description
+
+
+
+
+point
+Returns all items under the point
+
+
+index
+renamed 'label' mode
+
+
+nearest
+Returns the nearest item. Using in conjunction with intersect set to true works well for points that are hidden behind
+
+
+x
+returns items that intersect the x coordinate
+
+
+y
+returns items that intersect the y coordinate
+
+
+
+Point Mode
+
+Nearest Mode, Intersect On
+
+Nearest Mode, No Intersect
+
+Deprecated Modes
+The 'single' and 'x-axis' modes are deprecated.
+Single mode has been replaced by 'point' which returns all of the items that intersect with the cursor
+The X axis mode has been replaced by the index mode coupled with setting intersect to true.",3,8
+3401,2016-10-01T23:04:22Z,,2016-10-04T18:06:48Z,1,5,0,,4,0
+3411,2016-10-03T23:12:04Z,2016-10-04T13:20:20Z,2016-10-04T13:20:20Z,3,16,10,"Also adds a new option displayColors that allows turning off the color boxes
+Fixes #3273 and #3407",2,0
+3414,2016-10-04T10:49:56Z,2016-10-04T13:27:44Z,2016-10-04T13:27:44Z,1,1,0,When trying to run gulp unittestWatch I got an error for a missing watchify dep. This PR fixes it 👍,3,5
+3415,2016-10-04T10:55:45Z,2016-10-04T13:30:28Z,2016-10-04T13:30:28Z,2,42,1,"This PR closes #3409.
+If you specify min, max and stepSize then it should generate the ticks using just these values.",3,0
+3417,2016-10-04T15:14:32Z,2016-10-04T18:10:56Z,2016-10-04T18:10:57Z,1,7,4,See #3416,4,2
+3421,2016-10-05T00:18:15Z,2016-10-06T12:54:50Z,2016-10-06T12:54:50Z,1,1,1,Fixes #3029,2,0
+3443,2016-10-08T00:41:10Z,2016-10-08T11:28:45Z,2016-10-08T11:28:45Z,1,16,13,"I added a private helper to properly merge the colors and simplify the code.
+Fixes #3442
+After Fix",2,0
+3444,2016-10-08T02:14:54Z,2016-10-09T16:34:36Z,2016-10-09T16:34:36Z,1,20,20,,3,0
+3446,2016-10-08T17:45:13Z,2016-10-09T16:26:59Z,2016-10-09T16:26:59Z,2,294,242,"Fixes the weird caret position hover issue described in #3061
+I took the opportunity to refactor the private methods and make them correctly private. While I was in the alignment function, I properly used the tooltip alignment options if specified rather than using the auto options.",2,1
+3449,2016-10-09T09:00:40Z,2016-10-11T11:42:26Z,2016-10-11T11:42:26Z,1,37,6,"Proposal for a new template aiming to reduce the number of incomplete or unwanted issues (such as questions or support requests). Any re-wording suggestions are more than welcome :)
+Generated from: https://www.talater.com/open-source-templates",2,1
+3450,2016-10-09T20:25:31Z,2016-10-10T12:14:58Z,2016-10-10T12:14:58Z,2,14,59,"Now we simply replace the property even if they are arrays since the array merges are weird.
+Fixes #3075",2,0
+3453,2016-10-10T01:30:15Z,2016-10-14T21:36:49Z,2016-10-14T21:36:49Z,4,166,84,"Created the concept of tooltip modes. User defined modes are supported by changing Chart.Tooltip.modes map.
+The default mode is 'average'. We may consider changing this if we think the old behaviour is really a bug that no one wanted. Currently. this will not change existing charts.
+tooltips: {
+  positionMode: 'average'
+}
+
+Also implemented is the 'nearest' mode which places the tooltip on the element closest to the event that triggered the tooltip. Implementing this required removing some of the optimizations from ChartController#eventHandler. This may not be acceptable so there may need to be some refactoring.
+This addresses #2056
+CC @chartjs/maintainers",3,4
+3460,2016-10-12T01:34:08Z,2016-10-14T11:19:47Z,2016-10-14T11:19:47Z,3,330,9,"Allows the user to customize how the line fills.
+A new fillMode property configures this. It defaults to 'zero' which matches the current behaviour. It can also be set to 'top' or 'bottom'.
+Top Mode
+
+Bottom Mode
+
+Fixes #3176",2,3
+3468,2016-10-14T02:03:30Z,2016-10-14T11:20:08Z,2016-10-14T11:20:08Z,4,119,127,Fixes some minor performance issues I came across while doing profiling. The most notable fixes are the changes to the bar controllers and how rulers are generated to prevent multiple creations of the ruler objects.,2,0
+3471,2016-10-14T21:55:05Z,2016-10-15T21:49:35Z,2016-10-15T21:49:35Z,2,211,112,"This only applies when intersect: false is in the tooltip options. @simonbrunel noticed this behaviour. I added a test to ensure that the horizontal distance is what applies.
+One question ... what do we do for horizontal bar charts? In that case we want to use the y direction. @chartjs/maintainers thoughts on this?",2,0
+3472,2016-10-15T21:49:02Z,2016-10-19T11:30:42Z,2016-10-19T11:30:42Z,3,54,39,"Useful for custom tooltips and requested in #2944 and #2636
+The new properties are caretX and caretY. Together, these identify the point on the graph where the tip of the caret of the tooltip would be. Essentially this is the raw position of the tooltip before any alignment is considered.
+The custom tooltip sample was updated as well to use the new properties.",3,1
+3473,2016-10-15T22:16:34Z,2016-10-16T21:34:59Z,2016-10-16T21:34:59Z,27,518,443,Adds eslint rules for test files so that they follow the same standards as source files which helps to increase overall code style,3,3
+3474,2016-10-15T22:22:28Z,2016-10-16T13:25:13Z,2016-10-16T13:25:13Z,6,185,57,"Add support for creating a chart from the canvas id and prevent exceptions, at construction time, when the given item doesn't provide a valid CanvasRenderingContext2D or when the getContext API is not accessible (e.g. undefined by add-ons to prevent fingerprinting). New jasmine matcher to verify chart validity.
+Enhances #2807
+Replaces #3303",2,0
+3476,2016-10-16T01:40:34Z,2016-10-17T21:59:47Z,2016-10-17T21:59:47Z,4,193,25,"You can now add padding inside the chart. This helps with charts that don't have displayed scales, etc. Padding can be specified for all sides of the chart (left, top, right, and bottom).
+Configuration
+This adds the same padding on all sides
+options: {
+  layout: {
+    padding: 10
+  }
+}
+This version allows different padding on each side
+options: {
+  layout: {
+    padding: {
+      // Any unspecified dimensions are assumed to be 0
+      left: 10,
+      top: 5
+    }
+  }
+}
+Fixes #3332, #3257
+Replaces #3349",3,1
+3477,2016-10-16T13:28:34Z,2016-10-17T11:40:30Z,2016-10-17T11:40:30Z,3,56,0,"With this PR, you can now reset the chart to it's state before the initial animation takes place. Fixes #235
+chart.reset();",3,0
+3494,2016-10-21T01:50:15Z,2016-10-23T21:33:08Z,2016-10-23T21:33:09Z,3,80,0,"Adds a function, itemFilter to the tooltip config. If this function is specified, it is used to filter the items that show in the tooltip.
+I added a test to cover this case.
+Fixes #1889",3,3
+3504,2016-10-23T03:21:39Z,2016-10-23T21:33:25Z,2016-10-23T21:33:25Z,66,3704,3575,"I added a new helper, samples/chartColors.js that defines the colors that match the docs. I updated all of the samples to use these colours.
+I improved sample organization, with common samples grouped into folders. I added new samples that allow comparing different settings. For example, samples/tooltips/interaction-modes.html creates a number of charts that allow the user to compare the different interaction mode settings.",2,2
+3509,2016-10-25T03:31:49Z,2016-10-25T22:28:13Z,2016-10-25T22:28:13Z,1,1,0,Adding a single line to the docs to document autoSkipPadding.,3,0
+3514,2016-10-25T21:44:03Z,2016-11-26T17:58:49Z,2016-11-26T17:58:49Z,5,35,2,"Hello! This adds a new point style, rectRounded, and updates the docs that mention the valid values of pointStyle.",5,6
+3526,2016-10-29T10:22:15Z,2016-10-29T16:40:27Z,2016-10-29T16:40:27Z,2,2,1,"Code Climate builds are broken since the ESLint rules update (#3308) because CC (with no explicit channel config) is currently based on ESLint version 1.10.3 which doesn't support some of the introduced rules (e.g. extended no-console, func-names, etc.)",2,1
+3527,2016-10-29T16:47:55Z,2016-10-31T07:47:28Z,2016-10-31T07:47:28Z,2,100,22,"When the iframe is attached to the DOM, its content is reloaded (invaliding the resize listener) so make sure to install the handler after the iframe is loaded. Optimize resize events by throttling resize process until the next animation frame. Rewrite the unit test ""waitForResize"" method, the previous one (timeout) was too weak and most tests was failing on FF.
+Fixes #3521",2,0
+3529,2016-10-30T15:06:01Z,2016-10-30T21:58:40Z,2016-10-30T21:58:40Z,2,22,2,"When an event triggers an update while the bufferedUpdate state is true, we need to do that render with priority over any other renders that take place for animations and tooltips.
+@simonbrunel this fixes the animation issue you noticed.",2,1
+3531,2016-10-31T01:22:26Z,2016-11-19T14:29:15Z,2016-11-19T14:29:15Z,3,7,3,"created fix for #3528.
+Display the correct tooltip Label when datasets data[] array contains null values.",3,3
+3551,2016-11-04T20:46:58Z,2016-11-12T17:53:27Z,2016-11-12T17:53:27Z,135,9426,5398,"Milestone: 2.4.0
+Merged PRs: 47
+Checklist:
+
+ Draft the release notes
+ Update package.json version
+ Publish the documentation (@nnnick)
+ Fix #3561
+ Fix #3575
+
+See the release process for details.
+cc @chartjs/maintainers",13,0
+3552,2016-11-04T22:42:00Z,2016-11-05T12:19:07Z,2016-11-05T12:19:07Z,3,268,2,The tooltip 'X' and 'Y' interaction modes now use the intersect setting. I added tests covering these modes and the use of the setting. I updated the interaction modes setting accordingly.,2,0
+3553,2016-11-05T00:43:51Z,2016-11-20T16:52:08Z,2016-11-20T16:52:08Z,11,107,110,"To correctly fix the issue, the default padding was changed from 0 to 10. This change caused all of the test changes since the width of a vertical scale was lowered by 10px.
+After Fix
+
+Fixes #3141",2,1
+3554,2016-11-05T01:32:11Z,2016-11-20T18:49:44Z,2016-11-20T18:49:44Z,1,1,9,"Don't arbitrarily force the size to change.
+Fixes #3412
+We should merge #3553 and #3508 first then I will update the tests because there will be merge conflicts.",2,0
+3555,2016-11-05T12:03:52Z,,2017-01-15T17:47:42Z,1,1,1,"Thank you for creating chart.js, this fixes issue #3525.",3,8
+3563,2016-11-07T13:28:39Z,2017-01-01T14:36:01Z,2017-01-01T14:36:02Z,6,1045,123,"Code changes, documentation update and sample for #2643.
+JSFiddle: https://jsfiddle.net/Lvj2qnrp/1/
+(same as samples/bar/bar-stacked-group.html)",9,33
+3565,2016-11-08T02:19:27Z,2016-12-02T12:56:54Z,2016-12-02T12:56:54Z,1,99,109,"This essentially fixes the issues of #2879 and #3354 but more testing is needed and this code needs some cleanup. I also don't think the current code works in all cases. When offsetGridlines is true, I think padding can be incorrectly calculated on the left and right sides
+We should not merge this until #3508, #3553, and #3554 are merged",2,2
+3566,2016-11-08T02:49:37Z,2016-11-12T23:48:26Z,2016-11-12T23:48:26Z,3,78,2,"This PR adds a new legend option for filtering items out of the chart legend.
+options: {
+  legend: {
+    labels: {
+      filter: function(legendItem, chartData) {
+        // return false to hide the label
+      }
+    }
+  }
+}
+Resolves #3189",4,1
+3569,2016-11-08T04:58:02Z,2016-11-18T12:35:31Z,2016-11-18T12:35:31Z,1,1,1,labelOpts.padding is added to the y location when creating the first column. This fix also adds padding when a subsequent column is created in the legend.,3,0
+3576,2016-11-10T00:54:05Z,2016-11-13T13:16:40Z,2016-11-13T13:16:40Z,1,0,10,Fixes #3570,2,0
+3584,2016-11-11T19:00:08Z,2016-11-11T23:10:19Z,2016-11-11T23:10:19Z,4,77,21,"The retinaScale helper now enforces the display size to the correct values because if no style has been set on the canvas, the render size is used as display size, making the chart bigger (or smaller) when deviceAspectRatio is different of 1.
+New unit tests:
+
+Fixes #3575",2,0
+3587,2016-11-13T03:41:23Z,2016-11-25T12:20:00Z,2016-11-25T12:20:00Z,6,251,23,"The user can now call updateConfig(partialConfig) to update the config of a chart.
+The following is currently supported
+
+updating options
+changing axis types
+updating plugin options
+
+The following is not currently supported
+
+changing the chart type
+
+Resolves #2060",4,3
+3595,2016-11-14T01:56:31Z,2016-11-14T12:27:02Z,2016-11-14T12:27:02Z,2,2,2,Fixes #3591,2,0
+3597,2016-11-14T15:37:01Z,,2016-11-15T14:49:39Z,1,1,1,"The Display Formats anchor link for Scales was broken. To fix, I modified the header level of the display formats section to generate a link.",2,0
+3607,2016-11-16T09:57:01Z,2016-11-16T12:21:44Z,2016-11-16T12:21:44Z,1,1,1,This fixes a link for progress-bar.html.,3,0
+3610,2016-11-16T21:25:40Z,2016-11-17T09:29:36Z,2016-11-17T09:29:36Z,1,5,4,"Several plugins were recently renamed.
+Adds a new plugin: https://github.com/compwright/chartjs-plugin-draggable",2,1
+3620,2016-11-18T03:22:47Z,2016-11-28T23:29:56Z,2016-11-28T23:29:56Z,4,154,0,"As title states, create a fix for #3618.
+summary of changes:
+
+Created a new helper method to map index into sliced array when min is defined
+Added test for helper method
+Added integration test to trigger element to ensure correct index",3,1
+3625,2016-11-20T04:07:59Z,2016-11-25T12:19:43Z,2016-11-25T12:19:43Z,4,318,221,"A lot of cleanup of the radial scale. I moved a lot of functionality into private functions.
+Issues Fixed
+
+When the scale was user for the polar area graph, the scale didn't use the full available area because it tried to fit the point labels (used for radar chart) even though non existed.
+The point labels can now have multiple lines of text. Resolves #3225
+
+
+Testing Done
+
+Unit tests run
+Tested the polar area and radar charts manually
+
+Changed Behaviour
+
+the getIndexAngle method no longer subtracts 90 degrees since we added it back almost all of the time.",2,2
+3647,2016-11-26T17:34:35Z,2016-11-28T23:28:06Z,2016-11-28T23:28:06Z,2,18,3,"When two adjacent points in a line were at the same X value the monotone cubic interpolation would break because the differential slope would be NaN. This change adds logic to detect this and correctly set the deltaK property.
+Resolves #3408
+Testing
+I updated the unit test to test this case. I manually tested that the fiddle from the bug is solved including in cases where the points at the same X are at different Y values
+Before
+
+After
+
+Testing with 2nd point above first one but at the same X
+
+Testing with 2nd point below the second one but at the same X",2,0
+3648,2016-11-27T04:49:42Z,2016-12-02T12:57:59Z,2016-12-02T12:57:59Z,2,162,33,"Fixed a mistake in calculating the width of the bar when setting the min max option.
+The getRuler function performs complicated calculations, but as a result of checking it can be made more simple.
+Also fixed the issue that barPercentage is disabled when stacked scale.
+Resolves #3589
+Testing
+I updated the unit test.
+Please delete it if it is unnecessary.
+Before
+
+https://jsfiddle.net/zf8gt2o6/
+After
+
+https://jsfiddle.net/0eaf0vj3/
+When added plugin
+
+https://jsfiddle.net/ww2dzrn5/",3,0
+3649,2016-11-27T13:56:06Z,2016-11-28T23:28:39Z,2016-11-28T23:28:39Z,1,2,2,"Fixed tooltip labelling on Bar chart when min option was set.
+In addition, Fixed the tooltip label problem when 'xLabel' , 'yLabel' was set.
+Resolves #3618
+Before
+
+All tooltip labels should be May.
+https://jsfiddle.net/KoyoSE/bvo2bc5f/1/
+After
+
+https://jsfiddle.net/KoyoSE/6f3hbLr1/2/
+When added plugin
+
+https://jsfiddle.net/KoyoSE/6f3hbLr1/3/",3,3
+3650,2016-11-27T21:47:57Z,2016-11-29T09:43:52Z,2016-11-29T09:43:52Z,1,8,8,"This changes prevents the resize method from notifying plugins if it is a silent resize. A silent resize occurs during startup and we do not want plugins to do anything here because the chart is not set up. In the demo linked below, the legend will always be present at the start regardless of the size. I think the correct solution is to have the plugin in this case use the beforeInit call to do this setup.
+An alternative solution was to block update calls when the resize notification is sent from a silent resize. This still has the possibility that the plugin would try and access uninitialized data objects.
+Another alternative solution would be to have the resize plugin notification also send the silent parameter. This forces plugins to handle this case, which is non ideal.
+This allows us to provide a fix for #1933
+Demo: http://jsfiddle.net/aLLzv3vL/3/",2,0
+3658,2016-11-30T08:03:27Z,2016-12-03T21:09:45Z,2016-12-03T21:09:45Z,4,40,2,"I tried implementing clipping chart area.
+I would be pleased if you like it.
+Resolves #3506, #3491, #2873
+Bar and Line chart.
+Before
+
+https://jsfiddle.net/KoyoSE/n7ben0fx/
+After
+
+https://jsfiddle.net/KoyoSE/98x7ny4b/
+(Note: jsfeddle takes time to execute.This is because I put the built chart.js in the html area.)
+Line chart: The point fades out when going out.
+Radar and Scatter chart.
+Before
+
+https://jsfiddle.net/KoyoSE/fwt4bxcc/
+(Do Radar chart have to consider the drawing of the points below min?)
+After
+
+https://jsfiddle.net/KoyoSE/7v3ehcqt/
+(Note: jsfeddle takes time to execute.This is because I put the built chart.js in the html area.)
+Radar chart: It works the same before. Clipping is not done.
+The Radar chart, the following error is displayed on the console.
+'Unable to get property 'xAxes' of undefined or null reference'
+This is solved by removing #3620.
+Other
+
+It may be better to display the tool tip position in the chart area.
+Drawing Bezier curve is slightly strange. Especially outside the chart area.
+
+chart.js version v2.4.0",4,2
+3674,2016-12-04T03:38:57Z,2016-12-07T23:47:30Z,2016-12-07T23:47:30Z,3,21,15,"Fixes an infinite loop that occurred when generating logarithmic ticks.
+Resolves #3381
+Also fixes a newly introduced (v2.5.0 dev) bug when the tick marks are not drawn but the labels are. The labels would be offset as if the tick marks were there which was incorrect.",2,0
+3680,2016-12-06T03:42:40Z,2016-12-20T14:01:08Z,2016-12-20T14:01:08Z,3,53,75,"I changed draw function for bar.
+Thank you for your review.
+Summary
+
+Chart.elements.Rectangle.draw function supports both horizontal and vertical bar.
+Corrected bar position at minus.
+Adjust bar size when borderWidth is set.
+Adjust bar size when borderSkipped is set.
+Adjust borderWidth with value near 0(base).
+Update unit test.
+
+borderWidth = non, 5 ,20
+before
+
+https://jsfiddle.net/KoyoSE/k8b3mrb4/
+after
+
+https://jsfiddle.net/KoyoSE/ovf9w8dy/
+borderSkipped = 'right'
+before
+
+https://jsfiddle.net/KoyoSE/944rde4k/
+after
+
+https://jsfiddle.net/KoyoSE/1L9jw9xz/",3,6
+3685,2016-12-06T14:48:22Z,2016-12-14T02:22:02Z,2016-12-14T02:22:02Z,3,11,2,"This PR fixes an error where if  generationOptions.max or generationOptions.min is calculated to an almost whole number (ie 9.999) then we display the number as 10 on the scale,  but calculating an evenly spaced  scale is not possible (eg stepSize is 2) as the check fails.
+By applying an almost whole check we are able to mitigate for FP arithmetic inconsistencies that would cause this behaviour
+Please consider the following before submitting a pull request:
+Guidelines for contributing: https://github.com/chartjs/Chart.js/blob/master/CONTRIBUTING.md
+Example of changes on an interactive website such as the following:
+
+http://jsbin.com/
+http://jsfiddle.net/
+http://codepen.io/pen/
+Premade template: http://codepen.io/pen?template=JXVYzq",3,0
+3699,2016-12-09T01:58:12Z,2016-12-18T14:11:58Z,2016-12-18T14:11:58Z,3,75,11,"When a logarithmic scale is used for as the vertical axis of a stacked bar chart, the base value of 0 caused a problem. The solution is to add an item to the scale interface getBaseValue that gets the value in dataspace coordinates that corresponds to the pixel returned by getBasePixel.
+I added a test to cover this case.
+Resolves #3585",2,1
+3713,2016-12-16T07:24:47Z,2016-12-17T00:59:32Z,2016-12-17T00:59:32Z,1,1,1,"I fixed a simple mistake.
+Shall I create jsfiddle?
+Just changed sie to size.",3,1
+3718,2016-12-19T01:14:32Z,2016-12-21T15:22:06Z,2016-12-21T15:22:06Z,9,677,455,"First revision of the implementation of https://simonbrunel.gitbooks.io/chartjs-proposals/content/Platform.html#event-management
+The BrowserPlatform class is attached to each chart to handle browser specific logic. This can be replaced on a different platform. BrowserPlatform implements IPlatform (the general interface that all platform implementations must support). Chart.Platform is the constructor for the platform object that is attached to the chart instance.
+Plugins are notified about the event using the onEvent call. The legend plugin was converted to use onEvent instead of the older private handleEvent method.
+Wrote test to check that plugins are notified about events",2,1
+3732,2016-12-21T20:43:38Z,,2017-08-10T01:04:45Z,3,34,3,"Instead of only using data.labels, data.xLabels, or data.yLabels for category scales, also allow users to set labels on the scale config itself.
+Example config:
+        {
+          type: 'category',
+          position: 'right',
+          
+          labels: [""Different1"", ""Different2""]
+        }
+
+I attempted to update the documentation as specified in CONTRIBUTING.md, but I am not sure if it is understandable enough.
+I've also left the changed function as a one-liner. I'm not sure if it is still okay, or if it should be expanded due to length now.
+This implements/fixes #3725
+Example functional codepen copy of the issue:
+http://codepen.io/albinodrought/pen/ObGVmY",3,9
+3741,2016-12-26T10:38:59Z,2017-01-05T14:00:06Z,2017-01-05T14:00:06Z,1,18,7,"The following problem was solved.
+1.Rotation of scale label when scale is right
+2.Scale position at rotation when scale is top.
+Before
+
+jsFiddle
+After
+
+jsFiddle",5,0
+3751,2016-12-30T21:19:04Z,2017-03-21T00:36:55Z,2017-03-21T00:36:55Z,65,3286,2403,"Removed old doc files except for the comparison table.
+Fixed #3547, #3490, #3118, #2043, #3274, #2362, #2325, #2386, #3299, #3237, #3549  while at it.",6,11
+3771,2017-01-07T02:41:47Z,2017-01-15T17:46:03Z,2017-01-15T17:46:03Z,2,15,1,Fixes #3763,3,2
+3772,2017-01-08T11:06:29Z,2017-01-08T13:54:03Z,2017-01-08T13:54:03Z,1,1,1,Documentation points to non-existent header ticks configuration.,3,0
+3782,2017-01-11T01:13:16Z,2017-03-03T11:50:35Z,2017-03-03T11:50:35Z,5,43,24,"labelPoints controls the visibility of angle lines and point labels
+gridLines.circular toggles how the radial lines are drawn. When false, straight lines are drawn. When true, circular lines are drawn.
+Allows creating charts that look like:
+
+Resolves #3082
+API Change
+This is technically a breaking API change since the old setting, lineArc is no longer used. I don't know if this will cause problems since I think this setting is only used internally and it is not well documented.",2,6
+3792,2017-01-13T17:13:27Z,2017-02-10T23:40:38Z,2017-02-10T23:40:38Z,2,49,0,please review when you get a chance!,3,4
+3793,2017-01-13T18:15:46Z,,2017-02-25T17:13:24Z,1,1,1,"When using Chart.js with AngularJS, occasionally - what I believe is just changing scope causes an error to be thrown,
+Chart.js:4192 Uncaught TypeError: Cannot read property 'draw' of null
+    at Chart.Controller.<anonymous> (Chart.js:4192)
+    at Object.helpers.each (Chart.js:4808)
+    at Chart.Controller.draw (Chart.js:4189)
+    at ChartElement.animation.render (Chart.js:4154)
+    at Object.startDigest (Chart.js:3694)
+    at Chart.js:3667
+(anonymous) @ Chart.js:4192
+helpers.each @ Chart.js:4808
+draw @ Chart.js:4189
+animation.render @ Chart.js:4154
+startDigest @ Chart.js:3694
+(anonymous) @ Chart.js:3667
+2017-01-13 18:04:48.577 ```
+
+This simple check stops those errors from being thrown.",3,3

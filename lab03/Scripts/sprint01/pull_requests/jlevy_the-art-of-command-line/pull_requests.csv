@@ -1,0 +1,41 @@
+number,created_at,merged_at,closed_at,files,additions,deletions,body_text,participants,comments
+171,2015-07-09T09:12:53Z,,2019-07-04T16:33:33Z,1,4,0,,2,0
+439,2016-08-10T12:07:18Z,2017-06-03T17:09:44Z,2017-06-03T17:09:44Z,1,1,1,Small typo fix in Russian version.,7,6
+460,2016-09-14T11:41:53Z,2016-10-31T02:38:50Z,2016-10-31T02:38:50Z,16,606,15,,3,4
+473,2016-10-29T23:35:25Z,2016-10-31T01:49:34Z,2016-10-31T01:49:34Z,16,611,15,As per #472,3,2
+474,2016-10-30T02:39:26Z,2016-11-01T18:27:40Z,2016-11-01T18:27:40Z,1,1,1,,4,6
+479,2016-11-13T01:21:13Z,2017-01-17T20:31:21Z,2017-01-17T20:31:21Z,3,3,3,"the shortcut cmd + u or  ctrl + u is used to delete the content of current cursor back to the start of line, not always delete the whole line",4,4
+480,2016-11-13T12:54:34Z,2017-01-17T20:28:55Z,2017-01-17T20:28:55Z,1,1,1,Some fixes in the disclaimer.,5,6
+484,2016-12-26T17:50:02Z,2017-01-17T20:28:15Z,2017-01-17T20:28:15Z,1,1,1,,4,2
+501,2017-02-20T15:52:21Z,2017-04-12T18:57:49Z,2017-04-12T18:57:49Z,1,22,6,,4,7
+504,2017-02-27T17:09:29Z,2017-04-04T01:10:55Z,2017-04-04T01:10:55Z,1,42,25,@dspinellis please review,3,4
+505,2017-02-28T15:58:45Z,2017-05-02T04:22:03Z,2017-05-02T04:22:03Z,1,39,39,added some typo fix and punctuation corrections,5,3
+506,2017-02-28T17:35:12Z,2017-04-04T00:37:37Z,2017-04-04T00:37:37Z,2,2,2,Found using mwic.,5,2
+519,2017-06-12T09:42:39Z,2017-09-17T01:23:42Z,2017-09-17T01:23:42Z,1,1,1,Фраза звучала не по русски,3,2
+530,2017-10-23T05:42:12Z,2017-11-22T00:41:42Z,2017-11-22T00:41:42Z,1,29,11,Update Chinese translation according to the latest English version.,3,4
+535,2017-11-22T03:48:50Z,2017-12-31T06:08:05Z,2017-12-31T06:08:05Z,1,1,1,,3,2
+551,2018-04-03T00:44:05Z,2018-04-07T20:07:44Z,2018-04-07T20:07:44Z,1,31,23,@dspinellis please review,3,3
+563,2018-06-13T10:26:18Z,2018-06-15T05:57:42Z,2018-06-15T05:57:42Z,1,35,24,"Hello, this patch updates the sl translation.",2,0
+568,2018-07-20T23:23:07Z,2018-08-19T00:35:51Z,2018-08-19T00:35:51Z,1,110,14,#566,4,4
+571,2018-08-06T15:59:46Z,2018-08-19T00:34:22Z,2018-08-19T00:34:22Z,1,46,30,,2,0
+580,2018-10-19T16:35:02Z,2019-03-17T03:55:48Z,2019-03-17T03:55:48Z,1,6,2,"Hello @kevingo
+Changes based on #543. Could you review the PR. Thanks!",3,2
+604,2019-05-26T15:58:17Z,,2019-09-05T04:13:33Z,2,6,2,"Add Cygwin specific command tips explorer, it is very useful to open a file or directory.",1,0
+636,2019-07-19T02:25:52Z,,2022-05-15T13:10:19Z,1,1,1,Fix typo in simplified Chinese version.,2,0
+641,2019-07-31T14:37:28Z,2022-12-29T22:41:26Z,2022-12-29T22:41:26Z,1,14,7,,2,2
+650,2019-11-01T18:44:29Z,,2020-08-17T00:28:43Z,1,1,1,,3,1
+652,2019-11-12T14:31:31Z,,2020-05-09T07:40:24Z,1,4,4,"Some markdown bold syntax is incorrectly displayed.
+Resolves: #651",3,1
+661,2020-02-12T19:52:05Z,,2020-08-17T00:28:13Z,1,1,1,,3,1
+682,2020-03-25T16:24:50Z,2020-09-07T19:20:29Z,2020-09-07T19:20:30Z,18,641,17,"Fixes #631
+Hello,
+As the previous attempt of translating this into Polish seems to be stalled since over 6 months ago, let me try with my version :)
+This one is ready to be merged.
+I did my best to get rid of any mistakes and typos, but of course any additional hints, typo-fixes, style corrections, etc. are welcome.",6,2
+684,2020-04-10T05:00:03Z,,2020-08-17T00:27:52Z,1,1,1,"Spelling fix for ""popular"".",3,2
+718,2020-12-16T22:26:09Z,,2022-09-11T02:31:14Z,1,1,1,"Fix word typo sati to satu, satu mean one",2,0
+745,2021-09-20T14:20:01Z,,2022-09-12T07:42:00Z,19,642,18,,2,0
+747,2021-10-15T19:53:19Z,,2021-12-06T07:37:46Z,1,1,0,,4,1
+778,2022-06-18T12:25:42Z,2022-07-16T01:06:16Z,2022-07-16T01:06:16Z,1,1,1,,4,0
+824,2022-12-30T17:41:09Z,2023-03-07T19:34:51Z,2023-03-07T19:34:51Z,1,3,3,,4,1
+847,2023-02-15T09:00:06Z,2023-07-12T21:40:23Z,2023-07-12T21:40:23Z,1,1,1,,3,1

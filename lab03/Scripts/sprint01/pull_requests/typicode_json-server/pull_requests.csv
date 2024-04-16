@@ -1,0 +1,13 @@
+number,created_at,merged_at,closed_at,files,additions,deletions,body_text,participants,comments
+496,2017-03-21T13:57:58Z,,2022-03-18T21:02:26Z,1,6,0,"It took me a while to figure out how options such as the default static folder can be configured in code. This is an important feature, and this PR makes it more obvious in the docs.",1,1
+548,2017-06-06T21:45:42Z,,2017-07-08T18:11:03Z,2,18,5,,2,3
+576,2017-07-01T13:57:28Z,2017-07-14T00:41:55Z,2017-07-14T00:41:56Z,4,321,298,"As described in issue 415, the body of post requests was no longer available in middlewares, since version 0.9.0.
+The issue was caused by the removal of the 'body-parser' from the server/defaults.js. After re-adding this parser there, the body became available again in the middleware. I've also added an extra test, to verify that the post body is indeed available in the middleware, to prevent future changes to break this again,",4,9
+747,2018-03-22T09:23:24Z,,2018-05-08T21:29:21Z,5,71,26,,3,0
+1040,2019-10-24T22:12:08Z,,2019-11-12T04:15:45Z,1,1,0,,2,0
+1119,2020-04-24T18:21:08Z,,2020-11-15T22:59:54Z,1,22,0,,2,0
+1122,2020-04-25T20:03:29Z,,2021-12-29T23:01:29Z,0,0,0,Fix #1111,2,2
+1332,2022-05-27T12:46:08Z,,2023-04-17T01:28:42Z,14,185,39,,2,0
+1511,2024-01-31T07:15:06Z,2024-01-31T12:38:08Z,2024-01-31T12:38:08Z,1,4,0,"This is to make package homepage discoverable in npm index:
+
+https://www.npmjs.com/package/json-server",2,1

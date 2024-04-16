@@ -1,0 +1,25 @@
+number,created_at,merged_at,closed_at,files,additions,deletions,body_text,participants,comments
+218,2020-06-10T14:10:26Z,2020-06-13T18:03:22Z,2020-06-13T18:03:22Z,1,0,0,"Hi, I edited the Russian translation because it wasn't quite correct.",3,0
+283,2020-07-02T20:20:00Z,,2020-12-15T09:46:55Z,1,0,0,,2,1
+297,2020-07-10T05:19:06Z,,2020-09-24T13:02:37Z,1,0,0,"fix existing lines to make them more understandable
+translate untranslated lines",2,1
+419,2020-08-24T16:24:36Z,2022-03-26T02:51:26Z,2022-03-26T02:51:26Z,1,1,0,,3,3
+1077,2021-08-28T11:53:07Z,2021-08-30T10:06:58Z,2021-08-30T10:06:58Z,1,29,29,,3,5
+1755,2022-07-25T18:14:41Z,2022-07-26T03:14:23Z,2022-07-26T03:14:23Z,1,58,0,,4,1
+1961,2022-11-17T16:10:17Z,2022-11-18T07:25:39Z,2022-11-18T07:25:39Z,1,1,1,,3,2
+1998,2022-12-01T21:23:36Z,2022-12-02T03:42:59Z,2022-12-02T03:42:59Z,1,74,11,Add Belarussian translation. Also update Ukrainian and Russian.,3,2
+2024,2022-12-04T07:09:12Z,2022-12-04T09:37:25Z,2022-12-04T09:37:25Z,1,5,5,,4,8
+2135,2023-01-04T20:17:57Z,2023-01-06T04:23:05Z,2023-01-06T04:23:05Z,2,112,0,,3,1
+2177,2023-01-18T11:17:34Z,2023-02-02T07:47:49Z,2023-02-02T07:47:49Z,1,20,3,,3,0
+2188,2023-01-23T20:45:59Z,2023-02-02T07:48:44Z,2023-02-02T07:48:44Z,1,4,4,,3,1
+2189,2023-01-24T22:23:41Z,2023-02-02T07:49:28Z,2023-02-02T07:49:29Z,1,10,10,,2,1
+2190,2023-01-24T22:28:35Z,2023-02-02T07:49:43Z,2023-02-02T07:49:43Z,1,3,3,,2,1
+2247,2023-02-14T06:04:43Z,2023-02-18T13:31:38Z,2023-02-18T13:31:38Z,1,1,1,bellow -> below,3,0
+2330,2023-04-02T15:32:54Z,,2023-12-07T21:03:19Z,1,53,54,"I feel like the English (and some formatting) in the README is not as how I would do it, so here are some changes to the @ventoy README. ;)
+(Sorry for the ping. We might as well also start translating documentation into other languages, like Spanish.)",2,1
+2368,2023-04-24T02:48:29Z,2023-06-23T08:24:36Z,2023-06-23T08:24:36Z,4,7,7,The word environment is misspelled at multiple spots,3,0
+2378,2023-05-03T08:27:08Z,2023-06-23T08:26:19Z,2023-06-23T08:26:19Z,1,93,0,"Hi, I added Slovenian Language for Ventoy.",3,0
+2488,2023-07-19T15:39:40Z,2023-07-20T02:56:55Z,2023-07-20T02:56:55Z,1,3,1,"Issues maybe related: #1188 #1658 #2458
+I'm testing on a rk3588 sbc with an edk2 firmware.
+I encountered the same issue edk2-porting/edk2-rk3588#6 as above.
+After a lot of grub_printf I find that file->name here is not initilized by grub_bufio_open. And my rk3588 will get Synchronous Exception when grub_strncmp runs with nullfile->name. So I just skip it when there is no file->name.",5,7

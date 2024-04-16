@@ -1,0 +1,4542 @@
+number,created_at,merged_at,closed_at,files,additions,deletions,body_text,participants,comments
+183,2017-02-03T16:38:03Z,2017-02-06T13:02:56Z,2017-02-06T13:02:56Z,2,2,2,Fixed service template to add the capital letter and fixed issue that was preventing the usage of mongoose,2,2
+190,2017-03-07T14:53:26Z,2017-03-14T13:39:42Z,2017-03-14T13:39:42Z,5,42,30,"The major changes are:
+
+Global policies: policies located in config/policies are now accessible through the entire app using the global.myGlobalPolicy syntax in routes.json files
+Restricted scope policies: policies used without prefix from a routes.json file are restricted to the current API or plugin scope
+Plugins policies: policies located in plugin/myPlugin/config/policies are now accessible through the entire app using the plugins.myPlugin.myPluginPolicy syntax
+policies folders and files are now located in config folders
+policies are now part of the config objects
+
+Documentation
+Global policies
+From now, you can define global policies which are reusable through your entire app.
+Usage
+Define your policy:
+// ./config/policies/isAuthenticated.js
+'use strict';
+
+/**
+ * `isAuthenticated` policy.
+ */
+
+module.exports = async (ctx, next) => {
+  // Add your before logic here.
+
+  await next();
+
+  // Add your after logic here.
+};
+Usage from an API or from a plugin:
+// ./api/car/routes.json
+{
+  ""routes"": [
+    {
+      ""method"": ""GET"",
+      ""path"": ""/car"",
+      ""handler"": ""Car.find"",
+      ""config"": {
+        ""policies"": [
+          ""*isAuthenticated""
+        ]
+      }
+    }
+  ]
+}
+Scoped policies
+A policy defined in an API or plugin is usable only from this API or plugin. You don't need any prefix to use it.
+Usage
+Define your policy:
+// ./api/car/config/policies/carPolicy.js
+'use strict';
+
+/**
+ * `carPolicy` policy.
+ */
+
+module.exports = async (ctx, next) => {
+  // Add your before logic here.
+
+  await next();
+
+  // Add your after logic here.
+};
+Usage from the API or from a plugin:
+// ./api/car/routes.json
+{
+  ""routes"": [
+    {
+      ""method"": ""GET"",
+      ""path"": ""/car"",
+      ""handler"": ""Car.find"",
+      ""config"": {
+        ""policies"": [
+          ""carPolicy""
+        ]
+      }
+    }
+  ]
+}
+Use plugins policies from APIs
+Plugins policies are usable from any app API.
+Usage
+Define your policy:
+// ./plugins/auth/config/policies/isAuthenticated.js
+'use strict';
+
+/**
+ * `isAuthenticated` policy.
+ */
+
+module.exports = async (ctx, next) => {
+  // Add your before logic here.
+
+  await next();
+
+  // Add your after logic here.
+};
+Usage from an API:
+// ./api/car/routes.json
+{
+  ""routes"": [
+    {
+      ""method"": ""GET"",
+      ""path"": ""/car"",
+      ""handler"": ""Car.find"",
+      ""config"": {
+        ""policies"": [
+          ""plugins.auth.isAuthenticated""
+        ]
+      }
+    }
+  ]
+}
+Access policies programmatically
+Policies are accessible in the strapi object:
+
+Global policy: strapi.config.myPolicy
+API policy: strapi.api.myApi.config.myPolicy
+Plugin policy: strapi.plugins.myPlugin.config.myPolicy",2,1
+208,2017-05-03T10:03:06Z,2017-07-01T14:51:21Z,2017-07-01T14:51:21Z,7,196,12,"The major changes are:
+
+Install plugin from the CLI
+Uninstall plugin from the CLI
+
+Documentation
+Plugin installation
+Allows the developer to install a plugin, using the CLI.
+Basic usage
+Considering you want to install a plugin named content-manager you can run the following command:
+$ strapi install content-manager.
+This supposed that this plugin is published on the npm registry as strapi-plugin-content-manager.
+The command installs the plugin in the node_modules folder of your Strapi application, and then, move the plugin itself in the ./plugins folder, so you can edit it and version it.
+Development mode
+In order to make contributors life easier, a command is dedicated to development mode:
+$ strapi install plugin-name --dev (eg. $ strapi install content-manager --dev)
+This command creates a symlink between the Strapi application and the plugin, which should have been previously installed globally ($ npm link or $ npm install plugin-name -g).
+Plugin uninstallation
+Allows the developer to uninstall a plugin, using the CLI.
+Basic usage
+Command: $ strapi uninstall plugin-name (eg. $ strapi uninstall content-manager).
+This command simply removes the plugin folder.",2,1
+210,2017-05-11T15:55:38Z,2017-05-12T09:03:37Z,2017-05-12T09:03:37Z,376,304,2607,Separate strapi-generate-admin and strapi-admin packages,2,1
+216,2017-07-13T09:09:38Z,2017-07-17T09:07:18Z,2017-07-17T09:07:18Z,403,9635,12878,,2,0
+221,2017-07-28T17:02:00Z,2017-07-31T15:42:49Z,2017-07-31T15:42:49Z,148,3233,3562,"The core of Strapi re-designed from scratch! Some improvements have been made:
+
+Remove dependencies to ensure the core is light as possible.
+Load hook/middleware asynchronously to enable fast boot.
+Simplify/reduce the codebase to facilitate new contributions.
+Update configurations architecture to fit better with the API needs.
+
+New file custom.json to have a dedicated place to put the custom configurations.
+Allow hook configurations by environment.
+New file response.json, request.json.
+i18n.json renamed language.json
+general.json renamed application.json
+hooks.json renamed hook.json and splitted with middleware.json (new file)
+
+
+Allow custom middlewares/hooks to be loaded directly from the app.
+Harmonize database settings between connectors.
+Harmonize configurations to keep consistency and logic into them.",3,7
+223,2017-07-31T10:45:23Z,2017-08-02T08:17:29Z,2017-08-02T08:17:29Z,118,8455,2123,,4,1
+225,2017-08-02T09:30:05Z,2017-08-02T13:40:43Z,2017-08-02T13:40:43Z,217,7979,20114,,3,1
+226,2017-08-06T21:30:50Z,2017-08-09T16:33:25Z,2017-08-09T16:33:25Z,50,269,1134,"Changes have been made with only one goal: performances.
+
+Remove proxy middleware (it's not our role to handle this kind of feature in the core).
+Remove SSL middleware (we should provide a good tutorial nginx + Strapi instead).
+Override Koa context and response to binding Boom methods into them instead of populating the context on each request.
+Override Koa context to bind the new logger into it. It allows the user calls directly the logger through the context.
+
+module.exports = {
+  subscribe: async ctx => {
+     ctx.log.info('My log');
+  }
+}
+
+Deactivate security middlewares in the development environment.
+Remove Winston and use Pino instead.
+The following middlewares can't be deactivated: router, boom, responses because there are required to ensure the server will start correctly.
+Expose router before initializing the middlewares which allow them to use it if they need it.
+Use the router to serve static assets instead of using koa-static has a standalone middleware.
+Remove useless dependencies.",2,1
+227,2017-08-09T07:46:46Z,2017-08-23T14:34:44Z,2017-08-23T14:34:44Z,420,5131,29561,,4,2
+228,2017-08-09T08:06:23Z,2017-08-10T13:05:38Z,2017-08-10T13:05:38Z,15,807,18239,,2,1
+232,2017-08-16T15:07:08Z,2017-08-17T07:47:02Z,2017-08-17T07:47:02Z,173,565,1572,"Admin panel improvements (#231).
+Adapt Content Manager to admin panel improvements.",2,1
+233,2017-08-16T15:46:32Z,2017-08-17T11:44:21Z,2017-08-17T11:44:21Z,2,300,1,,2,1
+235,2017-08-18T08:51:13Z,2017-08-23T14:35:25Z,2017-08-23T14:35:25Z,12,81,59,"The purpose of this PR is to improve the developer experience on new project.
+
+Remove warnings on the first start
+Display more understandable error message when MongoDB isn't started
+Remove useless logs during the API generation
+Improve index.html content",2,1
+236,2017-08-22T09:29:10Z,2017-08-30T08:51:19Z,2017-08-30T08:51:19Z,757,5081,12,,4,1
+243,2017-09-05T12:40:01Z,2017-09-07T14:50:16Z,2017-09-07T14:50:16Z,52,20377,265,,3,1
+244,2017-09-06T12:56:34Z,2017-09-12T11:42:24Z,2017-09-12T11:42:24Z,1,1,1,,2,0
+246,2017-09-12T11:46:07Z,2017-09-14T10:17:14Z,2017-09-14T10:17:14Z,9,15343,14,,2,1
+247,2017-09-12T21:02:54Z,2017-09-14T08:34:44Z,2017-09-14T08:34:44Z,388,2288,20183,"Major changes:
+
+Remove useless files
+Update depencies, including React Router 4
+Use strapi-helper-plugin as framework for the admin panel
+Improve admin style",2,0
+251,2017-09-25T11:29:13Z,2017-09-25T16:15:01Z,2017-09-25T16:15:01Z,171,4405,1687,,3,0
+252,2017-09-25T12:19:27Z,2017-09-25T15:58:09Z,2017-09-25T15:58:09Z,690,14003,15313,,4,0
+254,2017-09-26T15:43:27Z,2017-09-27T14:12:18Z,2017-09-27T14:12:18Z,66,249,204,,2,0
+255,2017-09-26T15:58:28Z,2017-09-27T10:15:19Z,2017-09-27T10:15:19Z,60,362,383,"Fix React-intl error message
+Update settings-manager design
+Remove required props in settings manager
+Fix settings manager left menu",3,1
+260,2017-09-28T10:18:29Z,2017-09-29T09:19:51Z,2017-09-29T09:19:51Z,22,373,30,Add pluginRequirements.js method that prevents a plugin from being rendered if some conditions aren't met.,3,1
+262,2017-09-30T16:28:05Z,2017-10-02T08:30:52Z,2017-10-02T08:30:52Z,36,471,336,"Update request.js helper to handle serverRestart watcher (prepare when route _healthis ready.
+Remove all server restart timer in plugins' sagas
+Created a global BlockerComponent that is rendered instead of a plugin (if the plugin's requirements aren't met)
+Update plugin rendering and allow to pass a customBlockerComponent
+Update stateless component generator with ES6 function
+Add a button loader to settings-manager plugin which informs the user that the server will restart
+Add number types translations to content-type view in content-type-builder plugin",2,0
+271,2017-10-10T13:20:33Z,2017-10-12T08:40:28Z,2017-10-12T08:40:28Z,12,224,28,Add filters to generated APIs,3,1
+272,2017-10-10T16:12:50Z,2017-10-11T09:51:26Z,2017-10-11T09:51:26Z,27,445,128,"Fix settings-manager css, wordings and minor bugs
+Update AdminPage container's context so each plugin has access to the updatePlugin and plugins props from the context. This feature allows the plugins to update the Admin app.",2,1
+276,2017-10-16T14:38:15Z,2017-10-18T13:16:59Z,2017-10-18T13:16:59Z,1263,51385,42099,"This release is one of the biggest we ever made! It introduces a lot of new features and two more plugins. There are still issues that will be fixed in the next releases.
+Major changes
+
+[Admin] Reduce the number of steps to be able to contribute.
+[Admin] Reduce bundle size by sharing commons dependencies.
+[Admin] Update strapi-helper-plugin and strapi-admin dependencies to the latest version.
+[Plugin] Content Manager.
+[Plugin] Content-Type Builder.
+[Plugin] Finalize the query process to be able to use different ORMs.
+[Plugin] Execute bootstrap function before mounting.
+[Plugin] Execute requirement function to allow or not rendering.
+Write new documentation.
+
+Known issues
+
+Switch from Many-to-many to One-to-many relationships on the same attributes will cause an issue to the Content Manager UI to add or remove relations.
+Unique validation error isn't displayed properly in the Content Manager.
+You can select multiple times the same entry in the relation input.
+Required relationships don't work yet.
+Relationships don't work perfectly in the generated APIs using Mongo template.",5,2
+281,2017-10-17T15:46:22Z,2017-10-18T12:44:50Z,2017-10-18T12:44:50Z,37,494,465,"Implement ErrorBoundary component
+Fix several component css
+Fix content-manager model transition
+Fix content-type-builderplugin model creation bug in content-manager plugin
+Use PopUpWarning component in all plugins
+Created Ico and IcoContainer container components and implement them in content-managerand content-type-builder plugins
+Update documentation according to these changes",2,1
+284,2017-10-18T21:17:54Z,2017-10-23T08:25:16Z,2017-10-23T08:25:16Z,1,1,1,There was a typo in CONTRIBUTING.md when you switched over from your old email address,2,1
+292,2017-10-21T15:09:03Z,2017-10-23T12:16:12Z,2017-10-23T12:16:12Z,23,251,58,"Design HomePage
+Created ListRow component
+Fix SelectMany css
+Prevent user from adding duplicate relations
+Fix content-manager CANCEL_CHANGES bug
+Fix content-type-builder dominantkey bug",2,1
+299,2017-10-23T09:24:06Z,2017-10-23T12:39:15Z,2017-10-23T12:39:15Z,35,95,74,,2,0
+301,2017-10-24T13:06:38Z,2017-10-25T15:24:14Z,2017-10-25T15:24:14Z,17,310,27,"Create a way to inject components from one plugin into another
+Update documentation accordingly
+Fix strapi-generate:plugin (update with current strapi version and files generated)
+Fix Admin HomePage channel links css",2,1
+303,2017-10-25T13:19:58Z,2017-10-25T15:37:29Z,2017-10-25T15:37:29Z,6,9,9,"Fix bug when updating newly created content-type nameor description
+Fix bug when setting a quote in a content type description",2,1
+305,2017-10-25T16:50:48Z,2017-10-30T09:42:30Z,2017-10-30T09:42:30Z,17,255,129,Improve files generated when creating a new plugin,3,1
+307,2017-10-27T02:56:27Z,2017-10-27T09:23:08Z,2017-10-27T09:23:08Z,1,4,2,Addresses #162. Allow for the passing and using of a config json value when strapi starts instead of relying on preconfigured config values,2,1
+308,2017-10-27T03:58:12Z,2017-10-30T09:50:17Z,2017-10-30T09:50:17Z,20,330,42,"Update content-manager LimitSelect and Pagination components design
+Created NoTableWarning component in content-type-builder
+Created checkTableExists handler in content-type-builder to check if a table exists when creating a model with bookshelf connector
+Improve Inputlib by adding password and search components
+Sort admin leftMenu plugins list by name",3,1
+313,2017-10-30T12:22:32Z,2017-11-02T16:11:45Z,2017-11-02T16:11:45Z,27,302,51,"Fix settings-manager InputSelect that automatically selects the first selectOptions
+Send appropriate tableName in content-type-builder checkTableExists route",3,1
+316,2017-10-31T13:52:08Z,2017-11-03T11:05:40Z,2017-11-03T11:05:40Z,15,403,197,,2,1
+317,2017-10-31T19:57:50Z,2017-11-01T10:55:33Z,2017-11-01T10:55:33Z,2,11,2,"Fallback to process.cwd() during module resolution in case of local installation
+Use full path to strapi binary, instead of global one",4,3
+319,2017-11-01T11:12:03Z,2017-11-02T10:44:43Z,2017-11-02T10:44:43Z,6,10,10,,2,0
+320,2017-11-01T15:54:53Z,2017-11-03T13:42:50Z,2017-11-03T13:42:50Z,44,141,98,,2,1
+321,2017-11-02T11:29:15Z,2017-11-03T13:56:34Z,2017-11-03T13:56:34Z,3,13,4,,2,0
+322,2017-11-02T16:15:50Z,2017-11-03T14:01:38Z,2017-11-03T14:01:38Z,30,502,54,Design ListPluginsPage and allow to uninstall a plugin from UI,3,1
+325,2017-11-03T15:06:06Z,2017-11-15T10:58:35Z,2017-11-15T10:58:35Z,94,1047,457,"Make the administration panel a real front-end app without any backend dependency.
+
+Remove the Admin.js controller.
+Remove the Admin.js service.
+Remove routes and use public core middleware to serve the administration panel instead.
+
+Documentation
+On every start, the files ./admin/admin/src/config.plugins.json is generated based on the installed plugins. The file should look like this:
+[
+  {
+    ""id"": ""content-type-builder"",
+    ""source"": {
+      ""development"": ""http://localhost:1337/admin/content-type-builder/main.js"",
+      ""production"": ""http://localhost:1337/admin/content-type-builder/main.js"",
+      ""test"": ""http://localhost:1337/admin/content-type-builder/main.js""
+    }
+  }
+]
+This file is also included and minified in the build. This file indicates to the admin what are the plugins that need to be initialized and their sources URLs to require them.
+
+Note: The administration panel will choose the source based on the environment build.
+
+Host the admin and plugins on another server/CDN
+If your administration is hosted on another server than your Strapi project, you need to re-build the admin with the new configuration.
+
+Note: We highly recommend to start your server before launching the build to ensure the ./admin/admin/src/config/plugins.json is up-to-date.
+
+./config/environment/**/server.json
+{
+  ""host"": ""localhost"",
+  ""port"": 1337,
+  ""autoReload"": {
+    ""enabled"": true
+  },
+  ""cron"": {
+    ""enabled"": false
+  },
+  ""admin"": {
+    ""path"": ""/dashboard"",
+    ""build"": {
+      ""host"": ""http://admin.myapp.com"",
+      ""backend"": ""http://api.myapp.com:8080"",
+      ""plugins"": {
+        ""source"":  ""host"",
+        ""folder"": ""/plugins""
+      }
+    }
+  }
+}
+
+path (string): Allow to change the URL to access the admin (default: /admin).
+build
+
+host (string): URL to access the admin panel (default: http://localhost:1337/admin).
+backend (string): URL that the admin panel and plugins will request (default: http://localhost:1337).
+
+plugins
+
+source (origin, remote, custom): More details below.
+folder (string): More details below.
+
+
+
+
+
+
+
+Source
+The source setting allows you to define the URLs to require to plugins in the admin panel.
+Three modes are available
+
+
+host will use the host setting to generate the source URL for the plugins (example: http://admin.myapp.com/**/main.js).
+
+
+origin will use the origin URL. It means the default host and port (example: http://localhost:1337/**/main.js).
+
+
+custom will use the source defined in each ./plugins/**/config/sources.json file.
+
+
+Based on the previous configurations file, it will generate the following index.html to require the shared dependencies vendor.dll.js and the plugins.
+<html>
+  <head></head>
+  <body>
+    <div id=""app""></div>
+    <script type=""text/javascript"" src=""/dashboard/vendor.dll.js""></script>
+    <script type=""text/javascript"" src=""/dashboard/main.js""></script>
+    <script src=""http://admin.myapp.com/plugins/content-type-builder/main.js""></script>
+  </body>
+</html>
+Folder
+For example, if you decide to put your admin panel and plugins builds on an AWS S3 server, your files structure could like that:
+- src/
+  - 0bd35bad03d09ca61ac6cce225112e36.svg
+  - 1d51d8767683a24635702f720cda4e26.svg
+  - af3aefd0529349e40e4817c87c620836.png
+  - config/
+    - plugins.json
+  - main.js
+  - main.js.map
+  - plugins/
+    - content-type-builder/
+      - 0bd35bad03d09ca61ac6cce225112e36.svg
+      - 1d51d8767683a24635702f720cda4e26.svg
+      - af3aefd0529349e40e4817c87c620836.png
+      - main.js
+      - main.js.map
+  - vendor.dll.js
+  - vendor.dll.js.map
+
+The folder setting allows you to tell to the admin panel that the plugins are in a sub-folder named plugins.
+Host the plugins on another servers/CDN
+It allows you to override the generated source URL per environment. This feature is useful if you decide to host your build on AWS S3, etc.
+./plugins/**/config/sources.json
+{
+  ""sources"": {
+    ""production"": ""http://s3.aws.com/xxxx/main.js"",
+    ""test"": ""http://s3.aws.com/test/xxxx/main.js""
+  }
+}
+So the ./admin/admin/src/config.plugins.json will look like this:
+[
+  {
+    ""id"": ""content-type-builder"",
+    ""source"": {
+      ""development"": ""http://localhost:1337/admin/content-type-builder/main.js"",
+      ""production"": ""http://s3.aws.com/xxxx/main.js"",
+      ""test"": ""http://s3.aws.com/test/xxxx/main.js""
+    }
+  }
+]",3,0
+326,2017-11-03T15:06:24Z,2017-11-06T09:56:29Z,2017-11-06T09:56:29Z,1,1,1,fix edit temp Content Type Attribute bug,2,0
+331,2017-11-07T13:36:49Z,2017-11-07T14:59:26Z,2017-11-07T14:59:26Z,32,177,64,,2,0
+336,2017-11-09T10:27:50Z,2017-11-10T09:53:09Z,2017-11-10T09:53:09Z,10,92,26,Add handler to get the app installed plugins for the list-plugins view,2,0
+337,2017-11-10T15:32:56Z,,2018-01-10T12:34:30Z,9,142,23,"Add option + a to open the Attributes modal
+
+
+Add option + n to open the create content type modal
+
+
+Add option + s to save the content type's attributes
+
+
+Created documentation accordingly",3,0
+338,2017-11-11T09:29:54Z,2017-11-14T10:52:35Z,2017-11-14T10:52:35Z,1,1,9,Fix enter key press bug in content manager plugin Edit view,3,0
+343,2017-11-17T15:51:10Z,2017-11-23T15:45:08Z,2017-11-23T15:45:08Z,15,282,94,"This PR tries to fix the build issue that has been pointed out by a member on Slack. The manifest is populated by relatives paths exclusively. It means no more usernames or computer names in this file.
+We are also trying to refer the most as we can to the ./admin folder for shared dependencies to ensure that we will use the same references across the builds.
+Bonus:
+
+.gitignore issue in development mode has been fixed.
+Fix Windows issue. Check if we have the necessary rights to create the symlink with global strapi dependency before trying to make it.",2,0
+344,2017-11-17T16:13:46Z,2017-11-20T09:11:22Z,2017-11-20T09:11:22Z,5,12,9,,2,1
+345,2017-11-17T16:22:09Z,2017-11-20T15:36:44Z,2017-11-20T15:36:44Z,2,3,2,Fixed #314,2,0
+346,2017-11-17T16:51:44Z,2017-11-20T16:02:17Z,2017-11-20T16:02:17Z,131,7012,706,"Start developing users-permissions plugin
+
+Implement design with fake data
+Add Login and Register
+
+
+
+Backend
+
+Users api creation
+Permissions setup
+Login/Register/Forgot-password",3,1
+348,2017-11-21T15:38:31Z,2017-11-21T17:08:33Z,2017-11-21T17:08:33Z,1,1,1,,2,1
+349,2017-11-21T15:40:05Z,2017-11-23T10:29:03Z,2017-11-23T10:29:03Z,1,3,3,,3,2
+352,2017-11-23T17:59:43Z,2017-11-27T09:46:12Z,2017-11-27T09:46:12Z,2,3,3,Typos on translations keys and on a french translation.,2,0
+353,2017-11-27T09:43:11Z,2017-12-05T17:47:48Z,2017-12-05T17:47:48Z,12,15,16,,2,0
+357,2017-12-05T10:10:40Z,2017-12-11T14:10:09Z,2017-12-11T14:10:09Z,313,11650,2100,"Framework
+
+Reduce installation time by removing unnecessary dependencies
+Reduce project generation time
+Use relative path instead of absolute path to generate manifest.json reference file
+Fix Windows issue related to the symlink we are creating during the installation
+Clear require cache before loading configurations
+Ensure the project can start without locales
+Allow to require Strapi and only load the configurations without listening an HTTP port
+Add bootstrap function for middleware and review default configuration
+Allow plugins models
+
+
+
+Backend
+
+Auth routes login / register / forgot password / reset password
+CRUD user API
+
+
+
+Admin
+
+Detach administration panel from the project to remove the old monolithic architecture
+Improve the layout configuration system for Content Manager to redirect actions to specific controller’ actions
+Load order plugins
+Authentification
+Improve Input library
+Role management",3,0
+366,2017-12-12T14:15:07Z,2017-12-13T10:12:14Z,2017-12-13T10:12:14Z,4,18,5,Prevent user from going to /auth/login || /auth/forgot-password || auth/reset-password if no user is already registered,3,0
+369,2017-12-12T17:23:26Z,2017-12-13T09:44:21Z,2017-12-13T09:44:21Z,2,2,2,,2,0
+372,2017-12-13T10:12:44Z,2017-12-13T14:40:44Z,2017-12-13T14:40:44Z,3,5,4,Add authentification guide link in the documentation menu,2,0
+373,2017-12-13T12:27:07Z,2017-12-13T14:56:48Z,2017-12-13T14:56:48Z,18,180,14,"Update documentation getting started section
+Update contributing guide",3,1
+374,2017-12-13T12:45:53Z,2017-12-13T14:15:11Z,2017-12-13T14:15:11Z,1,8,0,Auto open the Application's permission section (if the user has already created APIs) when editing a role,3,0
+375,2017-12-13T13:52:01Z,2017-12-13T15:15:48Z,2017-12-13T15:15:48Z,1,22,16,,2,0
+376,2017-12-13T14:06:19Z,2017-12-13T15:33:33Z,2017-12-13T15:33:33Z,3,3,108,,2,1
+377,2017-12-14T09:29:21Z,2017-12-14T13:08:53Z,2017-12-14T13:08:53Z,25,57,57,Change packages version to publish on npm,2,0
+380,2017-12-14T15:30:16Z,2017-12-16T13:54:07Z,2017-12-16T13:54:07Z,2,3,12,Fix issue #371,3,0
+381,2017-12-15T12:56:36Z,2017-12-15T14:27:40Z,2017-12-15T14:27:40Z,37,139,79,,3,0
+384,2017-12-16T11:30:28Z,2017-12-16T16:45:01Z,2017-12-16T16:45:01Z,2,8,5,"Bugs
+
+Fix back button in content manager Edit view
+Redirect user to HomePage after editing an entry",2,0
+385,2017-12-16T14:24:06Z,2018-01-09T10:00:09Z,2018-01-09T10:00:09Z,6,53,3,Add plugins icons to ListPlugin page,3,0
+386,2017-12-16T16:44:42Z,2018-01-04T12:14:28Z,2018-01-04T12:14:28Z,54,1114,721,"This PR allows associations across ./api models and ./plugins/xxx models. It introduces a new attribute plugin in the models to target a model in a plugin.
+Example
+To create a relation between Post (that you previously created using the CLI or Content Type Builder)  and User (exposed by the Users & Permissions plugin), you need to update both models and specify in the Post's model that you want to make a relation with the User's model of the Users & Permissions plugin.
+./api/post/models/Post.settings.json
+{
+  ""connection"": ""default"",
+  ""attributes"": {
+    ""title"": {
+      ""type"": ""string""
+    },
+    ""authors"": {
+      ""collection"": ""user"",
+      ""via"": ""posts"",
+      ""plugin"": ""users-permissions""
+    }
+  }
+}
+./plugins/users-permissions/models/User.settings.json
+{
+  ""connection"": ""default"",
+  ""attributes"": {
+    ""username"": {
+      ""type"": ""string"",
+      ""minLength"": 3,
+      ""unique"": true
+    },
+    ""email"": {
+      ""type"": ""email"",
+      ""minLength"": 6,
+      ""unique"": true
+    },
+    ""provider"": {
+      ""type"": ""string""
+    },
+    ""password"": {
+      ""type"": ""password"",
+      ""minLength"": 6
+    },
+    ""resetPasswordToken"": {
+      ""type"": ""string""
+    },
+    ""role"": {
+      ""type"": ""integer""
+    },
+    ""posts"": {
+      ""collection"": ""post"",
+      ""via"": ""authors""
+    }
+  }
+}
+Changelog
+
+Update Content Manager requests to retrieve the data coming from the associations.
+Update Bookshelf and Mongoose query to manage relationships (add, edit, delete).
+Update Content Type Builder to edit a plugin's model.
+Ensure a plugin's model cannot be deleted.
+Add new configurable attribute key to lock attribute from unwanted deletion in the Content Type Builder.
+Add new parameter source in the URL to know if the model is exposed by a plugin or not.",3,0
+394,2017-12-19T13:56:36Z,2017-12-21T12:46:45Z,2017-12-21T12:46:45Z,1,2,0,"🐛 Bug Fix
+
+Fix remove life cycle function (#339)",2,0
+399,2017-12-20T13:35:39Z,2017-12-21T13:05:41Z,2017-12-21T13:05:41Z,1,1,1,"🐛 Bug Fix
+
+Fix findOne service available where params (#395)",2,0
+400,2017-12-20T15:07:38Z,2017-12-21T12:31:03Z,2017-12-21T12:31:03Z,3,4,3,,2,0
+405,2017-12-22T16:38:50Z,2018-01-04T10:11:43Z,2018-01-04T10:11:43Z,7,9,8,Fix install plugin for copy .gitignore,2,0
+408,2017-12-23T19:55:45Z,2018-01-10T11:00:59Z,2018-01-10T11:00:59Z,4,10,12,"Use Decimal128 mongo's type instead mongoose-double package. Mongodb will be store decimal values as NumberDecimal, not as string.",2,3
+414,2017-12-31T14:30:33Z,2018-01-04T10:39:41Z,2018-01-04T10:39:41Z,1,3,3,corrected minor English typos in the documentation,3,1
+416,2018-01-04T15:44:19Z,2018-01-11T14:48:58Z,2018-01-11T14:48:58Z,2,90,1,"💅 Enhancement
+
+Add logs if missing things in user table",2,0
+420,2018-01-05T14:53:33Z,2018-01-11T13:28:37Z,2018-01-11T13:28:37Z,11,290,24,"🚀 New feature
+
+Create form to set database connection on strapi new",4,0
+421,2018-01-05T15:30:22Z,2018-01-10T17:27:35Z,2018-01-10T17:27:36Z,58,1283,132,"This PR introduces a new cool feature that allows the administrator to install the plugins exposed by our Marketplace API in their project directly from the administration panel.
+
+This is the first step for the future marketplace for the Strapi apps. For the time being, we only expose the plugin published on npm and available in the Strapi mono-repository.
+
+Bonus
+
+The Redux stores are now correctly named which will help everyone who is using Redux Dev Tools to identify the right store.
+The current locale is exposed through strapi.currentLanguage.
+
+New rules
+
+The plugin icon has to be named logo.svg in the /admin/src/assets/images/ folder.
+The plugin has two descriptions. A short one and a long one. The long should be HTML/markdown parsed to allow the plugin's developer to make a beautiful presentation in the Description tab in the popup on the Install Plugin page.",3,0
+422,2018-01-05T17:10:50Z,2018-01-09T10:28:17Z,2018-01-09T10:28:17Z,2,10,2,Fixed #363,2,0
+424,2018-01-06T23:50:38Z,2018-01-08T10:11:45Z,2018-01-08T10:11:45Z,1,3,1,"This is necessary option for ssl-only remote DB services e.g. heroku-postgres. This option can be set, as any other, in database.json file in 'settings' section.",3,0
+426,2018-01-08T11:11:55Z,2018-01-09T10:15:11Z,2018-01-09T10:15:11Z,13,18,10,,2,0
+427,2018-01-08T13:35:26Z,2018-01-08T19:18:41Z,2018-01-08T19:18:41Z,1,2,2,Fix user associated with a role display,2,0
+428,2018-01-08T15:43:30Z,2018-01-10T12:55:16Z,2018-01-10T12:55:16Z,2,3,3,,2,0
+430,2018-01-09T15:57:31Z,2018-01-10T13:11:09Z,2018-01-10T13:11:09Z,10,23,22,"Fix content type builder if one API hasn't model
+Fix display models with plugin's models relation",2,0
+431,2018-01-09T17:41:11Z,2018-01-16T15:59:26Z,2018-01-16T15:59:26Z,25,385,214,,3,0
+433,2018-01-10T10:48:38Z,2018-01-10T16:29:36Z,2018-01-10T16:29:36Z,16,437,559,"Improve the plugin section documentation:
+
+Rename the section
+Reorganize the content structure
+Split back-end and front-end development section into two separate ones",3,0
+434,2018-01-10T10:57:56Z,2018-01-11T09:39:01Z,2018-01-11T09:39:01Z,5,23,35,,2,0
+435,2018-01-10T19:30:57Z,2018-01-11T12:25:44Z,2018-01-11T12:25:44Z,3,23,4,,3,1
+438,2018-01-11T13:37:13Z,2018-01-18T11:13:54Z,2018-01-18T11:13:54Z,1,57,1,Add helpers documentation in Plugin Development section,3,0
+439,2018-01-11T15:39:35Z,2018-01-11T16:42:43Z,2018-01-11T16:42:43Z,9,50,14,"Secure admin
+
+Add expiration time to JSON Web Token (30 days)
+Sign out user if the jwt is invalid
+Enable /user/me route for guest users",2,0
+440,2018-01-11T23:13:42Z,2018-01-12T08:14:28Z,2018-01-12T08:14:28Z,1,3,3,(const variable is assigned it cannot be assigned again and an attempt to do so will throw an error),2,0
+441,2018-01-12T13:04:29Z,2018-01-12T14:24:22Z,2018-01-12T14:24:22Z,1,1,2,Change redirect route if jwtToken is expired with strapi.remoteURL,2,0
+442,2018-01-12T23:22:05Z,2018-01-23T14:05:03Z,2018-01-23T14:05:03Z,1,8,2,,3,2
+446,2018-01-15T10:40:06Z,2018-01-18T12:45:32Z,2018-01-18T12:45:32Z,41,395,236,"Add an OverlayBlocker that prevents the user from interacting with the admin when the server is restarting to avoid errors.
+Implemented it in the following plugins :
+
+users-permissions
+settings-manager
+content-type-builder",3,1
+447,2018-01-15T15:42:48Z,2018-01-15T17:02:57Z,2018-01-15T17:02:57Z,1,2,2,,2,0
+448,2018-01-15T15:44:54Z,2018-01-16T09:46:06Z,2018-01-16T09:46:06Z,3,11,7,Fix bug when trying to install a new plugin,2,1
+454,2018-01-16T17:08:40Z,2018-01-17T15:09:24Z,2018-01-17T15:09:24Z,6,116,89,"Fix PopUpWarning design
+Change link on the install-plugin page for buying a tee shirt
+Fix plugin description on the install-plugin page",2,0
+457,2018-01-17T08:53:12Z,2018-01-17T11:16:18Z,2018-01-17T11:16:18Z,4,8,8,,2,0
+460,2018-01-17T15:49:06Z,2018-01-22T07:09:25Z,2018-01-22T07:09:25Z,1,14,1,Fix plugin's icon design on list-plugins page,3,0
+461,2018-01-17T16:06:28Z,2018-01-17T20:25:26Z,2018-01-17T20:25:26Z,25,49,49,"🚀 New feature
+
+[Plugin] Add endpoint to fetch authenticated user model (#435)
+[Framework] Create form to set database connection on strapi new (#420)
+
+🐛 Bug Fix
+
+[Framework] Fix yarn (#422)
+[Admin] Fix user associated with a role display (#427)
+[Framework] Authorize config files name as API (#428)
+[Framework] Fix deployment process (#431)
+[Plugin] Fix bug when trying to install a new plugin (#448)
+
+💅 Enhancement
+
+[Framework] SSL option for strapi-knex connections (#424)
+[Framework] Support one-way relationship (#426)
+[Framework] Add plugins icons to ListPlugin page (#385)
+[Documentation] Improve the plugin section documentation (#433)
+[Framework] Update middleware dependencies and remove unnecessary convert (#434)
+[Framework] Add logs if missing things in user table (#416)
+[Documentation] Add helpers in documentation (#438)",2,0
+464,2018-01-18T07:35:35Z,2018-01-23T09:58:28Z,2018-01-23T09:58:28Z,14,306,11,"🚀 New feature
+
+[Plugin] Be able to login/register with a provider",2,0
+465,2018-01-18T10:19:32Z,2018-01-18T12:30:17Z,2018-01-18T12:30:17Z,1,2,3,,2,0
+466,2018-01-18T11:30:44Z,2018-01-18T15:06:17Z,2018-01-18T15:06:17Z,3,66,4,,3,0
+470,2018-01-18T16:36:33Z,2018-01-19T06:38:31Z,2018-01-19T06:38:31Z,1,5,2,,2,0
+471,2018-01-18T18:05:14Z,2018-01-31T15:14:51Z,2018-01-31T15:14:51Z,1,2,8,,3,2
+473,2018-01-18T22:40:16Z,2018-01-23T13:47:39Z,2018-01-23T13:47:39Z,2,17,6,"Some characters in username or password can reject mongoose.connect:
+Error: Password contains an illegal unescaped character
+
+Using the mongoose.connect options can prevent that.",3,2
+478,2018-01-19T08:15:11Z,2018-01-19T11:24:37Z,2018-01-19T11:24:37Z,26,54,51,Hot fix permissions detection in the policy,2,0
+480,2018-01-19T11:09:20Z,2018-01-22T15:53:03Z,2018-01-22T15:53:03Z,5,49,33,,2,0
+490,2018-01-22T04:10:05Z,2018-01-23T10:29:09Z,2018-01-23T10:29:09Z,1,8,1,"It looks like rootAdminpath is used in the development webpack config
+file (copied from one of the other webpack configs), but its definition
+was omitted accidentally.
+Fixes #415",3,0
+491,2018-01-22T04:13:48Z,2018-01-22T07:33:14Z,2018-01-22T07:33:14Z,5,127,127,,2,1
+492,2018-01-22T08:54:49Z,2018-01-22T10:53:08Z,2018-01-22T10:53:08Z,1,3,3,The problem was in paths with backslashes on windows. The path.join() solved the problem.,2,0
+499,2018-01-23T10:35:31Z,2018-01-25T12:04:50Z,2018-01-25T12:04:50Z,27,318,104,"🚀 New feature
+
+[Plugin] Manage email settings
+[Plugin] Allow to disable login and register
+[Plugin] Allow to restrict unique email per account (local/provider)",2,0
+501,2018-01-23T15:29:13Z,2018-01-25T13:30:59Z,2018-01-25T13:30:59Z,27,663,265,"💅 Enhancement
+
+Add UI to providers and email configs",3,0
+502,2018-01-23T21:20:21Z,2018-01-24T07:26:32Z,2018-01-24T07:26:32Z,1,2,2,,2,0
+507,2018-01-24T10:54:19Z,2018-01-25T15:00:52Z,2018-01-25T15:00:52Z,29,818,378,,2,0
+512,2018-01-24T22:00:51Z,2018-01-25T08:46:54Z,2018-01-25T08:46:54Z,1,12,0,"💅 Enhancement
+Felt like we needed some structure for issues..",2,0
+518,2018-01-26T06:34:00Z,2018-01-29T12:45:51Z,2018-01-29T12:45:51Z,1,6,4,,3,0
+519,2018-01-26T08:46:24Z,2018-01-26T10:30:32Z,2018-01-26T10:30:32Z,1,16,0,,2,0
+521,2018-01-26T09:21:53Z,2018-01-26T10:44:05Z,2018-01-26T10:44:05Z,2,5,31,,2,0
+523,2018-01-26T10:00:52Z,2018-01-26T11:05:29Z,2018-01-26T11:05:29Z,1,2,127,Remove the handle user navigation section and fix some typos,3,0
+525,2018-01-26T16:35:46Z,2018-01-29T10:28:17Z,2018-01-29T10:28:17Z,11,32,18,Design correction on the users-permissions,2,0
+526,2018-01-26T17:06:13Z,2018-01-29T08:10:34Z,2018-01-29T08:10:34Z,4,19,5,,2,0
+534,2018-01-28T18:55:47Z,2018-01-29T10:14:57Z,2018-01-29T10:14:57Z,1,1,2,"This bug fix repair my problem with saving user data model.
+I report issue here: #529",3,0
+536,2018-01-29T10:20:00Z,2018-01-29T13:06:37Z,2018-01-29T13:06:37Z,3,10,3,The error was due to the notification provider which was passed an array instead of a string. It causes the UI to break because of FormattedMessage,2,0
+537,2018-01-29T12:15:11Z,2018-01-31T07:08:00Z,2018-01-31T07:08:00Z,2,19,16,,2,0
+538,2018-01-29T16:25:47Z,2018-01-31T07:37:42Z,2018-01-31T07:37:42Z,25,49,49,"🚀 New feature
+
+[Plugin] Add authentication using providers into the Users & Permissions plugin (#464)
+[Plugin] New configurations to disabled sign-up and edit email templates (#499)
+[Plugin] Providers and settings UI (#501)
+
+🐛 Bug Fix
+
+[Framework] Fix package 'strapi-generate-new' rm files on Windows (#469) @Nsbx
+[Framework] Fix install connection test node module path on Windows (#492) @ArkhipovK
+[Admin] Fix undefined rootAdminpath in admin dev mode (#490) @gluxon
+[Framework] Fix PostgreSQL and MySQL query logs (#507)
+[Plmugin] Fix save user model (#534) @Adriang71
+
+💅 Enhancement
+
+[Documentation] Update documentation (#491)
+[Admin] Fix plugin's icon design on list-plugins page (#460)
+[Plugin] Add repo location in plugins package (#480)
+[Plugin] Auth email case-insensitive (#442) @lucaperret
+[Framework] Unescaped character in username/password (#473) @lucaperret
+[Framework] Add environment variable for username and password databases config (#502)  @lucaperret
+[Documentation] Improve template issue GitHub (#512)
+[Plugin] Update roles with models (#507)
+[Documentation] Add email template documentation (#526)",2,0
+539,2018-01-29T18:32:20Z,2018-02-05T10:14:55Z,2018-02-05T10:14:55Z,2,5,10,"Motivation: Seperation of concerns.
+I want to use the JWT service in my own plugin.",2,1
+542,2018-01-30T14:28:04Z,,2018-02-02T09:26:05Z,7,1148,1,Initialized Italian translations for backend interface and basic plugins.,2,1
+543,2018-01-30T15:34:37Z,2018-01-31T12:21:58Z,2018-01-31T12:21:58Z,1,9,7,"noticed the defaults object was not being merged with the config, as a work around I've added the settings manually",3,1
+546,2018-01-31T11:28:29Z,2018-01-31T12:57:35Z,2018-01-31T12:57:35Z,2,72,0,Co-authored-by: soupette,2,0
+554,2018-02-01T10:10:56Z,2018-02-01T11:57:03Z,2018-02-01T11:57:03Z,26,71,53,"💅 Enhancement
+
+Handle no core plugins installation on strapi new",2,0
+558,2018-02-02T11:03:07Z,2018-02-05T12:47:51Z,2018-02-05T12:47:51Z,26,1952,0,"Created the main components in order to improve the Input library.
+Now an Input is splitted into 4 components :
+
+Label
+Input (for instance InputText which only renders an input type text with the correct design)
+InputDescription
+InputErrors
+
+Currently only InputTextWithErrors and InputNumberWithErrors are developed and may change.
+Also the documentation regarding these new components has been written.",3,1
+559,2018-02-02T13:32:55Z,2018-02-02T16:05:11Z,2018-02-02T16:05:11Z,1,2,2,,2,0
+560,2018-02-02T13:35:17Z,2018-02-05T16:46:41Z,2018-02-05T16:46:41Z,27,55,52,,3,0
+564,2018-02-02T16:27:45Z,2018-02-05T11:45:18Z,2018-02-05T11:45:18Z,8,389,3,"Add input type textare to the InputsIndex library
+Create documentation accordingly
+Created a DefaultInputError in the InputsIndex component so that if the type doesn't exist the component doesn't break (since it's a simple function we can't implements componentDidCatch at this level)",3,0
+572,2018-02-05T10:51:49Z,2018-02-05T15:54:42Z,2018-02-05T15:54:42Z,5,60,5,,2,0
+574,2018-02-05T14:46:12Z,2018-02-06T12:26:38Z,2018-02-06T12:26:38Z,9,402,2,"Created InputSelect, SelectOption and InputSelecWithErrors
+Created documentation accordingly",3,0
+576,2018-02-05T16:25:45Z,2018-02-06T13:01:49Z,2018-02-06T13:01:49Z,13,552,23,"Created InputEmail  and InputEmailWithErrors components
+Reorganize Inputs*WithErrors props and add  noErrorsDescription prop so it can set a spacer in order to keep the inputs'  alignment correct",3,0
+577,2018-02-05T16:44:42Z,2018-02-06T13:41:40Z,2018-02-06T13:41:40Z,5,28,19,Change the input library used in the users-permissionsplugin HomePage container,3,1
+582,2018-02-05T21:32:28Z,2018-02-07T10:47:56Z,2018-02-07T10:47:56Z,4,61,11,"For #489,
+strapi new myApp --dbtype mongo --dbhost localhost --dbport 27017 --dbname strapi --dbusername user --dbpassword password",3,4
+585,2018-02-06T11:00:32Z,2018-02-06T16:38:10Z,2018-02-06T16:38:10Z,5,391,0,Created Inputcheckbox and InputCheckboxWithErrorscomponents,3,0
+586,2018-02-06T13:26:07Z,2018-02-06T16:14:06Z,2018-02-06T16:14:06Z,5,443,0,Created InputSearch and InputSeachWithErrors components,3,0
+587,2018-02-06T13:29:32Z,2018-02-06T15:37:40Z,2018-02-06T15:37:40Z,7,7,6,Replace localhost by 127.0.0.1 to avoid connection issue with the database.,2,1
+588,2018-02-06T13:45:09Z,2018-02-06T16:58:38Z,2018-02-06T16:58:38Z,1,5,1,,2,0
+589,2018-02-06T14:11:32Z,2018-02-06T17:14:11Z,2018-02-06T17:14:11Z,1,7,5,,2,0
+590,2018-02-06T14:19:33Z,2018-02-06T17:30:34Z,2018-02-06T17:30:34Z,6,414,0,Created InputDateand InputDatewithErrorscomponents,3,0
+591,2018-02-06T15:01:26Z,2018-02-07T10:33:15Z,2018-02-07T10:33:15Z,1,1,1,#571,2,0
+592,2018-02-06T15:03:41Z,2018-02-06T17:48:15Z,2018-02-06T17:48:15Z,6,519,1,"Created InputAddonand InputAddonWithErrorscomponents.
+Created documentation accordingly",3,0
+593,2018-02-06T15:09:39Z,2018-02-09T11:17:56Z,2018-02-09T11:17:56Z,1,1,1,"Names added with a space/dot different variations, etc. did not work by badly generating the model name.
+Reference to #328 #444 #505",3,2
+594,2018-02-06T15:19:48Z,2018-02-07T11:02:38Z,2018-02-07T11:02:38Z,3,2,74,,2,0
+595,2018-02-06T15:30:02Z,2018-02-06T18:14:13Z,2018-02-06T18:14:13Z,4,5,3,"Disable autocomplete in login form.
+Ensure the new input library only renders controlled components",2,0
+603,2018-02-06T23:06:35Z,2018-02-07T17:17:02Z,2018-02-07T17:17:02Z,29,55,53,,2,2
+605,2018-02-07T10:52:31Z,2018-02-07T16:56:57Z,2018-02-07T16:56:57Z,18,340,490,"Add the new input library to the users-permissionsplugin.
+
+Created an inputsValidations file and use it each Input**WithErrors component",3,0
+606,2018-02-07T17:33:35Z,2018-02-09T12:00:38Z,2018-02-09T12:00:38Z,9,296,93,,3,0
+609,2018-02-07T19:39:11Z,2018-02-08T10:46:43Z,2018-02-08T10:46:43Z,1,3,2,,2,0
+610,2018-02-08T10:55:26Z,2018-02-09T14:57:46Z,2018-02-09T14:57:46Z,2,10,2,"Stop project creation if one of db argument is missing
+Better detection for using db arguments",2,0
+611,2018-02-08T13:39:53Z,2018-02-09T15:33:36Z,2018-02-09T15:33:36Z,1,4,4,"Just set user id in auth jwt
+fix #528",2,0
+612,2018-02-08T13:59:17Z,2018-02-09T15:47:45Z,2018-02-09T15:47:45Z,1,4,0,Verify if _id params has mongoose ObjectId format,2,0
+613,2018-02-08T14:04:03Z,2018-02-09T16:02:03Z,2018-02-09T16:02:03Z,5,198,4,"Adding a new middleware mask. This middleware parses the successful JSON responses and tries to find a model pattern recursively. When there are matches, it removes from the response the model's attributes which have the private set to true.
+Fix #472",3,2
+614,2018-02-08T14:29:20Z,2018-02-09T10:13:38Z,2018-02-09T10:13:38Z,1,2,1,close #598,2,0
+618,2018-02-09T16:19:03Z,2018-02-09T17:35:28Z,2018-02-09T17:35:28Z,17,34,31,,2,0
+620,2018-02-09T19:25:23Z,2018-02-13T12:21:40Z,2018-02-13T12:21:40Z,1,3,3,,2,0
+627,2018-02-12T11:09:22Z,2018-02-12T17:12:47Z,2018-02-12T17:12:48Z,3,19,3,"Change version in README.md documentation
+Add Heroku deploy button in documentation README.md
+Add tutorials in doc",2,0
+628,2018-02-12T12:26:46Z,2018-02-13T10:28:11Z,2018-02-13T10:28:11Z,19,518,205,"Add store function to get and set configs
+strapi.store(source).get(params)
+strapi.store(source).set({params, value})",2,0
+629,2018-02-12T13:54:35Z,2018-02-12T15:52:25Z,2018-02-12T15:52:25Z,1,4,3,Move Heroku button in README.md,2,0
+632,2018-02-12T18:18:38Z,2018-02-13T10:09:54Z,2018-02-13T10:09:54Z,4,12,11,"Use tmp directory to install database connectivity tester.
+Check if the content of the rootPath folder has more than one file. Used for docker volume that is shared with the host.",3,3
+646,2018-02-14T19:10:03Z,2018-02-15T12:54:10Z,2018-02-15T12:54:10Z,1,3,1,Co-authored-by: soupette cyril.lpz@gmail.com,2,0
+647,2018-02-14T19:10:26Z,2018-02-15T12:54:22Z,2018-02-15T12:54:22Z,1,2,2,,2,0
+649,2018-02-15T11:44:26Z,2018-02-19T10:49:52Z,2018-02-19T10:49:52Z,3,170,16,Polymorphic relations with Mongoose,3,3
+651,2018-02-15T14:59:55Z,2018-02-16T09:09:55Z,2018-02-16T09:09:55Z,13,74,13,,3,0
+652,2018-02-15T15:35:43Z,2018-02-16T09:40:06Z,2018-02-16T09:40:07Z,7,1155,2,"I have tried translating as literally as possible in order not to mess up anything and managed to do so most of the time, but some things do not check out 100% yet. Only minimally tested/used, but I think it definitely works fine for now.
+Hopefully I didn't mess up this PR, I'm new to this.",4,3
+653,2018-02-15T16:23:26Z,2018-02-16T14:37:51Z,2018-02-16T14:37:51Z,7,1156,1,,3,1
+654,2018-02-16T00:34:48Z,2018-02-16T10:02:22Z,2018-02-16T10:02:22Z,5,61,61,"I'm not a native English speaker, but I think I've identified and fixed a few spelling mistakes as well as adjusted some strings to the way you guys have been spelling elsewhere (e.g. ""Content Type"" opposed to ""content type""). Additionally, I changed a few strings to sound just a tiny bit better.",3,1
+656,2018-02-16T09:17:49Z,2018-02-20T12:21:40Z,2018-02-20T12:21:40Z,71,1509,86,Created InputFile component,3,0
+657,2018-02-16T09:41:55Z,2018-02-19T11:55:54Z,2018-02-19T11:55:54Z,30,63,57,,2,1
+658,2018-02-16T11:06:03Z,2018-02-19T09:26:26Z,2018-02-19T09:26:27Z,2,3,3,It's actually impossible to switch off then on email provider,2,0
+662,2018-02-17T07:47:23Z,2018-02-18T16:08:50Z,2018-02-18T16:08:50Z,1,0,5,For Docker volume.,2,1
+663,2018-02-17T08:40:32Z,2018-02-19T10:09:52Z,2018-02-19T10:09:52Z,3,9,8,"Hey Guys, I did some minor improvements to english sentences. Please accept.
+Important: at the beginning of the model section, I added a note to point new devs to start with the admin interface, this seems simple but not obvious. This helped me a lot at the beginning, since the admin interface is asserting many things right away.
+Question: since the model and controller generators do not work and wont be fixed soon, as you said yourself, how about we clean up the doc just to be with generate:api?",4,4
+665,2018-02-17T23:08:20Z,2018-02-19T09:38:04Z,2018-02-19T09:38:04Z,1,1,1,Helps clarify what the button actually does. Otherwise it seems like nothing is happening.,3,1
+666,2018-02-18T08:34:54Z,2018-02-18T16:44:45Z,2018-02-18T16:44:45Z,1,6,0,"Depending on screen resolution, when adding many content types the side
+menu can't fit them all. This commit simply uses absolute positioning
+and overflow-y: auto to allow vertical scrolling when it's needed.",2,1
+668,2018-02-19T09:52:34Z,2018-02-20T09:33:50Z,2018-02-20T09:33:50Z,6,57,58,"To keep consistency with the button label rename (#665).
+Also fix the de.json indent.",3,3
+671,2018-02-19T18:59:45Z,2018-02-21T10:05:38Z,2018-02-21T10:05:38Z,11,522,6,"⚠️ Must be read after this PR #656 merge
+
+Add route to upload new files on local server in public/upload folder.
+Delete local file
+Count files",2,0
+681,2018-02-21T22:18:48Z,2018-02-22T10:46:11Z,2018-02-22T10:46:11Z,1,46,0,,2,0
+683,2018-02-21T23:38:46Z,2018-02-22T11:49:25Z,2018-02-22T11:49:25Z,8,1158,2,,3,1
+684,2018-02-22T10:33:46Z,2018-02-23T15:23:49Z,2018-02-23T15:23:49Z,63,936,79,"Move upload logic in provider's module
+Create AWS S3 module
+Add enabled, size limit and provider auth settings
+Search file route by name or hash",3,0
+685,2018-02-22T10:34:50Z,2018-02-22T13:17:27Z,2018-02-22T13:17:27Z,75,3298,180,Created a new EditPage container and refacto the entire editing document logic,2,0
+686,2018-02-22T14:04:15Z,2018-02-22T16:39:21Z,2018-02-22T16:39:21Z,1,23,0,,2,0
+687,2018-02-22T15:10:32Z,2018-02-23T14:54:43Z,2018-02-23T14:54:43Z,8,703,177,,2,0
+692,2018-02-23T14:34:58Z,2018-02-26T10:12:14Z,2018-02-26T10:12:14Z,61,352,3567,"🔥 Upload files int the Admin 🔥
+Created Upload plugin
+Add list view to see, search, upload, delete files
+Remove useless components and containers in the content manager",3,2
+696,2018-02-24T15:24:43Z,2018-02-26T09:30:16Z,2018-02-26T09:30:16Z,2,3,1,,2,0
+703,2018-02-26T17:03:11Z,2018-03-01T10:54:48Z,2018-03-01T10:54:48Z,28,71,59,"Fix t-shirt icon
+Fix update user role on update role",2,0
+704,2018-02-26T18:47:44Z,2018-02-27T08:56:29Z,2018-02-27T08:56:29Z,1,2,2,,3,0
+708,2018-02-27T08:10:02Z,2018-03-01T13:45:02Z,2018-03-01T13:45:02Z,3,43,12,"Added environment variables to configure strapi logger.
+STRAPI_LOG_LEVEL
+STRAPI_LOG_TIMESTAMP
+STRAPI_LOG_PRETTY_PRINT
+STRAPI_LOG_FORCE_COLOR",3,5
+713,2018-02-28T15:02:38Z,2018-03-01T12:44:08Z,2018-03-01T12:44:08Z,8,1223,1,"Just Add Traditional Chinese Translation !!!
+Will add rest plug-in translation in several days !!!
+😝😝😝😝😝",2,7
+715,2018-02-28T16:44:58Z,2018-03-01T14:05:49Z,2018-03-01T14:05:49Z,19,156,75,,3,0
+716,2018-02-28T17:01:07Z,2018-03-01T14:24:24Z,2018-03-01T14:24:24Z,36,1071,121,Add configuration view to enable upload providers,3,0
+717,2018-02-28T17:03:38Z,2018-03-05T14:36:07Z,2018-03-05T14:36:07Z,2,26,14,"Fix InputText bug when empty placeholder is passed
+Prevent the plugin from displaying the media type if the upload plugin is not installed",2,0
+718,2018-03-01T12:15:15Z,2018-03-01T14:52:10Z,2018-03-01T14:52:10Z,3,25,11,"This fix aims to improve and facilitate the upcoming new language pull requests. From now on when a translation key is missing in the user's current locale it will automatically takes the one from the en one.
+It also removes the missing id error message in the console when developing on port 4000",2,0
+719,2018-03-01T12:53:10Z,2018-03-01T15:21:05Z,2018-03-01T15:21:05Z,16,18,14,Add locales to strapi-generate-plugin,2,0
+723,2018-03-02T08:39:51Z,2018-03-05T14:15:05Z,2018-03-05T14:15:05Z,5,5,4,"Fix ctm formValidations
+Fix InputSearch focus transition
+Add a logic in the Inputselect that automatically selects the first option if the value is required and initially empty
+Fix upload translation",3,0
+725,2018-03-02T10:46:11Z,2018-03-03T12:10:05Z,2018-03-03T12:10:05Z,4,8,8,Just add some fix.,2,0
+738,2018-03-04T15:17:16Z,2018-03-12T16:57:26Z,2018-03-12T16:57:26Z,5,19,5,"Updated strapi-generate-new package with ssl option
+Updated strapi-mongoose package allow connect with ssl option",3,1
+740,2018-03-05T10:49:39Z,2018-03-06T16:11:08Z,2018-03-06T16:11:08Z,1,2,2,Please see for more information: #732,3,0
+743,2018-03-05T14:59:52Z,2018-03-08T14:25:56Z,2018-03-08T14:25:56Z,107,2002,628,,3,0
+746,2018-03-06T06:35:58Z,2018-03-06T15:28:22Z,2018-03-06T15:28:23Z,1,6,1,,3,1
+753,2018-03-08T14:53:59Z,2018-03-14T09:01:35Z,2018-03-14T09:01:35Z,5,22,4,"Based on #738.
+Fixes #694.
+I have not tried it yet.",2,6
+754,2018-03-08T16:47:39Z,2018-03-09T12:08:21Z,2018-03-09T12:08:21Z,29,57,57,,2,0
+760,2018-03-09T10:24:59Z,2018-03-09T12:08:56Z,2018-03-09T12:08:56Z,3,8,5,Fix the error on the content manager when the InputFile is displayed. The error was caused by the ref that was set with string instead of a function,3,0
+772,2018-03-12T11:48:46Z,2018-03-12T17:31:01Z,2018-03-12T17:31:01Z,1,10,6,,2,0
+776,2018-03-13T08:29:30Z,2018-03-15T11:36:48Z,2018-03-15T11:36:48Z,4,55,7,,3,0
+781,2018-03-15T13:23:33Z,2018-03-15T15:39:38Z,2018-03-15T15:39:38Z,3,3,3,,2,0
+789,2018-03-16T11:26:03Z,2018-03-19T13:44:20Z,2018-03-19T13:44:20Z,2,48,0,,2,0
+790,2018-03-16T11:31:44Z,2018-03-16T16:21:49Z,2018-03-16T16:21:49Z,3,37,18,Improve errors handling,2,0
+792,2018-03-16T15:03:24Z,2018-03-19T11:22:35Z,2018-03-19T11:22:35Z,3,18,40,"Update the docs for model in bookshelf (indent + remove useless line)
+Fix typo in model.template for mongoose
+Fix type in model.template for bookshel + change to async function (as with mongoose template)",3,1
+796,2018-03-17T16:48:16Z,2018-03-19T09:33:51Z,2018-03-19T09:33:51Z,1,19,18,"Also, sort types alphabetically.
+You can see the two commits separately.
+Reference: #784 (comment)",2,0
+801,2018-03-18T12:13:10Z,2018-03-19T09:14:24Z,2018-03-19T09:14:24Z,4,13,13,"Now the npm run build --plugins works for me in paths with spaces.
+Also fix spaces path issues on databases. I'm not sure if something else is missing, because when I try strapi new myDevelopmentProject --dev use the strapi-mongoose from npm.
+Fix #709.",2,0
+808,2018-03-19T16:27:35Z,2018-03-23T16:05:53Z,2018-03-23T16:05:53Z,1,1,0,,3,4
+809,2018-03-19T16:31:09Z,2018-03-19T17:35:42Z,2018-03-19T17:35:42Z,1,1,1,,2,0
+812,2018-03-19T18:12:14Z,2018-03-20T11:07:39Z,2018-03-20T11:07:39Z,1,31,10,,2,0
+813,2018-03-19T18:13:00Z,2018-03-20T10:47:48Z,2018-03-20T10:47:48Z,1,1,1,,2,0
+818,2018-03-20T15:27:59Z,,2018-03-23T16:51:51Z,119,1881,348,"Add Rich text editor to the InputsIndex.
+
+Allow the content-type-builder to display the WYSIWYGin the content-manager
+The editor is in markdown
+Features
+
+Bold, italic, underline, striked controls
+ul, ol, code-block & quotes controls
+Media link, link
+Drag&drop upload and media link auto insertion
+Titles controls
+Markdown export
+
+
+
+Preview is not ready yet",4,2
+820,2018-03-20T16:40:55Z,2018-03-23T16:22:10Z,2018-03-23T16:22:10Z,2,1,6,Remove monkey patch and output packageJSON.version in the commander action.,2,0
+821,2018-03-20T21:50:54Z,2018-03-23T16:38:05Z,2018-03-23T16:38:06Z,9,39,36,"Fix #804
+Reference: #804 (comment)
+Staging based on production environment. I think staging should be closer to production.
+I'm not sure if you need to update something else.",2,0
+827,2018-03-21T21:23:37Z,2018-03-24T11:09:51Z,2018-03-24T11:09:51Z,2,3,3,Both the getting started page and the installation doc mention that the current alpha requires node version >= 9.,3,3
+829,2018-03-22T11:59:22Z,2018-03-23T11:27:21Z,2018-03-23T11:27:21Z,1,1,1,,2,0
+831,2018-03-23T09:32:32Z,2018-04-12T13:27:08Z,2018-04-12T13:27:08Z,161,3412,471,Add full screen editor and preview,9,15
+833,2018-03-23T11:30:09Z,2018-03-23T16:53:04Z,2018-03-23T16:53:04Z,1,26,0,"Mention of cbx.state.user is missing, added a bit of documentation mentioning it.",2,0
+834,2018-03-23T11:48:42Z,2018-03-23T14:25:46Z,2018-03-23T14:25:46Z,10,84,5,,2,0
+835,2018-03-23T13:41:31Z,2018-03-24T10:04:26Z,2018-03-24T10:04:26Z,1,2,2,The description doesn't match the example. The example is correct,2,0
+836,2018-03-23T17:45:40Z,2018-03-24T10:53:38Z,2018-03-24T10:53:38Z,1,3,0,,2,0
+848,2018-03-26T13:31:02Z,2018-04-02T09:54:05Z,2018-04-02T09:54:05Z,16,151,9,Modify the ctb and ctm plugins so the user can set default values,2,0
+851,2018-03-27T08:14:42Z,2018-03-27T11:28:35Z,2018-03-27T11:28:35Z,1,58,48,,2,0
+852,2018-03-27T08:48:46Z,2018-03-27T13:14:52Z,2018-03-27T13:14:52Z,1,1,1,,2,0
+854,2018-03-27T10:41:47Z,2018-04-02T09:19:51Z,2018-04-02T09:19:51Z,6,241,0,,2,0
+869,2018-03-28T16:13:40Z,2018-04-01T12:31:31Z,2018-04-01T12:31:31Z,3,3,3,fix #726,2,0
+872,2018-03-29T07:29:17Z,2018-03-30T09:45:25Z,2018-03-30T09:45:25Z,5,43,7,"Fix bug when hitting space key on a new empty line (it was due to the pre-line css property)
+Add tab behavior",2,0
+874,2018-03-29T09:49:34Z,2018-03-29T12:08:36Z,2018-03-29T12:08:36Z,3,9,7,"While browsing through ./plugins/settings-manager/controllers/SettingsManager.js I've found some issues with translation strings:
+
+There was request.error.environment.unknown instead of request.error.environment.unknow (as in translation files). I corrected it.
+There were no request.error.database.unknow string in translation files. I added lacking string and its translations to EN and PL files. Other files need updating.",2,0
+878,2018-03-30T08:35:40Z,2018-03-30T10:25:05Z,2018-03-30T10:25:05Z,1,2,0,Add a new section in the issue template,2,0
+879,2018-03-30T08:41:33Z,2018-04-02T11:29:47Z,2018-04-02T11:29:47Z,14,146,37,"Handle upload in the WYSIWYG component for the following actions
+
+Dragging & dropping files
+Browsing files
+Pasting files from the clipboard
+
+⚠️ The preview only supports image and video file format for the moment  ⚠️",3,4
+881,2018-03-30T17:02:15Z,2018-03-31T16:31:26Z,2018-03-31T16:31:26Z,5,34,34,,2,0
+882,2018-03-30T18:29:15Z,2018-03-31T13:10:54Z,2018-03-31T13:10:54Z,3,15,5,,2,0
+887,2018-04-02T09:46:55Z,2018-04-02T11:34:36Z,2018-04-02T11:34:36Z,30,240,113,,3,1
+889,2018-04-02T19:18:58Z,2018-04-03T09:59:32Z,2018-04-03T09:59:32Z,1,1,1,"Logo is in the top-left corner, not top-right",3,0
+890,2018-04-02T19:34:15Z,2018-04-03T08:44:55Z,2018-04-03T08:44:55Z,1,1,1,center center logo background position so that we don't have to use logos with a specific height and width.,3,0
+892,2018-04-02T21:55:22Z,2018-04-11T17:56:36Z,2018-04-11T17:56:36Z,1,34,16,"The problem was that the relation was recreated on only one side and sometimes, the removal of the previous relationship was executed before updating with the new one (because of the asynchronous function) and if the relation remained the same, that's why sometimes the relation disappears.
+So there are the steps :
+
+Delete relation on the old first side (if exists)
+Delete relation on the old second side
+Recreate relation on the new first side (only when deletion complete)
+Recreate relation on the new second side (only when deletion complete and if value not null)",5,7
+895,2018-04-03T10:40:25Z,2018-04-03T12:09:26Z,2018-04-03T12:09:27Z,4,27,13,fix #863,2,0
+896,2018-04-03T13:04:09Z,2018-04-03T14:52:19Z,2018-04-03T14:52:19Z,1,11,11,,2,0
+899,2018-04-03T16:18:30Z,2018-04-17T15:46:10Z,2018-04-17T15:46:10Z,70,2120,543,"This PR is the first step of the GraphQL integration. It only supports query, not mutation yet.",4,2
+901,2018-04-03T18:38:57Z,2018-04-04T11:56:35Z,2018-04-04T11:56:35Z,1,5,5,,2,0
+903,2018-04-04T15:15:18Z,2018-04-11T10:28:22Z,2018-04-11T10:28:22Z,63,1316,215,,7,7
+912,2018-04-06T16:03:54Z,2018-04-08T14:38:30Z,2018-04-08T14:38:30Z,3,11,4,,2,0
+918,2018-04-09T17:32:56Z,2018-04-10T08:24:53Z,2018-04-10T08:24:53Z,2,17,0,,2,0
+928,2018-04-11T12:44:08Z,2018-04-12T13:48:22Z,2018-04-12T13:48:22Z,1,1,1,"Given that
+connection.settings.ssl = 'false' // String representation of false
+
+connectOptions.ssl would end up as being true. This fixes that issue :)",4,3
+929,2018-04-11T19:22:34Z,2018-04-12T10:02:30Z,2018-04-12T10:02:30Z,3,17,17,,2,0
+933,2018-04-12T12:23:30Z,2018-04-13T08:14:23Z,2018-04-13T08:14:24Z,5,18,14,,2,0
+934,2018-04-12T15:30:07Z,2018-04-13T12:02:32Z,2018-04-13T12:02:32Z,4,8,2,I added some plugins to fix the issue,2,0
+935,2018-04-12T16:56:10Z,2018-04-13T12:43:12Z,2018-04-13T12:43:12Z,1,2,2,,2,1
+937,2018-04-12T21:47:46Z,2018-04-13T13:11:22Z,2018-04-13T13:11:22Z,9,75,18,,2,0
+938,2018-04-13T08:17:58Z,2018-04-13T14:13:04Z,2018-04-13T14:13:04Z,2,40,13,Add a new prop to the InputsIndex component so we can add new input type to the input library.,3,0
+941,2018-04-13T14:09:01Z,2018-04-13T15:09:06Z,2018-04-13T15:09:06Z,1,1,1,,2,0
+944,2018-04-14T20:59:00Z,2018-04-15T08:09:25Z,2018-04-15T08:09:25Z,1,160,0,Russian language pack,2,0
+945,2018-04-15T10:33:54Z,2018-04-16T07:47:27Z,2018-04-16T07:47:27Z,9,1112,2,Admin translations fixes + Content manager translations added.,2,2
+947,2018-04-16T06:52:49Z,2018-04-16T08:49:01Z,2018-04-16T08:49:02Z,1,1,1,,2,0
+948,2018-04-16T12:19:31Z,2018-04-17T08:23:04Z,2018-04-17T08:23:04Z,2,15,1,,2,0
+950,2018-04-16T16:17:19Z,2018-04-17T09:54:27Z,2018-04-17T09:54:27Z,13,252,55,,3,0
+956,2018-04-17T15:51:56Z,2018-04-18T08:32:00Z,2018-04-18T08:32:00Z,2,17,8,,2,0
+961,2018-04-18T10:27:08Z,2018-04-18T14:40:46Z,2018-04-18T14:40:46Z,30,57,57,,2,0
+965,2018-04-18T12:36:43Z,2018-04-19T08:42:58Z,2018-04-19T08:42:58Z,1,2,2,Feel free to close the PR if you are not okay with have the same config.,2,0
+966,2018-04-18T13:38:38Z,2018-04-20T09:26:50Z,2018-04-20T09:26:50Z,1,5,5,,2,0
+969,2018-04-18T17:04:59Z,2018-04-23T10:29:16Z,2018-04-23T10:29:16Z,2,4,4,"MySQL 5.7 is more strict than previous versions for dates as it requires a default value.
+While installing contentajs with MySQL I had to manually run a few SQL queries. Some of them failed with the following error:
+sql> CREATE TABLE `upload_file` (
+  id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
+  name text,
+  hash text,
+  ext text,
+  mime text,
+  size text,
+  url text,
+  provider text,
+  updated_at timestamp,
+  created_at timestamp
+)
+[2018-04-18 08:14:09] [42000][1067] Invalid default value for 'created_at'
+
+I had to adjust these timestamp fields so they define default values. After doing so I was able to run strapi start and view the homepage in the browser.
+See https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_no_zero_in_date for details.",3,1
+973,2018-04-19T11:10:44Z,2018-04-20T08:47:38Z,2018-04-20T08:47:38Z,1,2,2,"Fixes #962
+Fixes #785",2,0
+974,2018-04-19T15:25:17Z,2018-04-23T11:51:18Z,2018-04-23T11:51:18Z,4,152,58,,5,6
+980,2018-04-20T08:52:08Z,2018-04-20T10:28:24Z,2018-04-20T10:28:24Z,1,1,1,,2,0
+982,2018-04-20T10:14:07Z,2018-04-20T11:49:57Z,2018-04-20T11:49:57Z,1,2,2,Fix #971,2,0
+984,2018-04-20T11:56:55Z,2018-04-20T14:56:47Z,2018-04-20T14:56:48Z,2,6,4,Fix #782,3,0
+986,2018-04-20T13:36:21Z,2018-04-20T15:59:24Z,2018-04-20T15:59:24Z,4,36,4,"This PR fixes some issues in development mode when we're creating a project with a SQL database.
+
+It auto-installs the right version of strapi-knex and knex when you're choosing a SQL database.
+It creates the symlinks to the global dependencies if you've setup the monorepo.
+It forces to install the dependency at the root of the project (to avoid the well-know knex issue)
+It installs the exact same version of knex than the bookshelf dependency.",2,0
+989,2018-04-20T14:41:27Z,2018-04-20T23:44:16Z,2018-04-20T23:44:16Z,1,10,0,Fix #976,2,0
+991,2018-04-21T04:47:00Z,2018-04-24T15:21:40Z,2018-04-24T15:21:40Z,1,51,42,"the users-permissions plugin will store the grant auth provider config into db in bootstrap.js
+when the first time we start the server.
+
+  
+    
+      strapi/packages/strapi-plugin-users-permissions/config/functions/bootstrap.js
+    
+    
+         Line 37
+      in
+      6b8f430
+    
+  
+  
+    
+
+        
+          
+           if (!await pluginStore.get({key: 'grant'})) { 
+        
+    
+  
+
+
+after that the grant config (plugin_users-permissions_grant in core_store) will not be able changed even if someone want to add one more provider using grant.
+The only way he can do is to remove  core_store.{key: plugin_users-permissions_grant} record in db manually.
+I think we may want to reload the grant config into db, when we change the provider config (here i only handle the situation of adding/removing a provider)
+#891 (comment)",4,8
+993,2018-04-22T14:26:52Z,2018-05-01T09:20:10Z,2018-05-01T09:20:10Z,9,1264,1,"translations for those packages.
+
+ strapi/packages/strapi-admin
+ strapi/packages/strapi-plugin-settings-manager
+ strapi/packages/strapi-plugin-upload
+ strapi/packages/strapi-plugin-email
+ strapi/packages/strapi-plugin-content-manager
+ strapi/packages/strapi-plugin-user-permissions
+ strapi/packages/strapi-plugin-content-type-builder
+ strapi/packages/strapi-generate-plugin",3,4
+996,2018-04-23T03:27:03Z,2018-04-24T15:45:33Z,2018-04-24T15:45:33Z,2,7,3,"I could not reproduce, but this should fix #992. Not accounting for the padding on each side which causes the footer to go out of bounds should be the problem here.",4,7
+1001,2018-04-23T11:47:26Z,2018-04-24T08:06:45Z,2018-04-24T08:06:45Z,3,19,13,Fix #924,2,0
+1003,2018-04-23T14:24:33Z,2018-04-23T21:52:33Z,2018-04-23T21:52:33Z,2,4,2,"It doesn't fix anything, just add a new comment to explain why we can't resolve the issue #888 for the moment.",2,0
+1004,2018-04-23T14:59:09Z,2018-04-23T21:42:38Z,2018-04-23T21:42:39Z,3,14,4,Fix #919,2,0
+1012,2018-04-24T06:29:53Z,2018-04-24T10:31:49Z,2018-04-24T10:31:49Z,9,278,4,,2,1
+1014,2018-04-24T08:15:05Z,2018-04-24T10:19:19Z,2018-04-24T10:19:19Z,2,15,6,Add corresponding errors when duplicate email,2,0
+1017,2018-04-24T12:22:11Z,2018-04-24T14:06:29Z,2018-04-24T14:06:29Z,1,4,0,"This PR removes the File model from the Content-Type Builder. Why? This model is special, it shouldn't be edited. To add a file in a model, the users have to use the Media field.",2,0
+1020,2018-04-24T14:40:53Z,2018-04-24T16:10:39Z,2018-04-24T16:10:39Z,5,32,17,,2,0
+1021,2018-04-24T14:42:33Z,2018-04-24T16:59:46Z,2018-04-24T16:59:46Z,2,4,4,,2,0
+1025,2018-04-25T08:56:07Z,2018-04-27T14:40:24Z,2018-04-27T14:40:24Z,21,1058,1081,"🚀 New features:
+
+Automatically generate tables for plugins and APIs models.
+Generate relation tables.
+Add column if there is missing one.
+
+⚠️ We just create new things and delete nothing !
+🚫 We remove the possibility to start project with SQLite and Redis. These databases still exist in settings manager.",3,0
+1026,2018-04-25T09:32:46Z,2018-04-25T12:59:41Z,2018-04-25T12:59:41Z,1,5,0,"Added a little check if strapi startruns inside a strapi project
+Closes #481",2,1
+1033,2018-04-25T15:48:40Z,2018-04-26T12:33:10Z,2018-04-26T12:33:10Z,14,335,244,"The goals of these modifications are to :
+
+Decrease the building time in dev mode
+Prevent the babel-polyfill - error Error: only one instance of babel-polyfill is allowed from occurring when running the app on the build and hopefully in production.
+Fix the npm run setup command that was broken when ran in the admin.
+
+🔥 Results 🔥 :
+
+Previously, when we started the admin dev server (localhost:4000/admin) Webpack used to build the project twice with the entire app's configurations (plugins's controllers, services...).
+It was due to two processes running at the same time : strapi.load({ ... }) and npm run build which were making Webpack watching, thus building to many files... Since, the first process is necessary when building the admin from a project and starting the dev server, it was moved to the prestart and prebuild scripts from the strapi-admin.
+Now the admin is built once with a ≃ 20s decrease.
+Similarly, the npm run setup command works again when ran from a project.",3,0
+1035,2018-04-25T18:15:02Z,2018-04-25T22:28:40Z,2018-04-25T22:28:40Z,1,1,1,,3,0
+1043,2018-04-26T09:31:04Z,2018-04-26T12:08:07Z,2018-04-26T12:08:07Z,7,36,4,Since we haven't developed the plugins' dependencies feature yet I'm blocking these plugins in production from the front-end,2,0
+1044,2018-04-26T11:31:28Z,2018-04-26T12:46:58Z,2018-04-26T12:46:58Z,2,5,2,,2,0
+1045,2018-04-26T11:46:07Z,2018-04-26T12:56:07Z,2018-04-26T12:56:07Z,1,1,1,"I commented the DatetimeStyles import in the InputDate because it was messing with webpack.
+Since the new config it is not doing it anymore.",2,0
+1046,2018-04-26T12:24:13Z,2018-04-26T14:25:38Z,2018-04-26T14:25:38Z,1,1,0,,2,0
+1047,2018-04-26T13:13:20Z,2018-04-27T09:33:01Z,2018-04-27T09:33:01Z,1,28,10,,3,0
+1052,2018-04-27T13:52:13Z,2018-04-27T14:52:58Z,2018-04-27T14:52:58Z,1,5,2,,2,0
+1054,2018-04-27T14:29:27Z,2018-05-16T10:25:07Z,2018-05-16T10:25:07Z,145,1435,1598,"Created strapi-lint package to handle the new eslint configuration
+
+eslint will be added in both the front-end and the backend
+hook on precommit
+prettier on precommit",4,4
+1056,2018-04-27T14:47:44Z,2018-04-28T11:06:58Z,2018-04-28T11:06:58Z,1,3,0,Add the new setup command in the CONTRIBUTING GUIDE.,2,0
+1067,2018-04-30T12:02:29Z,2018-05-01T09:29:16Z,2018-05-01T09:29:16Z,2,6,4,,2,0
+1068,2018-04-30T13:39:43Z,2018-05-01T09:37:56Z,2018-05-01T09:37:56Z,9,11,27,The issue was due FormattedMessage that requires an id,2,0
+1070,2018-04-30T15:18:17Z,2018-05-01T09:49:54Z,2018-05-01T09:49:54Z,1,9,23,,4,4
+1071,2018-04-30T15:32:08Z,2018-05-02T09:12:22Z,2018-05-02T09:12:22Z,20,82,795,,2,0
+1072,2018-04-30T15:51:06Z,2018-05-01T10:00:07Z,2018-05-01T10:00:07Z,1,1,1,,2,0
+1073,2018-04-30T16:02:04Z,2018-05-02T09:13:55Z,2018-05-02T09:13:55Z,9,43,41,,2,0
+1074,2018-04-30T16:28:58Z,2018-05-02T09:16:02Z,2018-05-02T09:16:02Z,17,62,62,,2,0
+1079,2018-05-01T12:12:59Z,2018-05-03T14:41:06Z,2018-05-03T14:41:07Z,4,26,6,"Closes #865
+However, I decided not to include the uri field in the admin panel, since all the options to successfully connect to mongo are already given and this would just lead to confusion. Additionally, the initial project setup via cli ignores the field as well.
+I included the translation for EN and DE. Is there a suggested way on how to handle / get the rest of the translations?
+During the implementation I ran into an issue similar to #883 and followed the same strategy as in #928 to resolve it. However, I don't think it's a very sophisticated solution as it could lead to developers handling values differently. The solution in #928 suggests to treat every string except 'true' as false, if I didn't stumble upon this issue I might have chosen to treat every string except 'false'as true (which feels more like javascript anyway). What I propose is essentially to handle 'trueish' and 'falseish' values from environment / config files in a more robust and centralized manner, so there's no room for interpretation.",2,0
+1081,2018-05-01T12:38:11Z,2018-05-03T14:09:42Z,2018-05-03T14:09:43Z,1,6,3,Fix #886,2,0
+1083,2018-05-01T22:38:08Z,,2018-06-30T14:21:03Z,2,7,7,"You have an error in Content Type Builder plugin. When you have content type named with two ore more words (for example productionCompany),  you cannot add relation and delete this content type.
+I fixed these errors in the code below ;-)",3,2
+1085,2018-05-02T10:30:21Z,2018-05-03T12:06:40Z,2018-05-03T12:06:40Z,6,39,30,,2,0
+1092,2018-05-02T15:54:39Z,2018-05-03T08:08:57Z,2018-05-03T08:08:57Z,2,2,2,,2,0
+1107,2018-05-03T16:15:06Z,2018-05-04T09:07:51Z,2018-05-04T09:07:51Z,7,26,11,,2,0
+1110,2018-05-03T20:58:14Z,2018-05-10T07:37:50Z,2018-05-10T07:37:50Z,1,3,2,strapi.reload.isWatching is always undefined.,2,2
+1117,2018-05-04T10:45:07Z,2018-05-04T13:27:09Z,2018-05-04T13:27:09Z,6,128,143,,2,0
+1122,2018-05-04T14:48:52Z,2018-05-08T09:48:53Z,2018-05-08T09:48:53Z,12,230,0,"My PR is a: 💅 Enhancement
+Main update on the: Admin & Plugin
+
+Ignore .editorconfig & .gitattributes in npm plugins & admin.
+It helps to #823.",3,0
+1123,2018-05-04T15:03:10Z,2018-05-07T13:43:42Z,2018-05-07T13:43:42Z,84,860,646,"My PR is a:
+
+
+
+
+Main update on the:",2,0
+1126,2018-05-05T14:35:16Z,2018-05-06T18:43:54Z,2018-05-06T18:43:54Z,1,1,1,,3,0
+1137,2018-05-07T13:24:23Z,2018-05-08T10:10:26Z,2018-05-08T10:10:27Z,1,1,2,"My PR is a: 💅 Enhancement
+
+
+
+
+Main update on the: Framework
+
+
+
+
+
+Publish latest version of email plugin",3,0
+1140,2018-05-07T15:51:02Z,2018-05-08T09:58:28Z,2018-05-08T09:58:28Z,2,12,2,"My PR is a: 💅 Enhancement
+Main update on the: Framework
+Disable the default minimize option of Mongoose #902",2,0
+1141,2018-05-07T22:33:15Z,2018-05-08T15:14:53Z,2018-05-08T15:14:53Z,1,1,1,"My PR is a: 🐛 Bug fix
+Main update on the: Documentation",2,0
+1146,2018-05-08T15:57:29Z,2018-05-09T15:36:52Z,2018-05-09T15:36:53Z,1,3,3,"My PR is a: 🐛
+Main update on the: Framework
+Avoid to delete duplicate permissions per role. Also fix #1134. And sort the Roles list by name.",2,0
+1147,2018-05-08T18:03:20Z,2018-05-09T08:05:46Z,2018-05-09T08:05:46Z,1,1,0,"My PR is a:
+💅 Enhancement
+Main update on the:
+Framework
+Added a case for strapi bookshelf to create a varchar(255) column for enumeration values, inline to match how string columns are made.",2,2
+1151,2018-05-09T09:30:50Z,2018-05-10T17:00:05Z,2018-05-10T17:00:06Z,1,3,1,"My PR is a:
+
+🐛 Bug fix
+
+
+Main update on the:
+
+
+
+Plugin
+
+Update MySQL float data type from float to double to properly store large float values.",2,4
+1163,2018-05-10T17:56:44Z,2018-05-11T08:52:34Z,2018-05-11T08:52:34Z,1,1,1,"My PR is an 💅 Enhancement
+Main update on the: Plugin (strapi-plugin-user-permissions)
+HTTP code which is returned when current user does not have enough permissions to perform an operation was changed from 401 (Unauthorized) to 403 (Forbidden) which is more suitable in this case.",2,0
+1170,2018-05-11T20:23:03Z,2018-05-31T14:06:32Z,2018-05-31T14:06:32Z,1,1,1,"My PR is a:
+
+🐛 Bug fix
+
+
+Main update on the:
+
+
+
+Plugin
+
+Fix a bug that the third party user-permission-methods always return 'provider is disabled' on windows.
+Issue: #1162",3,1
+1181,2018-05-14T03:18:06Z,2018-05-30T08:41:12Z,2018-05-30T08:41:12Z,1,11,3,"My PR is a: en
+
+
+💅 Enhancement
+
+Main update on the:
+
+
+Framework
+
+Fixes #1179 adds support for passing additional variables into mongoose. By adding a new object into database.json, for the additional variables, at this moment only debug is supported, which allows mongoose to dump all the queries in the console like this
+Mongoose: users-permissions_user.findOne({ _id: ObjectId(""5aee1e6b7ae7d334d9247e79"") }, { fields: {} })
+Mongoose: users-permissions_role.find({ _id: { '$in': [ ObjectId(""5aedd8b3e235fa32d54c7b63"") ] } }, { fields: {} })
+Mongoose: appointment.find({ staff: { '$in': [ ObjectId(""5aee1e6b7ae7d334d9247e79"") ] } }, { fields: {} })
+Mongoose: practice.find({ _id: { '$in': [ ObjectId(""5aef661dca53d04354a36adc"") ] } }, { fields: {} })
+Mongoose: users-permissions_permission.findOne({ role: ObjectId(""5aedd8b3e235fa32d54c7b63""), type: 'application', controller: 'appointment', action: 'findone', enabled: true }, { fields: {} })
+Mongoose: appointment.findOne({ _id: ObjectId(""5aefada83ed11a4862ae908a"") }, { fields: {} })
+Mongoose: patient.find({ _id: { '$in': [ ObjectId(""5aee7ee027d7e03b2e0c7c3b"") ] } }, { fields: {} })
+Mongoose: location.find({ _id: { '$in': [ ObjectId(""5af52263900e1c1b1cc2374f"") ] } }, { fields: {} })
+Mongoose: location.findOne({ _id: ObjectId(""5af52263900e1c1b1cc2374f"") }, { fields: {} })
+Mongoose: practice.findOne({ _id: ObjectId(""5aef661dca53d04354a36adc"") }, { fields: {} })
+[2018-05-14T03:04:00.983Z] debug POST /graphql?_id=5aefada83ed11a4862ae908a (116 ms)",4,11
+1184,2018-05-14T10:32:54Z,2018-05-14T12:32:10Z,2018-05-14T12:32:11Z,9,58,79,"My PR is a: 💅 Enhancement
+
+
+
+
+Main update on the: Framework
+
+
+
+
+
+Fix #644 by adding strapi-generate-controller and strapi-generate-model in strapi dependencies.
+It also harmonize generated model between strapi generate:api and strapi generate:model",2,0
+1185,2018-05-14T11:39:31Z,2018-05-14T14:57:19Z,2018-05-14T14:57:19Z,1,3,0,"My PR is a:
+
+🐛 Bug fix
+
+
+Main update on the:
+
+Documentation
+
+
+
+For me, copying the files from the newly generated strapi environment was not sufficient. When I started the strapi after following the guide,
+I got the following error:
+/home/xxx/Dev/Projects/xxx/server/node_modules/mongodb/lib/mongo_client.js:804
+          throw err;
+          ^
+
+TypeError: Cannot read property 'globalId' of undefined
+
+
+I guess this was the case because strapi-mongoose was not upgraded.  I don't know if I'm blind or did not read the migration guide carefully enough, but for me a npm install at the end did the trick and upgraded it.
+Maybe this is helpful for you",2,0
+1188,2018-05-14T12:59:15Z,2018-05-14T15:30:35Z,2018-05-14T15:30:35Z,1,6,6,"My PR is a:
+
+
+💅 Enhancement
+
+Main update on the:
+
+Documentation
+
+
+
+Since there are some issues with the release alpha.12 concerning the webpack build process, we should advise the user to upgrade to the latest alpha.12.x",2,4
+1190,2018-05-14T14:05:30Z,2018-05-15T16:12:35Z,2018-05-15T16:12:35Z,3,31,1,"My PR is a: 🐛 Bug fix
+
+
+
+
+Main update on the: Plugin
+
+
+
+
+
+We reject some reserved attributes name for good ORM usage as set, id etc..
+It also fix an issue on bookshelf,  if we delete analytics plugin we got this error:",4,0
+1192,2018-05-14T18:59:46Z,2018-05-15T15:23:55Z,2018-05-15T15:23:55Z,1,2,7,"My PR is a:  🐛 Bug fix
+Main update on the: Plugin
+It fixes this bug: #1061.",3,0
+1195,2018-05-15T10:41:57Z,2018-05-16T08:57:26Z,2018-05-16T08:57:26Z,8,224,30,"My PR is a:-
+💅 Enhancement
+
+New locale selector design
+
+Main update on the:
+Admin
+New locale selector design",3,3
+1196,2018-05-15T12:10:32Z,2018-05-18T09:15:42Z,2018-05-18T09:15:42Z,10,13,8,"My PR is an:
+💅 Enhancement
+Main update on the:
+Admin
+I have added styled-components in order to make the admin panel responsive (later)",3,0
+1197,2018-05-15T14:08:44Z,2018-05-15T16:24:47Z,2018-05-15T16:24:47Z,3,13,11,"My PR is a:
+💅 Enhancement
+Main update on the:
+Plugin
+The pull request is about to move from GraphiQL to GraphQL Playground, which is really the best IDE for using GraphQL",4,2
+1199,2018-05-15T18:51:37Z,2018-05-28T13:19:14Z,2018-05-28T13:19:14Z,10,68,4,"💅 Enhancement
+Main update on the: Plugin
+This PR provides frontend support for #379 fixed in #426",5,10
+1201,2018-05-15T20:09:47Z,2018-05-16T08:47:02Z,2018-05-16T08:47:02Z,1,6,6,"My PR is a:
+💅 Enhancement
+Main update on the:
+Admin
+Corrected spelling of ""occurred""",3,1
+1205,2018-05-16T13:07:00Z,2018-05-18T09:24:35Z,2018-05-18T09:24:35Z,2,3,1,"My PR is a:
+💅 Enhancement
+Main update on the:
+Framework",2,1
+1219,2018-05-17T11:51:26Z,2018-05-17T13:37:54Z,2018-05-17T13:37:54Z,21,62,29,"My PR is a: 💅 Enhancement
+Main update on the: Admin
+
+Enhance CSS for newsletter submit button
+Display icons on list row
+Fix position button state on the plugin cards
+Fix max-width on support banner (marketplace)
+Enhance CSS for toggle lang (not logged)",3,0
+1222,2018-05-17T14:24:10Z,2018-05-18T09:06:50Z,2018-05-18T09:06:50Z,1,10,0,"🐛 Bug fix
+Main update on the: Admin
+Description
+During users-permissions plugin's bootstrap function, there is an HTTP request to: /users-permissions/init. If it's not fetched quickly, the Admin will redirect the user to the registration page even though there is an admin user present.
+How to reproduce
+Load up the /admin page where you should be presented the login screen on a slow connection. Can be reproduced using 3G presets in Chrome's network tab.",4,1
+1229,2018-05-18T12:46:19Z,2018-05-18T14:43:02Z,2018-05-18T14:43:02Z,1,58,34,strapi-admin Turkish translations update,2,0
+1238,2018-05-20T11:13:15Z,2018-05-21T08:25:21Z,2018-05-21T08:25:21Z,3,14,7,"My PR is a:
+Turkish language support
+
+
+
+
+Main update on the:
+Packages
+
+
+
+
+🇹🇷 Turkish language files updates for strapi-plugin-content-type-builder, strapi-plugin-upload, strapi-plugin-users-permissions packages",3,0
+1245,2018-05-21T13:26:15Z,2018-05-24T16:47:26Z,2018-05-24T16:47:26Z,1,12,12,"My PR is a:
+🐛 Bug fix
+Main update on the:
+Plugin
+Fix error type Union type Morph can only include Object types, it cannot include [Enum name]",3,1
+1248,2018-05-21T18:16:00Z,2018-05-28T10:26:31Z,2018-05-28T10:26:31Z,9,12,12,"My PR is a:
+
+💥 Breaking change?
+💅 Enhancement
+
+Main update on the:
+Admin
+
+
+
+
+This PR fixes a typo in one of the error strings.
+Unsure if thi will be considered a breaking change, maybe someone is working on translations and will miss this?",3,2
+1255,2018-05-23T05:29:19Z,2018-06-14T12:18:11Z,2018-06-14T12:18:11Z,45,2150,38,"My PR is a:
+
+
+💅 Enhancement
+
+Main update on the:
+
+
+
+Plugin (Email)
+
+Added basic support for using Mailgun and Sendgrid (as opposed to the Sendmail) package in the email plugin. Configuration is done in plugins/email/config/settings.json.",6,19
+1260,2018-05-23T12:30:27Z,2018-05-24T17:26:13Z,2018-05-24T17:26:13Z,1,16,9,"My PR is a:
+🐛 Bug fix
+Main update on the:
+Plugin
+If I update the shadowCRUD setting to false, there is some bugs about the generation of the schema, independently of custom type, queries or another rules added.",3,1
+1261,2018-05-23T12:30:27Z,2018-05-24T16:58:10Z,2018-05-24T16:58:10Z,1,5,3,"🐛 Bug fix
+Main update on the:
+Plugin
+Description
+We had issues with getting duplicate permissions when deployed on Heroku. It seems this logic was in the wrong order.
+To reproduce the bug:
+
+Deploy a new project to Heroku (free dyno, really slow)
+Let it populate permissions
+Restart dyno
+You now have duplicate permissions",3,2
+1265,2018-05-24T15:09:55Z,2018-05-28T14:49:42Z,2018-05-28T14:49:43Z,1,1,1,"My PR is a:
+💅 Enhancement
+Main update on the:
+Admin
+A little fix to add a default min-width for the helper field.
+Fix #1214",3,0
+1266,2018-05-24T15:18:39Z,2018-05-25T14:46:55Z,2018-05-25T14:46:55Z,1,4,4,"My PR is a:
+💥 Breaking change
+Main update on the:
+Plugin
+To respect the openCRUD after talking with @Aurelsicoko, I update the fields about timestamp to follow the camel case logic for the naming of fields.
+FYI: I indicate this PR as a breaking change because it will generate errors for people already using GraphQL if they don't update their requests.",3,2
+1267,2018-05-24T15:54:26Z,2018-05-28T14:21:39Z,2018-05-28T14:21:39Z,2,2,2,"My PR is a:
+💅 Enhancement
+Main update on the:
+Admin
+Little UI improvement for #1076",3,0
+1268,2018-05-24T16:31:42Z,2018-05-28T14:03:37Z,2018-05-28T14:03:37Z,1,2,1,"My PR is a:
+💅 Enhancement
+Main update on the:
+Admin
+Adjust modal position and size, based on the issue #1062",3,0
+1275,2018-05-25T15:17:23Z,2018-05-29T19:58:11Z,2018-05-29T19:58:12Z,7,112,28,"My PR is a: 💅 Enhancement
+Main update on the: GraphQL Plugin
+This PR fixes many issues related to GraphQL:
+
+#1247
+#1232
+#1174
+#1164
+#1058",3,0
+1276,2018-05-25T15:45:59Z,2018-05-31T12:27:51Z,2018-05-31T12:27:51Z,2,10,5,"My PR is a:
+🐛 Bug fix
+Main update on the:
+Admin
+Fix #1257",4,5
+1279,2018-05-26T17:11:47Z,2018-06-01T09:51:26Z,2018-06-01T09:51:26Z,1,15,12,"My PR is a: 🐛 Bug fix
+Main update on the: GraphQL Plugin
+This PR fixes the issue related to the case when we have two entities with ManyToMany relationship. When the non-dominant entity is nested on a query it returns a null when trying to access the other entity from it (because it's a Virtual Relation which is not being populated). So the solution is to use the default query resolver.",3,0
+1285,2018-05-28T12:42:33Z,2018-05-28T13:44:47Z,2018-05-28T13:44:47Z,11,39,9,"My PR is a: 💅 Enhancement
+Main update on the: Documentation
+Be transparent about what kind of data we are collecting to improve the product.",3,0
+1287,2018-05-28T15:39:14Z,2018-05-31T11:52:33Z,2018-05-31T11:52:33Z,1,19,9,"My PR is a:
+💅 Enhancement
+Main update on the:
+Plugin
+In order to follow the GraphQL spec, this PR add the flag ! for a type when the field must be a non-nullable (because it's required).",3,1
+1288,2018-05-28T16:37:33Z,2018-06-12T12:32:35Z,2018-06-12T12:32:35Z,1,37,6,"My PR is a:
+🚀 New feature
+Main update on the:
+Plugin
+This is PR is a POC (and still a little WIP to make more tests) about to transform the enumeration type of a model into the Enum in GraphQL.
+The goal is to improve the schema comprehension for developers who will use the GraphQL API
+
+Actually, I add the attribute enumName to an attribute to generate easier a friendly-name, ex:
+""type"": {
+  ""type"": ""enumeration"",
+  ""required"": true,
+  ""default"": ""STANDARD"",
+  ""enum"": [
+    ""STANDARD"",
+    ""SLIM"",
+    ""ENHANCED"",
+  ],
+  ""enumName"": ""MODEL_TYPE""
+}
+
+Otherwise, the generated name is based on the first entry in the list.
+Feel free to make me any return, thanks!
+
+FYI: this PR already use the #1287 about the `convertType` function update",4,7
+1293,2018-05-29T12:52:30Z,2018-05-31T12:50:19Z,2018-05-31T12:50:19Z,3,32,0,"My PR is a: 💅 Enhancement
+Main update on the:
+strapi-generate-api
+This PR is to add document count to mongoose templates",2,1
+1294,2018-05-29T13:10:07Z,2018-05-30T08:02:10Z,2018-05-30T08:02:11Z,1,1,1,"My PR is a:
+🐛 Bug fix
+Main update on the:
+Plugin
+Little fix to change the verification of the data with toJSON (as it makes with the create function)",2,0
+1295,2018-05-29T16:02:44Z,2018-06-08T17:05:59Z,2018-06-08T17:05:59Z,4,236,116,"My PR is a:
+💅 Enhancement
+Main update on
+Plugin : content-type-builder
+Use the suggested name when creating a relationship in the content-type-builder plugin.
+Related issue: #1262",3,2
+1299,2018-05-30T13:16:31Z,2018-06-01T09:37:45Z,2018-06-01T09:37:45Z,1,9,0,"My PR is a:
+🐛 Bug fix
+
+
+Main update on the:
+Framework
+
+Related issue: #1203",3,12
+1302,2018-05-31T10:09:03Z,2018-06-01T14:07:38Z,2018-06-01T14:07:38Z,1,2,2,"My PR is a: 🐛 Bug fix
+
+
+Main update on the:  Framework
+
+MySQL not allow multi raws execution with knex so I have to execute them one by one.
+Issue related: #1241",2,0
+1304,2018-05-31T13:39:55Z,2018-06-05T10:23:06Z,2018-06-05T10:23:06Z,76,1592,254,"My PR is a:
+💅 Enhancement
+🚀 New feature
+Main update on the:
+Plugin: content-manager
+This PR add filters in the content-manager plugin.",5,4
+1305,2018-05-31T14:18:58Z,2018-05-31T17:53:15Z,2018-05-31T17:53:15Z,8,2,129,"My PR is a:
+💅 Enhancement
+Main update on the:
+Plugin: content-type-builder
+This PR removes the warning which asks the user to manually create his table when using strapi-bookshelf.",3,1
+1307,2018-06-01T05:14:48Z,2018-06-01T08:58:09Z,2018-06-01T08:58:09Z,2,33,0,"My PR is an: 💅 Enhancement
+Main update on the: Framework
+Adds count function to bookshelf controller and service templates. Fixes #1303",2,0
+1309,2018-06-02T01:22:17Z,2018-06-08T15:33:16Z,2018-06-08T15:33:16Z,1,4,0,"My PR is a:
+
+🐛 Bug fix
+
+
+Main update on the:
+Admin
+
+
+
+
+Form labels were center-aligned in Edge.  Explicitly left-align.  Fixes #1253.",3,0
+1310,2018-06-02T03:58:57Z,2018-06-03T12:53:36Z,2018-06-03T12:53:36Z,1,1,1,"Need to use MongoDB >= 2.6 otherwise get wire version errors on start:
+UnhandledPromiseRejectionWarning: MongoError: Server at 127.0.0.1:27017 reports wire version 0, but this version of Node.js Driver requires at least 2 (MongoDB2.6).
+
+
+
+My PR is a:
+
+
+💅 Enhancement
+
+Main update on the:
+
+Documentation
+
+
+Older versions of MongoDB (installed by default on many versions of Debian, Ubuntu, etc.) may cause Strapi to crash mysteriously on start.",2,0
+1311,2018-06-03T18:57:57Z,2018-06-04T13:12:00Z,2018-06-04T13:12:00Z,23,1514,256,"My PR is a:  🚀 New feature
+Main update on the: Framework
+
+This PR is the first round for a test suit structure.
+How it works:
+
+Strapi have to be install with the dev mode (See contributing guide)
+Mongo, Postgres and MySQL must be running.
+Empty database named strapi-test have to exist in Postgres and MySQL database.
+Then run npm run test in / folder of the repo.
+
+In this first round we test the content manager requests to manage relations.
+
+oneToOne with object id
+oneToMany with array of object
+manyToOne with object
+manyToMany with array of object",2,0
+1312,2018-06-04T08:18:15Z,,2018-06-26T09:44:27Z,0,0,0,"My PR is a:
+
+🐛 Bug fix
+The setup script only work with sudo (on Windows WSL)
+💅 Enhancement
+Now the returned object is populated recursively
+Example:
+You had an object with a relation to itself (tree system).
+When you get it, the returned object is auto populated with the childs, childs of child, ...
+
+Main update on the: Framework",4,2
+1313,2018-06-04T10:00:51Z,2018-06-11T17:03:29Z,2018-06-11T17:03:29Z,15,512,362,"My PR is a:
+🚀 New feature
+Main update on the:
+Admin && Plugin
+Add the enumeration type to the content type builder.
+It allow to add and edit it + override the default name generated in GraphQL Schema
+Add also some improvements into the translations",4,14
+1314,2018-06-04T16:27:16Z,2018-06-05T09:10:07Z,2018-06-05T09:10:07Z,2,19,14,"My PR is a: 🐛 Bug fix
+
+
+Main update on the: Framework
+
+Fix #1273 issue, decimal are received as string on pg and mysql decimal are stored as integer.",3,0
+1315,2018-06-04T17:36:15Z,2018-06-05T07:48:29Z,2018-06-05T07:48:29Z,2,25,0,"My PR is a:
+🐛 Bug fix
+Main update on the:
+Plugin
+Fix bug when creating 1-N relation with the same content type",2,0
+1326,2018-06-06T10:11:52Z,2018-06-06T12:43:39Z,2018-06-06T12:43:39Z,3,7,3,"My PR is a:  🐛 Bug fix
+
+
+Main update on the:  Framework
+
+When deleting entry that have a manyToMany relation, the reference was not deleted in the other entry.",2,0
+1328,2018-06-06T14:29:31Z,2018-06-12T09:57:11Z,2018-06-12T09:57:11Z,29,626,57,"My PR is a:
+💅 Enhancement
+Main update on the:
+Plugin: content-manager
+This PR adds bulk actions in the content manager plugin",5,2
+1334,2018-06-07T09:06:06Z,2018-06-12T13:41:03Z,2018-06-12T13:41:03Z,1,6,0,"My PR is a:
+
+
+💅 Enhancement
+
+Main update on the:
+
+
+Framework
+
+Added onboard information about how to start project after setting up",3,1
+1335,2018-06-07T10:57:52Z,2018-06-08T15:14:57Z,2018-06-08T15:14:57Z,1,2,2,"My PR is a:
+🐛 Bug fix
+Main update on the:
+Plugin
+A little change to update the minimal version of the Playground to fix a bug with the history.
+Thanks @HuVik for the help 👍",2,0
+1336,2018-06-07T11:38:08Z,2018-06-11T14:30:58Z,2018-06-11T14:30:58Z,1,1,0,"My PR is a:
+
+
+💅 Enhancement
+Main update on the:
+
+
+
+
+Test against current LTS and stable releases of Node.js.",3,0
+1337,2018-06-07T11:38:37Z,2018-07-10T07:49:42Z,2018-07-10T07:49:42Z,1,7,3,"My PR is a:
+
+
+💅 Enhancement
+
+Main update on the:
+
+
+
+
+Cache node_modules on Travis CI.",4,13
+1338,2018-06-07T12:28:21Z,2018-06-08T19:01:23Z,2018-06-08T19:01:23Z,1,12,7,"My PR is a:
+💅 Enhancement
+Main update on the:
+Admin
+Remove the settings-manager from the plugins section and move it to the configuration one.",3,0
+1342,2018-06-07T17:38:14Z,2018-06-11T15:59:36Z,2018-06-11T15:59:36Z,2,8,4,"My PR is a:
+🐛 Bug fix in content type builder
+Main update on the:
+Plugin content type builder",2,0
+1345,2018-06-08T00:41:43Z,2018-06-19T14:44:45Z,2018-06-19T14:44:45Z,2,15,11,"My PR is a: 🐛 Bug fix
+Main update on the: GraphQL
+Do not format values of type Object because it causes Array and empty strings to turn to zero.",4,1
+1346,2018-06-08T10:22:53Z,2018-06-11T17:30:12Z,2018-06-11T17:30:12Z,2,87,37,"My PR is a:
+🐛 Bug fix
+Main update on the:
+Plugin: content manager",2,0
+1348,2018-06-08T13:07:50Z,2018-06-12T12:01:41Z,2018-06-12T12:01:41Z,1,3,2,"The current hooks structure has package.json within the lib folder. This causes strapi to fail as it is looking for the package.json file in the hook root folder and not within lib.
+This change moves the secondary files back into the hook root leaving only index.js in the lib folder.
+
+
+My PR is a:
+
+🐛 Bug fix
+
+
+Main update on the:
+
+Documentation",2,0
+1350,2018-06-08T15:06:17Z,2018-06-12T09:30:27Z,2018-06-12T09:30:27Z,3,4,4,"My PR is a: 🐛 Bug fix
+Main update on the: Framework
+Find the right global path where the node_modules are installed.",2,0
+1352,2018-06-08T21:05:43Z,2018-06-12T12:50:09Z,2018-06-12T12:50:09Z,5,121,6,"My PR is a:  🐛 Bug fix
+
+
+Main update on the:  Framework
+
+Move /count route before /:_id. Trying to search resource with count as id fail every times.
+
+Fix #1344 issue.",3,1
+1354,2018-06-09T11:30:00Z,2018-06-11T20:33:57Z,2018-06-11T20:33:57Z,1,7,4,"My PR is a:  💅 Enhancement
+Main update on the: Admin
+fix language loading, first try load full user language code, and then try load short user language code if not exist.
+#1306",3,0
+1357,2018-06-09T17:40:36Z,2018-06-14T14:25:50Z,2018-06-14T14:25:50Z,1,2,2,"My PR is a:
+
+🐛 Bug fix
+
+
+Main update on the:
+
+
+
+GraphQL Plugin
+This PR fixes my own issue #1356 with the GraphQL schemas. The id fields now have the type ID instead of String, so now relay-compiler does not have any issues with compiling anymore.",3,0
+1360,2018-06-11T14:16:33Z,2018-06-11T17:59:22Z,2018-06-11T17:59:22Z,1,3,3,"My PR is a:
+🐛 Bug fix -->
+Main update on the:
+Plugin: users-permissions
+Set the default role to authenticated instead of public when using a custom provider",2,0
+1362,2018-06-12T11:39:09Z,2018-06-13T09:38:35Z,2018-06-13T09:38:35Z,1,0,3,"My PR is a: 💅 Enhancement
+
+Main update on the:  Framework",2,0
+1363,2018-06-12T12:04:14Z,2018-06-13T10:41:18Z,2018-06-13T10:41:18Z,24,626,25,"My PR is a:
+🚀 New feature
+Main update on the:
+Plugin: content-manager
+This PR add a search field to the content-manager plugin",4,0
+1364,2018-06-12T12:19:21Z,2018-06-13T10:09:03Z,2018-06-13T10:09:03Z,7,230,88,"My PR is a:
+💅 Enhancement
+Main update on the:
+Plugin: content-type-builder
+This PR allows to navigate with keyboard's arrows in the attributes modal. It also allows to keep adding attributes without having to manually reopen the attributes modal",3,0
+1365,2018-06-12T13:43:45Z,2018-06-13T13:37:40Z,2018-06-13T13:37:40Z,2,79,31,"My PR is a:
+💅 Enhancement
+Main update on the:
+Plugin: users-permissions
+Add a new design to notify the user when the reset password email has been sent:",3,0
+1367,2018-06-12T17:29:19Z,2018-06-13T09:21:35Z,2018-06-13T09:21:35Z,2,13,5,"My PR is a: 🐛 Bug fix
+
+
+Main update on the:  Plugin
+This issue fix default role apply to provider login. And set default role when user are create via the user API or via the content manager.
+Related issue: #1212",2,0
+1369,2018-06-12T20:53:05Z,2018-06-13T09:03:35Z,2018-06-13T09:03:35Z,2,6,1,"My PR is a:  🐛 Bug fix
+
+
+Main update on the:  Plugin
+Fix loose info.mainField when update content type via content-type-builder
+
+Related issue: #1301",2,0
+1376,2018-06-13T12:17:22Z,2018-06-13T15:07:05Z,2018-06-13T15:07:05Z,1,1,0,"My PR is a:
+
+🐛 Bug fix
+
+
+Main update on the:
+
+
+Framework
+
+
+Added a case to allow creation of oneWay columns.",2,1
+1378,2018-06-13T13:04:39Z,2018-06-14T09:47:55Z,2018-06-14T09:47:55Z,1,5,1,"My PR is a:
+🐛 Bug fix
+Main update on the:
+Admin
+Description
+Since the first field is autofocused (key === 0), this causes a problem with WYSIWYG fields emitting an onChange event.
+When the edit page loads, the first field is focused even before data has loaded. So when this field is a WYSIWYG, it will change the value to a blank string. Saving the form without touching the first field makes it a blank string effectively wiping it from the database.",3,1
+1379,2018-06-13T13:45:54Z,2018-06-14T09:33:28Z,2018-06-14T09:33:28Z,4,27,84,"My PR is a: 🚀 New feature
+Main update on the: Documentation",5,0
+1384,2018-06-13T20:25:02Z,2018-06-14T12:40:44Z,2018-06-14T12:40:44Z,1,1,1,"My PR is a:
+🐛 Bug fix
+Main update on the:
+Plugin
+Fix #1383
+cc: @lauriejim",5,2
+1389,2018-06-14T15:22:10Z,2018-06-18T12:26:21Z,2018-06-18T12:26:21Z,1,8,2,"My PR is a: 🐛 Bug fix
+
+
+Main update on the:  Plugin
+Fix reset password on SQL database. Relations was not omit on update function.
+Related issue: #1351",3,0
+1391,2018-06-14T17:51:25Z,2018-06-14T20:57:30Z,2018-06-14T20:57:30Z,6,123,61,"My PR is a:
+💅 Enhancement
+Main update on the:
+🇵🇱 Admin
+🇵🇱 Plugin",2,2
+1397,2018-06-15T10:05:43Z,2018-06-15T17:36:59Z,2018-06-15T17:36:59Z,1,4,1,"My PR is a:  🐛 Bug fix
+
+
+Main update on the:  Admin
+
+
+
+During strapi.load we load middlewares and hooks, they can start process witch need app kill to end. (like watcher and other things) So when the load function is complete I force the end of the script.",2,0
+1400,2018-06-15T13:48:12Z,2018-06-15T17:54:19Z,2018-06-15T17:54:19Z,1,8,4,"My PR is a:  💅 Enhancement
+Main update on the: Documentation
+Add examples links in the ""Authentication with providers"" section",3,1
+1401,2018-06-15T14:54:47Z,2018-06-20T10:44:21Z,2018-06-20T10:44:21Z,15,920,4,"My PR is a:
+💅 Enhancement
+🚀 New feature
+Main update on the:
+Plugin: content-manager
+Created Input JSON
+
+Fixes #496",4,5
+1402,2018-06-15T22:15:39Z,2018-06-16T12:55:57Z,2018-06-16T12:55:57Z,1,1,1,"My PR is a:
+
+🐛 Bug fix
+
+
+Main update on the:
+
+Documentation
+
+
+
+Fix CONTRIBUTING.md file  path",2,0
+1403,2018-06-17T10:26:22Z,2018-06-17T13:27:32Z,2018-06-17T13:27:32Z,9,1271,1,"My PR is a:
+
+💅 Enhancement
+🚀 New feature
+🇸🇦 Language
+
+Main update on the:
+
+Admin
+Plugin
+
+
+Add Arabic language support to strapi
+Under the name ar_SA",3,8
+1404,2018-06-17T11:30:32Z,2018-06-18T10:48:48Z,2018-06-18T10:48:48Z,1,1,1,"My PR is a:  🐛 Bug fix
+
+
+Main update on the: Framework
+
+Fix Array inception when POST an array.
+Related issue: #1169",2,0
+1407,2018-06-17T22:32:31Z,2018-08-21T08:53:31Z,2018-08-21T08:53:31Z,3,605,4,"My PR is a: 🚀 New feature
+Main update on the: GraphQL Plugin
+The goal of this PR is to support the Aggregation in GraphQL.
+The syntax is inspired from this spec: prisma/prisma1#1312 and it can be discussed if we want to do some changes.
+This is not the final version of the PR, it needs some cleaning
+As the end of this PR you'll be able to do something like this:
+
+Any comments or suggestions are more than welcome.",5,19
+1409,2018-06-18T09:24:41Z,2018-06-19T14:28:25Z,2018-06-19T14:28:25Z,2,2,1,"My PR is a:
+🚀 New feature
+Main update on the:
+Plugin
+Fix for #1392
+It add an option playgroundAlways to force the availability of the GraphQL Playground IDE, whatever the environment.",3,0
+1410,2018-06-18T10:30:28Z,2018-06-20T15:11:50Z,2018-06-20T15:11:50Z,61,694,276,"My PR is
+💅 Enhancement
+Main update on the:
+Admin
+Add a loading indicator when both navigating in the admin and loading the plugins",3,1
+1411,2018-06-18T10:51:06Z,2018-06-19T16:00:06Z,2018-06-19T16:00:06Z,8,64,22,"My PR is a:
+💅 Enhancement
+Main update on the:
+Admin
+Framework
+Plugin
+🇹🇷Turkish language files checked, fixed",2,0
+1415,2018-06-18T16:06:46Z,2018-06-19T11:26:57Z,2018-06-19T11:26:57Z,2,36,0,"My PR is a: 💅 Enhancement
+
+Main update on the:  Documentation
+
+
+Add some documentation about adding email provider and how user email service.",2,0
+1416,2018-06-18T16:50:42Z,2018-07-31T12:34:08Z,2018-07-31T12:34:08Z,12,313,56,"My PR is a:
+
+
+💅 Enhancement
+
+Main update on the:
+
+
+
+
+
+This PR adds sorting to SelectMany component in Content Manager utilizing react-sortable-hoc.",4,10
+1421,2018-06-19T09:16:43Z,2018-07-18T08:23:36Z,2018-07-18T08:23:36Z,2,14,5,"My PR is a:
+💥 Breaking change
+Main update on the:
+Plugin
+To improve the date field for GraphQL, this PR introduce the concept of DateTime scalar instead of String type.
+It use the npm package graphql-type-datetime (developed specially for the occasion 👍 )",7,20
+1426,2018-06-19T12:43:58Z,2018-06-20T07:54:28Z,2018-06-20T07:54:28Z,7,1052,1,"My PR is a:
+💅 Enhancement
+Main update on the:
+Admin
+Plugin
+Italian language:
+
+ content-manager
+ content-type-builder
+ admin
+ email
+ settings-manager
+ users-permissions
+ upload",2,7
+1436,2018-06-20T14:26:05Z,2018-06-26T13:44:37Z,2018-06-26T13:44:37Z,2,64,5,"My PR is a: 🐛 Bug fix with 💥 Breaking change
+
+
+Main update on the: Framework
+
+JSON format was not well supported.
+Update:
+
+jsonb column type instead of text for Postgres
+Transform MySQL stringify object to parse format
+
+Related issue: #1425",3,1
+1437,2018-06-20T14:53:03Z,2018-06-26T11:40:42Z,2018-06-26T11:40:42Z,3,5,4,"My PR is a:
+🐛 Bug fix
+Main update on the:
+Admin
+Plugin
+This PR fix the bug about timezone transformation when you save a date/datetime/time/timestamp with a SQL database.
+I added the ability to change this settings, but in fact, I don't recommand it.
+Do I have to change it?
+It also contains an improvement for both type of database about the use of .utc() in the admin.",3,2
+1438,2018-06-20T15:23:26Z,2018-06-21T09:42:39Z,2018-06-21T09:42:39Z,3,4,113,"My PR is a:  💅 Enhancement
+
+Main update on the: Documentation",2,0
+1439,2018-06-20T17:01:05Z,,2018-12-15T11:48:00Z,18,261,205,"My PR is a:
+🚀 New feature
+Main update on the:
+Admin
+Plugin
+This PR change first the SQL type for date, time and datetime into DATETIME instead of TIMESTAMP
+It will allow to the user very past date, before the classic 1970-01-01.
+Because of the timezone management, this PR is linked with #1437
+Then, it add the choose between the different format, like for a number:
+
+It's also add the possibility to edit the 3 new format and possibly change the type between the four (but it can generate some bug, like switching between number type).
+WARNING:
+It miss yet the translations, I'm working on it 👍",6,20
+1445,2018-06-21T17:44:25Z,2018-06-23T14:49:30Z,2018-06-23T14:49:30Z,1,19,5,"My PR is a: 🐛 Bug fix
+
+
+Main update on the:  Framework
+
+Fix bookshelf delete service template.
+Related issue: #1419",4,3
+1446,2018-06-22T10:08:41Z,2018-06-23T13:40:05Z,2018-06-23T13:40:05Z,1,2,2,"My PR is a:
+
+🐛 Bug fix
+
+
+Main update on the:
+
+
+Framework
+
+
+This PR fixes the SSL connection which is set as true whereas it shouldn't if the DATABASE_SSL environment variable is not set in production.",2,0
+1447,2018-06-22T10:19:37Z,2018-06-23T14:18:19Z,2018-06-23T14:18:19Z,7,41,19,"My PR is a: 💅 Enhancement
+Main update on the: Plugin
+Enhance the design of the JSON input field.",3,0
+1451,2018-06-22T14:33:03Z,2018-07-03T15:51:41Z,2018-07-03T15:51:41Z,9,108,100,"My PR is a:  💅 Enhancement
+
+Main update on the: Framework
+
+Provide an better experience on strapi start and strapi new CLI.",2,0
+1453,2018-06-22T15:15:54Z,2018-07-10T09:44:57Z,2018-07-10T09:44:57Z,13,176,35,"My PR is a:
+🚀 New feature
+Main update on the:
+Framework
+This PR allows to install Strapi with Yarn.
+Fixes #1183
+In order to test this PR:
+
+Create a private registry like explained in @Aurelsicoko's blog post
+Publish Strapi to this registry
+Uninstall npm globally nom uninstall npm -g
+
+Check that npm is uninstalled by running npm -v
+
+
+Install yarn brew install without-node
+Change yarn registry : yarn config set registry http://localhost:4873/
+
+Expected behaviour : Strapi should be installed and be able to start and used with yarn.
+Run yarn global add strapi@alpha to install strap globally.
+Important
+This PR only allows to install Strapi globally with yarn.
+The development to allow to customise the admin (changing the logo...) when Strapi is installed with yarn has not been undertaken yet . We need to update all the packages' scripts that use npm run in order to make it work completely. Also, installing a plugin with yarn is not currently possible as explained previously.",3,2
+1456,2018-06-23T10:08:18Z,2018-06-27T13:18:34Z,2018-06-27T13:18:34Z,7,1146,1,"My PR is a:
+💅 Enhancement
+Main update on the:
+
+Admin
+Plugin
+
+Adding Portuguese Language:
+
+ Admin
+ Content-Manager
+ Content-Type-Builder
+ Email
+ Settings-Manager
+ Users-Permissions
+ Upload",2,0
+1464,2018-06-25T18:46:21Z,2018-07-01T11:59:02Z,2018-07-01T11:59:02Z,1,3,1,"Change hardcoded temporary path to a random one in the OS-temporary directory.
+Fixes #1463
+Related #632
+
+
+My PR is a:
+
+🐛 Bug fix
+
+
+Main update on the:
+
+
+Framework",2,0
+1475,2018-06-27T10:29:22Z,2018-07-01T19:22:51Z,2018-07-01T19:22:51Z,1,3,1,"My PR is a:
+🐛 Bug fix
+Main update on the:
+Framework
+
+Fixes #1474.",2,1
+1487,2018-06-29T17:17:03Z,2018-06-30T14:01:28Z,2018-06-30T14:01:28Z,1,1,1,"My PR is a:
+
+🐛 Bug fix
+
+
+Main update on the:
+
+Documentation
+
+
+
+Asked by Slack""
+
+Te docs mention a /admin/config/admin.json file. Instead there is a /admin/config/layout.json ... There are equivalents? Is a bug in the docs or in the directory structure?",2,0
+1495,2018-07-01T20:36:29Z,2018-07-03T16:05:22Z,2018-07-03T16:05:22Z,9,1310,1,"My PR is a:
+💅 Enhancement
+Main update on the:
+
+Admin
+Plugin
+
+
+Added Brazilian Portuguese Language support:
+
+ Admin
+ Content Manager Plugin
+ Content Type Builder Plugin
+ E-mail Plugin
+ Settings Manager Plugin
+ Users Permissions Plugin
+ Upload Plugin",3,1
+1500,2018-07-02T08:39:16Z,2018-07-03T12:39:07Z,2018-07-03T12:39:07Z,1,1,1,"My PR is a:
+💅 Enhancement
+Main update on the:
+Documentation
+Fixes the incorrect sample code for import of utils/request in the documentation",3,0
+1506,2018-07-02T13:43:42Z,2018-07-03T15:34:29Z,2018-07-03T15:34:29Z,2,4,4,"My PR is a: 🐛 Bug fix
+
+
+Main update on the: Plugin
+Not clear oneWay relation on model update.
+Fix #1477",3,3
+1510,2018-07-03T10:11:55Z,2018-07-16T14:25:54Z,2018-07-16T14:25:54Z,1,10,2,"My PR is a:
+🐛 Bug fix
+Main update on the:
+Plugin
+A little change to update the filter detection with where param (logic inspired from user-permissions plugin)",2,0
+1513,2018-07-03T14:11:01Z,2018-07-16T16:08:19Z,2018-07-16T16:08:19Z,1,1,1,"My PR is a:
+🐛 Bug fix
+Main update on the:
+Plugin: Users Permissions
+
+This PR updates the data saved into the database during an updatePermissions PUT request. Before now, when this request is made it saves the whole request body into the database. This causes an issue because we only want to save the permissions. The PR makes sure that only the permissions are saved into the database with no extra keys.
+#1512",2,0
+1514,2018-07-03T14:32:46Z,2018-07-17T10:22:55Z,2018-07-17T10:22:55Z,1,6,2,"My PR is a:
+
+🐛 Bug fix
+
+
+Main update on the:
+
+
+
+Plugin: User Permissions Plugin
+
+This PR fixes the bug mentioned below. It does so by:
+Removing the dependency on the strapi.plugins['users-permissions'].config.actions file, and fetching the permissions from the database and formats the results accordingly. This is to ensure that no matter the environment, the permissions saved to the database are consistent with the current controllers in the application.
+If this solution is accepted, then further changes have to be made to completely remove the strapi.plugins['users-permissions'].config.actions.json file from the project as this is no longer required.
+#1504",3,1
+1517,2018-07-04T15:23:44Z,2018-07-09T17:44:05Z,2018-07-09T17:44:06Z,2,46,2,"My PR is a: 💅 Enhancement
+
+Main update on the:  Framework
+
+Execute queries only if there is changes. And option to disable auto migration.
+Fix #1435",4,1
+1519,2018-07-04T19:45:30Z,2018-07-05T07:11:46Z,2018-07-05T07:11:46Z,1,8,8,"My PR is a:
+
+Main update on the:",2,0
+1520,2018-07-05T09:37:04Z,2018-07-06T11:15:43Z,2018-07-06T11:15:43Z,5,145,3,"My PR is a: 🚀 New feature
+Main update on the:  Framework
+
+Let you search in your content via API.
+We add new filter _q : https://my.api.com/article?_q=searchTerm
+Fix #1177",2,0
+1527,2018-07-06T06:34:29Z,2018-07-13T10:20:45Z,2018-07-13T10:20:45Z,3,4,2,"My PR is a:
+
+🐛 Bug fix
+
+
+Main update on the:
+
+
+
+Plugin
+
+This fixes #1526 by bumping the version of react-select to the latest v1 version and setting a prop for react-select to work around an open bug JedWatson/react-select#2277 which resets user input on rerender.",3,0
+1528,2018-07-06T06:41:40Z,2018-07-08T08:54:40Z,2018-07-08T08:54:40Z,11,1314,2,"My PR is a:
+
+💅 Enhancement
+
+Main update on the:
+
+Admin
+Plugin
+
+
+Added Korean  Language support:
+
+  Admin
+ Content Manager Plugin
+ Content Type Builder Plugin
+ E-mail Plugin
+ Settings Manager Plugin
+ Users Permissions Plugin
+ Upload Plugin
+
+Improved css
+
+ Improved css to make other language lists visible. At Language Selection Area in Admin panel.",4,0
+1529,2018-07-06T11:37:28Z,2018-07-16T09:06:30Z,2018-07-16T09:06:31Z,105,2282,295,"Allow to edit Content Manager's list view from the admin
+My PR is a:
+💅 Enhancement
+🚀 New feature
+Main update on the:
+
+Admin
+Plugin
+
+To follow my habit of creating huge PR, this one allows the user to change the display of the list view, enable or disable search, bulk actions, filters depending on the content-type, basically the general settings of the page. These settings are stored in the database (core_store).
+This PR also removes the WYSIWYG and InputJSON components from the strapi-helper-plugin since they are really specific to the content-manager (for the moment) so there was no need to build them in the other plugins that use the InputsIndex component.
+#1149",5,6
+1530,2018-07-06T12:17:41Z,2018-07-09T16:05:17Z,2018-07-09T16:05:17Z,2,9,4,"My PR is a:
+🐛 Bug fix
+Main update on the:
+Plugin",2,0
+1536,2018-07-08T13:58:08Z,2018-07-16T17:07:57Z,2018-07-16T17:07:58Z,1,22,5,"My PR is a:
+🐛 Bug fix
+Main update on the:
+Framework
+When attempting to use an equal filter on a string field whose value is all numbers, the item does not return. There's a statement in the models' convertParams util that automatically detects number-only values to change its type to number. This sets a condition around it to avoid string fields. Fixes #1524.",3,2
+1537,2018-07-08T16:54:24Z,2018-07-10T12:17:42Z,2018-07-10T12:17:42Z,2,2,0,"My PR is an:
+💅 Enhancement
+Main update on the:
+Framework
+
+Adds the useNewUrlParser option to prevent the URL string parser warning. Since Strapi already adheres to the new parser's current changes (forcing the port into the connection URL), this is not a breaking change. Fixes #1532.",2,3
+1545,2018-07-10T05:15:47Z,2018-07-10T08:52:26Z,2018-07-10T08:52:26Z,3,7,7,"My PR is a:
+
+
+💅 Enhancement
+
+Main update on the:
+
+Admin
+
+
+
+
+Plugin
+
+
+Corrected the found typos.",2,0
+1546,2018-07-10T07:52:59Z,2018-07-16T07:44:39Z,2018-07-16T07:44:39Z,1,6,2,"My PR is a:
+
+
+💅 Enhancement
+
+Main update on the:
+
+Documentation
+
+
+
+Per speaking with @soupette on the slack, the current documentation lists the wrong folder to rebuild the admin, minor fix.",5,3
+1555,2018-07-11T15:52:20Z,2018-07-16T10:40:24Z,2018-07-16T10:40:24Z,4,10,5,"My PR is an:
+💅 Enhancement
+Main update on the:
+Framework
+I wanted to dockerize my Strapi instance and realised that https://github.com/strapi/strapi-docker uses the CLI of Strapi to create a new Strapi intance (https://github.com/strapi/strapi-docker/blob/master/strapi.sh#L22).
+Added two new options for the CLI (dbssl and dbauth) to make it possible to connect to an Azure Cosmos DB database.
+Note: I use the same options and credentials when not using the CLI to connect to my database and it connects successfully but with this way it is still timing out.
+Please take a look and let me know what you think I'm doing wrong or/and I'll refactor the code according your preferences.",4,7
+1560,2018-07-12T03:58:43Z,2018-07-13T10:39:06Z,2018-07-13T10:39:06Z,2,7,7,"My PR is a:
+
+🐛 Bug fix
+
+
+Main update on the:
+
+
+Framework
+
+
+Fix logic detecting installation with Yarn and the creation of the temporary directory when this is the case.
+Also, fix minor linter errors.
+related #1548 & #1463",3,0
+1564,2018-07-12T09:09:00Z,2018-07-20T07:34:48Z,2018-07-20T07:34:48Z,60,149,186,"My PR is a: 💥 Breaking change  💅 Enhancement
+
+Main update on the:  Framework
+
+Harmonize hook module name by adding hook as prefix. Same as middlewares.",2,0
+1566,2018-07-12T17:38:30Z,2018-07-23T16:06:28Z,2018-07-23T16:06:28Z,16,1400,8,"My PR is a:
+
+
+💅 Enhancement
+
+Main update on the:
+Admin
+
+
+
+
+Provide spanish translations for admin panel and plugins.
+I create the following files using the local en.json as a reference
+./packages/strapi-plugin-content-manager/admin/src/translations/es.json
+./packages/strapi-plugin-users-permissions/admin/src/translations/es.json
+./packages/strapi-plugin-content-type-builder/admin/src/translations/es.json
+./packages/strapi-plugin-email/admin/src/translations/es.json
+./packages/strapi-plugin-upload/admin/src/translations/es.json
+./packages/strapi-admin/admin/src/translations/es.json
+./packages/strapi-plugin-settings-manager/admin/src/translations/es.json
+./packages/strapi-generate-plugin/files/admin/src/translations/es.json",4,4
+1567,2018-07-12T19:37:42Z,2018-07-23T11:15:10Z,2018-07-23T11:15:10Z,1,3,0,"My PR is a:
+🐛 Bug fix
+Main update on the:
+GraphQL Plugin
+Fixes #1476 by making json typed model properties convert to JSON types in the generated GraphQL schema instead of defaulting to String.",2,3
+1575,2018-07-15T11:38:29Z,2018-09-14T14:09:30Z,2018-09-14T14:09:30Z,1,25,0,"My PR is a:
+
+
+💅 Enhancement
+
+Main update on the:
+
+
+Framework
+
+
+Fixes #916. Prevent NPM scripts config in project's package.json from being used by dynamic config as it may contain shell script syntax that breaks parsing.",3,11
+1577,2018-07-15T13:55:16Z,2018-07-20T10:07:25Z,2018-07-20T10:07:25Z,1,2,0,"My PR is a: 🐛 Bug fix
+Main update on the: Framework
+this PR fixes this issue (#1576). The problem is that only the first change is being taken into consideration and all the next changes are ignored. the solution was to reset the isReloading when the reload function is being called.",2,0
+1581,2018-07-16T21:49:18Z,2018-07-17T10:07:26Z,2018-07-17T10:07:26Z,1,3,3,"My PR is a: 🐛 Bug fix
+Main update on the:  Admin
+This PR fixes the issue (#1580) where the user decides to disable Google Analytics but the tracking is still on.",2,0
+1582,2018-07-17T03:55:48Z,2018-07-17T08:56:36Z,2018-07-17T08:56:36Z,2,3,3,"My PR is a: Documentation update
+
+
+
+
+Main update on the: Documentation
+
+
+
+
+
+I spent a minute trying to find the /admin/plugins/email/configurations/development path in my folder structure before figuring out it's meant for the web browser.",2,0
+1596,2018-07-19T12:48:07Z,2018-07-20T09:09:23Z,2018-07-20T09:09:23Z,6,911,14,"My PR is a: 💅 Enhancement
+
+Main update on the: Framework
+
+Add some test to test generated API endpoints",2,0
+1597,2018-07-19T16:42:07Z,2018-07-20T09:37:30Z,2018-07-20T09:37:30Z,1,17,2,"My PR is a:
+
+
+💅 Enhancement
+
+Main update on the:
+
+Documentation
+
+
+
+Add job offer in Readme.",5,1
+1598,2018-07-19T17:46:17Z,2018-07-20T12:18:01Z,2018-07-20T12:18:01Z,1,3,1,"My PR is a:
+
+🐛 Bug fix
+
+
+Main update on the:
+
+
+
+Plugin: User Permissions Plugin
+
+This PR fixes the bug mentioned below. It does so by:
+Checking for duplicate email instead of duplicate provider in user-permissions provider connect function.
+#1521",2,2
+1604,2018-07-20T13:13:41Z,2018-07-23T09:43:24Z,2018-07-23T09:43:24Z,1,2,1,"My PR is a: 🐛 Bug fix
+
+
+Main update on the:  Plugin
+Related issue #1459",2,0
+1605,2018-07-20T15:21:28Z,2018-07-23T09:54:47Z,2018-07-23T09:54:47Z,1,9,7,"My PR is a: 🐛 Bug fix
+
+
+Main update on the: Plugin
+Related issue: #1461",2,0
+1606,2018-07-20T17:45:07Z,2018-07-23T13:42:09Z,2018-07-23T13:42:09Z,1,2,2,"My PR is a:
+
+
+💅 Enhancement
+
+Main update on the:
+
+Documentation",3,0
+1607,2018-07-20T18:17:09Z,2018-07-23T13:51:46Z,2018-07-23T13:51:46Z,1,2,2,"My PR is a:
+
+
+💅 Enhancement
+
+Main update on the:
+
+Documentation
+
+
+
+Grammar update",3,0
+1611,2018-07-22T01:32:35Z,2018-07-23T15:30:08Z,2018-07-23T15:30:08Z,30,30,0,"My PR is a:
+💅 Enhancement
+Main update on the:
+Plugin
+I am sure this was intended was since line 118 of the main .gitignore has a wildcard match for yarn.lock - this is ignored as each package has it's own .gitignore file.",3,0
+1613,2018-07-23T02:11:07Z,2018-08-09T15:10:09Z,2018-08-09T15:10:09Z,4,45,0,"My PR is a:
+🚀 New feature
+Main update on the:
+Plugin
+This will add the Microsoft Graph as a provider option, which covers personal accounts as well as Office 365 accounts. This resolves the request in #1385.",3,3
+1615,2018-07-23T19:30:57Z,2018-07-23T22:10:27Z,2018-07-23T22:10:27Z,1,1,1,"My PR is a:
+💅 Enhancement
+Main update on the:
+Admin / Content manager
+#1563 Hidding an useless scrollbar appearing in firefox
+Don't know the CMS well yet, but I wanted to help, keep up the good work 👌",3,0
+1616,2018-07-24T00:27:24Z,,2018-12-07T16:02:42Z,4,50,1,"My PR is a:
+🚀 New feature
+Main update on the:
+Plugin
+This will add the Twitch auth provider.",4,13
+1618,2018-07-24T10:51:35Z,2018-07-26T08:45:25Z,2018-07-26T08:45:25Z,7,352,0,"My PR is a:
+🚀 New feature
+This is a PR for a new email provider - Amazon SES.",2,1
+1635,2018-07-24T16:57:18Z,2018-07-29T12:35:03Z,2018-07-29T12:35:03Z,10,25,13,"My PR is a: 💅 Enhancement
+Main update on the: Plugin
+This is the first step to disconnect the generated projects from our servers. The word ""disconnect"" isn't the most adapted but this PR avoids the plugin ""Users & Permissions"" to not working as expected when our servers are down.",3,1
+1638,2018-07-24T19:25:16Z,2018-07-31T11:38:25Z,2018-07-31T11:38:25Z,13,142,186,"My PR is a:
+
+
+💅 Enhancement
+
+Main update on the:
+Admin
+
+
+
+
+
+Fix minor errors and improve translation done with #1566 after review it in context.
+Add missing translations reported on #1621
+
+Improvement area:
+Normalize the tone. There are impersonal and personal styles mixed. I'm on use a personal-friendly style. This is, Instead of ""Configure sus opciones"" (impersonal - formal - third person), prefer ""Configura tus opciones"" (personal - friendly - first person).",4,6
+1643,2018-07-25T18:07:48Z,2018-07-26T11:31:13Z,2018-07-26T11:31:13Z,1,1,1,"My PR is a:
+🐛 Bug fix
+Main update on the:
+Plugin
+
+Related issue: #1642
+Due to the core_store model being hard coded into Strapi my change sets all text values to longtext in MySQL while keeping the type text for postgres (since it doesn't have longtext)
+Not sure if this is the correct way to handle this issue.",2,0
+1649,2018-07-26T14:51:40Z,2018-07-31T11:42:58Z,2018-07-31T11:42:58Z,7,137,33,"My PR is a:
+
+
+💅 Enhancement
+
+Main update on the:
+Admin
+
+
+
+
+I added the missing german translation keys, resolving #1620",3,3
+1653,2018-07-27T03:23:26Z,2018-07-29T12:16:22Z,2018-07-29T12:16:22Z,1,2,2,My PR is a: 💅 Enhancement,2,0
+1661,2018-07-28T21:22:41Z,,2019-01-27T15:59:38Z,25,33,1,"My PR is a:
+💅 Enhancement
+Main update on the:
+Framework
+Hey guys :)
+It seems that the connector and client properties in database.json files for prod and staging were hardcoded.
+I know that its easy to edit them after you initialised your instance but if you want to dockerize your Strapi this becomes a little more difficult.
+So for instance if you initialised your Strapi instance to use MySQL your production and staging  database.json were incorrectly set up with ""client"": ""mongo"" and ""connector"": ""strapi-hook-mongoose"".
+What I did:
+I used the settings that were used to create the develop database.json to create the staging and production ones.
+Let me know your thoughts, if you think this is something valuable and/or want me to change something in my code. Open to suggestions :)",3,11
+1663,2018-07-29T19:39:29Z,2018-08-21T07:46:17Z,2018-08-21T07:46:17Z,2,3,2,"My PR is a:
+
+🐛 Bug fix
+
+
+Main update on the:
+Admin
+
+
+
+
+
+ Fix button text wrapping all over the app.
+ Fix Admin HomePage info blocks from overlapping the text.
+ Add responsive breakpoints for things to wrap a bit better.
+ Wrong z-index for reset overlay",3,3
+1664,2018-07-30T00:47:23Z,2018-07-31T14:28:30Z,2018-07-31T14:28:30Z,6,51,1,"My PR is a:
+🚀 New feature
+Main update on the:
+Plugin
+Adding Discord oAuth2 as a provider
+note: due to the username not being unique on discord I joined the username + 4 digit discriminator to make it so, more details can be found here: Discord Docs
+If this isn't the correct way to handle it let me know. 😃",4,5
+1665,2018-07-30T08:14:33Z,2018-07-31T13:20:05Z,2018-07-31T13:20:05Z,1,4,2,"My PR is a:  🐛 Bug fix
+
+
+Main update on the: Plugin
+When you try to create a new role, if you have 2 controllers in your api, just the controller that have the api name is handle.",2,0
+1666,2018-07-30T09:29:52Z,2018-07-31T13:36:10Z,2018-07-31T13:36:10Z,2,10,1,"The error was caused by a wrong path since the schema object has been changed.
+My PR is a:
+🐛 Bug fix
+Main update on the:
+Plugin: content-manager",3,1
+1667,2018-07-31T00:51:44Z,2018-08-09T15:52:41Z,2018-08-09T15:52:41Z,4,37,27,"My PR is a: 🐛 Bug fix
+
+
+Main update on the: Framework
+
+
+
+Currently the use of environment variables in the configuration files is allowed, however the values are not replaced building the administration panel. You can clearly see the error if you try to use an environment variable as the value of the host parameter in the server.json file:
+
+As can see, the value was used as an ordinary string; they were not replaced by the value of the environment variable.
+This PR moves the code that makes that interpretation to strapi-utils trying to make it a shared functionality. In addition to been invoked originally in the same place, with this changes also it's called by webpack, getting a consistent result in the build.
+You can see here the result of this change:
+
+Notes:
+
+I keep the name of the function. Could have a better name maybe?
+Is strapi-utils the correct place? 🤔
+
+
+close #1590",4,5
+1672,2018-07-31T11:36:37Z,2018-08-01T12:47:51Z,2018-08-01T12:47:51Z,2,5,5,"My PR is a:
+🐛 Bug fix
+Main update on the:
+Plugin: users-permissions
+The path to update the data was wrong for the advanced settings tab.",2,1
+1673,2018-07-31T14:59:43Z,2018-08-01T07:08:53Z,2018-08-01T07:08:53Z,1,2,0,"My PR is a: 💅 Enhancement
+
+
+
+Main update on the: Admin
+
+
+
+
+Fix for #1620 issue",2,0
+1674,2018-07-31T15:02:46Z,2018-08-01T07:07:44Z,2018-08-01T07:07:44Z,1,38,8,"My PR is a:
+
+
+💅 Enhancement
+
+Main update on the:
+
+Documentation
+
+
+I hope you all doing well. I added translation of some missing keys noted on this issue: #1631
+In addition to this, just a little bit of grammatical fixes.
+I tried to make it as identical as possible to English version, but maybe there are some missing parts.
+Also, I asked @KOZ39 to review the translation so that he will leave a comment if he found any typos or missing stuff.",3,0
+1675,2018-07-31T15:10:02Z,2018-08-01T14:35:12Z,2018-08-01T14:35:13Z,29,200,55,"My PR is a: 💅 Enhancement
+Main update on the: Plugin - Content Manager
+
+Add jump link for selectOne component
+Add scrollbar for selectMany component
+Exclude role, permission and file model to avoid editing",2,3
+1677,2018-07-31T17:29:55Z,2018-08-06T07:28:13Z,2018-08-06T07:28:13Z,7,30,1,"My PR is a: 💅 Enhancement
+
+
+
+
+Main update on the: Admin
+
+
+
+
+Fix #1622",2,0
+1681,2018-08-01T12:59:11Z,2018-08-08T12:50:13Z,2018-08-08T12:50:13Z,5,25,5,"My PR is a: 💅 Enhancement
+
+Main update on the:  Plugin (Users-Permissions)
+You can know attempt 5 times in a minute for auth routes call.",5,2
+1684,2018-08-01T20:40:47Z,2018-08-23T15:17:48Z,2018-08-23T15:17:48Z,113,4216,887,"My PR is a:
+💥 Breaking change
+💅 Enhancement
+🚀 New feature
+Main update on the:
+Plugins :  content-manager & content-type-builder
+This PR allows to customise the layout, displayed informations, inputs order in the content-manager.
+#1217
+#1738",9,18
+1688,2018-08-02T14:07:51Z,,2018-08-20T15:47:10Z,9,233,102,"My PR is a: 💅 Enhancement
+Main update on the: Plugin
+After the updates made on the selectMany component, the code wasn't readable enough and we also decided to apply some best practices as well.
+
+Put add/remove logic into the reducer
+Split into three components",3,1
+1689,2018-08-02T18:14:17Z,2018-08-21T14:16:11Z,2018-08-21T14:16:11Z,2,19,2,"My PR is a:
+
+
+💅 Enhancement
+
+Main update on the:
+
+
+
+Plugin
+
+Hash field in upload plugin was not actual hash but instead was randomly generated string. I replaced it with sha256 digest which is then encoded as base64 because it is shorter that hex. And I use different more URL-friendly character set for the encoding.",3,5
+1691,2018-08-03T10:08:53Z,2018-08-08T12:21:13Z,2018-08-08T12:21:13Z,1,1,1,"My PR is a:  🐛 Bug fix
+
+
+Main update on the:  Framework
+Only database hooks was well load. EJS or others was not handle.",3,0
+1701,2018-08-06T14:05:44Z,2018-08-08T11:05:54Z,2018-08-08T11:05:54Z,18,18,18,"My PR is a:  🐛 Bug fix
+
+
+Main update on the: Framework
+
+Fix #1699 - Fix lodash vulnerability before v4.17.5.",2,0
+1702,2018-08-06T14:21:18Z,2018-08-21T06:59:07Z,2018-08-21T06:59:07Z,1,3,6,"My PR is a:
+🐛 Bug fix
+Main update on the:
+Plugin : content-type-builder
+Uninstalling the file-upload plugin to remove two fields options instead of the media one. This PR fixes it.",2,0
+1703,2018-08-06T15:03:23Z,2018-08-08T09:32:44Z,2018-08-08T09:32:45Z,3,3,3,"My PR is a:  🐛 Bug fix
+Main update on the:  Plugin
+This fix this error
+Related and fix #1516
+TypeError: Cannot read property 'policy' of null
+    at module.exports (/Users/lauriejim/Documents/WORKSPACE/strapi/framework/packages/strapi-plugin-users-permissions/config/policies/permissions.js:50:18)
+    at <anonymous>",4,3
+1705,2018-08-06T15:50:31Z,2018-08-20T13:02:57Z,2018-08-20T13:02:57Z,4,16,2,"My PR is a:  🚀 New feature
+Main update on the: Plugin
+Let you block a user. He will can login and use existing JWT
+Related and fix #1216",3,2
+1709,2018-08-07T12:44:45Z,2018-08-20T15:21:42Z,2018-08-20T15:21:42Z,1,2,1,"My PR is a:
+
+🐛 Bug fix
+
+
+Main update on the:
+
+
+
+Plugin
+
+Fixes one to many querying in direction where is only one target.",3,0
+1711,2018-08-07T20:47:53Z,2018-08-21T07:25:45Z,2018-08-21T07:25:45Z,2,2,2,"My PR is a:
+🐛 Bug fix
+Main update on the:
+Framework
+Use process.env.NODE_ENV instead of process.NODE_ENV because it doesn't exist.",2,0
+1712,2018-08-07T22:27:38Z,2018-08-29T10:23:11Z,2018-08-29T10:23:11Z,6,12,11,"My PR is a:
+🐛 Bug fix
+Main update on the:
+Plugins: settings-manager, content-type-builder
+
+Using strapi.config.currentEnvironment to get configuration
+Default parameter is an object according to the default configuration
+Use the enabled boolean on the autoReload endpoint (settings-manager)",3,4
+1717,2018-08-08T09:33:12Z,2018-08-21T07:00:53Z,2018-08-21T07:00:53Z,1,1,1,"My PR is a:
+💅 Enhancement
+Main update on the:
+
+
+
+Plugin
+
+#1716",3,0
+1719,2018-08-08T09:41:48Z,2018-08-21T07:06:30Z,2018-08-21T07:06:30Z,1,12,12,"My PR is a:
+💅 Enhancement
+Main update on the:
+Plugin
+
+#1718",2,0
+1720,2018-08-08T09:50:44Z,2018-08-21T06:56:59Z,2018-08-21T06:56:59Z,1,2,2,"My PR is a: 💅 Enhancement
+
+Main update on the: Framework
+
+Update ⚡️ change directory: to ⚡️ Change directory:
+And same update for ⚡️ start application:",2,0
+1721,2018-08-08T09:51:55Z,2018-08-21T06:59:47Z,2018-08-21T06:59:47Z,1,1,1,"My PR is a:
+
+
+💅 Enhancement
+
+Main update on the:
+
+
+Framework
+
+
+Use the project's name as default database name.",2,0
+1722,2018-08-08T10:16:00Z,2018-08-21T09:48:43Z,2018-08-21T09:48:43Z,1,28,12,"My PR is a: 💅 Enhancement
+Main update on the: Documentation
+Update documentation on how to use strapi hook ejs.",2,0
+1723,2018-08-08T10:41:31Z,2018-08-21T09:49:16Z,2018-08-21T09:49:16Z,3,14,5,"My PR is a:
+
+
+💅 Enhancement
+
+Main update on the:
+Admin
+
+
+
+
+Center notifications horizontally.",4,1
+1724,2018-08-08T11:13:46Z,2018-08-21T14:17:54Z,2018-08-21T14:17:54Z,1,1,1,"My PR is a:
+💅 Enhancement
+Main update on the:
+Documentation
+
+Update guidelines concerning Models name formating as the interface do not allow us to write pascal-cased name. Model name will only be in lowercase (except for the first letter).",4,2
+1725,2018-08-08T13:00:46Z,2018-09-18T12:02:38Z,2018-09-18T12:02:38Z,8,39,40,"My PR is a:
+
+
+💅 Enhancement
+
+Main update on the:
+
+Documentation
+Framework
+
+
+
+Pluralize routes in generated APIs and plugins.
+Update documentation accordingly.
+
+Fix #504",4,5
+1726,2018-08-08T13:30:09Z,2018-08-20T15:41:54Z,2018-08-20T15:41:54Z,2,139,47,"My PR is a: 💅 Enhancement
+Main update on the: Documentation
+Add a Getting Started section, remove useless ones and reorganize the whole file. Also, I've made some improvement to the contributing guide.",2,0
+1727,2018-08-08T13:32:16Z,2018-09-07T15:06:21Z,2018-09-07T15:06:21Z,8,271,8,"My PR is a: 💅 Enhancement
+Main update on the: Admin
+When the server starts, it opens automatically the administration panel and reuses the same tab instead of opening a new one.
+This behaviour can be disabled with server.json configuration file.",4,7
+1728,2018-08-08T14:32:16Z,2018-08-21T06:58:00Z,2018-08-21T06:58:00Z,1,3,2,"My PR is a:
+
+🐛 Bug fix
+
+
+Main update on the:
+Admin
+
+
+
+
+Fix multi active left menu links.
+
+#1750",3,0
+1730,2018-08-08T14:40:17Z,2018-08-21T06:55:00Z,2018-08-21T06:55:00Z,2,2,2,"My PR is a: 🐛 Bug fix
+Main update on the: Plugin Users & Permissions",2,0
+1731,2018-08-08T14:44:55Z,2018-08-21T06:55:31Z,2018-08-21T06:55:31Z,1,1,1,"My PR is a: 💅 Enhancement
+Main update on the: Admin",2,0
+1739,2018-08-10T03:39:44Z,,2018-09-10T18:20:06Z,1,1,1,"... or am I misundestanding something?
+My PR is a: 🐛 Bug fix
+Main update on the: Documentation",3,3
+1743,2018-08-12T20:58:15Z,2018-08-23T15:24:47Z,2018-08-23T15:24:47Z,2,13,3,"My PR is a:
+
+
+
+🚀 New feature
+Main update on the:
+
+
+Framework
+
+
+strapi new ... command support mongodb+srv: prefix.  Please detail of mongobd+srv is here.
+fix #1742.",3,2
+1752,2018-08-14T16:33:04Z,2018-08-23T15:26:52Z,2018-08-23T15:26:52Z,10,520,35,"My PR is a:
+💅 Enhancement
+Main update on the:
+Plugin
+This PR allows a user to quickly modify the displayed fields in the content-manager list view.
+Here's a screenshot",3,0
+1757,2018-08-16T12:21:02Z,2018-08-21T09:38:52Z,2018-08-21T09:38:52Z,1,1,1,"My PR is a:
+
+🐛 Bug fix
+
+
+Main update on the:
+
+
+Framework
+
+
+Fixes the issue where an error occurred while trying to reset your password.
+Error:
+TypeError: Cannot read property 'options' of undefined at forgotPassword (/api/plugins/users-permissions/controllers/Auth.js:183:49)
+Issue:
+#1589",1,0
+1764,2018-08-17T04:31:50Z,2018-08-21T14:39:04Z,2018-08-21T14:39:04Z,1,11,6,"Hi,
+I'm been using Strapi for a project I'm doing and you guys have done a great work! I love the idea.
+
+
+My PR is a:
+
+🐛 Bug fix
+💅 Enhancement
+
+Main update on the:
+
+
+Framework
+
+
+This is a small Pull Request, however, I find it very useful if you would like to have your global policies organized by folders. Just in case you have more than 10 of them.
+If you try at the moment to create a policy inside a folder, it will throw
+Cannot read property 'handler' of undefined
+
+This commit will fix it and it will allow you to have folders on your config/policies folder.",2,2
+1772,2018-08-20T15:15:35Z,2018-08-21T09:47:43Z,2018-08-21T09:47:43Z,2,2,4,"My PR is a:
+🐛 Bug fix
+Main update on the:
+Plugin: content-type-builder
+Allow to set false as default value for boolean attributes",3,1
+1773,2018-08-20T15:55:40Z,2018-08-21T09:40:38Z,2018-08-21T09:40:38Z,1,143,143,"My PR is a:
+🐛 Bug fix
+Main update on the:
+Plugin: `users-permissions``
+Format it.json file with prettier",2,0
+1775,2018-08-20T19:44:02Z,2018-08-21T09:45:56Z,2018-08-21T09:45:56Z,1,16,19,"My PR is a:
+
+
+💅 Enhancement
+
+Main update on the:
+Code Style 🤷‍♂️
+
+
+
+
+
+Fix linter errors  throwned on the pre-commit hook.
+
+Please, promote follow a code style for contributions 🙏",2,1
+1776,2018-08-20T20:13:17Z,2018-08-21T14:48:47Z,2018-08-21T14:48:47Z,1,3,3,"My PR is a:
+
+🐛 Bug fix
+
+
+Main update on the:
+
+
+
+Plugin
+File Upload Explorer showing GB instead of MB
+Fix #1761",3,1
+1777,2018-08-21T08:35:47Z,2018-08-23T15:27:45Z,2018-08-23T15:27:45Z,1,16,4,"My PR is a:
+💅 Enhancement
+Main update on the:
+Documentation
+Based on PR: #1460
+Added requirements section for Node/NPM + Database options",4,3
+1778,2018-08-21T08:37:16Z,2018-08-21T09:51:40Z,2018-08-21T09:51:40Z,1,1,1,"My PR is a:
+🐛 Bug fix: The getting started link in the README had a closing parenthesis in the end, causing it to 404.
+I changed the README to contain  the correct link.",2,0
+1796,2018-08-24T12:11:35Z,2018-08-28T17:55:04Z,2018-08-28T17:55:04Z,1,4,0,"My PR is a:
+🐛 Bug fix
+Main update on the:
+
+Plugin
+
+
+create type with multiple files attribute
+open popup for select new files
+select any file
+remove this file
+open popup for select new files
+cancel popup without selected file
+raised error
+
+What changed:
+
+if select file canceled state is changed, but files not added or removed.",3,1
+1800,2018-08-25T05:29:55Z,2018-08-29T11:06:05Z,2018-08-29T11:06:05Z,1,1,1,"My PR is a:
+
+🐛 Bug fix
+
+
+Main update on the:
+
+Documentation
+
+
+
+Small typo in the documentation.",3,0
+1802,2018-08-25T18:46:51Z,2018-08-29T12:20:46Z,2018-08-29T12:20:46Z,2,99,154,"My PR is a:
+
+
+💅 Enhancement
+
+Main update on the:
+
+
+Framework
+
+ This is proposal pull request! Please give me some advice 🙏
+I think plugin.js in Strapi core will be more easy to understand like this proposal if we use fs-extra lib. How do you think?",3,6
+1808,2018-08-27T07:45:18Z,2018-08-27T15:32:42Z,2018-08-27T15:32:42Z,1,3,3,"My PR is a:
+🐛 Bug fix
+Main update on the:
+
+
+
+Plugin
+
+If textarea is emty that value is null. But in validation checked length property. App is crashed with message ""null is not have length property""",2,1
+1813,2018-08-27T13:35:29Z,2018-08-30T09:48:59Z,2018-08-30T09:48:59Z,7,99,1,"My PR is a:
+💅 Enhancement
+Main update on the:
+Framework
+This adds in support for proxy services such as Nginx or Apache and allows plugins like the Upload plugin to offer the correct protocol, host, and port when getting files ect.
+@Aurelsicoko @lauriejim I'm not sure if I created the IF/ELSE statement correctly in the strapi package (following your standards) so would love your feedback please.",4,8
+1815,2018-08-27T14:18:24Z,2018-08-27T15:47:09Z,2018-08-27T15:47:09Z,1,134,0,"Related to: #891
+
+My PR is a:
+
+
+💅 Enhancement
+
+Main update on the:
+
+Documentation
+
+
+Document how to add a new auth provider.",2,0
+1820,2018-08-27T19:01:21Z,2018-08-29T13:16:53Z,2018-08-29T13:16:53Z,1,26,21,"Related to: #1807
+My PR is a:
+bug Bug fix
+Main update on the:
+Framework
+Switch from exec to spawn to kill children and sub-children
+in the same time from the main test process.
+Also add some error handling, and make the program exit with error
+code (1) if anything goes wrong during execution.",2,0
+1824,2018-08-28T05:07:48Z,2018-08-28T16:22:01Z,2018-08-28T16:22:01Z,1,4,4,"My PR is a Grammar fix
+
+
+
+
+Main update on CONTRIBUTING.md",2,0
+1825,2018-08-28T10:31:13Z,2018-08-28T16:23:17Z,2018-08-28T16:23:17Z,6,6,0,"My PR is a:
+💅 Enhancement
+Main update on the:
+Plugin
+Add missing translation files when generating a new plugin.",2,0
+1827,2018-08-28T12:32:25Z,2018-08-31T08:14:49Z,2018-08-31T08:14:49Z,4,100,36,"My PR is a:
+
+🐛 Bug fix
+
+
+Main update on the:
+
+
+
+Plugin
+
+This commit fix following problems:
+
+is impossible set field media as required
+if hardcode required on media field validation error not display on view
+if fix display error message on media type property and add file, remove it again, then validation on required is successful checked, but field with file is empty",3,3
+1830,2018-08-28T15:10:53Z,2018-09-06T16:17:23Z,2018-09-06T16:17:23Z,2,6,0,"My PR is a:
+💅 Enhancement
+Main update on the:
+Framework
+Hi! I needed to catch errors from strapi to do some custom error handling logic. I noticed that errors are not propagated to Koa as they are catch in the boom middleware (at least the errors from controllers?) so i would like to propose a way to get these errors propagate if configured.
+I added into /config/environments/development/server.json:
+""emitErrors"": true,
+
+Then anyone can do in server setup the following:
+const strapi = require('strapi');
+strapi.app.on('error', (err, ctx) => {  'Your logic goes here' });
+strapi.start();
+
+I would like to propagate any error into this part but for now is a good start. What do you think?
+Thanks",3,4
+1831,2018-08-28T16:45:57Z,2018-09-01T15:36:33Z,2018-09-01T15:36:33Z,2,11,4,"My PR is a:
+
+
+
+🚀 New feature
+Main update on the:
+
+
+Framework
+
+
+By #1743, Strapi had become accept “new” command +srv URI but the generated project still not supports it actually. This pull request is for it becomes support +srv URI!
+This pull request may be looked has lot of changes but it because of beautify code and shallow nest. Please review it by ignoring white space🙏
+resolve #432",4,16
+1833,2018-08-28T18:32:16Z,2018-11-10T10:46:38Z,2018-11-10T10:46:39Z,1,24,18,"When there's an array of ID's present it looks like the Content Manager uses the '=' comparison which ends up returning an empty set. I think maybe the issue lies with the Content Manager plugin in that it should be using a 'IN' comparison if it detects an array. This is a workaround that seems to fix the issue. Although I'll be honest, I don't have enough knowledge of this plugin or the system to know if this will work for all edge cases.
+
+
+My PR is a:
+🐛 Bug fix
+Main update on the:
+Plugin
+
+Fix #1683",4,7
+1838,2018-08-29T16:10:35Z,2018-09-25T08:46:39Z,2018-09-25T08:46:39Z,1,15,24,"My PR is a:
+
+
+💅 Enhancement
+
+Main update on the:
+
+
+Framework
+
+
+Polishing Strapi-hook-mongoose for more readable.
+Please merge it after #1831.
+The mainly change in this PR is changing the function in initialize into async/await function.
+It means mongoose.connect() becomes returns Promise instead of it was passed callback function.
+By the way, a1fd2bc is just for prettier code, doesn't change logic!",3,1
+1841,2018-08-30T06:19:41Z,2018-08-30T09:55:50Z,2018-08-30T09:55:50Z,1,1,6,"My PR is a:
+🐛 Bug fix
+Main update on the:
+Documentation
+Removes parameters related to Session in the database configuration parameters list.",2,0
+1846,2018-08-30T16:26:15Z,2018-09-04T07:38:51Z,2018-09-04T07:38:51Z,1,1,1,"My PR is a:
+
+
+💅 Enhancement
+
+Main update on the:
+
+
+Framework
+
+
+It is a tiny and proposal pull request. Please give me some advice 🙏
+I added a default value to auth DB in generating new app.
+I think most users use ""admin"" DB as an auth DB.
+But it may cause confusion to the user unfamiliar for Mongo DB if we don't offer a default value.
+So I think it is more good for user experience that suggesting it as a default value.",5,7
+1851,2018-08-31T09:35:27Z,,2018-10-09T09:15:56Z,2,17,5,"My PR is a:
+🐛 Bug fix
+Main update on the:
+Plugin
+The providers were hard coded to use http:// and the Strapi running IP/Port. If you used a proxy such as Nginx providers like facebook and discord will fail in production use (in many cases they work using localhost on development)
+This PR is still in a work in progress as I don't know how to fix the grantConfig here:
+    _.defaultsDeep(grantConfig, {
+      server: {
+        protocol: 'http',
+        host: `${strapi.config.url}`
+      }
+    });
+
+Due to it being hard coded for http",4,14
+1852,2018-08-31T09:43:40Z,2018-09-04T09:25:40Z,2018-09-04T09:25:40Z,2,2,2,"My PR is a: 🐛 Bug fix
+
+
+Main update on the: Framework
+
+Fix 1:1 relation lost on update data.
+Related to  #1490",2,0
+1853,2018-08-31T10:35:50Z,2018-09-04T09:25:13Z,2018-09-04T09:25:13Z,1,2,1,"My PR is a:
+
+🐛 Bug fix
+
+
+Main update on the:
+
+
+
+Plugin
+
+To reproduce bug:
+
+attach file to any type
+remove this file
+attach again the same file
+File not be attached, but files array is empty",3,2
+1854,2018-08-31T11:49:49Z,2018-09-10T13:13:14Z,2018-09-10T13:13:14Z,2,22,19,"My PR is a: 🐛 Bug fix
+
+
+Main update on the: Framework
+
+Fix #1782",3,4
+1855,2018-08-31T12:36:57Z,2018-09-07T10:33:23Z,2018-09-07T10:33:24Z,1,4,6,"My PR is a:  🐛 Bug fix
+
+
+Main update on the:  Framework
+
+Related issue #1579",2,0
+1872,2018-09-01T21:16:13Z,2018-09-09T12:53:11Z,2018-09-09T12:53:11Z,1,3,0,"My PR is an 💅 Enhancement
+Main update on the: Documentation
+Adding a quick note about production database configurations.",2,0
+1878,2018-09-02T18:40:23Z,2018-09-03T10:33:52Z,2018-09-03T10:33:52Z,1,4,1,"My PR is a:
+🐛 Bug fix
+Main update on the:
+Content-Type-Builder-Plugin
+
+This PR fixes the issue references here: #1848",2,0
+1881,2018-09-03T10:02:41Z,2018-09-06T16:16:01Z,2018-09-06T16:16:02Z,2,17,6,"My PR is a:
+
+🐛 Bug fix
+
+
+Main update on the:
+
+
+
+Plugin
+
+Reproduce bug:
+
+attach pdf file to any type
+click on ""reset""
+confirm action
+Pdf icon still display",2,0
+1884,2018-09-03T12:30:44Z,2018-09-04T09:09:40Z,2018-09-04T09:09:40Z,1,1,1,"My PR is a: 🐛 Bug fix
+
+Main update on the: Plugin",2,0
+1889,2018-09-04T07:33:10Z,2018-09-06T16:12:55Z,2018-09-06T16:12:55Z,1,1,0,"My PR is a:
+
+🐛 Bug fix
+
+
+Main update on the:
+
+
+
+Plugin
+
+
+mark two or more entries on any type
+click ""remove all 2 entries""
+success notification not display",2,0
+1893,2018-09-04T15:02:33Z,2018-09-09T12:50:36Z,2018-09-09T12:50:36Z,1,5,0,"My PR is a:
+
+🐛 Bug fix
+
+
+Main update on the:
+
+
+
+Plugin
+
+Steps to reproduce:
+
+create type with multiple file attribute
+create item with one or more attachment and save
+edit again item. remove all files and add one.
+save
+In result type has 2 or more files. But must contain only one.",2,0
+1895,2018-09-05T09:15:28Z,2018-09-05T12:15:48Z,2018-09-05T12:15:48Z,1,4,4,"My PR is a: 🐛 Bug fix
+Main update on the: Plugin
+If you try to login with non existing email or username, it will trigger error 500.",2,0
+1909,2018-09-06T08:13:08Z,,2018-10-19T11:52:58Z,17,3153,45,"My PR is a:
+💅 Enhancement
+Main update on the:
+Plugin
+Add descriptions to the plugins' routes in order to make them appear in the upcoming documentation plugin.",4,6
+1913,2018-09-06T23:38:14Z,2018-09-25T08:12:12Z,2018-09-25T08:12:12Z,3,106,96,"My PR is a:
+
+
+💅 Enhancement
+
+Main update on the:
+
+
+
+Plugin",3,2
+1916,2018-09-07T14:04:09Z,2018-09-09T11:32:59Z,2018-09-09T11:32:59Z,2,16,5,"My PR is a: 🐛 Bug fix
+
+
+Main update on the: Plugin
+
+Fix #1903",3,1
+1921,2018-09-09T09:44:09Z,2018-09-09T12:04:12Z,2018-09-09T12:04:12Z,1,5,5,"My PR is a:
+
+
+💅 Enhancement
+
+Main update on the:
+Admin",2,0
+1924,2018-09-10T08:13:09Z,2018-09-24T17:43:14Z,2018-09-24T17:43:14Z,16,2585,1462,"My PR is a:
+🐛 Bug fix
+💅 Enhancement
+Main update on the:
+Documentation
+Plugin GraphQL
+Merging Mutations (#1650) and Aggregations.
+Fixed Mongoose Hook to use Decimals (2 decimal places) and Floats (20 decimal places).",8,12
+1926,2018-09-10T11:40:35Z,2018-09-10T16:40:46Z,2018-09-10T16:40:46Z,1,3,3,"BugFix in content-type-builder plugin service
+My PR is a:
+🐛 Bug fix
+Main update on the:
+Plugin
+i was getting below error during new content type save
+TypeError: Cannot read property 'toJS' of undefined
+    at Object.appearance (/fakepath/api/plugins/content-type-builder/services/ContentTypeBuilder.js:101:71)
+
+
+same error was on two places, it was caused by missing values in the immutable object so i added second parameter to empty List/Map.",2,2
+1928,2018-09-10T18:05:50Z,2018-09-27T16:32:16Z,2018-09-27T16:32:16Z,62,136,134,"My PR is a:
+🐛 Bug fix
+Main update on the:
+Overall project styling
+I've encountered the wrong font-family declaration in admin panel. It was
+font-family: Lato-Bold;
+while it should be
+font-family: 'Lato', sans-serif;
+font-weight: bold;
+The old declaration resulted in headlines were rendered in Times New Roman. You should always provide sans-serif or other font type fallback, and you also should never declare it ""Bold"" or ""Medium"" right in font-family.
+Guys, I find exactly 240 font-family declarations across the project. You use SCSS anyway, why not establish a mixin system?
+You also got double and single quotes messed up. You really need a linter. But I love Strapi and just want to help! Please, merge it.",4,5
+1929,2018-09-10T18:53:18Z,,2019-01-27T16:04:05Z,11,246,33,"My PR is a:  🚀 New feature
+Main update on the:  GraphQL Plugin
+Implement GraphQL Subscriptions. Description needs to be completed.
+TODO List:
+
+Make sure it's working 🕵️‍♀️
+Add a UI to configure Redis Connection
+Give the possibility to use Simple PubSub Instead of Redis.
+Make sure policies are working
+Give an easy way to disable subscriptions for a given Content-Type
+Write some doc/examples.",5,7
+1932,2018-09-12T04:47:07Z,,2018-12-15T23:24:13Z,1,97,161,"My PR is a: 💅 Enhancement
+Main update on the: Plugin
+
+Description
+As mentioned in #1462, I'm starting to work on adding support for MSSQL database (a personal requirement). Pursuing the best approach and good code quality, I'll create different PRs with gradual changes seeking a easy code review.
+The scope of this PR is just refactor the actual implementation on strapi-hook-bookshelf without changing his behavior. The objective here is avoid the queries manually created and increase the use of Knex.js
+Pros
+With using Knex.js --a dependency that Strapi already have-- it's expected obtain the benefits of a dedicated query builder: the work of more number and experienced eyes.
+Avoiding reinventing the wheel, we could reduce the lines of code[1], with that reducing the maintenance costs in this project and the keep the space for bugs at the minimum.
+Also, this will open the opportunity to create better schemas for relational databases, like add real constrains and real foreign keys[2], increasing their performance and data integrity.
+Performance: On the case of altering tables when new field are added, this implementation done it in just one query execution; originally executes one sentence by field.
+Cons
+
+Increase the dependency with Knex.js.
+...? 🤷‍♂️
+
+What is tested
+
+ Creation of the initial schema whit the creation of a new project (35ad208)
+ Primary keys with different field types than numeric (d456ee3)
+ Particular case UUID primary key on PostgeSQL (d456ee3)
+ Particular case ""on update"" trigger on MySQL (3253e01)
+ Creating a Content-Type with all possible data-types offer by the GUI (7ca629b)
+ Adding fields to an already create model (a7f6b68)
+ Content-type with ""media"" field type
+ Relations
+
+Results
+All databases
+
+[✔] Primary key constraints with no-numeric data types
+: In two steps; first creates the table for later execute an ALTER query to add the constraint.
+
+MySQL
+
+[✔] Add keywork unsigned to primary keys
+[✔] Adds default character set utf8 on every table definition
+[✔] on update current_timestamp trigger removed from updated_at
+: Is important?. With PostgreSQL this trigger is not created
+: Bring back with 3253e01 following advice of @derrickmehaffy
+[✔] enum types as text; not native
+[✔] all text fields as longtext
+[?] float field change from double to float(8, 2)
+: Implications? Can we leave with this?
+[✔] All new fields added with just one query execution
+: Original implementation executes one query by field
+
+PostgreSQL
+
+[✔] not null constraint removed from primary keys
+: Not a problem. PRIMARY KEY enforces the same data constraints as a combination of UNIQUE and NOT NULL
+[✔] Change timestamp with time zone to timestamptz
+: They are equivalent
+[✔] json type as jsonb
+[?] float field change from double precision to real
+: Implications? Can we leave with this?
+[?] ""date"" fields now comes with default value to current_timestamp
+: Implications?. Isn't changed in the code?
+: As with MySQL, result of share the same code
+[✔] All new fields added with just one query execution
+: Original implementation executes one query by field
+
+
+Footnotes
+[1] To be verified. I have not done the work, is just a possibility that I picture in my mind.
+[2] Out of the scope of this PR. It just to mention the opportunity of improvement.",5,31
+1936,2018-09-12T18:02:59Z,2018-09-13T09:46:50Z,2018-09-13T09:46:50Z,1,2,2,"My PR is a:
+
+🐛 Bug fix
+
+
+Main update on the:
+
+
+Framework
+
+
+
+'server.proxy' || {} is always returning server.proxy. The real intention is pass {} as default value for _.get.",2,0
+1937,2018-09-12T21:41:08Z,2018-09-19T12:14:25Z,2018-09-19T12:14:25Z,1,25,30,"My PR is a:
+
+
+💅 Enhancement
+
+Main update on the:
+
+
+
+Plugin
+
+Just seen the opportunity of reduce repeated code 🤷‍♂️
+Note: Possibly the noise can be reduced if the dependency is managed on the repository (the main package.json file) instead of a package.",3,0
+1941,2018-09-13T04:17:57Z,2018-09-19T16:37:06Z,2018-09-19T16:37:06Z,8,34,26,"My PR is a:
+
+🐛 Bug fix
+
+
+Main update on the:
+
+
+
+Plugin
+
+Fixes Strapi new database connection check.
+Also make multiple platform dependent rm commands use rimraf instead
+Fix #1939  and fix #1940",3,10
+1948,2018-09-13T22:36:17Z,2018-11-22T11:18:09Z,2018-11-22T11:18:10Z,27,700,213,"My PR is a: 🚀 New feature
+Main update on the:
+Framework
+The goal of this PR is to allow the user to add a filter about related fields of the model.
+As an example, like fetch specific users who have an article named 'test'.
+(So it's not about getting all users and then only articles written and named 'test).
+Fixes #1292
+TODO:
+
+ Detect a relation filter (pushed with next commit)
+ Add NoSQL logic (update template generated)
+ Add SQL logic (update template generated)
+ Check the GraphQL Query logic (and adapt if necessary)
+ Update docs
+ Manage Morph-relation (ex.: file/upload)
+ Make some tests!
+ See if we can add some unit tests to cover most of the cases
+
+Following #1467
+Working Example (Mongoose + GraphQL)
+
+Working Example (Bookshelf + REST)",17,66
+1950,2018-09-14T07:13:10Z,2018-09-16T09:48:48Z,2018-09-16T09:48:48Z,1,5,0,"... If aren't text colums definend in the schema do not lanch the SQL to create the fulltext index that generate the following SQL Error:
+
+Error: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ')' at line 1
+...
+sql: 'CREATE FULLTEXT INDEX SEARCH_MY_TABLE ON my_table ()'
+
+My PR is a:
+🐛 Bug fix
+Main update on the:
+Framework strapi-hook-bookshelf with Relational DBs such as MySql
+New pull request from #1845",4,3
+1958,2018-09-16T03:21:53Z,2018-09-16T09:27:18Z,2018-09-16T09:27:18Z,1,2,2,"My PR is a:
+🐛 Bug fix of #1484
+Main update on the:
+strapi-utils package
+Update isNumeric function in strapi-utils in order to make filter request working on nested GraphQL object",2,0
+1959,2018-09-16T19:53:44Z,2018-09-18T17:08:37Z,2018-09-18T17:08:37Z,1,22,19,"My PR is an: 💅 Enhancement
+Main update on the: Documentation
+This PR fixes the (required) URL used for password-resets via the REST-API. It also fixes some small typos and code-formatting.",2,3
+1961,2018-09-17T09:12:57Z,2018-09-24T16:27:49Z,2018-09-24T16:27:49Z,2,14,0,"My PR is a: 💅 Enhancement
+Main update on the: Documentation
+
+
+
+
+
+Add Content Internationalization documentation according to the related article: https://blog.strapi.io/content-internationalization-with-strapi.",3,0
+1964,2018-09-17T11:17:13Z,2018-09-18T14:31:54Z,2018-09-18T14:31:54Z,3,9,0,"My PR is a:
+💅 Enhancement
+Main update on the:
+Framework
+Added the config options for the autoOpen option to the server.js configs by default on generation to make it easier to find and change.
+Personally I think it should be disabled by default on development, on most environments it does not refresh the current tab and instead opens up a new one. Very frustrating when you are trying to add models using the content-type builder or directly editing files while the server is running. Every time it auto-restarts it opens a new tab.
+@Aurelsicoko thoughts on this? If you agree we can disable it by default I'll push the change.",3,5
+1967,2018-09-17T18:27:33Z,2018-09-25T09:41:22Z,2018-09-25T09:41:22Z,1,1,0,"My PR is a:
+
+🐛 Bug fix
+
+
+Main update on the:
+
+
+Framework
+
+
+
+The execute bit is already enabled on server.js
+However, executing it via ./server.js fails
+Adding the shebang allows the server to start",3,4
+1970,2018-09-18T04:26:59Z,2018-09-18T14:58:29Z,2018-09-18T14:58:30Z,1,19,7,"My PR is a:
+🐛 Bug fix #1897
+Main update on the:
+Update of the strapi-plugin-content-type-builder
+Model name is camelCased only on input blur, a getModelWithCamelCaseName function has been added and is used for model object on form submission (create and edit) in order to prevent model name with whitespaces.",3,0
+1971,2018-09-18T05:18:56Z,2018-09-18T14:11:37Z,2018-09-18T14:11:38Z,1,4,2,"My PR is a:
+🐛 Bug fix #1844
+Main update on the:
+Update of strapi-plugin-settings-manager
+Update lanagues list label break on multi-line.
+Center vertically label with flexbox and decrease line-height in order to increase render of language name.",3,0
+1974,2018-09-18T11:23:27Z,2018-09-18T14:00:41Z,2018-09-18T14:00:41Z,1,3,3,"My PR is a: 🐛 Bug fix
+Main update on the: Plugin (Email)
+Fix #1858 issue. Incorrect service reference.",2,0
+1976,2018-09-18T13:42:44Z,2018-09-24T17:11:21Z,2018-09-24T17:11:21Z,1,2,2,"My PR is a: 🐛 Bug fix #1885
+Main update on the: Framework
+Fix the right association detection when there is many same foreignKey that refer to the same model.",3,0
+1979,2018-09-18T19:34:16Z,,2019-01-27T16:04:15Z,6,90,2,"My PR is a:
+💅 Enhancement
+Main update on the:
+Plugin: Content Manager
+
+This is a first Demo to Add a Create Button to SelectMany to add a related Content Type record .
+This is linked to the issue #1965",5,4
+1981,2018-09-19T05:37:55Z,2018-09-21T16:00:54Z,2018-09-21T16:00:54Z,1,9,4,"My PR is a:
+🐛 Bug fix #985
+Main update on the:
+Update of strapi-plugin-content-manager
+Remove moveFocusToEnd in order to prevent cursor which going to the bottom of the textarea when user put text in bold, italic, line-through or add header.",3,0
+1982,2018-09-19T06:46:08Z,2018-09-27T15:20:51Z,2018-09-27T15:20:51Z,1,1,1,"My PR is a:
+🐛 Bug fix #1847
+Main update on the:
+Update of the package strapi-plugin-content-manager
+In order to fix this issue we have to invoke the sendData method
+just before updating the state of the WYSIWYG otherwhise the sendData
+method is not triggered because currentState === updatedState.",3,1
+1990,2018-09-19T23:18:33Z,2018-09-24T17:28:20Z,2018-09-24T17:28:20Z,2,8,28,"Fix the fix merged with #1575
+The original patch was done over a block of code moved on #1667 resulting in re-introducing code that now is not invoked and continue with the bug reported on #916.
+This patch take the original changes and put them in the current correct place.
+Proof:
+
+
+
+
+My PR is a:
+
+🐛 Bug fix
+
+
+Main update on the:
+
+
+
+Plugin",2,4
+1997,2018-09-21T06:03:22Z,,2018-10-22T14:15:38Z,1,1,1,"My PR is a:
+🐛 Bug fix #1960
+Main update on the:
+Plugin strapi-plugin-content-manager
+Date value are now passed to inputDate component with a timezone offset in order to prevent multiple UTC recalculation.",4,11
+2002,2018-09-22T14:05:50Z,2018-09-25T09:09:38Z,2018-09-25T09:09:38Z,1,1,1,"My PR is a:
+🐛 Bug fix #932
+Main update on the:
+strapi-plugin-users-permissions
+When trying to set password a number then this line in bcrypt was throwing an error and returning hash as undefined, Hence the password was not set.
+I converted password to a string before passing it into the hash function",3,1
+2019,2018-09-25T13:50:35Z,2018-10-08T15:45:08Z,2018-10-08T15:45:08Z,16,277,177,"My PR is a:
+💅 Enhancement
+Main update on the:
+Admin
+This PR separates the entry point of the admin between the dev mode and the production one",3,2
+2025,2018-09-26T13:15:18Z,2018-10-10T09:51:10Z,2018-10-10T09:51:10Z,19,131,147,"My PR is a:
+💅 Enhancement
+Main update on the:
+Admin
+Previously, a user could briefly see the admin before registering or login to the administration panel. This is mainly due to the admin which is not aware of the installed plugins (especially the users-permissions which handles the authentication) and the plugin registration system.
+This PR fixes this bug by waiting for the important to be loaded before whether or not redirecting the user.
+Also, it verifies the validity of the user's jwtToken if it detected.",2,0
+2026,2018-09-26T13:47:11Z,2018-09-29T12:46:23Z,2018-09-29T12:46:23Z,2,8,2,"My PR is a:
+
+
+💅 Enhancement
+
+Main update on the:
+
+Documentation
+
+
+
+The node and npm requirement on both Github issue template and strapi documentation do not stay updated.
+This can cause confusion to users. #2022",4,1
+2027,2018-09-26T14:08:07Z,2018-09-27T16:39:43Z,2018-09-27T16:39:43Z,104,7326,9172,"My PR is a:  💅 Enhancement
+Main update on the: Admin",2,0
+2028,2018-09-26T14:20:09Z,,2019-01-27T16:04:23Z,2,28,0,"My PR is a:
+💅 Enhancement
+🚀 New feature
+Main update on the:
+Framework
+I had the annoying problem of having a whole lot of peer dependency warning come up when running npm list -g --depth=0 due to the compiled Strapi dev plugins. It seemed that there were no cleanup scripts that uninstalled them from the npm global modules. I've gone ahead to create a simple bash script and a caller function in package.json to execute the bash script.
+Simply run:
+npm run destroy
+and will cleanup all the Strapi dev plugins in the npm global modules.",4,5
+2033,2018-09-27T15:56:48Z,2018-10-17T14:21:23Z,2018-10-17T14:21:23Z,6,18,161,"My PR is a:
+💅 Enhancement
+Main update on the:
+Admin
+Framework
+This PR removes some of the unused dependencies like mocha and update the front-end ones like react, redux",3,0
+2036,2018-09-27T17:57:47Z,2018-09-28T14:25:12Z,2018-09-28T14:25:12Z,1,0,0,"Without this, #1967 makes no sense.
+
+
+
+My PR is a:
+
+
+💅 Enhancement
+
+Main update on the:
+
+
+Framework",2,0
+2037,2018-09-27T19:55:31Z,2018-09-29T12:29:36Z,2018-09-29T12:29:36Z,4,34,5,"My PR is a:
+💅 Enhancement
+Main update on the:
+Admin
+Plugin
+For #1628",2,1
+2038,2018-09-28T09:24:21Z,2018-10-09T14:02:33Z,2018-10-09T14:02:33Z,121,2885,1423,"My PR is an:
+
+
+💅 Enhancement
+
+Main update on the:
+
+Documentation
+
+
+
+
+So this is a major overhaul of the documentation.
+The reason to introduce a server-side-rendered but javascript enabled documentation is to easily implement documentation modules such as API generator. See #1758.
+You will get the following features:
+
+Development and deployment should be a lot more comfortable (I wrote a little blogpost about the benefits compared to regular content management here: https://happy-css.com/articles/from-processwire-to-vuepress-why-i-gave-up-my-shiny-wysiwyg-for-a-static-site-generator/)
+Hot Module Replacement - you can add content during development and stay at the same page/scroll height
+Vue Components - dynamic explanations are easier to build than gifs with animations.
+
+Building the project:
+cd docs
+npm i
+# Development
+npm run dev
+# localhost:8080
+# Alternatively:
+npm i -g vuepress
+vuepress dev
+Todos left:
+
+ check docs for style
+ check if sidebar is ok (for both versions)
+ replace blockquotes with info containers (https://vuepress.vuejs.org/guide/markdown.html#custom-containers)
+ add correct metadata and favicon",4,8
+2039,2018-09-28T10:07:55Z,2018-09-28T15:35:11Z,2018-09-28T15:35:11Z,3,29,39,"My PR is a:
+💅 Enhancement
+Main update on the:
+Documentation
+Updated Issue Template to ensure users are submitting issues based on the latest Strapi release.",3,0
+2040,2018-09-28T11:32:06Z,2018-09-28T17:44:30Z,2018-09-28T17:44:30Z,3,6,0,"My PR is a:
+🐛 Bug fix #1785
+Main update on the:
+Plugin
+Set the same password requirements when registering a user",3,1
+2041,2018-09-28T11:33:00Z,2018-09-28T17:40:08Z,2018-09-28T17:40:09Z,2,15,2,"My PR is a:
+🐛 Bug fix #1823",3,1
+2043,2018-09-28T14:05:29Z,2018-09-28T17:47:27Z,2018-09-28T17:47:27Z,1,27,0,"My PR is a:
+
+
+💅 Enhancement
+
+Main update on the:
+
+Documentation
+
+
+
+This is a documentation update to clear up any issues around connecting with MLab. Fixes issue ""Can't connect to mlab close #2013""",2,0
+2049,2018-09-30T17:27:31Z,2018-10-01T15:01:55Z,2018-10-01T15:01:55Z,2,2,1,"Fix the validation introduced with #1950
+Fix #1382
+Add skip eslint rule to avoid error
+
+
+
+My PR is a:
+
+🐛 Bug fix
+
+
+Main update on the:
+
+
+Framework",2,0
+2052,2018-10-01T12:31:43Z,2018-10-03T18:30:48Z,2018-10-03T18:30:48Z,2,19,13,"My PR is a:
+🐛 Bug fix
+Main update on the:
+Plugin: users-permissions
+Fix wrong displayed path in the edit view of the users-permissions plugin. The plugin prefix was missing.",2,0
+2059,2018-10-02T17:17:49Z,2018-10-04T13:39:34Z,2018-10-04T13:39:34Z,1,1,1,"My PR is a: 🐛 Bug fix #1469
+Main update on the: Framework
+
+When the count route have to return 0 it was define as no body so it return an 404 error.
+I just add a condition to return 0 if the body is 0.",3,2
+2060,2018-10-02T18:05:52Z,2018-10-04T15:27:28Z,2018-10-04T15:27:29Z,1,5,1,"My PR is a: 🐛 Bug fix #1784
+Main update on the: Plugin
+Fix the displayed error message for reset password when the code is not correct. Instead of bad password message.",2,0
+2061,2018-10-02T18:43:27Z,2018-10-03T17:46:38Z,2018-10-03T17:46:38Z,4,33,0,"My PR is a:
+
+
+💅 Enhancement
+
+Main update on the:
+
+
+
+Plugin
+I added the missing translations for the NL language. This fixes issue #2035.",2,0
+2062,2018-10-02T22:13:07Z,2018-10-03T17:42:12Z,2018-10-03T17:42:12Z,4,203,6,"My PR is a:
+🐛 Bug fix
+💅 Enhancement
+Main update on the:
+Plugin
+Added missing portuguese translations, fixing #1626",2,0
+2064,2018-10-03T01:04:38Z,2018-10-03T17:37:37Z,2018-10-03T17:37:37Z,4,41,9,"fix #1621
+
+
+My PR is a:
+
+
+💅 Enhancement
+
+Main update on the:
+
+
+Framework",2,0
+2067,2018-10-03T12:39:27Z,2018-10-03T17:31:06Z,2018-10-03T17:31:06Z,4,31,4,"My PR is a:
+🐛 Bug fix
+💅 Enhancement
+Main update on the:
+Plugin
+Added missing german translations, fixing #1620",2,0
+2069,2018-10-03T16:23:59Z,2018-10-09T10:36:44Z,2018-10-09T10:36:44Z,12,425,331,"My PR is a:
+💅 Enhancement
+
+Main update on the:
+
+
+
+Plugin: content-manager
+This PR allows a user to delete a document directly from the edit view.",5,6
+2075,2018-10-04T15:19:29Z,2018-10-08T09:19:37Z,2018-10-08T09:19:37Z,2,1,3,"My PR is a: 💅 Enhancement
+Main update on the: Framework
+
+Close #2071 - fix useless params on update service bookshelf",3,1
+2077,2018-10-04T19:39:49Z,2018-10-06T10:05:35Z,2018-10-06T10:05:35Z,1,2,2,"My PR is a:
+
+🐛 Bug fix
+
+
+Main update on the:
+
+
+
+Plugin
+
+
+Original code:
+const listTitle = this.props.match.params.slug === 'languages' || 'databases' ? this.renderListTitle() : '';
+Is interpreted as:
+const listTitle = ( this.props.match.params.slug === 'languages' ||  'databases' ) ? this.renderListTitle() : '';
+Been databases always been evaluate as true, this is the same that:
+const listTitle = this.renderListTitle();
+Clearly is not the intention. I refactored this peace of code with what I think was the real intention; looking just the code, not knowing is this is the desire behavior.
+
+Evidence of the bug:
+
+(On the right is the result of the evaluation)",2,0
+2078,2018-10-04T20:04:26Z,2018-10-05T12:45:04Z,2018-10-05T12:45:04Z,4,30,0,"My PR is a:
+💅 Enhancement
+Main update on the:
+
+Admin
+Plugins (content manager, settings manager, and users permissions)
+
+For #1627",2,1
+2079,2018-10-04T20:25:15Z,2018-10-08T09:20:12Z,2018-10-08T09:20:12Z,5,17,29,"My PR is a:
+
+
+🐛 Bug fix
+💅 Enhancement
+
+
+Main update on the:
+
+
+Framework
+
+
+Just some minor changes and bug fixes that I come across looking around the code. I put all along hoping should not take too much time to review them.",3,2
+2082,2018-10-04T22:38:38Z,2018-10-22T16:02:59Z,2018-10-22T16:02:59Z,1,2,1,"My PR is a:
+
+
+💅 Enhancement
+
+Main update on the:
+
+
+Framework",3,1
+2083,2018-10-04T22:49:20Z,2018-10-23T08:32:15Z,2018-10-23T08:32:15Z,1,14,1,"My PR is a:
+
+
+💅 Enhancement
+
+Main update on the:
+
+
+Framework",2,0
+2085,2018-10-05T11:15:49Z,2018-10-07T15:00:50Z,2018-10-07T15:00:50Z,1,8,6,"My PR is a:
+
+🐛 Bug fix
+
+
+Main update on the:
+
+
+
+Plugin
+We can now fetch permissions if we have an api that contains a service with no controllers",3,4
+2089,2018-10-05T20:00:52Z,2018-10-06T09:22:13Z,2018-10-06T09:22:13Z,5,41,5,"My PR is a:
+💅 Enhancement
+PR for issue: #1624
+I left some translations I struggled with:
+📦 strapi-plugin-content-manager - https://github.com/strapi/strapi/blob/master/packages/strapi-plugin-content-manager/admin/src/translations/pl.json
+
+
+
+Translation key
+English default value
+
+
+
+
+containers.SettingPage.addRelationalField
+Add new relational field
+
+
+containers.SettingPage.attributes
+Attributes fields
+
+
+containers.SettingPage.attributes.description
+Define the order of the attributes
+
+
+containers.SettingPage.listSettings.description
+Configure the options for this content type
+
+
+containers.SettingPage.listSettings.title
+List — Settings
+
+
+containers.SettingPage.pluginHeaderDescription
+Configure the specific settings for this Content Type
+
+
+containers.SettingsPage.Block.contentType.description
+Configure the specific settings
+
+
+containers.SettingsPage.Block.contentType.title
+Content Types
+
+
+containers.SettingsPage.Block.generalSettings.description
+Configure the default options for your Content Types
+
+
+containers.SettingsPage.Block.generalSettings.title
+General
+
+
+containers.SettingsPage.pluginHeaderDescription
+Configure the default settings for all your Content types
+
+
+form.Input.bulkActions
+Enable bulk actions
+
+
+form.Input.defaultSort
+Default sort attribute
+
+
+form.Input.filters
+Enable filters
+
+
+form.Input.label.inputDescription
+This value overrides the label displayed in the table's head
+
+
+form.Input.pageEntries
+Entries per page
+
+
+form.Input.pageEntries.inputDescription
+Note: You can override this value in the Content Type settings page.
+
+
+form.Input.search
+Enable search
+
+
+form.Input.search.field
+Enable search on this field
+
+
+form.Input.sort.field
+Enable sort on this field
+
+
+notification.error.displayedFields
+You need at least one displayed field
+
+
+notification.info.SettingPage.disableSort
+You need to have one attribute with the sorting allowed
+
+
+popUpWarning.bodyMessage.contentType.delete.all
+Are you sure you want to delete theses entries?
+
+
+
+📦 strapi-plugin-email - https://github.com/strapi/strapi/blob/master/packages/strapi-plugin-email/admin/src/translations/pl.json
+
+
+
+Translation key
+English default value
+
+
+
+
+EditForm.Input.select.inputDescription
+Emails can be sent with the default provider (Sendmail) or an external provider
+
+
+EditForm.Input.select.label
+Providers
+
+
+EditForm.Input.toggle.label
+Enable email send
+
+
+
+📦 strapi-plugin-settings-manager - https://github.com/strapi/strapi/blob/master/packages/strapi-plugin-settings-manager/admin/src/translations/pl.json
+
+
+
+Translation key
+English default value
+
+
+
+
+form.server.item.proxy
+Proxy Settings
+
+
+form.server.item.proxy.enable
+Proxy Enable
+
+
+form.server.item.proxy.host
+Proxy Host
+
+
+form.server.item.proxy.port
+Proxy Port
+
+
+form.server.item.proxy.ssl
+Proxy SSL",3,2
+2091,2018-10-06T16:35:23Z,2018-10-07T15:30:10Z,2018-10-07T15:30:10Z,1,8,3,"Hi 👋
+I really love Strapi and have been using it for a few months. I think you have all done a great job!
+My PR is an:  💅 Enhancement
+Main update on the: Documentation
+This took me ages of trial & error when I first started investigating Strapi. I nearly gave up several times because of my inexperience with both Strapi and Heroku.
+The only available instructions I found to be a bit difficult to follow (https://help.heroku.com/XOBUHLKQ/why-do-i-see-a-message-you-appear-to-have-cloned-an-empty-repository-when-using-heroku-git-clone).
+I think this addition would help new adopters to get a more useful instance of Strapi running that would help them more easily evaluate the benefits of the content builder.",3,3
+2094,2018-10-07T17:08:08Z,2018-10-08T07:52:29Z,2018-10-08T07:52:29Z,3,27,4,"My PR is a:
+
+
+💅 Enhancement
+
+
+
+
+
+
+PR for #1624",2,4
+2096,2018-10-07T17:39:00Z,2018-10-08T09:54:57Z,2018-10-08T09:54:57Z,1,2,2,"My PR is a: 🐛 Bug fix #1077
+Main update on the:  Plugin
+Change numerical display in data list when value is 0
+Display 0 instead of -.",3,1
+2099,2018-10-08T10:31:05Z,2018-10-09T10:25:19Z,2018-10-09T10:25:19Z,1,4,0,"My PR is a: 🐛 Bug fix #1483
+Main update on the: Framework
+
+$pull object on delete data has an error when data._id is null (because there is no relations) and where association.via value is null (because oneWay relation has no key in the other model)
+So we don't have to check relations in this two case.",4,2
+2102,2018-10-08T12:46:34Z,2018-10-22T17:36:38Z,2018-10-22T17:36:38Z,2,6,4,"My PR is a 🐛 Bug fix that SSO didn't work in some environment, though it worked on the React example in the initial phase.
+Main update on the Plugin
+Problems and fixes
+The SSO works on initial registration but not on re-login
+In the React SSO example project I could login with Microsoft account for the first time, but not for the second time.
+There were two places that caused this bug
+No provider in the user model
+while the provider service uses user.provider to decide if the user already exists or not, the model doesn't have provider field anymore hence, it always think the user exists but it's not registered with the requested provider resulting to respond Auth.form.error.email.taken error.
+The provider was somehow removed in this commit: 688defc#diff-18cc44092da248f6a77fa8e1c3840153
+I re-added provider field: 17d5e29
+Bootstrap code of content manager mutates global strapi model
+After I added provider in the model, somehow the user data which was created by registration via SSO still lacked provider field. After adding a few break points, I found the bootstrap code in content manager mutates the global strapi.models object.
+I fixed this particular bug in the following commit:  4beab15
+Though the commit fixed the issue that I was experiencing, I worry that we may have similar bugs somewhere in the module as we mutate objects here and there. I think it's good to refactor so that it doesn't mutate objects, but probably in another PR.
+### SSO didn't work when Strapi app is hosted in https server
+I found that the callback URL which Strapi sends to SSO auth server always starts with http even when it's hosted on https server. That's because the protocol was hardcoded to 'http'. I found a few more places where http was hardcoded, but I fixed only the part where SSO matters because that's what I could test.
+I fixed it in the following commit:
+12cc6d6
+I assumed that process.env.PROTOCOL would be a good place to set whether the server is 'http' or 'https', but let me know if you prefer different variable.
+There is another bug that the actual callback URL that Strapi sends to SSO auth server is different from what user can see from the settings screen, but this isn't blocking user to use SSO and can be fixed in another PR, I guess.",6,20
+2107,2018-10-08T23:20:26Z,2018-10-25T11:55:31Z,2018-10-25T11:55:31Z,9,1242,1,"My PR is a:
+
+
+💅 Enhancement
+
+Main update on the:
+Admin
+Plugin
+
+I added ja.json for Japanese Localization.",2,4
+2110,2018-10-09T09:15:13Z,2018-11-22T19:25:09Z,2018-11-22T19:25:09Z,2,18,19,"My PR is a 🐛 Bug fix
+Main update on the: Plugin, users and permissions
+Thank you @derrickmehaffy for explaining the issue regarding proxy server.
+Now the Auth controller uses ssl, host and port of strapi.config.currentEnvironment.server.proxy when the strapi.config.currentEnvironment.server.proxy.enabled is true, otherwise fallbacks to host and port of strapi.config.currentEnvironment.server.
+This PR is a split of #2102 and a reattempt of what #1851 was to resolve.",4,27
+2112,2018-10-09T10:31:38Z,2018-10-18T08:41:45Z,2018-10-18T08:41:45Z,62,134,136,"Reverts #1928
+Needed by the design team.",2,2
+2113,2018-10-09T12:43:28Z,2018-10-11T10:02:20Z,2018-10-11T10:02:20Z,1,1,1,"My PR is a: 💅 Enhancement
+Main update on the: Framework
+Since we did a job on SQL database, we can remove (recommended) for MongoDB on strapi new configuration",2,0
+2114,2018-10-09T13:21:12Z,2018-10-18T08:40:19Z,2018-10-18T08:40:19Z,3,16,12,"My PR is a:
+
+🐛 Bug fix
+
+
+Main update on the:
+
+
+
+Plugin : content-manager & content-type-builder.
+This PR fixes bugs related to Firefox. Relations should be working properly on all navigators and the displayed fields component is also working.",4,5
+2116,2018-10-10T01:31:11Z,2018-10-26T12:20:06Z,2018-10-26T12:20:06Z,1,27,0,"My PR is a:
+🚀 New feature
+Main update on the:
+
+
+
+Plugin - User-permissions
+Add a GraphQL query for ""User.me""
+I need a little help on this. First off a question:
+How are the other user queries created? (user, users etc)
+Second,
+How what's the correct resolver to include permissions for the query
+After reading the GraphQL Guide, I thought using resolver: 'User.me' would do it, but that doesn't hit the controller method.",4,11
+2119,2018-10-10T09:42:47Z,2018-10-13T17:51:44Z,2018-10-13T17:51:44Z,1,4,1,"My PR is a: 🐛 Bug fix #2011
+Main update on the: Framework
+
+Harmonize plugin version based on Strapi version when we create new project and strapi install
+new plugin.",2,0
+2121,2018-10-10T12:57:14Z,2018-10-11T12:20:58Z,2018-10-11T12:20:58Z,1,1,1,"My PR is a:
+
+🐛 Bug fix
+
+
+Main update on the:
+
+
+
+Plugin
+Fix warning for controlled input without onChange handler in WYSIWYG",3,0
+2127,2018-10-11T18:54:48Z,2018-10-17T12:22:40Z,2018-10-17T12:22:40Z,1,1,1,"My PR is a:
+
+🐛 Bug fix
+
+
+Main update on the:
+
+Documentation",2,0
+2135,2018-10-12T15:51:31Z,2018-10-17T14:35:38Z,2018-10-17T14:35:38Z,1,1,1,"this code fixed by #1992
+
+
+My PR is a:
+
+🐛 Bug fix  #1992
+
+
+Main update on the:
+
+
+
+
+
+Fix aws s3 strapi plugin because doesn't allow us to delete file",2,0
+2137,2018-10-12T18:34:54Z,2018-10-18T08:09:48Z,2018-10-18T08:09:48Z,1,3,0,"Re-applied the same fix as #1567
+My PR is a:
+🐛 Bug fix
+Main update on the:
+Plugin - GraphQL
+GraphQL query that would fetch a JSON datatype returned [object Object] instead of the proper data.
+Same issue as #1476
+Same fix as #1567
+Observed on version 3.0.0-alpha.14.3",2,0
+2138,2018-10-13T08:51:00Z,2018-10-17T12:48:47Z,2018-10-17T12:48:47Z,1,10,1,"My PR is a:
+💅 Enhancement
+PR for #1624",2,0
+2139,2018-10-14T08:41:34Z,2018-10-17T13:05:09Z,2018-10-17T13:05:09Z,5,26,79,"My PR is a: 💅 Enhancement
+Main update on the: Documentation
+
+
+Update the documentation menu",3,0
+2145,2018-10-15T13:59:56Z,2018-10-17T13:16:48Z,2018-10-17T13:16:49Z,1,2,2,"My PR is a:  🐛 Bug fix #2144
+Main update on the:
+Plugin: strapi-plugin-upload
+
+This pull request is trying to fix issue #2144. Use the unique hash value to be tag id so that the correct document is found and opened.",3,0
+2155,2018-10-17T16:22:26Z,2018-10-18T07:54:31Z,2018-10-18T07:54:31Z,1,1,0,"According with @soupette , we need to prevent lint run in docs.
+
+My PR is a:
+🐛 Bug fix
+💅 Enhancement
+Main update on the:
+Framework
+
+No issue concerned, lint will not pass in doc files.",2,0
+2157,2018-10-17T17:01:49Z,,2019-03-08T15:11:41Z,5,51,18,"My PR is a:
+🐛 Bug fix #2151
+Main update on the:
+Plugin: graphql
+Values ​​and counting are resolved correctly.  I solve the errors detailed in the number #2151",3,16
+2159,2018-10-17T22:08:42Z,2018-11-08T09:40:19Z,2018-11-08T09:40:20Z,2,13,3,"This PR replaces my previous PR : [WIP] Fix multi lines in content type description #2140.
+Because of a mistake I made on my original forked repo.
+My current PR is a 🐛 Bug fix for ISSUE #1543
+It's the new PR #2140 which I was not able to merge.
+It's a main update on the: Admin
+In PR#2140, my reviewer @lauriejim told me:
+""With your code, when I insert a new line in the description, I save, then when I try to see my description I lost the multi lines.
+The job to do it to not loose it.""
+Reminder of the ISSUE#1543:
+When a user is creating a new Content Type through The Admin/Content Type Builder he can set a description in a text area. If he sets a multilines text
+
+No saving is possible. an error message is displayed ""request.error.model.read""
+If strapi is restarted it doesn't work due to an ""SyntaxError: ~/api/MyHappyModel/models/MyHappyModel.settings.json: Unexpected token in JSON at position 152"" exception.
+
+The fix consists of updating two files in the strapi-plugin-content-manager
+
+ContentTypeBuilder.js
+helpers.js
+
+In both create and update model methods, description is now parsed to replace each newline by a '\n' string.
+The replacement is managed by an helper function called escapeNewlines.
+Multi-lines is kept.
+To go further, if I create a multi4 model type with multilines the json is created as below:
+{
+""connection"": ""default"",
+""collectionName"": ""multi4"",
+""info"": {
+""name"": ""multi4"",
+""description"": ""multi\nlines\ntext\ntext2\ntext4\n""
+},
+""options"": {
+""timestamps"": true
+},
+""attributes"": {
+""foo"": {
+""default"": """",
+""type"": ""string""
+}
+}
+}
+Admin screenshots in french:
+
+
+Types list
+
+
+
+Multilines type edit",3,3
+2163,2018-10-18T09:30:59Z,2018-10-19T07:28:19Z,2018-10-19T07:28:19Z,1,47,49,"My PR is a:  💅 Enhancement
+Main update on the:  Documentation
+
+
+The way to active a hook was not in the doc so I added it.
+I also update the structure section to made it clearer. Distinction between node_modules and custom hook structure.",2,0
+2164,2018-10-18T12:35:01Z,2018-10-19T07:27:43Z,2018-10-19T07:27:44Z,1,0,2,"My PR is a: 💅 Enhancement
+Main update on the: Plugin
+Remove some logs on app start when GraphQL plugin is installed",2,0
+2165,2018-10-18T15:25:17Z,2018-11-01T16:39:58Z,2018-11-01T16:39:58Z,1,3,3,"Previously schema files could only end in .graphql files. This caused a problem with IDE's since these files are actually javascript files. This pull request should also detect .graphql.js files while keeping backward compatibility with the .graphql extension.
+
+
+My PR is a:
+
+
+💅 Enhancement
+
+Main update on the:
+
+
+Framework
+
+
+Close #2152",4,4
+2167,2018-10-18T21:04:23Z,2018-10-19T09:39:17Z,2018-10-19T09:39:17Z,1,1,1,"My PR is an 💅 Enhancement. See #1850 issue posted by @jbergstroem.
+Main update on the package strapi-hook-bookshelf.
+Add IF NOT EXISTS parameter for creating indexes in postgresql case to avoid this type message :
+
+2018-08-30 23:01:50.060 UTC [146] ERROR:  relation ""search_users_permissions_permission_type"" already exists
+2018-08-30 23:01:50.060 UTC [146] STATEMENT:  CREATE INDEX search_users_permissions_permission_type ON ""users-permissions_permission"" USING gin(type gin_trgm_ops)",3,2
+2168,2018-10-18T22:49:58Z,2018-10-19T07:20:08Z,2018-10-19T07:20:08Z,1,2,1,"close #1621
+
+
+My PR is a:
+
+
+💅 Enhancement
+
+Main update on the:
+
+
+Framework",2,0
+2169,2018-10-19T07:50:57Z,2018-11-16T09:30:13Z,2018-11-16T09:30:13Z,70,90,98,"My PR is a:  💅 Enhancement
+Main update on the:  Framework
+
+Like hook, middleware and plugin - I prefix plugin provider with provider
+Format: strapi-provider-[plugin_name]-[provider]",3,2
+2171,2018-10-19T12:05:39Z,,2018-11-01T16:04:25Z,32,140,73,"My PR is a: 💅 Enhancement
+Main update on the: Framework
+
+Automatically reorder translation keys on precommit",3,1
+2173,2018-10-19T15:09:16Z,2018-10-22T13:31:08Z,2018-10-22T13:31:08Z,1,4,0,"My PR is a: 💅 Enhancement
+Main update on the: Documentation",2,0
+2177,2018-10-21T12:52:15Z,2018-10-22T16:00:48Z,2018-10-22T16:00:48Z,4,12,12,"My PR is a:
+💅 Enhancement
+Main update on the:
+Admin
+I added the missing german translation keys, resolving #1620",3,0
+2184,2018-10-22T19:17:11Z,2018-10-23T16:08:53Z,2018-10-23T16:08:53Z,1,2,1,"My PR is a:
+💅 Enhancement
+Main update on the:
+Admin
+For #1628",2,0
+2188,2018-10-23T11:23:55Z,2018-10-24T07:41:29Z,2018-10-24T07:41:30Z,1,4,4,"My PR is a:
+
+🐛 Bug fix
+
+
+Main update on the:
+
+
+
+Plugin
+
+Step 1) Enable the email confirmation
+Step 2) Signin with bad credentials on /auth/local POST
+An 500 error comes up instead of the expected 400 response
+TypeError: Cannot read property 'confirmed' of null
+at callback (/usr/src/api/plugins/users-permissions/controllers/Auth.js:59:83)
+
+Expected :
+{
+    ""statusCode"": 400,
+    ""error"": ""Bad Request"",
+    ""message"": ""Identifier or password invalid.""
+}",3,3
+2190,2018-10-23T20:50:58Z,2018-10-26T13:21:27Z,2018-10-26T13:21:27Z,1,1,1,"My PR is a:
+💅 Enhancement
+Main update on the:
+Admin
+At this moment after installation by default admin is in arabian language, what is a little confuse. I change it on English.
+Also we have a Russian language translate, but don't have a possibility choose it.",2,0
+2191,2018-10-23T21:30:12Z,2018-11-05T16:28:05Z,2018-11-05T16:28:05Z,7,20,48,"Just some little improvements that I found looking around the code.
+Related 2410d5a
+
+
+My PR is a:
+
+
+💅 Enhancement
+
+Main update on the:
+
+
+Framework",4,0
+2194,2018-10-24T17:14:19Z,2018-10-26T14:11:39Z,2018-10-26T14:11:39Z,1,1,1,"My PR is a:
+
+🐛 Bug fix #1798
+
+
+Main update on the:
+
+
+Framework
+
+
+Uses shell.mkdir() instead of shell.exec() to create a directory, which fixes plugin installation when used with a yarn-installed strapi (#1798). This should help with cross-platform compatibility as well, which seems to be why ShellJS is being used in the first place.",2,0
+2199,2018-10-25T15:29:09Z,2018-10-26T14:23:45Z,2018-10-26T14:23:45Z,1,4,2,"My PR is a:
+
+🐛 Bug fix
+
+
+Main update on the:
+
+Documentation
+
+
+
+When preparing the first draft of the docs, I messed up with the filter for version context.
+By default, Vue does not filter based on versions, so I had to build that feature into it.
+Right now, the filter is reversed. If you are in the 3.x.x docs, you search for 1.x.x and vice versa.
+This PR fixes that.",3,0
+2203,2018-10-25T18:07:12Z,2018-11-08T10:28:31Z,2018-11-08T10:28:32Z,1,9,0,"My PR is a:
+
+🐛 Bug fix
+
+
+Main update on the:
+
+
+
+Plugin
+
+Fixes #2186, by refreshing the editDisplay.fields on API schemas.
+Related #2266 (have to check if it fixes this one too)",3,4
+2204,2018-10-26T00:21:50Z,2018-10-26T14:38:20Z,2018-10-26T14:38:20Z,1,1,1,"change ""your using"" to ""you're using""
+
+
+My PR is a:
+
+
+💅 Enhancement
+
+Main update on the:
+
+Documentation",2,0
+2209,2018-10-26T16:29:53Z,2018-10-27T15:41:10Z,2018-10-27T15:41:10Z,2,5,4,"My PR is a:
+💅 Enhancement
+Main update on the:
+Admin
+This PR is about adding the missing translation key in JA language.
+📦  strapi-admin - /packages/strapi-admin/admin/src/translations/ja.json
+and
+📦 strapi-plugin-content-manager - /packages/strapi-plugin-content-manager/admin/src/translations/ja.json
+Thanks 😄",2,0
+2212,2018-10-26T16:51:19Z,2018-10-27T16:14:25Z,2018-10-27T16:14:25Z,2,10,6,"My PR is a:
+
+🐛 Bug fix
+💅 Enhancement
+
+Main update on the:
+Admin
+
+
+Plugin
+
+Fixes #2211: if you have some throw error on beforeSave on a given API, saving via Content Manager (mongoose) you dont get any errors, and the UI is stuck",2,0
+2214,2018-10-26T23:21:12Z,2018-10-29T12:05:53Z,2018-10-29T12:05:53Z,1,1,1,"My PR is a:
+
+
+💅 Enhancement
+
+Main update on the:
+
+
+Framework
+
+
+Github is displaying an alert for a potential vulnerability on lodash on projects created with strapi.
+
+Example with https://github.com/maturanomx/strapi-app
+Actually, this is a problem of github because the actual version specification (4.x.x) is covering the vulnerability, however, this change aligns the dependency with the required by strapi itself and avoid the alert on github that could feel good for strapi users 😋",2,0
+2216,2018-10-27T18:52:06Z,,2019-03-07T16:37:00Z,1,13,0,"My PR is a:
+🐛 Bug fix
+Main update on the:
+Plugin: graphql
+
+When find some data from MongoDB, Mongoose retrieve collection primary key _id as ObjectId. Mongoose ObjectId MongoDB ObjectId.
+Because of this when graphql plugin tries convert _id to ID schema type, I have this error:
+
+To fix this I add a custom resolver that's check if _id is an object and if it has id property inside of. After this I transform your value to hex.",5,8
+2217,2018-10-27T23:00:08Z,2018-11-08T14:27:55Z,2018-11-08T14:27:55Z,1,2,0,"My PR is a: 🐛 Bug fix #1787
+Main update on the: Admin
+Issue summary
+Creating a user through the API sets provider to 'local' but do the same through the Admin UI sets the provider to '-'.
+See also ISSUE #1787.
+Commit summary
+Creating a user through the API and the Admin UI is not managed by the same function.
+We have to set the provider to 'local' in the create function of the User.js file.",2,0
+2218,2018-10-28T07:23:07Z,2018-10-28T10:15:08Z,2018-10-28T10:15:08Z,29,359,239,"My PR is a: 💅 Enhancement
+Main update on the: Documentation
+
+
+
+
+
+Documentation improvements:
+
+Add link to website in header
+Move version select box in header
+Add ""Search"" placeholder
+Add some emojis to add some colors
+Change left menu links (including CLI and API Reference sections in dedicated sections)
+Add plugins documentation in left menu (which had been deleted during migration to Vuepress)
+Update Quick Start
+Example with Axios instead of jQuery
+Update tutorials list
+
+I hope it will make onboarding better 👋",3,1
+2221,2018-10-29T08:48:28Z,2018-11-09T16:20:07Z,2018-11-09T16:20:07Z,1,4,15,"My PR is a:
+
+🐛 Bug fix #1729
+
+
+Main update on the:
+
+
+Framework
+
+
+I don't really understand the logic of the removed code, but this PR solves the issue described in #1729 .
+manyToMany relations are working as expected and do not produces duplicate entries anymore.",3,0
+2224,2018-10-29T17:38:06Z,2018-11-01T16:12:25Z,2018-11-01T16:12:25Z,4,6,6,"My PR is a: 💅 Enhancement
+
+Main update on the: Framework
+
+When you create an application with a different version of @Alpha tag, it install @Alpha version of hooks so it can have a conflict with the core version of Strapi you use.
+The update I made detach @Alpha of the code. If you create an app with specific version of Strapi, all installed plugins and hooks are based on the Strapi version you use.",2,0
+2226,2018-10-29T22:41:54Z,2018-11-05T16:24:12Z,2018-11-05T16:24:12Z,1,2,3,"Querying content types that share many-to-many relations do not return expected results.
+Let's say we have a product content type and a category centent type. those two models share many-to-many relation, and when we are querying categories we have the expected result, Ex :
+Query :
+{
+  categories {
+    Name
+    products {
+      Name
+    }
+  }
+}
+
+
+Result :
+{
+  ""data"": {
+    ""categories"": [
+      {
+        ""Name"": ""Category 1"",
+        ""products"": [
+          {
+            ""Name"": ""Product 1""
+          }
+        ]
+      },
+      {
+        ""Name"": ""Category 2"",
+        ""products"": [
+          {
+            ""Name"": ""Product 1""
+          }
+        ]
+      }
+    ]
+  }
+}
+
+
+But when  we're querying products, the categories array is empty!!
+Query:
+{
+  products {
+    Name
+    categories {
+      Name
+    }
+  }
+}
+
+
+Result:
+{
+  ""data"": {
+    ""products"": [
+      {
+        ""Name"": ""Product 1"",
+        ""categories"": [ ]
+      }
+    ]
+  }
+}
+
+
+categories should not be empty, it should be something like  that :
+...
+""categories"": [
+          {
+            ""Name"": ""Category 1""
+          },
+          {
+            ""Name"": ""Category 2""
+          }
+        ]
+....
+
+
+I hope that was clear.
+My PR is a:
+🐛 Bug fix
+Main update on the:
+Plugin",3,1
+2229,2018-10-30T16:35:05Z,2018-11-07T18:07:32Z,2018-11-07T18:07:32Z,12,89,64,"My PR is a:
+
+🐛 Bug fix #2213 fix #1271
+
+
+Main update on the:
+Admin
+
+
+
+
+This PR wait for all the plugins to be registered in the main store before mounting the AdminPage container.",3,1
+2230,2018-10-30T17:54:03Z,2018-11-01T16:20:13Z,2018-11-01T16:20:13Z,2,2,2,"My PR is a:
+
+
+💅 Enhancement
+
+Main update on the:
+
+
+Framework
+
+
+I remember I was told the CI breaks when a lint error is introduced.
+This PR ls check that is not true and fix that.",3,0
+2232,2018-10-30T18:34:30Z,2018-10-31T13:40:53Z,2018-10-31T13:40:53Z,1,1,1,"My PR is a:
+
+
+
+
+Main update on the:",3,0
+2233,2018-10-30T20:50:34Z,2018-11-01T11:56:20Z,2018-11-01T11:56:20Z,1,3,1,"My PR is a:
+
+
+💅 Enhancement
+
+Main update on the:
+Admin
+
+
+
+
+Partial fix for #1625",2,0
+2234,2018-10-30T21:05:32Z,2018-11-01T11:54:46Z,2018-11-01T11:54:46Z,1,17,4,"My PR is a:
+
+
+💅 Enhancement
+
+Main update on the:
+
+
+
+Plugin
+
+Partial fix for #1625",2,0
+2235,2018-10-31T08:47:36Z,2018-11-01T10:28:04Z,2018-11-01T10:28:04Z,3,124,1,"My PR is a: 💅 Enhancement
+
+
+
+
+Main update on the: Documentation
+
+
+
+
+
+
+Add Webhooks guide from this article: https://blog.strapi.io/strapi-webhooks.
+Fix documentation build: vuejs/vuepress#971.",2,0
+2236,2018-10-31T09:34:47Z,2018-11-01T11:06:54Z,2018-11-01T11:06:54Z,1,1,1,"Strapi requirements changed. I guess need to update contributing guide need to change too.
+
+
+My PR is a:
+
+
+
+
+Main update on the:",3,1
+2239,2018-10-31T15:55:44Z,2018-11-08T10:59:24Z,2018-11-08T10:59:24Z,4,135,64,"fix #2108 : handle redirect after reset password
+update : add destructuring of props to be consistant in file, it was started but not complete.
+
+My PR is a:
+💅 Enhancement
+Main update on the:
+Admin",4,2
+2240,2018-10-31T18:21:09Z,2018-11-05T16:24:34Z,2018-11-05T16:24:34Z,2,6,6,"My PR is a:
+
+
+💅 Enhancement
+
+Main update on the:
+
+
+Framework
+
+
+This is to skip a ReDOS vulnerability with eslint <4.18.2
+Tested running the lint without problems and visible side-effects.",3,0
+2254,2018-11-02T17:36:41Z,,2019-04-04T12:35:00Z,5,45,14,"My PR is a:
+
+
+💅 Enhancement
+
+Main update on the:
+
+
+
+Plugin
+
+Current GraphQL plugin builds the query resolvers with a fixed id: ID on all models. That means, if the user makes customizations for any given API model to have an id field from different type, a String for example, like this:
+{
+  ""connection"": ""default"",
+  ""collectionName"": ""blog"",
+  ""info"": {
+    ""name"": ""blog"",
+  },
+  ""options"": {
+    ""timestamps"": true,
+  },
+  ""attributes"": {
+    ""_id"": {
+      ""type"": ""string"",
+      ""configurable"": false
+    },
+   ...,
+    ""text"": {
+      ""default"": """",
+      ""type"": ""text"",
+      ""required"": true
+    }
+  }
+}
+
+When trying to query with GraphQL like this:
+query {
+    blog(id: ""the_id_value"") {
+         title
+         text
+    }
+}
+
+you will get an error saying something like ID expected but received String
+Solution
+This PR adds support for fixing that. It fetches the model defined primaryKey to use its type.
+Also, there is a little modification on the strapi-generate-api  generator, as it adds a check on the format by default via a regex, which is not correct if using a string in its place.
+Screenshot
+
+Close #2244",6,16
+2258,2018-11-03T07:10:16Z,2018-11-29T10:45:52Z,2018-11-29T10:45:52Z,7,398,269,"My PR is a: 💅 Enhancement
+
+
+
+Main update on the: Admin
+
+
+
+
+I translated the missing strings and improved some not fluent statements.",2,0
+2261,2018-11-03T21:08:30Z,,2018-11-22T11:20:36Z,1,14,0,"My PR is a:
+🐛 Bug fix #2260
+Main update on the:
+Plugin
+
+This is a fix for the issue",4,2
+2264,2018-11-04T11:30:57Z,2018-11-05T16:16:09Z,2018-11-05T16:16:09Z,6,80,79,"My PR is a:
+
+
+💅 Enhancement
+
+Main update on the:
+Admin & Plugin
+
+
+I improved french translations, mainly on ""email"" to ""e-mail"" and some misspellings and non-translated words.",2,0
+2265,2018-11-04T11:52:50Z,2018-11-21T10:56:39Z,2018-11-21T10:56:39Z,4,7,8,"My PR is a:
+
+
+💅 Enhancement
+
+Main update on the:
+Admin
+
+
+
+Fixed a responsive issue on admin title headers .containerFluid > div:first-child.
+Before:
+
+After:",4,4
+2270,2018-11-05T16:19:33Z,,2019-01-28T15:51:48Z,18,2014,495,"Split and clean of webpack config.
+My PR is a:
+
+
+💅 Enhancement
+
+Main update on the:
+Framework",4,2
+2273,2018-11-06T09:14:05Z,2018-11-09T13:24:41Z,2018-11-09T13:24:41Z,9,29,36,"My PR is a:
+
+
+💅 Enhancement
+
+Main update on the:
+Admin
+
+
+
+Fix redux-sagas deprecation warnings : change all yield [...effects] to yield all([...effects])",2,0
+2275,2018-11-06T17:59:51Z,2018-11-08T17:37:53Z,2018-11-08T17:37:53Z,1,14,9,"My PR is a: 🐛 Bug fix #1317
+Main update on the: Plugin GraphQL
+This PR fixes the #1317 issue. It also returns Unauthorized response for GraphQL resolvers. It was handled partially which results to a security breach that allowed to bypass the Authorization header.",2,0
+2279,2018-11-08T13:10:01Z,2018-11-12T17:22:20Z,2018-11-12T17:22:20Z,5,16,4,"My PR is a: 💅 Enhancement
+Main update on the: Framework
+
+This PR open the admin panel on the first start of new project.
+It fix the auto reload by default every times you made an update in your code.",2,0
+2283,2018-11-09T22:18:34Z,2018-11-15T21:18:15Z,2018-11-15T21:18:15Z,1,11,1,"My PR is a:
+💅 Enhancement
+Main update on the:
+Documentation
+Added a link to create a new request on the product board and provide some check boxes to ensure people check it before creating their feature request.
+@Aurelsicoko @lauriejim",4,1
+2284,2018-11-10T05:13:27Z,2018-11-10T11:47:08Z,2018-11-10T11:47:08Z,1,1,1,"the name of the section Roles & Permissions
+
+
+My PR is a:
+
+
+💅 Enhancement
+
+Main update on the:
+
+Documentation
+
+
+
+It's just a wording fix, the name of the section was not right.",2,0
+2290,2018-11-11T17:32:21Z,2018-11-12T20:21:33Z,2018-11-12T20:21:33Z,1,1,1,"My PR is a: Typo fix: emited to emitted
+
+
+
+
+Main update on the:
+
+Documentation",2,2

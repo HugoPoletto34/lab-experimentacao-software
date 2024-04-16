@@ -1,0 +1,125 @@
+number,created_at,merged_at,closed_at,files,additions,deletions,body_text,participants,comments
+901,2016-11-16T16:45:32Z,2017-03-13T01:46:19Z,2017-03-13T01:46:19Z,66,8296,8372,"Yes, I promise I've read the Contributions Guidelines (please feel free to remove this line).",5,14
+912,2016-12-02T08:56:34Z,,2017-08-15T15:47:52Z,2,2,2,"Yes, I promise I've read the Contributions Guidelines (please feel free to remove this line).",4,1
+927,2016-12-30T17:18:27Z,,2017-08-15T15:46:02Z,1,1,1,"The code outputs ""a"" instead of ""b"" when executed.",3,0
+984,2017-03-13T07:11:39Z,,2017-04-06T09:02:57Z,1,18,17,"Yes, I promise I've read the Contributions Guidelines.",3,2
+990,2017-03-16T00:13:46Z,2017-08-15T15:40:05Z,2017-08-15T15:40:05Z,4,6,6,Apologies for the pedantry. Many thanks for this excellent resource!,3,0
+1018,2017-04-27T03:26:11Z,,2017-08-15T15:34:27Z,1,5,2,"ES6 const does not indicate that a value is ‘constant’ or immutable. A const value can change. Instead, it is the binding that is fixed, or constant.
+The following is perfectly valid ES6 code that does not throw an exception:
+const foo = {};
+foo.bar = 42;
+console.log(foo.bar);
+// → 42
+Yes, I promise I've read the Contributions Guidelines (please feel free to remove this line).",4,4
+1028,2017-05-12T09:06:55Z,2017-05-16T08:43:40Z,2017-05-16T08:43:40Z,1,15,15,,2,1
+1030,2017-05-15T09:13:22Z,,2017-06-24T14:42:58Z,1,1,1,"Yes, I promise I've read the Contributions Guidelines (please feel free to remove this line).
+Seems like a mistake to me.",2,0
+1034,2017-05-24T07:58:31Z,,2017-05-25T19:14:04Z,1,1,1,Small fix,3,1
+1073,2017-06-29T11:00:08Z,2017-07-15T14:56:56Z,2017-07-15T14:56:56Z,1,1,1,,2,2
+1075,2017-06-30T07:40:39Z,,2017-07-26T15:55:26Z,1,1,1,"Here, the point is getter and setter.
+Because the getter is hard-coded, so the setter would be ignored.
+Please check, thanks.",2,1
+1097,2017-07-23T12:32:02Z,2017-07-23T13:51:09Z,2017-07-23T13:51:10Z,1,8,8,Details are in ISSUE #1096,2,2
+1098,2017-07-24T01:51:32Z,2017-07-26T15:53:12Z,2017-07-26T15:53:12Z,1,2,2,"Yes, I promise I've read the Contributions Guidelines (please feel free to remove this line).
+In  async & performance/ch3.md :
+1 ‘但Promise不仅是是一个单步的’ 中 ‘不仅是是’ 应当为 ‘不仅仅是’。
+2 '实际上一种反模式' 中的 ‘实际’ 应当为 ‘实现’。
+Thank you very much for your wonderful book!",2,0
+1114,2017-08-15T10:42:10Z,,2020-03-03T05:38:02Z,1,1,1,"I think using the get() function in the define() function is better. It makes us easier to understand that we want to set dependent modules to the deps array. It helps us to have one place to change if you want to check if the dependant module is already available. Also it shows us that we can use the get() function inside the define() function to consolidate what we are learning about closure scope. Thanks for writing this great book.
+I just read the CONTRIBUTING.md after reading the ** below and could see that you're quite strict with the contributions. If you don't agree with my PR, please let me know and I can delete it.
+Yes, I promise I've read the Contributions Guidelines (please feel free to remove this line).",3,4
+1142,2017-09-14T13:38:24Z,,2017-09-17T01:32:04Z,1,4,4,,2,0
+1165,2017-10-14T05:48:26Z,,2017-10-18T05:22:48Z,1,1,1,"Yes, I promise I've read the Contributions Guidelines (please feel free to remove this line).",2,0
+1170,2017-10-21T17:56:59Z,,2019-08-28T16:28:03Z,1,1,1,Changed the part 'var i=0' to 'var i = 0' to make sure code snippets follow consistency throughout the book.,3,1
+1176,2017-11-02T16:29:08Z,,2019-12-11T20:24:48Z,1,1,1,"How strict is the typing (strong/weak) is orthogonal to when is the
+type information available (static/runtime).
+So saying that a strong typed language is static is not necessarily true.
+Samples:
+
+Erlang is Strong-Dynamically typed
+C is Weak-Static typed (because of void*)
+
+This might spread misinformation.",5,8
+1179,2017-11-09T12:30:46Z,2017-11-10T02:53:06Z,2017-11-10T02:53:06Z,1,1,1,,3,1
+1189,2017-11-20T08:02:09Z,,2019-08-28T16:26:53Z,4,10,10,,3,1
+1205,2017-12-24T01:30:27Z,,2018-10-18T11:34:20Z,1,1,1,Update the non-readonly property descriptor value to writeable:true in property chain,3,1
+1208,2018-01-05T03:19:44Z,,2019-08-28T16:26:34Z,1,2,2,"It's a very little problem about annotation, and thanks for your book, it helps a lot",3,1
+1223,2018-01-27T16:10:22Z,2018-02-17T10:31:06Z,2018-02-17T10:31:06Z,1,1,1,"The badge conforms to new branding of patreon.com and is taken from the
+official media kit.
+The badge comes in three sizes. I have used the medium one. Apart from the badge, there are artifacts that involve the logo. Feel free to ask for any changes you might prefer.",2,1
+1239,2018-02-22T22:37:51Z,,2018-08-22T10:19:00Z,85,0,0,"Yes, I promise I've read the Contributions Guidelines (please feel free to remove this line).",3,1
+1286,2018-05-13T04:19:20Z,,2019-08-28T16:22:22Z,1,1,1,"Specifying why the variable name (in the example, this._a_) used by getters and setters must be different from the name of the property (in the example, a) may be helpful for some readers to whom it's not immediately clear that this would result in recursion and an infinite loop.
+Yes, I promise I've read the Contributions Guidelines (please feel free to remove this line).",3,1
+1392,2018-12-18T13:38:45Z,,2019-08-28T16:11:33Z,1,1,1,Fix spacing in function params. Params are separated by space in other chapters.,3,1
+1431,2019-03-03T14:30:00Z,,2019-08-28T16:06:55Z,1,1,1,"Made it clear that a was requested while executing function foo
+Yes, I promise I've read the Contributions Guidelines (please feel free to remove this line).",2,1
+1432,2019-03-03T15:02:38Z,,2019-08-28T16:06:28Z,2,6,4,"Yes, I promise I've read the Contributions Guidelines (please feel free to remove this line).",2,2
+1479,2019-07-04T10:05:24Z,,2019-07-09T16:13:29Z,1,3,3,"Replace gendered pronouns (‘he’s a function’, ‘same guy’) by matching the format used in later examples (‘Nope, never heard of it. Go fish.’)
+Yes, I promise I've read the Contributions Guidelines.",3,1
+1539,2019-11-05T18:30:23Z,,2019-12-02T13:27:16Z,1,1,1,"Fix minor spelling error.
+interpolotion => interpolation
+Yes, I promise I've read the Contributions Guidelines (please feel free to remove this line).
+
+Please type ""I already searched for this issue"":
+Edition: (1st or 2nd)
+Book Title:
+Chapter:
+Section Title:
+Topic:",3,0
+1585,2020-01-07T03:19:33Z,,2020-01-22T16:55:28Z,1,1,1,,2,0
+1720,2021-01-06T10:30:01Z,2021-01-07T16:23:03Z,2021-01-07T16:23:03Z,10,815,810,"This PR adds book 1 translation into Ukrainian by @Croftyland and myself. Book 2 is in progress.
+related issue: #1719
+Yes, I promise I've read the Contributions Guidelines (please feel free to remove this line).
+Specifically quoting these guidelines regarding typos:
+
+Typos?
+Please don't worry about minor text typos. These will almost certainly be caught during the editing process.
+If you're going to submit a PR for typo fixes, please be measured in doing so by collecting several small changes into a single PR (in separate commits). Or, just don't even worry about them for now, because we'll get to them later. I promise.
+
+
+Please type ""I already searched for this issue"":
+I already searched for this issue
+Edition: (pull requests not accepted for previous editions)
+Second edition
+Book Title:
+Getting started
+Chapter:
+Section Title:
+Topic:",2,2
+1743,2021-06-17T05:48:58Z,,2021-08-26T15:05:59Z,1,7,7,"Yes, I promise I've read the Contributions Guidelines (please feel free to remove this line).
+Specifically quoting these guidelines regarding typos:
+
+Typos?
+overridden -> overridden
+Please don't worry about minor text typos. These will almost certainly be caught during the editing process.
+If you're going to submit a PR for typo fixes, please be measured in doing so by collecting several small changes into a single PR (in separate commits). Or, just don't even worry about them for now, because we'll get to them later. I promise.
+
+
+I already searched for this issue
+Edition: 1st
+Book Title: You Don't Know JS
+Chapter: 3
+Section Title:
+Topic:",3,1
+1746,2021-07-06T09:03:01Z,2023-07-07T05:50:33Z,2023-07-07T05:50:33Z,1,1,1,,3,0
+1808,2022-09-13T04:56:20Z,2022-10-23T13:09:44Z,2022-10-23T13:09:44Z,11,17,17,"Fix some typos
+Please type ""I already searched for this issue"": I already searched for this issue
+Edition: (pull requests not accepted for previous editions) 2nd
+Book Title: Get Started 2nd Edition
+Chapter:
+Section Title:
+Topic: typos",4,1
+1820,2023-01-31T03:56:11Z,2023-07-12T10:01:37Z,2023-07-12T10:01:37Z,1,1,1,"Yes, I promise I've read the Contributions Guidelines (please feel free to remove this line).
+Specifically quoting these guidelines regarding typos:
+
+Typos?
+Please don't worry about minor text typos. These will almost certainly be caught during the editing process.
+If you're going to submit a PR for typo fixes, please be measured in doing so by collecting several small changes into a single PR (in separate commits). Or, just don't even worry about them for now, because we'll get to them later. I promise.
+
+
+Please type ""I already searched for this issue"":
+Edition: (pull requests not accepted for previous editions)
+Book Title:
+Chapter:
+Section Title:
+Topic:",3,0

@@ -1,0 +1,3837 @@
+number,created_at,merged_at,closed_at,files,additions,deletions,body_text,participants,comments
+433,2016-12-13T04:37:16Z,2016-12-13T08:28:37Z,2016-12-13T08:28:37Z,1,3,4,"broken by #430, sorry.
+remove json quote around function in the config e.g. axisFormatter for #428",2,1
+498,2017-03-24T20:27:57Z,2017-04-01T09:45:08Z,2017-04-01T09:45:08Z,1,2,3,,3,3
+524,2017-04-21T12:47:53Z,2017-04-24T15:56:46Z,2017-04-24T15:56:46Z,58,1761,2935,"Replace karma + PhantomJS with karma + Chrome headless
+https://groups.google.com/forum/#!topic/phantomjs/9aI5d-LDuNE
+
+Chrome is faster and more stable than PhantomJS. And it doesn't eat memory like crazy.
+
+
+I don't see any future in developing PhantomJS. Developing PhantomJS 2 and 2.5 as a single developer is a bloody hell.
+
+We will get rid of PhantomJS altogether in the future.
+Get rid of browserify
+Now there is no browserify. I replaced karma-browserify with karma-webpack.
+Remove some useless code and libraries
+gulp-uglify was removed because webpack has embedded uglify support.
+jshint was remove because now we are using JavaScript Standard Style based on ESLint
+Removed some gulp tasks because we no longer need them.
+Add some documentation for contributors to readme
+https://github.com/tylingsoft/mermaid#for-contributors
+Use webpack to compile less into css
+gulp-less was removed.
+Update less code
+Format and beautify less code.
+Make all 5 kinds of diagrams look good in all 4 themes
+Update sequence diagram, git graph and class diagram
+Fixed some minor issues
+Fix Travis CI",2,1
+526,2017-04-22T07:32:20Z,,2017-08-16T14:57:41Z,12,37,33,,1,2
+695,2018-07-19T16:21:43Z,,2019-10-15T18:12:29Z,15,3275,2870,"This allows yarn to install properly with node v10, and should also support better upwards compatibility. Also fixes build error on latest with some improperly escaped tests in flow spec. Includes refactoring flow spec unit tests to prevent tripping the refactor checker.",8,6
+705,2018-07-29T16:52:32Z,2019-06-09T18:22:03Z,2019-06-09T18:22:03Z,2,54,19,"Hello,
+This Pull Request is intended to start a discussion on how to tackle the problem of cardinality within mermaid.
+See #602",4,4
+725,2018-09-03T22:26:10Z,,2019-09-24T10:41:22Z,4,102,88,"Hi,
+I'm using mermaid for a new site that I'm making that will be highly focused on software design.  However, there were two features that didn't work as I expected, so I changed them.  I'm submitting a PR here in case you want the changes too.
+
+Firstly, there was hard-coded CSS setting the font to whatever was auto-detected in the browser.  This is fairly fragile.  I don't know why it was added, but it's probably an edge case or a ""compatibility"" thing.  I don't think anyone would expect this sort of feature, and it was surprising.
+
+It was also causing problems when the font loads slowly on the page, randomly.  It also failed if I did anything different with font-size.  I really recommend leaving the users alone with their choice of font.  😁
+
+The classes were mixed up or missing from the UML diagrams.  I fixed this, and now everything looks great.
+
+Also: I noticed that some of the features being tested in the UML diagrams don't actually do anything, but they're also not failing.  I'm guessing they were features that aren't finished yet?   Can I help?",5,4
+758,2018-11-16T10:24:16Z,,2019-06-09T16:55:54Z,8,198,142,"This resolve #576 by adding a new attribute subGraphStyle to the the flow graph
+Please let me know what I can improve as this is my first PR on mermaid.
+In order to build and run the tests I had to edit package.json to update webpack-cli to version 3.1.2 and add the following jest config: ""testURL"": ""http://localhost"" not sure if this should be part of this PR or if it is my environment which is broken",4,2
+788,2019-02-01T04:52:23Z,2019-06-09T17:56:26Z,2019-06-09T17:56:26Z,6,206,252,"This is my first PR for this project, so be gentle.
+I've added the possibility to mark tasks in a Gantt chart as milestones.
+What this does is the following:
+
+It makes the rect representing the task exactly square, with both sides being the theBarHeight
+It changes the x-coordinate, so that the rect is smack in the middle of what would have been the rectangular representing the task.
+It adjusts the position of the text label accordingly
+It adds a class to both the rect and the text label
+The scss rotates the square, and scales it down slightly so that it looks like a diamond, which seems to be the standard icon for milestones
+the scss makes the text label italics
+
+It's backwards compatible, so if the milestone tag isn't there, it should work as expected.
+Milestones with a task duration of several days don't really make sense, but it would still work. You just get a lot of  padding to the left and right. This also happens when the timescale is very wide, like so:",5,5
+872,2019-07-07T19:54:15Z,2019-07-12T16:05:22Z,2019-07-12T16:05:22Z,6,226,95,"This PR introduces the addition of a inclusiveEndDates arguments for Gantt chart definitions.
+Adding this argument will add 1 day to all the end dates, effectively treating them to be inclusive.
+Relevant Issues:
+
+#868
+
+Tasks:
+
+ write specs for inclusive end dates
+ add inclusive end date functionality to ganttDb.js
+ write specs for gantt.jison parser improvements
+ add definitions to the gantt.jison parser for inclusive end dates
+
+Example Usage:
+
+  
+    
+      gantt
+      title Inclusive end dates (Manual date should end on 4th)
+      dateFormat YYYY-MM-DD
+      axisFormat %d
+      inclusiveEndDates
+      section Section1
+         2 Days: 1, 2019-01-01,2d
+         Manual Date: 2, 2019-01-01,2019-01-03",3,1
+933,2019-09-13T18:23:13Z,2019-09-18T16:06:57Z,2019-09-18T16:06:57Z,1,4,2,"Currently, there's 267 open issues (11 pages), some of which are years old, inactive, irrelevant, etc.
+This pull request aims for stale-bot to close inactive stale issues.
+This will help cull the list and keep it ""fresh"". This will give collaborators an easier time when looking at what they can help with and lowering the bar a tiny bit for new collaborators.",2,2
+939,2019-09-19T07:45:19Z,2019-09-19T13:00:59Z,2019-09-19T13:00:59Z,1,7,11,,3,2
+940,2019-09-19T19:31:36Z,2019-09-23T13:44:21Z,2019-09-23T13:44:21Z,2,6,6,"This is a trivial fix, but the xmlns links in the SVGs were using ""http://www.w3.org/1999/xhtml""
+I believe that xmlns=""https://www.w3.org/1999/xhtml"" is better so I cleaned it up wherever I could find it. I tested with a yarn link and it works as expected.
+Also fixed a couple http links to the gh-pages. ;)",4,7
+968,2019-10-02T01:30:25Z,2019-10-02T13:54:35Z,2019-10-02T13:54:35Z,4,18894,10,"Math.random() is not cryptogaphically secure, but the crypto-random-string
+package provides what is needed with a cryptographically secure pseudo-random
+number generator.",3,3
+973,2019-10-04T19:13:48Z,2019-10-08T10:56:50Z,2019-10-08T10:56:50Z,11,205,61,"Resolves #963
+I added support for class annotations and did some minor changes needed for this feature.
+I centered the class title because it would look quite odd it the annotation and the class title would be left aligned. Also I made the class title bold to make it distinguishable from the annotations. I decided for this syntax:
+class Class01
+<<interface>> Class01
+
+class Class10 {
+  <<service>>
+}",4,6
+985,2019-10-08T21:01:05Z,2019-10-15T16:39:20Z,2019-10-15T16:39:20Z,2,24,3,Resolves #984,3,1
+1000,2019-10-15T20:23:58Z,2019-10-16T06:48:03Z,2019-10-16T06:48:03Z,2,2,2,It seems the CONTRIBUTING.md was not linked in the README.,4,1
+1002,2019-10-16T01:22:00Z,2019-10-17T17:31:57Z,2019-10-17T17:31:57Z,2,54,0,Resolves #1001,4,6
+1011,2019-10-16T22:41:33Z,,2021-02-25T20:34:34Z,10,149,18988,Resolves #873,2,1
+1025,2019-10-23T06:11:04Z,2019-10-23T13:21:31Z,2019-10-23T13:21:31Z,1,43,32,Fixed spelling errors. Applied some markdown lint standards.,3,2
+1039,2019-10-29T16:22:32Z,2019-10-30T18:01:11Z,2019-10-30T18:01:12Z,4,14,11,"Hello, please review a contributing beginner pull request to this awesome library.
+I tried to keep the changes as simple as possible to fix that particular issue, because it seems high value compared to time spent for the fix.
+
+
+Resolves #656
+Class diagram ALPHA pattern now include underscore
+
+
+ unit test
+
+
+ documentation",4,2
+1047,2019-11-02T15:42:16Z,2019-11-03T15:18:43Z,2019-11-03T15:18:43Z,1,1,1,,2,0
+1049,2019-11-03T14:34:35Z,2019-11-19T18:45:27Z,2019-11-19T18:45:27Z,3,891,611,"Resolves #1048
+Added workflow for build.
+In order to get coveralls working, according to their docs there need to be specified 2 secrets:
+
+COVERALLS_SERVICE_NAME (the name of your build system)
+COVERALLS_REPO_TOKEN (the secret repo token from coveralls.io)
+
+In order to allow publishing to npm, there needs to be another secret (e.g. NPM_TOKEN) containing  an api key with according permissions.",2,5
+1050,2019-11-05T09:05:36Z,2019-11-08T10:42:45Z,2019-11-08T10:42:46Z,3,114,24,Fixes #1044,2,3
+1067,2019-11-14T19:19:42Z,,2021-02-25T20:34:46Z,5,52,9,"Resolves #1066
+Added a validate function that wraps the parse function as proposed. Gonna adjust the docs asap.",3,2
+1070,2019-11-17T16:45:01Z,2019-11-18T13:41:24Z,2019-11-18T13:41:24Z,1,22,0,Resolves #1062,2,0
+1075,2019-11-18T15:33:45Z,2019-11-19T13:33:23Z,2019-11-19T13:33:23Z,1,8,6,,2,1
+1077,2019-11-19T20:07:16Z,2019-11-20T18:42:55Z,2019-11-20T18:42:55Z,2,11,253,Resolves #1076,2,0
+1080,2019-11-19T20:34:03Z,,2019-11-30T17:28:00Z,3,26,4,Resolves #1079,3,2
+1081,2019-11-19T20:39:57Z,2019-11-21T19:54:15Z,2019-11-21T19:54:16Z,4,41,4,"Using # to indicate protected status of a member or method causing parser error when not used inside class declaration brackets {}.  Removed '#' from LABEL regex
+Resolves #1061",3,6
+1086,2019-11-20T20:12:32Z,2019-11-21T19:58:50Z,2019-11-21T19:58:50Z,1,12,4,Resolves #1085,2,0
+1089,2019-11-26T19:27:56Z,2019-11-30T23:39:33Z,2019-11-30T23:39:34Z,7,187,53,"Updated regex in parser to correctly handle comments in class diagrams.  Also updated flowchart parser to remove unused elements for comments, as well as modifying the regex to match
+Resolves #1073",2,0
+1090,2019-11-26T23:37:31Z,2019-11-27T16:23:51Z,2019-11-27T16:23:51Z,5,64,0,"Adding section to documentation with examples for adding comments in diagrams
+Resolves #1074",3,3
+1098,2019-11-28T12:15:41Z,2019-11-30T23:42:42Z,2019-11-30T23:42:42Z,13,225,6,Resolves #1053,4,1
+1101,2019-11-28T14:29:04Z,2019-12-11T20:32:03Z,2019-12-11T20:32:03Z,5,86,17,"Usage:
+gantt
+  apple :a, 2017-07-20, 1w
+  banana :crit, b, 2017-07-23, 1d
+  cherry :active, c, after b a, 1d
+
+Separated by space
+Resolves #552",6,9
+1103,2019-11-29T22:11:25Z,2019-11-30T23:42:03Z,2019-11-30T23:42:03Z,1,1,3,"An attempt at adding IE11 compatibility (ie >= 11) while preserving the current requirements (current node) and following browserlist best practices (defaults).
+Unfortunately I have no clue if this actually does what I expect it to do. Also I do not know how to add browser compatibility testing. Someone should definitely review this.
+Resolves #1030",2,0
+1105,2019-11-30T17:29:22Z,,2021-02-25T20:35:43Z,3,26,4,Resolves #1079,4,1
+1107,2019-12-01T00:05:38Z,2019-12-01T06:34:59Z,2019-12-01T06:35:00Z,6,99,6,"Resolves #1106
+This pr adds several workflows automating the release management.
+PR Labeler
+This workflow will label PRs based on their branch name.
+Release drafter
+This workflow automatically drafts a release once triggered on develop and creates/updates release notes based on merged PRs. It uses the PR labels to categorise them so we need to make sure they are always present and people stick to the conventions.
+Release publish
+This workflow is triggered once a release is published. It will gather the version from the release tag, so the release tag should always match the version (which should be set automatically in the draft release). It bumps the package version accordingly, creates a merge from the release branch to master and then publishes the package to npm.",2,0
+1114,2019-12-03T21:11:08Z,2019-12-04T18:14:36Z,2019-12-04T18:14:36Z,5,1181,1673,"With that done, we can:
+
+  Delete / archive unofficial repository
+
+Note: The unofficial npm package MUST remain available. There are mermaid versions that depend on it.
+
+Resolves #1112
+Took the opportunity to run yarn upgrade and fix some package versions.",2,0
+1120,2019-12-06T19:57:55Z,2019-12-11T18:09:20Z,2019-12-11T18:09:20Z,6,161,8,"Adding support in class diagram parser to translate characters surrounded by ~ into a generic type definition ie: Class01~T~ would turn into Class01<T>
+Resolves #1063",5,7
+1121,2019-12-06T20:41:28Z,2019-12-11T18:04:30Z,2019-12-11T18:04:30Z,1,7,0,Added template for pull requests,3,0
+1131,2019-12-10T02:15:16Z,2019-12-11T18:43:33Z,2019-12-11T18:43:33Z,5,93,15,"Added logic to allow rendering of method name with italics or underline based on classifier appended to method name.  Supports abstract (italic)and static (underline) methods.
+Also updated docs
+Resolves #1104",3,0
+1132,2019-12-10T02:58:23Z,2019-12-11T19:04:32Z,2019-12-11T19:04:33Z,7,131,14,"Resolves #910 set correct position and style for edge labels when using linkStyle
+Resolves #1088 handle multiline texts in edge labels when using linkStyle
+I did both issues in one commit as they were found in exactly the same code blocks. I hope that's ok for that case, otherwise I'll certainly go for separate PRs next time.",3,2
+1136,2019-12-11T00:50:07Z,2020-01-01T08:29:01Z,2020-01-01T08:29:01Z,3,80,0,"This is meant to address: #921
+After researching this issue I agreed with Dunning-Kruger that it seemed prudent to support passing in the node identifier as the callback parameter as a solution. I then found that the project already supports this for flowcharts. Gantt charts, on the other hand, already support passing in custom parameters to a callback function. This, however, was not reflected in the documentation.
+For continuity between flowchart and Gantt, I added in code to automatically pass in the task identifier to the callback function if no custom callback parameters are specified. I also added interaction documentation based off of the documentation for flowchart and #804.
+This would be my first contribution so any feedback would be appreciated.",3,1
+1140,2019-12-12T12:54:06Z,2019-12-23T07:56:41Z,2019-12-23T07:56:41Z,1,4,5,"Summary
+Remove reference to mermaidAPI.js in the API.md doc.  Also changed the code to mermaid.render because this statement is an alias to mermaidAPI.render, at least per mermaid.js line 175,
+Design Descisions
+I made this change because I recently called mermaid.js in this manner with version 8.4.3, e.g. mermaid.render instead of mermaid.mermaidAPI.parse. I feel appending the mermaidAPI is confusing or at least confused me when learning mermaid.js.
+Resolves #1124",3,4
+1153,2019-12-21T19:49:48Z,2019-12-23T09:04:31Z,2019-12-23T09:04:31Z,5,63,6,"Summary
+Improved regex for multiline texts to find <br /> as well as <br/> and <br>.
+Design Descisions
+Improved regex for multiline texts in sequence diagram renderer.
+Resolves #702",4,1
+1156,2019-12-23T16:10:39Z,2019-12-31T15:56:21Z,2019-12-31T15:56:21Z,6,23,11,"Summary
+This extends the br tag regex to accommodate an arbitrary amount of
+any type of whitespace instead of a single space character, which holds
+more closely to the HTML spec1
+This extends the fix to #702 added in #1153
+Design Descisions
+This replaces the use of  ?\/> with \s*\/> which changes two things
+
+It allows for the other 3 whitespace characters beyond the space character
+It allows for 0 or more whitespace characters instead of only 0 or 1.",4,2
+1159,2019-12-23T22:16:26Z,2019-12-29T07:47:08Z,2019-12-29T07:47:09Z,1,19,0,"Summary
+This PR adds a GitHub action that analyzes current cypress.io tests and shows a nice overview of them. When a test is added / skipped / removed this analyzer shows it in a comment.
+When a PR is created with a test a new label ""has tests"" is added
+Genrally, it will add a comment with full information on current tests:
+
+Tests added by this Pull Request
+Tests removed by this Pull Request
+Tests skipped by this Pull Request
+Adds label 'has tests' if PR contains tests
+Fails when found .only exclusive tests
+
+Design Decisions
+This works as GitHub action on each PR, and compares changes with base branch. Then cypress/integration tests are statically analyzed for changes and a comment is added to PR.
+Read more about it here: https://github.com/testomatio/check-tests
+Demo: DavertMik/vue-cli#1 (comment)
+Purpose
+I hope this improves the visibility of e2e tests and  helps to manage and review tests.
+Demo
+mermaid was already analized in my fork and here is the report I got: DavertMik#1 (comment)
+I also copy pasted comment to show it here 👇
+
+🌀 Tests overview by Testomatio
+Found 92 cypress tests in 14 files
+No new tests added or removed
+
+  📑 List all tests
+
+📝 cypress/integration/other/configuration.spec.js
+
+📎 Configuration
+
+📎 arrowMarkerAbsolute
+
+should handle default value false of arrowMarkerAbsolute
+should handle default value false of arrowMarkerAbsolute
+should handle arrowMarkerAbsolute excplicitly set to false
+should handle arrowMarkerAbsolute excplicitly set to ""false"" as false
+should handle arrowMarkerAbsolute set to true
+
+
+
+
+
+📝 cypress/integration/other/interaction.spec.js
+
+📎 Interaction
+
+📎 Interaction - security level loose
+
+should handle a click on a node with a bound function
+should handle a click on a node with a bound function where the node starts with a number
+should handle a click on a node with a bound url
+should handle a click on a node with a bound url where the node starts with a number
+should handle a click on a task with a bound URL clicking on the rect
+should handle a click on a task with a bound URL clicking on the text
+should handle a click on a task with a bound function
+should handle a click on a task with a bound function
+
+
+📎 Interaction - security level tight
+
+should handle a click on a node without a bound function
+should handle a click on a node with a bound function where the node starts with a number
+should handle a click on a node with a bound url
+should handle a click on a node with a bound url where the node starts with a number
+should handle a click on a task with a bound URL clicking on the rect
+should handle a click on a task with a bound URL clicking on the text
+should handle a click on a task with a bound function
+should handle a click on a task with a bound function
+
+
+📎 Interaction - security level other, missspelling
+
+should handle a click on a node with a bound function
+should handle a click on a node with a bound function where the node starts with a number
+should handle a click on a node with a bound url
+should handle a click on a task with a bound function
+should handle a click on a task with a bound function
+
+
+
+
+
+📝 cypress/integration/other/rerender.spec.js
+
+📎 Rerendering
+
+should be able to render and rerender a graph via API
+
+
+
+📝 cypress/integration/other/webpackUsage.spec.js
+
+📎 Sequencediagram
+
+should render a simple sequence diagrams
+
+
+
+📝 cypress/integration/other/xss.spec.js
+
+📎 XSS
+
+should handle xss in tags
+should handle xss in tags in non-html mode
+
+
+
+📝 cypress/integration/rendering/classDiagram.spec.js
+
+📎 Class diagram
+
+1: should render a simple class diagram
+2: should render a simple class diagrams with cardinality
+should render a simple class diagram with different visibilities
+should render multiple class diagrams
+4: should render a simple class diagram with comments
+5: should render a simple class diagram with abstract method
+6: should render a simple class diagram with static method
+7: should render a simple class diagram with Generic class
+8: should render a simple class diagram with Generic class and relations
+
+
+
+📝 cypress/integration/rendering/current.spec.js
+
+📎 State diagram
+
+should render a state with states in it
+
+
+
+📝 cypress/integration/rendering/flowchart.spec.js
+
+📎 Flowcart
+
+1: should render a simple flowchart no htmlLabels
+2: should render a simple flowchart with htmlLabels
+3: should render a simple flowchart with line breaks
+4: should render a simple flowchart with trapezoid and inverse trapezoid vertex options.
+4: should style nodes via a class.
+5: should render a flowchart full of circles
+6: should render a flowchart full of icons
+7: should render labels with numbers at the start
+8: should render subgraphs
+9: should render subgraphs with a title starting with a digit
+10: should render styled subgraphs
+11: should render a flowchart with long names and class definitions
+12: should render color of styled nodes
+13: should render hexagons
+14: should render a simple flowchart with comments
+15: Render Stadium shape
+16: Render Stadium shape
+17: Chaining of nodes
+18: Multiple nodes and chaining in one statement
+19: Multiple nodes and chaining in one statement
+
+
+
+📝 cypress/integration/rendering/gantt.spec.js
+
+📎 Sequencediagram
+
+should render a gantt chart
+Multiple dependencies syntax
+
+
+
+📝 cypress/integration/rendering/info.spec.js
+
+📎 Sequencediagram
+
+should render a simple info diagrams
+
+
+
+📝 cypress/integration/rendering/pie.spec.js
+
+📎 Pie Chart
+
+should render a simple pie diagram
+should render a simple pie diagram with long labels
+should render a simple pie diagram with capital letters for labels
+
+
+
+📝 cypress/integration/rendering/sequencediagram.spec.js
+
+📎 Sequence diagram
+
+should render a simple sequence diagram
+should handle different line breaks
+📎 background rects
+
+should render a single and nested rects
+should render rect around and inside loops
+should render rect around and inside alts
+should render rect around and inside opts
+
+
+
+
+
+📝 cypress/integration/rendering/stateDiagram.spec.js
+
+📎 State diagram
+
+should render a simple state diagrams
+should render a long descriptions instead of id when available
+should render a long descriptions with additional descriptions
+should render a single state with short descr
+should render a transition descrions with new lines
+should render a state with a note
+should render a state with on the left side when so specified
+should render a state with a note together with another state
+should render a note with multiple lines in it
+should render a states with descriptions including multi-line descriptions
+should render a simple state diagrams
+should render a simple state diagrams with labels
+should render state descriptions
+should render composit states
+should render multiple composit states
+should render forks in composit states
+should render forks and joins
+should render conurrency states
+should render a state with states in it
+Simplest compone state",4,5
+1162,2019-12-25T03:09:42Z,2019-12-31T15:57:17Z,2019-12-31T15:57:17Z,3,61,1,"📑 Summary
+This is a one line fix for a bug where there's an infinite loop when adjusting a date range that ends with a date of the 31st. The problem was that startTime.date() could never exceed endTime.date() when endTime.date() was the 31st. The code would continue to increment startTime indefinitely, causing the page to freeze.
+Resolves #1060
+📏 Design Decisions
+Instead of the while loop being conditional on comparing the days of the month (i.e. 1, 2, .. 30, 31), it compares the full date object, including the month and year.
+📋 Tasks
+Make sure you
+
+ 📖 have read the contribution guidelines
+ 💻 have added unit/e2e tests (if appropriate)
+ 🔖 targeted develop branch",3,0
+1163,2019-12-26T14:47:10Z,2019-12-31T15:58:47Z,2019-12-31T15:58:48Z,1,33,9,"📑 Summary
+Improved flowchart renderer to set links on the entire node so you can click a link anywhere on the node (before this modification it was only possible by clicking the node label).
+Resolves #891
+📏 Design Decisions
+Used DOM manipulation inside the SVG node to wrap the shape as well as the label in an anchor object. Did not include additional tests to renderer, interaction or cypress integration because they already exist.
+📋 Tasks
+Make sure you
+
+ 📖 have read the contribution guidelines
+ 💻 have added unit/e2e tests (if appropriate)
+ 🔖 targeted develop branch",4,1
+1165,2019-12-31T01:30:08Z,2020-01-02T16:10:49Z,2020-01-02T16:10:49Z,5,322,7,"📑 Summary
+Brief description about the content of your PR.
+click functionality added to class diagrams
+Resolves #1064
+📏 Design Decisions
+Chose not to completely mimic how interactions are handled with flowcharts, as the implementation around building graph and rendering was different enough that I was struggling to make it exactly the same.
+📋 Tasks
+Make sure you
+
+ 📖 have read the contribution guidelines
+ 💻 have added unit/e2e tests (if appropriate)
+ 🔖 targeted develop branch",2,1
+1166,2019-12-31T15:37:05Z,2020-01-01T08:24:57Z,2020-01-01T08:24:57Z,9,159,19,"📑 Summary
+Added cylindric node shape to flowchart implementation.
+Resolves #1154
+📏 Design Decisions
+
+Used syntax [(...)] for cylindric nodes.
+Used SVG path for cylindric visualisation.
+
+📋 Tasks
+Make sure you
+
+ 📖 have read the contribution guidelines
+ 💻 have added unit/e2e tests (if appropriate)
+ 🔖 targeted develop branch",2,0
+1170,2020-01-02T19:09:07Z,2020-01-05T11:07:35Z,2020-01-05T11:07:35Z,7,167,48,"📑 Summary
+Additional updates to handle click events in class diagrams
+Added text sanitization for tooltips
+Added handling for defining callback functions
+Resolves #1064
+📏 Design Decisions
+Describe the way your implementation works or what design decisions you made if applicable.
+📋 Tasks
+Make sure you
+
+ 📖 have read the contribution guidelines
+ 💻 have added unit/e2e tests (if appropriate)
+ 🔖 targeted develop branch",2,1
+1171,2020-01-02T19:16:17Z,2020-01-05T11:02:37Z,2020-01-05T11:02:37Z,5,54,25,"📑 Summary
+This PR adds dashed-line support for class diagram relations like dependency, realization, etc.
+Resolves #1146
+📏 Design Decisions
+Implementation follow similar JISON format like other relation definition, no changes in JISON. Make use of the relation line type which can be solid or dashed.
+📋 Tasks
+Make sure you
+
+ 📖 have read the contribution guidelines
+ 💻 have added unit/e2e tests (if appropriate)
+ 🔖 targeted develop branch",4,1
+1176,2020-01-05T21:10:06Z,2020-01-08T17:16:04Z,2020-01-08T17:16:04Z,3,46,4,"📑 Summary
+Added nodeSpacing and rankSpacing to flowchart configuration settings.
+Resolves #1152
+📏 Design Decisions
+Set dagre parameters nodesep and ranksep when calling setGraph() in the flowchart renderer.
+📋 Tasks
+Make sure you
+
+ 📖 have read the contribution guidelines
+ 💻 have added unit/e2e tests (if appropriate)
+ 🔖 targeted develop branch",3,3
+1188,2020-01-08T12:57:57Z,2020-01-08T17:06:30Z,2020-01-08T17:06:30Z,4,93,3,"📑 Summary
+Enhanced gantt renderer to handle multiline texts in section titles.
+Resolves #743
+📏 Design Decisions
+Split up the texts and appended tspan elements for the lines.
+Modified y position according to number of text lines in the titles.
+📋 Tasks
+Make sure you
+
+ 📖 have read the contribution guidelines
+ 💻 have added unit/e2e tests (if appropriate)
+ 🔖 targeted develop branch",2,1
+1194,2020-01-09T16:00:11Z,2020-01-14T17:35:01Z,2020-01-14T17:35:01Z,1,1,1,"📑 Summary
+Resolves #1192
+📏 Design Decisions
+Seems like the bug was a simple typo.
+📋 Tasks
+Make sure you
+
+ 📖 have read the contribution guidelines
+ 💻 have added unit/e2e tests (if appropriate)
+ 🔖 targeted develop branch",2,0
+1195,2020-01-09T16:05:10Z,2020-01-15T17:29:02Z,2020-01-15T17:29:03Z,1,8,3,"📑 Summary
+Resolves #1193
+📏 Design Decisions
+In graphlib edges have an ID that is constructed from the nodes being linked plus an (optional) name. If two edges are provided with the same nodes and name (or no name at all) then they overwrite each other. Mermaid's class diagram parser already collected the relations correctly but added them without name. I'm now using the relation label as a natural choice for the edges name. This fixes the problem.
+📋 Tasks
+Make sure you
+
+ 📖 have read the contribution guidelines
+ 💻 have added unit/e2e tests (if appropriate)
+ 🔖 targeted develop branch",3,1
+1198,2020-01-12T13:13:45Z,2020-01-15T15:48:59Z,2020-01-15T15:48:59Z,2,26,0,"📑 Summary
+Fix for #1176, added docs and default values to mermaidAPI.",2,0
+1199,2020-01-12T13:44:15Z,2020-01-15T15:50:11Z,2020-01-15T15:50:11Z,2,36,8,"📑 Summary
+Fixed the script tags in the documentation so the second configuration example in the mermaidAPI section is displayed as well.",2,0
+1202,2020-01-13T21:18:09Z,2020-01-15T15:53:07Z,2020-01-15T15:53:07Z,9,112,45,"📑 Summary
+Updated the regex for finding line breaks through  tags so they are all identical.
+Resolves #1200
+📏 Design Decisions
+Updated the regex definitions (did not centralize them in utils for now).
+Added unit test and integration test for stateDiagram.
+Added unit test for multiline node labels in flowcharts.
+Added checking for <br\t/> to unit test for multiline edge labels in flowcharts.
+📋 Tasks
+Make sure you
+
+ 📖 have read the contribution guidelines
+ 💻 have added unit/e2e tests (if appropriate)
+ 🔖 targeted develop branch",2,0
+1203,2020-01-14T00:09:17Z,2020-01-29T20:08:42Z,2020-01-29T20:08:42Z,7,414,77,"📑 Summary
+The intent of this PR is to provide support for generic types for fields and methods (both parameters and return types)
+Resolves #1179
+📏 Design Decisions
+Split out some display and text formatting functionality into a separate module to make things a bit clearer.  Added new functionality for parsing using regex to identify fields/methods, etc.  Also included function to use as a catch all - in case for some reason the new regex methods do not parse correctly, the old style of formatting the members will be used
+📋 Tasks
+Make sure you
+
+ 📖 have read the contribution guidelines
+ 💻 have added unit/e2e tests (if appropriate)
+ 🔖 targeted develop branch",2,1
+1204,2020-01-14T22:52:54Z,2020-01-15T17:27:48Z,2020-01-15T17:27:48Z,4,41,1,"📑 Summary
+Flowchart nodes with intentional ""empty"" labels (whitespace characters) are no longer overridden by the node ID when a style is applied to them.
+Resolves #1196
+📏 Design Decisions
+Modified the condition for setting the node ID as label text in flowDb.js/addVertex() only to be met if no label text is defined. Added unit test and integration test.
+📋 Tasks
+Make sure you
+
+ 📖 have read the contribution guidelines
+ 💻 have added unit/e2e tests (if appropriate)
+ 🔖 targeted develop branch",3,1
+1214,2020-01-19T17:27:01Z,2020-01-22T16:59:53Z,2020-01-22T16:59:54Z,3,17,11,"📑 Summary
+Bugfix: Class definition is not applied to flowchart nodes with links.
+Resolves #1212
+📏 Design Decisions
+Assigned classes to the anchor item as well to keep its contents styled according to class definitions. Modified tests in dist/index.html and cypress integration by applying a classDef to nodes with and without links.
+📋 Tasks
+Make sure you
+
+ 📖 have read the contribution guidelines
+ 💻 have added unit/e2e tests (if appropriate)
+ 🔖 targeted develop branch",2,0
+1219,2020-01-24T00:38:44Z,2020-01-27T19:01:20Z,2020-01-27T19:01:20Z,4,46,2,"📑 Summary
+The text color for flowchart nodes can be set by using color in style definitions. The color attribute can be used for enabled as well as disabled htmlLabels.
+Resolves #487
+📏 Design Decisions
+Added the color setting to svg text objects styles via fill attribute.
+Added tests and extended the style example in the docs.
+📋 Tasks
+Make sure you
+
+ 📖 have read the contribution guidelines
+ 💻 have added unit/e2e tests (if appropriate)
+ 🔖 targeted develop branch",2,0
+1222,2020-01-26T16:00:36Z,2020-01-27T19:13:08Z,2020-01-27T19:13:08Z,4,97,5,"📑 Summary
+Reenabled support for anchor links and javascript execution if security level is set to 'loose'.
+Resolves #1218
+📏 Design Decisions
+Removed protocol auto-completion from utils.js/formatUrl(). Added unit tests and integration tests.
+📋 Tasks
+Make sure you
+
+ 📖 have read the contribution guidelines
+ 💻 have added unit/e2e tests (if appropriate)
+ 🔖 targeted develop branch",3,0
+1238,2020-02-02T22:12:06Z,2020-02-05T18:36:13Z,2020-02-05T18:36:13Z,6,123,83,"📑 Summary
+The link label text can be colored by using color settings in the linkStyle definition.
+Resolves #962
+📏 Design Decisions
+Applied color settings to edge label style. Extended the tests for label text color (dist/index.html and cypress integration test) and linkStyle example in the docs.
+📋 Tasks
+Make sure you
+
+ 📖 have read the contribution guidelines
+ 💻 have added unit/e2e tests (if appropriate)
+ 🔖 targeted develop branch",3,4
+1241,2020-02-04T00:09:04Z,2020-02-05T18:42:02Z,2020-02-05T18:42:02Z,5,441,456,"📑 Summary
+Refactor to move some functions from module classRenderer.js to module svgDraw.js (which itself was renamed from classMemberRenderer.js
+Intent was to move functions that were adding or modifying to the DOM, as opposed to graph specific actions.
+Resolves #1240
+📋 Tasks
+Make sure you
+
+ 📖 have read the contribution guidelines
+ 💻 have added unit/e2e tests (if appropriate)
+ 🔖 targeted develop branch",2,0
+1248,2020-02-07T04:29:08Z,2020-02-11T06:02:51Z,2020-02-11T06:02:51Z,1,2,1,"📑 Summary
+Resolves #1247
+Fix this issue by applying the workaround mentioned in webpack/webpack#6784.
+📋 Tasks
+Make sure you
+
+ 📖 have read the contribution guidelines
+ 💻 have added unit/e2e tests (if appropriate)
+ 🔖 targeted develop branch",2,1
+1254,2020-02-13T14:51:54Z,2020-02-15T22:54:06Z,2020-02-15T22:54:06Z,1,2,2,fixes typos,2,1
+1268,2020-02-21T21:50:38Z,2020-02-25T18:14:23Z,2020-02-25T18:14:23Z,6,51,42,"📑 Summary
+Moved getRows function from state/stateRenderer.js and state/shapes.js into common/common.js. Broke out section into small one line functions for replacing line breaks, then moved the sanitize function from utils.js to this new module as there is shared functionality
+Resolves #1169
+📋 Tasks
+Make sure you
+
+ 📖 have read the contribution guidelines
+ 💻 have added unit/e2e tests (if appropriate)
+ 🔖 targeted develop branch",3,0
+1270,2020-02-22T06:31:25Z,2020-02-27T14:06:32Z,2020-02-27T14:06:32Z,5,61,43,"Hi, I love your program and how it creates diagrams and graphs using text. but I had some small trouble in initially understanding the product's use..
+I updated and expanded documentation for noob-gettingStarted.md.
+-made some alterations with the instructions in effort to make it more n00b friendly.
+-added a new screenshot and edited directions for copying markdown code from live editor
+-edited instructions for deploying mermaid with html.
+-added link to Atom-mermaid plugin
+I also made a few changes in README.md, for the same objective of making it more noob-friendly.
+More Power.
+-Neil",5,4
+1273,2020-02-23T10:00:24Z,2020-02-25T18:17:54Z,2020-02-25T18:17:54Z,1,24,2,"Also added the online submission step-by-step via github.com.
+📑 Summary
+Brief description about the content of your PR.
+Removed the GitBook mention.
+Added steps on how to update the documentation.
+I included two ways on how to edit and submit the files.
+Resolves #1093
+📏 Design Decisions
+Describe the way your implementation works or what design decisions you made if applicable.
+I included the online editor functionality because I like to use it myself and requires no tooling on your own local computer.
+However the Markdown editors on your local computer might be more powerful to use, so I included that option too.
+📋 Tasks
+Make sure you
+
+ 📖 have read the contribution guidelines
+ 💻 have added unit/e2e tests (if appropriate)
+ 🔖 targeted develop branch",2,0
+1274,2020-02-24T00:36:12Z,2020-02-25T18:20:52Z,2020-02-25T18:20:53Z,4,81,2,"📑 Summary
+Fixed classDef default to be applied to all nodes which have no other class assigned.
+Resolves #684
+📏 Design Decisions
+Set class to default if there is no other class defined for the node.
+📋 Tasks
+Make sure you
+
+ 📖 have read the contribution guidelines
+ 💻 have added unit/e2e tests (if appropriate)
+ 🔖 targeted develop branch",2,1
+1275,2020-02-24T04:59:09Z,2020-02-25T18:27:45Z,2020-02-25T18:27:45Z,1,47,9,"📑 Summary
+Add section on showing parallel blocks for sequence diagrams
+Support was already added as part of issue #425 and PR #470.
+But it is missing from the docs at https://mermaid-js.github.io/mermaid/#/sequenceDiagram.
+📏 Design Decisions
+This is mainly an update to the sequenceDiagram.md.
+Additionally, I also:
+
+Fixed markdown lint warnings MD012 and MD022 on that same markdown file
+Fixed typo ""possiebl""
+
+📋 Tasks
+Make sure you
+
+ 📖 have read the contribution guidelines
+ 💻 have added unit/e2e tests (if appropriate)
+ 🔖 targeted develop branch",2,0
+1278,2020-02-25T21:12:29Z,2020-02-26T16:45:40Z,2020-02-26T16:45:41Z,3,222,58,"📑 Summary
+Reorder main readme.md file, add link to integrations - and add list of areas where mermaid is used
+Resolves #1264
+📏 Design Decisions
+Describe the way your implementation works or what design decisions you made if applicable.
+📋 Tasks
+Make sure you
+
+ 📖 have read the contribution guidelines
+ 💻 have added unit/e2e tests (if appropriate)
+ 🔖 targeted develop branch",3,1
+1282,2020-02-27T12:00:24Z,2020-02-27T17:23:29Z,2020-02-27T17:23:29Z,1,4,0,"📑 Summary
+Add CRM/ERP category to list of projects using mermaidjs",3,1
+1298,2020-03-08T01:07:44Z,,2020-03-10T04:43:27Z,6,32,17,"Added Documentation for the ""excludes"" function, discussing how it can be used, the acceptable terms and how it shows up graphically when used.
+-Added two screenshots showing the ""excludes"" function's effect on the chart, in two use cases.
+-also made a few very minute changes to mermaidAPI.md, README and Summary.
+Resolves #314",2,0
+1303,2020-03-11T02:45:35Z,2020-03-14T07:35:31Z,2020-03-14T07:35:32Z,5,21,244,"ran into some hiccups, but managed to revert all changes made to other docs, aside from the Gantt Docs and the two pictures.
+PS: README is still there, I deleted it accidentally at one point because I am a noob, but managed to bring it back.
+Resolves #314",3,2
+1314,2020-03-24T17:36:26Z,2020-03-25T19:22:32Z,2020-03-25T19:22:32Z,1,4,2,"📑 Summary
+This commit allow user to write multiline messages in sequence diagram.
+For instance:
+sequenceDiagram
+	Alice->>+John: Hello John<br>How are you?<br>I mean...<br>Are you OK today?
+	Alice->>+John: John, can you hear me?
+	John-->>-Alice: Hi Alice, I can hear you!<br>Keep calm!<br>I'm there.
+	John-->>-Alice: And I feel great!
+
+📏 Design Decisions
+Bump vertical position according to number of lines. Idem for the arrow/line.
+Here is a demo:
+
+📋 Tasks
+Make sure you
+
+ 📖 have read the contribution guidelines
+ 💻 have added unit/e2e tests (if appropriate)
+ 🔖 targeted develop branch",2,2
+1315,2020-03-24T21:37:22Z,2020-03-25T19:31:38Z,2020-03-25T19:31:38Z,3,44,11,"📑 Summary
+Please first take a look at PR #1314 , it contains a fix for multiline messages in sequence diagrams.
+This PR is an additional improvement which let the user set the alignment of these multiline messages.
+It introduces a new configuration option messageAlign which takes 3 possible values:
+
+left: align text to the left
+center (default): text is align in the middle, current alignment
+right: align text to the right
+
+📏 Design Decisions
+To left/right align the text, I change the style attribute text-anchor and I move the center alignment line according to the maximum width of text lines.
+📷 Example
+Here is a basic HTTP request/response diagram where text alignment is useful:
+
+⁉️ Why two PRs ?
+The first PR #1314  is IMHO easier (no additional parameter, no change in flow or logic). This one require a new parameter and a double iteration is mandatory to calculate max text width.
+📋 Tasks
+Make sure you
+
+ 📖 have read the contribution guidelines
+ 💻 have added unit/e2e tests (if appropriate)
+ 🔖 targeted develop branch",2,2
+1324,2020-03-29T08:13:30Z,2020-03-30T17:11:53Z,2020-03-30T17:11:53Z,7,233,235,"📑 Summary
+Alters the syntax for newly implemented ER diagrams so that it is compatible with PlantUML ERD syntax
+Resolves #1309
+📏 Design Decisions
+A fairly straight-forward change to the jison parsing logic to use different syntax for specifying relationships between entities.  For example, the original syntax I implemented for an one-to-many was EntityA !-?< EntityB : label and the new syntax for this is EntityA ||--o{ EntityB : label.
+The : label part is an extension to PlantUML, because it is very convenient/common to label relationships.
+Also PlantUML syntax allows the distinction between identifying and non-identifying relationships which I hadn't previously implemented.  This is now supported by using either hyphens or dots in the middle part of the relationship specifier.  Hyphens are rendered as a s solid line, whereas dots are rendered as a dashed line.  The docs have been updated to give a better overview.
+📋 Tasks
+Make sure you
+
+ 📖 have read the contribution guidelines
+ 💻 have added unit/e2e tests (if appropriate)
+ 🔖 targeted develop branch",3,2
+1332,2020-04-01T08:06:06Z,2020-04-11T09:58:23Z,2020-04-11T09:58:23Z,1,7,2,#1330,2,0
+1333,2020-04-02T14:50:32Z,2020-04-04T03:54:33Z,2020-04-04T03:54:33Z,2,16,8,"…being cut off the diagram
+📑 Summary
+Fix viewBox mapping to svg viewport to prevent left-most edges being sliced off in some cases
+Resolves #1327
+📏 Design Decisions
+A change to the way the viewBox is defined in flowRenderer.js.  It now uses svgBounds.x and svgBounds.y to determine its minimum x and y values respectively (with an adjustment for padding around the diagram).  This is instead of using (0,0), because it is possible for unlabelled edges to have negative co-ordinates which meant that they got 'sliced' off.  The viewBox now correctly maps onto the svg viewport even if the latter has negative minima.
+Also, a new integration test has been added to include an example equivalent to that provided by the bug reporter so that this case is included in regression tests.
+📋 Tasks
+Make sure you
+
+ 📖 have read the contribution guidelines
+ 💻 have added unit/e2e tests (if appropriate)
+ 🔖 targeted develop branch",3,3
+1334,2020-04-04T18:19:33Z,2020-04-26T15:17:33Z,2020-04-26T15:17:33Z,14,1319,1,"📑 Summary
+Addition of new diagram type user journey map.
+Resolves feature/user-journey
+📏 Design Decisions
+The diagram is split into as many sections as requested. Each section contains tasks, tasks have scores and actors. The score indicates how happy the user is at having to perform the task. Typically you'd hope that once UI/UX design had been implemented the scores on each step of the task would increase.
+📋 Tasks
+Make sure you
+
+[ /] 📖 have read the contribution guidelines
+[ /] 💻 have added unit/e2e tests (if appropriate)
+[/] 🔖 targeted develop branch",2,3
+1335,2020-04-04T20:02:26Z,2020-04-11T12:01:25Z,2020-04-11T12:01:25Z,3,22,1,"📑 Summary
+Set sequence numbers on the correct position if the corresponding text has line breaks.
+Resolves #1271
+📏 Design Decisions
+Added totalOffset to the number text's y position. Added integration test.
+📋 Tasks
+Make sure you
+
+ 📖 have read the contribution guidelines
+ 💻 have added unit/e2e tests (if appropriate)
+ 🔖 targeted develop branch",3,1
+1336,2020-04-05T00:20:59Z,2020-04-11T12:04:31Z,2020-04-11T12:04:32Z,7,102,8,"📑 Summary
+Added hiding and styling the today marker (red line) in gantt diagrams.
+Resolves #1290
+📏 Design Decisions
+Added todayMarker keyword to parser and modified drawing the today line according to definition. Added unit tests and integration tests.
+📋 Tasks
+Make sure you
+
+ 📖 have read the contribution guidelines
+ 💻 have added unit/e2e tests (if appropriate)
+ 🔖 targeted develop branch",2,1
+1345,2020-04-09T22:18:32Z,2020-04-11T12:12:21Z,2020-04-11T12:12:21Z,9,82,2,"📑 Summary
+Adds a new node shape to flowcharts which represents a subroutine.
+Resolves #1343
+📏 Design Decisions
+Added polygon shape to flowchart shapes. Extended unit tests as well as the flowchart documentation on node shapes.
+📋 Tasks
+Make sure you
+
+ 📖 have read the contribution guidelines
+ 💻 have added unit/e2e tests (if appropriate)
+ 🔖 targeted develop branch",3,2
+1346,2020-04-10T11:01:13Z,2020-04-10T14:18:49Z,2020-04-10T14:18:49Z,1,5,5,"📑 Summary
+Include missing escape chars in markdown doc for ER diagrams - no coding changes
+Resolves #1309
+📏 Design Decisions
+When I documented the ER diagram syntax I didn't include the right escape (backslash) chars in the syntax table - these are now included.  Also I made some tiny changes to the text higher up.
+As this was such a trivial (non-coding) change I didn't work on a branch.
+📋 Tasks
+Make sure you
+
+ 📖 have read the contribution guidelines
+ 💻 have added unit/e2e tests (if appropriate)
+ 🔖 targeted develop branch",2,0
+1353,2020-04-15T18:33:55Z,2020-04-15T20:10:52Z,2020-04-15T20:10:52Z,2,2,0,"📑 Summary
+Add a related project mermaid-server.
+The mermaid-server project allows you to send GET or POST HTTP requests to a docker container and get back an SVG image.
+📏 Design Decisions
+The project uses the mermaid-cli project within the docker container and simply interfaces with it via HTTP requests.
+It generates an ID based off of the diagram contents and will use a cache if you attempt to generate the same image twice.
+📋 Tasks
+Make sure you
+
+ 📖 have read the contribution guidelines
+ 💻 have added unit/e2e tests (if appropriate)
+ 🔖 targeted develop branch",2,1
+1365,2020-04-23T04:59:22Z,2020-04-26T15:21:56Z,2020-04-26T15:21:56Z,7,594,125,"📑 Summary
+This commit fixes some bugs, and I believe, improves upon the current
+implementation.
+Resolves #494
+📏 Design Decisions
+Mermaid is awesome - I use it a lot (it's even more awesome w/ emacs & ob-mermaid);
+and that's why I think that we should make a few improvements to the sequence diagram rendering.
+I think that it falls short, compared to other diagram types, in that it renders rectangles with a fixed size, as opposed to dynamically scaling them when, for instance, the text is larger than the container.
+There are workaround, of course - one can set a larger width for the rectangles - that yield an awkward result though, b/c all rectangles are rendered with the same width;
+and we'd probably like to have the ability to have a sole rectangle that should be bigger, and others that should be smaller.
+The following is a list of proposed fixes that I believe would make the usage of sequence diagrams better:
+
+Control over note font size, family and alignment (now defaults to
+center)
+Dynamic actor resizing - actor's width will now scale if its
+description is bigger than the static configured width
+Dynamic actor margins - the margin between actors will now be
+dynamically calculated by taking into account the width of connecting
+messages or notes
+Fixed a small visual annoyance where a loop arrow would intersect
+with the text it loops on
+Fixed a bug where if global config -> fontFamily wasn't defined, it
+would override the actorFontFamily with an undefined
+Removed some stale / commented out code
+Added missing config variables to the global config object in mermaidAPI.js
+Fixed doc strings for methods which had an outdated one
+Added e2e tests for the above scenarios
+Added documentation for the new config keys
+Linted the sequence diagram markdown doc
+Refactored a bit where necessary
+
+All tests pass - and looking at the generated dist/index.html, with some additional use cases, looks pretty good.
+📋 Tasks
+Make sure you
+
+[ /] 📖 have read the contribution guidelines
+[ /] 💻 have added unit/e2e tests (if appropriate)
+[ /] 🔖 targeted develop branch",2,1
+1371,2020-04-26T13:17:06Z,2020-04-26T15:23:15Z,2020-04-26T15:23:15Z,1,17,3,"📑 Summary
+Updated implementation to determine diagram bounds, and adjust viewport, rather than increasing the size of the diagram
+Resolves #1234 and #1349
+📏 Design Decisions
+Followed recent update to flowchart rendering
+📋 Tasks
+Make sure you
+
+ 📖 have read the contribution guidelines
+ 💻 have added unit/e2e tests (if appropriate)
+ 🔖 targeted develop branch",2,0
+1379,2020-04-30T15:06:10Z,2020-05-01T13:14:33Z,2020-05-01T13:14:34Z,2,11,5,"📑 Summary
+Change the fontSize config from a string to an integer to prevent NaN errors
+Resolves #1362
+📏 Design Decisions
+This was a simple fix - the original code expressed the fontSize option for ERDs (in mermaidAPI.js) as a string, for example '12px'.  But during positioning and sizing of nodes this value was used in simple arithmetic (e.g. to add padding).  In fact that code itself was not necessary because the position and sizing of nodes is taken care of elsewhere, however the attempt to add a string to a padding factor was causing NaN errors during rendering.  These errors were not fatal, and rendering worked anyway, but the errors needed to be sorted.  This was as  simple as:
+
+Change the config option to an integer in mermaidAPI.js (which is consistent with other diagram types)
+Change a few lines of code in the renderer to get rid of the unnecessary padding calculation
+Change a couple of lines of code in the renderer to add the 'px' suffix to the style attribute of entity names and relationship labels
+
+📋 Tasks
+Make sure you
+
+ 📖 have read the contribution guidelines
+ 💻 have added unit/e2e tests (if appropriate)
+ 🔖 targeted develop branch",2,0
+1384,2020-05-02T00:16:32Z,2020-05-06T15:40:11Z,2020-05-06T15:40:11Z,1,1,1,"I've updated a link in the integrations documentation section.
+It appears that https://github.com/sebastienwarin/mkdocs-mermaid-plugin has been more recently updated and is more feature rich (allowing for options to override the mermaid rendering defaults).",2,0
+1392,2020-05-07T13:46:17Z,2020-05-13T15:34:38Z,2020-05-13T15:34:38Z,3,20,7,"📑 Summary
+A good start to reduce bundle size.
+Resolves #1389
+📋 Tasks
+Make sure you
+
+ 📖 have read the contribution guidelines
+ 💻 have added unit/e2e tests (if appropriate)
+ 🔖 targeted develop branch",2,0
+1400,2020-05-11T05:54:09Z,2020-05-13T15:32:32Z,2020-05-13T15:32:32Z,1,1,1,"📑 Summary
+Brief description about the content of your PR.
+Resolves #
+📏 Design Decisions
+Describe the way your implementation works or what design decisions you made if applicable.
+📋 Tasks
+Make sure you
+
+ 📖 have read the contribution guidelines
+ 💻 have added unit/e2e tests (if appropriate)
+ 🔖 targeted develop branch",2,0
+1401,2020-05-11T06:45:00Z,2020-05-13T15:31:11Z,2020-05-13T15:31:11Z,20,136,118,"📑 Summary
+Replace import * from 'd3'; with explicit (named) imports across all source files
+Resolves #1390
+📏 Design Decisions
+For the most part the changes are trivial - just have to:
+
+import only the objects needed, and
+remove the d3. prefix from the object references (mostly function invocations)
+
+But there are 2 points worth highlighting:
+
+
+In a couple of places a variable was declared with the same name as a d3 function, for example one might find a statement like const arc = d3.arc().startAngle(...), then a  bit later a reference to the newly created arc constant.  But doing an explicit import of the arc() function, then removing the d3. prefix, causes a name clash between the constant and the function.  I chose to alias the imported function (I could have changed the name of the const instead), so that the above line becomes const arc = d3arc().startAngle(...).
+
+
+In src\utils.js it was necessary to create an ""enum"" of the d3 curve types so that they could be associatively referenced in the interpolateToCurve function.  This is because removing the import * from 'd3'; statement meant there was no object named 'd3' in scope, and this was being used as an associative array in the said function.  The solution was simply to create a (much smaller) object containing the imported function names so that it could be referenced instead.
+
+
+📋 Tasks
+Make sure you
+
+ 📖 have read the contribution guidelines
+ 💻 have added unit/e2e tests (if appropriate)
+ 🔖 targeted develop branch",2,0
+1411,2020-05-14T04:51:41Z,2020-05-22T07:33:55Z,2020-05-22T07:33:55Z,1,5,7,"Previous expression with noteWidth does not make sense as noteWidth is
+not used in case of note over two participants - forceWidth is used
+instead. It tried to be symmetrical over cases A,B and B,A but failed.
+Can be seen with messages over conf.width size (cannot reproduce in the
+live editor as it seems to use not the last version where the code
+does not use noteWidth).
+The changed code explicitly calculates which of the actors is the
+""left"" one and starts rendering half margin to the left of its cetral
+line.",2,0
+1419,2020-05-19T09:15:19Z,2020-05-22T07:36:25Z,2020-05-22T07:36:25Z,1,1,2,"📑 Summary
+There is a wrong name of config param - mirrorActor in the documentation (missing s).
+sample stylesheet in .note has duplicated stroke param.
+Resolves  -
+📏 -
+📋 Tasks
+Make sure you
+
+ 📖 have read the contribution guidelines
+ 💻 have added unit/e2e tests (if appropriate)
+ 🔖 targeted develop branch",2,0
+1425,2020-05-23T12:45:08Z,2020-05-27T17:30:22Z,2020-05-27T17:30:22Z,3,32,5,"📑 Summary
+Fixed a bug so that empty double-quoted relationship labels do not cause an error
+Resolves #1415
+📏 Design Decisions
+A relatively simple fix to the jison file to allow empty labels.  Also added a few unit tests and an e2e test to catch any future regression issues
+📋 Tasks
+Make sure you
+
+ 📖 have read the contribution guidelines
+ 💻 have added unit/e2e tests (if appropriate)
+ 🔖 targeted develop branch",2,0
+1446,2020-06-06T00:14:30Z,2020-06-10T16:57:41Z,2020-06-10T16:57:41Z,4,66,38,"📑 Summary
+Updated/improved regex to ensure proper elements are being captured
+Resolves #1378
+📋 Tasks
+Make sure you
+
+ 📖 have read the contribution guidelines
+ 💻 have added unit/e2e tests (if appropriate)
+ 🔖 targeted develop branch",2,1
+1450,2020-06-06T14:08:59Z,2020-06-06T17:41:33Z,2020-06-06T17:41:33Z,24,813,787,"📑 Summary
+Return a svg stating syntax error if the diagram can't be nredered due to a syntax error
+Resolves #1447
+📏 Design Decisions
+The solution changes this in the mermaidAPI so that each diagram does not need to implement the specifics for this.
+📋 Tasks
+Make sure you
+
+ 📖 have read the contribution guidelines
+ 💻 have added unit/e2e tests (if appropriate)
+ 🔖 targeted develop branch",2,0
+1458,2020-06-08T19:22:28Z,2020-06-14T16:26:33Z,2020-06-14T16:26:33Z,15,1343,435,"📑 Summary
+Added an auto-wrap option for (non 2.x svg text) sequence diagram notes, messages, actor descriptions, etc.
+Added the capability to parse in inline initialize json as well as a config json
+More than a couple tweaks and fixes.
+Special thanks to Carys Mills @ https://medium.com/@CarysMills/wrapping-svg-text-without-svg-2-ecbfb58f7ba4 for the basis fro the wrapLabels and breakWords logic.
+I have not added all of the unit-tests necessary for me to feel comfortable with this PR yet. I wanted to get eyeballs on this earlier rather than later. Once I finish up the unit tests on my local I'll change this to a formal PR.
+📏 Design Decisions
+I wanted auto-wrapping in svg text so my sequence diagrams looked like this:
+
+and not like this:
+
+I updated the parser logic to properly support automatic wrapping of notes, messages, and actor descriptions. The margins are respected.
+Enabling autowrapping requires nothing more than this:
+sequenceDiagram
+  %%wrap
+  participant a as aa
+  participant b as bb
+  participant c as cc
+
+  a->>+b: Hello
+  b->>-a: World
+  a->>+c: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur at felis vel justo semper rhoncus. Morbi in ipsum facilisis, dictum lorem luctus, accumsan ligula. Etiam et auctor nisi, ac cursus mauris. Ut finibus nunc ante, vitae tempus magna pharetra eu.
+
+Incidentally, initialization ala mermaid.initialize(...) is now available within the text block as well:
+%%initialize: { 'logLevel': 0, 'theme': 'dark' }
+sequenceDiagram
+  %%config: { 'fontFamily':'.SF NS','fontSize':14,'fontWeight':400 }
+  %%wrap
+  participant a as aa
+  participant b as bb
+  participant c as cc
+
+  a->>+b: Hello
+  b->>-a: World
+  a->>+c: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur at felis vel justo semper rhoncus. Morbi in ipsum facilisis, dictum lorem luctus, accumsan ligula. Etiam et auctor nisi, ac cursus mauris. Ut finibus nunc ante, vitae tempus magna pharetra eu.
+
+It doesn't matter what quotes you use, I change them to """" to make the json proper anyway. The only requirement is: you need to make the json well-formed or you'll have very little showing up on the page. (Read: JSON parsing errors). Also, you can use %%initialize or %%init. Also, %%config, %%conf, %%configuration, and %%configure all work equally too.
+Location kinda matters for the %%initialize statement; just like sequenceDiagram. The init statement must be first (if it exists at all). wrap can be anywhere as it is more of a directive than a statement. Once it is found, all of the relevant texts will be wrapped where necessary.
+EDIT: I’ve changed init, initialize, conf, config, configure, configuration, and wrap to be effectively directives. As far as I could tell, directives didn’t exist in the grammar but seem to be parser-friendly as well as backwards-compatible. This is a plus in my opinion.",2,7
+1459,2020-06-08T22:15:48Z,2020-06-09T02:34:01Z,2020-06-09T02:34:01Z,1,1,1,"📑 Summary
+Fixed a small typo in the readme section of the docs.
+📋 Tasks
+Make sure you
+
+ 📖 have read the contribution guidelines
+ 💻 have added unit/e2e tests (if appropriate)
+ 🔖 targeted develop branch",2,1
+1463,2020-06-11T04:44:59Z,2020-06-11T19:55:58Z,2020-06-11T19:55:58Z,8,488,373,"…d custom.
+📑 Summary
+Brief description about the content of your PR.
+Resolves #
+📏 Design Decisions
+Describe the way your implementation works or what design decisions you made if applicable.
+📋 Tasks
+Make sure you
+
+ 📖 have read the contribution guidelines
+ 💻 have added unit/e2e tests (if appropriate)
+ 🔖 targeted develop branch",2,0
+1464,2020-06-11T09:08:47Z,2020-06-11T19:56:28Z,2020-06-11T19:56:28Z,2,5,4,"…ng offset of window.scrollXY
+📑 Summary
+Brief description about the content of your PR.
+Resolves #
+📏 Design Decisions
+Describe the way your implementation works or what design decisions you made if applicable.
+📋 Tasks
+Make sure you
+
+ 📖 have read the contribution guidelines
+ 💻 have added unit/e2e tests (if appropriate)
+ 🔖 targeted develop branch",2,0
+1467,2020-06-12T09:45:57Z,2020-06-13T22:30:53Z,2020-06-13T22:30:53Z,1,24,9,"📑 Summary
+Added descriptions of title and section statements and how to style todayMarker. Let me know if you think it's not enough and it needs visual examples or anything.
+Resolves #1337
+📋 Tasks
+Make sure you
+
+ 📖 have read the contribution guidelines
+ 💻 have added unit/e2e tests (if appropriate)
+ 🔖 targeted develop branch",2,1
+1469,2020-06-13T12:03:54Z,2020-06-13T21:10:47Z,2020-06-13T21:10:47Z,8,141,258,"📑 Summary
+Add support for line pattern and line width to the new rendering engine.
+Resolves #1466
+📋 Tasks
+Make sure you
+
+ 📖 have read the contribution guidelines
+ 💻 have added unit/e2e tests (if appropriate)
+ 🔖 targeted develop branch",2,0
+1470,2020-06-14T01:55:33Z,2020-06-14T12:25:47Z,2020-06-14T12:25:47Z,4,21,4,"📑 Summary
+Brief description about the content of your PR.
+Resolves #
+📏 Design Decisions
+Describe the way your implementation works or what design decisions you made if applicable.
+📋 Tasks
+Make sure you
+
+ 📖 have read the contribution guidelines
+ 💻 have added unit/e2e tests (if appropriate)
+ 🔖 targeted develop branch",2,1
+1471,2020-06-14T09:09:45Z,2020-07-12T08:58:09Z,2020-07-12T08:58:09Z,3,66,8,"… remove all script element.
+📑 Summary
+Brief description about the content of your PR.
+Resolves #
+📏 Design Decisions
+Describe the way your implementation works or what design decisions you made if applicable.
+📋 Tasks
+Make sure you
+
+ 📖 have read the contribution guidelines
+ 💻 have added unit/e2e tests (if appropriate)
+ 🔖 targeted develop branch",4,7
+1475,2020-06-15T12:13:35Z,2020-06-15T14:13:11Z,2020-06-15T14:13:11Z,1,1,1,"📑 Summary
+Fix a broken link in the readme
+📋 Tasks
+Make sure you
+
+ 📖 have read the contribution guidelines
+ 💻 have added unit/e2e tests (if appropriate)
+ 🔖 targeted develop branch",2,2
+1479,2020-06-17T22:06:11Z,2020-06-19T09:29:47Z,2020-06-19T09:29:47Z,3,39,1,"📑 Summary
+If MermaidAPI.render crashes it can leave a d div element in the dom which causes future render calls to fail.
+Here is a js fiddle reproducing the problem
+https://jsfiddle.net/bwstyle/qj8p3vze/19/
+📋 Tasks
+Make sure you
+
+ 📖 have read the contribution guidelines
+ 💻 have added unit/e2e tests (if appropriate)
+ 🔖 targeted develop branch",2,1
+1482,2020-06-18T12:35:47Z,2020-06-19T06:42:18Z,2020-06-19T06:42:18Z,14,1041,523,"📑 Summary
+Slight refactor for sequenceDiagram db/renderer
+
+Fixed default configuration woes introduced by yours-truly with the directives feature (built on fixes Knut added for this same issue)
+Added freeze to mermaidAPI to protect a new exported defaultConfig
+Enhanced reset to revert any modifications to the current config back to the defaultConfig
+Enhanced initialize to merge user config into mermaidAPI current config without losing the defaultConfig
+Enhanced initialize to update each renderer config
+Enhanced init/initialize directive to support a universal 'config' property which will be changed (based on detectType) to the proper config-object-name for the graph type in scope. Example:
+
+%%{init: { 'config': {'wrapEnabled': true }}}%%
+sequenceDiagram
+participant Alice
+
+will correctly set the config property of the initialization object to sequence effectively resulting in the following object to be sent to mermaidAPI.initialize()
+{
+  'sequence': {
+    'wrapEnabled': true
+  }
+}
+
+which, when combined with the new assignWithDepth functionality will properly update the current config of the mermaidAPI (without losing other defaults) as well as updating the sequenceRenderer config
+
+Directives have been reworked a little
+
+Now any graph type can include a %%{init: { 'config': {..}}}%% directive and their config will correctly be converted to the properly-named config for the graph they are describing without losing the default config in the process.
+User configuration is now overlaid properly on top of default config
+
+
+Moved a fair number of common functions to utils.js
+
+wrapLabel - breaks a label(text) into a '' delimited string for wrapping long strings
+calculateTextDimensions - calculate the width, height of a block of text (taking into account linebreaks)
+drawSimpleText - function lifted from sequence/svgDraw.js for drawing a simple text/tspan via svg (used primarily for calculating text dimensions)
+drawText - lifted from sequenceRenderer and modified slightly to handle text with or without linebreaks and render the text properly.
+assignWithDepth - new function to expand on Object.assign for use with merging config (taking into account arbitrary object graph depth)
+
+
+Enhanced sequenceDiagram rendering to support wrapping on loop types
+
+The loop/opt/alt/par description text now wraps properly (if wrapEnabled is true)
+
+
+Fixed an odd issue with sequence diagrams where useMaxWidth was not properly using the max width
+Many new unit tests for all of the above
+
+If i missed a test please let me know. I tried to be thorough.
+Resolves #1473",2,6
+1486,2020-06-20T04:09:48Z,2020-06-24T16:25:57Z,2020-06-24T16:25:57Z,1,23,24,"📑 Summary
+gitGraph dot and minus should be valid branch name, like v1.0.1-rc1
+and should not end with dot, like v1.0.1-rc1.
+📋 Tasks
+Make sure you
+
+ 📖 have read the contribution guidelines
+ 💻 have added unit/e2e tests (if appropriate)
+ 🔖 targeted develop branch
+
+GitGraph unit/e2e tests are not yet ready, so I tested locally:",2,0
+1488,2020-06-20T12:43:23Z,2020-06-24T16:33:02Z,2020-06-24T16:33:02Z,3,161,0,"(mermaid-js/mermaid-live-editor#1174)
+A new attribute 'order' has been introduced in the task which records
+the serial number of task in the script.
+In ganttRenderer.js, the tasks are sorted by stratTime attribute.
+The function which calculates 'y' for task rectangles, labels etc.
+has been modified to correctly position it.
+📑 Summary
+Generate the SVG elements in the ascending order of datetime of the tasks.
+Resolves mermaid-js/mermaid-live-editor#1174
+📏 Design Decisions
+An 'order' attribute has been added in the ganttDb to maintain the order in which tasks are added.
+While creating the SVG rects and other assets, datetime order is considered and tasks are sorted accordingly.
+📋 Tasks
+Make sure you
+
+ 📖 have read the contribution guidelines
+ 💻 have added unit/e2e tests (if appropriate)
+ 🔖 targeted develop branch",3,4
+1491,2020-06-21T17:04:52Z,2020-06-22T06:04:04Z,2020-06-22T06:04:04Z,1,2,1,"Solves #1444
+: Added a link for the workaround for the Flowchart-ending endnode name, ""End"".",2,2
+1492,2020-06-22T03:58:23Z,2020-06-23T17:27:16Z,2020-06-23T17:27:16Z,1,21,12,"-Resolves #1444
+-added a few workarounds, I found for writing ""end"" as a node name alongside the workaround found in the FAQ.
+-also made a few minor edits to the contents.",2,1
+1503,2020-06-27T05:48:23Z,2020-06-30T14:31:21Z,2020-06-30T14:31:21Z,1,4,0,"-The word ""end"" breaks sequence diagrams.
+-Added a workaround for the diagram-breaking node name ""end"".",2,0
+1509,2020-06-30T04:18:27Z,,2020-07-02T14:59:57Z,1,342,120,-Put majority of configurations into tables to make them more accessible and easy to read.,2,2
+1533,2020-07-11T06:54:35Z,2020-07-12T08:49:32Z,2020-07-12T08:49:32Z,7,68,2,"📑 Summary
+This option lets you customise the padding around the whole flowchart.
+📏 Design Decisions
+
+Equivalent to er.diagramPadding, so is named as such
+Defaults to 8px for backwards compatibility with the current hardcoded value
+
+📋 Tasks
+Make sure you
+
+ 📖 have read the contribution guidelines
+ 💻 have added unit/e2e tests (if appropriate)
+ 🔖 targeted develop branch",2,0
+1534,2020-07-11T09:08:10Z,2020-07-12T08:51:00Z,2020-07-12T08:51:01Z,4,58,6,"📑 Summary
+This restores the option of rendering an ERD with an absolute width. This logic was lost in #1324:
+9199546#diff-7c38d27acbe0676d923bf19283671616L397-L409
+📏 Design Decisions
+
+Defaults to true for backwards compatibility.
+Omits height SVG attribute when useMaxWidth is enabled, which seems most consistent with implementations for the other diagram types. I don't think this is a breaking change but can add it back in if needed.
+
+📋 Tasks
+Make sure you
+
+ 📖 have read the contribution guidelines
+ 💻 have added unit/e2e tests (if appropriate)
+ 🔖 targeted develop branch",2,0
+1535,2020-07-11T10:44:41Z,2020-07-12T08:52:31Z,2020-07-12T08:52:31Z,2,42,9,"📑 Summary
+It's a little hard to style the current ERDs. This aims to make things easier by associating a distinct class with each type of element within the diagram.
+📏 Design Decisions
+
+I've added a common er class across the elements so that those that bring their own themeCSS can target styles at this diagram type. This hasn't really been done elsewhere so I'm open to suggestions; an alternative may be to add classes to a top-level element so that we can do e.g. svg.mermaid.er .entityBox.
+
+📋 Tasks
+Make sure you
+
+ 📖 have read the contribution guidelines
+ 💻 have added unit/e2e tests (if appropriate)
+ 🔖 targeted develop branch",4,0
+1545,2020-07-15T21:21:35Z,2020-07-16T10:13:01Z,2020-07-16T10:13:01Z,12,234,54,"-Added a tabulated version of the directives and configuration options to config.js
+-I intend to do the same for directives.md in my next PR.
+-Changed the name for setup in sidebar.md
+-Added buttons that lead to respective github pages, to encourage contribution and increase ease of navigation
+-Added a lot of links and changed the ReadMe a little bit, to make it even more navigable.",2,0
+1566,2020-07-22T15:43:06Z,2020-07-22T17:07:26Z,2020-07-22T17:07:26Z,2,6,2,"📑 Summary
+Fix for broken cardinality support for class diagrams
+Resolves #1552
+📏 Design Decisions
+Describe the way your implementation works or what design decisions you made if applicable.
+📋 Tasks
+Make sure you
+
+[x ] 📖 have read the contribution guidelines
+ 💻 have added unit/e2e tests (if appropriate)
+ 🔖 targeted develop branch",2,0
+1582,2020-07-27T19:10:39Z,2020-07-28T11:17:36Z,2020-07-28T11:17:36Z,42,1625,903,"📑 Summary
+Directive support for most diagrams
+Slight pie refactor
+Added pie unit tests
+Fixed a config issue where multiple diagrams on the same page (using the same mermaid context) would inadvertently share the same configuration if the first config utilized the init directive to set configuration variables.
+📏 Design Decisions
+The jison parsing statements for directive support are fairly drop-in and require very little change on the parser. These changes have been added and the modifications to the parserDb support file have been made for the following diagrams:
+
+pie
+gantt
+user-journey
+flowchart (graph)
+class
+er
+state
+
+The remaining one(s) to update are:
+
+info (is this a starter example?)
+git (experimental)",3,0
+1599,2020-08-04T16:10:51Z,2020-08-05T18:40:08Z,2020-08-05T18:40:08Z,15,326,99460,"📑 Summary
+Initial change for supporting custom CSS for use with classDiagrams. Just allows for the association of a css class to a class object in the diagram.
+Also updated LABEL regex for specificity
+Partially Resolves #1181
+📏 Design Decisions
+Describe the way your implementation works or what design decisions you made if applicable.
+📋 Tasks
+Make sure you
+
+ 📖 have read the contribution guidelines
+ 💻 have added unit/e2e tests (if appropriate)
+ 🔖 targeted develop branch",2,0
+1600,2020-08-04T21:51:44Z,2020-08-05T16:00:05Z,2020-08-05T16:00:05Z,1,1,1,"new url: https://github.com/mermaid-js/mermaid-cli
+📑 Summary
+Brief description about the content of your PR.
+Resolves #
+📏 Design Decisions
+Describe the way your implementation works or what design decisions you made if applicable.
+📋 Tasks
+Make sure you
+
+ 📖 have read the contribution guidelines
+ 💻 have added unit/e2e tests (if appropriate)
+ 🔖 targeted develop branch",2,0
+1605,2020-08-07T19:10:09Z,2020-08-08T05:44:01Z,2020-08-08T05:44:01Z,1,1,1,"📑 Summary
+Slight modification to comment regex to ensure that all lines were being looked at, not just the first one
+Resolves #1594
+📏 Design Decisions
+Describe the way your implementation works or what design decisions you made if applicable.
+📋 Tasks
+Make sure you
+
+ 📖 have read the contribution guidelines
+ 💻 have added unit/e2e tests (if appropriate)
+ 🔖 targeted develop branch",2,0
+1610,2020-08-12T20:50:53Z,2020-08-13T18:28:23Z,2020-08-13T18:28:23Z,11,67,4,"📑 Summary
+Add xmlns attribute for xlink to diagrams that use links to ensure exported SVG is syntactically correct
+Resolves #1592
+📏 Design Decisions
+Describe the way your implementation works or what design decisions you made if applicable.
+📋 Tasks
+Make sure you
+
+ 📖 have read the contribution guidelines
+ 💻 have added unit/e2e tests (if appropriate)
+ 🔖 targeted develop branch",2,0
+1613,2020-08-13T15:56:51Z,2020-08-15T05:58:56Z,2020-08-15T05:58:57Z,14,850,878,"📑 Summary
+There is currently no way of influencing the length of (i.e. the number of ranks spanned by) a particular link in a flowchart. A workaround that uses invisible nodes has been proposed in #637. This PR provides an extension of the edge syntax that enables users to request a minimum length for any edge. The length of an edge can be extended by adding extra characters in its definition, as follows:
+
+
+
+Length
+1
+2
+3
+
+
+
+
+Normal
+---
+----
+-----
+
+
+Normal with arrow
+-->
+--->
+---->
+
+
+Thick
+===
+====
+=====
+
+
+Thick with arrow
+==>
+===>
+====>
+
+
+Dotted
+-.-
+-..-
+-...-
+
+
+Dotted with arrow
+-.->
+-..->
+-...->
+
+
+
+Note that this is change backwards compatible, because the syntax for length-1 edges coincides with the existing syntax which already generated length-1 edges. This feature leverages the minlen option exposed by Dagre which was not previously available when using Mermaid.
+Resolves #637, resolves #1495.
+📏 Design Decisions
+The Jison grammar for edges was refactored to avoid handling each combination of edge and arrow types separately. This makes the implementation of the new feature simpler and facilitates the addition of new edge and arrow types. The destructLink and destructStartLink parsing functions were modified accordingly.
+A length attribute, containing the length of each parsed edge, is added their internal representation. This attribute’s value is passed down to Dagre in the renderer via the minlen option.
+📋 Tasks
+Make sure you
+
+ 📖 have read the contribution guidelines
+ 💻 have added unit/e2e tests (if appropriate)
+ 🔖 targeted develop branch",3,2
+1625,2020-08-19T13:38:07Z,2020-08-19T22:18:36Z,2020-08-19T22:18:36Z,1,1,1,"A comment was not marked with propriate syntax, so this example's code didn't work
+📑 Summary
+Brief description about the content of your PR.
+Resolves #
+📏 Design Decisions
+Describe the way your implementation works or what design decisions you made if applicable.
+📋 Tasks
+Make sure you
+
+ 📖 have read the contribution guidelines
+ 💻 have added unit/e2e tests (if appropriate)
+ 🔖 targeted develop branch",2,1
+1634,2020-08-20T17:06:53Z,2020-08-22T00:12:00Z,2020-08-22T00:12:00Z,70,483,292,"📑 Summary
+Change docs theme from docsify to jekyll-rtd-theme
+Resolves #
+📏 Design Decisions
+Describe the way your implementation works or what design decisions you made if applicable.
+📋 Tasks
+Make sure you
+
+ 📖 have read the contribution guidelines
+ 💻 have added unit/e2e tests (if appropriate)
+ 🔖 targeted develop branch",2,9
+1639,2020-08-23T13:14:02Z,2020-08-23T18:40:36Z,2020-08-23T18:40:36Z,1,1,1,"📑 Summary
+The images were moved into the assets directory.
+📋 Tasks
+Make sure you
+
+ 📖 have read the contribution guidelines
+ 🔖 targeted develop branch",2,0
+1641,2020-08-23T16:58:27Z,2020-08-23T18:41:22Z,2020-08-23T18:41:22Z,1,1,1,,2,0
+1642,2020-08-23T20:04:49Z,2020-09-02T16:11:52Z,2020-09-02T16:11:52Z,26,777,229,"📑 Summary
+Use the same width and height attributes on all diagrams depending on the useMaxWidth option.
+By default, this option is true.
+Please note that some diagrams have an (optional) option named useWidth to control the value of the width.
+Resolves #1490
+📏 Design Decisions
+I've declared utility functions in utils.js to avoid code duplication.
+📋 Tasks
+Make sure you
+
+ 📖 have read the contribution guidelines
+ 💻 have added unit/e2e tests
+ 🔖 targeted develop branch",3,8
+1650,2020-08-25T17:46:36Z,2020-08-27T16:52:22Z,2020-08-27T16:52:22Z,3,9,210,"📑 Summary
+Moved the automatically generated document and added front matter
+Because the first line of the generated document is a comment, jekyll cannot automatically read the page title, so this is added
+📏 Design Decisions
+Update document
+📋 Tasks
+Make sure you
+
+ 📖 have read the contribution guidelines
+ 💻 have added unit/e2e tests (if appropriate)
+ 🔖 targeted develop branch",1,0
+1662,2020-09-06T20:51:00Z,2020-09-09T16:37:29Z,2020-09-09T16:37:29Z,9,735,410,"📑 Summary
+Improved handling of nested subgraphs with edges in and out.
+Resolves #1660
+📏 Design Decisions
+Describe the way your implementation works or what design decisions you made if applicable.
+📋 Tasks
+Make sure you
+
+ 📖 have read the contribution guidelines
+ 💻 have added unit/e2e tests (if appropriate)
+ 🔖 targeted develop branch",2,0
+1664,2020-09-07T06:06:28Z,2020-09-09T16:39:19Z,2020-09-09T16:39:19Z,21,180,171,"📑 Summary
+Fixed broken links and syntax in the document, and add docs writing guide
+📋 Tasks
+Make sure you
+
+ 📖 have read the contribution guidelines
+ 💻 have added unit/e2e tests (if appropriate)
+ 🔖 targeted develop branch",1,1
+1705,2020-10-03T16:10:15Z,2020-10-15T17:37:59Z,2020-10-15T17:37:59Z,1,1,1,"colon (':') is the correct name for the separator character.
+📑 Summary
+Document correction",2,0
+1727,2020-10-14T11:30:37Z,2020-10-15T17:43:59Z,2020-10-15T17:43:59Z,14,48,48,"📑 Summary
+
+Fixes broken links in documentation.
+Fixes various misspellings in documentation.
+
+Resolves #
+📏 Design Decisions
+n/a
+📋 Tasks
+Make sure you
+
+ 📖 have read the contribution guidelines
+ 💻 have added unit/e2e tests (if appropriate)
+ 🔖 targeted develop branch",2,0
+1728,2020-10-14T15:24:36Z,2020-10-15T17:46:37Z,2020-10-15T17:46:38Z,1,2,2,"📑 Summary
+Use v2 of stateDiagram in README
+Context: When I started to use mermaid, I clicked on live editor from README. The code note right of X: Y didn't work, once I checked again the documentation, I saw what the diagram used the old version.
+📏 Design Decisions
+Link is too long, how can we shorten it?
+📋 Tasks
+Make sure you
+
+ 📖 have read the contribution guidelines
+ 💻 have added unit/e2e tests (if appropriate)
+ 🔖 targeted develop branch",2,0
+1729,2020-10-14T18:55:55Z,2020-10-15T17:44:55Z,2020-10-15T17:44:55Z,1,60,5,"📑 Summary
+Theming website didn't have mermaid code for the examples shown for sequence diagram and class diagram
+Resolves #
+📏 Design Decisions
+I've added the plaintext code above the mermaid code for showing the code on documentation for sequence diagram and class diagram
+📋 Tasks
+Make sure you
+
+ 📖 have read the contribution guidelines
+ 💻 have added unit/e2e tests (if appropriate)
+ 🔖 targeted develop branch",2,0
+1735,2020-10-20T03:31:47Z,2020-10-22T15:27:26Z,2020-10-22T15:27:26Z,1,2,4,"In the v2 of actions/checkout, setting the token is no longer necessary, so I created a new config-less action to just set the git user: https://github.com/fregante/setup-git-user",2,0
+1739,2020-10-22T13:43:39Z,2020-10-22T15:28:22Z,2020-10-22T15:28:22Z,2,6,6,"📑 Summary
+Brief description about the content of your PR.
+Made a couple of links clickable and pointed them to their new repos. Also fixed some formatting and added https instead of http.
+Just FYI: I sometimes wasn't sure if something is intentional or a spelling mistake (E.g.: cff55e9 and 005390f) so I created a separate commit for each change for easier cherry picking.
+Resolves #
+N.A.
+📏 Design Decisions
+Describe the way your implementation works or what design decisions you made if applicable.
+N.A.
+📋 Tasks
+Make sure you
+
+ 📖 have read the contribution guidelines
+ 💻 have added unit/e2e tests (if appropriate)
+ 🔖 targeted develop branch",2,0
+1741,2020-10-22T16:53:58Z,2020-10-22T18:59:01Z,2020-10-22T18:59:02Z,3,21,3,"📑 Summary
+Brief description about the content of your PR.
+Resolves #1740
+📏 Design Decisions
+Adding missed case for determining direction of edge when intersecting a subgraph.
+📋 Tasks
+Make sure you
+
+ 📖 have read the contribution guidelines
+ 💻 have added unit/e2e tests (if appropriate)
+ 🔖 targeted develop branch",2,1
+1764,2020-11-10T10:36:30Z,2020-11-13T22:25:35Z,2020-11-13T22:25:35Z,1,20,20,"With tabs, the table does not render in a readable way.  This commit is
+replacing tabs with spaces.",2,1
+1772,2020-11-13T11:58:23Z,2020-11-19T16:47:30Z,2020-11-19T16:47:30Z,1,1,1,"📑 Summary
+It was added to runtime dependencies with bulk commit a4bf85b
+refs:
+
+#1586
+
+📏 Design Decisions
+Unlikely the eslint is needed runtime, so moved to devDependencies. Unable to deduct the purpose from the commit that introduced it.
+📋 Tasks
+Make sure you
+
+ 📖 have read the contribution guidelines
+ 💻 have added unit/e2e tests (if appropriate)
+ 🔖 targeted develop branch",2,0
+1773,2020-11-13T19:51:31Z,2020-11-19T16:48:54Z,2020-11-19T16:48:54Z,1,1,1,"📑 Summary
+Multiple notes in state diagrams do not work when using the ""note [...] end note"" notation. Parser will only recognize the very last ""end note"" and will put everything in between into 1 note. The issue is with the regex used for note parser because it does not break after the first ""end note"" occurance. Also, the regex will break whenever it encounters "":"" or "";"". This means that if your note contains these characters the graph will fail entirely.
+Resolves #1759
+📏 Design Decisions
+Changed the regex expression for the note parser to break on the first ""end note"" it encounters and allows it to consume "":"" or "";"" characters.
+📋 Tasks
+Make sure you
+
+ 📖 have read the contribution guidelines
+ 💻 have added unit/e2e tests (if appropriate)
+ 🔖 targeted develop branch",2,0
+1774,2020-11-15T02:32:22Z,2020-11-15T15:15:53Z,2020-11-15T15:15:53Z,25,41,77,"📑 Summary
+Brief description about the content of your PR.
+Add auto generation of Edit this Page.
+
+📏 Design Decisions
+Describe the way your implementation works or what design decisions you made if applicable.
+📋 Tasks
+Make sure you
+
+ 📖 have read the contribution guidelines
+ 💻 have added unit/e2e tests (if appropriate)
+ 🔖 targeted develop branch",2,1
+1780,2020-11-17T20:02:15Z,2020-11-17T23:39:54Z,2020-11-17T23:39:54Z,1,1,1,"📑 Summary
+Fixes a typo in flowchart.md (explanation of lagom).
+📋 Tasks
+Make sure you
+
+ 📖 have read the contribution guidelines
+ 💻 have added unit/e2e tests (if appropriate)
+ 🔖 targeted develop branch",2,1
+1784,2020-11-19T04:00:42Z,2020-11-19T16:48:02Z,2020-11-19T16:48:02Z,1,1,0,"📑 Summary
+Add Docsy to the list of integrations; it includes support for mermaid built into the theme.
+📏 Design Decisions
+n/a
+📋 Tasks
+Make sure you
+
+ 📖 have read the contribution guidelines
+ 💻 have added unit/e2e tests (if appropriate)
+ 🔖 targeted develop branch",2,0
+1786,2020-11-21T02:47:44Z,2020-11-26T18:10:23Z,2020-11-26T18:10:23Z,1,0,1,"📑 Summary
+doc, remove classDiagram #Multiplicity on relations duplicate options
+📏 Design Decisions
+📋 Tasks
+Make sure you
+
+ 📖 have read the contribution guidelines
+ 💻 have added unit/e2e tests (if appropriate)
+ 🔖 targeted develop branch",2,0
+1787,2020-11-23T22:56:09Z,2020-11-26T17:56:59Z,2020-11-26T17:56:59Z,4,67,5,"📑 Summary
+Add the option to choose if the node ids should be determinist or not.
+I have added 3 different options:
+
+not deterministic (based on Date.now) like right now in the code (is the default)
+starts at 0 and increments (like before the change: 5b6dfb0)
+starts at the length of a given string (like requested here: mermaidjs/mermaid.cli#85)
+
+The options can be set as deterministicIds (boolean, default is false)
+and deterministicIDSeed (as the optional seed)
+Resolves #727
+📏 Design Decisions
+I understand that unique ids based on the Date.now are desired in many cases but as soon as files get checked into git, this turns out to be a design flaw of mermaid. So overriding this in such cases would be a nice option.
+📋 Tasks
+Make sure you
+
+ 📖 have read the contribution guidelines
+ 💻 have added unit/e2e tests (if appropriate)
+ 🔖 targeted develop branch",2,1
+1796,2020-11-26T05:26:49Z,2020-11-26T17:59:32Z,2020-11-26T17:59:32Z,1,3,3,"📑 Summary
+Fixed markdown error in docs/entityRelationshipDiagram.md
+📋 Tasks
+Make sure you
+
+ 📖 have read the contribution guidelines
+ 💻 have added unit/e2e tests (if appropriate)
+ 🔖 targeted develop branch",2,0
+1801,2020-12-01T04:08:20Z,2020-12-09T18:55:36Z,2020-12-09T18:55:36Z,1,1,1,"📑 Summary
+Brief description about the content of your PR.
+Resolves #
+📏 Design Decisions
+Describe the way your implementation works or what design decisions you made if applicable.
+📋 Tasks
+Make sure you
+
+ 📖 have read the contribution guidelines
+ 💻 have added unit/e2e tests (if appropriate)
+ 🔖 targeted develop branch",3,0
+1805,2020-12-02T15:50:01Z,2020-12-03T17:24:13Z,2020-12-03T17:24:13Z,1,1,1,"📑 Summary
+Brief description about the content of your PR.
+Changed 2018 to 2020
+Resolves #
+None
+📏 Design Decisions
+Describe the way your implementation works or what design decisions you made if applicable.
+📋 Tasks
+Make sure you
+
+ 📖 have read the contribution guidelines
+ 💻 have added unit/e2e tests (if appropriate)
+ 🔖 targeted develop branch",2,0
+1812,2020-12-06T21:26:37Z,2020-12-17T19:42:24Z,2020-12-17T19:42:24Z,6,258,31,"📑 Summary
+This PR allows to use parameter with callback functions in class diagrams
+Resolves #1681
+📏 Design Decisions
+I have aligned the way href and functions are called to the Gantt Diagram's way to allow to add parameters to functions in the class diagrams. It also harmonize the way callback functions and links are defined
+📋 Tasks
+Make sure you
+
+ 📖 have read the contribution guidelines
+ 💻 have added unit/e2e tests (if appropriate)
+ 🔖 targeted develop branch",5,2
+1818,2020-12-09T16:44:20Z,2020-12-09T18:18:26Z,2020-12-09T18:18:26Z,1,1,1,"Just fixed a typo.
+📑 Summary
+A word was typed wrong.
+Resolves # Didn't make an issue.
+📏 Design Decisions
+Documentation Change.
+📋 Tasks
+Make sure you
+
+ 📖 have read the contribution guidelines
+ 💻 have added unit/e2e tests (if appropriate)
+ 🔖 targeted develop branch",2,0
+1829,2020-12-13T22:10:24Z,2020-12-17T19:24:02Z,2020-12-17T19:24:02Z,1,5,7,"📑 Summary
+Updated python sample source in Tutorials to make it work. Before this change problem was:
+C:\Users\user>python mermaid.py
+Traceback (most recent call last):
+  File ""mermaid.py"", line 3, in <module>
+    graphbytes = graph.encode(""ascii"")
+NameError: name 'graph' is not defined
+
+Resolves (no issue created)
+📋 Tasks
+Make sure you
+
+ 📖 have read the contribution guidelines  (think it doesn't apply as it is a minor sample code fix)
+ 💻 have added unit/e2e tests (if appropriate)   (not applies)
+ 🔖 targeted develop branch",2,0
+1831,2020-12-15T23:57:39Z,2020-12-17T19:22:22Z,2020-12-17T19:22:22Z,1,1,1,"📑 Summary
+Link to video tutorials was broken (->404)
+Resolves #N/A
+📏 Design Decisions
+N/A
+📋 Tasks
+Make sure you
+
+ 📖 have read the contribution guidelines
+ 💻 have added unit/e2e tests (if appropriate)
+ 🔖 targeted develop branch",2,1
+1840,2020-12-23T20:00:11Z,2021-01-06T15:23:16Z,2021-01-06T15:23:16Z,1,1,1,"📑 Summary
+Brief description about the content of your PR.
+Resolves #
+📏 Design Decisions
+Describe the way your implementation works or what design decisions you made if applicable.
+📋 Tasks
+Make sure you
+
+ 📖 have read the contribution guidelines
+ 💻 have added unit/e2e tests (if appropriate)
+ 🔖 targeted develop branch",2,0
+1852,2021-01-11T12:48:29Z,2021-01-12T20:37:38Z,2021-01-12T20:37:38Z,1,2,2,securitylevel 🡒 securityLevel,3,0
+1863,2021-01-22T08:17:05Z,2021-01-22T23:05:40Z,2021-01-22T23:05:40Z,6,46,28,Cleaned up some docs and rearranged sidebar.md to make a more coherent list.,2,0
+1864,2021-01-22T11:39:34Z,2021-01-25T00:39:13Z,2021-01-25T00:39:13Z,1,2,0,"📑 Summary
+Added a link to the google docs integration of mermaid
+The plugin is free and open source at https://github.com/renanlecaro/mermaid-gdocs
+It lets you create a diagram, insert it in any google document, then edit it later.
+It uses the alt description of the image to store the source of the diagram.
+It hotlinks to the latest version of mermaid, to avoid having to update it every time a new version is published
+📏 Design Decisions
+I wasn't sure in which category to put it, but as there's draw.io there, i thought it would make sense to use the editors category
+📋 Tasks
+Make sure you
+
+ 📖 have read the contribution guidelines
+ 💻 have added unit/e2e tests (if appropriate)
+ 🔖 targeted develop branch",3,0
+1877,2021-02-01T18:25:50Z,2021-02-04T17:56:26Z,2021-02-04T17:56:26Z,2,60,1,"📑 Summary
+Add the ability to have literal class names.
+This helps with, but does not fully resolve:
+
+#1506
+#1546
+#1635
+
+📏 Design Decisions
+We've frequently discovered while using mermaid issues with the allowed class names.  We work in Ruby, so not being able to have a double colon (""::"") in our class names is a big blocker to switching to mermaid.  This PR allows class name literals to be enclosed in backticks, so literal class names may be used even if they contain special characters.
+📋 Tasks
+Make sure you
+
+ 📖 have read the contribution guidelines
+ 💻 have added unit/e2e tests (if appropriate)
+ 🔖 targeted develop branch",3,1
+1879,2021-02-02T07:42:56Z,2021-02-07T09:07:59Z,2021-02-07T09:08:00Z,41,278,277,"📑 Summary
+The codebase was using logger and log functionality interchangeably. So as discussed in #1449 I have changed that to logger.
+Resolves #1449
+📋 Tasks
+Make sure you
+
+ 📖 have read the contribution guidelines
+ 🔖 targeted develop branch
+
+Let me know if other changes are needed.",3,1
+1885,2021-02-09T10:04:09Z,2021-02-18T17:57:29Z,2021-02-18T17:57:29Z,2,19,0,"📑 Summary
+It took me some time to figure out how one would escape the # character. The improvements would have helped me.
+📏 Design Decisions
+Only docs changes. It might make sense to have a general character escape section somewhere but I could not figure out which page would be suited best.
+📋 Tasks
+Make sure you
+
+ 📖 have read the contribution guidelines
+ 💻 have added unit/e2e tests (if appropriate)
+ 🔖 targeted develop branch",2,0
+1890,2021-02-12T11:30:09Z,,2021-02-18T18:03:01Z,1,1,1,"📑 Summary
+This fixes a syntax error in the example for sequence diagrams in the docs
+📏 Design Decisions
+n/a
+📋 Tasks
+Make sure you
+
+ 📖 have read the contribution guidelines
+ 💻 have added unit/e2e tests (if appropriate)
+ 🔖 targeted develop branch",2,0
+1907,2021-02-25T19:51:28Z,2021-03-11T18:35:10Z,2021-03-11T18:35:10Z,3,69,1,"📑 Summary
+Add the ability to have literal class names.
+This helps with, but does not fully resolve:
+
+#1506
+#1546
+#1635
+
+I have also reduced the number of shift/reduce conflicts in the parser without breaking any test cases.  In order to avoid introducing more conflicts in the future I have also added a test that counts the number of conflicts.  It won't remove all the existing conflicts from the mainline branch, but it will make sure new ones are not introduced without being detected.
+📏 Design Decisions
+We've frequently discovered while using mermaid issues with the allowed class names.  We work in Ruby, so not being able to have a double colon (""::"") in our class names is a big blocker to switching to mermaid.  This PR allows class name literals to be enclosed in backticks, so literal class names may be used even if they contain special characters.
+📋 Tasks
+Make sure you
+
+ 📖 have read the contribution guidelines
+ 💻 have added unit/e2e tests (if appropriate)
+ 🔖 targeted develop branch",2,0
+1910,2021-02-26T02:38:22Z,2021-02-27T09:26:23Z,2021-02-27T09:26:23Z,23,6416,1962,"📑 Summary
+Creating a new diagram: Requirements Diagram.
+Resolves #1909
+📏 Design Decisions
+Kept the design very simple. I have documented the decisions in a new page for the diagram. I followed the omg specs but have some ideas on improvement moving forward. I believe this is a good start for review, though.
+📋 Tasks
+Make sure you
+
+ 📖 have read the contribution guidelines
+ 💻 have added unit/e2e tests (if appropriate)
+ 🔖 targeted develop branch
+
+Example rendered by mermaid:",2,1
+1919,2021-02-27T22:21:10Z,2021-03-18T19:57:56Z,2021-03-18T19:57:57Z,1,1,1,"📑 Summary
+Fixes simple typo - ""and id and"" to ""an id and"".",2,0
+1931,2021-03-07T09:03:56Z,2021-03-18T19:58:33Z,2021-03-18T19:58:33Z,1,3,0,"📑 Summary
+Brief description about the content of your PR.
+Resolves #
+📏 Design Decisions
+Describe the way your implementation works or what design decisions you made if applicable.
+📋 Tasks
+Make sure you
+
+ 📖 have read the contribution guidelines
+ 💻 have added unit/e2e tests (if appropriate)
+ 🔖 targeted develop branch",2,0
+1934,2021-03-09T06:27:02Z,2021-03-18T19:59:46Z,2021-03-18T19:59:46Z,1,1,1,Fix typo in documentation,2,0
+1936,2021-03-10T20:06:12Z,2021-03-18T20:01:45Z,2021-03-18T20:01:45Z,1,4,4,"📑 Summary
+""Getting Started"" and ""Overview"" links of ""Diagram syntax intro"" page are incorrect.
+Resolves NA
+📏 Design Decisions
+NA
+📋 Tasks
+Make sure you
+
+ 📖 have read the contribution guidelines
+ 💻 have added unit/e2e tests (if appropriate)
+ 🔖 targeted develop branch",2,0
+1939,2021-03-11T18:35:25Z,2021-03-18T20:02:30Z,2021-03-18T20:02:31Z,1,2,0,"📑 Summary
+Document role of semicolon in sequenceDiagram and present alternative for use in message text.
+Resolves #1445
+📏 Design Decisions
+Add documentation to try and help a user encountering an error.
+📋 Tasks
+Make sure you
+
+ 📖 have read the contribution guidelines
+ 💻 have added unit/e2e tests (if appropriate)
+ 🔖 targeted develop branch",2,0
+1948,2021-03-21T20:01:25Z,2021-03-24T06:37:09Z,2021-03-24T06:37:09Z,1,1,1,"I am new here, reading about the syntax, but I have noticed an unwanted period.
+📑 Summary
+Brief description about the content of your PR.
+Resolves #
+📏 Design Decisions
+Describe the way your implementation works or what design decisions you made if applicable.
+📋 Tasks
+Make sure you
+
+ 📖 have read the contribution guidelines
+ 💻 have added unit/e2e tests (if appropriate)
+ 🔖 targeted develop branch",2,0
+1950,2021-03-22T08:22:51Z,2021-03-24T06:37:50Z,2021-03-24T06:37:50Z,1,48,54,"📑 Summary
+Fixed typos and formatting issues, as well some grammar and consistency changes. I deleted a paragraph with repeated information, merging the contents of two very similar paragraphs into one.
+Resolves #
+📏 Design Decisions
+Consistency and grammar
+📋 Tasks
+Make sure you
+
+[ X] 📖 have read the contribution guidelines
+ 💻 have added unit/e2e tests (if appropriate)
+[ X] 🔖 targeted develop branch",3,0
+1954,2021-03-23T17:09:54Z,2021-04-25T08:16:46Z,2021-04-25T08:16:46Z,5,48,2,"📑 Summary
+Add a top x-axis to Gantt charts that mirrors the bottom x-axis
+📏 Design Decisions
+Straightforward copy and paste of existing code.
+📋 Tasks
+Make sure you
+
+ 📖 have read the contribution guidelines
+ 💻 have added unit/e2e tests (if appropriate)
+ 🔖 targeted develop branch",2,12
+1980,2021-04-09T12:13:11Z,2021-04-25T08:43:25Z,2021-04-25T08:43:25Z,1,1,1,"little grammar fix
+📑 Summary
+Brief description about the content of your PR.
+Resolves #
+📏 Design Decisions
+Describe the way your implementation works or what design decisions you made if applicable.
+📋 Tasks
+Make sure you
+
+ 📖 have read the contribution guidelines
+ 💻 have added unit/e2e tests (if appropriate)
+ 🔖 targeted develop branch",2,0
+1982,2021-04-12T20:19:31Z,2021-04-25T08:45:27Z,2021-04-25T08:45:28Z,3,16,14,"📑 Summary
+this is a continuation of the fix I introduced in #1935 and now that the latest cli was released, I was able to use it in production examples, but I ran into yet another problem ...
+📏 Design Decisions
+it seems, that after compiling / minification, the initIdGenerator method, produces corrupted behaviour, due to the nature of how it's originally written (a function that returns a class instance)
+here's the result of the compiled / minified output:
+
+note the line:
+for (var a, o = H.initIdGeneratior(r.deterministicIds, r.deterministicIDSeed).next, s = function (r) {
+by declaring the variable o as o = H.initIdGeneratior(r.deterministicIds, r.deterministicIDSeed).next the context of this is lost when later called o() and thus the counter in the original class is pointing to a non-existing property....
+this is not an issue in the source code, but rather the babel compiled result so this wasn't captured in any tests for that reason...
+all this resulted in Cannot read property 'count' of undefined when deterministicIds = true
+I re-wrote the function call very simply to keep the same original code structure without having to do a major re-write of anything else inter-connected or related...
+I then ran build and minify steps and manually replaced the mermaid.min.js file manually at node_modules/@mermaid-js/mermaid-cli/mermaid.min.js and tested the CLI to confirm no further issues. (and confirmed that deterministicIds are in fact working)
+📋 Tasks
+Make sure you
+
+ 📖 have read the contribution guidelines
+ 💻 have added unit/e2e tests (if appropriate)
+ 🔖 targeted develop branch",2,4
+1997,2021-04-24T05:17:40Z,2021-04-25T09:07:02Z,2021-04-25T09:07:02Z,3,819,628,"This PR update syntax mistakes and typos in api config docs.
+E.g.:
+
+
+I will make comments later to mark every edit besides styntax or typo fixes for maintainers to spend less time reviewing.",2,0
+2038,2021-05-03T19:20:26Z,2021-05-07T00:49:32Z,2021-05-07T00:49:32Z,2,8,3,"📑 Summary
+Fixes minor issues on requirement diagram for rendering, styles, and theme variables.
+Resolves #2017
+📏 Design Decisions
+It follows the general standards that other diagrams follow.
+📋 Tasks
+Make sure you
+
+ 📖 have read the contribution guidelines
+ 💻 have added unit/e2e tests (if appropriate)
+ 🔖 targeted develop branch",2,0
+2041,2021-05-05T08:08:55Z,2021-05-17T18:49:18Z,2021-05-17T18:49:18Z,1,16,16,"I have made few changes in the structure of sentences for a better readability quotient.
+📑 Summary
+I have made certain typo error changes. I have also tried to enhance the readability quotient of the document.
+Resolves: > Self-correction
+📏 Design Decisions
+I have only tried to simplify the documentation and rectify few typo errors.
+📋 Tasks
+Make sure you
+
+ 📖 have read the contribution guidelines
+[] 💻 have added unit/e2e tests (if appropriate)
+ 🔖 targeted develop branch",2,0
+2068,2021-05-14T06:41:17Z,2021-05-17T18:48:32Z,2021-05-17T18:48:32Z,1,2,0,"📑 Summary
+Add Podlite editor to list of editors and plugins
+Resolves #
+📏 Design Decisions
+Describe the way your implementation works or what design decisions you made if applicable.
+📋 Tasks
+Make sure you
+
+ 📖 have read the contribution guidelines
+ 💻 have added unit/e2e tests (if appropriate)
+ 🔖 targeted develop branch",2,0
+2069,2021-05-14T12:23:26Z,2021-05-17T18:46:09Z,2021-05-17T18:46:09Z,1,22,0,"Add documentation for <<choice>> in state diagrams.
+I noticed it is supported but not documented, so I wrote it.
+Preview:",2,0
+2076,2021-05-16T14:45:25Z,2021-05-17T18:47:20Z,2021-05-17T18:47:20Z,1,1,1,"📑 Summary
+Updated version to 8.10.1 in package.json
+Resolves #2074
+📋 Tasks
+Make sure you
+
+ 📖 have read the contribution guidelines
+ 💻 have added unit/e2e tests (if appropriate)
+ 🔖 targeted develop branch",2,0
+2083,2021-05-19T03:40:41Z,2021-06-25T08:26:41Z,2021-06-25T08:26:41Z,1,1,1,"📑 Summary
+
+Updates public documentation on a default config's log level, noticed while updating the typescript types for this library (passing a default string value was rejected by the TS compiler)
+
+https://github.com/DefinitelyTyped/DefinitelyTyped/blob/ad547b312b579f60fad35c5bcdcaec44035dfd78/types/mermaid/mermaidAPI.d.ts#L4-L10
+
+See 
+  
+    
+      mermaid/src/defaultConfig.js
+    
+    
+         Line 83
+      in
+      d3f8f03
+    
+  
+  
+    
+
+        
+          
+           logLevel: 5, 
+        
+    
+  
+
+ for the corresponding source code. The current string log level won't have the intended effect.
+
+📋 Tasks
+Make sure you
+
+ 📖 have read the contribution guidelines
+ 💻 have added unit/e2e tests (if appropriate)
+ 🔖 targeted develop branch",2,0
+2113,2021-06-04T04:59:13Z,2021-06-05T10:01:15Z,2021-06-05T10:01:15Z,2,2,2,"📑 Summary
+Fixed typo in securityLevel document.",2,0
+2125,2021-06-09T15:23:07Z,2021-06-25T08:47:02Z,2021-06-25T08:47:02Z,1,1,1,"📑 Summary
+fix small typo
+state4ment  --> statement
+Resolves #
+📏 Design Decisions
+Describe the way your implementation works or what design decisions you made if applicable.
+📋 Tasks
+Make sure you
+
+ 📖 have read the contribution guidelines
+ 💻 have added unit/e2e tests (if appropriate)
+ 🔖 targeted develop branch",2,0
+2145,2021-06-23T12:45:09Z,2021-07-07T12:05:56Z,2021-07-07T12:05:56Z,1,6,6,"📑 Summary
+Brief description about the content of your PR.
+Resolves #
+📏 Design Decisions
+Describe the way your implementation works or what design decisions you made if applicable.
+📋 Tasks
+Make sure you
+
+ 📖 have read the contribution guidelines
+ 💻 have added unit/e2e tests (if appropriate)
+ 🔖 targeted develop branch",2,3
+2164,2021-06-30T20:08:15Z,2021-07-15T12:54:54Z,2021-07-15T12:54:54Z,4,4,4,"Bumps actions/setup-node from 1 to 2.2.0.
+
+Release notes
+Sourced from actions/setup-node's releases.
+
+Support caching dependencies and LTS aliases
+This release brings two major features:
+
+[Support LTS aliases #270](actions/setup-node#270)
+[Implementation of node's caching #272](actions/setup-node#272)
+
+Supported version syntax
+The node-version input supports the following syntax:
+major versions: 12, 14, 16
+more specific versions: 10.15, 14.2.0, 16.3.0
+nvm LTS syntax: lts/erbium, lts/fermium, lts/*
+Caching dependencies
+The action has a built-in functionality for caching and restoring npm/yarn dependencies. Supported package managers are npm, yarn. The cache input is optional, and caching is turned off by default.
+Caching npm dependencies:
+steps:
+- uses: actions/checkout@v2
+- uses: actions/setup-node@v2
+  with:
+    node-version: '14'
+    cache: 'npm'
+- run: npm install
+- run: npm test
+Caching yarn dependencies:
+steps:
+- uses: actions/checkout@v2
+- uses: actions/setup-node@v2
+  with:
+    node-version: '14'
+    cache: 'yarn'
+- run: yarn install
+- run: yarn test
+Yarn caching handles both yarn versions: 1 or 2.
+
+At the moment, only lock files in the project root are supported.
+
+v2.1.5 Release
+Improve error and warning line number handling (problem matcher regex)
+v2.1.4
+The first stable release of actions/setup-node V2
+v2.1.3 (beta)
+
+Add support for specifying architecture of Node.JS
+
+
+
+... (truncated)
+
+
+Commits
+
+38d90ce Merge pull request #277 from actions/malob/update-readme
+e1e1d4c Update README.md
+40f85c8 update readme
+e215578 Merge pull request #272 from akv-platform/add-caching-for-node-dependencies
+9af8973 Merge pull request #274 from actions/v-mazhuk/automate-releasing-new-versions
+cfe70f9 update dependencies
+b259ba4 rebuild project
+55e1049 Merge branch 'main' into add-caching-for-node-dependencies
+bcb4cec Merge pull request #270 from gordey4doronin/gordey/support-lts-syntax
+7292279 fix for documentation
+Additional commits viewable in compare view
+
+
+
+
+Dependabot will resolve any conflicts with this PR as long as you don't alter it yourself. You can also trigger a rebase manually by commenting @dependabot rebase.
+
+
+Dependabot commands and options
+
+You can trigger Dependabot actions by commenting on this PR:
+
+@dependabot rebase will rebase this PR
+@dependabot recreate will recreate this PR, overwriting any edits that have been made to it
+@dependabot merge will merge this PR after your CI passes on it
+@dependabot squash and merge will squash and merge this PR after your CI passes on it
+@dependabot cancel merge will cancel a previously requested merge and block automerging
+@dependabot reopen will reopen this PR if it is closed
+@dependabot close will close this PR and stop Dependabot recreating it. You can achieve the same result by closing it manually
+@dependabot ignore this major version will close this PR and stop Dependabot creating any more for this major version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this minor version will close this PR and stop Dependabot creating any more for this minor version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this dependency will close this PR and stop Dependabot creating any more for this dependency (unless you reopen the PR or upgrade to it yourself)",1,0
+2175,2021-07-06T20:38:37Z,2021-07-07T12:01:37Z,2021-07-07T12:01:37Z,4,27,10,"📑 Summary
+Removed the dependency on entity-decode and added the functionality into utils.
+Resolves #1603
+📏 Design Decisions
+It was a 3 Year unmaintained dependency without any complex logic.
+📋 Tasks
+Make sure you
+
+ 📖 have read the contribution guidelines
+ 💻 have added unit/e2e tests (if appropriate)
+ 🔖 targeted develop branch",2,0
+2184,2021-07-11T17:47:14Z,2021-07-15T12:53:49Z,2021-07-15T12:53:49Z,1,1,1,"Perhaps it makes more sense to point directly to the live editor where a user can start playing around, instead of the repo for the live editor (which is still reachable from the editor itself).
+📑 Summary
+Change link to point to live editor (instead of its repo).
+📏 Design Decisions
+Describe the way your implementation works or what design decisions you made if applicable.
+📋 Tasks
+Make sure you
+
+ 📖 have read the contribution guidelines
+ 💻 have added unit/e2e tests (if appropriate)
+ 🔖 targeted develop branch",2,0
+2225,2021-08-06T14:24:24Z,2021-08-26T16:43:09Z,2021-08-26T16:43:09Z,1,2,0,"📑 Summary
+Adds Codedoc and related plugin to the list of Document Generation tools.
+Resolves #
+📏 Design Decisions
+Its a plugin to be able to render Mermaid diagrams inside Codedoc documents.
+📋 Tasks
+Make sure you
+
+ 📖 have read the contribution guidelines
+ 💻 have added unit/e2e tests (if appropriate)
+ 🔖 targeted develop branch",2,1
+2241,2021-08-15T20:46:14Z,2021-08-26T16:24:14Z,2021-08-26T16:24:14Z,1,2,0,"📑 Summary
+Brief description of the content of your PR.
+Adds nano editor to the integrations
+📏 Design Decisions
+Describe the way your implementation works or what design decisions you made if applicable.
+I made it with a nanorc file: https://github.com/Yash-Singh1/nano-mermaid/blob/main/mermaid.nanorc
+📋 Tasks
+Make sure you
+
+ 📖 have read the contribution guidelines
+ 💻 have added unit/e2e tests (if appropriate)
+ 🔖 targeted develop branch",2,0
+2246,2021-08-17T17:24:25Z,2021-08-26T16:22:47Z,2021-08-26T16:22:47Z,1,1,1,"📑 Summary
+Changed the strokewidth attribute of .edgepath and .path
+Resolves #1794
+📏 Design Decisions
+Checked the given input in the developer console and concluded that changing the strokewidth attribute from 1.5px to 2px fixes the unequal arrowhead issue.
+📋 Tasks
+Make sure you
+
+ 📖 have read the contribution guidelines
+ 💻 have added unit/e2e tests (if appropriate)
+ 🔖 targeted develop branch",3,1
+2252,2021-08-19T14:53:08Z,,2021-09-20T20:02:56Z,1,3,3,"Bumps d3 from 7.0.0 to 7.0.1.
+
+Release notes
+Sourced from d3's releases.
+
+v7.0.1
+
+Fix d3.sort, d3.bisector, and related methods to handle undefined order. #217
+
+
+
+
+Commits
+
+0baee7d 7.0.1
+e93d04b d3-array 3.0.2
+558b413 Update README.md
+13460d0 d3-interpolate 3.0.1
+40ec400 update CHANGES
+See full diff in compare view
+
+
+
+
+Dependabot will resolve any conflicts with this PR as long as you don't alter it yourself. You can also trigger a rebase manually by commenting @dependabot rebase.
+
+
+Dependabot commands and options
+
+You can trigger Dependabot actions by commenting on this PR:
+
+@dependabot rebase will rebase this PR
+@dependabot recreate will recreate this PR, overwriting any edits that have been made to it
+@dependabot merge will merge this PR after your CI passes on it
+@dependabot squash and merge will squash and merge this PR after your CI passes on it
+@dependabot cancel merge will cancel a previously requested merge and block automerging
+@dependabot reopen will reopen this PR if it is closed
+@dependabot close will close this PR and stop Dependabot recreating it. You can achieve the same result by closing it manually
+@dependabot ignore this major version will close this PR and stop Dependabot creating any more for this major version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this minor version will close this PR and stop Dependabot creating any more for this minor version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this dependency will close this PR and stop Dependabot creating any more for this dependency (unless you reopen the PR or upgrade to it yourself)",1,2
+2254,2021-08-19T16:58:39Z,2021-08-26T16:20:28Z,2021-08-26T16:20:29Z,1,1,1,"📑 Summary
+Uses the right tag for andymckay/labeler, as I inadvertently broke it
+📋 Tasks
+Make sure you
+
+ 📖 have read the contribution guidelines
+ 💻 have added unit/e2e tests (if appropriate)
+ 🔖 targeted develop branch",2,0
+2259,2021-08-20T10:44:09Z,2021-08-26T16:19:40Z,2021-08-26T16:19:40Z,1,1,1,"📑 Summary
+The Markdown Diagrams Extension also had an extension for Chrome so updating the documentation to include this link.
+📏 Design Decisions
+N/A
+📋 Tasks
+Make sure you
+
+ 📖 have read the contribution guidelines
+ 💻 have added unit/e2e tests (if appropriate)
+ 🔖 targeted develop branch",2,0
+2260,2021-08-21T03:05:47Z,2021-08-26T16:40:53Z,2021-08-26T16:40:53Z,7,212,212,"📑 Summary
+Percy is used for internal visual testing; consumers shouldn't need to
+install it. This should resolve a transitive vulnerability picked up by
+security scanners on an outdated version of Lodash:
+@percy/migrate@0.11.0 › @oclif/plugin-help@3.2.3 › lodash.template@4.5.0
+https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-23337
+📏 Design Decisions
+N/A
+📋 Tasks
+Make sure you
+
+ 📖 have read the contribution guidelines
+ 💻 have added unit/e2e tests (if appropriate)
+ 🔖 targeted develop branch",2,0
+2261,2021-08-23T04:01:47Z,,2021-08-26T16:18:12Z,1,1,0,"📑 Summary
+Brief description about the content of your PR.
+Documents the BR bottom to right flowchart direction.
+📏 Design Decisions
+Describe the way your implementation works or what design decisions you made if applicable.
+Adds another item to the list inside the markdown for the flowchart documentation.
+📋 Tasks
+Make sure you
+
+ 📖 have read the contribution guidelines
+ 💻 have added unit/e2e tests (if appropriate)
+ 🔖 targeted develop branch",2,0
+2266,2021-08-25T07:31:48Z,2021-08-26T16:10:48Z,2021-08-26T16:10:48Z,1,2,1,"Markdown broken in table at line 65. Added in necessary additions to correct documentation to make readable and easier to follow properly in the future.
+📑 Summary
+Brief description about the content of your PR.
+Resolves #
+📏 Design Decisions
+Describe the way your implementation works or what design decisions you made if applicable.
+📋 Tasks
+Make sure you
+
+ 📖 have read the contribution guidelines
+ 💻 have added unit/e2e tests (if appropriate)
+ 🔖 targeted develop branch",2,0
+2282,2021-08-31T01:39:26Z,2021-09-14T03:13:05Z,2021-09-14T03:13:06Z,1,6,6,"📑 Summary
+Brief description about the content of your PR.
+Make it look neater
+Resolves #
+📏 Design Decisions
+Describe the way your implementation works or what design decisions you made if applicable.
+📋 Tasks
+Make sure you
+
+ 📖 have read the contribution guidelines
+ 💻 have added unit/e2e tests (if appropriate)
+ 🔖 targeted develop branch",1,0
+2353,2021-09-28T06:32:18Z,2021-09-29T18:14:53Z,2021-09-29T18:14:53Z,1,5,5,"📑 Summary
+Brief description about the content of your PR.
+Resolves #
+📏 Design Decisions
+Describe the way your implementation works or what design decisions you made if applicable.
+📋 Tasks
+Make sure you
+
+ 📖 have read the contribution guidelines
+ 💻 have added unit/e2e tests (if appropriate)
+ 🔖 targeted develop branch",3,0
+2354,2021-09-28T09:27:08Z,2021-09-29T18:14:15Z,2021-09-29T18:14:15Z,1,4,2,"📑 Summary
+Fix Spacing Bug
+
+Update live editor links
+📋 Tasks
+Make sure you
+
+ 📖 have read the contribution guidelines
+ 💻 have added unit/e2e tests (if appropriate)
+ 🔖 targeted develop branch",2,0
+2355,2021-09-29T00:06:53Z,2021-09-29T18:13:18Z,2021-09-29T18:13:18Z,1,1,1,"📑 Summary
+Brief description about the content of your PR.
+Resolves #
+📏 Design Decisions
+Describe the way your implementation works or what design decisions you made if applicable.
+📋 Tasks
+Make sure you
+
+ 📖 have read the contribution guidelines
+ 💻 have added unit/e2e tests (if appropriate)
+ 🔖 targeted develop branch",2,0
+2356,2021-09-29T05:44:42Z,2021-09-29T18:12:24Z,2021-09-29T18:12:24Z,8,0,111,"📑 Summary
+Remove unused files
+📏 Design Decisions
+Describe the way your implementation works or what design decisions you made if applicable.
+📋 Tasks
+Make sure you
+
+ 📖 have read the contribution guidelines
+ 💻 have added unit/e2e tests (if appropriate)
+ 🔖 targeted develop branch",2,0
+2357,2021-09-29T07:22:41Z,2021-09-29T18:11:23Z,2021-09-29T18:11:23Z,1,1,0,"📑 Summary
+Added a integration with mermaid for Dokuwiki in the integration page
+📏 Design Decisions
+Just documentation modification",2,0
+2358,2021-09-29T11:08:37Z,2021-09-29T18:10:41Z,2021-09-29T18:10:41Z,1,1,1,"Fix a spelling mistake
+fix spelling mistake for the Getting word in the tutorials doc.",3,2
+2359,2021-09-29T15:49:41Z,2021-09-29T18:09:58Z,2021-09-29T18:09:58Z,1,11,12,"📑 Summary
+Brief description about the content of your PR.
+Resolves #
+📏 Design Decisions
+Describe the way your implementation works or what design decisions you made if applicable.
+📋 Tasks
+Make sure you
+
+ 📖 have read the contribution guidelines
+ 💻 have added unit/e2e tests (if appropriate)
+ 🔖 targeted develop branch",2,0
+2360,2021-09-29T16:49:25Z,2021-09-29T18:08:49Z,2021-09-29T18:08:49Z,1,16,16,"📑 Summary
+Brief description about the content of your PR.
+Resolves #
+📏 Design Decisions
+Describe the way your implementation works or what design decisions you made if applicable.
+📋 Tasks
+Make sure you
+
+ 📖 have read the contribution guidelines
+ 💻 have added unit/e2e tests (if appropriate)
+ 🔖 targeted develop branch",3,0
+2369,2021-09-29T22:12:05Z,2021-10-07T17:10:11Z,2021-10-07T17:10:11Z,8,35,17,"📑 Summary
+Group the jison loader and transformer in a dedicated folder
+📏 Design Decisions
+I added a validator to the loader.
+The transformater uses the parameters from the jest config file.
+📋 Tasks
+Make sure you
+
+ 📖 have read the contribution guidelines
+ 💻 have added unit/e2e tests (if appropriate)
+ 🔖 targeted develop branch",2,1
+2372,2021-09-30T20:19:33Z,2021-10-07T17:27:06Z,2021-10-07T17:27:06Z,3,57,9,"📑 Summary
+Add an esm version to build output
+Resolves #2371
+📏 Design Decisions
+Without an esm version, live editor was failing.
+📋 Tasks
+Make sure you
+
+ 📖 have read the contribution guidelines
+ 💻 have added unit/e2e tests (if appropriate)
+ 🔖 targeted develop branch",3,3
+2373,2021-10-02T16:08:54Z,2021-10-07T17:24:56Z,2021-10-07T17:24:56Z,2,222,0,"📑 Add Chinese README
+add Chinese translation for the README in the root directory.",2,0
+2375,2021-10-03T15:38:45Z,2021-10-07T17:28:10Z,2021-10-07T17:28:11Z,1,0,2,"📑 Summary
+Fix 'security level' messages in console window.
+Resolves #2374
+📏 Design Decisions
+I'am leave console.window with single line commit, because this can helps in future.
+📋 Tasks
+Make sure you
+
+ 📖 have read the contribution guidelines
+ 💻 have added unit/e2e tests (if appropriate)
+ 🔖 targeted develop branch",3,0
+2376,2021-10-03T22:10:29Z,2021-10-07T17:30:11Z,2021-10-07T17:30:11Z,1,36,2,"📑 Summary
+Brief description about the content of your PR.
+Resolves #
+📏 Design Decisions
+Describe the way your implementation works or what design decisions you made if applicable.
+📋 Tasks
+Make sure you
+
+ 📖 have read the contribution guidelines
+ 💻 have added unit/e2e tests (if appropriate)
+ 🔖 targeted develop branch",3,0
+2382,2021-10-05T09:22:20Z,,2021-10-16T11:32:02Z,2,11,0,"📑 Summary
+I'm trying to find a solution for #1236 where flowchart arrow heads are not colored according to style. The bug fix is not complete yet, I hope it's OK to open a Work-In-Progress pull request to discuss whether I'm on the right track here.
+Resolves #1236
+📏 Design Decisions
+Describe the way your implementation works or what design decisions you made if applicable.
+📋 Tasks
+Make sure you
+
+ 📖 have read the contribution guidelines
+ 💻 have added unit/e2e tests (if appropriate)
+ 🔖 targeted develop branch",3,4
+2387,2021-10-08T02:55:40Z,2021-10-14T16:33:15Z,2021-10-14T16:33:15Z,1,2,2,"📑 remove duplicate content
+remove duplicate content in README.zh-CN.md",3,0
+2389,2021-10-09T14:57:12Z,2021-12-01T17:48:09Z,2021-12-01T17:48:09Z,5,114,4,"📑 Summary
+Support data flow diagrams by adding brackets [| and |] for datastore nodes to graph, e.g.
+
+Resolves #1893
+📏 Design Decisions
+I extend graph as data flow diagrams are graphs in general. However, the same grammar is used for flowchart, which does not contain such nodes. I use the brackets [| and |] as suggested by the author of the issue. However, if other nodes may be added in the future that are rectangles with borders/strokes on specific sides, the | indicates rather vertical lines than horizontal. We might consider [- and -] instead. Actually, we could support all sides using brackets:
+
+[| left, but no top stroke
+[|- left and top stroke
+[- no left, but top stroke
+|] right, but no bottom stroke
+-|] right and bottom stroke
+-] no right, but bottom stroke
+
+However, this would be a larger change/extension of the grammar. Hence, I only added one bracket pair, which is sufficient to cover data flow diagrams. What do you think?
+📋 Tasks
+Make sure you
+
+ 📖 have read the contribution guidelines
+ 💻 have added unit/e2e tests (if appropriate)
+ 🔖 targeted develop branch
+
+TODO: Add tests when design decisions are final",3,11
+2418,2021-10-18T22:13:00Z,2021-10-19T05:06:07Z,2021-10-19T05:06:07Z,1,1,1,,2,1
+2419,2021-10-19T00:06:50Z,2021-10-21T16:06:19Z,2021-10-21T16:06:19Z,1,20,1,"📑 Summary
+Included a brief explanation about the use of milestones regarding their time location and the code location of the tag with an example.
+Resolves #1367
+📏 Design Decisions
+I included the use of the axis and date formats for the new user to find it useful also in those aspects, but the main focus is on the use of milestones. Quite a simple adding to the documentation, but I feel it could be helpful to have that example there",3,0
+2420,2021-10-19T00:42:02Z,2021-10-21T16:05:50Z,2021-10-21T16:05:50Z,1,18,0,"Just a piece of code that was there but didn't appear as code but just as the resulting graph.
+📑 Summary
+There is right now a piece of code that is not being shown. Just a small fix there.
+Resolves #2394
+📋 Tasks
+Make sure you
+
+[v] 📖 have read the contribution guidelines
+ 💻 have added unit/e2e tests (if appropriate)
+[v] 🔖 targeted develop branch",3,0
+2423,2021-10-20T11:38:17Z,2021-10-21T16:05:09Z,2021-10-21T16:05:09Z,18,123854,134517,"📑 Summary
+feat:
+added: includes
+added: rect background for exclude dates
+📏 Design Decisions
+includes: similar as exclude, but only support date. includes would override exclude if set a same date. eg.
+`
+excludes weekends, 2021-10-01,2021-10-04,2021-10-05,2021-10-06,2021-10-07
+includes 2021-10-09
+`
+📋 Tasks
+Make sure you
+
+ 📖 have read the contribution guidelines
+ 💻 have added unit/e2e tests (if appropriate)
+ 🔖 targeted develop branch",2,0
+2431,2021-10-23T12:01:27Z,2021-10-28T15:20:42Z,2021-10-28T15:20:42Z,13,38,38,"📑 Summary
+Noticed small typos in published documentation. Went through and reviewed the rest of the documentation and tried to correct as many as possible, e.g. mermaind --> mermaid, mermid --> mermaid, --> signle --> single, indentifiedd --> identified
+Resolves #2430
+📏 Design Decisions
+📋 Tasks
+Make sure you
+
+ 📖 have read the contribution guidelines
+ 💻 have added unit/e2e tests (if appropriate)
+ 🔖 targeted develop branch",4,0
+2440,2021-10-26T05:36:14Z,2021-10-28T15:20:19Z,2021-10-28T15:20:19Z,1,5,0,"📑 Summary
+Brief description about the content of your PR.
+Dependabot will generate the PR on Monday at 07:00.
+The number of PR for npm is increased from 5 to 10
+📏 Design Decisions
+Describe the way your implementation works or what design decisions you made if applicable.
+📋 Tasks
+Make sure you
+
+ 📖 have read the contribution guidelines
+ 💻 have added unit/e2e tests (if appropriate)
+ 🔖 targeted develop branch",3,0
+2449,2021-10-31T21:50:38Z,2021-11-11T18:09:19Z,2021-11-11T18:09:20Z,24,293,1723,"📑 Summary
+This changes the syntax highlighting of the documentation:
+
+Use monaco-mermaid to highlight code snippets that is Mermaid code
+Add mermaid-example to remove redundant code snippet and diagram scenarios.
+Many other code fences with syntax highlighting (added while I was going through the documentation)
+Added code in places where an example was provided and the diagram rendered was only shown
+
+Related to mermaid-js/mermaid-live-editor#404
+📏 Design Decisions
+Describe the way your implementation works or what design decisions you made if applicable.
+
+Imports monaco-editor and monaco-mermaid
+Adds plain elements to docs
+Asynchronously colorized elements
+
+📋 Tasks
+Make sure you
+
+ 📖 have read the contribution guidelines
+ 💻 have added unit/e2e tests (if appropriate)
+ 🔖 targeted develop branch",3,4
+2464,2021-11-07T02:43:42Z,2021-11-11T18:05:21Z,2021-11-11T18:05:21Z,17,43985,59308,"📑 Summary
+Adds jsdoc for many helper functions
+📏 Design Decisions
+I changed the jison/loader.js to import validate instead of { validate } because I was having a local error that was triggered because { validate } imports undefined. That triggered a complete change in the WebPack builds, but the E2E and unit tests still succeed locally.
+📋 Tasks
+Make sure you
+
+ 📖 have read the contribution guidelines
+ 💻 have added unit/e2e tests (if appropriate)
+ 🔖 targeted develop branch",4,4
+2468,2021-11-08T11:03:00Z,2021-11-11T17:58:25Z,2021-11-11T17:58:25Z,1,1,1,"📑 Summary
+This PR fixes a Gantt chart example which does not render due to missing :milestone parameters.
+Resolves #2467
+📏 Design Decisions
+Updated the example.
+It follows up on this PR #2419",3,0
+2470,2021-11-08T14:12:11Z,2021-11-11T17:58:42Z,2021-11-11T17:58:42Z,1,44,0,"📑 Summary
+Add missing code listing in sequence diagram docs
+Resolves #2469
+📏 Design Decisions
+For now, I have just copied the code for a quick fix (similar to the action taken in #2394). I notice there was discussion about trying to inject examples in build step instead.
+📋 Tasks
+Make sure you
+
+ 📖 have read the contribution guidelines
+ 💻 have added unit/e2e tests (if appropriate)
+ 🔖 targeted develop branch",3,0
+2471,2021-11-09T10:06:51Z,2021-11-18T17:08:00Z,2021-11-18T17:08:01Z,63,76464,59880,"📑 Summary
+This PR is creating eslint:fix script and add prettier-plugin-jsdoc and eslint-plugin-jsdoc
+📏 Design Decisions
+I have corrected several warnings from eslint.
+I have used the type any for every documented parameter. This will need to be changed to it's exact value if we move to typescript.
+📋 Tasks
+Make sure you
+
+ 📖 have read the contribution guidelines
+ 💻 have added unit/e2e tests (if appropriate)
+ 🔖 targeted develop branch",3,4
+2476,2021-11-11T01:23:04Z,2021-11-11T17:58:05Z,2021-11-11T17:58:05Z,2,4,3,"The two links, were linking to Live-Editor.md, which did not exist at time of this commit. Instead, have the link point to the live editor.
+Fixes #2463",3,0
+2482,2021-11-12T21:25:42Z,2021-11-14T11:53:15Z,2021-11-14T11:53:15Z,1,0,1,,3,0
+2491,2021-11-15T07:04:21Z,2021-11-17T23:45:41Z,2021-11-17T23:45:41Z,1,5,15,"Bumps terser-webpack-plugin from 5.2.4 to 5.2.5.
+
+Release notes
+Sourced from terser-webpack-plugin's releases.
+
+v5.2.5
+5.2.5 (2021-11-08)
+Bug Fixes
+
+output readable esbuild warnings (9431b32)
+
+
+
+
+Changelog
+Sourced from terser-webpack-plugin's changelog.
+
+5.2.5 (2021-11-08)
+Bug Fixes
+
+output readable esbuild warnings (9431b32)
+
+
+
+
+Commits
+
+9770ed1 chore(release): 5.2.5
+9431b32 fix: output readable esbuild warnings
+d034564 refactor: avoid usage p-limit package (#454)
+5337a47 ci: add more node.js versions (#453)
+42ec18b chore(deps): update (#452)
+c0f1417 refactor: code
+e1ab8d0 docs(readme): terser-js to terser org rename (#450)
+See full diff in compare view
+
+
+
+
+Dependabot will resolve any conflicts with this PR as long as you don't alter it yourself. You can also trigger a rebase manually by commenting @dependabot rebase.
+
+
+Dependabot commands and options
+
+You can trigger Dependabot actions by commenting on this PR:
+
+@dependabot rebase will rebase this PR
+@dependabot recreate will recreate this PR, overwriting any edits that have been made to it
+@dependabot merge will merge this PR after your CI passes on it
+@dependabot squash and merge will squash and merge this PR after your CI passes on it
+@dependabot cancel merge will cancel a previously requested merge and block automerging
+@dependabot reopen will reopen this PR if it is closed
+@dependabot close will close this PR and stop Dependabot recreating it. You can achieve the same result by closing it manually
+@dependabot ignore this major version will close this PR and stop Dependabot creating any more for this major version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this minor version will close this PR and stop Dependabot creating any more for this minor version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this dependency will close this PR and stop Dependabot creating any more for this dependency (unless you reopen the PR or upgrade to it yourself)",1,0
+2500,2021-11-18T21:56:08Z,2021-11-29T06:55:08Z,2021-11-29T06:55:08Z,103,74950,59724,"📑 Summary
+Brief description about the content of your PR.
+Resolves #
+📏 Design Decisions
+Describe the way your implementation works or what design decisions you made if applicable.
+📋 Tasks
+Make sure you
+
+ 📖 have read the contribution guidelines
+ 💻 have added unit/e2e tests (if appropriate)
+ 🔖 targeted develop branch",3,0
+2503,2021-11-21T04:47:58Z,2021-11-25T20:48:57Z,2021-11-25T20:48:57Z,1,0,13,"We can still unlock issues when they are reopened, because that would be
+a bit useful. Ref #2456.
+📋 Tasks
+Make sure you
+
+ 📖 have read the contribution guidelines
+ 🔖 targeted develop branch",2,0
+2505,2021-11-22T07:03:33Z,2021-11-25T21:11:34Z,2021-11-25T21:11:34Z,1,3,3,"Bumps webpack from 5.64.1 to 5.64.2.
+
+Release notes
+Sourced from webpack's releases.
+
+v5.64.2
+Bugfixes
+
+avoid double initial compilation due to invalid dependencies with managedPaths
+
+
+
+
+Commits
+
+0065223 5.64.2
+befeee9 Merge pull request #14777 from webpack/bugfix/double-compilation-managed-path
+200ab0e add test case
+eee5ffc Merge pull request #14773 from webpack/dependabot/npm_and_yarn/acorn-8.6.0
+0010974 fix double compilation when snapshotting managedPaths
+4ca0971 chore(deps): bump acorn from 8.5.0 to 8.6.0
+64f2bdb Merge pull request #14746 from snitin315/rm-old-badges
+6b4da92 docs: remove travis CI badge
+106b328 docs: remove appveyor badge
+25149d4 Merge pull request #14738 from webpack/dependabot/npm_and_yarn/browserslist-4...
+Additional commits viewable in compare view
+
+
+
+
+Dependabot will resolve any conflicts with this PR as long as you don't alter it yourself. You can also trigger a rebase manually by commenting @dependabot rebase.
+
+
+Dependabot commands and options
+
+You can trigger Dependabot actions by commenting on this PR:
+
+@dependabot rebase will rebase this PR
+@dependabot recreate will recreate this PR, overwriting any edits that have been made to it
+@dependabot merge will merge this PR after your CI passes on it
+@dependabot squash and merge will squash and merge this PR after your CI passes on it
+@dependabot cancel merge will cancel a previously requested merge and block automerging
+@dependabot reopen will reopen this PR if it is closed
+@dependabot close will close this PR and stop Dependabot recreating it. You can achieve the same result by closing it manually
+@dependabot ignore this major version will close this PR and stop Dependabot creating any more for this major version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this minor version will close this PR and stop Dependabot creating any more for this minor version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this dependency will close this PR and stop Dependabot creating any more for this dependency (unless you reopen the PR or upgrade to it yourself)",1,0
+2506,2021-11-22T07:03:50Z,2021-11-25T21:10:38Z,2021-11-25T21:10:38Z,1,26,21,"Bumps eslint from 8.2.0 to 8.3.0.
+
+Release notes
+Sourced from eslint's releases.
+
+v8.3.0
+Features
+
+60b0a29 feat: add allowProperties option to require-atomic-updates (#15238) (Milos Djermanovic)
+79278a1 feat: update no-use-before-define for class static blocks (#15312) (Milos Djermanovic)
+ddd01dc feat: update no-redeclare for class static blocks (#15313) (Milos Djermanovic)
+de69cec feat: update no-inner-declarations for class static blocks (#15290) (Milos Djermanovic)
+e2fe7ef feat: support for private-in syntax (fixes #14811) (#15060) (Yosuke Ota)
+34bc8d7 feat: Update espree and eslint-scope (#15338) (Brandon Mills)
+b171cd7 feat: update max-depth for class static blocks (#15316) (Milos Djermanovic)
+6487df3 feat: update padded-blocks for class static blocks (#15333) (Milos Djermanovic)
+194f36d feat: update the complexity rule for class static blocks (#15328) (Milos Djermanovic)
+3530337 feat: update the indent rule for class static blocks (#15324) (Milos Djermanovic)
+f03cd14 feat: update lines-around-comment for class static blocks (#15323) (Milos Djermanovic)
+5c64747 feat: update brace-style for class static blocks (#15322) (Milos Djermanovic)
+df2f1cc feat: update max-statements for class static blocks (#15315) (Milos Djermanovic)
+fd5a0b8 feat: update prefer-const for class static blocks (#15325) (Milos Djermanovic)
+b3669fd feat: code path analysis for class static blocks (#15282) (Milos Djermanovic)
+15c1397 feat: update eslint-scope for class static blocks (#15321) (Milos Djermanovic)
+1a1bb4b feat: update one-var for class static blocks (#15317) (Milos Djermanovic)
+9b666e0 feat: update padding-line-between-statements for class static blocks (#15318) (Milos Djermanovic)
+d3a267f feat: update class-methods-use-this for class static blocks (#15298) (Milos Djermanovic)
+cdaa541 feat: update no-lone-blocks for class static blocks (#15295) (Milos Djermanovic)
+8611538 feat: update block-spacing for class static blocks (#15297) (Milos Djermanovic)
+7b56844 feat: update keyword-spacing for class static blocks (#15289) (Milos Djermanovic)
+ea18711 feat: update no-extra-semi for class static blocks (#15287) (Milos Djermanovic)
+0f0971f feat: update semi rule for class static blocks (#15286) (Milos Djermanovic)
+abe740c feat: add examples for block-scoped-var with class static blocks (#15302) (Milos Djermanovic)
+0338fd2 feat: Normalize ecmaVersion to eslint-scope when using custom parser (#15268) (Yosuke Ota)
+
+Bug Fixes
+
+8aa7645 fix: update vars-on-top for class static blocks (#15306) (Milos Djermanovic)
+479a4cb fix: update semi-style for class static blocks (#15309) (Milos Djermanovic)
+6d1c666 fix: update no-invalid-this and no-eval for class static blocks (#15300) (Milos Djermanovic)
+
+Documentation
+
+6b85426 docs: Expand  --debug option description in the CLI documentation (#15308) (darkred)
+3ae5258 docs: the strict rule does not apply to class static blocks (#15314) (Milos Djermanovic)
+9309841 docs: Remove inconsistent colon in pull request docs (#15303) (Jordan Eldredge)
+da238cc docs: remove deprecation note from lines-around-comment (#15293) (Milos Djermanovic)
+1055f16 docs: no-unused-expressions - class static blocks don't have directives (#15283) (Milos Djermanovic)
+4c55216 docs: Add variables option to no-use-before-define (#15276) (Mathias Rasmussen)
+
+Chores
+
+edd8d24 chore: upgrade eslint-visitor-keys for class static blocks (#15277) (Milos Djermanovic)
+
+
+
+
+Changelog
+Sourced from eslint's changelog.
+
+v8.3.0 - November 21, 2021
+
+60b0a29 feat: add allowProperties option to require-atomic-updates (#15238) (Milos Djermanovic)
+79278a1 feat: update no-use-before-define for class static blocks (#15312) (Milos Djermanovic)
+8aa7645 fix: update vars-on-top for class static blocks (#15306) (Milos Djermanovic)
+479a4cb fix: update semi-style for class static blocks (#15309) (Milos Djermanovic)
+ddd01dc feat: update no-redeclare for class static blocks (#15313) (Milos Djermanovic)
+de69cec feat: update no-inner-declarations for class static blocks (#15290) (Milos Djermanovic)
+e2fe7ef feat: support for private-in syntax (fixes #14811) (#15060) (Yosuke Ota)
+34bc8d7 feat: Update espree and eslint-scope (#15338) (Brandon Mills)
+b171cd7 feat: update max-depth for class static blocks (#15316) (Milos Djermanovic)
+6487df3 feat: update padded-blocks for class static blocks (#15333) (Milos Djermanovic)
+194f36d feat: update the complexity rule for class static blocks (#15328) (Milos Djermanovic)
+3530337 feat: update the indent rule for class static blocks (#15324) (Milos Djermanovic)
+f03cd14 feat: update lines-around-comment for class static blocks (#15323) (Milos Djermanovic)
+5c64747 feat: update brace-style for class static blocks (#15322) (Milos Djermanovic)
+df2f1cc feat: update max-statements for class static blocks (#15315) (Milos Djermanovic)
+fd5a0b8 feat: update prefer-const for class static blocks (#15325) (Milos Djermanovic)
+b3669fd feat: code path analysis for class static blocks (#15282) (Milos Djermanovic)
+15c1397 feat: update eslint-scope for class static blocks (#15321) (Milos Djermanovic)
+1a1bb4b feat: update one-var for class static blocks (#15317) (Milos Djermanovic)
+9b666e0 feat: update padding-line-between-statements for class static blocks (#15318) (Milos Djermanovic)
+6b85426 docs: Expand  --debug option description in the CLI documentation (#15308) (darkred)
+3ae5258 docs: the strict rule does not apply to class static blocks (#15314) (Milos Djermanovic)
+6d1c666 fix: update no-invalid-this and no-eval for class static blocks (#15300) (Milos Djermanovic)
+d3a267f feat: update class-methods-use-this for class static blocks (#15298) (Milos Djermanovic)
+cdaa541 feat: update no-lone-blocks for class static blocks (#15295) (Milos Djermanovic)
+8611538 feat: update block-spacing for class static blocks (#15297) (Milos Djermanovic)
+7b56844 feat: update keyword-spacing for class static blocks (#15289) (Milos Djermanovic)
+ea18711 feat: update no-extra-semi for class static blocks (#15287) (Milos Djermanovic)
+0f0971f feat: update semi rule for class static blocks (#15286) (Milos Djermanovic)
+abe740c feat: add examples for block-scoped-var with class static blocks (#15302) (Milos Djermanovic)
+9309841 docs: Remove inconsistent colon in pull request docs (#15303) (Jordan Eldredge)
+da238cc docs: remove deprecation note from lines-around-comment (#15293) (Milos Djermanovic)
+1055f16 docs: no-unused-expressions - class static blocks don't have directives (#15283) (Milos Djermanovic)
+edd8d24 chore: upgrade eslint-visitor-keys for class static blocks (#15277) (Milos Djermanovic)
+4c55216 docs: Add variables option to no-use-before-define (#15276) (Mathias Rasmussen)
+0338fd2 feat: Normalize ecmaVersion to eslint-scope when using custom parser (#15268) (Yosuke Ota)
+
+
+
+
+Commits
+
+e6bfe4d 8.3.0
+aebd58a Build: changelog update for 8.3.0
+60b0a29 feat: add allowProperties option to require-atomic-updates (#15238)
+79278a1 feat: update no-use-before-define for class static blocks (#15312)
+8aa7645 fix: update vars-on-top for class static blocks (#15306)
+479a4cb fix: update semi-style for class static blocks (#15309)
+ddd01dc feat: update no-redeclare for class static blocks (#15313)
+de69cec feat: update no-inner-declarations for class static blocks (#15290)
+e2fe7ef feat: support for private-in syntax (fixes #14811) (#15060)
+34bc8d7 feat: Update espree and eslint-scope (#15338)
+Additional commits viewable in compare view
+
+
+
+
+Dependabot will resolve any conflicts with this PR as long as you don't alter it yourself. You can also trigger a rebase manually by commenting @dependabot rebase.
+
+
+Dependabot commands and options
+
+You can trigger Dependabot actions by commenting on this PR:
+
+@dependabot rebase will rebase this PR
+@dependabot recreate will recreate this PR, overwriting any edits that have been made to it
+@dependabot merge will merge this PR after your CI passes on it
+@dependabot squash and merge will squash and merge this PR after your CI passes on it
+@dependabot cancel merge will cancel a previously requested merge and block automerging
+@dependabot reopen will reopen this PR if it is closed
+@dependabot close will close this PR and stop Dependabot recreating it. You can achieve the same result by closing it manually
+@dependabot ignore this major version will close this PR and stop Dependabot creating any more for this major version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this minor version will close this PR and stop Dependabot creating any more for this minor version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this dependency will close this PR and stop Dependabot creating any more for this dependency (unless you reopen the PR or upgrade to it yourself)",1,0
+2515,2021-11-29T07:03:10Z,2021-12-04T23:30:43Z,2021-12-04T23:30:43Z,1,46,53,"Bumps webpack-dev-server from 4.5.0 to 4.6.0.
+
+Release notes
+Sourced from webpack-dev-server's releases.
+
+v4.6.0
+4.6.0 (2021-11-25)
+Features
+
+allow to pass all chokidar options (#4025) (5026601)
+
+Bug Fixes
+
+reconnection logic (#4044) (9b32c96)
+reload on warnings (#4056) (1ba9720)
+
+
+
+
+Changelog
+Sourced from webpack-dev-server's changelog.
+
+4.6.0 (2021-11-25)
+Features
+
+allow to pass all chokidar options (#4025) (5026601)
+
+Bug Fixes
+
+reconnection logic (#4044) (9b32c96)
+reload on warnings (#4056) (1ba9720)
+
+
+
+
+Commits
+
+c5b9c7e chore(release): 4.6.0
+1ba9720 fix: reload on warnings (#4056)
+5026601 feat: allow to pass all chokidar options (#4025)
+7e78bfa chore(deps-dev): bump webpack from 5.64.2 to 5.64.3 (#4054)
+f2a7d16 chore(deps-dev): bump memfs from 3.3.0 to 3.4.0 (#4055)
+d104b58 chore: remove redundant eslint-disable comments (#4053)
+e6330f5 chore: remove redundant snapshots (#4052)
+cf26a3f chore(deps): bump ws from 8.2.3 to 8.3.0 (#4051)
+7823237 chore(deps-dev): bump lint-staged from 12.1.1 to 12.1.2 (#4048)
+9b32c96 fix: reconnection logic (#4044)
+Additional commits viewable in compare view
+
+
+
+
+Dependabot will resolve any conflicts with this PR as long as you don't alter it yourself. You can also trigger a rebase manually by commenting @dependabot rebase.
+
+
+Dependabot commands and options
+
+You can trigger Dependabot actions by commenting on this PR:
+
+@dependabot rebase will rebase this PR
+@dependabot recreate will recreate this PR, overwriting any edits that have been made to it
+@dependabot merge will merge this PR after your CI passes on it
+@dependabot squash and merge will squash and merge this PR after your CI passes on it
+@dependabot cancel merge will cancel a previously requested merge and block automerging
+@dependabot reopen will reopen this PR if it is closed
+@dependabot close will close this PR and stop Dependabot recreating it. You can achieve the same result by closing it manually
+@dependabot ignore this major version will close this PR and stop Dependabot creating any more for this major version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this minor version will close this PR and stop Dependabot creating any more for this minor version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this dependency will close this PR and stop Dependabot creating any more for this dependency (unless you reopen the PR or upgrade to it yourself)",1,0
+2518,2021-11-29T07:03:56Z,2021-11-30T02:02:07Z,2021-11-30T02:02:07Z,1,11,11,"Bumps eslint from 8.2.0 to 8.3.0.
+
+Release notes
+Sourced from eslint's releases.
+
+v8.3.0
+Features
+
+60b0a29 feat: add allowProperties option to require-atomic-updates (#15238) (Milos Djermanovic)
+79278a1 feat: update no-use-before-define for class static blocks (#15312) (Milos Djermanovic)
+ddd01dc feat: update no-redeclare for class static blocks (#15313) (Milos Djermanovic)
+de69cec feat: update no-inner-declarations for class static blocks (#15290) (Milos Djermanovic)
+e2fe7ef feat: support for private-in syntax (fixes #14811) (#15060) (Yosuke Ota)
+34bc8d7 feat: Update espree and eslint-scope (#15338) (Brandon Mills)
+b171cd7 feat: update max-depth for class static blocks (#15316) (Milos Djermanovic)
+6487df3 feat: update padded-blocks for class static blocks (#15333) (Milos Djermanovic)
+194f36d feat: update the complexity rule for class static blocks (#15328) (Milos Djermanovic)
+3530337 feat: update the indent rule for class static blocks (#15324) (Milos Djermanovic)
+f03cd14 feat: update lines-around-comment for class static blocks (#15323) (Milos Djermanovic)
+5c64747 feat: update brace-style for class static blocks (#15322) (Milos Djermanovic)
+df2f1cc feat: update max-statements for class static blocks (#15315) (Milos Djermanovic)
+fd5a0b8 feat: update prefer-const for class static blocks (#15325) (Milos Djermanovic)
+b3669fd feat: code path analysis for class static blocks (#15282) (Milos Djermanovic)
+15c1397 feat: update eslint-scope for class static blocks (#15321) (Milos Djermanovic)
+1a1bb4b feat: update one-var for class static blocks (#15317) (Milos Djermanovic)
+9b666e0 feat: update padding-line-between-statements for class static blocks (#15318) (Milos Djermanovic)
+d3a267f feat: update class-methods-use-this for class static blocks (#15298) (Milos Djermanovic)
+cdaa541 feat: update no-lone-blocks for class static blocks (#15295) (Milos Djermanovic)
+8611538 feat: update block-spacing for class static blocks (#15297) (Milos Djermanovic)
+7b56844 feat: update keyword-spacing for class static blocks (#15289) (Milos Djermanovic)
+ea18711 feat: update no-extra-semi for class static blocks (#15287) (Milos Djermanovic)
+0f0971f feat: update semi rule for class static blocks (#15286) (Milos Djermanovic)
+abe740c feat: add examples for block-scoped-var with class static blocks (#15302) (Milos Djermanovic)
+0338fd2 feat: Normalize ecmaVersion to eslint-scope when using custom parser (#15268) (Yosuke Ota)
+
+Bug Fixes
+
+8aa7645 fix: update vars-on-top for class static blocks (#15306) (Milos Djermanovic)
+479a4cb fix: update semi-style for class static blocks (#15309) (Milos Djermanovic)
+6d1c666 fix: update no-invalid-this and no-eval for class static blocks (#15300) (Milos Djermanovic)
+
+Documentation
+
+6b85426 docs: Expand  --debug option description in the CLI documentation (#15308) (darkred)
+3ae5258 docs: the strict rule does not apply to class static blocks (#15314) (Milos Djermanovic)
+9309841 docs: Remove inconsistent colon in pull request docs (#15303) (Jordan Eldredge)
+da238cc docs: remove deprecation note from lines-around-comment (#15293) (Milos Djermanovic)
+1055f16 docs: no-unused-expressions - class static blocks don't have directives (#15283) (Milos Djermanovic)
+4c55216 docs: Add variables option to no-use-before-define (#15276) (Mathias Rasmussen)
+
+Chores
+
+edd8d24 chore: upgrade eslint-visitor-keys for class static blocks (#15277) (Milos Djermanovic)
+
+
+
+
+Changelog
+Sourced from eslint's changelog.
+
+v8.3.0 - November 21, 2021
+
+60b0a29 feat: add allowProperties option to require-atomic-updates (#15238) (Milos Djermanovic)
+79278a1 feat: update no-use-before-define for class static blocks (#15312) (Milos Djermanovic)
+8aa7645 fix: update vars-on-top for class static blocks (#15306) (Milos Djermanovic)
+479a4cb fix: update semi-style for class static blocks (#15309) (Milos Djermanovic)
+ddd01dc feat: update no-redeclare for class static blocks (#15313) (Milos Djermanovic)
+de69cec feat: update no-inner-declarations for class static blocks (#15290) (Milos Djermanovic)
+e2fe7ef feat: support for private-in syntax (fixes #14811) (#15060) (Yosuke Ota)
+34bc8d7 feat: Update espree and eslint-scope (#15338) (Brandon Mills)
+b171cd7 feat: update max-depth for class static blocks (#15316) (Milos Djermanovic)
+6487df3 feat: update padded-blocks for class static blocks (#15333) (Milos Djermanovic)
+194f36d feat: update the complexity rule for class static blocks (#15328) (Milos Djermanovic)
+3530337 feat: update the indent rule for class static blocks (#15324) (Milos Djermanovic)
+f03cd14 feat: update lines-around-comment for class static blocks (#15323) (Milos Djermanovic)
+5c64747 feat: update brace-style for class static blocks (#15322) (Milos Djermanovic)
+df2f1cc feat: update max-statements for class static blocks (#15315) (Milos Djermanovic)
+fd5a0b8 feat: update prefer-const for class static blocks (#15325) (Milos Djermanovic)
+b3669fd feat: code path analysis for class static blocks (#15282) (Milos Djermanovic)
+15c1397 feat: update eslint-scope for class static blocks (#15321) (Milos Djermanovic)
+1a1bb4b feat: update one-var for class static blocks (#15317) (Milos Djermanovic)
+9b666e0 feat: update padding-line-between-statements for class static blocks (#15318) (Milos Djermanovic)
+6b85426 docs: Expand  --debug option description in the CLI documentation (#15308) (darkred)
+3ae5258 docs: the strict rule does not apply to class static blocks (#15314) (Milos Djermanovic)
+6d1c666 fix: update no-invalid-this and no-eval for class static blocks (#15300) (Milos Djermanovic)
+d3a267f feat: update class-methods-use-this for class static blocks (#15298) (Milos Djermanovic)
+cdaa541 feat: update no-lone-blocks for class static blocks (#15295) (Milos Djermanovic)
+8611538 feat: update block-spacing for class static blocks (#15297) (Milos Djermanovic)
+7b56844 feat: update keyword-spacing for class static blocks (#15289) (Milos Djermanovic)
+ea18711 feat: update no-extra-semi for class static blocks (#15287) (Milos Djermanovic)
+0f0971f feat: update semi rule for class static blocks (#15286) (Milos Djermanovic)
+abe740c feat: add examples for block-scoped-var with class static blocks (#15302) (Milos Djermanovic)
+9309841 docs: Remove inconsistent colon in pull request docs (#15303) (Jordan Eldredge)
+da238cc docs: remove deprecation note from lines-around-comment (#15293) (Milos Djermanovic)
+1055f16 docs: no-unused-expressions - class static blocks don't have directives (#15283) (Milos Djermanovic)
+edd8d24 chore: upgrade eslint-visitor-keys for class static blocks (#15277) (Milos Djermanovic)
+4c55216 docs: Add variables option to no-use-before-define (#15276) (Mathias Rasmussen)
+0338fd2 feat: Normalize ecmaVersion to eslint-scope when using custom parser (#15268) (Yosuke Ota)
+
+
+
+
+Commits
+
+e6bfe4d 8.3.0
+aebd58a Build: changelog update for 8.3.0
+60b0a29 feat: add allowProperties option to require-atomic-updates (#15238)
+79278a1 feat: update no-use-before-define for class static blocks (#15312)
+8aa7645 fix: update vars-on-top for class static blocks (#15306)
+479a4cb fix: update semi-style for class static blocks (#15309)
+ddd01dc feat: update no-redeclare for class static blocks (#15313)
+de69cec feat: update no-inner-declarations for class static blocks (#15290)
+e2fe7ef feat: support for private-in syntax (fixes #14811) (#15060)
+34bc8d7 feat: Update espree and eslint-scope (#15338)
+Additional commits viewable in compare view
+
+
+
+
+Dependabot will resolve any conflicts with this PR as long as you don't alter it yourself. You can also trigger a rebase manually by commenting @dependabot rebase.
+
+
+Dependabot commands and options
+
+You can trigger Dependabot actions by commenting on this PR:
+
+@dependabot rebase will rebase this PR
+@dependabot recreate will recreate this PR, overwriting any edits that have been made to it
+@dependabot merge will merge this PR after your CI passes on it
+@dependabot squash and merge will squash and merge this PR after your CI passes on it
+@dependabot cancel merge will cancel a previously requested merge and block automerging
+@dependabot reopen will reopen this PR if it is closed
+@dependabot close will close this PR and stop Dependabot recreating it. You can achieve the same result by closing it manually
+@dependabot ignore this major version will close this PR and stop Dependabot creating any more for this major version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this minor version will close this PR and stop Dependabot creating any more for this minor version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this dependency will close this PR and stop Dependabot creating any more for this dependency (unless you reopen the PR or upgrade to it yourself)",1,0
+2519,2021-11-29T07:04:08Z,2021-11-30T04:18:52Z,2021-11-30T04:18:52Z,1,8,8,"Bumps eslint-plugin-jest from 25.2.4 to 25.3.0.
+
+Release notes
+Sourced from eslint-plugin-jest's releases.
+
+v25.3.0
+25.3.0 (2021-11-23)
+Features
+
+require-hook: add allowedFunctionCalls setting (#983) (9d9336a)
+
+
+
+
+Changelog
+Sourced from eslint-plugin-jest's changelog.
+
+25.3.0 (2021-11-23)
+Features
+
+require-hook: add allowedFunctionCalls setting (#983) (9d9336a)
+
+
+
+
+Commits
+
+dad767b chore(release): 25.3.0 [skip ci]
+9d9336a feat(require-hook): add allowedFunctionCalls setting (#983)
+c0a00a1 chore(deps): update dependency lint-staged to v12 (#984)
+33e3862 chore(deps): lock file maintenance
+b801c03 chore(deps): update commitlint monorepo to v15 (major) (#973)
+9fc752b chore(deps): lock file maintenance
+See full diff in compare view
+
+
+
+
+Dependabot will resolve any conflicts with this PR as long as you don't alter it yourself. You can also trigger a rebase manually by commenting @dependabot rebase.
+
+
+Dependabot commands and options
+
+You can trigger Dependabot actions by commenting on this PR:
+
+@dependabot rebase will rebase this PR
+@dependabot recreate will recreate this PR, overwriting any edits that have been made to it
+@dependabot merge will merge this PR after your CI passes on it
+@dependabot squash and merge will squash and merge this PR after your CI passes on it
+@dependabot cancel merge will cancel a previously requested merge and block automerging
+@dependabot reopen will reopen this PR if it is closed
+@dependabot close will close this PR and stop Dependabot recreating it. You can achieve the same result by closing it manually
+@dependabot ignore this major version will close this PR and stop Dependabot creating any more for this major version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this minor version will close this PR and stop Dependabot creating any more for this minor version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this dependency will close this PR and stop Dependabot creating any more for this dependency (unless you reopen the PR or upgrade to it yourself)",1,0
+2520,2021-11-29T07:04:27Z,2021-11-29T20:24:29Z,2021-11-29T20:24:29Z,1,8,8,"Bumps prettier from 2.4.1 to 2.5.0.
+
+Release notes
+Sourced from prettier's releases.
+
+2.5.0
+diff
+🔗 Release note
+
+
+
+Changelog
+Sourced from prettier's changelog.
+
+2.5.0
+diff
+🔗 Release Notes
+
+
+
+Commits
+
+e351bfc Release 2.5.0
+15f869d Update string-width to v4.2.3 (#11853)
+cd25b86 Regenerate yarn.lock (#11852)
+2380e11 Build(deps-dev): Bump eslint-plugin-unicorn from 38.0.1 to 39.0.0 (#11851)
+d3ab4a2 Build(deps-dev): Bump eslint from 8.2.0 to 8.3.0 (#11850)
+1fa0d32 Build(deps-dev): Bump webpack from 5.64.0 to 5.64.2 in /website (#11847)
+3e49ca7 Build(deps): Bump espree from 9.0.0 to 9.1.0 (#11848)
+7acdac3 Remove unnecessary parentheses for decorators (#11849)
+c9b3518 Build(deps-dev): Bump @​types/jest from 27.0.2 to 27.0.3 (#11842)
+c957da6 Build(deps-dev): Bump eslint-plugin-react from 7.27.0 to 7.27.1 (#11844)
+Additional commits viewable in compare view
+
+
+
+
+Dependabot will resolve any conflicts with this PR as long as you don't alter it yourself. You can also trigger a rebase manually by commenting @dependabot rebase.
+
+
+Dependabot commands and options
+
+You can trigger Dependabot actions by commenting on this PR:
+
+@dependabot rebase will rebase this PR
+@dependabot recreate will recreate this PR, overwriting any edits that have been made to it
+@dependabot merge will merge this PR after your CI passes on it
+@dependabot squash and merge will squash and merge this PR after your CI passes on it
+@dependabot cancel merge will cancel a previously requested merge and block automerging
+@dependabot reopen will reopen this PR if it is closed
+@dependabot close will close this PR and stop Dependabot recreating it. You can achieve the same result by closing it manually
+@dependabot ignore this major version will close this PR and stop Dependabot creating any more for this major version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this minor version will close this PR and stop Dependabot creating any more for this minor version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this dependency will close this PR and stop Dependabot creating any more for this dependency (unless you reopen the PR or upgrade to it yourself)",1,0
+2522,2021-11-29T18:45:07Z,2021-12-07T08:36:57Z,2021-12-07T08:36:58Z,11,56336,71428,"📑 Summary
+Brief description about the content of your PR.
+Resolves #1878
+📏 Design Decisions
+Describe the way your implementation works or what design decisions you made if applicable.
+📋 Tasks
+Make sure you
+
+ 📖 have read the contribution guidelines
+ 💻 have added unit/e2e tests (if appropriate)
+ 🔖 targeted develop branch",4,0
+2546,2021-12-08T11:58:43Z,,2021-12-11T11:02:40Z,29,169,158315,"📑 Summary
+@Yash-Singh1  Ref: #2456
+
+ Bulid
+
+ Don't push dist to GitHub
+ Group webpack files
+
+
+
+📏 Design Decisions
+
+Group webpack configs to .webpack folder, and share base config with webpack-merge.
+Move html files in dist directory to demo directory
+improve husky + lint-stage, change yarn dlx to yarn run, as dlx only supported on version 2.x
+
+📋 Tasks
+Make sure you
+
+ 📖 have read the contribution guidelines
+ 💻 have added unit/e2e tests (if appropriate)
+ 🔖 targeted develop branch",4,2
+2552,2021-12-11T12:18:59Z,2022-05-11T00:52:56Z,2022-05-11T00:52:56Z,11,71,67,"📑 Summary
+Brief description about the content of your PR.
+Resolves #
+📏 Design Decisions
+Describe the way your implementation works or what design decisions you made if applicable.
+📋 Tasks
+Make sure you
+
+ 📖 have read the contribution guidelines
+ 💻 have added unit/e2e tests (if appropriate)
+ 🔖 targeted develop branch",2,0
+2584,2021-12-23T15:42:23Z,2021-12-24T01:11:23Z,2021-12-24T01:11:23Z,1,2,1,"📑 Summary
+Updating the TiddlyWiki integrations to two up-to-date plugins.
+📋 Tasks
+Make sure you
+
+ 📖 have read the contribution guidelines
+💻 have added unit/e2e tests (if appropriate) (n/a)
+ 🔖 targeted develop branch",2,0
+2593,2021-12-28T20:39:01Z,2021-12-28T22:06:33Z,2021-12-28T22:06:33Z,1,1,0,"📑 Summary
+Notion recently released native support for Mermaid.js blocks. This PR adds Notion to the list of available integrations listed in the docs.",2,0
+2601,2022-01-03T07:03:34Z,2022-01-04T00:00:39Z,2022-01-04T00:00:39Z,1,3,3,"Bumps @babel/register from 7.16.5 to 7.16.7.
+
+Release notes
+Sourced from @​babel/register's releases.
+
+v7.16.7 (2021-12-31)
+Thanks @​exb for your first PR!
+👓 Spec Compliance
+
+babel-parser
+
+#14049 fix: check preceding line break before exclamation (@​JLHwung)
+
+
+
+🐛 Bug Fix
+
+babel-plugin-transform-runtime, babel-runtime-corejs2, babel-runtime-corejs3, babel-runtime
+
+#14081 Import the correct ./typeof.js helper in @babel/runtime (@​exb)
+
+
+babel-helpers
+
+#14072 Fix derived classes in Chrome <= 36 (@​nicolo-ribaudo)
+
+
+babel-helper-function-name, babel-plugin-transform-function-name
+
+#14047 Fix unicode handling in generated function names (@​The-x-Theorist)
+
+
+
+💅 Polish
+
+babel-core
+
+#14067 Allow $schema property in json config files (@​The-x-Theorist)
+
+
+
+Committers: 4
+
+Endrit Bajo (@​exb)
+Huáng Jùnliàng (@​JLHwung)
+Nicolò Ribaudo (@​nicolo-ribaudo)
+Sneh Khatri (@​The-x-Theorist)
+
+v7.16.6 (2021-12-14)
+🐛 Bug Fix
+
+babel-parser
+
+#14055 fix: handle tokens for invalid template element (@​JLHwung)
+
+
+
+Committers: 2
+
+Huáng Jùnliàng (@​JLHwung)
+Nicolò Ribaudo (@​nicolo-ribaudo)
+
+
+
+
+Changelog
+Sourced from @​babel/register's changelog.
+
+v7.16.7 (2021-12-31)
+👓 Spec Compliance
+
+babel-parser
+
+#14049 fix: check preceding line break before exclamation (@​JLHwung)
+
+
+
+🐛 Bug Fix
+
+babel-plugin-transform-runtime, babel-runtime-corejs2, babel-runtime-corejs3, babel-runtime
+
+#14081 Import the correct ./typeof.js helper in @babel/runtime (@​exb)
+
+
+babel-helpers
+
+#14072 Fix derived classes in Chrome <= 36 (@​nicolo-ribaudo)
+
+
+babel-helper-function-name, babel-plugin-transform-function-name
+
+#14047 Fix unicode handling in generated function names (@​The-x-Theorist)
+
+
+
+💅 Polish
+
+babel-core
+
+#14067 Allow $schema property in json config files (@​The-x-Theorist)
+
+
+
+v7.16.6 (2021-12-14)
+🐛 Bug Fix
+
+babel-parser
+
+#14055 fix: handle tokens for invalid template element (@​JLHwung)
+
+
+
+
+
+
+Commits
+
+23e8840 v7.16.7
+e77e3de [babel 8] Move @babel/register transform to a separate worker (#14025)
+d1cabf6 [babel 8] Add ""exports"" to every package (#14013)
+See full diff in compare view
+
+
+
+
+Dependabot will resolve any conflicts with this PR as long as you don't alter it yourself. You can also trigger a rebase manually by commenting @dependabot rebase.
+
+
+Dependabot commands and options
+
+You can trigger Dependabot actions by commenting on this PR:
+
+@dependabot rebase will rebase this PR
+@dependabot recreate will recreate this PR, overwriting any edits that have been made to it
+@dependabot merge will merge this PR after your CI passes on it
+@dependabot squash and merge will squash and merge this PR after your CI passes on it
+@dependabot cancel merge will cancel a previously requested merge and block automerging
+@dependabot reopen will reopen this PR if it is closed
+@dependabot close will close this PR and stop Dependabot recreating it. You can achieve the same result by closing it manually
+@dependabot ignore this major version will close this PR and stop Dependabot creating any more for this major version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this minor version will close this PR and stop Dependabot creating any more for this minor version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this dependency will close this PR and stop Dependabot creating any more for this dependency (unless you reopen the PR or upgrade to it yourself)",1,0
+2603,2022-01-03T07:04:14Z,2022-01-03T21:28:59Z,2022-01-03T21:28:59Z,2,5,5,"Bumps concurrently from 6.5.1 to 7.0.0.
+
+Release notes
+Sourced from concurrently's releases.
+
+v7.0.0
+🎉  🥂  Happy 2022!
+Breaking changes
+
+Dropped support for Node 10. Minimum version is now 12.20.
+concurrently() API now has a different return value. Please refer to the docs.
+
+Functional changes
+
+Added --group flag/option to run process in parallel but print output in sequence - #75, #79, #272
+Codebase converted to TypeScript. Some bugs may arise due to this, but I hope not!
+
+API Changes
+
+concurrently can now be imported as an ES Module! Just do import concurrently from 'concurrently'.
+concurrently() now returns the commands alongside a promise for the result - #209
+
+New Contributors
+
+@​cdrini made their first contribution in open-cli-tools/concurrently#272
+
+
+
+
+Commits
+
+379c7dc 7.0.0
+8ae4c95 docs: update concurrently() API and add missing flags
+6aa9654 Expose more things in the main package export
+d8c7ae2 Expose commands via API before they finish running
+75d6a5d Make CompletionListener compliant with docs
+3eb9d0a npm: dedupe
+6707fbc Update engines in package-lock.json too
+7998191 chmod +x after building
+44a3747 Add heaps of comments to undocumented code
+53c7a98 Readd types
+Additional commits viewable in compare view
+
+
+
+
+Dependabot will resolve any conflicts with this PR as long as you don't alter it yourself. You can also trigger a rebase manually by commenting @dependabot rebase.
+
+
+Dependabot commands and options
+
+You can trigger Dependabot actions by commenting on this PR:
+
+@dependabot rebase will rebase this PR
+@dependabot recreate will recreate this PR, overwriting any edits that have been made to it
+@dependabot merge will merge this PR after your CI passes on it
+@dependabot squash and merge will squash and merge this PR after your CI passes on it
+@dependabot cancel merge will cancel a previously requested merge and block automerging
+@dependabot reopen will reopen this PR if it is closed
+@dependabot close will close this PR and stop Dependabot recreating it. You can achieve the same result by closing it manually
+@dependabot ignore this major version will close this PR and stop Dependabot creating any more for this major version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this minor version will close this PR and stop Dependabot creating any more for this minor version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this dependency will close this PR and stop Dependabot creating any more for this dependency (unless you reopen the PR or upgrade to it yourself)",1,0
+2604,2022-01-03T07:04:26Z,2022-01-03T21:30:55Z,2022-01-03T21:30:55Z,1,3,3,"Bumps lint-staged from 12.1.4 to 12.1.5.
+
+Release notes
+Sourced from lint-staged's releases.
+
+v12.1.5
+12.1.5 (2022-01-02)
+Bug Fixes
+
+search configuration starting from explicit cwd option (c7ea359)
+using --debug option enables debug mode (5cceeb6)
+
+
+
+
+Commits
+
+c7ea359 fix: search configuration starting from explicit cwd option
+5cceeb6 fix: using --debug option enables debug mode
+See full diff in compare view
+
+
+
+
+Dependabot will resolve any conflicts with this PR as long as you don't alter it yourself. You can also trigger a rebase manually by commenting @dependabot rebase.
+
+
+Dependabot commands and options
+
+You can trigger Dependabot actions by commenting on this PR:
+
+@dependabot rebase will rebase this PR
+@dependabot recreate will recreate this PR, overwriting any edits that have been made to it
+@dependabot merge will merge this PR after your CI passes on it
+@dependabot squash and merge will squash and merge this PR after your CI passes on it
+@dependabot cancel merge will cancel a previously requested merge and block automerging
+@dependabot reopen will reopen this PR if it is closed
+@dependabot close will close this PR and stop Dependabot recreating it. You can achieve the same result by closing it manually
+@dependabot ignore this major version will close this PR and stop Dependabot creating any more for this major version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this minor version will close this PR and stop Dependabot creating any more for this minor version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this dependency will close this PR and stop Dependabot creating any more for this dependency (unless you reopen the PR or upgrade to it yourself)",1,0
+2605,2022-01-03T07:04:38Z,2022-01-03T21:31:47Z,2022-01-03T21:31:47Z,1,14,14,"Bumps eslint-plugin-jsdoc from 37.4.0 to 37.5.0.
+
+Release notes
+Sourced from eslint-plugin-jsdoc's releases.
+
+v37.5.0
+37.5.0 (2021-12-31)
+Features
+
+no-multi-asterisks: add allowWhitespace option; fixes #803 (6ddc79c)
+
+v37.4.2
+37.4.2 (2021-12-28)
+Bug Fixes
+
+match-description: address issue with constructor being required with mainDescription false; fixes #802 (80ab88a)
+update jsdoc-type-pratt-parser (and jsdoccomment) (e793c66)
+
+v37.4.1
+37.4.1 (2021-12-28)
+Bug Fixes
+
+updates jsdoc-type-pratt-parser and jsdoccomment to surface ""module"" as child fix; fixes #806 (a7f3039)
+
+
+
+
+Commits
+
+6ddc79c feat(no-multi-asterisks): add allowWhitespace option; fixes #803
+f308667 docs(no-bad-blocks): clarify preventAllMultiAsteriskBlocks option; fixes ...
+e793c66 fix: update jsdoc-type-pratt-parser (and jsdoccomment)
+80ab88a fix(match-description): address issue with constructor being required wit...
+934470e test: report syntax errors
+a7f3039 fix: updates jsdoc-type-pratt-parser and jsdoccomment to surface ""module"" as ...
+f5836d9 chore: add commit bit to Husky hook
+4cb5d27 chore: update devDeps.
+c48ee19 chore: further linting
+51ebccb chore: add other hooks
+Additional commits viewable in compare view
+
+
+
+
+Dependabot will resolve any conflicts with this PR as long as you don't alter it yourself. You can also trigger a rebase manually by commenting @dependabot rebase.
+
+
+Dependabot commands and options
+
+You can trigger Dependabot actions by commenting on this PR:
+
+@dependabot rebase will rebase this PR
+@dependabot recreate will recreate this PR, overwriting any edits that have been made to it
+@dependabot merge will merge this PR after your CI passes on it
+@dependabot squash and merge will squash and merge this PR after your CI passes on it
+@dependabot cancel merge will cancel a previously requested merge and block automerging
+@dependabot reopen will reopen this PR if it is closed
+@dependabot close will close this PR and stop Dependabot recreating it. You can achieve the same result by closing it manually
+@dependabot ignore this major version will close this PR and stop Dependabot creating any more for this major version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this minor version will close this PR and stop Dependabot creating any more for this minor version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this dependency will close this PR and stop Dependabot creating any more for this dependency (unless you reopen the PR or upgrade to it yourself)",1,0
+2606,2022-01-03T07:04:47Z,2022-01-03T23:57:20Z,2022-01-03T23:57:20Z,1,3,3,"Bumps webpack-dev-server from 4.7.1 to 4.7.2.
+
+Release notes
+Sourced from webpack-dev-server's releases.
+
+v4.7.2
+4.7.2 (2021-12-29)
+Bug Fixes
+
+apply onAfterSetupMiddleware after setupMiddlewares (as behavior earlier) (f6bc644)
+
+
+
+
+Changelog
+Sourced from webpack-dev-server's changelog.
+
+4.7.2 (2021-12-29)
+Bug Fixes
+
+apply onAfterSetupMiddleware after setupMiddlewares (as behavior earlier) (f6bc644)
+
+
+
+
+Commits
+
+75999bb chore(release): 4.7.2
+90a96f7 ci: fix (#4143)
+f6bc644 fix: compatible with onAfterSetupMiddleware
+317e4b9 docs: fix testing instructions (#4133)
+ff4550e test: remove redundant test cases related to 3rd party code (#4131)
+0dd1ee6 test: add e2e tests for setupExitSignals option (#4130)
+See full diff in compare view
+
+
+
+
+Dependabot will resolve any conflicts with this PR as long as you don't alter it yourself. You can also trigger a rebase manually by commenting @dependabot rebase.
+
+
+Dependabot commands and options
+
+You can trigger Dependabot actions by commenting on this PR:
+
+@dependabot rebase will rebase this PR
+@dependabot recreate will recreate this PR, overwriting any edits that have been made to it
+@dependabot merge will merge this PR after your CI passes on it
+@dependabot squash and merge will squash and merge this PR after your CI passes on it
+@dependabot cancel merge will cancel a previously requested merge and block automerging
+@dependabot reopen will reopen this PR if it is closed
+@dependabot close will close this PR and stop Dependabot recreating it. You can achieve the same result by closing it manually
+@dependabot ignore this major version will close this PR and stop Dependabot creating any more for this major version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this minor version will close this PR and stop Dependabot creating any more for this minor version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this dependency will close this PR and stop Dependabot creating any more for this dependency (unless you reopen the PR or upgrade to it yourself)",1,0
+2607,2022-01-03T07:05:01Z,2022-01-03T23:56:31Z,2022-01-03T23:56:31Z,1,3,3,"Bumps @commitlint/cli from 16.0.0 to 16.0.1.
+
+Release notes
+Sourced from @​commitlint/cli's releases.
+
+v16.0.1
+16.0.1 (2021-12-28)
+Bug Fixes
+
+update dependency @​types/tmp to v0.2.3 (#2928) (8eeb1f4)
+update dependency conventional-changelog-conventionalcommits to v4.6.2 (#2934) (a239b9e)
+update dependency cosmiconfig-typescript-loader to v1.0.2 (#2929) (04cc88c)
+update dependency yargs to v17.3.1 (#2935) (8e099af)
+
+
+
+
+Changelog
+Sourced from @​commitlint/cli's changelog.
+
+16.0.1 (2021-12-28)
+Note: Version bump only for package @​commitlint/cli
+
+
+
+Commits
+
+69392f5 v16.0.1
+067fb4d chore: update node.js to v12.22.8 (#2926)
+See full diff in compare view
+
+
+
+
+Dependabot will resolve any conflicts with this PR as long as you don't alter it yourself. You can also trigger a rebase manually by commenting @dependabot rebase.
+
+
+Dependabot commands and options
+
+You can trigger Dependabot actions by commenting on this PR:
+
+@dependabot rebase will rebase this PR
+@dependabot recreate will recreate this PR, overwriting any edits that have been made to it
+@dependabot merge will merge this PR after your CI passes on it
+@dependabot squash and merge will squash and merge this PR after your CI passes on it
+@dependabot cancel merge will cancel a previously requested merge and block automerging
+@dependabot reopen will reopen this PR if it is closed
+@dependabot close will close this PR and stop Dependabot recreating it. You can achieve the same result by closing it manually
+@dependabot ignore this major version will close this PR and stop Dependabot creating any more for this major version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this minor version will close this PR and stop Dependabot creating any more for this minor version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this dependency will close this PR and stop Dependabot creating any more for this dependency (unless you reopen the PR or upgrade to it yourself)",1,0
+2608,2022-01-03T07:05:14Z,2022-01-03T23:55:56Z,2022-01-03T23:55:56Z,1,15,10,"Bumps eslint from 8.5.0 to 8.6.0.
+
+Release notes
+Sourced from eslint's releases.
+
+v8.6.0
+Features
+
+6802a54 feat: handle logical assignment in no-self-assign (#14152) (Zzzen)
+3b38018 feat: allow to define eslint-disable-next-line in multiple lines (#15436) (Nitin Kumar)
+9d6fe5a feat: false negative with onlyDeclarations + properties in id-match (#15431) (Nitin Kumar)
+
+Documentation
+
+6c4dee2 docs: Document homedir is a configuration root (#15469) (Bas Bosman)
+51c37b1 docs: consistency changes (#15404) (Bas Bosman)
+775d181 docs: Mention character classes in no-useless-escape (#15421) (Sebastian Simon)
+
+Chores
+
+3a384fc chore: Upgrade espree to 9.3.0 (#15473) (Brandon Mills)
+1443cc2 chore: Update blogpost.md.ejs (#15468) (Nicholas C. Zakas)
+28e907a refactor: remove unused parameter in linter.js (#15451) (Milos Djermanovic)
+eaa08d3 test: add tests for allowReserved parser option with flat config (#15450) (Milos Djermanovic)
+
+
+
+
+Changelog
+Sourced from eslint's changelog.
+
+v8.6.0 - December 31, 2021
+
+3a384fc chore: Upgrade espree to 9.3.0 (#15473) (Brandon Mills)
+1443cc2 chore: Update blogpost.md.ejs (#15468) (Nicholas C. Zakas)
+6c4dee2 docs: Document homedir is a configuration root (#15469) (Bas Bosman)
+6802a54 feat: handle logical assignment in no-self-assign (#14152) (Zzzen)
+3b38018 feat: allow to define eslint-disable-next-line in multiple lines (#15436) (Nitin Kumar)
+51c37b1 docs: consistency changes (#15404) (Bas Bosman)
+28e907a refactor: remove unused parameter in linter.js (#15451) (Milos Djermanovic)
+eaa08d3 test: add tests for allowReserved parser option with flat config (#15450) (Milos Djermanovic)
+9d6fe5a feat: false negative with onlyDeclarations + properties in id-match (#15431) (Nitin Kumar)
+775d181 docs: Mention character classes in no-useless-escape (#15421) (Sebastian Simon)
+
+
+
+
+Commits
+
+648fe1a 8.6.0
+fde7340 Build: changelog update for 8.6.0
+3a384fc chore: Upgrade espree to 9.3.0 (#15473)
+1443cc2 chore: Update blogpost.md.ejs (#15468)
+6c4dee2 docs: Document homedir is a configuration root (#15469)
+6802a54 feat: handle logical assignment in no-self-assign (#14152)
+3b38018 feat: allow to define eslint-disable-next-line in multiple lines (#15436)
+51c37b1 docs: consistency changes (#15404)
+28e907a refactor: remove unused parameter in linter.js (#15451)
+eaa08d3 test: add tests for allowReserved parser option with flat config (#15450)
+Additional commits viewable in compare view
+
+
+
+
+Dependabot will resolve any conflicts with this PR as long as you don't alter it yourself. You can also trigger a rebase manually by commenting @dependabot rebase.
+
+
+Dependabot commands and options
+
+You can trigger Dependabot actions by commenting on this PR:
+
+@dependabot rebase will rebase this PR
+@dependabot recreate will recreate this PR, overwriting any edits that have been made to it
+@dependabot merge will merge this PR after your CI passes on it
+@dependabot squash and merge will squash and merge this PR after your CI passes on it
+@dependabot cancel merge will cancel a previously requested merge and block automerging
+@dependabot reopen will reopen this PR if it is closed
+@dependabot close will close this PR and stop Dependabot recreating it. You can achieve the same result by closing it manually
+@dependabot ignore this major version will close this PR and stop Dependabot creating any more for this major version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this minor version will close this PR and stop Dependabot creating any more for this minor version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this dependency will close this PR and stop Dependabot creating any more for this dependency (unless you reopen the PR or upgrade to it yourself)",1,0
+2609,2022-01-03T07:05:26Z,2022-01-03T21:30:01Z,2022-01-03T21:30:01Z,1,3,3,"Bumps eslint-plugin-jest from 25.3.0 to 25.3.4.
+
+Release notes
+Sourced from eslint-plugin-jest's releases.
+
+v25.3.4
+25.3.4 (2022-01-01)
+Bug Fixes
+
+prefer-lowercase-title: ignore it and test separately (#1011) (f1a7674)
+
+v25.3.3
+25.3.3 (2021-12-30)
+Bug Fixes
+
+prefer-to-contain: support square bracket accessors (#1009) (73984a7)
+prefer-to-have-length: support square bracket accessors (#1010) (9e70f55)
+
+v25.3.2
+25.3.2 (2021-12-27)
+Bug Fixes
+
+no-large-snapshots: only count size of template string for inline snapshots (#1005) (5bea38f)
+prefer-hooks-on-top: improve message & docs (#999) (f9e7ae2)
+
+v25.3.1
+25.3.1 (2021-12-27)
+Bug Fixes
+
+prefer-to-be: support template literals (#1006) (aa428e6)
+
+
+
+
+Changelog
+Sourced from eslint-plugin-jest's changelog.
+
+25.3.4 (2022-01-01)
+Bug Fixes
+
+prefer-lowercase-title: ignore it and test separately (#1011) (f1a7674)
+
+25.3.3 (2021-12-30)
+Bug Fixes
+
+prefer-to-contain: support square bracket accessors (#1009) (73984a7)
+prefer-to-have-length: support square bracket accessors (#1010) (9e70f55)
+
+25.3.2 (2021-12-27)
+Bug Fixes
+
+no-large-snapshots: only count size of template string for inline snapshots (#1005) (5bea38f)
+prefer-hooks-on-top: improve message & docs (#999) (f9e7ae2)
+
+25.3.1 (2021-12-27)
+Bug Fixes
+
+prefer-to-be: support template literals (#1006) (aa428e6)
+
+
+
+
+Commits
+
+d52b7ab chore(release): 25.3.4 [skip ci]
+f1a7674 fix(prefer-lowercase-title): ignore it and test separately (#1011)
+88c43dd ci: properly configure smoke test (#1003)
+dbf3453 chore(deps): update ariperkkio/eslint-remote-tester-run-action action to v3 (...
+6b27aa7 chore(release): 25.3.3 [skip ci]
+9e70f55 fix(prefer-to-have-length): support square bracket accessors (#1010)
+73984a7 fix(prefer-to-contain): support square bracket accessors (#1009)
+902a70d chore(deps): lock file maintenance
+37902a2 chore: update @typescript-eslint packages (#1008)
+c134cb4 chore(release): 25.3.2 [skip ci]
+Additional commits viewable in compare view
+
+
+
+
+Dependabot will resolve any conflicts with this PR as long as you don't alter it yourself. You can also trigger a rebase manually by commenting @dependabot rebase.
+
+
+Dependabot commands and options
+
+You can trigger Dependabot actions by commenting on this PR:
+
+@dependabot rebase will rebase this PR
+@dependabot recreate will recreate this PR, overwriting any edits that have been made to it
+@dependabot merge will merge this PR after your CI passes on it
+@dependabot squash and merge will squash and merge this PR after your CI passes on it
+@dependabot cancel merge will cancel a previously requested merge and block automerging
+@dependabot reopen will reopen this PR if it is closed
+@dependabot close will close this PR and stop Dependabot recreating it. You can achieve the same result by closing it manually
+@dependabot ignore this major version will close this PR and stop Dependabot creating any more for this major version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this minor version will close this PR and stop Dependabot creating any more for this minor version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this dependency will close this PR and stop Dependabot creating any more for this dependency (unless you reopen the PR or upgrade to it yourself)",1,0
+2614,2022-01-08T08:32:34Z,2022-01-10T15:59:01Z,2022-01-10T15:59:01Z,1,1,1,"📑 Summary
+Fix typo (diamgram -> diagram)
+📏 Design Decisions
+--
+📋 Tasks
+Make sure you
+
+ 📖 have read the contribution guidelines
+ 💻 have added unit/e2e tests (if appropriate)
+ 🔖 targeted develop branch",2,1
+2621,2022-01-12T07:26:44Z,2022-01-18T21:57:04Z,2022-01-18T21:57:05Z,1,0,2,"Remove console.log from removeEscapes method
+📑 Summary
+Removes a console.log introduced in 6f800be
+📏 Design Decisions
+n/a
+📋 Tasks
+Make sure you
+
+ 📖 have read the contribution guidelines
+ 💻 have added unit/e2e tests (if appropriate)
+ 🔖 targeted develop branch",3,1
+2625,2022-01-13T13:50:31Z,2022-01-13T15:26:45Z,2022-01-13T15:26:46Z,1,3,3,"Bumps follow-redirects from 1.14.6 to 1.14.7.
+
+Commits
+
+2ede36d Release version 1.14.7 of the npm package.
+8b347cb Drop Cookie header across domains.
+See full diff in compare view
+
+
+
+
+Dependabot will resolve any conflicts with this PR as long as you don't alter it yourself. You can also trigger a rebase manually by commenting @dependabot rebase.
+
+
+Dependabot commands and options
+
+You can trigger Dependabot actions by commenting on this PR:
+
+@dependabot rebase will rebase this PR
+@dependabot recreate will recreate this PR, overwriting any edits that have been made to it
+@dependabot merge will merge this PR after your CI passes on it
+@dependabot squash and merge will squash and merge this PR after your CI passes on it
+@dependabot cancel merge will cancel a previously requested merge and block automerging
+@dependabot reopen will reopen this PR if it is closed
+@dependabot close will close this PR and stop Dependabot recreating it. You can achieve the same result by closing it manually
+@dependabot ignore this major version will close this PR and stop Dependabot creating any more for this major version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this minor version will close this PR and stop Dependabot creating any more for this minor version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this dependency will close this PR and stop Dependabot creating any more for this dependency (unless you reopen the PR or upgrade to it yourself)
+You can disable automated security fix PRs for this repo from the Security Alerts page.",1,0

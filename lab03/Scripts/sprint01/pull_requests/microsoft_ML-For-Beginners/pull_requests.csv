@@ -1,0 +1,554 @@
+number,created_at,merged_at,closed_at,files,additions,deletions,body_text,participants,comments
+32,2021-06-15T12:18:00Z,2021-06-16T20:37:53Z,2021-06-16T20:37:53Z,1,45,10,"editorial suggestions, adapt it to LEARN a little bit by
+
+create a bullet list for learning objectives
+smaller re arrangement of text
+bullet list to high list ML applications",2,1
+33,2021-06-15T12:33:24Z,2021-06-16T20:35:42Z,2021-06-16T20:35:43Z,1,15,10,smaller editoral changes,2,2
+34,2021-06-15T13:25:28Z,2021-06-16T20:32:29Z,2021-06-16T20:32:29Z,1,59,47,the idea is to fill in the bullet lists a little more. I imagine the reader is helped by having a term explained upfront and then a meatier example below,2,1
+37,2021-06-17T22:02:19Z,2021-06-19T17:55:04Z,2021-06-19T17:55:04Z,1,261,159,"editorial fixes
+
+numbered steps
+adding h3s to make for an easier read
+add lead in sentences where needed
+
+going to LEARN this feels like it needs a lot more explanation. I feel like I can follow the steps and get the same results, but I don't feel sure why I'm taking certain steps which leads to a feeling of doing a bunch of steps, but I'm not sure I can repeat them on another problem...
+but the charts that are there are good, helps a lot to verify that this seems to check out...",2,1
+38,2021-06-22T20:27:06Z,2021-06-22T21:31:01Z,2021-06-22T21:31:01Z,1,260,201,"editorial
+renamed to exercises
+code formatting",2,0
+41,2021-06-22T21:42:41Z,2021-06-23T00:56:10Z,2021-06-23T00:56:10Z,1,226,172,format like exercises in LEARN,2,0
+42,2021-06-23T12:01:22Z,2021-06-23T18:23:37Z,2021-06-23T18:23:37Z,1,157,126,"trying to separate concept and exercise
+exercise formatting
+
+please check veracity of my changes, it feels strange that we say multiclass is no good and then that's what we are using the exercise?",2,0
+43,2021-06-23T12:24:35Z,2021-06-23T14:07:47Z,2021-06-23T14:07:47Z,1,126,91,"editorial
+
+ensure concept comes first and then exercise",2,0
+48,2021-06-24T18:46:19Z,2021-06-24T21:15:22Z,2021-06-24T21:15:22Z,1,50,41,"editorial
+
+made the headers more like learn
+
+wonder if the last challenge should be a more step by step thing?",2,0
+49,2021-06-24T22:41:00Z,2021-06-25T00:33:40Z,2021-06-25T00:33:40Z,1,61,26,"editorial
+
+some suggestion on editorial changes, to make for easier read",2,0
+50,2021-06-25T11:18:25Z,2021-06-25T20:07:57Z,2021-06-25T20:07:57Z,2,72,55,"editorial
+there's a timeseries inline thing going on in one of the exercises, please check if it should be there.",2,1
+51,2021-06-25T11:49:57Z,2021-06-25T19:58:28Z,2021-06-25T19:58:28Z,1,273,257,some suggestions on formatting for an easier read,2,0
+53,2021-06-25T13:08:23Z,2021-06-25T19:54:07Z,2021-06-25T19:54:07Z,2,133,103,"editorial
+I got the feeling the code already exist for this, it's just a matter of running existing code?",2,0
+54,2021-06-25T13:42:38Z,2021-06-25T19:50:42Z,2021-06-25T19:50:42Z,1,177,158,editorial,2,0
+55,2021-06-25T14:00:03Z,2021-06-25T19:42:57Z,2021-06-25T19:42:57Z,1,17,0,editorial,2,0
+76,2021-07-02T16:00:11Z,2021-07-03T03:02:40Z,2021-07-03T03:02:40Z,1,107,0,,2,1
+78,2021-07-03T02:51:10Z,2021-07-07T12:02:56Z,2021-07-07T12:02:56Z,1,116,0,done,2,1
+79,2021-07-03T02:53:33Z,2021-07-07T12:03:36Z,2021-07-07T12:03:36Z,1,214,0,done,2,1
+80,2021-07-03T02:55:48Z,2021-07-07T12:04:29Z,2021-07-07T12:04:30Z,1,107,0,,2,1
+81,2021-07-03T06:09:57Z,2021-07-03T15:53:48Z,2021-07-03T15:53:48Z,2,127,0,,2,2
+82,2021-07-03T09:09:10Z,2021-07-03T15:52:59Z,2021-07-03T15:52:59Z,1,114,0,,2,1
+91,2021-07-04T18:44:01Z,2021-07-05T01:29:22Z,2021-07-05T01:29:22Z,3,206,2,I also fixed a typo and an expression of other files.,2,0
+92,2021-07-04T19:38:17Z,2021-07-04T21:09:52Z,2021-07-04T21:09:52Z,1,1,1,I fixed a misspelled word.,2,1
+94,2021-07-05T05:40:11Z,2021-07-05T13:17:14Z,2021-07-05T13:17:14Z,1,2,2,"It seems like the Web App lesson used to be part of the Introduction lesson group, but has changed to a separate part since then.     I fixed the broken link to the Web App lesson and changed one word so that the meaning matches the new course structure.",3,0
+96,2021-07-05T09:15:55Z,2021-07-05T16:08:53Z,2021-07-05T16:08:53Z,2,1,1,,3,2
+97,2021-07-05T11:40:12Z,2021-07-26T03:26:23Z,2021-07-26T03:26:23Z,9,606,0,"1-Introduction
+ 1-1 Intro to ML
+ 1-2 History of ML
+ 1-3 Fairness
+ 1-4 Techniques",2,8
+99,2021-07-06T07:39:51Z,2021-07-06T12:37:26Z,2021-07-06T12:37:26Z,1,1,1,Removed the unnecessary 'M' before 'Matplotlib'.,3,0
+102,2021-07-06T10:19:23Z,2021-07-06T12:38:17Z,2021-07-06T12:38:17Z,1,1,2,Removed an a statement which was repeated twice under 2-Regression/3-Linear/README.md,2,0
+103,2021-07-06T12:34:12Z,2021-07-09T14:14:28Z,2021-07-09T14:14:28Z,5,1079,0,"Preface
+ 1-Tools
+ 2-Data
+ 3-Linear
+ 4-Logistic
+
+Fill free to berate me on my Indonesian. I am a native but there's always debate when using technical language with a lot of English loanwords. 😁",2,1
+109,2021-07-07T09:44:41Z,2021-07-07T11:22:44Z,2021-07-07T11:22:44Z,1,1,1,,3,0
+113,2021-07-07T17:50:58Z,2021-07-09T17:03:51Z,2021-07-09T17:03:51Z,1,32,0,"1-Tools/translations/README.jp.md
+ 2-Data/translations/README.jp.md
+ 3-Linear/translations/README.jp.md
+ 4-Logistic/translations/README.jp.md",2,1
+117,2021-07-09T06:34:58Z,2021-07-09T14:12:44Z,2021-07-09T14:12:44Z,1,1,1,,2,0
+118,2021-07-09T07:05:22Z,2021-07-09T14:12:10Z,2021-07-09T14:12:10Z,1,6,6,,2,0
+122,2021-07-09T13:38:06Z,,2021-07-09T14:42:55Z,1,4,4,transformed_feature_df instead of transformed_df,3,5
+123,2021-07-09T14:03:22Z,2021-07-13T11:34:41Z,2021-07-13T11:34:41Z,1,205,0,,2,1
+124,2021-07-09T14:08:25Z,2021-07-13T11:35:32Z,2021-07-13T11:35:32Z,1,202,0,,2,1
+126,2021-07-09T14:08:59Z,2021-07-10T03:59:37Z,2021-07-10T03:59:37Z,1,297,0,,2,2
+127,2021-07-09T15:12:30Z,2021-07-09T17:11:39Z,2021-07-09T17:11:39Z,1,121,0,,2,1
+128,2021-07-09T15:28:33Z,,2022-01-29T08:37:04Z,3,2942,0,"main readme  #127
+ quizz-app (working on this)
+ rest of readme files",3,2
+129,2021-07-09T15:39:59Z,2021-07-09T17:06:14Z,2021-07-09T17:06:14Z,1,10,10,,2,0
+130,2021-07-09T15:40:53Z,2021-07-09T17:05:33Z,2021-07-09T17:05:33Z,1,3,3,,2,0
+131,2021-07-09T15:41:32Z,2021-07-09T17:05:06Z,2021-07-09T17:05:06Z,1,12,12,,2,0
+132,2021-07-09T15:42:27Z,2021-07-09T17:04:38Z,2021-07-09T17:04:38Z,1,130,23,,2,0
+141,2021-07-10T08:13:17Z,2021-07-10T17:10:47Z,2021-07-10T17:10:47Z,1,2,2,,2,0
+164,2021-07-13T04:38:53Z,2021-07-13T12:01:14Z,2021-07-13T12:01:14Z,1,22,0,Initial update of Chinese translation,3,6
+167,2021-07-13T16:22:05Z,2021-07-14T00:45:23Z,2021-07-14T00:45:23Z,1,22,0,"Should we traduce Machine Learning in french which is ""apprentissage automatique"" or leave like it to keep a better meaning?",2,3
+171,2021-07-14T10:18:14Z,2021-07-15T03:38:24Z,2021-07-15T03:38:24Z,2,158,3,,2,2
+172,2021-07-14T11:43:02Z,2021-07-14T16:10:44Z,2021-07-14T16:10:44Z,1,33,0,add a README.fr.md for Regression base README,2,3
+174,2021-07-14T13:19:35Z,2021-07-14T21:30:20Z,2021-07-14T21:30:20Z,1,34,0,,2,2
+175,2021-07-14T13:25:40Z,2021-07-14T14:27:16Z,2021-07-14T14:27:16Z,1,1,1,,2,0
+181,2021-07-14T19:23:54Z,2021-07-14T21:28:12Z,2021-07-14T21:28:12Z,1,1,1,"In line 178, templates folder seems to be inside of static folder and this condition gives notfoundtemplate error. I suggest delete one tab, I discovered this solution because I sew your solutions folder on github where locations is correct",2,0
+183,2021-07-14T21:47:57Z,2021-07-16T14:13:35Z,2021-07-16T14:13:35Z,2,119,0,"Hi!
+Actually doing the whole course, I thought it might be nice as a way to revise the lessons to translate them back to french (my 1rst language).
+Here is my first small contribution, I might do other Readme as I go along the course.
+I saw in another PR that the link to assignment need to be changed so I've done it.",3,9
+184,2021-07-15T04:55:43Z,2021-07-15T12:57:17Z,2021-07-15T12:57:17Z,1,4,5,Before the image was not seen due to indentation error,2,0
+187,2021-07-15T11:08:02Z,2021-07-15T13:14:27Z,2021-07-15T13:14:27Z,1,291,0,,2,1
+190,2021-07-15T21:57:54Z,2021-07-16T01:03:17Z,2021-07-16T01:03:17Z,1,53,0,,2,1
+191,2021-07-16T03:26:23Z,2021-07-16T14:21:32Z,2021-07-16T14:21:32Z,4,42,0,,2,1
+195,2021-07-16T14:46:42Z,2021-07-16T15:57:07Z,2021-07-16T15:57:07Z,2,30,30,"Fixed a few small bugs. Added necessary symbols, fixed pinyin input errors, changed sentences for better readability.",2,0
+198,2021-07-17T14:43:30Z,2021-07-17T20:26:45Z,2021-07-17T20:26:45Z,1,119,0,,2,3
+199,2021-07-17T21:52:15Z,2021-07-19T00:22:18Z,2021-07-19T00:22:18Z,2,128,0,"Here is the translation of 1.2 History of ML in french.
+The readme and the assignment have been translated accordingly to the vocabulary set in #186 .
+As discussed, NLP has been kept in english.
+It should solve two tasks in #166 .
+I've checked it and it doesn't seem to have anymore mistakes. I've replaced some wikipedia links with their french equivalent when there was one.",2,0
+200,2021-07-18T06:07:34Z,2021-07-18T12:15:53Z,2021-07-18T12:15:53Z,3,4,4,fix style mistake,2,1
+202,2021-07-18T12:46:52Z,2021-07-18T14:02:54Z,2021-07-18T14:02:54Z,2,74,43,"A heavy rewrite on the original translation, which is heavily based on machine translations. Improved sentence readability.
+Also added translation for chapter README on Chapter 6.",2,0
+203,2021-07-18T13:49:26Z,2021-07-19T00:21:12Z,2021-07-19T00:21:12Z,3,333,0,"I translated
+
+Classification lesson group base README.md
+Classification Introduction README.md
+Classification Introduction assignment.md",2,0
+204,2021-07-18T14:21:49Z,2021-07-19T00:19:35Z,2021-07-19T00:19:35Z,12,1507,0,"https://github.com/microsoft/ML-For-Beginners/tree/main/2-Regression/2-Data
+Sentence:
+""To get charts to display useful data, you usually need to group the data somehow.
+Let's try creating a plot where the y axis shows the months and the data demonstrates
+the distribution of data""
+I am confused, should the months be on the x-axis and what does it mean ""the data demonstrates
+the distribution of data""?",2,2
+207,2021-07-19T08:14:14Z,2021-07-19T12:12:31Z,2021-07-19T12:12:31Z,4,46,0,,2,0
+210,2021-07-19T09:42:59Z,2021-07-19T11:38:05Z,2021-07-19T11:38:05Z,1,1,1,I have removed the unnecessary dot.,2,0
+213,2021-07-19T12:32:53Z,2021-07-19T13:40:02Z,2021-07-19T13:40:02Z,1,4,4,,2,0
+214,2021-07-19T12:49:07Z,2021-07-19T14:25:54Z,2021-07-19T14:25:55Z,2,10,1,"Add Japanese translation of the 1.1 assignment.
+Refs #149",2,1
+216,2021-07-19T12:56:45Z,2021-07-19T14:22:16Z,2021-07-19T14:22:16Z,2,8,8,"As mentioned in #208 and #209, there was a comma missing and an incorrect path to the cleaned_cuisine.csv.
+Also, there was a minor formatting error for the dataframe.
+This should fix #208 and fix #209.",2,0
+217,2021-07-19T16:57:35Z,2021-07-19T18:18:30Z,2021-07-19T18:18:30Z,5,257,6,,2,0
+218,2021-07-20T04:02:09Z,2021-07-20T12:04:23Z,2021-07-20T12:04:23Z,1,2,2,,2,0
+221,2021-07-20T16:13:25Z,2021-07-21T14:13:34Z,2021-07-21T14:13:34Z,1,121,0,"Refs #149
+Add Japanese translation of the base README.",3,3
+224,2021-07-21T16:47:52Z,2021-07-24T13:04:14Z,2021-07-24T13:04:15Z,8,2829,11,Refs #149,2,0
+225,2021-07-21T17:46:11Z,,2021-07-25T01:39:12Z,1,2,2,"Hello, I have two suggestions.
+First, I think that a capital N is better in lines 20.
+And second, I don't know what was exactly the intentions, but if we are working on this curriculum directly on Github webpage, I think that is better if the link to the code example points to github web page instead of repo direction.
+Regards,
+Dan",2,1
+226,2021-07-21T17:56:07Z,2021-07-21T20:48:27Z,2021-07-21T20:48:27Z,1,1,1,"Sorry for open a new pr in the same file.
+:D this time I already fix the link",2,0
+227,2021-07-22T09:27:14Z,2021-07-22T15:03:09Z,2021-07-22T15:03:09Z,3,6,6,"I have fixed wrong quiz answers that have multiple ""true""s.",2,0
+228,2021-07-22T09:35:24Z,2021-07-22T12:10:14Z,2021-07-22T12:10:14Z,6,369,2,"translated 2-Regression/3-Linear in Japanese.
+Added translations of assignments for the previous sections.",2,0
+230,2021-07-22T19:55:47Z,2021-07-29T03:12:44Z,2021-07-29T03:12:45Z,7,1675,0,"Added .Rmd, .ipynb and encouRage.png for lesson 5
+Added .Rmd, .ipynb, dplyr_wrangling.png and unruly_data.jpg for lesson 6",2,2
+231,2021-07-23T09:47:01Z,2021-07-23T12:24:52Z,2021-07-23T12:24:52Z,1,1,1,"Seems like this site isn't paid for hosting. So, this site is unavailable.",2,1
+232,2021-07-24T09:39:14Z,2021-07-24T13:00:50Z,2021-07-24T13:00:50Z,1,1,1,reuirements.txt to requirements.txt,2,0
+234,2021-07-25T13:13:11Z,2021-07-25T15:29:14Z,2021-07-25T15:29:14Z,9,1178,0,"Hi Jen, a couple of things about ch. 4 to check please:
+
+
+1-Introduction - In row 106 and 173 of README.md there is a reference to a create_ingredient() function, but I think the correct function name should be create_ingredient_df() as in the source code (row 163)
+
+
+4-Applied - Row 315 of README.md : [http-server](https://www.npmjs.com/package/http-server) is backticked therefore the link does not appear, is this the desired behaviour?
+
+
+TIA
+Bye",2,1
+235,2021-07-26T05:38:27Z,2021-07-29T03:07:32Z,2021-07-29T03:07:32Z,4,8,8,"Precision and Recall
+I think the formula definitions of Precision and Recall in 2-4-Logistic are not correct, compared with what tells me on sklearn Doc and Wikipedia.
+
+Confusion Matrix
+There is also a problem that appears in the picture of Confusion Matrix. (I did not fix the picture in the commit)
+
+The Actual Values should be presented by axis 0 and Predicted Values in axis 1. So that calculation results can match the classification_report with the correct definition of precision and recall.
+Finally, The correct matrix should be:
+
+
+
+
+
+
+
+
+
+TP
+FN
+
+
+FP
+TN
+
+
+
+See Confusion Matrix in sklearn and Wiki.",2,7
+236,2021-07-26T09:58:45Z,2021-07-26T12:20:41Z,2021-07-26T12:20:41Z,2,12,1,Refs #149,2,0
+238,2021-07-26T15:28:47Z,2021-07-29T13:52:28Z,2021-07-29T13:52:28Z,1,12,0,,3,0
+241,2021-07-27T02:21:58Z,2021-07-27T12:46:57Z,2021-07-27T12:46:57Z,1,9,0,,2,1
+243,2021-07-27T09:32:50Z,2021-07-27T12:44:51Z,2021-07-27T12:44:51Z,2,12,1,Refs #149,2,0
+244,2021-07-28T09:52:15Z,2021-07-28T12:28:08Z,2021-07-28T12:28:08Z,1,11,0,Refs #149,2,0
+246,2021-07-29T01:57:22Z,2021-08-03T14:00:54Z,2021-08-03T14:00:55Z,1,242,0,Simplified Chinese Translation,4,5
+253,2021-07-31T11:10:05Z,2021-08-01T02:40:23Z,2021-08-01T02:40:23Z,1,110,0,Refs #149,2,0
+254,2021-07-31T11:13:26Z,2021-08-01T02:39:29Z,2021-08-01T02:39:29Z,1,8,3,"I have cleaned:
+
+unnecessary spaces
+newlines before/after the headings",2,0
+255,2021-08-01T04:20:59Z,,2021-10-02T13:55:16Z,1,12,0,,4,3
+256,2021-08-01T09:19:41Z,2021-08-04T10:45:36Z,2021-08-04T10:45:36Z,5,641,0,Chapter 5 completed,2,1
+257,2021-08-01T22:49:51Z,2021-08-02T00:57:15Z,2021-08-02T00:57:15Z,1,107,0,,2,0
+260,2021-08-03T04:06:06Z,2021-08-03T14:00:17Z,2021-08-03T14:00:17Z,2,3,0,Labeled Scatterplot According to the data and given a total to it. also uploaded/updated the new graph,2,1
+261,2021-08-03T11:30:16Z,2021-08-03T13:57:45Z,2021-08-03T13:57:45Z,3,3,3,Fixed some typos I found.,2,1
+264,2021-08-03T18:21:10Z,2021-08-04T14:14:07Z,2021-08-04T14:14:07Z,1,28,28,"My editor removed a bunch of whitespace. The idea is that the loop that uses HORIZON needs a +1 in order to have all the items in the range() function call.
+Fixes #165",2,0
+279,2021-08-05T14:39:09Z,2021-08-07T04:50:08Z,2021-08-07T04:50:08Z,1,21,22,,3,0
+285,2021-08-07T09:42:36Z,2021-08-08T15:51:48Z,2021-08-08T15:51:48Z,1,345,0,Refs #149,2,0
+286,2021-08-08T09:26:35Z,2021-08-08T13:19:14Z,2021-08-08T13:19:14Z,1,55,57,"I have cleaned:
+
+unnecessary spaces/newlines
+missing periods
+indents
+consistency of punctuations and emphases
+consistency of tab/space
+typo
+paths to the file",2,0
+292,2021-08-09T18:26:15Z,2021-08-10T00:07:48Z,2021-08-10T00:07:48Z,1,33,0,,3,3
+293,2021-08-09T21:04:31Z,,2021-09-30T18:41:59Z,2,4092,412,"After adding the previous change (fixed in https://github.com/microsoft/ML-For-Beginners/issues/165) it caused ARIMA's solution notebook to no longer work and break with an exception from Pandas.
+I don't feel super confident about this PR except for the fact that the notebook now works with same/similar output to the previous one.
+Fixes #291",4,5
+296,2021-08-14T22:22:11Z,2021-08-17T12:40:52Z,2021-08-17T12:40:52Z,1,14,0,,2,0
+297,2021-08-15T15:59:12Z,2021-08-17T13:17:57Z,2021-08-17T13:17:57Z,5,623,0,"Jen, please check this:
+README.md for Chapter 7-1, row 43
+Learn more about the may ways to analyze this type of data.
+Maybe it is many?
+Thanks",3,2
+299,2021-08-19T21:18:37Z,,2021-09-08T18:11:05Z,1,113,0,,4,4
+300,2021-08-20T10:55:17Z,2021-08-20T14:18:42Z,2021-08-20T14:18:42Z,1,21,0,Refs #149,2,0
+301,2021-08-20T10:57:18Z,2021-08-20T14:18:07Z,2021-08-20T14:18:07Z,1,4,5,Clean unnecessary blank lines and spaces.,2,0
+309,2021-08-22T13:20:00Z,2021-08-23T02:23:24Z,2021-08-23T02:23:24Z,5,784,0,"Hi, please check this:
+README.md Chapter 8-1 Row 304
+balance between exploration and exploration
+instead of (I suppose)
+balance between exploitation and exploration
+Bye",2,0
+310,2021-08-22T14:44:26Z,2021-08-23T02:24:31Z,2021-08-23T02:24:31Z,1,2500,0,Notebook_Julia_Editing_Linear_Regression.ipynb,2,1
+313,2021-08-23T14:30:45Z,2021-08-23T19:09:30Z,2021-08-23T19:09:31Z,6,1821,177,"Added artwork: parsnip.jpg
+Added R Notebooks: lesson_11-R.ipynb, lesson_11.Rmd",3,3
+316,2021-08-24T18:20:11Z,2021-08-25T12:43:06Z,2021-08-25T12:43:06Z,1,3,0,Adds the introduction video to the README,2,0
+318,2021-08-25T03:03:51Z,2021-08-29T14:17:38Z,2021-08-29T14:17:38Z,12,306,288,fix a lot of bugs,2,2
+319,2021-08-25T13:24:59Z,2021-08-30T12:01:24Z,2021-08-30T12:01:25Z,1,27,27,will this work?,4,12
+320,2021-08-25T15:58:23Z,2021-09-03T19:05:20Z,2021-09-03T19:05:20Z,1,26,0,,3,2
+321,2021-08-27T20:06:21Z,,2021-08-30T15:35:26Z,8,2631,15,"Fixed : #144
+Now these ML MCQs are available in simplified Chinese as well.",3,19
+328,2021-08-31T09:16:51Z,,2021-08-31T13:18:49Z,1,810,0,,2,1
+329,2021-08-31T14:41:38Z,2021-08-31T19:41:03Z,2021-08-31T19:41:03Z,6,1100,4,"Added artwork
+Added .Rmd: lesson_12.Rmd
+Added .ipynb: lesson_12-R.ipynb",2,1
+331,2021-09-04T00:02:02Z,2021-09-04T17:34:45Z,2021-09-04T17:34:45Z,7,75,70,,2,0
+332,2021-09-04T00:24:09Z,2021-09-04T17:35:18Z,2021-09-04T17:35:18Z,2,12,1,,2,0
+335,2021-09-06T06:27:30Z,2021-09-07T21:28:13Z,2021-09-07T21:28:13Z,1,1,1,"On line 106, ""us"" was used instead of ""use""",2,0
+336,2021-09-09T19:08:33Z,2021-09-10T15:45:22Z,2021-09-10T15:45:22Z,2,5,5,,2,1
+339,2021-09-11T08:05:23Z,2021-09-11T13:26:39Z,2021-09-11T13:26:39Z,3,19,18,,2,0
+355,2021-09-17T12:49:27Z,2021-09-21T13:53:17Z,2021-09-21T13:53:17Z,2,215,0,,2,1
+359,2021-09-21T12:18:48Z,2021-09-22T01:12:05Z,2021-09-22T01:12:05Z,1,10,6,Adds a new video that covers data preparation and visualization for the regression lesson,2,0
+360,2021-09-23T16:06:47Z,,2021-10-02T11:56:25Z,4,735,0,Add  readme && assignment for 8-Reinforcement,3,4
+363,2021-09-27T13:52:10Z,2021-09-27T15:44:19Z,2021-09-27T15:44:20Z,6,1028,2,"Added artwork: kmeans.gif that explains the clustering process
+Added R Notebooks: lesson_15.Rmd, lesson_15-R.ipynb",2,1
+364,2021-09-29T21:40:52Z,2021-09-30T18:08:48Z,2021-09-30T18:08:48Z,1,2,0,,2,0
+365,2021-10-01T06:04:24Z,2021-10-01T11:58:20Z,2021-10-01T11:58:20Z,1,4,4,,2,0
+366,2021-10-01T07:14:39Z,2021-10-01T11:57:38Z,2021-10-01T11:57:38Z,2,3,3,,2,0
+377,2021-10-03T01:30:12Z,2021-10-07T12:35:23Z,2021-10-07T12:35:23Z,12,3562,1,"Like commented in the issue #148 , I'm creating the translate for Portuguese-Brazil.
+This the first PR of many about this kind of task. =]
+
+ Base README.md
+ Quizzes
+ Introduction base README
+
+  Intro to ML README
+  Intro to ML assignment
+  History of ML README
+  History of ML assignment
+  Fairness README
+  Fairness assignment
+  Techniques of ML README
+  Techniques of ML assignment
+
+
+
+Note of the translator: Portuguese has a gender typing and is generally masculine, so it was added in some sentences ""a person"" to make certain sentences without a gender and make the course more inclusive. Another note is that the word denigrate has a racist nature, which is why it was changed to defame.",2,3
+382,2021-10-05T11:08:22Z,,2021-10-05T22:42:23Z,14,86,44,"Reference issues/PRs
+What does this implement/fix? Explain your changes.
+Any other  comments ?",2,1
+383,2021-10-06T02:37:42Z,2021-10-06T11:48:26Z,2021-10-06T11:48:26Z,1,5,5,,2,0
+387,2021-10-08T10:08:20Z,2021-10-08T11:50:54Z,2021-10-08T11:50:54Z,4,9,9,,2,1
+388,2021-10-08T10:08:21Z,2021-10-08T16:56:41Z,2021-10-08T16:56:41Z,4,13,13,,2,2
+392,2021-10-09T11:32:00Z,2021-10-11T14:22:26Z,2021-10-11T14:22:26Z,9,1137,0,,2,0
+394,2021-10-11T05:44:53Z,2021-10-11T14:23:56Z,2021-10-11T14:23:56Z,9,1154,0,"https://github.com/microsoft/ML-For-Beginners/issues/148
+Aaaaand one more chapter with awesome lessons was translated to another language.
+My job covered the regression lessons. It was nice for me to remember some concepts of it.
+
+
+  Regression base README
+
+  Tools README
+  Tools assignment
+  Data README
+  Data assignment
+  Linear README
+  Linear assignment
+  Logistic README
+  Logistic assignment",2,1
+395,2021-10-11T07:23:08Z,2021-10-11T14:20:24Z,2021-10-11T14:20:24Z,2,4,4,,2,1
+396,2021-10-11T23:12:12Z,2021-10-12T20:46:21Z,2021-10-12T20:46:21Z,1,13,0,,2,0
+397,2021-10-12T04:04:30Z,2021-10-12T20:45:50Z,2021-10-12T20:45:50Z,4,735,0,"Sorry for the late. I made some fix and read multi times.
+Signed-off-by: swartz-k 9215868@gmail.com",2,0
+399,2021-10-13T05:49:39Z,2021-10-13T11:48:54Z,2021-10-13T11:48:54Z,2,23,1,"add chapter 3 readme trans
+fix typo in chapter 8/2",2,1
+400,2021-10-14T05:10:57Z,2021-10-14T12:21:18Z,2021-10-14T12:21:18Z,1,11,0,,2,0
+402,2021-10-14T16:55:23Z,2021-10-16T12:43:58Z,2021-10-16T12:43:58Z,1,28,0,"Added Hindi translation for 1-Introduction base README.md.
+Issue Reference",3,1
+404,2021-10-16T01:46:03Z,2021-10-16T12:43:03Z,2021-10-16T12:43:03Z,2,9,9,,2,0
+405,2021-10-16T02:21:21Z,2021-10-16T14:30:10Z,2021-10-16T14:30:10Z,1,2,2,"Consider the following sentence in 4-Classification/README.md:
+In this section, you will build on the skills you learned in the first part of this curriculum all about regression to learn about other classifiers you can use that will help you learn about your data.
+It is unclear and hard to understand. I propose rephrasing it to
+In this section, you will build on the skills you learned in the first part of this curriculum on regression, and learn about other classifiers that you can use to better understand the data.
+which conveys the intended meaning in a much simpler way.
+PS: I was working on translating this section into Hindi and found that the original phrasing in English was quite hard to make sense of. Also updated Cassie's Twitter handle as it has changed. Please review and merge if the proposed change seems to improve the understanding.
+Thanks.",2,1
+406,2021-10-16T05:05:31Z,2021-10-16T13:10:49Z,2021-10-16T13:10:50Z,1,28,0,"Added Hindi translation for 4-Classification base README.md.
+See here for the corresponding hindi translations issue.",2,1
+407,2021-10-16T05:51:30Z,2021-10-17T12:21:54Z,2021-10-17T12:21:54Z,1,5,5,Corrected some grammatical errors.,2,0
+408,2021-10-17T06:12:08Z,2021-10-22T20:20:25Z,2021-10-22T20:20:25Z,1,129,0,,2,4
+409,2021-10-17T09:47:19Z,2021-10-17T12:22:42Z,2021-10-17T12:22:42Z,1,20,0,"Added Hindi translation for 3-Web-App base README.md.
+Issue Reference",2,0
+410,2021-10-17T16:24:24Z,2021-10-18T11:38:16Z,2021-10-18T11:38:16Z,1,15,0,"Added Hindi translation for 9-Real-World base README.md.
+See here for the corresponding hindi translations issue.",2,0
+412,2021-10-17T20:13:29Z,2021-10-18T11:39:08Z,2021-10-18T11:39:08Z,1,24,0,"Added Hindi translation for 7-TimeSeries base README.md.
+See here for the corresponding hindi translations issue.",2,0
+416,2021-10-18T16:03:13Z,2021-10-18T22:12:08Z,2021-10-18T22:12:08Z,1,3,2,"When browsing through the existing translations I noticed there were a couple of headings that had been missed.
+References https://github.com/microsoft/ML-For-Beginners/issues/149 (will try to come back and do some properly!)",2,0
+417,2021-10-18T20:30:49Z,2021-10-18T22:13:15Z,2021-10-18T22:13:15Z,1,27,0,The file 4-Classification/README.md has been translated to spanish. #411,2,1
+418,2021-10-19T01:29:30Z,2021-10-20T19:53:25Z,2021-10-20T19:53:25Z,1,14,0,"Translate file 9-Real-World/README.mdto spanish
+Related to #411",2,0
+419,2021-10-19T03:50:04Z,2021-10-20T19:52:55Z,2021-10-20T19:52:55Z,1,24,0,,2,0
+420,2021-10-19T06:27:29Z,2021-10-20T19:50:36Z,2021-10-20T19:50:36Z,4,248,2,,2,0
+421,2021-10-21T02:23:46Z,2021-10-21T13:42:18Z,2021-10-21T13:42:19Z,1,13,0,"Translate file 9-Real-World/1-Applications/assignment.mdto spanish.
+Related to #411",2,0
+422,2021-10-21T05:49:12Z,2021-10-21T13:41:54Z,2021-10-21T13:41:54Z,3,405,63,,2,0
+423,2021-10-22T11:30:39Z,2021-10-22T19:14:44Z,2021-10-22T19:14:44Z,1,137,23,Fix some translations and add 51 and 52 id missing quizzes,2,0
+424,2021-10-22T14:07:50Z,2021-10-26T12:36:11Z,2021-10-26T12:36:11Z,4,385,5,"Like commented in the issue #148 , I'm creating the translate for Portuguese-Brazil for the Web App Chapter.
+
+ Update README Summary
+ Web app base README
+
+ Web app README
+ Web app assignment",2,0
+425,2021-10-24T04:01:57Z,2021-10-24T14:00:53Z,2021-10-24T14:00:53Z,1,11,0,"Translate file 2-Regression/3-Linear/assignment.md to spanish.
+Related to #411",2,0
+426,2021-10-24T06:23:25Z,2021-10-24T14:00:21Z,2021-10-24T14:00:21Z,5,439,0,"Heyy, I added the translation for five NLP files (section 6). I wish I could translate the other files too, but I think I need a little break from that :D. Turns out the syntactical rules are quite different between English and Portuguese, which makes translating really tricky. I did my best to stick to the original text, while also writing something that makes sense to Brazilians and respects our rules. Let me know if something needs to be changed.
+This pull request completes 5 tasks from issue #148:
+
+ NLP base README
+
+ Intro README
+ Intro assignment
+ Tasks README
+ Tasks assignment",2,1
+427,2021-10-25T06:02:12Z,2021-10-25T11:39:34Z,2021-10-25T11:39:34Z,1,10,9,The current version includes a lot of unnatural and machine-translated sentences and words. Fixed critical/serious issues.,2,0
+428,2021-10-25T10:19:09Z,2021-10-25T11:38:49Z,2021-10-25T11:38:49Z,1,11,0,[fr] suggest translation for 1-3-fairness_assignment,2,0
+429,2021-10-26T04:14:23Z,2021-10-26T12:34:57Z,2021-10-26T12:34:57Z,1,27,24,Fixed critical/serious issues and unnatural language.,2,0
+430,2021-10-26T05:01:05Z,,2021-10-26T12:33:28Z,1,2,0,1 change 2 added file,2,0
+431,2021-10-26T21:51:40Z,2021-10-27T19:49:29Z,2021-10-27T19:49:29Z,1,212,0,"As discussed in #166, I've translated the 1-3 fairness readme.
+I have chosen to translate ""fairness"" by ""équité"" and ""harms"" by ""préjudices"".",3,1
+434,2021-10-27T11:20:19Z,2021-10-27T19:46:52Z,2021-10-27T19:46:53Z,1,11,0,,2,1
+438,2021-10-27T22:36:37Z,2021-11-17T22:16:43Z,2021-11-17T22:16:43Z,3,158,1,For #145,3,3
+439,2021-10-28T00:38:56Z,2021-10-28T02:58:57Z,2021-10-28T02:58:57Z,1,2,2,syntax issue (paragraph 03),2,0
+440,2021-10-28T00:54:06Z,2021-10-28T02:59:53Z,2021-10-28T02:59:53Z,1,4,4,"Typos fixed (paragraphs 11, 15, 17, 33)",2,0
+441,2021-10-28T01:37:29Z,2021-10-28T03:01:15Z,2021-10-28T03:01:15Z,1,12,12,"Typos fixed (paragraphs 16, 19, 26, 32, 40, 72, 85)",2,0
+444,2021-10-28T03:42:36Z,2021-10-28T12:51:45Z,2021-10-28T12:51:45Z,1,8,8,"Typos fixed (paragraphs 28, 32, 36, 83, 129, 149, 151ff)
+paragraph 46: ¿dato or dado?",2,0
+445,2021-10-28T03:44:14Z,2021-10-28T12:50:37Z,2021-10-28T12:50:37Z,1,1,1,,2,0
+446,2021-10-28T16:52:31Z,2021-10-29T11:45:29Z,2021-10-29T11:45:29Z,1,1,1,,2,0
+447,2021-10-28T17:02:14Z,2021-10-29T11:46:03Z,2021-10-29T11:46:03Z,1,1,1,added closing ),2,0
+448,2021-10-29T22:23:56Z,2021-10-30T14:29:28Z,2021-10-30T14:29:28Z,2,38,0,added french readme for into to part 7 and 9,4,1
+455,2021-11-03T14:45:06Z,2021-11-04T17:20:54Z,2021-11-04T17:20:54Z,5,75,75,"Some gramatical improvements for readability in the Spanish translation for the introduction, 1.1 and 1.2 lessons",2,1
+460,2021-11-06T18:27:56Z,,2021-11-06T21:46:22Z,1,5,5,,2,1
+464,2021-11-09T08:13:51Z,2021-11-09T12:44:23Z,2021-11-09T12:44:23Z,1,1,1,"The English word proliferation is not derogatory, while Chinese word 泛滥 is.
+So this translation could be improved.",2,0
+465,2021-11-09T21:55:41Z,2021-11-16T15:41:35Z,2021-11-16T15:41:35Z,3,17,17,,3,2
+468,2021-11-19T21:39:50Z,,2021-11-20T18:38:43Z,1,1,1,Tensorflow,2,1
+469,2021-11-19T22:14:40Z,2021-11-21T16:06:36Z,2021-11-21T16:06:36Z,1,1,1,ufo-model.pkl model file should be in the same directory as app.py file,2,1
+471,2021-11-20T15:34:33Z,2021-11-20T18:38:14Z,2021-11-20T18:38:14Z,1,1,1,"Tensor flow changed to TensorFlow, the other translations do not contain typos",2,0
+473,2021-11-21T19:50:55Z,2021-11-26T17:48:59Z,2021-11-26T17:49:00Z,2,246,0,,3,6
+481,2021-11-28T10:46:28Z,2021-11-28T19:19:21Z,2021-11-28T19:19:21Z,1,3,3,,2,1
+482,2021-12-02T18:47:39Z,2021-12-03T00:39:13Z,2021-12-03T00:39:13Z,1,13,0,,2,0
+483,2021-12-07T05:10:54Z,2021-12-07T14:29:52Z,2021-12-07T14:29:52Z,9,1185,0,"https://github.com/microsoft/ML-For-Beginners/issues/148
+Classification lessons properly translated to pt-br.
+
+
+  Classification base README
+
+  Intro README
+  Intro assignment
+  Classifiers 1 README
+  Classifiers 1  assignment
+  Classifiers 2  README
+  Classifiers 2  assignment
+  Applied README
+  Applied assignment",2,0
+485,2021-12-08T14:11:09Z,2021-12-11T15:37:41Z,2021-12-11T15:37:41Z,1,7,4,Minor formatting changes.,2,1
+486,2021-12-08T21:41:17Z,2021-12-11T15:36:29Z,2021-12-11T15:36:29Z,1,115,1,"Added missing Italian translations for quizzes.
+Ref. #146",2,1
+489,2021-12-12T04:50:42Z,2021-12-12T19:43:47Z,2021-12-12T19:43:47Z,1,1,1,"In the code in lesson 11, the filename of the CSV file exported from lesson 10 is incorrect.",2,0
+490,2021-12-15T18:00:25Z,2021-12-18T02:47:40Z,2021-12-18T02:47:40Z,1,0,0,Scatterplot PNG file is not fully readable when using dark theme. Created a new PNG file with white background.,2,1
+491,2021-12-22T14:05:01Z,2021-12-27T19:22:20Z,2021-12-27T19:22:20Z,2,3,3,,2,0
+498,2022-01-01T21:09:41Z,2022-01-01T23:46:51Z,2022-01-01T23:46:51Z,2,72,114,"Fixed the runtime import (nonexistent 1.9.09 changed to working 1.9.0)
+Changed a markdown tag from javascript to html in a section for better syntax highlighting
+Refactored javascript code to comply with modern ES6 standards",2,1
+499,2022-01-11T18:55:37Z,2022-01-12T20:22:09Z,2022-01-12T20:22:09Z,1,7,7,Fix image links and suggest more accurate french translation.,2,0
+503,2022-01-16T23:42:41Z,2022-01-17T02:27:06Z,2022-01-17T02:27:06Z,8,16,14,,2,0
+506,2022-01-23T20:18:46Z,2022-01-31T17:54:47Z,2022-01-31T17:54:47Z,4,0,0,updated png files for better readability using dark theme,2,0
+507,2022-01-29T23:00:35Z,2022-02-03T03:42:04Z,2022-02-03T03:42:04Z,1,207,0,Translate file 2-Regression/2-Data/README.md to spanish,2,1
+508,2022-01-29T23:24:50Z,2022-02-03T03:41:14Z,2022-02-03T03:41:14Z,1,11,0,Translate file 2 regression/4 logistic/assignment.es.md to spanish,2,0
+509,2022-02-06T04:43:54Z,2022-02-07T02:20:03Z,2022-02-07T02:20:03Z,1,346,0,Translate file 3-Web-App/1-Web-App/translations/README.md to spanish,2,0
+510,2022-02-06T04:58:29Z,2022-02-07T02:19:17Z,2022-02-07T02:19:17Z,1,11,0,Translate file 3-Web-App/1-Web-App/assignment.mdto spanish,2,0
+511,2022-02-06T05:10:50Z,2022-02-07T02:17:45Z,2022-02-07T02:17:45Z,1,21,0,Translate file 3-Web-App/README.mdto spanish,2,0
+512,2022-02-07T16:34:22Z,2022-02-11T22:50:50Z,2022-02-11T22:50:50Z,2,25,27,And a small fix. 😃,2,1
+513,2022-02-09T01:20:24Z,2022-02-11T22:54:00Z,2022-02-11T22:54:00Z,1,313,0,Translation for file 2-Regression/4-Logistic/README.md,2,0
+514,2022-02-09T05:29:41Z,2022-02-11T22:55:45Z,2022-02-11T22:55:45Z,1,299,0,Translate file 4-Classification/1-Introduction/README.md to spanish.,2,0
+515,2022-02-09T05:45:33Z,2022-02-11T22:52:38Z,2022-02-11T22:52:38Z,1,11,0,Translate file 4-Classification/1-Introduction/assignment.md to spanish.,2,0
+516,2022-02-09T06:25:34Z,2022-02-11T22:56:25Z,2022-02-11T22:56:25Z,1,24,0,Translate file 6-NLP/README.md to spanish,2,0
+518,2022-02-11T00:41:53Z,2022-02-11T22:54:49Z,2022-02-11T22:54:49Z,1,11,0,Translate file  6-NLP/1-Introduction-to-NLP/assignment.md to spanish,2,0
+520,2022-02-15T04:35:34Z,2022-02-23T16:21:58Z,2022-02-23T16:21:58Z,1,342,0,Translate file 2-Regression/3-Linear/README.md to spanish,3,1
+521,2022-02-15T04:52:43Z,2022-02-23T16:20:44Z,2022-02-23T16:20:44Z,1,11,0,Translate file 4-Classification/2-Classifiers-1/assignment.md to spanish,2,0
+523,2022-02-17T19:50:40Z,2022-02-24T13:50:09Z,2022-02-24T13:50:09Z,1,11,0,Translate file 4-Classification/3-Classifiers-2/assignment.mdto spanish,3,1
+524,2022-02-17T21:17:52Z,2022-02-24T13:50:42Z,2022-02-24T13:50:42Z,1,11,0,Translate file 4-Classification/4-Applied/assignment.md to spanish,4,1
+525,2022-02-18T01:13:45Z,2022-02-24T13:51:59Z,2022-02-24T13:51:59Z,1,11,0,Translate file 5-Clustering/1-Visualize/assignment.md to spanish,3,1
+526,2022-02-18T01:24:31Z,2022-02-24T13:52:27Z,2022-02-24T13:52:27Z,1,11,0,Translate file 5-Clustering/2-K-Means/assignment.md to spanish,3,1
+527,2022-02-18T04:33:41Z,2022-02-24T16:44:45Z,2022-02-24T16:44:45Z,1,23,0,Translate file 7-TimeSeries/README.md to spanish,3,0
+528,2022-02-18T04:47:48Z,2022-02-24T16:42:00Z,2022-02-24T16:42:00Z,1,11,0,Translate file 6-NLP/2-Tasks/assignment.md to spanish,3,0
+530,2022-02-19T18:21:15Z,2022-02-24T16:43:12Z,2022-02-24T16:43:12Z,1,11,0,Translate file 6-NLP/3-Translation-Sentiment/assignment.md to spanish,3,0
+531,2022-02-19T18:34:29Z,2022-02-24T16:43:44Z,2022-02-24T16:43:45Z,1,5,0,Translate file 6-NLP/4-Hotel-Reviews-1/assignment.md to spanish,3,0
+532,2022-02-19T18:43:20Z,2022-02-24T16:44:00Z,2022-02-24T16:44:00Z,1,11,0,Translate file 6-NLP/5-Hotel-Reviews-2/assignment.md to spanish,3,0
+533,2022-02-19T19:00:18Z,2022-02-24T16:44:13Z,2022-02-24T16:44:13Z,2,22,0,Translate file 7-TimeSeries/1-Introduction/assignment.md to spanish,3,0
+534,2022-02-19T19:12:45Z,2022-03-08T16:12:45Z,2022-03-08T16:12:45Z,1,11,0,Translate file 7-TimeSeries/2-ARIMA/assignment.md to spanish,2,0
+535,2022-02-19T19:41:48Z,2022-02-24T16:45:21Z,2022-02-24T16:45:21Z,1,13,0,Translate file 7-TimeSeries/3-SVR/assignment.md to spanish,3,0
+536,2022-02-21T04:16:25Z,2022-02-24T16:42:36Z,2022-02-24T16:42:36Z,1,27,0,Translate file 8-Reinforcement/1-QLearning/assignment.md to spanish,3,0
+537,2022-02-21T04:57:57Z,2022-02-24T16:07:13Z,2022-02-24T16:07:13Z,1,44,0,Translate file 8-Reinforcement/2-Gym/assignment.md to spanish,3,1
+538,2022-02-22T06:19:11Z,2022-03-08T16:14:18Z,2022-03-08T16:14:18Z,1,133,0,"Translate file README.md to spanish
+NOTE: This PR must be merged when the whole translation is completed, so that the links work properly.",4,1
+540,2022-02-23T18:59:10Z,2022-02-24T16:41:18Z,2022-02-24T16:41:18Z,1,245,0,Translate file 4-Classification/2-Classifiers-1/README.md to spanish,3,2
+541,2022-02-24T05:27:28Z,2022-03-08T16:13:37Z,2022-03-08T16:13:37Z,1,234,0,Translate file 4-Classification/3-Classifiers-2/README.md to spanish,2,0
+548,2022-03-02T04:44:33Z,2022-03-08T16:16:32Z,2022-03-08T16:16:32Z,2,167,1,Translate file 6-NLP/1-Introduction-to-NLP/README.md to spanish,2,0
+557,2022-03-08T18:52:12Z,2022-03-29T00:19:54Z,2022-03-29T00:19:54Z,1,129,0,Hindi Translation readme added issue no #551,2,5
+560,2022-03-11T06:51:18Z,2022-03-17T13:01:08Z,2022-03-17T13:01:08Z,1,132,0,Tamil translation of Readme #559,2,4
+562,2022-03-15T16:59:53Z,2022-03-17T21:06:49Z,2022-03-17T21:06:49Z,9,1279,456,See issue #543 for more details and discussion,2,0
+564,2022-03-19T06:23:23Z,2022-03-29T00:15:00Z,2022-03-29T00:15:00Z,1,36,0,Hindi Translation Regression base readme added issue no #551,2,2
+566,2022-03-20T20:26:27Z,2022-03-25T15:31:07Z,2022-03-25T15:31:07Z,1,15,15,"Hi team 👋🏼
+Here is a review of the main README of the course.
+Challenges
+
+Spanish is a strongly ""gendered"" language. Trying to find gender-neutral ways to communicate could potentially have a positive impact on women and minorities taking the course. Yet, this takes a lot of effort.",2,1
+569,2022-03-25T18:27:14Z,,2022-03-29T00:20:38Z,1,130,0,I have make changes based on best of my knowledge.,2,2
+572,2022-04-04T04:47:53Z,2022-04-30T20:19:22Z,2022-04-30T20:19:22Z,1,186,0,Translate file 7-TimeSeries/1-Introduction/README.md to spanish,3,0
+576,2022-04-14T17:32:50Z,2022-05-03T13:19:34Z,2022-05-03T13:19:34Z,1,151,0,I have added Bangla translation of the introduction of ML part.,5,2
+591,2022-05-08T21:19:32Z,2022-05-10T16:25:30Z,2022-05-10T16:25:30Z,23,2974,41,This pull request adds Spanish translation of the quiz-app and modifies the quiz links in spanish README.md files to point to the translated quizzes.,2,1
+599,2022-06-03T07:26:11Z,2022-06-03T23:57:58Z,2022-06-03T23:57:58Z,9,598,0,,2,1
+605,2022-06-29T10:50:41Z,2022-08-04T10:40:23Z,2022-08-04T10:40:23Z,1,1,1,,2,0
+606,2022-07-05T07:24:31Z,2022-07-14T19:02:33Z,2022-07-14T19:02:33Z,4,382,1,"translate 3-Web-App
+fix path(https://github.com/microsoft/ML-For-Beginners/blob/main/3-Web-App/1-Web-App/translations/README.zh-cn.md)",2,0
+608,2022-07-12T08:23:51Z,2022-07-14T19:02:01Z,2022-07-14T19:02:01Z,1,20,0,,2,1
+612,2022-07-18T22:55:25Z,,2022-12-12T08:37:45Z,6,13,13,,3,2
+615,2022-08-11T01:21:25Z,,2022-12-15T08:37:52Z,7,482,105,"i'm willing to spare my learning time along with fixing these grammar error, not-properly word term (few words should be understandable though), typo, few pictures that didn't show and adding translation as much as i can.",3,2
+628,2022-12-07T17:45:35Z,,2023-04-11T08:35:40Z,1,6,6,"Bumps decode-uri-component from 0.2.0 to 0.2.2.
+
+Release notes
+Sourced from decode-uri-component's releases.
+
+v0.2.2
+
+Prevent overwriting previously decoded tokens  980e0bf
+
+SamVerschueren/decode-uri-component@v0.2.1...v0.2.2
+v0.2.1
+
+Switch to GitHub workflows  76abc93
+Fix issue where decode throws - fixes #6  746ca5d
+Update license (#1)  486d7e2
+Tidelift tasks  a650457
+Meta tweaks  66e1c28
+
+SamVerschueren/decode-uri-component@v0.2.0...v0.2.1
+
+
+
+Commits
+
+a0eea46 0.2.2
+980e0bf Prevent overwriting previously decoded tokens
+3c8a373 0.2.1
+76abc93 Switch to GitHub workflows
+746ca5d Fix issue where decode throws - fixes #6
+486d7e2 Update license (#1)
+a650457 Tidelift tasks
+66e1c28 Meta tweaks
+See full diff in compare view
+
+
+
+
+Dependabot will resolve any conflicts with this PR as long as you don't alter it yourself. You can also trigger a rebase manually by commenting @dependabot rebase.
+
+
+Dependabot commands and options
+
+You can trigger Dependabot actions by commenting on this PR:
+
+@dependabot rebase will rebase this PR
+@dependabot recreate will recreate this PR, overwriting any edits that have been made to it
+@dependabot merge will merge this PR after your CI passes on it
+@dependabot squash and merge will squash and merge this PR after your CI passes on it
+@dependabot cancel merge will cancel a previously requested merge and block automerging
+@dependabot reopen will reopen this PR if it is closed
+@dependabot close will close this PR and stop Dependabot recreating it. You can achieve the same result by closing it manually
+@dependabot ignore this major version will close this PR and stop Dependabot creating any more for this major version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this minor version will close this PR and stop Dependabot creating any more for this minor version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this dependency will close this PR and stop Dependabot creating any more for this dependency (unless you reopen the PR or upgrade to it yourself)
+@dependabot use these labels will set the current labels as the default for future PRs for this repo and language
+@dependabot use these reviewers will set the current reviewers as the default for future PRs for this repo and language
+@dependabot use these assignees will set the current assignees as the default for future PRs for this repo and language
+@dependabot use this milestone will set the current milestone as the default for future PRs for this repo and language
+
+You can disable automated security fix PRs for this repo from the Security Alerts page.",1,4
+645,2023-03-07T18:13:16Z,2023-04-13T12:55:50Z,2023-04-13T12:55:50Z,1,1014,145,"Fixing features encoding (using ordinal encoder for Item size, categorical encoder for all the other features and label encoder for Color) as recommended by scikit-learn documentation
+Using F1 score instead of accuracy to evaluate the model since the dataset is highly skewed
+Updating plots to better show the data before and after encofings and the relationships between label and features
+Fixing ROC curve plot using matplotlib",4,8
+646,2023-03-08T12:23:31Z,2023-04-13T13:42:52Z,2023-04-13T13:42:53Z,7,1352,282,"Updating the text and the code in the README file to be coherent with the solution notebook proposed in PR #645
+Updating images and code outputs
+Minor fixes to naming and path in the LR python notebooks",3,3
+647,2023-03-08T14:55:38Z,2023-04-13T14:03:46Z,2023-04-13T14:03:47Z,12,1924,348,"Simplifying some code to manipulate data to make it clearer to understand for beginners
+Adding explanation for the loc function
+Fix the list of columns to select, since 'Month' columns doesn't exist in the original pumpkin dataset",4,2
+654,2023-04-20T13:20:27Z,2023-04-21T08:13:06Z,2023-04-21T08:13:06Z,2,27,22,"Handling seaborn warning by:
+
+Filtering original warning message in the logistic regression solution notebook
+Adding warning explanation in the notebook and in the README",2,1
+655,2023-04-27T02:17:48Z,2023-05-08T12:53:13Z,2023-05-08T12:53:13Z,1,1,1,Updated challenge hint to reflect changes made to how the tutorial reshapes the data matrix.,2,0
+657,2023-04-29T02:10:11Z,2023-05-08T13:41:54Z,2023-05-08T13:41:54Z,1,1,1,Updated the grammar of a few words in the paragraph found on line 111.,2,0
+658,2023-05-01T20:50:36Z,2023-05-03T06:43:27Z,2023-05-03T06:43:27Z,6,25,8,Adding links to the first set of ML for beginners videos. Will raise future PRs when we add more videos.,2,1
+660,2023-05-09T22:41:57Z,2023-05-10T07:53:59Z,2023-05-10T07:53:59Z,3,25,8,,2,1
+661,2023-05-31T01:09:40Z,2023-05-31T07:56:59Z,2023-05-31T07:56:59Z,2,36,2,Adding ML for beginners videos in-line in the lessons,2,0
+662,2023-06-05T11:13:23Z,2023-06-15T10:30:45Z,2023-06-15T10:30:45Z,58,237,2145,,2,2
+663,2023-06-15T10:14:35Z,2023-06-15T12:21:47Z,2023-06-15T12:21:47Z,20,18169,72,,2,1
+665,2023-06-19T15:39:16Z,2023-07-03T10:04:16Z,2023-07-03T10:04:16Z,16,19690,1558,"Knitted lesson 1,2,3,4,10 from Rmd to html
+Fixed hyperlinks wherever required in the repo",3,6
+668,2023-07-08T19:00:06Z,2023-07-10T09:48:11Z,2023-07-10T09:48:11Z,1,1,1,Updating the first Youtube video link in Line 38. The video should point to Episode 14 rather than Episode 16!,2,0
+678,2023-07-30T06:19:54Z,,2023-11-25T08:35:17Z,1,3,3,Added periods at the end of these sentences for better readability and puntuatlity,3,1
+692,2023-11-16T01:41:16Z,,2024-02-12T08:35:16Z,1,2,2,"The following passage is factually wrong. No ""unnecessary word"" was added in original the French translation. What you're reading is just the next sentence in the book, joined with a comma (see below). While I understand the utilitarian, educational goal of this example, it is disparaging to criticize a totally fine translation like this. Maybe this could be edited and replaced with a made-up alternative translation, intentionally worded in order to be inaccurate?
+""However little known the feelings or views of such a man may be on his first entering a neighbourhood, this truth is so well fixed in the minds of the surrounding families, that he is considered the rightful property of some one or other of their daughters.""",3,3
+694,2023-11-17T09:14:30Z,,2024-02-15T08:35:29Z,1,188,28,,3,3
+707,2023-12-13T06:19:55Z,,2024-03-06T08:35:46Z,1,2,2,,2,1

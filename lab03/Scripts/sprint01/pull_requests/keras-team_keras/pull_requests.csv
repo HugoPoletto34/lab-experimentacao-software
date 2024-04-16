@@ -1,0 +1,42 @@
+number,created_at,merged_at,closed_at,files,additions,deletions,body_text,participants,comments
+2557,2016-04-29T16:55:10Z,,2016-11-21T19:22:36Z,1,12,8,"When loading weights to resume training - which is a common use case for me - checkpoints cannot easily be used as-is. This PR introduces an epoch_offset argument to the fit() functions so that epochs (as seen by the callbacks) start counting at epoch_offset
+This addresses some of the discussion in #1872",8,13
+2793,2016-05-24T01:57:31Z,,2016-11-29T17:27:33Z,2,429,0,"@fchollet
+Add two examples for Keras: ResNet for cifar10, DisturbLabel.
+resnet_cifar10.py reproduces paper ""Deep Residual Learning for Image Recognition"".
+disturb_label.py reproduces paper ""DisturbLabel: Regularizing CNN on the Loss Layer.""",9,8
+3004,2016-06-17T10:06:38Z,,2017-03-15T21:36:40Z,6,381,34,I have updated the pull request #1991 to the latest master branch. The pull request adds functionality to provide learning rate multipliers for convolutional and dense layers (see issue #414).,25,30
+3220,2016-07-13T23:45:49Z,2016-07-24T21:09:34Z,2016-07-24T21:09:34Z,1,12,15,"A number of changes:
+
+Switch from Lambda to merge, otherwise code will not run in keras==1.0.5.
+Rename z_log_std to z_log_var in order for the objective function to make sense
+Adjust reparameterization trick to reflect use of z_log_var, not z_log_std
+Remove epsilon_std, since (standard) VAE uses isotropic gaussian prior.
+Re-balance the weighting of KL and reconstruction terms
+Use adam instead of rmsprop
+Increase hidden unit size to improve model
+Increase batch size to speed up training",5,2
+3436,2016-08-10T03:44:35Z,2016-08-16T20:25:26Z,2016-08-16T20:25:26Z,4,695,1,"This commit adds support for training RNNs with Connectionist Temporal Classification (CTC), which is a popular loss function for streams where the temporal or translational alignment between the input data and labels is unknown.  An example would be raw speech spectrograms as input data and phonemes as labels.  Another example is an input image that includes rendered text with an unknown translational location, word/character spacing, or rotation.
+For Tensorflow, a wrapper was created for the built-in CTC code and put in tensorflow_backend.py.  This wrapper is fairly complex as it has to transform a dense tensor into a sparse tensor. Note that in the bleeding-edge Tensorflow, they moved the location of CTC from contrib to util.
+For Theano, an implementation was included courtesy of and used with permission from @shawntan.  Because it was not written for batch processing, its quite a bit slower than Tensorflow - but it does work.
+This commit includes an example that performs OCR on an image.  The example works with both Theano and Tensorflow. The text-based image is generated using a list of single words (wordlist_mono_clean.txt) and double words (wordlist_bi_clean.txt). I did my best to make sure no profanity ended up in these lists, but apologies in advance if I missed something.  Here is an example output after 40 epochs:
+
+The text is printed onto a 512 x 64 image using a variety of fonts (note the font list works in Centos 7, but not sure what will happen on other OSes).  This is done on the fly for all training images using generators. A random amount of speckle noise, font, rotation, and translation is applied.  These images are then fed into a network consisting of two convolutional layers, a fully connected layer, two bidirectional recurrent layers, and finally a fully connected layer with 28 outputs (26 letters, space, and CTC blank).  After about 10 epochs it does pretty well with 5 letter words, so harder words are introduced.  After 20 epochs, phrases with spaces are introduced.
+Additional notes:
+
+I have no idea if its learning general text shapes or just remembering fonts. This is more to demonstrate CTC with Keras and actually uses quite a few useful Keras features, including callbacks, functional layers, and dataset generators.
+A wrapper is also included for Tensorflow's constrained dictionary decoding, but is not used in any tests or examples yet. This functionality would be useful for OCR or speech recognition.
+For Theano, the following option is required: ""on_unused_input='ignore'.  This is because the loss function has extra parameters which Keras doesn't support, so a dummy loss function was required to make Keras happy.
+
+This is my first Github commit ever so please go easy on me if I mucked something up :)",9,18
+3595,2016-08-26T13:13:47Z,2016-10-13T00:48:57Z,2016-10-13T00:48:57Z,4,241,24,"I propose to implement an asymmetric padding as an option in the ZeroPadding2D.
+Reasons:
+
+From my experience it could be definitely useful when using convolutional layers for the time series data. At some degree it's covered in #531.
+Probably it could also be useful for the image processing, but I cannot offer an example.
+
+Open questions:
+
+May be it's better to add a separate layer for asymmetric zero padding instead of changing the existing ZeroPadding2D?
+There's a possible confusion in the existing ZeroPadding2D (see https://github.com/fchollet/keras/blob/master/keras/layers/convolutional.py#L1345-L1346) - dimensions are called width and height, respectively, but in all convolutional layers respective dimensions are rows, cols (vice versa). Should I leave the as is or change?
+May be it makes sense to do the same thing for ZeroPadding1D simultaneously? The reason why I've started with 2D is that 1D convolution is a kind of not 1st class citizen - e.g. it lacks Deconvolution, AtrousConvolution implementations, etc.",4,15

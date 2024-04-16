@@ -1,0 +1,1491 @@
+number,created_at,merged_at,closed_at,files,additions,deletions,body_text,participants,comments
+28,2020-01-02T09:09:11Z,2020-01-02T13:58:25Z,2020-01-02T13:58:25Z,1,43,2,Fixes #12,2,1
+29,2020-01-02T11:45:28Z,2020-01-02T15:37:14Z,2020-01-02T15:37:14Z,1,33,19,Fixes #11,2,3
+30,2020-01-02T11:49:50Z,2020-01-02T14:46:31Z,2020-01-02T14:46:32Z,2,10184,0,For .gitignore I have used this one.,2,0
+52,2020-01-02T22:55:33Z,,2020-01-06T01:40:09Z,1,185,155,"Resume of the changes:
+
+Migrated the elements array to the react scope.
+Refactored some functions to be inside the react scope aswell.
+
+@vjeux this probably need some tests of the latest features, since i had to refactor some functions and i'm still not fully integrated on the features we currently have.
+This is a ground work for the issue #36",3,5
+53,2020-01-02T23:08:31Z,2020-01-03T17:12:37Z,2020-01-03T17:12:37Z,1,33,0,"Save current canvas to local storage when something change
+Restore saved canvas when page load
+
+Closes #17",5,7
+55,2020-01-02T23:41:52Z,,2020-01-05T00:58:52Z,1,45,17,This implements undo,4,6
+56,2020-01-03T00:30:06Z,2020-01-03T15:47:34Z,2020-01-03T15:47:34Z,2,33,13,"Adds support for deleting elements by pressing the 'delete' key
+Assigns 'magic numbers' and key names to named variables/properties",5,2
+66,2020-01-03T16:02:35Z,,2020-01-12T05:25:09Z,17,15804,11129,"Part of #63
+Right now, no actual tests are written, just some proof of concept.
+We need to figure out:
+
+ how do we assert on the canvas? Visual diffs? How do we diff fuzzily-drawn elements which will change on every render (is there a support to supply custom seed?). We could turn of roughness, but for some elements (Ellipse...), it seems not to turn it 100% off.
+ at the moment, server must be started manually before tests",7,5
+69,2020-01-03T16:46:04Z,2020-01-03T20:53:37Z,2020-01-03T20:53:37Z,3,11,1,Fixes #68,3,10
+74,2020-01-03T20:31:46Z,2020-01-03T22:06:54Z,2020-01-03T22:06:54Z,1,154,34,"Fixes #14
+
+ scrolling with onWheel event
+
+I don't like the frame rate of updates caused by setState. Maybe we shall try request animation frame loop to draw and update canvas instead of using setState and redrawing on componentDidUpdate phase
+
+
+ draw scrollbars
+ drag scrollbars",3,4
+75,2020-01-03T20:40:28Z,2020-01-03T22:18:43Z,2020-01-03T22:18:43Z,5,14816,25,,3,10
+83,2020-01-03T21:57:19Z,2020-01-03T23:29:13Z,2020-01-03T23:29:14Z,1,40,0,"This PR adds a minimal readme
+#61",2,1
+103,2020-01-04T08:10:35Z,2020-01-04T18:56:12Z,2020-01-04T18:56:12Z,1,234,25,"Fixes #20
+It is an initial code, should work in some things, feel free to help or suggest.
+
+The handler ""click"" is not pixel perfect;
+Is not working on Ellipsis and Text;
+Is working an arrow, but is showing all the handlers, I guess we only need 2;
+How should be the behavior for resizing with shift pressed?",3,11
+108,2020-01-04T12:00:55Z,2020-01-04T14:20:53Z,2020-01-04T14:20:53Z,2,25,0,"Right now, since we auto-save to localStorage, there's no way to easily start a new canvas. This PR adds support for clearing it.
+Technically, one could select all elements and hit delete, but suppose the elements are all over the place (some out of visible area), or there's a bug like the one that didn't clear selections.",3,10
+142,2020-01-05T02:25:32Z,2020-01-05T03:33:21Z,2020-01-05T03:33:22Z,1,8,2,"And reset it back to default on mouse up.
+Fixes #102",2,3
+145,2020-01-05T02:45:25Z,2020-01-05T22:26:01Z,2020-01-05T22:26:01Z,4,115,7,,4,12
+159,2020-01-05T17:56:17Z,2020-01-05T23:10:36Z,2020-01-05T23:10:36Z,2,79,1,This PR adds diamond shape,3,7
+181,2020-01-05T23:49:31Z,,2020-03-09T14:22:59Z,20,323,69,"This PR addresses issue #173 .
+The logic behind grouping is that you can move elements as one module, without having to select them every time.
+Grouping Cmd + G
+
+When grouping two or more elements that aren't in a group, then they form a group.
+When grouping two or more elements that are already in a group, then their groups get merged.
+
+
+Ungrouping Cmd + Shift + G
+
+When ungrouping all elements, they stop behaving as a group.
+When ungrouping some but not all elements, they get removed from the group but the group still exists.
+In order to ungroup the selected elements, they all have to be in the same group. Otherwise, the operation fails (should that be changed?).
+
+
+All the groups are stored as an array of sets internally, which can be useful if we want to visualize every group in a future layer panel.",7,21
+183,2020-01-05T23:56:41Z,,2020-01-08T22:22:18Z,2,222,95,"Add a generic component ElementOption who simple provide an label/input
+Add handler and render for update text/fontsize and re-measured content",5,11
+184,2020-01-06T00:00:49Z,2020-01-06T01:38:20Z,2020-01-06T01:38:20Z,1,79,30,Fixes #163,2,2
+205,2020-01-06T12:55:44Z,2020-01-06T18:06:54Z,2020-01-06T18:06:54Z,1,2,2,Ellipse hit test function is not working properly if width or height of ellipse is negative,2,2
+210,2020-01-06T16:55:22Z,2020-01-06T20:19:22Z,2020-01-06T20:19:22Z,1,19,5,Closes #186,3,1
+216,2020-01-06T20:09:54Z,2020-01-07T02:57:38Z,2020-01-07T02:57:38Z,1,10,6,"As mentioned in #141 (comment), the ⌘ Cmd keyboard shortcuts don't work on Windows/Linux/others. We can use the Ctrl key for these devices.",3,5
+232,2020-01-07T13:08:25Z,2020-01-09T16:37:09Z,2020-01-09T16:37:09Z,7,89,11,"Adds support to export canvas to clipboard, for browsers that support it (Chrome, Edge...).
+This allows to copy/paste the canvas into apps such as:
+
+many desktop apps
+websites (GitHub, Trello, StackOverflow etc.)
+Electron Apps (Slack, Skype...)
+
+Potentially very useful feature, but lacking wide support so far, and sometimes buggy, so maybe this is ahead of its time.
+
+Problems:
+
+Browser support. For browsers that (likely) don't support it, the button isn't shown at all.
+Even Chrome is buggy (the bg is sometimes black, at least for alpha pngs).
+
+Uses navigator.clipboard.write and ClipboardItem. See https://web.dev/image-support-for-async-clipboard/#images for intro.",3,9
+233,2020-01-07T13:32:42Z,2020-01-07T15:04:52Z,2020-01-07T15:04:52Z,14,206,184,"Remove generateDraw from element object. Add renderer function that renders the element
+ Replace getElementAbsoluteXY functions with a single getElementAbsoluteCoords
+
+Note: To be honest, I did not understand the reasoning behind adding a function to render the element. Based on my basic experience with game development, typically, the actual rendering stuff (e.g fillRect in context2d) are rendered by the renderer. If we compare this functionality to React, this is also how React works. In other words, React returns JS objects during the render function while the actual rendering happens in ReactDOM, which is the renderer.
+I am not familiar with roughjs; so, if you want to move the shapes within the element, I can move the shape object into the element and let the renderer only do the context calls etc.",3,5
+236,2020-01-07T15:14:22Z,2020-01-07T19:49:40Z,2020-01-07T19:49:40Z,6,21,1,#235,3,6
+239,2020-01-07T15:52:00Z,2020-01-08T21:06:37Z,2020-01-08T21:06:37Z,7,190,130,"This PR adds a new feature to collapse contents of a panel.
+Referencing issue: #237",4,10
+248,2020-01-07T18:57:55Z,2020-01-09T11:34:46Z,2020-01-09T11:34:47Z,4,75,29,Fixes #164,4,12
+255,2020-01-08T13:39:32Z,2020-01-08T16:03:14Z,2020-01-08T16:03:14Z,1,20,2,"Issue #165
+By pressing the alt key while clicking an element it duplicates it.
+Here is how it behaves:",4,7
+261,2020-01-08T17:27:41Z,2020-01-08T18:54:43Z,2020-01-08T18:54:43Z,3,20,8,"Ok, making this PR a draft to ensure this one is done right :).
+I've made a helper for duplicating elements. Technically, object spread won't be enough in case we add non-primitive members to elements in the future, so not sure about using that one.",2,1
+278,2020-01-08T22:20:40Z,2020-01-09T01:29:42Z,2020-01-09T01:29:42Z,3,67,2,"@vjeux @paulomenezes
+New PR from the last master.
+Add editable font size and font familly on select text",2,2
+280,2020-01-09T01:31:16Z,2020-01-09T02:56:36Z,2020-01-09T02:56:36Z,4,104,57,"Fixes #250
+Now, the cursor should change accordingly if the user hovers over the elements without having any mouse button depressed.
+Additionally:
+
+Refactors the resizing test logic so that resizeTest is not invoked again after the selected element has been found.
+Adds a viewportCoordsToSceneCoords to replace the proper x and y coords calculation relative to the drawing canvas that was done in most event handlers.",2,6
+283,2020-01-09T08:58:43Z,2020-01-09T15:22:04Z,2020-01-09T15:22:04Z,11,239,157,"In this PR, I am making all the operations on elements array (not the actual elements within them) immutable. Now, all the functions return values instead of mutating the array directly. Some of the functions to mutate the array directly but currently, those functions accept a copy of the elements array instead of the actual array ([...elements]). Those functions are:
+
+clearSelection
+setSelection
+moveAllLeft / Right
+moveOneLeft / Right
+
+We can also slowly make these functions immutable.
+After this PR, I am planning on moving elements array into state as nothing is really dependent on it except for the App component.",6,21
+286,2020-01-09T11:48:02Z,2020-01-09T15:30:19Z,2020-01-09T15:30:19Z,1,9,3,Fixes #267,3,3
+295,2020-01-09T21:41:50Z,2020-01-10T14:00:20Z,2020-01-10T14:00:20Z,4,312,252,"I am separating side panel from app component to make it easier navigating the codebase. SidePanel component's props is a bit messy now but the the extraction is 100% working. I am going to spend some time trying to clean up the API, hence the Draft PR.",2,3
+300,2020-01-10T19:35:04Z,2020-01-10T21:45:59Z,2020-01-10T21:45:59Z,1,36,15,Fixes #272,2,4
+304,2020-01-10T21:57:55Z,2020-01-11T22:58:45Z,2020-01-11T22:58:45Z,4,51,13,"Covers #262.
+Thinking about the comment by @vjeux about using different color palettes for each type of color in the app, I thought it would make great sense to use one same palette with different levels of lightness to reinforce their role.
+So I took the schemeTableau10 color palette from d3 palettes as @pshihn suggested and modified it based on lightness to have light pastel-like colors for the canvas background (so we easily add on top with contrast), saturated and clean colors for the elements background (so they catch eyes as they are the main elements) and dark colors for strokes (so they highlight elements more effectively).
+Canvas background:
+
+Element background:
+
+Element stroke:
+
+I have played a bit around, I feel like I can almost select any color on top of any other and it will look pretty decent. That said, I'm definitely open for suggestions or any ideas you might have. Colors are pretty hard and subjective 😄
+Regarding the code, I did it in the more straightforward way. An object with array of colors as values that we select based on a type property that is an enum. Let me know if you want to reorganize it in some other way 👍",2,8
+309,2020-01-11T17:43:19Z,2020-01-22T20:32:44Z,2020-01-22T20:32:44Z,2,34,9,"Covers #259 as described in the issue.
+I have only picked the viewBackgroundColor property, let me know if we want to record any other 👍
+cc @vjeux",3,17
+329,2020-01-12T04:22:08Z,2020-01-12T15:10:15Z,2020-01-12T15:10:16Z,3,25,6,"…Filter
+Fixes #318
+Added a new parameter when getting context items that accepts a consumer defined filter function. The main app now keeps track of what actions apply only when clicking on the canvas, so more can be added if needed.
+Let me know what you think!",3,4
+336,2020-01-12T08:46:41Z,2020-01-12T10:08:48Z,2020-01-12T10:08:48Z,1,3,1,"This is a bug from shape generator optimization. The generator shapes were being saved into local storage which was causing any changes to the rendering etc to be saved. Now, it is removed.",2,1
+338,2020-01-12T12:59:52Z,2020-01-31T17:16:34Z,2020-01-31T17:16:34Z,19,770,111,"Currently, I have gotten some preliminary things working. Here are the features that I want to get to working condition
+
+ Reenable shift resizing the arrow
+ Tune collision detection algorithm
+ Re-enable SHIFT when dragging the arrow segments
+ When dragging initially, cancel the shape once dragging is done
+ Allow dragging shapes
+ Deleting the arrow while adding points shouldn't reset the state of the arrow. Currently, you need to change the shape for it to work again.
+ Fix resize for arrow
+ Change hit test for the new arrow
+ Use Curves instead of lines
+ Select arrow when in multi element mode
+ Change color of the circle when it is on an existing point
+ Adding a new point to the arrow (double click on a Point that gets displayed)
+ Switch back to roughjs line drawing instead of using path (path draws a different type of shape than a line).",4,99
+340,2020-01-12T16:26:43Z,2020-01-12T19:16:49Z,2020-01-12T19:16:49Z,1,53,2,"fixes #104
+Alright, this one is crazy, but it kinda works. I have no idea what I'm doing exactly around the ellipse, so don't ask me.
+Also, the algo for diamond shape could in theory be factored out and used for any rectangle, but I kept a simpler one for regular rectangle due to perf.
+Related, there's an issue how we handle coordinates when we flip shapes horizontally/vertically. I hacked-normalized it when detecting hitbox for diamond shape, but in the long run we need to normalize globally, because this results in several other bugs. Will create an issue for this, soon.
+Also, for perf, I'd probably make backgroundColor null to indicate no bg is present, instead of ""transparent"", so that we don't need to compare strings.
+Also note, that when we implement #15, all the code in collison.ts will likely break.",3,2
+342,2020-01-12T17:33:36Z,,2020-01-16T01:39:14Z,8,408,74,"If you flip an element while resizing, currently the width and height properties might end up being negative. And x and y thus represent the right and bottom coordinates of the element instead of the left and top.
+This PR fixes this situation during the mouseup event after the resize has ended.
+A visual consequence of this can be seen with the resize handlers cursors after flipping. Previously, the cursor was rendered wrongly on a flipped element as seen here:
+
+This no longer happens with this fix:",5,20
+343,2020-01-12T17:40:08Z,2020-01-15T15:42:03Z,2020-01-15T15:42:03Z,37,1043,746,"Just ideas for redesign
+Tried to free some space 😊",5,29
+356,2020-01-12T23:52:38Z,2020-01-20T05:56:19Z,2020-01-20T05:56:19Z,6,103,17,"This allows users to share an excalidrawing as a link, so another user can easily open the drawing in their own browser and continue editing. To store the mapping between shortlink and drawing data, I used jsonStore.io (https://github.com/bluzi/jsonstore).
+
+Right now, every time we click ""Get shareable link"" it stores the current drawing and generates a new shortlink. I image in the future we could support overwriting of the same shortlink, or some kind of ""versioning"".
+Comments and suggestions welcome!",5,13
+358,2020-01-13T05:34:15Z,2020-01-16T02:08:52Z,2020-01-16T02:08:52Z,2,20,11,"Adds AppState to the json created when clicking ""Save as..."". This fixes a few bugs:
+
+#306 - Now the scroll position will be the same as it was when the user saved the file. This is how we treat loading from local storage, so we should be treating loading from a file the same way.
+#357 - By adding the AppState to the exported json, we also keep the background color, which previously was not stored in the file, so all drawings that were imported would have a blank background
+
+Before:
+
+After:",2,2
+364,2020-01-13T20:54:35Z,2020-01-14T08:44:19Z,2020-01-14T08:44:19Z,2,35,4,"This PR positions contextMenu to ensure it doesn't overflow viewport.
+Before change:
+
+After change:",4,1
+371,2020-01-15T07:50:16Z,2020-01-15T19:07:20Z,2020-01-15T19:07:20Z,8,61,5,Related to #344,4,9
+375,2020-01-15T20:04:23Z,2020-01-15T23:21:40Z,2020-01-15T23:21:40Z,1,28,0,"Implemented canvas panning on wheel button drag, since there's currently no way for non-touchpad users to pan horizontally.
+This has potential (well, actual) bad performance on more complex scenes. Unfortunately, I have no idea how to improve that (debounce/throttle wouldn't help here), apart from actually improving render performance. Or, is it possible to translate canvas without fully rerendering it?
+WTBS, performance-wise, this shouldn't be different from what we're currently doing on scrolling via high-resolution mouse wheel, or touchpad.
+Made the mousemove event passive, whatever good it's gonna do here. Possibly none?",2,4
+384,2020-01-16T06:40:10Z,,2020-01-20T20:41:02Z,1,12,8,"Hello.
+When I wanted to draw 5 rectangles, I found it very tedious to have to reselect the rectangle after every draw.
+Example: 
+I added a check for metakey to conditionally reset the selection. It makes a major difference!
+Example:
+
+I also changed the order as requested in my previous PR",5,11
+385,2020-01-16T07:43:55Z,,2020-01-24T03:37:03Z,3,15,6,Idea:,5,6
+416,2020-01-17T06:14:14Z,2020-01-17T12:19:59Z,2020-01-17T12:20:00Z,7,86,60,This PR adds feature that allows to scale exporting images,2,1
+421,2020-01-17T13:21:06Z,,2020-01-27T20:54:06Z,2,21,9,"this PR implement the feature of copy and paste onKeyDown.
+
+( command + C ) for copy
+( command + V ) for paste",4,20
+422,2020-01-17T13:38:40Z,2020-01-17T14:43:25Z,2020-01-17T14:43:25Z,10,88,62,"Reverts #400 font file update (fixes #419)
+Reverts unnecessary reversal of #416 (via #420)",2,1
+430,2020-01-17T20:44:24Z,2020-01-23T09:21:05Z,2020-01-23T09:21:06Z,4,129,42,Fix #361,4,6
+447,2020-01-18T20:25:50Z,2020-01-18T22:12:50Z,2020-01-18T22:12:50Z,1,3,1,"Fixes #429
+I have one question. We can use shortcuts for choosing a shape(e.g. R key for rectangle) while dragging a shape. Is it intentional?",3,2
+449,2020-01-19T10:15:42Z,2020-01-19T23:27:01Z,2020-01-19T23:27:01Z,1,1,2,"Followup to #447 - disallowing shape selection (via hotkey) even during element creation.
+/cc @sosukesuzuki is there a reason why you included this line:
+https://github.com/sosukesuzuki/excalidraw/blob/3efa673fe80128f88b620b98af251fd1ff33e940/src/index.tsx#L302",3,2
+450,2020-01-19T12:05:02Z,2020-01-19T22:32:25Z,2020-01-19T22:32:25Z,3,21,4,Fixes #399,3,12
+451,2020-01-19T14:32:47Z,2020-01-19T21:11:50Z,2020-01-19T21:11:51Z,3,54,6,"This diff fixes the cursor issues when resizing happens. When the height or width is negative, we should reverse the cursor. Also started to use bi-directional cursors.
+Also can close #407
+Before:
+
+After:
+For some reason, the gif recorder doesn't catch the correct cursor correctly in the screencast, but you can test it on the preview deploy.",4,3
+452,2020-01-19T17:25:32Z,2020-01-19T21:15:41Z,2020-01-19T21:15:41Z,1,1,1,"Previously the type used for the data URI when saving was text/plain. On iPad Safari, this caused the file to automatically have a .txt extension added (so files ended up with names like ""drawing-xyz.json.txt""). This meant that the files couldn't be loaded by the tool, which expects only files with a .json extension.
+Now, the type used is application/json, which means that the files get reliably saved with the correct extension and can be successfully loaded by the tool later.",3,2
+455,2020-01-19T20:20:07Z,2020-01-19T21:27:37Z,2020-01-19T21:27:37Z,2,96,58,"Fixes #434, #418.
+This PR refactors Picker and ColorPicker so that they share the same input field and logic to handle manual typing of hex color values.
+
+External input uses the appearance from inner input:
+
+Before:
+
+After:
+
+
+This keeps previous valid value while a new one is being typed and thus an invalid one is present:
+
+
+
+Inner color picker now allows #RRGGBBAA format",2,3
+465,2020-01-20T05:58:36Z,2020-01-20T15:12:12Z,2020-01-20T15:12:13Z,4,15,1,"closes: #413
+
+hosted on codesandbox
+
+example ligatures",3,4
+470,2020-01-20T13:55:11Z,2020-01-20T23:16:23Z,2020-01-20T23:16:23Z,7,159,100,"commits
+
+commit 1 - followup to #450 --- syncs panel props to editing element
+commit 2 - semi-unrelated, fixes #468
+commit 3 - removing dead code path related to text element creation
+
+Notes:
+
+refactored how text elements are created: made sure that text elements that advertise they're text elements in fact are text elements (and removed ExcalidrawTextElement assertions in favor or strict typing) --- this fixes issues where you expect .text to exist (and TS would tell you it does), while it didn't, because we created a regular non-text element, but type-casted it to ExcalidrawTextElement.
+
+
+before:
+
+after:",3,1
+477,2020-01-20T19:26:41Z,2020-01-20T23:14:11Z,2020-01-20T23:14:11Z,15,286,162,"This PR adds internationalization using https://www.i18next.com, right now the main idea is just to add internationalization. I tried don't touch too many function or interfaces
+Next followup tasks:
+
+Add language flags button/select somewhere in the screen to change the default language (right now detect browser language)(design ideas are welcome)
+Add Spanish language support since it is my mother tongue.",4,8
+482,2020-01-20T22:08:14Z,2020-01-22T13:36:09Z,2020-01-22T13:36:09Z,1,13,2,Related to #478,4,1
+489,2020-01-21T10:45:21Z,2020-01-21T16:39:40Z,2020-01-21T16:39:40Z,2,2,2,"https://en.wikipedia.org/wiki/Opacity_(optics)
+I left the variable/key as-is, it's not visible to users anyway.",2,2
+493,2020-01-21T11:45:38Z,2020-01-21T14:50:26Z,2020-01-21T14:50:26Z,3,160,1,"fixes #471
+This is not the end state we wanna arrive to, but I've had some issues that I couldn't debug. Maybe as a hotfix it suffices.",3,19
+500,2020-01-21T18:38:09Z,2020-01-22T14:25:05Z,2020-01-22T14:25:05Z,9,206,32,"This PR follow this issue:
+#453
+
+add menu list to select languages
+add Spanish translations",3,6
+502,2020-01-21T21:11:12Z,2020-01-22T14:13:01Z,2020-01-22T14:13:01Z,5,374,35,"Adds .eslintignore list, which is then reused for prettier ignore list
+Adds linting for JSON files (useful for translation files, to ensure we don't include duplicate keys...). I've used eslint-plugin-json-format because out of the three packages I've found, this is one that I can vouch for (made by a guy in the Cypress team).
+Adds linting against console.log
+
+Notes
+
+⚠️ I've gotten lots of lint errors until (I think) I got the settings right, but it may still turn out it will break linting in some scenarios. In that case we'll need to revert this PR.
+requires separate config of lint-staged plugin via .lintstagedrc.js to fix an eslint issue: see https://github.com/okonet/lint-staged#how-can-i-ignore-files-from-eslintignore-",2,1
+503,2020-01-21T22:44:17Z,2020-01-22T10:09:50Z,2020-01-22T10:09:50Z,1,0,2,Fixes #490. Preserves the ratio of the preview image when width / height reaches max-width/max-height.,3,1
+506,2020-01-22T00:38:10Z,2020-01-22T16:27:44Z,2020-01-22T16:27:44Z,2,9,3,,2,1
+508,2020-01-22T01:37:04Z,2020-01-22T05:10:50Z,2020-01-22T05:10:50Z,1,7,3,Addresses #339,2,2
+522,2020-01-23T12:39:27Z,2020-01-23T18:00:31Z,2020-01-23T18:00:31Z,2,68,1,"By looking at the following PR : #500
+I figured I could add french translations as well.
+I took inspiration from Photoshop wordings to avoid using ""generic translated words""",5,10
+527,2020-01-23T17:09:07Z,2020-01-24T19:45:52Z,2020-01-24T19:45:53Z,6,141,39,"fixes #505
+I decided to do another take on normalizing dimensions, because fixing #505 without it would be a pain. On top of it, I still believe that not-normalizing will result (and already has) in lots of lost time, and hacks on top of hacks. Without it, we need to account for negative dimensions (width/height), handles reported e.g. as w when in reality user holds e etc.
+This PR doesn't yet normalize arrow & line elem. It works without it, but we should normalize every element. Will fix tomorrow or in another PR.
+Note: while functioning, I'm not sure if it doesn't break unrelated things. Also, tomorrow I plan to refactor the codebase to remove the hacks which are no longer necessary.
+(I haven't in fact checked #342, so not sure what I'm doing differently, and what I haven't thought of. Will check tomorrow, too.)
+⚠️ 2nd commit adds dimensions to the left panel for debugging. The commit must be removed before merge. But it can technically be tightened up and reused for #517 (but as of now it's not styled, and has terrible perf).
+In the GIF below notice that width/height dimensions are no longer ever negative.",5,15
+534,2020-01-23T23:27:39Z,2020-01-25T17:52:03Z,2020-01-25T17:52:03Z,11,177,107,WIP: Some accessibility improvements.,4,6
+535,2020-01-24T03:41:01Z,2020-01-24T18:35:52Z,2020-01-24T18:35:52Z,2,9,7,"Multiline text!
+
+Based on my old (closed) PR #385",3,5
+539,2020-01-24T19:35:19Z,,2020-01-25T01:55:51Z,3,18,9,,4,1
+542,2020-01-25T02:55:54Z,2020-01-25T14:30:01Z,2020-01-25T14:30:01Z,1,7,4,,2,6
+551,2020-01-25T04:26:21Z,2020-01-26T20:00:01Z,2020-01-26T20:00:01Z,2,3,1,,3,5
+553,2020-01-25T05:04:46Z,2020-01-26T10:19:22Z,2020-01-26T10:19:22Z,2,4,10,Fixes #531,3,4
+560,2020-01-25T20:43:39Z,2020-01-25T22:37:59Z,2020-01-25T22:37:59Z,13,207,58,"This PR improves the accessibility of our modals (the color picker and the export dialog)
+It implements a focus trap so that tapping through the controls inside them don't escape to outer elements, it also allows to close the modals with the ""Escape"" key.",3,3
+564,2020-01-25T23:35:50Z,2020-01-26T20:14:32Z,2020-01-26T20:14:32Z,6,751,691,"This PR uses HTML semantic elements to set the landmarks of the page.
+This is helpful for assistive technologies to determine the different regions of content. In our case it's useful for jumping between the different islands that we use to group the form controls.
+Note: The diff looks large because the <canvas> is now wrapped in a <main> element and I included fallback text to describe it. No logic change was made in this PR.",2,4
+565,2020-01-26T09:18:46Z,2020-01-26T14:19:44Z,2020-01-26T14:19:44Z,2,19,40,"The logic to display which settings when nothing was selected was incorrect. This PR ensures that they are in sync.
+I also removed all the <hr /> which after the redesigned just looked like weird empty spaces",4,5
+567,2020-01-26T09:19:43Z,2020-01-26T13:24:51Z,2020-01-26T13:24:51Z,1,6,1,"A common workflow I have is to enable the lock, draw a bunch of things, unlock to be able to select stuff. However, after I unlock, the last shape is still enabled, so I end up drawing yet another of the same shape :(
+This PR resets to selection instead!",3,1
+568,2020-01-26T09:20:05Z,2020-01-26T10:34:15Z,2020-01-26T10:34:15Z,2,2,0,"Sorry my OCD is kicking in... It's super weird that the base of the lock moves when we check / unckeck it. Instead, just the semi-circle shape should move (what this PR implements).",3,2
+569,2020-01-26T09:20:38Z,2020-01-26T19:01:57Z,2020-01-26T19:01:57Z,3,40,21,"The lock is a different type as the rest of the shapes, so we should visually separate it.",3,5
+570,2020-01-26T09:21:17Z,,2020-01-26T19:09:31Z,2,10,37,There's no reason for the language to be its own thing. We can add it to the general menu instead.,5,7
+571,2020-01-26T09:21:44Z,2020-01-26T12:12:48Z,2020-01-26T12:12:48Z,1,3,2,"If you have two elements selected that have a different value (eg: a green line and a red line), the value of the color picker should be undefined, not the default value.",3,1
+574,2020-01-26T09:23:04Z,2020-01-26T19:08:47Z,2020-01-26T19:08:47Z,1,33,18,"When we are scrolling, resizing, or moving elements, we already disable the history. Since those actions do not change the state of the UI, we can also avoid re-drawing it and save ~10ms per frame.
+I had to change all the forceUpdate() to setState({}), otherwise it would bypass shouldComponentUpdate.
+Fixes #558",3,5
+577,2020-01-26T09:24:17Z,2020-01-26T11:06:38Z,2020-01-26T11:06:38Z,1,23,17,,3,1
+578,2020-01-26T09:24:34Z,2020-01-26T10:30:35Z,2020-01-26T10:30:35Z,1,13,7,"It turns out the only thing we need to save in the appState is the background color. All the rest is transient data.
+I added ""type"": ""excalidraw"" at the beginning to explain where it was.
+I removed ""source"": ""http://localhost:3000/"". I don't think we want to leak on which webpage it was saved from.
+I removed isSelected from the json
+I added indentation so it's easier to read the content. I'm not 100% sure on this one, but I figure filesize doesn't matter too much those days. And if we want to shrink it, there are more effective ways than json.",3,2
+579,2020-01-26T15:15:51Z,2020-01-30T20:09:00Z,2020-01-30T20:09:00Z,2,70,12,"Closes #533.
+Additionally solves an issue where the shortcut keys were no longer working.",3,15
+580,2020-01-26T15:21:15Z,,2020-02-08T11:54:21Z,15,393,163,"PR #537
+Try to add this behavior without touching too much the logic that was there in the first implementation, I couldn't see a better way to handle it. Now Firefox and Chrome are 100% supported.",4,21
+581,2020-01-26T17:44:13Z,2020-01-26T19:15:09Z,2020-01-26T19:15:09Z,7,42,77,,2,2
+587,2020-01-27T10:16:53Z,2020-01-29T16:31:50Z,2020-01-29T16:31:50Z,1,19,4,Fixes #479,4,14
+598,2020-01-28T01:20:16Z,2020-01-28T20:25:14Z,2020-01-28T20:25:14Z,16,441,196,"This adds the ability to render to SVG. SVGs are great for scaling and exporting to other apps like Adobe Illustrator.
+There's a new sister function to renderScene called renderSceneToSvg that creates a SVG DOM for the set of elements. This is only used by the export dialog when exporting to SVG.
+I also refactored some code in renderElement so the common code to canvas and SVG are abstracted out to a function.
+Notes:
+
+I could not find a good SVG export icon for download, so I have a placeholder
+Unlike renderScene, renderSceneToSvg does not optimize for visible area only because SVG is DOM and the idea does not translate easily. Also, since it's only used for file export, no need for such optimization.
+Export of fonts is currently broken. Since we use custom fonts, I have to find a good enough technique to refer to them in SVG.
+Also not sure if exporting background color would make sense in SVG. It would essentially draw another rectangle node.
+Size multipliers also don't make sense in SVG (perhaps the default viewBox?) since it's vector anyway.
+
+Opening it for review even though there are a couple if unresolved issues because there are enough changes, and for feedback on the unresolved issues :)
+Fixes #182",5,40
+603,2020-01-28T21:52:14Z,2020-01-29T00:26:03Z,2020-01-29T00:26:03Z,2,2,1,,2,1
+604,2020-01-28T22:11:45Z,2020-01-29T00:25:47Z,2020-01-29T00:25:47Z,5,45,42,"Before
+
+After",2,1
+606,2020-01-28T22:51:00Z,2020-01-29T00:30:03Z,2020-01-29T00:30:03Z,4,7,23,"Before
+
+After",2,1
+626,2020-01-30T19:13:16Z,2020-02-02T18:04:36Z,2020-02-02T18:04:36Z,21,201,77,"Done
+
+Installed eslint-prettier-plugin to be able to format/fix files using ESLint and Prettier at the same time (for code files)
+All added rules are autofixable
+
+curly
+no-else-return
+no-useless-return
+prefer-const
+prefer-template
+
+
+Updated commit hooks to fix files if autofixable before committing (it was just checking for errors before)
+Reformat all files
+
+TODO
+
+While we at it.. maybe adding more suggested rules
+What about changing the Bracket Spacing to false",3,3
+630,2020-01-31T13:13:11Z,2020-02-01T16:37:23Z,2020-02-01T16:37:23Z,4,9,10,Fixes: #588,3,11
+642,2020-02-01T00:38:08Z,2020-02-05T15:35:52Z,2020-02-05T15:35:52Z,4,137,49,"This PR implements the following scheme:
+Upload:
+
+The client generates a random secret (eg: 20 characters in base 64, we’ll need to figure out the right size).
+The client uses symmetric encryption to encode the json scene with the secret. (Encryption algorithm to be determined)
+The client uploads the encrypted data to the server (but not the secret)
+The server replies back the id
+The client generates a url that contains the id in the query param and the secret after the # (so it doesn’t get sent to the excalidraw.com server, but is available from locally ran javascript code). We may want to also put the id after the hash too.
+
+Download:
+
+The client reads the id from the url
+The client queries the server for the id and receives the encrypted data
+The client reads the secret from the url
+The client decodes the json scene from the encrypted data and secret
+The client renders the scene
+
+Fixes #610",3,12
+647,2020-02-01T02:57:24Z,2020-02-01T12:56:16Z,2020-02-01T12:56:16Z,2,76,12,"This adds the ability to navigate using left/right/bottom/up keys and shows key bindings for all the different colors. This is only optimized for the qwerty keyboard layout, but unfortunately it's not possible to detect other keyboard layouts :(",2,7
+648,2020-02-01T03:16:19Z,2020-02-01T17:31:29Z,2020-02-01T17:31:29Z,3,17,2,"I'm not 100% sure about this one. I feel like it's going to help people be a lot more productive to display the key bindings at all time. But it also clutters the UI...
+I tried putting both the letter and number but it looked really terrible. I feel like using the numbers is going to be more predictable anyway.",4,14
+655,2020-02-01T07:29:03Z,2020-02-19T16:25:02Z,2020-02-19T16:25:02Z,13,269,114,"See discussion here: #628 (comment)
+Before:
+
+After:
+
+We're barely spending any time in the frame!
+I'll unlikely have time to finish this anytime soon. If you want to ship this 100x performance improvement, shouldn't be too hard :)",6,58
+662,2020-02-02T05:26:40Z,2020-02-03T01:48:42Z,2020-02-03T01:48:42Z,1,15,0,"I think it could be convenient to be able to change the opacity with the scroll wheel, no need to click and drag of opacity slider every time",5,4
+663,2020-02-02T08:16:37Z,2020-02-02T14:29:10Z,2020-02-02T14:29:10Z,8,4,446,"This PR adds missing locales for the Scroll Back To Content button.
+I'll leave this open, feel free to add your language's locale.",4,4
+664,2020-02-02T10:08:08Z,,2020-02-05T21:08:32Z,13,401,89,"Covers #13.
+There are quite a bit of things to discuss I feel.
+I chose an approach where the base elements values are not touched, and every time you want to do something regarding how they finally render on the canvas, we apply some scaling factor on them. I played around scaling the whole canvas using scale, but I could see a lot of growing complexity around it because we have too many other functions relying on the elements sizing outside of the renderScene functions (hovers, selection, drag, etc.).
+I can understand this is a huge decision to take, so I commented everything inline below.
+In any case, I think the result is quite good 😁
+
+As pointed out in the comments below, there are some still some issues to fix. Let's first agree on the direction we want to take for this feature and I will make sure to close every issue before merging.
+Known issues:
+
+ Scaling handlers are not working when not 100% zoom.
+ Mouse movements should be mapped to canvas coordinates taking into consideration zoom scaling.
+ Arrow hit testing.
+ Zoom buttons are overlapping the list of the recent imported canvas ids.",6,13
+666,2020-02-02T13:34:52Z,2020-02-03T17:52:22Z,2020-02-03T17:52:22Z,6,78,0,"Currently, hint viewer shows hints for multi point arrows / lines and resizing using SHIFT key. Hints are generated using a function located in HintViewer component. If there are any other hints that are required, let me know and I will add them. Also, if you have some other types of designs in mind, please let me know.
+I would suggest to merge #660 before this because I have written hints for lines as if they can enter multi point mode.
+P.S Do not forget to add translations for hints :)
+GIF Demo:",5,11
+670,2020-02-02T18:10:51Z,2020-02-03T01:09:51Z,2020-02-03T01:09:51Z,1,1,0,"Instead of freeform, let's only support 10 increments of opacity. Should help keep things consistent",2,1
+689,2020-02-03T21:01:46Z,2020-02-04T10:50:19Z,2020-02-04T10:50:19Z,6,263,103,"fixes #386, #397
+As ""discussed"" in #386 (it was mostly a monologue), I've moved away from system clipboard when copying elements. The reason is mainly because of browser support when trying to paste using contextMenu (FF/safari doesn't support navigator.clipboard.readText).
+As a side-effect, users should no longer be asked for permissions (this isn't 100% guaranteed, as I'm still using clipboard.writeText() as a preferred method to clear system clip, but AFAIK it doesn't require permissions if called within a user-triggered event callback).
+System clipboard is also used when copying backend link to clip, and when exporting PNG to clipboard (in which case, async clipboard API is still required).
+Note, to implement #397 I have to clear system clip when user copies scene elements, because I'm prioritizing system clipboard text during pasting. Thus, if system clip doesn't contain text (trimmed), scene elements are pasted.",3,4
+691,2020-02-04T00:40:54Z,,2020-04-09T16:09:47Z,40,1597,6,"I played a little bit with running E2E tests using Cypress and taking screenshots as snapshots to catch regressions.
+What I like about E2E tests is that they force you to write tests emulating what a human user would do, so we avoid relying on implementation details for our tests.
+I added a test suite that tests some basic canvas background color changes, rectangles drawing and text writing.
+Before continuing with this PR I would like to open this up to discussion if we'd like to include E2E tests or not, and if it looks like a good testing strategy since a previous attempt was reverted on #640.
+If you want to try running these tests do npm start and with the server listening run npm run test:e2e and all should be green 🤞
+Tasks
+
+ Set CI to run E2E tests when a PR is open
+ Add script to generate snapshots on a CI-like environment
+ Add tests for zoom
+ Add drawing tests
+ Add tests for panning
+ Add tests for lock tool",6,12
+694,2020-02-04T09:48:32Z,2020-02-04T13:28:23Z,2020-02-04T13:28:23Z,1,10,3,"Fixes #688
+This PR fixes typing into a color picker popup text field that causes color selection via a hotkey. Also, another change I made,  text in the text field is selected/highlighted on the first click. This might be something that needs to be discussed because people might have different preferences. In my opinion, selecting all text makes deleting/removing easier.
+Action: selecting  color picker, clicking on the color text field and  typing ""d""
+Before:
+
+After:",4,5
+696,2020-02-04T11:21:37Z,2020-02-05T16:41:15Z,2020-02-05T16:41:15Z,3,9,11,"Remove no-else-return (was unnecessarily strict rule that needed manual refactors).
+Make eslint styleguide rules from error → warn so that you can distinguish between syntax/type errors when writing code.
+Reintroduce max-warnings=0 due to the above (not sure why it was removed in #626).",2,5
+697,2020-02-04T12:14:43Z,2020-02-04T13:39:09Z,2020-02-04T13:39:09Z,4,52,6,"This PR implements real-time multi arrow feature. Currently, everything works but there is something that I am not satisfied with. When finalizing multi arrows, should we remove the ""uncommitted"" point or should we keep it?
+#669",2,7
+701,2020-02-04T14:04:50Z,2020-02-05T18:47:11Z,2020-02-05T18:47:13Z,18,450,413,"fixes #701, fixes #699, fixes #592
+
+ Separate UI from canvas components
+ Remove shouldComponentUpdate hack (#592) and use React.memo to memoize the UI component
+ Make history recording explicit (#699 and #700)",2,36
+709,2020-02-05T07:13:40Z,2020-02-05T11:54:17Z,2020-02-05T11:54:18Z,1,8,1,#674 is fixed,3,1
+716,2020-02-05T17:12:20Z,2020-02-15T20:03:33Z,2020-02-15T20:03:33Z,19,602,262,"After conversation at the previous PR, we decided to move to an approach where we modify the context of the canvas to draw elements and make modifications on cursors positioning instead than mapping on all the elements.
+As it's pretty much a different way to approach the feature, I have rebuilt it from scratch, hence this second PR deprecating the previous one.",4,18
+719,2020-02-05T21:03:27Z,2020-02-11T22:19:44Z,2020-02-11T22:19:44Z,11,1180,5,"Tests to perform
+
+ Resize
+ Move
+ Selecting Element
+ Multi Point
+ Drag Create
+ Selection Element
+
+I have added a solution that renders React into a dummy HTML element and removes it right after rendering the tree.
+I am creating this PR as a preliminary set up for writing integration tests. Main reason for separating this PR from the actual tests is because when importing index.tsx file, ReactDOM.render gets called and as a result, tests throw error that target object does not exist. I am sure that we can mock the document object so that it works but I think it would be more logical if we separate App component from ReactDOM.
+All I did was move all the functionality into App.tsx and extract TopErrorBoundary and ReactDOM into index.tsx (entry file that cannot be changed).",5,5
+720,2020-02-06T16:54:21Z,2020-02-09T22:51:48Z,2020-02-09T22:51:48Z,2,0,0,"Ellinor Rapp was kind enough to add the characters to the font she built 18 years ago!
+Fixes #469",5,22
+723,2020-02-06T20:06:04Z,2020-02-07T17:42:24Z,2020-02-07T17:42:25Z,5,119,82,"Fixes 3 issues:
+
+
+Reset to selection tool on paste (fixes #712).
+
+
+Ensure pasting via contextMenu and via event (cmd+v) is aligned. Fixes the case where pasting. via hotkey would paste text from the clipboard, but via contextMenu would paste element.
+In order to implement this I had to use navigator.clipboard.readText again, which means no support for non-chromium browsers, and it'll ask for permissions again (but unlike old clipboard implem, it will work).
+
+
+Ensure pasting into wysiwyg editor allows for plaintext only. Which means I had to revert https://github.com/excalidraw/excalidraw/pull/651/files and reimplement onpaste.
+before:
+
+after:",2,6
+725,2020-02-06T22:18:10Z,2020-02-07T11:37:34Z,2020-02-07T11:37:34Z,2,87,0,🇵🇱👋,2,1
+726,2020-02-07T07:06:56Z,2020-02-07T10:43:31Z,2020-02-07T10:43:31Z,3,4,1,Hints on the tools don't display in the selected language initially when we change the language.,2,1
+729,2020-02-07T17:54:27Z,2020-02-07T22:46:20Z,2020-02-07T22:46:20Z,7,163,178,"A refactor and some tweaks:
+
+Move footer to <LayerUI>.
+Scrap state.lng (from #726) in favor of passing it as a prop to LayerUI because we weren't using state.lng anywhere so it seemed weird to introduce it just to fix a stale state issue.
+Moved history resuming from ActionManager up to updater passed from upstream (asyncActionResult), which is now passed commitToHistory: boolean (defaults to true). This is in preparation for making ActionManager usable across the app as a way to sync state.
+Made loadScene readonly and factored out.
+Few other tweaks and refactor.
+
+Make sure to review without whitespace changes:",2,4
+738,2020-02-09T14:38:14Z,2020-02-09T16:09:22Z,2020-02-09T16:09:22Z,3,41,52,"fix svg jsx attributes, and remove unnecessary ones
+
+
+center & make active elem orange so it's obvious which is which
+before:
+
+after:",2,4
+746,2020-02-09T23:24:18Z,2020-02-10T14:09:51Z,2020-02-10T14:09:51Z,3,46,15,fixes #745,2,2
+753,2020-02-10T12:37:00Z,2020-02-19T21:28:12Z,2020-02-19T21:28:13Z,4,118,11,"fixes #743
+I've used a tiny, simple, zero-deps cloning library klona (supposedly 366B, and potentially even smaller when they implement a lite version). IMO better than rolling out our own.
+Unlike current solution, this guards against future regression caused by introduction of new non-primitive element properties. We can't simply use JSON.parse(JSON.stringify(elem)) because that will strip functions etc. (when we potentially introduce them in the future).",4,7
+762,2020-02-12T06:30:42Z,2020-02-12T09:19:20Z,2020-02-12T09:19:20Z,1,9,2,,2,1
+767,2020-02-16T08:46:40Z,2020-02-16T21:54:51Z,2020-02-16T21:54:51Z,9,53,37,"Fixes #671.
+I also refactored some code related to getting selected elements.",3,6
+769,2020-02-16T12:23:38Z,2020-02-16T13:38:54Z,2020-02-16T13:38:54Z,4,20,11,Borrowed the idea from figma (:,3,7
+777,2020-02-17T10:25:40Z,2020-02-22T19:24:35Z,2020-02-22T19:24:35Z,4,29,3,"Add zoom reset button.
+Button is shown only when zoom scale is different from 1
+Fixes #776",6,11
+780,2020-02-19T19:25:12Z,,2020-03-09T09:39:34Z,1,131,6,"🚧 WIP - not a full implem, and in need of refactor 🚧
+Followup to #655.
+I figured that when we modify elements, the elements below and above selection aren't modified and thus don't need rerender. So I now keep 3 other ""main"" canvases, one for selected elements (and elements deselected, but in between the selection, z-index-wise), one for elements below them, and one for elements above them. The 2 other canvases are composited together with the selected elements onto the main canvas.
+
+The idea is that copying 2 canvases to the main canvas instead of hundreds of small canvases will have better perf, and it does! Note that this PR doesn't change or remove keeping the small element canvases around because we still use them when drawing on the 2 temp main canvases, or when this new hack isn't applied at all.
+It radically improves performance on huge scenes, but only in certain cases such as when moving/resizing elements.
+Doesn't work when scrolling or zooming, because we can't guarantee such action won't change visible elements.
+Currently doesn't work for creating elements either, but will be added.
+testing
+(4096 elements)
+Try picking an element and moving it around or resizing it.
+
+production (before)
+this PR (after)
+
+before:
+
+after:",4,10
+784,2020-02-20T13:12:28Z,2020-03-09T13:06:36Z,2020-03-09T13:06:37Z,9,65,29,"Changed the following (Like in Sketch, Figma):
+
+Bring Forward Cmd + ]
+Send Backward Cmd + [
+Bring to Front Option + Cmd + ]
+Sent to Back Option + Cmd + [
+
+Test the ZoomIn/ZoomOut titles on different operating systems..
+
+ Mac
+ Windows
+ Linux
+
+
+Fixes #850",4,24
+785,2020-02-20T13:28:04Z,2020-03-09T16:03:45Z,2020-03-09T16:03:45Z,1,43,0,"Let's keep track of this document that could be later used as a base for #408 or possible documentation page somewhere like excalidraw.com/docs/shortcuts
+Preview: https://github.com/excalidraw/excalidraw/blob/shortcutdocs/docs/shortcuts.md",5,15
+786,2020-02-20T19:36:35Z,2020-02-21T09:39:10Z,2020-02-21T09:39:10Z,3,8,4,"Before | After
+
+https://github.com/excalidraw/excalidraw-logo/blob/master/excalidraw.ico",2,1
+788,2020-02-21T02:23:07Z,2020-02-21T13:17:21Z,2020-02-21T13:17:22Z,15,356,208,"More progress on #138.
+
+touch support
+two-finger pan/zoom
+fix press&hold on canvas triggering selection (maybe it’s not fixed? hard to tell)
+delete objects (toolbar button?)
+finalize line creation",5,16
+790,2020-02-21T15:05:26Z,2020-02-21T19:34:19Z,2020-02-21T19:34:19Z,17,272,222,"Ref #138
+
+language selector
+remove lock button on mobile",4,35
+793,2020-02-21T20:40:50Z,2020-03-01T19:39:04Z,2020-03-01T19:39:04Z,17,271,127,"Ref #138
+fixes #856
+
+ refactor menu/edit toggles to be actions
+ undo/redo buttons
+ make 🍔/🎨 buttons radios or otherwise show that they’re selected
+ allow disabling buttons
+ disable undo/redo buttons when they won’t do anything",5,18
+799,2020-02-21T23:20:23Z,2020-02-22T09:21:55Z,2020-02-22T09:21:55Z,2,5,1,Closes #761.,3,2
+809,2020-02-22T16:53:26Z,2020-02-22T21:37:05Z,2020-02-22T21:37:05Z,3,118,14,"fixes #498
+
+Improves the output of localStorage (gets rid of double escapes).
+Tries to map error stack trace using source maps (using https://github.com/stacktracejs/stacktrace.js). No clue if this is going to work in production -- depends whether we deploy source maps. We'll see. looks like it does on preview:
+
+
+Repro:
+
+load https://excalidraw-git-improveerrorhandling.vjeux.now.sh//?id=5142238724096000
+click on the text element",2,5
+812,2020-02-22T22:01:13Z,2020-03-09T16:09:45Z,2020-03-09T16:09:45Z,4,46,20,"Just noticed that our error message is telling users to include localStorage content if it's not private, but users (even developers) not familiar with our architecture won't necessarily know that localStorage contains their scene data.
+I also tweaked some other wording and styling here and there, and made the note about losing data by clearing the canvas more prominent.",4,20
+841,2020-02-25T10:23:33Z,2020-02-25T11:41:45Z,2020-02-25T11:41:45Z,1,3,3,,2,1
+842,2020-02-26T12:38:05Z,2020-02-28T15:08:16Z,2020-02-28T15:08:16Z,14,77,0,"TODO:
+
+ Home Icon
+ Splashscreen image
+ StatusBar color",3,16
+854,2020-02-28T20:10:54Z,2020-02-28T21:51:37Z,2020-02-28T21:51:37Z,3,91,3,"Generate version.json (The actual filename can be found there)
+ Zip the build folder with a name build/excalidraw-2020-02-28-21-42-03.asar
+
+
+
+https://excalidraw-git-version.excalidraw-team.now.sh/version.json
+https://excalidraw-git-version.excalidraw-team.now.sh/excalidraw-2020-02-28-21-42-03.asar
+
+Fixes #853",3,7
+855,2020-02-29T11:31:15Z,2020-02-29T13:24:15Z,2020-02-29T13:24:15Z,2,19,27,"Related: excalidraw/excalidraw-desktop#24
+
+
+ Don't load js from root
+ <script src=""/static/js/2.2a62696b.chunk.js""></script>
+ <script src=""/static/js/main.b098d13e.chunk.js""></script>
+
+
+Does anyone know how to remove the leading slash?",2,1
+862,2020-03-01T23:04:04Z,2020-03-07T15:20:39Z,2020-03-07T15:20:39Z,49,3500,3374,,4,5
+868,2020-03-02T09:23:24Z,,2020-03-02T14:32:49Z,2,96,0,Added Indonesian translation,3,4
+870,2020-03-05T22:04:37Z,2020-03-06T14:20:03Z,2020-03-06T14:20:03Z,1,17,11,"Fit the tagline onto one line
+collect testimonials so they don’t use as much vertical space
+npm start shorthand
+we use TypeScript
+link to the new issue page",3,1
+874,2020-03-08T04:30:35Z,2020-03-08T17:20:56Z,2020-03-08T17:20:56Z,39,416,306,"I started trying to put the ExcalidrawElement array in Firebase to create a multiplayer whiteboard. It seems to be that the selection state should belong in appState not in ExcalidrawElement. I also took the opportunity to pull all the canvas stuff out of ExcalidrawElement and into a new interface.
+Up next I want to pull shape out into as I did canvas, and add an isDeleted boolean to ExcalidrawElement rather than deleting out of the array. This will make it a lot easier to handle deletion in the shared whiteboard.",3,15
+879,2020-03-09T04:52:19Z,2020-03-09T15:48:25Z,2020-03-09T15:48:25Z,12,575,28,"@vjeux I removed the UI and added a way to generate a collaboration link via the console -
+await window.generateCollaborationLink(); The link will need to be used in a new window for it to work properly.
+Sorry for the stack of 37 commits!",3,5
+882,2020-03-09T08:44:34Z,2020-03-09T09:47:09Z,2020-03-09T09:47:09Z,2,7,7,"Bumps @types/jest from 25.1.3 to 25.1.4.
+
+Commits
+
+See full diff in compare view
+
+
+
+
+Dependabot will resolve any conflicts with this PR as long as you don't alter it yourself. You can also trigger a rebase manually by commenting @dependabot rebase.
+
+
+Dependabot commands and options
+
+You can trigger Dependabot actions by commenting on this PR:
+
+@dependabot rebase will rebase this PR
+@dependabot recreate will recreate this PR, overwriting any edits that have been made to it
+@dependabot merge will merge this PR after your CI passes on it
+@dependabot squash and merge will squash and merge this PR after your CI passes on it
+@dependabot cancel merge will cancel a previously requested merge and block automerging
+@dependabot reopen will reopen this PR if it is closed
+@dependabot close will close this PR and stop Dependabot recreating it. You can achieve the same result by closing it manually
+@dependabot ignore this major version will close this PR and stop Dependabot creating any more for this major version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this minor version will close this PR and stop Dependabot creating any more for this minor version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this dependency will close this PR and stop Dependabot creating any more for this dependency (unless you reopen the PR or upgrade to it yourself)
+@dependabot use these labels will set the current labels as the default for future PRs for this repo and language
+@dependabot use these reviewers will set the current reviewers as the default for future PRs for this repo and language
+@dependabot use these assignees will set the current assignees as the default for future PRs for this repo and language
+@dependabot use this milestone will set the current milestone as the default for future PRs for this repo and language
+@dependabot badge me will comment on this PR with code to add a ""Dependabot enabled"" badge to your readme
+
+Additionally, you can set the following in your Dependabot dashboard:
+
+Update frequency (including time of day and day of week)
+Pull request limits (per update run and/or open at any time)
+Out-of-range updates (receive only lockfile updates, if desired)
+Security updates (receive only security updates, if desired)",1,1
+905,2020-03-11T15:42:38Z,2020-03-11T18:42:19Z,2020-03-11T18:42:19Z,15,341,40,"Went through several designs, and ended up with 2 screens. One that will show when no session is in progress. Users will use this dialog to create a new session. After that, the second dialog shows the link to be shared with others.
+Dialog button:
+
+Dialog when no session is in progress:
+
+Starting new session opens it in a new tab, and shows this screen once:
+
+This screen is what's also shown whenever you click on the roomDialog button during an active session. There, you can also elect to create a new session.",4,21
+908,2020-03-11T16:36:44Z,2020-03-13T19:32:48Z,2020-03-13T19:32:48Z,15,324,197,"Ref #138
+
+make them fill the screen
+switch the X to a back button
+align title to close button on desktop
+add border to file name field for discoverabilty
+fix layout of export dialog on mobile",3,5
+915,2020-03-11T21:31:22Z,2020-03-12T19:18:28Z,2020-03-12T19:18:28Z,7,41,25,"fix for #910
+The backend PR is at excalidraw/excalidraw-room#5",3,6
+920,2020-03-12T03:15:04Z,2020-03-15T17:26:53Z,2020-03-15T17:26:53Z,8,202,147,"I started out trying to remove all uses of flexbox from the codebase (see branch name) but then I realized the color picker could use some improvement.
+
+Note: there’s a bug at least in safari where the input loses its :focus style when the window is inactive but the # icon’s :focus-within is still active.",4,8
+928,2020-03-12T20:32:44Z,2020-03-13T04:32:33Z,2020-03-13T04:32:33Z,4,55,19,"Hotfix for #906
+No satisfied. Definitely missed major cases, and this may introduce some subtle (or not so subtle) race conditions. As a hotfix it should probably work.
+What I'm doing is
+
+Not syncing elements being edited (e.g. arrows until they're finalized, or elements during drag etc.)
+When syncing from remote, prefer local version if the element is currently being edited.",2,2
+930,2020-03-13T10:17:25Z,2020-03-13T14:10:45Z,2020-03-13T14:10:45Z,1,1,1,fixes #929,2,2
+933,2020-03-13T12:49:25Z,2020-03-13T14:10:24Z,2020-03-13T14:10:25Z,3,15,10,"fixes #931
+This bug occurs in browsers we probably don't officially support, but Object.fromEntries is ES2020, so it's rather new. That said, replacing it with Array#reduce will arguably improve perf for little cost, so I say let's fix this.",2,1
+936,2020-03-13T22:13:47Z,2020-03-14T20:25:07Z,2020-03-14T20:25:07Z,6,128,68,"Moved to semi-tombstone architecture for syncing deletions: a map of deleted ids and version at time of deletion. Element is removed on local only if remote deletion has same or newer version than local version. For this reason I removed the version incrementing during restore, because that would break this (I also don't see why we did that to begin with).
+Also, from now on we're syncing only selected props from AppState because we won't want to use any other. Currently I'm sending some props but not doing anything with them yet. Will do so later, and also refactor it a bit.
+Don't merge yet. I'm not confident this is correct + I want to make some refactor.",2,5
+941,2020-03-14T15:10:18Z,2020-03-14T21:53:19Z,2020-03-14T21:53:19Z,4,46,12,"I use the canvas as a whiteboard so I am building up lots of drawings. It is very nice to quickly be able to select something and copy it directly to the clipboard as a PNG... I paste stuff very often into Notion, but this would of course work with anything else as well.",6,27
+942,2020-03-14T16:41:37Z,,2020-03-18T09:46:00Z,1,1,1,"AFAIK we're not supporting pre-ES6 browsers, and we're certainly using APIs that aren't compatible with ES5.
+This changes the TS compile target to ES6, which allows us (among other things) to iterate over maps without downlevelIteration, and doesn't compile async/await to generators blobs:
+Currently (AFAIK) this:
+async function test () {}
+
+compiles to:
+""use strict"";
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator[""throw""](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __generator = (this && this.__generator) || function (thisArg, body) {
+    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
+    return g = { next: verb(0), ""throw"": verb(1), ""return"": verb(2) }, typeof Symbol === ""function"" && (g[Symbol.iterator] = function() { return this; }), g;
+    function verb(n) { return function (v) { return step([n, v]); }; }
+    function step(op) {
+        if (f) throw new TypeError(""Generator is already executing."");
+        while (_) try {
+            if (f = 1, y && (t = op[0] & 2 ? y[""return""] : op[0] ? y[""throw""] || ((t = y[""return""]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [op[0] & 2, t.value];
+            switch (op[0]) {
+                case 0: case 1: t = op; break;
+                case 4: _.label++; return { value: op[1], done: false };
+                case 5: _.label++; y = op[1]; op = [0]; continue;
+                case 7: op = _.ops.pop(); _.trys.pop(); continue;
+                default:
+                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
+                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
+                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
+                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
+                    if (t[2]) _.ops.pop();
+                    _.trys.pop(); continue;
+            }
+            op = body.call(thisArg, _);
+        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
+        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
+    }
+};
+function test() {
+    return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_a) {
+        return [2 /*return*/];
+    }); });
+}",4,12
+949,2020-03-14T21:27:50Z,2020-03-18T15:43:07Z,2020-03-18T15:43:07Z,7,95,16,"10px delta too big?
+Also tends to create text right after (#740), but that's for another time.
+Fixes #673",4,12
+950,2020-03-14T22:29:55Z,2020-03-15T00:24:28Z,2020-03-15T00:24:29Z,6,29,76,"Fixes #861
+The original motivation behind this is to make it work with Firefox. But it also helped make the code more intentional.
+Test Plan:
+
+Create one square, select it, zoom in repeatedly, make sure that it zooms centered in the screen and everything looks good
+Scroll at various zoom levels, things look good
+Export a small scene at 1x and 3x, make sure the background is properly set and look good",3,6
+952,2020-03-15T01:59:56Z,2020-03-15T03:46:58Z,2020-03-15T03:46:58Z,15,176,100,"move to using an isDeleted field on the element rather than deletedIds. this simplified a bunch of the code as we can use the same reconciliation algorithm for every type of modification.
+fix undo to propagate changes to other peers. reset the undo stack when we receive an update from someone else. this behavior is still surprising, and it's possible to lose your redo stack mid-operation if someone else makes a change.
+fix issue where cursors would get lost sometimes
+show real-time resizing of elements
+
+fixes #946 and some of #937",2,1
+953,2020-03-15T03:57:03Z,,2020-03-16T02:34:24Z,6,44,5,"This implements the rendering and messaging across. Still need to do the UI to set the name.
+Also, not really sure what's the best place to send the name and store it.",4,6
+957,2020-03-15T06:03:17Z,2020-03-15T21:00:34Z,2020-03-15T21:00:34Z,1,14,0,"After accidentally closing a multiplayer session, my natural reaction is to just reopen the page. However, if I was the last or only user in the session, the reopened page will be empty. The reopened page overwrites my local history so https://excalidraw.com/ is empty too.
+
+I know there's already a ""if all of you disconnect, you will loose the data"" warning when I start a multiplayer session, but... the warning doesn't stop me from fat-fingering the close button. So I think it'd be useful to show a confirmation before the user closes or refreshes the page.
+NOTE: ideally this prompt is only shown when there has been changes since the last save/export, but I can't seem to find a clean way to do this (marking the app state as ""dirty""). But I think this could still be a good start?
+Test Plan:",3,8
+958,2020-03-15T07:20:33Z,,2020-05-31T14:48:23Z,20,1640,778,"This is proposal and implementation
+Example: excalidraw in my (wip) memo app.
+
+or github extension
+https://github.com/mizchi/excalidraw-extension
+
+Goal
+I try to use excralidraw as embedded component in my app.
+// publish to npm as react component
+import { Excalidraw } from ""excalidraw"";
+
+<MyAppLayout>
+  <FooBar />
+  <hr />
+  <Excalidraw width={800} height={600} onChange={(appState) => {...}}>
+</MyAppLayout>
+but excalidraw requires under window to calc cursor position.
+This PR includes delta calculation to root rect.
+What I did
+
+ FixedSideContainer is now on window.
+ Cursor position is with left/top of container left/top
+ Build to npm library
+ Fix fixed layout
+ Fix window.onresize on App
+ Serializable internalState
+ Take initialState props",5,23
+959,2020-03-15T09:15:54Z,2020-03-15T17:06:42Z,2020-03-15T17:06:42Z,5,149,95,"mutateElement() mutates the element in-place and previously did not tell the UI to update. You had to do that explicitly via setState({}). Now it's much simpler to change elements as all you need to do is call mutateElement() and it knows how to do everything. Hooray!
+While it would be nice if we made it fully immutable, I think this diff solves all of the main problems and we don't need to do much more refactoring.",2,1
+987,2020-03-17T06:14:59Z,2020-03-17T18:01:12Z,2020-03-17T18:01:12Z,3,88,57,"Fixes #973 and some additional bugs introduced sometime before #955.
+Tests:
+
+Draw and resize every shape
+Draw and resize and rotate an arrow and line (2 point)
+Draw and resize mutielement lines and arrows
+Export preview
+Save file
+Reload file, resize curves
+Resize mutielement line in multiplayer
+Load the 1000 square json, draw a curve, UX is smooth
+Alt-drag works. Shift click works.
+
+The UX isn't perfect -- I think we should flip the element if you switch to negative width -- but it's better than the previous behavior.",4,3
+991,2020-03-17T14:25:02Z,2020-03-17T19:55:41Z,2020-03-17T19:55:41Z,22,430,272,"In short, this PR adds more type safety.
+
+Add ExcalidrawLinearElement type, and make points only specific to that type. This is in expectation of followup #949 where I'll be adding another, arrow-specific property.
+Rewrite Element type-specific constructors (move away from parameter list to object; move away from nested constructors when creating text elements).
+Ensure element.type narrows down the element type when possible (i.e. make it into a union discriminant). For now, I haven't split rectangle/ellipse/diamond shapes into their own constructors because they all share the same props.
+Don't create generic element on every pointerdown. Instead, create specific elements when needed.
+Make APIs that mutate elements (mutateElement, duplicateElement, restore...) more typesafe by improving typing and introducing Mutable generic helper instead of casting to any and whatnot.
+Fix return values from element constructors not being immutable (and fix mutations around the codebase).
+
+I'm sure that the typings for each separate excalidraw element could be made more readable by either improving the types, or writing them out manually. Lemme know.",5,8
+996,2020-03-18T04:50:13Z,2020-03-18T06:11:28Z,2020-03-18T06:11:28Z,1,3,0,"Hey Excalidraw! This is a really awesome tool first of all and thanks for making this great!
+Totally new-comer here but think I got a fix for #994.
+From my understanding, double clicking to insert text node into canvas should de-select all the elements that are currently selected. So re-initializing the selectedElementIds seemed to be a no brainer.
+But since I'm new to this land, I could be totally wrong (very likely)! Appreciate it in advance if anyone catches something that I'd missed.
+Other than that, here's the test screenshot I used:
+
+Forgot to screenshot the case where it's a background filled rectangle but it works with that, too.",3,3
+1002,2020-03-18T14:14:02Z,2020-03-18T15:31:41Z,2020-03-18T15:31:41Z,7,149,102,Before/after:,3,3
+1009,2020-03-18T22:19:15Z,2020-03-19T13:51:05Z,2020-03-19T13:51:06Z,16,86,80,"fixes #988
+The main issue was withBatchedUpdates allowing to pass functions with higher arity, while swallowing extra arguments, which resulted in syncActionResult's 2nd argument commitToHistory always defaulting to true.
+I've also changed how commitToHistory is set. Instead of making it an optional function on Action objects, I made it a required property on ActionResult object returned from Action's perform() method. This way it's explicit, and we'll never forget to set it (which we've already done --- now fixed).
+For now, I kept scene loading not being saved to history, but we can later do that, too.
+Also, it seems we're always populating history with an initial entry, so I made undoOnce bail on length === 1. Before, it wasn't undoing the initial scene loaded anyway, not sure why, so this change does only one thing: stop at last undo instead of undoing it and doing nothing.",3,3
+1014,2020-03-19T16:24:59Z,2020-03-19T18:41:33Z,2020-03-19T18:41:33Z,4,37,13,"previously, before pushing entry to history we were piping each element through newElementWith() which regenerates versionNonce. This resulted in every single change going through, effectively skipping the bail-on-no-change check, and thus we were adding changes to history e.g. just on clicking on an element.
+I've made it so that we don't update versionNonce on this occasion. Note that we're still incrementing version of each element. In this case it doesn't cause an immediate issue because when checking against the currently-stored-in-history elements, those already have version incremented from last push. WTBS, I think this is brittle and will result in some issue down the line. @petehunt was there a reason why you were doing this (both version, and versionNonce)?
+
+
+next, I fixed history handling multi-point arrows. Now we're storing them only from 2-point onwards, and also only removing uncommitted points.
+
+
+Before merge, I can write tests for this, but don't have time ATM.",2,2
+1015,2020-03-19T18:52:43Z,,2020-03-23T08:00:26Z,2,30,0,Closes #895. We can add automated tests later. Let's at least document a comprehensive manual test plan for contributors to run before landing a PR.,4,9
+1036,2020-03-21T21:44:11Z,2020-03-22T17:41:06Z,2020-03-22T17:41:06Z,2,4,3,Fixes #909,3,11
+1041,2020-03-22T04:15:24Z,,2020-03-24T06:03:30Z,39,329,264,"Note: I have barely tested this PR, though 90% of this diff is just typing changes.
+This diff arose out of the discussion in #1030 and may fix some of the bugs mentioned in that ticket.
+The general idea here is to introduce 3 different types when working with ExcalidrawElements.
+
+Versioned<ExcalidrawElement>, generally used for updating the scene and syncing.
+NonDeleted<ExcalidrawElement>, used when dealing with rendering, selection, hit testing, and local persistence.
+ExcalidrawElement, when you want to treat the element generically (like mutateElement())
+
+What was really nice about this diff was I just added the type annotations to the low level methods and then TypeScript spotted all of the bugs for me. This diff also makes it so the rest of Excalidraw doesn't need to know or care about multiplayer or tombstoning, other than adding the NonDeleted type to their functions.
+My plan for the action processors is to move all the manipulation of the elements: Versioned<ExcalidrawElement>[] array into helper functions so they will not need to know about how deletion works either. At the end, we can opt to rename the current ExcalidrawElement to something like DeletableExcalidrawElement and NonDeleted<ExcalidrawElement> to ExcalidrawElement to clean up the type signatures (or something like this).
+Note I still think there are bugs related to the z index that I would need to fix as well.
+Let me know if you all like this approach and if so I can start comprehensively testing this and cleaning it up.
+Also happy to dump this PR if people don't want to take it. All good with me.",3,1
+1045,2020-03-22T12:32:14Z,2020-03-22T13:43:07Z,2020-03-22T13:43:07Z,1,5,0,,3,1
+1046,2020-03-22T13:44:23Z,2020-03-22T15:22:14Z,2020-03-22T15:22:14Z,1,13,11,Emphasise the Translations and put the testimonials lower.,2,1
+1047,2020-03-22T15:27:14Z,2020-03-22T17:24:51Z,2020-03-22T17:24:51Z,1,472,466,"App is too big. I'm preparing it for splitting by putting the related parts together.
+Please check my Git history. I'm afraid it may still be messed up.",3,1
+1054,2020-03-23T01:18:32Z,2020-03-24T10:51:50Z,2020-03-24T10:51:50Z,5,43,15,"Resolves #819
+Changes
+
+As discussed in #819, I added different lock button style for small screens. I found 360px to be a suitable breakpoint and handled it via media query.
+Rename the event handler that I added in #1005",3,3
+1060,2020-03-23T09:30:19Z,2020-03-23T11:05:07Z,2020-03-23T11:05:07Z,46,170,170,"Bumps prettier from 1.19.1 to 2.0.1.
+
+Release notes
+Sourced from prettier's releases.
+
+2.0.1
+🔗 Changelog
+2.0.0
+diff
+🔗 Release Notes
+
+
+
+Changelog
+Sourced from prettier's changelog.
+
+2.0.1
+diff
+API: Fix build script to not corrupt import-fresh module (#7820 by @thorn0)
+2.0.0
+diff
+🔗 Release Notes
+
+
+
+Commits
+
+c5c9332 Release 2.0.1
+c9225ca Tweak build script to not corrupt import-fresh
+171bc96 Fix version references in v2.0 blog post (#7819)
+6953471 revert whitespace changes from the previous commit
+4314e9c update blog post
+8f7164f clean changelog_unreleased
+8334610 Blog post for 2.0 (#7417)
+9dad95b Bump Prettier dependency to 2.0.0
+5b3028e Release 2.0.0
+262423a run yarn-deduplicate
+Additional commits viewable in compare view
+
+
+
+Maintainer changes
+This version was pushed to npm by thorn0, a new releaser for prettier since your current version.
+
+
+
+Dependabot will resolve any conflicts with this PR as long as you don't alter it yourself. You can also trigger a rebase manually by commenting @dependabot rebase.
+
+
+Dependabot commands and options
+
+You can trigger Dependabot actions by commenting on this PR:
+
+@dependabot rebase will rebase this PR
+@dependabot recreate will recreate this PR, overwriting any edits that have been made to it
+@dependabot merge will merge this PR after your CI passes on it
+@dependabot squash and merge will squash and merge this PR after your CI passes on it
+@dependabot cancel merge will cancel a previously requested merge and block automerging
+@dependabot reopen will reopen this PR if it is closed
+@dependabot close will close this PR and stop Dependabot recreating it. You can achieve the same result by closing it manually
+@dependabot ignore this major version will close this PR and stop Dependabot creating any more for this major version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this minor version will close this PR and stop Dependabot creating any more for this minor version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this dependency will close this PR and stop Dependabot creating any more for this dependency (unless you reopen the PR or upgrade to it yourself)
+@dependabot use these labels will set the current labels as the default for future PRs for this repo and language
+@dependabot use these reviewers will set the current reviewers as the default for future PRs for this repo and language
+@dependabot use these assignees will set the current assignees as the default for future PRs for this repo and language
+@dependabot use this milestone will set the current milestone as the default for future PRs for this repo and language
+@dependabot badge me will comment on this PR with code to add a ""Dependabot enabled"" badge to your readme
+
+Additionally, you can set the following in your Dependabot dashboard:
+
+Update frequency (including time of day and day of week)
+Pull request limits (per update run and/or open at any time)
+Out-of-range updates (receive only lockfile updates, if desired)
+Security updates (receive only security updates, if desired)",1,1
+1068,2020-03-24T06:05:08Z,2020-04-08T16:49:53Z,2020-04-08T16:49:53Z,29,260,189,Lighter weight version of #1041.,5,3
+1075,2020-03-24T19:42:10Z,2020-04-03T06:32:43Z,2020-04-03T06:32:43Z,1,5,0,,5,6
+1077,2020-03-24T21:26:22Z,2020-03-26T07:28:51Z,2020-03-26T07:28:51Z,5,254,31,"fixes #989
+Implementation follows @vjeux suggestion of auto-selecting neighboring deleted elements.
+Comments & tests tomorrow, and merge then. Pushed as RFC.",3,6
+1079,2020-03-25T10:25:26Z,2020-03-25T13:13:59Z,2020-03-25T13:13:59Z,2,39,5,,3,2
+1080,2020-03-25T14:13:29Z,2020-03-25T15:42:17Z,2020-03-25T15:42:17Z,2,20,7,"Safari < 12 don’t support .flat(), which we use.
+KaiOS doesn’t support async functions, and runs on a lot of feature phones which I hope we don’t target.
+Trident-based Edge (12–18) don’t support .flat().
+Chrome < 70 doesn’t support Grid or .flat()
+Samsung Internet < 10 and UC Browser < 13 don’t support .flat().
+
+Note: to get the build script to take the new values, you have to rm -rf node_modules/.cache.
+It also adds a smaller set of supported browsers for dev mode. I’m happy to revert this if someone on the team is deving on an older browser.",3,7
+1083,2020-03-25T15:38:32Z,2020-03-25T17:10:06Z,2020-03-25T17:10:06Z,2,14,24,We don’t need name/version/etc if we don’t intend to publish to npm. Plus this ensures nobody accidentally npm publishes it.,2,1
+1086,2020-03-26T08:32:40Z,2020-03-26T11:22:15Z,2020-03-26T11:22:16Z,1,1,1,"Fixes #1082
+'Scroll back to content' button is not visible only on the desktop. Changes have been made in this work. I modified the z-index because it should be applied only to mobile.",2,1
+1094,2020-03-27T11:39:41Z,,2020-03-27T16:45:50Z,1,11,0,add Read the excalidraw load from the url parameter,4,8
+1095,2020-03-27T15:31:50Z,2020-03-29T02:35:57Z,2020-03-29T02:35:57Z,2,103,86,"Resolves #907
+Added SCENE_INIT type to update current scene only for new users.",2,2
+1099,2020-03-28T16:04:33Z,2020-04-02T08:40:27Z,2020-04-02T08:40:27Z,23,664,108,"This is to support rotation. #15
+
+ basic feature
+ fix error in arrow/line bounds
+ fix error with rotated lines/arrows when angle > Math.PI
+ fix resizing with ""w*"" or ""n*"" leads elements moving.
+ png export
+ svg export
+
+
+Some small remaining issues not addressed in this PR:
+
+rotate cursor is ""ew"".
+resize cursors don't change with rotation.
+resize(Test|Handles) should be renamed because they are used for ""rotation"" now.",10,66
+1103,2020-03-28T22:56:52Z,2020-03-28T23:59:37Z,2020-03-28T23:59:37Z,8,64,7,"This reuses the cached canvas while the gesture is happening. Once it has stop updating, then recompute the cache with the proper zoom.
+This should massively improve performance when panning on big scenes on mobile
+Fixes #1056",1,2
+1117,2020-03-29T13:05:04Z,,2020-03-31T08:24:30Z,8,190,111,"Fixes #797,
+Sentry will report all uncaught exceptions directly. Also, this will modify the main error boundary to allow people to follow up on GitHub with their scene information. By default, scene information is not included on Sentry.
+If you want to test locally, just throw an error in any render method to trigger the error boundary.",4,15
+1118,2020-03-29T13:19:02Z,2020-03-31T11:44:30Z,2020-03-31T11:44:30Z,14,341,90,,2,1
+1123,2020-03-29T21:03:46Z,,2020-04-03T06:33:26Z,1,3,3,https://excalidraw-git-yellow-hint.excalidraw-team.now.sh,3,8
+1140,2020-03-30T20:52:29Z,2020-03-31T08:54:43Z,2020-03-31T08:54:43Z,1,6,0,,4,4
+1146,2020-03-31T17:01:37Z,2020-04-01T15:13:54Z,2020-04-01T15:13:54Z,6,49,7,"Resolves #1142
+In the desktop version, the duplicate and delete buttons are provided, and in the mobile version, since the delete button already exists, only the duplicate button is provided.
+
+
+
+Desktop
+Mobile",6,15
+1147,2020-03-31T17:53:01Z,2020-04-01T11:12:14Z,2020-04-01T11:12:14Z,1,0,41,It's failing when PR are not from this repo #1146,3,1
+1152,2020-04-01T09:52:41Z,2020-04-02T09:46:06Z,2020-04-02T09:46:06Z,1,22,32,,4,11
+1154,2020-04-01T17:11:37Z,2020-04-02T16:21:20Z,2020-04-02T16:21:20Z,18,158,95,Will rebase on master once #1151 is merged.,3,8
+1155,2020-04-01T17:26:59Z,2020-04-01T19:44:09Z,2020-04-01T19:44:09Z,1,24,0,,2,1
+1156,2020-04-01T18:49:20Z,2020-04-02T07:52:25Z,2020-04-02T07:52:25Z,3,15,8,"This work continues #1146
+The current action button is hidden by visibility, so it is still clickable and the tooltip is visible.
+
+To fix this, I modified the button to show after editing is complete. and also reflected this suggestion.",4,1
+1157,2020-04-01T20:37:40Z,2020-04-02T12:00:23Z,2020-04-02T12:00:23Z,1,1,0,Strict to 12,3,5
+1159,2020-04-01T21:09:56Z,2020-04-03T11:50:52Z,2020-04-03T11:50:52Z,9,108,7,"Re: #1144, I tried to make a more general error dialog that can be used in other places as well.
+Just set the errorMessage in app states' root and the error dialog will show up.
+To test, try to open an invalid JSON file
+Let me know what you think.",5,16
+1169,2020-04-02T12:36:12Z,2020-04-03T17:58:51Z,2020-04-03T17:58:51Z,3,15,9,"Fixes #1127
+Changes
+
+Modify markup to move the zoom button to left menus
+Add some styles for left center menu
+Remove unused menu related classes",4,25
+1173,2020-04-02T17:17:57Z,2020-04-03T06:11:43Z,2020-04-03T06:11:43Z,1,5,4,,3,1
+1174,2020-04-02T21:21:34Z,2020-04-03T12:16:16Z,2020-04-03T12:16:16Z,4,168,120,"Here's what I'm doing to achieve this:
+
+add the new text element to to the elements array immediately upon creation, but don't render it locally
+every text change I update the element and sync it as normal
+if user removes it (e.g. commits empty text), it is set isRemoved and synced as a deletion
+
+Same logic applies to existing text elements.
+As a side effect, this PR fixes following bug from production:
+
+create text (and sync it to remote)
+edit the text and empty it
+the change wasn't propagated to remote
+
+Not sure if correct. I'll write tests and review the code tomorrow.",3,7
+1175,2020-04-02T21:25:40Z,2020-04-04T15:12:20Z,2020-04-04T15:12:20Z,7,116,14,"Following #1111, this will broadcast all mouse down/up activities and display a circle around the respective cursor.",4,12
+1186,2020-04-03T12:42:27Z,2020-04-03T14:24:26Z,2020-04-03T14:24:26Z,1,1,1,As per #1183 this fixes the alignment of the ToolButton Label in RTL mode as mentioned per this screenshot:,3,9
+1193,2020-04-03T15:05:32Z,2020-04-07T08:50:02Z,2020-04-07T08:50:02Z,9,792,494,"Part of #1218 <- Read it first
+
+ Resize from NW
+ Resize from NE
+ Resize from SE
+ Resize from SW
+
+Not covered in this PR:
+
+Resize 2-points lines/arrows
+Resize curved lines/arrows
+Resize to negative values (invert)
+What to do with the text? Right now it's not resizable",4,34
+1197,2020-04-03T16:20:43Z,2020-04-03T19:21:40Z,2020-04-03T19:21:41Z,2,23,0,"fixes #637 (per issue this supposedly sometimes happens on Safari, too).
+steps to repro the bug on production:
+
+open https://excalidraw.com/#json=5079830945071104,WsjmXaU0uTYx2L2jt1gY7A in FF in new tab
+the font is not rendered in our font
+
+To test this fix, try the same steps with this link: https://excalidraw-git-fixfffontinit.excalidraw.now.sh/#json=5079830945071104,WsjmXaU0uTYx2L2jt1gY7A",3,1
+1200,2020-04-03T16:37:31Z,2020-04-03T23:36:13Z,2020-04-03T23:36:13Z,2,29,1,"Fixes #1192
+Requirements:
+
+We should allow websites to embed Excalidraw in an iFrame
+
+Preview
+
+Preview
+
+Test, Read
+
+Test Before: D
+Test After: A
+https://www.cspisawesome.com
+
+At least the following ones
+
+ X-Content-Type-Options
+ X-Frame-Options: Conflicts with requirements
+ Strict-Transport-Security
+ Content-Security-Policy
+ Referrer-Policy
+ Feature-Policy
+ Make sure collaboration works
+ Make sure share/load file works",4,5
+1201,2020-04-03T16:39:56Z,2020-04-03T19:22:27Z,2020-04-03T19:22:27Z,1,14,1,Fixes regression where we no longer scroll to content on collab room join.,2,1
+1207,2020-04-03T21:00:36Z,2020-04-04T14:02:16Z,2020-04-04T14:02:16Z,6,94,26,"Fixes #1109
+First take. Will refactor tomorrow.
+(The stroke rendering courtesy of @vjeux)
+
+Related: I think we should use a subset of bright colors for remote users. I often get gray/dark-blue/purple remote color which is hardly distinguishable from local color (black).",4,7
+1209,2020-04-03T22:14:51Z,2020-04-04T08:41:54Z,2020-04-04T08:41:54Z,1,16,13,,3,1
+1210,2020-04-03T22:20:27Z,2020-05-20T13:21:38Z,2020-05-20T13:21:38Z,64,785,848,"Without whitespaces: https://github.com/excalidraw/excalidraw/pull/1210/files?diff=unified&w=1
+
+Most of them they were autofixable.
+Pros:
+
+Consistency (we were using both until now)
+Less code
+No need to return for one liners
+It's 2020
+
+Cons:
+
+Not really necessary
+Merge conflicts with existing PRs (we should reduce the number of PRs anyway)
+
+
+About the merge conflicts I'll deal with them if needed.. let's not worry about that, but for the final form :)",3,2
+1212,2020-04-04T02:31:35Z,2020-04-05T21:47:13Z,2020-04-05T21:47:13Z,8,41,6,Fixes #1211,5,23
+1213,2020-04-04T02:39:04Z,2020-04-08T20:00:28Z,2020-04-08T20:00:28Z,15,357,9,"This introduces the ability to change the alignment of a text element, the feature that I see more important now than ever because the newly support of RTL languages.
+this  idea came from the tweet where you asked for feedback on the RTL and the Arabic language support https://twitter.com/excalidraw/status/1246057882182967298
+
+for now I went with the basic select button with text, even though think that icons might be more useful in this case.
+also I am not very familiar with how you deal with introducing a new label to be translated
+This is my first ever PR to an Open Source project. can't wait for your feedback.",5,15
+1214,2020-04-04T05:34:53Z,,2020-04-09T10:14:38Z,1,137,85,"If grab a corner point (excluding the lower right) and resize a line (or arrow) object with multiple points, the object moves as shown in the following image.
+
+This seems to be an unexpected behavior.
+So I fixed it so that the behavior is the same as the original bottom right point (no inversion and no further change in size).",5,9
+1215,2020-04-04T06:34:31Z,2020-04-04T10:27:35Z,2020-04-04T10:27:35Z,1,3,1,"While I was developing #1193, I found a weird behavior.
+It was because selectAll selects deleted elements.
+Unless it is intentional, this should fix it.
+(Otherwise, I can do a workaround.)",3,3
+1216,2020-04-04T06:43:38Z,2020-04-04T11:55:23Z,2020-04-04T11:55:23Z,4,62,6,,3,2
+1217,2020-04-04T09:46:33Z,2020-04-04T12:55:37Z,2020-04-04T12:55:37Z,1,41,13,"Fixes: #1179
+Test Plan
+Tap twice to insert text.
+Try zooming and make sure there's no text insertion",4,5
+1220,2020-04-04T10:45:54Z,2020-04-05T13:24:24Z,2020-04-05T13:24:24Z,2,2,45,In favour of this: https://howto.excalidraw.com/shortcuts/,3,2
+1223,2020-04-04T16:51:07Z,2020-04-07T13:02:43Z,2020-04-07T13:02:43Z,13,154,2,"For #1113, this will bring back a previously-reverted PR and also add an input on the Room Dialog to be able to set your own name.",5,9
+1224,2020-04-04T17:01:32Z,2020-04-05T12:58:01Z,2020-04-05T12:58:01Z,11,317,5,"Preview
+
+ Use labels from en.json
+ More shortcuts? Am I missing anything?
+ Test on Mac
+ Test on Windows
+ Test on Linux
+ Footer with links to blog, howto, github
+ Scroll if the window height is too small
+ Add a button next to the language select with ? Next PR",4,10
+1225,2020-04-04T17:33:09Z,2020-04-22T15:57:18Z,2020-04-22T15:57:18Z,6,69,22,,5,33
+1227,2020-04-04T19:55:34Z,,2020-04-25T09:10:05Z,4,18,6,"Re #962, this uses pako to compress the payload before encrypting and decompress after decryption.
+https://github.com/nodeca/pako
+https://bundlephobia.com/result?p=pako@1.0.11
+Couple of questions:
+
+Does compressing before encrypting makes sense or should it be the other way around?
+How to efficiently test what impact will this have?
+
+Data set and results below",4,11
+1228,2020-04-05T04:37:59Z,2020-04-06T12:14:32Z,2020-04-06T12:14:32Z,18,251,53,,2,3
+1230,2020-04-05T11:03:24Z,2020-04-05T12:30:55Z,2020-04-05T12:30:55Z,1,1,0,,2,1
+1231,2020-04-05T11:31:17Z,,2020-11-26T16:31:41Z,1,42,53,,3,11
+1237,2020-04-05T14:16:13Z,2020-04-09T09:53:13Z,2020-04-09T09:53:13Z,3,10,36,"Fixes #1122
+Implement the behavior of negative resizing a line (or arrow) with multiple points.
+
+If this PR is merged, #1214 should be solved together.",4,35
+1241,2020-04-05T18:01:50Z,2020-04-07T10:09:41Z,2020-04-07T10:09:41Z,2,29,12,"Fixes #1240
+Wrapped localStorage in try-catch to avoid throwing the exception.",3,6
+1243,2020-04-05T18:48:18Z,2020-04-07T13:54:50Z,2020-04-07T13:54:50Z,3,17,0,,2,8
+1250,2020-04-05T22:13:11Z,2020-04-05T23:13:17Z,2020-04-05T23:13:18Z,5,55,7,"Fixes #860.
+Added support to copy to clipboard as SVG by copying the whole SVG as text.
+Tested by pasting the content into Figma - which is able to detect that it's an SVG content and pastes the image.",2,5
+1253,2020-04-06T00:14:13Z,2020-04-07T10:42:11Z,2020-04-07T10:42:11Z,7,70,4,Fixes #1233,5,17
+1255,2020-04-06T01:19:50Z,2020-04-06T03:54:28Z,2020-04-06T03:54:28Z,1,1,1,Fixes #1254.,2,1
+1270,2020-04-06T10:28:08Z,2020-04-06T12:07:29Z,2020-04-06T12:07:29Z,1,4,0,,2,1
+1273,2020-04-06T12:00:48Z,2020-04-07T14:04:20Z,2020-04-07T14:04:21Z,3,30,22,fix #1232,3,12
+1277,2020-04-06T15:11:39Z,2020-04-08T10:14:31Z,2020-04-08T10:14:31Z,18,335,245,https://crowdin.com/project/excalidraw,2,3
+1279,2020-04-06T15:53:44Z,2020-04-07T13:57:28Z,2020-04-07T13:57:28Z,1,17,17,"For consistency, across the app.
+It's probably going to ruin some translations, but it's an easy fix...",3,7
+1282,2020-04-06T18:57:33Z,2020-04-06T20:26:01Z,2020-04-06T20:26:01Z,1,1,2,fix #1281,3,2
+1286,2020-04-06T20:43:13Z,2020-04-13T14:08:40Z,2020-04-13T14:08:40Z,25,308,31,"Adds:
+
+offline support
+
+
+
+notifies about updates
+
+
+
+allows to install as a desktop app",7,18
+1287,2020-04-06T20:48:07Z,2020-04-06T22:24:51Z,2020-04-06T22:24:51Z,1,4,0,"Re #1239, simplest thing to do.",4,1
+1293,2020-04-07T09:55:59Z,2020-04-07T14:02:30Z,2020-04-07T14:02:30Z,1,1,4,Fixes #1292,4,3
+1300,2020-04-07T12:10:39Z,2020-04-07T22:31:29Z,2020-04-07T22:31:29Z,4,265,264,"Example: Untitled-2020-04-07-1509 and as a filename it will be:
+Untitled-2020-04-07-1509.excalidraw
+It's also translatable now.",3,4
+1305,2020-04-07T16:41:18Z,2020-04-08T12:31:41Z,2020-04-08T12:31:41Z,4,58,45,"Currently Escape key does not work on ShortcutsDialog. This is an issue due to focus management, so some generalized focus handling is added to Dialog like ExportDialog. And a prop type warning related to key has been fixed.",4,10
+1306,2020-04-07T19:44:06Z,2020-04-07T22:29:43Z,2020-04-07T22:29:44Z,1,58,38,,3,2
+1307,2020-04-07T20:04:59Z,2020-04-07T22:28:45Z,2020-04-07T22:28:45Z,5,8,8,"Reduces fonts size from 441kb to 202kb
+https://caniuse.com/#feat=woff2",4,6
+1315,2020-04-08T07:26:54Z,2020-04-09T08:46:48Z,2020-04-09T08:46:48Z,11,240,32,"Fixes  #1262
+When drawing multi-point lines, if the last point is close to the first point, we determine that the shape could be filled.
+Hit testing is updated to detect cursor inside the shape in a filled path.
+I have also updated to a newer version of roughjs that I created with better curve filling algorithm. There were no other changes in this roughjs release.
+Does it feel odd that you cannot fill a shape that is not closed?",5,36
+1329,2020-04-09T04:18:12Z,2020-04-09T08:23:11Z,2020-04-09T08:23:11Z,1,2,0,"Fix Chinese display unnecessary line breaks.
+Keep all row heights consistent.
+
+Before:
+
+After:",2,2
+1330,2020-04-09T04:33:19Z,2020-04-09T15:14:33Z,2020-04-09T15:14:33Z,3,205,254,,3,18
+1331,2020-04-09T06:40:04Z,2020-04-09T09:13:33Z,2020-04-09T09:13:33Z,1,3,1,"Hoping that it will improve #1310
+I tried testing it with the browser throttled connection and it seemed to perform a bit better, though it's hard to tell if events actually get dropped. In any case, not a full solution to the problem.",2,2
+1333,2020-04-09T09:54:13Z,2020-06-02T16:41:41Z,2020-06-02T16:41:41Z,5,130,0,Implements this feature #1328,4,12
+1336,2020-04-09T11:59:21Z,2020-04-09T13:48:42Z,2020-04-09T13:48:42Z,4,45,39,Resolves #1295,3,5
+1338,2020-04-09T14:30:50Z,2020-04-09T16:10:36Z,2020-04-09T16:10:36Z,4,17,13,"I'm not sure if it's only for me, but the following syntax is causing codesandbox parsing error. It seems to be an issue due to the syntax supported by typescript v3.8.3. To solve this, the type was moved to the element/types.ts file according to the existing convention.
+export type { ResizeArrowFnType } from ""./resizeElements"";",2,1
+1344,2020-04-09T16:45:04Z,2020-04-11T12:37:27Z,2020-04-11T12:37:27Z,19,209,152,,2,1
+1347,2020-04-09T17:53:02Z,2020-04-09T19:58:30Z,2020-04-09T19:58:30Z,3,162,116,"Undo
+Redo
+Multiple line text
+How to stop editing
+
+I'm open to suggestions about the copy.",2,1
+1354,2020-04-10T12:18:31Z,2020-04-11T11:10:47Z,2020-04-11T11:10:48Z,1,102,0,"Close #1303
+For diamonds and ellipses, the calculation should be fast.
+For curved lines, it may require some computations. (There's probably room for improvement, but I'm not sure how.)",3,13
+1356,2020-04-10T12:43:29Z,2020-04-11T16:10:57Z,2020-04-11T16:10:57Z,9,134,11,"Re: #1325 , the blur handler on the editable is causing the active editing element to become a normal element, whenever a click happens outside that element, including the choosing of a style on the toolbox.
+This PR is a PoC, to expose the wysiwyg element so we can finalize it on demand, thus allowing us to do in-place style changes while it is still on editing mode.
+I can see how this could potentially pave the way for tackling #1213 and #1126. Let me know if I'm wrong on this.",4,4
+1365,2020-04-10T16:50:21Z,2020-04-19T19:50:24Z,2020-04-19T19:50:24Z,11,349,9,Fixes #1312,7,10
+1371,2020-04-10T19:02:05Z,2020-04-10T22:09:30Z,2020-04-10T22:09:30Z,27,3283,197,I also used this opportunity to switch any remaining custom colors to a similar open-color.,2,4
+1373,2020-04-10T22:42:51Z,2020-04-11T11:37:44Z,2020-04-11T11:37:44Z,5,68,50,"For #1177
+I moved the duplication logic from the pointerDown handler to the pointer move handler.
+The only ""downside"" of this approach is that the elements are no longer duplicated when you just fire a pointerDown event (with alt pressed) and there is no subsequent pointerMove event.
+I don't think it makes much sense to duplicate an element when it is only pressed (with alt) but not dragged from the UX standpoint (also I checked Figma and they don't do that).
+But it is a ""breaking change"" and, of course, it is up to you to decide :)",2,2
+1375,2020-04-11T08:21:02Z,2020-04-11T16:17:21Z,2020-04-11T16:17:21Z,1,16,3,The exported SVG file did not reflect the textAlign property setting of the text object.,2,1
+1378,2020-04-11T12:11:12Z,2020-04-18T14:43:22Z,2020-04-18T14:43:22Z,1,2,1,"When pasting a style on text element, the value of textAlign is not reflected.",3,2
+1379,2020-04-11T12:48:42Z,2020-04-11T15:22:17Z,2020-04-11T15:22:17Z,1,4,1,Fixes the Content Security Policy Warning in Excalidraw Desktop - excalidraw/excalidraw-desktop#82,2,3
+1381,2020-04-11T14:53:07Z,2020-04-11T16:13:10Z,2020-04-11T16:13:11Z,4,56,7,"Fixes #1361, store username for each room on local storage.",3,3
+1382,2020-04-11T18:24:12Z,2020-04-11T20:23:13Z,2020-04-11T20:23:13Z,2,8,10,,3,1
+1387,2020-04-11T20:49:56Z,2020-04-12T13:57:58Z,2020-04-12T13:57:58Z,9,73,80,"So, at first I started making a few fixes which then turned into a full rewrite 😄.
+First, I wanted to fix problems with previous solution that discarded wysiwyg's blur event altogether. Problem with finalizing wysiwyg on explicit pointerDown on canvas is that we don't finalize when e.g. changing tools (which we should), or zooming in/out (which resulted in visual bugs) and who knows what else.
+So instead I used a different workaround: when clicking inside the menu, temporarily remove the blur event, and re-enable it on pointerup (plus some logic on top to handle edge-cases).
+I've also fixed a case when you click on the same property which doesn't result in update, so on previous solution the wysiwyg wasn't focused.
+Another bug this PR fixes is trying to type into color inputs, which previously resulted in wysiwyg stealing focus again.
+And on top, I enabled this only for desktop shape menu, because previously it resulted in some very weird stuff going on when you tried to edit wysiwyg props on mobile (there I'd argue it should blur & confirm on trying to open mobile menu).
+Second, I wanted to simplify the wysiwyg updating. I realized we have a global element mutation event we can subscribe to, so I used that. For now, I'm updating the wysiwyg on every mutation update, which is a bit inefficient but it doesn't matter for now.
+Both of the above changes resulted in not having to expose any wysiwyg API outside, and not needing any extra appState properties either.
+This way all logic related to wysiwyg is encapsulated in the module, which I think is a good thing.
+Now, I'm not sure if this is 100% working solution, so try to break it and let me know.",4,12
+1391,2020-04-11T22:14:31Z,2020-04-12T00:42:03Z,2020-04-12T00:42:03Z,3,129,59,"use constants instead of hardcoded strings for better readability
+don't use an inline function as it will create a new reference every time
+I have made some minor refactoring in the code for better readability.
+Please let me know if this is acceptable.",5,5
+1395,2020-04-12T01:41:36Z,2020-04-14T00:47:10Z,2020-04-14T00:47:10Z,2,74,5,#1394 (comment),4,3
+1402,2020-04-12T15:04:48Z,2020-04-13T13:10:27Z,2020-04-13T13:10:27Z,1,38,0,"Proposal to fix #1383.
+I propose to fix the extra middle click paste event only on linux by preventing the next paste event only when user pan the view.",4,7
+1403,2020-04-12T15:08:05Z,2020-04-17T20:39:16Z,2020-04-17T20:39:16Z,6,82,4,I have added in top right as discussed in #1313,6,25
+1406,2020-04-12T21:03:36Z,2020-04-18T13:50:31Z,2020-04-18T13:50:31Z,5,73,3,"Implements #1360.
+I haven't implemented any logo and translation yet. What do you think so far?",4,11
+1415,2020-04-13T12:02:19Z,,2020-04-20T13:59:29Z,5,86,8,Resolves #1260,2,6
+1422,2020-04-13T17:20:53Z,2020-04-13T19:53:08Z,2020-04-13T19:53:08Z,10,22,7,,4,5
+1433,2020-04-15T10:41:48Z,2020-04-16T12:23:40Z,2020-04-16T12:23:40Z,16,36,63,Fixes #1425,4,12
+1434,2020-04-15T15:10:36Z,2020-04-17T20:24:20Z,2020-04-17T20:24:20Z,3,221,199,"Pass named function to react.memo so that in dev tools the name shows up instead of showing anonymous
+Make LayerUI default export
+Break the functional component into multiple render methods",3,8
+1437,2020-04-15T21:12:34Z,2020-04-16T20:03:00Z,2020-04-16T20:03:00Z,1,4,0,Fix #1364,4,1
+1446,2020-04-16T20:53:26Z,2020-04-16T22:18:46Z,2020-04-16T22:18:46Z,1,5,0,Ensures that Ctrl/Cmd+Shift+C works when devTools is not focued. I do this so often that it's about time we fix this.,3,1
+1450,2020-04-18T08:39:52Z,2020-04-25T13:13:02Z,2020-04-25T13:13:03Z,16,222,39,"Added Zen mode for desktop
+Added shortcut key ""K"" for now to test it. We can iterate over the short cut key
+Place for Icon needs to get decided
+
+Fixes #1128",6,41
+1455,2020-04-20T07:41:46Z,,2020-06-07T09:44:26Z,7,1154,119,"Expose excalidraw as an API
+ Create a umd build in npm packge
+ create es/lib folders in npm package
+
+Fixes #1196",4,5
+1470,2020-04-22T03:12:36Z,2020-04-22T13:11:02Z,2020-04-22T13:11:02Z,1,15,2,"This is something I gave up in #1099, because creating arbitrary cursors is not trivial.
+However, rotating existing cursors is not hard, and this is it.
+
+We might want a custom cursor for rotation, though.",3,3
+1474,2020-04-22T17:50:39Z,,2022-07-20T13:05:43Z,8,337,98,Initial draft for fixing #1468,4,5
+1479,2020-04-23T12:52:38Z,2020-04-23T16:18:29Z,2020-04-23T16:18:29Z,1,19,0,Implementation proposition for #1478.,3,7
+1486,2020-04-25T12:47:46Z,2020-04-25T16:02:32Z,2020-04-25T16:02:32Z,1,4,0,fixes #1482,3,1
+1487,2020-04-25T19:00:50Z,2020-04-25T21:06:17Z,2020-04-25T21:06:17Z,2,19,25,"Fixes:
+
+inability to input HEX colors without # (fixes #1485)
+in many cases, colors being normalized to HEX while you're typing
+
+Adds:
+
+keep colors in the form user typed them
+ability to use rgba/hsla",3,6
+1492,2020-04-26T15:39:09Z,2020-04-29T15:13:30Z,2020-04-29T15:13:30Z,1,7,2,,4,1
+1503,2020-04-27T11:41:02Z,2020-04-29T05:53:07Z,2020-04-29T05:53:08Z,5,59,8,"Hi,
+I've been searching for a good whiteboard tool and Excalidraw looks very prominent for that.
+I would, however, like to self-host this so in this PR I added necessary files to build a Docker image and test it locally. The resulting image is as small as 23.3 MB 🎉
+If this satisfies the needs, this also fixes #1078
+Eventually, it might be wise to add a new Github Action for pushing this image to Docker Hub using e.g. this official action.
+To get up and running, I've added instructions into README. Let me know if you require more information.",2,4
+1507,2020-04-28T14:11:04Z,2020-04-28T16:49:01Z,2020-04-28T16:49:01Z,2,23,18,,3,3
+1511,2020-04-29T14:30:13Z,2020-04-29T20:49:37Z,2020-04-29T20:49:37Z,4,28,8,"fixes #1510
+(anyone also has problems figuring out which div corresponds to which menu in our LayerUI.tsx?)",3,1
+1526,2020-05-02T11:17:19Z,2020-05-03T08:23:05Z,2020-05-03T08:23:05Z,1,2,1,"When changing to any rtl language, the language dropdown remains to the right of the screen under App-menu_bottom and the user is unable to change the language.
+This is my first shy attempt at contributing to open-source.
+Hello World!
+Later edit: github corner was affected too, so i fixed it in the same commit.",3,4
+1530,2020-05-02T22:14:19Z,2020-05-03T00:30:58Z,2020-05-03T00:30:59Z,1,20,4,This should fix the #1529,2,1
+1549,2020-05-06T06:16:29Z,2020-05-06T19:18:50Z,2020-05-06T19:18:50Z,1,2,2,"crypto.subtle.importKey returns a promise, so there's no need to await
+edit: tsc complained, the WebCrypto interface currently returns PromiseLike... it looks like the issue was recently resolved (see: microsoft/TypeScript-DOM-lib-generator#193) but hasn't made it into typescript release yet (see: microsoft/TypeScript-DOM-lib-generator#843)
+in lieu of changing the return type to PromiseLike i'll revert it to async function so it's wrapped in a vanilla promise, once these PRs land in ts, can remove async wrapper
+this PR will reduce getImportedKey from 3 to 2 promises",3,5
+1562,2020-05-09T11:07:19Z,2020-05-09T13:27:43Z,2020-05-09T13:27:43Z,24,24,1,"Small wording change. I was confused by the room dialog, thinking 'Name' was asking me to assign a label to the live collaboration session.
+
+Changing the label to 'Your name' eliminates that ambiguity.
+
+I added a new label labels.yourName, and set it to 'Your name' in English. For the rest of the languages I duplicated the existing labels.name, so that it falls back on the existing localized text rather than reverting to English. Let me know if there's a better approach.",3,9
+1565,2020-05-09T16:24:08Z,2020-05-10T22:29:36Z,2020-05-10T22:29:36Z,2,46,42,"fixes #1557
+I used Cmd instead of Command because the long form is not used very often, and takes too much space.",3,5
+1566,2020-05-09T19:18:30Z,2020-05-16T15:45:57Z,2020-05-16T15:45:57Z,1,1,0,For #1561,2,3
+1570,2020-05-10T16:26:12Z,2020-05-12T19:10:12Z,2020-05-12T19:10:12Z,21,344,49,"This replicates the line/arrow mode, but adds a point to the line on each mouse moving position.
+For #25 and #1569",7,32
+1571,2020-05-10T19:29:05Z,2020-05-14T15:04:33Z,2020-05-14T15:04:34Z,20,459,9,"fixes #1129
+
+We may want to tweak the dasharray length and offsets, if we don't like the above.
+For curves, such as lines, arrows, or circles, it tends to result in suboptimal lines:
+
+Not sure what we can do about it. /cc @pshihn",5,39
+1583,2020-05-12T22:53:39Z,,2020-08-09T20:54:57Z,5,129,5,"Hey team, I'm using Excalidraw extensively in the last couple of months and it's great! I'm amazed by performance boost it provides for diagram manipulations.
+I noticed that some inconvenience when using editor with touchpad or mouse. Hotkey layout for some actions are out of reach for left hand. For example ""Delete - backspace"", ""Send Front - cmd+]"" or ""Curved Line - L"".
+Maybe it would be more convenient if all actions are actually located in reach of left hand (see picture). For example, map deletion on ""D"" and remap diamond shape to ""G"".
+https://ibb.co/tHmXy4n
+https://ibb.co/3RCkvDc
+https://ibb.co/WHFZvhP",4,13
+1588,2020-05-13T13:29:40Z,2020-05-13T17:19:50Z,2020-05-13T17:19:50Z,2,20,1,"When a new service worker is in waiting state, prompt the user if they want to reload the app so the service worker can kick in.",3,11
+1608,2020-05-17T01:39:38Z,2020-05-17T14:01:35Z,2020-05-17T14:01:36Z,2,78,92,"possibly fix #1606
+@lusingander can confirm?
+@dwelle any idea for keeping the logic in sync?",3,6
+1616,2020-05-18T19:14:54Z,2020-06-01T09:35:44Z,2020-06-01T09:35:44Z,19,1129,76,"First iteration of multipoint line editing. Should probably be a draft. There are things not finished yet, notably inserting points between two existing points. And there are issues around rotated elements (and in some cases when the elements are resized and the first point isn't at [0,0]).
+You enter the editing via Enter or double-click. Hints included.
+
+Reasoning behind some decisions
+
+
+We allow editing points even of 2-point arrows, which seem redundant. This is because this allows for:
+
+Adding inserting new points to 2-point arrows, and thus making them into multi-point arrows.
+Removing a point from 3-point arrow will make it into a 2-point arrow, and it shouldn't exit the editor by doing so.
+
+
+
+I've made t() helper run shortcut replacement on every string. This may be inefficient.
+
+
+I've tried to hide most of the logic into LinearElementEditor (which currently is a mix of instance & static class), but there are still many places in the codebase with ad-hoc implementation.
+
+
+During editor init, or when moving start point, I'm recalculating all other points (and element's x/y) so that I retain the first point's position to be [0,0]. I believe this was the original assumption when multi-point lines were introduced back in the day
+Currently, this invariant is being broken when resizing elements, and it manifested in at least one bug during the development of this feature. I believe it's the cause of other issues we've encountered and had to hack around, but that's just a hunch.
+I propose we go back to retaining this invariant, but that's for another PR.
+
+
+future improvements/not implemented
+
+
+ right now, the uncommitted point when you hold Cmd is not removed immediately after Cmd release, but after you then move your cursor.
+
+
+ figure out how history ties into this
+
+ show undo retain or re-open line editor? If so, I'll need to rewrite editingLinearElement state handling (replace element → elementId).
+
+
+
+ inserting new points
+
+ inserting new leading point
+
+ Currently, a point can be inserted only at the end, not from the start (i.e. what point is currently selected is disregarded) --- should this be implemented? But then users would need to select start/end point in order to be append points, which I think isn't a good idea.
+
+
+ inserting points in the middle of two points
+
+
+
+ moving points
+
+ when start/end point is moved within threshold of start/end point, it should close the loop
+ when moving start/end point of already closed shape, should it move both?
+ moving multiple points at once --- may also be useful if the above is not implemented
+
+
+
+ 🐛 moving points when shape is rotated moves/changes bounding box in cases it shouldn't.
+So I must be computing the rotation wrong or something (though I'm not sure -- it seems the points move correctly, in respect to the rotation --- but the subsequent element x/y/width/height calculation is wrong).
+I think this isn't related to this PR per se.
+
+
+
+ I would probably not render bounding box when editing points (distracting, esp around boundary points). Though this will prevent resizing at the same time.
+
+
+ possibly show hover effect & change cursor when cursor over point (not sure about perf cost)",6,35
+1622,2020-05-20T21:14:24Z,2020-05-23T05:27:00Z,2020-05-23T05:27:00Z,11,885,2985,"This PR introduces shouldCreateEntry resolver to have better control over which changes should be committed to history (that is, which should be considered duplicates/noops).
+It also fixes several bugs.
+Some other changes of note:
+
+
+I've changed renewing version/versionNonce to happen on restore (undo/redo), rather than when pushing to history. This makes more sense, possibly catches cases it didn't before, and makes should-update resolver easier to reason about.
+In the future, we'll want to renew version only for elements that were actually changed.
+
+
+removed storing most appState props, mainly relating to shape settings, so that when user toggles settings in menu (without any existing shape selected), it doesn't create history entries. This is how most apps work and is most intuitive.
+
+
+unrelated fix: initialize isDeleted when restoring scene (for old schemas). This fixes at least one bug in history, and who knows what else. I'm planning to rewrite how we do restoring in another PR to guard against these things.
+
+
+blocks #1616",2,3
+1627,2020-05-22T13:31:52Z,2020-05-23T08:45:06Z,2020-05-23T08:45:06Z,2,5,5,Close #1451,3,6
+1631,2020-05-22T20:51:08Z,2020-05-26T18:51:04Z,2020-05-26T18:51:04Z,2,8,3,,2,2
+1632,2020-05-23T06:50:43Z,2020-05-23T19:07:11Z,2020-05-23T19:07:12Z,2,89,34,"Rather than serialize/deserialize all the elements, instead only store the elements that have changed.
+Tested by making changes in a large scene and manually inspecting the history object.
+I also took a look at the staged version of this PR vs production excalidraw.com. When I load up a 2mb scene, force GC, drag an element 10 times, and force GC again, the production version uses 28mb of RAM, and this diff drops it down to 17mb.
+When you take a look at the memory usage after loading and rendering the scene the difference is much more pronounced: the production version stores 14mb of history, and this version stores only 3.
+Fixes #1258
+Probably fixes #1246 and #1357",3,8
+1635,2020-05-23T21:04:28Z,2020-05-27T13:14:51Z,2020-05-27T13:14:51Z,17,240,116,"fixes #1634
+Bit more work than I anticipated :)
+Prerequisite to work on #1628, but if we decide no to move forward on that one, the split of font is long overdue. The sooner we do it, the better. Plus, we really need to start storing fontFamily as ids instead of strings because that will allow swapping/adding fonts in the future.",2,7
+1638,2020-05-24T16:39:52Z,2020-05-27T14:46:12Z,2020-05-27T14:46:12Z,4,77,2,"#1626 made UI not rerender on language change. This fix may not be totally ideal (I'm passing lng to LayerUI just for the memoization resolver), but I didn't want to store it to state (especially not the whole object because it contains all our translations).",2,1
+1643,2020-05-25T07:29:26Z,,2020-11-29T16:43:24Z,10,65004,11854,"Fixes #1280 and probably some of the issues mentioned in #711
+Uses indexedDB as a key-value storage in supported browsers, fallsback to localStorage on older browsers. All storage consumers are also now async.
+Since we are now using IDB, we can actually store anything structured-clonable (numbers, arrays, objects, dates, blobs etc). For the purpose of replacing the current implementation alone, we are stringifying values and pushing it to the excalidraw-store which is a key-val storage.
+Also, due to the blob support, we can do cool things like uploading images as localStorage is a pain for that #1589. We could create a new excalidraw-blob store in the idb database, to hold the values actually.
+Attaching a screenshot of how the Application/Storage Tab looks like in Devtools after using IDB, as tests don't really help validate whether the data is stored in IDB or not, due to lack of jsdom support
+.",4,37
+1648,2020-05-25T11:36:18Z,2020-05-26T20:07:47Z,2020-05-26T20:07:47Z,23,968,90,"Adds keynote-style group/ungroup to excalidraw. Putting it up so people can vet the approach and start to play with it. Is not thoroughly tested yet.
+Play with it by selecting a group of elements and pressing cmd-option-g to group, and shift-cmd-option-g to ungroup. You should be able to have nested groups without much trouble as well.
+Code definitely needs to be cleaned up too, and tests need to be written.
+I spoke w/ @vjeux and decided to make groups a new concept rather than create a new type of ExcalidrawElement to represent them. This made the implementation a lot easier, but it also means that code dealing with selection needs to think about group and non-group cases. I think this can be solved with some better abstraction around the selection state.",5,19
+1654,2020-05-26T09:12:58Z,2020-06-02T19:22:41Z,2020-06-02T19:22:41Z,1,20,0,fix #1621,3,7
+1664,2020-05-27T14:22:00Z,2020-05-28T09:41:34Z,2020-05-28T09:41:35Z,5,131,117,"Initial implem of #1658
+I had to resort to several TS hacks to get it right, but it can likely be improved.
+What it guards against:
+
+missing migrations for new element types
+missing properties (this one was the most common error)
+extra properties - we no longer need to remove obsolete properties because we're basically recreating the element objects from scratch
+
+I've split selection element from the generic element to be able to exclude it from the ExcalidrawElement type (because we're filtering it out on restore). If anyone can come up with a better solution (that still keeps the validation for missing element types), have at it.
+Several problems:
+
+kinda unreadable, especially some of the TS error (e.g. when you're missing an element type migration in the switch case)
+right now, we invoke 2 functions per element, and do a shallow clone. Didn't notice a perf regression though (also 2nd commit makes a different perf improvement that may offset it).
+As we now need to ""migrate"" even base properties, those which were there from the start, we need to duplicate initialization. In some cases I don't (text baseline...) and simply take it from the migrated element.
+
+
+In 2nd commit I've rewritten normalizeDimensions to be pure and not mutate the element (which was triggering a rerender for each element --- not something we'd want in restore).",2,3
+1670,2020-05-28T09:12:12Z,2020-05-30T12:02:33Z,2020-05-30T12:02:33Z,10,100,15,"fixes #1260
+cc @lipis",3,17
+1676,2020-05-29T13:00:37Z,2020-05-30T20:48:58Z,2020-05-30T20:48:58Z,11,478,43,"Mainly, this fixes (in 2nd to last commit) the case where you edit a group and remove all except the last element in group. Afterwards, if you selected that element, it would show as a group, which it shouldn't.
+We could either 1) automatically ungroup on removing penultimate element from group 2) ignore group selection for N=1 groups.
+I went with (2) because if/when we later introduce layers, we don't want to remove groups when removing sibling elements. This is what Figma et al does. It also doesn't really hurt to retain the group, and just ignore it (it's also much simpler, and shows the group model we chose was the right call).
+
+In the remaining commits, I do:
+
+
+Persist editingGroupId to history. This takes care of the case where you edit stuff within a group, and undo/redo. You want to remain in the editor (note: this doesn't work when undoing to initial change, i.e. the entering of the editor group).
+
+
+Select sibling elements when removing select element from a group (if sibling element exists).
+Note: I also made cut event reuse actionDeleteSelected action, and removed exported deleteSelectedElements helper because it was no longer used anywhere else (and shouldn't be). Best review the commit: f96c963
+
+
+Reuse types (so you can easily click-through to type definition, for docs).
+
+
+Ignore noop updates of element.groupIds. I made it immutable, so identity check is safe.",2,3
+1687,2020-05-30T21:33:18Z,2020-06-02T18:31:35Z,2020-06-02T18:31:35Z,4,41,10,"This fixes a bug on the text direction when the RTL text is mixed with LTR or non-directional characters, which causes a visual inconsistency between how it shows on the Textfield and how it shows on the Canvas
+before
+
+after
+
+I first went with CanvasRenderingContext2D.direction but it's still experimental and it's not very supported.
+Then I switch to setting the dir attribute on the canvas directly. But for some reason it only works if the canvas is mounted to the DOM. hence, doing the ""dirty"" appendChild + removeChild.
+additional fixes
+while trying to implement RTL support on the SVG export I noticed a miscalculated offset, and I fixed it",2,1
+1690,2020-06-01T02:36:43Z,2020-06-01T11:00:36Z,2020-06-01T11:00:36Z,26,179,101,,2,2
+1697,2020-06-01T12:22:49Z,2020-06-04T20:09:17Z,2020-06-04T20:09:17Z,2,260,27,Related #1683,3,4
+1706,2020-06-03T15:25:59Z,2020-07-30T09:20:59Z,2020-07-30T09:21:00Z,9,219,184,"Keep the weak map of local scene with each excalidraw element to avoid passing everywhere
+fixes #1637",3,4
+1709,2020-06-04T12:25:32Z,2020-06-12T16:35:05Z,2020-06-12T16:35:05Z,11,74,26,"Fixes #1668
+New behavior:
+
+The ""Save"" button now only once asks for a file name, and from thereon silently over-saves.
+The new ""Save as"" button always asks for a new file name. It has the hotkey [cmd/ctrl]+[shift]+[s].
+
+ToDo before merging:
+
+Design a different icon ([deep link]). Probably the floppy, but with a stylized pen.
+Translations (deep link).
+Hide the ""Save as"" button on browsers that don't support the Native File System API (!('chooseFileSystemEntries' in window)).",4,23
+1711,2020-06-04T19:40:03Z,2020-06-08T10:52:55Z,2020-06-08T10:52:55Z,1,0,1,"Here's a fix for the issue #1675 . It was a small change for a z-index. The colour picker hash div does not conflict with any other elements and should be on the base.
+Screenshots
+
+Issue
+
+Fix",4,5
+1713,2020-06-04T22:23:33Z,,2020-06-15T21:16:31Z,1,2,2,,2,5
+1715,2020-06-05T08:39:18Z,2020-06-06T11:32:44Z,2020-06-06T11:32:44Z,2,15,15,fixes #1708,2,1
+1717,2020-06-05T13:37:44Z,2020-06-05T15:11:24Z,2020-06-05T15:11:24Z,1,1,3,"Undo line editing works as expected when I hold down the alt key and move the cursor.
+However, if I hold down the alt key and clicking without moving the cursor, it will not work as expected.
+It works as shown in the following image:
+
+I expect it to work like the image below.
+
+I suppose that if we call createPointAt, we also need to call resumeRecording.",3,2

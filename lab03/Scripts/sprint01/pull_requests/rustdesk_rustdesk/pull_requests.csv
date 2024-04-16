@@ -1,0 +1,100 @@
+number,created_at,merged_at,closed_at,files,additions,deletions,body_text,participants,comments
+240,2021-09-26T21:48:02Z,,2022-05-13T03:07:50Z,13,150,38,"use the following command to create a compressed archive and use it with feature ""inline""
+
+packfolder ui resources.rc -i "".html;.css;*.tis"" -v ""resources"" -binary
+
+When feature inline is not defined then use resource files from ""src"" directory.  this helps in testing the tis, css and html files.",3,0
+253,2021-10-11T20:37:32Z,2021-10-12T15:47:09Z,2021-10-12T15:47:09Z,1,181,0,"Fixes #105. palfrey#1 demos it working. It's still pretty basic, but making it do more features will require other changes to the repo (or fiddly test setup)",2,4
+279,2021-10-27T12:11:13Z,2021-10-30T04:50:39Z,2021-10-30T04:50:39Z,2,86,85,"#270 (comment)
+morn-0@5164f76#commitcomment-58597904",2,0
+430,2022-03-13T10:13:09Z,,2022-03-13T11:45:20Z,17,1758,6,"This PR provide virtual display solution on Win10.
+The related driver is RustDeskIddDriver.
+
+Download prebuild driver or build the dirver your self.
+Extract dirver files to the same directory of rustdesk.exe.
+Read README.md in the dirver and run the demo. Make sure the environment is correct.
+Click Install virtual display.",2,0
+982,2022-07-15T16:53:41Z,2022-07-21T10:09:14Z,2022-07-21T10:09:14Z,17,46,35,issues:958,2,1
+1013,2022-07-21T02:09:24Z,2022-07-21T17:24:42Z,2022-07-21T17:24:42Z,14,289,148,"codec preference
+linux compatible
+Code optimization
+
+
+check hwcodec config every time server or client start, but it is not checked when the tray icon started the service.
+Simple function 'best' in hwcodec, always check hwcodec in another process.",2,0
+1032,2022-07-24T02:49:40Z,,2022-10-17T23:31:33Z,7,56,21,"correction 1.
+When accessing the Korean version windows from the Mac, you cannot enter the Korean-English conversion key. The Microsoft Remote Desktop program uses the right Alt (option) key instead of the Korean-English conversion key. So, I modified it to work the same way.
+correction 2.
+When you click the mouse button in two places on the screen while pressing the Command key on the Mac, the mouse input will be incorrect. I modified it.",3,10
+1059,2022-07-27T01:03:29Z,2022-07-27T02:31:47Z,2022-07-27T02:31:47Z,30,198,11,"windows, linux, mac platform
+reconnect manually after restart
+enable restart default",2,0
+1271,2022-08-14T05:07:12Z,2022-08-16T06:31:33Z,2022-08-16T06:31:33Z,2,306,0,"Add UI Language Korean
+Signed-off-by: kordood gigacms@gmail.com",2,2
+1306,2022-08-18T16:24:36Z,2022-09-01T08:49:18Z,2022-09-01T08:49:18Z,1,15,4,"Steps to reproduce: https://rustdesk.com/docs/en/dev/build/web
+Detailed information about errors are provided in commit messages correspondingly.",2,6
+1406,2022-08-30T21:16:47Z,2022-09-18T02:56:24Z,2022-09-18T02:56:24Z,1,70,68,,2,0
+1582,2022-09-19T08:06:41Z,2022-09-19T09:18:43Z,2022-09-19T09:18:43Z,9,90,47,,2,0
+1857,2022-10-28T11:50:30Z,2022-10-29T07:17:37Z,2022-10-29T07:17:37Z,1,21,0,"It works abnormally when you connect to the window server and type shift + left arrow.
+It's been modified.",3,4
+1987,2022-11-06T17:28:40Z,2022-11-20T15:57:34Z,2022-11-20T15:57:34Z,6,179,14,for #1474,4,16
+2058,2022-11-10T23:14:41Z,2022-11-23T14:32:32Z,2022-11-23T14:32:32Z,1,43,10,"Windows doesn't allow "":"" in filenames, thats why connections to peers with the portnumer (:) dont remember the password nor appear in recent sessions.
+PeerConfig files on *nix containing "":"" will be renamed on the first run to stay backward compatible.
+This fixes #1730",3,12
+2153,2022-11-16T10:32:57Z,2022-11-16T12:40:23Z,2022-11-16T12:40:23Z,2,396,0,"Hello,
+I would like to add the catalan translation to rustdesk.
+Thank you",2,0
+2517,2022-12-11T16:57:49Z,2022-12-12T00:31:30Z,2022-12-12T00:31:30Z,7,222,200,"Note:
+Devs need to upgrade the local flutter engine with https://github.com/Kingtous/engine/releases/tag/v3.0.5-rustdesk.2",2,0
+2612,2022-12-20T19:38:23Z,2022-12-21T09:46:54Z,2022-12-21T09:46:54Z,5,145,215,"Most of the implementation code was taken from the H-M-H/Weylus. While it appears that there may be a licensing conflict, according to a previous response from the maintainer, it seems that there are no problems with using the code, so I used it. #56 (comment)
+also please note that I have not used Rust before, so the code may be incorrect. However, when I tested and ran it, there were no issues. I apologize for the inconvenience, but please check the code again before merging. Thank you.
+Related issues and commits:
+
+#2608
+H-M-H/Weylus#155 (comment)
+H-M-H/Weylus@55301e0
+H-M-H/Weylus@d399fb4",3,3
+2648,2022-12-26T01:14:23Z,2022-12-26T02:58:20Z,2022-12-26T02:58:20Z,1,1,1,#2587,2,0
+2678,2022-12-29T12:56:14Z,2022-12-30T02:13:43Z,2022-12-30T02:13:43Z,1,5,0,"Introduced a call to ""caffeinate"" as suggested by @bellwether-softworks",2,1
+2687,2022-12-30T11:14:21Z,2022-12-31T02:05:03Z,2022-12-31T02:05:03Z,1,26,26,,2,0
+2741,2023-01-06T10:27:51Z,2023-01-09T06:04:57Z,2023-01-09T06:04:57Z,43,1378,1059,"opt request json type.
+opt loginDialog UI style.
+opt login request Exception catch.
+desktop and mobile use same loginDialog.
+add verificationCodeDialog.",2,0
+2779,2023-01-09T18:54:59Z,2023-01-10T02:13:07Z,2023-01-10T02:13:07Z,50,205,205,"This PR corrects misspellings identified by the check-spelling action.
+The misspellings have been reported at https://github.com/jsoref/rustdesk/actions/runs/3876807141#summary-10533316862
+The action reports that the changes in this PR would make it happy: https://github.com/jsoref/rustdesk/actions/runs/3876807271#summary-10533317071
+Note: this PR does not include the action. If you're interested in running a spell check on every PR and push, that can be offered separately.",2,1
+2810,2023-01-12T07:29:05Z,2023-01-18T03:48:01Z,2023-01-18T03:48:01Z,3,42,8,"Code edited to allow the setting of a custom server with env variables
+
+RENDEZVOUS_SERVER1
+RENDEZVOUS_SERVER2
+RENDEZVOUS_SERVER3
+
+Allows editing custom key with
+
+RS_PUB_KEY_VAL
+
+
+Workflows updated to support adding these custom env variables via secrets.
+
+
+Workflows updated to allow ignoring key signing if specific secrets are set.
+
+
+Interface file checks hbb_common::config::RS_PUB_KEY to decide if to display ""run your own server"" message rather then the existence of custom-rendezvous-server
+
+
+Added flutter-custom-build.yml so that people can use github workflows to generate there own files using github actions",3,6
+2851,2023-01-18T03:02:01Z,2023-01-18T06:35:50Z,2023-01-18T06:35:50Z,2,41,1,"Allow direct connect to {hostname}:{port}
+Like the direct access by ip, it will now check the peer string with regex, and treat it as {hostname}:{port} if matched.
+PS: Current regex is: ^[\-.0-9a-zA-Z]+:\d{1,5}$
+This PR should fix #2847 and #126",2,0
+3121,2023-02-08T12:47:47Z,2023-02-28T07:28:35Z,2023-02-28T07:28:35Z,5,125,2,I implemented #2365,8,28
+3146,2023-02-10T08:54:01Z,2023-02-10T10:11:05Z,2023-02-10T10:11:05Z,1,0,2,"Unify the padding of dialogs
+
+
+
+before
+after",3,4

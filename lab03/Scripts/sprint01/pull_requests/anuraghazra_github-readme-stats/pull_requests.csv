@@ -1,0 +1,689 @@
+number,created_at,merged_at,closed_at,files,additions,deletions,body_text,participants,comments
+15,2020-07-10T09:15:33Z,,2020-07-31T08:07:40Z,2,56,2,"So as i mentioned in #14 that github api only return commits of 1 year max. what i did is that fetched all user years and then looped through that and made a graphql request for each year
+    data: {
+          query: `
+          query userInfo($login: String!, $from: DateTime!, $to: DateTime!) {
+            user(login: $login) {
+              contributionsCollection(from: $from, to: $to) {
+                totalCommitContributions
+              }
+            }
+          }
+        `,
+          variables: {
+            login: username,
+            from: currentDate.toISOString(), // current year
+            to: nextDate.toISOString(), // next year
+          },
+        },
+TODO: perf improvement?",5,9
+22,2020-07-11T09:42:52Z,2020-07-15T06:41:44Z,2020-07-15T06:41:44Z,2,2,0,"I tried adding a cache (1h, but can be changed) to help with the commit count problem. It reduced Anshuman Verma's request from 4.5s avg to 185s avg in subsequent requests. The first request took a bit longer.
+This approach has a problem, though. The stats will only refresh once the cache max-age has expired, I guess it's not that big of a deal, shield.io and similar tend to have cache in place.",4,9
+27,2020-07-11T19:11:03Z,2020-07-12T07:54:50Z,2020-07-12T07:54:50Z,9,199,21,"It would be nice if users could pass some colors to customize their stats. So I implemented the following structure:
+![João's github stats](https://github-readme-stats.vercel.app/api?username=JoaoVSouto&title_color=048a81&icon_color=7159c1&text_color=494453)
+The result will be something like this:",3,8
+29,2020-07-11T20:16:32Z,2020-07-12T09:07:21Z,2020-07-12T09:07:21Z,3,70,69,,2,2
+33,2020-07-13T02:39:13Z,2020-07-16T10:21:21Z,2020-07-16T10:21:21Z,17,375,141,"1. To make all icons seems consistent.
+
+Change icon ★ to ⭐️
+Change icon ⓘ to ℹ️
+
+2. To make text vertically align left.
+Change template of createTextNode:
+
+Before:
+
+<tspan x=""25"" dy=""${lineHeight}"" class=""stat bold"">
+    <tspan data-testid=""icon"" class=""icon ${classname}"">${icon}</tspan> ${label}:</tspan>
+    <tspan data-testid=""${id}"" x=""155"" dy=""0"" class=""stat"">${kValue}</tspan>
+
+After:
+
+<tspan x=""25"" dy=""${lineHeight}"" class=""stat bold"">
+    <tspan data-testid=""icon"" class=""icon"">${icon}</tspan>
+    <tspan x=""45""> ${label}:</tspan>
+</tspan>
+<tspan data-testid=""${id}"" x=""155"" dy=""0"" class=""stat"">${kValue}</tspan>
+Preview:
+
+Before:
+
+
+
+After:",5,8
+49,2020-07-14T08:39:55Z,2020-07-15T14:40:54Z,2020-07-15T14:40:54Z,4,65,29,"Related issues
+#41
+#39
+NOTE: i suck at math, so i'm just experimenting and doing trial and error to get the correct results.",4,4
+58,2020-07-15T09:34:07Z,2020-07-15T12:23:44Z,2020-07-15T12:23:44Z,8,150,30,"Work in Progress, special thanks to @filiptronicek @ApurvShah007 @garvit-joshi
+fixes #51
+TODO:
+
+write tests
+refactor code
+add retry logic in pin.js",10,18
+67,2020-07-15T15:44:21Z,2020-07-24T13:26:27Z,2020-07-24T13:26:27Z,4,23,3,"Description can no longer be a simple text element as we can't use images inside there.
+That's why I had to split the description into individually rendered parts (split at emoji occurrences).
+
+
+
+Description
+Current API
+New API
+
+
+
+
+regular text
+
+
+
+
+regular text exceeding limits
+
+
+
+
+with two emojis
+
+
+
+
+with emojis in between text
+
+
+
+
+with show_emojis=0 option:
+
+
+
+
+with one emoji",2,20
+76,2020-07-16T00:51:25Z,,2020-12-13T18:54:24Z,8,26,5,"gh-index is defined by the h-index of the stargazer count of each of the repo of a GitHub user, i.e. the maximum h where there are at least h repos with stargazer counts greater than or equal to h. This is a good metric of a GitHub user's reputation.
+There are tools to calculate this:
+
+gh-index on npm
+github-index
+
+TODO:
+
+ Adjust rank based on h-index",3,5
+78,2020-07-16T09:48:38Z,2020-07-16T12:33:34Z,2020-07-16T12:33:34Z,10,115,30,"Show off your contributions to other users' repos
+Add an option to repo card to show full repo name in title (full_name). Defaults to false (current behaviour)
+
+
+
+Before
+After",4,4
+81,2020-07-16T23:08:58Z,2020-07-17T15:24:48Z,2020-07-17T15:24:48Z,1,4,4,"I was a little confused at first setting the bg_color, since it said hex color but had rgba(...) so I copied the title color which of course didn't work since it started with # I think this makes it a bit clearer how to use it!",2,1
+97,2020-07-18T14:11:28Z,2020-07-18T16:50:05Z,2020-07-18T16:50:05Z,1,16,12,#95,2,3
+102,2020-07-19T04:04:32Z,2020-07-19T12:38:58Z,2020-07-19T12:38:58Z,2,197,0,"add Chinese translation
+This project is so great, thanks for your contribution! 🙇",2,1
+109,2020-07-20T00:30:28Z,2020-07-20T06:46:05Z,2020-07-20T06:46:05Z,1,67,44,"For this pulling request, I have updated and improved existing Simplified Chinese translation of README file. Details as follows:
+
+Added new contents from English README file that hasn't been updated in Simplified Chinese translation of README file.
+Translated contents that were left untouched by last translation.
+Replaced a number of half-width punctuation characters with full-width punctuation characters as following language usage habits. However, characters in commands and codes have been left unchanged per convenience of copying and pasting codes.
+Replaced phrases for more precise translation based on contents.",3,1
+110,2020-07-20T06:29:16Z,,2020-12-13T14:47:29Z,1,7,2,"Made the width of the card fit to content based on if the rank is displayed or not.
+Reference: issue #108",4,5
+114,2020-07-20T15:01:21Z,,2020-09-11T13:36:44Z,1,8,2,theme named: oddextension,2,3
+123,2020-07-21T05:41:40Z,2020-07-21T07:34:43Z,2020-07-21T07:34:43Z,2,7,1,Theme Name : Prussian,3,16
+137,2020-07-21T17:50:57Z,2020-07-24T12:45:21Z,2020-07-24T12:45:21Z,3,14,10,"Changed bug and feature links in readme and some styling issue (:).
+This will filter out issues based on label which tagged with issue.",4,2
+146,2020-07-22T16:21:34Z,2020-07-23T07:35:50Z,2020-07-23T07:35:50Z,12,78,33,"This PR contains couple of fix, modify and others.
+
+feat: added template options
+added: git ignore .vscode and yarn.lock, logger utility, test case, husky hooks to test before commit
+replace: all console log with logger utility
+disable: log disable in test environment",3,7
+150,2020-07-22T19:59:32Z,2020-07-23T14:17:05Z,2020-07-23T14:17:05Z,6,64,34,Addressing #140,4,6
+171,2020-07-24T11:38:51Z,2020-07-28T15:31:53Z,2020-07-28T15:31:53Z,2,262,0,,3,4
+179,2020-07-24T18:08:00Z,2020-07-26T16:15:24Z,2020-07-26T16:15:24Z,4,139,19,"What type of PR is this? (check all applicable)
+
+ Refactor
+ Feature
+ Bug Fix
+ Optimization
+ Documentation
+
+Pull request checklist
+Please check if your PR fulfills the following requirements:
+
+ Build (npm run build) was run locally and any changes were pushed
+ Tests (npm run test) has passed locally and any fixes were made for failures
+
+Description
+Compact layout for top languages card similar to GitHub's lang card.
+Related Tickets & Documents
+#134
+Mobile & Desktop Screenshots/Recordings (if there are UI changes)
+
+Added tests?
+
+ Yes
+ No, because they aren't needed
+ No, because I need help
+
+Does this introduce a breaking change?
+
+ Yes
+ No",2,7
+246,2020-07-29T00:32:30Z,2020-08-09T15:40:22Z,2020-08-09T15:40:22Z,4,45,3,Fixes #218,3,11
+248,2020-07-29T04:01:31Z,,2020-12-13T17:54:26Z,1,5,5,,2,2
+249,2020-07-29T05:00:43Z,,2021-01-18T13:19:16Z,1,6,17,Fixing level selection over complicated if condition blocks that split into multiple lines using a simpler code with else if.,2,7
+260,2020-07-29T18:49:21Z,2020-07-30T13:49:04Z,2020-07-30T13:49:04Z,10,433,229,"With our current approach we have to handle hide_title, hide_border and auto height adjustment logics with each card and this is causing lot of duplication in code & tests too, thats why i've created a Card.js Class to abstract away the common rendering logic.
+The Card class would automatically handle the hide title, hide border logic as well has when hiding the title it will auto adjust the content & card's height accordingly.",1,1
+263,2020-07-30T09:22:36Z,,2020-12-13T18:54:32Z,1,7,0,,3,2
+289,2020-08-02T10:19:44Z,,2020-12-13T17:54:39Z,8,57,10,"PR for #287 #327
+Flag: show_stats=forks   Default: null",5,8
+292,2020-08-02T11:40:59Z,,2020-12-13T14:48:19Z,2,17,5,Closes: #291,6,6
+293,2020-08-02T13:19:44Z,2020-09-27T07:40:40Z,2020-09-27T07:40:40Z,11,40,7,Fixes #229,4,9
+306,2020-08-04T14:58:36Z,,2020-09-11T13:32:40Z,1,6,0,,2,1
+316,2020-08-05T08:16:16Z,,2020-12-13T18:54:35Z,6,6,6,"Hi! @anuraghazra !
+Thanks for create great tool!
+I love this tool!!!
+I thought I should mention the licenses for Dracula and gruvbox.
+Therefore, I've attached those original url's to the README.
+Could you check this PR?
+original link
+dracula
+
+https://github.com/dracula/dracula-theme
+
+gruvbox
+
+https://github.com/morhetz/gruvbox",3,3
+323,2020-08-06T15:58:22Z,,2020-08-08T17:29:58Z,1,6,0,,2,24
+342,2020-08-09T01:19:02Z,2020-08-14T15:35:21Z,2020-08-14T15:35:21Z,1,6,0,"The tittle_color and icon_color are color blind friendly and detectable by people with protanopia, deuteranopia, and tritanopia.
+Theme: color-blind-friendly-dark",2,4
+346,2020-08-09T13:36:21Z,,2021-02-12T23:09:41Z,6,21,21,replacing ? by &,2,5
+391,2020-08-15T08:29:46Z,2020-09-24T07:03:33Z,2020-09-24T07:03:33Z,2,8,11,"The totalCommitsFetcher already sends the total number of commits, we don't need to add the values returned by the GraphQL API
+Fixes #298
+Current master:
+
+
+My fork:",4,9
+392,2020-08-15T18:06:29Z,2020-09-19T07:23:41Z,2020-09-19T07:23:41Z,7,586,0,"Wakatime card
+This PR allows users to create a card displaying their wakatime stats and progress. Wakatime is a tool to track developement time.
+Live exemple",5,16
+397,2020-08-16T15:36:51Z,,2020-12-13T17:54:31Z,1,6,0,"""dark-and-light"" : {
+title_color: ""00fbff"",
+icon_color: ""42f2f5"",
+text_color: ""ffffff"",
+bg_color: ""000000"",
+}",2,3
+400,2020-08-17T09:59:50Z,,2021-02-12T23:09:43Z,1,1,1,Added HTML tag to open the repository if an error appears,3,6
+440,2020-09-02T20:47:12Z,,2021-02-12T23:09:42Z,1,6,0,,3,9
+445,2020-09-09T19:16:11Z,2020-09-12T13:16:19Z,2020-09-12T13:16:19Z,6,33,7,"Simply allows a user to specify how many languages to show on the top-langs card, between 1 and 10. Default is still 5.
+Example here: https://benjamins-readme-stats-bt29bovd9.vercel.app/api/top-langs/?username=scitronboy&layout=compact&theme=gruvbox&num_langs=10
+Let me know if I need to add anything else to the PR.",3,6
+459,2020-09-13T10:39:39Z,,2020-12-13T17:54:37Z,2,33,1,"Also, change let to const for API response.",3,3
+480,2020-09-20T00:16:29Z,,2020-09-24T12:41:37Z,8,96,36,"/api/top-langs/?username=USER
+
+/api/top-langs/?username=USER&count_forks=true
+
+/api/pin/?username=USER&repo=REPO
+
+/api/pin/?username=USER&repo=REPO&hide_border=true
+
+(Hard to see... but it is removed.)
+/api/top-langs/?username=USER&count_forks=true
+
+/api/top-langs/?username=USER&count_forks=true&exclude_repo=REPO
+
+Added prettier configs so users don't change the whole spacings.
+closes #468",2,3
+505,2020-09-27T22:58:13Z,,2021-03-06T07:22:51Z,3,28,4,"As requseted in #480
+Making different PRs for the new features
+Made it this way since you wanted an opt-out instead of opt-in.
+/api/top-langs/?username=USER
+
+/api/top-langs/?username=USER&exclude_forks=true
+
+Will make PRs for the other features after this one is merged, otherwise we will get merge conflicts.",4,12
+509,2020-09-28T16:53:02Z,2020-10-04T08:05:16Z,2020-10-04T08:05:16Z,16,337,27,"Add translations for the cards. Fixes #508.
+
+ Add translation functionality (with Google Translate)
+ Add tests and documentation
+ Get translations verified or improved.
+
+ Chinese
+ German
+ Spanish
+ French
+ Itallian
+ Japanese
+ Korean
+ Portuguese
+
+
+ Maybe move translations to one file (like src/common/translations.js) instead of in each src/cards/* file.",4,11
+530,2020-10-02T19:21:14Z,2020-10-04T12:46:51Z,2020-10-04T12:46:51Z,1,6,0,,2,12
+541,2020-10-04T15:36:52Z,2020-10-31T08:59:07Z,2020-10-31T08:59:07Z,11,432,0,"This branch adds Dutch language support to github-readme-stats.
+Hope this helps, I love the project!",4,2
+547,2020-10-05T12:10:08Z,,2021-01-16T11:12:01Z,1,5,5,,2,4
+552,2020-10-06T11:24:31Z,2021-01-07T15:49:12Z,2021-01-07T15:49:12Z,1,405,0,,2,10
+560,2020-10-07T03:15:45Z,2020-11-04T18:21:57Z,2020-11-04T18:21:58Z,6,854,116,"Adds Wakatime compact layout as sugested in the previous pull request and in this issue #504
+Here is the compact layout
+
+Here is the normal layout
+
+You can preview it here",3,8
+620,2020-11-05T21:44:44Z,2021-01-27T07:11:22Z,2021-01-27T07:11:22Z,2,7,4,"Fixes #608
+Demo (https://github-readme-stats-git-wakatime-custom-url.nathanchu.vercel.app/api/wakatime?username=nathanchu&api_domain=wakatime.com):",5,6
+637,2020-11-11T19:03:50Z,,2020-12-01T06:14:39Z,1,6,0,,3,3
+658,2020-11-20T07:00:51Z,,2021-02-07T23:14:42Z,1,60,1,"GitHub Stats Card first note translation
+Wakatime Card Exclusive Options translation",3,3
+679,2020-12-04T17:12:12Z,2020-12-10T16:50:33Z,2020-12-10T16:50:33Z,2,239,138,"Hi, there!
+I'm web developer in korea! (o _o)/
+I think that translation is not desirable.
+So I changed the content that seemed to fit better.",3,5
+691,2020-12-08T23:39:16Z,,2021-03-20T20:51:32Z,1,8,2,"GitHub recently made the dark theme available for its user interface. This theme I am submitting is equivalent to the default theme, but using the same colors as the dark GitHub theme.",3,8
+697,2020-12-09T15:43:17Z,,2021-02-21T14:14:26Z,9,268,344,"Fix #696
+URL
+https://github-readme-stats-git.francisdu.vercel.app/api/wakatime?username=francis&hide=other,html,scss,css,yaml,xml,toml&top=5
+
+Preview",3,11
+699,2020-12-09T21:11:28Z,,2021-01-21T13:56:44Z,1,6,0,Added Cyberpunk 2077 theme.,3,4
+709,2020-12-11T09:06:42Z,,2021-03-21T13:00:51Z,3,329,0,"Wakatime By Embed
+https://wakatime.com/share/embed
+Can custom date
+
+example:
+
+https://vercel.ddnpc.com/api/wakatime-embed?username=instrye&embedCode=2916255c-a02d-4b4b-b7e8-d3533f0fd393
+I did not make a readme, hope someone can add.",3,3
+771,2021-01-01T06:54:39Z,2021-01-07T11:39:36Z,2021-01-07T11:39:36Z,9,22,22,"The translated documents are using broken relative links.
+So I fixed it to use right relative links.",2,4
+774,2021-01-01T22:07:19Z,2021-01-07T14:08:16Z,2021-01-07T14:08:16Z,2,10,10,"Localise with English annotated
+Less delocalization than #539
+@jalenchuh Please review",3,5
+784,2021-01-04T21:05:03Z,2021-01-07T14:01:49Z,2021-01-07T14:01:49Z,1,11,0,,2,3
+788,2021-01-06T15:07:19Z,,2021-02-14T01:45:59Z,1,3,3,"This fixes #778, fixes #787. But I don't know if the modified code will break something.
+I think it should not because if(!include_all_commits) means NOT all commits, but yearly commits.
+Not sure, so feel free to correct me if I'm wrong 😅.",2,2
+794,2021-01-09T02:53:17Z,,2021-03-25T18:42:25Z,1,14,27,"Hello, let me propose some refactorings.
+
+use else if instead of duplicated conditions
+use const instead of var
+simplify expressions
+
+Thank you for maintaining such a wonderful project.",3,3
+806,2021-01-11T23:14:28Z,,2021-03-16T20:20:29Z,3,8,8,"Corrected two typos, as well as changed  :- to :.
+I'm unsure what :- means, I thought it could signify here comes an example, but it was also used in the readme.md without providing an particular example. I can add them back in if needed.",2,3
+811,2021-01-14T21:44:39Z,,2021-03-17T10:34:30Z,2,10,2,"Hi! First of all, thanks for making such a great tool, really makes profile readmes look more exciting and interesting.
+I wanted to make a theme which has the same 'look and feel' as the new github dark mode.
+It also lets the stats blend in seamlessly with the background when dark mode is enabled and borders are disabled (e.g. my profile readme).
+Here's some example images of how the theme looks (both in light and dark mode on github).
+
+
+
+Hope I've added the right things to the themes readme etc, just let me know if anything else needs doing.",3,5
+820,2021-01-18T09:11:52Z,,2021-02-24T12:25:18Z,1,11,0,,2,5
+824,2021-01-19T19:36:47Z,,2021-02-26T04:12:54Z,1,6,0,,3,4
+836,2021-01-27T07:00:42Z,2021-03-07T16:33:34Z,2021-03-07T16:33:34Z,1,5,5,"According to https://docs.github.com/cn/github/collaborating-with-issues-and-pull-requests , change ""提案"" into ""拉取请求"".",3,6
+845,2021-01-29T18:19:50Z,2021-03-07T16:53:33Z,2021-03-07T16:53:33Z,14,49,1,"Cards are rounded by default which looks kinda ugly when you have two adjacent cards with a dark theme and a light background.  I added support for a parameter which allows users to control the rounding used by the card (and had it default to the original 4.5).  I added implementation, tests, and readme docs but feel free to ping me if I missed anything.",3,4
+864,2021-02-06T12:16:18Z,,2021-09-02T17:50:37Z,1,1,1,"Dependabot detected this on my fork.
+unsure if this is important",4,13
+875,2021-02-12T11:12:02Z,,2022-08-28T03:32:13Z,1,15,17,,2,5
+892,2021-02-18T20:25:46Z,,2022-02-20T17:06:50Z,1,6,0,"Hello from the Rosé Pine theme! I added 3 themes from our Rosé Pine collection, Rosé Pine, Rosé Pine Moon and Rosé Pine Dawn! We hope you enjoy!",3,15
+904,2021-02-23T23:52:35Z,2021-03-07T16:27:37Z,2021-03-07T16:27:37Z,1,1,1,2020 to 2021,5,4
+907,2021-02-24T17:30:08Z,2021-03-07T16:39:39Z,2021-03-07T16:39:39Z,1,6,0,"Ocean dark theme based on Material Themes
+ocean_dark:{
+title_color: ""24487f"",
+icon_color: ""7F4DA8"",
+text_color: ""9EE504"",
+bg_color: ""24487f"",
+}",3,5
+957,2021-03-21T21:49:20Z,2023-04-25T06:15:16Z,2023-04-25T06:15:16Z,1,1,1,"Array method .includes() can return only boolean result, we can write it to isLongLocale variable without doing comparison. Docs: https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Array/includes",2,2
+960,2021-03-22T16:55:50Z,,2023-04-08T10:10:59Z,2,51,61,"Usage of normal distribution is not justified at all and as its' support is (-inf; inf) you get some problems (e.g. #883 #455). Exponential distribution's support is [0; inf) which means if we will calculate survival function (same as 1 - cdf (https://en.wikipedia.org/wiki/Survival_function#Definition)) then for all zeros we will get a person with a score equal to a 100 which makes a lot of sense. Also in practice exponential distribution is quite accurate showing activity of a person. See example below:
+This is the real activity distribution histogram (taken from https://movespring.com/blog/how-to-set-a-goal-for-your-next-activity-or-step-challenge-5f74c65ac49982000764facf):
+
+This is the exponential distribution histogram with different parameters:
+
+Here is one more example with real distribution (as blue) and fitted exponential distribution (as red):
+
+Next step is to restore parameters of exponential distribution for real distribution. In my opinion Method of Moments (https://en.wikipedia.org/wiki/Method_of_moments_(statistics)) is the easiest to understand and comes from a single property we would like to have: expectation over our parameterized distribution would be equal to expectation of the real distribution. (see *_VALUE variables in code). As expectation of exponential distribution with parameter \lambda is equal to 1 / \lambda then if we have an expectation (which is equal to an average over users) of real distribution then the restored \lambda = 1 / expectation.
+Now we have 7 distributions over different aspects of Github Profile: Commits, Contributions, Issues, PRs, Stars, Followers, Repositories. We can understand how ""good"" a Github Profile in each aspect by calculating survival function over each of these 7 distributions in the points corresponding to Github Profile stats (the lesser value the better). To get a single number from 7 numbers we can have for example an average of these numbers but that wouldn't be good as a person who is great in one aspect and bad in others (e.g. Linus Torvalds with only 2 repositories and low stats in PRs and Issues and a ton of stars and followers) will never get an S+ rank so we need to have an aggregate functions which would stimulate low values at least in one aspect. One of such functions is min(...) over 7 aspects but this doesn't encourage you to develop any aspects except the only one you are best in, so we will use harmonic average (https://en.wikipedia.org/wiki/Harmonic_mean) which fits our needs (as it almost equal to min(...) for values much less than 1 and also has a non-zero gradient over each variable).
+As you can see from tests:
+
+A decent user (400 stars and 100 followers) has an A++ rank
+Newly created account has lowest possible score = 100
+Linus Torvalds has highest possible score = 0 (this wasn't intended I just realized it when ran a script)
+
+
+IMPORTANT NOTICE
+Current values are not set to be equal to 1 / <average stat over users> as I couldn't find any official (and even unofficial) statistics referring to these. So they are just set to what I see as an average Github User.",11,27
+961,2021-03-22T23:35:21Z,,2023-10-22T16:25:33Z,1,18,0,"Space Yellow
+
+A clean flat design color combo
+
+
+Red Light District
+
+Bringing the flat red heat to your GitHub
+
+
+Roadside Assistant
+
+Inspired by the colors of American roadways",3,6
+963,2021-03-23T14:01:20Z,,2023-06-16T07:38:47Z,1,14,16,"The current system looks a bit more like a participation trophy with ""B+"" being the lowest tier.  This change brings the rank naming down to a more sensible S-F naming scheme with E+F still to be determined",3,4
+975,2021-03-28T20:49:35Z,2022-02-16T07:24:56Z,2022-02-16T07:24:56Z,1,1,1,Fixed grammatical error in readme.md,3,2
+984,2021-04-06T03:38:37Z,,2022-10-18T14:36:42Z,1,6,0,Github recently came out with their dark dimmed theme so I made a theme using the same colors.,3,5
+989,2021-04-10T12:31:12Z,2021-05-06T19:01:05Z,2021-05-06T19:01:05Z,5,27,21,"This fixes issue #909 regarding the endpoint top-langs
+As shown before by @CaptainDario and @neo-mashiro hiding languages conflicts with setting langs_count
+Before: langs_count is 6, but only 5 are shown when I hide java
+
+After: Hiding languages is applied before limiting based on langs_count to get the correct result",2,3
+993,2021-04-13T18:53:52Z,,2022-10-18T14:36:40Z,1,6,0,,3,5
+996,2021-04-14T12:39:03Z,,2023-03-16T15:59:09Z,14,586,54,"Updates for both Chinese translation.
+P/S: is it possible to allow more than one locale tag for one language? E.g. allow cn, zh-cn, zh-hans, zhs to point to the same translation string instead of using more than one line to store it in file. (Currently I added zhs to cn, also added tw and zht for Traditional Chinese)",2,1
+1000,2021-04-17T12:44:02Z,2021-04-27T18:58:44Z,2021-04-27T18:58:44Z,18,98,22,"Allow customisation of border color for all cards
+Add option to have border_color in themes
+Update doc with changes",5,5
+1030,2021-04-28T23:29:52Z,,2023-09-14T15:07:03Z,2,13,3,,3,6
+1032,2021-04-29T09:22:44Z,,2021-07-02T15:04:46Z,2,104,42,"Update readme_cn.md
+
+translate new contents in the homepage readme
+fix: correct some translation errors and format issues
+
+
+Update readme.md
+
+fix: remove a redundant underscore",2,1
+1054,2021-05-11T15:10:35Z,,2022-12-01T01:28:58Z,1,6,0,adding a theme,3,3
+1066,2021-05-19T12:22:56Z,,2022-10-18T14:36:38Z,1,6,0,,3,5
+1089,2021-05-26T10:36:43Z,,2022-10-18T14:36:35Z,1,7,0,"The theme adds Transparent-monokai (transparent background), compatible with Dark and Light modes; the overall color scheme is mainly monokai.",3,4
+1113,2021-06-04T12:15:58Z,,2022-10-18T14:36:33Z,1,6,0,"want to add this theme ""for-dark-or-light-any-theme"" as many people face a bit of irritating when GitHub theme does not fit and seems adaptive with cards. I made this so that, it can be used in any theme of GitHub and it will be fit in.",3,6
+1130,2021-06-10T02:02:04Z,,2022-10-18T14:36:31Z,1,6,0,,3,4
+1141,2021-06-16T22:58:58Z,,2022-10-16T01:56:23Z,1,6,0,"title_color: ""00ff00"",
+icon_color: ""ffff00"",
+text_color: ""e6e600"",
+bg_color: ""008000"",",3,4
+1143,2021-06-16T23:22:28Z,,2022-10-18T14:36:29Z,1,6,0,,3,4
+1163,2021-06-28T03:18:19Z,,2022-02-16T13:44:56Z,1,13,0,,3,5
+1173,2021-07-05T01:39:20Z,,2022-10-18T14:36:27Z,1,6,0,I create the theme to add a new style to github-readme-stats .,3,6
+1178,2021-07-08T08:42:38Z,,2022-10-08T10:23:59Z,2,33,7,"This fixed #1177
+Before:
+
+After:
+
+PS. I have some python repos recently but not shown in the first figure because they are not in the oldest 100 repos. In the second figure they are successfully found.",4,7
+1183,2021-07-11T08:26:42Z,,2022-10-18T14:36:25Z,1,6,6,"The ""city-lights"" theme wasn't being displayed. It might now.",3,5
+1186,2021-07-13T15:15:23Z,2023-05-26T13:39:36Z,2023-05-26T13:39:36Z,7,192,243,"Hello @anuraghazra 👋
+As #883, #455 and #1029, I've noticed that the function calculateRank doesn't work as expected.
+The first problem is the use of a normal distribution instead of an exponential distribution, as pointed out by #960 . The second is that each metric has the same weight in the score, while some are clearly better indicators (e.g. stars). I've corrected both problems in this PR.
+If you want to try it out before merging, I've hosted this version on Vercel.
+
+
+
+
+Importantly, in #960, being extremely good in a single metric (e.g. 100k commits) while being terrible elsewhere still gets an ""S+"" rank. In my implementation, in order to get ""S+"", you need to be outstanding everywhere. However, you can still get ""A+"" or ""S"" if a single metric is poor (e.g. contributions or issues) but you have a lot of stars and followers.",17,93
+1188,2021-07-15T03:01:04Z,,2022-10-18T14:36:23Z,1,7,0,"Hi 👋 Anurag, Thanks for developing github-readme-stats.
+This PR adds Holi Theme to the project.
+I've updated the theme config file and below is a screenshot of how it looks.
+Looking forward 🙌",3,4
+1192,2021-07-15T15:43:09Z,,2022-10-18T14:36:20Z,1,6,0,,3,4
+1201,2021-07-22T09:22:23Z,,2022-10-02T15:57:53Z,1,6,0,"Hi @anuraghazra,
+I provide a reasonable and compatible theme for both light and dark modes. Thanks for reviewing the PR.",3,10
+1207,2021-07-25T08:13:08Z,2021-09-02T17:29:39Z,2021-09-02T17:29:39Z,2,6,4,"Description
+This branch will clarify that the total stars are stars you've received and not given other repositories.
+It also fixes the missing padding described in #1206.
+Code
+
+Changed Translations in en, pl, nl and de
+
+Types of changes
+
+Enhancement
+Refactor
+
+Reference
+
+#1206
+#1155
+
+Before and After",2,3
+1212,2021-07-27T14:46:10Z,2021-08-27T19:05:10Z,2021-08-27T19:05:10Z,8,82,37,"Description
+I've added a new query-parameter hide to hide specific languages you don't want to display. This was also requested in #1138.
+Because some values will be hidden I've recalculated the percentages to correctly display the percentage of each language (they add up back to ~100%, values are rounded).
+Code
+
+Added hide param in wakatime.js and wakatime-card.js
+Added a method that recalculates the percentages for each item
+
+Types of changes
+
+Enhancement
+Refactor
+
+Reference
+The following cards are an example using this new feature.
+Full Card
+
+Javascript, Python, CSV and Testing hidden",4,6
+1231,2021-08-05T11:59:27Z,,2022-10-04T23:05:00Z,1,7,0,"Hey there! Great project, just wanted to add one of my favourite themes to it.",3,3
+1237,2021-08-09T20:50:11Z,,2022-10-18T14:36:18Z,1,6,0,"Uh I added a theme?
+Never done a pull request before so uh hi",3,4
+1238,2021-08-10T09:08:16Z,2022-02-17T07:44:52Z,2022-02-17T07:44:52Z,1,11,0,Add traditional Chinese (zh-tw),2,1
+1239,2021-08-10T09:16:07Z,,2022-10-18T14:36:16Z,1,6,0,"Title color: White #FFFFFF
+Icon color: Nitro purple #FF73FE
+Text color: Discord Blue #7289DA
+Background color: Discord chat #36393F",3,4
+1240,2021-08-10T11:17:04Z,,2022-02-20T16:22:53Z,1,11,0,,2,3
+1249,2021-08-13T22:45:07Z,,2022-10-18T14:36:14Z,1,7,0,,3,4
+1256,2021-08-16T02:36:04Z,,2023-10-22T16:24:24Z,1,6,0,"nice themes, here are my two cents =)",4,7
+1264,2021-08-22T12:59:36Z,,2022-12-27T08:08:10Z,1,6,0,"Hi @anuraghazra,
+I want to share a flag_korea theme that is based on Korean flag color.
+Thank you for reviewing the PR.",3,4
+1269,2021-08-25T00:01:52Z,,2022-10-18T14:36:12Z,1,6,0,Add unicorn theme,3,4
+1292,2021-09-05T06:34:18Z,,2022-10-18T14:36:10Z,1,6,0,,3,4
+1296,2021-09-05T20:26:42Z,,2022-10-18T14:36:09Z,1,6,0,"Sending you a new theme, called ""light_bloody"".
+hope you like it^^",3,4
+1305,2021-09-09T21:42:07Z,,2022-10-18T14:36:07Z,4,565,0,,2,6
+1308,2021-09-12T17:01:49Z,,2021-09-15T14:15:54Z,2,7,0,"here I added a new theme
+if it is not okay just fine
+I am new to opensource contribution
+I think if this doesn't work you can help me",2,3
+1309,2021-09-12T19:01:36Z,,2022-10-02T15:23:21Z,1,6,0,"added a new theme
+name: ""Neon Knights""
+''' I'm just learning how to contribute to open source",3,3
+1321,2021-09-25T15:03:49Z,2022-02-23T16:08:11Z,2022-02-23T16:08:11Z,1,11,4,,2,4
+1323,2021-09-26T10:36:49Z,,2022-10-18T14:36:05Z,1,6,0,"I have created this theme and contributed to you
+Hope you like it",3,5
+1331,2021-09-28T03:44:21Z,,2022-10-18T14:36:03Z,1,6,0,,3,4
+1332,2021-09-28T03:50:52Z,,2022-10-18T14:36:01Z,1,6,0,That is how my theme looks,3,4
+1334,2021-09-28T07:51:22Z,2022-09-16T10:50:30Z,2022-09-16T10:50:30Z,4,108,32,"Fixes #1170 by allowing customizable width for Github Stats Card.
+To avoid things overlaping each other, Stats Card has minimum widths which are applied when provided custom_width is less than certain values.",4,14
+1336,2021-09-28T16:13:53Z,,2022-10-18T14:35:59Z,1,30,0,"Hello, we are Chungnam National University students majoring in computer science in South Korea.
+Please check the 5 design themes we made by sending a pull request! Have a nice day :)",6,4
+1338,2021-09-29T12:13:59Z,,2022-10-18T14:35:57Z,1,6,0,,3,6
+1345,2021-10-01T11:32:15Z,,2022-10-18T14:35:55Z,1,6,0,what about black and white theme?,3,4
+1363,2021-10-06T02:00:42Z,2021-10-06T17:39:43Z,2021-10-06T17:39:43Z,1,1,1,"closes #1362
+This PR fixes the bug shown in this issue: #1362
+There was a simple error when importing the function isLocaleAvailable, and it was fixed by changing the file from which the function is imported.",2,2
+1378,2021-10-11T06:48:58Z,2021-10-18T13:41:50Z,2021-10-18T13:41:50Z,5,34,17,"Fixes #1259
+Added a separate wrapping logic for chinese language, which is split from full punctuation.
+
+Also added maximum length for repoCard header, which will now cut the header and append "".."" if the header exceeds the limit of 35 characters.
+
+Additionally also changed default width of wrapping to 59 characters, because I noticed that with 60, this particular example description doesn't look good (word ends just at 60 characters).
+
+Now it looks like this:
+
+Also added two new test cases to verify the new functionality. Cheers!",3,2
+1382,2021-10-12T18:16:07Z,2021-10-13T15:01:39Z,2021-10-13T15:01:39Z,2,4,13,"Description
+Add cache to workflows using actions/setup-node
+Context
+setup-node GitHub Action just released a new option to add cache to steps using it.
+You can find the details here: https://github.blog/changelog/2021-07-02-github-actions-setup-node-now-supports-dependency-caching/
+
+🤖 This PR has been generated automatically by this octoherd script, feel free to run it in your GitHub user/org repositories! 💪🏾",2,5
+1399,2021-10-20T18:38:07Z,2022-05-03T08:26:21Z,2022-05-03T08:26:21Z,1,5,5,,3,3
+1404,2021-10-21T14:45:41Z,2023-06-15T07:35:09Z,2023-06-15T07:35:09Z,10,112,34,"Fixes: #1394
+Added code reviews to stats card:
+
+What do you think about this feature? They do not affect the rank at the moment, that's something that should be maybe added later. Also translations just default to english.",7,15
+1411,2021-10-23T14:29:52Z,,2022-05-03T08:25:59Z,1,1,1,Fixed a minor grammatical error,4,3
+1412,2021-10-23T20:09:09Z,,2022-10-07T00:14:27Z,1,6,0,Uses Firewatch color palate,3,7
+1459,2021-11-13T16:28:07Z,,2023-03-31T21:24:57Z,1,2,1,"Add color for JSON.
+JSON color is used by Wakatime Card.
+GitHub uses the color #292929 for JSON.",3,1
+1462,2021-11-16T18:21:10Z,2022-05-04T07:34:14Z,2022-05-04T07:34:14Z,1,12,12,"There were some spelling issues, but probably it's all right as it was last version, what do you think?",4,2
+1464,2021-11-17T16:11:57Z,,2022-10-18T14:35:53Z,1,7,0,,3,3
+1468,2021-11-22T16:00:04Z,2022-09-17T11:32:40Z,2022-09-17T11:32:40Z,5,14,2,Implements #1426. @anuraghazra I'm not sure if we want to implement this feature in the main branch but I wanted to give people a pull request they can use might they want this feature.,2,6
+1470,2021-11-23T22:37:36Z,,2023-10-22T16:24:15Z,1,7,0,Theme addition: blackcyan,3,5
+1491,2021-12-09T01:49:25Z,,2022-10-18T14:35:51Z,1,6,0,,3,4
+1510,2021-12-20T23:48:41Z,,2022-10-18T14:35:49Z,1,7,0,Using GitHub-ish colors and non-eye-hurting colors :),3,4
+1519,2022-01-02T19:31:48Z,,2022-02-16T22:03:10Z,1,16,0,"you can easily ignore this fork :)
+have a nice day buddy",3,2
+1523,2022-01-07T05:12:12Z,,2022-10-18T14:35:47Z,1,6,0,,3,4
+1533,2022-01-15T07:40:13Z,,2023-07-12T08:47:56Z,2,437,0,"Russian documentation localization for README.md file
+Hello, everyone!
+I've made a Russian translation of all features described in original README.md file. Moreover I've added the link inside original file to my localization file named readme_ru.md.",2,1
+1535,2022-01-16T03:37:15Z,,2023-10-22T16:23:56Z,1,6,0,,3,4
+1546,2022-01-21T07:20:12Z,2022-02-17T07:10:38Z,2022-02-17T07:10:38Z,1,41,42,"Hello! @anuraghazra
+    I have fixed a few grammatical mistakes in CONTRIBUTING.md, I have listed them in bullet points. Please review this contribution.
+
+Reporting a issue an issue
+If you've added code that should be tested, add some tests' example tests' examples.
+To run & test github-readme-stats you need to follow few a few simple steps :-  steps:-
+(make sure you already have a [vercel Vercel](https://vercel.com/) account)
+In the .env file add a new variable named ""PAT_1"" with your [github Personal access token] [GitHub Personal Access Token](https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token)
+All you need to do is edit [themes/index.js] the [themes/index.js](./themes/index.js) file and add your theme at the end of the file.
+While creating the Pull request to add a new theme don't forget to add a screenshot of how your theme looks, you can also test how it looks using custom url URL parameters like title_color, icon_color, bg_color, text_color, border_color
+How to hide jupyter Jupyter Notebook?
+I could not figure out how to deploy on my own vercel Vercel instance
+Please read all the related issues / comments  issues/comments before opening any issues regarding language card stats
+What & why you wanted do you want to add the specific feature
+Additional Context context like images, links to resources to implement the feature etc etc , etc.
+
+Thanks",3,3
+1570,2022-02-08T00:27:36Z,,2022-10-18T14:35:45Z,1,12,0,"These are my two themes suggestions... I hope you enjoy 😊
+This is ""Gold"" Theme
+
+This is ""All Black"" Theme",3,4
+1577,2022-02-09T00:48:57Z,,2022-05-26T02:05:42Z,1,6,0,,2,2
+1581,2022-02-09T21:11:31Z,,2022-03-15T13:15:56Z,1,7,0,,3,2
+1588,2022-02-13T22:08:50Z,,2022-10-02T15:21:05Z,1,6,0,,2,1
+1592,2022-02-16T16:23:15Z,,2023-10-22T16:22:57Z,1,13,0,"github_darkgray theme:
+
+dark_contrast theme:",3,6
+1594,2022-02-16T17:47:14Z,,2023-10-22T16:22:52Z,1,7,0,brackets_dark theme:,3,4
+1603,2022-02-19T03:34:08Z,,2022-10-18T14:35:43Z,1,7,0,,3,5
+1616,2022-02-24T11:17:53Z,,2022-03-06T18:43:14Z,1,6,0,,3,20
+1620,2022-02-27T09:35:44Z,2022-02-28T17:43:56Z,2022-02-28T17:43:56Z,1,9,4,Bengali translation was incomplete so I completed it and fixed it a little,2,3
+1621,2022-02-28T01:47:38Z,,2022-10-18T14:35:41Z,1,7,0,Added new theme,3,5
+1641,2022-03-12T16:41:21Z,,2022-10-18T14:35:39Z,1,7,0,"I added a theme I created.
+Here is a preview",2,3
+1646,2022-03-15T02:29:28Z,,2022-10-18T14:35:37Z,1,6,0,New theme,3,4
+1654,2022-03-17T22:50:06Z,2022-03-19T08:56:50Z,2022-03-19T08:56:50Z,3,294,194,"I've written a simple script that populates src/common/languageColors.json automatically from Github's Linguist Repository
+Advantages of using Github Colors:
+
+Github Colors are generally more populated and almost always updated faster than Wakatime colors
+Updating the colors doesn't require anymore than running the script file (instead of relying on PRs to edit the json file) [unless Github decides to change the format of the yaml file, which is very unlikely]
+Unified color system with other types of cards (no color conflicts)
+This is ultimately a project to display development stats on github so I think it makes sense for it to show Github language colors
+
+If anything needs to be changed, please tell me and I'll do so
+New Dependencies:
+
+js-yaml
+
+Since the original file is in yaml format we need something to parse it into a regular JS object and then write it down in JSON format
+This is set to be a development dependency, as it's only used in a development script
+
+
+
+Other Dependencies:
+
+axios (already a dependency of the project)
+
+Example Comparing Screenshots:",2,2
+1664,2022-03-19T15:50:14Z,,2022-10-18T14:35:35Z,1,8,2,,2,3
+1667,2022-03-20T13:24:51Z,,2022-10-18T14:35:34Z,1,6,0,,2,4
+1676,2022-03-22T09:25:09Z,,2023-10-22T16:23:20Z,1,6,0,"Adding a new theme to the collection: ""Wisteria""
+Derives its pastel purple color from the wisteria flower. Has a minimalistic and clean look.
+Looks beautiful on Github's default dark theme as it has the same bg_color.
+Please add it to the collection",3,4
+1680,2022-03-23T01:03:38Z,,2022-10-03T03:07:11Z,1,6,0,Added a new theme Onyx Vista (onyxvista) .,2,2
+1685,2022-03-28T19:50:25Z,,2023-10-22T16:23:31Z,1,6,0,Adding a new theme [dark_orange],3,4
+1705,2022-04-16T15:56:31Z,,2022-10-18T14:35:32Z,1,8,1,,2,4
+1706,2022-04-16T21:41:55Z,,2022-10-08T09:30:51Z,1,14,0,just added another two themes 😊,2,5
+1714,2022-04-23T10:29:19Z,,2023-06-15T04:51:54Z,1,1,1,"I have updated README a little bit to indicate besides count_private=true, publicizing the private contributions is also required.",3,1
+1721,2022-04-26T19:43:56Z,2022-05-01T19:20:51Z,2022-05-01T19:20:51Z,1,4,4,"It ain't big, but it is honest work 🙂",2,2
+1724,2022-04-27T13:59:32Z,2022-05-16T08:04:42Z,2022-05-16T08:04:42Z,1,1,1,"All links on git.io will stop redirecting after April 29, 2022: https://github.blog/changelog/2022-04-25-git-io-deprecation/
+Replace the git.io link with its actual URL.",3,8
+1728,2022-04-30T19:07:41Z,,2022-10-18T14:35:30Z,1,6,0,,2,3
+1730,2022-05-01T17:07:38Z,,2022-10-18T14:35:28Z,1,14,0,"Card theme based on Github's Dark Dimmed theme using all neutral colors and a theme based on the VS Code theme ""2077"" (originally based on the game Cyberpunk 2077)
+Github Dark Dimmed
+
+2077",2,4
+1732,2022-05-03T10:30:24Z,2023-04-25T06:19:06Z,2023-04-25T06:19:06Z,4,105,17,"Old Card
+
+New Card
+
+The tests have been updated.
+I am not very familiar with Javascript so I made only minimal changes.
+Some refactoring might be required.
+Implements #1600",3,19
+1735,2022-05-06T19:22:39Z,2022-08-13T08:26:05Z,2022-08-13T08:26:05Z,1,1,1,,2,5
+1736,2022-05-07T09:50:36Z,,2022-10-18T14:35:26Z,1,7,0,"i made this new theme im not sure how to use it but it asked me to create a pull req so here i am, here's the code:     title_color: ""c33357"",
+icon_color: ""c33357"",
+text_color: ""c33357"",
+bg_color: ""14141c"",
+border_color: ""662136"",",2,4
+1739,2022-05-09T23:11:48Z,,2022-10-18T14:35:24Z,1,6,0,,2,4
+1741,2022-05-10T10:50:34Z,,2023-10-22T16:23:35Z,1,7,0,,3,5
+1743,2022-05-12T02:13:04Z,,2022-10-18T14:35:22Z,1,7,1,,2,3
+1749,2022-05-16T04:26:46Z,,2022-10-18T14:35:20Z,1,6,1,,2,4
+1782,2022-05-22T22:39:37Z,2023-04-25T06:16:37Z,2023-04-25T06:16:37Z,8,18,0,"Several docs translations missing links to turkish, this PR fix it",2,3
+1795,2022-05-30T00:25:27Z,,2022-10-18T14:35:18Z,1,12,0,"I just wanted to add two new themes for the project, named ""acid green"" and ""sweet"", located at the bottom of themes/index.js
+acid_green:
+
+sweet:",2,4
+1799,2022-06-01T18:16:08Z,,2022-10-18T14:35:16Z,1,6,0,added silver theme,2,4
+1803,2022-06-05T15:38:31Z,,2022-06-10T07:25:48Z,1,1,1,I'm not sure if that will work.,3,2
+1819,2022-06-19T12:09:43Z,,2022-10-04T09:25:12Z,1,6,0,,2,5
+1826,2022-06-23T13:22:13Z,,2023-10-22T16:21:39Z,1,6,0,,3,4
+1827,2022-06-23T13:26:53Z,,2023-10-22T16:21:35Z,1,6,0,,3,4
+1831,2022-06-25T03:57:24Z,,2022-10-18T14:35:14Z,1,6,1,,2,3
+1869,2022-07-16T20:01:05Z,,2023-10-22T16:21:30Z,1,6,0,Added Flame Theme:,3,4
+1870,2022-07-18T19:37:20Z,,2023-10-22T16:21:23Z,1,6,0,"Description
+
+I have read the Themes Contribution Section in the CONTRIBUTION.md.
+This theme has passed the AA contrast ratio.
+This theme is not one of the color combinations of any VS Code themes. However, I would love to be given a chance to contribute this theme to your repo. Many thanks for considering my request 😊
+
+Screenshot",3,7
+1876,2022-07-20T13:12:01Z,,2022-10-18T14:35:12Z,1,6,0,I would like to add violet to the mix,2,4
+1879,2022-07-21T20:01:39Z,,2023-10-22T16:21:27Z,1,6,0,,3,4
+1884,2022-07-25T21:12:20Z,,2022-10-18T14:35:10Z,1,6,0,Adding volcanic_lava theme,2,4
+1903,2022-07-29T08:51:17Z,2022-09-17T11:42:16Z,2022-09-17T11:42:16Z,1,3,1,This PR makes sure that the theme-preview action only runs when a theme was added or changed.,1,2
+1918,2022-08-02T15:51:01Z,,2022-10-18T14:35:08Z,1,6,0,"This is what it is supposed to look like:
+
+I'm not sure if I did the gradient right in the js file. I recreated this for my own repository but I just added the specifications and color straight into the url:
+
+The url has: &bg_color=30,e96443,904e95&title_color=fff&text_color=fff&icon_color=fff to create the gradient. I am just not sure if the way I approached making it an actual theme is how you are supposed to make a gradient. I tried looking at others but no other themes had a gradient so I didn't have a reference to go off of. Let me know if its correct or how I would go about making the gradient work as an actual theme.
+This theme is shown on the main readme file for this repository as an example but it used the specifications in the url and wasn't an actual theme.",3,6
+1926,2022-08-06T08:17:46Z,,2023-10-22T16:23:39Z,1,8,1,"Please add my theme ""fine_design"" to your repo.",3,4
+1942,2022-08-12T19:46:48Z,,2022-10-18T14:35:03Z,1,6,0,"Demo:
+
+
+Uses a 2-colour gradient as background that represents the flag of Bangladesh.",2,4
+1957,2022-08-18T09:44:31Z,,2023-03-24T17:24:55Z,1,2,2,This PR updates Russian translations.,1,1
+1958,2022-08-18T22:42:37Z,,2022-12-03T11:31:36Z,1,6,0,Clean Dark.,2,4
+1962,2022-08-21T15:59:44Z,,2022-10-18T14:34:38Z,1,8,0,The organic theme uses this theme;,2,4
+1964,2022-08-23T07:09:38Z,,2022-10-18T14:34:17Z,1,6,0,,2,4
+1971,2022-08-24T19:45:01Z,,2022-10-18T14:34:08Z,1,7,2,Adding new theme :),3,2
+1992,2022-09-01T08:39:27Z,,2023-03-06T14:38:26Z,1,6,0,,2,3
+1993,2022-09-01T14:53:10Z,,2022-10-18T14:33:24Z,1,7,1,Demo,2,5
+1996,2022-09-03T19:46:08Z,,2023-03-05T10:21:05Z,1,7,0,"This adds a more accurate GitHub dark theme. The other one is nice, but doesn't really fit as well as this one.",3,12
+1997,2022-09-05T05:25:25Z,,2022-10-12T08:10:09Z,0,0,0,"I added a new light theme based on the Nord theme colour palettes: https://www.nordtheme.com/docs/colors-and-palettes. For my Github profile, it looks like this:",2,16
+2001,2022-09-05T19:18:43Z,,2022-10-18T14:33:04Z,1,8,2,"Closes #2000
+Theme info
+antfu/vscode-theme-vitesse
+antfu/prism-theme-vars",2,8
+2007,2022-09-07T14:34:04Z,,2023-10-22T16:21:16Z,1,6,0,,3,9

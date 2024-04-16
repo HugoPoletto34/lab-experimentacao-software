@@ -1,0 +1,26 @@
+number,created_at,merged_at,closed_at,files,additions,deletions,body_text,participants,comments
+8,2017-03-16T20:21:48Z,2017-03-16T21:45:41Z,2017-03-16T21:45:41Z,1,44,36,"This PR brings the test module into PEP8 compliance and makes
+use of the Unittest's native asserts.",2,0
+54,2017-04-13T13:48:56Z,,2017-11-07T15:04:40Z,2,18,1,,4,2
+157,2017-08-18T23:18:29Z,2017-08-29T19:56:17Z,2017-08-29T19:56:17Z,16,416,11,This requires a yet-to-be-released version of dlib (probably will be 19.5). So it can't be merged yet.,2,1
+250,2017-12-02T14:49:45Z,2017-12-26T17:10:03Z,2017-12-26T17:10:03Z,16,154,1,"Hi, I Added face recognition with a k-nearest neighbors classifier.
+The classifier is trained on a set of known people, and can recognize people based on training set.
+The k-nearest neighbors approach where distance is calculated in the face-encoding space should work well for large sets of known people. It uses sklearn's KNN classifier with a ball-tree implementation.
+Also added option for visualization of the results.",3,2
+289,2018-01-08T12:09:06Z,,2018-08-21T16:56:13Z,1,103,0,This program extent the functionality to extract images from a folder and map that to an name which is matched,5,6
+526,2018-06-08T06:12:44Z,,2019-04-15T23:51:22Z,1,9,5,"Update nearest distance between two encoded, sortir the nearsest distance for every detected face",3,3
+547,2018-06-27T09:42:57Z,,2022-06-10T08:59:46Z,2,27,1,,4,8
+734,2019-02-03T17:34:37Z,2019-03-04T19:58:03Z,2019-03-04T19:58:03Z,4,64,2,"After several hours trying to run face_recognition on the GPU, I created this Dockerfile with Dlib installed + CUDA and cuDNN. Ready to use on the GPU with Nvidia-Docker.
+It can dramatically reduce the number of issues regarding the usage on the GPU.
+Full example: https://github.com/enric1994/face_recognition_docker_gpu",3,2
+754,2019-02-26T01:29:54Z,,2019-04-15T23:55:55Z,5,4256,0,"through using this project to find faces in picture,i find it is not meet my requirement,so to meet my requirement, i find a better way to find faces;so to meet someone who has the same situation as me,
+i decide to contribute it to our project;I hope to pass the review,thank you!",3,1
+889,2019-07-24T02:54:17Z,,2019-08-20T11:05:29Z,1,31,17,facerec_from_webcam_faster.py automatically loading all the known face from given directory!,4,1
+891,2019-07-25T09:44:42Z,2019-08-20T11:03:41Z,2019-08-20T11:03:41Z,1,16,13,Show a message if a training image contains none or more than one faces,3,1
+901,2019-08-07T22:10:07Z,,2019-08-20T11:15:54Z,1,1,1,,3,2
+925,2019-09-02T21:32:17Z,2019-12-18T15:16:36Z,2019-12-18T15:16:36Z,2,10,2,This PR is a feature enhancement that allows the face_encodings function to accept using either the 'large' or 'small' model for pose prediction.,5,3
+1225,2020-10-04T18:54:55Z,2022-06-10T09:12:19Z,2022-06-10T09:12:19Z,1,2,0,Add pip3 install opencv-python==4.1.2.30 if you want to run the live webcam examples,3,0
+1330,2021-06-23T16:05:10Z,,2022-06-10T09:02:23Z,1,2,1,"Use of exit or quit method will raise error if interpreter is started with -S flag.
+The exit and quit functions are actually site.Quitter objects and are loaded, at interpreter start up, from site.py. However, if the interpreter is started with the -S flag, or a custom site.py is used then exit and quit may not be present. It is recommended to use sys.exit() which is built into the interpreter and is guaranteed to be present.",3,0
+1359,2021-08-18T05:50:19Z,,2022-06-10T08:59:19Z,1,2,5,,3,0
+1505,2023-05-17T03:30:27Z,,2023-05-17T09:16:34Z,2,6,426,Resolve encoding & labeling issue,2,0

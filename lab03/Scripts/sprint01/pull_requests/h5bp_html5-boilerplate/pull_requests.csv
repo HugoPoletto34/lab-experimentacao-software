@@ -1,0 +1,597 @@
+number,created_at,merged_at,closed_at,files,additions,deletions,body_text,participants,comments
+881,2011-12-07T18:11:38Z,2011-12-30T14:53:34Z,2011-12-30T14:53:34Z,1,1,1,"The rule that made .htaccess restrict access to files (.log, .bak,
+.sh, ...) was missing an escape sequence on its dot.
+As a result, in addition filtering problematic files, it also filtered
+some very valid urls. For example:
+mysite.com/blog        <- satisfies /.log$/ and gets filtered
+mysite.com/hit-refresh <- satisfies /.sh$/ and gets filtered
+
+This change modifies .htacces so the dot is interpreted as a literal dot
+character, avoiding those issues.",5,3
+1920,2017-03-10T14:44:57Z,2017-03-12T02:42:12Z,2017-03-12T02:42:12Z,1,2,0,"clip is deprecated since 2014. It works great but already has a more future proof version: clip-path.
+@ryuran suggested the clip:path: inset(50%); notation as it's the shorter possible to mimic our old clip.
+Here's a codepen and a post translated by Hugo Giraudel.
+Hope it'll help :)",6,5
+1930,2017-03-25T21:15:35Z,,2018-03-06T03:02:14Z,10,221,355,"Closes #1913
+
+ Adds eslint support
+ Removed all remaining jshint deps
+ Conformed all existing code styles to eslint style config
+ Used Airbnb config",4,4
+1940,2017-04-21T14:17:53Z,2017-05-28T12:54:45Z,2017-05-28T12:54:45Z,12,230,13,"Fixes #1740 and #1605
+
+removes the static custom build of modernizr
+moves Modernizr to the bottom
+builds a custom modernizr in gulp
+adds tests for the generated modernizr
+adds a modernizr config with new default tests",3,3
+1971,2017-07-16T19:31:39Z,2017-07-17T12:46:11Z,2017-07-17T12:46:11Z,1,1,1,"Changed housekeeing to a real word.
+Types of changes
+
+
+ Bug fix (non-breaking change which fixes an issue)
+ New feature (non-breaking change which adds functionality)
+ Breaking change (fix or feature that would cause existing functionality to change)
+
+Checklist:
+
+
+
+ My code follows the code style of this project.
+ My change requires a change to the documentation.
+ I have updated the documentation accordingly.
+ I have read the CONTRIBUTING document.
+ I have added tests to cover my changes.
+ All new and existing tests passed.",3,1
+1979,2017-07-24T17:50:19Z,2017-07-25T15:04:18Z,2017-07-25T15:04:18Z,1,15,6,As promised in #1554,2,0
+1996,2017-10-03T07:17:28Z,2017-10-03T18:56:05Z,2017-10-03T18:56:05Z,1,1,1,"Please the word 'be' duplicated and corrected that.
+Thanks.
+Types of changes
+
+
+ Bug fix (non-breaking change which fixes an issue)
+ New feature (non-breaking change which adds functionality)
+ Breaking change (fix or feature that would cause existing functionality to change)
+
+Checklist:
+
+
+
+ My code follows the code style of this project.
+ My change requires a change to the documentation.
+[ x] I have updated the documentation accordingly.
+ I have read the CONTRIBUTING document.
+ I have added tests to cover my changes.
+ All new and existing tests passed.",3,1
+2006,2017-10-25T11:34:03Z,2017-11-08T01:54:07Z,2017-11-08T01:54:07Z,1,1,3,"Checklist:
+
+ My code follows the code style of this project.
+ My change requires a change to the documentation.
+ I have updated the documentation accordingly.
+ I have read the CONTRIBUTING document.
+ I have added tests to cover my changes.
+ All new and existing tests passed.
+
+The sentence “Include the following meta tag will unintrusively allow the user the option to download your iOS app” in extend.md lets me confused, I think the sentence doesn't quite make sense.I'd suggest:
+
+Including the following meta tag will unintrusively give the user the option to download your iOS app
+
+and update the invalid link about meta tag in it to:
+https://developer.apple.com/library/content/documentation/AppleApplications/Reference/SafariWebContent/PromotingAppswithAppBanners/PromotingAppswithAppBanners.html",2,1
+2009,2017-11-22T14:19:15Z,2017-11-28T19:13:46Z,2017-11-28T19:13:46Z,8,33,17,"Types of changes
+
+
+ Bug fix (non-breaking change which fixes an issue)
+ New feature (non-breaking change which adds functionality)
+ Breaking change (fix or feature that would cause existing functionality to change)
+
+Checklist:
+
+
+
+ My code follows the code style of this project.
+ My change requires a change to the documentation.
+ I have updated the documentation accordingly.
+ I have read the CONTRIBUTING document.
+ I have added tests to cover my changes.
+ All new and existing tests passed.
+
+
+Updated all dependencies, with the following ramifications:
+
+Updating gulp-autoprefixer (which itself updated autoprefixer to v7) leads to a new prefix being added in dist/css/main.css.
+Updating mocha to v4 required updating the npm test script (the --compilers flag was deprecated between v3 and v4).
+The babel-related flag in npm test was also updated to match current syntax.
+
+
+Several updates to: .travis.yml:
+
+Tests now run on Ubuntu 14.04 (trusty) instead of 12.04 (precise, the previous default.)
+Node 8 and 9 have been added and Node 7 has been removed as it has now reached EoL.
+
+
+Trimmed trailing whitespace in two lines of CHANGELOG.md
+Changes to dist:
+
+In addition to the new css prefix, running a rebuild added previously-committed docs sections not reflected in dist (i.e. humans.txt) and added the shrink-to-fit=no meta tag to dist/index.html.",3,1
+2026,2018-02-14T11:23:12Z,,2018-10-09T05:52:53Z,3,33,0,"Types of changes
+
+[  ] Bug fix (non-breaking change which fixes an issue)
+[ x ] New feature (non-breaking change which adds functionality)
+[  ] Breaking change (fix or feature that would cause existing functionality to change)
+
+Checklist:
+
+
+
+[ NA] My code follows the code style of this project.  (No code changes made)
+[ x ] My change requires a change to the documentation.
+[ x ] I have updated the documentation accordingly.
+[ x ] I have read the CONTRIBUTING document.
+[ NA ] I have added tests to cover my changes.
+[ NA ] All new and existing tests passed.  (No code changes made)",3,5
+2033,2018-03-29T15:16:43Z,2018-05-01T01:35:02Z,2018-05-01T01:35:02Z,1,15,0,,2,3
+2042,2018-04-17T09:30:24Z,2018-04-17T17:19:36Z,2018-04-17T17:19:36Z,3,224,55,"Updates dist/.htaccess and server-configs-apache package to v3.0.0 from h5bp/server-configs-apache (see release notes).
+Types of changes
+
+
+ Bug fix (non-breaking change which fixes an issue)
+ New feature (non-breaking change which adds functionality)
+ Breaking change (fix or feature that would cause existing functionality to change)
+ Just a simple update 😇",3,1
+2044,2018-04-19T01:19:20Z,,2018-07-07T00:23:37Z,1,30,1,"Implementing styles for iPhone X, resolving #1995
+Types of changes
+
+
+ Bug fix (non-breaking change which fixes an issue)
+ New feature (non-breaking change which adds functionality)
+ Breaking change (fix or feature that would cause existing functionality to change)
+
+Checklist:
+
+
+
+ My code follows the code style of this project.
+ My change requires a change to the documentation.
+ I have updated the documentation accordingly.
+ I have read the CONTRIBUTING document.
+ I have added tests to cover my changes.
+ All new and existing tests passed.
+
+Pull requests should be thought of as a conversation. There will be some back and forth when trying to get code merged into this or any other project. With all but the simplest changes you can and should expect that the maintainers of the project will request changes to your code. Please be aware of that and check in after you open your PR in order to get your code merged in cleanly.
+Thanks!",5,3
+2050,2018-05-09T04:16:08Z,2018-05-16T18:15:10Z,2018-05-16T18:15:10Z,1,1,1,"""value"" is not a valid attribute on element meta (http://w3c.github.io/html/single-page.html#the-meta-element).
+According to https://support.google.com/webmasters/answer/79812?hl=en,
+content=""notranslate"" is recommended to use.
+Types of changes
+
+
+ Bug fix (non-breaking change which fixes an issue)
+ New feature (non-breaking change which adds functionality)
+ Breaking change (fix or feature that would cause existing functionality to change)
+
+Checklist:
+
+
+
+ My code follows the code style of this project.
+ My change requires a change to the documentation.
+ I have updated the documentation accordingly.
+ I have read the CONTRIBUTING document.
+ I have added tests to cover my changes.
+ All new and existing tests passed.
+
+Pull requests should be thought of as a conversation. There will be some back and forth when trying to get code merged into this or any other project. With all but the simplest changes you can and should expect that the maintainers of the project will request changes to your code. Please be aware of that and check in after you open your PR in order to get your code merged in cleanly.
+Thanks!",4,2
+2058,2018-07-31T19:12:31Z,2018-08-09T02:52:41Z,2018-08-09T02:52:41Z,2,5,5,"Hello, I saw that the dev dependencies are out of date... so I update the dev-dependencies...
+
+eslint  - 4.19.1 to 5.2.0
+eslint-config-recommended - 2.0.0 to 3.0.0
+gulp-eslint - 4.0.2 to 5.0.0
+
+Alright, thanks...",3,4
+2060,2018-08-29T11:59:04Z,2018-10-08T16:11:41Z,2018-10-08T16:11:41Z,2,22,12,"Types of changes
+
+
+ Bug fix (non-breaking change which fixes an issue)
+ New feature (non-breaking change which adds functionality)
+ Breaking change (fix or feature that would cause existing functionality to change)
+
+Checklist:
+
+
+
+ My code follows the code style of this project.
+ My change requires a change to the documentation.
+ I have updated the documentation accordingly.
+ I have read the CONTRIBUTING document.
+ I have added tests to cover my changes.
+ All new and existing tests passed.
+
+Pull requests should be thought of as a conversation. There will be some back and forth when trying to get code merged into this or any other project. With all but the simplest changes you can and should expect that the maintainers of the project will request changes to your code. Please be aware of that and check in after you open your PR in order to get your code merged in cleanly.
+Thanks!",4,15
+2062,2018-09-13T11:04:39Z,2018-09-18T03:02:23Z,2018-09-18T03:02:23Z,2,6,8,"Fix for link to Google for mobile seperate links
+https link to hixie.ch
+fix link for Twitter Cards for Developers
+
+Types of changes
+
+
+ Bug fix (non-breaking change which fixes an issue)
+ New feature (non-breaking change which adds functionality)
+ Breaking change (fix or feature that would cause existing functionality to change)
+
+Checklist:
+
+
+
+ My code follows the code style of this project.
+ My change requires a change to the documentation.
+ I have updated the documentation accordingly.
+ I have read the CONTRIBUTING document.
+ I have added tests to cover my changes.
+ All new and existing tests passed.
+
+Pull requests should be thought of as a conversation. There will be some back and forth when trying to get code merged into this or any other project. With all but the simplest changes you can and should expect that the maintainers of the project will request changes to your code. Please be aware of that and check in after you open your PR in order to get your code merged in cleanly.
+Thanks!",2,3
+2065,2018-09-18T03:48:05Z,2018-09-18T17:12:32Z,2018-09-18T17:12:32Z,2,14,16,"Removed dead link to http://dayofjs.com/videos/22158462/web-browsers_alex-russel
+Fix many redirects to browser docs on Mozilla, Apple, Faceook and Microsoft sites
+
+Types of changes
+
+
+ Bug fix (non-breaking change which fixes an issue)
+ New feature (non-breaking change which adds functionality)
+ Breaking change (fix or feature that would cause existing functionality to change)
+
+Checklist:
+
+
+
+ My code follows the code style of this project.
+ My change requires a change to the documentation.
+ I have updated the documentation accordingly.
+ I have read the CONTRIBUTING document.
+ I have added tests to cover my changes.
+ All new and existing tests passed.",2,1
+2074,2018-10-04T03:39:17Z,2019-02-07T18:30:08Z,2019-02-07T18:30:08Z,15,125,292,"Remove unneeded x-ua-compatible - not needed for IE11
+Update many external links
+Fix typos
+Add info for creating a good meta description
+Add link for iPhone X viewport info
+Update browser upgrade prompt
+Remove integrating Bootstrap with H5BP (it was written a longtime ago and I don't think is relevant so much)
+Remove statement that Twitter Cards requires registering a domain (its now open for all sites)
+Remove official shortlink section, it was always very poorly supported
+Made the touch icons sections more concise (no need to mention about non-retina iPhones and iOS versions prior to iOS 6 etc)
+Add <meta name=""theme-color"" content=""#fafafa""> to index.html
+Add details on security.txt in extend docs
+
+Types of changes
+
+
+ Bug fix (non-breaking change which fixes an issue)
+ New feature (non-breaking change which adds functionality)
+ Breaking change (fix or feature that would cause existing functionality to change)
+
+Checklist:
+
+
+
+ My code follows the code style of this project.
+ My change requires a change to the documentation.
+ I have updated the documentation accordingly.
+ I have read the CONTRIBUTING document.
+ I have added tests to cover my changes.
+ All new and existing tests passed.
+
+Pull requests should be thought of as a conversation. There will be some back and forth when trying to get code merged into this or any other project. With all but the simplest changes you can and should expect that the maintainers of the project will request changes to your code. Please be aware of that and check in after you open your PR in order to get your code merged in cleanly.
+Thanks!",4,3
+2081,2018-10-19T12:30:05Z,,2018-10-22T16:23:56Z,1,2,2,"Types of changes
+
+
+ Bug fix (non-breaking change which fixes an issue)
+ New feature (non-breaking change which adds functionality)
+ Breaking change (fix or feature that would cause existing functionality to change)
+
+Checklist:
+
+
+
+ My code follows the code style of this project.
+ My change requires a change to the documentation.
+ I have updated the documentation accordingly.
+ I have read the CONTRIBUTING document.
+ I have added tests to cover my changes.
+ All new and existing tests passed.
+
+Pull requests should be thought of as a conversation. There will be some back and forth when trying to get code merged into this or any other project. With all but the simplest changes you can and should expect that the maintainers of the project will request changes to your code. Please be aware of that and check in after you open your PR in order to get your code merged in cleanly.
+Thanks!",3,0
+2096,2018-10-29T14:32:00Z,2018-11-01T11:08:05Z,2018-11-01T11:08:05Z,2,2,4,"Types of changes
+
+
+ Bug fix (non-breaking change which fixes an issue)
+ New feature (non-breaking change which adds functionality)
+ Breaking change (fix or feature that would cause existing functionality to change)
+
+Checklist:
+
+
+
+ My code follows the code style of this project.
+ My change requires a change to the documentation.
+ I have updated the documentation accordingly.
+ I have read the CONTRIBUTING document.
+ I have added tests to cover my changes.
+ All new and existing tests passed.
+
+This change removes the ""display"": ""standalone"" from manifest. It is better to default to the browsers default as not all websites using manifests are PWAs intended to be run fullscreen with no navigation bar.
+This fixes: #2090 - Thanks @philwareham for the heads-up on this one!",2,0
+2103,2018-12-13T12:48:47Z,2018-12-17T20:52:19Z,2018-12-17T20:52:19Z,2,2,2,"closes #2102
+Per my findings, the need for it as a default was rectified with the release of iOS 9.3, where the viewport no longer shrunk to accommodate overflow, as was introduced in iOS 9.
+Types of changes
+Removal of meta data no longer necessary.
+Checklist:
+
+ My code follows the code style of this project.
+ My change requires a change to the documentation. N/A (wasn't mentioned in the section on viewport)
+ I have updated the documentation accordingly.  N/A
+ I have read the CONTRIBUTING document.
+ I have added tests to cover my changes. N/A
+ All new and existing tests passed. N/A",3,0
+2113,2019-02-13T15:56:11Z,2019-02-14T03:16:15Z,2019-02-14T03:16:15Z,2,2,2,"A more succinct way of writing the conditional comment -- still recognized by IE 5-9.
+IE10+ doesn't support conditional comments, however, IE10 would still benefit from the ""outdated browser"" message, as we recently dropped support.
+Types of changes
+
+
+ Bug fix (non-breaking change which fixes an issue)
+ New feature (non-breaking change which adds functionality)
+ Breaking change (fix or feature that would cause existing functionality to change)
+
+Checklist:
+
+
+
+ My code follows the code style of this project.
+ My change requires a change to the documentation.
+ I have updated the documentation accordingly.
+ I have read the CONTRIBUTING document.
+ I have added tests to cover my changes.
+ All new and existing tests passed.",3,2
+2114,2019-02-20T04:10:28Z,2019-02-20T19:15:38Z,2019-02-20T19:15:38Z,1,2,2,,2,0
+2115,2019-02-20T06:25:31Z,2019-02-20T21:15:42Z,2019-02-20T21:15:42Z,2,4,4,"Update https://cdn.polyfill.io from v2 to v3
+Remove unneeded shrink-to-fit=no meta tag",2,0
+2116,2019-03-05T06:42:07Z,2019-03-07T19:59:43Z,2019-03-07T19:59:43Z,3,2,2,"REF: https://github.com/Modernizr/Modernizr/blob/master/CHANGELOG.md
+Types of changes
+
+
+ Bug fix (non-breaking change which fixes an issue)
+ New feature (non-breaking change which adds functionality)
+ Breaking change (fix or feature that would cause existing functionality to change)
+
+Checklist:
+
+
+
+ My code follows the code style of this project.
+ My change requires a change to the documentation.
+ I have updated the documentation accordingly.
+ I have read the CONTRIBUTING document.
+ I have added tests to cover my changes.
+ All new and existing tests passed.
+
+Pull requests should be thought of as a conversation. There will be some back and forth when trying to get code merged into this or any other project. With all but the simplest changes you can and should expect that the maintainers of the project will request changes to your code. Please be aware of that and check in after you open your PR in order to get your code merged in cleanly.
+Thanks!",3,4
+2121,2019-03-15T20:06:40Z,2019-03-18T17:16:08Z,2019-03-18T17:16:08Z,5,17,8,"bumps the version number
+upgrades modernizr to latest
+🍧",2,2
+2124,2019-04-11T01:34:10Z,2019-04-11T18:29:00Z,2019-04-11T18:29:00Z,4,7,7,"Improved performance and a minor vulnerability fix!
+REF: http://blog.jquery.com/2019/04/10/jquery-3-4-0-released/
+Types of changes
+
+
+ Bug fix (non-breaking change which fixes an issue)
+ New feature (non-breaking change which adds functionality)
+ Breaking change (fix or feature that would cause existing functionality to change)
+
+Checklist:
+
+
+
+ My code follows the code style of this project.
+ My change requires a change to the documentation.
+ I have updated the documentation accordingly.
+ I have read the CONTRIBUTING document.
+ I have added tests to cover my changes.
+ All new and existing tests passed.
+
+Pull requests should be thought of as a conversation. There will be some back and forth when trying to get code merged into this or any other project. With all but the simplest changes you can and should expect that the maintainers of the project will request changes to your code. Please be aware of that and check in after you open your PR in order to get your code merged in cleanly.
+Thanks!",2,0
+2128,2019-05-24T06:51:51Z,2019-05-28T15:16:25Z,2019-05-28T15:16:25Z,2,75,81,"REF: https://github.com/h5bp/server-configs-apache/blob/master/CHANGELOG.md
+cc @LeoColomb",3,0
+2132,2019-06-03T01:58:46Z,2019-06-03T11:20:25Z,2019-06-03T11:20:25Z,2,2,2,"This removes 'defer' from the Google Analytics script.
+
+It was only included in H5BP as it added non-blocking support for older browsers, but as H5BP doesn't support IE8/IE9 anymore this is no longer needed. (REF: #1696 (comment))
+It has no benefit if ran at the bottom of the page anyway (REF: h5bp/lazyweb-requests#42 (comment))
+It changes the execution time of the analytics.js script on all browsers and could negatively impact analytics tracking. (REF: #1696 (comment) )
+The official Google Analytics snippet doesn't use/advise 'defer' in their async snippet (REF: https://developers.google.com/analytics/devguides/collection/analyticsjs/#alternative_async_tracking_snippet)
+Removing  defer reduces the uncompressed page-weight by 6 bytes 🤓 )
+
+Types of changes
+
+
+ Bug fix (non-breaking change which fixes an issue)
+ New feature (non-breaking change which adds functionality)
+ Breaking change (fix or feature that would cause existing functionality to change)
+
+Checklist:
+
+
+
+ My code follows the code style of this project.
+ My change requires a change to the documentation.
+ I have updated the documentation accordingly.
+ I have read the CONTRIBUTING document.
+ I have added tests to cover my changes.
+ All new and existing tests passed.
+
+Pull requests should be thought of as a conversation. There will be some back and forth when trying to get code merged into this or any other project. With all but the simplest changes you can and should expect that the maintainers of the project will request changes to your code. Please be aware of that and check in after you open your PR in order to get your code merged in cleanly.
+Thanks!",2,0
+2134,2019-06-03T15:27:34Z,2019-06-04T14:53:40Z,2019-06-04T14:53:40Z,1,8,0,Work-in-progress CHANGELOG update.,2,0
+2135,2019-06-03T19:56:13Z,2019-06-04T11:23:15Z,2019-06-04T11:23:15Z,2,99,128,,2,0
+2138,2019-06-04T12:43:47Z,2019-06-04T14:53:09Z,2019-06-04T14:53:09Z,2,2,8,"This fixes the broken links in the CSS docs.
+Thanks for spotting this @PeteSchuster  !",2,0
+2151,2019-08-29T19:05:50Z,2019-09-03T18:49:43Z,2019-09-03T18:49:43Z,4,5938,3775,"Types of changes
+
+
+ Bug fix (non-breaking change which fixes an issue)
+ New feature (non-breaking change which adds functionality)
+ Breaking change (fix or feature that would cause existing functionality to change)
+
+Checklist:
+
+
+
+ My code follows the code style of this project.
+ My change requires a change to the documentation.
+ I have updated the documentation accordingly.
+ I have read the CONTRIBUTING document.
+ I have added tests to cover my changes.
+ All new and existing tests passed.
+
+Hi I saw your tweet and the issue #2150. I did the migration to Gulp 4. You can test by yourself to check if it's the intended behaviour. It should I did not change that much.
+What I did exactly:
+
+Updated some dev dependencies used in gulp
+Changed the babel node modules to be compatible with Gulp V4
+Updated the babel config inside the package.json
+Moved Autoprefixer browserlist config from gulpfile to the package.json
+
+My node version: v10.15.4 and npm: 6.9.0. I don't know if the projects now works for ""node"": "">=8"" and ""npm"": "">=3"". Maybe we need to update the engine config aswell.
+Cheers ! 🍻",3,4
+2152,2019-09-03T03:37:08Z,2019-09-03T18:24:05Z,2019-09-03T18:24:05Z,2,16,16,"To match .editorconfig styleguide and also reduces file-size from 417 bytes to 381. :-)
+Types of changes
+
+
+ Bug fix (non-breaking change which fixes an issue)
+ New feature (non-breaking change which adds functionality)
+ Breaking change (fix or feature that would cause existing functionality to change)
+
+Checklist:
+
+
+
+ My code follows the code style of this project.
+ My change requires a change to the documentation.
+ I have updated the documentation accordingly.
+ I have read the CONTRIBUTING document.
+ I have added tests to cover my changes.
+ All new and existing tests passed.",2,0
+2153,2019-09-04T02:41:02Z,2019-10-14T17:41:04Z,2019-10-14T17:41:05Z,4,3,808,"This is no longer needed since we migrated to eslint. (REF: https://eslint.org/docs/user-guide/migrating-from-jscs)
+All tests pass and build completes.
+Types of changes
+
+
+ Bug fix (non-breaking change which fixes an issue)
+ New feature (non-breaking change which adds functionality)
+ Breaking change (fix or feature that would cause existing functionality to change)
+
+Checklist:
+
+
+
+ My code follows the code style of this project.
+ My change requires a change to the documentation.
+ I have updated the documentation accordingly.
+ I have read the CONTRIBUTING document.
+ I have added tests to cover my changes.
+ All new and existing tests passed.",3,1
+2155,2019-09-04T17:04:23Z,2019-09-04T22:12:26Z,2019-09-04T22:12:26Z,2,2,2,"Saves a HTTP redirect
+Types of changes
+
+
+ Bug fix (non-breaking change which fixes an issue)
+ New feature (non-breaking change which adds functionality)
+ Breaking change (fix or feature that would cause existing functionality to change)
+
+Checklist:
+
+
+
+ My code follows the code style of this project.
+ My change requires a change to the documentation.
+ I have updated the documentation accordingly.
+ I have read the CONTRIBUTING document.
+ I have added tests to cover my changes.
+ All new and existing tests passed.",2,0
+2161,2019-10-15T05:35:44Z,2019-10-16T01:38:43Z,2019-10-16T01:38:43Z,3,1277,938,"All tests run and pass.
+Note: the build removes -webkit-box-shadow: none !important; from the compiled CSS. I don't think that should have been there before. The webkit prefixed version hasn't been needed for a looooooong time. https://caniuse.com/#feat=mdn-css_properties_box-shadow",2,0
+2162,2019-10-16T02:26:51Z,2019-10-17T05:38:05Z,2019-10-17T05:38:05Z,1,21,13,"Rearranged package.json a bit so the name and version is at the top- I think this makes more logical sense.
+Added bugs and keywords which could be useful for users. Please do review the keywords added - maybe there are some other potentially useful ones?
+REF:
+
+https://docs.npmjs.com/files/package.json#keywords
+https://docs.npmjs.com/files/package.json#bugs
+
+Types of changes
+
+
+ Bug fix (non-breaking change which fixes an issue)
+ New feature (non-breaking change which adds functionality)
+ Breaking change (fix or feature that would cause existing functionality to change)
+
+Checklist:
+
+
+
+ My code follows the code style of this project.
+ My change requires a change to the documentation.
+ I have updated the documentation accordingly.
+ I have read the CONTRIBUTING document.
+ I have added tests to cover my changes.
+ All new and existing tests passed.",2,0
+2164,2019-10-17T06:42:07Z,2019-10-21T17:38:57Z,2019-10-21T17:38:57Z,2,2,2,"The h5bp/server-configs-apache wiki is no longer online
+Types of changes
+
+
+ Bug fix (non-breaking change which fixes an issue)
+ New feature (non-breaking change which adds functionality)
+ Breaking change (fix or feature that would cause existing functionality to change)
+
+Checklist:
+
+
+
+ My code follows the code style of this project.
+ My change requires a change to the documentation.
+ I have updated the documentation accordingly.
+ I have read the CONTRIBUTING document.
+ I have added tests to cover my changes.
+ All new and existing tests passed.
+
+Pull requests should be thought of as a conversation. There will be some back and forth when trying to get code merged into this or any other project. With all but the simplest changes you can and should expect that the maintainers of the project will request changes to your code. Please be aware of that and check in after you open your PR in order to get your code merged in cleanly.
+Thanks!",2,0
+2165,2019-10-17T06:44:56Z,2019-10-21T17:38:16Z,2019-10-21T17:38:16Z,2,4,4,"prevents a redirect... and remove an unneeded trailing space
+Types of changes
+
+
+ Bug fix (non-breaking change which fixes an issue)
+ New feature (non-breaking change which adds functionality)
+ Breaking change (fix or feature that would cause existing functionality to change)
+
+Checklist:
+
+
+
+ My code follows the code style of this project.
+ My change requires a change to the documentation.
+ I have updated the documentation accordingly.
+ I have read the CONTRIBUTING document.
+ I have added tests to cover my changes.
+ All new and existing tests passed.",2,0
+2167,2019-10-24T03:01:26Z,2019-10-25T15:18:17Z,2019-10-25T15:18:17Z,3,123,128,"Types of changes
+
+ Bug fix (non-breaking change which fixes an issue)
+ New feature (non-breaking change which adds functionality)
+ Breaking change (fix or feature that would cause existing functionality to change)",2,0
+2169,2019-10-25T15:18:45Z,2019-11-19T18:43:14Z,2019-11-19T18:43:14Z,15,1655,965,,2,18

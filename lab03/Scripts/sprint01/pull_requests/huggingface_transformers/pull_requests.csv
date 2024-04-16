@@ -1,0 +1,2207 @@
+number,created_at,merged_at,closed_at,files,additions,deletions,body_text,participants,comments
+91,2018-12-05T17:22:31Z,2018-12-11T10:12:05Z,2018-12-11T10:12:05Z,1,24,30,"Hi !
+This PR contains multiple improvements to the run_classifier.py file.
+The changes are:
+
+removing trailing whitespaces (PEP 8),
+simplifying a bit the data processing code, in particular tensor formatting,
+fixing issue #83 by adapting the value of the num_labels argument of BertForSequenceClassification.from_pretrained to the dataset being used.",2,1
+96,2018-12-06T18:34:05Z,2018-12-13T11:05:12Z,2018-12-13T11:05:12Z,4,658,7,"Hi!
+This is the code that enables Bert models to be used for Multiple Choice problems (such as Swag and ROCStories.
+For my implementation, I use the algorithm described in #90 and issue #38 from the tensorflow implementation repo.
+The commentaries and the README.md files have been updated but I would very much appreciate if someone could check my changes.
+I am also unable to test my code on multiple GPUs so I can't check whether it works or not.
+I will let a training run during the night to see what kind of result we get although I won't be able to do a proper hyper-parameter search due my computing power limitations.
+I also have a question. I used pandas to load the Swag dataset, do I need to specify it somewhere in a file to add it as a dependency for pip? I have never published a module on pip.",7,14
+124,2018-12-18T09:48:12Z,2019-01-07T11:03:51Z,2019-01-07T11:03:51Z,2,678,4,"We are currently working on fine-tuning the language model on a new target corpus. This should improve the model, if the language style in your target corpus differs significantly from the one initially used for training BERT (Wiki + BookCorpus), but is still too small for training BERT from scratch. In our case, we apply this on a rather technical english corpus.
+The sample script is loading a pre-trained BERT model and fine-tunes it as a language model (masked tokens & nextSentence) on your target corpus. The samples from the target corpus can either be fed to the model directly from memory or read from disk one-by-one.
+Training the language model from scratch without loading a pre-trained BERT model is also not very difficult to do from here. In contrast, to the original tf repo, you can do the training with multi-GPU instead of TPU.
+We thought this might be also helpful for others.",5,12
+145,2018-12-22T12:31:58Z,2019-01-07T11:23:06Z,2019-01-07T11:23:06Z,1,1,1,Correct the wrong note in #144,3,1
+166,2019-01-05T02:43:06Z,2019-01-07T11:40:56Z,2019-01-07T11:40:56Z,1,1,1,"Error occurs when bert_model param is path or url. Therefore, if it is path, specify the last path to prevent error.",3,1
+169,2019-01-06T22:13:44Z,,2019-01-07T11:41:57Z,1,1,1,Fix typo in the documentation for the description of not using masked_lm_labels,3,1
+171,2019-01-07T07:51:47Z,2019-01-07T11:44:47Z,2019-01-07T11:44:47Z,1,2,2,"The LayerNorm gamma and beta should be initialized by .fill_(1.0) and .zero_().
+reference links:
+https://github.com/tensorflow/tensorflow/blob/989e78c412a7e0f5361d4d7dfdfb230c8136e749/tensorflow/contrib/layers/python/layers/layers.py#L2298
+https://github.com/tensorflow/tensorflow/blob/989e78c412a7e0f5361d4d7dfdfb230c8136e749/tensorflow/contrib/layers/python/layers/layers.py#L2308",3,2
+183,2019-01-11T08:03:57Z,,2019-02-11T12:35:49Z,11,1687,59,Adding OpenAI GPT pretrained model.,3,1
+192,2019-01-13T15:56:58Z,,2019-01-17T08:41:09Z,3,5,5,Fixes misnamed documentation comments in run_squad.py and run_squad2.py and update of README.md for updated syntax of file conversion.,2,1
+218,2019-01-22T22:43:30Z,2019-02-05T14:40:44Z,2019-02-05T14:40:44Z,6,80,94,"Don't do warmup twice (in BertAdam and manually)
+Compute num_train_steps correctly for the case where gradient_accumulation_steps > 1. The current version might lead the the LR never leaving the warmup phase, depending on the value of gradient_accumulation_steps.
+
+With these changes I get > 84% accuracy on MRPC, without them its around 77%.",3,4
+240,2019-01-30T18:20:29Z,2019-02-01T11:14:05Z,2019-02-01T11:14:05Z,1,8,8,Updated links to classes in modeling.py,3,1
+242,2019-01-30T20:11:10Z,2019-02-01T11:14:56Z,2019-02-01T11:14:56Z,2,2,2,"Resolved the following error on executing run_squad2.py --help
+TypeError: %o format: an integer is required, not dict",3,1
+290,2019-02-18T11:30:27Z,,2019-02-18T20:25:46Z,1,4,4,,2,1
+325,2019-02-27T04:20:13Z,2019-03-06T08:37:12Z,2019-03-06T08:37:12Z,2,29,9,"When tokenization is done before text hits this package (e.g., when tokenization is specified as part of the dataset) there exists a use case for skipping the BasicTokenizer step, going right to WordpieceTokenizer.
+When one still wants to use the BertTokenizer.from_pretrained helper function, they have been able to do this (without claiming this is necessarily the best way) by
+text = ""[CLS]  `` Truly , pizza is delicious , '' said Mx. Caily.""
+bert_tokenizer = BertTokenizer.from_pretrained('bert-base-cased')
+tokenized_text = bert_tokenizer.wordpiece_tokenizer.tokenize(text)
+
+With this PR, we instead use
+text = ""[CLS]  `` Truly , pizza is delicious , '' said Mx. Caily.""
+bert_tokenizer = BertTokenizer.from_pretrained('bert-base-cased', do_basic_tokenize=False)
+tokenized_text = bert_tokenizer.tokenize(text)
+
+a flag for which I add documentation in the docstring and README, hopefully making it clear that this is possible.",3,2
+337,2019-03-03T00:30:43Z,2019-03-06T08:45:50Z,2019-03-06T08:45:50Z,4,4,4,"For many applications requiring randomized data access, it's easier to cache the tokenized representations than the words. So why not turn this into a warning?",3,2
+386,2019-03-17T05:51:57Z,,2019-06-23T22:14:11Z,5,38,8,"Up to this point, tokenize() and encode() mean different places. In GPT-land, tokenize doesn't get us all the way to token IDs. Idteally, he tokenizers would share a common interface so that they can be plugged in and out of places just like the models.
+I don't know if you want breaking changes, so I just created encode() and decode() as aliases on tokenizers that did not adhere to that spec already.
+There is more cleanup to do. Since it seems that non-BERT models were added on later on, the BERT files should probably be renamed into tokenizer_bert, etc., but I left that in place to maintain compatibility. BERT is still missing decode.
+Please advise and I can clean it up.",4,11
+404,2019-03-24T21:20:33Z,2019-04-03T09:35:31Z,2019-04-03T09:35:31Z,2,22,4,"This fixes the language modeling loss setup for GPT and GPT-2. Minimizing the loss would previously destroy the language model within a few steps. I believe that both loss computations were incorrect, since they computed the cross-entropy without shifting the logits. Given the masking setup here, we want the ith logits to act as predictors of the (i+1)st token label (not the ith).
+When I was debugging this, to be sure that there's no other issue, I checked that the logits coming out of the OpenAI tensorflow and the pytorch implementation appeared to be the same (kind of a blackbox test). We can import the original model as tf_model and compare:
+# Construct input sample of two 512 token 1's
+batch_size = 1
+batch = [[1,2]*512]*batch_size
+batch = np.array(batch)
+
+# Attempt to seed everything
+seed = 42
+seed_all(seed)
+np.random.seed(seed)
+tf.set_random_seed(seed)
+
+# PyTorch Implementation
+model = GPT2LMHeadModel.from_pretrained('gpt2')
+torch_batch = torch.tensor(batch)
+loss = model(torch_batch, lm_labels=torch_batch)
+print(loss.detach().numpy())
+
+logits, presents = model(torch_batch)
+print(logits.detach().numpy())
+
+# TensorFlow implementation
+with tf.Session() as sess:
+    hparams = tf_model.default_hparams()
+    hparams.override_from_dict({
+                                  ""n_vocab"": 50257,
+                                  ""n_ctx"": 1024,
+                                  ""n_embd"": 768,
+                                  ""n_head"": 12,
+                                  ""n_layer"": 12
+                                })
+
+    # Set up graph and loss as I believe is correct similar to https://github.com/nshepperd/gpt-2
+    context = tf.placeholder(tf.int32, [batch_size, None])
+    output = tf_model.model(hparams=hparams, X=context)
+    logits = output['logits']
+    loss = tf.reduce_mean(
+        tf.nn.sparse_softmax_cross_entropy_with_logits(
+            labels=context[:, 1:], logits=logits[:, :-1]))
+    train_vars = [v for v in tf.trainable_variables() if 'model' in v.name]
+
+    # Load checkpoint
+    ckpt = tf.train.latest_checkpoint('gpt_tf/models/117M')
+    saver = tf.train.Saver(var_list=train_vars)
+    saver.restore(sess, ckpt)
+
+    # Run!
+    tf_logits, tf_loss = sess.run((logits, loss), feed_dict={context: batch})
+    print(tf_loss)
+    print(tf_logits)
+
+    # Other differences
+    param_optimizer = list(model.named_parameters())
+    print(""torch:"")
+    print([n for n, p in param_optimizer])
+
+    print(""tensorflow:"")
+    print([v.name for v in tf.trainable_variables()])
+
+    # They look like the same 147 params...
+
+This gave us for torch:
+
+
+Loss: 11.067907
+
+
+Logits:
+ [[[ -32.901043  -31.20237   -34.66221  ...  -39.486702  -39.87312
+     -32.238667]
+   [ -55.52076   -53.428535  -56.4767   ...  -68.153885  -66.77085
+     -58.600616]
+   [ -59.22766   -58.769135  -54.14502  ...  -64.58172   -65.165565
+     -57.34685 ]
+   ...
+   [-261.01627  -245.20702  -258.9687   ... -285.7149   -292.39874
+    -260.91663 ]
+   [-256.27637  -251.34431  -242.03348  ... -280.47235  -287.56
+    -256.33374 ]
+   [-261.22495  -245.68788  -258.8527   ... -286.35617  -292.90662
+    -261.41626 ]]]
+
+
+
+...and for TensorFlow:
+
+
+Loss: 0.019036641 
+
+
+Logits:
+ [[[ -32.9011    -31.202427  -34.662262 ...  -39.486755  -39.87316
+     -32.238716]
+   [ -55.52075   -53.42854   -56.476707 ...  -68.153885  -66.770874
+     -58.60062 ]
+   [ -59.227722  -58.76918   -54.14507  ...  -64.58176   -65.165596
+     -57.346878]
+   ...
+   [-261.01633  -245.20723  -258.96875  ... -285.71472  -292.3988
+    -260.91663 ]
+   [-256.27637  -251.3442   -242.03352  ... -280.4723   -287.56
+    -256.33374 ]
+   [-261.22498  -245.68774  -258.85263  ... -286.3562   -292.90668
+    -261.41626 ]]]
+
+
+
+Shifting the logits so that tokens < n predict the nth token like in the TF example above should fix this.",2,4
+445,2019-04-03T15:36:29Z,2019-04-23T08:27:39Z,2019-04-23T08:27:39Z,3,226,103,"re: PR#389
+
+refactored learning rate schedules into objects
+added WarmupCosineWithHardRestartsSchedule for cosine schedule with hard restarts
+added WarmupCosineWithWarmupRestartsSchedule for cosine schedule with restarts where each restart uses the same warmup slope",3,4
+521,2019-04-23T11:22:15Z,,2019-10-07T18:54:27Z,3,104,12,"Issue #438 still exists if you choose to use something else rather then BertForTokenClassification. Furthermore, you still need to edit the code before running the convertor. Lastly,  BertForTokenClassification is not the same as BertForQuestionAnswering, since the latter omits the dropout before the output layer.
+Maybe it's better to add more options like 'classification' which uses BertForTokenClassification.
+Tested the changes on fine-tuned BERT model on SQuAD 1.1 with Google's original Tensorflow script run_squad.py initialized with multi_cased_L-12_H-768_A-12.",3,4
+604,2019-05-11T22:34:28Z,2019-06-14T14:49:25Z,2019-06-14T14:49:25Z,4,101,99,"Fixing the issues reported in #556
+Reason for issue was that num_optimzation_steps was computed from example size, which is different from actual size of dataloader when an example is chunked into multiple instances.
+Solution in this pull request is to compute num_optimization_steps directly from len(data_loader).",4,2
+620,2019-05-18T21:20:32Z,2019-07-05T10:01:18Z,2019-07-05T10:01:18Z,2,1760,0,Added a file that converts pytorch models that have been trained/finetuned back to tensorflow. This currently supports the base BERT models (uncased/cased); conversion for other BERT models will be added in the future.,6,15
+711,2019-06-21T16:40:18Z,2019-07-16T09:51:23Z,2019-07-16T09:51:23Z,135,16444,10065,"Current status:
+
+ model with commented code and pretrained loading logic
+ tokenizer
+ tests for model and tokenizer
+ checking standard deviation of hidden states with TF model is ok (max dev btw 1e-4 & 1e-5 until last layer, last layer 1e-3, higher than bert but should be ok, investigated this in details, comes from the conjunction of layer_norm and slight differences in internal PT vs. TF ops. Add some graphs to readme)
+ converting and uploading model to S3
+
+Model/tokenizer are usable, now just need to
+
+ check the model behave well under various conditions and in a few corner cases
+ add XLNetForQuestionAnswering classes variants
+ add XLNetForSequenceClassification classes variants
+ add a finetuning example with results close to TF
+ add models in README
+ add models on torch.hub",12,18
+748,2019-07-02T14:42:54Z,2019-07-03T20:52:04Z,2019-07-03T20:52:04Z,7,154,81,Add Torchscript capabilities to all models.,3,1
+755,2019-07-03T22:05:09Z,,2019-08-07T18:46:07Z,1,41,0,Adds a test to compare TorchScript traces with different batch sizes and sequences lengths.,2,0
+866,2019-07-22T20:42:34Z,2019-07-23T16:05:30Z,2019-07-23T16:05:30Z,1,45,12,"Unification of the from_pretrained functions belonging to various modules (GPT2PreTrainedModel, OpenAIGPTPreTrainedModel, BertPreTrainedModel) brought changes to the function's argument handling which don't cause any issues within the repository itself (afaik), but have the potential to break a variety of downstream code (eg. my own).
+In the last release of pytorch_transformers (v0.6.2), the from_pretrained functions took in *args and **kwargs and passed them directly to the relevant model's constructor (perhaps with some processing along the way). For a typical example, see from_pretrained's signature in modeling.py here https://github.com/huggingface/pytorch-transformers/blob/b832d5bb8a6dfc5965015b828e577677eace601e/pytorch_pretrained_bert/modeling.py#L526
+and the relevant usage of said arguments (after some small modifications) https://github.com/huggingface/pytorch-transformers/blob/b832d5bb8a6dfc5965015b828e577677eace601e/pytorch_pretrained_bert/modeling.py#L600
+In the latest release, the function's signature remains unchanged but the *args and most of the **kwargs parameters, in particular pretty much anything not explicitly accessed in [1]
+https://github.com/huggingface/pytorch-transformers/blob/b33a385091de604afb566155ec03329b84c96926/pytorch_transformers/modeling_utils.py#L354-L358
+is ignored. If a key of kwargs is shared with the relevant model's configuration file then its value is still used to override said key (see the relevant logic here), but the current architecture breaks, for example, the following pattern which was previously possible.
+class UsefulSubclass(BertForSequenceClassification)
+    def __init__(self, *args, useful_argument, **kwargs):
+        super().__init__(*args, **kwargs)
+        *logic*
+
+...
+bert = UsefulSubclass.from_pretrained(model_name, useful_argument=42).
+
+What's more, if these arguments have default values declared in __init__ then the entire pattern is broken silently: because these default values will never be overwritten via pretrained instantiation. Thus end users might continue running experiments passing different values of useful_argument to from_pretrained, unaware that nothing is actually being changed
+As evidenced by issue #833, I'm not the only one whose code was broken. This commit implements behavior which is a compromise between the old and new behaviors. From my docstring:
+If config is None, then **kwargs will be passed to the model.
+If config is *not* None, then kwargs will be used to
+override any keys shared with the default configuration for the
+given pretrained_model_name_or_path, and only the unshared
+key/value pairs will be passed to the model.
+
+It would actually be ideal to avoid mixing configuration and model parameters entirely (via some sort of model_args parameter for example): however this fix has the advantages of
+
+Not breaking code written during the pytorch-pretrained-bert era
+Preserving (to the extent possible) the usage of the from_pretrained.**kwargs parameter introduced with pytorch-transformers
+
+
+I have also included various other (smaller) changes in this pull request:
+
+Making PreTrainedModel.__init__ not accept *args and **kwargs parameters which it has no use for and currently ignores Apparently necessary for the tests to pass :(
+Stop using the the ""popping from kwargs"" antipattern (see [1]). Keyword arguments with default values achieve the same thing more quickly, and are strictly more informative since they linters/autodoc modules can actually make use of them. I've replaced all instances that I could find, if this pattern exists elsewhere it should be removed. Oops: turns out this is a Python 2 compatibility thing. With that said, is there really a need to continue supporting Python 2? Especially with its EOL coming up in just a few months, and especially when it necessitates such ugly code...
+Subsume the fix included in #864 , which would conflict (admittedly in a very minor fashion) with this PR.
+Remove some trailing whitespace which seems to have infiltrated the file",2,5
+879,2019-07-24T07:04:57Z,,2019-08-20T23:16:01Z,1,5,2,,3,2
+910,2019-07-26T17:27:32Z,2019-08-05T17:17:48Z,2019-08-05T17:17:48Z,50,1870,1310,"As discussed in #890
+Classes that automatically detect the relevant model/config/tokenizer to instantiate based on thepretrained_model_name_or_path string provided to AutoXXX.from_pretrained(pretrained_model_name_or_path).
+Right now:
+
+AutoConfig
+AutoTokenizer
+AutoModel (bare models outputting hidden-states)
+
+Missing:
+
+Tests
+Maybe a few other architectures beside raw models (AutoModelWithLMHead, AutoModelForSequenceClassification, AutoModelForTokensClassification, AutoModelForQuestionAnswering)
+Check if we can make hubconfs simpler to maintain using AutoModels.
+
+Additional stuff:
+
+add a unk_token to GPT2 to fix #799
+clean up tokenizers and associated tests",3,1
+941,2019-08-01T10:13:17Z,,2019-12-06T19:12:59Z,1,2,1,"…tokens`
+num_special_tokens seems to no longer be implemented.  Replaced with model.resize_token_embeddings(new_num_tokens=len(tokenizer)) which resizes (non-destructively, I think) the embeddings to include the new tokens.",4,3
+951,2019-08-02T14:58:50Z,,2019-08-30T12:14:45Z,1,8,5,"run_swag.py doesn't compile currently, BertAdam is removed (per readme).",3,4
+964,2019-08-05T02:07:45Z,2019-08-15T15:11:11Z,2019-08-15T15:11:11Z,19,1394,129,,10,8
+987,2019-08-07T21:43:53Z,2019-08-28T14:51:51Z,2019-08-28T14:51:51Z,11,573,6,"Example script for fine-tuning generative models such as GPT-2 using causal language modeling (CLM). Will eventually cover masked language modeling (MLM) for BERT and RoBERTa as well.
+Edit (thom): Added max_len_single_sentence and max_len_sentences_pair properties to the tokenizer to easily access the max length taking into account the special tokens.",5,5
+1004,2019-08-11T08:04:12Z,2019-09-18T19:42:52Z,2019-09-18T19:42:52Z,7,1642,286,"Pytorch-transformers! Nice work!
+Refactoring old run_swag.py.
+Motivation:
+I have seen the swag PR1 #951  and related issues #931
+According to @thomwolf 's comments on PR1, I think it's necessary to adopt code styles of run_squad.py in run_swag.py so that we can easily take advantage of the new powerful pytorch_transformers.
+Changes:
+I refactored the old run_swag.py following run_squad.py and tested it on bert_base_uncased pretrained model, on Tesla P100.
+Tests:
+export SWAG_DIR=/path/to/SWAG
+ python -m torch.distributed.launch --nproc_per_node 1 run_swag.py \
+--train_file SWAG_DIR/train.csv \
+--predict_file SWAG_DIR/val.csv \
+--model_type bert \
+--model_name_or_path bert-base-uncased \
+--max_seq_length 80 \
+--do_train \
+--do_eval \
+--do_lower_case \
+--output_dir ../models/swag_output \
+ --per_gpu_train_batch_size 32 \
+--per_gpu_eval_batch_size 32 \
+--learning_rate 2e-5 \
+--gradient_accumulation_steps 2 \
+--num_train_epochs 3.0 \
+--logging_steps 200 \
+--save_steps 200
+Results:
+eval_accuracy = 0.8016595021493552
+eval_loss = 0.5581122178810473
+
+I have also tested the --fp16 and the acc is 0.801.
+Other args have been tested: --evaluate_during_training, --eval_all_checkpoints, --overwrite_output_dir, `--overwrite_cache``.
+Things have not been tested: multi-gpu, distributed trianing. since I only have one gpu and one computer.
+Questions:
+It seems the performance is worse than the pytorch-pretrain-bert results. Is this gap of result normal (0.82 and 0.86)?
+Future work:
+I think it's good to add multiple choice model in XLnet since there are many multiple choice datasets such as RACE.
+Thank you all!",5,17
+1052,2019-08-19T04:52:08Z,,2019-12-06T19:13:00Z,2,33,7,"First of all, the original implementation can define segment_embeddings depending on num_segments argument. Actually, their model(Roberta) didn't use segment_embeddings because they found the effectiveness of FULL/DOC SENTENCE setting of inputs.
+And position_embeddings should use padding_idx to ignore padded inputs. Also the embedding matrix's size should be padding_idx + max_seq_length + 1. (e.g If padding_idx=1 and max_seq_length=512, maxtrix size = (1 + 512 + 1) = 514.
+Last, position_ids should be made by considering the previous feature. Below is simple test to make position_ids to reflect padding_idx of input_ids
+input_ids = torch.randint(0,1000,(3,10))
+padding_idx = 0
+
+### dummy padded input
+input_ids[:,-2] = padding_idx
+input_ids[:,-1] = padding_idx
+input_ids[0][-3] = padding_idx
+input_ids[-1][-3] = padding_idx
+
+input_ids
+>>> tensor([[946, 783, 399, 951, 496, 400, 350,   0,   0,   0],
+            [905, 445, 410, 406, 526,   1, 255, 811,   0,   0],
+            [815, 669, 813, 708, 475, 232, 190,   0,   0,   0]])
+
+
+mask = input_ids.ne(padding_idx).int()
+position_ids = (torch.cumsum(mask, dim=1).type_as(mask) * mask).long() + padding_idx
+
+position_ids
+>>> tensor([[1, 2, 3, 4, 5, 6, 7, 0, 0, 0],
+            [1, 2, 3, 4, 5, 6, 7, 8, 0, 0],
+            [1, 2, 3, 4, 5, 6, 7, 0, 0, 0]])",6,3
+1077,2019-08-22T01:39:48Z,2019-09-01T07:42:15Z,2019-09-01T07:42:16Z,10,212,57,"The models saved with pruned heads will now be loaded correctly with a correct state dict and a correct configuration file. The changes in head structure are available in the config file via the property config.pruned_heads.
+Pruned heads can be loaded from the config file:
+config = GPT2Config(n_layer=4, n_head=4, pruned_heads={0: [1], 1: [2, 3]})
+model = GPT2Model(config=config)
+
+print([h.attn.n_head for h in model.h])
+
+# [3, 2, 4, 4]
+
+They are kept upon save:
+model.save_pretrained(""checkpoint"")
+model = GPT2Model.from_pretrained(""checkpoint"")
+
+print([h.attn.n_head for h in model.h], model.config.pruned_heads)
+
+# [3, 2, 4, 4] {0: [1], 1: [2, 3]}
+
+And heads can be additionaly pruned, raising a warning if a head has already been pruned:
+model.prune_heads({1: [1, 2], 3: [2]})
+
+print([h.attn.n_head for h in model.h])
+
+# Tried to remove head 2 of layer 1 but it was already removed. The current removed heads are {1: [1, 2], 3: [2]}
+# [3, 1, 4, 3]
+
+It is implemented for GPT, GPT-2, BERT, RoBERTa as well as XLM.",3,3
+1092,2019-08-24T01:52:48Z,2019-08-30T21:15:40Z,2019-08-30T21:15:41Z,17,705,106,"This PR improve the tokenization of XLM. It's mostly the same as the preprocessing in the original XLM. This PR also add use_lang_emb to config of XLM model, which makes adding the newly release XLM-17 & XLM-100 easier since both of them don't have language embedding.
+Details on tokenization:
+
+Introduce API change: Changing XLMTokenizer.tokenize(self, text) to  XLMTokenizer.tokenize(text, lang='en')
+New dependency:
+
+sacremoses: port of Moses
+
+
+New optional dependencies:
+
+pythainlp: Thai tokenizer
+kytea: Japanese tokenizer, wrapper of KyTea (Need external C++ compilation), used by the newly release XLM-17 & XLM-100
+jieba: Chinese tokenizer *
+
+
+
+* XLM used Stanford Segmenter. However, the wrapper (nltk.tokenize.stanford_segmenter) are slow due to JVM overhead, and it will be deprecated. Jieba is a lot faster and pip-installable. But there is some mismatch with the Stanford Segmenter. A workaround could be having an argument to allow users to segment the sentence by themselves and bypass the segmenter. As a reference, I also include nltk.tokenize.stanford_segmenter in this PR.
+Example of tokenization difference could be found here.",3,3
+1127,2019-08-28T07:34:11Z,2019-08-28T14:43:09Z,2019-08-28T14:43:10Z,25,2472,11,"Preparing the release for DistilBERT (smaller, faster, lighter, cheaper version of BERT)",5,2
+1153,2019-08-29T21:49:11Z,,2019-12-06T19:12:57Z,17,301,92,"As pointed out in #916 currently tokenizers ask for the path from where they'll load the required vocabulary files.
+This PR allows tokenizers to take their vocab from data living in-memory and cold-storage.
+Implementations details:
+
+
+All tokenizer now have a specific ${TokenizerName}Vocab dataclass holding all the required information to run the model.
+
+
+All ${TokenizerName}Vocab dataclass provide a from_pretrained method in charge of reading necessary files
+
+
+All tokenizer now take as first argument vocabs which has to ${TokenizerName}Vocab instance.
+
+
+All model now have a static member vocab_class which points to the desired ${TokenizerName}Vocab data class
+
+
+Some ${TokenizerName}Vocab.from_pretrained share loading routines and thus code is currently duplicated across all of them. It might be possible to refactor to use a generic method that handles such loading.
+
+
+ Bert
+
+
+ Transformer XL
+
+
+ GPT
+
+
+ GPT-2
+
+
+ XLNet
+
+
+ XLM
+
+
+ RoBERTa
+
+
+ DistilBERT",2,4
+1162,2019-08-31T04:53:22Z,2019-09-02T21:14:04Z,2019-09-02T21:14:04Z,1,8,0,"Fixed an issue where the linear layer bias wouldn't be resized along the weight resize when there was an embedding matrix resize with XLNet (cf #1124).
+This fix works for any model that needs to tie its weights between an embedding layer & a linear layer if . that linear layer has a bias.",2,0
+1182,2019-09-03T02:00:13Z,2019-09-26T10:11:06Z,2019-09-26T10:11:06Z,21,575,311,"The new tokenizer.encode(seq_0, seq_1, add_special_tokens=True) method makes life easier when building sequences. However, it makes it harder to create binary masks as the different sequence lengths are unknown. As a feature, I have therefore added a flag to the encode function so that it can output binary masks.
+Example:
+from pytorch_transformers import BertTokenizer
+
+tokenizer = BertTokenizer.from_pretrained(""bert-base-cased"")
+seq_0 = ""This is the one""
+seq_1 = ""This is the last""
+
+input_ids, mask = tokenizer.encode(seq_0, seq_1, add_special_tokens=True, output_mask=True)
+# input_ids: [ 101, 1188, 1110, 1103, 1141,  102, 1188, 1110, 1103, 1314, 102]
+# mask:      [   0,    0,    0,    0,    0,    0,    1,    1,    1,    1,   1]
+It works for BERT, RoBERTa, XLM, and XLNet. I have refactored the GLUE example with this method. It greatly simplifies input creation.
+I have added an additional unit test to the commontests suite. Furthermore, in order to make sure the tokenization was correct I compared against the original input creation of the GLUE script to make sure every encoded sequence remained the same.",4,3
+1195,2019-09-04T10:50:17Z,2019-09-09T12:42:51Z,2019-09-09T12:42:51Z,11,337,255,"Torch jit (cf #1010) and TF 2.0 (cf #1104) are more strict than PyTorch on having a specific order of arguments for easy use.
+This PR refactor the order of the keyword arguments to make them as natural as possible.
+This will be a breaking change for people using positional order to input keyword arguments in the forward pass of the models, hence is delayed to the 2.0 release.",3,2
+1199,2019-09-04T20:38:44Z,2019-09-05T19:17:02Z,2019-09-05T19:17:02Z,1,9,6,"Fixing #1169 regarding using uint or bool masks in Transformer-XL and PyTorch 1.1.0 and 1.2.0.
+Hopefully, this solution will be compatible upward with the future PyTorch releases.",3,3
+1214,2019-09-06T16:15:20Z,2019-09-09T07:26:37Z,2019-09-09T07:26:37Z,6,368,688,"Refactored the examples section: removed old and not up-to-date examples and added new examples for fine-tuning and generation.
+The examples file is not in the /doc/source folder anymore but in the /examples folder. It is therefore visible when users open the folder on GitHub.
+Note: In order to generate the current documentation, a symlink has to be done between the examples/README.md file to a docs/source/examples.md. The corresponding documentation has been added to the documentation README, alongside the command necessary to create the symlink.
+The new examples are visible on: http://lysand.re/examples.html",3,3
+1219,2019-09-07T08:29:28Z,,2020-03-15T10:35:31Z,2,48,2,"In the tokenizer base class, split_on_token() attempts to split input text by each of the added tokens. Because it uses text.split(tok), it may accidentally split a token in the pretrained vocabulary at the middle.
+For example a new token ""ht"" is added to the vocabulary. Then ""light"" will be split into [""lig"", """"]. But as ""light"" is a token in the pretrained vocabulary, it probably should be left intact to be processed by self._tokenize().
+Hence in this pull request, text.split() is replaced with re.split(), which will split only at word boundaries ([^A-Za-z0-9_] in regular expression). This behavior can be enabled by specifying a new tokenize() argument: additional_tokens_as_full_words_only=True (default: False). If it's specified in tokenizer.encode(text, ...), it will still take effect, as this argument will be passed down to tokenize().
+On languages that have no or different word boundaries as above (such as Chinese or Japanese), this behavior may produce undesirable results, and the user can revert to the old text.split() by not specifying additional_tokens_as_full_words_only (it will take the default value False).
+An explanation of the argument additional_tokens_as_full_words_only has been added to the docstring of tokenize(). A test function test_add_partial_tokens_tokenizer() has been added to tokenization_bert_test.py.",4,11
+1238,2019-09-10T11:37:11Z,,2019-10-07T10:06:26Z,9,16608,68,"In this PR:
+
+I add BertForMultiLabelClassification, RobertaForTokenClassification, RobertaForMultiLabelClassification.
+I add examples for Finetuning the BERT, RoBERTa models for tasks on BLUE (https://github.com/ncbi-nlp/BLUE_Benchmark). BLUE (Biomedical Language Understanding Evaluation) is similar to GLUE, but for Biomedical data. The ""run_blue"", ""utils_blue"" are customized from ""run_glue"", ""utils_glue"", but more sufficient, because it contains not only sequence classification, but also token classification, multi-label classification. People may also have more options for examples of fine-tuning BERT/RoBERTa.
+I also add test function to test_examples as well as test data (HOC)",4,4
+1296,2019-09-19T14:46:32Z,2019-10-03T21:06:17Z,2019-10-03T21:06:18Z,1,2,1,Very small addition to raise an error if the list of tokens passed to add_tokens contains duplicates. This otherwise raises cryptic errors down the line. Happy to update it to Warning if someone believes there's any reason for duplicates to be allowed here.,3,2
+1372,2019-09-29T08:40:51Z,,2019-12-21T11:30:15Z,1,19,19,https://six.readthedocs.io/#six.string_types,3,3
+1373,2019-09-29T11:51:32Z,2019-10-03T23:04:03Z,2019-10-03T23:04:03Z,1,8,11,Fixed critical css font-family issues to ensure compatibility with multiple web browsers,3,1
+1385,2019-09-30T20:10:23Z,,2019-10-04T21:40:52Z,5,120,145,"Our base tokenizer PreTrainedTokenizer now has the ability to encode a sentence pair up to a max_length, adding special tokens for each model and returning a mask of token_type_ids.
+In this PR we upgrade run_multiple_choice by adopting this factorized tokenizer API.
+To ensure the results are strictly the same as before, we implement a new TruncatingStrategy (ideally this could be an enum).
+@erenup as you spent a lot of time on this script, would you be able to review this PR?
+Result of eval with parameters from examples/readme:
+eval_acc = 0.8352494251724483
+eval_loss = 0.42866929549320487",5,4
+1386,2019-09-30T22:26:33Z,,2019-12-20T22:18:15Z,5,183,35,,9,24
+1388,2019-10-01T04:50:09Z,,2019-12-10T23:51:04Z,4,151,35,"There is the realisation of a RoBERTa SQuAD finetuning.
+On 2x1080Ti on RoBERTa Base it gives:
+python3 run_squad.py 
+--model_type roberta 
+--model_name_or_path roberta-base 
+--do_train 
+--do_eval 
+--train_file $SQUAD_DIR/train-v1.1.json 
+--predict_file $SQUAD_DIR/dev-v1.1.json 
+--per_gpu_train_batch_size 8 
+--per_gpu_eval_batch_size 8 
+--learning_rate 3e-5 
+--num_train_epochs 2.0 
+--max_seq_length 384 
+--doc_stride 128 
+--save_steps 2000 
+--overwrite_output_dir 
+--verbose_logging 
+--output_dir /tmp/debug_squad/
+Results: {'exact': 85.80889309366131, 'f1': 92.09291402361669, 'total': 10570, 'HasAns_exact': 85.80889309366131, 'HasAns_f1': 92.09291402361669,   'HasAns_total': 10570}
+On RoBERTa Large:
+python3 run_squad.py 
+--model_type roberta 
+--model_name_or_path roberta-large 
+--do_train 
+--do_eval 
+--train_file $SQUAD_DIR/train-v1.1.json 
+--predict_file $SQUAD_DIR/dev-v1.1.json 
+--per_gpu_train_batch_size 2 
+--per_gpu_eval_batch_size 2 
+--learning_rate 3e-5 
+--num_train_epochs 2.0 
+--max_seq_length 384 
+--doc_stride 128 
+--save_steps 2000 
+--overwrite_output_dir 
+--verbose_logging 
+--output_dir /tmp/debug_squad/
+Results: {'exact': 87.04824976348155, 'f1': 93.14253401654709, 'total': 10570, 'HasAns_exact': 87.04824976348155, 'HasAns_f1': 93.14253401654709,   'HasAns_total': 10570}",7,11
+1433,2019-10-06T17:17:14Z,2019-10-07T03:40:53Z,2019-10-07T03:40:53Z,1,5,5,"This PR fixes some typos in README.md and overall makes it slightly more readable.
+No code changes.",3,2
+1455,2019-10-08T14:24:14Z,2019-10-30T15:54:18Z,2019-10-30T15:54:18Z,14,1700,67,"In this PR we add the possibility to define encoder-decoder architectures. We:
+
+Added a PreTrainedEncoderDecoder class that can be initialized from pre-trained models;
+Modified the BERT model so it can behave as a decoder;
+Added a Model2Modelclass that simplifies the definition of an encoder-decoder when both encoder and decoder are based on the same model;
+Added relevant tests and updated the documentation;
+We also include a script to fine-tune an encoder-decoder model on the CNN/DailyMail dataset;
+We added a draft for a beam search.
+
+Only the BERT model is available as a decoder right now.",5,11
+1548,2019-10-17T15:04:10Z,2019-12-20T14:28:30Z,2019-12-20T14:28:30Z,25,2701,314,"Adding a Pipeline class that encapsulates a Tokenizer and a Model.
+Pipelines take python objects as inputs (lists/dict of string/int/float) and output python objects as well (lists/dict of string/int/float).
+Pipelines can be used to query and train models and should be framework agnostic (default to TF 2.0 if installed, fallback to PyTorch).
+ex:
+# load/initialize a text classification model from Bert-base-uncased
+pipeline = TextClassificationPipeline.from_pretrained('bert-base-uncased')
+
+# Train the text classification model with lists of strings and associated labels
+pipeline.fit(list_of_texts, list_of_labels)
+
+# Predict with the trained classification model
+# (input: list of strings, output: list of int)
+batched_predictions = pipeline(list_of_texts)
+Also adding a simple CLI based on these pipeline models.",7,1
+1593,2019-10-22T07:35:08Z,,2020-04-07T18:00:16Z,1,86,83,closes #1585,3,2
+1670,2019-10-30T10:40:38Z,2019-10-30T16:05:59Z,2019-10-30T16:05:59Z,14,3745,0,"This PR adds:
+
+templates and explantations for all the steps needed to add a new model
+a simple template for adding a new example script (basically the current run_squad example).
+links to them in the README and CONTRIBUTING docs.
+
+@LysandreJik and @rlouf, feel free to update if you want to add stuff or fix the wording.",2,1
+1695,2019-11-01T16:29:21Z,2019-11-05T14:55:29Z,2019-11-05T14:55:29Z,23,385,156,,3,2
+1721,2019-11-04T11:30:25Z,2019-11-04T15:21:53Z,2019-11-04T15:21:53Z,21,182,147,"This PR adds two attributes input_embeddings and output_embeddings as common properties for all the models.
+Simpler to write weights tying.
+Also superseed #1598.
+cc @rlouf",3,4
+1746,2019-11-06T15:57:37Z,2019-11-06T19:03:48Z,2019-11-06T19:03:48Z,5,37,14,,2,1
+1763,2019-11-07T17:51:28Z,,2019-12-03T17:28:08Z,1,4,5,"This PR makes the following changes and fully fixes model.fit() training for XLNet. It now works, and was tested with a slightly modified run_tf_glue.py, and also tested with XLA, AMP and tf.distribute
+
+Fix dtype error with input_mask and attention_mask
+rel_attn_core() does not work properly in non-eager mode, resulting in shape errors. tf.shape is now used to obtain the shape of ac instead of calling ac.shape, and training now works in non-eager mode.
+
+@thomwolf",4,3
+1764,2019-11-07T18:05:01Z,2019-12-21T11:13:28Z,2019-12-21T11:13:28Z,2,84,12,"Summary
+I replace the code that makes the position ids with logic closer to the original fairseq make_positions function. It wasn't clear to me what to do in the event that the embeddings are passed in directly through inputs_embeds so I resorted to the old methodology and just generating a positional id for all inputs.
+Closes
+#1761",4,6
+1770,2019-11-08T10:23:10Z,2019-11-28T15:06:56Z,2019-11-28T15:06:56Z,1,12,8,"We currently initialize encoder_attention_mask when it is None,
+whether the stack is that of an encoder or a decoder. Since this
+may lead to bugs that are difficult to tracks down later, I added a condition
+that assesses whether the current stack is a decoder.",5,5
+1773,2019-11-08T14:56:19Z,2019-12-10T01:37:56Z,2019-12-10T01:37:56Z,12,1897,827,"This PR builds on the encoder-decoder mechanism to do abstractive summarizaton. Contributions:
+
+A BeamSearch class that takes any PreTranedEncoderDecoder as an input;
+A script run_summarization.py that allows to pre-train the model and generate summaries.
+
+Note that to save the checkpoints I had to add a parameter in the save_pretrained_model method, but I am not sure this is the best solution.",4,6
+1797,2019-11-12T03:27:37Z,2019-11-12T16:29:22Z,2019-11-12T16:29:22Z,16,355,117,see #1695 (non-TF),3,0
+1831,2019-11-14T14:10:19Z,2019-11-14T21:11:55Z,2019-11-14T21:11:55Z,1,3,2,"sum() is the leanest method to flatten a string list, so it's been replaced by itertools.chain.from_iterable() . Please check #1830",5,3
+1832,2019-11-14T14:41:10Z,2019-11-14T21:10:31Z,2019-11-14T21:10:31Z,16,103,126,"Custom schedulers are currently initiated by wrapping Pytorch's LambdaLR
+class and passing a method of the wrapping class to the init
+function of LambdaLR. This approach is not appropriate for several
+reasons:
+
+one does not need to define a class when it only defines a
+init() method;
+instantiating the parent class by passing a method of the child class
+creates a cyclical reference which leads to memory leaks. See issues #1742 and #1134.
+
+In this commit we replace the wrapper classes with functions that
+instantiate LambdaLR with a custom learning rate function. We use a
+closure to specify the parameter of the latter. We also do a bit of
+renaming within the function to explicit the behaviour and removed
+docstrings that were subsequently not necessary.",3,4
+1833,2019-11-14T15:39:05Z,2019-11-14T21:04:50Z,2019-11-14T21:04:50Z,1,5,4,"As of now the tokenizers output a specific warning when an encoded sequence is longer than the maximum specified sequence length, which is model-specific:
+Token indices sequence length is longer than the specified maximum sequence length for this model (X > 1024). Running this sequence through the model will result in indexing errors
+
+It is currently in the convert_tokens_to_ids and this leads to two issues:
+
+using encode or encode_plus methods with a max_length specified will still output that warning as the convert_tokens_to_ids method is used before the truncation is done. (cf #1791)
+since prepare_for_model was introduced, I personally feel that all modifications related to the model should happen in that method and not in tokenize or convert_tokens_to_ids.
+
+This PR aims to slightly change the behavior so that both aforementioned issues may be solved by putting the warning in the prepare_for_model method if no max_length is specified.",2,0
+1839,2019-11-15T08:42:48Z,2019-12-11T23:32:28Z,2019-12-11T23:32:28Z,10,540,20,"This PR adds new BERT models for Japanese text.
+Details of the models can be found in this repository.
+Since the way of tokenization is Japanese-specific, a new file is added for the tokenizers.
+And, the locations of the files (models, configs, etc.) should be updated when the files are uploaded to S3. (How could I do this?)",6,16
+1840,2019-11-15T09:59:45Z,2019-12-21T13:27:36Z,2019-12-21T13:27:36Z,9,640,209,"[@thomwolf version]: In this PR I introduce a flexible API to generate sequences for the models of the library provided with LM heads.
+The API is designed to have a very flexible and quite exhaustive API:
+
+with/without a prompt
+with/without beam search
+with/without greedy decoding/sampling
+with any (and combination) of top-k/top-p/penalized repetitions
+
+Only single-stack architectures are currently supported.
+Here is an example generating 4 continuations of a prompt with using a beam search of 3 for each continuation and token sampling at each step with top-p filtering and repetition penalization until we reach a  token or a max length of 50.
+import torch
+from transformers import OpenAIGPTLMHeadModel, OpenAIGPTTokenizer
+
+tokenizer = OpenAIGPTTokenizer.from_pretrained('openai-gpt')
+model = OpenAIGPTLMHeadModel.from_pretrained('openai-gpt')
+
+input_ids = tokenizer.encode(""This is the"", return_tensors='pt')
+
+output = model.generate(input_ids,
+                            max_length=50,
+                            do_sample=True,
+                            num_beams=3,
+                            temperature=0.7,
+                            top_k=0,
+                            top_p=0.8,
+                            repetition_penalty=1.4,
+                            bos_token_id=None,
+                            pad_token_id=None,
+                            eos_token_ids=tok.unk_token_id,
+                            batch_size=None,
+                            length_penalty=None,
+                            num_return_sequences=4)[0]
+
+for j in range(len(output)):
+    print(tok.decode(output[j].tolist()))
+To-add features:
+
+Add support for encoder-decoder architectures
+Add support for past and cached states",4,12
+1860,2019-11-18T13:18:09Z,2019-11-21T09:56:08Z,2019-11-21T09:56:08Z,4,61,2,"Hi,
+this PR adds a CamembertForTokenClassification implementation, so that fine-tuning of NER models is possible.
+Tasks:
+
+ Implement CamembertForTokenClassification
+ Add CamembertForTokenClassification to module import list
+ Add support for CamemBERT model in run_ner.py example",5,4
+1873,2019-11-19T19:04:27Z,2019-11-29T08:25:47Z,2019-11-29T08:25:47Z,5,12,1,"Hi,
+this PR adds the German DistilBERT to the library 🤗
+Thanks to the Hugging Face team (incl. hardware support) the German DistilBERT was trained on 1/2 of the data that was used for training the German DBMDZ BERT model for ~4 days.
+Evaluation on NER tasks (German CoNLL and GermEval) shows a performance difference of 1.3% on average compared to the German BERT model.
+
+Remaining tasks:
+
+ Model, configuration and vocab is already uploaded to S3, only file permissions need to be adjusted",5,3
+1902,2019-11-21T09:45:21Z,2019-11-25T15:21:04Z,2019-11-25T15:21:04Z,1,13,0,"CamemBERT was in autoconfig but not in automodel, this PR aims to correct that. Also first PR here so please tell me if I missed some things :-)",4,2
+1903,2019-11-21T10:02:44Z,2019-12-03T15:13:02Z,2019-12-03T15:13:02Z,3,249,4,"Huggingface / Transformers Valohai integration
+Changes to existing Transformers code:
+
+Prints Valohai-styled logs (JSON)
+
+Additional info:
+
+valohai.yaml has most (but not all) parameters used by run_glue.py
+Valohai execution downloads all glue datas by default (still pretty fast). Download script placed in utils/download_glue_data.py.
+Valohai execution only saves model/checkpoint at the end by default (adjust with Valohai UI)
+Valohai execution logs every 25 steps (adjust with Valohai UI)",4,2
+1959,2019-11-27T00:17:15Z,2019-12-17T23:12:23Z,2019-12-17T23:12:23Z,1,21,10,"update to fix fairseq Roberta checkpoint conversion
+
+Fairseq had removed in_proj_weight and in_proj_bias from the self attention module:
+facebookresearch/fairseq@4c6b689
+
+create save directory if not exist",5,5
+1980,2019-11-28T14:53:31Z,2019-11-29T14:40:51Z,2019-11-29T14:40:51Z,12,47,53,"We need to use the special method shape_list from modeling_tf_utils to be sure we can get TF 2.0 tensor shapes both in eager and non-eager mode.
+This PR fixes this for all TF 2.0 models and templates.",4,2
+1984,2019-11-28T22:36:08Z,2019-12-10T10:07:27Z,2019-12-10T10:07:27Z,15,1851,1447,"This PR aims to refactor SQuAD to make it usable with all models with question answering heads, and without having to build the entire tokenization pipeline as it is currently done.
+
+It is based on processors that manage data, similarly to the GLUE processors. The two new processors are SquadV1Processor and SquadV2Processor. They'll probably be merged into a single SquadProcessor as the difference between the two versions is minimal.
+It leverages powerful abstractions made for the run_glue refactor a few months ago that greatly simplified the tokenization pipeline
+It can be interfaced with the package tensorflow_datasets.
+It better respects the library-wide naming, with attention_mask instead of input_mask and token_type_ids instead of segment_ids, among others.
+Introduces padding to encode and encode_plus, alongside tests.
+
+It is still a work on progress but some aspects of it are working.
+Left to do
+
+ Add the processors to __init__.py
+ Patch the evaluation so that it leverages the current interface
+ Patch the evaluation so that it may work with tfds
+ Modify the run arguments to reflect the changes
+ Remove the only_first argument which would only be used for testing
+ Update tests running the run_squad.py script
+ Include the padding location in the tokenizers and reflect the changes in the feature converter
+ Test that all current models can train and evaluate (BERT, RoBERTa, XLNet, XLM)
+ Add the last models (DistilBERT, ALBERT, ...)
+ Return datasets (maybe only pytorch TensorDataset for now)
+ Documentation
+ Short examples showcasing the simply usage in the processors section.
+ Patch the evaluation for impossible questions
+
+Running sample
+Here's the major difference from the user's perspective. Initially, to obtain the examples which were then converted to features, the user had to do as follows (taken from the current run_squad.py), which only works for BERT/XLNet/DistilBERT/ALBERT:
+examples = read_squad_examples(
+    input_file=input_file,
+    is_training=not evaluate,
+    version_2_with_negative=args.version_2_with_negative
+)
+     
+features = convert_examples_to_features(
+    examples=examples,
+    tokenizer=tokenizer,
+    max_seq_length=args.max_seq_length,
+    doc_stride=args.doc_stride,
+    max_query_length=args.max_query_length,
+    is_training=not evaluate,
+    cls_token_segment_id=2 if args.model_type in ['xlnet'] else 0,
+    pad_token_segment_id=3 if args.model_type in ['xlnet'] else 0,
+    cls_token_at_end=True if args.model_type in ['xlnet'] else False,
+    sequence_a_is_doc=True if args.model_type in ['xlnet'] else False
+)
+In order to obtain the exact same results, the user now has to do as follows, which will be completely model independant once the sequence_a_is_doc is integrated in our sequence pair tokenization methods:
+processor = SquadV1Processor()
+examples = processor.get_dev_examples(""examples/squad"") if evaluate else processor.get_train_examples(""examples/squad"")
+features = squad_convert_examples_to_features(
+    examples=examples,
+    tokenizer=tokenizer,
+    max_seq_length=args.max_seq_length,
+    doc_stride=args.doc_stride,
+    max_query_length=args.max_query_length,
+    is_training=not evaluate,
+    sequence_a_is_doc=True if args.model_type in ['xlnet'] else False
+)
+The same can be done by using TFDS instead, removing the need to specify a file. The two initial lines now become:
+tfds_examples = tensorflow_datasets.load(""squad"")[""validation""] if evaluate else tensorflow_datasets.load(""squad"")[""train""] 
+examples = SquadV1Processor().get_examples_from_dataset(tfds_examples)",5,3
+1987,2019-11-29T01:29:39Z,2019-12-09T21:24:36Z,2019-12-09T21:24:36Z,1,34,1,"Here's my basic implementation of the saving and resuming improvements discussed in #1960. So far, I've only modified the run_lm_finetuning example, but if my changes are approved I can update the rest of the examples as well.
+There are three main changes:
+
+The example now saves the optimizer, scheduler, and tokenizer every save_steps iterations.
+The example now checks whether training is being continued from a checkpoint, and if so, looks for a saved optimizer and scheduler and loads them in.
+The example checks whether training is being continued from a checkpoint, and if so, gets the global step of the checkpoint and continues training from the last saved global step.",8,13
+2044,2019-12-04T05:56:16Z,2019-12-05T08:44:08Z,2019-12-05T08:44:08Z,6,508,0,"ping review @mfuntowicz & @thomwolf
+(I'll fix the tests for Python 2 and Python 3.5 tomorrow)
+To create an account in staging (used by the tests): https://moon-staging.huggingface.co/join
+To create an account in production (used by the CLI): https://huggingface.co/join",6,5
+2046,2019-12-04T08:44:38Z,2019-12-06T11:12:23Z,2019-12-06T11:12:23Z,7,1105,4,"Create a NER example similar to the Pytorch one. It takes the same options, and can be run the same way.
+As you asked @julien-c I prefered I did a fresh new PR :)",5,6
+2055,2019-12-04T20:45:18Z,2019-12-06T18:57:38Z,2019-12-06T18:57:38Z,50,344,231,,3,3
+2068,2019-12-05T13:39:26Z,2019-12-06T11:06:42Z,2019-12-06T11:06:43Z,1,10,6,"Currently it fails in the computation of the attention_mask.
+Let's fail with a shape error message instead.",5,3
+2075,2019-12-05T20:27:06Z,2019-12-12T07:09:12Z,2019-12-12T07:09:12Z,2,90,0,"We would like to make sure that every download link in the code base works. The best way to do this is to check automatically with the CI; this also prevents us from merging code with broken links.
+This PR adds a small script that:
+
+Lists all source code files
+Extracts links with a regexp
+Performs HEAD requests to check the validity of each link
+Returns an error if at least one link is broken, along with the list of all broken links.
+
+I also add a Circle CI workflow repository-consistency with a small machine that runs this script. It could be used to enforce things such as coding styles etc in the future.
+For now the links are checked sequentially; if it turns out to take too long we can use aiohttp to run the queries concurrently.
+Edit: commits squashed",4,5
+2077,2019-12-06T00:28:10Z,2019-12-06T11:14:49Z,2019-12-06T11:14:49Z,4,10,10,fix issue #1904,4,2
+2078,2019-12-06T00:31:40Z,2019-12-06T16:56:24Z,2019-12-06T16:56:24Z,1,33,1,"see #2044 (comment) for context
+There might be a more pythonic way (to do a ""simple"" method overriding) but I couldn't find it.",4,1
+2081,2019-12-06T09:33:59Z,2019-12-12T07:20:44Z,2019-12-12T07:20:44Z,1,1,1,#2027,3,3
+2101,2019-12-08T22:58:20Z,2019-12-13T21:41:46Z,2019-12-13T21:41:46Z,4,12,3,"This correction is cosmetic to correct the observed formatting issue.
+No test was implemented because ideally composition of functions encode.decode should in theory return the original sentence. Yet there are some space strip (and lower-casing) in code so it's not certain to return exactly the original sentence with same spaces.",5,6
+2107,2019-12-09T10:22:43Z,2019-12-10T09:07:57Z,2019-12-10T09:07:57Z,1,6,4,As noted by @efeiefei (#1770) we currently create masks on the encoder hidden states (when they're not provided) based on the shape of the inputs to the decoder. This is obviously wrong; sequences can be of different lengths. We now create the encoder attention mask based on the batch_size and sequence_length of the encoder hidden states.,4,2
+2129,2019-12-10T19:40:23Z,2019-12-10T21:18:56Z,2019-12-10T21:18:56Z,1,2,2,"Downloading GPT2-XL can take a while.  If you're not expecting it, the current progress bar can be confusing.  It looks like this:
+  4%|▉                       | 257561600/6431878936 [00:33<16:12, 6351328.14B/s]
+
+With this change, the progress bar is much more readable:
+Downloading:   3%|▋                         | 166M/6.43G [00:30<12:34, 8.31MB/s]
+
+Also, by importing from tqdm.auto you will get a nice graphical progress bar if you're running in a jupyter notebook.  (Unless you're using jupyter lab and you don't have widgets set up properly, but that's it's own ball of wax.)",5,5
+2130,2019-12-10T20:45:57Z,2019-12-21T13:55:41Z,2019-12-21T13:55:41Z,17,42,48,"The CrossEntropy loss, as well as other losses, accept a value as an index they will ignore when computing the loss. This value was set to -1 in some cases, but left to the default value (-100) in other cases.
+To stay consistent we're setting the value to be the default PyTorch one in all cases.
+Includes a few documentation fixes.",4,1
+2144,2019-12-11T16:21:44Z,2019-12-12T06:43:41Z,2019-12-12T06:43:41Z,9,72,22,Allowing from_pretrained to load from url directly.,6,4
+2164,2019-12-13T13:38:24Z,2019-12-17T08:10:17Z,2019-12-17T08:10:17Z,56,686,440,"Clean up configuration.
+Previously loading a JSON file in the configuration could be done either by config = config_class(json_file) or by config = config_class.from_pretrained(json_file).
+This was a historical artifact from the time configuration classes didn't use from_pretrained() method. This introduced complexity in logic to instantiate the classes which impacted PRs like #1548 and complexified the code to add new models.
+In this  PR we remove the first path to favor using the standardized config = config_class.from_pretrained(json_file).
+cc @LysandreJik @mfuntowicz @julien-c",5,3
+2173,2019-12-14T01:16:59Z,2019-12-21T13:33:17Z,2019-12-21T13:33:17Z,5,294,185,"Hi, @julien-c  @thomwolf  this PR is based on #1386 and #1984.
+
+
+This PR modified run_squad.py and models_roberta to support Roberta.
+
+
+This PR also made use of multiple processing to accelerate converting examples to features. (Converting examples to feature needed 15minus before and 34 seconds now with 24 cpu cores' acceleration. The threads number is 1 by default which is the same as the original single processing's speed).
+
+
+The result of Roberta large on squad1.1:
+{'exact': 87.26584673604542, 'f1': 93.77663586186483, 'total': 10570, 'HasAns_exact': 87.26584673604542, 'HasAns_f1': 93.77663586186483, 'HasAns_total': 10570, 'best_exact': 87.26584673604542, 'best_exact_thresh': 0.0, 'best_f1': 93.77663586186483, 'best_f1_thresh': 0.0}, which is sighltly lower than #1386 in a single run.
+Parameters are python ./examples/run_squad.py --model_type roberta --model_name_or_path roberta-large --do_train --do_eval --do_lower_case \ --train_file data/squad1/train-v1.1.json --predict_file data/squad1/dev-v1.1.json --learning_rate 1.5e-5 --num_train_epochs 2 --max_seq_length 384 --doc_stride 128 --output_dir ./models_roberta/large_squad1 --per_gpu_eval_batch_size=3  --per_gpu_train_batch_size=3  --save_steps 10000 --warmup_steps=500 --weight_decay=0.01. Hope this gap can be improved by `add_prefix_space=true' . I will do this comparasion in the next days.
+
+
+The result of Roberta base is '{'exact': 80.65279091769158, 'f1': 88.57296806525736, 'total': 10570, 'HasAns_exact': 80.65279091769158, 'HasAns_f1': 88.57296806525736, 'HasAns_total': 10570, 'best_exact': 80.65279091769158, 'best_exact_thresh': 0.0, 'best_f1': 88.57296806525736, 'best_f1_thresh': 0.0}'. Roberta-base was also tested since it's more easy to be reproduced.
+
+
+The results of bert-base-uncased is `{'exact': 79.21475875118259, 'f1': 87.13734938098504, 'total': 10570, 'HasAns_exact': 79.21475875118259, 'HasAns_f1': 87.13734938098504, 'HasAns_total': 10570, 'best_exact': 79.21475875118259, 'best_exact_thresh': 0.0, 'best_f1': 87.13734938098504, 'best_f1_thresh': 0.0}'. This is tested for the multiple processing's influence on other models. This result is the same with bert-base-uncased result without multiple processing.
+
+
+Hope that someone else can help to reproduce my results. thank you! I will continue to find if three is some ways to improve the roberta-large's results.
+
+
+Squad1 model on google drive roberta-large-finetuned-squad:",5,3
+2177,2019-12-14T14:45:11Z,2019-12-21T13:31:21Z,2019-12-21T13:31:21Z,1,7,5,"in #2106, we see that adding tokens to tokenizer decreases progressively tokenization performance which is not really a surprise as you need to go through the list of tokens which grows. But it sounds that this increase is not linear.
+By having a quick look at code, I've seen that:
+
+added_tokens list is built for every calls of tokenize,
+all_special_tokens is a python property that is reevaluated every time
+split_on_tokens is going 2x in both all_special_tokens and added_tokens_encoder lists which is O(n).
+
+I've tried to replace those by a simple cached Set of added_tokens_encoder.keys() + all_special_tokens that is reevaluated at each call of add_tokens. firstly, it avoids rebuilding the list at every call. Secondly, searching in a Set is O(1) in average and O(n) in worst case.
+On RobertaTokenizer, the result is a significant speed improvement (testing on for 100.000 calls):
+
+for 0 added token, tokenizer.tokenize is >3x faster
+for 200 tokens, tokenizer.tokenize is >7x faster
+
+Here are a few interesting plots.
+Execution time when adding more tokens between old code and new
+
+We see here that old code is not linear and the execution time is impacted when more tokens are added.
+New code seems to behave linearly (up to 200 at least)
+Rate of speed increase between old code and new
+
+We see that new code is 3x faster by default and this advantage grows when adding more tokens (>7x for 200)
+Execution time between old code and new in a bar plot
+
+Same as previous plot.
+I know you're working on Rust tokenizers that will be much faster in theory. But until it's ready, what do you think about this basic correction (and maybe others) that already improves the speed drastically?
+Don't hesitate to tell if you see that this modification would be very bad for other cases.",4,4
+2178,2019-12-15T03:34:40Z,,2020-05-03T06:06:56Z,22,607,14,"Similar purpose to #1274 (which I also used for most of the testing) but different approach.
+It keeps track of token offsets by trying to progressively tokenize the text character by character, and consume matching tokens along the way.
+It returns just the start of a span. Tests were added for ALBERT, CTRL and T5.
+I think this implementation is more generic and simpler to understand, and the results are very good.",2,3
+2189,2019-12-16T16:13:45Z,2019-12-20T12:26:39Z,2019-12-20T12:26:39Z,12,567,12,"Hi,
+this model adds support for the recently released XLM-RoBERTa model from the Facebook AI team.
+XLM-RoBERTa is described in the ""Unsupervised Cross-lingual Representation Learning at Scale paper from Alexis Conneau, Kartikay Khandelwal, Naman Goyal, Vishrav Chaudhary, Guillaume Wenzek, Francisco Guzmán, Edouard Grave, Myle Ott, Luke Zettlemoyer and Veselin Stoyanov.
+The model itself is integrated into fairseq library and weights for the base and large XLM-R are available, see example here.
+Results
+NER
+This PR also extends the run_ner script to support XLM-R. Results for NER (CoNLL datasets):
+Base model
+
+
+
+Model
+English
+Dutch
+Spanish
+German
+Avg.
+
+
+
+
+Paper
+-   (dev) / 91.95
+-   (dev) / 91.21
+-   (dev) / 88.46
+-   (dev) / 83.65
+-   (dev) / 88.82
+
+
+Reproduced
+95.31 (dev) / 91.20
+91.66 (dev) / 91.37
+85.23 (dev) / 88.15
+87.11 (dev) / 84.02
+89.83 (dev) / 88.69
+
+
+
+Large model
+
+
+
+Model
+English
+Dutch
+Spanish
+German
+Avg.
+
+
+
+
+Paper
+-   (dev) / 92.74
+-   (dev) / 93.25
+-   (dev) / 89.04
+-   (dev) / 85.53
+-   (dev) / 90.14
+
+
+Reproduced
+96.84 (dev) / 92.80
+94.02 (dev) / 94.41
+88.94 (dev) / 89.30
+88.60 (dev) / 86.04
+92.10 (dev) / 90.64
+
+
+
+Parameters used for reproducing the paper results: 20 training epochs with a learning rate of 5.0e-6 and a batch size of 16. Only one run is reported here.
+Tasks
+
+ Upload model to 🤗/ Transformers S3
+ Add support for base model (convert script needs to be adjusted)
+ Report results for NER (CoNLL datasets)
+ Add XLM-R to Auto* interfaces
+ Check tokenization methods",7,5
+2194,2019-12-17T02:47:00Z,,2020-03-11T13:30:33Z,6,196,87,"This PR:
+
+Chunks the reading of the dataset file used to create a TextDataset for training, if you used a file of any larger size (for my case I had 3.5GB txt file I was able to get finish in ~45 min) the program would just hang at f.read() 😢
+Speeds up lowercase_text in the BasicTokenizer with a simpler regex scheme
+Add @functools.lru_cache() to several functions responsible for acting on individual chars
+Use multiprocessing to drastically speed up tokenization inside TextDataset constructor
+
+Checkouts & Performance Profiling
+Benchmark script I used to clock speeds 👉 gist
+Comparison script I used to compare results 👉 gist
+Performance on master with no changes on a ~16.5MB txt file (~1 min):
+
+Performance after all changes applied on same ~16.5MB txt file (~10 seconds):",3,3
+2203,2019-12-17T16:18:20Z,2019-12-21T13:31:45Z,2019-12-21T13:31:45Z,1,1,1,Just say “the following” so that this intro doesn't so easily fall out of date :),4,2
+2211,2019-12-18T00:06:40Z,2019-12-27T09:24:30Z,2019-12-27T09:24:30Z,8,375,5,"I am opening this PR to track the integration of tokenizers.
+At the moment, we created two new classes to represent the fast version of both GPT2 and Bert tokenizers. There are a few breaking changes compared to the current GPT2Tokenizer and BertTokenizer:
+
+add_special_token is now specified during initialization
+truncation and padding options are also setup during initialization
+
+By default, encode_batch pads everything using the longest sequence, and encode does not pad at all. If pad_to_max_length=True, then we pad everything using this length.
+If a max_length is specified, then everything is truncated according to the provided options. This should work exactly like before.
+In order to try these, you must pip install tokenizers in your virtual env.",5,8
+2217,2019-12-18T21:58:06Z,2019-12-21T10:54:24Z,2019-12-21T10:54:24Z,30,178,230,"At this point, after pip install pytest-xdist, I'm getting a 2.5x speedup running tests locally on my 2016 MBP (2,9 GHz Quad-Core Intel Core i7):
+
+python -m pytest -n auto -s -v ./transformers/tests/ runs in slightly less than 2 minutes
+python -m pytest -s -v ./transformers/tests/ takes slightly more than 5 minutes
+
+Furthermore, Circle CI gets a 2,15x speedup, going from 7:30 minutes to 3:30 minutes.
+The bottleneck is now the examples, which take a bit less than 3:30 to run, even with parallelization.
+This PR adds a new dependency: filelock. You'll need to pip install -e . for local development again after it's merged.
+This is now ready for review.
+
+EDIT - test run time jumped up after I rebased on top of master mostly because of #2246.",5,4
+2231,2019-12-19T23:30:04Z,2019-12-20T09:28:10Z,2019-12-20T09:28:10Z,1,25,10,,3,1
+2232,2019-12-20T01:05:39Z,2019-12-20T16:29:44Z,2019-12-20T16:29:45Z,1,1,1,"This fixes #2220. The order of all_special_tokens is random, and the first one of these will get broken by the lowercasing. There are 5 special tokens, so you have a 1 in 5 chance of hitting the problem.",4,3
+2235,2019-12-20T10:14:34Z,2019-12-20T14:12:33Z,2019-12-20T14:12:33Z,1,94,1,As per discussed @LysandreJik,3,1
+2271,2019-12-22T19:39:04Z,2019-12-24T10:21:20Z,2019-12-24T10:21:20Z,17,265,202,"Clean up several requirements files generated with pip freeze, with no clear update process
+Rely on extra_requires for managing optional requirements
+Update contribution instructions",4,1
+2291,2019-12-23T21:42:39Z,2019-12-25T21:37:43Z,2019-12-25T21:37:43Z,17,14,41,"This PR completes the ""fix all flake8 warnings"" effort of the last few days.
+There's a lot of judgment in the fixes here: when the result of an expression is assigned to a variable that isn't used:
+
+if the expression has no side effect, then it can safely be removed
+if the expression has side effects, then it must be kept and only the assignment to a variable must be removed
+or it may be a coding / refactoring mistake that results in a badly named variable
+
+I'm not sure I made the right call in all cases, so I would appreciate a review.
+E203, E501, W503 are still ignored because they're debatable, black disagrees with flake8, and black wins (by not being configurable).",3,1
+2292,2019-12-23T22:10:35Z,2019-12-27T09:33:27Z,2019-12-27T09:33:27Z,5,73,13,"add past input for gpt2 and ctrl for faster decoding for language generation.
+
+add prepare_inputs_for_generation fn for gpt2 and ctrl
+add private _do_output_past fn for PretrainModel class to check whether model outputs past key-value states
+
+fn only covers cases for gpt2 and ctrl for the moment and needs to add 'xlnet' and 'transfo_xl' via mem_len
+might be better to move _do_output_past to each individual LMHeadModel
+
+
+rename pasts to past
+
+can also add dummy tests for language generation",3,6
+2333,2019-12-26T17:22:47Z,,2020-03-22T20:49:28Z,2,24,3,"Hello!
+Recently we released our Spanish Bert Model (https://github.com/dccuchile/beto) and we found problems with the tokenization for Spanish.
+The problem relates to that the basic tokenizer convert the text to NFD.
+For example:
+text = ""[CLS] compañera [SEP]""
+tokenized_text = tokenizer.tokenize(text)
+tokenized_text
+['[CLS]', 'compa', '##ner', '##a', '[SEP]']
+
+It changes ñ to n.
+Another:
+text = ""[CLS] acción [SEP]""
+tokenized_text = tokenizer.tokenize(text)
+tokenized_text
+['[CLS]',  'accion' ,'[SEP]']
+
+It changes ó to o.
+That behavior is not wanted for our Spanish model so in this PR I'm adding a flag to control that.
+Waiting for your comments, thank you!",3,2
+2347,2019-12-27T19:33:44Z,,2020-03-11T13:30:31Z,2,66,5,"@thomwolf Hi, I'm new to contribute to this project. I revised the T5 code to support one step decoding during generation based on your implementation. Besides adding decode_step function, I also revised some others to pass in cache variable. Meanwhile, I added bos_token in tokenizer_t5 so that bos_token can be used as the first token during decoding. The example usage is as follows:
+Examples:
+            encoder_hidden_states = model.encode(input_ids)
+            cache = model.init_state_from_encoder(encoder_hidden_states)
+            next_token = input_ids.new_full((batch_size, 1), tokenizer.bos_token_id)
+            generated = [next_token]
+            for i in range(100):
+                output, cache = model.decode_step(cache, input_ids=next_token)
+                next_token = torch.argmax(logits, dim=-1).unsqueeze(-1)
+                generated += [next_token]
+            generated = torch.cat(generated, dim=1).tolist()
+
+Let me know whether it is useful and can be merged.",2,1
+2349,2019-12-27T21:49:14Z,2020-01-05T17:52:15Z,2020-01-05T17:52:15Z,19,21,21,"This should stabilize formatting.
+As suggested by @julien-c.",3,1
+2352,2019-12-28T04:22:14Z,2019-12-28T14:40:01Z,2019-12-28T14:40:01Z,8,57,55,,2,1
+2384,2020-01-01T22:51:12Z,2020-01-14T12:19:02Z,2020-01-14T12:19:02Z,1,8,11,"With scope creates a file lock, which leads to the following error:
+INFO:filelock:Lock 1408081097608 released on C:\Users\dimag.cache\torch\transformers\26bc1ad6c0ac742e9b52263248f6d0f00068293b33709fae12320c0e35ccfbbb.542ce4285a40d23a559526243235df47c5f75c197f04f37d1a0c124c32c9a084.lock
+Traceback (most recent call last):
+File ""C:\Users\dimag\Anaconda3\envs\pytorch\lib\site-packages\transformers\tokenization_utils.py"", line 398, in _from_pretrained
+resume_download=resume_download,
+File ""C:\Users\dimag\Anaconda3\envs\pytorch\lib\site-packages\transformers\file_utils.py"", line 212, in cached_path
+user_agent=user_agent,
+File ""C:\Users\dimag\Anaconda3\envs\pytorch\lib\site-packages\transformers\file_utils.py"", line 392, in get_from_cache
+os.rename(temp_file.name, cache_path)
+PermissionError: [WinError 32] The process cannot access the file because it is being used by another process: 'C:\Users\dimag\.cache\torch\transformers\tmpnhzxze8u' -> 'C:\Users\dimag\.cache\torch\transformers\26bc1ad6c0ac742e9b52263248f6d0f00068293b33709fae12320c0e35ccfbbb.542ce4285a40d23a559526243235df47c5f75c197f04f37d1a0c124c32c9a084'",4,5
+2414,2020-01-06T11:58:45Z,2020-01-21T15:18:25Z,2020-01-21T15:18:25Z,1,28,2,"I am currently trying to use the XLMRobertaTokenizer in a multiprocessor setting. To do this, the XLMRobertaTokenizer needs to be serializable. Currently XLMRobertaTokenizer is not serializable while other tokenizers such as AlbertTokenizer are.
+This PR adds the getstate and setstate methods to XLMRobertaTokenizer so that it can be serialized.",4,3
+2435,2020-01-07T14:02:30Z,,2020-03-24T04:36:52Z,1,5,1,"Currently the PreTrainedEncoderDecoder class fails to initialize the ""cross-attention layer"" since it updates decoder.config.is_decoder = True after decoder initialization.",3,4
+2436,2020-01-07T14:11:31Z,2020-01-11T04:00:08Z,2020-01-11T04:00:08Z,1,23,1,"It was giving awful results, so I added repetition penalty which improved things.",6,14
+2451,2020-01-08T12:33:33Z,2020-01-15T17:31:44Z,2020-01-15T17:31:44Z,1,6,2,"Fix an issue where prepare_for_model() gives a KeyError when
+return_token_type_ids is set to False and return_tensors is
+enabled.",2,1
+2457,2020-01-08T15:16:13Z,2020-01-10T10:42:54Z,2020-01-10T10:42:54Z,1,184,99,"The squad distillation script is still using methods from files that do not exist anymore (utils_squad and utils_squad_evaluate).
+I updated the script to use the newer API.",3,1
+2459,2020-01-08T15:42:49Z,2020-01-13T15:02:54Z,2020-01-13T15:02:54Z,1,64,48,"Modified QA pipeline to consider all features for each example before generating topk answers.
+Current pipeline only takes one SquadExample, one SquadFeature, one start logit list, one end logit list to retrieve the answer, this is not correct as one SquadExample can produce multiple SquadFeatures.",5,3
+2465,2020-01-09T05:03:34Z,2020-01-09T11:54:30Z,2020-01-09T11:54:30Z,1,1,1,raise before OSError seems to be forgotten.,3,1
+2469,2020-01-09T11:15:05Z,2020-01-10T10:42:22Z,2020-01-10T10:42:22Z,1,9,0,"The DistilBERT tokenizer does not make use of PRETRAINED_INIT_CONFIGURATION, instead loading BERT's.
+This PR fixes this, fixing the issue detailed in #2423.",3,1
+2492,2020-01-10T14:51:54Z,2020-01-14T13:09:10Z,2020-01-14T13:09:11Z,16,838,330,"Updating the documentation with types, better naming, making sure every argument is listed and explained.",3,1
+2494,2020-01-10T19:44:31Z,2020-01-14T18:59:15Z,2020-01-14T18:59:15Z,31,688,559,,7,2
+2521,2020-01-14T15:14:00Z,2020-01-14T18:43:46Z,2020-01-14T18:43:46Z,4,16,0,"Created a link between the linear layer bias and the model attribute bias. This does not change anything for the user nor for the conversion scripts, but allows the resize_token_embeddings method to resize the bias as well as the weights of the decoder.
+Added a test.",3,1
+2531,2020-01-15T11:10:32Z,2020-01-20T15:56:24Z,2020-01-20T15:56:24Z,2,53,23,"This PR brings some improvements over the CLI serving command.
+Changes:
+
+Expose the possibility to change the number of underlying FastAPI workers.
+Make forward() async so it doesn't timeout in the middle a requests.
+Fixed USE_TF, USE_TORCH env vars fighting each other.",4,3
+2538,2020-01-15T23:34:22Z,2020-01-16T12:17:16Z,2020-01-16T12:17:16Z,75,328,331,,2,2
+2540,2020-01-16T01:22:43Z,2020-01-16T12:17:00Z,2020-01-16T12:17:00Z,1,6,3,"model.parameters() order is apparently not stable (only for xlnet, for some reason)",3,0
+2557,2020-01-16T23:16:10Z,2020-01-17T19:57:57Z,2020-01-17T19:57:57Z,2,8,1,"never_split was not being passed to _split_on_punc, causing special tokens to be split apart. Failing test (in first commit) demonstrates the problem.",3,4
+2570,2020-01-17T23:06:36Z,2020-01-21T21:57:39Z,2020-01-21T21:57:39Z,1,134,66,"Ability to train a model from scratch, rather than finetune a pretrained one.",4,4
+2576,2020-01-18T05:30:40Z,2020-01-30T23:15:42Z,2020-01-30T23:15:42Z,4,201,18,,5,10
+2637,2020-01-24T22:53:06Z,2020-01-27T19:27:08Z,2020-01-27T19:27:08Z,6,380,1,"Add AutoModelForPretraining and TFAutoModelForPretraining classes which will load the full model used for pretraining (guarantee we should have all the pre-trained weights).
+This class can be used for instance to convert between an original PyTorch and a TF2.0 models while being sure that all the pretrained weights are converted:
+# PyTorch => TF 2.0 (save TF 2.0 weights from PT weights)
+tf_model = TFAutoModelForPretraining.from_pretrained('my-model', from_pt=True)
+tf_model.save_pretrained()
+
+# TF 2.0 => PyTorch (save PT weights from TF 2.0 weights)
+pt_model = AutoModelForPretraining.from_pretrained('my-model', from_tf=True)
+pt_model.save_pretrained()",2,0
+2653,2020-01-27T15:04:46Z,2020-01-27T16:08:32Z,2020-01-27T16:08:32Z,1,2,5,,4,1
+2659,2020-01-27T20:57:45Z,,2020-04-25T04:15:59Z,3,45,2,"As ticket describe, when using batch_encode_plus, instead of encode_plus, tokens type and mask are different. They should be the same using batch processing or not. Proposed fix here solve the issue",2,2
+2665,2020-01-28T12:51:59Z,,2020-02-19T19:41:45Z,11,405,146,"This PR:
+
+update CTRL BPE files (vocab.json and merges.txt) to use a single format for sub-word splitting (selected to use </w> at the end of words)
+upload CTRL updated vocabulary files and pytorch model (not updated) to AWS.
+
+cc @mfuntowicz",3,1
+2699,2020-01-31T16:47:31Z,2020-02-01T15:38:15Z,2020-02-01T15:38:15Z,5,90,27,"I noticed that all too often people leave the ""Environment"" section in their issue empty. However, things such as the version number of PT/TF and transformers itself are very useful to know when trying to debug things.
+This PR adds a small script to the existing CLI workflow. Running python transformers-cli info will output something like this:
+Copy-and-paste the text below in your GitHub issue and FILL OUT the two last points.
+
+- `transformers` version: 2.4.0
+- Platform: Windows-10-10.0.18362-SP0
+- Python version: 3.6.8
+- PyTorch version (GPU?): 1.4.0 (True)
+- Tensorflow version (GPU?): 2.1.0 (True)
+- Using GPU in script?: <fill in>
+- Using distributed or parallel set-up in script?: <fill in>
+
+Note that GPUs being available through the DL framework (GPU?) are retrieved automatically, but that users still have to specify whether or not they are actually using the GPU.
+In addition, the relevant issue templates have been updated to direct users to the script.",6,13
+2700,2020-01-31T16:56:50Z,2020-03-16T13:29:22Z,2020-03-16T13:29:22Z,4,353,9,"Hello,
+I worked today to add the new FlauBERT model in TF2 version. Translated models are available in:
+jplu/tf-flaubert-base-cased
+jplu/tf-flaubert-large-cased
+jplu/tf-flaubert-small-cased
+jplu/tf-flaubert-base-uncased",5,3
+2715,2020-02-02T21:11:03Z,2020-04-07T20:19:19Z,2020-04-07T20:19:19Z,1,6,3,"Instead of multiplying by 1.0 float mask, use torch.where with a bool mask for increased performance.",7,7
+2738,2020-02-04T22:12:23Z,2020-02-05T18:55:42Z,2020-02-05T18:55:42Z,1,1,1,"There's currently a bug in the GPT2 model which prevents it from being saved. This is caused by setting the trainable parameter to the GPT2 config, which cannot be packaged later in the save pipeline. Gotta love python...
+Here is a simple script which you can use to reproduce this bug (and check the fix):
+from transformers import (TFGPT2Model)
+
+if __name__ == '__main__':
+    _base_model = TFGPT2Model.from_pretrained(""gpt2"")
+    print(base_model._layers[0].trainable)",4,1
+2745,2020-02-05T17:10:03Z,2020-02-20T23:11:14Z,2020-02-20T23:11:14Z,20,1766,59,"This ports BART, a ""sequence-to-sequence model trained with denoising as pretraining objective."" from https://github.com/pytorch/fairseq/tree/master/examples/bart
+The decoder is left-to-right, the encoder is biredictional. As such, the code only uses a causal attention mask in the decoder.
+TODO:
+
+ conversion of pretrained weights
+ some unit testing
+ inference produces the same results as the fairseq version.
+ decide on signature/splitting of encoder, decoder arguments (see 
+  
+    
+      transformers/src/transformers/modeling_encoder_decoder.py
+    
+    
+         Line 240
+      in
+      808bbd5
+    
+  
+  
+    
+
+        
+          
+           def prepare_model_kwargs(**kwargs): 
+        
+    
+  
+
+
+
+)
+
+ Docstrings
+ More comments for code readers
+
+Future PRs
+
+ example with correct pretraining objective
+ BartForSummarization.from_pretrained('bart-large-cnn')",8,3
+2746,2020-02-05T17:42:23Z,2020-02-21T17:01:03Z,2020-02-21T17:01:03Z,4,30,7,,3,2
+2749,2020-02-05T21:17:28Z,,2020-02-21T17:22:59Z,3,55,18,"The script run_generation has a few issues that I aim to fix in this PR:
+
+ The XLNet and XLM generations are broken (crash)
+ An end of sequence token is added to all sequences, even when models don't have that token, and results in weird end of sequences.
+ No way to generate multiple sequences at a time as it was possible before
+ The length parameter doesn't take into account the prompt length.
+  The prompt is concatenated to the generated sequence, which results in concatenating the initial text for XLNet.
+ Actually implement languages for XLM",6,2
+2756,2020-02-06T11:56:21Z,2020-02-11T20:19:23Z,2020-02-11T20:19:23Z,2,30,2,"PyTorch < 1.3 requires multiplication operands to be of the same type. This was violated when using default attention mask (i.e.., attention_mask=None in arguments) given BERT in the decoder mode.
+In particular, this was breaking Model2Model and made a tutorial from quickstart.md failing.
+A test is included, but here is a minimal snippet to reproduce:
+import torch
+from transformers import BertModel
+model = BertModel.from_pretrained(""bert-base-uncased"", is_decoder=True)
+inputs = torch.LongTensor([[1, 2, 3]])
+model(inputs)    # no `attention_mask` provided
+On PyTorch 1.2 or older this was failing with
+Traceback (most recent call last):
+...
+  File ""/home/oleksiy.syvokon/transformers/src/transformers/modeling_bert.py"", line 735, in forward
+    extended_attention_mask = causal_mask[:, None, :, :] * attention_mask[:, None, None, :]
+RuntimeError: expected device cpu and dtype Float but got device cpu and dtype Long",3,6
+2764,2020-02-06T20:10:31Z,2020-02-07T14:15:29Z,2020-02-07T14:15:29Z,4,18,19,And corresponding doc updates,2,1
+2765,2020-02-06T23:10:13Z,2020-02-10T13:05:16Z,2020-02-10T13:05:16Z,3,56,13,"Slight modification to cached_path so that zip and tar archives can be automatically extracted.
+
+archives are extracted in the same directory than the (possibly downloaded) archive in a created extraction directory named from the archive.
+automatic extraction is activated by setting extract_compressed_file=True when calling cached_file.
+the extraction directory is re-used t avoid extracting the archive again unless we set force_extract=True, in which case the cached extraction directory is removed and the archive is extracted again.
+
+Currently not added to the from_pretrained methods. Probably better to have the user control this explicitly at this level (by first extracting the archive) => open to discussion though.
+Also include a simple proposal to add TF/PT compatibility in hf_buckets (cc @julien-c)",4,1
+2777,2020-02-07T19:22:21Z,2020-02-07T20:28:14Z,2020-02-07T20:28:14Z,11,76,41,"Weights
+Readmes and docs
+Previous omissions
+
+weights are uploaded on s3, along with modelcards.
+@LysandreJik Could you make sure I didn't forget anything?
+@mfuntowicz Could have a check on the pipeline part?",3,3
+2778,2020-02-07T20:27:21Z,2020-02-13T18:29:44Z,2020-02-13T18:29:44Z,7,141,41,"The issue: The GPT-2 and RoBERTa tokenizers are incorrectly stripping whitespace following special characters, preventing the BPE encoder from correctly encoding spaces in tokens following RoBERTa <mask> and <unk> tokens.
+tokenizer.convert_ids_to_tokens(tokenizer.encode('She likes <mask> cats.'))
+# output:    ['<s>', 'She', 'Ġlikes', '<mask>', 'cats', '.', '</s>']
+# should be: ['<s>', 'ĠShe', 'Ġlikes', '<mask>', 'Ġcats', '.', '</s>']
+
+This makes the model inputs (and therefore outputs) incorrect. This issue manifests itself in the fill-mask pipeline where the model erroneously thinks the mask is a prefix to the following word when using RoBERTa:
+roberta_fillmask = pipeline(""fill-mask"")
+sentence = ""She likes <mask> cats.""
+roberta_fillmask(sentence)
+# top predictions: ""She likes bobcats."", ""She likes pussycats.""
+
+This PR makes the following changes:
+
+Preserves trailing whitespace following special tokens
+Inserts a space after the prepended start token when add_special_tokens is True in encode() so that the user doesn't have to include a leading space in the string. This can be overriden with the add_prefix_space argument.
+Adds a framework argument to the pipeline factory function, allowing users to easily specify TF vs PyTorch
+
+After making these changes, the top predictions from the above example become 'She likes cute cats.' and 'She likes her cats.'",5,5
+2793,2020-02-10T12:38:11Z,2020-02-11T10:48:43Z,2020-02-11T10:48:43Z,2,4,3,"Tensorflow 2.1.0 introduce a new dependency model where pip install tensorflow would install tf with GPU support. Before 2.1.0 it would just install with CPU support only.
+CircleCI machines are running without GPU hardware so, at initialisation, TensorFlow tests are looking for NVidia driver version but fails as their is no NVidia Driver running.
+This PR introduces an extra (optional) dependency tf-cpu which explicitly requires tensorflow-cpu and makes sure it pip install tf-cpu instead of pip install tf while running unit tests.
+It should remove the following error on CircleCI:
+tests/test_modeling_tf_bert.py::TFBertModelTest::test_attention_outputs 2020-02-10 11:14:08.280770: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'libcuda.so.1'; dlerror: libcuda.so.1: cannot open shared object file: No such file or directory
+2020-02-10 11:14:08.280808: E tensorflow/stream_executor/cuda/cuda_driver.cc:351] failed call to cuInit: UNKNOWN ERROR (303)
+2020-02-10 11:14:08.280837: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:156] kernel driver does not appear to be running on this host (40403e139ccb): /proc/driver/nvidia/version does not exist
+2020-02-10 11:14:08.281093: I tensorflow/core/platform/cpu_feature_guard.cc:142] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 AVX512F FMA
+Signed-off-by: Morgan Funtowicz morgan@huggingface.co",3,0
+2804,2020-02-10T21:53:17Z,2020-02-12T18:23:15Z,2020-02-12T18:23:15Z,1,13,4,"The language modeling script currently has a few issues.
+
+in the line by line dataset, no special tokens are added (that's due to the fact the batch_encode_plus has the add_special_token flag False by default, which is misleading).
+the max length is ill computed in that same dataset, as it doesn't take into account the fact that encode_plus is aware of the special tokens and their impact on the sequence length.",3,1
+2807,2020-02-11T04:48:49Z,2020-02-13T13:28:33Z,2020-02-13T13:28:34Z,9,94,68,,4,2
+2809,2020-02-11T06:56:49Z,2020-02-11T16:22:26Z,2020-02-11T16:22:26Z,1,1,1,end end -> and end,3,2
+2815,2020-02-11T19:42:14Z,2020-02-11T22:20:10Z,2020-02-11T22:20:10Z,1,5,3,,4,1
+2816,2020-02-11T20:07:41Z,,2020-02-18T15:08:10Z,9,755,196,"This PR creates a new example coding style for the pytorch code.
+
+Uses pytorch-lightning for the underlying training.
+Separates out the base transformer loading from the individual training.
+Moves each individual example to its own directory.
+Move the code in the readme to bash scripts.
+
+The only two new files are run_pl_ner.py and transformers_base.py.
+The goal is to keep the same format as the original command-line. Most of the argument names are preserved. I have verified that for NER the results of the same on GPU.
+There are several nice benefits of lightning -> somewhat nicer logging and library integration (e.g. wandb), auto-checkpointing. Mostly the goal though is code readability with identical functionality.
+Todo:
+
+make sure that the output file format is identical.
+print test results after training.
+test multi-gpu and apex (in theory these should work)",4,2
+2828,2020-02-12T16:13:10Z,,2020-02-20T14:02:23Z,3,348,0,"EDIT
+Close this PR to create a cleaner, and more on purpose one.
+Hello,
+I'm opening the pull request I was talking about in the issue #2783. Here the proposed features in this PR:
+
+ add checkpoint manager in order to make a training fault-tolerant
+ add custom fit method to take into account the specific training steps in distributed mode or not
+ add optimizer creation method depending of its name
+ add loss method in order to be able to custom the loss computation
+ add a Tensorboard summary writer to make the logs available in Tensorboard
+
+For now I have created the definition of the methods with their documentation but with a raise NotImplementedError as first I would like to have your opinion on the signatures of these methods. Also I know that @julien-c you have recently worked on a TFModelUtilsMixin class. Do you think that some of these methods should go into it instead of directly in TFPreTrainedModel?
+ping also @sshleifer",3,8
+2840,2020-02-13T10:40:47Z,,2020-05-06T21:13:42Z,0,0,0,"Summary
+Often, we want to stop training if loss does not improve for a number of epochs. This PR adds a ""patience"" argument, which is a limit on the number of times we can get a non-improving eval loss before stopping training early.
+It is implemented by other NLP frameworks, such as AllenNLP (see trainer.py and metric_tracker.py).
+Motivation
+This feature allows faster fine-tuning by breaking the training loop early and avoids users the toil of checking metrics on Tensorboard.
+Caveats
+Often, models are evaluated once per epoch, but run_lm_finetuning.py has an option to evaluate after a set number of model update steps (dictated by --logging_steps if --evaluate_during_training is true). Because of this, I've elected to tie patience to the number of evaluations without improvement in loss.
+To-do
+
+Add tests
+Fix long lines",3,2
+2850,2020-02-13T21:41:00Z,2020-02-25T18:48:25Z,2020-02-25T18:48:25Z,7,698,49,"Adding a documentation page detailing usage for common tasks (inference, not training",4,5
+2853,2020-02-14T01:15:04Z,2020-02-14T14:18:11Z,2020-02-14T14:18:11Z,2,4,0,,3,1
+2885,2020-02-17T20:37:46Z,2020-02-21T17:10:00Z,2020-02-21T17:10:00Z,11,231,75,"This PR finally implements the following bos_token_id, pad_token_id, eos_token_ids logic for lm model generation.
+
+
+If bos_token_id is None, then the input_ids must be defined otherwise, the model cannot generate text, which is checked by the asserts in the beginning. The bos_token_id is only relevant for starting a new sentence.
+
+
+If eos_token_id is None, then the length of the generated text will always equal max_length,
+no matter how the pad_token_id is defined. Since there is no eos_token_id the text will also not ""end"".
+
+
+If pad_token_id is None and eos_token_ids is defined (as it is the case for gpt2), then the pad_token_id will be set to the eos_token_ids[0] tensor batches_len is used to keep track of the first time the sequence generated an eos_token and will later set all tokens following this token to the pad_token_id, which is eos_token_ids[0] and can thus be handled by the tokenizer (whereas the -1 cannot be handled by the tokenizer).
+
+
+No eos_token_id is appended to sentences that finish due to max_length. Instead those sentences are returned with the last token being the last token produced by the model until max_length was hit.
+
+
+As an overview, here a table showing which LMModel Tokenizer have which of the tokens bos_token_id, pad_token_id and eos_token_ids is defined:
+
+
+
+LM Model
+bos_token_id
+pad_token_id
+eos_token_ids
+
+
+
+
+XLNet
+x
+x
+x
+
+
+OpenAIGPT
+o
+o
+o
+
+
+CTRL
+o
+o
+o
+
+
+GPT2
+x
+o
+x
+
+
+Transfo-XL
+o
+o
+x
+
+
+XLM
+x
+x
+o
+
+
+
+Testing times are increased by the following times (measured on a local machine):
+
+
+
+LM Model
+Increase in test time
+
+
+
+
+XLNet
+8.0s -> 9.7s
+
+
+OpenAIGPT
+7.1s -> 8.3s
+
+
+CTRL
+2.5s -> 4.3s
+
+
+GPT2
+7.3s -> 8.0s
+
+
+Transfo-XL
+7.5s -> 8.0s
+
+
+XLM
+7.4s -> 7.7s
+
+
+
+-> So overall mostly around 10% increase in testing time
+Future PRs:
+
+ [WIP] adding hard-coded slow tests for pretrained lms in PR #2909
+ [WIP] adapting the generate function for Seq-2-Seq and DoubleHeads or other special LM models in PR #2888
+ checking and possibly adapting behavior of generate_beam_search
+ treat Issues: #2482 and #2415",5,5
+2888,2020-02-18T14:55:53Z,,2020-03-05T22:30:10Z,8,96,27,"From looking at the soon-to-be-added Bart model, I though the language generation could be conceptually adapted as shown below to be able to produce language from seq-to-seq models (Bart & T5).
+So far this is not tested at all and only adapted for the _generate_no_beam_search() function. Also it still has to be checked whether this is compatible with T5.
+Would be happy about feedback @sshleifer, @thomwolf",3,4
+2890,2020-02-18T17:22:01Z,2020-02-20T16:50:05Z,2020-02-20T16:50:06Z,10,753,196,"Update of #2816
+This PR creates a new example coding style for the pytorch code.
+
+Uses pytorch-lightning for the underlying training.
+Separates out the base transformer loading from the individual training.
+Moves each individual example to its own directory.
+Move the code in the readme to bash scripts.
+The only two new files are run_pl_ner.py and transformers_base.py.
+
+The goal is to keep the same format as the original command-line. Most of the argument names are preserved. I have verified that for NER the results of the same on GPU.
+There are several nice benefits of lightning -> somewhat nicer logging and library integration (e.g. wandb), auto-checkpointing. Mostly the goal though is code readability with identical functionality.
+Tests I ran:
+
+make sure that the test results are identical.
+print test results after training.
+test multi-gpu and apex (multigpu gives a nice speedup)",5,4
+2909,2020-02-19T17:23:23Z,2020-02-24T16:51:58Z,2020-02-24T16:51:58Z,8,991,6,Move implementation of slow hardcoded generate models to this PR from. Checkout previous discussion in PR #2885,4,7
+2921,2020-02-20T08:10:05Z,2020-02-20T16:53:32Z,2020-02-20T16:53:32Z,1,6,0,Signed-off-by: Morgan Funtowicz morgan@huggingface.co,3,1
+2922,2020-02-20T08:42:04Z,2020-02-20T16:55:04Z,2020-02-20T16:55:04Z,3,7,7,"Warning abut padding should not trigger so often now, especially when no padding strategy is provided by the user.
+
+
+RoberTa warning is now in RoberTaTokenizer, not GPT2 base class.",3,1
+2928,2020-02-20T12:55:31Z,,2020-02-21T15:58:30Z,2,19,23,"closes #1874
+The implementation of RoBERTa in transformers differs from the original implementation in fairseq, as results showed (cf. #1874). I have documented my findings here #1874 (comment) and made the corresponding changes accordingly in this PR.
+Someone should check, however, that removing get_output_embeddings() does not have any adverse side-effects.
+In addition, someone who is knowledgeable about Tensorflow should check the TF implementation of RoBERTa, too.",4,11
+2930,2020-02-20T13:02:18Z,2020-02-24T19:58:16Z,2020-02-24T19:58:16Z,4,39,13,"closes #2867
+Setting local_files_only=True disables outgoing traffic:
+
+etags are not looked up
+files are not downloaded (config, tokenizer, model)
+
+An appropriate error is thrown when this argument may be the cause why a model cannot be loaded.
+import pyinstrument
+from transformers import DistilBertConfig, DistilBertModel, DistilBertTokenizer
+
+
+class TreeProfiler():
+    def __init__(self, show_all=False):
+        self.profiler = pyinstrument.Profiler()
+        self.show_all = show_all # verbose output of pyinstrument profiler
+
+    def __enter__(self):
+        print(""WITH TREE_PROFILER:"")
+        self.profiler.start()
+
+    def __exit__(self, *args):
+        self.profiler.stop()
+        print(self.profiler.output_text(unicode=True, color=True, show_all=self.show_all))
+
+
+def main():
+    with TreeProfiler(show_all=True):
+        config = DistilBertConfig.from_pretrained('distilbert-base-uncased', local_files_only=True)
+        model = DistilBertModel.from_pretrained('distilbert-base-uncased', local_files_only=True)
+        tokenizer = DistilBertTokenizer.from_pretrained('distilbert-base-uncased', local_files_only=True)
+
+
+if __name__ == '__main__':
+    main()
+The above snippet will throw an error message when the expected files are not present in the cache.  When they are, though, everything is loaded fine without the need of any additional lookups.",5,4
+2932,2020-02-20T15:40:21Z,,2020-04-25T14:01:01Z,12,871,7,"Hello,
+I decided to open a cleaner PR because the other was a bit too messy in my opinion. Here the features that this Trainer class will be able to handle:
+
+ Single / Multiple GPU training. Distributed is across GPUs in the same host. Distribution across multiple machines will be for a future version.
+ The training can be configured with a JSON file.
+ Handle multiple data processor to be able to train a model over different datasets.
+ Select and configure a specific loss/optimizer for a training
+ Create multiple checkpoints during the training in order to make it fault-tolerant.
+ Create the logs to be able to visualize the training in Tensorboard
+ The final model is saved in Hugging face transformer format and in TF saved model
+ Able to give a data directory where to find the datasets
+ Automatically handle dataset/model caching
+ Run an evaluation over a test dataset with proper printed results such as the one proposed by the seqeval package
+
+Currently the trainer class can be used over glue and xnli datasets with the available examples examples/run_tf_xnli_with_trainer.py and examples/run_tf_glue_with_trainer.py. I will add new examples for differents tasks and datasets.
+The list of features above will be checked as things progress.
+Ping @julien-c @LysandreJik @thomwolf : Do not hesitate to make proposals if you have new ideas of features or advices on a better implementation of this trainer.",43,0
+2933,2020-02-20T17:22:31Z,2020-02-24T23:20:43Z,2020-02-24T23:20:43Z,4,83,24,"The name of generated file doesn't match between tokenizers and transformers tokenizers, so transformers is not able to load model saved with tokenizers models.",3,1
+2939,2020-02-20T20:44:37Z,2020-02-22T17:09:02Z,2020-02-22T17:09:02Z,12,62,0,"This PR adds a get_vocab method to the PretrainedTokenizers to standardize extracting vocabularies from tokenizers.
+Comments:
+
+I didn't do anything with fast tokenizers. cc'ing @mfuntowicz for his thoughts there.
+I opted to keep it a method rather than a @property in order to encourage users to primarily use existing methods like convert_tokens_to_ids for general encoding/decoding purposes and use get_vocab only when they need the entire vocabulary.
+For tokenizers which rely on sentencepiece, I was unable to figure out a better way to get the vocabs than to loop through it. If someone knows a better way, please let me know.",5,2
+2961,2020-02-21T23:58:50Z,2020-02-22T14:27:48Z,2020-02-22T14:27:48Z,2,77,1,On fast tokenizer calling encode/ encode_plus / batch_encode_plus was not taking into account max_length when setting the padding strategy.,3,2
+2965,2020-02-22T15:05:10Z,2020-02-23T14:50:39Z,2020-02-23T14:50:40Z,1,4,1,"Don't know of a use case where that would be useful, but this is more consistent",4,2
+2967,2020-02-22T20:02:50Z,2020-02-25T19:06:58Z,2020-02-25T19:06:58Z,1,1,1,,3,1
+2968,2020-02-22T20:26:56Z,2020-02-23T16:28:49Z,2020-02-23T16:28:49Z,1,0,19,If you need it back git checkout c36416e5,3,1
+2971,2020-02-22T21:44:20Z,2020-02-24T22:50:24Z,2020-02-24T22:50:25Z,1,1,1,Fix bug related to #2970,3,1
+2973,2020-02-22T22:44:08Z,2020-02-24T17:09:47Z,2020-02-24T17:09:47Z,3,222,39,"Spoiler alert: it wasn't.
+closes #2960
+closes #2658
+closes #2654",5,1
+2983,2020-02-23T20:39:26Z,2020-02-27T15:22:56Z,2020-02-27T15:22:56Z,6,139,5,"I have added a class, AlbertForTokenClassification, based on BertForTokenClassification and added it to lists used for checking NER capabilities in run_ner.py and NerPipeline.
+I tested NER fine-tuning on albert-base-v2, albert-large-v2 and albert-xlarge-v2 on the english CONLL 2003 dataset and they all get F1 of around 0.93-0.94, so it seems to be working. The fine-tuned models are published here.
+I've also added some command-line options to better control tokenization since different tokenizers have different possible arguments and defaults. I guess that in the end, when all tokenizers behave the same, these options will be unnecessary.
+I changed how NerPipeline outputs tokens, from .decode(..) to .convert_ids_to_tokens(...) since it removes '_' at the beginning of tokens making it impossible (for sentencepiece tokens) to know which tokens form a word. Using .convert(...) would make sense if it were  outputting whole words and not words split into tokens. It might make sense to change this so that NerPipeline outputs whole words. That would assume that all the tokens in a word gets classified with the same label, which is not always the case.
+I had one weird thing happening: when fine-tuning albert-large-v2 specifically for 3 or 4 epochs F1 would be reported as exactly 0. When setting num_train_epochs to 2 or 5 this did not happen. I'm going to assume that this has nothing to do with the code submitted :)",4,1
+2987,2020-02-23T23:13:13Z,2020-02-24T20:11:11Z,2020-02-24T20:11:11Z,2,26,2,"The problem is well shown in Issue #2000 .
+This PR adds a preprocessing step to transfo-xl tokenization to better deal with the problem.",6,4
+2988,2020-02-23T23:55:07Z,2020-04-03T19:20:22Z,2020-04-03T19:20:22Z,1,6,6,"Currently, the implementation of the GELU activation uses several unfused pointwise operations. In my experiments, computing this activation takes about 10% of forward time for GPT2-like networks for inputs of size similar to (32,128). This PR speeds up the execution of gelu_new during both forward (~3-5x) and backward (~2-3x) passes with the help of torch.jit, which might be helpful for both training and inference.
+Below are the benchmarking results, done on pytorch v1.4.0 and transformers v2.5.0 with RTX 2080Ti and GTX 1080Ti. The benchmarking code is available here.
+1080Ti:
+torch.float32   (32, 128)       gelu 2.6e-04    4.1e-04 jit 1.1e-04     1.8e-04 speedup forward 2.50    backward 2.27
+torch.float32   (32, 512)       gelu 2.6e-04    4.1e-04 jit 6.5e-05     1.5e-04 speedup forward 4.06    backward 2.67
+torch.float32   (32, 1024)      gelu 2.6e-04    4.0e-04 jit 6.7e-05     1.6e-04 speedup forward 3.94    backward 2.59
+torch.float32   (32, 4096)      gelu 2.5e-04    3.9e-04 jit 6.6e-05     1.6e-04 speedup forward 3.75    backward 2.51
+torch.float32   (256, 128)      gelu 2.7e-04    4.1e-04 jit 6.7e-05     1.6e-04 speedup forward 3.96    backward 2.61
+torch.float32   (256, 512)      gelu 2.5e-04    4.0e-04 jit 6.5e-05     1.5e-04 speedup forward 3.88    backward 2.57
+torch.float32   (256, 1024)     gelu 2.5e-04    4.0e-04 jit 6.2e-05     1.5e-04 speedup forward 4.05    backward 2.62
+torch.float32   (256, 4096)     gelu 2.6e-04    4.2e-04 jit 1.0e-04     1.7e-04 speedup forward 2.52    backward 2.45
+torch.float32   (1024, 128)     gelu 2.5e-04    3.9e-04 jit 6.5e-05     1.5e-04 speedup forward 3.82    backward 2.57
+torch.float32   (1024, 512)     gelu 2.5e-04    3.8e-04 jit 7.2e-05     1.5e-04 speedup forward 3.43    backward 2.52
+torch.float32   (1024, 1024)    gelu 2.6e-04    4.2e-04 jit 1.0e-04     1.7e-04 speedup forward 2.52    backward 2.44
+torch.float32   (1024, 4096)    gelu 8.8e-04    1.3e-03 jit 3.2e-04     3.5e-04 speedup forward 2.71    backward 3.79
+torch.float32   (8192, 128)     gelu 2.6e-04    4.2e-04 jit 1.0e-04     1.7e-04 speedup forward 2.51    backward 2.43
+torch.float32   (8192, 512)     gelu 8.8e-04    1.3e-03 jit 3.2e-04     3.5e-04 speedup forward 2.72    backward 3.80
+torch.float32   (8192, 1024)    gelu 1.7e-03    2.5e-03 jit 6.4e-04     5.9e-04 speedup forward 2.69    backward 4.30
+torch.float32   (8192, 4096)    gelu 6.7e-03    1.0e-02 jit 2.7e-03     2.5e-03 speedup forward 2.53    backward 4.05
+torch.float16   (32, 128)       gelu 2.6e-04    4.0e-04 jit 9.4e-05     1.8e-04 speedup forward 2.79    backward 2.24
+torch.float16   (32, 512)       gelu 2.5e-04    3.9e-04 jit 6.2e-05     1.4e-04 speedup forward 4.09    backward 2.74
+torch.float16   (32, 1024)      gelu 2.6e-04    4.0e-04 jit 6.2e-05     1.5e-04 speedup forward 4.22    backward 2.68
+torch.float16   (32, 4096)      gelu 2.4e-04    3.8e-04 jit 6.3e-05     1.5e-04 speedup forward 3.84    backward 2.56
+torch.float16   (256, 128)      gelu 2.6e-04    4.0e-04 jit 6.1e-05     1.4e-04 speedup forward 4.34    backward 2.81
+torch.float16   (256, 512)      gelu 2.5e-04    3.9e-04 jit 6.4e-05     1.5e-04 speedup forward 3.98    backward 2.59
+torch.float16   (256, 1024)     gelu 2.4e-04    3.7e-04 jit 6.3e-05     1.4e-04 speedup forward 3.82    backward 2.65
+torch.float16   (256, 4096)     gelu 2.3e-04    3.2e-04 jit 7.6e-05     1.4e-04 speedup forward 3.00    backward 2.32
+torch.float16   (1024, 128)     gelu 2.2e-04    3.2e-04 jit 6.3e-05     1.4e-04 speedup forward 3.47    backward 2.32
+torch.float16   (1024, 512)     gelu 2.2e-04    3.2e-04 jit 6.3e-05     1.4e-04 speedup forward 3.47    backward 2.31
+torch.float16   (1024, 1024)    gelu 2.3e-04    3.2e-04 jit 7.6e-05     1.4e-04 speedup forward 3.01    backward 2.31
+torch.float16   (1024, 4096)    gelu 5.4e-04    8.9e-04 jit 2.2e-04     2.6e-04 speedup forward 2.44    backward 3.40
+torch.float16   (8192, 128)     gelu 2.5e-04    3.8e-04 jit 7.6e-05     1.5e-04 speedup forward 3.29    backward 2.61
+torch.float16   (8192, 512)     gelu 5.4e-04    8.9e-04 jit 2.2e-04     2.5e-04 speedup forward 2.43    backward 3.49
+torch.float16   (8192, 1024)    gelu 1.0e-03    1.7e-03 jit 4.8e-04     4.6e-04 speedup forward 2.18    backward 3.60
+torch.float16   (8192, 4096)    gelu 4.2e-03    6.5e-03 jit 2.3e-03     2.0e-03 speedup forward 1.83    backward 3.30
+
+RTX 2080Ti:
+torch.float32   (32, 128)       gelu 3.0e-04    6.2e-04 jit 1.2e-04     2.2e-04 speedup forward 2.50    backward 2.80
+torch.float32   (32, 512)       gelu 3.2e-04    6.8e-04 jit 6.8e-05     2.1e-04 speedup forward 4.66    backward 3.20
+torch.float32   (32, 1024)      gelu 3.4e-04    7.2e-04 jit 6.8e-05     2.1e-04 speedup forward 4.96    backward 3.38
+torch.float32   (32, 4096)      gelu 3.3e-04    7.0e-04 jit 6.4e-05     1.8e-04 speedup forward 5.07    backward 3.83
+torch.float32   (256, 128)      gelu 3.3e-04    6.9e-04 jit 6.5e-05     1.9e-04 speedup forward 5.07    backward 3.57
+torch.float32   (256, 512)      gelu 3.0e-04    6.2e-04 jit 6.4e-05     1.9e-04 speedup forward 4.73    backward 3.21
+torch.float32   (256, 1024)     gelu 3.3e-04    6.9e-04 jit 6.6e-05     2.1e-04 speedup forward 4.95    backward 3.35
+torch.float32   (256, 4096)     gelu 3.3e-04    6.8e-04 jit 9.3e-05     2.2e-04 speedup forward 3.53    backward 3.09
+torch.float32   (1024, 128)     gelu 3.1e-04    6.2e-04 jit 6.5e-05     1.9e-04 speedup forward 4.70    backward 3.32
+torch.float32   (1024, 512)     gelu 3.4e-04    6.4e-04 jit 7.7e-05     1.9e-04 speedup forward 4.41    backward 3.30
+torch.float32   (1024, 1024)    gelu 3.1e-04    6.1e-04 jit 9.5e-05     2.2e-04 speedup forward 3.26    backward 2.73
+torch.float32   (1024, 4096)    gelu 6.2e-04    9.9e-04 jit 2.7e-04     3.1e-04 speedup forward 2.26    backward 3.15
+torch.float32   (8192, 128)     gelu 3.1e-04    4.9e-04 jit 9.7e-05     1.9e-04 speedup forward 3.13    backward 2.55
+torch.float32   (8192, 512)     gelu 6.1e-04    1.0e-03 jit 2.7e-04     3.4e-04 speedup forward 2.27    backward 2.99
+torch.float32   (8192, 1024)    gelu 1.2e-03    1.9e-03 jit 5.3e-04     5.5e-04 speedup forward 2.21    backward 3.38
+torch.float32   (8192, 4096)    gelu 4.5e-03    6.7e-03 jit 2.2e-03     1.6e-03 speedup forward 2.04    backward 4.24
+torch.float16   (32, 128)       gelu 3.2e-04    6.3e-04 jit 1.1e-04     2.2e-04 speedup forward 2.84    backward 2.92
+torch.float16   (32, 512)       gelu 3.3e-04    6.9e-04 jit 6.2e-05     1.6e-04 speedup forward 5.23    backward 4.29
+torch.float16   (32, 1024)      gelu 3.0e-04    5.9e-04 jit 6.5e-05     1.7e-04 speedup forward 4.58    backward 3.46
+torch.float16   (32, 4096)      gelu 3.0e-04    6.1e-04 jit 6.4e-05     1.8e-04 speedup forward 4.63    backward 3.34
+torch.float16   (256, 128)      gelu 3.0e-04    5.9e-04 jit 6.4e-05     1.7e-04 speedup forward 4.61    backward 3.49
+torch.float16   (256, 512)      gelu 3.0e-04    5.9e-04 jit 6.3e-05     1.7e-04 speedup forward 4.68    backward 3.41
+torch.float16   (256, 1024)     gelu 2.9e-04    5.7e-04 jit 6.5e-05     1.6e-04 speedup forward 4.40    backward 3.54
+torch.float16   (256, 4096)     gelu 2.9e-04    5.5e-04 jit 7.5e-05     2.0e-04 speedup forward 3.87    backward 2.74
+torch.float16   (1024, 128)     gelu 3.7e-04    6.3e-04 jit 8.0e-05     2.3e-04 speedup forward 4.59    backward 2.75
+torch.float16   (1024, 512)     gelu 3.4e-04    6.0e-04 jit 6.6e-05     1.6e-04 speedup forward 5.13    backward 3.81
+torch.float16   (1024, 1024)    gelu 3.0e-04    5.9e-04 jit 7.2e-05     1.9e-04 speedup forward 4.12    backward 3.08
+torch.float16   (1024, 4096)    gelu 4.1e-04    6.9e-04 jit 1.6e-04     2.6e-04 speedup forward 2.49    backward 2.68
+torch.float16   (8192, 128)     gelu 3.6e-04    6.6e-04 jit 7.0e-05     1.8e-04 speedup forward 5.08    backward 3.73
+torch.float16   (8192, 512)     gelu 4.1e-04    7.0e-04 jit 1.6e-04     2.5e-04 speedup forward 2.57    backward 2.76
+torch.float16   (8192, 1024)    gelu 7.4e-04    1.2e-03 jit 3.2e-04     4.1e-04 speedup forward 2.30    backward 2.81
+torch.float16   (8192, 4096)    gelu 2.8e-03    3.9e-03 jit 1.5e-03     1.2e-03 speedup forward 1.86    backward 3.34",6,10
+2989,2020-02-24T02:26:36Z,2020-02-25T23:43:36Z,2020-02-25T23:43:37Z,30,879,255,"Updating documentation for tokenizers.
+Still left to do: will do in a future PR",2,1
+2997,2020-02-24T19:05:10Z,2020-02-24T20:42:38Z,2020-02-24T20:42:39Z,1,23,8,"adds example explaining how XLNet could be used for standard auto-regressive modelling.
+puts add_special_tokens=True for simple example to make sure no  and  are added to input. The are used for special training (similar to BERT) and might be confusing to user",3,2
+3006,2020-02-25T08:10:01Z,2020-03-19T15:21:21Z,2020-03-19T15:21:22Z,1,5,1,"Closes #2995
+Solving bug where for small epochs and large gradient_accumulation_steps we never train.
+Explained further here: #2995",2,3
+3011,2020-02-25T15:41:04Z,2020-03-05T22:26:49Z,2020-03-05T22:26:49Z,9,27,56,"I think the token_ids for each specific model should also be added to their pretrain configs. This would also make the function generate() much easier to use for the user.
+If ok, I can also add these tokens for models not having a LMHead.",6,8
+3014,2020-02-25T17:42:40Z,2020-02-25T21:51:26Z,2020-02-25T21:51:26Z,2,179,0,"It's quite easy to get real numbers for the XLM-R moder from fairseq, so I added integration tests for xlm_roberta_modeling.py and xlm_roberta_tokenization.py
+Since XLMRobertaModel is the same model as RobertaModel, I think intergration tests for xlm_roberta_modeling.py are enough.
+Regarding XLMRobertaTokenizer there were no tests so far, so in this file there should definitely be more ""fast"" tests. I would need some help on those (@mfuntowicz ?).
+Regarding the results of the integration tests:
+The tests for xlm_roberta_modeling.py all pass.
+One of the two tests (called hard_token_symbols) for `xlm_roberta_tokenization.py' fails. @LysandreJik @mfuntowicz",3,1
+3018,2020-02-25T20:10:49Z,,2020-02-27T06:30:07Z,3,118,96,"Some changes to PLT to support our workflow. Prelim support for TPUs.
+Still testing.",4,3
+3019,2020-02-25T20:49:43Z,2020-02-26T16:36:28Z,2020-02-26T16:36:28Z,4,1,203,"the quickstart code doesn't work
+the tests don't test a forward pass
+
+if you need it git checkout e8ce63ff",4,3
+3020,2020-02-25T21:12:03Z,2020-02-29T02:11:09Z,2020-02-29T02:11:09Z,4,116,16,,8,9
+3024,2020-02-26T01:26:29Z,2020-02-26T16:59:25Z,2020-02-26T16:59:26Z,4,26,13,"Fixes ~29 failing tests
+Also cf previous commit from december: 61978c1
+(not sure why T5 and the common methods were not failing back then)",4,1
+3035,2020-02-26T17:48:27Z,2020-03-02T15:53:56Z,2020-03-02T15:53:56Z,2,47,1,"I think batch_encode_plus with a proper padding strategy should not be allowed if the pad_token_id is not set. I don't feel like it helps the user to have a python list of lists with None values that he can't transform to a torch.Tensor anyways.
+As a remedy I think it is alright if a new pad_token is added or whether it is set to an existing special_token.
+This behavior is already enforced for FastTokenizer, so the PR should also make it easier to transition from Tokenizer to FastTokenizer.
+I will fix the tests and add a new one if you guys agree.
+@mfuntowicz @thomwolf @LysandreJik",4,2
+3041,2020-02-27T04:37:21Z,2020-02-27T14:56:47Z,2020-02-27T14:56:48Z,1,1,2,Fix #3037,3,1
+3047,2020-02-27T13:04:44Z,,2020-03-05T22:21:55Z,4,7,14,"Given our conversation in #3011 , I thought about deleting all model special config attributes to make sure that no data is duplicated between the tokenizer of a model and the model.
+There are two instances where config special attributes were used (e.g. self.config.pad_token_id)
+
+
+the generate() function. But the generate function also takes all those tokens as attributes, so it should not at all rely on self.config.pad_token_id. This one is trivial to fix.
+
+
+the bart model. It seems like the pad_token_id is actually an integral part of the bart model itself, so to me it seems very hard to disentangle the pad_token_id from the bart model.
+
+
+I see three options:
+
+
+Leave the code as it is and leave default attributes self.config.pad_token_id, self.config.bos_token_id, self.config.eos_token_id = None in the PretrainedConfig class.
+
+
+Remove the self.config.pad_token_id, ... from the PretrainedConfig class, make the generate function independent of those variables, but add those variables to the BartConfig only.
+
+
+Make the models completely independent from all special tokens. This probably would mean that the bart model class needs quite a lot of changes.
+
+
+I tend to option 2) or 3). I like the idea of separation token ids from internal model behavior completely, but I cannot really estimate whether this is feasible for Bart (@sshleifer you probably have a better opinion on this).
+What do you think? @LysandreJik , @julien-c , @thomwolf , @sshleifer",3,2
+3053,2020-02-27T17:16:54Z,2020-02-27T21:45:33Z,2020-02-27T21:45:33Z,3,104,95,"Simplify the NER example to support new features added for us by pytorch-lightning.
+Pull out all rank and backend special casing in the code base.
+Setup data so that TPU examples work using the new code base.
+
+Testing:
+
+Verify that standard examples of training work.
+Confirm that new TPU code works and runs https://colab.research.google.com/drive/1dBN-wwYUngLYVt985wGs_OKPlK_ANB9D
+
+In my example, I see a 4x speedup over colab GPU and multi-gpu k40, but a slow down on loading and saving model. So certainly a win for larger datsets.",3,2
+3054,2020-02-27T19:21:57Z,,2020-03-04T14:37:44Z,1,2,3,"Wasn't breaking because bool(-1e4) is True, but clearer this way.",4,2
+3059,2020-02-28T02:28:56Z,2020-03-02T15:35:54Z,2020-03-02T15:35:54Z,8,545,153,"Sources
+
+copy pastes code from generate but does not share very much in an effort to simplify. there is no big abstraction yet.
+also copy pastes some code from fairseq
+encoder_outputs and previous decoder attentions are cached.
+
+Differences with PretrainedModel.generate
+these are all bc thats the way fairseq does it!
+
+BeamHypotheses(early_stopping=True)
+assumptions about various token_ids being present
+force decoder to start with EOS, then predict BOS
+decoder only considers the most recently generated token bc everything else is cached.
+prevent predictions of various special tokens at inopportune moments (all the -inf stuff)
+force eos if you hit max length
+max_length is about how many tokens you want to generate. Doesn't matter how many you have.
+min_len parameter to prevent short summaries
+no_ngram_repetition parameter (set to 3 in Bart-CNN) to prevent repetition.
+
+TODO
+
+ docstrings
+ Mystery: results are identical to fairseq 98.6% of the time, 1.4% of the time they differ by a few words.
+ run rouge metrics, compare run time to fairseq.
+ Resist pressure to make big seq2seq abstraction before there are more callers
+ Deeper dive on the MaskedLM.tie_weights hack, what is right way to do it?",4,2
+3077,2020-03-01T20:30:20Z,2020-03-02T15:20:22Z,2020-03-02T15:20:22Z,13,13,13,"As I understand it, no_cuda should prevent the use of GPU in the run_* example scripts. However, n_gpu doesn't take it into account and count the numbers of GPUs available on the machine. It sends the model on the GPUs while the tensors are still on CPUs...",3,1
+3078,2020-03-02T14:04:13Z,2020-03-02T17:00:10Z,2020-03-02T17:00:10Z,2,41,7,"This PR changes the behavior of greedy beam search generation as discussed and wished in #2415 .
+Also two assertion statements are added:
+
+
+It is not allowed to generate multiple sequences from the same input_ids when greedy generation (num_return_sequences > 1, do_sample=False, num_beams == 1 => AssertionError) because it would always lead to the same output sequence for all num_return_sequences.
+
+
+It is not allowed to generate more sequences when doing greedy beam serach generation than the number of beams that are used (num_return_sequences <= num_beams, do_sample=False => AssertionError) because this is not possible or would also lead to the same output sequences.
+
+
+Discussion:
+
+
+ the generation function becomes bigger and bigger handling more and more exceptions - might need a big refactoring at some point which modularizes it for more flexibility and more readability. Also when thinking about including the encoder-decoder models in the model.generate() function.
+Also maybe the no_beam_search_generation fn could simply be handled by beam_search_generation(num_beams=1) ?
+
+
+ beam search when do_sample=True still does not work really (see PR #2317  ). Should discuss how exactly it should be implemented.
+
+
+@thomwolf, @LysandreJik, @sshleifer",3,4
+3082,2020-03-02T16:13:33Z,2020-03-03T20:30:00Z,2020-03-03T20:30:01Z,14,148,14,,5,3
+3100,2020-03-03T13:05:20Z,2020-03-06T18:04:30Z,2020-03-06T18:04:30Z,1,6,6,"Signed-off-by: Morgan Funtowicz morgan@huggingface.co
+Fix #2893",4,1
+3103,2020-03-03T14:14:22Z,2020-03-06T11:59:13Z,2020-03-06T11:59:14Z,9,136,16,Fixes #3101,4,8
+3105,2020-03-03T15:31:24Z,2020-03-06T22:26:19Z,2020-03-06T22:26:19Z,1,34,105,As discussed with @julien-c in the merged #3055.,4,1
+3106,2020-03-03T15:56:19Z,2020-03-04T14:30:52Z,2020-03-04T14:30:52Z,1,28,12,"This PR aims to fix the beam search behavior when sampling for language generation.
+For once, when doing beam_search decoding for language generation, one would usually do greedy decoding (do_sample=False), so this case should not be used very often, but it should be logical nevertheless.
+It's kind of hard to see what happens when doing beam_search decoding with sampling=True, so here a quick example. Running this code:
+from transformers import GPT2LMHeadModel, GPT2Tokenizer
+model = GPT2LMHeadModel.from_pretrained('gpt2')
+tokenizer = GPT2Tokenizer.from_pretrained('gpt2')
+inputs_dict = tokenizer.encode_plus('The dog', return_tensors='pt')
+outputs = model.generate(inputs_dict['input_ids'], num_beams=3, max_length=10)
+
+and putting the following print statement:
+print(""Sorted hyps: {}"".format([x[1] for x in sorted_hyps]))
+after line: 
+  
+    
+      transformers/src/transformers/modeling_utils.py
+    
+    
+         Line 1087
+      in
+      a088d75
+    
+  
+  
+    
+
+        
+          
+           sorted_hyps = sorted(hypotheses.beams, key=lambda x: x[0]) 
+        
+    
+  
+
+
+would print the following beam hypothesis before this PR:
+# printed sorted_hyps from line: 1088
+# Beam_idx: 1 - tensor([ 464, 3290,  635,  468,  257, 2041, 3895,  326,  481, 1037])
+# Beam_idx: 2 - tensor([ 464, 3290,  635,  468,  257, 2041, 3895,  326,  481, 1037])
+# Beam_idx: 3 - tensor([ 464, 3290,  635,  468,  257, 2041, 3895,  326,  481, 1037])
+
+=> Result: best beam hypothesis: ""The dog, named T.H., was recently""
+
+It can be seen that they are all equal even the last word. And they will always be equal. The reason for this is that currently we sample only word_idx in the interval [0, vocab_size]
+(see 
+  
+    
+      transformers/src/transformers/modeling_utils.py
+    
+    
+         Line 975
+      in
+      a088d75
+    
+  
+  
+    
+
+        
+          
+           next_words = torch.multinomial(F.softmax(scores, dim=-1), num_samples=2)  # (batch_size * num_beams, 2) 
+        
+    
+  
+
+)
+which forces that all beam_idx computed in this line:
+
+  
+    
+      transformers/src/transformers/modeling_utils.py
+    
+    
+         Line 1023
+      in
+      a088d75
+    
+  
+  
+    
+
+        
+          
+           beam_id = idx // vocab_size 
+        
+    
+  
+
+
+always all equal 0. This means that we only consider the first (0-idx) beam and disregard all other beams no matter what.
+After this PR: we sample from [0, num_beams * vocab_size] (as it's done in greedy decoding so that the beam_idx can be in the range [0, num_beams] - as it should be). Same print statement would produce:
+# printed sorted_hyps from line: 1088
+# Beam_idx: 1 - tensor([ 464, 3290,  373,  788, 3888,  284,  257, 6716, 2156,  351])
+# Beam_idx: 2 - tensor([ 464, 3290,  373,  788, 3888,  284,  257, 6716, 2156,  11])
+# Beam_idx: 3 - tensor([ 464, 3290,  373,  788, 3888,  284,  257, 6716, 2156,  1566])
+
+=> Result: best beam hypothesis: ""The dog was then moved to a nearby house until""
+
+I discussed with @thomwolf and think this is the best solution for beam_search sampling for language generation.",3,2
+3114,2020-03-03T22:42:13Z,2020-03-05T22:41:19Z,2020-03-05T22:41:19Z,7,75,71,,3,2
+3116,2020-03-03T23:27:53Z,2020-03-09T17:48:59Z,2020-03-09T17:48:59Z,4,251,163,"Currently, encode_plus and batch_encode_plus return the same outputs for different models.
+This is sub-optimal as we can't do the following for each model:
+inputs = tokenizer.encode_plus(sequence, return_tensors=""pt"")
+model(**inputs)
+This will crash for DistilBERT as the tokenizer would return token_type_ids which can't be handled by the model.
+In order to fix this, each tokenizer has to return model-specific arguments. Usually there are the same default arguments, and some models handle less (e.g. DistilBERT, RoBERTa).
+This is a mock PR offering a solution using a skip_outputs return_outputs argument to tokenizers.
+from transformers import DistilBertTokenizer
+
+tokenizer = DistilBertTokenizer.from_pretrained(""distilbert-base-cased"")
+print(tokenizer.encode_plus(""Hey, how are you?""))
+Returns a dictionary without the token type ids:
+{'input_ids': [101, 4403, 117, 1293, 1132, 1128, 136, 102], 'attention_mask': [1, 1, 1, 1, 1, 1, 1, 1]}
+Specifying a custom skip_outputs return_outputs at initialisation works as expected:
+from transformers import DistilBertTokenizer
+
+tokenizer = DistilBertTokenizer.from_pretrained(""distilbert-base-cased"", return_outputs=[""attention_mask"", ""token_type_ids""])
+print(tokenizer.encode_plus(""Hey, how are you?""))
+{'input_ids': [101, 4403, 117, 1293, 1132, 1128, 136, 102], 'token_type_ids': [0, 0, 0, 0, 0, 0, 0, 0], 'attention_mask': [1, 1, 1, 1, 1, 1, 1, 1]}
+or with a custom skipped output:
+from transformers import DistilBertTokenizer
+
+tokenizer = DistilBertTokenizer.from_pretrained(""distilbert-base-cased"", return_outputs=[""token_type_ids""])
+print(tokenizer.encode_plus(""Hey, how are you?""))
+{'input_ids': [101, 4403, 117, 1293, 1132, 1128, 136, 102], 'token_type_ids': [0, 0, 0, 0, 0, 0, 0, 0]}
+This also works with saving/reloading:
+from transformers import DistilBertTokenizer
+
+tokenizer = DistilBertTokenizer.from_pretrained(""distilbert-base-cased"", return_outputs=[""token_type_ids""])
+print(tokenizer.encode_plus(""Hey, how are you?""))
+tokenizer.save_pretrained(""xxx"")
+
+tokenizer = DistilBertTokenizer.from_pretrained(""xxx"")
+print(tokenizer.encode_plus(""Hey, how are you?""))
+Returns the following:
+{'input_ids': [101, 4403, 117, 1293, 1132, 1128, 136, 102], 'token_type_ids': [0, 0, 0, 0, 0, 0, 0, 0]}
+{'input_ids': [101, 4403, 117, 1293, 1132, 1128, 136, 102], 'token_type_ids': [0, 0, 0, 0, 0, 0, 0, 0]}",5,10
+3118,2020-03-04T09:42:39Z,2020-03-04T22:28:01Z,2020-03-04T22:28:01Z,4,334,24,"Add beam search to the TF generate function as it is done for torch at the moment. Use same TF syntax that was used in PR #3063
+EDIT: Also included a quick fix that TF GPT2 past.shape == PT GPT2 past.shape",4,3
+3119,2020-03-04T09:43:44Z,2020-03-04T17:01:17Z,2020-03-04T17:01:17Z,1,29,27,Rename word to token in generate() function.,3,2
+3122,2020-03-04T13:36:04Z,2020-03-04T17:03:47Z,2020-03-04T17:03:47Z,1,76,0,Test TF GPT2 for correct behavior regarding the past and attn mask variable. Translated code from torch to TF 2.0.,3,1
+3128,2020-03-04T23:21:23Z,2020-03-17T22:04:22Z,2020-03-17T22:04:22Z,4,129,1,"Choices:
+
+This is not TextGenerationPipeline, so it only supports bart-large-cnn.
+It doesn't return the input back to the caller because it is annoyingly long.",8,6
+3132,2020-03-05T04:52:32Z,2020-03-06T12:05:53Z,2020-03-06T12:05:53Z,2,74,3,,4,1
+3135,2020-03-05T12:13:36Z,2020-03-05T21:12:57Z,2020-03-05T21:12:57Z,1,45,29,"This PR cleanes the beam_search decoding part of language generation. It simplifies the code and fixes a small bug for do_sample=True (see comments in code).
+It was also tested on all language generation slow tests.
+Future PR
+
+ Do the same change for TF 2.0 if ok -> #3148",2,1
+3137,2020-03-05T13:50:02Z,2020-03-06T12:06:35Z,2020-03-06T12:06:35Z,1,13,5,"Implementing #3133
+I've left the code that creates dummy inputs and checks/filters the outputs, this could potentially also be moved to BartEncoder and BartDecoder.",4,4
+3140,2020-03-05T15:16:25Z,2020-03-11T12:21:54Z,2020-03-11T12:21:54Z,9,476,410,"This PR is a first version of how the bart generation() code can be merged into the ""default"" generation function. I think it's actually much better feasible than we originally thought.
+Please not that this change also includes all the changes from PR #3135 , so the code changes will be much less cluttered after #3135 merged.
+This version was passes the general random language generation tests in found in test_modeling_common.py and the easy integration test with the original fairseq model (renamed to test_cnn_summarization_same_as_fairseq_easy in test_modeling_bart)
+There are a couple of things we should discuss:
+
+
+Both Bart generate() and default generate(), encoder-decoder models must have a BOS token and an EOS token.
+
+
+Two new parameters were added: min_length and no_repeat_ngram_size . I think these parameters should be added generally as it is done now.
+
+
+There was one hack which initializes the decoder_input_ids to the EOS token and then forces the model to generate the BOS token afterwards (see comment in code line). I changed it to simply start with the BOS token (which makes more sense) and it also passed the ""easy integration tests"". This hack might be needed to pass the hard integration test though.
+
+
+Fairseq forces the last token of all beam hypotheses to be the EOS token (see comment in line). This is probably necessary to pass the integration tests. It's up for debate whether this the correct way. I would prefer not to do it this way because it will then be impossible to generate unfinished sentences (sentence that end because they hit max_length). If one really wants all beam hypotheses to be finished, one could set the max_length higher than usual and set the parameter:
+self.early_stopping in the Beam Hypotheses class to True. Up for debate how to handle this.
+
+
+In order to also pass the hard integration tests (which has a padded batch as an input), we will have to add attention_masks to the generate() function. Here I see three possibilities:
+a) add the attention_mask as a parameter to the generation() function.
+b) automatically calculate the attention_mask from the input_ids if the model has a pad_token_id and there is a pad_token_id in the input_ids.
+c) Not allow padded batches for the moment.
+I would prefer option b) because some models do have a set pad_token_id (such as Bart) so we should be able to allow padded generation.",6,16
+3143,2020-03-05T16:58:33Z,2020-03-05T22:01:55Z,2020-03-05T22:01:55Z,2,24,0,"closes #3142
+The problem came from the fact that from_pretrained set the model on which to load the weights to the base model: it detected that the state dict was made for the base, therefore loading only onto the base.
+It didn't look for the weights it didn't load. Here, both state dicts are analyzed and the difference (keys present in the state dict with the head and not in the base state dict) are added to the missing keys.
+Added a test.",3,1
+3145,2020-03-05T17:58:33Z,2020-03-05T21:14:36Z,2020-03-05T21:14:36Z,2,11,4,,4,1
+3147,2020-03-05T21:15:10Z,2020-03-05T22:16:57Z,2020-03-05T22:16:58Z,2,22,0,"**kwargs were not passed to the PreTrainedConfiguration when using from_pretrained
+closes #3093",4,1
+3148,2020-03-05T23:00:23Z,2020-03-06T21:01:47Z,2020-03-06T21:01:47Z,1,47,26,1:1 translation of PR #3135 from Pytorch to TF.,4,2
+3158,2020-03-06T15:36:16Z,2020-03-06T21:06:37Z,2020-03-06T21:06:37Z,2,39,6,"Also renames some things and adds a nice test.
+I suspect that this didn't break integration tests because we don't have a serious integration test with decoder_input_ids set (e.g. calculating loss for a summarization example)",3,2
+3180,2020-03-08T23:37:09Z,2020-03-10T00:43:39Z,2020-03-10T00:43:39Z,3,34,9,"Solves most of the issues raised in #3159
+Streamlines shell script pipeline
+pl logs related changes
+added in Readme",5,16
+3185,2020-03-09T10:34:57Z,2020-04-06T22:29:16Z,2020-04-06T22:29:16Z,11,834,561,,6,2
+3186,2020-03-09T12:06:04Z,2020-03-17T14:17:11Z,2020-03-17T14:17:12Z,11,565,32,"This PR add some utilities to benchmark (RAM) memory consumption of the models.
+This is actually a generic utility that can work with any arbitrary python code
+Ex:
+import torch
+from transformers import GPT2Model, GPT2Tokenizer
+from transformers import start_memory_tracing, stop_memory_tracing
+
+tokenizer = GPT2Tokenizer.from_pretrained('gpt2')
+model = GPT2Model.from_pretrained('gpt2')
+
+sequence = tokenizer.encode(""Hello how are you"", return_tensors='pt')
+
+# Line by line memory tracing (all code in the module `transformers`).
+trace = start_memory_tracing(modules_to_trace=""transformers"")
+output = model(sequence)
+summary = stop_memory_tracing(trace)
+
+# Summary contain three fields:
+# `sequential`: list of line by line consumption (with line code and location)
+# `cumulative`: list of cumulative line by line consumption (when lines are executed several times) ordered from the most memory consuming line to the least (also with line code and location)
+# `total`: total memory consumption of the script (default to sum memory increase at each line and ignore released mem, can be seet to count increase and release by less reliable on ubuntu).
+# Each `Memory` object contain CPU, GPU and CPU + GPU memory, each both in int and human readable string
+
+print(f""Total memory consumption: {summary.total}"")
+top_line = summary.cumulative[0]
+print(f""Consumed {top_line.cpu_gpu}: {top_line.frame.line_text} at {top_line.frame.filename}:{top_line.frame.line_number}"")
+Incorporated in the ./examples/benchmark.py script. Example of command-line run:
+(py37) bash-3.2$ python ./examples/benchmarks.py --models gpt2 --torch --batch_sizes 1 --slice_sizes 64 256 512 512 512 --no_speed --verbose
+Running with arguments Namespace(amp=False, average_over=30, batch_sizes=[1], csv_filename=None, fp16=False, keras_predict=False, models=['gpt2'], no_memory=False, no_speed=True, save_to_csv=False, slice_sizes=[64, 256, 512, 512, 512], tensorflow=False, torch=True, torch_cuda=False, torchscript=False, verbose=False, xla=False)
+1 / 1
+Token indices sequence length is longer than the specified maximum sequence length for this model (2708 > 1024). Running this sequence through the model will result in indexing errors
+....
+/Users/thomwolf/Documents/GitHub/transformers/src/transformers/modeling_gpt2.py:487: mem 0.000B:                 presents = presents + (present,)
+/Users/thomwolf/Documents/GitHub/transformers/src/transformers/modeling_gpt2.py:489: mem 0.000B:             if self.output_attentions:
+/Users/thomwolf/Documents/GitHub/transformers/src/transformers/modeling_gpt2.py:477: mem 0.000B:         for i, (block, layer_past) in enumerate(zip(self.h, past)):
+/Users/thomwolf/Documents/GitHub/transformers/src/transformers/modeling_gpt2.py:492: mem 0.000B:         hidden_states = self.ln_f(hidden_states)
+/Users/thomwolf/Documents/GitHub/transformers/src/transformers/modeling_gpt2.py:494: mem 0.000B:         hidden_states = hidden_states.view(*output_shape)
+/Users/thomwolf/Documents/GitHub/transformers/src/transformers/modeling_gpt2.py:496: mem 0.000B:         if self.output_hidden_states:
+/Users/thomwolf/Documents/GitHub/transformers/src/transformers/modeling_gpt2.py:499: mem 0.000B:         outputs = (hidden_states,)
+/Users/thomwolf/Documents/GitHub/transformers/src/transformers/modeling_gpt2.py:500: mem 0.000B:         if self.output_past:
+/Users/thomwolf/Documents/GitHub/transformers/src/transformers/modeling_gpt2.py:501: mem 0.000B:             outputs = outputs + (presents,)
+/Users/thomwolf/Documents/GitHub/transformers/src/transformers/modeling_gpt2.py:502: mem 0.000B:         if self.output_hidden_states:
+/Users/thomwolf/Documents/GitHub/transformers/src/transformers/modeling_gpt2.py:504: mem 0.000B:         if self.output_attentions:
+/Users/thomwolf/Documents/GitHub/transformers/src/transformers/modeling_gpt2.py:509: mem 0.000B:         return outputs  # last hidden state, (presents), (all hidden_states), (attentions)
+
+Top 5 script lines consuming the most memory:
+0 => /Users/thomwolf/Documents/GitHub/transformers/src/transformers/activations.py:31: mem 276.004MB:     return 0.5 * x * (1 + torch.tanh(math.sqrt(2 / math.pi) * (x + 0.044715 * torch.pow(x, 3))))
+1 => /Users/thomwolf/Documents/GitHub/transformers/src/transformers/modeling_utils.py:1311: mem 151.520MB:         x = torch.addmm(self.bias, x.view(-1, x.size(-1)), self.weight)
+2 => /Users/thomwolf/Documents/GitHub/transformers/src/transformers/modeling_gpt2.py:146: mem 146.004MB:         w = w * b - 1e4 * (1 - b)
+3 => /Users/thomwolf/Documents/GitHub/transformers/src/transformers/modeling_gpt2.py:143: mem 132.004MB:             w = w / math.sqrt(v.size(-1))
+4 => /Users/thomwolf/Documents/GitHub/transformers/src/transformers/modeling_gpt2.py:187: mem 36.000MB:         present = torch.stack((key.transpose(-2, -1), value))  # transpose to have same shapes for stacking
+5 => /Users/thomwolf/Documents/GitHub/transformers/src/transformers/modeling_gpt2.py:159: mem 33.000MB:         outputs = [torch.matmul(w, v)]
+
+Memory increase computed by summing traced script lines: 843.758MB
+=========== RESULTS ===========
+        ======= MODEL CHECKPOINT: gpt2 =======
+                ===== BATCH SIZE: 1 =====
+                gpt2/1/64: N/A 75.176MB
+                gpt2/1/256: N/A 349.695MB
+                gpt2/1/512: N/A 843.758MB
+                gpt2/1/512: N/A 843.758MB
+                gpt2/1/512: N/A 843.758MB",5,1
+3190,2020-03-09T14:01:14Z,2020-03-09T15:29:57Z,2020-03-09T15:29:58Z,2,13,5,Fixed bug with TF 2.0 repetition_penalty when doing generation add make early_stopping an argument to the function generate().,3,3
+3191,2020-03-09T14:03:25Z,2020-03-10T10:29:18Z,2020-03-10T10:29:18Z,13,1077,191,"Add integration tests for all LM models that are able to generate language.
+
+All integration tests use do_sample=False (greedy) generation and verify that TF 2.0 and PT yield the same results.
+Fixed a small bug with TFXLMModelWithLMHead",4,4
+3198,2020-03-09T22:43:53Z,2020-03-18T13:52:50Z,2020-03-18T13:52:51Z,2,113,8,"XLM-R Tokenizer had a lot of issues that were not identified as no testing was done on it.
+closes #2993
+closes #2795
+closes #2741
+closes #2727
+closes #2508
+This fixes all the above issues, and works for all official checkpoints as well as other SPM files.
+However, there are a few things I dislike about the way things stands, which I'm detailing in the comments below.",4,1
+3213,2020-03-10T22:41:05Z,2020-03-19T13:47:55Z,2020-03-19T13:47:55Z,1,1,1,,2,0
+3219,2020-03-11T00:34:32Z,2020-03-19T13:49:26Z,2020-03-19T13:49:26Z,1,1,1,T5Tokenizer instead of XLNetTokenizer,3,1
+3221,2020-03-11T07:26:58Z,2020-03-11T13:12:48Z,2020-03-11T13:12:48Z,1,86,0,Model card for dkleczek/bert-base-polish-uncased-v1,3,3
+3228,2020-03-11T14:50:02Z,2020-03-19T22:18:24Z,2020-03-19T22:18:24Z,16,450,281,"In this PR some first commits are added to make T5 work for generation.
+the T5WithLMHeadModel.forward() has a special API due to its encoder-decoder nature.
+This is why we need to add a prepare_inputs_for_generation() in t5_modeling_utils.py to
+correctly prepare t5's inputs for generation.
+Some easy translation seems to give alright results (same results for TF):
+model = T5WithLMHeadModel.from_pretrained('t5-base')
+tok = T5Tokenizer.from_pretrained('t5-base')
+
+text = ""translate English to German: How old are you?""
+
+input_ids = tok.encode(text, return_tensors='pt')
+outputs = model.generate(input_ids, bos_token_id=tok.pad_token_id, max_length=22, num_beams=4, do_sample=False, early_stopping=True)
+
+print(tok.decode(outputs[0], skip_special_tokens=True))
+# prints:
+# Wie alt bist du?st du?st du?st
+
+UPDATE:
+Updated generate() in both TF and PT to compute the encoder_outputs only once for encoder-decoder models as discussed below.
+Tests RUN_SLOW=1 for test_modeling_bart.py, test_modeling_gpt2.py and test_modeling_tf_gpt2.py all pass.
+FUTURE PR:
+
+ add generation integration test for T5 in PT and TF (could be similar to what is done in
+e.g.  OR better compare numbers to original T5 model numbers @craffel.
+
+Good for me to merge!
+@thomwolf @sshleifer @craffel",8,7
+3236,2020-03-12T01:08:11Z,2020-03-25T01:00:24Z,2020-03-25T01:00:25Z,5,252,2,"This pull request adds to the example for BART for summarization. I used the example for NER using pytorch-lightning as guidance. This example will train on CNN/DM and evaluate, and get decent results, though I haven't trained it on the full dataset just yet. I'm sure there are better defaults for the hyperparams but these seem to work.
+I based this PR on the code I wrote in this colab.
+This would hopefully close #3004
+TODO
+
+ Be able to train the model on a GPU.
+ remove unused args
+ add test step and save results.
+
+Happy to hear any feedback!",6,12
+3240,2020-03-12T04:39:52Z,2020-03-19T16:08:31Z,2020-03-19T16:08:31Z,1,3,1,"Since RobertaTokenizer  does not generate return_type_ids, running Glue with Roberta throws errors. This fix overwrites the default behaviour of the tokenizers, and forces them to generate return_type_ids.",2,0
+3247,2020-03-12T13:03:18Z,2020-03-16T08:48:31Z,2020-03-16T08:48:31Z,1,11,4,"Given the previous error message, it can be quite time-consuming to find out that the only problem was that the /path/to/model/dir was incorrect :D",3,2
+3254,2020-03-12T18:16:07Z,2020-03-13T01:14:57Z,2020-03-13T01:14:58Z,1,1,1,"Bumps psutil from 5.6.3 to 5.6.6.
+
+Changelog
+Sourced from psutil's changelog.
+
+5.6.6
+2019-11-25
+Bug fixes
+
+1179_: [Linux] Process cmdline() now takes into account misbehaving processes
+renaming the command line and using inappropriate chars to separate args.
+1616_: use of Py_DECREF instead of Py_CLEAR will result in double free and
+segfault
+(CVE-2019-18874 <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-18874>__).
+(patch by Riccardo Schirone)
+1619_: [OpenBSD] compilation fails due to C syntax error.  (patch by Nathan
+Houghton)
+
+5.6.5
+2019-11-06
+Bug fixes
+
+1615_: remove pyproject.toml as it was causing installation issues.
+
+5.6.4
+2019-11-04
+Enhancements
+
+1527_: [Linux] added Process.cpu_times().iowait counter, which is the time
+spent waiting for blocking I/O to complete.
+1565_: add PEP 517/8 build backend and requirements specification for better
+pip integration.  (patch by Bernát Gábor)
+
+Bug fixes
+
+875_: [Windows] Process' cmdline(), environ() or cwd() may occasionally fail
+with ERROR_PARTIAL_COPY which now gets translated to AccessDenied.
+1126_: [Linux] cpu_affinity() segfaults on CentOS 5 / manylinux.
+cpu_affinity() support for CentOS 5 was removed.
+1528_: [AIX] compilation error on AIX 7.2 due to 32 vs 64 bit differences.
+(patch by Arnon Yaari)
+1535_: 'type' and 'family' fields returned by net_connections() are not
+always turned into enums.
+1536_: [NetBSD] process cmdline() erroneously raise ZombieProcess error if
+cmdline has non encodable chars.
+1546_: usage percent may be rounded to 0 on Python 2.
+
+ ... (truncated)
+
+
+
+Commits
+
+c6cd256 pre release
+b2414b8 revert #1595
+c63369e updat HISTORY
+edb20f6 linux, cmdline(), fix for #1179, comment 552984549: sometimes string ends wit...
+d739cbb use PROCESS_QUERY_LIMITED_INFORMATION
+f7e898b #1595: use psutil_pid_is_running() instead of GetExitCodeProcess
+72c84cb #fix #1595 / windows: kill() may not raise AccessDenied
+1f8d432 Merge branch 'master' of github.com:giampaolo/psutil
+e6faebc release gil around users()/BSD (#1425)
+5cb1b0b Merge branch 'master' of github.com:giampaolo/psutil
+Additional commits viewable in compare view
+
+
+
+
+Dependabot will resolve any conflicts with this PR as long as you don't alter it yourself. You can also trigger a rebase manually by commenting @dependabot rebase.
+
+
+Dependabot commands and options
+
+You can trigger Dependabot actions by commenting on this PR:
+
+@dependabot rebase will rebase this PR
+@dependabot recreate will recreate this PR, overwriting any edits that have been made to it
+@dependabot merge will merge this PR after your CI passes on it
+@dependabot squash and merge will squash and merge this PR after your CI passes on it
+@dependabot cancel merge will cancel a previously requested merge and block automerging
+@dependabot reopen will reopen this PR if it is closed
+@dependabot close will close this PR and stop Dependabot recreating it. You can achieve the same result by closing it manually
+@dependabot ignore this major version will close this PR and stop Dependabot creating any more for this major version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this minor version will close this PR and stop Dependabot creating any more for this minor version (unless you reopen the PR or upgrade to it yourself)
+@dependabot ignore this dependency will close this PR and stop Dependabot creating any more for this dependency (unless you reopen the PR or upgrade to it yourself)
+@dependabot use these labels will set the current labels as the default for future PRs for this repo and language
+@dependabot use these reviewers will set the current reviewers as the default for future PRs for this repo and language
+@dependabot use these assignees will set the current assignees as the default for future PRs for this repo and language
+@dependabot use this milestone will set the current milestone as the default for future PRs for this repo and language
+
+You can disable automated security fix PRs for this repo from the Security Alerts page.",3,1
+3255,2020-03-12T18:30:19Z,2020-03-12T23:38:05Z,2020-03-12T23:38:05Z,1,3,2,,2,0
+3257,2020-03-12T22:51:13Z,2020-04-03T18:10:55Z,2020-04-03T18:10:55Z,16,2279,5,"Adds ELECTRA to the library.
+The script I'm using to compare the different models is this Github gist, coupled to a modified version of the ELECTRA repository.
+
+ add model/configuration/tokenization classes
+ add conversion scripts
+ add tests
+ finalize
+
+Let's detail what should be done at each step
+Adding model/configuration/tokenization classes
+Here is the workflow for adding model/configuration/tokenization classes:
+
+ copy the python files from the present folder to the main folder and rename them, replacing xxx with your model name,
+ edit the files to replace XXX (with various casing) with your model name
+ copy-paste or create a simple configuration class for your model in the configuration_... file
+ copy-paste or create the code for your model in the modeling_... files (PyTorch)
+ copy-paste or create the code for your model in the modeling_... files (TF 2.0)
+ copy-paste or create a tokenizer class for your model in the tokenization_... file
+
+Adding conversion scripts
+Here is the workflow for the conversion scripts:
+
+ copy the conversion script (convert_...) from the present folder to the main folder.
+ edit this script to convert your original checkpoint weights to the current pytorch ones.
+
+Adding tests:
+Here is the workflow for the adding tests:
+
+ copy the python files from the tests sub-folder of the present folder to the tests subfolder of the main folder and rename them, replacing xxx with your model name,
+ edit the tests files to replace XXX (with various casing) with your model name
+ edit the tests code as needed
+
+Final steps
+You can then finish the addition step by adding imports for your classes in the common files:
+
+ add import for all the relevant classes in __init__.py
+ add your configuration in configuration_auto.py
+ add your PyTorch and TF 2.0 model respectively in modeling_auto.py and modeling_tf_auto.py
+ add your tokenizer in tokenization_auto.py
+ add your models and tokenizer to pipeline.py
+ add a link to your conversion script in the main conversion utility (in commands/convert.py)
+ edit the PyTorch to TF 2.0 conversion script to add your model in the convert_pytorch_checkpoint_to_tf2.py file
+ add a mention of your model in the doc: README.md and the documentation itself at docs/source/pretrained_models.rst.
+ upload the pretrained weigths, configurations and vocabulary files.",10,5
+3264,2020-03-13T14:28:24Z,2020-03-20T20:41:05Z,2020-03-20T20:41:05Z,22,117,115,"INTRO:
+This PR is a follow-up from PR #3011.
+After discussion with @thomwolf today, we decided that the variable eos_token_ids in all models causes more confusion and ugly code than it helps.
+BACKGROUND:
+All models now have pad_token_id, bos_token_id and eos_token_id as default values. The reasons are discussed and explained in #3011.
+Originally, we had the list variable eos_token_ids. The idea behind was that a model could have multiple eos_token_ids if the user wants to finish at certain tokens besides the standard EOS token. But this caused a lot of unclean code AND is not consistent with tokenizers which all has a tokenizer.eos_token_id int variable. So, we return to eos_token_id for moders as well and might in the future have a variable forbidden_tokens or special_stop_tokens.
+THIS PR DOES:
+
+Replace all list eos_token_ids with eos_token_id
+Add default eos_token_id, pad_token_id, bos_token_id to all models
+
+TESTS:
+I tested that the pretrained Config has now the same special tokens as the pretrained Tokenizer for all model identifier names (e.g. gpt2-large) with the following code:
+for model_id_name in ALL_PRETRAINED_MODEL_ARCHIVE_MAP.keys():
+    tok = AutoTokenizer.from_pretrained(model_id_name)
+    conf = AutoConfig.from_pretrained(model_id_name)
+
+    pad_equal = tok.pad_token_id == conf.pad_token_id
+    eos_equal = tok.eos_token_id == conf.eos_token_id
+    bos_equal = tok.bos_token_id == conf.bos_token_id
+
+    if not pad_equal:
+        print(""PAD not equal for {}!"".format(model_id_name))
+        print(""TOK: {} | CONF: {}"".format(tok.pad_token_id, conf.pad_token_id))
+
+    if not eos_equal:
+        print(""EOS not equal for {}!"".format(model_id_name))
+        print(""TOK: {} | CONF: {}"".format(tok.eos_token_id, conf.eos_token_id))
+
+    if not bos_equal:
+        print(""BOS not equal for {}!"".format(model_id_name))
+        print(""TOK: {} | CONF: {}"".format(tok.bos_token_id, conf.bos_token_id))
+
+which gives the following result:
+PAD not equal for bert-base-dutch-cased!
+TOK: 3 | CONF: 0
+BOS not equal for distilbert-base-cased!
+TOK: None | CONF: 0
+BOS not equal for distilbert-base-cased-distilled-squad!
+TOK: None | CONF: 0
+
+This means that:
+
+bert-base-dutch-cased has a different pad_token_id in its tokenizer config than the pad_token_id in default Bert tokenizer, so that we will have to update the bert-base-dutch-cased-config.json file on AWS (Best option in my opinion).
+distilbert-base-cased and distilbert-base-cased-distilled-squad have hard coded bos_token_id in their config.json file on AWS (I checked), but the distilbert tokenizer doesn`t even have it -> is that correct? @VictorSanh
+
+TODO:
+
+ Is the approach good for you? @thomwolf @julien-c @LysandreJik @mfuntowicz @sshleifer
+ Should we also check all community models whether their tokenizer differs from the default one?
+ I think the test I wrote is quite useful, but it uses Config and Tokenizer Classes in the same file, which is not in line with the current test files, which is why I didn't add it. Should we add a test like this? If yes, how?",4,9
+3266,2020-03-13T16:44:08Z,2020-03-13T23:48:27Z,2020-03-13T23:48:28Z,2,16,4,"closes #3249: fp16 forward pass failing when no decoder_attention_mask provided. Adds test coverage.
+closes #3265: test_generate_fp16 was failing since #3140   (by sending proper kwargs to BartForConditionalGenerate.generate)",3,1
+3267,2020-03-13T18:22:04Z,2020-03-19T22:25:31Z,2020-03-19T22:25:31Z,1,0,1,"torch.cuda.empty_cache() was being called from a TF function (even when torch is unavailable)
+not sure any replacement is needed if TF OOMs
+simply running the benchmarks on a GPU with lower HBM will reproduce this error",4,2
+3277,2020-03-14T17:31:27Z,2020-03-26T14:22:13Z,2020-03-26T14:22:13Z,5,169,22,"The current modeling_xlm.py did not have alike ForTokenClassification class like others, which helps for NER task comparison across all existing models.
+now XLMForTokenClassification can be called via:
+from transformers import XLMForTokenClassification
+
+model = XLMForTokenClassification.from_pretrained('xlm-mlm-100-1280')",3,0
+3278,2020-03-14T22:24:56Z,2020-03-16T16:47:54Z,2020-03-16T16:47:54Z,2,9,8,"Currently, we set it to BartModel.decoder.generation_mode = True and then never unset it, which is confusing in the the rare case where you try to finetune or extract features after generating.
+We can encapsulate bart specific logic to modeling_bart.py by just using a kwarg.",4,4
+3279,2020-03-14T23:09:38Z,2020-03-16T03:00:44Z,2020-03-16T03:00:44Z,3,14,29,"This doesn't change anything,
+
+k_dim and v_dim kwargs are there for other models in fairseq but we don't need them.
+attention weights are returned by the AttentionModule (and ignored later) no matter what",4,2
+3286,2020-03-15T12:19:54Z,2020-03-18T13:24:28Z,2020-03-18T13:24:28Z,7,79,147,"This PR adds LM generation capabilitiies to the TF transfo-xl model. The integration tests for language generation pass, so generation from a pretrained model works now in TF as well.
+What does definitely not work yet is running the both PT and TF models with self.sample_softmax > 0:
+
+Transfo-XL uses adaptive word embeddings -> the word embeddings ale broken down into 4 Embeddings of different shapes: [20000, 1024], [20000, 1024], [160000, 64] and [67735, 16] . When self.sample_softmax > 0 though, it seems like the model expects the normal word embeddings with just a single weight matrix. When trying to tie the weights then as done in line 831 (see comment below), the logic breaks.
+
+This problem seems to be more complex though and I'd suggest to solve it in another PR (add possible have a call before to make things clear).",4,3
+3290,2020-03-16T00:30:16Z,2020-03-17T15:46:43Z,2020-03-17T15:46:43Z,6,315,82,"This PR adds an example of using Pytorch Lightning to run the GLUE benchmark. Additionally, I altered the transformer_base.py to use auto models and moved it to the example directory so it could be copied in by any script that wishes to use it.
+Preferably, the base transformer would have subclasses for the different types of tasks, but I just used a dictionary with a key passed on init instead. (i.e. NER uses AutoModelForTokenClassification and GLUE uses AutoModelForSequenceClassification).",4,4
+3298,2020-03-16T12:10:41Z,2020-03-17T14:52:37Z,2020-03-17T14:52:37Z,6,30,22,"This somewhat reverts the commit:
+6c1b235
+and the decision taken in #2696
+and sets the default sampling behavior of generate() to greedy - / beam search.
+Pros:
+
+False is the more natural default value
+Prettier API (especially for encoder_decoder models which will mostly only use beam search generate())
+
+Cons:
+
+Some people might aleady be used to the do_sample=True default value and this commit might break the logic of their code (but would be trivial to change for them)
+
+I'm somewhat indifferent whether this PR should be merged, but I think @thomwolf and @sshleifer  are in favor of it.
+@LysandreJik @thomwolf @sshleifer",5,1
+3319,2020-03-18T02:53:41Z,2020-03-19T15:16:52Z,2020-03-19T15:16:52Z,2,39,80,"Small Bart code cleanups before pip release.
+Cleanup
+
+Deletes unused value argument for SelfAttention. (value is always the same as key.) This might be moderately controversial as most attention modules take query, key, value as arguments, but this change reduces the signature to just query and key (since key always the same as value).
+Deletes redundant static_kv argument for SelfAttention. It is always the same as self.encoder_decoder_attention.
+
+Context: the static_kv variable decides whether we want to extend the keys and values in the cache or, if True, use them without modification.
+This PR keeps a local static_kv variable because that variable name describes the purpose of the variable better than self.encoder_decoder_attention. But static_kv is no longer a kwarg. This simplifies the API and avoids having the same logic in two places.
+
+
+
+Two new fast tests
+
+test coverage for dummy_inputs (previously broken)
+test coverage for the default generate kwargs.",3,0
+3322,2020-03-18T05:11:31Z,2020-03-19T15:56:54Z,2020-03-19T15:56:55Z,3,25,41,"This PR contains two minor fixes and one piece of cleanup for the BartModel.
+1. Previously, Bart's encoder padding mask used -10000. to represent tokens that should be ignored, then called masked_fill(mask.to(torch.bool), -inf) to use the mask.
+There are two problems with this:
+
+it's confusing to set a value to a large negative and then call bool. Why not just invert the mask and call bool immediately.
+torch.bool is released in pytorch 1.2, so this code breaks on earlier versions.
+Fix: let torch.eq make the mask the correct dtype at the beginning.
+
+2. explicit use of F.gelu is not allowed/or broken in earlier torch versions. Let ACT2FN handle this logic.
+3. An unreachable code branch is deleted.
+Supplementary Material: torch v 1.2.0 release notes",4,2
+3323,2020-03-18T06:53:22Z,2020-03-26T22:40:40Z,2020-03-26T22:40:40Z,3,23,8,"Summary
+previously we created a self.lm_head = nn.Linear() with the exact same weight matrix as the input embeddings, and then skipped tie_weights.
+This presented 3 problems:
+
+200 MB of extra GPU RAM
+Can't tie_weights
+Can't resize_token_embeddings
+
+This PR alleviates all the concerns by using lm_logits = F.linear(decoder_outputs[0], self.shared). It also adds more aggressive test coverage that resize_embeddings is changing the shape of both input and output embeddings.
+Concerns
+
+
+If I recall from an earlier PR, tying the input and output embeddings to a single parameter is unfriendly to torchscript.
+However, neither Bart before this change nor T5ForConditionalGeneration, which uses the self.lm_head = nn.Linear technique, pass the common torchscript tests, which suggests that the weight tying in this PR is not removing functionality that existed before it.
+
+
+The failing test here is caused by fact that S3 has lm_head in state_dict. I will update S3 right before this PR gets merged.
+
+
+To pass unit tests and use .generate, get_output_embeddings must return nn.Linear. To satisfy this constraint, this PR makes the nn.Linear module on the fly when get_output_embeddings is called. I think (but am not sure) that this is fine because resize_token_embeddings works by resizing the input_embeddings then calling tie_weights, and we have stopped skipping tie_weights
+
+
+(Note there is a separate but related issue that test_common.py::test_resize_embeddings is shallow, detailed in #3378)",4,2
+3341,2020-03-19T04:14:03Z,2020-03-19T22:23:03Z,2020-03-19T22:23:03Z,1,2,6,,4,2
+3344,2020-03-19T08:10:28Z,2020-03-19T16:22:48Z,2020-03-19T16:22:48Z,1,1,1,"For the tutorial of ""How to generate text"", the URL link was wrong (it was linked to the tutorial of ""How to train a language model"").
+I fixed the URL.",3,2

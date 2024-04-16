@@ -1,0 +1,1183 @@
+number,created_at,merged_at,closed_at,files,additions,deletions,body_text,participants,comments
+9,2017-11-03T05:29:59Z,2017-11-03T15:28:15Z,2017-11-03T15:28:15Z,1,1,1,"I believe it should be ""Even worse"", not ""Even worth"".",3,1
+10,2017-11-03T10:53:36Z,2017-11-03T15:31:24Z,2017-11-03T15:31:24Z,1,1,1,,3,1
+14,2017-11-03T14:26:53Z,2017-11-03T15:32:48Z,2017-11-03T15:32:48Z,1,2,2,"Fixing typo.
+
+Docker-compos => Docker-compose",3,1
+16,2017-11-03T20:06:10Z,,2019-04-04T07:50:50Z,7,131,137,Skeleton for translate the project to Spanish language,6,20
+20,2017-11-04T12:01:21Z,2017-11-05T21:19:01Z,2017-11-05T21:19:01Z,1,43,42,Fixed some typos in the main README file,3,3
+23,2017-11-04T17:33:15Z,2017-11-04T21:00:51Z,2017-11-04T21:00:51Z,1,4,4,"Format js code
+Quote the remaining paragaph from the blog post
+Remove unecessary text 'Close GIST window Skip to toolbar About WordPress'",3,1
+24,2017-11-04T21:57:40Z,2017-11-05T15:49:28Z,2017-11-05T15:49:28Z,1,1,1,,3,0
+29,2017-11-06T18:24:01Z,2017-11-09T20:21:00Z,2017-11-09T20:21:00Z,22,27,27,,3,5
+35,2017-11-08T06:20:46Z,2017-11-08T19:54:03Z,2017-11-08T19:54:03Z,1,6,6,"explictly -> explicitly
+interpeter -> interpreter
+Prefering -> Preferring
+asyncronous -> asynchronous
+Nowdays -> Nowadays
+extremly -> extremely",2,1
+39,2017-11-08T13:39:48Z,,2018-09-19T08:36:36Z,2,7,3,,5,7
+48,2017-11-09T14:54:00Z,2017-11-09T20:45:13Z,2017-11-09T20:45:13Z,1,2,2,,2,1
+52,2017-11-10T04:59:56Z,2017-11-14T19:23:55Z,2017-11-14T19:23:55Z,1,7,15,"The mentioned article is only talking about nsp and not snyk.
+I thought of maybe adding this article as well -
+https://www.smashingmagazine.com/2016/01/eliminating-known-security-vulnerabilities-with-snyk/
+And maybe this quote -
+
+Running untrusted code inside your system poses a broad security risk. Tackling it isn’t simple, but a good place to start is by addressing known vulnerabilities. These are publicly disclosed security bugs, typically found and logged by users, or intentionally found and reported by security researchers. Being public makes these issues the easiest ones for attackers to find and exploit, and so very important to address.
+
+
+Right now, roughly 14% of the top npm packages carry known vulnerabilities. The stats are far worse for full applications: over 80% of Snyk users find vulnerabilities when testing their applications.
+
+The only issue with it it's seem like a promotional peace for snyk and was written by one of their co-founders",3,4
+56,2017-11-10T08:29:49Z,2017-11-11T10:03:38Z,2017-11-11T10:03:38Z,1,2,2,This PR proposes a small syntax fix for section 3.3 Start a Codeblock's Curly Braces in the Same Line,2,1
+57,2017-11-10T09:20:14Z,2017-11-11T20:16:36Z,2017-11-11T20:16:37Z,2,3,3,"Fix ""SyntaxError: Unexpected token throw""
+Update Joi example
+
+Fixes #43",2,0
+58,2017-11-10T13:52:12Z,2017-11-11T10:00:52Z,2017-11-11T10:00:52Z,1,1,1,"Fixes a typo:
+callbabk => callback",2,1
+60,2017-11-11T15:22:36Z,,2018-05-08T07:21:29Z,2,25,0,"This piece of advice isn't exactly node specific, but since Node is often deployed in a microservice environment, I think it's absolutely crucial to expose system health to all dependent systems. Even if you're not in a microservice environment, being able to view system health at a glance can be a tremendous relief.
+I work in a company with a fleet of 100+ services across thousands of instances. We have developed a schema that all our services have to adhere to. Part of it is to expose a healthcheck endpoint that tells you the overall health of the system, as well as information about each individual check - including dependencies. This allows us to create a graph of connected services so that if there's an outage in one system, we can see which other systems will be affected by it. It can also help us discover bottlenecks where one system may affect many others, in which case we should strive to provide fallback behaviors that allow us to at least partially function.
+For the record, I'm the developer of express-physical, which I linked to in the ""read more"" section. We use that library across all of our node services, and it has worked well for us so far.",3,5
+61,2017-11-12T14:53:13Z,2017-11-14T19:18:38Z,2017-11-14T19:18:38Z,2,17,1,"I noticed there was an image of some code that would be nicer as an actual code block, so I just transcribed what was in the image, and deleted the image from the repo.",3,2
+62,2017-11-13T00:56:37Z,2017-11-14T13:00:45Z,2017-11-14T13:00:45Z,1,5,5,Just cleaned up some of the grammar,2,0
+64,2017-11-14T09:33:28Z,2017-11-14T12:49:17Z,2017-11-14T12:49:17Z,1,1,1,"An hierarchical JSON files that is grouped into section can overcome this issue to:
+A hierarchical JSON file that is grouped into section can overcome this issue.",3,4
+65,2017-11-14T17:38:30Z,2017-11-14T19:17:15Z,2017-11-14T19:17:15Z,1,2,2,change the plural conjugation ease to the correct singular conjugation eases,2,3
+70,2017-11-15T09:33:23Z,2017-11-15T10:47:48Z,2017-11-15T10:47:48Z,1,1,1,,2,0
+76,2017-11-15T17:20:21Z,2017-11-16T16:08:03Z,2017-11-16T16:08:03Z,1,5,0,,3,0
+81,2017-11-23T17:53:28Z,,2017-12-03T08:08:38Z,1,4,4,Fixes #72,3,3
+89,2017-11-26T09:05:29Z,2017-12-02T21:20:44Z,2017-12-02T21:20:44Z,1,5,3,,3,2
+97,2017-12-04T03:43:52Z,2017-12-05T03:20:56Z,2017-12-05T03:20:56Z,2,41,0,,2,0
+99,2017-12-04T21:19:23Z,2017-12-04T22:36:39Z,2017-12-04T22:36:39Z,2,4,3,,2,4
+102,2017-12-06T14:18:56Z,2017-12-09T13:32:08Z,2017-12-09T13:32:08Z,1,1,1,,2,1
+106,2017-12-08T01:13:01Z,2017-12-11T18:50:40Z,2017-12-11T18:50:40Z,1,2,2,,2,0
+108,2017-12-11T22:15:42Z,2017-12-12T16:15:21Z,2017-12-12T16:15:21Z,1,4,2,The current link does not actually link to a video. This commit will add a direct link to the video as well as a link to the slide deck.,2,1
+109,2017-12-12T01:48:25Z,2017-12-12T13:48:18Z,2017-12-12T13:48:18Z,2,41,11,,3,0
+111,2017-12-22T09:01:11Z,2017-12-27T13:35:06Z,2017-12-27T13:35:06Z,1,9,13,,2,1
+116,2017-12-26T14:57:10Z,2017-12-27T11:51:43Z,2017-12-27T11:51:43Z,9,77,68,"self explanatory
+Regards,
+Allen",2,2
+117,2017-12-27T14:37:23Z,2017-12-28T21:46:42Z,2017-12-28T21:46:42Z,23,118,99,,2,1
+118,2017-12-29T16:52:42Z,2018-01-01T00:06:48Z,2018-01-01T00:06:48Z,1,1,1,This code is not Nginx but Express,2,2
+123,2018-01-02T08:45:27Z,2018-01-02T12:23:03Z,2018-01-02T12:23:03Z,1,1,1,,2,1
+132,2018-01-29T21:55:16Z,2018-02-06T16:22:13Z,2018-02-06T16:22:13Z,1,31,0,"@BrunoScheufler kindly revise? no need to perform vast editing, only bold grammar/language issues",2,2
+140,2018-02-15T07:35:05Z,2018-02-15T13:06:56Z,2018-02-15T13:06:56Z,2,4,3,,2,2
+142,2018-02-16T10:09:45Z,2018-02-19T09:10:21Z,2018-02-19T09:10:21Z,2,47,1,"I would like to contribute to this project, so I have added to the security section with some information around leaving session middleware to it's default config.
+Let me know any feedback or where else I can contribute! Thanks",3,9
+151,2018-03-10T05:48:30Z,2018-03-13T08:03:45Z,2018-03-13T08:03:45Z,1,9,1,,3,5
+152,2018-03-10T06:27:48Z,2018-03-10T09:31:03Z,2018-03-10T09:31:03Z,1,4,5,,2,1
+153,2018-03-11T08:03:21Z,,2018-03-17T21:45:56Z,3,88,3,,3,5
+159,2018-03-19T05:58:12Z,2018-03-23T09:16:52Z,2018-03-23T09:16:52Z,9,133,11,"6.1: Embrace linter security rules
+6.2: Limit concurrent requests using a balancer or a middleware
+6.7: Constantly and automatically inspect for vulnerable dependencies
+6.20: Hide error details from client (e.g. default Express behaviour)",3,2
+161,2018-03-25T03:55:30Z,2018-03-28T14:09:24Z,2018-03-28T14:09:24Z,4,70,11,,3,2
+162,2018-03-25T11:11:32Z,2018-04-05T21:20:16Z,2018-04-05T21:20:16Z,2,64,3,,3,3
+165,2018-03-27T12:56:46Z,2018-04-02T08:23:47Z,2018-04-02T08:23:47Z,2,68,4,cc @lirantal  @js-kyle,4,1
+166,2018-03-31T04:33:08Z,2018-04-11T09:07:43Z,2018-04-11T09:07:43Z,2,31,3,,3,0
+171,2018-04-09T05:20:26Z,2018-04-09T08:24:45Z,2018-04-09T08:24:45Z,1,2,1,,3,2
+174,2018-04-18T08:44:21Z,2018-04-24T14:24:23Z,2018-04-24T14:24:23Z,2,49,19,@lirantal @js-kyle @BrunoScheufler,4,2
+175,2018-04-22T11:29:07Z,2018-04-22T19:45:22Z,2018-04-22T19:45:22Z,39,265,296,,2,2
+176,2018-04-24T12:41:33Z,,2018-07-09T20:00:58Z,2,84,31,"Per discussion in #160, I've added an example for refactoring using static analysis. Feel free to leave feedback :D
+Also, my editor removed some extra whitespace which I didn't see until the PR. Let me know if that needs to be reverted.",4,23
+178,2018-05-06T05:36:58Z,2018-07-03T09:15:05Z,2018-07-03T09:15:05Z,3,87,6,…s them,5,6
+180,2018-05-11T21:24:18Z,2018-05-13T11:41:09Z,2018-05-13T11:41:09Z,5,12,12,,3,6
+181,2018-05-15T14:41:16Z,2018-05-15T16:49:47Z,2018-05-15T16:49:47Z,1,1,1,"Fix grammar and a typo in section '5.10. Measure and guard the memory usage'
+Add a link to Walmart Node.js Memory Leak from Joyent blog for context
+Trim trailing spaces at EoL in README.md",2,5
+185,2018-05-15T18:25:04Z,2018-05-15T19:29:26Z,2018-05-15T19:29:26Z,1,4,2,"Update top badges with
+
+total number of best practices (53 as on Apr 23, 2018)
+last update date (last commit in April was on Apr 23, 2018)
+Node.js version (latest LTS - 8.11 - was released on Mar 29, 2018)
+
+
+Award flowers to contributors whose PRs were merged
+@keyfoxth
+@utkarshbhatt12
+
+Closes #172.",2,0
+188,2018-05-30T05:37:05Z,2018-05-30T07:28:43Z,2018-05-30T07:28:43Z,1,16,6,"… of DDOS
+PR for issue #187",3,2
+191,2018-06-04T00:18:10Z,2018-06-07T19:54:54Z,2018-06-07T19:54:54Z,2,7,1,,3,1
+199,2018-06-21T20:20:24Z,2018-07-15T09:50:18Z,2018-07-15T09:50:18Z,1,1,1,"""Otherwise:"" duplicated",3,1
+200,2018-06-23T15:36:47Z,2018-06-26T17:33:11Z,2018-06-26T17:33:11Z,2,61,4,@lirantal @BrunoScheufler @js-kyle,3,0
+201,2018-06-24T17:27:32Z,2018-07-03T09:07:15Z,2018-07-03T09:07:15Z,2,56,3,"This pull request is still in a stage of work-in-progress and will be completed in the next days. If you have any additions or suggestions, don't hesitate to comment!",2,0
+207,2018-07-10T22:47:00Z,2018-07-15T08:23:25Z,2018-07-15T08:23:25Z,1,4,4,"Its perhaps a small thing but important for newbies I guess as constructor classes (functions) are usually uppercased in javascript:
+https://stackoverflow.com/questions/1564398/javascript-method-naming-lowercase-vs-uppercase",2,1
+210,2018-07-15T09:52:57Z,2018-07-16T08:45:56Z,2018-07-16T08:45:56Z,2,45,39,"Closes #209
+Please merge this PR when all of the maintenance items are done.",2,0
+216,2018-07-22T13:41:57Z,2018-08-19T13:38:25Z,2018-08-19T13:38:25Z,1,2,2,"Re: Automattic/mongoose#6424, figured I'd start with adding a note about error handling in mongoose and link to Express' error handling docs.",3,7
+217,2018-07-24T02:33:53Z,2018-08-11T12:48:47Z,2018-08-11T12:48:47Z,1,9,7,,3,7
+219,2018-07-25T08:30:58Z,2018-07-25T10:40:27Z,2018-07-25T10:40:27Z,30,1389,17,@BrunoScheufler We're ready! are we?,2,0
+226,2018-08-15T18:07:02Z,2018-08-17T05:52:02Z,2018-08-17T05:52:02Z,1,1,1,,4,3
+229,2018-08-17T00:52:28Z,2018-08-21T18:43:44Z,2018-08-21T18:43:45Z,1,44,44,"Hello, I translated 1.1 and 1.2 to Korean.
+Please check them.",4,6
+232,2018-08-19T05:05:25Z,2018-08-21T03:19:09Z,2018-08-21T03:19:09Z,5,7,20,,2,3
+235,2018-08-23T16:36:40Z,2018-09-15T16:17:33Z,2018-09-15T16:17:33Z,1,1079,1064,,4,22
+237,2018-09-04T12:24:13Z,2018-09-16T19:21:04Z,2018-09-16T19:21:04Z,1,82,78,"Hi, I'm a beginner developer. I think now it's more clear with ES6 Async/await and arrow function.
+I didn't use try-catch because throw. I'm just practising! Any suggestion or fix is very welcome",5,16
+238,2018-09-09T08:45:22Z,2018-09-09T11:28:12Z,2018-09-09T11:28:12Z,3,20,9,related to #227,2,0
+250,2018-09-18T11:03:42Z,2018-09-25T09:30:19Z,2018-09-25T09:30:19Z,1,5,3,"Hi it's me again! I saw that this example is not using ES6 syntax at all, so I decided to update it and I'm waiting for your OK!
+Regards",4,6
+251,2018-09-19T14:01:37Z,2018-09-19T17:59:22Z,2018-09-19T17:59:22Z,1,15,17,The sample in this file had unused and unexistent variables. So I fixed it and did a little linting.,3,0
+255,2018-09-26T07:53:56Z,2018-09-27T21:28:26Z,2018-09-27T21:28:26Z,1,0,1,delayAfter and delayMs have been removed - https://github.com/nfriedly/express-rate-limit#v3-changes.,5,4
+259,2018-10-05T00:54:11Z,2018-10-18T17:31:05Z,2018-10-18T17:31:05Z,1,581,0,"Hello everyone!
+I think we're ready to push some Brazilian-Portuguese documentation!
+I translated the README.brazilian-portuguese.md up to section 4.
+This is not so much, but we'll get better soon!
+Please, feel free to tell me if something is missing or if I should do more before I push it!",5,12
+260,2018-10-05T18:19:17Z,2018-10-06T10:13:18Z,2018-10-06T10:13:18Z,1,4,4,Just fixing some typos,3,5
+262,2018-10-07T07:36:05Z,2018-10-08T19:29:31Z,2018-10-08T19:29:31Z,2,69,1,#247,4,2
+263,2018-10-08T18:08:07Z,2018-10-08T19:27:55Z,2018-10-08T19:27:55Z,1,2,2,,2,1
+264,2018-10-10T15:21:30Z,,2019-06-30T17:39:10Z,1,38,0,,5,10
+266,2018-10-11T07:56:34Z,2018-11-04T09:43:15Z,2018-11-04T09:43:15Z,1,7,1,,4,6
+269,2018-10-12T08:17:14Z,2018-10-13T15:53:36Z,2018-10-13T15:53:36Z,1,2,0,Fix: #265,3,0
+270,2018-10-17T05:48:55Z,2018-10-17T07:53:42Z,2018-10-17T07:53:42Z,2,1,1,,2,0
+272,2018-10-27T17:25:07Z,2018-11-09T23:40:28Z,2018-11-09T23:40:28Z,4,95,2,"First pass at this, please let me know your comments.
+Also, the best practice suggested here slightly conflicts with what is presented in the ""smart logging"" best practice.
+In that example, the application does write to a file in the Winston example, and in the StrongLoop blog reference seems to suggest multiple log targets are fine (which they are!) but doesn't clarify if that's from the application or from the execution environment.
+What do you think is the best way to consolidate the two?",4,10
+273,2018-10-28T04:18:01Z,,2019-04-19T10:36:21Z,1,6,0,Running tests in parallel is important for a large Node.js project.,3,8
+275,2018-11-09T02:00:50Z,2018-11-14T05:43:20Z,2018-11-14T05:43:20Z,15,521,23,Add some new and fix some issues.,3,3
+279,2018-11-12T09:39:41Z,2018-11-12T14:00:50Z,2018-11-12T14:00:50Z,1,23,0,chinese translation for 6.20.,4,2
+280,2018-11-13T03:52:11Z,2018-11-14T05:43:02Z,2018-11-14T05:43:02Z,1,29,0,chinese translation for 6.2.,3,0
+281,2018-11-14T06:05:38Z,2018-11-17T16:51:31Z,2018-11-17T16:51:32Z,1,15,9,"Update top badges with
+
+best practices item count (79 as on Nov 14, 2018)
+last update date (Nov 14, 2018)
+Node.js version (latest LTS - 10.13.0)
+
+
+Add bio to the core team
+
+Closes: #268",3,1
+283,2018-11-15T16:16:45Z,2018-11-30T13:08:10Z,2018-11-30T13:08:10Z,2,1,1,"This PR aims to add the Brazilian flag (in a flat design, like the other flags), to translations.",4,6
+285,2018-11-16T11:24:17Z,2018-11-16T15:26:42Z,2018-11-16T15:26:42Z,1,1,1,,2,2
+287,2018-11-25T20:25:17Z,2018-11-26T13:30:43Z,2018-11-26T13:30:43Z,1,4,8,"This adds a link to the Github issue where we are leading discussions around the performance section. Also removes the note about API practices - imo we should remove it since we aren't acively working on it any time soon (if that changes, we can of course re-add it)",2,0
+295,2018-11-30T08:20:26Z,2018-11-30T13:11:12Z,2018-11-30T13:11:12Z,4,4,4,"See #293
+I can't even pretend to read Chinese, does this change make sense in the Chinese version?",3,1
+296,2018-11-30T16:09:42Z,2018-12-18T20:17:11Z,2018-12-18T20:17:11Z,17,1285,10,"Relates to #258
+Here, I'm inlining referred .md files to a <detail> element, making a nice collapsible section.
+This HTML is mostly publishable, but certainly not perfect. The code's manageable, but not perfect (see the messy path handling).
+Is it worth playing further with this?
+It's obviously easy to go from HTML to PDF (although it's a question as to what we should do with <detail> elements).
+P.S. I think this aught to be a separate repo, there is a bunch of overhead with the package-lock.json etc
+@BrunoScheufler @i0natan @iamthadiyan",4,19
+298,2018-12-11T21:58:42Z,2018-12-13T19:19:35Z,2018-12-13T19:19:35Z,1,6,7,There was an extraneous space. I also updated functions syntax to follow the style guide referenced in other parts of this document. These functions could potentially be updated to es6 as well.,4,3
+299,2018-12-13T15:48:47Z,2018-12-13T19:15:06Z,2018-12-13T19:15:06Z,1,1,1,This is on my nerves 😃,2,0
+301,2018-12-15T10:41:35Z,2018-12-15T21:59:15Z,2018-12-15T21:59:15Z,1,7,3,Closes #277,2,0
+305,2018-12-25T15:48:12Z,2019-01-14T08:58:43Z,2019-01-14T08:58:43Z,10,133,16,"This PR adds the ""Prefer native JS methods over user-land utils like Lodash"" article (including the inclusion in the README).
+re #302",7,6
+306,2018-12-26T06:55:11Z,2018-12-26T12:07:18Z,2018-12-26T12:07:18Z,5,3,3,"Rename files from producton to production
+Fix links to these files accordingly
+change link in korean version, as the file for korean version does not exist",2,2
+307,2018-12-27T10:13:10Z,,2019-01-22T07:59:47Z,2,64,1,"I put new example on top as express-brute package is actually doesn't do this job nicely.
+It delays requests not block them.",4,3
+308,2018-12-27T13:46:26Z,2019-05-06T05:47:42Z,2019-05-06T05:47:42Z,2,40,2,rate-limiter-flexible package works not only with Express.js and can be used in many cases to protect applications from DDoS and brute force attacks,4,12
+309,2018-12-27T14:17:27Z,2018-12-27T17:46:36Z,2018-12-27T17:46:36Z,1,1,1,"Trying my hands on giving back to community.
+Project structure Practices -> Project Structure Practices
+See small case s vs capital case S",3,1
+310,2018-12-29T02:57:33Z,2019-01-03T09:38:48Z,2019-01-03T09:38:48Z,1,3,3,"+Removing original eng text
++Fix wired Expression",3,2
+313,2019-01-01T13:46:14Z,2019-01-09T08:48:58Z,2019-01-09T08:48:58Z,3,46,8,"Although we didn't file an issue specifically, I used our template and worked on the tasks.",3,1
+322,2019-01-15T05:34:42Z,2019-02-01T05:30:57Z,2019-02-01T05:30:57Z,1,5,5,"The repo introduction needs a little bit of improvement for readability, so I have proposed some changes. These won't be perfect either but lets use it as a point of discussion?
+Mainly keen to improve this as it is often the first thing someone will read when visiting",4,4
+323,2019-01-15T06:25:55Z,2019-02-03T10:36:18Z,2019-02-03T10:36:18Z,1,15,15,"Very minor changes, such as removing unneeded capitalization",3,7
+326,2019-01-18T22:32:40Z,2019-01-19T13:18:17Z,2019-01-19T13:18:17Z,1,2,2,Fixed markdown link formatting for npm package links to sandbox and vm2,2,3
+330,2019-02-03T18:16:53Z,2019-03-03T13:57:02Z,2019-03-03T13:57:02Z,1,21,21,,3,5
+332,2019-02-04T05:32:42Z,2019-02-04T13:34:44Z,2019-02-04T13:34:44Z,3,9,6,,2,0
+334,2019-02-09T16:10:45Z,2019-02-09T17:53:10Z,2019-02-09T17:53:10Z,1,44,44,"Fix some minor typos, grammar errors, and add a few links.",2,0
+335,2019-02-14T08:25:42Z,2019-03-01T23:10:19Z,2019-03-01T23:10:19Z,1,1,1,Change some markdown error,4,1
+336,2019-02-14T12:26:09Z,2019-02-14T15:45:14Z,2019-02-14T15:45:14Z,1,1,1,Small typo fix in the TL;DR of 4.1.,2,2
+337,2019-02-14T16:11:06Z,2019-02-14T17:12:19Z,2019-02-14T17:12:19Z,1,1,1,,2,1
+339,2019-02-16T21:20:10Z,2019-02-20T19:31:57Z,2019-02-20T19:31:57Z,3,84,9,"To motivate people to re-visit, I've added a 'news box' in which will show the latest best practices and various news. The monthly maintainer will update this section + hopefully, others will update frequently during the month.
+Also had to add a new BP (4.2) so the news box refer to... new content
+@mattjin Any chance to update the corresponding local branches?",3,2
+341,2019-02-19T16:07:28Z,2019-03-05T07:07:54Z,2019-03-05T07:07:54Z,2,451,101,"Here we go friends!
+Very soon we're going to have the complete README file translated to Brazilian Portuguese!",4,5
+342,2019-02-20T15:40:47Z,2019-02-21T20:48:22Z,2019-02-21T20:48:22Z,1,2,2,"Dynamic execution of JavaScript also happens in new Function, which is even referenced here: https://github.com/i0natan/nodebestpractices#-615-avoid-javascript-eval-statements, so this should be included.",2,1
+344,2019-02-22T01:06:09Z,2019-02-22T16:57:59Z,2019-02-22T16:57:59Z,1,2,2,"I read this page and saw a few grammar improvements, hopefully you like them.",2,1
+347,2019-02-25T23:11:41Z,2019-03-01T23:10:17Z,2019-03-01T23:10:17Z,1,12,9,"Did not like that OWASP A7 only included 'use CSP, so updated that to reference more content from OWASP with some slight changes to reflect node, e.g use a template engine.
+Made some slight changes to the content for grammar improvements",3,2
+349,2019-03-05T05:14:50Z,2019-03-05T07:00:40Z,2019-03-05T07:00:40Z,1,1,0,,2,1
+350,2019-03-05T07:32:48Z,,2019-03-06T04:59:12Z,70,2323,138,"@marcelosdm I tried to resolve the merge conflicts on my own. Can you quickly check if this looks good (and that I didn't lose any of your changes during the rebase)?
+If all is good, we can close this PR and then I will directly push these changes to the translation branch, which we can then merge into master.",26,2
+351,2019-03-06T05:22:52Z,2019-03-10T07:01:23Z,2019-03-10T07:01:23Z,5,1230,164,"Merge BR translation into master, finally!
+Please turn on the No Whitespace option during review.
+
+/cc @marcelosdm
+Closes: #223",22,5
+353,2019-03-10T09:41:29Z,2019-03-10T10:53:00Z,2019-03-10T10:53:00Z,4,211,93,"Update top badges with
+
+best practices item count (81 as on Mar 10, 2019)
+last update date (Mar 10, 2019)
+Node.js version (latest LTS - 10.15.3)
+
+
+Ensure all translations are aligned with the English version
+Update 'thank you' stars & flowers
+Announce availability of BR translation in the news section!
+
+Closes: #338",2,0
+356,2019-03-12T16:51:06Z,2019-03-13T03:08:48Z,2019-03-13T03:08:48Z,1,2,2,Ortographic errors correction and  transtalation of non-translated english paragraph on portuguese translation version,3,6
+357,2019-03-13T16:33:15Z,2019-03-13T18:39:31Z,2019-03-13T18:39:31Z,1,4,4,Translated section 4.2,4,7
+358,2019-03-13T18:35:45Z,2019-03-21T05:30:27Z,2019-03-21T05:30:27Z,1,7,7,"Hello again guys!
+In this PR, I'm translating the Latest Best Practices and News, and some other details that I was missing! 😃",3,1
+359,2019-03-14T20:31:04Z,2019-03-15T19:53:57Z,2019-03-15T19:53:57Z,17,595,23,"Translated the Read More files from section 2: Error Handling.
+Corrected some typos at the english version i found while translating.",4,4
+360,2019-03-15T09:52:31Z,2019-03-15T19:53:12Z,2019-03-15T19:53:12Z,1,1,1,"In this sentence the ""de"" is incorrect.",3,0
+361,2019-03-16T15:07:24Z,2019-03-19T07:22:46Z,2019-03-19T07:22:46Z,54,2201,50,"Translated Section 6 Read More files
+And fixed a typo",6,8
+362,2019-03-17T17:23:52Z,2019-03-24T08:15:26Z,2019-03-24T08:15:27Z,1,23,0,,3,0
+363,2019-03-19T16:14:55Z,2019-09-21T00:09:47Z,2019-09-21T00:09:47Z,32,203,136,"⛏ What work is being done here?
+Only ""One Paragraph Explainer"" from inner sections are being translated in this PR. For further discussion and planning please take a look at the official spanish translation issue: #95.
+📝 Task list
+
+ Translate 51 ""one paragraph explainers"" to a private Excel (by Seth)
+ Carefully review and polish translations (by desko27)
+ Actually add them to the PR (by desko27)
+
+✅ Sections 1-5 → Translations from 1 to 34 - 100%
+
+ 1) Structure your solution by components
+ 2) Layer your app, keep Express within its boundaries
+ 3) Wrap common utilities as npm packages
+ 4) Separate Express 'app' and 'server'
+ 5) Use environment aware, secure and hierarchical config
+ 6) Use Async-Await or promises for async error handling
+ 7) Use only the built-in Error object
+ 8) Distinguish operational vs programmer errors
+ 9) Handle errors centrally. Not within middlewares
+ 10) Document API errors using Swagger
+ 11) Exit the process gracefully when a stranger comes to town
+ 12) Use a mature logger to increase errors visibility
+ 13) Test error flows using your favorite test framework
+ 14) Discover errors and downtime using APM products
+ 15) Catch unhandled promise rejections
+ 16) Fail fast, validate arguments using a dedicated library
+ 17) Carefully choose your CI platform
+ 18) Monitoring!
+ 20) Make your app transparent using smart logs
+ 21) Delegate anything possible (e.g. static content, gzip) to a reverse proxy
+ 22) Lock dependencies
+ 23) Guard and restart your process upon failure (using the right tool)
+ 24) Utilize all CPU cores
+ 25) Create a maintenance endpoint
+ 26) Sure user experience with APM products
+ 27) Make your code production-ready
+ 28) Measure and guard the memory usage
+ 29) Get your frontend assets out of Node
+ 30) Be stateless, kill your Servers almost every day
+ 31) Use tools that automatically detect vulnerable dependencies
+ 32) Assign ‘TransactionId’ to each log statement
+ 33) Set NODE_ENV = production
+ 34) Use an LTS release of Node.js in production
+
+🔄 Section 6 → Translations from 35 to 51 - 0%
+
+ 35) Embrace linter security rules
+ 36) Limit concurrent requests using a balancer or a middleware
+ 37) Common Node.js security best practices
+ 38) Using HTTPS to encrypt the client-server connection
+ 39) Using security-related headers to secure your application against common attacks
+ 40) Constantly and automatically inspect for vulnerable dependencies
+ 41) Avoid using the Node.js Crypto library for passwords, use Bcrypt
+ 42) Escape Output
+ 43) Validate the incoming JSON schemas
+ 44) Support blacklisting JWT tokens
+ 45) Run Node.js as Non-Root User
+ 46) Limit payload size using a reverse-proxy or a middleware
+ 47) Avoid JS eval statements
+ 48) Prevent malicious RegEx from overloading your single thread execution
+ 49) Avoid module loading using a variable
+ 50) Hide error details from client
+ 51) Modify the default session middleware settings",4,14
+364,2019-03-22T09:47:18Z,2019-03-29T14:40:10Z,2019-03-29T14:40:10Z,2,41,4,"Per @i0natan's request, I've added a small paragraph outlining the benefits of GraphQL for handling errors and data schemas in your APIs.",4,1
+365,2019-03-25T12:34:26Z,2019-05-10T11:18:25Z,2019-05-10T11:18:25Z,1,27,7,"Fixes #26.
+I hope I integrated all feedback from this issue, while leaving the core message intact: People should be aware how statements are separated or linked together, and that there are cases where ASI and/or semicolon do not help, if statement termination is not understood. This also leaves room for the reader to prefer semicolons or not.",3,3
+366,2019-03-26T10:40:38Z,2019-03-31T02:45:21Z,2019-03-31T02:45:21Z,2,6,45,"README add common technique description and remove non-maintained package link
+Improve title and remove non-maintained package example",5,1
+367,2019-03-27T04:03:52Z,2019-03-28T01:39:30Z,2019-03-28T01:39:30Z,1,25,24,optimize Chinese translation,4,1
+368,2019-03-27T20:39:37Z,2019-04-03T13:24:43Z,2019-04-03T13:24:43Z,2,12,11,"Translated some missing parts of README.brazilian-portuguese.md
+And fixed typo at sections/performance/nativeoverutil.brazilian-portuguese.md pointed out by @marcelosdm
+Sorry took so long, was busy with college stuff.
+:)",3,1
+370,2019-04-05T01:13:58Z,2019-04-11T09:04:16Z,2019-04-11T09:04:16Z,2,59,2,,2,0
+372,2019-04-07T09:55:31Z,2019-05-01T11:09:52Z,2019-05-01T11:09:53Z,2,59,4,,2,0
+373,2019-04-09T00:23:45Z,2019-09-11T18:01:30Z,2019-09-11T18:01:30Z,3,66,2,Here is the initial rough draft for #294,4,28
+377,2019-04-13T11:01:43Z,2019-04-14T03:40:47Z,2019-04-14T03:40:47Z,3,46,13,"This PR adds all changes referenced in #352
+Closes #352",2,0
+380,2019-04-16T00:44:06Z,2019-04-16T08:44:36Z,2019-04-16T08:44:36Z,1,1,1,change bando de dados  for banco de dados (syntax error),3,1
+382,2019-04-18T10:24:44Z,2019-04-19T13:36:19Z,2019-04-19T13:36:19Z,1,1,1,"Better view for comment in JSON content
+{
+   // Warning
+}
+{
+  // No warning
+}",3,1
+386,2019-04-22T15:57:06Z,2019-07-29T14:04:15Z,2019-07-29T14:04:15Z,4,178,0,,3,4
+391,2019-04-28T07:26:25Z,,2019-08-07T00:54:43Z,6,184,23,,3,3
+392,2019-05-01T11:14:25Z,2019-05-01T14:39:22Z,2019-05-01T14:39:22Z,1,4,8,,2,0
+396,2019-05-04T21:34:41Z,2019-05-05T08:01:24Z,2019-05-05T08:01:24Z,3,3,3,"Fix a small typo that can cause a real application to crash or don't work as expected.
+An err object is passed to logger.logError(err) but the function argument is named error.",3,1
+399,2019-05-07T07:11:27Z,2019-06-24T10:16:46Z,2019-06-24T10:16:46Z,32,1344,17,"Almost all links are broken.
+before translate this articles, I create files from english :)",5,5
+401,2019-05-09T13:53:09Z,2019-05-09T15:13:37Z,2019-05-09T15:13:37Z,9,246,63,"I noticed that the BR version was behind the updates made on the main version, so I looked into all commits after that PR i made where I translated most of the sections, and updated the BR documents according to what the English ones were update.
+Also fixed a small mistake at the main README.md where the badge said 82 when it should say 83.",4,3
+402,2019-05-10T12:51:08Z,2019-05-10T15:37:43Z,2019-05-10T15:37:43Z,1,7,2,,2,0
+408,2019-05-24T10:38:01Z,,2020-03-06T13:51:54Z,2,13,9,"The error handling middleware should pass all errors to the centralized error handler, not just programmer errors.
+This closes #405.",3,11
+409,2019-06-02T03:05:18Z,2019-06-02T09:12:20Z,2019-06-02T09:12:20Z,1,1,1,,2,1
+412,2019-06-05T02:41:40Z,2019-06-06T04:34:01Z,2019-06-06T04:34:01Z,4,28,8,"(please squash the commits when merging, was using the Github GUI)",2,0
+414,2019-06-06T05:59:19Z,2019-06-06T23:00:12Z,2019-06-06T23:00:12Z,1,17,3,#383,3,0
+416,2019-06-06T15:44:12Z,,2019-10-12T10:52:25Z,1,8,0,"I didn't see anything on the discussion issue to solve, so here is the contribution for the performance section",3,2
+417,2019-06-10T02:33:47Z,2019-06-19T05:55:04Z,2019-06-19T05:55:04Z,2,16,0,,4,3
+418,2019-06-10T20:43:21Z,2019-06-18T03:22:30Z,2019-06-18T03:22:30Z,3,3,3,Spotted a typo in sandbox.md,4,3
+419,2019-06-11T11:56:07Z,2019-06-29T03:34:14Z,2019-06-29T03:34:14Z,1,22,6,"makes the Promises example more readable
+adds an async/await example",3,1
+420,2019-06-11T12:09:48Z,,2019-06-16T11:01:14Z,1,2,2,,2,0
+422,2019-06-16T10:59:57Z,2019-07-10T20:55:21Z,2019-07-10T20:55:21Z,1,1,1,Updated to address comments by @BrunoScheufler in #420.,2,1
+423,2019-06-18T14:46:18Z,,2019-06-21T03:10:00Z,8,51,17,,5,2
+424,2019-06-19T06:08:03Z,2019-06-20T20:19:41Z,2019-06-20T20:19:41Z,1,2,0,"Couple more things needed to get the bot working on this test file. After I work out how to prepare the test file how we like it, I'll look at setting it up for the main contributors list (Please approve PR so I can merge)",3,1
+429,2019-06-25T01:54:58Z,2019-06-27T16:02:21Z,2019-06-27T16:02:21Z,1,1,1,,3,1
+431,2019-06-25T23:37:13Z,,2019-06-26T23:24:25Z,3,1224,1,The Portuguese-Portugal README is now updated.,4,1
+434,2019-06-30T19:39:37Z,2019-07-08T10:48:01Z,2019-07-08T10:48:02Z,3,82,10,,4,0
+440,2019-07-16T12:43:51Z,2019-07-29T14:05:20Z,2019-07-29T14:05:20Z,1,73,831,"Remove unnecessary lines
+Fix typo
+Translate Section 5
+
+It was my mistake last time. Please review this.
+Thanks!",3,0
+441,2019-07-17T05:47:32Z,2019-07-21T09:41:29Z,2019-07-21T09:41:29Z,22,963,22,"Code Style Practices
+ Error Handling
+ Performance
+ Production (some part of this)",4,0
+443,2019-07-21T19:26:41Z,2019-07-24T12:17:08Z,2019-07-24T12:17:08Z,24,906,32,"Production (some part of this)
+ Project Structure
+ Testing and Quality",2,5
+444,2019-07-22T19:45:15Z,2019-08-03T08:26:01Z,2019-08-03T08:26:01Z,27,1223,31,Security,5,4
+446,2019-07-31T16:32:24Z,2019-08-02T05:30:03Z,2019-08-02T05:30:03Z,1,1,1,Added Pino to the suggested loggers list (fastest one!),3,4
+450,2019-08-02T14:38:22Z,2019-08-02T15:50:11Z,2019-08-02T15:50:11Z,1,1,2,"Related with #448
+Count of lines in all files (EN-RU) must match. Probably a new line is superfluous in the original file.
+There are
+
+missing uppercase letter see example below. (3) watch and filter
+newline software\n (4) Expose
+missing dot intelligence tools like Splunk.",2,0
+451,2019-08-02T22:58:13Z,2019-08-03T08:26:26Z,2019-08-03T08:26:26Z,1,3,1,Attempting to work around this issue all-contributors/app#201,2,1
+452,2019-08-04T09:27:24Z,2019-08-04T15:15:12Z,2019-08-04T15:15:12Z,4,4,4,fixes #445,3,3
+453,2019-08-05T05:45:44Z,2019-08-05T07:03:15Z,2019-08-05T07:03:15Z,6,8,6,"Sync w upstream
+Reaction to change",5,1
+456,2019-08-11T03:40:24Z,2019-08-11T13:05:54Z,2019-08-11T13:05:54Z,1,3,3,,2,1
+457,2019-08-16T22:46:56Z,2019-08-17T13:27:10Z,2019-08-17T13:27:10Z,1,0,8,"I have been running this bot locally to debug this issue, I think this config should get it working for our repo to start testing.",2,0
+461,2019-08-18T12:20:01Z,2019-08-19T07:09:44Z,2019-08-19T07:09:44Z,6,265,68,"the 1st page finish.
+For the comment: #391 (comment)",3,2
+462,2019-08-19T00:11:34Z,2019-08-19T07:06:49Z,2019-08-19T07:06:49Z,8,31,407,#459,2,0
+463,2019-08-19T03:56:51Z,2019-08-19T07:09:01Z,2019-08-19T07:09:01Z,3,3,3,The #454 was marked as translation. It seems #105 is out of date now.,3,0
+465,2019-08-20T20:10:38Z,2019-08-21T07:33:19Z,2019-08-21T07:33:19Z,1,2,2,"Fixes an issue where the link would redirect to another page (due to the i0natan bit, I guess).",3,3
+547,2019-08-22T04:56:28Z,2019-08-31T09:45:33Z,2019-08-31T09:45:33Z,1,3,1,cc @goldbergyoni,2,0
+551,2019-08-24T05:03:38Z,2019-08-24T07:35:25Z,2019-08-24T07:35:25Z,4,527,199,,3,4
+553,2019-08-25T04:42:07Z,2019-08-25T14:26:47Z,2019-08-25T14:26:47Z,13,1422,725,,4,0
+554,2019-08-25T10:16:00Z,2019-08-25T14:25:53Z,2019-08-25T14:25:53Z,1,14,14,"Linting
+Dots",2,1
+555,2019-08-25T10:19:05Z,2019-08-25T14:25:12Z,2019-08-25T14:25:12Z,1,31,0,,2,0
+557,2019-08-28T12:22:01Z,2019-08-31T09:45:10Z,2019-08-31T09:45:10Z,1,1,1,"Termo async estava escrito de forma incorreta.
+Term async was misspelled.",2,0
+558,2019-08-29T06:32:08Z,2019-08-31T09:47:24Z,2019-08-31T09:47:24Z,4,4,5,Closes #556,2,4
+559,2019-08-31T03:35:40Z,2019-08-31T09:44:36Z,2019-08-31T09:44:37Z,2,183,505,addresses #552,2,0
+562,2019-09-01T04:34:27Z,2019-09-01T09:30:19Z,2019-09-01T09:30:19Z,12,218,532,,6,1
+563,2019-09-12T00:55:42Z,2019-09-23T20:23:02Z,2019-09-23T20:23:02Z,1,3,3,,2,5
+565,2019-09-19T16:21:06Z,2019-09-22T13:41:38Z,2019-09-22T13:41:38Z,1,2,0,,3,6
+566,2019-09-20T08:47:08Z,2019-09-23T20:24:31Z,2019-09-23T20:24:31Z,2,10,0,"Adds @deyvisonrocha as a contributor for content.
+This was requested by js-kyle in this comment",1,0
+571,2019-10-02T10:29:14Z,2019-10-04T08:40:58Z,2019-10-04T08:40:58Z,2,144,0,,3,2
+573,2019-10-04T21:19:16Z,2019-10-12T11:01:33Z,2019-10-12T11:01:33Z,2,10,0,"Adds @leimonio as a contributor for content.
+This was requested by js-kyle in this comment",2,0
+575,2019-10-10T09:30:25Z,2019-10-12T11:02:51Z,2019-10-12T11:02:51Z,1,2,0,Closes #561,3,2
+576,2019-10-12T11:17:52Z,2019-10-13T01:58:22Z,2019-10-13T01:58:22Z,1,1,1,,2,1
+577,2019-10-13T02:23:16Z,2019-10-20T04:55:39Z,2019-10-20T04:55:39Z,1,4,4,"I changed some of the words and phrasing to make it more appealing to hispanic readers, this way it doesnt sound like it was translated but natively written on spanish",3,3
+580,2019-10-17T06:03:43Z,2019-10-26T19:00:21Z,2019-10-26T19:00:21Z,7,53,13,,6,0
+581,2019-10-18T13:43:02Z,2019-10-26T18:54:12Z,2019-10-26T18:54:12Z,1,1,1,"The 7th section link is broken, this commit fixes it.",2,1
+583,2019-10-26T20:17:12Z,2019-12-12T08:17:25Z,2019-12-12T08:17:25Z,1,1,1,This PR includes updates to the current events section (@goldbergyoni did you already speak in Atlanta or is this still coming up?) and other minor things,3,2
+584,2019-10-27T10:47:38Z,2019-11-17T19:14:38Z,2019-11-17T19:14:38Z,10,388,38,"This PR adds typescript examples to the infrastructure and error handling sections.
+I've formatted the code as proposed in #579
+If that style suits everyone I will add examples to the other sections too.
+I've had to add <br/> to get linebreaks to appear in the <pre> block on github.",4,9
+589,2019-11-07T10:28:03Z,2019-11-27T19:40:00Z,2019-11-27T19:40:00Z,31,140,132,"Depends on #584
+
+I updated the javascript code examples to use more es6.
+I fixed some small typos and bugs I found here and there
+I unified the quote style because there was a mix of ' and "". I chose to use ' because that the most used one (and the one I prefer 😄 )",3,3
+592,2019-11-16T19:26:10Z,2019-11-24T16:50:49Z,2019-11-24T16:50:49Z,1,2,2,,2,2
+593,2019-11-21T04:51:20Z,2019-11-24T16:49:34Z,2019-11-24T16:49:34Z,5,20,15,__proto__ is deprecated and shouldn't be used to set object prototype.,2,2
+598,2019-11-29T06:00:16Z,2019-12-06T08:19:47Z,2019-12-06T08:19:47Z,34,523,160,"Hi!
+Missed me?
+This is an actual synchronization with the latest changes and the green branch.
+Thanks for the ts examples! 🎆",4,1
+599,2019-12-05T21:58:57Z,2019-12-06T08:18:56Z,2019-12-06T08:18:57Z,1,1,1,,3,4
+602,2019-12-06T21:10:54Z,2020-11-23T13:34:13Z,2020-11-23T13:34:13Z,1,1,1,"Was fixed minor type: 'Лозволяющая' -> 'Позволяющая'.
+Actually i would not recommend to translate it word into word. MB here is better to use word - 'Гибкая' (flexible) instead of 'Позволяющая'.",4,13
+604,2019-12-12T23:52:07Z,2019-12-28T06:10:08Z,2019-12-28T06:10:08Z,1,1,1,,3,1
+605,2019-12-16T12:22:30Z,2019-12-29T10:21:15Z,2019-12-29T10:21:15Z,1,1,1,Closes #601,2,0
+606,2019-12-18T22:04:23Z,2020-03-30T06:48:28Z,2020-03-30T06:48:28Z,1,1,1,,2,5
+607,2019-12-19T22:32:08Z,2019-12-29T10:19:43Z,2019-12-29T10:19:43Z,1,678,205,Spanish translation until point 7.2 . I'm spanish native,4,2
+613,2019-12-30T04:38:20Z,2020-01-10T22:53:30Z,2020-01-10T22:53:30Z,1,9,5,"Original Blog Quotes are kept, translation in italics provided.
+Images alt-text also changed.",3,3
+614,2020-01-03T16:27:43Z,2020-01-09T10:55:55Z,2020-01-09T10:55:55Z,1,1,1,,2,2
+615,2020-01-10T04:40:01Z,2020-02-02T11:33:13Z,2020-02-02T11:33:13Z,2,4,4,"After re-reading the changes I made on the last PR, I felt like it needed more elaboration.
+Hopefully, you'll find this more accurate.",4,7
+616,2020-01-14T08:20:34Z,2020-01-30T09:51:40Z,2020-01-30T09:51:40Z,1,1,2,The reason for file change is to correct the statement that the original author created to mean what was intended.,4,2
+625,2020-02-03T04:28:25Z,,2020-05-16T03:53:22Z,1,18,0,Add Security.txt (Production) and Security.MD (Open Source),5,17
+626,2020-02-03T04:47:26Z,2020-03-08T15:44:45Z,2020-03-08T15:44:45Z,1,12,0,Added: Encryption of PII Data,2,3
+627,2020-02-14T09:28:04Z,2020-02-28T10:43:56Z,2020-02-28T10:43:56Z,2,41,1,"Hi there,
+I added a section about the use of npm ci.
+I thought it would be better to put it right after the bullet point about locking dependencies.
+Let me know what you think of it.",4,1
+628,2020-02-14T21:36:47Z,2020-02-26T19:26:30Z,2020-02-26T19:26:30Z,3,137,142,,3,0
+631,2020-02-23T01:09:05Z,2020-04-06T16:37:14Z,2020-04-06T16:37:14Z,68,4530,0,Polish translation,3,14
+632,2020-02-25T10:58:50Z,2020-03-02T19:44:52Z,2020-03-02T19:44:52Z,1,1,1,,2,0
+633,2020-02-26T18:35:35Z,2020-02-29T20:03:11Z,2020-02-29T20:03:11Z,2,65,30,,3,1
+644,2020-03-01T02:54:36Z,2020-03-02T19:43:06Z,2020-03-02T19:43:06Z,1,2,1,"The code example for do and avoid was the same,",2,3
+645,2020-03-02T21:24:03Z,2020-03-05T19:10:12Z,2020-03-05T19:10:12Z,2,3,3,,3,0
+649,2020-03-10T08:58:08Z,2021-01-04T13:17:54Z,2021-01-04T13:17:54Z,6,87,84,"translate comments
+fix typos",4,15
+652,2020-03-19T12:38:59Z,2020-03-24T17:17:16Z,2020-03-24T17:17:16Z,1,1,1,,2,3
+653,2020-03-19T19:55:00Z,2020-04-06T16:50:53Z,2020-04-06T16:50:53Z,2,2,2,,4,2
+654,2020-03-22T20:55:58Z,2020-03-24T17:13:59Z,2020-03-24T17:13:59Z,1,5,5,"transaction Id -> transaction id
+transaction-id -> transaction id
+When calling other microservice -> ... microservices",3,3
+665,2020-04-01T20:43:42Z,2020-04-06T16:34:12Z,2020-04-06T16:34:12Z,5,321,260,"Translate README.korean.md
+This PR essentially translates the rest of README.korean.md. After this PR, we'll only need to translate the sections into Korean.
+
+Update the Collaborators section
+Update intro & other sections to sound more natural in Korean
+Fix typos
+Add the missing code example in section 3.4
+Translate sections 6 & 7
+Import @mindock's changes (84c357b) from korean-translation branch
+
+Additionally,
+
+Translate sections/projectstructre/breakintcomponents.korean.md",3,8
+669,2020-04-20T06:20:46Z,2020-05-10T10:23:03Z,2020-05-10T10:23:03Z,7,14,14,Needs input before merging. Please see TL;DR of 4.10 in README.md,3,1
+672,2020-04-22T21:56:05Z,2020-05-10T10:24:32Z,2020-05-10T10:24:32Z,1,1,1,Update new best practices href,3,4
+673,2020-04-25T00:39:14Z,2020-05-10T08:37:15Z,2020-05-10T08:37:15Z,1,3,3,"Friends, I offer some improvements for Russian localization here.",3,4
+678,2020-05-10T08:37:15Z,2020-05-10T10:23:23Z,2020-05-10T10:23:23Z,2,10,0,"Adds @Ksedline as a contributor for content.
+This was requested by goldbergyoni in this comment",1,0
+681,2020-05-12T07:01:33Z,2020-05-17T09:50:08Z,2020-05-17T09:50:08Z,1,3,1,,2,6
+683,2020-05-14T06:33:15Z,2020-05-14T21:40:01Z,2020-05-14T21:40:01Z,1,20,0,"Moved the security notes from Readme to Common security best practices
+Reference: PR #625",2,1
+701,2020-06-01T11:18:13Z,2020-10-14T01:59:55Z,2020-10-14T01:59:55Z,2,1042,970,"translate 6.24 to Chinse
+fix ""return to top"" bug.",4,1
+702,2020-06-02T08:55:14Z,2020-06-05T07:21:38Z,2020-06-05T07:21:38Z,1,1,1,,2,2
+706,2020-06-04T10:34:04Z,2020-06-06T03:32:12Z,2020-06-06T03:32:13Z,1,1,1,"Hey, it doesn't look like winston and bunyan are particularly updated. Bunyan hasn't been updated in ~3 years for example.
+The list should also mention somewhere that it's important to log to stdout and persist with another process.
+CC @goldbergyoni",3,4
+707,2020-06-05T07:21:25Z,2020-06-05T10:11:36Z,2020-06-05T10:11:36Z,2,11,0,"Adds @bushuai as a contributor for review, content.
+This was requested by goldbergyoni in this comment",1,0
+710,2020-06-05T10:08:36Z,2020-06-06T03:33:19Z,2020-06-06T03:33:19Z,62,148,148,"It seems that there was still a lot of links using @goldbergyoni older username.
+I did a big search and replace.
+I fixed that. I will close #709 in favor of that one.",3,0
+714,2020-06-07T18:46:31Z,2020-07-26T12:53:55Z,2020-07-26T12:53:55Z,2,101,7,@kevynb @BrunoScheufler @js-kyle Do we want to use the details expander also here? I suggest yes as we will have JS examples that might need to be translated to TS as well,3,0
+715,2020-06-08T11:59:20Z,2020-07-26T13:58:20Z,2020-07-26T13:58:20Z,3,104,1,,3,3
+717,2020-06-11T08:59:09Z,2020-07-26T13:03:11Z,2020-07-26T13:03:11Z,2,229,3,,3,0
+718,2020-06-12T12:15:24Z,2020-07-26T14:01:40Z,2020-07-26T14:01:40Z,3,201,0,,4,0
+719,2020-06-14T10:05:32Z,2020-07-26T14:15:48Z,2020-07-26T14:15:48Z,2,91,7,,3,0
+721,2020-06-14T17:50:08Z,2020-07-26T13:26:11Z,2020-07-26T13:26:11Z,2,223,3,,4,2
+722,2020-06-14T18:37:49Z,2020-07-26T13:16:35Z,2020-07-26T13:16:35Z,2,34,6,,4,0
+727,2020-07-05T19:57:36Z,2020-07-06T06:59:25Z,2020-07-06T06:59:25Z,1,1,1,,2,2
+730,2020-07-07T18:21:04Z,2020-07-18T23:06:48Z,2020-07-18T23:06:48Z,1,9,7,"I've been on a hiatus from the project for a while, and don't foresee
+being able to come out of it soon-ish, owing to various personal
+reasons. Till such a time as I'm unable to contribute actively, it's
+best that I go emeritus and make space for new folks.
+Thanks for having me aboard the rocketship! Ya'll have been a wonderful
+team and a joy to work with. Sincere gratitude from the depth of my
+heart to all the steering committee members, collaborators and
+contributors! 🙏
+Until next,
+Here's to the next 50,000 stars! 🌟",4,2
+732,2020-07-18T18:16:07Z,2020-07-30T07:20:55Z,2020-07-30T07:20:55Z,3,94,8,,3,0
+733,2020-07-22T09:43:07Z,2020-07-29T07:20:41Z,2020-07-29T07:20:42Z,2,74,3,,2,1
+734,2020-07-24T18:08:41Z,2020-07-30T10:28:28Z,2020-07-30T10:28:28Z,2,115,0,"I did not talk about dive, I need to play with it and use it with a real image",3,0
+741,2020-08-17T14:12:33Z,2020-08-25T05:33:36Z,2020-08-25T05:33:36Z,1,3,3,"Found certain wrong spellings.
+Additionally, dotfiles have been placed in the tilde block to highlight them from the surrounding text.",3,4
+743,2020-08-19T02:07:10Z,2020-09-09T10:21:33Z,2020-09-09T10:21:33Z,12,12,12,Added per discussion on #738.,2,2
+745,2020-08-19T08:24:58Z,2020-08-24T12:45:03Z,2020-08-24T12:45:03Z,5,93,0,"I quickly wrote an example project to show usage of the dockerfile.
+I used typescript to have a build step to illustrate multi-stage build. I used koa to change from express ;)
+Please let me know what we could add (or contribute to the PR directly)",4,1
+746,2020-08-19T13:42:59Z,2020-08-20T05:53:50Z,2020-08-20T05:53:50Z,1,1,1,Update the .dockerignore section with a link to the correct .md file.,2,2
+747,2020-08-19T16:50:42Z,2020-08-20T05:51:57Z,2020-08-20T05:51:57Z,2,65,1,"I've added another couple of simpler and more focused multi-stage Docker build examples, also one for the README itself as an intro.",2,0
+749,2020-08-20T09:35:01Z,2020-08-24T00:58:39Z,2020-08-24T00:58:39Z,4,6,6,,2,0
+752,2020-08-22T08:55:50Z,2020-08-23T19:38:17Z,2020-08-23T19:38:17Z,1,1,1,"The command is npm cache clean --force, not npm clean cache --force",2,3
+753,2020-08-23T14:33:46Z,2020-08-23T19:40:02Z,2020-08-23T19:40:02Z,1,2,2,"fix the title
+fix typo",2,2
+759,2020-08-26T21:59:37Z,2020-09-17T12:21:34Z,2020-09-17T12:21:34Z,2,12,10,"Also added the hint in chapter 5.19 to use the npm ci command in automated environments.
+Maybe this should also be updated in the in detail section Multi Stage Builds with Docker, but this example uses yarn, which would be yarn install --frozen-lockfile then. Ideally with a short explanation that both commands can be fine, depending which package manager you use.",4,3
+761,2020-08-29T05:24:00Z,,2021-06-20T13:16:45Z,1,2,2,"change QA to Quality assurance(QA)
+At Line Number: 593 or 5.4. Lock dependencies  of README.md
+QA will thoroughly test the code and approve a version that will behave differently in production. Even worse, different servers in the same production cluster might run different code
+---------->>>>
+Quality assurance(QA) will thoroughly test the code and approve a version that will behave differently in production. Even worse, different servers in the same production cluster might run different code",7,6
+769,2020-09-28T01:17:28Z,2020-10-02T10:04:16Z,2020-10-02T10:04:16Z,14,150,105,,3,4
+770,2020-09-28T03:49:18Z,2020-10-02T10:19:00Z,2020-10-02T10:19:00Z,1,31,0,im creating the translation in writing-guidelines.indonesia.md,2,2
+774,2020-10-06T02:29:30Z,2020-10-06T05:28:27Z,2020-10-06T05:28:27Z,1,1,1,#773,3,0
+775,2020-10-07T17:21:29Z,2020-10-31T16:38:16Z,2020-10-31T16:38:16Z,3,119,36,"closes #325
+Presenting the tradeoffs between the IETF's and OWASP's top recommendations, as well as adding mention of making your implementation unique to make your hash different from other's if given the same password.
+Mentioned to use IETF's default parameters for the functions.
+I thought about saying more about Salt generation, but it was already getting a bit verbose. So any suggestions would be helpful.
+I should also mention, the linked issue's original point doesn't apply to the actual bcrypt npm module (removed suggesting ""other"" bcrypt modules), but the discussion deviated into more generally providing the situationality of the top recommended algorithms.",4,5
+776,2020-10-12T13:52:52Z,2020-10-20T08:00:55Z,2020-10-20T08:00:55Z,1,1,1,,3,3
+781,2020-10-19T16:35:17Z,2020-11-13T08:58:20Z,2020-11-13T08:58:20Z,1,27,27,Correct some grammar mistakes/errors in the file.,3,3
+783,2020-10-23T16:26:12Z,2020-11-20T18:37:23Z,2020-11-20T18:37:23Z,1,209,14,"En el presente commit se añade:
+-Lista de contribuidores
+-Traducción inicial de la sección 8, referente a Docker
+-Estandarización de mensajes de ""Volver arriba""
+-Enlace de menús del archivo",4,5
+788,2020-11-01T06:11:22Z,2020-11-13T09:00:11Z,2020-11-13T09:00:11Z,1,18,3,"Closes #786
+
+Spelling corrections
+Importance of Salting
+BCrypt/SCrypt premise of operation
+Password Length Handling",2,3
+789,2020-11-01T13:02:10Z,2020-11-18T07:44:22Z,2020-11-18T07:44:22Z,1,1,1,"Fix ""Otherwise"" word to ""Caso contrário"" in 3.4 topic of brazilian-portuguese README",4,3
+792,2020-11-13T01:11:34Z,2020-11-15T00:24:25Z,2020-11-15T00:24:25Z,1,92,0,add avoid-build-time-secrets.chinese.md,2,0
+795,2020-11-13T09:01:09Z,2020-11-14T10:06:42Z,2020-11-14T10:06:42Z,2,3,2,"Adds @josh-hemphill as a contributor for security, content.
+This was requested by goldbergyoni in this comment",1,0
+796,2020-11-13T11:49:21Z,2020-11-14T10:03:53Z,2020-11-14T10:03:53Z,4,4,4,"Thanks for this invaluable knowledgebase! I noticed a small typo: the signature crypto.RandomBytes(size, [callback]) is invalid. I have also updated the docs links to the current node version.",2,2
+806,2020-11-22T12:15:29Z,2020-11-23T13:24:53Z,2020-11-23T13:24:53Z,1,6,6,"Hello! I'm a native spanish speaker from Argentina and I've translated de codestylepractices section.
+Hope it helps",3,4
+811,2020-12-05T09:36:55Z,2020-12-06T21:22:58Z,2020-12-06T21:22:58Z,1,1,1,,4,8
+818,2020-12-14T19:08:10Z,2021-01-17T18:51:14Z,2021-01-17T18:51:14Z,3,52,52,,5,7
+819,2020-12-17T19:27:43Z,2020-12-20T15:38:03Z,2020-12-20T15:38:03Z,1,1,1,,2,2
+827,2020-12-23T03:02:13Z,2021-01-06T08:42:34Z,2021-01-06T08:42:34Z,2,120,0,"Hello!
+I've just added the Spanish translation for the performance section.
+Any change needed let me know!",3,3
+832,2021-01-01T11:25:19Z,2021-01-02T02:40:54Z,2021-01-02T02:40:54Z,1,1,1,,3,3
+835,2021-01-02T21:21:46Z,2021-01-31T17:22:12Z,2021-01-31T17:22:12Z,1,4,4,"Revise questionable terminology, i.e. blacklist/whitelist
+https://tools.ietf.org/id/draft-knodel-terminology-00.html",4,2
+838,2021-01-07T07:22:19Z,2021-01-07T15:25:11Z,2021-01-07T15:25:11Z,1,1,1,,2,3
+839,2021-01-07T09:33:00Z,2021-01-07T15:18:41Z,2021-01-07T15:18:41Z,1,1,1,,2,2
+843,2021-01-09T09:27:07Z,2021-01-17T19:05:13Z,2021-01-17T19:05:13Z,1,32,20,"Based on #830, I clarified things so it will be hopefully clearer
+
+It's explained now how a middleware just forward the error
+Registering to uncaught exceptions and forwarding to the same handler
+Flow diagram
+Modern monitoring products
+Less Express centric!",3,2
+845,2021-01-11T14:41:44Z,2021-01-13T09:50:18Z,2021-01-13T09:50:18Z,1,85,0,,2,2
+850,2021-01-14T11:17:47Z,2021-01-14T19:13:27Z,2021-01-14T19:13:27Z,1,1,1,Adds missing is in section 4.13 Test your middlewares in isolation.,3,2
+853,2021-01-19T22:39:55Z,2021-02-02T08:57:46Z,2021-02-02T08:57:46Z,32,3521,88,"The entire README has been translated into Basque, as well as some 'see more' or 'read more' pages.
+I've added the Basque as a ""translation in progress"" at the beginning and the end of each README (except for Korean and Chinese), and I've included my name and my father's as well.
+And also the Basque flag has been added.",3,5
+854,2021-01-23T07:12:27Z,2021-02-03T08:38:03Z,2021-02-03T08:38:03Z,89,5972,85,"Finally, we've done Japanese translation #768 !",4,13
+857,2021-01-26T14:31:25Z,2021-01-31T17:23:14Z,2021-01-31T17:23:14Z,1,4,8,"Before:
+
+After:",2,0
+858,2021-01-27T18:51:25Z,2021-03-05T11:18:12Z,2021-03-05T11:18:12Z,4,165,4,"I couldn't find any documentation for correlation ID practice, so here it is. LMK what you think.
+@goldbergyoni",4,9
+859,2021-01-27T21:31:58Z,2021-02-04T17:03:43Z,2021-02-04T17:03:43Z,1,1,1,fixed a typo on password algorithms,1,2
+860,2021-01-29T13:40:18Z,2021-01-31T17:19:58Z,2021-01-31T17:19:58Z,1,2,2,,3,1
+861,2021-01-29T13:44:41Z,2021-01-31T17:21:21Z,2021-01-31T17:21:21Z,1,3,2,,3,0
+862,2021-01-31T03:35:36Z,2021-03-03T19:04:28Z,2021-03-03T19:04:28Z,1,1558,0,"A translation for Indonesian Language.
+Progress:
+
+ Introduction & Table of Content
+ Section 1 - Project Structure Practices
+ Section 2 - Error Handling Practices
+ Section 3 - Code Style Practices
+ Section 4 - Testing And Overall Quality Practices
+ Section 5 - Going To Production Practices
+ Section 6 - Security Practices
+ Section 7 - Performance Practices
+ Section 8 - Docker Practices",4,13
+864,2021-02-01T10:49:30Z,2021-02-04T17:06:21Z,2021-02-04T17:06:21Z,1,1,1,"See https://docs.npmjs.com/cli/v6/commands/npm-cache, there is no command called npm clean",3,4
+865,2021-02-02T08:59:32Z,2021-02-04T17:09:58Z,2021-02-04T17:09:58Z,2,12,2,"Adds @anediaz as a contributor for content.
+This was requested by goldbergyoni in this comment",1,0
+868,2021-02-03T19:47:09Z,2021-02-06T19:37:44Z,2021-02-06T19:37:44Z,1,2,1,,3,10
+875,2021-02-08T18:48:22Z,2021-02-08T21:36:04Z,2021-02-08T21:36:04Z,1,1,1,снимока -> снимка,2,0
+876,2021-02-09T10:45:08Z,2021-02-19T08:40:42Z,2021-02-19T08:40:42Z,1,3,3,,4,4
+877,2021-02-09T10:46:30Z,2021-02-09T19:56:11Z,2021-02-09T19:56:11Z,1,3,3,,2,2
+879,2021-02-09T17:17:52Z,2021-02-09T19:53:59Z,2021-02-09T19:53:59Z,1,3,3,Fix typo in Japanese translation on line 29 (Janapense --> Japanese),3,2
+883,2021-02-10T21:19:04Z,2021-02-12T14:35:59Z,2021-02-12T14:35:59Z,1,1,1,Fixing a typo in centralizedhandling.md,2,2
+886,2021-02-12T23:09:46Z,2021-02-14T18:07:49Z,2021-02-14T18:07:49Z,2,8,8,"-Add missing period to e.g. (e.g -> e.g.) in line 550
+-Add a missing apostrophe (end-users -> to end-user's) on line 642 and a missing period on the same line (a.k.a -> a.k.a.)
+-Add a code quote to lines 710 and 712 to standardize the formatting of NODE_ENV (to match line 714)
+-Fix the markdown code quotes typo in the title of 8.2. on line 1126 ('node' command, avoid npm start -> node command, avoid npm start)",2,4
+892,2021-02-22T06:33:06Z,2021-02-22T15:26:57Z,2021-02-22T15:26:57Z,1,1,1,"How do you propose that I should state that in case the readers use TS they should use the @typescript-eslint/no-throw-literal as it solve the regular rule limitation.
+typescript-eslint/typescript-eslint#1258",3,0
+894,2021-02-23T17:47:48Z,2021-05-17T14:35:33Z,2021-05-17T14:35:33Z,1,79,66,"Added another quote, the quote is from Bill Wake which he state at the notes of the article that he first observed and name this pattern
+And it look like that Martin Fowler support that:
+
+Bill Wake came up with the formulation as Arrange, Act, Assert.
+From Giving When Then by Martin Fowler
+
+Related to this card",2,6
+895,2021-02-24T11:25:05Z,2021-03-03T19:00:16Z,2021-03-03T19:00:16Z,1,1,1,After this PR will be merged I will create another one to use the Markdown link (unless you want me to do it in this PR),3,2
+897,2021-02-24T11:42:42Z,2021-03-06T20:27:43Z,2021-03-06T20:27:43Z,1,2,2,Sorry for all the PRs 😬😅,3,3
+898,2021-02-24T12:02:37Z,2021-03-06T20:20:03Z,2021-03-06T20:20:03Z,1,17,5,"The test examples have some anti patterns
+
+Anti Pattern: no separation, one bulk, harder to interpret
+From AAA",2,3
+905,2021-03-05T10:27:32Z,2021-03-26T15:38:02Z,2021-03-26T15:38:02Z,1,2,2,"from the origin english version : 'common security best practices', the chinese title and content should be translated to '通用安全最佳实践' instead of '通用安全最佳实际'",3,5
+908,2021-03-06T07:21:37Z,2021-03-07T12:35:41Z,2021-03-07T12:35:41Z,1,12,0,,3,2
+909,2021-03-06T16:48:16Z,2021-03-15T11:05:02Z,2021-03-15T11:05:02Z,3,99,1,"The current last update badge need to be updated manually, so I used dynamic badge that fetch from custom endpoint to get the last commit date in master
+The code for the custom endpoint is here",3,5
+910,2021-03-07T11:49:42Z,2021-03-15T10:56:29Z,2021-03-15T10:56:29Z,1,2,2,There were a couple minor typos in the section on using the AAA pattern to structure tests.,3,3
+911,2021-03-07T15:38:14Z,2021-04-11T18:40:58Z,2021-04-11T18:40:58Z,1,28,3,"This chapter is harder to translate, but i finished the work more carefully.",2,4
+912,2021-03-08T06:02:59Z,2021-03-26T15:36:03Z,2021-03-26T15:36:03Z,2,3,2,"Adds @elektronik2k5 as a contributor for review.
+This was requested by rluvaton in this comment",3,3
+913,2021-03-08T14:02:45Z,2021-03-15T10:53:27Z,2021-03-15T10:53:27Z,1,1,1,The description does not match the subject,3,0
+914,2021-03-11T07:45:10Z,2021-03-15T10:52:53Z,2021-03-15T10:52:53Z,1,8,8,,3,2
+915,2021-03-11T07:55:47Z,2021-03-27T12:51:28Z,2021-03-27T12:51:28Z,87,6578,0,"This PR contains the complete translation of the README.md (README.french.md) and the complete French translation of 57 points (*.french.md). The remaining 29 points to be translated are a copy of the original English version in the *.french.md files).
+This choice has been discussed with Yoni Goldberg.
+It is possible to see the remaining translations here
+Note that the files are up to date with the English version.
+I want to thank @MrYamous and @tkhadir for their very precious help",4,12
+916,2021-03-11T19:48:40Z,2021-03-11T20:55:46Z,2021-03-11T20:55:46Z,1,6,6,,2,0
+917,2021-03-11T19:53:26Z,2021-03-26T15:32:46Z,2021-03-26T15:32:46Z,1,5,0,,2,0
+919,2021-03-14T04:43:11Z,2021-03-15T11:27:06Z,2021-03-15T11:27:06Z,1,1,1,Fix Link [Event Loop Best Practices — NodeJS Event Loop Part 5],2,2
+923,2021-03-15T18:29:35Z,2021-03-26T15:32:12Z,2021-03-26T15:32:12Z,3,33,38,"Fix bugs from #909
+Bugs Fixed:
+
+ Set version for the GitHub action runner
+ Action wasn't triggered
+ No PR was created on README update
+ Set the wrong date (accidentally set the month number instead of the day of the month
+
+Tests that were made
+Using test repo I tested those scenarios
+✅ 1
+
+Created PR (1) to master
+Merge (1)
+Update action create a PR (2) to update the update badge
+Merge (2)
+Created PR (3) to master
+Merge (3) on the same day as (1)
+PR from action was not created (as it should)
+
+✅ 2
+
+Created PR (1) to master
+Merge (1)
+Update action create a PR (2) to update the update badge
+Update README file and create a PR (3) to master
+Merge (3) on the same day as (1)
+PR (2) was updated with the changes from PR (3)
+Merge (2) (it was updated with (3) changes) on the same day as (3)
+
+✅ 3.
+
+Created PR (1) to master
+Merge (1)
+Update action create a PR (2) to update the update badge
+Update README file and create a PR (3) to master
+Merge (3) at a different time than (1) (I set the badge to show nanoseconds instead of the current day to simulate different day)
+PR (2) was updated with the changes from PR (3) + updated the badge to the new day
+Merge (2)",2,1
+925,2021-03-16T11:06:09Z,2021-03-26T15:04:35Z,2021-03-26T15:04:35Z,1,2,3,and fix typo front-end,3,0
+926,2021-03-17T09:36:38Z,2021-03-26T15:03:34Z,2021-03-26T15:03:34Z,1,13,8,"Improved markdown rendering to better match the blog quote
+Before
+
+After",3,1
+928,2021-03-22T07:08:59Z,2021-03-26T14:35:55Z,2021-03-26T14:35:55Z,94,3412,383,"Hello,
+I'm very proud to tell you the Basque translation is finally finished 🎉
+This includes everything, the main README as well as each sub-section files.
+I've updated the status of translations in the beginning and the end of the README to set the Basque translation done (not in progress any more).",2,9
+931,2021-03-26T15:32:37Z,2021-03-27T12:11:42Z,2021-03-27T12:11:42Z,2,1,1,,2,2
+935,2021-03-27T16:13:44Z,2021-04-11T18:38:08Z,2021-04-11T18:38:08Z,41,599,441,"Hello,
+This is what changes :
+
+Basque translation: some minimal fixes
+Basque translation: I've updated ""latest news"" part with the English version's last modifications
+French translation: I've moved Basque translation from ""in progress"" to ""finished"" (at the beginning and the end of the guide)
+French translation: I've added ""latest news"" translation in order to add the news about the Basque translation
+English readme: I've taken the liberty of adding my father's name as contributor to the Basque translation in ""latest news"" part
+All translations (apart the English version): add new contributors to the contributors table of the end of the guide",3,1
+937,2021-03-29T15:56:59Z,2021-05-30T15:31:46Z,2021-05-30T15:31:46Z,2,4,2,Resovle #936,4,8
+938,2021-03-30T17:35:32Z,2021-04-24T20:25:06Z,2021-04-24T20:25:07Z,1,4,0,"when you update the master in your fork it will trigger the update badge action so I limited it to only run on this repo
+I tested it by merging this branch to my fork’s master branch",3,2
+940,2021-03-31T10:07:59Z,2021-04-11T18:33:48Z,2021-04-11T18:33:48Z,1,2,2,,3,0
+941,2021-03-31T11:13:00Z,2021-04-11T18:33:33Z,2021-04-11T18:33:33Z,84,261,199,"Set some snippets highlighting, add an extra newline to distinguish different stages in Dockerfile",3,1
+944,2021-04-02T10:12:11Z,,2021-04-05T02:17:37Z,1,2,1,The opening curly braces of a code block should not be on the same line for the avoid example,3,2
+946,2021-04-02T11:00:54Z,2021-04-11T18:26:21Z,2021-04-11T18:26:21Z,1,1,1,,3,1
+947,2021-04-02T13:35:00Z,,2022-02-20T22:43:39Z,1,2,2,See OWASP cheat sheet - https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html,5,12
+948,2021-04-04T20:50:03Z,2021-04-05T02:14:30Z,2021-04-05T02:14:30Z,1,2,1,"In the main README description about dos and don'ts about curly braces positions. They are same leading to confusion
+It is
+// Do
+function someFunction() {
+  // code block
+}
+
+// Avoid
+function someFunction() {
+  // code block
+}
+Should have been
+// Do
+function someFunction() {
+  // code block
+}
+
+// Avoid
+function someFunction() 
+{
+  // code block
+}",2,2
+950,2021-04-05T02:14:49Z,2021-04-24T20:18:07Z,2021-04-24T20:18:07Z,1,1,1,,2,2
+953,2021-04-07T03:47:03Z,2021-04-11T18:24:12Z,2021-04-11T18:24:12Z,28,37,37,"Hello everyone, everything good?
+There are several broken links in the documentation, according to Issue #927. Therefore, I dedicated myself to look for links on the internet and replace them with the correct ones.
+However, I did not find all the links mentioned in the Issue to solve. If necessary, the reviewer of this PR can include correct links and I commit!
+This PR partially resolves Issue #927.",2,2
+956,2021-04-11T18:24:15Z,2021-04-24T20:17:06Z,2021-04-24T20:17:06Z,2,10,0,"Adds @lucalves as a contributor for content.
+This was requested by goldbergyoni in this comment",1,0
+957,2021-04-12T04:12:18Z,2021-05-17T14:34:37Z,2021-05-17T14:34:37Z,1,1,2,update the translate about better approach of elegant restart,2,4
+958,2021-04-24T20:56:39Z,2021-05-17T14:33:23Z,2021-05-17T14:33:23Z,2,36,0,"Used in my TechPicks Archive
+#950 (comment)",2,1
+961,2021-04-26T20:13:55Z,2021-05-17T14:07:30Z,2021-05-17T14:07:30Z,1,2,1,"#943 for the Russian version, potentially a duplicate
+The opening bracket should have been put on the next line to show an example, which might lead to an error",3,4
+962,2021-04-27T11:59:41Z,2021-05-10T20:33:43Z,2021-05-10T20:33:43Z,2,6,6,I found some code-style problems like curly brace misalignment and missing indentation.,4,8
+964,2021-04-28T06:02:18Z,2021-05-23T15:10:20Z,2021-05-23T15:10:20Z,1,60,16,"[FEAT] Add news Brazilian Portuguese translation
+Rearrange section 4 items, same as english materia",4,4
+966,2021-04-30T09:55:21Z,2021-05-30T15:29:44Z,2021-05-30T15:29:44Z,5,94,18,"As discussed (#896 (comment)), I've migrated from Travis.CI to GitHub Actions
+I've sinned, I've also Fixed that the tests would run in this repo as well and not only in the forked ones (#896 (comment))
+
+ Remove .travis.yml file",3,1
+968,2021-05-08T13:49:23Z,2021-05-09T19:33:01Z,2021-05-09T19:33:01Z,1,1,1,,1,0
+970,2021-05-08T16:31:03Z,2021-05-08T17:45:58Z,2021-05-08T17:45:58Z,1,1,1,Signed-off-by: Benjamin Udoh benjaminudoh10@gmail.com,2,2
+972,2021-05-10T20:23:02Z,2021-05-16T10:48:28Z,2021-05-16T10:48:28Z,5,39,39,"fixed typos, and improved grammar/phrases in:
+
+CONTRIBUTING.md
+writing-guidelines.md
+operations-manual.md
+.common-answers.md
+
+Better Chinese translation for:
+
+writing-guidelines.chinese.md",2,2
+978,2021-05-10T21:04:05Z,2021-05-16T08:27:09Z,2021-05-16T08:27:09Z,2,0,10,"Reverts #975
+Accidentally added the wrong person #962 (comment) 😅",2,0
+979,2021-05-12T04:41:12Z,2021-05-22T09:23:33Z,2021-05-22T09:23:33Z,1,1,1,应该是做文章吧!这样读起来也通顺些,3,2
+982,2021-05-16T10:14:19Z,2021-05-18T15:49:30Z,2021-05-18T15:49:31Z,2,3,3,"As requested in #969 by @goldbergyoni
+
+I think I'll squash and merge to remove all the trial and error commits",3,3
+987,2021-05-17T14:08:00Z,2021-05-17T17:43:36Z,2021-05-17T17:43:36Z,1,1,1,,2,0
+988,2021-05-17T14:34:24Z,2021-05-17T19:27:08Z,2021-05-17T19:27:08Z,2,10,0,"Adds @Flouse as a contributor for content.
+This was requested by goldbergyoni in this comment",1,0
+990,2021-05-22T09:23:55Z,2021-05-22T17:21:32Z,2021-05-22T17:21:32Z,1,1,1,,2,0
+992,2021-05-23T15:10:42Z,2021-05-29T18:12:36Z,2021-05-29T18:12:36Z,1,1,1,,1,0
+993,2021-05-29T06:54:28Z,2021-05-29T18:05:56Z,2021-05-29T18:05:56Z,1,2,1,It seems like that description and sample code are not match.,2,2
+1002,2021-06-05T20:16:14Z,2021-06-11T14:09:13Z,2021-06-11T14:09:13Z,1,13,4,"As issued in #1001, thank you @JFernando122 for reporting",2,0
+1003,2021-06-06T10:13:37Z,2021-06-06T14:19:57Z,2021-06-06T14:19:57Z,1,2,1,"There was a curly brace error in the code of the bad example in 3.3 in the Korean translation. I have corrected this part.
+// 나쁜 예
+function someFunction() {
+// 코드 블록
+}
+↓ change
+// 나쁜 예
+function someFunction()
+{
+// 코드 블록
+}",2,2
+1006,2021-06-07T04:31:21Z,,2022-02-20T15:26:09Z,646,1311,1276,,4,11
+1007,2021-06-07T13:21:22Z,2021-06-07T21:32:55Z,2021-06-07T21:32:55Z,1,1,1,Delete one of two same words,3,2
+1010,2021-06-10T11:45:29Z,2021-06-10T17:27:24Z,2021-06-10T17:27:24Z,1,1,1,,3,3
+1016,2021-06-21T16:40:05Z,2021-07-01T04:31:44Z,2021-07-01T04:31:44Z,2,3,3,"closes #997
+The line wrapping for the table became unmanageable, so I removed the extra padding.",3,0
+1018,2021-06-22T12:20:31Z,2021-07-01T08:24:01Z,2021-07-01T08:24:01Z,13,78,30,Fixes #1015,2,0
+1019,2021-06-23T09:58:24Z,,2021-08-23T01:44:49Z,10,354,11,"1、Add  some Chinese translation
+2、Update a few error",4,2
+1023,2021-07-01T04:32:10Z,2021-07-01T08:54:04Z,2021-07-01T08:54:04Z,1,1,1,,2,2
+1025,2021-07-01T18:05:25Z,2021-07-02T07:46:01Z,2021-07-02T07:46:01Z,28,127,125,"This is part of the migration to Docusarus that discussed here - #820, #939
+All HTML tags must be closed in MDX (Docusarus uses MDX) so although <img ..> is valid in plain HTML is invalid in MDX (same for all void elements e.g img, br, etc...)
+Run by https://github.com/rluvaton/migrate-nodebestpractices-to-docusaurus and I review the changes and ""clean"" (fix some bugs) it afterword
+I've reviewed the changed files very carefully to be sure no unneeded changes is made",2,0
+1026,2021-07-02T07:46:33Z,2021-07-04T05:50:08Z,2021-07-04T05:50:08Z,1,1,1,,1,0
+1027,2021-07-03T18:09:56Z,2021-07-04T04:37:50Z,2021-07-04T04:37:50Z,1,1,1,"This is part of the migration to Docusarus that discussed here - #820, #939
+All HTML tags must be closed in MDX (Docusarus uses MDX) so although <img ..> is valid in plain HTML is invalid in MDX (same for all void elements e.g img, br, etc...)",2,0
+1029,2021-07-05T21:05:30Z,2021-07-12T04:34:58Z,2021-07-12T04:34:58Z,10,36,36,"This is part of the migration to Docusarus that discussed here - #820, #939
+Run by rluvaton/migrate-nodebestpractices-to-docusaurus the validateNoBrokenInternalLinks task
+
+
+  Broken Links
+/README.brazilian-portuguese.md:
+
+ CONTRIBUTORS.md
+
+/README.chinese.md:
+
+ CONTRIBUTORS.md
+
+/README.korean.md:
+
+ /sections/security/bcryptpasswords.md
+
+/README.polish.md:
+
+ CONTRIBUTORS.md
+
+/README.russian.md:
+
+ /section/security/login-rate-limit.russian.md
+ CONTRIBUTORS.md
+
+/sections/docker/multi_stage_builds.japanese.md:
+
+ /sections/docker/dockerignore.japanese.md
+
+/sections/drafts/readme-general-toc-1.md:
+
+ assets/images/banner-2.jpg
+ /sections/errorhandling/asyncawait.md
+ /sections/errorhandling/asyncawait.md
+ /sections/errorhandling/asyncawait.md
+ /sections/errorhandling/asyncawait.md
+
+/sections/drafts/readme-general-toc-2.md:
+
+ assets/images/banner-1.png
+ /sections/errorhandling/asyncawait.md
+ /sections/errorhandling/asyncawait.md
+ /sections/errorhandling/asyncawait.md
+ /sections/errorhandling/asyncawait.md
+
+/sections/drafts/readme-general-toc-3.md:
+
+ assets/images/banner-3.jpg
+ /sections/errorhandling/asyncawait.md
+ /sections/errorhandling/asyncawait.md
+ /sections/errorhandling/asyncawait.md
+
+/sections/drafts/readme-general-toc-4.md:
+
+ assets/images/banner-4.jpg
+ assets/images/checkbox-sm.png
+ /sections/errorhandling/asyncawait.md
+ assets/images/checkbox-sm.png
+ /sections/errorhandling/asyncawait.md
+ assets/images/checkbox-sm.png
+ /sections/errorhandling/asyncawait.md
+ assets/images/checkbox-sm.png
+ /sections/errorhandling/asyncawait.md
+ assets/images/checkbox-sm.png
+ /sections/errorhandling/asyncawait.md
+ assets/images/checkbox-sm.png
+ /sections/errorhandling/asyncawait.md
+ assets/images/checkbox-sm.png
+ /sections/errorhandling/asyncawait.md",2,3
+1031,2021-07-09T23:59:20Z,2021-07-16T12:02:00Z,2021-07-16T12:02:00Z,581,37456,2898,Merged branch spanish-translation with master to keep it updated.,24,1
+1032,2021-07-10T12:28:06Z,,2022-02-20T15:29:00Z,1,2,2,"There are ""さもないと"" and ""さもなければ"" for the translations of ""Otherwise"".
+I made them consistent to ""さもないと"".",4,4
+1036,2021-07-12T17:08:45Z,2021-07-13T14:25:56Z,2021-07-13T14:25:56Z,132,1064,1064,"This is part of the migration to Docusarus that discussed here - #820, #939
+Run by rluvaton/migrate-nodebestpractices-to-docusaurus the convertAbsoluteToRelativeLinksTask task
+Docusarus doing problems with absolute links, so I replaced all links with relative ones
+As far as I checked, there are no broken links",3,0
+1037,2021-07-13T09:29:11Z,2021-07-14T14:23:48Z,2021-07-14T14:23:48Z,1,1,1,,4,3
+1039,2021-07-13T20:49:28Z,2021-07-20T05:15:08Z,2021-07-20T05:15:08Z,1,1,1,Fix typo in README.brazilian-portuguese.md as requested in the issue #1035,4,4
+1041,2021-07-14T14:24:39Z,2021-07-14T16:35:52Z,2021-07-14T16:35:52Z,2,10,0,"Add @erezLieberman as a contributor for content.
+This was requested by rluvaton in this comment",1,0
+1042,2021-07-14T17:28:35Z,2021-07-14T22:00:54Z,2021-07-14T22:00:54Z,4,4,0,"Must have newlines before the HTML comments as Docusaurus will fail to build without it.
+I assume that when they are right after the HTML the parsing done by Docusaurus thinks these comments are part of the HTML which will try to convert it into a React component which would fail the build as HTML comments in React are unsupported (instead of <!-- some comment --> you need to do {/* comment */})",2,0
+1044,2021-07-15T17:36:42Z,2021-07-16T16:27:28Z,2021-07-16T16:27:28Z,4,10,10,"There were some links that were inside of HTML comments as I assume because they weren't exist
+Replace those dead translation links with the original ones.
+Apparently, even links in comments are been checked before run/build in Docusaurus",2,0
+1045,2021-07-16T07:23:37Z,2021-07-16T11:39:23Z,2021-07-16T11:39:23Z,1,8,7,Last commit original (a9e633b),2,0
+1047,2021-07-16T14:44:52Z,2021-07-20T05:13:45Z,2021-07-20T05:13:45Z,3,106,0,,3,3
+1049,2021-07-16T18:38:46Z,2021-07-31T23:22:25Z,2021-07-31T23:22:25Z,41,1918,414,"Updated and added some spanish translations.
+Misc files
+
+Updated main README.spanish.md
+add writting-guidelines.spanish.md
+
+Updated Sections
+
+testingandquality
+production
+performance
+errorhandling",3,7
+1050,2021-07-16T23:22:30Z,2021-07-18T11:33:09Z,2021-07-18T11:33:09Z,89,1708,0,,2,0
+1052,2021-07-19T20:31:43Z,2021-07-26T14:49:25Z,2021-07-26T14:49:25Z,90,155,155,"Convert to absolute links
+ Convert absolute to relative links",2,0
+1055,2021-07-21T09:32:51Z,2021-07-21T18:32:09Z,2021-07-21T18:32:09Z,1,3,3,,2,2
+1058,2021-07-31T08:19:14Z,2021-08-15T17:06:25Z,2021-08-15T17:06:25Z,1,3,3,"The news in the Korean translation was an old version, so I translated it into a new version.",2,2
+1061,2021-08-01T14:35:11Z,2021-08-13T12:46:43Z,2021-08-13T12:46:43Z,1,1,1,,1,0
+1062,2021-08-11T02:39:35Z,2021-08-13T12:42:32Z,2021-08-13T12:42:32Z,1,1,1,"the word ""que"" in Portuguese is a relative pronoun that precedes something corresponding and is absent in the description of the practice",3,3
+1065,2021-08-11T20:31:54Z,2021-08-15T05:02:50Z,2021-08-15T05:02:50Z,5,226,0,"Hello everyone. My name is Emiliano and I'm from Argentina!
+I've translated some Docker section files:
+
+avoid-build-time-secrets
+docker-ignore
+image-tags
+scan-images
+smaller_base_images",3,5
+1067,2021-08-13T12:45:49Z,2021-08-14T17:18:23Z,2021-08-14T17:18:23Z,1,2,3,,2,0
+1072,2021-08-15T05:04:41Z,2021-08-15T20:05:46Z,2021-08-15T20:05:46Z,1,1,1,,2,0
+1075,2021-09-05T11:58:30Z,2021-11-21T07:11:59Z,2021-11-21T07:11:59Z,1,26,9,"Update variable naming convention to include SCREAMING_CASE for global variables and static class properties
+closes: #1043",5,4
+1077,2021-09-22T06:54:47Z,2021-11-13T16:02:04Z,2021-11-13T16:02:04Z,1,1,1,,2,0
+1078,2021-09-25T14:58:04Z,2021-11-21T08:29:45Z,2021-11-21T08:29:45Z,4,4,4,"I fixed some typos in Japanese docs, and translated requestpayloadsizelimit.japanese.md heading.",2,3
+1080,2021-10-14T20:38:08Z,2021-11-19T07:34:51Z,2021-11-19T07:34:51Z,1,119,0,"Translation of ""Use cache for shorter build time""",3,3
+1083,2021-11-01T07:54:17Z,2021-11-29T07:31:27Z,2021-11-29T07:31:27Z,1,171,15,"The amount of content here has gotten quite long and is expected to keep growing. Hence, I think it's time to add the sub-sections to the table of contents.
+I know there is a CTRl + F thingy but I think sometimes you just want to look up the subtopics list and navigate to it for a quick refresher. Just me?",4,10
+1085,2021-11-04T03:30:59Z,2021-11-21T08:32:36Z,2021-11-21T08:32:36Z,10,447,49,"translate 2.7 ~ 2.12 & 4.8 ~ 4.13
+
+Additional translation commits will be added for ""read more"" pages.",3,2
+1086,2021-11-04T05:00:25Z,2021-11-21T10:45:19Z,2021-11-21T10:45:19Z,2,15,15,,3,3
+1094,2021-11-08T18:13:36Z,,2021-11-09T02:36:41Z,1,56,54,This removes the comma.,2,1
+1095,2021-11-09T00:21:58Z,2022-02-20T14:49:57Z,2022-02-20T14:49:57Z,20,757,169,korean translation through 3.1 to 3.6 and 5.1 and 5.6,3,6
+1096,2021-11-09T04:22:23Z,2021-11-19T07:28:52Z,2021-11-19T07:28:52Z,1,1,1,I removed the comma.,4,2
+1097,2021-11-09T05:25:55Z,,2022-04-27T16:41:47Z,25,652,318,,4,4
+1098,2021-11-11T02:28:07Z,2021-11-11T23:53:19Z,2021-11-11T23:53:19Z,1,1,1,"I just stumbled across this repo - its great. Thank you for collating and maintaining such a valuable resource.
+This is just a very small PR to make a sentence slightly more gender inclusive. I could only find one example of this, which suggests that you are already thinking about this.
+Thanks again for your great and useful work.",4,4
+1099,2021-11-11T12:08:15Z,2021-11-13T16:23:28Z,2021-11-13T16:23:28Z,1,1,1,"Fixed a typo in line 40, from indes.js -> index.js",3,2
+1102,2021-11-13T16:22:01Z,2021-11-13T21:35:48Z,2021-11-13T21:35:48Z,1,0,1,,2,0
+1104,2021-11-19T07:29:10Z,2021-11-20T20:47:54Z,2021-11-20T20:47:54Z,1,1,1,,2,0
+1107,2021-11-21T07:12:15Z,2021-11-21T22:42:20Z,2021-11-21T22:42:20Z,1,1,1,,2,1
+1114,2021-11-23T23:54:42Z,2022-06-08T09:33:33Z,2022-06-08T09:33:33Z,18,591,92,Translation 5.7 to 5.13 and 6.14 to 6.19,3,6
+1115,2021-11-29T07:31:53Z,2021-11-29T14:18:06Z,2021-11-29T14:18:06Z,1,1,1,,2,0
+1125,2021-12-06T06:15:18Z,2022-02-20T14:34:59Z,2022-02-20T14:34:59Z,10,777,101,,3,3
+1127,2022-01-02T07:56:15Z,2022-02-20T14:42:18Z,2022-02-20T14:42:18Z,1,1,1,"pm-docker was used for both PM2 references in doc, when the first one is just library by itself.",3,2
+1129,2022-01-08T04:46:58Z,2022-01-09T15:19:45Z,2022-01-09T15:19:45Z,1,1,1,Fix: typo on 4.2 Include 3 parts in each test name,3,2
+1133,2022-01-12T09:27:19Z,2022-01-24T08:43:39Z,2022-01-24T08:43:39Z,3,14,16,,2,2
+1135,2022-01-24T08:44:04Z,2022-01-24T16:51:14Z,2022-01-24T16:51:14Z,1,1,1,,2,0
+1139,2022-01-24T12:11:14Z,,2022-06-08T09:28:14Z,3,46,49,,2,0
+1140,2022-01-25T09:08:42Z,2022-01-25T19:53:53Z,2022-01-25T19:53:53Z,1,14,3,referencing #1136,2,1
+1143,2022-01-26T00:12:22Z,2022-02-20T14:25:06Z,2022-02-20T14:25:06Z,1,2,1,Fixed the problem with curly braces,3,2
+1144,2022-01-26T04:25:32Z,2022-02-20T23:08:13Z,2022-02-20T23:08:13Z,8,86,17,"I was going through to fix my profile image in the README.md, and realized there wasn't any consistency to the avatar icons and all look a little tacky if someone is using github's dark theme since there's no transparency around the circle. So I created an svg template with a clip path that you can load up in most tools that support svg and export with transparency.
+I also added SVGs for the icons used in committee section, since those also look kind of funky in in other themes.
+While messing with things I discovered that adding min-width to the contributor template somehow still affects the profile images even though it gets sanitized away, so I added that so that there's a lot less shifting of the contributors table.
+I probably need to revert it, but I was curious if there's any reason the README's for the other languages aren't included in the automated contributors updates?",4,4
+1147,2022-02-03T19:15:49Z,2022-02-07T21:38:38Z,2022-02-07T21:38:38Z,1,13,3,referencing #1136,2,0
+1148,2022-02-07T07:51:13Z,2022-02-07T11:19:22Z,2022-02-07T11:19:22Z,1,3,3,Updated the Blog quote format from 'JS Recipes' in shuttingtheprocess.md to keep it uniform with other quotes.,2,3
+1149,2022-02-07T11:19:23Z,2022-02-07T13:29:03Z,2022-02-07T13:29:03Z,2,10,0,"Add @MisterSingh as a contributor for content.
+This was requested by rluvaton in this comment",1,0
+1150,2022-02-07T13:28:02Z,2022-02-07T18:16:06Z,2022-02-07T18:16:07Z,1,1,3,,2,0
+1152,2022-02-11T22:42:37Z,2022-02-13T15:10:42Z,2022-02-13T15:10:42Z,4,85,12,"renamed the current files refactoring.md and test-middlewares.md to be the Korean version
+restored the original English content in those 2 files
+
+fixes issue #1151 introduced with PR #1133",2,2
+1156,2022-02-20T14:25:30Z,2022-02-21T06:37:03Z,2022-02-21T06:37:03Z,1,1,1,,2,0
+1160,2022-03-09T00:58:49Z,2022-03-09T20:31:08Z,2022-03-09T20:31:08Z,1,1,1,Uppercase letter after ?,3,6
+1163,2022-03-31T05:10:59Z,,2022-03-31T12:09:50Z,9,302,302,"Hey! We noticed your repository had a few instances of gendered language. We've attempted to make the changes to gender neutral language. These are not always perfect, but we hope they will assist maintainers in finding and fixing issues :)
+You can learn more about this project and why gender neutral language matters at inclusivecoding.wixsite.com. If you have feedback for this bot, please provide it here.",2,1
+1164,2022-04-04T10:07:21Z,2022-04-15T14:48:44Z,2022-04-15T14:48:44Z,1,1,1,,3,1
+1165,2022-04-05T10:13:29Z,2022-04-05T21:41:38Z,2022-04-05T21:41:38Z,8,10,10,That link is by the English page.,3,2
+1166,2022-04-05T21:42:08Z,2022-04-15T14:46:50Z,2022-04-15T14:46:50Z,1,1,1,,2,0
+1167,2022-04-05T21:44:27Z,2022-04-15T14:46:22Z,2022-04-15T14:46:23Z,7,15,0,"Add @soranakk as a contributor for content.
+This was requested by rluvaton in this comment",1,0
+1170,2022-05-01T00:56:43Z,,2022-06-05T21:52:42Z,1,4,3,שיפרתי כמה תרגומי מחשב מגוחכים במיוחד...,2,0
+1172,2022-05-13T20:57:14Z,2022-06-08T09:23:53Z,2022-06-08T09:23:53Z,54,3,15,,4,4
+1173,2022-05-26T03:24:42Z,2022-05-26T22:58:52Z,2022-05-26T22:58:52Z,1,1,1,,3,1
+1176,2022-06-08T09:24:19Z,2022-06-18T19:36:54Z,2022-06-18T19:36:54Z,1,1,1,,1,0
+1179,2022-06-08T09:44:05Z,2022-06-18T19:43:44Z,2022-06-18T19:43:44Z,7,16,0,"Add @backend-joonyoung as a contributor for code.
+This was requested by goldbergyoni in this comment",2,1
+1183,2022-06-18T10:45:48Z,2022-06-18T19:09:42Z,2022-06-18T19:09:42Z,1,3,2,"I really enjoyed using this project, nice work! Found a couple typos in the README though 😛",2,2
+1185,2022-06-23T06:18:29Z,2022-07-01T14:22:24Z,2022-07-01T14:22:24Z,2,31,0,chinese translation 5.17,2,0
+1186,2022-06-25T11:06:46Z,2022-07-09T19:55:26Z,2022-07-09T19:55:26Z,1,78,29,,3,4
+1190,2022-07-09T20:09:36Z,2022-07-10T07:28:59Z,2022-07-10T07:28:59Z,7,27,0,"Add @ShiChenCong as a contributor for translation.
+This was requested by rluvaton in this comment",2,3
+1191,2022-07-09T20:20:12Z,2022-07-10T07:26:46Z,2022-07-10T07:26:46Z,1,0,1,"Removing as git will log a warning for the same file name (on case-insensitive filesystem)
+warning: the following paths have collided (e.g. case-sensitive paths
+on a case-insensitive filesystem) and only one from the same
+colliding group is in the working tree:
+
+  '.operations/CONTRIBUTING.md'
+  '.operations/contributing.md'",2,0
+1192,2022-07-15T13:36:27Z,,2024-01-21T18:31:13Z,4,122,122,PR created using https://github.com/tbroadley/github-spellcheck-cli.,5,1
+1197,2022-09-19T07:09:54Z,2022-09-20T05:25:55Z,2022-09-20T05:25:55Z,2,1,1,Update .operations/.common-answers.md to .operations/common-answers.md and link inside .operations/CONTRIBUTING.md,3,2
+1198,2022-09-19T07:47:16Z,,2022-11-02T18:56:31Z,1,1,1,Fix image link to avoid errors during build,3,1
+1199,2022-09-19T10:21:33Z,,2022-11-02T18:55:42Z,1,1,4,Remove/add lines in readme.md to pass markdown linting,3,1
+1201,2022-09-20T05:30:32Z,2022-10-28T14:31:32Z,2022-10-28T14:31:32Z,7,1503,1476,"Adds @mauroaccornero as a contributor for content.
+This was requested by rluvaton in this comment",1,0
+1203,2022-10-27T20:11:45Z,2022-10-28T14:28:20Z,2022-10-28T14:28:20Z,12,89,121,"markdownlint for all languages
+
+
+
+Fix lint for...
+../README.md: 25: MD022/blanks-around-headings/blanks-around-headers Headings should be surrounded by blank lines [Expected: 1; Actual: 0; Below] [Context: ""## 🚀 We have an [official Node.js starter - Practica.js](https://github.com/practicajs/practica). Use it to generate a new solution skeleton with all the practices baked inside. Or just it to learn by code examples""]
+../README.md: 1513: MD012/no-multiple-blanks Multiple consecutive blank lines [Expected: 1; Actual: 2]
+../README.md: 1781: MD012/no-multiple-blanks Multiple consecutive blank lines [Expected: 1; Actual: 2]
+../README.md: 1808: MD012/no-multiple-blanks Multiple consecutive blank lines [Expected: 1; Actual: 2]
+../README.md: 1820: MD012/no-multiple-blanks Multiple consecutive blank lines [Expected: 1; Actual: 2]
+../README.basque.md: 104: MD034/no-bare-urls Bare URL used [Context: ""https://www.npmjs.com/package/...""]
+../README.basque.md: 291: MD024/no-duplicate-heading/no-duplicate-header Multiple headings with the same content [Context: ""### Kode adibidea""]
+../README.basque.md: 635: MD037/no-space-in-emphasis Spaces inside emphasis markers [Context: ""** Informazio gehiago: sortu ‘...""]
+../README.brazilian-portuguese.md: 39: MD026/no-trailing-punctuation Trailing punctuation in heading [Punctuation: ':']
+../README.brazilian-portuguese.md: 51: MD030/list-marker-space Spaces after list markers [Expected: 1; Actual: 2]
+../README.brazilian-portuguese.md: 52: MD030/list-marker-space Spaces after list markers [Expected: 1; Actual: 2]
+../README.brazilian-portuguese.md: 53: MD030/list-marker-space Spaces after list markers [Expected: 1; Actual: 2]
+../README.brazilian-portuguese.md: 54: MD030/list-marker-space Spaces after list markers [Expected: 1; Actual: 2]
+../README.brazilian-portuguese.md: 55: MD030/list-marker-space Spaces after list markers [Expected: 1; Actual: 2]
+../README.brazilian-portuguese.md: 56: MD030/list-marker-space Spaces after list markers [Expected: 1; Actual: 2]
+../README.brazilian-portuguese.md: 57: MD030/list-marker-space Spaces after list markers [Expected: 1; Actual: 2]
+../README.brazilian-portuguese.md: 233: MD009/no-trailing-spaces Trailing spaces [Expected: 0 or 2; Actual: 1]
+../README.brazilian-portuguese.md: 294: MD024/no-duplicate-heading/no-duplicate-header Multiple headings with the same content [Context: ""### Exemplo de Código""]
+../README.brazilian-portuguese.md: 344: MD024/no-duplicate-heading/no-duplicate-header Multiple headings with the same content [Context: ""### Exemplo de Código""]
+../README.brazilian-portuguese.md: 387: MD024/no-duplicate-heading/no-duplicate-header Multiple headings with the same content [Context: ""### Exemplo de Código""]
+../README.brazilian-portuguese.md: 407: MD024/no-duplicate-heading/no-duplicate-header Multiple headings with the same content [Context: ""### Exemplo de Código""]
+../README.brazilian-portuguese.md: 470: MD009/no-trailing-spaces Trailing spaces [Expected: 0 or 2; Actual: 1]
+../README.brazilian-portuguese.md: 472: MD009/no-trailing-spaces Trailing spaces [Expected: 0 or 2; Actual: 1]
+../README.brazilian-portuguese.md: 474: MD009/no-trailing-spaces Trailing spaces [Expected: 0 or 2; Actual: 1]
+../README.brazilian-portuguese.md: 560: MD009/no-trailing-spaces Trailing spaces [Expected: 0 or 2; Actual: 1]
+../README.brazilian-portuguese.md: 562: MD009/no-trailing-spaces Trailing spaces [Expected: 0 or 2; Actual: 1]
+../README.brazilian-portuguese.md: 572: MD026/no-trailing-punctuation Trailing punctuation in heading [Punctuation: '!']
+../README.brazilian-portuguese.md: 752: MD009/no-trailing-spaces Trailing spaces [Expected: 0 or 2; Actual: 1]
+../README.chinese.md: 20: MD022/blanks-around-headings/blanks-around-headers Headings should be surrounded by blank lines [Expected: 1; Actual: 0; Below] [Context: ""# 欢迎! 首先您应该知道的三件事情:""]
+../README.chinese.md: 20: MD026/no-trailing-punctuation Trailing punctuation in heading [Punctuation: ':']
+../README.chinese.md: 29: MD022/blanks-around-headings/blanks-around-headers Headings should be surrounded by blank lines [Expected: 1; Actual: 0; Below] [Context: ""## [目录](#table-of-contents)""]
+../README.chinese.md: 30: MD032/blanks-around-lists Lists should be surrounded by blank lines [Context: ""1. [项目结构实践 (5) ](#1-project-st...""]
+../README.chinese.md: 38: MD012/no-multiple-blanks Multiple consecutive blank lines [Expected: 1; Actual: 2]
+../README.chinese.md: 84: MD012/no-multiple-blanks Multiple consecutive blank lines [Expected: 1; Actual: 2]
+../README.chinese.md: 111: MD012/no-multiple-blanks Multiple consecutive blank lines [Expected: 1; Actual: 2]
+../README.chinese.md: 144: MD012/no-multiple-blanks Multiple consecutive blank lines [Expected: 1; Actual: 2]
+../README.chinese.md: 159: MD012/no-multiple-blanks Multiple consecutive blank lines [Expected: 1; Actual: 2]
+../README.chinese.md: 160: MD012/no-multiple-blanks Multiple consecutive blank lines [Expected: 1; Actual: 3]
+../README.chinese.md: 169: MD012/no-multiple-blanks Multiple consecutive blank lines [Expected: 1; Actual: 2]
+../README.chinese.md: 172: MD012/no-multiple-blanks Multiple consecutive blank lines [Expected: 1; Actual: 2]
+../README.chinese.md: 179: MD012/no-multiple-blanks Multiple consecutive blank lines [Expected: 1; Actual: 2]
+../README.chinese.md: 190: MD012/no-multiple-blanks Multiple consecutive blank lines [Expected: 1; Actual: 2]
+../README.chinese.md: 195: MD012/no-multiple-blanks Multiple consecutive blank lines [Expected: 1; Actual: 2]
+../README.chinese.md: 202: MD012/no-multiple-blanks Multiple consecutive blank lines [Expected: 1; Actual: 2]
+../README.chinese.md: 241: MD022/blanks-around-headings/blanks-around-headers Headings should be surrounded by blank lines [Expected: 1; Actual: 0; Below] [Context: ""### 代码示例""]
+../README.chinese.md: 242: MD031/blanks-around-fences Fenced code blocks should be surrounded by blank lines [Context: ""```javascript""]
+../README.chinese.md: 283: MD003/heading-style/header-style Heading style [Expected: atx; Actual: atx_closed]
+../README.chinese.md: 283: MD022/blanks-around-headings/blanks-around-headers Headings should be surrounded by blank lines [Expected: 1; Actual: 0; Below] [Context: ""### 代码示例 ###""]
+../README.chinese.md: 283: MD024/no-duplicate-heading/no-duplicate-header Multiple headings with the same content [Context: ""### 代码示例 ###""]
+../README.chinese.md: 284: MD031/blanks-around-fences Fenced code blocks should be surrounded by blank lines [Context: ""```javascript""]
+../README.chinese.md: 329: MD022/blanks-around-headings/blanks-around-headers Headings should be surrounded by blank lines [Expected: 1; Actual: 0; Below] [Context: ""### 代码示例""]
+../README.chinese.md: 329: MD024/no-duplicate-heading/no-duplicate-header Multiple headings with the same content [Context: ""### 代码示例""]
+../README.chinese.md: 330: MD031/blanks-around-fences Fenced code blocks should be surrounded by blank lines [Context: ""```javascript""]
+../README.chinese.md: 342: MD012/no-multiple-blanks Multiple consecutive blank lines [Expected: 1; Actual: 2]
+../README.chinese.md: 349: MD022/blanks-around-headings/blanks-around-headers Headings should be surrounded by blank lines [Expected: 1; Actual: 0; Below] [Context: ""### 代码示例""]
+../README.chinese.md: 349: MD024/no-duplicate-heading/no-duplicate-header Multiple headings with the same content [Context: ""### 代码示例""]
+../README.chinese.md: 350: MD031/blanks-around-fences Fenced code blocks should be surrounded by blank lines [Context: ""```javascript""]
+../README.chinese.md: 363: MD031/blanks-around-fences Fenced code blocks should be surrounded by blank lines [Context: ""```""]
+../README.chinese.md: 386: MD012/no-multiple-blanks Multiple consecutive blank lines [Expected: 1; Actual: 2]
+../README.chinese.md: 391: MD012/no-multiple-blanks Multiple consecutive blank lines [Expected: 1; Actual: 2]
+../README.chinese.md: 408: MD012/no-multiple-blanks Multiple consecutive blank lines [Expected: 1; Actual: 2]
+../README.chinese.md: 443: MD012/no-multiple-blanks Multiple consecutive blank lines [Expected: 1; Actual: 2]
+../README.chinese.md: 444: MD012/no-multiple-blanks Multiple consecutive blank lines [Expected: 1; Actual: 3]
+../README.chinese.md: 459: MD012/no-multiple-blanks Multiple consecutive blank lines [Expected: 1; Actual: 2]
+../README.chinese.md: 462: MD012/no-multiple-blanks Multiple consecutive blank lines [Expected: 1; Actual: 2]
+../README.chinese.md: 469: MD026/no-trailing-punctuation Trailing punctuation in heading [Punctuation: '!']
+../README.chinese.md: 475: MD012/no-multiple-blanks Multiple consecutive blank lines [Expected: 1; Actual: 2]
+../README.chinese.md: 486: MD012/no-multiple-blanks Multiple consecutive blank lines [Expected: 1; Actual: 2]
+../README.chinese.md: 497: MD012/no-multiple-blanks Multiple consecutive blank lines [Expected: 1; Actual: 2]
+../README.chinese.md: 508: MD012/no-multiple-blanks Multiple consecutive blank lines [Expected: 1; Actual: 2]
+../README.chinese.md: 519: MD012/no-multiple-blanks Multiple consecutive blank lines [Expected: 1; Actual: 2]
+../README.chinese.md: 522: MD012/no-multiple-blanks Multiple consecutive blank lines [Expected: 1; Actual: 2]
+../README.chinese.md: 531: MD012/no-multiple-blanks Multiple consecutive blank lines [Expected: 1; Actual: 2]
+../README.chinese.md: 542: MD012/no-multiple-blanks Multiple consecutive blank lines [Expected: 1; Actual: 2]
+../README.chinese.md: 553: MD012/no-multiple-blanks Multiple consecutive blank lines [Expected: 1; Actual: 2]
+../README.chinese.md: 556: MD012/no-multiple-blanks Multiple consecutive blank lines [Expected: 1; Actual: 2]
+../README.chinese.md: 559: MD012/no-multiple-blanks Multiple consecutive blank lines [Expected: 1; Actual: 2]
+../README.chinese.md: 566: MD012/no-multiple-blanks Multiple consecutive blank lines [Expected: 1; Actual: 2]
+../README.chinese.md: 577: MD012/no-multiple-blanks Multiple consecutive blank lines [Expected: 1; Actual: 2]
+../README.chinese.md: 582: MD012/no-multiple-blanks Multiple consecutive blank lines [Expected: 1; Actual: 2]
+../README.chinese.md: 589: MD012/no-multiple-blanks Multiple consecutive blank lines [Expected: 1; Actual: 2]
+../README.chinese.md: 594: MD012/no-multiple-blanks Multiple consecutive blank lines [Expected: 1; Actual: 2]
+../README.chinese.md: 601: MD012/no-multiple-blanks Multiple consecutive blank lines [Expected: 1; Actual: 2]
+../README.chinese.md: 604: MD012/no-multiple-blanks Multiple consecutive blank lines [Expected: 1; Actual: 2]
+../README.chinese.md: 607: MD012/no-multiple-blanks Multiple consecutive blank lines [Expected: 1; Actual: 2]
+../README.chinese.md: 614: MD012/no-multiple-blanks Multiple consecutive blank lines [Expected: 1; Actual: 2]
+../README.chinese.md: 619: MD012/no-multiple-blanks Multiple consecutive blank lines [Expected: 1; Actual: 2]
+../README.chinese.md: 626: MD012/no-multiple-blanks Multiple consecutive blank lines [Expected: 1; Actual: 2]
+../README.chinese.md: 631: MD012/no-multiple-blanks Multiple consecutive blank lines [Expected: 1; Actual: 2]
+../README.chinese.md: 638: MD012/no-multiple-blanks Multiple consecutive blank lines [Expected: 1; Actual: 2]
+../README.chinese.md: 641: MD012/no-multiple-blanks Multiple consecutive blank lines [Expected: 1; Actual: 2]
+../README.chinese.md: 644: MD012/no-multiple-blanks Multiple consecutive blank lines [Expected: 1; Actual: 2]
+../README.chinese.md: 659: MD012/no-multiple-blanks Multiple consecutive blank lines [Expected: 1; Actual: 2]
+../README.chinese.md: 997: MD026/no-trailing-punctuation Trailing punctuation in heading [Punctuation: '?']
+../README.chinese.md: 1001: MD022/blanks-around-headings/blanks-around-headers Headings should be surrounded by blank lines [Expected: 1; Actual: 0; Below] [Context: ""# Milestones""]
+../README.chinese.md: 1006: MD022/blanks-around-headings/blanks-around-headers Headings should be surrounded by blank lines [Expected: 1; Actual: 0; Below] [Context: ""# Contributors""]
+../README.chinese.md: 1007: MD022/blanks-around-headings/blanks-around-headers Headings should be surrounded by blank lines [Expected: 1; Actual: 0; Above] [Context: ""## `Yoni Goldberg`""]
+../README.chinese.md: 1010: MD022/blanks-around-headings/blanks-around-headers Headings should be surrounded by blank lines [Expected: 1; Actual: 0; Below] [Context: ""## `Ido Richter`""]
+../README.chinese.md: 1013: MD022/blanks-around-headings/blanks-around-headers Headings should be surrounded by blank lines [Expected: 1; Actual: 0; Below] [Context: ""## `Refael Ackermann` [@refack](https://github.com/refack) &lt;refack@gmail.com&gt; (he/him)""]
+../README.chinese.md: 1017: MD022/blanks-around-headings/blanks-around-headers Headings should be surrounded by blank lines [Expected: 1; Actual: 0; Below] [Context: ""## `Bruno Scheufler`""]
+../README.chinese.md: 1020: MD022/blanks-around-headings/blanks-around-headers Headings should be surrounded by blank lines [Expected: 1; Actual: 0; Below] [Context: ""## `Kyle Martin` [@js-kyle](https://github.com/js-kyle)""]
+../README.chinese.md: 1023: MD012/no-multiple-blanks Multiple consecutive blank lines [Expected: 1; Actual: 2]
+../README.chinese.md: 1032: MD012/no-multiple-blanks Multiple consecutive blank lines [Expected: 1; Actual: 2]
+../README.french.md: 852: MD038/no-space-in-code Spaces inside code span elements [Context: ""` scrypt`""]
+../README.indonesian.md: 447: MD038/no-space-in-code Spaces inside code span elements [Context: ""... Kualitas Secara Keseluruhan `""]
+../README.japanese.md: 262: MD009/no-trailing-spaces Trailing spaces [Expected: 0 or 2; Actual: 1]
+../README.japanese.md: 282: MD024/no-duplicate-heading/no-duplicate-header Multiple headings with the same content [Context: ""### コード例""]
+../README.japanese.md: 350: MD026/no-trailing-punctuation Trailing punctuation in heading [Punctuation: '。']
+../README.korean.md: 41: MD026/no-trailing-punctuation Trailing punctuation in heading [Punctuation: ':']
+../README.korean.md: 282: MD024/no-duplicate-heading/no-duplicate-header Multiple headings with the same content [Context: ""### 코드 예제""]
+../README.korean.md: 374: MD024/no-duplicate-heading/no-duplicate-header Multiple headings with the same content [Context: ""### 코드 예제""]
+../README.korean.md: 394: MD024/no-duplicate-heading/no-duplicate-header Multiple headings with the same content [Context: ""### 코드 예제""]
+../README.polish.md: 278: MD024/no-duplicate-heading/no-duplicate-header Multiple headings with the same content [Context: ""### Przykład kodu""]
+../README.polish.md: 902: MD038/no-space-in-code Spaces inside code span elements [Context: ""` setInterval`""]
+../README.polish.md: 1018: MD038/no-space-in-code Spaces inside code span elements [Context: ""` files`""]
+../README.russian.md: 37: MD026/no-trailing-punctuation Trailing punctuation in heading [Punctuation: ':']
+../README.russian.md: 49: MD030/list-marker-space Spaces after list markers [Expected: 1; Actual: 2]
+../README.russian.md: 50: MD030/list-marker-space Spaces after list markers [Expected: 1; Actual: 2]
+../README.russian.md: 51: MD030/list-marker-space Spaces after list markers [Expected: 1; Actual: 2]
+../README.russian.md: 52: MD030/list-marker-space Spaces after list markers [Expected: 1; Actual: 2]
+../README.russian.md: 53: MD030/list-marker-space Spaces after list markers [Expected: 1; Actual: 2]
+../README.russian.md: 54: MD030/list-marker-space Spaces after list markers [Expected: 1; Actual: 2]
+../README.russian.md: 55: MD030/list-marker-space Spaces after list markers [Expected: 1; Actual: 2]
+../README.russian.md: 262: MD018/no-missing-space-atx No space after hash on atx style heading [Context: ""##! [✔] 3.3 Начинайте кодовый ...""]
+../README.russian.md: 275: MD009/no-trailing-spaces Trailing spaces [Expected: 0 or 2; Actual: 1]
+../README.russian.md: 287: MD018/no-missing-space-atx No space after hash on atx style heading [Context: ""##! [✔] 3.4 Разделяйте свои вы...""]
+../README.russian.md: 295: MD024/no-duplicate-heading/no-duplicate-header Multiple headings with the same content [Context: ""### Пример кода""]
+../README.russian.md: 345: MD024/no-duplicate-heading/no-duplicate-header Multiple headings with the same content [Context: ""### Пример кода""]
+../README.russian.md: 387: MD024/no-duplicate-heading/no-duplicate-header Multiple headings with the same content [Context: ""### Пример кода""]
+../README.russian.md: 407: MD024/no-duplicate-heading/no-duplicate-header Multiple headings with the same content [Context: ""### Пример кода""]
+../README.russian.md: 562: MD026/no-trailing-punctuation Trailing punctuation in heading [Punctuation: '!']
+../README.russian.md: 796: MD018/no-missing-space-atx No space after hash on atx style heading [Context: ""##! [✔] 6.5. Сборник общих рек...""]
+../README.russian.md: 840: MD018/no-missing-space-atx No space after hash on atx style heading [Context: ""##! [✔] 6.9. Экранируйте вывод...""]
+../README.russian.md: 919: MD038/no-space-in-code Spaces inside code span elements [Context: ""` setInterval`""]
+../README.russian.md: 1035: MD038/no-space-in-code Spaces inside code span elements [Context: ""` files`""]
+
+
+
+
+
+Add Precommit section
+
+Test lint :
+https://github.com/Kristories/nodebestpractices/actions/runs/3338292416/jobs/5525822324
+This is for lint only. Build not included.",3,2
+1204,2022-10-28T14:35:22Z,,2023-01-05T21:47:34Z,7,1505,1477,"Adds @Kristories as a contributor for content.
+This was requested by rluvaton in this comment
+[skip ci]",2,4
+1205,2022-10-30T11:21:07Z,2022-12-05T10:56:45Z,2022-12-05T10:56:45Z,1,2,2,"Fix the build action because run twice :
+
+  
+    
+        graph TD;
+      processMDFile-->inlineLocalReferences;
+      inlineLocalReferences-->processMDFile",2,1
+1208,2022-11-20T23:25:10Z,2022-12-05T10:54:43Z,2022-12-05T10:54:44Z,9,9,9,There was an incorrect link to a blog post by Uncle Bob - this will now point to the correct location.,3,3
+1215,2022-12-05T10:55:16Z,2023-01-08T09:51:38Z,2023-01-08T09:51:38Z,1,1,1,,3,0
+1216,2023-01-08T23:32:25Z,2023-01-09T22:51:00Z,2023-01-09T22:51:00Z,1,1,1,,3,1
+1218,2023-01-17T17:23:54Z,2023-04-19T21:25:35Z,2023-04-19T21:25:35Z,3,7,7,,3,2
+1224,2023-03-18T03:07:42Z,2023-03-19T12:12:59Z,2023-03-19T12:12:59Z,2,2,2,,3,2
+1226,2023-03-19T12:34:11Z,2023-03-21T08:24:43Z,2023-03-21T08:24:43Z,7,1163,1147,"Adds @no-yan as a contributor for content.
+This was requested by rluvaton in this comment
+[skip ci]",1,0
+1227,2023-03-21T08:25:16Z,2023-03-22T21:22:40Z,2023-03-22T21:22:40Z,1,1,1,,2,0
+1229,2023-04-01T15:00:44Z,2023-04-08T19:35:03Z,2023-04-08T19:35:03Z,1,2,2,@all-contributors please add @moosashah for content,3,4
+1232,2023-04-08T19:35:30Z,2023-04-19T21:14:01Z,2023-04-19T21:14:01Z,1,1,1,,1,0
+1233,2023-04-08T19:48:55Z,2023-04-19T21:12:15Z,2023-04-19T21:12:15Z,10,2,1290,"Removed build step as we don't have GitHub pages as far as I know
+did this as we got OOM issue in one of the last PRs
+WDYT @goldbergyoni, @elektronik2k5 ?",3,1
+1234,2023-04-13T16:00:16Z,,2023-04-19T21:13:01Z,1,1,1,Do not read this,3,1
+1235,2023-04-16T09:41:01Z,2023-04-19T21:14:44Z,2023-04-19T21:14:44Z,1,0,0,"Update the image of the private npm diagram to a better-quality one, to be more in line with other images.",3,1
+1237,2023-05-02T14:06:20Z,,2023-05-10T15:34:27Z,1,15,3,,2,0
+1238,2023-05-02T14:17:31Z,,2023-05-10T15:34:13Z,1,31,3,,2,0
+1240,2023-05-08T12:33:23Z,2023-05-09T10:14:39Z,2023-05-09T10:14:39Z,13,420,243,"Happy to hear thoughts, just a drafy for now",3,1
+1252,2023-06-11T13:57:22Z,2023-09-21T22:16:52Z,2023-09-21T22:16:52Z,1,2,1,,3,1
+1258,2023-07-26T17:19:02Z,2023-07-28T07:37:54Z,2023-07-28T07:37:54Z,2,5,4,I've fixed the code sample for 3.3,2,0
+1259,2023-07-27T15:17:20Z,2023-07-28T07:37:21Z,2023-07-28T07:37:21Z,1,1,1,Partioning -> Partitioning,3,0
+1260,2023-07-28T10:34:46Z,2023-08-02T17:07:29Z,2023-08-02T17:07:29Z,1,16,16,,3,0
+1263,2023-08-13T08:34:52Z,2023-08-15T12:02:32Z,2023-08-15T12:02:32Z,1,1925,0,"This PR including about 50% of translation to Hebrew of the main readme page.
+The layout (RTL) still need improvements and perhaps parts that already translated need another.",2,0
+1267,2023-08-20T12:08:32Z,2023-09-10T06:36:51Z,2023-09-10T06:36:51Z,2,10,7,"add @hodbauer as a translator
+set readme.hebrew.md as a live reference",2,1
+1273,2023-09-03T20:51:29Z,2023-09-10T06:40:59Z,2023-09-10T06:40:59Z,1,7,7,Fix typos,3,4
