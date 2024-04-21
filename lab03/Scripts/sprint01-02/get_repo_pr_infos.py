@@ -62,6 +62,7 @@ def get_pr_infos(owner, name, first=100, after=None, pages=1):
 
         for pr in prs:
             number = pr['number']
+            reviews = pr['reviews']['totalCount']
             created_at = pr['createdAt']
             merged_at = pr['mergedAt']
             closed_at = pr['closedAt']
@@ -69,11 +70,12 @@ def get_pr_infos(owner, name, first=100, after=None, pages=1):
             additions = pr['additions']
             deletions = pr['deletions']
             body_text = pr['bodyText']
+            num_characters = len(body_text)
             participants = pr['participants']['totalCount']
             comments = pr['comments']['totalCount']
-            print(f"PR: {number} - Criação: {created_at} - Merged: {merged_at} - Fechado: {closed_at} - Arquivos: {files} - Adições: {additions} - Deleções: {deletions} - Participantes: {participants} - Comentários: {comments}")
+            print(f"Repository: {owner}_{name} PR: {number} - Criação: {created_at} - Total Reviews: {reviews} - Merged: {merged_at} - Fechado: {closed_at} - Arquivos: {files} - Adições: {additions} - Deleções: {deletions} - Participantes: {participants} - Comentários: {comments}")
 
-            pull_requests.append({"number": number, "created_at": created_at, "merged_at": merged_at, "closed_at": closed_at, "files": files, "additions": additions, "deletions": deletions, "body_text": body_text, "participants": participants, "comments": comments})
+            pull_requests.append({"owner": owner, "name": name, "number": number, "reviews": reviews, "created_at": created_at, "merged_at": merged_at, "closed_at": closed_at, "files": files, "additions": additions, "deletions": deletions, "num_characters": num_characters, "participants": participants, "comments": comments})
 
         page_info = result['data']['repository']['pullRequests']['pageInfo']
 
@@ -98,11 +100,10 @@ if __name__ == "__main__":
     # Carregar os dados do arquivo CSV
     df = pd.read_csv(os.path.join(current_dir, 'top_repositories_with_PRs.csv'))
     repositories = df['name_with_owner']
+    pull_requests = []
     for repo in repositories:
         owner, name = repo.split("/")
         print(f"Getting PRs for repository {owner}/{name}")
-        pull_requests = get_pr_infos(owner, name, 50, pages=20)
-        dirname = repo.replace("/", "_")
-        os.makedirs('pull_requests', exist_ok=True)
-        os.makedirs(f'pull_requests/{dirname}', exist_ok=True)
-        save_to_csv(pull_requests, os.path.join(current_dir, f'pull_requests/{dirname}/pull_requests.csv'))
+        pull_requests.extend(get_pr_infos(owner, name, 25, pages=40))
+
+    save_to_csv(pull_requests, 'pull_requests.csv')
